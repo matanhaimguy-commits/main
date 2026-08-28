@@ -1,0 +1,327 @@
+<title>Ten Small Winners</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#EDF1EF; --surface:#FFFFFF; --surface-2:#F4F7F5; --line:#D6DEDA; --line-2:#BAC6C1;
+  --ink:#0F1C18; --ink-2:#394943; --muted:#6A7A74;
+  --accent:#0B6E63; --accent-soft:#DFEEEB; --accent-ink:#075048;
+  --gold:#8A5A00; --gold-bg:#F8EEDA;
+  --hot:#146B4F; --hot-bg:#DCEFE6; --risk:#A32A1E; --risk-bg:#FAE6E3;
+  --shadow:0 1px 2px rgba(15,28,24,.06),0 10px 28px -14px rgba(15,28,24,.18);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#0A100E; --surface:#131B18; --surface-2:#18221E; --line:#26332E; --line-2:#37473F;
+  --ink:#E6EDEA; --ink-2:#BCC9C4; --muted:#8697900;
+  --muted:#869790;
+  --accent:#4ECDBF; --accent-soft:#0F2A27; --accent-ink:#7FE3D7;
+  --gold:#DCA94E; --gold-bg:#33270F;
+  --hot:#5BC79C; --hot-bg:#0F3025; --risk:#F0918A; --risk-bg:#381B18;
+  --shadow:0 1px 2px rgba(0,0,0,.5),0 10px 28px -14px rgba(0,0,0,.7);
+}}
+:root[data-theme="dark"]{
+  --ground:#0A100E; --surface:#131B18; --surface-2:#18221E; --line:#26332E; --line-2:#37473F;
+  --ink:#E6EDEA; --ink-2:#BCC9C4; --muted:#869790;
+  --accent:#4ECDBF; --accent-soft:#0F2A27; --accent-ink:#7FE3D7;
+  --gold:#DCA94E; --gold-bg:#33270F;
+  --hot:#5BC79C; --hot-bg:#0F3025; --risk:#F0918A; --risk-bg:#381B18;
+  --shadow:0 1px 2px rgba(0,0,0,.5),0 10px 28px -14px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:"Public Sans",ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  font-size:15.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px 90px}
+h1,h2,h3{font-family:"Bricolage Grotesque","Public Sans",sans-serif;font-weight:700;text-wrap:balance;margin:0;letter-spacing:-.018em}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+
+header{padding:54px 0 26px;border-bottom:2px solid var(--ink);margin-bottom:14px}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:clamp(36px,6vw,60px);line-height:1.02;margin:12px 0 14px;font-weight:800}
+.stand{font-size:17.5px;color:var(--ink-2);max-width:64ch}
+.filterbar{display:flex;flex-wrap:wrap;gap:7px;margin-top:22px}
+.f{font-family:"IBM Plex Mono",monospace;font-size:11.5px;background:var(--surface);border:1px solid var(--line);
+  border-radius:5px;padding:5px 9px;color:var(--ink-2)}
+.f b{color:var(--accent);font-weight:600}
+
+section{margin:44px 0 0}
+h2{font-size:24px;margin-bottom:6px;padding-bottom:7px;border-bottom:1px solid var(--line-2)}
+h3{font-size:18px}
+p{margin:0 0 13px;max-width:72ch}
+ul{margin:0 0 13px;padding-left:19px;max-width:72ch}li{margin-bottom:5px}
+a{color:var(--accent);text-underline-offset:2px}
+.lede{color:var(--ink-2);margin-bottom:20px;max-width:72ch}
+
+.rank{display:grid;grid-template-columns:52px 1fr;gap:18px;background:var(--surface);border:1px solid var(--line);
+  border-radius:11px;padding:20px 22px;margin-bottom:14px;box-shadow:var(--shadow)}
+.rank .n{font-family:"Bricolage Grotesque",sans-serif;font-size:40px;font-weight:800;line-height:.9;
+  color:var(--accent);letter-spacing:-.04em}
+.rank.tier1{border-left:4px solid var(--accent)}
+.rank h3{margin-bottom:3px}
+.brandline{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--muted);margin-bottom:12px}
+.stats{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 13px}
+.stat{background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:5px 9px;font-size:12px;
+  font-family:"IBM Plex Mono",monospace;color:var(--ink-2)}
+.stat b{color:var(--ink);font-weight:600}
+.stat.good{background:var(--hot-bg);border-color:transparent;color:var(--hot)}
+.stat.good b{color:var(--hot)}
+.stat.warn{background:var(--gold-bg);border-color:transparent;color:var(--gold)}
+.stat.warn b{color:var(--gold)}
+.hook{border-left:3px solid var(--line-2);padding:9px 14px;margin:0 0 13px;background:var(--surface-2);
+  border-radius:0 7px 7px 0;font-size:14.4px;color:var(--ink-2)}
+.hook b{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);display:block;margin-bottom:4px;font-weight:500}
+.why{font-size:14.6px}
+.why .lbl{font-weight:600;color:var(--ink)}
+.flag{margin-top:10px;font-size:13.6px;color:var(--risk);background:var(--risk-bg);border-radius:7px;padding:8px 12px}
+.flag b{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:3px}
+
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface);margin:16px 0 24px}
+table{border-collapse:collapse;width:100%;font-size:13.4px;min-width:720px}
+th{text-align:left;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;padding:10px 12px;border-bottom:1px solid var(--line-2);background:var(--surface-2)}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.num,th.num{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+.note{background:var(--surface-2);border-left:3px solid var(--accent);border-radius:0 9px 9px 0;padding:14px 18px;margin:18px 0}
+.note.warn{border-left-color:var(--gold)}
+.note h3{font-size:15px;margin-bottom:6px;font-family:"Public Sans",sans-serif;font-weight:600;letter-spacing:0}
+.note p:last-child{margin-bottom:0}
+pre{background:var(--surface-2);border:1px solid var(--line);border-radius:9px;padding:15px 17px;overflow-x:auto;
+  font-family:"IBM Plex Mono",monospace;font-size:12.2px;line-height:1.55;color:var(--ink-2);margin:14px 0 20px}
+code{font-family:"IBM Plex Mono",monospace;font-size:.9em;background:var(--surface-2);padding:1px 5px;border-radius:3px;border:1px solid var(--line)}
+pre code{background:none;border:none;padding:0}
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px}
+@media (max-width:620px){.rank{grid-template-columns:1fr;gap:6px}.rank .n{font-size:28px}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">Small-advertiser sweep &middot; GB &middot; 2026-08-28</div>
+  <h1>Ten Small Winners</h1>
+  <p class="stand">Brands running <strong>50–200 active ads</strong> with a creative that has been live for <strong>139 to 591 days</strong>. Big enough to prove the money, small enough that the category is not yet fortified.</p>
+  <div class="filterbar">
+    <span class="f">active_ads_count <b>50–200</b></span>
+    <span class="f">run_time <b>≥120d</b></span>
+    <span class="f">geo <b>GB</b></span>
+    <span class="f">status <b>active</b></span>
+    <span class="f">page_type <b>product / advertorial / listicle</b></span>
+    <span class="f">performance <b>optimized + winning</b></span>
+    <span class="f">niches <b>pets, home, health, accessories, tech, sports, auto</b></span>
+    <span class="f">matching brands <b>233</b></span>
+  </div>
+</header>
+
+<section>
+<p class="lede">These are filter results, not guesses. GetHookd's <code>active_ads_count</code> / <code>active_ads_count_max</code> bound brand size natively and <code>run_time</code> bounds how long the creative has been live, so the "small but proven" shape is enforced by the query rather than inferred afterwards. Every ad count below is the brand's stored counter at its last spy refresh — an <span class="mono">ESTIMATE</span>, not a charged total. All ten landed inside your preferred 50–200 band; none needed the 200–500 allowance.</p>
+
+<div class="tablewrap">
+<table>
+<thead><tr><th style="width:26px">#</th><th>Product</th><th>Brand / domain</th><th class="num">Ads</th><th class="num">Oldest ad</th><th class="num">Price</th><th>Read</th></tr></thead>
+<tbody>
+<tr><td class="mono">01</td><td><strong>Quest 3 comfort strap + battery</strong></td><td>Nord Labs Gaming<br><span class="mono" style="font-size:11.5px;color:var(--muted)">nordlabsgaming.com</span></td><td class="num">77</td><td class="num">226d</td><td class="num">$79.99</td><td>Best all-round target</td></tr>
+<tr><td class="mono">02</td><td><strong>Bluetooth moto earbuds</strong></td><td>Artevive<br><span class="mono" style="font-size:11.5px;color:var(--muted)">arteviveearplugs.com</span></td><td class="num">50</td><td class="num">199d</td><td class="num">$99.99</td><td>Sharpest pain, smallest incumbent</td></tr>
+<tr><td class="mono">03</td><td><strong>Litter-box ion odour eliminator</strong></td><td>Whisko<br><span class="mono" style="font-size:11.5px;color:var(--muted)">whisko.co</span></td><td class="num">93</td><td class="num">150d</td><td class="num">$39.99</td><td>Best shame-driven angle</td></tr>
+<tr><td class="mono">04</td><td><strong>Sherpa-lined slipper socks</strong></td><td>The Foozie<br><span class="mono" style="font-size:11.5px;color:var(--muted)">thefoozie.co.uk</span></td><td class="num">54</td><td class="num">591d</td><td class="num">£10–29</td><td>Longest-proven; seasonal timing is now</td></tr>
+<tr><td class="mono">05</td><td><strong>Indestructible plush dog toy</strong></td><td>WowPet<br><span class="mono" style="font-size:11.5px;color:var(--muted)">wowpetsmart.com</span></td><td class="num">57</td><td class="num">144d</td><td class="num">n/v</td><td>Great offer mechanic, thin margin</td></tr>
+<tr><td class="mono">06</td><td><strong>Pelvic floor + thigh trainer</strong></td><td>Mireva<br><span class="mono" style="font-size:11.5px;color:var(--muted)">trymireva.com</span></td><td class="num">102</td><td class="num">154d</td><td class="num">$29.90</td><td>Huge unmet need, ad-policy tightrope</td></tr>
+<tr><td class="mono">07</td><td><strong>Seborrhoeic dermatitis scalp system</strong></td><td>NewAura<br><span class="mono" style="font-size:11.5px;color:var(--muted)">trynewaura.com</span></td><td class="num">63</td><td class="num">139d</td><td class="num">n/v</td><td>Underserved condition, listicle funnel</td></tr>
+<tr><td class="mono">08</td><td><strong>Fill-in couples gift book</strong></td><td>Chapter4You<br><span class="mono" style="font-size:11.5px;color:var(--muted)">chapter4you.com</span></td><td class="num">74</td><td class="num">299d</td><td class="num">n/v</td><td>Gifting evergreen, Q4 timing</td></tr>
+<tr><td class="mono">09</td><td><strong>Plastic-free sponge subscription</strong></td><td>Seep<br><span class="mono" style="font-size:11.5px;color:var(--muted)">theseepcompany.com</span></td><td class="num">129</td><td class="num">430d</td><td class="num">n/v</td><td>Real UK brand, Dragon's Den proof</td></tr>
+<tr><td class="mono">10</td><td><strong>Freeze-dried salmon powder for cats</strong></td><td>Merlins Pets<br><span class="mono" style="font-size:11.5px;color:var(--muted)">merlinspets.com</span></td><td class="num">129</td><td class="num">492d</td><td class="num">n/v</td><td>492 days is the tell — but ingestible</td></tr>
+</tbody>
+</table>
+</div>
+<p style="font-size:13.4px;color:var(--muted)"><span class="mono">n/v</span> = price not verified this run. I did not retrieve it, so I am not printing one.</p>
+</section>
+
+<section>
+<h2>The ten, in order</h2>
+<p class="lede">Ranked on how good a <em>target</em> each is for you — pain sharpness, margin headroom, sourcing realism and how beatable the incumbent looks — not on ad count.</p>
+
+<div class="rank tier1">
+<div class="n">01</div>
+<div>
+<h3>Quest 3 / 3S comfort strap with battery pack</h3>
+<div class="brandline">Nord Labs Gaming · brand id 2615 · nordlabsgaming.com · ad 118231542 · GB + US</div>
+<div class="stats">
+<span class="stat good">ads <b>77</b></span><span class="stat good">live <b>226 days</b></span>
+<span class="stat">price <b>$79.99</b> from $159.99</span><span class="stat">score <b>100 Winning</b></span>
+<span class="stat good">reviews <b>4.8 · 2,000+</b></span><span class="stat good">UK <b>Royal Mail 4–7d</b></span>
+</div>
+<div class="hook"><b>Their ad, verbatim</b>“Want to make your Quest 3/3SS comfortable? ✅ Massively improved comfort and fit ✅ Built-in battery pack adds 4+ hours ✅ Takes pressure off your face ✅ Single adjustment knob for fast setup”</div>
+<p class="why"><span class="lbl">Why it's first.</span> The pain is structural and universal to the product — every Quest owner's stock strap digs into their face and the battery dies in two hours. It is an accessory to a device people already paid £300+ for, so the £60–70 price is trivially justified. It is a strap and a battery: light, cheap, endlessly sourceable, no regulatory surface beyond battery documentation. And their own PDP already names the UK shipping lane, which means the supply chain into Britain is a solved problem. 226 days on one creative at a 4.8 from 2,000+ reviews is a genuinely proven offer.</p>
+</div>
+</div>
+
+<div class="rank tier1">
+<div class="n">02</div>
+<div>
+<h3>Ultra-thin Bluetooth earbuds for under a motorcycle helmet</h3>
+<div class="brandline">Artevive (page: Rick Dawson) · brand id 7496221 · arteviveearplugs.com · ad 151986988 · GB</div>
+<div class="stats">
+<span class="stat good">ads <b>50</b></span><span class="stat good">live <b>199 days</b></span>
+<span class="stat">price <b>$99.99</b> from $179.99</span><span class="stat">score <b>91 Winning</b></span>
+<span class="stat">social proof <b>1,372+ riders</b></span><span class="stat warn">status <b>OUT OF STOCK</b></span>
+</div>
+<div class="hook"><b>Their ad, verbatim</b>“Stop tolerating pain. If your helmet speakers hurt, they don't belong in your ride. I use Artevive Moto Earbuds because it sits inside my ear — not between my skull and padding.”</div>
+<p class="why"><span class="lbl">Why it's second.</span> This is the sharpest single sentence of pain in the whole sweep, and it is felt on every ride. Motorcyclists are a high-intent, high-spend, forum-dense audience who already buy comms kit at £150+. At 50 active ads this is the smallest incumbent on the list — right at the bottom of your band, meaning validated but barely defended. Their product page is currently reading <strong>out of stock</strong>, which is a live gap. Cost: $99.99 is above a £29–69 band, so this is a higher-ticket play than the rest.</p>
+</div>
+</div>
+
+<div class="rank tier1">
+<div class="n">03</div>
+<div>
+<h3>Bipolar-ion litter box odour eliminator</h3>
+<div class="brandline">Whisko (page: Cat Tips Daily) · brand id 4390530 · whisko.co · ad 92208035 · GB + US</div>
+<div class="stats">
+<span class="stat good">ads <b>93</b></span><span class="stat good">live <b>150 days</b></span>
+<span class="stat">price <b>$39.99</b> from $49.99</span><span class="stat">score <b>100 Winning</b></span>
+<span class="stat">guarantee <b>30-day</b></span>
+</div>
+<div class="hook"><b>Their ad, verbatim</b>“1 In 3 Cat Owners Live In Homes That Smell Like Litter — But They're Nose Blind To It!”</div>
+<p class="why"><span class="lbl">Why it's third.</span> That hook is the best piece of copy in the sweep, and it explains the whole business: it manufactures an urgent, social-shame problem the buyer cannot verify for themselves, which is why it converts. Small plug-in device, no filters, cheap to ship, and the price sits squarely in band. Cat ownership in the UK is enormous and the litter-smell complaint is universal. Their PDP does the comparison work for you — it explicitly positions against the £350 HEPA purifier that "only captures particles".</p>
+</div>
+</div>
+
+<div class="rank">
+<div class="n">04</div>
+<div>
+<h3>Sherpa-lined slipper socks</h3>
+<div class="brandline">The Foozie · brand id 41257 · thefoozie.co.uk (live UK store) · ad 141450645 · GB + 28 markets</div>
+<div class="stats">
+<span class="stat good">ads <b>54</b></span><span class="stat good">live <b>591 days</b></span>
+<span class="stat">price <b>from £10</b> · £29 RRP</span><span class="stat">score <b>100 Winning</b></span>
+<span class="stat good">reviews <b>3,500+ 5-star</b></span><span class="stat">offer <b>Buy 3 get 4th free</b></span>
+</div>
+<div class="hook"><b>Their ad, verbatim</b>“10x Warmer Than Regular Cotton Socks · 4.5 TOG · Sherpa Lined: Like a wearable cloud for your feet… ditch the ‘frozen floor tiptoe' for good.”</div>
+<p class="why"><span class="lbl">Why it's here.</span> 591 days on a single creative is the strongest longevity signal in the entire sweep — that is a product that has survived nearly two years of auction. The offer architecture is the lesson: a £10 entry price with buy-3-get-4-free does the AOV work, which is exactly how you make a cheap product carry paid traffic. And the timing is now — you are reading this at the end of August with a UK autumn in front of you. <span class="lbl">The catch:</span> a £10 unit price means the four-pack has to carry everything, and it is the most seasonal item on the list.</p>
+</div>
+</div>
+
+<div class="rank">
+<div class="n">05</div>
+<div>
+<h3>Indestructible plush duck for heavy chewers</h3>
+<div class="brandline">WowPet · brand id 7588762 · wowpetsmart.com · ad 151984174 · GB + US</div>
+<div class="stats">
+<span class="stat good">ads <b>57</b></span><span class="stat">live <b>144 days</b></span>
+<span class="stat">score <b>91 Winning</b></span><span class="stat">offer <b>BOGO</b></span>
+<span class="stat">claim <b>100,000+ customers</b></span>
+</div>
+<div class="hook"><b>Their ad, verbatim</b>“Got this ridiculous duck for my dog thinking she will unalive it immediately ❌ It became her favorite toy to sleep with every night.” · On the creative: <em>“If they rip it, we replace it!”</em></div>
+<p class="why"><span class="lbl">Why it's here.</span> Two mechanics worth stealing regardless of whether you sell this. First, the hook is written as a defeated expectation, which is the most reliable UGC shape in pet. Second, "if they rip it, we replace it" converts the single biggest objection to a chew toy into the reason to buy. <span class="lbl">The catch:</span> plush dog toys are a £8–15 commodity, so BOGO plus a replacement guarantee is doing heroic work on margin. Verify the landed cost before you fall in love with it.</p>
+</div>
+</div>
+
+<div class="rank">
+<div class="n">06</div>
+<div>
+<h3>Pelvic floor and inner-thigh trainer</h3>
+<div class="brandline">Mireva (page: Women's Lifestyle Daily) · brand id 7252293 · trymireva.com · ad 145424550 · GB + 16 EU + US</div>
+<div class="stats">
+<span class="stat good">ads <b>102</b></span><span class="stat">live <b>154 days</b></span>
+<span class="stat">price <b>$29.90</b> from $69.90</span><span class="stat">score <b>91 Winning</b></span>
+<span class="stat">claim <b>34,000+ women</b></span><span class="stat warn">status <b>SOLD OUT</b></span>
+</div>
+<div class="hook"><b>Their ad, verbatim</b>“Struggling with leaks or feeling ‘disconnected' after kids or menopause? … ✅ Reduces leaks and builds confidence”</div>
+<p class="why"><span class="lbl">Why it's here.</span> Postnatal and menopausal incontinence is a very large, very quiet market where the alternatives are NHS waiting lists and £100+ smart trainers. A simple resistance trainer at £25–35 undercuts everything. The brand has sold out repeatedly, by its own PDP admission. <span class="lbl">The catch:</span> it advertises from a publisher-style page rather than the brand, which is usually a sign they are managing Meta's ad-policy surface around intimate health. Expect rejections and plan the compliant angle first.</p>
+</div>
+</div>
+
+<div class="rank">
+<div class="n">07</div>
+<div>
+<h3>Seborrhoeic dermatitis scalp system</h3>
+<div class="brandline">NewAura (page: Dr. Michael Kracin) · brand id 6980905 · trynewaura.com · ad 144243311 · GB, DK, IE, SE</div>
+<div class="stats">
+<span class="stat good">ads <b>63</b></span><span class="stat">live <b>139 days</b></span>
+<span class="stat">score <b>91 Winning</b></span><span class="stat">funnel <b>listicle</b></span>
+<span class="stat">EU reach <b>906</b></span>
+</div>
+<div class="hook"><b>Their ad, verbatim</b>“Why shampoos keep your seb derm stuck. Seb derm itself is normal. What's NOT normal is the endless flakes &amp; redness—caused by shampoos nuking your barrier.”</div>
+<p class="why"><span class="lbl">Why it's here.</span> A named condition with a huge sufferer population, near-zero brand competition, and a mechanism angle already proven to convert — the enemy is the shampoo you are already using, which is a very clean villain. The listicle funnel and the practitioner-persona page are both replicable. <span class="lbl">The catch:</span> a topical for a named skin condition means UK cosmetic-claims discipline; you can describe the barrier, not treat the disease.</p>
+</div>
+</div>
+
+<div class="rank">
+<div class="n">08</div>
+<div>
+<h3>Fill-in “What I Love About You” couples book</h3>
+<div class="brandline">Chapter4You · brand id 270763 · chapter4you.com · ad 151514640 · GB</div>
+<div class="stats">
+<span class="stat good">ads <b>74</b></span><span class="stat good">live <b>299 days</b></span>
+<span class="stat">score <b>91 Winning</b></span><span class="stat">offer <b>50% off</b></span>
+</div>
+<div class="hook"><b>Their ad, verbatim</b>“💔 One day, they'll be gone — and you'll wish you said more. This book helps you say everything that truly matters, while you still can.”</div>
+<p class="why"><span class="lbl">Why it's here.</span> Nearly ten months on one creative in a gifting category, and the hook is doing something most gift ads never attempt — it sells mortality rather than romance. Print products have excellent margins, near-zero returns and no regulatory surface at all, which makes this the lowest-risk entry on the list. Q4 is directly ahead. <span class="lbl">The catch:</span> it is a print-on-demand play, not a dropship one — different supplier world, and the moat is entirely the copy.</p>
+</div>
+</div>
+
+<div class="rank">
+<div class="n">09</div>
+<div>
+<h3>Plastic-free sponge and cloth subscription</h3>
+<div class="brandline">Seep · brand id 220062 · theseepcompany.com · ad 108366632 · GB only</div>
+<div class="stats">
+<span class="stat good">ads <b>129</b></span><span class="stat good">live <b>430 days</b></span>
+<span class="stat">score <b>100 Winning</b></span><span class="stat">proof <b>Dragon's Den</b></span>
+</div>
+<div class="hook"><b>Their ad, verbatim</b>“🐉 As Seen On Dragons' Den … Most sponges and cloths are made from plastic, and they're piling up in landfills every day, but not ours!”</div>
+<p class="why"><span class="lbl">Why it's here.</span> The only genuinely British, genuinely branded business in the ten, and the one to study rather than clone. 430 days, GB-only targeting, a 12-month replenishment pack — that is a consumable subscription in a category nobody thinks of as one. The transferable lesson is the format: take a boring household consumable, give it a landfill villain and a 12-month stash SKU. <span class="lbl">The catch:</span> Dragon's Den credibility is not something you can dropship, and the unit economics of sponges are brutal without the subscription.</p>
+</div>
+</div>
+
+<div class="rank">
+<div class="n">10</div>
+<div>
+<h3>Freeze-dried salmon powder for cats</h3>
+<div class="brandline">Merlins Pets · brand id 217093 · merlinspets.com · ad 151193824 · GB</div>
+<div class="stats">
+<span class="stat good">ads <b>129</b></span><span class="stat good">live <b>492 days</b></span>
+<span class="stat">score <b>91–100 Winning</b></span><span class="stat">offer <b>Lifetime money-back</b></span>
+</div>
+<div class="hook"><b>Their ad, verbatim</b>“Don't give your cat Merlins Salmon Powder if you: 1️⃣ Enjoy scraping untouched food 2️⃣ Prefer salmon oil that goes rancid after a few days…”</div>
+<p class="why"><span class="lbl">Why it's here.</span> 492 days on one creative, a second creative at 156 days, and a lifetime money-back guarantee — that combination only exists when repeat purchase is real. The negative-framing hook ("don't buy this if…") is the single most copyable device in this list. Powder beats oil on a genuine product truth: it does not go rancid.</p>
+<div class="flag"><b>Flag — ingestible</b>Pet supplements are complementary feed under UK/EU rules: registration, labelling and claims obligations that none of the other nine carry. It is a real business, but it is not a beginner's first store.</div>
+</div>
+</div>
+</section>
+
+<section>
+<h2>What I'd actually test first</h2>
+<p><strong>The Quest 3 comfort strap.</strong> It is the only one where all four things line up at once: the pain is structural rather than persuaded, the buyer has already demonstrated they spend on this device, the product is a strap and a battery with no meaningful regulatory surface, and the incumbent has published its UK shipping lane so you know the route works. 226 days at a 4.8 from 2,000+ reviews is about as close to de-risked as this list gets.</p>
+<p><strong>Second, the moto earbuds</strong> — sharper pain, smaller incumbent, currently out of stock, but a higher ticket and a narrower audience. <strong>Third, the litter-box purifier</strong> — the best copy angle here by some distance, and the easiest to write against.</p>
+
+<div class="note warn">
+<h3>What this sweep does and does not tell you</h3>
+<p>It proves each of these brands is <em>spending</em>, sustaining, and refreshing — that is real demand and real conversion. It does <strong>not</strong> tell you their margin, their landed cost, or whether you can source the same unit. On the last run every marketplace listing was unreachable from this environment (direct fetch is proxy-blocked, AliExpress returns JS shells), so the same source check applies here: before committing to any of these, run the product on AliExpress or CJ on your phone and confirm a landed cost at or under a third of the retail price. That is the five-minute step that decides all ten.</p>
+</div>
+</section>
+
+<section>
+<h2>Re-run the sweep yourself</h2>
+<p>These are the exact filters. Change the niche list or widen the band to 500 and you get a different ten from the same 233-brand pool.</p>
+<pre><code>search_ads({
+  active_ads_count:      50,      // your floor
+  active_ads_count_max:  200,     // your preferred ceiling (500 also allowed)
+  run_time:              120,     // ad live >= 120 days = proven, not a spike
+  status:                "active",
+  geo:                   "GB",
+  niche:                 "23,17,16,1,27,26,20,4",
+                                  // pets, home/garden, health, accessories,
+                                  // tech, sports, kids, automotive
+  page_type:             "product_page,advertorial,listicle",
+                                  // forces ecommerce funnels - this is the
+                                  // filter that removes lead-gen and agencies
+  performance_scores:    "optimized,winning",
+  ads_per_brand_limit:   1,       // one row per brand = maximum diversity
+  limit:                 16
+})
+</code></pre>
+<p>Two things that materially improved the results: <code>page_type</code> stripped out modelling agencies, instructor training and WhatsApp lead-gen that a plain sweep surfaces; and sorting by relevance rather than <code>days_active</code> descending, because sorting by age surfaces decade-old brand-awareness ads instead of live direct-response winners.</p>
+</section>
+
+<footer>
+Source: GetHookd ad library, swept 2026-08-28. Ad counts are stored brand counters at last spy refresh (ESTIMATE), not charged totals; day counts are per-ad <span class="mono">days_active</span> from the returned rows. Prices marked n/v were not retrieved and are not estimated. Sweep cost 0.26 credits across 3 queries.
+</footer>
+</div>
