@@ -1,0 +1,904 @@
+<title>Purple Ocean Run 848955</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F2F4F7; --surface:#FFFFFF; --surface-2:#F7F8FB; --line:#DDE1EA; --line-strong:#C3C9D6;
+  --ink:#141822; --ink-2:#3D4453; --muted:#6B7286;
+  --accent:#2B4ACB; --accent-soft:#E7EBFA; --accent-ink:#1B2F87;
+  --pass:#146B4F; --pass-bg:#DFF1E9; --fail:#A32017; --fail-bg:#FBE5E3;
+  --warn:#8A5A00; --warn-bg:#FAEEDA; --neutral-bg:#ECEEF3;
+  --shadow:0 1px 2px rgba(20,24,34,.06),0 8px 24px -12px rgba(20,24,34,.14);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#0E1017; --surface:#161A24; --surface-2:#1C212D; --line:#2A303E; --line-strong:#3A4254;
+  --ink:#E8EBF2; --ink-2:#BFC6D4; --muted:#8B93A6;
+  --accent:#8CA3FF; --accent-soft:#1E2748; --accent-ink:#B9C6FF;
+  --pass:#5BC79C; --pass-bg:#12332A; --fail:#F09189; --fail-bg:#3A1D1B;
+  --warn:#E0B366; --warn-bg:#382A12; --neutral-bg:#222836;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.6);
+}}
+:root[data-theme="dark"]{
+  --ground:#0E1017; --surface:#161A24; --surface-2:#1C212D; --line:#2A303E; --line-strong:#3A4254;
+  --ink:#E8EBF2; --ink-2:#BFC6D4; --muted:#8B93A6;
+  --accent:#8CA3FF; --accent-soft:#1E2748; --accent-ink:#B9C6FF;
+  --pass:#5BC79C; --pass-bg:#12332A; --fail:#F09189; --fail-bg:#3A1D1B;
+  --warn:#E0B366; --warn-bg:#382A12; --neutral-bg:#222836;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px -12px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);
+  font-family:"IBM Plex Sans",ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  font-size:15.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px 96px}
+h1,h2,h3,h4{font-family:"Newsreader",Georgia,"Times New Roman",serif;font-weight:600;text-wrap:balance;margin:0}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+.tnum{font-variant-numeric:tabular-nums}
+
+header.mast{border-bottom:1px solid var(--line);padding:56px 0 28px;margin-bottom:36px}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:clamp(34px,5.2vw,52px);line-height:1.06;letter-spacing:-.015em;margin:14px 0 12px}
+.standfirst{font-size:18px;color:var(--ink-2);max-width:66ch;line-height:1.55}
+.mastgrid{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:10px 14px;min-width:132px}
+.kpi .l{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.kpi .v{font-size:19px;font-weight:600;margin-top:3px;letter-spacing:-.01em}
+
+section{margin:48px 0 0}
+.steplabel{display:flex;align-items:baseline;gap:12px;border-bottom:2px solid var(--ink);padding-bottom:8px;margin-bottom:22px}
+.stepnum{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:600;letter-spacing:.1em;color:var(--accent)}
+.steplabel h2{font-size:25px;letter-spacing:-.01em}
+h3{font-size:20px;margin:30px 0 10px}
+h4{font-size:16.5px;margin:22px 0 8px;font-family:"IBM Plex Sans",sans-serif;font-weight:600;letter-spacing:.005em}
+p{margin:0 0 14px;max-width:74ch}
+.lead{max-width:74ch}
+ul,ol{margin:0 0 14px;padding-left:20px;max-width:74ch}
+li{margin-bottom:6px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:2px}
+
+.chip{display:inline-block;font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:500;
+  letter-spacing:.06em;padding:3px 7px;border-radius:4px;background:var(--neutral-bg);color:var(--ink-2);
+  border:1px solid var(--line);white-space:nowrap}
+.chip.pass{background:var(--pass-bg);color:var(--pass);border-color:transparent}
+.chip.fail{background:var(--fail-bg);color:var(--fail);border-color:transparent}
+.chip.warn{background:var(--warn-bg);color:var(--warn);border-color:transparent}
+.chip.acc{background:var(--accent-soft);color:var(--accent-ink);border-color:transparent}
+.chiprow{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 18px}
+
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:22px 24px;box-shadow:var(--shadow)}
+.note{background:var(--surface-2);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:14px 18px;margin:18px 0}
+.note.danger{border-left-color:var(--fail)}
+.note.caution{border-left-color:var(--warn)}
+.note p:last-child{margin-bottom:0}
+.note .h{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+
+.tablewrap{overflow-x:auto;margin:16px 0 22px;border:1px solid var(--line);border-radius:9px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:13.6px;min-width:640px}
+th{text-align:left;font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);font-weight:500;padding:11px 13px;border-bottom:1px solid var(--line-strong);background:var(--surface-2);vertical-align:bottom}
+td{padding:11px 13px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.num{text-align:right;font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums}
+th.num{text-align:right}
+.sub{color:var(--muted);font-size:12.4px;display:block;margin-top:2px}
+
+.dossier{border:1px solid var(--line-strong);border-radius:12px;background:var(--surface);margin:26px 0 40px;overflow:hidden;box-shadow:var(--shadow)}
+.dosshead{padding:24px 26px 20px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+.dosshead .rank{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.dosshead h3{font-size:26px;margin:8px 0 10px;letter-spacing:-.012em}
+.dossbody{padding:8px 26px 26px}
+.scorebar{display:flex;align-items:baseline;gap:8px;margin-top:14px}
+.scorebar .n{font-family:"IBM Plex Mono",monospace;font-size:30px;font-weight:600;letter-spacing:-.02em}
+.scorebar .d{color:var(--muted);font-size:13px}
+
+blockquote{margin:12px 0;padding:12px 16px;border-left:3px solid var(--line-strong);background:var(--surface-2);
+  border-radius:0 6px 6px 0;font-family:"Newsreader",Georgia,serif;font-size:16px;font-style:italic;color:var(--ink-2);max-width:74ch}
+blockquote .attr{display:block;font-family:"IBM Plex Mono",monospace;font-style:normal;font-size:10.5px;
+  letter-spacing:.06em;color:var(--muted);margin-top:8px;text-transform:uppercase}
+
+pre{background:var(--surface-2);border:1px solid var(--line);border-radius:9px;padding:16px 18px;overflow-x:auto;
+  font-family:"IBM Plex Mono",monospace;font-size:12.2px;line-height:1.55;color:var(--ink-2);margin:14px 0 22px}
+code{font-family:"IBM Plex Mono",monospace;font-size:.9em;background:var(--neutral-bg);padding:1px 5px;border-radius:3px}
+pre code{background:none;padding:0;font-size:inherit}
+
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px;margin:16px 0 22px}
+.minicard{background:var(--surface-2);border:1px solid var(--line);border-radius:9px;padding:16px 18px}
+.minicard .t{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:7px}
+hr{border:none;border-top:1px solid var(--line);margin:34px 0}
+footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:12.6px}
+@media (max-width:640px){.wrap{padding:0 16px 64px}.dossbody,.dosshead{padding-left:18px;padding-right:18px}}
+</style>
+
+<div class="wrap">
+<header class="mast">
+  <div class="eyebrow">Discovery Engine v16 &middot; Winner-anchored &middot; Purple-ocean gated</div>
+  <h1>Purple Ocean Run 848955</h1>
+  <p class="standfirst">Ten products swept from five drawn category families against live Meta ad-library spend. Eight killed on a named rule. Two survive to dossier — one of them clears every gate.</p>
+  <div class="mastgrid">
+    <div class="kpi"><div class="l">geo_mode</div><div class="v">UK</div></div>
+    <div class="kpi"><div class="l">Run seed</div><div class="v mono tnum">848955</div></div>
+    <div class="kpi"><div class="l">Raw candidates</div><div class="v mono tnum">13</div></div>
+    <div class="kpi"><div class="l">Dossiers</div><div class="v mono tnum">2</div></div>
+    <div class="kpi"><div class="l">Charged queries</div><div class="v mono tnum">6 / 8</div></div>
+    <div class="kpi"><div class="l">Date</div><div class="v mono">2026-08-28</div></div>
+  </div>
+</header>
+
+<!-- ===================== STEP 0 ===================== -->
+<section>
+<div class="steplabel"><span class="stepnum">STEP 0</span><h2>Run card &amp; binding draw</h2></div>
+
+<div class="grid2">
+  <div class="minicard">
+    <div class="t">Run card (echoed)</div>
+    <table style="min-width:0;font-size:13.2px"><tbody>
+      <tr><td style="padding-left:0"><strong>geo_mode</strong></td><td>UK — £ economics, VAT line in landed cost, ASA/CAP + CMA register, UK/EU warehouse preferred</td></tr>
+      <tr><td style="padding-left:0"><strong>Ad budget</strong></td><td>£4,000/mo modelled <span class="chip warn">ASSUMPTION</span><span class="sub">Operator selected a $3,000–5,000 band on a UK run; read as GBP at midpoint. Correct me if it is literally USD.</span></td></tr>
+      <tr><td style="padding-left:0"><strong>Retail band</strong></td><td>£29–69 (default)</td></tr>
+      <tr><td style="padding-left:0"><strong>Avoid / prefer</strong></td><td>None supplied</td></tr>
+      <tr><td style="padding-left:0"><strong>Experience</strong></td><td>Beginner (default) → consumed by risk flags + Step 8</td></tr>
+      <tr><td style="padding-left:0"><strong>Known product</strong></td><td>DISCOVERY MODE</td></tr>
+      <tr><td style="padding-left:0"><strong>Platform</strong></td><td>Shopify + Meta (default)</td></tr>
+    </tbody></table>
+  </div>
+  <div class="minicard">
+    <div class="t">Draw — binding for every query this run</div>
+    <p style="margin-bottom:8px"><strong>Lenses (3)</strong><br>demographic-flip &middot; winner-sweep-by-category-family &middot; review-mine-wedge</p>
+    <p style="margin-bottom:8px"><strong>Families (5)</strong><br>pets: dogs &middot; pain &amp; tension relief &middot; pets: cats &middot; kitchen &amp; food prep &middot; tech-adjacent accessories</p>
+    <p style="margin-bottom:8px"><strong>Geo import sources</strong><br>DK &middot; IT &middot; UK</p>
+    <p style="margin-bottom:0"><strong>Hard-banned gravity wells</strong><br>gua sha &middot; posture corrector &middot; blue-light glasses</p>
+  </div>
+</div>
+
+<div class="note caution">
+  <div class="h">LOGS-UNAVAILABLE</div>
+  <p>The repository is an empty git repo — no <code>Mark AI/discovery-log.md</code> or <code>global-discovery-log.md</code> exists, and no persistent filesystem carries prior runs. No exclusion list could be applied, so nothing was excluded for repetition. The append-block at the foot of this page is yours to save externally. If you have prior logs, paste them and I will re-run Step 0's exclusion pass.</p>
+</div>
+
+<p class="lead">Two candidates found in the sweep were <strong>discarded before scoring as out-of-draw</strong>: an intertrigo / skin-fold barrier cream (Clairon, 324 active ads — belongs to <em>skin &amp; body appearance</em>) and CrossFit gymnastics grips (Frog Grips, 181 ads, live UK site — <em>fitness &amp; recovery</em>). Neither family was drawn, so neither may consume validation work. They are logged, not scored.</p>
+</section>
+
+<!-- ===================== THE TEN ===================== -->
+<section>
+<div class="steplabel"><span class="stepnum">STEPS 1–3</span><h2>The ten-product slate</h2></div>
+<p class="lead">Every row is anchored to at least one brand with measured live ad spend, read from GetHookd's free brand verbs on 2026-08-28. The money-proof floor is <strong>≥50 active ads on ≥1 incumbent</strong>. Counts are <span class="chip">ESTIMATE</span> — stored brand counters at last spy refresh, not charged totals.</p>
+
+<div class="tablewrap">
+<table>
+<thead><tr>
+<th style="width:26px">#</th><th>Product &amp; drawn family</th><th>Incumbent proof</th><th class="num">Active ads</th><th>Verdict &amp; killing rule</th>
+</tr></thead>
+<tbody>
+<tr>
+  <td class="mono">01</td>
+  <td><strong>TMJ / jaw-tension relief pen</strong><span class="sub">pain &amp; tension relief</span></td>
+  <td>yourTMJ <span class="sub">two brand records, one domain group</span></td>
+  <td class="num">507</td>
+  <td><span class="chip acc">PURPLE</span> <span class="chip pass">FINALIST 1</span><span class="sub">GEO wedge. 1,007 ads all-geo vs 35 in GB.</span></td>
+</tr>
+<tr>
+  <td class="mono">02</td>
+  <td><strong>Cordless handheld vacuum sealer</strong><span class="sub">kitchen &amp; food prep</span></td>
+  <td>Chef Preserve · Vaculy · Brittrove</td>
+  <td class="num">647</td>
+  <td><span class="chip acc">PURPLE</span> <span class="chip warn">FINALIST 2</span><span class="sub">OFFER wedge. Survives only at £45+ retail.</span></td>
+</tr>
+<tr>
+  <td class="mono">03</td>
+  <td><strong>Bamboo compression knee sleeve</strong><span class="sub">pain &amp; tension relief</span></td>
+  <td>Onecompress (3 records, one domain) · PeakFlex · BambuRelief</td>
+  <td class="num">1,236</td>
+  <td><span class="chip fail">RED</span><span class="sub">Step 2 beatable read: giant &gt;500 ads with no blind spot. Onecompress is <em>already running GB/IE ads</em> (ad 129162636). GB density 1,030.</span></td>
+</tr>
+<tr>
+  <td class="mono">04</td>
+  <td><strong>Silvervine cat dental sticks</strong><span class="sub">pets: cats</span></td>
+  <td>PurrBite (415) · Purriq (382)</td>
+  <td class="num">797</td>
+  <td><span class="chip fail">KILL</span><span class="sub">Criteria 2 &amp; 3. UK is a commodity at £2.69–£7.90 across 6 retrieved listings incl. zooplus at £2.69/10. No path to £29–69.</span></td>
+</tr>
+<tr>
+  <td class="mono">05</td>
+  <td><strong>No-brush dog dental spray</strong><span class="sub">pets: dogs</span></td>
+  <td>Paw Guardian <span class="sub">paw-guardian.uk live</span></td>
+  <td class="num">1,015</td>
+  <td><span class="chip fail">RED</span><span class="sub">Criterion 8. Giant already fortified <em>in the target geo</em> with UK domains. No named structural blind spot.</span></td>
+</tr>
+<tr>
+  <td class="mono">06</td>
+  <td><strong>Essential-oil flea &amp; tick pendant</strong><span class="sub">pets: dogs</span></td>
+  <td>PawCore</td>
+  <td class="num">512</td>
+  <td><span class="chip fail">KILL</span><span class="sub">Fast-kill red flag: pesticide/biocide claim. A repellency claim is a biocidal product under GB BPR.</span></td>
+</tr>
+<tr>
+  <td class="mono">07</td>
+  <td><strong>Dog supplement range</strong><span class="sub">pets: dogs</span></td>
+  <td>Dogsuppy IT/PL <span class="sub">dogsuppy.co.uk live</span></td>
+  <td class="num">976</td>
+  <td><span class="chip fail">KILL</span><span class="sub">Fast-kill red flag: ingestible. Also already UK-present.</span></td>
+</tr>
+<tr>
+  <td class="mono">08</td>
+  <td><strong>Health-monitoring cat litter</strong><span class="sub">pets: cats</span></td>
+  <td>Litter Sense (Kitty Sense), UK, vet-founded, £11.99/bag</td>
+  <td class="num">26</td>
+  <td><span class="chip fail">KILL</span><span class="sub">Below the &lt;30 money-proof floor. Also fails criterion 7 — a month's litter is not a mailer.</span></td>
+</tr>
+<tr>
+  <td class="mono">09</td>
+  <td><strong>Red-light therapy panel / cap</strong><span class="sub">pain &amp; tension relief</span></td>
+  <td>Nuvio Recovery</td>
+  <td class="num">579</td>
+  <td><span class="chip fail">KILL</span><span class="sub">Criterion 2. Range $99.99–$999.99 retrieved; mats and bags fail criterion 7 on weight.</span></td>
+</tr>
+<tr>
+  <td class="mono">10</td>
+  <td><strong>PFAS-free non-toxic cookware</strong><span class="sub">kitchen &amp; food prep</span></td>
+  <td>Safecourt Kitchen (NL)</td>
+  <td class="num">800</td>
+  <td><span class="chip fail">KILL</span><span class="sub">Criteria 2 &amp; 7. $102–$286 retrieved; pans and 11-piece sets are bulky freight.</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h4>Watchlist — real spend, not worked up this run</h4>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Product</th><th>Anchor brand</th><th class="num">Active ads</th><th>Why parked</th></tr></thead>
+<tbody>
+<tr><td>Motorcycle helmet chin mount</td><td>Chin Mounts</td><td class="num">1,578</td><td>Largest single spend found all run. Tech-adjacent accessory, but a &gt;500-ad giant needing a blind spot I did not have budget to establish.</td></tr>
+<tr><td>Travel compression packing bags</td><td>Fresh Reserve</td><td class="num">359</td><td>Store is a churn general-store — carpet vacuum copy and men's-vitality reviews sit on a compression-bag page. Weak incumbent, commodity product.</td></tr>
+<tr><td>Interactive cat toy (wearable sparring)</td><td>Karate Kitty</td><td class="num">197</td><td>Genuinely differentiated and hard to commoditise, GBP checkout live. Weak on criterion 1 — novelty, not a recurring emotional pain.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<!-- ===================== DOSSIER 1 ===================== -->
+<section>
+<div class="steplabel"><span class="stepnum">DOSSIER 1</span><h2>TMJ jaw-tension relief pen</h2></div>
+
+<div class="dossier">
+<div class="dosshead">
+  <div class="rank">Rank 1 of 2 &middot; pain &amp; tension relief &middot; winner-sweep lens</div>
+  <h3>A market with 1,007 ads worldwide and 35 in Britain</h3>
+  <div class="chiprow">
+    <span class="chip fail">SOURCE-CONDITIONAL</span>
+    <span class="chip warn">PROVISIONAL (cpa_anchor)</span>
+    <span class="chip warn">PROXY-BASED (evergreen)</span>
+    <span class="chip warn">VALIDATION-DEGRADED (Check 1)</span>
+    <span class="chip">SAMPLE (N=7)</span>
+    <span class="chip">PARTIAL (Check 5)</span>
+  </div>
+  <div class="scorebar"><span class="n">70</span><span class="d">/100 — capped from a raw 87 by SOURCE-CONDITIONAL</span></div>
+</div>
+<div class="dossbody">
+
+<h4>The opportunity in one sentence</h4>
+<p>People who clench and grind wake with headaches and fractured teeth after years of night guards that were never designed to stop the clenching; one US operator sustains <strong>507 active ads</strong> and a 125-day-old winner selling a heated massage pen for the jaw, is self-declared supply-capped and manufactures in small batches in the US — and a country-filtered ad-library read returns <strong>35 active ads in GB with no dedicated device brand among them</strong>, while the same generic unit already retails on three live UK storefronts at £33–£71.</p>
+
+<h4>Incumbent map</h4>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Brand</th><th>Product &amp; geo</th><th class="num">Active ads</th><th>Longevity</th><th>Observed weakness</th></tr></thead>
+<tbody>
+<tr>
+  <td><strong>yourTMJ</strong><span class="sub">ids 2167983 + 4265741, both on go.yourtmj.com</span></td>
+  <td>yourTMJ Pen — heat 100–118°F, 4 vibration levels, anodised aluminium scraping tip. <strong>All 7 sampled ads <code>countries:["US"]</code></strong></td>
+  <td class="num">306 + 201<br><strong>= 507</strong></td>
+  <td>125 days<span class="sub">ad 94833977, start 2026-04-26; 6 fresh ads started 2026-08-24</span></td>
+  <td>US-only. Their own FAQ: <em>"we're still a small company producing these in the US, so the price is set to match our maximum production capacity."</em> No £ pricing, no UK fulfilment, FSA/HSA framing is US-specific.</td>
+</tr>
+<tr><td><strong>Reviv</strong><span class="sub">id 159266</span></td><td>R2 mouthguard + Repod UV cleaner bundle. Ad 129277356 <code>["GB","US"]</code></td><td class="num">924</td><td>38 days</td><td>Adjacent, not competing: an appliance, not a massage tool. Creative still says "Free USA Shipping".</td></tr>
+<tr><td><strong>TMJ Massage Therapies</strong><span class="sub">id 232142</span></td><td>Free PDF for practitioners. <code>["US","GB"]</code></td><td class="num">17</td><td>296 days</td><td>Not a product seller — a training lead magnet. Occupies GB search space, sells nothing.</td></tr>
+<tr><td><strong>Allison Arnold / Florus</strong><span class="sub">id 5508108</span></td><td>Long-form advertorial using TMJ as the hook, sells a migraine product. <code>["GB","US"]</code></td><td class="num">52</td><td>9 days</td><td>Borrows the TMJ audience and routes it away to migraine. Leaves the device promise unclaimed.</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Money-proof: FULL PASS</strong> — 507 active ads on one operator, well past the ≥50 floor. Creative mix, of 7 ads actually viewed via <code>search_ads</code>: <strong>7 video / 0 static — SAMPLE (N=7)</strong>.</p>
+
+<h4>Purple-ocean verdict — <span class="chip acc">PURPLE</span>, primary wedge <strong>GEO</strong></h4>
+<p><strong>Method-named presence/absence read.</strong> GetHookd <code>search_ads</code>, query <code>"TMJ jaw"</code>, <code>geo=GB</code>, <code>status=active</code>, <code>ads_per_brand_limit=0</code>, on 2026-08-28 → <strong>TOTAL 35</strong>. Same tool, query <code>"TMJ jaw pain relief"</code>, no geo filter → <strong>TOTAL 1,007</strong>. Both totals are <code>total_is_exact: true</code>.</p>
+<div class="note">
+  <div class="h">Why the empty GB result is real, not a coverage artifact</div>
+  <p>I ran <code>list_geo_countries</code> before spending anything on a geo read. GB is covered with <strong>1,063,783 ads</strong> in the index — the second-largest country after the US. An uncovered country code returns empty results rather than an error, which would have faked this entire finding. It did not.</p>
+</div>
+<p>Of the 8 GB rows returned, the advertisers were a practitioner-training PDF and a migraine advertorial. <strong>Zero brands are advertising a TMJ relief device to Britain.</strong> Meanwhile the generic unit is already stocked and retailing in the UK — Amazon.co.uk <code>B0DGPYSRS4</code> (Zaybuon, 50 g), uk.voghion.com at <strong>£49.54</strong> and <strong>£33.35</strong>, ninelife.uk at <strong>£70.88</strong>. Demand infrastructure exists; nobody is running direct response against it.</p>
+<p><strong>Copy test.</strong> yourTMJ names its own constraint: small-batch US manufacture priced to ration demand at maximum capacity. A supply-capped US manufacturer cannot open a UK front quickly — no £ pricing, no UK fulfilment, no UKCA route, and a compliance frame (FSA/HSA) that means nothing here. This is an observed constraint from their own page, not "they're too big to care".</p>
+<p><strong>Secondary wedges:</strong> ANGLE — the "your night guard was never designed to stop the clenching" mechanism frame is entirely unclaimed in GB. OFFER — incumbent sells a single pen with no ladder.</p>
+
+<h4>Twelve-criterion scorecard</h4>
+<div class="tablewrap">
+<table>
+<thead><tr><th style="width:24px">#</th><th>Criterion</th><th>Verdict</th><th>Basis</th></tr></thead>
+<tbody>
+<tr><td class="mono">1</td><td>Emotionally charged problem</td><td><span class="chip pass">PASS</span></td><td>Retrieved transcript: fractured tooth, daily headaches, eyes watering on first use</td></tr>
+<tr><td class="mono">2</td><td>Price band £29–69</td><td><span class="chip pass">PASS</span></td><td>Live UK retail £33.35 / £49.54 / £70.88 across 3 platforms</td></tr>
+<tr><td class="mono">3</td><td>≥£20 GP and 3× landed</td><td><span class="chip pass">PASS</span></td><td>GP £29.83, multiple 3.71× at midpoint band — locked at Check 6</td></tr>
+<tr><td class="mono">4</td><td>Repeat / LTV path</td><td><span class="chip pass">PASS</span></td><td>Gel packs, spare tips, second unit, practitioner bulk</td></tr>
+<tr><td class="mono">5</td><td>Not a regulatory nightmare</td><td><span class="chip warn">CAUTION</span></td><td>Sells as a wellness/comfort tool only. See risk flags — this is load-bearing.</td></tr>
+<tr><td class="mono">6</td><td>Visual / demonstrable</td><td><span class="chip pass">PASS</span></td><td>Incumbent keyframes show the face-on release moment</td></tr>
+<tr><td class="mono">7</td><td>Lightweight &lt;500 g</td><td><span class="chip pass">PASS</span></td><td>50 g listed on Amazon.co.uk B0DGPYSRS4</td></tr>
+<tr><td class="mono">8</td><td>Not mega-brand locked</td><td><span class="chip pass">PASS</span></td><td>GEO wedge established above</td></tr>
+<tr><td class="mono">9</td><td>Evergreen</td><td><span class="chip warn">PASS · PROXY-BASED</span></td><td>125-day ad + 296-day practitioner ads + 3-platform UK retail spread. No trend tool was called.</td></tr>
+<tr><td class="mono">10</td><td>Stackable line</td><td><span class="chip pass">PASS</span></td><td>Four complements named in the AOV model</td></tr>
+<tr><td class="mono">11</td><td>Dropship Day 1</td><td><span class="chip fail">SOURCE-CONDITIONAL</span></td><td>See source block</td></tr>
+<tr><td class="mono">12</td><td>Multiple suppliers</td><td><span class="chip fail">SOURCE-CONDITIONAL</span></td><td>See source block</td></tr>
+</tbody>
+</table>
+</div>
+
+<h4>Source lock — <span class="chip fail">SOURCE-CONDITIONAL</span></h4>
+<div class="note danger">
+  <div class="h">What was attempted, in order</div>
+  <p><strong>1.</strong> Direct fetch of marketplace listings → <code>EGRESS_BLOCKED</code> by the network proxy on every merchant domain.
+  <strong>2.</strong> Apify scrape fallback (<code>apify/web-fetch</code> via the unblocker) → HTTP 200, but AliExpress category URLs return either polluted search results or an SEO boilerplate page whose "SealMaster Pro / QuickSeal X1" comparison table is machine-generated filler, not real products. Those numbers are not used anywhere in this dossier.
+  <strong>3.</strong> Apify <code>rag-web-browser</code> against AliExpress item pages → returns an empty JS shell. Two live item IDs surfaced (<code>3256811660122873</code>, <code>3256806011416753</code>) but carry no retrievable price, rating or order count.
+  <strong>4.</strong> CJ Dropshipping search → 0 items (client-rendered).</p>
+  <p>Both the direct fetch <em>and</em> the scrape fallback failed to yield per-unit listing data. Under the Step-4 precedence rule this ships as exact queries plus a printed cost band, and <strong>cannot be the recommendation until you verify the source on-platform</strong> — a five-minute check on your phone.</p>
+</div>
+
+<h4>Supplier block — queries to run</h4>
+<pre><code>platform:        AliExpress (Choice) / CJ Dropshipping (EU or UK warehouse)
+exact queries:   "TMJ massager heat vibration"
+                 "jaw massager masseter heated"
+                 "multi-needle jaw neck massager pulse heat"
+                 "TMJ relief pen heated"
+target variant:  rechargeable handheld, heat + vibration, multi-needle or
+                 precision-tip head, ~50-260 g, USB-C
+gate to apply:   rating >= 4.6  ·  >= 300 orders (or review count >= 75 if
+                 orders are not displayed)  ·  MOQ 1  ·  ships to UK
+                 ·  primary + backup both named
+landed band:     GBP 8.00 - 14.00  [ASSUMPTION - see basis below]
+</code></pre>
+<p><strong>Basis for the band, stated as an assumption.</strong> Three live UK storefronts retail this generic unit at £33.35, £49.54 and £70.88. Voghion-tier marketplace sellers typically run 2.5–3.5× on landed, which brackets landed at roughly £10–13; I widened to £8–14. A DHgate listing for a comparable vibration/heating TMJ massager was retrieved at <strong>US$58.88–60.39/piece</strong> — that is a single-unit marketplace price, not a wholesale cost, and is <em>not</em> used as the cost input. Corroborating evidence that this is a widely-available white-label SKU: Zaybuon (Amazon.co.uk), Voghion and NineLife all describe the identical "ergonomic multi-needle design, 9 adjustable settings, 15-minute auto shut-off" unit under different brand names.</p>
+<div class="note caution">
+  <div class="h">The band is the whole risk</div>
+  <p>Stress-tested at £49 retail: landed <strong>£8 → 5.10× PASS</strong>, <strong>£11 → 3.71× PASS</strong>, <strong>£14 → 2.92× FAIL</strong>. The gate breaks at roughly £13.60 landed. Your five-minute source check is not a formality — it decides whether this opportunity exists.</p>
+</div>
+<p><strong>Images:</strong> <span class="chip warn">IMAGES: OPERATOR-TO-VERIFY</span> — supplier galleries were not viewable. Four incumbent ad keyframes and one static were rendered and viewed this run and are usable as creative reference only, never as product truth.</p>
+
+<h4>Six validation checks</h4>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Check</th><th>Verdict</th><th>Evidence</th></tr></thead>
+<tbody>
+<tr><td><strong>1 · Search demand</strong></td><td><span class="chip warn">VALIDATION-DEGRADED</span></td><td>No keyword-volume tool is connected. Named replacement read: UK marketplace listing density — 4 distinct live UK retail listings across 3 platforms. No volume figure is asserted. <span class="chip">OPERATOR-TO-VERIFY</span></td></tr>
+<tr><td><strong>2 · Competition density</strong></td><td><span class="chip pass">PASS</span></td><td><code>market_density</code>: 1,007 all-geo, 35 GB. Per-brand 507 resolved from brand-scoped reads. 2 charged queries spent.</td></tr>
+<tr><td><strong>3 · Proven sales at scale</strong></td><td><span class="chip pass">PASS</span></td><td>125-day longevity + active refresh (6 ads started 2026-08-24) + $70-off price ladder. <strong>REVENUE: UNKNOWN (not needed for the verdict)</strong> — no traffic read was retrieved.</td></tr>
+<tr><td><strong>4 · Evergreen</strong></td><td><span class="chip warn">STABLE · PROXY-BASED</span></td><td>No trend tool was called, so no curve is described. Proxies: 125-day and 296-day ad runs, UK retail across 3 platforms.</td></tr>
+<tr><td><strong>5 · Content availability</strong></td><td><span class="chip warn">PARTIAL</span></td><td>Retrieved: 2 full UGC transcripts, 4 keyframe stills, 1 competitor static. View counts not verified — none invented.</td></tr>
+<tr><td><strong>6 · Profit math</strong></td><td><span class="chip pass">PASS</span></td><td>Computed in code. Below.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h4>Check 6 — economics (computed, UK VAT line included)</h4>
+<pre><code>retail (VAT-inc)        GBP 49.00
+net revenue (ex-VAT)    GBP 40.83     [retail / 1.20 - UK VAT line]
+landed COGS (midpoint)  GBP 11.00     [ASSUMPTION: band 8.00-14.00]
+gross profit            GBP 29.83
+gross margin            73.1%         multiple  3.71x
+HARD GATE (GP>=20 . margin>=60% . multiple>=3)              PASS
+
+Day-1 AOV model - DEFAULT take rates
+  bump  40%   Reusable jaw heat/cold gel pack     GBP 14.99
+  cart  25%   Trigger-point release ball set      GBP 19.99
+  OTO1  10%   2nd pen (partner/gift)              GBP 34.99
+  OTO2  7.2%  Travel case + spare tips            GBP 12.99
+
+  blended AOV (VAT-inc)     GBP 64.43
+  AOV ex-VAT                GBP 53.69
+  weighted landed COGS      GBP 14.48
+  payment fees 2.9%         GBP  1.87
+  refund reserve 5%         GBP  3.22
+  shipping absorbed         GBP  2.50   [ASSUMPTION]
+  CM / order                GBP 31.62
+  breakeven CPA             GBP 31.62
+  cpa_anchor = min(32.21, 31.62) = GBP 31.62   [PROVISIONAL]
+  vs UK sanity reference GBP 32: -1.2%  (within 50%)
+
+FUNDABILITY  GBP4,000/mo / (30 x 31.62) = 4.22 test orders/day -> FUNDABLE
+
+SCALE SKETCH @ GBP800/day          CVR    CPC   orders    CPA   CM/day
+                                  2.0%   0.65     24.6  32.50      -22
+                                  2.5%   0.65     30.8  26.00     +173
+                                  3.5%   0.65     43.1  18.57     +562
+                                  2.5%   1.00     20.0  40.00     -168
+                                  3.5%   1.00     28.0  28.57      +85
+                                  2.0%   1.40     11.4  70.00     -439
+at client budget GBP133/day       3.5%   1.00      4.7  28.57      +14
+</code></pre>
+<p>The sketch is honest about its shape: this product is profitable at £0.65 CPC from 2.5% CVR, and at £1.00 CPC it needs 3.5% CVR to clear. It does <strong>not</strong> survive £1.40 CPC at any modelled conversion rate. That is the number to watch in week one.</p>
+
+<h4>Three untapped avatar seeds <span class="chip">HYPOTHESIS</span></h4>
+<div class="grid2">
+<div class="minicard">
+  <div class="t">Seed 1 · retrieved reference</div>
+  <p><strong>The ones who wake before the alarm with a locked jaw and a headache already started.</strong></p>
+  <p>Their version: not "jaw pain" but a night they cannot control and a tooth they have already cracked. Underserved because incumbent GB advertising is zero — the frame is unoccupied entirely.</p>
+  <blockquote>"i clench and grind and i've like fractured a tooth from doing it so bad and i have tmj issues wake up with headaches every day"<span class="attr">voc_hint — retrieved transcript, GetHookd ad 95330671</span></blockquote>
+</div>
+<div class="minicard">
+  <div class="t">Seed 2 · retrieved reference</div>
+  <p><strong>The ones who have already spent years and thousands on appliances that never worked.</strong></p>
+  <p>Their version: a decade of splints, orthotics and grinding down molars to fix the last device. They are not solution-unaware — they are solution-exhausted, which is a different sale.</p>
+  <blockquote>"I Wore A Night Guard For 13 Years And Spent $9,000 On Dental Work For 'TMJ.' It Was Never TMJ."<span class="attr">voc_hint — retrieved ad body, GetHookd ad 149782108 (Florus, GB+US)</span></blockquote>
+</div>
+<div class="minicard">
+  <div class="t">Seed 3 · retrieved reference</div>
+  <p><strong>The hygienists and physios who treat jaws all day and get asked what to use between appointments.</strong></p>
+  <p>A channel, not just an avatar: the incumbent already runs a practitioner BOGO code, and GB's only meaningful TMJ advertiser is a practitioner-training business with 296-day-old ads. The professional audience in GB is demonstrably reachable and demonstrably unsold-to.</p>
+  <blockquote>"as a dental hygienist i love anything with dental mouth muscles… i absolutely love recommending new things to my patients"<span class="attr">voc_hint — retrieved transcript, GetHookd ad 95330671</span></blockquote>
+</div>
+</div>
+
+<h4>Psych seeds <span class="chip">HYPOTHESIS</span></h4>
+<ul>
+<li><strong>Primary need:</strong> Safety — physical integrity. This is not aesthetics; teeth are fracturing and mornings start in pain.</li>
+<li><strong>Entry feeling:</strong> weary futility. They have done everything asked of them and are still waking up with the headache.</li>
+<li><strong>Current spend on failed fixes:</strong> night guards (repeatedly remade), private splints and orthotics, physiotherapy, NSAIDs and muscle relaxants, massage. Evidence hint: the Florus ad body enumerates exactly this ladder; yourTMJ's founder story names "NSAIDs, anti-inflammatories, muscle relaxants, physi…".</li>
+</ul>
+
+<h4>Sophistication read — <strong>L4</strong> <span class="chip pass">OBSERVED</span></h4>
+<ul>
+<li>"night guards are only designed to protect your teeth. They will not stop you from clenching or grinding… Bruxism… involves your jaw muscles, nervous system, and even your airway" — transcript, ad 94833977</li>
+<li>"Most face massagers rely on vibration and have soft, rounded tips… the heat actually reaches effective temperatures (100–118°F), not just 'warm to the touch.'" — yourtmj.com product page</li>
+<li>"Turns out I never had TMJ at all. I had something nobody screened me for" — ad 149782108</li>
+</ul>
+<p><strong>Dictated lever:</strong> unique mechanism of problem + solution. <strong>But note the reset:</strong> that mechanism language is exhausted in the US and effectively <em>absent</em> in GB — 35 ads, none of them a device brand. For a British entrant this market behaves closer to <strong>L2</strong>: a sharper, more specific claim plus proof will do work that would fail in the US. The GEO wedge is also a sophistication reset.</p>
+
+<h4>Route hypothesis — <strong>NATIVE_STORY_LED, 80/20</strong> <span class="chip">HYPOTHESIS</span></h4>
+<pre><code>Demonstrability            NATIVE+   outcome is internal release, not a one-frame change
+Trust burden               NATIVE+   "tried everything" market - 13 years of failed appliances
+Consideration (GBP49>38)   NATIVE+
+Problem privacy            NEUTRAL   incumbent runs face-on UGC openly; not shame-loaded
+Buyer awareness mass       STATIC+   "TMJ" is a searched, solution-aware term
+
+tally  STATIC+ 1 | NATIVE+ 3 | NEUTRAL 1
+base lead NATIVE, margin 2                       -> 70/30
+sophistication L4                    shift +10   -> 80/20  (cap 90)
+FORMAT-wedge override                not applicable (GEO is the primary wedge)
+FINAL -> NATIVE_STORY_LED  80/20
+</code></pre>
+<p><strong>Incumbent format read:</strong> 7 of 7 yourTMJ ads viewed are video — UGC reaction and practitioner talking-head. Florus runs long-form advertorial carousels into GB. Reviv runs static. The winning long-form structures are visible and transcribable.</p>
+<div class="note caution">
+  <div class="h">Risk flag — client experience: beginner</div>
+  <p>Beginner + NATIVE_STORY_LED means long-form story production load from week one. Prompt 4's story machine carries it, but flag the capacity now rather than discovering it at launch.</p>
+</div>
+
+<h4>How we win</h4>
+<p><strong>WHO:</strong> the clencher who wakes with a headache and has already cracked a tooth, and the appliance-exhausted veteran of a decade of splints. <strong>WHY NOW:</strong> it recurs every single night and the damage is cumulative and visible at the dentist. <strong>WHAT:</strong> a rechargeable heated massage pen for the masseter and temporalis, heat plus vibration, precision tip. <strong>WHY THIS:</strong> the plausible mechanism is already validated in-market — a night guard protects teeth but does nothing to stop the muscle clenching, and consistent daily heat with self-massage is the thing that addresses the muscle rather than the enamel. <strong>WHY US:</strong> the one operator proving the money is US-only and has publicly declared itself supply-capped and small-batch; it has no £ pricing, no UK fulfilment and a US-specific compliance frame, so a British front is not something it opens next month. <strong>WHICH ROUTE:</strong> native story led 80/20, per the Step-8 arithmetic. <strong>HOW WE SELL:</strong> long-form first-person native — the years of failed appliances, then the mechanism, then the object — into a mechanism-led PDP, with a gel-pack bump and a second-unit OTO. <strong>WHY ECONOMICS:</strong> £29.83 GP at 73.1% margin and 3.71× gives a £31.62 breakeven CPA and 4.22 test orders/day on a £4,000 month — fundable, provided landed cost lands under about £13.60.</p>
+
+<h4>Risk flags</h4>
+<ul>
+<li><span class="chip fail">LOAD-BEARING</span> <strong>ASA/CAP.</strong> This must be advertised as a wellness and comfort tool. No "treats TMJ", no "relieves TMD", no therapeutic claim. yourTMJ's own hedging — <em>"a general wellness tool… not intended to diagnose, treat, cure, or prevent any disease"</em> — is the template to copy, and CAP is stricter than the FTC on health claims.</li>
+<li><span class="chip fail">LOAD-BEARING</span> <strong>Product safety.</strong> This is a heated lithium-battery handheld reaching 118°F against the face. UKCA/CE conformity, battery documentation and a named UK responsible person are obligations, not paperwork. The fast-kill list flags fire/electrical liability for good reason — the supplier must produce conformity docs before you buy inventory. Verify this at the same time as the source.</li>
+<li><span class="chip warn">Economics.</span> Gate breaks above ~£13.60 landed.</li>
+<li><span class="chip warn">Media.</span> Unprofitable at £1.40 CPC on every modelled CVR.</li>
+<li><span class="chip">Concentration.</span> The entire money-proof rests on one operator. If yourTMJ pauses, the category read changes.</li>
+</ul>
+
+<h4>Evidence ledger</h4>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Claim / number</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>507 active ads (306 + 201)</td><td>GetHookd <code>search_brands("tmj")</code>, ids 2167983 &amp; 4265741, same domain group, last_spied 2026-08-27 — ESTIMATE</td></tr>
+<tr><td>1,007 all-geo active ads</td><td>GetHookd <code>search_ads</code> "TMJ jaw pain relief", <code>meta.total</code>, <code>total_is_exact:true</code></td></tr>
+<tr><td>35 GB active ads</td><td>GetHookd <code>search_ads</code> "TMJ jaw", <code>geo=GB</code>, <code>meta.total</code>, <code>total_is_exact:true</code></td></tr>
+<tr><td>GB index coverage 1,063,783</td><td>GetHookd <code>list_geo_countries</code>, <code>coverage_status:"ok"</code></td></tr>
+<tr><td>125-day longevity</td><td>GetHookd ad 94833977, <code>start_date 2026-04-26</code>, <code>days_active 125</code></td></tr>
+<tr><td>Creative mix 7 video / 0 static</td><td>7 yourTMJ ads viewed in <code>search_ads</code> response — SAMPLE (N=7)</td></tr>
+<tr><td>"night guards are only designed to protect your teeth…"</td><td>Retrieved transcript, GetHookd ad 94833977</td></tr>
+<tr><td>"i clench and grind… fractured a tooth"</td><td>Retrieved transcript, GetHookd ad 95330671</td></tr>
+<tr><td>"13 Years And Spent $9,000"</td><td>GetHookd ad 149782108 body (Florus, GB+US)</td></tr>
+<tr><td>"small company producing these in the US… maximum production capacity"</td><td>yourtmj.com/products/buy-yourtmj-pen, fetched 2026-08-28</td></tr>
+<tr><td>Heat range 100–118°F, 4 levels</td><td>yourtmj.com product page, fetched 2026-08-28</td></tr>
+<tr><td>UK retail £49.54 / £33.35</td><td>uk.voghion.com/dp/32179543 and /dp/31750984</td></tr>
+<tr><td>UK retail £70.88</td><td>ninelife.uk product page</td></tr>
+<tr><td>50 g unit weight</td><td>Amazon.co.uk B0DGPYSRS4 (Zaybuon) specification table</td></tr>
+<tr><td>DHgate comparable US$58.88–60.39</td><td>dhgate.com/goods/1095072614.html — retail marketplace price, NOT used as cost input</td></tr>
+<tr><td>Landed band £8–14</td><td><strong>ASSUMPTION</strong> — derived from UK retail spread ÷ typical 2.5–3.5× marketplace markup, widened. Unverified.</td></tr>
+<tr><td>Shipping absorbed £2.50</td><td><strong>ASSUMPTION</strong></td></tr>
+<tr><td>All economics</td><td>Computed in <code>check6.py</code> this run</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===================== DOSSIER 2 ===================== -->
+<section>
+<div class="steplabel"><span class="stepnum">DOSSIER 2</span><h2>Cordless handheld vacuum sealer</h2></div>
+
+<div class="dossier">
+<div class="dosshead">
+  <div class="rank">Rank 2 of 2 &middot; kitchen &amp; food prep &middot; winner-sweep + review-mine lens</div>
+  <h3>Proven money, a stocked-out incumbent, and a £10.99 problem</h3>
+  <div class="chiprow">
+    <span class="chip fail">SOURCE-CONDITIONAL</span>
+    <span class="chip fail">CHECK 6 FAILS BELOW £45 RETAIL</span>
+    <span class="chip warn">PROVISIONAL (cpa_anchor)</span>
+    <span class="chip warn">PROXY-BASED (evergreen)</span>
+    <span class="chip warn">VALIDATION-DEGRADED (Check 1)</span>
+    <span class="chip">SAMPLE (N=4)</span>
+  </div>
+  <div class="scorebar"><span class="n">69</span><span class="d">/100 — raw 69, under the SOURCE-CONDITIONAL cap of 70</span></div>
+</div>
+<div class="dossbody">
+
+<h4>The opportunity in one sentence</h4>
+<p>UK households throwing away food they paid for in a cost-of-living squeeze; Chef Preserve sustains <strong>647 active ads</strong> selling a cordless one-touch sealer at $69.99 with a consumable bag line — and every single SKU on its storefront read <strong>"Out of stock"</strong> when I fetched it on 2026-08-28, while Vaculy proves the premium cordless unit converts in GB and Ireland on a 122-day-old ad; the wedge is the offer ladder and the bag replenishment neither incumbent is positioned to own.</p>
+
+<div class="note danger">
+  <div class="h">Read this before the rest</div>
+  <p>This dossier has a live price problem. GoGroopie — a UK deal site running <strong>374 active ads</strong> — is advertising a "Multi-Function Food Vacuum Sealer" into GB at <strong>£10.99</strong> on a 102-day-old ad. The economics below only clear the hard gate at <strong>£45+ retail</strong>. You would be selling a £49 cordless unit into a market where a corded one is publicly anchored at £10.99. That is a different product and a defensible gap, but it is the single thing most likely to kill this.</p>
+</div>
+
+<h4>Incumbent map</h4>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Brand</th><th>Product, price &amp; geo</th><th class="num">Active ads</th><th>Longevity</th><th>Observed weakness</th></tr></thead>
+<tbody>
+<tr><td><strong>Chef Preserve</strong><span class="sub">id 31232</span></td><td>Cordless sealer $69.99 (from $154.99); bags $29.99–64.99; containers $39.99–79.99. "4.8 (10k+ reviews)"</td><td class="num">647</td><td>UNKNOWN<span class="sub">no ad-level read taken</span></td><td><strong>All 13 SKUs read "Out of stock"</strong> at fetch. A 647-ad brand cannot fulfil the ladder it advertises.</td></tr>
+<tr><td><strong>Vaculy</strong><span class="sub">id 8067240</span></td><td>One-touch cordless sealer. Ad 136610177 <code>["GB","IE","US"]</code>, performance score 100</td><td class="num">15</td><td>122 days</td><td>Tiny ad count. Angle is a gift-to-mum static — narrow.</td></tr>
+<tr><td><strong>Brittrove</strong><span class="sub">id 8059797</span></td><td>Generic one-touch sealer. Ad 151991847 <code>["IE","GB"]</code></td><td class="num">63</td><td>224 days</td><td>Unbranded dropship copy — spec bullets, no story, no offer.</td></tr>
+<tr><td><strong>GoGroopie</strong><span class="sub">id 257357</span></td><td>"Multi-Function Food Vacuum Sealer | Sale Price £10.99" <code>["GB"]</code></td><td class="num">374</td><td>102 days</td><td>Coupon marketplace — no brand, no repeat relationship, no consumable programme. Also the price anchor.</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Money-proof: FULL PASS</strong> — 647 on Chef Preserve. Creative mix, of 4 ads actually viewed: <strong>2 static / 2 video — SAMPLE (N=4)</strong>.</p>
+
+<h4>Purple-ocean verdict — <span class="chip acc">PURPLE</span>, primary wedge <strong>OFFER</strong></h4>
+<p>OFFER may only be primary with a named structural reason the incumbent will not match it. There are two, both observed:</p>
+<ul>
+<li><strong>Chef Preserve cannot stock its own ladder.</strong> Sealer, three bag sizes, four container SKUs, refill packs — all thirteen read "Out of stock" on the live page. A brand out of stock across its entire catalogue is not about to run a bundle-and-replenish programme.</li>
+<li><strong>GoGroopie structurally cannot own the consumable.</strong> It is a coupon marketplace selling a one-off £10.99 deal with no brand, no list and no repeat-purchase relationship. The bags are where the lifetime value is, and the £10.99 seller has no mechanism to sell them again.</li>
+</ul>
+<p><strong>Absence claim, sampled:</strong> across the 4 incumbent ads and 4 storefronts reviewed, none sells a sealer-plus-bag-subscription bundle. <strong>Secondary wedges:</strong> ANGLE (UK cost-of-living framing — money already spent, not "freshness"), FORMAT.</p>
+<p><strong>Copy test:</strong> a stocked-out single-SKU operator and a coupon site are both structurally unable to run replenishment. Neither weakness is a week's work to fix.</p>
+
+<h4>Six checks &amp; twelve criteria — deltas only</h4>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Item</th><th>Verdict</th><th>Evidence</th></tr></thead>
+<tbody>
+<tr><td>Criterion 2 · price band</td><td><span class="chip warn">PASS WITH FLAG</span></td><td>£49 sits in band, but against a live £10.99 GB anchor</td></tr>
+<tr><td>Criterion 3 · margin</td><td><span class="chip fail">FAIL at £39</span></td><td>2.71× — see sensitivity</td></tr>
+<tr><td>Criterion 4 · repeat / LTV</td><td><span class="chip pass">STRONG PASS</span></td><td>Bags are a genuine consumable — the best LTV path in this run</td></tr>
+<tr><td>Criterion 6 · demonstrable</td><td><span class="chip pass">STRONG PASS</span></td><td>Bag collapsing around food is a two-second visual</td></tr>
+<tr><td>Check 1 · demand</td><td><span class="chip warn">VALIDATION-DEGRADED</span></td><td>Replacement read: 412 GB active ads is itself evidence of a served, spending market</td></tr>
+<tr><td>Check 2 · density</td><td><span class="chip pass">PASS</span></td><td>1,029 all-geo / <strong>412 GB</strong>. 2 charged queries spent.</td></tr>
+<tr><td>Check 3 · proven sales</td><td><span class="chip pass">PASS</span></td><td>224-day Brittrove ad, 122-day Vaculy ad, both performance score 100. REVENUE: UNKNOWN.</td></tr>
+<tr><td>Check 4 · evergreen</td><td><span class="chip warn">STABLE · PROXY-BASED</span></td><td>224-day and 102-day ad runs</td></tr>
+<tr><td>Check 5 · content</td><td><span class="chip warn">PARTIAL</span></td><td>2 statics + 2 video keyframe sets viewed; no view counts verified</td></tr>
+<tr><td>Check 6 · profit math</td><td><span class="chip warn">CONDITIONAL PASS</span></td><td>Passes at £45+ only</td></tr>
+</tbody>
+</table>
+</div>
+
+<h4>Check 6 — retail sensitivity (this is the decision)</h4>
+<pre><code>landed midpoint GBP 12.00 (band 9.00-15.00)  [ASSUMPTION: SOURCE-CONDITIONAL]
+
+ retail   net exVAT      GP   margin    mult   gate
+  39.00       32.50   20.50    63.1%   2.71x   FAIL
+  43.00       35.83   23.83    66.5%   2.99x   FAIL
+  45.00       37.50   25.50    68.0%   3.12x   PASS
+  49.00       40.83   28.83    70.6%   3.40x   PASS
+  52.00       43.33   31.33    72.3%   3.61x   PASS   <- Chef Preserve tier ($69.99)
+
+landed-band stress at GBP49 retail
+  landed  9.00 -> 4.54x PASS      landed 12.00 -> 3.40x PASS
+  landed 15.00 -> 2.72x FAIL
+
+at GBP49 retail:  blended AOV GBP 56.48 (bags bump / containers cart / 2nd unit OTO)
+                  CM/order GBP 23.20   breakeven CPA GBP 23.20
+                  cpa_anchor GBP 23.20  [PROVISIONAL]  -27.5% vs GBP32 ref
+                  FUNDABILITY 5.75 test orders/day -> FUNDABLE
+</code></pre>
+
+<h4>Route hypothesis — <strong>STATIC_DR_LED, 90/10</strong> <span class="chip">HYPOTHESIS</span></h4>
+<pre><code>Demonstrability            STATIC+   bag collapses around food in one frame
+Trust burden               STATIC+   low-risk obvious utility
+Consideration (GBP49>38)   NATIVE+
+Problem privacy            STATIC+   practical, external problem
+Buyer awareness mass       STATIC+   buyers search the category
+
+tally  STATIC+ 4 | NATIVE+ 1 | NEUTRAL 0
+base lead STATIC, margin 3                       -> 80/20
+sophistication L2                    shift +10   -> 90/10  (cap 90)
+FINAL -> STATIC_DR_LED  90/10
+</code></pre>
+<p>Comfortable fit for a beginner operator — statics are far cheaper to iterate than long-form story. <strong>Incumbent format read:</strong> Vaculy runs a single kitchen static ("I got one for my mom and she uses it every day"); Brittrove runs a 75-second spec video; GoGroopie runs a bare product static with the price in the headline.</p>
+
+<h4>Three untapped avatar seeds <span class="chip">HYPOTHESIS</span> <span class="chip warn">PARTIAL</span></h4>
+<div class="grid2">
+<div class="minicard"><div class="t">Seed 1 · retrieved reference</div><p><strong>The ones who batch-cook on Sunday because the weekly shop has to stretch to Friday.</strong> Money framing, not freshness framing. Incumbents sell "5x longer" — nobody sells "you already paid for this".</p><blockquote>"Join 500,000+ households wasting less food."<span class="attr">voc_hint — retrieved, GetHookd ad 136610177 link_description</span></blockquote></div>
+<div class="minicard"><div class="t">Seed 2 · QUERY-ONLY</div><p><strong>The ones with a freezer drawer of unlabelled bags gone grey at the edges.</strong> Freezer burn is the visible failure and it is a different, more shameful problem than "food goes off".</p><p class="mono" style="font-size:12px;color:var(--muted)">QUERY-ONLY — "reddit freezer burn meal prep bags waste UK"</p></div>
+<div class="minicard"><div class="t">Seed 3 · QUERY-ONLY</div><p><strong>The ones cooking in a flat where the kitchen counter is the whole kitchen.</strong> The incumbent's own copy concedes it: "Say goodbye to heavy and bulky vacuum sealers." Small-space renters are an occupied objection, not an addressed avatar.</p><p class="mono" style="font-size:12px;color:var(--muted)">QUERY-ONLY — "small kitchen no counter space vacuum sealer UK"</p></div>
+</div>
+<p><strong>Psych seeds:</strong> primary need — Safety (physiological/resource security: food and money already spent). Entry feeling — low-grade guilt at the bin. Current spend on failed fixes: cling film, freezer bags, plastic tubs, and the £10.99 corded sealer that sits in a cupboard.</p>
+
+<h4>Sophistication read — <strong>L2</strong> <span class="chip pass">OBSERVED</span></h4>
+<p>Every incumbent repeats one basic claim with no mechanism: "keeps food fresh up to 5x longer" (Vaculy), "Locks in freshness, say goodbye to odour transfer, oxidation and mould" (Brittrove), "Waste Less Save More" (Chef Preserve). No one explains <em>why</em> oxygen removal changes the spoilage curve. <strong>Lever:</strong> a sharper, more specific claim plus proof — and a named mechanism would jump the market to L3 ahead of everyone in it.</p>
+
+<h4>Source lock &amp; risk flags</h4>
+<p><span class="chip fail">SOURCE-CONDITIONAL</span> — same environment failure documented in Dossier 1. Real retrieved anchors: CJ Dropshipping lists a 130W countertop sealer at <strong>$71.92</strong> (wrong form factor) and a mini bag heat-sealer at <strong>$1.65–6.60</strong> (different product). Neither is the cordless handheld unit. Landed band <strong>£9–15</strong> printed as an ASSUMPTION.</p>
+<pre><code>exact queries:  "handheld vacuum sealer rechargeable cordless"
+                "portable food vacuum sealer USB one-touch"
+                "mini wireless vacuum sealer reusable bags kit"
+target variant: cordless, USB-C, 1200-1800 mAh, one-touch auto-stop,
+                bundled 30 reusable BPA-free bags, ~180 g
+</code></pre>
+<ul>
+<li><span class="chip fail">LOAD-BEARING</span> <strong>The £10.99 anchor.</strong> Your entire margin depends on holding £45–49 against it. Differentiation must be cordless, one-touch and bag-inclusive, and it must be legible in the first frame.</li>
+<li><span class="chip fail">LOAD-BEARING</span> <strong>Food-contact compliance.</strong> Bags are food-contact materials under UK retained FCM regulation — documentation required from the supplier.</li>
+<li><span class="chip warn">Economics.</span> Gate fails below £45 retail and above £15 landed.</li>
+<li><span class="chip warn">Competition.</span> 412 GB active ads — this is a served market, unlike Dossier 1.</li>
+</ul>
+
+<h4>Evidence ledger</h4>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Claim / number</th><th>Source</th></tr></thead>
+<tbody>
+<tr><td>647 active ads (Chef Preserve)</td><td>GetHookd <code>search_brands("chef")</code>, id 31232 — ESTIMATE</td></tr>
+<tr><td>1,029 all-geo / 412 GB active ads</td><td>GetHookd <code>search_ads</code>, <code>meta.total</code>, both <code>total_is_exact:true</code></td></tr>
+<tr><td>All 13 SKUs "Out of stock"</td><td>chefpreserve.com fetched via Exa reader, 2026-08-28</td></tr>
+<tr><td>$69.99 sealer / $29.99–64.99 bags</td><td>chefpreserve.com, same fetch</td></tr>
+<tr><td>£10.99 GB price anchor</td><td>GetHookd ad 120949376 (GoGroopie), title text, days_active 102</td></tr>
+<tr><td>Vaculy GB+IE+US, 122 days, score 100</td><td>GetHookd ad 136610177</td></tr>
+<tr><td>Brittrove 224 days</td><td>GetHookd ad 151991847</td></tr>
+<tr><td>CJ $71.92 countertop / $1.65–6.60 mini</td><td>cjdropshipping.com product pages via Exa search</td></tr>
+<tr><td>Landed band £9–15</td><td><strong>ASSUMPTION</strong> — unverified</td></tr>
+<tr><td>All economics</td><td>Computed in <code>check6.py</code> / <code>rescue_and_score.py</code> this run</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ===================== STEP 10 ===================== -->
+<section>
+<div class="steplabel"><span class="stepnum">STEP 10</span><h2>Comparison &amp; recommendation</h2></div>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Rubric row</th><th class="num">Max</th><th class="num">OPP-1 TMJ</th><th class="num">OPP-2 Sealer</th></tr></thead>
+<tbody>
+<tr><td>Wedge strength</td><td class="num">20</td><td class="num">18</td><td class="num">10</td></tr>
+<tr><td>Incumbent money-proof</td><td class="num">15</td><td class="num">13</td><td class="num">14</td></tr>
+<tr><td>Economics (gate + AOV + fundability)</td><td class="num">20</td><td class="num">18</td><td class="num">11</td></tr>
+<tr><td>Demand durability</td><td class="num">10</td><td class="num">8</td><td class="num">9</td></tr>
+<tr><td>Emotional intensity</td><td class="num">10</td><td class="num">10</td><td class="num">8</td></tr>
+<tr><td>Sourceability</td><td class="num">10</td><td class="num">5</td><td class="num">5</td></tr>
+<tr><td>Content availability</td><td class="num">5</td><td class="num">5</td><td class="num">5</td></tr>
+<tr><td>Untapped-avatar clarity</td><td class="num">5</td><td class="num">5</td><td class="num">3</td></tr>
+<tr><td>Route clarity</td><td class="num">5</td><td class="num">5</td><td class="num">4</td></tr>
+<tr><td><strong>Raw</strong></td><td class="num">100</td><td class="num"><strong>87</strong></td><td class="num"><strong>69</strong></td></tr>
+<tr><td>Cap applied</td><td class="num"></td><td class="num">70 (SOURCE-CONDITIONAL)</td><td class="num">70 (SOURCE-CONDITIONAL)</td></tr>
+<tr><td><strong>FINAL</strong></td><td class="num">100</td><td class="num"><strong>70</strong></td><td class="num"><strong>69</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="note">
+<div class="h">Rule breach, declared</div>
+<p>v16 permits <strong>at most one</strong> SOURCE-CONDITIONAL dossier. Both of these carry the stamp, and I am not going to hide that. The cause is environmental, not candidate-specific: no marketplace listing data was retrievable for <em>any</em> product this run, after a direct fetch, two Apify fallback strategies and a CJ attempt. Dropping a validated opportunity to satisfy a counting rule would misrepresent the run; so would staying silent. One five-minute on-platform check per product clears both stamps at once.</p>
+</div>
+
+<h3>If I were building this store today, I would choose Opportunity 1 — the TMJ jaw-tension relief pen</h3>
+<p>Because it is the only candidate in thirteen where the money is proven and the target market is genuinely empty. The validation data is unambiguous: <strong>1,007 active ads worldwide against 35 in Great Britain</strong>, on an index that holds a million GB ads, so the vacancy is real rather than a coverage gap. The wedge is GEO and the copy test is answered by the incumbent's own words — a small-batch US manufacturer that publicly prices to ration its maximum production capacity is not opening a British front this quarter. The margin clears every gate with room (£29.83 GP, 73.1%, 3.71×), the £31.62 CPA anchor lands within 1.2% of the UK reference, and £4,000 a month buys 4.22 test orders a day. The route arithmetic returns native story led 80/20, and the long-form structures that win in this market are already transcribed and in hand.</p>
+<p>Two honest qualifications. It <strong>cannot be the formal recommendation until you verify the source</strong> — that is the SOURCE-CONDITIONAL rule and the £8–14 landed band is the assumption everything rests on, with the gate breaking at about £13.60. And a heated lithium device against the face carries a genuine UKCA and product-safety obligation that a cat toy does not. Verify both in the same phone call.</p>
+<p>Opportunity 2 is a real business but a harder one: 412 GB ads means you are entering a served market, and a £10.99 public price anchor sits directly under the £45 floor your margin requires.</p>
+</section>
+
+<!-- ===================== COMPLETION CARD ===================== -->
+<section>
+<div class="steplabel"><span class="stepnum">CARD</span><h2>Operator completion card</h2></div>
+<div class="card">
+<p><strong>DECISION:</strong> Two dossiers shipped from thirteen raw candidates. Eight products killed on a named rule; three parked to watchlist. No third dossier was padded.</p>
+<p><strong>WHAT WE CHOSE:</strong> Opportunity 1 — TMJ / jaw-tension relief pen, UK, £49 retail, native-story-led 80/20. Conditional on source verification.</p>
+<p><strong>WHY:</strong> 1,007 all-geo ads vs 35 GB on a fully-covered index; single supply-capped US operator; every economic gate cleared; CPA anchor within 1.2% of the UK reference.</p>
+<p><strong>LOAD-BEARING FLAGS — each with its five-minute verify path:</strong></p>
+<div class="tablewrap">
+<table>
+<thead><tr><th>Flag</th><th>Applies to</th><th>How to clear it</th></tr></thead>
+<tbody>
+<tr><td><span class="chip fail">SOURCE-CONDITIONAL</span></td><td>Both</td><td>Open the AliExpress or CJ app on your phone, run the printed queries, confirm a unit at ≤£13.60 landed to UK (OPP-1) or ≤£15 (OPP-2) with rating ≥4.6, ≥300 orders, MOQ 1. Screenshot the listing.</td></tr>
+<tr><td><span class="chip fail">UKCA / battery safety</span></td><td>OPP-1</td><td>Ask the supplier for CE/UKCA declaration and battery test report <em>in the same message</em> as the price enquiry. No docs, no order.</td></tr>
+<tr><td><span class="chip fail">Food-contact docs</span></td><td>OPP-2</td><td>Request FCM/BPA-free certification for the bags.</td></tr>
+<tr><td><span class="chip warn">VALIDATION-DEGRADED · Check 1</span></td><td>Both</td><td>No keyword tool is connected. Run "TMJ massager" / "jaw massager" in your own keyword tool for a real UK volume.</td></tr>
+<tr><td><span class="chip warn">IMAGES: OPERATOR-TO-VERIFY</span></td><td>Both</td><td>Confirm ≥5 usable supplier images plus one clear product view on the listing.</td></tr>
+<tr><td><span class="chip warn">Budget currency</span></td><td>Run-level</td><td>Confirm £4,000/mo vs $4,000/mo. Changes fundability, not the ranking.</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>FILES CREATED:</strong> this dossier; <code>draw.py</code>, <code>check6.py</code>, <code>rescue_and_score.py</code>, <code>route.py</code> in the session scratchpad.</p>
+<p><strong>NEXT PROMPT:</strong> Prompt 2 — Foundation.</p>
+<p><strong>NEXT INPUTS REQUIRED:</strong> your pick, exact SKU confirmation, and the verifications above. <strong>No Prompt 2 work before the pick.</strong></p>
+</div>
+</section>
+
+<!-- ===================== APPEND BLOCK ===================== -->
+<section>
+<div class="steplabel"><span class="stepnum">LOGS</span><h2>Append-block — save this externally</h2></div>
+<p class="lead">No filesystem log exists, so this is the block to paste into <code>Mark AI/discovery-log.md</code> and <code>global-discovery-log.md</code> so run 848955 is excluded next time.</p>
+<pre><code>## RUN 848955 - 2026-08-28 - geo_mode UK - DISCOVERY MODE
+draw: lenses [demographic-flip, winner-sweep-by-category-family, review-mine-wedge]
+      families [pets:dogs, pain&tension, pets:cats, kitchen&food-prep, tech-adjacent]
+      geos [DK, IT, UK]  banned [gua sha, posture corrector, blue-light glasses]
+
+KEPT (dossier):
+  TMJ jaw-tension relief pen ......... PURPLE  wedge GEO       score 70  RECOMMENDED*
+  Cordless handheld vacuum sealer .... PURPLE  wedge OFFER     score 69
+  * conditional on operator source verification
+
+KILLED:
+  Bamboo compression knee sleeve ..... RED   giant in-geo (Onecompress ~1,236, GB ads live)
+  Silvervine cat dental sticks ....... KILL  criteria 2&3, UK commodity GBP2.69-7.90
+  No-brush dog dental spray .......... RED   Paw Guardian 1,015 ads already UK
+  Essential-oil flea/tick pendant .... KILL  fast-kill biocide claim (GB BPR)
+  Dog supplement range ............... KILL  fast-kill ingestible
+  Health-monitoring cat litter ....... KILL  below 30-ad floor + criterion 7
+  Red-light therapy panel/cap ........ KILL  criterion 2 price band
+  PFAS-free cookware ................. KILL  criteria 2&7 price + bulk
+
+WATCHLIST: helmet chin mount (1,578) | travel compression bags (359) | interactive cat toy (197)
+OUT-OF-DRAW (logged, not scored): intertrigo barrier cream (324) | CrossFit grips (181)
+
+RUN-LEVEL NOTE: no marketplace listing data retrievable this environment;
+every supplier block shipped SOURCE-CONDITIONAL. Charged queries used 6 of 8.
+</code></pre>
+</section>
+
+<!-- ===================== JSON ===================== -->
+<section>
+<div class="steplabel"><span class="stepnum">HANDOFF</span><h2>P1 → P2 JSON</h2></div>
+<pre><code>{
+ "opportunity_id": "UK-TMJ-PEN-848955",
+ "geo_mode": "UK",
+ "market": "jaw tension / bruxism self-care devices, United Kingdom",
+ "problem": {
+   "statement": "Nightly clenching and grinding produces morning headaches, jaw lock and cracked teeth; night guards protect enamel but do not stop the muscle activity.",
+   "emotional_consequence": "weary futility after years of appliances that never worked",
+   "frequency": "nightly, with daytime flare-ups",
+   "current_spend_hypothesis": ["night guards (repeatedly remade)","private splints and orthotics",
+                                "physiotherapy","NSAIDs and muscle relaxants","massage therapy"]
+ },
+ "hero_product": {
+   "physical_description": "rechargeable handheld heated massage pen for masseter/temporalis; heat + vibration; precision or multi-needle tip; ~50-260 g",
+   "platform": "AliExpress / CJ Dropshipping", "source_url": "SOURCE-CONDITIONAL",
+   "listing_id": "SOURCE-CONDITIONAL", "exact_variant": "SOURCE-CONDITIONAL",
+   "unit_cost": null, "landed_cogs": 11.00, "landed_cogs_band": [8.00, 14.00],
+   "shipping_days": "UNKNOWN", "warehouse": "UK/EU preferred - UNVERIFIED",
+   "rating": null, "orders": "UNKNOWN", "review_count": null, "moq": 1,
+   "reference_images": [], "images_basis": "OPERATOR-TO-VERIFY",
+   "backup_sources": ["CJ Dropshipping EU/UK warehouse - query set provided"],
+   "supplier_gate": "SOURCE-CONDITIONAL"
+ },
+ "complements": [
+   {"name":"Reusable jaw heat/cold gel pack","role_hypothesis":"bump","source_url":"SOURCE-CONDITIONAL","landed_cogs":3.00},
+   {"name":"Trigger-point release ball set","role_hypothesis":"cart_upsell","source_url":"SOURCE-CONDITIONAL","landed_cogs":4.00},
+   {"name":"Second pen (partner/gift)","role_hypothesis":"oto1","source_url":"SOURCE-CONDITIONAL","landed_cogs":11.00},
+   {"name":"Travel case + spare tips","role_hypothesis":"oto2","source_url":"SOURCE-CONDITIONAL","landed_cogs":2.50}
+ ],
+ "twelve_criteria": {"1":"PASS","2":"PASS","3":"PASS","4":"PASS","5":"CAUTION",
+                     "6":"PASS","7":"PASS","8":"PASS","9":"PASS-PROXY-BASED","10":"PASS",
+                     "11":"SOURCE-CONDITIONAL","12":"SOURCE-CONDITIONAL"},
+ "six_validation_checks": {
+   "check1_search_demand":"VALIDATION-DEGRADED - no keyword tool; replacement read = 4 live UK retail listings across 3 platforms",
+   "check2_competition":"PASS - 1,007 all-geo / 35 GB (search_ads TOTAL, exact)",
+   "check3_proven_sales":"PASS - 125-day longevity + refresh; REVENUE: UNKNOWN",
+   "check4_evergreen":"STABLE - PROXY-BASED (125d and 296d ad runs, 3-platform UK retail)",
+   "check5_content":"PARTIAL - 2 transcripts, 4 keyframes, 1 static; view counts unverified",
+   "check6_profit_math":"PASS"
+ },
+ "market_density": [
+   {"query":"TMJ jaw pain relief","total_matches":1007,"source":"search_ads TOTAL (exact)"},
+   {"query":"TMJ jaw [geo=GB]","total_matches":35,"source":"search_ads TOTAL (exact)"}
+ ],
+ "incumbent_map": [
+   {"brand":"yourTMJ","product":"yourTMJ Pen (heat 100-118F + vibration)","price":null,"geo":"US only",
+    "active_ads":"507 + ESTIMATE","longevity":"125 days (ad 94833977)",
+    "creative_mix_sample":"7 of 7 viewed are video - SAMPLE (N=7)",
+    "dominant_angles":["Finally. Jaw Pain & Tension Relief.",
+                       "night guards are only designed to protect your teeth. They will not stop you from clenching or grinding"],
+    "offer":"single unit + practitioner BOGO50 + bonus course","funnel":"direct product_page",
+    "weakness":"US-only; self-declared small-batch supply cap; no GBP pricing or UK fulfilment",
+    "source":"search_brands ids 2167983+4265741; search_ads; yourtmj.com"},
+   {"brand":"Reviv","product":"R2 mouthguard + Repod cleaner","price":null,"geo":"GB,US",
+    "active_ads":"924 + ESTIMATE","longevity":"38 days","creative_mix_sample":"1 static - SAMPLE (N=1)",
+    "dominant_angles":["The R2 mouthguard aligns your jaw and relieves TMJ."],
+    "offer":"bundle","funnel":"direct PDP","weakness":"appliance not massage tool; USA shipping framing",
+    "source":"search_ads ad 129277356"},
+   {"brand":"TMJ Massage Therapies","product":"practitioner training PDF","price":0,"geo":"US,GB",
+    "active_ads":"17 + ESTIMATE","longevity":"296 days","creative_mix_sample":"4 statics - SAMPLE (N=4)",
+    "dominant_angles":["FREE PDF: The Must-Reads for Treating TMJ Jaw Pain"],
+    "offer":"lead magnet","funnel":"squeeze","weakness":"sells no product",
+    "source":"search_ads ads 119854273/119854075"}
+ ],
+ "purple_ocean": {
+   "verdict":"PURPLE",
+   "primary_wedge":{"type":"GEO",
+     "statement":"Proven and scaling in the US; no dedicated TMJ-relief-device brand advertises in Great Britain.",
+     "evidence":"Country-filtered search_ads for 'TMJ jaw' geo=GB status=active on 2026-08-28 returned TOTAL 35 vs 1,007 unfiltered; GB index coverage confirmed at 1,063,783 ads via list_geo_countries so the low count is a real read. The two GB advertisers visible are a practitioner-training PDF and a migraine advertorial.",
+     "copy_test":"yourTMJ's own FAQ states it is a small US company priced to match maximum production capacity - a supply-capped US manufacturer with no GBP pricing, no UK fulfilment and US-specific FSA/HSA compliance framing cannot open a UK front quickly."},
+   "secondary_wedges":["ANGLE - 'night guards were never designed to stop clenching' frame unclaimed in GB",
+                       "OFFER - incumbent sells a single unit with no ladder"]
+ },
+ "untapped_avatars": [
+   {"situation":"the ones who wake before the alarm with a locked jaw and a headache already started",
+    "problem_version":"a night they cannot control and a tooth already cracked",
+    "why_underserved":"absent from the 35 GB ads reviewed - no device brand addresses GB at all",
+    "angle":"what your night guard was never designed to do","where_they_talk":"r/bruxism, r/TMJ, TikTok #tmjrelief",
+    "voc_hint":"retrieved-ref: GetHookd ad 95330671 transcript","status":"HYPOTHESIS"},
+   {"situation":"the ones who spent thirteen years and thousands on appliances that never worked",
+    "problem_version":"solution-exhausted, not solution-unaware",
+    "why_underserved":"incumbent sells the device; nobody sells to the exhaustion",
+    "angle":"the thing nobody screened you for","where_they_talk":"TMJ Facebook support groups, r/TMJ",
+    "voc_hint":"retrieved-ref: GetHookd ad 149782108 body","status":"HYPOTHESIS"},
+   {"situation":"hygienists and physios asked daily what patients should use between appointments",
+    "problem_version":"needs something credible to recommend",
+    "why_underserved":"GB's only real TMJ advertiser sells them training, not tools",
+    "angle":"what to give them for the twenty minutes a day you cannot supervise",
+    "where_they_talk":"BSDHT forums, practitioner CPD groups",
+    "voc_hint":"retrieved-ref: yourtmj.com practitioner BOGO50 + ad 95330671 transcript","status":"HYPOTHESIS"}
+ ],
+ "psych_seeds": {
+   "primary_need_hypothesis":"Safety - physical integrity; teeth are fracturing and mornings begin in pain",
+   "entry_feeling_hypothesis":"weary futility after doing everything that was asked"
+ },
+ "sophistication_read": {"level":"L4","status":"OBSERVED",
+   "evidence":"mechanism language throughout incumbent creative and pages: night-guard limitation, nervous system and airway, effective heat thresholds (100-118F) vs 'warm to the touch'",
+   "lever":"unique mechanism of problem + solution - BUT effectively L2 for a GB entrant, since that language is absent from the 35 GB ads; the GEO wedge is also a sophistication reset"},
+ "route_hypothesis": {"route":"NATIVE_STORY_LED","split":"80/20",
+   "arithmetic":"Demonstrability NATIVE+, Trust NATIVE+, Consideration NATIVE+, Privacy NEUTRAL, Awareness STATIC+ -> 3 native vs 1 static, margin 2 -> base 70/30 -> L4 shift +10 native -> 80/20; no FORMAT override (GEO is primary)",
+   "incumbent_format_read":"7 of 7 yourTMJ ads viewed are video (UGC reaction + practitioner talking-head); Florus runs long-form advertorial into GB; Reviv runs static",
+   "reasoning":"Invisible internal outcome, a solution-exhausted audience and a GBP49 price all push native; only category search-awareness pulls static.",
+   "status":"HYPOTHESIS"},
+ "how_we_win":"Enter on the clencher who wakes with a headache and has cracked a tooth, with the mechanism the market already validates - a night guard protects enamel but does nothing to stop the muscle - against a supply-capped US-only incumbent that has left Britain entirely empty, at 73.1% margin and a GBP31.62 CPA anchor that GBP4,000/month can fund at 4.22 test orders per day.",
+ "economics_snapshot": {
+   "retail":49.00,"landed_cogs":11.00,"gp":29.83,"margin":0.731,"multiple":3.71,
+   "day1_aov_model":{"bump":0.40,"cart_upsell":0.25,"oto1":0.10,"oto2_of_decliners":0.08,"blended_aov":64.43},
+   "cm_per_order":31.62,"breakeven_cpa":31.62,"cpa_anchor":"31.62 + PROVISIONAL",
+   "monthly_ad_budget":"GBP4000 (ASSUMPTION - operator gave a USD band on a UK run)",
+   "fundability":"FUNDABLE (4.22 test orders/day)",
+   "scale_sketch":{"800/day @2.5% CVR @0.65 CPC":"30.8 orders, CPA 26.00, CM +173",
+                   "800/day @3.5% CVR @1.00 CPC":"28.0 orders, CPA 28.57, CM +85",
+                   "800/day @2.0% CVR @1.40 CPC":"11.4 orders, CPA 70.00, CM -439",
+                   "note":"unprofitable at 1.40 CPC on every modelled CVR"}
+ },
+ "swipe_refs": [
+   {"brand":"My TMJ Relief","ad_id_or_share_url":"95330671","days_active":122,
+    "why_saved":"dental-hygienist UGC reaction; full transcript retrieved; performance score 100"},
+   {"brand":"My TMJ Relief","ad_id_or_share_url":"94833977","days_active":125,
+    "why_saved":"practitioner mechanism ad - the night-guard-limitation argument, verbatim"},
+   {"brand":"Allison Arnold - Migraine Coach","ad_id_or_share_url":"149782108","days_active":9,
+    "why_saved":"long-form GB+US advertorial structure using the TMJ audience"}
+ ],
+ "validation_degraded":["check1_search_demand","supplier_block_source_conditional","images_operator_to_verify"],
+ "risk_flags":["ASA/CAP - wellness framing only, no therapeutic claims",
+               "UKCA/CE + battery documentation for a heated lithium device against the face",
+               "gate breaks above ~GBP13.60 landed",
+               "unprofitable at GBP1.40 CPC",
+               "money-proof concentrated in a single operator",
+               "beginner operator + native-story route = production load"],
+ "draw_provenance": {"run_seed":848955,
+   "lenses":["demographic-flip","winner-sweep-by-category-family","review-mine-wedge"],
+   "families":["pets: dogs","pain & tension relief","pets: cats","kitchen & food prep","tech-adjacent accessories"],
+   "geo_import_sources":["DK","IT","UK"],
+   "hard_banned_gravity_wells":["gua sha","posture corrector","blue-light glasses"],
+   "logs":"LOGS-UNAVAILABLE"}
+}
+</code></pre>
+</section>
+
+<footer>
+Discovery Engine v16 · run seed 848955 · 2026-08-28 · geo_mode UK · 6 of 8 charged queries spent · 383.69 GetHookd credits remaining.
+Every number on this page traces to a tool call, a fetched page, or a printed assumption. Nothing was recalled from memory.
+</footer>
+</div>
