@@ -1,0 +1,21 @@
+{
+  "step": "04",
+  "scope": "PB-05",
+  "file": "04-partials/04-COMMUNITY-MAP.PB-05.md",
+  "com_count": 7,
+  "com_by_pb": {"PB-05": 7},
+  "top_com": [
+    {"com_id": "COM-07", "platform": "youtube_search", "url": "https://www.youtube.com/watch?v=xEvaenj4JH8", "priority_rank": 1, "source_role": "problem_discussion", "access": "PUBLIC"},
+    {"com_id": "COM-03", "platform": "forum", "url": "https://www.warriorforum.com/ecommerce-sites-wholesaling-drop-shipping/1320451-winning-product-dropshipping.html", "priority_rank": 2, "source_role": "problem_discussion", "access": "PUBLIC"},
+    {"com_id": "COM-04", "platform": "forum", "url": "https://www.indiehackers.com/post/our-solution-for-finding-winning-products-8173495584", "priority_rank": 3, "source_role": "problem_discussion", "access": "PUBLIC"},
+    {"com_id": "COM-05", "platform": "quora", "url": "https://www.quora.com/What-product-will-you-suggest-I-sell-I-am-a-25-year-old-lady-and-I-need-help-with-product-ideas-to-sell-even-if-its-in-the-market-It-s-a-fast-moving-product-My-capital-is-500-cedis", "priority_rank": 4, "source_role": "solution_seeking", "access": "PUBLIC"},
+    {"com_id": "COM-01", "platform": "reddit", "url": "https://www.reddit.com/r/dropshipping/", "priority_rank": 5, "source_role": "problem_discussion", "access": "PUBLIC"}
+  ],
+  "ph": {"file": "04-partials/04-COMMUNITY-MAP.PB-05.md", "section": "§2"},
+  "cp_presence": {"CP-05": "VALIDATED-PRESENT"},
+  "pond": {"file": "04-partials/04-COMMUNITY-MAP.PB-05.md", "section": "§5"},
+  "as_list": {"file": "04-partials/04-COMMUNITY-MAP.PB-05.md", "section": "§7"},
+  "budget_estimate_usd": 0.25,
+  "floors": {"met": ["COM>=4/PB", "PH>=8/PB", "PH>=3/CP", "CP presence>=1 community"], "partial": ["reddit>=3 subreddits (only 2 named, 0 retrievable)", "post_purchase_review role (0 sources)"]},
+  "coverage": "COM 7 (VALIDATED 1 · SUPPORTED 4 · HYPOTHESIS 2) · platforms 5/9 · PB below floor: [NONE on >=4-per-PB; PARTIAL on reddit>=3-subreddits] · CP NOT FOUND: [NONE] · walled 3 · Reddit usable rate 0% · cost $0.25 · AS: 1 row | LATE-BOUND: 03.AS-## · weakest link: Reddit fully BLOCKED-ON-TOOL (Apify hard limit + Exa cannot retrieve reddit.com) · what closing it would cost: Apify plan reset or alternate Reddit credential + ~$0.05-0.10/thread, or operator-pasted thread URLs"
+}

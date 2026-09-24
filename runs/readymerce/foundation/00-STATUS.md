@@ -24,3 +24,16 @@ wave W0 · COMPLETE 1 · PARTIAL 0 · RUNNING [] (0 of 8) · QUEUED [] · open H
 2026-09-24T20:26:47Z · 02-KEYWORDS · QUEUED · launches when a slot frees
 2026-09-24T20:26:47Z · 01-DEEP · QUEUED · launches when a slot frees
 wave W1 · COMPLETE 0 · PARTIAL 0 · RUNNING [02-NW-SEED-01, 02-NW-SEED-02, 02-NW-SEED-03, VOC-PB-01, VOC-PB-06, VOC-PB-05, VOC-OWNED-US, VOC-OWNED-UK] (8 of 8) · QUEUED [02-KEYWORDS, 01-DEEP] · open HARVEST-## 0 · last checkpoint 2026-09-24T20:26:47Z · credits 290.62 · scraper $0.00 · Exa $0.225
+2026-09-24T20:35:24Z · 02-NW-SEED-01 · COMPLETE · null ad result (0 ads visible to GetHookd/Meta after 3+3 vectors; PDP read via Exa 8/8 pages; components 10; new seeds: ecomwebsites.com (longest ad 169 d), socialtoast.ai) · 0.66 cr + $0.10 Exa · VALIDATION-DEGRADED
+2026-09-24T20:35:24Z · 02-NW-SEED-01 · AUDIT-PASS · partial files non-partial, coverage present, handoff parses
+2026-09-24T20:35:24Z · 02-KEYWORDS · STARTED · sonnet · 25 min / 80 calls (slot freed by 02-NW-SEED-01)
+2026-09-24T20:35:24Z · 02-NW-NEW-SEED-01 · QUEUED · ecomwebsites.com (NEW SEED from 02-NW-SEED-01; queued after 01-DEEP)
+wave W1 · COMPLETE 1 · PARTIAL 0 · RUNNING [02-NW-SEED-02, 02-NW-SEED-03, VOC-PB-01, VOC-PB-06, VOC-PB-05, VOC-OWNED-US, VOC-OWNED-UK, 02-KEYWORDS] (8 of 8) · QUEUED [01-DEEP, 02-NW-NEW-SEED-01] · open HARVEST-## 0 · last checkpoint 2026-09-24T20:35:24Z · credits ≈289.96 · scraper $0.00 · Exa ≈$0.33
+2026-09-24T20:36:03Z · 02-NW-SEED-02 · COMPLETE · ecommerceparadise.com: GetHookd NOT INDEXED ×6, Meta 0 page_id; carried on Exa (PDP, comparison, reviews page); price ladder $9,997/$14,997/$19,997 + $2,997/mo; milestone guarantee, no cash refunds; 10 components; LK 3; 0 ads → VALIDATION-DEGRADED · 1.58 cr + $0.125 Exa
+2026-09-24T20:36:03Z · 02-NW-SEED-02 · AUDIT-PASS
+2026-09-24T20:36:03Z · 02-NW-SEED-03 · COMPLETE · ecomxpertz.com: 1 Meta ad (36 d), GetHookd 0; multi-marketplace profit-share retainer $3k–$8k/yr; components 10; new seed: Ecom Family Academy pages (Ecomfamilyhub/Ecomfamcrew) · 1.28 cr + $0.10 Exa
+2026-09-24T20:36:03Z · 02-NW-SEED-03 · AUDIT-PASS
+2026-09-24T20:36:03Z · 01-DEEP · STARTED · sonnet · 25 min / 80 calls (slot freed)
+2026-09-24T20:36:03Z · 02-NW-NEW-SEED-01 · STARTED · ecomwebsites.com · sonnet · 25 min / 80 calls (slot freed)
+2026-09-24T20:36:03Z · 02-NW-NEW-SEED-02 · QUEUED · Ecom Family Academy (Meta pages Ecomfamilyhub / Ecomfamcrew / Ecom Family Academy) — launch when 02-KEYWORDS returns and a slot frees
+wave W1 · COMPLETE 3 · PARTIAL 0 · RUNNING [VOC-PB-01, VOC-PB-06, VOC-PB-05, VOC-OWNED-US, VOC-OWNED-UK, 02-KEYWORDS, 01-DEEP, 02-NW-NEW-SEED-01] (8 of 8) · QUEUED [02-NW-NEW-SEED-02] · open HARVEST-## 0 · last checkpoint 2026-09-24T20:36:03Z · credits ≈288.68 · scraper $0.00 · Exa ≈$0.55
