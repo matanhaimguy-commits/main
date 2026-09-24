@@ -1,0 +1,11 @@
+# 02 — COMPETITOR INTELLIGENCE · SCOPE: NW-SEED-02 (ecommerceparadise.com) · Readymerce
+agent_id: 02-NW-SEED-02 · wave W1 · started 2026-09-24T20:27:40Z · box: 25 min / 80 tool calls · model: sonnet
+LOCK CARD: writer = agent 02-NW-SEED-02 (network-scope sections for NW-SEED-02 only, per §7 partial contract). Reads 01-HANDOFF.json + 01-PRODUCT-TRUTH.md §3,§5-§8 only.
+DEGRADED-TOOL NOTICE (binding, from ADDENDUM VERIFIED 2026-09-24T20:35Z): Apify BLOCKED-ON-TOOL (monthly hard limit) · Firecrawl scrape BLOCKED-ON-TOOL (insufficient credits) · Browserbase BLOCKED-ON-TOOL (401) · WebFetch/curl BLOCKED-ON-TOOL (egress 403) · Trustpilot/Reddit pages NOT RETRIEVABLE by any connected tool. WORKING: GetHookd MCP, Meta Ad Library (mcp__Facebook_Ads__ads_library_search), WebSearch, TranscriptAPI, Exa research agent (mcp__Readymerce_Exa__agent_run). VALIDATION-DEGRADED is printed below wherever GetHookd does not index this seed.
+
+SEED CONFIRMATION: competitor_seeds[] index 2 (of 01-HANDOFF.json) = "ecommerceparadise.com" = NW-SEED-02 per 01-PRODUCT-TRUTH.md §3 row 2 (page_name "Ecommerce Paradise"; pdp /products/done-for-you-custom-high-ticket-dropshipping-store + /best-done-for-you-ecommerce-store/; named_problems PB-01, PB-05, PB-06). Confirmed match — this partial proceeds as NW-SEED-02.
+
+INPUTS READ: 01-HANDOFF.json (product_identity, competitor_seeds[1]="ecommerceparadise.com", problem_lanes[PB-01,PB-06,PB-05] + lane_search_terms, search_key_set §8, candidate_populations §6 pointer, problem_map §5 pointer) · 01-PRODUCT-TRUTH.md §3 (seed row), §5 (PB-01/05/06 cards), §6 (CP-01..CP-07), §7 (lead problem + lanes), §8 (search-key set + swap table). 01-partials/01-HANDOFF.DEEP.json does not exist → difference_sheet = LATE-BOUND: 01-partials/01-HANDOFF.DEEP.json.
+
+BUDGET: GetHookd ≤2.0 credits (logged before/after) · Meta free · Exa agent ≤6 runs (≤$0.60) · MAX_PER_NETWORK 30 · MAX_IM_RECORDS 40 (this partial).
+

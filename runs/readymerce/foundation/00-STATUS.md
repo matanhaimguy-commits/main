@@ -12,3 +12,15 @@ wave W0 · COMPLETE 0 · PARTIAL 0 · RUNNING [01] (1 of 8) · QUEUED [] · open
 2026-09-24T20:26:22Z · 00 · CHECKPOINT · tool card revised on run card + common brief addendum (SUBSTITUTED rows printed); Exa spend so far $0.225
 2026-09-24T20:26:22Z · W0 · WAVE-END · wall-clock 20:12→20:20 (8 min, band ≈10) · COMPLETE 1 · PARTIAL 0
 wave W0 · COMPLETE 1 · PARTIAL 0 · RUNNING [] (0 of 8) · QUEUED [] · open HARVEST-## 0 · last checkpoint 2026-09-24T20:26:22Z · credits 290.62 · scraper $0.00 · Exa $0.225
+2026-09-24T20:26:47Z · W1 · WAVE-START · agents [02-NW-SEED-01(ecomdoneforyou.com), 02-NW-SEED-02(ecommerceparadise.com), 02-NW-SEED-03(ecomxpertz.com), VOC-PB-01, VOC-PB-06, VOC-PB-05, VOC-OWNED-US, VOC-OWNED-UK] · QUEUED [02-KEYWORDS, 01-DEEP] (cap 8; queue order per run card)
+2026-09-24T20:26:47Z · 02-NW-SEED-01 · STARTED · sonnet · 25 min / 80 calls · VALIDATION-DEGRADED (scraper blocked; Exa for landing pages)
+2026-09-24T20:26:47Z · 02-NW-SEED-02 · STARTED · sonnet · 25 min / 80 calls
+2026-09-24T20:26:47Z · 02-NW-SEED-03 · STARTED · sonnet · 25 min / 80 calls
+2026-09-24T20:26:47Z · VOC-PB-01 · STARTED · sonnet · 30 min / 100 calls · lanes: youtube_transcript + Exa pages + owned; reddit/amazon/trustpilot BLOCKED-ON-TOOL
+2026-09-24T20:26:47Z · VOC-PB-06 · STARTED · sonnet · 30 min / 100 calls
+2026-09-24T20:26:47Z · VOC-PB-05 · STARTED · sonnet · 30 min / 100 calls
+2026-09-24T20:26:47Z · VOC-OWNED-US · STARTED · sonnet · 30 min / 100 calls · 280 owned transcripts (US subset)
+2026-09-24T20:26:47Z · VOC-OWNED-UK · STARTED · sonnet · 30 min / 100 calls · (UK/IE/DE subset)
+2026-09-24T20:26:47Z · 02-KEYWORDS · QUEUED · launches when a slot frees
+2026-09-24T20:26:47Z · 01-DEEP · QUEUED · launches when a slot frees
+wave W1 · COMPLETE 0 · PARTIAL 0 · RUNNING [02-NW-SEED-01, 02-NW-SEED-02, 02-NW-SEED-03, VOC-PB-01, VOC-PB-06, VOC-PB-05, VOC-OWNED-US, VOC-OWNED-UK] (8 of 8) · QUEUED [02-KEYWORDS, 01-DEEP] · open HARVEST-## 0 · last checkpoint 2026-09-24T20:26:47Z · credits 290.62 · scraper $0.00 · Exa $0.225
