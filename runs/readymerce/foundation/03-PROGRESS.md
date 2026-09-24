@@ -9,3 +9,8 @@ RESUME POINT: merge data gathered; writing 02 merge files
 RESUME POINT: merge complete; synthesis (method steps 2-18) starting
 - 21:37 swipe filed: save_ad_to_swipe_file ×10 (9 saved, 70486040 409 already in swipe file); balance 283.07
 RESUME POINT: synthesis writing (§1-§22)
+- 21:43 §1-§15 written; NW-04 object fields normalized from 21-col values in 02-swipe.csv (45 cells), 02 §8/§9/§10/§13 + 03 §12/§14 patched
+RESUME POINT: §16-§22 + coverage + handoff
+- 21:46 03-VALIDATED-MESSAGING.md renamed after coverage statement; 03-HANDOFF.json written (≤2 KB) + validated
+RESUME POINT: DONE — all outputs on disk (02-COMPETITOR-INTEL.md, 02-swipe.csv, 02-HANDOFF.json, 03-VALIDATED-MESSAGING.md, 03-HANDOFF.json, 03-PROGRESS.md)
+Tool calls ≈60 of 150; elapsed ≈27 of 40 min. Credits: GetHookd 0.10 reported (283.63 → 283.07 incl. concurrent-agent drift); Exa $0; Apify $0.

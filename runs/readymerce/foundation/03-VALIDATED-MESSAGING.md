@@ -168,7 +168,7 @@ IM-28 (NW-05, title "Launch Your Amazon Store with Confidence") = CO-17 uncoded 
 | MT-05 | Resell trusted brands; marketplace fulfils | Buy name brands wholesale, resell on Walmart; Walmart stores and ships. | replaces "invent your own product/brand" | 1 of 8 (NW-01 AF) | ONE-NETWORK | IM-03, IM-06, IM-09, IM-10, IM-14 | SUPPORTED (SINGLE-NETWORK ITERATED NW-01) | NO — different model (F-02/F-03) |
 | MT-06 | Aligned incentive / risk reversal | We only win when you win: profit share, payback guarantee, platform commission, refund. | improves "pay upfront and hope" | 3 of 8 (NW-03, NW-04, NW-06) | MULTI-NETWORK | IM-20, IM-21, IM-23, IM-26, IM-31, IM-32 | EARLY SIGNAL (≥45d ad on UNSIZED/1 NW) | INFERRED — mechanism_capacity offer/guarantee YES; F-10 cash refund on the $500 fee (voids on acceptance/add-on) and F-12 published entry price; no profit-linked pricing |
 
-product_can_own: YES 0 / INFERRED 1 (MT-06) / NO 3 / UNKNOWN 2. corpus_evidence: PENDING-06 on every row.
+product_can_own: YES 0 / INFERRED 1 (MT-06) / NO 3 / UNKNOWN 2. **product_fit per MT row:** MT-01 YES (usable via F-01..F-04, not ownable) · MT-02 UNKNOWN · MT-03 UNKNOWN · MT-04 UNKNOWN · MT-05 UNKNOWN · MT-06 INFERRED (F-10, F-12; basis INFERRED). corpus_evidence: PENDING-06 on every row.
 
 ## §8 · PROVEN STORY STRUCTURES ST-## + DESIRE × STRUCTURE MATRIX
 
@@ -250,12 +250,12 @@ No patient/family-member/insider narrator appears; customer voice appears only a
 
 | of_id | price_points | ladder_shapes | guarantees | gifts | subscription | funnel_split (ads) | funnel_by_awareness | penetration_offer | label |
 |---|---|---|---|---|---|---|---|---|---|
-| OF-01 | $0–$20 (NW-04, NW-06); FREE builder (NW-02 [D]) | near-free DFY store → quiz → upsell tier → recurring platform/supplier fees (NW-06 funnel-actual up to $500 fee) | 30-day refund (NW-04) / none, all sales final (NW-06) | 20–30 pre-loaded products | Y | quiz 4 · direct PDP 0 | Problem/Solution → quiz | $20 store | COMMON (2 NW; +NW-02 [D]) |
+| OF-01 | $0–$20 (NW-04, NW-06); FREE builder (NW-02 [D]) | near-free DFY store → quiz → upsell tier → recurring platform/supplier fees (NW-06 funnel-actual up to $500 fee) | 30-day refund (NW-04) / none, all sales final (NW-06) | 20–30 pre-loaded products | Y | quiz 6 · direct PDP 3 | Problem/Solution → quiz | $20 store | COMMON (2 NW; +NW-02 [D]) |
 | OF-02 | FREE webinar → $27 → $1,995 → $4,300 (NW-01); FREE → $1,495 → $7,500 (NW-02 [D]) | free training → high-ticket coaching | contradictory claims vs complaints | none | Y ($99/mo) | webinar/squeeze 13 · comment-DM 1 | Unaware/Problem → webinar | FREE webinar | COMMON in EDUCATION (NW-01; NW-02 [D]) |
 | OF-03 | $15K–$35K liquid; 70/30 (NW-03); $3K–$8K/yr (NW-05 site) | capital-in managed store, application-gated | 16-month payback (profit-share forfeit, not cash) | none | profit share | vsl 5 | Solution → VSL/application | NONE | ONE-NETWORK in ads (NW-03) |
 | OF-04 | $9,997–$19,997 + $2,997/mo (NW-08); $2,000 (NW-07) | high-ticket one-time build + monthly | milestone rebuild / conditional ROI | none | Y | 0 ads | PDP only | top-tier discount, "Only 5 Spots" | PDP-ONLY (no ads) |
 
-**funnel_by_awareness** (entry stage × destination, IM counts): Unaware: webinar/squeeze 6, comment-DM 1; Problem: webinar/squeeze 4, unknown 4, vsl 1, quiz 3; Solution: webinar/squeeze 3, vsl 4; UNKNOWN: unknown 5; Product: quiz 1.
+**funnel_by_awareness** (entry stage × destination, IM counts): [ad-level stage; IM-15..17 and IM-28 are site-level Problem → counted as UNKNOWN in §14] Unaware: webinar/squeeze 6, comment-DM 1, direct PDP 1; Problem: webinar/squeeze 4, unknown 4, vsl 1, quiz 4; Solution: webinar/squeeze 3, vsl 4, direct PDP 2, quiz 1; Product: quiz 1.
 
 **penetration_offer:** youngest scaler NW-02 → FREE AI store builder [D unconfirmed link]; replicated entry = $0–$20 DFY store (NW-04, NW-06). **Price hole [D]:** no advertiser in the corpus sells at Readymerce's $500 one-time point (F-12) — ad-visible prices are $0–$20 or ≥$1,995.
 
@@ -282,13 +282,13 @@ No patient/family-member/insider narrator appears; customer voice appears only a
 
 | stage | n of m stage-tagged ads |
 |---|---|
-| Unaware | 7 of 27 |
-| Problem | 12 of 27 |
-| Solution | 7 of 27 |
-| Product | 1 of 27 |
-| Most | 0 of 27 |
+| Unaware | 8 of 28 |
+| Problem | 9 of 28 |
+| Solution | 10 of 28 |
+| Product | 1 of 28 |
+| Most | 0 of 28 |
 
-UNKNOWN stage: 5 (NW-02 titles, NW-05 title, IM-19 not coded).
+UNKNOWN stage: 4 (IM-15..IM-17 NW-02 titles, IM-28 NW-05 title — ad-level unknown; their site-level "Problem" is not counted).
 
 | lever | n of 20 (20 longest-running ads: IM-18, IM-19, IM-29, IM-20, IM-30, IM-21, IM-22, IM-23, IM-24, IM-25, IM-01, IM-02, IM-03, IM-04, IM-05, IM-06, IM-07, IM-08, IM-31, IM-28) |
 |---|---|
@@ -314,3 +314,152 @@ sophistication_tell: mechanism 12 of 20 ≥60% → a market pattern by rule 8 (t
 | AV-cand-03 Spanish-speaking seller  | VD-01×VA-01 {1, 1, 78d}; VD-01×VA-05 {1, 1, 78d} | NW-04 (AF 0) | HYPOTHESIS |
 
 **avatar_vacancies[]:** CP-04, CP-07 (0 ads; CP-04 0 avatar-phrase searches, CP-07 1) — plus the narrow vacancies in §16 holes.
+
+## §16 · THE TERRITORY MAP
+
+Ranked by ABOVE-FLOOR networks → all networks → concept breadth → longevity → reuse. `product_fit` printed beside each; it never moves a row. **Counter:** control 1 + challengers 3 · combos 1 + 4 · emerging 2 · signal-only 4.
+
+**(a) Angle level**
+
+| slot | va_id | networks | ad ids | longest runtime | reuse | label | product_fit |
+|---|---|---|---|---|---|---|---|
+| CONTROL | VA-02 ground-floor marketplace timing | 2 (NW-01 ABOVE-FLOOR, NW-03) | IM-18, IM-19, IM-01, IM-02, IM-04 | 540d (IM-18) | 9 of 11 reuse Y | SUPPORTED (SINGLE-NETWORK ITERATED NW-01) | UNKNOWN (F-01 Shopify/Etsy) |
+| CHALLENGER 1 | VA-01 we build it for you | 3 (NW-03, NW-04, NW-06; all UNSIZED) | IM-29, IM-20, IM-21, IM-23, IM-27 | 271d (IM-29) | 9 of 9 | EARLY SIGNAL (shadow VALIDATED) | YES (F-01..F-07) |
+| CHALLENGER 2 | VA-03 business-model transparency | 3 (NW-03, NW-04, NW-06) | IM-20, IM-27, IM-31, IM-32 | 206d (IM-20) | 4 of 4 | EARLY SIGNAL (shadow VALIDATED) | INFERRED (F-12) |
+| CHALLENGER 3 | VA-04 it's not you — it's the barrier | 2 (NW-04, NW-06) | IM-29, IM-30, IM-32, IM-27 | 271d (IM-29) | 4 of 4 | EARLY SIGNAL (shadow VALIDATED-2NW) | YES (F-01..F-04) |
+
+Caveat printed with the control: its ABOVE-FLOOR evidence comes from NW-01, an EDUCATION/COACHING network — the control is the argument the most money rides on in the income-opportunity market (NW-01 203 + NW-03 85 active), **not DFY-store validation**. The same-product control is VA-01.
+
+**(b) Big Idea × structure level**
+
+| slot | combination | ads | networks | why this pairing | product_fit |
+|---|---|---|---|---|---|
+| CONTROL COMBO | BI-03 × ST-06 withheld-reveal teaser | IM-18, IM-19, IM-01, IM-02, IM-04 | 2 (1 AF) | a timing claim only works if the platform is withheld until the click — both networks do exactly this | UNKNOWN |
+| CHALLENGER | BI-01 × ST-04 recognition → reframe → removal | IM-29, IM-30, IM-32, IM-27 | 2 | the barrier-removal argument needs the stall named and absolved before the offer | YES |
+| CHALLENGER | BI-02 × ST-02 capital-qualifier explainer | IM-20, IM-21, IM-22 | 1 | an investment frame needs the qualifier, the split and the guarantee in that order | INFERRED |
+| CHALLENGER | BI-01 × ST-03 stop-X direct personal offer | IM-23, IM-24, IM-26 | 1 | names the course enemy (EK-02) then hands over the asset | YES (PT-14) |
+| CHALLENGER | BI-04 × ST-01 founder math VSL | IM-03 | 1 (AF) | "no product needed" is only believed when the margin is shown | UNKNOWN |
+
+**(c) emerging_territories[]:** VA-07 / BI-06 provider identity (NW-02, 160 active ads, all <1d — young, heavily replicated, bodies unopened) · VD-05 "be on the side that makes the money" (IM-25 77d + IM-32). **signal_only_territories[]:** VA-06 money under-performing (1 NW, 540d) · VA-05 delivered-not-taught (1 NW, 87d) · BI-05 / HK-07 accusation (1 ad) · BI-04 resell-don't-invent (1 NW, EDUCATION).
+
+**(d) THE HOLES** — every persona, lane and desire no network sells (all HYPOTHESIS). **Counter:** holes 8 (personas 4 / lanes 2 / desires 2).
+
+| hole | kind | searches | vacancy_answer | adjacent_brand_evidence | label |
+|---|---|---|---|---|---|
+| CP-02 fathers / family provider — **in a DFY (not course) offer** | persona | KEYWORDS "online business for dads" (182 capped / 499 raw GetHookd; 10,971 Meta), "side income for fathers" (176 / 753; 3,827), "passive income for parents" (122 / 220; 1,728) — 0 father-relevant DFY bodies in rows read | **not a true persona hole; a narrow one.** Cause B rejected: adjacent brands monetise the exact want — NW-02 "I Didn't Have a Cape. Just a Laptop and a Family to Fight For!" (160 active ads; candidate brand = course/coaching, FREE → $1,495 → $7,500 [D]) and NW-03 (IM-20 "kids college fund"; LK-07 "I get to focus on my family"). Cause A UNKNOWN: no DFY-store ad names the father; the family frame is sold by education and managed-capital sellers only | NW-02, NW-03 (02 §15 LK-07, LK-11) | HYPOTHESIS |
+| CP-06 near-retirement savers — **at a low-ticket entry** | persona | "retirement online business" (253 / 696; 1,133), "online store for retirees" (504 / 1,352; 7,411) — 0 retiree-relevant rows read | **narrow hole.** B rejected: NW-03 sells this person hard at $15K–$35K ("Retire With Peace Of Mind", IM-19; "sick of S&P 500 returns"; older presenter, IM-20) and NW-01 widens age ("Grandmas can still get rich", IM-13; "as old as 70", IM-03 transcript). A: the only seller targets capital ≥$15K with an application gate — nobody sells a bounded low-ticket managed store to retirees | NW-03, NW-01 | HYPOTHESIS |
+| CP-04 busy existing e-commerce owner | persona | 0 avatar-phrase searches (NOT MAPPED) | UNKNOWN — adjacent monetisation exists on PDPs (NW-08 Monthly Turnkey $2,997/mo; NW-07 automation), 0 ads | NW-07, NW-08 PDPs | HYPOTHESIS |
+| CP-07 spouse who can't work because of the kids | persona | 1 phrase ("passive income for parents") | UNKNOWN (under-searched: 1 < 3) — NW-02's family frame is the nearest | NW-02 | HYPOTHESIS |
+| PB-06 built a store, never made sales | lane | "shopify store no sales" (~278 / ~781; 148,236 Meta), "tried dropshipping lost money" (~204 / ~535; Meta 32, OPEN), "store with zero conversion" | **A (structural barrier), HYPOTHESIS:** money exists — Debutify (theme app) and Drop Ship Lifestyle (course, 101d ad) advertise to it — but a DFY seller cannot re-sell a failed buyer without a results claim (Readymerce F-13 "no income guarantees"); NW-08 names it on its PDP only | Debutify, Drop Ship Lifestyle (02 §11) | HYPOTHESIS |
+| PB-04 no time to run the store | lane | no lane search (PB-04 HYPOTHESIS terms not searched in 02) | UNKNOWN — sold as a feature ("we run it", NW-03) and on PDPs (NW-07, NW-08), never as the ad's problem | NW-03, NW-07, NW-08 | HYPOTHESIS |
+| SD-05 "something I can give my kids when they grow older" | desire | via CP-02 phrases above | UNKNOWN — 0 ads frame the store as a transferable asset; IM-20's "kids college fund" is an income use | NW-03 (adjacent only) | HYPOTHESIS |
+| SD-04 "see exactly what my $500 gets me before I trust anyone again" | desire (REWRITE → objection) | via PB-03 bodies | not a desire (objection); sold instead as transparency (VA-03) and guarantees (PR-02) by NW-03/04/06 | NW-03, NW-04, NW-06 | HYPOTHESIS |
+
+**(e) best_strategic_territory:** **VD-02 (income that doesn't depend on the job) entered through BI-01 × ST-04 (recognition → reframe → removal), with VA-03 transparency as proof** — the strongest market desire, delivered through the one structure the same-product networks replicate and our product can make (product_fit YES, F-01..F-04). The market control combo (BI-03 × ST-06) scores higher on money but its product_fit is UNKNOWN; ties go YES > INFERRED > UNKNOWN.
+
+## §17 · NOT YET VALIDATED (all HYPOTHESIS, with ad ids)
+
+- The family-provider hook "I Didn't Have a Cape…" works — 160 active ads (IM-15..17) but every ad <1 day old, body unopened; recency rule: a bet, not a winner.
+- "Grandmas can still get rich" converts older buyers — 1 ad, 24d, Scaling (IM-13); transcript not requested.
+- NW-04 and NW-06 are independent — MERGE-WATCH (shared $20 Shopify-commission playbook; "DFY Ecom Websites" page title); if one operator, every "2 networks" DFY count drops to 1.
+- Cameron Hoffman page is a separate advertiser of NW-03's creative — unresolved (merge search #1).
+- TikTok is where NW-03's stores sell — COMPETITOR-CLAIMED; its live PDP says eBay & Walmart (claim-vs-delivery gap, IM-21).
+- "Our stores are seeing almost double the return than on Amazon" (IM-18), "profits of at least 25%" (IM-22), "40,000+ / 200,000+ stores built" (IM-30, IM-31), "77,254+ claimed" (IM-27) — competitor claims, not facts.
+- Shorter cutdowns win (PAIR-01: IM-02 12s Winning vs IM-01 71s ended) — one pair, and the loser ran 70d (not an early kill).
+- Kitchen / podcast / lifestyle creatives cause performance — creative associations, not causes (CR-01..CR-03).
+- Operator ICP (b) "adults 50+ with money" as a demographic — REJECTED at 01 (demographic ≠ population); the situation CP-06 is what is sold (IM-19, IM-20).
+- The capital-qualifier opener filters out tire-kickers — plausible [D] from its 540/206/119-day survival (IM-18, IM-20, IM-21); no conversion data exists.
+
+## §18 · THE TWO BOTTOM LINES
+
+**(a) The market's:** Master promise **VA-01** (a team builds — and at the top end runs — the business for you) + failed-solution setup **EK-02/EK-04** (courses and saturated side hustles) + mechanism **MT-02 / MT-03** (ground-floor timing; the platform pays the builder) + reveal structure **ST-06** (withheld reveal → free training / quiz / VSL) + story framework **ST-04** (recognition → reframe → removal) + proof pattern **PR-07 → PR-01 → PR-02** (transparency, volume, guarantee).
+Bottom Line (market): This market sells one thing — the life after the job — and it sells it through someone else doing the hard part. The money-heaviest argument is timing: a marketplace that is "where Amazon was", revealed only after the click. The same-product sellers win instead by absolving the reader ("it's not you, it's the barrier") and removing the build for a near-zero price. Every seller answers the scam fear by explaining its own business model before asking for money. Proof is volume, transparency and a guarantee — never a customer story told in the customer's own words.
+
+**(b) Our product's:** Validated desire **VD-02** (entered via VD-01) + product-specific mechanism **MT-06** (aligned incentive / risk reversal — product_can_own INFERRED: a published $500 one-time fee with a 7-day cash refund, F-10/F-12; basis INFERRED, to be rebuilt by step 10) + proven story framework **ST-04** (NON-STRICT) + proof pattern **PR-07 + PR-02**.
+Bottom Line (product): Readymerce can speak to the reader who wants an income that does not depend on the job and who has already stalled on the build. Its honest entry is the barrier removal the market already rewards — the store opened in the buyer's name, branded, researched and stocked (F-01..F-04). Its only candidate for an ownable mechanism is the offer shape: a bounded, published price with the store and payouts in the buyer's name (F-11, F-12), in a market whose ads show either $0–$20 bait or ≥$1,995. That mechanism is INFERRED and weakened by the refund voiding on acceptance (F-10), so step 10 must build it (MECHANISM: PENDING-10 for anything beyond MT-06). Any income promise stays out: F-13 disclaims it and 0 outcome data exists (PT-06).
+
+## §19 · NON-OBVIOUS FINDINGS
+
+1. The two longest-running ads in the whole corpus (IM-18 540d, IM-19 519d) and the only ABOVE-FLOOR network (NW-01) sell the same Big Idea — ground-floor marketplace timing — from two different product types (managed capital vs education). The timing argument, not "done for you", is where the market's money is.
+2. The market is bimodal on price: $0–$20 DFY entries (NW-04, NW-06) or ≥$1,995 coaching / ≥$15K capital (NW-01, NW-03). No ad-visible offer sits at Readymerce's $500 (F-12) — IM-27, IM-29 vs IM-21, IM-03.
+3. The ad price is not the funnel price: NW-06 advertises free/$20 and charges up to a $500 "processing fee", all sales final (IM-30, IM-31); NW-04 discloses $39/mo + $79/mo (IM-27). The $500 figure is already in the market — hidden.
+4. Every same-product seller explains how it gets paid inside the ad (PR-07: IM-20, IM-27, IM-31, IM-32) — transparency is the market's answer to the scam objection, 3 networks.
+5. The one seller that pre-qualifies by money in line 1 ("If you have between $15K and $30K liquid", IM-21, IM-20, IM-22) holds the longest runtimes — the market's only visible tire-kicker filter.
+6. Family is sold at scale but only by non-DFY sellers: NW-02 (160 active ads, IM-15..17) and NW-03 (IM-20); 0 DFY-store bodies name a father.
+7. Older buyers are addressed by money, not age: NW-03 speaks to capital and retirement (IM-19, IM-20); age appears once, as a rebuttal ("Grandmas can still get rich", IM-13).
+8. 0 of 32 ads are STRICT stories and no ad narrator is a customer — first-person customer story is an unused structure in this market (§11 archetypes).
+9. The lead runner-up lane PB-06 ("built a store, never made sales") is sold by nobody in 32 ads, while adjacent tools and courses do pay to reach it (Debutify, Drop Ship Lifestyle; 02 §11).
+10. A Winning pair suggests brevity: the same body won as a 12s cutdown (IM-02, Winning) and ended as a 71s cut (IM-01).
+
+## §20 · THE ONE-SHEET
+
+# US DONE-FOR-YOU E-COMMERCE / ONLINE-INCOME MARKET — COMPETITOR INTELLIGENCE ONE-SHEET
+
+1. **THE MARKET IN ONE SENTENCE** — People stuck in a job, or sitting on idle money, are sold a way out that someone else builds; the shared desire is an income that doesn't depend on the job (VD-02).
+2. **WINNING PROBLEMS** — Surface/Observable: the build (tech, setup, product choice) (PB-01, PB-05) · Emotional/Identity: the stall and the shame of "almost did it" (IM-32); the job ceiling (IM-03) · Core Conflict: wanting out of the job but not knowing how to build the way out (PB-02); money idle while life costs rise (PB-07).
+3. **EXISTING KNOWLEDGE & BELIEFS** — dropshipping/Shopify are known (EK-01); courses and gurus disappoint (EK-02); free offers hide a catch (EK-03); Amazon/Shopify are saturated (EK-04); you need your own product (EK-05). All ADVERTISER-ASSUMED or attacked; PENDING-06.
+4. **WINNING BIG IDEAS** — BI-03 timing (SUPPORTED, 2 NW, 540d) · BI-01 we build your store (EARLY SIGNAL, 2 NW UNSIZED, 271d) · BI-02 fund it, we run it (1 NW, 206d) · BI-04 don't invent, resell (1 NW AF) · BI-06 laptop provider (1 NW, young).
+5. **WINNING MECHANISM TERRITORIES** — MT-01 barrier removal (5 of 8 NW; commodity) · MT-02 ground-floor timing (2) · MT-03 platform pays the builder (2) · MT-06 we only win when you win (3).
+6. **WINNING STORY STRUCTURES** (NON-STRICT) — ST-06 teaser: opportunity → saturated contrast → Amazon-then → withheld reveal → free training · ST-04: recognition → stall → "not you, the barrier" → we build it → why it's cheap → volume → CTA · ST-02: capital qualifier → offer → split → guarantee → application.
+7. **WINNING HOOK PATTERNS** — HK-03 "[new thing] is [winner] early" · HK-01 "You've thought about [X] before" · HK-02 "If you have [$ band] liquid…" · HK-04 "STOP [failed solution]" · HK-06 "[big number] people already…" · HK-08 "[N] everyday items I used to…" · HK-05 wage collision.
+8. **WINNING NATIVE CREATIVE PATTERNS** — podcast/webinar clip with bold caption (CR-02) · at-home talking to camera (CR-01) · street-interview B-roll under copy (CR-04) · lifestyle flex (CR-03).
+9. **WINNING PROOF PATTERNS** — volume numbers (PR-01, 4 NW) · business-model transparency (PR-07, 3 NW) · guarantee (PR-02) · stack: qualifier/recognition → transparency → components → number → guarantee → quiz/VSL.
+10. **AWARENESS / COPY STARTING POINT** — mostly Problem-aware (9 of 28) and Solution-aware (10 of 28); mechanism lever 12 of 20 longest ads. Do not begin by teaching what a DFY store is; begin with the stalled start and the job; use how the build is paid for as the new information.
+11. **WHAT THE COPYWRITER SHOULD NOT REINVENT** — the recognition opener, the "not you, the barrier" absolution, the course enemy, explaining how you get paid, a hard number, a guarantee, a low-friction next step (quiz/VSL).
+12. **WHAT IS NOT YET VALIDATED** — the family-provider hook (all <1d), age callouts, any income/return figure, TikTok/platform claims, independence of NW-04 vs NW-06, anything from customer voice (PENDING-06).
+
+**BEFORE YOU WRITE**
+1. Which proven problem am I dramatising — the stalled build, the job ceiling, or idle money?
+2. What does the reader already know (EK-01..EK-05) that I must not teach?
+3. What belief am I starting from, and which one am I replacing?
+4. What is my Big Idea in one sentence — and is it one the market already pays for (BI-01/BI-03)?
+5. What mechanism explains why this works now, and can Readymerce actually claim it (MT product_can_own)?
+6. Which structure (ST-04 / ST-06 / ST-02) am I using, or deliberately departing from?
+7. Is my visual part of the argument (CR-05 split panel, CR-06 screen proof) or decoration?
+8. What proof do I have that is not a competitor claim or an income promise (F-13)?
+
+*"Do not reinvent the market before you understand what it has already rewarded."*
+
+5-minute test: PASS — a junior copywriter reading only this sheet knows the market pays for timing and for someone-else-builds-it, answers the scam fear with transparency, and has no customer story yet.
+
+## §21 · THE SWIPE FILE (curated; research objects — no ad copy)
+
+**STRICT: NONE — PARTIAL (N=0/10) — chain exhausted: [0 STRICT-STORY records in the merged corpus].** ALL-FORMAT: 10 of ≤10. Filed via `save_ad_to_swipe_file` (free): 9 saved, 1 already present (70486040 → 409 conflict, filed earlier by 02-NW-NEW-SEED-01).
+
+| im_id | share_url | why_useful_to_swipe | structure | what_must_remain_constant | what_can_change | vd_id | label |
+|---|---|---|---|---|---|---|---|
+| IM-18 | https://app.gethookd.ai/share/ad/41256434?signature=e8a15c2928e9af905e43d3910890fbb812ff2bb963359a0f0735c73c55 | longest-running ad in the corpus; 39 video variants — the timing teaser at full maturity | ST-06 | withheld platform + Amazon-early comparison | platform, capital band, narrator | VD-03 | SUPPORTED (ITERATED) |
+| IM-19 | https://app.gethookd.ai/share/ad/41256429?signature=cd7fb61172b397f9cf1ed31f15b016ffcde566992b61520b8c2729d3b0 | 519d authority + "Amazon 2000" analogy with an explicit desire triad | ST-06 | analogy → withheld reveal → application | authority source, platform | VD-03 | SUPPORTED (ITERATED) |
+| IM-20 | https://app.gethookd.ai/share/ad/78640432?signature=479e6dd58f5153a0e3c071b04251b0f0118ec2f78c90cf1756c700a3d3 | 206d capital-qualifier explainer; answers "why do you need me?" (one store per person) | ST-02 | qualifier → reframe → why partners | narrator age, capital band | VD-03 | EARLY SIGNAL |
+| IM-29 | https://app.gethookd.ai/share/ad/70486040?signature=b7db77c179553f0c8f51bda348fd316240e45a9fab29a5fdc9e52b2301 | 271d same-product control: recognition opener + $20 build + preloaded products | ST-04 | recognition → barrier removal | price, product count, creative | VD-01 | EARLY SIGNAL |
+| IM-23 | https://app.gethookd.ai/share/ad/74657770?signature=6f779e03e342dd398fa616c388c6e144bd4ece9be24e20e8a92347a47c | 87d "STOP buying courses" personal offer with PS guarantee | ST-03 | enemy line → inclusions → guarantee | narrator, language | VD-01 | EARLY SIGNAL |
+| IM-25 | https://app.gethookd.ai/share/ad/59618906?signature=40a869f5466ec7c527a980451058595b2f6e2c1d12264dd468ad6a70f6 | 77d accusation → loophole → collect; the only identity-flip argument | ST-05 | accusation → flip to collector | statistic, season | VD-05 | HYPOTHESIS |
+| IM-03 | https://app.gethookd.ai/share/ad/121358672 | the one HYBRID: founder math on screen + named customer (full transcript) | ST-01 | shown arithmetic; named outsider | products, platform | VD-02 | SUPPORTED (ITERATED) |
+| IM-02 | https://app.gethookd.ai/share/ad/126787289 | Winning 12s cutdown that outlived its 71s twin (PAIR-01) | ST-06 | REPORT teaser body | length, CTA text | VD-02 | SUPPORTED (ITERATED) |
+| IM-27 | https://app.gethookd.ai/share/ad/169243242?signature=6797bde10225a3ff86c983861303b40ab8f2ec2c787d57ec8ffb58213 | live Winning ad of the current challenger (quiz-gated $20 store) | ST-04 | procrastination reframe → skip the hard part | proof number, footage | VD-01 | EARLY SIGNAL |
+| IM-31 | https://app.gethookd.ai/share/ad/97210901?signature=934e795d8ebd0568d7c95568076fbe44fb1df5eb280d87560d60edfbad | business-model transparency + split-panel cost collision | — | "Shopify pays us" explanation; $2,000–$10,000 vs FREE image | authority line | VD-01 | EARLY SIGNAL |
+
+## §22 · EVIDENCE LEDGER
+
+| claim | im_id | share_url | PT-## / F-## |
+|---|---|---|---|
+| timing is the money-heaviest argument | IM-18 | https://app.gethookd.ai/share/ad/41256434?signature=e8a15c2928e9af905e43d3910890fbb812ff2bb963359a0f0735c73c55 | F-01 (Shopify/Etsy — cannot claim timing) |
+| timing, ABOVE-FLOOR network | IM-02 | https://app.gethookd.ai/share/ad/126787289 | — |
+| same-product control, 271d | IM-29 | https://app.gethookd.ai/share/ad/70486040?signature=b7db77c179553f0c8f51bda348fd316240e45a9fab29a5fdc9e52b2301 | F-01..F-04 (we can make it) |
+| capital-qualifier opener, 206d | IM-20 | https://app.gethookd.ai/share/ad/78640432?signature=479e6dd58f5153a0e3c071b04251b0f0118ec2f78c90cf1756c700a3d3 | F-07, F-11; F-13 (no income claims) |
+| "STOP buying courses" (VA-05) | IM-23 | https://app.gethookd.ai/share/ad/74657770?signature=6f779e03e342dd398fa616c388c6e144bd4ece9be24e20e8a92347a47c | PT-14 (not a course) |
+| transparency "Shopify pays us" (PR-07) | IM-31 | https://app.gethookd.ai/share/ad/97210901?signature=934e795d8ebd0568d7c95568076fbe44fb1df5eb280d87560d60edfbad | F-12 (our pricing is published $500) |
+| free-with-a-catch attacked (EK-03) | IM-32 | https://app.gethookd.ai/share/ad/97803506?signature=6c0bfd58c7fb7b6582c05530b87149f917bc9a1d61279df2a13acd7cd3 | F-10, F-12 |
+| wage collision + founder math (HK-05, ST-01) | IM-03 | https://app.gethookd.ai/share/ad/121358672 | — |
+| age rebuttal (CP-06 hole) | IM-13 | https://app.gethookd.ai/share/ad/169343626 | — |
+| family provider title (CP-02 hole) | IM-15 | https://www.facebook.com/ads/library/?id=2157168075190848 | — |
+| accusation / collector flip | IM-25 | https://app.gethookd.ai/share/ad/59618906?signature=40a869f5466ec7c527a980451058595b2f6e2c1d12264dd468ad6a70f6 | — |
+| current challenger Winning | IM-27 | https://app.gethookd.ai/share/ad/169243242?signature=6797bde10225a3ff86c983861303b40ab8f2ec2c787d57ec8ffb58213 | — |
+
+Full ad-level ledger (all 32 ad ids + landing pages): 02-COMPETITOR-INTEL.md §18. Product facts: 01-PRODUCT-TRUTH.md §T3 (PT-##), §T5 (F-##), §T6 (DF-##, mechanism_capacity). Truth card band PROXY-SKU; C8/C9 and "3 vetted products"/"$2,000" remain INFERRED.
+
+Credits (03): GetHookd search_ads ×2 = 0.10 reported; get_user_profile / get_ad ×3 / save_ad_to_swipe_file ×10 free. Balance 283.63 → 283.17 (after searches) → 283.07 (after filing; the 0.10 drop while this agent charged nothing is attributed to concurrent W2 agents sharing the account — ASSUMED). Exa $0, Apify $0 (BLOCKED-ON-TOOL, not called).
+
+## COVERAGE STATEMENT
+
+COVERAGE: from IM 32 (STRICT 0) across NW 8 (ABOVE-FLOOR 1; merged from 9 partials, NOT CRAWLED 5); VD 5 by label (VALIDATED 0 / SUPPORTED 2 / EARLY SIGNAL 3 / HYPOTHESIS 0); VA 7; BI 6; MT 6 (product_can_own YES 0 / INFERRED 1); ST 6 (all NON-STRICT HYPOTHESIS); holes 8 (searches 42 KEYWORDS calls + 2 merge searches); PENDING-06 stamps 37 (VD 5 + VA 7 + BI 6 + MT 6 + ST 6 + EK 7); product_fit INFERRED rows 11 (VD-02, VD-04, VA-03, VA-06, VA-07, BI-02, BI-05, BI-06, ST-02, ST-05, MT-06) of 31 VD/VA/BI/MT/ST rows; NOT MAPPED from 02: traffic for 7 of 8 networks (UNSIZED), NW-02 bodies and landing domain, Cameron Hoffman sibling, 5 NW-01 transcripts, product_reveal_position (0 STRICT), GetHookd cls_* fields, pct_active on 6 networks; runtime is evidence, not causation, and a validated market desire is not a validated product claim; CONFIDENCE: control SUPPORTED on 1 ABOVE-FLOOR network (2 networks incl. UNSIZED), longest ad 540 days; primary desire M because VD-02 is sold by the only ABOVE-FLOOR network (EDUCATION, same desire) with 9 ads ≥45d and by a managed-store network at 119d, but no same-product DFY network is sized; this ranking is a research hypothesis — paid testing decides.

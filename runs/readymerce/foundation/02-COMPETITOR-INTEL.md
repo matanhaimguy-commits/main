@@ -320,9 +320,9 @@ Ranked in code by: networks carrying the same Big Idea → days_active → activ
 
 **NW-02** — 3 IM
 
-- **IM-15** · ad 2157168075190848 · active · 0.1d · BET · perf NULL — searched · used NULL — · reuse Y [ · format UNKNOWN — searched · bucket **BORDERLINE** · CO-09 · hook: "I Didn’t Have a Cape. Just a Laptop and a Family to Fight For!" · awareness Problem · funnel UNKNOWN — searched · avatar: father/parent providing for family via a laptop-run business, no prior (TITLE-BODY + PAGE-NAME) · cp CP-01,CP-02 · pb PB-02,PB-07 · COMPETITOR-CLAIMED
-- **IM-16** · ad 1658080129273784 · active · 0.1d · BET · perf NULL — searched · used NULL — · reuse Y [ · format UNKNOWN — searched · bucket **BORDERLINE** · CO-09 · hook: "I Didn’t Have a Cape. Just a Laptop and a Family to Fight For!" · awareness Problem · funnel UNKNOWN — searched · avatar: father/parent providing for family via a laptop-run business, no prior (TITLE-BODY + PAGE-NAME) · cp CP-01,CP-02 · pb PB-02,PB-07 · COMPETITOR-CLAIMED
-- **IM-17** · ad 2771287676600895 · active · 0.0d · BET · perf NULL — searched · used NULL — · reuse Y [ · format UNKNOWN — searched · bucket **BORDERLINE** · CO-09 · hook: "I Didn’t Have a Cape. Just a Laptop and a Family to Fight For!" · awareness Problem · funnel UNKNOWN — searched · avatar: father/parent providing for family via a laptop-run business, no prior (TITLE-BODY + PAGE-NAME) · cp CP-01,CP-02 · pb PB-02,PB-07 · COMPETITOR-CLAIMED
+- **IM-15** · ad 2157168075190848 · active · 0.1d · BET · perf NULL — searched · used NULL — · reuse Y [ · format UNKNOWN — searched · bucket **BORDERLINE** · CO-09 · hook: "I Didn’t Have a Cape. Just a Laptop and a Family to Fight For!" · awareness UNKNOWN (ad-level; site-level Problem) · funnel UNKNOWN — searched · avatar: father/parent providing for family via a laptop-run business, no prior (TITLE-BODY + PAGE-NAME) · cp CP-01,CP-02 · pb PB-02,PB-07 · COMPETITOR-CLAIMED
+- **IM-16** · ad 1658080129273784 · active · 0.1d · BET · perf NULL — searched · used NULL — · reuse Y [ · format UNKNOWN — searched · bucket **BORDERLINE** · CO-09 · hook: "I Didn’t Have a Cape. Just a Laptop and a Family to Fight For!" · awareness UNKNOWN (ad-level; site-level Problem) · funnel UNKNOWN — searched · avatar: father/parent providing for family via a laptop-run business, no prior (TITLE-BODY + PAGE-NAME) · cp CP-01,CP-02 · pb PB-02,PB-07 · COMPETITOR-CLAIMED
+- **IM-17** · ad 2771287676600895 · active · 0.0d · BET · perf NULL — searched · used NULL — · reuse Y [ · format UNKNOWN — searched · bucket **BORDERLINE** · CO-09 · hook: "I Didn’t Have a Cape. Just a Laptop and a Family to Fight For!" · awareness UNKNOWN (ad-level; site-level Problem) · funnel UNKNOWN — searched · avatar: father/parent providing for family via a laptop-run business, no prior (TITLE-BODY + PAGE-NAME) · cp CP-01,CP-02 · pb PB-02,PB-07 · COMPETITOR-CLAIMED
 
 **NW-03** — 5 IM
 
@@ -334,15 +334,15 @@ Ranked in code by: networks carrying the same Big Idea → days_active → activ
 
 **NW-04** — 5 IM
 
-- **IM-23** · ad 74657770 · inactive · 87d · PROVEN · perf NULL · used 2 · reuse Y · format video · bucket **NON-STORY** · CO-14 · hook: "STOP buying courses! I'll design you a beautiful store" · awareness UNKNOWN · funnel NULL · avatar: course-burned aspiring seller, no store yet (TITLE-BODY) · cp CP-03,CP-05 · pb PB-01,PB-03,PB-05 · COMPETITOR-CLAIMED
-- **IM-24** · ad 59411595 · inactive · 78d · PROVEN · perf NULL · used 1 · reuse Y · format video · bucket **NON-STORY** · CO-14 · hook: "NO compres mas cursos. Yo te hago una tienda online hermosa" · awareness UNKNOWN · funnel NULL · avatar: Spanish-speaking aspiring online seller (LANDING-SLUG+TITLE-BODY) · cp CP-03,CP-05 · pb PB-01,PB-05 · COMPETITOR-CLAIMED
-- **IM-25** · ad 59618906 · inactive · 77d · PROVEN · perf NULL · used 1 · reuse N · format image · bucket **NON-STORY** · CO-15 · hook: "People are stealing your money. And it's legal." · awareness UNKNOWN · funnel NULL · avatar: frustrated buyer wanting a second income stream (TITLE-BODY) · cp CP-01,CP-02 · pb PB-01,PB-02 · COMPETITOR-CLAIMED
-- **IM-26** · ad 150503331 · active · 35d · LIKELY · perf NULL · used 1 · reuse Y · format video · bucket **NON-STORY** · CO-14 · hook: "STOP buying courses! I'll design you a beautiful store" · awareness UNKNOWN · funnel NULL · avatar: course-burned aspiring seller, no store yet (TITLE-BODY) · cp CP-03,CP-05 · pb PB-01,PB-03,PB-05 · COMPETITOR-CLAIMED
-- **IM-27** · ad 169243242 · active · 24d · LIKELY · perf NULL · used 2 · reuse Y · format video · bucket **NON-STORY** · CO-16 · hook: "77,254+ people have already claimed their online store" · awareness UNKNOWN · funnel NULL · avatar: chronic procrastinator on starting a business (TITLE-BODY) · cp CP-01,CP-05 · pb PB-01,PB-02,PB-05 · COMPETITOR-CLAIMED
+- **IM-23** · ad 74657770 · inactive · 87d · PROVEN · perf NULL · used 2 · reuse Y · format video · bucket **NON-STORY** · CO-14 · hook: "STOP buying courses! I'll design you a beautiful store" · awareness Solution · funnel direct offer/PDP (legacy, pre-dates quiz · avatar: course-burned aspiring seller, no store yet (TITLE-BODY) · cp CP-03,CP-05 · pb PB-01,PB-03,PB-05 · COMPETITOR-CLAIMED
+- **IM-24** · ad 59411595 · inactive · 78d · PROVEN · perf NULL · used 1 · reuse Y · format video · bucket **NON-STORY** · CO-14 · hook: "NO compres mas cursos. Yo te hago una tienda online hermosa" · awareness Solution · funnel direct offer/PDP · avatar: Spanish-speaking aspiring online seller (LANDING-SLUG+TITLE-BODY) · cp CP-03,CP-05 · pb PB-01,PB-05 · COMPETITOR-CLAIMED
+- **IM-25** · ad 59618906 · inactive · 77d · PROVEN · perf NULL · used 1 · reuse N · format image · bucket **NON-STORY** · CO-15 · hook: "People are stealing your money. And it's legal." · awareness Unaware · funnel direct offer/PDP · avatar: frustrated buyer wanting a second income stream (TITLE-BODY) · cp CP-01,CP-02 · pb PB-01,PB-02 · COMPETITOR-CLAIMED
+- **IM-26** · ad 150503331 · active · 35d · LIKELY · perf NULL · used 1 · reuse Y · format video · bucket **NON-STORY** · CO-14 · hook: "STOP buying courses! I'll design you a beautiful store" · awareness Solution · funnel MSL->Quiz · avatar: course-burned aspiring seller, no store yet (TITLE-BODY) · cp CP-03,CP-05 · pb PB-01,PB-03,PB-05 · COMPETITOR-CLAIMED
+- **IM-27** · ad 169243242 · active · 24d · LIKELY · perf NULL · used 2 · reuse Y · format video · bucket **NON-STORY** · CO-16 · hook: "77,254+ people have already claimed their online store" · awareness Problem · funnel MSL->Quiz · avatar: chronic procrastinator on starting a business (TITLE-BODY) · cp CP-01,CP-05 · pb PB-01,PB-02,PB-05 · COMPETITOR-CLAIMED
 
 **NW-05** — 1 IM
 
-- **IM-28** · ad 1376173990650081 · active · 36d · LIKELY · perf NULL — searched · used NULL — · reuse UNK · format UNKNOWN — searched · bucket **BORDERLINE** · CO-17 · hook: "Launch Your Amazon Store with Confidence" · awareness Problem · funnel UNKNOWN — searched · avatar: wants to launch an Amazon store but lacks confidence (INFERRED from ad (TITLE-BODY (partial — tit) · cp CP-05 · pb PB-01 · COMPETITOR-CLAIMED
+- **IM-28** · ad 1376173990650081 · active · 36d · LIKELY · perf NULL — searched · used NULL — · reuse UNK · format UNKNOWN — searched · bucket **BORDERLINE** · CO-17 · hook: "Launch Your Amazon Store with Confidence" · awareness UNKNOWN (ad-level; site-level Problem) · funnel UNKNOWN — searched · avatar: wants to launch an Amazon store but lacks confidence (INFERRED from ad (TITLE-BODY (partial — tit) · cp CP-05 · pb PB-01 · COMPETITOR-CLAIMED
 
 **NW-06** — 4 IM
 
@@ -363,16 +363,18 @@ NW-07, NW-08: `NONE FOUND — searched` (0 ads; PDP-only evidence in their parti
 
 | persona | NW-01 | NW-02 | NW-03 | NW-04 | NW-05 | NW-06 | NW-07 | NW-08 | independent_networks (AF) | networks (all) | total_serious_ads | label | shadow_if_unsized_counted |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| CP-01 full-time job, wants out | {11, 70d, Problem/Solution/Unaware, PB-02/PB-05/PB-07} | {3, 0.1d, Problem, PB-02/PB-07} | — | {2, 77d, UNKNOWN, PB-01/PB-02/PB-05} | — | {1, 13d, Problem, PB-01/PB-02} | — | — | 1 | 4 | 17 | EARLY SIGNAL (PROVEN ads present; <2 AF networks) | VALIDATED-CONTESTED |
-| CP-02 parent with kids (op. hyp. a) | {1, 48d, Problem, PB-02/PB-07} | {3, 0.1d, Problem, PB-02/PB-07} | {1, 206d, Solution, PB-02/PB-07} | {1, 77d, UNKNOWN, PB-01/PB-02} | — | — | — | — | 1 | 4 | 6 | EARLY SIGNAL (PROVEN ads present; <2 AF networks) | SUPPORTED |
-| CP-03 tried & lost money | {1, 63d, Problem, PB-02/PB-05} | — | — | {3, 87d, UNKNOWN, PB-01/PB-03/PB-05} | — | {1, 47d, Product, PB-01/PB-03} | — | — | 1 | 3 | 5 | EARLY SIGNAL (PROVEN ads present; <2 AF networks) | SUPPORTED |
+| CP-01 full-time job, wants out | {11, 70d, Problem/Solution/Unaware, PB-02/PB-05/PB-07} | {3, 0.1d, Problem, PB-02/PB-07} | — | {2, 77d, Problem/Unaware, PB-01/PB-02/PB-05} | — | {1, 13d, Problem, PB-01/PB-02} | — | — | 1 | 4 | 17 | EARLY SIGNAL (PROVEN ads present; <2 AF networks) | VALIDATED-CONTESTED |
+| CP-02 parent with kids (op. hyp. a) | {1, 48d, Problem, PB-02/PB-07} | {3, 0.1d, Problem, PB-02/PB-07} | {1, 206d, Solution, PB-02/PB-07} | {1, 77d, Unaware, PB-01/PB-02} | — | — | — | — | 1 | 4 | 6 | EARLY SIGNAL (PROVEN ads present; <2 AF networks) | SUPPORTED |
+| CP-03 tried & lost money | {1, 63d, Problem, PB-02/PB-05} | — | — | {3, 87d, Solution, PB-01/PB-03/PB-05} | — | {1, 47d, Product, PB-01/PB-03} | — | — | 1 | 3 | 5 | EARLY SIGNAL (PROVEN ads present; <2 AF networks) | SUPPORTED |
 | CP-04 busy e-com owner | — | — | — | — | — | — | — | — | 0 | 0 | 0 | 0 ads — NOT MAPPED (0 avatar-phrase searches <3) | 0 ads — NOT MAPPED (0 avatar-phrase searches <3) |
-| CP-05 aspiring, skip the build | {3, 60d, Solution/Unaware, PB-02/PB-05} | — | — | {4, 87d, UNKNOWN, PB-01/PB-02/PB-03/PB-05} | {1, 36d, Problem, PB-01} | {4, 271d, Problem/Product, PB-01/PB-02/PB-03/PB-05} | — | — | 1 | 4 | 12 | EARLY SIGNAL (PROVEN ads present; <2 AF networks) | VALIDATED-CONTESTED |
+| CP-05 aspiring, skip the build | {3, 60d, Solution/Unaware, PB-02/PB-05} | — | — | {4, 87d, Problem/Solution, PB-01/PB-02/PB-03/PB-05} | {1, 36d, Problem, PB-01} | {4, 271d, Problem/Product, PB-01/PB-02/PB-03/PB-05} | — | — | 1 | 4 | 12 | EARLY SIGNAL (PROVEN ads present; <2 AF networks) | VALIDATED-CONTESTED |
 | CP-06 near-retirement savings (op. hyp. b) | {1, 24d, Problem, PB-02/PB-07} | — | {5, 540d, Problem/Solution, PB-01/PB-02/PB-05/PB-07} | — | — | — | — | — | 1 | 2 | 6 | EARLY SIGNAL (PROVEN ads present; <2 AF networks) | SUPPORTED |
 | CP-07 spouse can't work (kids) | — | — | — | — | — | — | — | — | 0 | 0 | 0 | 0 ads — NOT MAPPED (1 avatar-phrase searches <3) | 0 ads — NOT MAPPED (1 avatar-phrase searches <3) |
 | AV-cand-01 capital holder ($15–35K liquid) seeking returns | — | — | {5, 540d, Problem/Solution, PB-01/PB-02/PB-05/PB-07} | — | — | — | — | — | 0 | 1 | 5 | EARLY SIGNAL (PROVEN ads present; <2 AF networks) · UNSIZED-only | EARLY SIGNAL (PROVEN ads present; <2 AF networks) · UNSIZED-only |
 | AV-cand-02 young adult / job-averse side-hustle seeker | {5, 70d, Solution/Unaware, PB-02/PB-05/PB-07} | — | — | — | — | — | — | — | 1 | 1 | 5 | EARLY SIGNAL (PROVEN ads present; <2 AF networks) | EARLY SIGNAL (PROVEN ads present; <2 AF networks) |
-| AV-cand-03 Spanish-speaking aspiring seller | — | — | — | {1, 78d, UNKNOWN, PB-01/PB-05} | — | — | — | — | 0 | 1 | 1 | HYPOTHESIS | HYPOTHESIS |
+| AV-cand-03 Spanish-speaking aspiring seller | — | — | — | {1, 78d, Solution, PB-01/PB-05} | — | — | — | — | 0 | 1 | 1 | HYPOTHESIS | HYPOTHESIS |
+
+Note: NW-02 and NW-05 cells show a site-level "Problem" stage (ads are title-only; ad-level stage UNKNOWN).
 
 VACANT / unsearched rows carry their searches: CP-02 phrases "online business for dads", "side income for fathers", "passive income for parents"; CP-06 "retirement online business", "online store for retirees"; CP-07 "passive income for parents" (02-KEYWORDS §11 — every phrase SATURATED by raw count, 0 father/retiree-relevant DFY bodies in rows read). CP-04: 0 avatar-phrase searches → NOT MAPPED. NW-07/NW-08 columns are 0-ad (PDP-level persona claims live in their partial §9).
 
@@ -380,11 +382,11 @@ VACANT / unsearched rows carry their searches: CP-02 phrases "online business fo
 
 | lane | NW-01 | NW-02 | NW-03 | NW-04 | NW-05 | NW-06 | NW-07 | NW-08 | independent_networks (AF) | networks (all) | ads |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| PB-01 | — | — | {1, 119d, Solution} | {5, 87d, UNKNOWN} | {1, 36d, Problem} | {4, 271d, Problem/Product} | — | — | 0 | 4 | 11 |
-| PB-02 | {13, 70d, Problem/Solution/Unaware} | {3, 0.1d, Problem} | {5, 540d, Problem/Solution} | {2, 77d, UNKNOWN} | — | {1, 13d, Problem} | — | — | 1 | 5 | 24 |
-| PB-03 | — | — | — | {2, 87d, UNKNOWN} | — | {1, 47d, Product} | — | — | 0 | 2 | 3 |
+| PB-01 | — | — | {1, 119d, Solution} | {5, 87d, Problem/Solution/Unaware} | {1, 36d, Problem} | {4, 271d, Problem/Product} | — | — | 0 | 4 | 11 |
+| PB-02 | {13, 70d, Problem/Solution/Unaware} | {3, 0.1d, Problem} | {5, 540d, Problem/Solution} | {2, 77d, Problem/Unaware} | — | {1, 13d, Problem} | — | — | 1 | 5 | 24 |
+| PB-03 | — | — | — | {2, 87d, Solution} | — | {1, 47d, Product} | — | — | 0 | 2 | 3 |
 | PB-04 | — | — | — | — | — | — | — | — | 0 | 0 | 0 |
-| PB-05 | {5, 63d, Problem/Solution/Unaware} | — | {1, 119d, Solution} | {4, 87d, UNKNOWN} | — | {2, 271d, Problem} | — | — | 1 | 4 | 12 |
+| PB-05 | {5, 63d, Problem/Solution/Unaware} | — | {1, 119d, Solution} | {4, 87d, Problem/Solution} | — | {2, 271d, Problem} | — | — | 1 | 4 | 12 |
 | PB-06 | — | — | — | — | — | — | — | — | 0 | 0 | 0 |
 | PB-07 | {4, 60d, Problem/Unaware} | {3, 0.1d, Problem} | {5, 540d, Problem/Solution} | — | — | — | — | — | 1 | 3 | 12 |
 
@@ -452,7 +454,7 @@ VACANT / unsearched rows carry their searches: CP-02 phrases "online business fo
 | NW-01 | Free webinar → $27 → $47–97 → $99/mo → $1,995–1,997 → $2,997–3,000 → $4,300 | free webinar → high-ticket coaching (4+ rungs) | CONTRADICTORY (claimed "four figures or refund" vs BBB refund complaints) | none in ads | Y ($99/mo community, [R-PAGE]) | webinar/squeeze 13, comment-DM 1 | FREE webinar |
 | NW-02 | candidate: FREE / $1,495 / $7,500 [D] | free lead magnet → course → coaching [D] | internally conflicting (30-day vs 72-hour) [D] | "30 Winning Products" [D] | Y (Shopify $1/mo pass-through) [D] | unknown 3 | FREE AI store builder [D] |
 | NW-03 | $15K–$30K / $25K–$35K liquid; 70/30 split | single capital-threshold tier + ongoing profit share | 16-month "No Profit No Payment" (operator forgoes its share; not a cash refund) | none | N (profit share) | vsl 5 | NONE |
-| NW-04 | $20 / $97 + Shopify $39/mo after 3×$1 + Zendrop $79/mo | low-ticket entry → upsell tier → disclosed recurring fees | 30-day 100% refund, "no questions asked"; CO-15 "refunded and keep the setup" | none | Y (platform + supplier fees, disclosed) | unknown 5 | $20 pre-built store |
+| NW-04 | $20 / $97 + Shopify $39/mo after 3×$1 + Zendrop $79/mo | low-ticket entry → upsell tier → disclosed recurring fees | 30-day 100% refund, "no questions asked"; CO-15 "refunded and keep the setup" | none | Y (platform + supplier fees, disclosed) | direct PDP 3, quiz 2 | $20 pre-built store |
 | NW-05 | $3K–$8K / yr profit-split tiers | 3-rung annual retainer | refund only if not started (20 days) | none | Y (annual) | unknown 1 | NONE STATED |
 | NW-06 | $0 / $20 advertised → $1/mo×3 + "processing fee of up to $500" | bait-then-upsell (ad price ≠ funnel price) | none in ads; funnel "all sales final" | none | Y (Shopify trial → paid plan) | quiz 4 | free/$20 store |
 | NW-07 | $2,000 (Walmart automation); others UNKNOWN | UNKNOWN | "100% ROI guarantee within 6 months" (conditional) | none | N | 0 ads | NONE STATED |

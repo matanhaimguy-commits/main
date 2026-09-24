@@ -92,3 +92,12 @@ wave W2 · COMPLETE 1 · PARTIAL 0 · RUNNING [03, 07-SOPH] (2 of 8) · QUEUED [
 2026-09-24T21:41:37Z · 07-SOPH · COMPLETE · 20 ads / 5 networks (only 1 ABOVE-FLOOR by traffic, EDUCATION) → EARLY SIGNAL: pooled S4 (MIXED, modal ENLARGED-CLAIM 35%, S4 via stated-cause override), DFY-only S2 (PLURALITY 50%, n=12); PB-01 S2, PB-05 S4, PB-02 S3, PB-07 S3, PB-06 UNSCANNED (no long-runner sells it); incumbent entry AW-1/2/3 = 8/8/8 of 25; Meta: 0 store-builders on "done for you shopify store", parents/retirement keywords held by adjacent income/training offers; EK-01..08 ADVERTISER-ASSUMES · get_top_ads brand_not_spied ×5 → NOT RUN — needs operator yes: start_brand_spy · 0.56 cr
 2026-09-24T21:41:37Z · 07-SOPH · AUDIT-PASS
 wave W2 · COMPLETE 2 · PARTIAL 0 · RUNNING [03] (1 of 8) · QUEUED [] · open HARVEST-## 9 · last checkpoint 2026-09-24T21:41:37Z · credits ≈280.8 · scraper $0.00 · Exa ≈$4.30
+2026-09-24T21:46:17Z · 03 · COMPLETE · 02 merge: 9 partials → NW-01..08 (0 dupes), IM-01..32, CO-01..20; MONEY READ: MARKET PROVES THE MONEY (203/160/85 active) — same-product low-ticket DFY tier PROVISIONAL (32); lanes_nobody_sells PB-04, PB-06 · 03: VD 5 (SUPPORTED 2 / EARLY 3), VA 7, BI 6, MT 6, ST 6 (0 STRICT-STORY ads → HYPOTHESIS), HK 10, CR 6, PR 7, OF 4, EK 7, holes 8; primary desire VD-02 (income that doesn't depend on the job, leverage INFERRED); control VA-02 (marketplace timing, product_fit UNKNOWN); best territory VD-02 × BI-01 × ST-04 (fit YES); price gap: no ad-visible offer at $500; operator hypotheses = narrow holes (HYPOTHESIS) · 0.10 cr · 40 min
+2026-09-24T21:46:17Z · 03 · AUDIT-PASS · 02/03 handoffs parse
+2026-09-24T21:46:17Z · W2 · WAVE-END · wall-clock 21:33→22:15 (42 min vs band 20–40) · COMPLETE 3 · PARTIAL 0 · .partial remaining 0
+2026-09-24T21:46:17Z · 00 · CHECKPOINT · git push + attach 06-VOC-REPORT.md, 03-VALIDATED-MESSAGING.md
+2026-09-24T21:46:17Z · W3 · WAVE-START · agents [07 (MODE: FULL), 08, 10]
+2026-09-24T21:46:17Z · 07 · STARTED · opus · 40 min / 150 calls · pastes 07-SOPH
+2026-09-24T21:46:17Z · 08 · STARTED · opus · 40 min / 150 calls · 07 fields LATE-BOUND
+2026-09-24T21:46:17Z · 10 · STARTED · opus · 40 min / 150 calls · 08.DS-★ LATE-BOUND
+wave W3 · COMPLETE 0 · PARTIAL 0 · RUNNING [07, 08, 10] (3 of 8) · QUEUED [] · open HARVEST-## 9 · last checkpoint 2026-09-24T21:46:17Z · credits ≈283.07 · scraper $0.00 · Exa ≈$4.30
