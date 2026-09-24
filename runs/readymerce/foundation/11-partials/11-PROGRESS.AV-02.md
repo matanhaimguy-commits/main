@@ -18,3 +18,6 @@ RESUME POINT: §11 claims
 RESUME POINT: §13 Warren map
 - 22:43Z §13 WM, §14 EB, §15 timeline+box, §16 ledger written
 RESUME POINT: §17 counters + coverage
+- 22:44Z §17 counters + COVERAGE STATEMENT written; 11-BELIEFS.AV-02.md renamed from .partial; 11-HANDOFF.AV-02.json validated (1865 bytes)
+- tool calls ≈45 of 150 · elapsed ≈16 min of 40 · spend $0 (Exa 0, TranscriptAPI 0) · re-mine NOT ISSUED (no P0 CURRENT: GAP)
+RESUME POINT: DONE — nothing pending for AV-02 (open items are operator actions listed in 11-BELIEFS.AV-02.md §17)

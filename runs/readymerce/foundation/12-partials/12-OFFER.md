@@ -237,3 +237,87 @@ Gift test (§6 rule 6): tied 4/4 · UNTIED — padding: 0.
 - **scarcity_source:** the site's "limited number of stores launched each month" (01 §2 specs, `[R-SNIPPET]`) is a literal capacity limit ONLY if the operator publishes the real monthly number → until then **`NONE — evergreen`**.
 - **urgency_device:** **`NONE — evergreen`** (no announced price rise, no gift deadline). Banned: "If you don't go to the website within this minute, I'm gonna have to hang up and close this opportunity for you forever." (C-0024) — a manufactured constraint.
 
+### NAMED OFFER (object 8)
+
+| part | words | source |
+|---|---|---|
+| [Container] | **The Second-Shot Launch** (T2 — the target tier) | 10 wedge "Your store should get more than one shot." (M-2 staged release + capped tests + early review) |
+| [Result] | **your own store, built in your name — never just sitting there** | "I must have three or four Shopify stores just sitting there" (Q-O-0103, AV-07) · "The store account is in your name and stays in your name" (F-11) · "We build it. We run it. You own it." ([R-TOOL] Meta ad title; C-0004 50/155) |
+| [Timeframe] | **built in 7–10 days, then 90 days of tested rounds** | build: [R-OWNED] 01 T-09 "7 up to 10 days" + C-0022 (~12+ calls) + site "within a matter of days" [R-SNIPPET]; 90 days = the container's own length (a deliverable). The site states NO income timeframe (PT-09) → none is named. |
+| entry name (T1) | **Start with the $500 Build** | "I'll start with the 500, and then I'll hopefully graduate to the next level" (Q-O-0029) |
+
+**NAMED OFFER:** *"The Second-Shot Launch — your own store, built in your name in 7–10 days, then 90 days of tested rounds so it's never just sitting there."* (entry: *"Start with the $500 Build"*). Build-time figure `OPERATOR-VALIDATES` (owned calls, not the site).
+
+### OFFER-IN-THE-AD (object 9)
+
+**offer_beat (38 words, ≤40 ✓):** "Start with the $500 Build: your store in your name in 7–10 days, first products tested on a budget you approve, every cost in writing first. Not live and tested in 60 days? Every penny back. No countdown." — tier: T1 entry ($500 Build) · gift: GIFT-01 (every cost in writing) · guarantee: object 6 · urgency source: `NONE — evergreen` ("No countdown"). Story P.S. variant for T2: "Or take the Second-Shot Launch: 7 tested rounds over 90 days, missed rounds added free." `[AUTHORED, CHECK THIS]`
+
+### BUMP / OTO1 / OTO2 (object 10) — the seven lenses
+
+| lens | candidate | role | evidence |
+|---|---|---|---|
+| usage journey — before | old-store second opinion | used as GIFT-04 (T2+), not sold | AV-01 / AV-07 dead or idle stores |
+| usage journey — during | +2 products in your first wave | **BUMP** | FS-01 ("I picked the baby store. It just didn't work" Q-O-0082 — one guess) · PB-05 current_spend_hypothesis (product-research tools / guru 'winning product' lists) |
+| usage journey — after | Keep-Running plan $550/mo | subscription overlay (§5), NOT PRESELECTED | PT-08 |
+| adjacent pain | US-warehouse supplier shortlist ($99, INFERRED) | reserve (not in stack) | FS-06 ("got sick of misdeliveries and errors in pricing" Q-F-0034); NW-04 sells "Fast Shipping Suppliers" $49 (listing_read, COMPETITOR-CLAIMED) |
+| completion (full M-2 protocol) | the remaining rounds after the build | **OTO1** | FS-02 ("they said they would build a store, but i am building the store???" Q-F-0004) · current_spend_hypothesis "$500 entry / $2,000 full launch" ([R-OWNED] T-06) |
+| consumable attach | ad-test budget top-ups / portal credits | NOT USED — ad spend is the buyer's (PT-05); C8 portal credits UNKNOWN (PT-19) | — |
+| premium upgrade | T3 Full Run / priority slot | in the ladder (T3) | C9 SEED |
+| multi-pack / household / gift | second storefront on the other platform | **OTO2** | platform question: C-0005 (20/155); "I've not been able to figure out like, what's gonna be the best platform" (Q-O-0049) |
+| cross-tribe identity | list the owner's existing brand products (AV-07) | reserve (AV-07 OV candidate) | AV-07 need_stack "tied to her existing products"; Q-O-0043 |
+
+| role | lens | what | why_for_this_avatar | price | ratio check | cogs | contribution | listing_read / INFERRED |
+|---|---|---|---|---|---|---|---|---|
+| BUMP | usage journey (during) + completion | +2 products researched and listed in your first wave (5 instead of 3 get a first test) | AV-01 / AV-03: the first store died on one guess — more first-wave shots at the moment of highest hope | $149 | 0.30 of hero $500 (band 0.2–0.4) ✓ | $42.00 | $95.23 | listing_read — NW-04 product-count upsell "the $97 option, your custom store will come with 50 products" [R-PAGE via Exa, COMPETITOR-CLAIMED]; price INFERRED — OPERATOR-VALIDATES |
+| OTO1 | completion (full M-2 protocol) | Second-Shot Management upgrade: T1 → T2 (6 more rounds over 90 days + account manager + GIFT-03/04) | AV-02: "they said they would build a store, but i am building the store???" (Q-F-0004) → LOCK-B "We stay after launch day."; AV-07: "I'll start with the 500, and then I'll hopefully graduate to the next level" (Q-O-0029) | $1,500 | 3.00 × AOV $500 (band 1.0–3.0) ✓ | $643.80 | $737.70 | listing_read — Readymerce's own rep ladder (C-0011 2/155, C-0016 'graduated' 2/155 [R-OWNED]) + NW-08 '$2,997/mo' turnkey [COMPETITOR-CLAIMED]; price INFERRED — OPERATOR-VALIDATES |
+| OTO2 | multi-pack (second storefront) | the products that pass review also listed on the other platform (Etsy ↔ Shopify), same brand | AV-03 / AV-07 platform doubt (Q-O-0049): a second shelf for a tested product, not a new guess | $600 | 0.40 of OTO1 $1,500 (band 0.3–0.6) ✓ | $84.00 | $468.60 | listing_read — marketplaces sold per channel by NW-05 ($3k–$8k/yr each) and NW-07 ($2,000 Walmart) [COMPETITOR-CLAIMED]; price INFERRED — OPERATOR-VALIDATES |
+
+**Conflict (resolve before any complement ships):** under the current policy (PT-15) buying the bump, OTO1 or OTO2 VOIDS the buyer's refund — the stack depends on the object-6 redesign; if the operator keeps PT-15, complements are offered only after the refund window closes and the bump leaves checkout.
+
+### OFFER TEST VARIANTS (OV-##) (object 11) — runs_after: a winner adset exists · judged_on: profit_per_session = CVR × AOV × margin
+
+| ov_id | variant | evidence | AOV | margin | runs_after | judged_on | CVR it must beat (control T1 at 2.0%: pps = 2.0% × $500 × 42.7% = $4.27) | note |
+|---|---|---|---|---|---|---|---|---|
+| OV-01 | Split entry: $250 at the fit call + $250 when the store is live (lower-risk entry vs the $500 anchor; BNPL analogue) | OBJ-01 (6/13 lost calls) · "I don't know that I would have the full 500 right away" (Q-O-0098) · "It's not easy to get $500, especially with other bills" (Q-O-0083) · C-0006 credit check 15/155 · a $250 deposit already occurs (01 R-01) | $500 | 38.6% | winner adset exists | profit_per_session | **2.21%** (= 2.0% × 213.50 ÷ 193.20; 1.11× control CVR) | default on the 2nd half ASSUMED 8% × $250 + $0.30 extra fee |
+| OV-02 | "Second Shot" (ladder depth, AV-01 / AV-07 adsets): $900 = build + 2 extra rounds (3 total) + GIFT-04 moved down; $300 a round (between T1 $500 and T2 $285.71 ✓); singles-math $1,500 → 40% saving ✓ | AV-01 "the product did not sell, so I had to close the store" (Q-O-0108) · AV-07 stores "just sitting there" (Q-O-0103) · "I would not pay $2,500 to anybody unless I could see some results" (Q-O-0006) | $900 | 46.0% | winner adset exists | profit_per_session | **1.03%** (= 2.0% × 213.50 ÷ 413.90; 0.52× control CVR) | cogs 243 + 2×78 + 12 + 4 = $415 |
+
+### SCREENSHOT TEST (object 12)
+
+| criterion | in the box | pass |
+|---|---|---|
+| a visible contrast ≥30% in the box | T2 "Save $1,500" (42.9%) · T3 "Save $3,500" (53.8%) | PASS |
+| free units / gift visible | 7 rounds vs 1 · GIFT-03 round make-good · GIFT-04 old-store audit | PASS |
+| a guarantee a stranger would repeat | object-6 wording (60 days, keep what we built) | PASS |
+| nothing on screen the reader cannot check | singles-math basis printed under the box ("each round priced as a $500 package") — borderline; no client proof on screen (PT-07) | PASS |
+
+**Would a deal-hunter screenshot this buy box? PASS** — as designed (7 rounds for $2,000 vs $500 a round, plus a 60-day keep-what-we-built guarantee). Under the CURRENT instrument (7 days from payment, void on acceptance/add-on) the same box → **FAIL** (the guarantee is what a burned buyer screenshots). PASS is conditional on object 6 being adopted (`OPERATOR-VALIDATES`).
+
+### STRENGTH LABEL (§6 rule 1)
+
+| check | result |
+|---|---|
+| screenshot test | PASS (as designed) |
+| strength floor | PASS (mid 42.9% ≥30 · top 53.8% ≥45) |
+| validity | PASS 4/4 |
+| margin survives every tier | FAIL — T1 contribution $213.50 is −$4.00 vs breakeven $217.50 after gift COGS, and −$186.06 vs the locked CPA $399.56 |
+| real urgency or honest NONE — evergreen | PASS (NONE — evergreen) |
+
+**Offer strength: ACCEPTABLE** (1 miss). Bonuses-before-discounts (§6 rule 3): headline = rounds + guarantee → PASS. Fix for the miss (recommendation, not applied — price GIVEN): raise T1 toward 5× COGS or cut T1 labour; or hold T1 CPA ≤ $213.50 (≈ $10.17 per booked call).
+
+`OFFER: gifts 4 (tied 4), guarantee [performance (deliverables)/60 days], urgency NONE — evergreen, complements 3 read / 3 inferred (pattern read in the category; every price INFERRED — OPERATOR-VALIDATES), OV 2, screenshot PASS (conditional), label ACCEPTABLE`
+
+---
+
+## COVERAGE STATEMENT (MODE: OFFER — scoped)
+
+- **Scope run:** §4-A objects 1–12, method steps 1–6. Not run here (ASSEMBLE): 11 merge, triggers, cells, CS-1, rulebook, playbook, writer contract, `handoff.json`.
+- **Tools:** GetHookd `aggregate_ads` ×4 on join.ecomdegree.com (0.04 cr; 282.98 → 282.94; offer_type / MBG / price_point = 0 analyzed ads → `NOT MAPPED`; page_type landing_page 226) · `get_user_profile` ×2 (free; survey ignored) · `get_shop` NOT RUN (skipped per brief) · Exa 0 · Apify 0 · $0.00 cash. Every economics line computed in python with its formula printed.
+- **LATE-BOUND:** `11.OBJ-##`, `11.P-##`, `11.GO-AV#` (no `11-HANDOFF.AV-##.json` on disk at 22:36Z → 06 OBJ-## and 03 PR-## + PT-## used) · `13.*` not read (OFFER mode).
+- **OPERATOR-VALIDATES:** T2 $2,000 / T3 $3,000 prices and contents; cycles per tier (2/month cadence); the Keep-Running plan $550/mo and its cancel terms; bump $149 / OTO1 $1,500 / OTO2 $600; the object-6 guarantee (changes PT-15 — legal review); the 7–10-day build figure (owned calls, not the site); the singles-math basis (one round = one $500 package); the booked-call proxy lock.
+- **OPERATOR-PASTE:** the verbatim refund paragraph of readymerce.com/refund-policy + terms-of-service (only the fragment "any additional service, add-on, upsell, or upgrade" is on file verbatim).
+- **INFERRED / ASSUMED numbers:** landed COGS $243 (19 h × $12 + $15; band $167–$395) · evidence take-rate mix 90/8/2 (default 20/55/25 printed as upside) · attach rates bump 20% / OTO1 10% of T1 / OTO2 5% · refund reserve 5% · close rate 4.76% [R-OWNED] SAMPLE(84) · CVR 2.0% default (a page-level purchase CVR for this service is UNKNOWN).
+- **Kept out:** "$10,000 in 6 months" (C-0020), "91 percent ... success" (01 T-04), the one-minute hang-up close (C-0024), actor-portrayed testimonials.
+- **Weakest link:** likelihood — no verified client proof (results page renders empty PT-07; trust tools 0/100 and 25% PT-16) and a T1 that sits at breakeven; **cost to close:** consented client reports from the 2 PAID + 2 DEPOSIT buyers (operator, $0) + the guarantee redesign (operator + legal) + a first paid read on cost per booked call (≤$19.03 target; ≤$10.36 while the front end sells only T1).
+- No ROAS or profit is read from a spy score or an ad's runtime; paid testing decides.
+
+Offer: ACCEPTABLE, benchmark networks 8 (above-floor 1 → BAND: NULL), anchor COGS-multiple (band NULL; the GIVEN $500 = 2.06× COGS; singles-math = rounds × $500), price given ($500; upper tiers INFERRED), tiers valid Y, subscription not preselected, urgency NONE — evergreen. Economics: target CPA $399.56, breakeven $217.50, CM/order $399.56, AOV ratio 1.73 ACCEPTABLE, testable concepts 0 (booked-call proxy 18), max adsets 0 (proxy 5).
