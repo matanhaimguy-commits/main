@@ -105,3 +105,6 @@ wave W3 · COMPLETE 0 · PARTIAL 0 · RUNNING [07, 08, 10] (3 of 8) · QUEUED []
 2026-09-24T22:05:52Z · 08 · AUDIT-PASS
 2026-09-24T22:05:52Z · 08 · HARVEST-ORDER-ISSUED · HARVEST-10..13
 wave W3 · COMPLETE 1 · PARTIAL 0 · RUNNING [07, 10] (2 of 8) · QUEUED [] · open HARVEST-## 13 · last checkpoint 2026-09-24T22:05:52Z · credits ≈283.0 · scraper $0.00 · Exa ≈$4.30
+2026-09-24T22:07:36Z · 10 · COMPLETE · no shared mechanism; LOCK-A (PB-06 + PB-05) MK-01 "The One-Shot Launch" → staged-release loop (PT-04), 12/12, checklist 18/20, BUILD-READY (0 of 8 networks state the cause); LOCK-B (PB-01) MK-06 "The Handover Cliff" → "We build it. We run it. You own it.", FRESHEN (NW-03 540-d ad); Top-5 also MK-16/08/07; FS 4 of 8 explained, 4 ELIMINATION: INCOMPLETE; siblings uncovered PB-07; routes 6 (best R-1 "The Second Shot"); NI findings 5 (fetched, dated); CS 31 rows; AF 13; keepers 9 · GetHookd search_ads text queries returned 0 (blocked) → collision NOT MAPPED on 6 axes · Exa $0.30 · 20 min · LATE-BOUND 08.DS-★ (now on disk for 11)
+2026-09-24T22:07:36Z · 10 · AUDIT-PASS
+wave W3 · COMPLETE 2 · PARTIAL 0 · RUNNING [07] (1 of 8) · QUEUED [] · open HARVEST-## 13 · last checkpoint 2026-09-24T22:07:36Z · credits ≈283.07 · scraper $0.00 · Exa ≈$4.60

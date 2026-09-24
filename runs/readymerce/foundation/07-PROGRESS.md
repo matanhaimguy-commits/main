@@ -10,3 +10,8 @@ RESUME POINT: §8 SOPH pasted; next = 8b skepticism corroborators, §9 populatio
 RESUME POINT: §10 done; next = §11 stage ledger, §12 EM-##, §13 IS-##
 - 22:03Z §11 ledger, §12 EM-01..20, §13 IS-01..06, §14 copy_starting_point x7 + instruction + SOPH EK paste + merged EK-01..08 with ek_stamps
 RESUME POINT: §14 done; next = §15 soph_gap_check + lead_type_map, §16 snapshot, §17 lints, §18 coverage + HARVEST-10..
+- 22:06Z §15 gap check + lead map, §16 snapshot + entry_recommendation, §17 lints 5/5 PASS, §18 HARVEST-10..13 + COVERAGE STATEMENT written
+RESUME POINT: coverage written; next = rename .partial, copy 07-SOPH-20ADS.csv, write + validate 07-HANDOFF.json
+- 22:07Z renamed 07-AWARENESS-SOPHISTICATION.md; 07-SOPH-20ADS.csv copied (22 rows, byte-identical to the partial); 07-HANDOFF.json 2013 B, valid JSON
+- tool use: 0 GetHookd credits, 0 Meta, 0 Exa, 0 Apify in FULL (SOPH half pasted); code only
+RESUME POINT: DONE — all FULL outputs on disk; next owner = 06 RE-MINE (HARVEST-10..13), 08/09/10/12 read 07-HANDOFF.json
