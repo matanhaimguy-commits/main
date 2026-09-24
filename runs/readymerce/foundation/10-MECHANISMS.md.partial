@@ -1,0 +1,751 @@
+# 10 — MECHANISM ENGINE · Readymerce · US (ASSUMED) · agent_id 10 · wave W3 · 2026-09-24
+
+> Direct evidence `[D]`-separated from interpretation; `basis` is a column, never a filter. MARKET_VOC quotes (Q-Y/Q-F/Q-B/Q-Q) and OWNED_PROOF quotes (Q-O = the operator's sales-call prospects, `[R-OWNED]`) are always printed with their prefix so the two ledgers stay distinguishable; Q-E rows are PRODUCT_TRUTH (competitor-customer reviews, `[R-PAGE via Exa]`).
+
+## §1 · LOCK CARD
+
+**Inputs read (HANDOFF first, then pointed sections only):** 01-HANDOFF.json + 01-partials/01-HANDOFF.DEEP.json → 01-PRODUCT-TRUTH.md §2 (components C1–C11), §5 (PB-##), §6 (CP-##), §7, §TRUTH CARD T3 (PT-01..PT-20), T4 (four-layer), T5 (F-01..F-16), T6 (DF-01..03 + mechanism_capacity), T7 (PB refresh) · 02-HANDOFF.json → 02-COMPETITOR-INTEL.md §4 (competitor_components[] NW-01..08), §12 (incumbent mechanism map + stated_cause_counts), §13, §15 (LK-01..16) · 03-HANDOFF.json → 03-VALIDATED-MESSAGING.md §5 (VA-01..07), §7 (MT-01..06), §8 (ST-01..06), §13 (EK-01..07), §14, §16 (territory_map), §17 · 06-HANDOFF.json → 06-VOC-REPORT.md §3 (FS-01..06), §5 (MC-01..07 + belief_map + BR-01..07), §7 (SK-01..06), §11 (product_map), §12 (worldview_map), §15 (deeper-hope quotes) + 06-VOC_MASTER.csv `worked_mentions` (39 rows carry TRIED-HELPED / likes / outcome_reported; 7 name what worked) · 07-partials/07-HANDOFF.SOPH.json → 07-SOPH.md §14 (SOPH EK rows, cited as `SOPH-EK-##` to keep them apart from 03's EK-##) + 07-SOPH-20ADS.csv (22 rows, 20 counted).
+
+**LATE-BOUND:** `LATE-BOUND: 08.DS-★` (08-HANDOFF.json absent at start) — every chain closes on 06's deeper-hope quote **Q-O-0105** "If I can turn this side hustle into a main job where I work anywhere in the world and don't have to worry about anything, that's ideal." `[R-OWNED]` (selection rule, ASSUMED: first 06 §15 deeper-hope quote that names an outcome rather than a pain and matches 03's primary desire) and **03 VD-02** "an income that doesn't depend on my job". MARKET twin (kept separate): Q-Y-0007 "fully Outsource my whole Drop Shipping Store … to see if I can sit back print profit and relax" `[R-PAGE]`. Also LATE-BOUND: `08.MD-★`, `08.lf8_routes[]`, `08.desire_distinctions` (AF-## MD pairing uses 03 VD-## as proxy) · `07-SOPH.PB-06.stage` (UNSCANNED, n=0 → PB-06 gets all three lanes).
+
+**Product components given?** NO operator component list (`[COMPONENTS / HOW IT WORKS]` blank). Our PDP WAS read by 01-DEEP (9 pages, EXACT PRODUCT MATERIAL `[R-PAGE via Exa]`) → 14 rows are `given` from F-01..F-13 / PT-04 / PT-14. `components: operator none given — sheet built from given(PDP) 14 · competitor-claimed 6 · category-typical 5 · voc-worked 3 · inferred 3`.
+
+**Lead problems:** PB-01 (can't/won't build and set up the store — SUPPORTED) · PB-06 (built/tried a store, never made sales — SUPPORTED) · PB-05 (don't know what to sell — SUPPORTED). Siblings: PB-02 job dependence · PB-03 scam/prior loss · PB-04 no time to run it · PB-07 idle savings/asset (all HYPOTHESIS). Lead CPs for routes: CP-05 (aspiring, wants to skip the build), CP-03 (tried and lost money), CP-01 (job-holder).
+
+**Advantage inventory:** mechanism_capacity = SPLIT — offer/guarantee structure YES; service delivery NO/commodity (01 T6). DF-01..03 are price/guarantee-shape differences. BUT the PDP's own process text (PT-04, F-03..F-07) names four delivery steps no competitor card in 02 §4 names: **"staged (not single-drop) product release"**, **"controlled ad testing with budgets you approve"**, **"early performance review"**, **"post-launch corrections"** `[R-PAGE via Exa]` — commodity by function, uncommon by *announcement* (the unspoken-mechanism lead, §3).
+
+**Sophistication + lane (07-SOPH):**
+
+| PB | stage | confirmation | modal lever | one-stage-ahead | lane (stage rule) | 20-ad evidence |
+|---|---|---|---|---|---|---|
+| PB-01 | S2 | CONFIRMED | ENLARGED-CLAIM | MECHANISM | **Claim + Name-it mechanism** (Stage 1–2 → claim; mechanism optional, a Name-it pair still locked) | n=8, reveal median 6% |
+| PB-06 | UNSCANNED | — | — | — | **LATE-BOUND → all three lanes** (New Mechanism + New Information + New Identity) | n=0 |
+| PB-05 | S4 | PLURALITY | ENLARGED-CLAIM | NEW INFO / IDENTIFICATION / NEW AUDIENCE | **New Mechanism made easier/quicker/surer + New Information** (stacked) | n=8, reveal median 6% |
+| PB-02 (sib) | S3 | MIXED | MECHANISM | EFS | New Mechanism (HOW) | n=15 |
+| PB-07 (sib) | S3 | MIXED | CLAIM | EFS | New Mechanism (HOW) | n=8 |
+| DFY-only tier | S2 | PLURALITY | ENLARGED-CLAIM | MECHANISM | claim + named mechanism | n=12 |
+| POOLED | S4 | MIXED (override) | ENLARGED-CLAIM | NEW INFO / IDENTIFICATION / NEW AUDIENCE | mechanism + New Information | n=20 |
+
+20-ad lever count (07-SOPH-20ADS.csv, computed): ENLARGED-CLAIM 7 · MECHANISM 5 · CLAIM 4 · EFS 3 · IDENTITY 1 (of 20 counted). 03 §14 counts on its own 20: mechanism 12 · plain claim 5 · identity/enemy 3.
+
+**`lanes_by_stage`** (step 11 picks per avatar from 09's local stage): `{"1-2": "claim first + Name-it pair (MK-06 'we stay after launch day'; own claim 'We build it. We run it. You own it.')", "3": "New Mechanism — HOW it works differently (MK-01 staged launch: release in stages → capped tests → early review → replace)", "4": "the mechanism made easier/quicker/surer (Stage-4 axes: surer, overcomes old limitation) + New Information NI-01..05", "5": "New Identity — the owner-not-operator brief (§16b); no PB reads S5 today"}`.
+
+**Tool state (TOOL CARD ADDENDUM, binding):** GetHookd `search_ads` → BLOCKED-ON-TOOL this run (text query returned `total 0` on 4 variants — "winning product" geo US status active; "test products store"; "winning product" no geo; "winning product" no status — a true zero is impossible for that query; 0 credits charged; balance 283.07 before and after) · Meta Ad Library WORKING but keyword matching is loose (quoted phrases inflate, e.g. "you own the store" → 3,954,921) → phrase-level axes print NOT MAPPED · Exa agent WORKING (3 runs, $0.30) · WebSearch WORKING (2 queries, `[R-SNIPPET]`) · Apify NOT USED (brief: no Apify; `apify/google-search-scraper` cause-language recipe → `NOT RUN — no tool`; WebSearch snippets used instead) · WebFetch not used (egress 403 per addendum).
+
+`CS 0 · ML 0 · MK 0 · ranked 0 · top-5 — · collision — · routes 0 · checklist — · locked 0 · AF 0 · credits_used 0.00`
+
+## §2 · COMPONENT SOURCES (CS-##)
+
+Object-0 ladder walked in order: (1) given — our PDP as read by 01-DEEP (9 pages, EXACT PRODUCT MATERIAL); (2) 02.competitor_components[] (8 NW cards, reused, not re-fetched); (3) supplier listing — `N/A — service, no supplier listing exists` (01 §2); (4) category-typical — Exa run 1 opened 8 other US DFY store-build/Etsy-setup provider pages (none of the 02 networks); (5) 06 worked_mentions (Q-## tagged TRIED-HELPED / likes naming what worked).
+
+| cs_id | component | basis | source (URL · Q-## · NW-##) | what_it_does | on_our_listing? |
+|---|---|---|---|---|---|
+| CS-01 | Niche / demand / seasonality / competition research — 'Category and product direction chosen from the data, not guesswork' | given | readymerce.com/what-you-get (F-03, PT-04) | picks the product direction from demand, seasonality and competition data before anything is built | YES |
+| CS-02 | Supplier and production feasibility review | given | readymerce.com/what-you-get (F-04) | checks that a supplier can make/ship the product before it is listed | YES |
+| CS-03 | Platform choice — Shopify OR Etsy — agreed on the fit call | given | readymerce.com/what-you-get (F-06) | routes the product to a storefront (own site) or a marketplace with built-in search | YES |
+| CS-04 | Store opened in the buyer's name, 'configured correctly'; account 'stays in your name'; 'Payouts go to your bank account' | given | readymerce.com/what-you-get (F-01, F-11) | the owner holds the account, keys and payouts from day one — nothing to transfer later | YES |
+| CS-05 | Branding — brand name direction, logo, banner, store structure | given | readymerce.com/what-you-get (F-02) | makes the new store look like a shop rather than a template | YES |
+| CS-06 | Product listings (titles, tags, descriptions, images, variants) + shipping-profile setup | given | readymerce.com/what-you-get (PT-04) | writes the listing text that marketplace search and shoppers read; sets shipping rules | YES |
+| CS-07 | Staged product release — 'staged product release rather than one large drop' | given | readymerce.com/what-you-get (PT-04, PT-08) | puts products live in waves instead of all at once, so each wave can be judged | YES |
+| CS-08 | Controlled ad testing 'with budgets you approve' + 'ad monitoring and adjustments, plus regular reporting' | given | readymerce.com/what-you-get (F-05) | tests each product with a capped, owner-approved ad budget and reports the result | YES |
+| CS-09 | Early performance review + post-launch corrections | given | readymerce.com/what-you-get (PT-04) | reads the first results after launch and fixes or swaps what is not working | YES |
+| CS-10 | Ongoing listing optimisation + new product rollout; 'level of ongoing management … agreed on the fit call' | given | readymerce.com/what-you-get (F-07, PT-08) | keeps a team working the store after it is live; scope varies per client | YES |
+| CS-11 | 7-day money-back on the $500 fee — voids on delivery acceptance, any add-on, or further work | given | readymerce.com/refund-policy + /terms-of-service (F-10, PT-15) | bounded cash refund on the build fee only | YES |
+| CS-12 | Published entry price $500 one-time + stated exclusions (product costs, platform fees, ad spend; no income guarantee) | given | readymerce.com/pricing + /what-you-get (F-12, PT-05) | states the first price and what is not included | YES |
+| CS-13 | Deliverable is a live store — 'not a course, a template pack' | given | readymerce.com/what-you-get (PT-14) | hands over a working asset instead of training | YES |
+| CS-14 | Fit call / 1-on-1 strategy session that scopes platform, product direction and management level | given | readymerce.com/what-you-get (F-06); SEED C6 [R-SNIPPET] | makes the chain of launch decisions with the owner in one conversation, in order | YES |
+| CS-15 | 'Three vetted products' listed per store (exact count) | inferred | SEED [R-SNIPPET] package summary + [R-OWNED] T-05; PT-19: count NOT on any DEEP-read PDP page | a few pre-checked products instead of a bulk catalogue | NOT STATED |
+| CS-16 | Client portal — balances, credits/top-ups, monthly trend report, personal roadmap | inferred | SEED [R-OWNED] T-04, T-06 only (F-08 UNKNOWN) | lets the owner see spend and results | NOT STATED |
+| CS-17 | Dedicated account manager (higher tier) | inferred | SEED [R-OWNED] T-06 only (F-09 UNKNOWN) | one named person on the account | NOT STATED |
+| CS-18 | Profit split 70/30 + 16-month 'No Profit No Payment' payback guarantee | competitor-claimed | NW-03 ecomaccelerator.io (02 §4) | operator forgoes its cut until the client profits | NOT STATED |
+| CS-19 | Platform-funded build — 'Shopify pays them a commission for the stores they set up' | competitor-claimed | NW-04 ad body [D]; NW-06 build.ecomwebsites.com (02 §4) | explains a $0–$20 price | NOT STATED |
+| CS-20 | Milestone-rebuild guarantee — 'suppliers approved, products live … Google Shopping ads active within 90 days — or we continue working for free' | competitor-claimed | NW-08 ecommerceparadise.com (02 §4) | guarantees work, not cash | NOT STATED |
+| CS-21 | AI supplier screening — 'advanced AI tools to look for manufacturers that are not fraudulent' | competitor-claimed | NW-07 ecomdoneforyou.com (02 §4) | filters out fraudulent suppliers | NOT STATED |
+| CS-22 | Retargeting + Google Shopping setup — 'Meta dynamic retargeting setup' + 'Google Shopping campaigns' | competitor-claimed | NW-08 (02 §4); Readymerce retargeting only in [R-OWNED] T-05/T-06 | re-reaches visitors who did not buy | NOT STATED |
+| CS-23 | Marketplace fulfilment — 'Walmart handles storage, packing, shipping, and customer support' | competitor-claimed | NW-01 ad transcript; NW-07 walmart-wfs page (02 §4) | hands fulfilment to the marketplace | NOT STATED |
+| CS-24 | Pre-launch QA with test orders — 'Payment and shipping test orders to ensure smooth operation' | category-typical | greysharkmedia.com/shopify-store-setup-launch (2025-08-30); shopplaza.io/services/shopify-store-setup [R-PAGE via Exa] | proves checkout, payment and shipping work before launch | NOT STATED |
+| CS-25 | Trust layer — 'Trust Badges & Security Signals Installed', policy pages, review display | category-typical | swiftshopify.com; shopplaza.io; adsellr.com [R-PAGE via Exa] | makes a brand-new store look safe to a stranger | NOT STATED |
+| CS-26 | Bulk catalogue — 'Up to 50 Products' / 'Hundreds–thousands of imported products' / '5 to 20 initial core listings' | category-typical | swiftshopify.com; prebuiltstores.com; unifiedbrandingexperts.com; + NW-04 20/50, NW-06 30, NW-08 up to 300 [R-PAGE via Exa] | fills the store with many products at once | NOT STATED (our PDP: staged release instead) |
+| CS-27 | Email/SMS flows + abandoned-cart recovery | category-typical | prebuiltstores.com; automercesolutions.com [R-PAGE via Exa] | recovers visitors who left | NOT STATED |
+| CS-28 | Ongoing 'constant product testing, ad optimization' as a managed service | category-typical | automercesolutions.com/shopify-automation [R-PAGE via Exa] (1 of 8 category pages) | keeps testing after launch | YES (CS-07..CS-10 are our version) |
+| CS-29 | Someone else runs sourcing → fulfilment → backend — 'Now, I focus on scaling while they handle the backend!' | voc-worked | Q-E-0003, Q-E-0005, Q-E-0001 (PRODUCT_TRUTH, competitor-customer, TRIED-HELPED, trustpilot.com/review/ecomxpertz.com) | removes the daily operator job | YES (CS-10, scope per call) |
+| CS-30 | Committing to one data-backed direction — 'now I have a clearer direction instead of constantly jumping from one idea to another' | voc-worked | Q-Y-0059 (MARKET_VOC, youtube, 2026-07) | ends idea-hopping | YES (CS-01 + CS-14) |
+| CS-31 | Staying with it across several product tries — 'it takes years to find a winning product, but you just have to stick with it' | voc-worked | Q-Y-0064 (MARKET_VOC, youtube ~2023, TRIED-HELPED) | keeps trying past the first miss | YES (CS-07 + CS-09) |
+
+**Summary (computed):** CS 31 rows — given 14 · competitor-claimed 6 · category-typical 5 · voc-worked 3 · inferred 3. On our listing YES 18 / NOT STATED 13.
+
+**Category read (Exa run 1, 8 providers, `[R-PAGE via Exa]`, dates as shown):** product count stated by 6 of 8 (Swift Shopify 'Up to 50'; PrebuiltStores 'Hundreds–thousands'; Greyshark 'up to 10' / 'up to 25'; Unified Branding Experts '5 to 20 initial core listings'; DigitalPinkprint '10'; Adsellr none) · ownership/transfer language on 5 of 8 (Swift 'We hand over full ownership'; PrebuiltStores 'Ownership transferred properly through Shopify — your account, your domain.'; Shopplaza 'full ownership … transferred to you upon project completion'; Automerce 'The store is always under your name'; UBE 'You own 100% of the Etsy account, payment payouts') · post-launch *product testing* named by 1 of 8 (Automerce 'constant product testing, ad optimization') · a staged/wave release named by 0 of 8. [D] The category sells the catalogue size as the benefit; 'staged release' is unannounced — the unspoken-mechanism lead.
+
+`CS 31 (given 14 · competitor-claimed 6 · category-typical 5 · voc-worked 3 · inferred 3) · ML 0 · MK 0 · credits_used 0.00`
+
+## §3 · MECHANISM LOADING SHEET (ML-##)
+
+Prompt run with the CS sheet in view: "interesting, unique and surprising causes of *never launching / never making a sale / never picking a product* that can be addressed by what this service contains or does." `fresh?` = absent from the 20-ad read (07-SOPH-20ADS.csv) AND from 02 §12 stated_cause_counts. Unspoken-mechanism note: **staged release + capped test + early review** (CS-07..CS-09) is a property many managed services share in practice (CS-28) that no advertiser in the 02/03 corpus announces.
+
+| ml_id | component (CS-##) | candidate_cause (her situation, never the product) | basis_hint | subgroup_it_targets | shareable_story? | fresh? |
+|---|---|---|---|---|---|---|
+| ML-01 | CS-07, CS-08, CS-09 | **The one-shot launch** — the first store bets everything on one guessed product in one drop; when that guess misses, the whole idea is declared dead | voc: Q-O-0082 "I picked the baby store. It just didn't work"; Q-O-0108; Q-Y-0046 · pub: 5–10 tests before a winner (Product Lair 2024) | PB-06 · CP-03 | YES — "one guess, one shot" | YES (0/20 ads; 0/8 NW causes) |
+| ML-02 | CS-07, CS-15 | **The catalogue dump** — pre-built stores load 20–300 untested products at once; traffic and trust spread thin and nobody learns which product works | competitor counts NW-04 20/50, NW-06 30, NW-08 ≤300; category 6/8 state counts | CP-05 buyers of $0–$20 stores | YES | YES (competitors sell the count as a benefit) |
+| ML-03 | CS-08 | **The bottomless ad budget** — beginners spend on ads with no cap or stop rule and run out of money before the data arrives | voc: Q-F-0019 "$50 ad sets … Still no sales"; Q-Y-0016 "spend hundreds on ads only to lose all your money" | PB-06 · CP-03 | YES | YES |
+| ML-04 | CS-09 | **The unread first weeks** — the first results after launch are read by nobody, so a fixable listing/price/product problem quietly kills the store | voc: Q-O-0101 "my store didn't even make $20, so I had to come out"; Q-F-0027 "temporarily closed" | PB-06 · PB-04 | PARTIAL | YES |
+| ML-05 | CS-02 | **Product-first, supplier-second** — the product is chosen before anyone checks who can ship it right, so the store breaks at fulfilment | voc: Q-Y-0063 "I didn't find good suppliers, that was the main problem"; Q-O-0094; Q-F-0034 | PB-05 | YES | PARTIAL (NW-07/NW-08 PDP supplier-vetting claims; 0 ads) |
+| ML-06 | CS-09, CS-10 | **The handover cliff** — builds are sold as the finish line; the builder leaves on launch day, and the weeks after launch are where new stores die | voc: FS-02 Q-F-0004 "they said they would build a store, but i am building the store???"; Q-O-0169 "at what point, when do I take over the store?" | PB-01 · CP-05 | YES | PARTIAL (NW-03 "build & manage") |
+| ML-07 | CS-04 | **Borrowed keys** — stores built inside a vendor's account (or as a collaborator/dev store) get locked or shut when handed over | voc: Q-F-0001 "now I can't access it, contact an administrator which should be me"; Q-F-0018 "shutdown almost immediately" · pub: Shopify Help Center | PB-03 · CP-03 | YES | YES in ads; CROWDED at PDP (5/8) |
+| ML-08 | CS-03, CS-06 | **The empty-street storefront** — a brand-new standalone store has no built-in shoppers, so every visitor must be bought; a marketplace matches buyers already searching | voc: Q-Y-0054 "why would someone buy from a new shop"; MC-04 · pub: Etsy Seller Handbook 2025 | PB-06 · CP-06 low ad budget | YES | YES (MT-02 is *timing*, not channel fit) |
+| ML-09 | CS-14, CS-01 | **The out-of-order build** — a store is a chain of decisions (what to sell → who ships → which platform → listings → ads); tutorials teach them out of order and the beginner stalls at the first she can't make | voc: Q-F-0041 "Do I just choose what I want to sell … or is there another process"; Q-O-0049; Q-F-0013 "10 weeks on simple tasks" | PB-01 · PB-05 | PARTIAL | PARTIAL (MT-01 barrier removal crowded) |
+| ML-10 | CS-01 | **The guru-list pile-up** — the same "winning product" lists reach thousands of beginners at once, so they launch the same product into the same audience | voc: Q-F-0031 "considering how many people start an e-commerce store nowadays"; Q-Y-0018 "The strategy was dead, and no one told me." | PB-05 · CP-05 | YES | PARTIAL (EK-04 saturation at platform level) |
+| ML-11 | CS-01 | **The off-season pick** — a product chosen after its demand has already peaked | voc: Q-Y-0063 "made 10K only in this month" | PB-05 | NO | YES |
+| ML-12 | CS-05, (CS-25 not ours) | **The stranger-store gap** — a brand-new shop with no reviews or proof cannot convert a cold visitor | voc: Q-F-0023 "missing trust"; Q-Y-0054; Q-F-0024 | PB-06 | PARTIAL | PARTIAL (trust badges category-typical) |
+| ML-13 | CS-04 | **The payout freeze** — new payment accounts get held for review, so early cash is stuck | voc: Q-Y-0042 "that money is instantly going on hold" · pub: Shopify Help Center | PB-06 | NO | YES |
+| ML-14 | CS-10, CS-29 | **The evening-hours mismatch** — a store is a daily job (orders, ads, fixes) that does not fit after-work hours; job-holders' stores die of neglect | voc: Q-O-0154 "I have very little time"; Q-O-0042 "I don't have the time to do the due diligence"; Q-O-0097 | PB-04 · PB-02 · CP-01 | YES | NO (NW-03 "we manage"; LK-07) |
+
+**Re-filed at loading (cause no CS component can act on) → KEEPERS §17:** marketplace saturation / ground-floor timing (MT-02 — our platforms are Shopify/Etsy, no emerging channel on file) · "idle capital under-performs" (VA-06 — no returns data, PT-06 NULL).
+
+`CS 31 · ML 14 (fresh YES 8 · PARTIAL 5 · NO 1) · MK 0 · credits_used 0.00`
+
+## §4 · COMMERCIAL STRUCTURES + MARKET CAUSES
+
+"Commercially validated" = the structure is run by ≥1 network with a ≥45-day ad in 02/03 (labels as 03 printed them; none STRICT). Class = 03's seven causal structures.
+
+| NW-## | stated_cause | class | stated_fix | handle | named_component | structure | belief sequence (ST-##) |
+|---|---|---|---|---|---|---|---|
+| NW-01 (203 active, ABOVE-FLOOR, EDUCATION) | Amazon/Shopify saturated; Walmart open; "you think you need your own brand"; wage ceiling | local vs systemic (move to an open marketplace) + removing an obstruction (no brand needed) | resell name brands on Walmart; Walmart fulfils | "Walmart Wealth Window™", "Scan To Profits™" | ScanProfit app; AI product tool | acting earlier vs after (timing) | ST-06 withheld reveal; ST-01 founder math |
+| NW-02 (160, <1d, UNSIZED) | UNKNOWN (bodies unopened); candidate: ordinary parent, no "cape" [D] | UNKNOWN | free AI store → course → coaching [D] | "A-Z POD", "Winner's Circle" [D] | AI Shopify store builder [D] | — | NONE |
+| NW-03 (85, INCUMBENT) | idle/under-performing capital; saturated platforms; no trend data | supply vs signal (operator data) + stopping a cause vs compensating | managed store, 70/30 split, 16-month payback | "e-cash flow model", "No Profit No Payment" | "100+ stores we manage" | solving two problems (capital + operation) | ST-02 capital-qualifier explainer (206d) |
+| NW-04 (32) | tech/setup/product-picking overwhelm; courses teach without delivering | removing an obstruction | team builds + stocks 20/50 products + US suppliers for $20 | "$20 done-for-you store" | "Shopify pays them a commission" | removing an obstruction vs supplying more | ST-04 recognition→reframe→removal; ST-03 stop-X; ST-05 accusation |
+| NW-05 (1) | "overwhelmed by the process", account suspensions | removing an obstruction | set up, source, list, manage | NULL | "100% Money Back" (conditioned) | — | NONE |
+| NW-06 (0 now; 922 hist.) | build complexity + not knowing what to sell; distrust of free | removing an obstruction | DFY build, 30 products, suppliers, funded by Shopify referral | "$20/Free Done For You Store" | Shopify Certified Partner; quiz | removing an obstruction | ST-04 (271d) |
+| NW-07 (0 ads) | "manual processes slow you down or create costly mistakes" | better vs poor delivery | automated build/list/source/manage | "Fully Automated E-Commerce Store" | AI supplier screening | better vs poor delivery | NONE |
+| NW-08 (0 ads) | beginners stuck for months; low-ticket = thin margins | supply vs signal (high-ticket) | DFY build + US dealer suppliers + ads setup | N/A | milestone guarantee | solving two problems | NONE |
+
+**stated_cause_counts (02 §12, reused):** setup/tech complexity 5 of 8 (PDP-level) · not knowing what to sell 4 of 8 · saturation/timing 2 of 8 · procrastination 2 · courses-teach-without-delivering 2 · scam fear 1 · idle capital 1 · need-own-brand 1 · wage ceiling 1 · paying side 1 · no-cape parent 1. **UNKNOWN cause beside a loud unresolved question (richest reframe material):** 06 belief_map unresolved "why would someone buy from a new shop" (Q-Y-0054), "At what point do I take over the store?" (Q-O-0169), "What would stop me from just doing this?" (Q-O-0068) — no network states a cause for *why a built store still makes no sales* (PB-06 is a lane nobody sells, 02 `lanes_nobody_sells` PB-04, PB-06).
+
+**Structures the market already responds to (stamped "commercially validated", non-STRICT):** removing an obstruction (NW-04/NW-06, ST-04 271d) · acting earlier / timing (NW-01/NW-03, ST-06 540d) · solving two problems (NW-03, ST-02 206d). **Winning belief sequences to swipe (sequence, never science):** ST-04 recognition → the stall → "not you, the barrier" → removal · ST-03 "STOP [failed solution]" → personal offer → inclusions → guarantee PS · ST-02 qualifier → "my team will build" → how it works → guarantee → why we need partners.
+
+## §5 · BASIS LEDGER
+
+Basis read: one query pair per ML cause (`[component] + [problem]` · `[problem] + [pathway]`), launched in one batch (Exa runs 2–3 + 2 WebSearch). A source enters only when opened and quoted. `UNSOURCED` where nothing was found. Never "[component] benefits".
+
+| MK-## | query | source (title · outlet · year · link) | what it shows |
+|---|---|---|---|
+| MK-01 | product testing before a winner + new store no sales | "How to Find Good Dropshipping Products: A Step-by-Step Guide" · Product Lair · 2024-10-10 · https://productlair.com/blog/how-to-find-good-dropshipping-products-a-step-by-step-guide `[R-PAGE via Exa]` | "Most successful dropshippers test 5 to 10 products before finding one that scales profitably." · "Start each test with a small ad budget … and cut products that show no traction quickly." (a practitioner guide, not a study) |
+| MK-01 (corrob.) | how many products to test before a winner | hulkapps.com / dailyfulfill.com / ibtimes.co.uk result set · WebSearch 2026-09-24 `[R-SNIPPET]` | "Plan to test 5–10 products before finding a winner, which typically requires $1,000–$5,000 in product testing" (snippet, counts toward no floor) |
+| MK-02 | product count in pre-built / DFY stores | Exa run 1 (8 provider pages) + 02 §4 (NW-04, NW-06, NW-08) `[R-PAGE via Exa]` | catalogue size is sold as the benefit: 20/50, 30, ≤300, "Up to 50", "Hundreds–thousands" (COMPETITOR-CLAIMED / category-typical) — no source that a large catalogue *lowers* conversion was found → causal step UNSOURCED |
+| MK-03 | ad test budget per product | same WebSearch set `[R-SNIPPET]` | "most experienced dropshippers use $200 to $500 as an initial test spend on a single product" (snippet) |
+| MK-04 | reading first results / early review | UNSOURCED | no published source found in the batch; VOC-only (Q-O-0101) |
+| MK-05 | supplier checked before product | "15 Dropshipping Tips for a Successful Business (2026)" · Shopify blog · 2025-05-22 · https://www.shopify.com/blog/dropshipping-tips `[R-PAGE via Exa]` | "Testing your products gives you insight into quality, shipping, and packaging." · Shopify samples guide (2023-03-11): "make a list of the top three to five [suppliers] … and order samples from each of them." |
+| MK-06 | what happens after a store is built / handover | "Client transfer stores" · Shopify.dev (date not shown) · https://shopify.dev/docs/apps/build/dev-dashboard/stores/client-transfer-stores `[R-PAGE via Exa]` | "You own and configure the store during the build phase, then transfer ownership to the client when it's ready to go live." — the platform's own model ends the builder's role at go-live unless collaborator access is kept ("You retain collaborator access by default") |
+| MK-07 | store ownership / locked out after build | "Client transfer stores and collaborations" · Shopify Help Center (date not shown) · https://help.shopify.com/en/partners/building-stores-for-merchants/transferring-store-ownership `[R-PAGE via Exa]` | "You work in their live store, but you don't own the store and it's not transferred to you." · shopify.dev: "Dev stores can't be transferred to clients." |
+| MK-08 | how buyers find a new Etsy listing | "How Etsy Search Works" · Etsy Seller Handbook · 2025-08-26 · https://www.etsy.com/seller-handbook/article/how-etsy-search-works/375461474487 `[R-PAGE via Exa]` | "A buyer enters a query and we look at the inventory of listings that match that query." · Etsy Help: "Etsy matches tags with shoppers' searches to find relevant results." — Etsy publishes NO aggregate share of traffic from search (Exa: "the opened official pages do not state an aggregate percentage") |
+| MK-08 / MK-01 (conv.) | average conversion of a store | "Average Ecommerce Conversion Rate" · Littledata (date not shown) · https://www.littledata.io/ecommerce-conversion-rate `[R-PAGE via Exa]`; Oberlo (Nov 2024 update) | "We found the average conversion rate for Shopify was 1.4%." · Oberlo: "as of September 2024, average conversion rates across ecommerce businesses were at 1.58%." |
+| MK-09 | order of launch decisions | UNSOURCED | no published sequence source fetched; VOC-only (Q-F-0041, Q-O-0049) |
+| MK-10 | same winning products sold to many | UNSOURCED | VOC-only (Q-F-0031); no fetched source |
+| MK-11 | seasonality of product demand | UNSOURCED | VOC-only (Q-Y-0063) |
+| MK-12 | trust signals on new stores | WebSearch "traffic but no sales" result set (shopify.com/blog/traffic-no-sales and 8 others) `[R-SNIPPET]` | snippet: "missing policy pages, no contact information, a generic logo, or no reviews signals the visitor to leave" (snippet; counts toward no floor) |
+| MK-13 | payout holds on new stores | "Shopify Payments account holds" · Shopify Help Center (date not shown) · https://help.shopify.com/en/manual/payments/shopify-payments/payouts/account-holds `[R-PAGE via Exa]` | "if Shopify's banking partners require more information for your business, then your Shopify Payments account is put on hold until your details can be verified." |
+| MK-14 | daily work of running a store | category page · automercesolutions.com/shopify-automation `[R-PAGE via Exa]` | "Running a profitable Shopify store involves constant product testing, ad optimization, email flows, inventory management, and customer service." (COMPETITOR-CLAIMED framing) |
+| MK-15 | Shopify setup difficulty | UNSOURCED (VOC-only: Q-F-0006, Q-F-0013) | — |
+| MK-16 | build is the easy part | VOC (MARKET) Q-Y-0008 `[R-PAGE]`: "Building a store with automated apps is the easiest part of e-commerce. Getting profitable traffic is where 90% of beginners fail." (a creator's claim, not a study → the "90%" is UNSOURCED) | — |
+| MK-26 | committing to one direction | VOC Q-Y-0059 (worked mention) | UNSOURCED beyond VOC |
+
+Cause language the public already uses (`apify/google-search-scraper` PAA recipe NOT RUN — no tool; WebSearch titles instead, `[R-SNIPPET]`): "Shopify Store No Sales? Here's the Real Reason Why" (nas.com) · "Why Your Shopify Store Has Traffic but No Sales?" (aitrillion, growthsuite, provesrc, convertcart, coreblume, ecomgenix, shopify.com/blog/traffic-no-sales) · "How Many Products to Test Before Finding a Winner in Dropshipping?" (hulkapps) · "How Many Products Should You Start with Dropshipping" (dailyfulfill). [D] The public's cause words are **"traffic but no sales"**, **"conversion"**, **"trust"**, **"winning product"**, **"test products"** — the one-shot cause is phrased by the public as a *question* ("how many products to test"), never as a cause.
+
+Ledger count (computed below in §19): sourced `[R-PAGE via Exa]` 9 cards · `[R-SNIPPET]` only 2 · VOC-only/UNSOURCED 7.
+
+## §6 · CANDIDATE CARDS (MK-##) — 26 cards (17 mechanisms + 9 re-filed as KEEPERS in §7)
+
+Format per card: **UMP** · **UMS** · why interesting · blame_target · fs_reframed[] · belief_broken · pb_coverage[] · market_relation · basis (CS basis + ledger line) · product_would_need · mechanism_type · lane · lk_guard[] · source_line. Labels are computed in §7.
+
+**MK-01 · The One-Shot Launch**
+- UMP: A first store is usually launched as a single bet — one guessed product (or one catalogue) switched on at once, with ad money spent until it runs out. When that one guess misses, the whole store is written off, although sellers who do find a product typically needed several tries.
+- UMS: Readymerce's **staged release** (CS-07) puts products live in waves; each wave gets **controlled ad testing at a budget the owner approves** (CS-08); the **early performance review** (CS-09) cuts what shows no traction and rolls in the next product (CS-10) — so a miss becomes one data point, not the end of the store.
+- Why interesting: it turns "I failed at e-commerce" into "I only ever got one shot" — a gap between the cause she believes (bad product / bad luck / scammers) and the stated one.
+- blame_target: the familiar solution (the one-product launch taught by courses and challenges and sold by pre-built stores) — additive: "you were given a store and one guess; nobody gave you the second and third shot."
+- fs_reframed[]: FS-01, FS-03, FS-X2 (free/$20 funnels), FS-02 (partial), FS-06 (partial)
+- belief_broken: MC-06 "The winning product is the key (and the hard part)" → it is found by testing, not by picking; answers belief_map "why would someone buy from a new shop" (partially).
+- pb_coverage[]: PB-06 EXPLAINS · PB-05 EXPLAINS · PB-01 PARTIAL · PB-03 PARTIAL · PB-02 PARTIAL
+- market_relation: FILLS (no network states a cause for "built but no sales")
+- basis: given (CS-07..CS-10, PT-04) · [Product Lair, 2024] — "Most successful dropshippers test 5 to 10 products before finding one that scales profitably."
+- product_would_need: a stated minimum number of products per stage and a stated test budget/stop rule inside the $500 package (PT-05 excludes ad spend; PT-19 product count UNKNOWN) — confirm with the operator.
+- mechanism_type: missed bottleneck + familiar solution's limitation · lane: New Mechanism (S3) / New Information (S4) · lk_guard[]: LK-06 ("skip the trial and error" — keep: we run the trials *for* her), LK-03 (never mock the $20 store buyer)
+- source_line: Q-O-0082 "I picked the baby store. It just didn't work" `[R-OWNED]` · Q-Y-0046 "it didn't sell one product not one product" `[R-SCRAPE]` · PT-04 "staged … rather than one large drop" `[R-PAGE via Exa]`
+
+**MK-02 · The Catalogue Dump**
+- UMP: Pre-built stores are sold by product count — 20, 30, 50, even hundreds loaded on day one. A new store's few visitors and first ad dollars get spread across products nobody has tested, so no single product gets enough attention to show whether it sells.
+- UMS: Readymerce lists a few researched products (CS-15, inferred count) and releases them in stages (CS-07) with capped tests (CS-08), so each product gets a fair read before the next.
+- Why interesting: contrarian — reverses the category's headline benefit ("more products") into the problem.
+- blame_target: the familiar solution (the bulk pre-built store) · fs_reframed[]: FS-X2, FS-02 · belief_broken: "more products = more chances" (implied by NW-04/06/08 counts; not a Q-## belief) · pb_coverage[]: PB-06 PARTIAL · PB-05 PARTIAL · PB-01 SILENT
+- market_relation: REPLACES · basis: inferred count (CS-15) + given staging (CS-07) · ledger: catalogue sizes COMPETITOR-CLAIMED; causal step UNSOURCED
+- product_would_need: the per-store product count published (the "3 vetted products" line is SEED-only) · mechanism_type: a feature competitors lack (few + staged) · lane: New Mechanism · lk_guard[]: LK-03 · source_line: 02 §4 NW-04 "PLUS 20 Hand Picked Products", NW-06 "30 high-potential products", NW-08 "up to 300 optimized products"
+
+**MK-03 · The Bottomless Ad Budget**
+- UMP: Beginners switch on ads with no ceiling and no stop rule, so the savings run out before the ads have produced enough data to say anything.
+- UMS: Controlled ad testing "with budgets you approve" plus monitoring and regular reporting (CS-08) — a capped test per product the owner signs off.
+- Why interesting: moves the loss from "ads don't work" to "nobody set a ceiling". · blame_target: the incomplete answer (tutorials say "run ads" but not "how much, until when")
+- fs_reframed[]: FS-01, FS-03 · belief_broken: MC-04 "traffic/marketing is where people fail" (yes — but the failure is uncapped spend) · pb_coverage[]: PB-06 EXPLAINS · PB-03 PARTIAL · PB-02 PARTIAL
+- market_relation: CONFIRMS-then-extends · basis: given (F-05) · [WebSearch snippet, 2026] "$200 to $500 as an initial test spend on a single product" `[R-SNIPPET]`
+- product_would_need: a documented default test budget and stop rule per product · type: timing/delivery advantage · lane: New Mechanism · lk_guard[]: none · source: Q-F-0019 "I'm running $50 ad sets … Still no sales." `[R-PAGE via Exa]`
+
+**MK-04 · The Unread First Weeks**
+- UMP: The first two to four weeks after launch produce the only data a new store has, and in a DIY or build-and-leave store nobody reads it — a fixable listing, price or product problem quietly ends the store.
+- UMS: Early performance review + post-launch corrections (CS-09). · Why interesting: "your store didn't fail; its first report went unread."
+- blame_target: time/stage (the post-launch window) · fs_reframed[]: FS-01, FS-02 · belief_broken: BR-04 "the effort is worth it" (it is shorter than feared when someone reads the data) · pb_coverage[]: PB-06 EXPLAINS · PB-04 PARTIAL · PB-01 SILENT
+- market_relation: FILLS · basis: given (PT-04) · UNSOURCED causal step · product_would_need: the review date and what it contains (e.g. "day 14 review") · type: timing advantage · lane: New Mechanism · lk_guard[]: LK-08 · source: Q-O-0101 "my store didn't even make $20, so I had to come out" `[R-OWNED]`
+
+**MK-05 · Product-First, Supplier-Second**
+- UMP: Most beginners pick the product first and look for someone to ship it afterwards — so the store breaks at fulfilment (too few sellers, wrong costs, misdeliveries) even when the product sells.
+- UMS: Supplier and production feasibility review before listing (CS-02) inside the research step (CS-01).
+- Why interesting: explains the maddening case where the product *did* sell and the store still died. · blame_target: the wrong diagnosis ("bad product" when it was the supply)
+- fs_reframed[]: FS-06, FS-01 (partial) · belief_broken: MC-06 (partial) · pb_coverage[]: PB-05 EXPLAINS · PB-06 PARTIAL
+- market_relation: FILLS · basis: given (F-04) · [Shopify blog, 2025] "Testing your products gives you insight into quality, shipping, and packaging."
+- product_would_need: evidence of the supplier check (sample order? backup supplier?) · type: earlier stage · lane: New Mechanism · lk_guard[]: none · source: Q-Y-0063 "I didn't find good suppliers, that was the main problem" `[R-SCRAPE]`; Q-O-0094 "they were sending me orders that cost way too much" `[R-OWNED]`
+
+**MK-06 · The Handover Cliff**
+- UMP: Store builds are sold as the finish line: the builder hands the store over on launch day and leaves. But the weeks right after launch — fixing listings, prices, products and ads — are where new stores live or die, and that is exactly when the owner is left alone.
+- UMS: Readymerce keeps a team on the store after it goes live: an early performance review and post-launch corrections (CS-09), then ongoing listing optimisation and new product rollout (CS-10), with ad monitoring and reporting (CS-08).
+- Why interesting: re-explains the most resented failure (paying a builder who "under-delivered") without calling the buyer naive — the builder did the half that was sold.
+- blame_target: the familiar solution (build-and-leave vendors) → larger enemy: the pre-built store industry · fs_reframed[]: FS-02, FS-05 (partial), FS-01 (partial)
+- belief_broken: belief_map unresolved "At what point do I take over the store?" (Q-O-0169) — answered: you don't have to, alone · pb_coverage[]: PB-01 EXPLAINS · PB-06 EXPLAINS · PB-04 EXPLAINS · PB-05 PARTIAL · PB-02 PARTIAL
+- market_relation: CONFIRMS (installed suspicion that vendors leave) · basis: given (CS-09, CS-10) · [Shopify.dev, n.d.] builder role ends at transfer "when it's ready to go live" unless collaborator access kept
+- product_would_need: a stated minimum post-launch window (weeks) inside the entry package — PT-08 says management level is "agreed on the fit call" · type: missed bottleneck (post-launch) · lane: Name-it (S2) / New Mechanism (S3) · lk_guard[]: LK-07 ("The stores run, and I get to focus on my family"), LK-09 · source: Q-F-0004 "they said they would build a store, but i am building the store???" `[R-PAGE via Exa]`
+
+**MK-07 · Borrowed Keys**
+- UMP: Many builders set the store up inside their own account (or as a collaborator or development store) and "hand it over" later; when the handover goes wrong, the owner is locked out or the store is shut down.
+- UMS: The store is opened in the owner's name from day one; the account "stays in your name"; payouts go to her bank (CS-04).
+- Why interesting: turns the scam fear into a checkable fact she can verify in her own login. · blame_target: the industry (account-holding vendors) · fs_reframed[]: FS-02, FS-04 (trust only)
+- belief_broken: MC-05 "most online opportunities are scams" (answers "how do I know you're real?" Q-O-0081 with a verifiable fact) · pb_coverage[]: PB-03 EXPLAINS · PB-01 PARTIAL · PB-06 SILENT
+- market_relation: CONFIRMS · basis: given (F-11) · [Shopify Help Center, n.d.] "You work in their live store, but you don't own the store and it's not transferred to you."
+- product_would_need: none (F-11 is exact product material) — Shopify's own transfer mechanics must match how Readymerce opens stores (operator confirms) · type: a feature competitors lack (in ads) · lane: Name-it / New Information · lk_guard[]: LK-01, LK-08 · source: Q-F-0001 "now I can't access it, contact an administrator which should be me" `[R-PAGE via Exa]`
+
+**MK-08 · The Empty-Street Storefront**
+- UMP: A brand-new standalone store sits on an empty street: nobody searches for it, so every single visitor has to be bought with ads — and a new shop with no reviews converts few of them. On a marketplace like Etsy, shoppers are already typing what they want.
+- UMS: The fit call routes the product to Shopify or Etsy (CS-03); on the Etsy route, listings are written with titles and tags (CS-06) that Etsy search matches to shoppers' queries.
+- Why interesting: a new reason the ads "didn't work" — the store had no foot traffic of its own. · blame_target: the familiar solution (the standalone store as the default first step)
+- fs_reframed[]: FS-01 · belief_broken: MC-04 "traffic/marketing is where people fail" (yes — and part of the fix is picking a street with traffic) · pb_coverage[]: PB-06 EXPLAINS · PB-05 PARTIAL · PB-07 PARTIAL
+- market_relation: FILLS · basis: given (F-06) · [Etsy Seller Handbook, 2025] "A buyer enters a query and we look at the inventory of listings that match that query."
+- product_would_need: the rule that decides Shopify vs Etsy per product (not on the PDP) and evidence Etsy entries get organic views · type: location-of-action advantage · lane: New Information · lk_guard[]: none · source: Q-Y-0054 "why would someone buy from a new shop when there are already established sellers with thousands of reviews" `[R-SCRAPE]`
+
+**MK-09 · The Out-of-Order Build**
+- UMP: A store is not one task but a chain of decisions that must be made in order — what to sell, who ships it, which platform, then listings, then ads. Tutorials teach the steps out of order, so a beginner stalls at the first decision she cannot make.
+- UMS: The fit call (CS-14) and research package (CS-01, CS-02, CS-03) make the chain's decisions in order with her. · blame_target: the incomplete answer (tutorials) · fs_reframed[]: FS-05, FS-03
+- belief_broken: "I'm not technical" (03 §14 old explanation) · pb_coverage[]: PB-01 EXPLAINS · PB-05 EXPLAINS · PB-06 PARTIAL · market_relation: REPLACES · basis: given (F-06) · UNSOURCED
+- product_would_need: none · type: specific cause · lane: New Mechanism · lk_guard[]: LK-02 ("training videos are easy to understand" — do not attack training quality) · source: Q-F-0041 "Do I just choose what I want to sell from a website or is there another process I gotta go through?" `[R-PAGE via Exa]`
+
+**MK-10 · The Guru-List Pile-Up**
+- UMP: The "winning products" in lists and courses reach thousands of beginners at the same time, so they launch the same product into the same audience against each other.
+- UMS: Competition and seasonality analysis in the research step (CS-01) picks a direction from data rather than from a shared list. · blame_target: the industry (winning-product lists) · fs_reframed[]: FS-03, FS-01
+- belief_broken: MC-06 · pb_coverage[]: PB-05 EXPLAINS · PB-06 PARTIAL · market_relation: REPLACES · basis: given (F-03) · UNSOURCED
+- product_would_need: which data sources the research uses · type: specific cause · lane: New Information · lk_guard[]: LK-15 · source: Q-F-0031 "the problem of finding winning products is an eyesore at this point, considering how many people start an e-commerce store nowadays" `[R-PAGE via Exa]`
+
+**MK-11 · The Off-Season Pick** — UMP: products picked after their demand peaks sell for a month, then stop. UMS: seasonality analysis (CS-01). blame: time/stage. fs_reframed: FS-01 (weak). belief_broken: none named. pb: PB-05 PARTIAL · PB-06 PARTIAL. relation FILLS. basis given (F-03) · UNSOURCED. would_need: seasonality method. type: timing advantage. lane New Information. lk_guard none. source Q-Y-0063 "made 10K only in this month" `[R-SCRAPE]`.
+
+**MK-12 · The Stranger-Store Gap** — UMP: a brand-new shop with no reviews or proof cannot convert a cold visitor, however good the product. UMS: branding + store structure (CS-05) — the trust layer itself (CS-25) is NOT on our listing. blame: the incomplete answer. fs_reframed: FS-01. belief_broken: belief_map "why would someone buy from a new shop". pb: PB-06 EXPLAINS. relation FILLS. basis given (F-02) + category-typical (CS-25) · [WebSearch snippet, 2026] trust signals. would_need: a review/trust-building step (reviews import, policy pages, proof). type: two-part problem. lane New Mechanism. lk_guard LK-01. source Q-F-0023 "Another thing might be missing trust." `[R-PAGE via Exa]`.
+
+**MK-13 · The Payout Freeze** — UMP: new payment accounts get held for review, so a new store's first money is stuck and owners quit. UMS: store "configured correctly" in the owner's name (CS-04). blame: the platform. fs_reframed: FS-06 (Q-Y-0042). pb: PB-06 PARTIAL. relation FILLS. basis given (F-01) · [Shopify Help Center, n.d.] account holds. would_need: verification handled during setup (not stated). type: specific signal. lane New Information. lk_guard none. source Q-Y-0042 "that money is instantly going on hold" `[R-SCRAPE]`.
+
+**MK-14 · The Evening-Hours Mismatch** — UMP: a store is a daily job (orders, ads, fixes) that does not fit after-work hours, so job-holders' stores die of neglect, not of a bad idea. UMS: ongoing management (CS-10) — "someone else handles the backend" (CS-29). blame: lifestyle/time (never her). fs_reframed: FS-01 ("I just ended it because I was dealing with a lot" Q-O-0097). pb: PB-04 EXPLAINS · PB-02 PARTIAL. relation CONFIRMS. basis given (F-07) + voc-worked (Q-E-0003) · category claim (Automerce). would_need: management hours/scope per tier. type: delivery advantage. lane Name-it. lk_guard LK-07. source Q-O-0154 "I'm a computer consultant and I have very little time." `[R-OWNED]`.
+
+**MK-15 · The Snowstorm Setup** — UMP: the store's hidden setup (payments, shipping profiles, taxes, verification) is where DIY attempts stall for weeks. UMS: store opened and "configured correctly" + shipping-profile setup (CS-04, CS-06). blame: the platform's help system. fs_reframed: FS-05. belief_broken: "I'm not technical". pb: PB-01 EXPLAINS. relation CONFIRMS. basis given (F-01) · UNSOURCED (VOC-only). would_need: none. type: missed bottleneck. lane Name-it. lk_guard LK-02. source Q-F-0006 "tons of links that are like a snowstorm of information" `[R-PAGE via Exa]`.
+
+**MK-16 · The Half-Built Business**
+- UMP: An online business has two halves — building the store, and finding what sells to whom. DIY tutorials, courses and most done-for-you builders only ever solve the first half, which is the easier one; the second half is left to the owner.
+- UMS: After the build (CS-01..CS-06), Readymerce runs the second half itself: staged release (CS-07), capped tests (CS-08), early review and replacement (CS-09, CS-10).
+- Why interesting: two-problem structure — "you bought the half that matters least." Overlaps MK-01/MK-06 by component; kept separate because its UMP blames the *familiar solution's scope* (two-part problem), not the launch style (MK-01) or the vendor leaving (MK-06).
+- blame_target: the familiar solution · fs_reframed[]: FS-02, FS-01, FS-03, FS-05 (partial) · belief_broken: MC-02 "a DFY service can make it hands-free" (corrected: it can run the second half, not guarantee it) · pb_coverage[]: PB-01 EXPLAINS · PB-06 EXPLAINS · PB-05 PARTIAL · PB-04 PARTIAL
+- market_relation: REPLACES · basis: given (CS-07..CS-10) · VOC Q-Y-0008 "Building a store with automated apps is the easiest part of e-commerce." (the "90%" figure UNSOURCED)
+- product_would_need: same as MK-01 (products per stage, test budget) · type: two-part problem / familiar solution's limitation · lane: New Mechanism · lk_guard[]: LK-03, LK-06 · source: Q-Y-0008 `[R-PAGE]`
+
+**MK-26 · The Idea-Hop Loop** — UMP: without a data-backed direction, beginners keep switching ideas and restart before any idea gets launched. UMS: the research step picks one direction from data and the fit call commits to it (CS-01, CS-14). blame: the incomplete answer (endless free advice). fs_reframed: FS-05, FS-03. belief_broken: Q-F-0035 "find a product you have a passion for" vs Q-F-0036 "NUMBERS AND DATA MAKE ALL DECISIONS" (competing explanations). pb: PB-05 EXPLAINS · PB-01 PARTIAL. relation FILLS. basis given (F-03) + voc-worked (Q-Y-0059). would_need none. type: specific cause. lane New Information. lk_guard none. source Q-Y-0059 "instead of constantly jumping from one idea to another" `[R-SCRAPE]`.
+
+**Re-filed candidates (full card text kept short — §7 files them as KEEPERS):**
+- **MK-17 · Platform-funded build** (NW-04/NW-06 "Shopify pays them a commission") — UMS not on our listing (CS-19 NOT STATED); a claim about business model.
+- **MK-18 · "We only win when you win"** (NW-03 profit split / payback, CS-18) — a trust play; Readymerce has no profit-linked pricing (F-12).
+- **MK-19 · Ground-floor marketplace timing** (MT-02, NW-01/NW-03) — cause is market saturation; no CS component acts on it (Shopify/Etsy only).
+- **MK-20 · Delivered, not taught** (VA-05; PT-14 "not a course") — a claim about other products (positioning).
+- **MK-21 · It's not you — it's the barrier** (VA-04) — an emotional entry (hook).
+- **MK-22 · Show me what my $500 gets** (VA-03; BR-07 Q-O-0002 "I thought this call was gonna just show me exactly what the $500 pays for") — transparency (trust play).
+- **MK-23 · The refund clock** (MC-07; PT-15 voids on acceptance/add-on) — a trust/timeline item, not a cause.
+- **MK-24 · Income isn't instant** (MC-03 "$10,000 a month in three months" Q-O-0008 vs PT-09) — timeline frame.
+- **MK-25 · The $1 store with a $500 catch** (SK-06 Q-O-0028; NW-06 "processing fee of up to $500") — a claim about competitors (positioning).
+
+`CS 31 · ML 14 · MK 26 · ranked 0 · credits_used 0.00`
+
+## §7 · THE SORT
+
+Per card: is the UMP a cause inside her situation? · is the UMS a named action by a CS-## component? · does the action resolve the exact actor (TIGHT/LOOSE)? · STRIP TEST (delete every coined term, handle and metaphor — a plain, traced belief in the buyer's words must remain). Label per §6.1 of the prompt, computed: basis given/voc-worked + anchor → VALIDATED; competitor-claimed/category-typical + anchor → SUPPORTED; inferred + anchor → EARLY SIGNAL; no anchor after the strip → HYPOTHESIS.
+
+**MECHANISMS (17):**
+
+| MK-## | name | UMP a cause in her situation? | UMS = named action by CS-##? | lock tightness | strip test | basis | label |
+|---|---|---|---|---|---|---|---|
+| MK-01 | The One-Shot Launch | YES | YES | TIGHT | PASS — 'my first store got one product and one try' (Q-O-0082) | given | VALIDATED |
+| MK-02 | The Catalogue Dump | YES | YES | TIGHT | FAIL — no Q-## complains of too many products; plain belief left = competitor counts only | inferred | HYPOTHESIS |
+| MK-03 | The Bottomless Ad Budget | YES | YES | TIGHT | PASS — 'I'm running $50 ad sets … Still no sales' (Q-F-0019) | given | VALIDATED |
+| MK-04 | The Unread First Weeks | YES | YES | TIGHT | PASS — 'my store didn't even make $20, so I had to come out' (Q-O-0101) | given | VALIDATED |
+| MK-05 | Product-First, Supplier-Second | YES | YES | TIGHT | PASS — 'I didn't find good suppliers, that was the main problem' (Q-Y-0063) | given | VALIDATED |
+| MK-06 | The Handover Cliff | YES | YES | TIGHT | PASS — 'they said they would build a store, but i am building the store???' (Q-F-0004) | given | VALIDATED |
+| MK-07 | Borrowed Keys | YES | YES | TIGHT | PASS — 'now I can't access it, contact an administrator which should be me' (Q-F-0001) | given | VALIDATED |
+| MK-08 | The Empty-Street Storefront | YES | YES | LOOSE | PASS — 'why would someone buy from a new shop' (Q-Y-0054) | given | VALIDATED |
+| MK-09 | The Out-of-Order Build | YES | YES | TIGHT | PASS — 'Do I just choose what I want to sell … or is there another process' (Q-F-0041) | given | VALIDATED |
+| MK-10 | The Guru-List Pile-Up | YES | YES | LOOSE | PASS — 'considering how many people start an e-commerce store nowadays' (Q-F-0031) | given | VALIDATED |
+| MK-11 | The Off-Season Pick | YES | YES | LOOSE | FAIL — Q-Y-0063 blames suppliers, not season; no buyer belief about seasonality left | given | HYPOTHESIS |
+| MK-12 | The Stranger-Store Gap | YES | YES | LOOSE | PASS — 'Another thing might be missing trust.' (Q-F-0023) | category-typical | SUPPORTED |
+| MK-13 | The Payout Freeze | YES | YES | LOOSE | PASS — 'that money is instantly going on hold' (Q-Y-0042) | given | VALIDATED |
+| MK-14 | The Evening-Hours Mismatch | YES | YES | TIGHT | PASS — 'I have very little time' (Q-O-0154) | given | VALIDATED |
+| MK-15 | The Snowstorm Setup | YES | YES | TIGHT | PASS — 'a snowstorm of information' (Q-F-0006) | given | VALIDATED |
+| MK-16 | The Half-Built Business | YES | YES | TIGHT | PASS — 'Building a store … is the easiest part of e-commerce' (Q-Y-0008) | given | VALIDATED |
+| MK-26 | The Idea-Hop Loop | YES | YES | TIGHT | PASS — 'constantly jumping from one idea to another' (Q-Y-0059) | given | VALIDATED |
+
+**KEEPERS re-filed (category error = the only REJECTED in this step; 9):**
+
+| MK-## | re-filed as | the line worth keeping |
+|---|---|---|
+| MK-17 | positioning (claim about a business model; UMS not on our listing) | "Here is exactly how we get paid" — only with Readymerce's own fee facts (F-12), never a Shopify-commission claim |
+| MK-18 | trust play | "We only win when you win" — UNAVAILABLE to Readymerce (no profit-linked pricing); keep as the objection to answer |
+| MK-19 | positioning / timeline frame | "Walmart in 2026 looks like Amazon in 2015" is the market CONTROL (VA-02); do not copy — no emerging channel on file |
+| MK-20 | positioning | "Not a course, a template pack" (PT-14) — a live store, not training |
+| MK-21 | hook | "You're not less capable than people making money online" (VA-04 absolution opener) |
+| MK-22 | trust play | "I thought this call was gonna just show me exactly what the $500 pays for" (Q-O-0002) → publish the 26-bullet what-you-get list |
+| MK-23 | trust play / timeline frame | the 7-day window runs from payment and voids on acceptance or any add-on (PT-15) — state it plainly; never imply wider cover |
+| MK-24 | timeline frame | "Results are not typical and are not guaranteed" (PT-09) vs "$10,000 a month in three months" (Q-O-0008) — correct-in-copy |
+| MK-25 | positioning | "I pay $500 and then I'm gonna have to pay more money down the road?" (Q-O-0028) → state exclusions up front (PT-05) |
+
+Counter (computed): mechanisms 17 — VALIDATED 14 · SUPPORTED 1 · EARLY SIGNAL 0 · HYPOTHESIS 2; keepers 9; lock TIGHT 12 / LOOSE 5.
+
+## §8 · COVERAGE MATRICES
+
+**MK × PB** (lead PB-01, PB-06, PB-05; siblings PB-02, PB-03, PB-04, PB-07):
+
+| MK-## | PB-01 | PB-06 | PB-05 | PB-02 | PB-03 | PB-04 | PB-07 | siblings ≥PARTIAL | causal sentence |
+|---|---|---|---|---|---|---|---|---|---|
+| MK-01 | PARTIAL | EXPLAINS | EXPLAINS | PARTIAL | PARTIAL | SILENT | SILENT | 2/4 | one guess, one shot: the store never got the second and third try that finding a seller takes |
+| MK-02 | SILENT | PARTIAL | PARTIAL | SILENT | SILENT | SILENT | SILENT | 0/4 | too many untested products at once, so no product got a fair read |
+| MK-03 | SILENT | EXPLAINS | SILENT | PARTIAL | PARTIAL | SILENT | SILENT | 2/4 | no ceiling or stop rule, so the money ran out before the data arrived |
+| MK-04 | SILENT | EXPLAINS | SILENT | SILENT | SILENT | PARTIAL | SILENT | 1/4 | the only early data went unread, so a fixable problem ended the store |
+| MK-05 | SILENT | PARTIAL | EXPLAINS | SILENT | SILENT | SILENT | SILENT | 0/4 | the product was chosen before anyone checked who could ship it |
+| MK-06 | EXPLAINS | EXPLAINS | PARTIAL | PARTIAL | SILENT | EXPLAINS | SILENT | 2/4 | the builder left on launch day, and the weeks after launch are where stores die |
+| MK-07 | PARTIAL | SILENT | SILENT | SILENT | EXPLAINS | SILENT | SILENT | 1/4 | the store was held in someone else's account, so handover could lock her out |
+| MK-08 | SILENT | EXPLAINS | PARTIAL | SILENT | SILENT | SILENT | PARTIAL | 1/4 | a new standalone store has no shoppers of its own; every visitor must be bought |
+| MK-09 | EXPLAINS | PARTIAL | EXPLAINS | SILENT | SILENT | SILENT | SILENT | 0/4 | the launch decisions were taught out of order, so she stalled at the first one |
+| MK-10 | SILENT | PARTIAL | EXPLAINS | SILENT | SILENT | SILENT | SILENT | 0/4 | the same listed products reached thousands of beginners at once |
+| MK-11 | SILENT | PARTIAL | PARTIAL | SILENT | SILENT | SILENT | SILENT | 0/4 | the product was picked after its demand peaked |
+| MK-12 | SILENT | EXPLAINS | SILENT | SILENT | SILENT | SILENT | SILENT | 0/4 | a new shop with no proof cannot convert a cold visitor |
+| MK-13 | SILENT | PARTIAL | SILENT | SILENT | SILENT | SILENT | SILENT | 0/4 | new payment accounts get held, so early cash is stuck |
+| MK-14 | SILENT | SILENT | SILENT | PARTIAL | SILENT | EXPLAINS | SILENT | 2/4 | running a store is a daily job that does not fit after-work hours |
+| MK-15 | EXPLAINS | SILENT | SILENT | SILENT | SILENT | SILENT | SILENT | 0/4 | the hidden setup work stalls DIY attempts for weeks |
+| MK-16 | EXPLAINS | EXPLAINS | PARTIAL | SILENT | SILENT | PARTIAL | SILENT | 1/4 | every fix she was sold solved the build half; nobody ran the find-what-sells half |
+| MK-26 | PARTIAL | SILENT | EXPLAINS | SILENT | SILENT | SILENT | SILENT | 0/4 | with no data-backed direction she kept restarting before launching |
+
+**MK × FS** (FS-X1 = Amazon FBA and FS-X2 = free/$20 store funnels with hidden fees are brief-named failed solutions with NO 06 FS-## record; kept as columns so they are not dodged):
+
+| MK-## | FS-01 | FS-02 | FS-05 | FS-04 | FS-06 | FS-03 | FS-X1 | FS-X2 |
+|---|---|---|---|---|---|---|---|---|
+| MK-01 | EXPLAINS | PARTIAL | PARTIAL | SILENT | PARTIAL | EXPLAINS | SILENT | EXPLAINS |
+| MK-02 | SILENT | PARTIAL | SILENT | SILENT | SILENT | SILENT | SILENT | EXPLAINS |
+| MK-03 | EXPLAINS | SILENT | SILENT | SILENT | SILENT | PARTIAL | SILENT | SILENT |
+| MK-04 | PARTIAL | PARTIAL | SILENT | SILENT | SILENT | SILENT | SILENT | SILENT |
+| MK-05 | PARTIAL | SILENT | SILENT | SILENT | EXPLAINS | SILENT | SILENT | SILENT |
+| MK-06 | PARTIAL | EXPLAINS | PARTIAL | SILENT | SILENT | SILENT | SILENT | SILENT |
+| MK-07 | SILENT | EXPLAINS | SILENT | PARTIAL | SILENT | SILENT | SILENT | SILENT |
+| MK-08 | EXPLAINS | SILENT | SILENT | SILENT | SILENT | SILENT | SILENT | SILENT |
+| MK-09 | PARTIAL | SILENT | EXPLAINS | SILENT | SILENT | PARTIAL | SILENT | SILENT |
+| MK-10 | PARTIAL | SILENT | SILENT | SILENT | SILENT | EXPLAINS | SILENT | SILENT |
+| MK-11 | PARTIAL | SILENT | SILENT | SILENT | SILENT | SILENT | SILENT | SILENT |
+| MK-12 | PARTIAL | SILENT | SILENT | SILENT | SILENT | SILENT | SILENT | SILENT |
+| MK-13 | SILENT | SILENT | SILENT | SILENT | PARTIAL | SILENT | SILENT | SILENT |
+| MK-14 | PARTIAL | SILENT | SILENT | SILENT | SILENT | SILENT | SILENT | SILENT |
+| MK-15 | SILENT | PARTIAL | EXPLAINS | SILENT | SILENT | SILENT | SILENT | SILENT |
+| MK-16 | EXPLAINS | EXPLAINS | PARTIAL | SILENT | SILENT | PARTIAL | SILENT | SILENT |
+| MK-26 | SILENT | SILENT | PARTIAL | SILENT | SILENT | PARTIAL | SILENT | SILENT |
+
+FS uncovered by every card (copy would dodge these): ['FS-X1']. [D] FS-X1 Amazon FBA and FS-04 trading/crypto sit outside what a store-launch cause can re-explain — see §9.
+
+## §10 · RANKING TABLE (persuasive criteria first; /12 orders; checklist /20 breaks ties among cards ≥8/12; basis breaks what remains: given > voc-worked > competitor-claimed > category-typical > inferred)
+
+| rank | MK-## | name | contrast | new hope | why-else-failed | simplicity | novelty here | sibling cov. | /12 | checklist /20 | basis | tightness | label |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | MK-01 | The One-Shot Launch | 2 | 2 | 2 | 2 | 2 | 2 | 12 | 18 | given | TIGHT | VALIDATED |
+| 2 | MK-06 | The Handover Cliff | 2 | 2 | 2 | 2 | 1 | 2 | 11 | 18 | given | TIGHT | VALIDATED |
+| 3 | MK-16 | The Half-Built Business | 2 | 2 | 2 | 1 | 1 | 2 | 10 | 16 | given | TIGHT | VALIDATED |
+| 4 | MK-08 | The Empty-Street Storefront | 2 | 2 | 1 | 2 | 2 | 1 | 10 | 15 | given | LOOSE | VALIDATED |
+| 5 | MK-07 | Borrowed Keys | 2 | 1 | 2 | 2 | 1 | 1 | 9 | 16 | given | TIGHT | VALIDATED |
+| 6 | MK-02 | The Catalogue Dump | 2 | 1 | 1 | 2 | 2 | 1 | 9 | 15 | inferred | TIGHT | HYPOTHESIS |
+| 7 | MK-10 | The Guru-List Pile-Up | 2 | 1 | 2 | 2 | 1 | 1 | 9 | 14 | given | LOOSE | VALIDATED |
+| 8 | MK-03 | The Bottomless Ad Budget | 2 | 1 | 1 | 2 | 1 | 1 | 8 | 17 | given | TIGHT | VALIDATED |
+| 9 | MK-05 | Product-First, Supplier-Second | 2 | 1 | 1 | 2 | 1 | 1 | 8 | 16 | given | TIGHT | VALIDATED |
+| 10 | MK-04 | The Unread First Weeks | 1 | 1 | 1 | 2 | 2 | 1 | 8 | 14 | given | TIGHT | VALIDATED |
+| 11 | MK-26 | The Idea-Hop Loop | 1 | 1 | 1 | 2 | 2 | 1 | 8 | 14 | given | TIGHT | VALIDATED |
+| 12 | MK-09 | The Out-of-Order Build | 1 | 1 | 2 | 1 | 1 | 2 | 8 | 13 | given | TIGHT | VALIDATED |
+| 13 | MK-11 | The Off-Season Pick | 1 | 1 | 0 | 2 | 2 | 1 | 7 | — | given | LOOSE | HYPOTHESIS |
+| 14 | MK-12 | The Stranger-Store Gap | 1 | 1 | 1 | 2 | 1 | 1 | 7 | — | category-typical | LOOSE | SUPPORTED |
+| 15 | MK-14 | The Evening-Hours Mismatch | 1 | 1 | 1 | 2 | 0 | 1 | 6 | — | given | TIGHT | VALIDATED |
+| 16 | MK-15 | The Snowstorm Setup | 0 | 1 | 2 | 2 | 0 | 1 | 6 | — | given | TIGHT | VALIDATED |
+| 17 | MK-13 | The Payout Freeze | 0 | 0 | 1 | 2 | 2 | 0 | 5 | — | given | LOOSE | VALIDATED |
+
+TOP 5 (computed): #1 MK-01 The One-Shot Launch, #2 MK-06 The Handover Cliff, #3 MK-16 The Half-Built Business, #4 MK-08 The Empty-Street Storefront, #5 MK-07 Borrowed Keys. Tie at 10/12 (MK-16 vs MK-08) broken by checklist 16 vs 15; tie at 9/12 (MK-07, MK-02, MK-10) broken by checklist 16 / 15 / 14.
+
+`CS 31 · ML 14 · MK 26 (mech 17, keepers 9) · ranked 17 · top-5 MK-01, MK-06, MK-16, MK-08, MK-07 · collision pending · routes 0 · checklist MK-01 18, MK-06 18, MK-16 16, MK-08 15, MK-07 16 · locked 0 · AF 0 · credits_used 0.00`
+
+## §9 · WHY EVERYTHING ELSE FAILED (per FS-##, 06 frequency order; locked UMPs = MK-01 One-Shot Launch [PB-06, PB-05] and MK-06 Handover Cliff [PB-01])
+
+Rule honoured: never make the old solution sound stupid; each row names the LK-## it keeps.
+
+| FS-## · freq (06 TOTAL ledger) | why it made sense | job it performed | job needed | practical failure (Q-##) | emotional failure (Q-##) | mechanism-level reason it could never work | keeps X / removes Y (LK) | re-explained by locked UMP? |
+|---|---|---|---|---|---|---|---|---|
+| FS-01 · Own DIY store, no sales · obs 32 · authors 25 · VALIDATED | quick, cheap, "the route" everyone shows (Q-F-0018, Q-Y-0045) | built a store and launched one product/idea | several capped product tests read early, with the loser swapped | "it didn't sell one product not one product" (Q-Y-0046) · "I picked the baby store. It just didn't work" (Q-O-0082 `[R-OWNED]`) | "pure loss of money of time of energy of honestly hope" (Q-Y-0047) | a one-shot launch can only answer "did this one guess sell?" — it cannot find a seller | keeps: owning your own store (LK-03 functional relief) · removes: betting it all on one guess | **YES — MK-01 EXPLAINS** |
+| FS-02 · Paid a DFY builder/vendor that under-delivered · obs 18 · authors 17 · VALIDATED | "why not pay Shopify expert to create my very own store" (Q-Y-0001) | built (sometimes half-built) a store, then handed it over | the post-launch weeks: corrections, tests, replacements | "they said they would build a store, but i am building the store???" (Q-F-0004) · "my store didn't even make $20, so I had to come out" (Q-O-0101 `[R-OWNED]`) | "They stole $20,000 and have lied to me repeatedly" (Q-E-0006) | a build-and-leave contract ends at launch day — the day the real work starts | keeps: "someone does it for me" (LK-06 "skip the trial and error", LK-07) · removes: the builder leaving on day 0 | **YES — MK-06 EXPLAINS** (MK-01 PARTIAL: vendor stores also launch one catalogue at once) |
+| FS-05 · Teaching myself the platform · obs 11 · authors 9 · VALIDATED | free, self-paced; hope of "a simple step by step" (Q-F-0012) | explained features one link at a time | the launch decisions made in order, then a store actually live | "I've spent 10 weeks on simple tasks" (Q-F-0013) · "It won't let me get on live at all" (Q-O-0014 `[R-OWNED]`) | "No wonder people give up" (Q-F-0014) | help docs answer questions she already knows to ask; the stall happens *before* launch | keeps: easy-to-follow help (LK-02 "training videos are easy to understand") · removes: the unordered pile | **ELIMINATION: INCOMPLETE** — failure is pre-launch; locked MK-06 PARTIAL ("tutorials end at publish"); fully explained only by unlocked MK-09 / MK-15 → AF-06, AF-12 |
+| FS-04 · Trading / crypto / online-investment schemes · obs 5 · authors 4 · SUPPORTED (OWNED only) | NULL — not stated | promised returns on money | an asset she controls and can verify | "I tried to get into this trading stuff. It didn't work." (Q-O-0110 `[R-OWNED]`) | "I was involved in a cryptocurrency scam, so I've lost a lot of money in that." (Q-O-0148 `[R-OWNED]`) | a scheme holds her money in someone else's system — she cannot see or keep the asset | keeps: wanting money to work (VA-06 frame) · removes: money held by others | **ELIMINATION: INCOMPLETE** — not a store failure; MK-07 Borrowed Keys PARTIAL (trust only) → handed to 11 as a trust-ladder input |
+| FS-06 · Suppliers / fulfilment partners · obs 4 · authors 4 · VALIDATED | NULL — not stated | shipped (or failed to ship) the chosen product | a supplier checked before the product is chosen, with a fallback | "I didn't find good suppliers, that was the main problem" (Q-Y-0063) · "got sick of misdeliveries and errors in pricing" (Q-F-0034) | "that money is instantly going on hold" (Q-Y-0042) | product-first, supplier-second: one product tied to one supplier has no fallback when it breaks | keeps: "suppliers that ship for you" (NW-04 claim; no LK) · removes: supplier chosen after the product | **ELIMINATION: INCOMPLETE** — MK-01 PARTIAL (one product = one supplier, no backup); fully explained by unlocked MK-05 → AF-04 |
+| FS-03 · Paid course / coach / challenge · obs 6 · authors 3 · VALIDATED | "I've just paid $10,000 for this one-on-one mentorship" (Q-Y-0020) | taught a method: pick a winner, launch, run ads | the method run for her, several times, with the results read | "i failed the challenge" (Q-Y-0015) · "this coach never even scheduled a call with me" (Q-Y-0019) | "he pretty much kicked me out the community" (Q-Y-0021) · "I got scammed by the marketing guy." (Q-O-0130 `[R-OWNED]`) | the one-week/one-store challenge IS the one-shot launch, taught — it teaches how to take one shot | keeps: coaches' openness (LK-15 "doesn't gate-keep anything") · removes: doing the one shot alone | **YES — MK-01 EXPLAINS** |
+| FS-X1 · Amazon FBA (brief-named; no 06 FS-## record) | NULL — searched: 0 FBA failure records in 06 | — | — | NULL | NULL | UNKNOWN — no VOC | — | **ELIMINATION: INCOMPLETE** (no record to re-explain; HYPOTHESIS that FBA's inventory-first model is a costlier one-shot) |
+| FS-X2 · "Free"/$20 store funnels with hidden fees (brief-named; SK-06 + 02 NW-04/NW-06 funnel terms) | $0–$20 is a bounded first step; "No Hidden Fees" claim (NW-06) | handed over a pre-loaded 20–30-product store; later charges ("processing fee of up to $500", Zendrop $79/mo) | a store where each product is tested and someone reads the result | "After paying $500, I should be paying £1 every month. You didn't tell me that earlier." (Q-O-0135 `[R-OWNED]`) · "paid $69 and an additional $169... not one sale" (Q-E-0010) | "I pay $500 and then I'm gonna have to pay more money down the road for services?" (Q-O-0028 `[R-OWNED]`) | a pre-loaded catalogue switched on at once is a one-shot launch with more products in the barrel | keeps: "They Did As Promise! Made Me A $20 Website!" (LK-03) · removes: the dump + unstated fees (keeper MK-25) | **YES — MK-01 EXPLAINS** (MK-02 EXPLAINS the catalogue half) |
+
+Counter: FS rows 8 (06 FS 6 + brief-named 2) — re-explained by a locked UMP 4 (FS-01, FS-02, FS-03, FS-X2) · ELIMINATION: INCOMPLETE 4 (FS-05, FS-04, FS-06, FS-X1).
+
+## §11 · TOP 5
+
+**#1: MK-01 · The One-Shot Launch** — /12 = 12 · checklist 18/20 · basis given (PT-04) + [Product Lair, 2024] · VALIDATED · TIGHT.
+Why it ranks here: it is the only card that scores 2 on all six criteria — it re-explains the most frequent failure (FS-01, 25 authors) and the course/challenge failure (FS-03) with one cause no network in the 02/03 corpus states, and it gives PB-06 and PB-05 the same answer ("nobody picks a seller by looking; they find one by testing several"). The component that acts on it (staged release + capped tests + early review) is exact product material nobody announces.
+`#1 Compare-and-Contrast: Most alternatives launch your store once — one product, or one pile of products, switched on at the same time. Our product launches it in stages, tests each product with a budget you approve, and replaces what doesn't sell.`
+product_would_need: products per stage + test budget/stop rule stated inside the $500 package (PT-05, PT-19). fresh ✔ (0/20 ads) · subgroup ✔ (PB-06 CP-03 "tried and lost") · shareable ✔ ("I only got one shot").
+
+**#2: MK-06 · The Handover Cliff** — 11 · 18/20 · given (CS-09, CS-10) + [Shopify.dev, n.d.] · VALIDATED · TIGHT.
+Why it ranks here: it confirms a suspicion the buyer already voices (the builder left, "i am building the store???") and turns it into a cause, so it needs no teaching; it EXPLAINS three PBs (PB-01, PB-06, PB-04). It loses a point on novelty because NW-03 sells "build & manage" (85 active ads, 540-day ad).
+`#2 Compare-and-Contrast: Most alternatives hand you the store on launch day and move on. Our product keeps a team on it after launch — reviewing the first results, fixing what's off and rolling in new products.`
+product_would_need: a stated minimum post-launch window in the entry package (PT-08: management level "agreed on the fit call"). fresh ◑ · subgroup ✔ (FS-02 buyers) · shareable ✔.
+
+**#3: MK-16 · The Half-Built Business** — 10 · 16/20 · given · VALIDATED · TIGHT.
+Why it ranks here: the two-problem structure re-explains four FS rows at once ("you were sold the easier half") and rides a MARKET belief (Q-Y-0008). It scores lower on simplicity (two halves) and overlaps #1/#2 by component — it is their *combined* argument, useful as the system story for step 13.
+`#3 Compare-and-Contrast: Most alternatives solve the build and leave you the hard half — finding what sells. Our product builds the store and then runs the finding.`
+product_would_need: as #1. fresh ◑ · subgroup ✔ · shareable ✔.
+
+**#4: MK-08 · The Empty-Street Storefront** — 10 · 15/20 · given (F-06) + [Etsy Seller Handbook, 2025] · VALIDATED · LOOSE.
+Why it ranks here: freshest cause for "traffic but no sales" and a genuine location-of-action advantage (Etsy search matches buyers' own queries); loses on lock tightness because the Etsy route is one of two platforms and the routing rule is not published.
+`#4 Compare-and-Contrast: Most alternatives build you a standalone site where every visitor has to be bought. Our product can open your store where shoppers are already searching — on Etsy — when your product fits there.`
+product_would_need: the Shopify-vs-Etsy routing rule + evidence of organic Etsy views on Readymerce stores. fresh ✔ · subgroup ✔ (low ad budget, CP-06) · shareable ◑.
+
+**#5: MK-07 · Borrowed Keys** — 9 · 16/20 · given (F-11) + [Shopify Help Center, n.d.] · VALIDATED · TIGHT.
+Why it ranks here: it converts the scam fear (PB-03) into a fact she can verify in her own login, re-explains the lock-out horror stories in FS-02, and needs no product change; it ranks last of the five because 5 of 8 category providers promise ownership on their pages.
+`#5 Compare-and-Contrast: Most alternatives build your store in their account and promise to hand it over. Our product opens it in your name on day one — your login, your payouts.`
+product_would_need: none (F-11 is exact product material). fresh ✔ in ads / ✘ on category pages · subgroup ✔ (CP-03) · shareable ✔.
+
+## §12 · COLLISION MAP
+
+**Coverage line (read before any label):** GetHookd charged calls 0 — `search_ads` BLOCKED-ON-TOOL (4 variants → `total 0`, incl. "winning product"; 0.00 credits) · Meta Ad Library free calls 6 (`winning product` 12,635 · `test products dropshipping` 140 · `pre-built store` 3,260 · `"done for you store"` 590,762 · `"no sales" shopify store` 12,201 · `"you own the store"` 3,954,921 — estimated_total_count; 50-row SAMPLE each; the connector returns no ad body, so a page's *use* of the villain/fix cannot be confirmed) · totals dwarf the 50-row read on 5 of 6 → those axes **NOT MAPPED** · cross-read: 02/03 corpus IM-01..IM-32 (8 NW) + 07 20-ad read + 02 §12 stated_cause_counts + Exa category read (8 provider pages, PDP-level). Network counts below are from the cross-read unless marked Meta.
+
+Meta SAMPLE(50) reads (HAND-COUNTED distinct page names): `test products dropshipping` → 13 page names ≈ 12 networks (PagePilot AI + PagePilot.ai = 1), of which 6 are e-commerce-start sellers (AliDropship, Store Magic: AI Store Builder, Anthony Lapietra "Get My FREE A-Z Dropshipping System", Malik Mufasa "Your Prebuilt Shopify Store Is Included … $17", Aura Farm The Internet, PagePilot "Dropshipping NOT working? Read this..."); all delivery starts within the last ~2 days of the read (sorted newest-first → longevity NOT MAPPED) · `"no sales" shopify store` → e-commerce-start pages in read: SSAcademy, AMZ Retailers, Joseph Lewis ("See What Your Shopify Store Is Worth"), Cameron Hoffman - Business ("Want My Team To Build You An eCom Business?" = NW-03 creative), Ecomfamilyhub + Ecomfamcrew ("I Didn't Have a Cape…" = NW-02) → 5 networks, none visibly naming a cause.
+
+| MK-## | query (a avatar+problem / b villain / c component) | networks n (source) | longest days_active | villain | fix | handle | component/feature | delivery | combined_call | NOT MAPPED axes |
+|---|---|---|---|---|---|---|---|---|---|---|
+| MK-01 | a "no sales shopify store" (Meta 12,201) · b "one product / one launch" (corpus) + "winning product" (Meta 12,635) · c "test products" (Meta 140) + "staged release" (corpus, category) | villain 0 of 8 NW (corpus) · fix: 0 of 8 NW in ads; category PDP 1 of 8 (Automerce) · Meta fix read 6 e-com networks, bodies unseen | corpus: n/a (0 ads) · Meta: NOT MAPPED | **CLEAR** (0) | **CROWDED?** → NOT MAPPED (Meta 140 est., bodies unseen) | **CLEAR** ("one-shot launch" 0 in corpus) | **CLEAR** in ads (staged release 0/32 IM); CROWDED at PDP (1/8) | **WE WIN** vs pre-built/bulk stores (PT-04 staged release vs COMPETITOR-CLAIMED 20/30/50/300 at once) · TIE vs NW-03 (manage; testing unstated) | **BUILD-READY** (freshness edge; pending the fix map) | fix (Meta), longevity |
+| MK-06 | a "store built no sales" · b "builder leaves at launch" · c "we manage your store" | villain 0 of 8 · fix: NW-03 in ads (85 active; IM-18 540d "Want My Team To Build You An e-Commerce Business?"), NW-07/NW-08 PDP, category 3 of 8 PDP (Swift "Shopify Management", Automerce, Shopplaza "45 days of expert support") | 540 (NW-03 IM-18, fix axis) | **CLEAR** (0) | **BURNED** (a ≥180-day ad runs the fix) | **CLEAR** ("handover cliff" 0) | **CLEAR** for "early performance review / post-launch corrections" (0/32) | **TIE** (NW-03 claims ongoing management; Readymerce scope "agreed on the fit call" — no PT-## edge) | **FRESHEN** — keep the cause, give the fix a new handle (the review/corrections step, not "we manage") | fix (Meta) |
+| MK-16 | a as MK-01 · b "DFY solves only the build" · c staged testing | villain: NW-08 PDP "beginners stuck for months building/sourcing/traffic" (1, PDP only) · fix as MK-01/MK-06 | 540 (via MK-06 fix) | **CROWDED** (1, PDP) | **BURNED** (inherits MK-06 fix) | **CLEAR** | **CLEAR** (ads) | **TIE** | **DIFFERENTIATE** (lead with the second half — the find-what-sells loop — never with "we manage") | fix (Meta) |
+| MK-08 | a "no sales new store" · b "standalone store has no shoppers" · c "Etsy store done for you" | villain-adjacent: marketplace-over-Shopify argument NW-01 (203 active) + NW-03 (IM-18 540d) — *timing*, not channel fit · component: category 2 of 8 PDP (UBE, DigitalPinkprint Etsy setup) | 540 (adjacent) | **BURNED-ADJACENT** (market already hears "leave Shopify for a marketplace" as a timing claim; our cause differs) | **CLEAR** in ads | **CLEAR** | **CROWDED** at PDP (2) | **TIE** | **FRESHEN** — say "where shoppers already search", never "the next Amazon" (VA-02 is the CONTROL; do not copy) | villain + component (Meta) |
+| MK-07 | a "scammed online store" · b "vendor holds your account" · c "you own the store" (Meta 3,954,921) | villain 0 of 8 in ads · component: Readymerce's own Meta link title "We build it. We run it. You own it." (4 of 31 ads, 01 §2); category 5 of 8 PDP promise ownership; NW-04 "keep the setup anyway" | NOT MAPPED | **CLEAR** (0) | n/a | **CLEAR** ("borrowed keys" 0) | **BURNED** at PDP (5 of 8 ≥4) · ads NOT MAPPED | **TIE** (F-11 matches competitors' PDP promises) | **FRESHEN** — make it checkable ("log in yourself on day one"), not a slogan | component (Meta) |
+
+PRE-OBJECTED: none found — no network in the corpus names staged release, capped testing, early review or account-in-your-name *to dismiss it*. Near-zero presence of the MK-01 villain in a hot market (NW-01 203 + NW-03 85 active ads): [D] read as **whitespace, not "doesn't work"** — the cause is a PDP-level practice (1 of 8 category pages, Product Lair / Shopify guides) nobody has turned into an ad argument; count: 0 of 32 IM, 0 of 20 lever-read ads, 0 of 8 stated causes. Swipe from the winners: the *sequence* of ST-04 (recognition → the stall → "not you" → removal) and ST-03 ("STOP [failed solution]" → personal offer → inclusions → guarantee PS) — never their science.
+
+## §13 · GRADUALIZATION
+
+### (a) Starting Beliefs
+**What the market already believes (from EK-## + VALIDATED MC-##):** EK-01 you know what a Shopify store / dropshipping is and that people make money with it (ADVERTISER ASSUMES) · EK-02 courses and gurus take your money and leave you lost (CUSTOMER APPEARS TO BELIEVE) · EK-03 "free" online-business offers have a catch · MC-06 the winning product is the key, and finding it is the hard part (MARKET_VOC VALIDATED, Q-F-0031, Q-Y-0064) · MC-04 traffic/marketing is where people fail (VALIDATED, Q-Y-0008, Q-O-0089) · MC-05 most online opportunities are scams (VALIDATED).
+**What the market must eventually believe:** "My first store didn't prove e-commerce doesn't work for me — it only got one try. A store finds what sells by testing several products in small, capped steps, and someone has to run and read those tests after launch — in a store that stays in my name."
+**Non-negotiable mechanism beliefs (smallest factual steps the locked pairs rest on):**
+- NB-1 Finding a product that sells usually takes several tries, not one pick — `CAUSAL ← [R-PAGE via Exa] Product Lair 2024 (practitioner guide, not a study)`.
+- NB-2 Each try can be small and capped by the owner — `SOLUTION-REQUIREMENT ← CS-08 / F-05`.
+- NB-3 The first weeks' results decide what happens next, so someone must read them — `CAUSAL ← UNSOURCED` (VOC Q-O-0101 only).
+- NB-4 Readymerce's package actually runs staged tries after launch — `SOLUTION-REQUIREMENT ← PT-04` + `product_would_need` (count per stage, test budget).
+- NB-5 The store is in her name from day one — `SOLUTION-REQUIREMENT ← F-11`.
+
+### (b) Winning Competitor Mechanism Patterns (sequence, not science)
+1. **ST-04 (NW-04/NW-06, 271d):** existing belief "you've thought about starting a store before" → observation: the stall (tech, cost, life) → realization: "it's not you, it's the barrier" → mechanism: a team builds it (platform pays) → requirement: someone else does the setup → product: the $20 store.
+2. **ST-06 (NW-01/NW-03, 540d):** belief "Amazon/Shopify side hustles are saturated" (EK-04) → contradiction: early Amazon sellers got rich (EK-07) → realization: it's timing, not talent → mechanism: an under-supplied marketplace → requirement: get in now → product withheld until the click.
+3. **ST-03 (NW-04, 87d):** belief "courses take your money" (EK-02) → "STOP buying courses!" → personal offer → concrete inclusions → PS guarantee.
+4. **ST-02 (NW-03, 206d):** capital qualifier → "my team will build" → how it works → profit split + payback guarantee → "why we need partners".
+[D] What transfers: open on a stall she already owns (ST-04), name a failed solution she already resents (ST-03), then reveal the cause — none of the four ever names a *cause of the no-sale store*; that slot is empty.
+
+### (c) Routes
+
+**ROUTE 1 · "The Second Shot"** — architecture: failed-solution · lead population **CP-03** (tried e-commerce/trading and lost money) · blame language from worldview_map: scammers/vendors (5 of 11 tallied blames), gurus/coaches (3 of 11)
+- Best Segment / Starting Belief: "I tried it, it didn't work, I lost money" — "I picked the baby store. It just didn't work" (Q-O-0082 `[R-OWNED]`); "there's plenty of us losing, including myself" (Q-Y-0027).
+- Micro-Belief Sequence: B1 Lots of people who try a first store lose money `ACCEPTED-FACT ← Q-Y-0027, FS-01 (25 authors)` → B2 Most of those stores sold one product (or one batch) and stopped when it didn't sell `ACCEPTED-FACT ← Q-O-0082, Q-O-0108, Q-Y-0046` → B3 Sellers who do find a product that sells usually tested five to ten first, each with a small budget `CAUSAL ← [R-PAGE via Exa] Product Lair 2024` → B4 So a store that got one try didn't show the idea was wrong — it showed one guess missed `CONSEQUENCE ← [D]` → mechanism: the one-shot launch (MK-01) → requirement: a store that gets several small, capped tries, with someone reading the results `SOLUTION-REQUIREMENT ← PT-04, CS-07, CS-08, CS-09` → `PRODUCT` Readymerce staged release.
+- Actual MSL Copy:
+
+  > You tried it. Maybe it was a baby store, maybe gadgets, maybe a course that promised you'd be profitable in a week.
+  >
+  > It didn't sell. And you did what anyone would do. You closed it and decided online stores weren't for you.
+  >
+  > Here's what nobody told you about that store.
+  >
+  > It got one try. One product — or one batch of products — switched on at once, and ads until the money ran out.
+  >
+  > The people who do end up with a product that sells almost never got it on the first try. The sellers who write about it say they tested five, sometimes ten products before one took off. Small budget each. Cut what doesn't move. Try the next one.
+  >
+  > That's not a secret. It's just not what a beginner's first store is set up to do.
+  >
+  > So your store didn't prove the idea was wrong. It proved one guess missed.
+  >
+  > Which means the thing that was missing wasn't a better guess. It was a second shot. And a third. With someone reading what each one did.
+  >
+  > That's the part we built Readymerce around. Your products go live in stages, not all at once. Each one gets tested with a budget you approve. Early on, we look at what's actually happening — and replace what isn't selling.
+  >
+  > Same dream. More than one shot at it.
+- Why This Route Fits: it starts where CP-03 already is (a loss she has explained to herself) and never calls that decision foolish — it moves the blame from her and from "scammers" to the one-shot format. The accepted fact and the failure quote are hers.
+- Biggest Leap: that Readymerce's $500 package runs enough stages and tests to count as "several shots" (PT-19 count UNKNOWN; PT-05 excludes ad spend) — `product_would_need`.
+
+**ROUTE 2 · "Nobody Picks It"** — architecture: "yes, but incomplete" · lead population **CP-05** (aspiring, wants to skip the build; PB-05) · blame language: the winning-product hunt / gurus ("The strategy was dead, and no one told me." Q-Y-0018)
+- Best Segment / Starting Belief: MC-06 "the winning product is the key — and the hard part" (Q-F-0031 "the problem of finding winning products is an eyesore"; Q-Y-0064 "it takes years to find a winning product").
+- Micro-Belief Sequence: B1 Finding the right product is the hard part `ACCEPTED-FACT ← MC-06 (VALIDATED)` → B2 Some people spend years looking `ACCEPTED-FACT ← Q-Y-0064` → B3 The ones who find one mostly didn't pick it — they tested several and kept the one that sold `CAUSAL ← [R-PAGE via Exa] Product Lair 2024` → B4 So "what should I sell?" has no right answer on day one; the useful question is "how will my store test several?" `CONSEQUENCE ← [D]` → mechanism MK-01 → requirement: products chosen from demand data, released in stages, each tested with a capped budget `SOLUTION-REQUIREMENT ← F-03, PT-04, F-05` → `PRODUCT`.
+- Actual MSL Copy:
+
+  > Everyone says the winning product is the whole game. They're right.
+  >
+  > It's also why so many people never start. You scroll the lists. You watch the videos. Every pick looks like it could be the one — or the one that costs you everything.
+  >
+  > Some people spend years stuck right here.
+  >
+  > But look at how the sellers who found one actually describe it. They didn't pick it. They tested five, ten products, a small budget each, and kept the one that sold.
+  >
+  > The winning product isn't chosen. It's found.
+  >
+  > That changes the question. It's not "what should I sell?" — nobody can answer that on day one. It's "how will my store test more than one thing?"
+  >
+  > That's how a Readymerce store is set up. We choose the first products from demand, seasonality and competition data — not a list thousands of other beginners are reading. Then we release them in stages, test each with a budget you approve, and replace what doesn't sell.
+  >
+  > You don't have to guess right. You just need a store that's built to find out.
+- Why This Route Fits: it agrees with the belief she holds (VALIDATED MC-06) before extending it, and it dissolves the paralysis ("I don't know what to sell") instead of promising a better pick.
+- Biggest Leap: that data-chosen products plus staged tests find a seller more often than her own pick — Readymerce outcome data is NULL (PT-06); no Readymerce test count on file.
+
+**ROUTE 3 · "The Weeks After Launch"** — architecture: contradiction · lead population **CP-01** (has a job, wants to leave it eventually; PB-01/PB-02/PB-04) · blame language: time and the job ("I don't have the time to do the due diligence" Q-O-0042; "I earn good money now, so I don't want to quit and then start struggling." Q-O-0133)
+- Best Segment / Starting Belief: "I don't have time to build a store around my job."
+- Micro-Belief Sequence: B1 Building a store takes time a full-time worker doesn't have `ACCEPTED-FACT ← Q-O-0042, BR-04` → B2 So people pay someone to build it `ACCEPTED-FACT ← FS-02, Q-Y-0001` → B3 Yet paid-for stores still stall — the owner ends up doing the work `ACCEPTED-FACT ← Q-F-0004, Q-O-0169` → B4 Builders are set up to hand the store over "when it's ready to go live" `CAUSAL ← [R-PAGE via Exa] Shopify.dev` → B5 and the weeks after launch — fixing listings, testing products, adjusting ads — are where a new store is made or lost `CAUSAL ← UNSOURCED` → mechanism MK-06 → requirement: someone has to own the weeks after launch `SOLUTION-REQUIREMENT ← CS-09, CS-10` → `PRODUCT`.
+- Actual MSL Copy:
+
+  > You've got a job. A good one, maybe. And a store is supposed to be the thing on the side.
+  >
+  > The problem everyone warns you about is time. Building a store takes evenings you don't have.
+  >
+  > So the smart move seems obvious: pay someone to build it.
+  >
+  > And yet listen to the people who did. "They said they would build a store — but I'm building the store." "At what point do I take over? Is it something I have to run on my own?"
+  >
+  > Here's why that keeps happening. Store builders are set up to hand the store over on the day it goes live. That's where their job ends.
+  >
+  > But launch day isn't the finish line. It's the starting line. The weeks right after — reading the first results, fixing a listing, swapping a product that isn't moving, adjusting the ads — are the weeks that decide whether a new store makes it.
+  >
+  > And that's exactly when the owner is handed the keys and left alone. After work. On a Tuesday night.
+  >
+  > The time you needed back was never the build. It was the weeks after launch.
+  >
+  > That's the part Readymerce keeps. After your store goes live, our team reviews the first results, makes the corrections, and keeps rolling out and optimising products — you see the reports, you approve the budgets.
+- Why This Route Fits: it takes CP-01's own blame (time) seriously, then shows the time problem sits after launch, not before — a contradiction she has lived through or heard (FS-02).
+- Biggest Leap: "the weeks after launch decide a new store" is UNSOURCED, and the post-launch scope is "agreed on the fit call" (PT-08), not a fixed promise.
+
+**ROUTE 4 · "600 Clicks, Zero Sales"** — architecture: contradiction (an existing explanation cannot explain an observation) · lead population **CP-03 / CP-05** (built a store, got traffic, no sales; PB-06) · blame language: traffic/marketing ("My problem is again, a marketing and visibility." Q-O-0089 `[R-OWNED]`)
+- Best Segment / Starting Belief: MC-04 "traffic is where people fail."
+- Micro-Belief Sequence: B1 Getting traffic is where most beginners fail `ACCEPTED-FACT ← MC-04, Q-Y-0008` → B2 Yet people post "~600 clicks … still no sales" and "430K people visiting no sales" `ACCEPTED-FACT ← Q-F-0019, Q-F-0022` → B3 The average Shopify store converts about 1.4% of visitors — roughly one sale per 70 visits `CAUSAL ← [R-PAGE via Exa] Littledata (n.d.); Oberlo 1.58% (Sept 2024)` → B4 So hundreds of clicks and zero orders is not mainly a traffic problem — the visitors came; the product or offer didn't land `CONSEQUENCE ← [D]` → mechanism MK-01 (only one product was ever tested) → requirement: test the next product, don't just buy more traffic `SOLUTION-REQUIREMENT ← CS-07, CS-08` → `PRODUCT`.
+- Actual MSL Copy:
+
+  > "I've got about 600 clicks to my store. Still no sales."
+  >
+  > If you've ever typed something like that, you were probably told the same thing: you need more traffic. Better ads. More money.
+  >
+  > Traffic really is where a lot of beginners get stuck. But look at that number again.
+  >
+  > The average Shopify store turns about 1.4 visitors in every 100 into a buyer. That's roughly one sale for every 70 visits.
+  >
+  > At 600 clicks, even an average store would expect a handful of orders. Zero isn't a traffic problem. The people came. They looked. The product didn't land with them.
+  >
+  > Which is fine — most first products don't. What hurts is that the store only had that one product to show them. More traffic would just have been more people saying no to the same thing.
+  >
+  > What the store needed was the next product, tested the same way.
+  >
+  > That's how we launch Readymerce stores: in stages. Each product gets its own small test, with a budget you approve. If it doesn't land, it gets replaced — before the budget goes to the wrong thing.
+- Why This Route Fits: it respects the market's own explanation (traffic) and uses her own numbers to show it cannot explain the zero.
+- Biggest Leap: applying an average benchmark to one new store — 1.4% is an average across stores, not a promise; a brand-new shop with no reviews may convert lower (MK-12 caveat).
+
+**ROUTE 5 · "Keys In Your Name"** — architecture: pure causal chain · lead population **CP-03** (scam fear; PB-03) · blame language: scammers/vendors ("They stole $20,000 and have lied to me repeatedly" Q-E-0006; "How do I know you're real?" Q-O-0081 `[R-OWNED]`)
+- Best Segment / Starting Belief: MC-05 "most online opportunities are scams."
+- Micro-Belief Sequence: B1 Plenty of online-store offers have taken people's money `ACCEPTED-FACT ← Q-E-0006, Q-O-0062` → B2 A common version: the store gets built, then the owner is locked out or it's shut down at handover `ACCEPTED-FACT ← Q-F-0001, Q-F-0018` → B3 When a builder works on a store they hold, the platform itself says the other party doesn't own it until it is transferred `CAUSAL ← [R-PAGE via Exa] Shopify Help Center` → B4 So if your store lives in someone else's account, your money depends on their honesty `CONSEQUENCE ← [D]` → mechanism MK-07 → requirement: the store in your name from the first day, payouts to your bank `SOLUTION-REQUIREMENT ← F-11` → `PRODUCT`.
+- Actual MSL Copy:
+
+  > If you've been burned before, you're not paranoid. You're paying attention.
+  >
+  > Some of the worst stories aren't about stores that didn't sell. They're about stores people paid for and never really had. "Now I can't access it — contact an administrator, which should be me." A store transferred and shut down almost immediately.
+  >
+  > Here's the quiet reason those stories happen. A lot of builders set your store up inside their own account and plan to hand it over later. Until that handover goes through, the platform treats it as theirs.
+  >
+  > Which means everything you paid for depends on one thing going right at the end.
+  >
+  > So before you ask whether a store will sell, ask a simpler question: whose name is on it?
+  >
+  > With Readymerce, the store is opened in your name from day one. It stays in your name. Payouts go to your bank account — we never hold your revenue. You can log in and look at it yourself, any time.
+  >
+  > That doesn't promise sales. Nothing honest does. It just means what you pay for is yours from the start.
+- Why This Route Fits: it confirms CP-03's suspicion and gives a check she can run herself, which answers SK-05 ("is this company even real") better than testimonials (PT-07 results page renders empty; testimonials carry an actor disclosure).
+- Biggest Leap: from "the store is mine" to "this offer is safe to buy" — ownership does not answer whether it will sell (F-13) and does not offset the low automated trust scores (PT-16).
+
+**ROUTE 6 · "Where Shoppers Already Search"** — architecture: comparison · segment: CP-06 near-retirement savers / low-ad-budget CP-05 · blame language: "I'm 56. I don't have I'm not in Internet" (Q-O-0076 `[R-OWNED]`); traffic (MC-04)
+- Micro-Belief Sequence: B1 Getting traffic is the hard part `ACCEPTED-FACT ← MC-04` → B2 Why would anyone buy from a brand-new shop? `ACCEPTED-FACT ← Q-Y-0054` → B3 On Etsy, a shopper types what she wants and Etsy matches listings by their titles and tags `CAUSAL ← [R-PAGE via Exa] Etsy Seller Handbook 2025-08-26; Etsy Help` → B4 A standalone site has to buy every visitor; a marketplace listing can be found by someone already looking `CONSEQUENCE ← [D]` → mechanism MK-08 → requirement: put the right product where shoppers already search, with listings written for that search `SOLUTION-REQUIREMENT ← F-06, CS-06` → `PRODUCT`.
+- Actual MSL Copy:
+
+  > Most first stores are built like a shop on an empty street. It can be beautiful. But nobody walks past it — so every single visitor has to be paid for with ads.
+  >
+  > That's why "getting traffic" feels like the whole battle.
+  >
+  > There's another kind of street. On Etsy, shoppers type in exactly what they're looking for, and Etsy shows them the listings whose titles and tags match what they typed.
+  >
+  > They're already looking. The job is to be there, described in the words they use.
+  >
+  > That doesn't make it easy. But it changes where a new store starts — from buying strangers to being found by searchers.
+  >
+  > On the fit call we decide, product by product, whether your store belongs on its own Shopify site or on Etsy. If it's Etsy, your listings are written for Etsy search from the start.
+- Why This Route Fits: gives the low-budget or not-very-online buyer a first step that does not depend on buying ads.
+- Biggest Leap: that a new Etsy shop from Readymerce gets organic views — Etsy publishes no aggregate search share (Exa read) and no Readymerce data exists.
+
+**Counter:** routes 6 across 6 architectures (failed-solution, yes-but-incomplete, contradiction ×2, pure causal chain, comparison) · lead CP coverage: CP-05 YES (R-2, R-6) · CP-03 YES (R-1, R-4, R-5) · CP-01 YES (R-3) → ≥1 per lead CP-## = YES. UNSOURCED causal steps in routes: 1 (R-3 B5).
+
+### (d) Best Route Recommendation
+**ROUTE 1 "The Second Shot"** — the cleanest bridge: B1 and B2 are her own experience (FS-01 is the most frequent failed solution, 25 authors), B3 is a fetched practitioner source, and the solution requirement ("several small, capped tries, read by someone") is predictable before the product name. Its one leap (package contents) is closed by a supplier-style confirmation from the operator, not by new research. Pair with ROUTE 3 for PB-01 buyers and ROUTE 5 as the trust bridge for CP-03.
+
+## §14 · CHECKLIST SCORES (belief-shattering checklist, Top 5; printed score for ranking only — never removes)
+
+| item | MK-01 | MK-06 | MK-16 | MK-08 | MK-07 |
+|---|---|---|---|---|---|
+| 1 Problem-first | 2 — UMP names a launch format, never the service | 2 — UMP names the build-and-leave format | 2 — UMP blames the scope of the familiar solution | 2 — UMP names the channel, not the service | 2 — UMP names the account arrangement |
+| 2 That's why nothing worked | 2 — re-explains FS-01, FS-03, FS-X2 | 2 — re-explains FS-02 (the most resented failure) | 2 — re-explains FS-01, FS-02, FS-03 | 1 — re-explains FS-01 only | 1 — re-explains FS-02 lock-outs; not the no-sale store |
+| 3 Lock and key | 2 — staged release + capped test act on the single-bet launch itself | 2 — early review + corrections + ongoing optimisation act exactly on the post-launch gap | 1 — the 'second half' UMS reuses MK-01's components — LOOSE as its own card | 1 — LOOSE: the Etsy route is one of two; routing rule unpublished | 2 — store in her name acts exactly on the borrowed account |
+| 4 Traced | 2 — Q-O-0082, Q-Y-0046, PT-04, Product Lair 2024 | 2 — Q-F-0004, Q-O-0169, CS-09/CS-10, Shopify.dev | 2 — Q-Y-0008 MARKET | 2 — Q-Y-0054, Q-F-0019, Etsy Handbook 2025 | 2 — Q-F-0001, Q-F-0018, Shopify Help Center |
+| 5 Superiority falls out | 2 — 'one shot vs several' makes the contrast write itself | 2 — 'they leave on launch day / we stay' falls out | 2 — 'they solved the easy half' falls out | 1 — only holds for products routed to Etsy | 1 — 5 of 8 category pages promise ownership |
+| 6 New hope | 2 — 'you only got one try' reopens the dream without blame | 1 — hope is relief more than a new possibility | 2 — new: the hard half can be run for her | 2 — 'be found by searchers' is new hope for low-budget buyers | 1 — relief, not new hope |
+| 7 One sentence | 2 — one sentence, 2 causal steps | 2 — one sentence | 1 — two halves = two steps; longer | 2 — one sentence | 2 — one sentence |
+| 8 Gradualizable | 1 — Route 1 runs cleanly, but NB-4 (package contents) is a product_would_need leap | 2 — Route 3 runs from her own blame (time) | 2 — Q-Y-0008 is an accepted market belief to start from | 1 — leap: organic Etsy views for a new shop — Etsy publishes no search share | 2 — Route 5 from MC-05 |
+| 9 Genuinely new here | 2 — 0/32 IM, 0/20 lever ads, 0/8 stated causes | 1 — NW-03 sells 'build & manage' (540d ad) | 1 — overlaps NW-03 'manage' | 2 — 0 in corpus as channel-fit (MT-02 is timing) | 1 — common on PDPs; absent from ads |
+| 10 Customer value (iPod → DS-★) | 1 — translates to 'more than one shot at the store you want' → DS-★ LATE-BOUND; Q-O-0105 closes it | 2 — 'someone stays with your store after it's live' = the sit-back outcome in Q-O-0105 | 1 — needs translation; DS-★ LATE-BOUND | 1 — 'shoppers already looking' → needs DS-★ | 2 — 'your login, your payouts' is direct customer value |
+| **total /20** | **18** | **18** | **16** | **15** | **16** |
+| weakest item | 8 Gradualizable; 10 Customer value (iPod → DS-★) | 6 New hope; 9 Genuinely new here | 3 Lock and key; 7 One sentence; 9 Genuinely new here; 10 Customer value (iPod → DS-★) | 2 That's why nothing worked; 3 Lock and key; 5 Superiority falls out; 8 Gradualizable; 10 Customer value (iPod → DS-★) | 2 That's why nothing worked; 5 Superiority falls out; 6 New hope; 9 Genuinely new here |
+
+Read (§6.8 of the prompt): MK-01 18/20 → strong · MK-06 18/20 → strong · MK-16 16/20 → strong · MK-08 15/20 → solid (weak items = the Biggest Leap) · MK-07 16/20 → strong.
+
+## §15 · LOCKED MECHANISM(S) — #1 per lead problem, always
+
+**SHARED MECHANISM: NO** — MK-01 EXPLAINS PB-06 and PB-05 but is only PARTIAL on PB-01 (PB-01's primary failed solutions FS-02/FS-05 fail at or before handover, not at the one-shot launch). Two locks: **LOCK-A = MK-01 for PB-06 + PB-05** (one card, shared) · **LOCK-B = MK-06 for PB-01**. [D] Both run on the same component chain (CS-07 → CS-08 → CS-09 → CS-10: release in stages → capped tests → early review → corrections/rollout), so step 13 can name **one system** that carries both: *the launch after the launch*.
+
+### LOCK-A · PB-06 (built/tried a store, never made sales) + PB-05 (don't know what to sell) → MK-01 The One-Shot Launch
+- **UMP:** A first store is usually launched as a single bet — one guessed product, or one batch switched on at once, with ad money spent until it runs out. When that guess misses, the whole store is written off, although sellers who do find a product that sells typically needed five to ten tries.
+- **UMS:** Readymerce's staged release (CS-07) puts products live in waves; each product gets controlled ad testing at a budget the owner approves (CS-08); an early performance review (CS-09) cuts what shows no traction and new products roll in (CS-10).
+- **core_compare_contrast:** Most alternatives launch your store once — one product, or one pile of products, switched on at the same time. Our product launches it in stages, tests each product with a budget you approve, and replaces what doesn't sell.
+- **big_idea:** First stores die from getting one shot, not from e-commerce.
+- **big_promise:** Your store is built in your name within days, then launched in stages — every product gets a small test on a budget you approve, and an early review shows you what's selling and what gets replaced. *Timeframe basis:* build "within a matter of days" (SEED `[R-SNIPPET]`), Etsy build "7 up to 10 days" (`[R-OWNED]` T-09); review timing "early" with no day number (PT-04). **Contradiction check vs PT-09 ("Results are not typical and are not guaranteed"): NONE** — the promise names process and visibility, never income or time-to-sale. **Printed contradiction to keep OUT of copy:** sales-call lines "91 percent of our clients have a success rate within the first two to three weeks" / "our goal is to get you making 10k a month" (`[R-OWNED]` T-04) contradict PT-09 and F-13.
+- **mechanization_intensity:** PB-05 (S4) → **Feature it** (the mechanism is the primary claim) · PB-06 (stage UNSCANNED → LATE-BOUND) → **Describe it** by default; Feature it if 11 reads S4 for the avatar.
+- **stage4_axes[]:** surer (tested, not guessed) · overcomes old limitations (the one-shot launch) · easier (no need to pick the winner yourself) · extra benefit (a capped budget you approve).
+- **tangible_difference:** procedural — products released in waves, each with its own capped, owner-approved ad test and an early review, instead of a single launch of 20–300 products (NW-04 20/50, NW-06 30, NW-08 ≤300; category 'Up to 50' / 'Hundreds–thousands').
+- **blame_target:** the familiar solution — the one-product/one-batch launch taught by courses and challenges and sold by pre-built stores (larger enemy: the "winning product" industry). Additive: "you were given a store and one guess; nobody gave you the second and third shot." Already suspected: "The strategy was dead, and no one told me." (Q-Y-0018) · "it takes years to find a winning product" (Q-Y-0064) · "I picked the baby store. It just didn't work" (Q-O-0082 `[R-OWNED]`). Never the prospect.
+- **lane(s):** PB-05 → New Mechanism (Stage-4 made surer) + New Information (NI-01, NI-02) · PB-06 → all three (LATE-BOUND): New Mechanism + New Information + New Identity (§16).
+- **positioning_draft:** For people who want an online store but can't afford another one-shot flop, Readymerce is the done-for-you store service that launches your products in stages and tests each one on a budget you approve, unlike build-and-hand-over stores that switch everything on at once and hope, because a store finds what sells by trying more than once.
+- **wedge:** Your store should get more than one shot.
+- **gradualization_chain[]:** PB-06 → ROUTE 1 "The Second Shot" (§13c) · PB-05 → ROUTE 2 "Nobody Picks It" · alt PB-06 → ROUTE 4 "600 Clicks, Zero Sales".
+- **biggest_leap:** that the $500 package runs enough stages and tests to count as "several shots" (PT-19 product count UNKNOWN; PT-05 ad spend excluded).
+- **collision_call:** BUILD-READY (villain CLEAR 0/8 NW, component CLEAR in ads, handle CLEAR; fix axis NOT MAPPED on Meta 140).
+- **checklist_score:** 18/20 (weakest: gradualizable; customer value — DS-★ LATE-BOUND).
+- **sibling_coverage{}:** PB-06 EXPLAINS · PB-05 EXPLAINS · PB-01 PARTIAL · PB-02 PARTIAL · PB-03 PARTIAL · PB-04 SILENT · PB-07 SILENT → siblings ≥PARTIAL 2 of 4 (50%) ✔.
+- **fs_coverage{}:** FS-01 EXPLAINS · FS-03 EXPLAINS · FS-X2 EXPLAINS · FS-02 PARTIAL · FS-05 PARTIAL · FS-06 PARTIAL · FS-04 SILENT · FS-X1 SILENT.
+- **basis:** given (PT-04, F-05, F-07 — EXACT PRODUCT MATERIAL) + [Product Lair, 2024] — "Most successful dropshippers test 5 to 10 products before finding one that scales profitably."
+- **proven_vs_inferred:** what_the_basis_shows — the PDP names staged release, controlled ad testing at approved budgets, early review and post-launch corrections; a practitioner guide (not a study) says successful dropshippers test 5–10 products · what_we_infer — that the entry package runs several product tests; that the one-shot launch is the dominant cause behind FS-01 ([D] from 25 authors' quotes) · product_would_need — products per stage, default test budget + stop rule, and who funds ad spend during tests (PT-05 excludes it) — **the team confirms with the operator while copy proceeds.**
+- **iPod translation → DS-★ (LATE-BOUND: 08.DS-★):** "A store that keeps trying until something sells — so you don't have to get it right the first time." → closes on Q-O-0105 "If I can turn this side hustle into a main job where I work anywhere in the world and don't have to worry about anything, that's ideal." `[R-OWNED]` and 03 VD-02 "an income that doesn't depend on my job".
+- **label:** VALIDATED (basis given + anchors Q-O-0082, Q-Y-0046, FS-01).
+
+### LOCK-B · PB-01 (can't/won't build and set up the store) → MK-06 The Handover Cliff
+**Stage S2 (CONFIRMED) → `MECHANISM: OPTIONAL — lead with the claim`** — claim: Readymerce's own ad title "We build it. We run it. You own it." (`[R-TOOL]` Meta, 4 of 31 ads) · the Name-it pair below is still locked.
+- **UMP:** Store builds are sold as the finish line: the builder hands the store over on launch day and leaves. But the weeks right after launch — fixing listings, prices, products and ads — are where new stores live or die, and that is exactly when the owner is left alone.
+- **UMS:** Readymerce keeps a team on the store after it goes live: an early performance review and post-launch corrections (CS-09), ongoing listing optimisation and new product rollout (CS-10), ad monitoring and reporting on budgets she approves (CS-08).
+- **core_compare_contrast:** Most alternatives hand you the store on launch day and move on. Our product keeps a team on it after launch — reviewing the first results, fixing what's off and rolling in new products.
+- **big_idea:** Launch day is the starting line, not the finish line.
+- **big_promise:** You don't build anything and you're not left alone on launch day: your store is built in your name within days, and after it goes live our team reviews the first results, makes the corrections and keeps optimising — you see the reports and approve the budgets. *Timeframe basis:* as LOCK-A; the post-launch scope is "agreed on the fit call" (PT-08) — no fixed duration published. **Contradiction check vs PT-09: NONE** (no outcome promise). Contradiction to keep out: "fully automate my online business" expectation (MC-02, Q-O-0001) — correct in copy (PT-05, PT-08).
+- **mechanization_intensity:** **Name it** (S2; she understands "they stay after launch" without explanation).
+- **stage4_axes[]:** n/a at S2 — if 11 reads S4 for an avatar: quicker (no post-launch learning curve) · surer (someone reads the first data) · overcomes old limitations (build-and-leave).
+- **tangible_difference:** procedural — the service continues past go-live (review → corrections → rollout) instead of ending at store transfer (Shopify.dev: builders "transfer ownership to the client when it's ready to go live").
+- **blame_target:** the familiar solution — build-and-leave vendors (larger enemy: the pre-built store industry). Already suspected: "they said they would build a store, but i am building the store???" (Q-F-0004) · "at what point, when do I take over the store? … Or is it something I have to run on my own?" (Q-O-0169 `[R-OWNED]`). Never the prospect.
+- **lane(s):** claim + Name-it (Stage 1–2); New Mechanism if 11 reads S3.
+- **positioning_draft:** For people who can't build a store around their job, Readymerce is the done-for-you store service that stays on your store after launch — reviewing the first results, fixing what's off and rolling in new products — unlike builders who hand over the keys on launch day, because launch day is the starting line, not the finish line.
+- **wedge:** We stay after launch day.
+- **gradualization_chain[]:** ROUTE 3 "The Weeks After Launch" (§13c).
+- **biggest_leap:** "the weeks after launch decide a new store" — UNSOURCED (VOC-only); and the post-launch scope varies per client (PT-08).
+- **collision_call:** FRESHEN (fix "we manage your store" BURNED by NW-03's 540-day ad; villain, handle and component CLEAR) — lead with the review/corrections step, never "we manage".
+- **checklist_score:** 18/20 (weakest: new hope; genuinely new here).
+- **sibling_coverage{}:** PB-01 EXPLAINS · PB-06 EXPLAINS · PB-04 EXPLAINS · PB-05 PARTIAL · PB-02 PARTIAL · PB-03 SILENT · PB-07 SILENT → siblings ≥PARTIAL 2 of 4 (50%) ✔.
+- **fs_coverage{}:** FS-02 EXPLAINS · FS-05 PARTIAL · FS-01 PARTIAL · FS-03/FS-04/FS-06/FS-X1/FS-X2 SILENT.
+- **basis:** given (CS-09, CS-10 — PT-04, PT-08, F-07) + [Shopify.dev, n.d.] builder hands over "when it's ready to go live".
+- **proven_vs_inferred:** what_the_basis_shows — the PDP names early review, corrections and ongoing optimisation; Shopify's own docs end the builder's role at transfer unless collaborator access is kept · what_we_infer — that the entry package includes a meaningful post-launch window; that the post-launch weeks decide outcomes · product_would_need — a stated minimum post-launch window (weeks) per tier in writing.
+- **iPod translation → DS-★ (LATE-BOUND):** "A store that isn't left alone the day it opens." → Q-O-0105 "…don't have to worry about anything, that's ideal." `[R-OWNED]` · MARKET twin Q-Y-0007 "sit back print profit and relax".
+- **label:** VALIDATED (basis given + anchors Q-F-0004, FS-02).
+
+**SIBLINGS UNCOVERED (by the locked pairs):** **PB-07** (idle savings / an asset for the kids) — SILENT under both locks; nearest unlocked card MK-08 PARTIAL; 03 §16 marks SD-05 "something I can give my kids" as an unsold hole → handed to 11. PB-03 is PARTIAL under LOCK-A only; its EXPLAINS card is unlocked MK-07 (AF-03) → handed to 11 as the trust bridge (ROUTE 5).
+
+## §16 · NEW INFORMATION FINDINGS / NEW IDENTITY BRIEF
+
+Lanes: New Information IN (PB-05 S4; PB-06 LATE-BOUND) · New Identity IN (PB-06 LATE-BOUND) · New Mechanism IN (PB-05, PB-02, PB-07 S3). Hook samples are **research objects** for step 12 — not approved copy; each must pass the claims router (PT-09, F-13).
+
+### (a) New Information findings
+
+**NI-01 · The winning product is found by testing, not by picking — successful sellers usually test five to ten.**
+- Source: Product Lair, "How to Find Good Dropshipping Products: A Step-by-Step Guide", 2024-10-10 (`[R-PAGE via Exa]`): "Most successful dropshippers test 5 to 10 products before finding one that scales profitably." Corroboration `[R-SNIPPET]` (WebSearch 2026-09-24): "Plan to test 5–10 products before finding a winner, which typically requires $1,000–$5,000 in product testing." A practitioner guide, not a study.
+- Why it's NEW: 0 of 32 IM records, 0 of 20 lever-read ads and 0 of 8 NW stated causes use it; the public asks it as a question ("How many products to test before finding a winner") and nobody answers it in an ad.
+- Educational positioning: a store is a testing process, not a bet — "you don't need the right pick, you need several fair tests."
+- Marketing Hook Samples: (1) "The people with a product that sells almost never found it on the first try." (2) "Your first store didn't fail. It ran out of shots." (3) "Stop asking 'what should I sell?' Ask 'how many things will my store get to test?'"
+
+**NI-02 · At an average ~1.4% conversion, hundreds of clicks and zero sales is a product signal, not a traffic signal.**
+- Source: Littledata, "Average Ecommerce Conversion Rate" (date not shown, `[R-PAGE via Exa]`): "We found the average conversion rate for Shopify was 1.4%." · Oberlo, "Average Ecommerce Conversion Rate" (Nov 2024 update): "as of September 2024, average conversion rates across ecommerce businesses were at 1.58%."
+- Why it's NEW: no ad in the corpus uses conversion arithmetic; the public frames "traffic but no sales" as a trust/UX fix list (WebSearch titles).
+- Educational positioning: read your own numbers before buying more traffic.
+- Hook Samples: (1) "600 clicks and zero sales isn't a traffic problem. Here's the math." (2) "Average stores sell to about 1 visitor in 70. If you had hundreds and sold none, look at the product, not the ads." (3) "Before you spend another dollar on ads, check this one number."
+
+**NI-03 · On Etsy, shoppers type what they want and Etsy matches listings by title and tags — a new shop can be found by searchers.**
+- Source: Etsy Seller Handbook, "How Etsy Search Works", 2025-08-26 (`[R-PAGE via Exa]`): "A buyer enters a query and we look at the inventory of listings that match that query." · Etsy Help (n.d.): "Etsy matches tags with shoppers' searches to find relevant results." (Etsy publishes no aggregate share of traffic from search.)
+- Why it's NEW: 0 DFY ads sell channel fit; the adjacent CONTROL (VA-02) sells marketplace *timing* — different claim.
+- Educational positioning: pick the street before you pay for visitors.
+- Hook Samples: (1) "Most first stores open on an empty street." (2) "There's a place where shoppers are already typing what they want to buy." (3) "Why where your store lives matters more than how it looks."
+
+**NI-04 · A store a builder holds isn't yours until it's transferred.**
+- Source: Shopify Help Center, "Client transfer stores and collaborations" (date not shown, `[R-PAGE via Exa]`): "You work in their live store, but you don't own the store and it's not transferred to you." · Shopify.dev, "Client transfer stores": "Dev stores can't be transferred to clients." Older/undated — accepted: the collision map shows 0 ads sell it.
+- Why it's NEW: 0 of 32 IM; ownership appears on 5 of 8 category *pages* only as a slogan, never as a checkable question.
+- Educational positioning: one login question to ask any builder before paying.
+- Hook Samples: (1) "Before you ask if a store will sell, ask whose name is on it." (2) "The one login question to ask any store builder before you pay." (3) "'We'll transfer it later' is the riskiest line in a store-build deal."
+
+**NI-05 · New payment accounts are reviewed — first payouts can be held until details are verified.**
+- Source: Shopify Help Center, "Shopify Payments account holds" (date not shown, `[R-PAGE via Exa]`): "if Shopify's banking partners require more information for your business, then your Shopify Payments account is put on hold until your details can be verified."
+- Why it's NEW: 0 ads; VOC names the pain (Q-Y-0042 "that money is instantly going on hold"). Tied to unlocked MK-13 (AF-13) — use only if the operator confirms verification is handled in setup.
+- Hook Samples: (1) "Why some new stores' first money gets frozen." (2) "The setup step that decides whether your first payout arrives." (3) "It wasn't a scam. It was a payout hold."
+
+### (b) New Identity brief (only identity the VOC already expresses)
+- **Role she wants to be seen in:** the **owner, not the operator** — "I don't wanna be trained to do it. I wanna just put the money forward." (Q-O-0056 `[R-OWNED]`) · "You guys can fully automate my online business." (Q-O-0001 `[R-OWNED]`) · MARKET: "fully Outsource my whole Drop Shipping Store … to see if I can sit back print profit and relax" (Q-Y-0007). A second, smaller identity: **the one who tried again** — "I was afraid to ever try again, but eventually I did" (Q-B-0004) · "I'm at that age now where a gamble doesn't really frighten you." (Q-O-0181 `[R-OWNED]`).
+- **The tribe:** "there's plenty of us losing, including myself" (Q-Y-0027) — people who tried a store (FS-01, 25 authors) and are not done.
+- **The tribe's enemy:** scammers/vendors (5 of 11 tallied blames) and gurus/coaches (3 of 11) — worldview_map; plus fake proof ("a lot of them fake the reviews" Q-Y-0032). MK-01 keeps the enemy the *format* (one-shot launch), which lets the tribe stop blaming itself without calling anyone a scammer.
+- **The aesthetic the tribe already uses:** UNKNOWN — searched: the corpus is text/transcripts (0 image or media records in 06); no aesthetic is expressed. Not invented.
+- **"Not another [category], but for people who…":** "Not another store builder — for people who'd rather own a store than learn to run one." · "Not another course — for people who already tried once."
+
+## §17 · BANKED ANGLE FAMILIES (AF-##) + KEEPERS
+
+Every unlocked mechanism with a traced anchor gets its own family (MD-## pairing = `LATE-BOUND: 08.MD-##`; proxy printed from 03 VD-##).
+
+| AF-## | cause | component | MD-## (proxy) | blame_target | hook_seed |
+|---|---|---|---|---|---|
+| AF-01 | MK-16 the half-built business (DIY/courses/builders solve only the build) | CS-07..CS-10 | LATE-BOUND (proxy VD-01) | the familiar solution | "You bought the easy half." |
+| AF-02 | MK-08 the empty-street storefront | CS-03, CS-06 | LATE-BOUND (proxy VD-01) | the familiar solution (standalone site as default) | "Most first stores open on an empty street." |
+| AF-03 | MK-07 borrowed keys | CS-04 | LATE-BOUND (proxy VD-03) | the industry (account-holding vendors) | "Whose name is on your store?" |
+| AF-04 | MK-05 product-first, supplier-second | CS-02 | LATE-BOUND (proxy VD-01) | the wrong diagnosis | "The product sold. The supplier didn't." |
+| AF-05 | MK-03 the bottomless ad budget | CS-08 | LATE-BOUND (proxy VD-05) | the incomplete answer | "Nobody told you when to stop spending." |
+| AF-06 | MK-09 the out-of-order build | CS-14, CS-01 | LATE-BOUND (proxy VD-01) | the incomplete answer (tutorials) | "You didn't get stuck. You got the steps out of order." |
+| AF-07 | MK-04 the unread first weeks | CS-09 | LATE-BOUND (proxy VD-02) | time/stage | "Your store's first report went unread." |
+| AF-08 | MK-10 the guru-list pile-up | CS-01 | LATE-BOUND (proxy VD-05) | the industry (winning-product lists) | "Thousands of people got the same 'winning product' list you did." |
+| AF-09 | MK-26 the idea-hop loop | CS-01, CS-14 | LATE-BOUND (proxy VD-01) | the incomplete answer (endless advice) | "Every new idea restarted the clock." |
+| AF-10 | MK-12 the stranger-store gap | CS-05 (+CS-25 not ours) | LATE-BOUND (proxy VD-01) | the incomplete answer | "Why would anyone buy from a shop that opened yesterday?" |
+| AF-11 | MK-14 the evening-hours mismatch | CS-10, CS-29 | LATE-BOUND (proxy VD-02) | lifestyle/time (never her) | "Stores don't fail from bad ideas. They fail from Tuesday nights." |
+| AF-12 | MK-15 the snowstorm setup | CS-04, CS-06 | LATE-BOUND (proxy VD-01) | the platform's help system | "10 weeks on 'simple' tasks." |
+| AF-13 | MK-13 the payout freeze | CS-04 | LATE-BOUND (proxy VD-03) | the platform | "It wasn't a scam. It was a payout hold." |
+
+Not banked (no traced anchor after the strip test — HYPOTHESIS): MK-02 the catalogue dump (competitor counts only) · MK-11 the off-season pick. Both stay available to 12 as HYPOTHESIS variants.
+
+**KEEPERS (not mechanisms; for step 12):** MK-17 positioning — "here is exactly how we get paid" (own fee facts only) · MK-18 trust play — "we only win when you win" is NOT available to Readymerce (answer it as an objection) · MK-19 positioning/timeline — the ground-floor marketplace CONTROL (VA-02): do not copy · MK-20 positioning — "not a course, a template pack" (PT-14) · MK-21 hook — "you're not less capable than people making money online" (VA-04) · MK-22 trust play — "show me exactly what the $500 pays for" (Q-O-0002) → publish the what-you-get list · MK-23 trust play/timeline — state the 7-day window's voiding conditions plainly (PT-15) · MK-24 timeline frame — "results are not typical and are not guaranteed" (PT-09) vs "$10,000 a month in three months" (Q-O-0008) · MK-25 positioning — "I pay $500 and then I'm gonna have to pay more money down the road?" (Q-O-0028) → exclusions up front (PT-05).
+

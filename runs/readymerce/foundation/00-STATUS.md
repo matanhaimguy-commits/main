@@ -101,3 +101,7 @@ wave W2 · COMPLETE 2 · PARTIAL 0 · RUNNING [03] (1 of 8) · QUEUED [] · open
 2026-09-24T21:46:17Z · 08 · STARTED · opus · 40 min / 150 calls · 07 fields LATE-BOUND
 2026-09-24T21:46:17Z · 10 · STARTED · opus · 40 min / 150 calls · 08.DS-★ LATE-BOUND
 wave W3 · COMPLETE 0 · PARTIAL 0 · RUNNING [07, 08, 10] (3 of 8) · QUEUED [] · open HARVEST-## 9 · last checkpoint 2026-09-24T21:46:17Z · credits ≈283.07 · scraper $0.00 · Exa ≈$4.30
+2026-09-24T22:05:52Z · 08 · COMPLETE · desire-tagged 56 of 307 (MARKET 15 · OWNED 36 · PT 5) · MD VALIDATED 3 / EARLY 4 / HYPOTHESIS 1; RJ 4 · MD-★ = MD-01 "an income that isn't hostage to a job" (Tier 1, 23 authors, leverage Medium — site disclaims income) · #2 MD-04 "build something of my own, not the one who almost did" (Tier 1, leverage High, leads PB-01/06/05) · operator hyp (a) family/time = EARLY SIGNAL (owned only; "time" appears as a decline reason); hyp (b) → RJ-04 (outcome + demographic), desire underneath MD-06 EARLY SIGNAL · tire-kicker signal: MD-01 owned authors 14/19 BOOKED-FOLLOWUP, 1 paid · classes BOTH 0 / ADV-ONLY 0 / CORPUS-ONLY 2 · 07 fields LATE-BOUND · HARVEST-10..13 issued · $0 · 18 min
+2026-09-24T22:05:52Z · 08 · AUDIT-PASS
+2026-09-24T22:05:52Z · 08 · HARVEST-ORDER-ISSUED · HARVEST-10..13
+wave W3 · COMPLETE 1 · PARTIAL 0 · RUNNING [07, 10] (2 of 8) · QUEUED [] · open HARVEST-## 13 · last checkpoint 2026-09-24T22:05:52Z · credits ≈283.0 · scraper $0.00 · Exa ≈$4.30
