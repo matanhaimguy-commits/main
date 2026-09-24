@@ -218,3 +218,65 @@ started: 2026-09-24T22:29Z · status: IN PROGRESS (lock card follows)
 - Coverage test (§6.5): VEHICLE breaker P-02/P-03/P-01 ✔ · INTERNAL breaker EB-AV3 (epiphany) + P-01 ✔ · EXTERNAL breaker P-09/P-08 ✔ → no `LEAK: INTERNAL`.
 
 `P-##: EXISTS 9 (P-02, P-03, P-04, P-05, P-06, P-07, P-08, P-09, P-10; +P-15 NOT-FOR-COPY), SHOOTABLE-NOW 1 (P-01), PLANNED 4 (P-11, P-12, P-13, P-14), NULL 1 (P-16), P0 with ≥2 types 3/3, BIG PROOF = P-02.AV-3`
+
+## §11 · CLAIMS RANKED — CLM-##.AV-3 (rank = belief-moving power for AV-03: priority of the belief served × contrast with what he tried · new hope · explains past failures · simplicity · novelty in this OWNED pond; basis only breaks ties; no verdict column)
+
+| rank | id | claim (plain, avatar language) | basis | note | proof_ids[] | belief_ids[] | source_type |
+|---|---|---|---|---|---|---|---|
+| 1 | CLM-01.AV-3 | "We don't leave on launch day. After your store goes live, our team reviews the first results, fixes what's off and rolls in new products — you see the reports and approve the budgets." | cited | PT-04/PT-08/F-07; the ongoing level is "agreed on the fit call" — never print a duration; novelty: 0 of 8 NW name the post-launch step (10 collision: handle CLEAR, "we manage" BURNED) | P-02, P-11 (PLANNED) | B-03, B-04 | PT-## |
+| 2 | CLM-02.AV-3 | "Store builders usually hand the store over the day it goes live — the platform's own guide describes transferring it 'when it's ready to go live'." | cited | Shopify.dev (R-PUB via 10) — shows where the builder's role ends, not that the weeks after decide outcomes; explains his / his peers' past failure (Q-F-0018) without calling anyone a scammer | P-04, P-05 | B-03 | R-PUB |
+| 3 | CLM-03.AV-3 | "Getting stuck on the setup isn't about being smart. Capable people stall at exactly this step — the setup was never the part you needed to learn." | inferred | corpus language only (Q-F-0012 "I'm tech savvy and competent", Q-F-8302 an 8-year $500k shop owner 5 weeks into the build, Q-F-0014); honors the live wire; never copies NW-06's "You're not less capable…" | P-05, P-01 | B-02 | corpus-language-only |
+| 4 | CLM-04.AV-3 | "Your store is set up for you — payments, shipping, listings — and opened in your name. No more weeks in the settings." | cited | F-01 "Shopify or Etsy store opened in your name and configured correctly", PT-04 listings + shipping profiles; contrast with FS-05 | P-01, P-02, P-07 | B-01, B-02 | PT-## |
+| 5 | CLM-05.AV-3 | "The store, the listings and the payouts are yours. The account stays in your name and we never hold your revenue." | cited | F-11 verbatim on /what-you-get | P-03 | B-04 | PT-## |
+| 6 | CLM-06.AV-3 | "Your first products are chosen from search demand, seasonality and competition data — not your gut — then released in stages and tested on a budget you approve." | cited | F-03, PT-04, F-05; product count per store UNKNOWN (PT-19); ad spend is on top (PT-05) | P-09, P-02, P-08 | B-06, B-05 | PT-## |
+| 7 | CLM-07.AV-3 | "One published price: $500 for the build and research. Platform fees, product costs and ad spend are extra — and you set the ad budget." | cited | PT-01, PT-05, F-12; managed fee beyond the package is quoted on the fit call (PT-02) — say so | P-10 | B-04 | PT-## |
+| 8 | CLM-08.AV-3 | "Your store can be live in days — not the ten weeks people spend on setup." | inferred | 7–10 days Etsy is a rep line [R-OWNED T-09] + "within a matter of days" [R-SNIPPET]; publish the day range on the PDP before using; "ten weeks" is his peer's number (Q-F-0013), not a stat | P-07 | B-01, B-02 | owned |
+| 9 | CLM-09.AV-3 | "Sellers who find a product that sells usually test five to ten first." | cited | Product Lair 2024 — practitioner guide, not a study | P-08 | B-06, B-05 | R-PUB |
+
+**Top 5 with proof beside:** CLM-01 (P-02 EXISTS; P-11 PLANNED) · CLM-02 (P-04 EXISTS, P-05 EXISTS) · CLM-03 (P-05 EXISTS, P-01 SHOOTABLE-NOW) · CLM-04 (P-01 SHOOTABLE-NOW, P-02 EXISTS, P-07 EXISTS) · CLM-05 (P-03 EXISTS).
+
+`CLM: 9, cited 7, competitor-claimed 0, category-typical 0, inferred 2`
+
+## §12 · SKEPTICISM BANK — SK-##.AV-3 + DO-NOT-SAY — DNS-##.AV-3
+
+| id | verbatim | kind | reason (of eight) | speaker_stage | self_protective_narrative | disarm_device | avatar_ids[] |
+|---|---|---|---|---|---|---|---|
+| SK-01.AV-3 | "I spent months here on trying over and over again to get a site going. Got stuck numerous times. No wonder people give up." (Q-F-0014) | EMOTIONAL | tried too many things | AW-2 | "everyone gives up here — it isn't just me" | "not your fault" reframe | [AV-03] |
+| SK-02.AV-3 | "i had to pay others to fix that again and again" (Q-F-8303) · "I'm left wondering if I just flushed the money and time down the drain" (Q-F-0018) · owned anticipatory: "I'm enjoying this. I won't be when I start spending money." (Q-O-0125 [R-OWNED]) | EMOTIONAL | wasted too much money | AW-4 (Q-F-8303) · AW-2 (Q-F-0018) · owned call | "the people I paid didn't do their job" | honest box + guarantee (as conditioned) | [AV-03] |
+| SK-03.AV-3 | "It is supposed to be easy for normal people to set up a store but nope, clearly not!!" (Q-F-0010) | LOGICAL | heard too many promises | AW-2 | "they lied that it's easy" | fact-based bridge (show the real steps; never say easy) | [AV-03] |
+| SK-04.AV-3 | "I want to have time to reflect and have a look because I have another." (Q-O-0113 [R-OWNED]) · "I would like to get in touch with y'all when I'm more prepared" (Q-O-0026 [R-OWNED]) | EMOTIONAL | nearly ignores the recommendation | owned call (AW-4) | "I'll look properly later" | small honest win (a store live in days, P-07) | [AV-03] |
+| SK-05.AV-3 | "Have you tried to reach this number back when you see it or it doesn't show anything?" (Q-O-0119 [R-OWNED]) · "Just give me a big a figure… Give me a conservative figure if I invest 500." (Q-O-0091 [R-OWNED]) | LOGICAL | thinks the recommender exaggerates | owned call (AW-4) | "prove you're real / commit to a number" | fact-based bridge (published terms, ownership, refund conditions) + real review (P-12, PLANNED) | [AV-03] |
+| SK-06.AV-3 | "Numerous chats, bots, and emails only wastes time with never an answer to the basic question" (Q-F-0011) | EMOTIONAL | does not want another product/routine | AW-2 | "every help channel wastes my time" | honest box (say what the team does and does not do) | [AV-03] |
+| SK-07.AV-3 | NULL — not in corpus (searched: AV-03's 79 Q-## for "too good to be true / sounds too simple") | — | sounds too simple | — | — | — | [AV-03] |
+| SK-08.AV-3 | NULL — not in corpus (searched: AV-03's 79 Q-## for "my case is different / not the same problem") | — | doubts the problem is the same | — | — | — | [AV-03] |
+
+`SK: 6 rows (+2 NULL), reasons 6/8 present in AV-03's corpus`
+
+| id | phrase | q_ids[] / im_ids[] | why_burned |
+|---|---|---|---|
+| DNS-01.AV-3 | "91 percent of our clients have a success rate within the first two to three weeks" (sales-rep line) | [R-OWNED] T-04 (01 CONTRADICTS block) | distrusted + contradicts PT-09 / F-13 ("Results are not typical and are not guaranteed", "We make no income guarantees" on 5 of 9 pages) — keep OUT of copy |
+| DNS-02.AV-3 | "our goal is to get you making 10k a month" / "Our goal is for every shop to make at least $10,000 in 6 months" (sales-rep lines) | [R-OWNED] T-04; C-0020 (06 §16) | contradicts PT-09 / F-13; SK-02 "too many promises"; MC-03 CORRECT-IN-COPY (Q-O-0008 asks exactly this) — keep OUT of copy |
+| DNS-03.AV-3 | "done for you" / "done-for-you" / "turnkey" / "business in a box" as a hook word | 07 §11 term check: "done for you" 0 of 307 passages, "turnkey" 0; EK-06 ADS-ASSUME-ONLY (IM-25) | ad jargon the buyer never uses — say what gets built |
+| DNS-04.AV-3 | "We'll build your entire store so the setup stops being the reason you never start" / "skip the overwhelming setup" / "ready to sell in 7 days" | IM-29 (NW-06, 271 d), IM-30, IM-32 (NW-06); IM-27, IM-23 (NW-04, 87 d); IM-28 (NW-05) | the incumbents' claim in this OWNED pond — over-repeated by 3 networks (4 PRIMARY incl. NW-01); an S2 claim already made → the 5th echo is invisible (law of sophistication); lead with the after-launch handle instead |
+| DNS-05.AV-3 | "we manage your store" / "we run it for you" as the lead | NW-03 IM-18 (540 d) · 10 LOCK-B collision FRESHEN | burned by a 540-day incumbent; lead with the review/corrections step |
+| DNS-06.AV-3 | "easy" / "easy money" / "simple" | Q-Y-0016 (distrusted), Q-F-0010 "It is supposed to be easy … but nope"; MC-01; 07 AW-2 must_not_be_told | distrusted by this avatar specifically — he was told it was easy |
+| DNS-07.AV-3 | "hands-free" / "fully automated" / "sit back and relax" as a promise | MC-02 (Q-O-0001, Q-O-0056); PT-05, PT-08 | non-outcome promise the product can't keep (ad spend, product costs and the management level sit outside the $500) — CORRECT-IN-COPY; his deeper-hope line (Q-O-0015) is language to mirror, never a promise |
+| DNS-08.AV-3 | "7-day 100% money-back guarantee" (unconditioned) | rep line C-0002 (17/155 US calls); Q-O-0030, Q-O-0047 [R-OWNED] | PT-15: voids on delivery acceptance, any add-on, or a request for further work; covers the $500 only — state the conditions or don't say it |
+| DNS-09.AV-3 | "You're not less capable than people making money online" | IM-32 (NW-06); 03 VA-04; 10 KEEPER MK-21 | owned by NW-06 in this pond; use his own "I'm tech savvy and competent" (Q-F-0012) instead |
+| DNS-10.AV-3 | "winning product" in the hook | 07 AW-2 must_not_be_told; Q-F-0031 / Q-Y-0064 (corpus term, but a market handle) | jargon at AW-2; swap "what do I sell" (Q-F-0040) |
+| DNS-11.AV-3 | "personal assigned account manager" / "3 vetted products" (as facts) | C-0007 (rep line) vs PT-19 / F-08 / F-09 UNKNOWN; F-03 count unconfirmed | unverified on the PDP — never print until published |
+| DNS-12.AV-3 | "Client testimonials" / "Unfiltered results" using the site's current quotes | 01 CONTRADICTS block (actors disclosure); PT-07 (/results empty) | cannot be shown to be real buyers — SK-03 "a lot of them fake the reviews" (Q-Y-0032) |
+
+`SK: 6 rows, reasons 6/8, DNS: 12`
+
+## §13 · WARREN MAP — WM-AV3
+
+| row | items (Q-##) |
+|---|---|
+| dreams_encouraged[] | "build a a income that I can sit back and relax" (Q-O-0015 [R-OWNED]) · "After weeks of overthinking, I finally committed … a huge weight off my shoulders" (Q-Y-0053) · "I will like to make a online shop" (Q-O-0024 [R-OWNED]) |
+| failures_justified[] | "I'm tech savvy and competent. I cannot find a simple step by step" (Q-F-0012) · "It is supposed to be easy for normal people to set up a store but nope, clearly not!!" (Q-F-0010) · "I have just started to design my store and have been at it for about 5 weeks now" (Q-F-8302 — a former $500k shop owner) |
+| fears_allayed[] | "Or is it something I have to run on my own?" (Q-O-0169 [R-OWNED]) · "I'm enjoying this. I won't be when I start spending money." (Q-O-0125 [R-OWNED]) · "chances are it's going to go to the ground" (Q-Y-0066) |
+| suspicions_confirmed[] | "Numerous chats, bots, and emails only wastes time" (Q-F-0011) · "When the store was transferred to me, the store was shutdown almost immediately" (Q-F-0018) · "they said they would build a store, but i am building the store???" (Q-F-0004) |
+| enemies[] (Step 13 candidates, by kind) | **the familiar solution — build-and-leave** (the builder's job ends the day the store goes live: Q-F-0018, Q-B-8301, Q-F-8303; P-04) · **the platform's help system** (Q-F-0006, Q-F-0011, Q-F-8301) · **the "it's easy" promise** (Q-F-0010, Q-Y-0016) — never the prospect, never a named competitor |
+
+`WM: avatars 1/1, rows filled 5/5, failures_justified GAP 0`

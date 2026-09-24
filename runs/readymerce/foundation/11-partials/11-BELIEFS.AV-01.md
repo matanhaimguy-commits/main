@@ -336,3 +336,25 @@ Ranking criteria (§4.9): contrast with what he tried · new hope · explains pa
 
 `LEDGER: cells filled 52/60 (1 n/a by design), holes 7`
 
+## 17 · COUNTERS + GAPS + WHAT WE COULD NOT VERIFY
+
+| avatar | B-## count | with Q-## | classes covered (of 7) | P0 with ≥2 proof types | lane_applied |
+|---|---|---|---|---|---|
+| AV-01 | 7 | 7 | 7 | 4 of 4 | NEW INFORMATION → New Mechanism DESCRIBED (differs from market lane) |
+
+- OBJ total 12 / T1 7 / assigned 11 (3 partial) / UNRESOLVED 1 (OBJ-01) · FS total 6 / explained by M-1 4 (ELIMINATION: INCOMPLETE FS-06, FS-04) · P-## EXISTS 9 / SHOOTABLE-NOW 1 / PLANNED 3 · CLM 9 · SK 9 (8/8 reasons) · DNS 11 · EK 12 · WM 5/5 · EB 8/8 · ledger holes 7.
+- **Recurrence labels (code):** B-101…B-107 all VALIDATED on TOTAL; MARKET-only labels: B-101 SUPPORTED, B-102 SUPPORTED, B-103/104/105/106/107 VALIDATED; OWNED never summed into MARKET.
+- **GAPs[]:**
+  - GAP-01 · `AV-01 VERBATIM: GAP` for OBJ-07 and OBJ-105 (searched AV-01's 53 records for "how much", "how long", "guarantee", "a month", "refund", "money back", "seven days" → 0) — carried from 06 (other persons), even_if marked `[AUTHORED, CHECK THIS]`.
+  - GAP-02 · local_stage UNSCANNED n<5 — the lane pass rests on 10's PB-06 "all three lanes" rule + CP-03's 3 bodies; 09 HARVEST-14 (open) closes it (not re-issued here).
+  - GAP-03 · owned proof 0 — self_efficacy HOLE ×4 in the ledger; no Readymerce review, case or result on file (PT-03, PT-07, PT-18 NULL).
+  - GAP-04 · product_would_need (10): products per stage, default test budget + stop rule, who funds ad spend during tests (PT-19 UNKNOWN, PT-05) — BIGGEST LEAP of GO-AV1.
+  - GAP-05 · [R-OWNED] buying read for AV-01: converted 0 of 5 persons (BOOKED-FOLLOWUP 4, UNKNOWN 1) — AV-01's buying evidence is market-side only (09 truth test pending).
+  - GAP-06 · P-103 SHOOTABLE-NOW rests on ASSUMED build access (4 PAID/DEPOSIT prospects on file, none AV-01).
+- **HARVEST-## order:** none issued — no P0 belief carries `CURRENT: GAP` (7 of 7 `current` rows trace to Q-## at [R-SCRAPE]/[R-PAGE via Exa]/[R-OWNED]); the single re-mine was not triggered (Exa 0 runs, TranscriptAPI 0 credits, $0.00). 06-VOC_MASTER.csv and 05-URL-CORPUS.md untouched; no datasets/11-AV-01-minted.csv written.
+- **LEAK list with cost to close:** `LEAK: ATC→purchase — OBJ-01` (no payment plan published — operator pricing decision, $0 research) · `LEAK: T1 unproven — OBJ-02` results half (first delivered client log + consent — P-111; demo shoot) · risk flag: if build access for P-103 is not real → `LEAK: P0 proof PLANNED — B-103` (one demo store in a staff member's own name).
+- **What we could not verify:** that the $500 package releases more than one product per stage (PT-19) · the day of the "early" review (PT-04) · that Readymerce has run a staged test for any client (PT-06, PT-07 NULL) · whether the site's testimonials are real buyers (actor disclosure) · the automated trust scores (PT-16) are heuristics, not buyer evidence · the "5 to 10 products" figure is a practitioner guide, not a study (P-104).
+
+## COVERAGE STATEMENT
+
+Scope: AV-01. Beliefs: 7 minted, 7 traced to Q-## (VALIDATED 7 / SUPPORTED 0 / EARLY SIGNAL 0 / HYPOTHESIS 0 / CONTESTED 0); avatars with full VEHICLE/INTERNAL/EXTERNAL coverage: 1 of 1; lane pass: 1 of 1 avatars; objections: 12 (T1 7, unresolved 1); failed solutions: 6, explained by M-1: 4; proof: EXISTS 9 / SHOOTABLE-NOW 1 / PLANNED 3; P0 beliefs with a ≥2-type proof stack: 4 of 4; openings found: 1 of 1 avatars; domino: PARTIAL. Sources opened: 0 external (11 upstream run files read; no re-mine triggered). Floors met/missed: [met — B-## ≥4 (7), VEHICLE/INTERNAL/EXTERNAL 3/3, the_one_belief 1, OBJ ≥8 (12), faq_set_a ≥2 (3), FS ≥3 (6), CLM ≥5 (9), DNS ≥5 (11), SK reasons 8/8, WM 5/5, EB 8/8, P0 ≥2 proof types 4/4, every T1 proven or LEAK-printed; missed — none (AV-01 verbatim for OBJ-07/OBJ-105 carried from 06 as VERBATIM: GAP)]. What was not done and why: [re-mine NOT RUN — not triggered, no P0 CURRENT: GAP; local_stage not read — UNSCANNED n<5, 09 HARVEST-14 still open; owned proof none — 0 Readymerce reviews/cases on file (PT-03/PT-07/PT-18); Apify/Reddit/Trustpilot BLOCKED-ON-TOOL — not needed]. Weakest link: the BIGGEST LEAP — nothing in writing shows the $500 package runs several product tests (PT-19 per-stage count UNKNOWN; ad spend excluded, PT-05) — plus zero owned outcome proof (OBJ-02 results half LEAK). What closing it would cost: the operator's written per-stage product count + default test budget and stop rule ($0, one message) and one delivered client's staged-release log with consent (demo shoot, P-111). Ads only assume a belief — Q-## shows buyers hold it; labels describe, paid testing decides.
