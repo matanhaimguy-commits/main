@@ -7,3 +7,5 @@ RESOLVE POINT: merge data gathered; writing 02 merge files
 RESUME POINT: merge data gathered; writing 02 merge files
 - 21:35 MERGE DONE: 02-COMPETITOR-INTEL.md + 02-swipe.csv renamed after merged 02 coverage statement; 02-HANDOFF.json written + validated
 RESUME POINT: merge complete; synthesis (method steps 2-18) starting
+- 21:37 swipe filed: save_ad_to_swipe_file ×10 (9 saved, 70486040 409 already in swipe file); balance 283.07
+RESUME POINT: synthesis writing (§1-§22)

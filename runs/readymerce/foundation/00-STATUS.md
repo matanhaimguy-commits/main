@@ -89,3 +89,6 @@ wave W2 · COMPLETE 0 · PARTIAL 0 · RUNNING [03, 06-MERGE, 07-SOPH] (3 of 8) �
 2026-09-24T21:35:52Z · 06-MERGE · AUDIT-PASS · 04/05/06 handoffs parse
 2026-09-24T21:35:52Z · 06-MERGE · HARVEST-ORDER-ISSUED · HARVEST-01..09 (reddit_*, amazon_*, trustpilot_*, tiktok_comments, youtube_comments, fb_*, ad_comments LATE-BOUND, OWNED re-mine, CP-01/CP-07 thin)
 wave W2 · COMPLETE 1 · PARTIAL 0 · RUNNING [03, 07-SOPH] (2 of 8) · QUEUED [] · open HARVEST-## 9 · last checkpoint 2026-09-24T21:35:52Z · credits ≈281.4 · scraper $0.00 · Exa ≈$4.30
+2026-09-24T21:41:37Z · 07-SOPH · COMPLETE · 20 ads / 5 networks (only 1 ABOVE-FLOOR by traffic, EDUCATION) → EARLY SIGNAL: pooled S4 (MIXED, modal ENLARGED-CLAIM 35%, S4 via stated-cause override), DFY-only S2 (PLURALITY 50%, n=12); PB-01 S2, PB-05 S4, PB-02 S3, PB-07 S3, PB-06 UNSCANNED (no long-runner sells it); incumbent entry AW-1/2/3 = 8/8/8 of 25; Meta: 0 store-builders on "done for you shopify store", parents/retirement keywords held by adjacent income/training offers; EK-01..08 ADVERTISER-ASSUMES · get_top_ads brand_not_spied ×5 → NOT RUN — needs operator yes: start_brand_spy · 0.56 cr
+2026-09-24T21:41:37Z · 07-SOPH · AUDIT-PASS
+wave W2 · COMPLETE 2 · PARTIAL 0 · RUNNING [03] (1 of 8) · QUEUED [] · open HARVEST-## 9 · last checkpoint 2026-09-24T21:41:37Z · credits ≈280.8 · scraper $0.00 · Exa ≈$4.30
