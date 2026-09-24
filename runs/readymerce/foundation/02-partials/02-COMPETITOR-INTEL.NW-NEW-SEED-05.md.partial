@@ -1,0 +1,13 @@
+# 02-COMPETITOR-INTEL — Partial · SCOPE: NW-NEW-SEED-05 ("Ecom Degree University" — join.ecomdegree.com, GetHookd brand_id 6294245)
+
+agent_id: 02-NW-NEW-SEED-05 · wave W1 · model: sonnet · started: 2026-09-24T21:03:02Z
+LOCK CARD: GetHookd-INDEXED (brand_id 6294245, page_id 396204450233314) — the one currently-active, indexed network with readable ad bodies surfaced by 02-NW-NEW-SEED-02 §17 as NEW SEED-C. Full get_ad bodies opened (real STRICT/HYBRID/BORDERLINE/NON-STORY coding, not Meta-only title fields). Method run: §5 step 1 → N1–N8.
+
+## §1 · INPUT CARD + SEARCH PLAN
+
+- PRODUCT NAME: Readymerce · TARGET MARKET: US (ASSUMED) · SCOPE: NW-NEW-SEED-05
+- Seed origin: surfaced by `02-NW-NEW-SEED-02` (agent 02-NW-NEW-SEED-02) in its §17 "NEIGHBOURS + NEW SEEDS" as `NEW SEED-C`, found via a GetHookd `search_ads{query:"Ecom Family Academy", geo:US}` cross-check that returned an unrelated, separately-indexed brand: **"Ecom Degree University"** (GetHookd brand_id 6294245, page_id 396204450233314), landing page `https://join.ecomdegree.com/`, `active_ads: 203` at that read — large and currently active, SATURATED-tier by ad count alone, NOT CRAWLED by that agent (out of its scope/cap). This agent resolves, sizes and codes that network per method §5 (step 1, then N1–N8).
+- Inputs read (per rule 6, HANDOFF-first): `01-HANDOFF.json` (product_identity, competitor_seeds, problem_lanes + lane_search_terms, search_key_set) · `01-PRODUCT-TRUTH.md` §5 (PB-01/PB-05/PB-06 SUPPORTED lane cards + PB-02/03/04/07 HYPOTHESIS cards), §6 (CP-01..CP-07), §7 (lead_problem_hypothesis PB-01, lane_search_terms), §8 (search_key_set + swap_table_v0) · `01-partials/01-HANDOFF.DEEP.json` (difference_sheet → `01-PRODUCT-TRUTH.md` §TRUTH CARD > T6) · `02-partials/02-COMPETITOR-INTEL.NW-NEW-SEED-02.md` §17 (the NEW SEED-C row this scope resolves).
+- MAX_IM_RECORDS: 30 (this run's own cap; MAX_PER_NETWORK 25 per brief) · GetHookd budget: ≤1.5 credits · Exa budget: ≤3 runs (≤$0.30) · Meta: free (page_ids cross-check only).
+- Plan executed: `get_user_profile` (before) → `get_brand{6294245}` → `get_top_ads{6294245}` walking pages → `search_ads{brand_id:6294245, sort_column:"days_active", sort_direction:"desc", status:"active", limit:10, compact:true}` NO query → `get_ad` batch (cap 25) for every serious ad → `transcribe_ad` batch for untranscribed video → re-`get_ad` → `aggregate_ads{group_by:"page_type"}` + `cls_offer_type` + `cls_has_money_back_guarantee` on `join.ecomdegree.com` → `list_shops{q:"ecomdegree.com", limit:3}` → Meta `page_ids` cross-check (free, longevity) → Exa ≤3 runs (landing page / funnel / price ladder / testimonial page) → classify/code → per-network objects → write.
+

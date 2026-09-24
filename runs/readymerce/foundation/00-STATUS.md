@@ -70,3 +70,6 @@ wave W1 · COMPLETE 9 · PARTIAL 3 · RUNNING [02-NW-NEW-SEED-02, 02-NW-NEW-SEED
 2026-09-24T21:01:55Z · 02-NW-NEW-SEED-02 · AUDIT-PASS
 2026-09-24T21:01:55Z · 02-NW-NEW-SEED-05 · STARTED · Ecom Degree University (GetHookd brand_id 6294245, 203 active ads) · sonnet · 20 min / 60 calls · cap 1.5 cr — the only indexed, currently-active network with a readable ad corpus; needed for 07-SOPH's 20-ad read
 wave W1 · COMPLETE 10 · PARTIAL 3 · RUNNING [02-NW-NEW-SEED-03, 02-NW-NEW-SEED-04, 02-NW-NEW-SEED-05] (3 of 8) · QUEUED [] · open HARVEST-## 0 · last checkpoint 2026-09-24T21:01:55Z · credits ≈284.2 · scraper $0.00 · Exa ≈$3.85
+2026-09-24T21:06:10Z · 02-NW-NEW-SEED-04 · COMPLETE · ecomaccelerator.io: brand 134049, 85 active / 105 historical ads, longest 540 d → INCUMBENT, REAL-BRAND-adjacent (BBB, Trustpilot); capital-in $15K–$35K 70/30 profit-share managed eBay/Walmart stores; "No Profit No Payment" forfeiture guarantee (no cash refund); live TikTok claim vs eBay/Walmart delivery gap; 3 IM coded NON-STORY; sibling "Cameron Hoffman – Business" unresolved · 1.04 cr + $0.20 Exa · 12 min
+2026-09-24T21:06:10Z · 02-NW-NEW-SEED-04 · AUDIT-PASS
+wave W1 · COMPLETE 11 · PARTIAL 3 · RUNNING [02-NW-NEW-SEED-03, 02-NW-NEW-SEED-05] (2 of 8) · QUEUED [] · open HARVEST-## 0 · last checkpoint 2026-09-24T21:06:10Z · credits ≈283.2 · scraper $0.00 · Exa ≈$4.05
