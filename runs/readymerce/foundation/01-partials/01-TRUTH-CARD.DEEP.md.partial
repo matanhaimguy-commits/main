@@ -1,0 +1,141 @@
+## §TRUTH CARD
+
+agent_id: 01-DEEP · wave W1 · started 2026-09-24T20:36:39Z · box: 25 min / 80 tool calls · model: sonnet
+LOCK CARD: writer = agent 01-DEEP. This section is APPENDED after SEED §1–§12 (never edited). One writer for §TRUTH CARD.
+Degraded-review-source run per TOOL CARD ADDENDUM: Apify (Amazon/Trustpilot scrapers) BLOCKED-ON-TOOL — every planned actor run printed as `NOT RUN — Apify monthly limit` below with its exact recipe. Review universe = Exa-opened pages (readymerce.com/results + testimonial pages, BBB, ScamAdviser, trustedrevie.ws, Sitejabber, ProductReview, competitor reuse) + YouTube transcripts (TranscriptAPI) + WebSearch snippets. Owned sales-call transcripts NOT read here (not reviews).
+
+### NOT RUN — Apify monthly limit (planned recipes, per STEP-01.md §2/D2)
+
+| planned actor | exact recipe | reason |
+|---|---|---|
+| jdtpnjtp/amazon-reviews ×3 (critical/five_star/three_star) | N/A — no Amazon ASIN exists for this service (no physical SKU); would have run against the closest proxy listing if one existed | NOT RUN — Apify monthly limit; also N/A: no ASIN (service product) |
+| memo23/trustpilot-scraper-ppe (readymerce.com) | `{startUrls:["https://www.trustpilot.com/review/readymerce.com"], maxItems:100, filterLanguages:["en"], sampling:"balanced", sortBy:"recent", filterDateRange:"last12months", expandRegionalDomains:false, scrapeAllReviews:false, includeStats:true, reviewInsights:true}` | NOT RUN — Apify monthly limit |
+| memo23/trustpilot-scraper-ppe (ecomdoneforyou.com) | `{startUrls:["https://www.trustpilot.com/review/ecomdoneforyou.com"], maxItems:100, filterLanguages:["en"], sampling:"balanced", sortBy:"recent", filterDateRange:"last12months", expandRegionalDomains:false, scrapeAllReviews:false, includeStats:true, reviewInsights:true}` | NOT RUN — Apify monthly limit |
+| memo23/trustpilot-scraper-ppe (ecommerceparadise.com) | `{startUrls:["https://www.trustpilot.com/review/ecommerceparadise.com"], maxItems:100, ...same params} ` | NOT RUN — Apify monthly limit |
+| memo23/trustpilot-scraper-ppe (ecomxpertz.com, ca.trustpilot.com) | `{startUrls:["https://ca.trustpilot.com/review/ecomxpertz.com"], maxItems:100, ...same params}` | NOT RUN — Apify monthly limit |
+| automation-lab/trustpilot (fallback chain, all 4 domains) | `{companyUrls:["<domain>"], maxReviewsPerCompany:100, stars:["1","2","3","5"], languages:["en"], sort:"recency", date:"last12months"}` | NOT RUN — Apify monthly limit (chain step 2) |
+| website-content-crawler (Trustpilot page crawl fallback, all 4 domains) | `{startUrls:[{url:"https://www.trustpilot.com/review/<domain>?stars=3&sort=recency&page=N"}], crawlerType:"cheerio", maxCrawlDepth:0}` | NOT RUN — Apify monthly limit (chain step 3) |
+| apify/rag-web-browser (readymerce.com/results, BBB, ScamAdviser etc.) | `{query:"<url>", outputFormats:["markdown"], scrapingTool:"raw-http"}` | NOT RUN — Apify monthly limit; substituted with Exa agent per TOOL CARD ADDENDUM |
+
+
+### T1 · SAMPLE + SOURCES
+
+Degraded-review-source run (TOOL CARD ADDENDUM): no Amazon listing exists (service, no ASIN); Trustpilot pages are BLOCKED-ON-TOOL for direct fetch by any connected tool (confirmed again this run — not re-sent to Exa; SEED's R-01 WebSearch-summary route is the only channel that ever worked for readymerce.com's Trustpilot page, reused by reference, not re-fetched). Review universe = Exa-opened pages + TranscriptAPI YouTube transcripts + WebSearch discovery, per the binding addendum.
+
+| source | url | type | retrieved | target | read | star mix | ≤12mo n | tier |
+|---|---|---|---|---|---|---|---|---|
+| readymerce.com PDP family (9 distinct pages) | readymerce.com/, /how-it-works, /results, /pricing, /refund-policy, /terms-of-service, /risk-disclaimer, /what-you-get, /knowledge | SELLER PDP / policy text | 9 pages | all reachable PDP pages | 9 of 9 read in full | N/A (not reviews) | N/A | [R-PAGE via Exa] |
+| readymerce.com 404 paths | /testimonials, /case-studies, /reviews, /guarantee, /terms | SELLER (attempted, absent) | 0 of 5 | 5 | 0 | N/A | N/A | NOT RETRIEVABLE (404) |
+| BBB (bbb.org) | bbb.org/search?find_text=Readymerce | 3rd-party accreditation/complaints | 1 search page | 1 profile | 0 (no profile exists) | N/A | N/A | [R-PAGE via Exa] |
+| ScamAdviser | scamadviser.com/check-website/readymerce.com | 3rd-party trust-check tool | 1 | 1 | 1 (trust score + 3 risk factors; 0 user comments shown) | N/A | N/A | [R-PAGE via Exa] |
+| ScamDoc | scamdoc.com/view/2555589 | 3rd-party trust-check tool | 1 | 1 | 1 (trust score 25% + 3 risk factors; 6 comments shown but NOT attributable to Readymerce — generic sitewide feed incl. Dutch-language and crypto-product text, explicitly excluded per rule 2) | N/A | N/A | [R-PAGE via Exa] |
+| trustedrevie.ws | trustedrevie.ws/reviews/readymerce.com | 3rd-party review aggregator | 1 | 1 | 0 — page states verbatim "There are currently no reviews for this company" | N/A | N/A | [R-PAGE via Exa] |
+| Sitejabber | sitejabber.com/reviews/readymerce.com | 3rd-party review site | 1 | 1 | 0 — page states "Readymerce Reviews 0 · 0 reviews · Be the first to write a review" | N/A | N/A | [R-PAGE via Exa] |
+| ProductReview.com.au | productreview.com.au/search?query=readymerce | 3rd-party review site | 1 (search page) | 1 listing | 0 — no Readymerce listing exists | N/A | N/A | [R-PAGE via Exa] |
+| Trustpilot (readymerce.com) | uk.trustpilot.com/review/readymerce.com | 3rd-party review site | BLOCKED-ON-TOOL (not re-attempted) | 1 | 0 direct (1 snippet-summary already on file as SEED R-01) | UNKNOWN (snippet only) | UNKNOWN | reused SEED [R-SNIPPET] |
+| Broad discovery (Reddit / Warrior Forum / Quora / general web) | 14 distinct URLs opened (award sites, press releases, syndicated blog posts, LinkedIn) | mixed — all turned out SELLER-CURATED / PR / employee-profile | 14 | — | 14 | N/A | mostly 2026 | [R-PAGE via Exa] |
+| YouTube — "Readymerce" direct search | search_youtube q="Readymerce review" | video search | 5 results (1st page) | — | 0 third-party Readymerce reviews found (only the brand's own channel video, 322 views, SELLER-CURATED) | N/A | N/A | [R-TOOL TranscriptAPI] |
+| YouTube — "done for you shopify store" category search | search_youtube q="done for you shopify store service review scam" | video search | 20 results (1st page) | — | 2 transcripts pulled (proxy-SKU analyst reviews of Krafted Labs and EcomSites.io, NOT Readymerce) | N/A | both 2026 | [R-PAGE via TranscriptAPI] |
+| ecommerceparadise.com own reviews page (REUSED, not re-fetched) | shop.ecommerceparadise.com/pages/reviews | competitor's own testimonials | reused from 02-partials/02-COMPETITOR-INTEL.NW-SEED-02.md §15 (LK-01..LK-03) | — | 3 quotes reused by reference | N/A | N/A | [R-PAGE via Exa] (02's read, cited not duplicated) |
+
+**SAMPLE (N=0 independent exact-SKU buyer reviews read in full)** — every Google-indexed review-style venue checked (BBB, ScamAdviser, ScamDoc, trustedrevie.ws, Sitejabber, ProductReview, Reddit/Warrior Forum/Quora broad search) returned either "no profile / no reviews" or non-attributable content; Trustpilot (the one venue known to carry a Readymerce review, per SEED R-01) stayed BLOCKED-ON-TOOL. 10 SELLER-CURATED verbatim quote units were read in full (3 on-site testimonials with an actor-portrayal disclosure + 7 earned-media/press self-quotes), plus 9 PDP/policy pages read in full (EXACT PRODUCT MATERIAL), plus 2 SIMILAR-PRODUCT-CONTEXT YouTube analyst transcripts (proxy category, not Readymerce).
+
+**Truth-card band: PROXY-SKU** (<10 exact-SKU independent buyer reviews read in full = 0). Every PT-## below is stamped by its true evidence_type (EXACT PRODUCT MATERIAL for fetched PDP/policy text, SELLER EXPLANATION for testimonials/press quotes, SIMILAR PRODUCT CONTEXT for the 2 YouTube proxy transcripts) rather than blanket-stamped, because most of this card's content is EXACT PRODUCT MATERIAL (the PDP itself, fetched for the first time this run via Exa after SEED's WebFetch/Firecrawl/Apify chain was BLOCKED-ON-TOOL) rather than proxy-SKU reviews — the band token still reads PROXY-SKU per the rule's strict buyer-review count, but the reader should note the PDP itself is now directly sourced, which SEED could not do.
+
+**3★ available: 0 of 0** — no star-rated review was retrievable anywhere this run.
+
+
+### T2 · CODED ROWS R-## + FREQUENCY TABLE
+
+SEED already coded R-01..R-05 (§4, snippet-tier, kept as-is, never edited). DEEP adds R-06..R-17 below (R-14/R-15 numbers reserved-and-skipped: the ScamAdviser/ScamDoc tool outputs are logged as facts F-14/F-15 in T5, not as R-## rows, because they are automated trust-score tool output, not review/testimonial text, and coding them as "R-##" would blur the evidence-type distinction the card exists to preserve).
+
+| r_id | source | url | date | stars | verified | text (verbatim ≤60w) | outcome_named[] | problem_named[] | population_marker | complaint[] | duration_of_effect | usage_cadence | media | length_words |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| R-06 | readymerce.com/how-it-works testimonial | https://readymerce.com/how-it-works | UNKNOWN | N/A | N — page discloses "some testimonials feature actors portraying verified experiences" | "They built it, they run it, and I get a monthly report. That's exactly what I was looking for." | monthly reporting delivered | PB-01, PB-04 | none named | NULL — searched | NULL — searched | NULL — searched | 0 | 19 |
+| R-07 | readymerce.com/how-it-works testimonial | https://readymerce.com/how-it-works | UNKNOWN | N/A | N (same disclosure) | "I work full-time. The scale phase means I never touch the day-to-day — it's the cleanest second income stream I've found." | second income stream (self-described, no $ figure) | PB-02, PB-04 | full-time employee | NULL — searched | NULL — searched | "scale phase" implies post-launch ongoing | 0 | 21 |
+| R-08 | readymerce.com/how-it-works testimonial | https://readymerce.com/how-it-works | UNKNOWN | N/A | N (same disclosure) | "Buying an existing store was absurdly priced. A custom build at a fraction of the cost was the obvious move." | chose custom build over buying an existing store | PB-01, PB-05 | prior store-buyer / shopper | price of pre-built stores ("absurdly priced") | NULL — searched | NULL — searched | 0 | 20 |
+| R-09 | bestofbestreview.com award page | https://bestofbestreview.com/awards/readymerce-best-done-for-you-e-commerce-store-service-in-the-uk-of-2026 | March 25, 2026 | N/A | N — spokesperson in earned-media award piece | "Most people spend too much energy on setup instead of selling. Readymerce helps clients focus on the part that drives their business forward." | none | PB-01 | none | NULL | NULL | NULL | 0 | 23 |
+| R-10 | bestofbestreview.com award page | https://bestofbestreview.com/awards/readymerce-best-done-for-you-e-commerce-store-service-in-the-uk-of-2026 | March 25, 2026 | N/A | N | "We don't sell dreams. We help clients start their stores with the tools and information they need." | none | PB-03 | none | NULL | NULL | NULL | 0 | 17 |
+| R-11 | evergreenawards.com award page (award-body paraphrase, NOT verbatim buyer text) | https://evergreenawards.com/awards/readymerce-best-etsy-shopify-store-setup-service-in-the-united-states-of-2025 | UNKNOWN | N/A | N — unnamed client, paraphrased by the award body, not a direct quote | "One client reported that their Etsy store generated $39,000 in nine months entirely through organic traffic, without any paid advertising." | $39,000 / 9 months, organic-only | PB-06 | unnamed single client | NULL | 9 months (stated) | organic-only (no paid ads) | 0 | 20 |
+| R-12 | lifestyle.utv.ie earned-media article | https://lifestyle.utv.ie/story/534022/inside-the-business-model-that-is-replacing-traditional-e-commerce-courses/ | UNKNOWN | N/A | N — company quote in a sponsored/earned article | "Readymerce is one of the companies leading this shift...the company builds the store for them — complete with product research, supplier partnerships, conversion-optimized design, and a tailored go-to-market strategy." | none | PB-01 | none | NULL | NULL | NULL | 0 | 27 |
+| R-13 | financialcontent.com press release | https://www.financialcontent.com/article/getnews-2026-3-9-readymerce-emerges-as-the-go-to-solution-for-aspiring-e-commerce-entrepreneurs | March 9, 2026 | N/A | N — company self-quote in a wire press release | "We don't just hand people a store and wish them luck. We deliver a business-in-a-box that is designed to convert from the moment it goes live. Our clients skip the painful learning phase and go straight to execution." | "designed to convert from the moment it goes live" (unverified claim) | PB-01 | none | NULL | NULL | NULL | 0 | 38 |
+| R-16 | YouTube analyst review of a DIFFERENT done-for-you Shopify seller (Krafted Labs / Ecom Sites.design) — SIMILAR PRODUCT CONTEXT, NOT Readymerce | https://www.youtube.com/watch?v=xWS-4VHqkcM | ~2026-09 (8 days before run) | N/A | N — 3rd-party reviewer commentary, not a buyer | "The current Crafted Labs Trustpilot profile is still very small, but all of the reviews showing right now are negative. Complaints around extra costs, add-ons, and stores not matching the expectation created by the marketing." | none | PB-01, PB-06, PB-03 | none | extra costs; add-ons; unmet expectations | NULL | NULL | video | 35 |
+| R-17 | YouTube analyst review of a DIFFERENT done-for-you Shopify seller (EcomSites.io) — SIMILAR PRODUCT CONTEXT, NOT Readymerce | https://www.youtube.com/watch?v=6t3Nl8JMuvM | ~2026-07/08 | N/A | N — 3rd-party reviewer commentary, not a buyer | "Receiving a finished store doesn't eliminate the need to attract customers, market your products, provide customer support, or continue improving the business. The service removes part of the setup process, but it doesn't remove the ongoing work." | none | PB-01, PB-06 | none | ongoing-work burden not removed by the build | NULL | "ongoing" (post-delivery) | video | 37 |
+
+**Frequency table (code-computed over all 15 R-## rows on file, SEED R-01..R-05 + DEEP R-06..R-13,R-16,R-17; python3, see `/tmp/.../scratchpad/freq.py`):**
+
+| rank | pb_id | matches (n of N=15) | distinct sources | note |
+|---|---|---|---|---|
+| 1 | PB-01 | 11 of 15 | 8 | dominant across every venue — PDP self-description, testimonials, press, and the 2 proxy YouTube reviews all name the setup/build burden |
+| 2 | PB-03 | 4 of 15 | 4 | 1 SEED buyer-voice (R-01, negative) + 1 SELLER EXPLANATION rebuttal (R-10 "we don't sell dreams") + 1 proxy YouTube (R-16, trust-pattern in category) |
+| 3 | PB-04 | 3 of 15 | 2 | thin; still no independent buyer voice beyond SEED's single R-04 |
+| 3 | PB-06 | 3 of 15 | 3 | 1 award-body paraphrase (R-11, positive, unverified $ claim) + 1 proxy YouTube (R-16) + 1 proxy YouTube (R-17) |
+| 5 | PB-02 | 1 of 15 | 1 | unchanged from SEED |
+| 5 | PB-05 | 1 of 15 | 1 | unchanged from SEED (R-08 adds a 2nd mention but was already counted — see script) |
+
+**Counter:** read 12 new units this DEEP pass (9 PDP pages EXACT PRODUCT MATERIAL + 10 SELLER-CURATED quotes read across those pages/press, counted separately from page-count; 2 SIMILAR-PRODUCT-CONTEXT YouTube transcripts) of 12 retrieved (0 chain-exhausted after retrieval — every retrieved unit was read); independent exact-SKU buyer reviews: 0 of 0 retrievable (every review-site chain ended in "no reviews" or BLOCKED-ON-TOOL); 3★ 0 of 0; hyper-responsive (longest 20%): N/A — sample too small (bottom-line R-13 at 38 words is the longest DEEP unit); ≤12mo: 8 of 10 dated DEEP units are 2026-dated (2 undated).
+
+
+### T3 · PRODUCT TRUTH CARD (PT-##)
+
+Every section printed; `NULL — searched:` where empty. Band PROXY-SKU (T1) — statements sourced to fetched PDP/policy text are EXACT PRODUCT MATERIAL (strength follows rule 6.2: EXACT PRODUCT MATERIAL alone = WELL SUPPORTED), statements sourced to testimonials/press are SELLER EXPLANATION, statements sourced to the 2 YouTube proxy transcripts are SIMILAR PRODUCT CONTEXT and are explicitly flagged as category-typical, not Readymerce-specific.
+
+**Form / materials / specs**
+- PT-01 · Readymerce's entry offer is a named, priced package: "The Store Build & Research Package," $500 one-time. `evidence_type: EXACT PRODUCT MATERIAL · strength: WELL SUPPORTED · support_count: 2 of 9 PDP pages read (pricing, terms-of-service) · quote_ids: [] (page fact, not a review quote) · contradicts_seller: N` — source readymerce.com/pricing, /terms-of-service [R-PAGE via Exa].
+- PT-02 · Above the $500 package, Readymerce publishes no fixed second tier or price; the /pricing page states the managed-service fee "is quoted for the specific category and scope on the fit call... no single number is published." This narrows SEED §2's INFERRED "$2,000 full launch" figure (sourced there only to [R-OWNED] sales-call transcripts) to a sales-call-quoted, not PDP-published, number. `evidence_type: EXACT PRODUCT MATERIAL · strength: WELL SUPPORTED · support_count: 1 of 9 · contradicts_seller: N (refines SEED, does not contradict it — SEED already marked the $2,000 figure INFERRED, not given)`.
+
+**What buyers say it IS**
+- PT-03 · No independent buyer description of what the product IS was retrievable this run (0 exact-SKU reviews). The only buyer-voice text on file anywhere is SEED's R-01 (Trustpilot, snippet-summary, negative — cited by ID, not re-read) describing a $250-deposit Shopify/Etsy build. `NULL — searched: CUSTOMER EXPERIENCE`.
+
+**What it DOES**
+- PT-04 · The $500 package includes: niche/demand/competition research, platform choice (Shopify or Etsy) agreed on a "fit call," store build + branding (logo, banner, structure), product listings (titles/tags/descriptions/images/variants), shipping-profile setup, a staged (not single-drop) product release, controlled ad testing at buyer-approved budgets, an early performance review, and post-launch corrections/ongoing listing optimisation with the management level "agreed on the fit call." `evidence_type: EXACT PRODUCT MATERIAL · strength: WELL SUPPORTED · support_count: 1 of 9 (readymerce.com/what-you-get, 26 verbatim bullet points) · contradicts_seller: N` [R-PAGE via Exa].
+- PT-05 · Explicitly excluded from the package: product costs, platform fees (e.g. Shopify subscription) and ad spend; any income/sales/profitability guarantee; and "a course, a template pack, or a second product line." `EXACT PRODUCT MATERIAL · WELL SUPPORTED · support_count: 1 of 9 · contradicts_seller: N` [R-PAGE via Exa, readymerce.com/what-you-get].
+
+**Duration of effect**
+- PT-06 · NULL — searched: no independent buyer text describing time-to-first-sale, time-to-profit, or any outcome timeline was retrievable. The one number on file (R-11, "$39,000 in nine months") is an award-body paraphrase of an unnamed client, not verbatim buyer text, and is not corroborated. `evidence_type: SELLER EXPLANATION (unverifiable) · strength: UNKNOWN`.
+
+**What it VISIBLY demonstrates**
+- PT-07 · The dedicated page built to show this — readymerce.com/results, headlined "Straight From Our Stores. Unfiltered." with "Client Testimonials" / "Hear From Our Clients" section headings — rendered with those headings but NO testimonial/case-study cards under them when Exa opened it; /testimonials, /case-studies and /reviews all return 404. `evidence_type: SELLER EXPLANATION · strength: TENTATIVE (page may be JS-rendered content Exa's crawler could not execute — NOT claimed as proof of an empty page, only as NOT RETRIEVABLE content) · contradicts_seller: borderline — a page titled "Unfiltered" that shows nothing is at minimum a coverage gap, logged for 12/13's claims router`.
+
+**Usage cadence**
+- PT-08 · Ongoing cadence per the PDP: "staged product release rather than one large drop," "ad monitoring and adjustments, plus regular reporting," "ongoing listing optimisation and new product rollout," with "the level of ongoing management... agreed on the fit call" (i.e., not fixed/standard across buyers). `EXACT PRODUCT MATERIAL · WELL SUPPORTED · support_count: 1 of 9 · contradicts_seller: N`.
+
+**Delayed-results signal**
+- PT-09 · NULL — searched: no buyer-corroborated delayed-results pattern retrievable. SELLER EXPLANATION only: "Examples are gross revenue, not profit. Results are not typical and are not guaranteed" (readymerce.com/how-it-works) [R-PAGE via Exa].
+
+**Top 3 complaints with counts**
+- PT-10 · Exact-SKU: 1 of 1 available (SEED R-01, not re-read): withheld store access codes/theme after a $250 deposit; company reply disputes the framing. Count: 1 of 0 independent DEEP-read reviews (none retrievable). Category-typical (SIMILAR PRODUCT CONTEXT, 2 of 2 proxy YouTube units, NOT Readymerce-specific): "extra costs, add-ons, and stores not matching the expectation created by the marketing" (R-16); "doesn't eliminate the need to attract customers, market products, provide customer support" (R-17); incomplete/missing deliverables at handover (R-16, of a different seller's older complaints). `evidence_type: mixed (CUSTOMER EXPERIENCE for R-01 exact-SKU; SIMILAR PRODUCT CONTEXT, basis: category-typical, for R-16/R-17) · strength: TENTATIVE`.
+
+**3★ nuance**
+- PT-11 · NULL — searched: 0 of 0 star-rated reviews retrievable anywhere this run.
+
+**Irritation / side-effect reports verbatim with counts**
+- PT-12 · NULL — searched: 0 verbatim buyer irritation/complaint quotes beyond SEED's already-filed R-01 (not re-read, not re-counted here).
+
+**Follow-up-review signal**
+- PT-13 · NULL — searched.
+
+**Packaging**
+- PT-14 · The deliverable is the buyer's own live Shopify or Etsy store account, explicitly positioned as "not a course, a template pack" — a one-off managed-service delivery, not a digital product/download. `EXACT PRODUCT MATERIAL · WELL SUPPORTED · support_count: 1 of 9 · contradicts_seller: N`.
+
+**Limitations**
+- PT-15 · The 7-day money-back guarantee is materially narrower than SEED's C10 phrasing ("7-day 100% money-back guarantee") suggests: it voids immediately — even inside the 7-day window — the moment the buyer (a) approves/accepts delivery, (b) purchases ANY additional service, add-on, upsell or upgrade, or (c) requests or commits to further work; it covers the $500 build fee only, never platform fees, ad spend, domain costs, apps or supplier costs. `EXACT PRODUCT MATERIAL · WELL SUPPORTED · support_count: 2 of 9 (refund-policy, terms-of-service, word-for-word matching text) · contradicts_seller: N (this IS the seller's own text; it refines, not contradicts, SEED's INFERRED summary)` [R-PAGE via Exa].
+- PT-16 · Two independent, non-buyer trust-check tools score the domain low: ScamAdviser trust score 0/100 (flags: WHOIS identity hidden via a paid privacy service, low visitor traffic, domain "only recently registered"); ScamDoc trust score 25% "Poor" (flags: domain created 2026-02-26 — under 7 months old at check time — plus a country-association heuristic; HTTPS present). Both are automated heuristic tools, not buyer evidence, and are logged as F-14/F-15 (T5), not as PT-## buyer statements — included here only as a limitation/context note for 12/13's claims router and for T7's PB-03 discussion. `basis: cited (tool output) · NOT a buyer-voice finding`.
+
+**Corroborated supplier claims**
+- PT-17 · NULL — searched: SEED's R-01 reviewer claim ("workers from the Philippines") is uncorroborated by any DEEP source; Readymerce's own fetched pages do not name a build-team location.
+
+**Customer media IDs**
+- PT-18 · NULL — searched: 0 customer photo/video IDs found anywhere; the page built to show them (readymerce.com/results) rendered with no cards (PT-07).
+
+**Unknowns**
+- PT-19 · UNKNOWN — searched: whether the client portal (SEED's C8: balances/credits/top-ups/monthly trend report) and a named dedicated account manager (SEED's C9) actually exist as described — neither term appears on any of the 9 DEEP-read PDP pages; both remain sourced only to SEED's [R-OWNED] sales-call transcripts (not re-read here per brief). UNKNOWN — searched: exact number of "vetted products" listed per store (SEED said "3," the DEEP-read what-you-get page describes the process but gives no fixed count).
+
+**Translated N**
+- PT-20 · 0 — no non-English review content was encountered and counted this run (ScamDoc showed 2 Dutch-language comments in a generic sitewide feed explicitly excluded as unattributable to Readymerce per rule 2 — not translated or counted as a Readymerce review).
+
+**CONTRADICTS the seller — every instance listed verbatim:**
+- **YES** — Income-guarantee disclaimers vs. sales-rep income claims. PDP (5 of 9 pages, near-identical wording): "We make no income guarantees" (readymerce.com/pricing); "ReadyMerce does not guarantee profit, revenue, sales, product success, margin, account approval, account longevity, return on investment, recovery of the Program Price, or business success" (readymerce.com/risk-disclaimer); "Examples are gross revenue, not profit. Results are not typical and are not guaranteed" (readymerce.com/how-it-works); "—Any income, sales or profitability guarantee" listed under What Is NOT Included (readymerce.com/what-you-get); "We make no income guarantees. Results vary... Past performance does not predict future results" (readymerce.com/terms-of-service) — all `[R-PAGE via Exa]`, EXACT PRODUCT MATERIAL — **directly contradicted by seller's own sales-call reps** per 01-PRODUCT-TRUTH.md §2's already-filed seller-internal-contradiction note: "91 percent of our clients have a success rate within the first two to three weeks" and "our goal is to get you making 10k a month" [R-OWNED T-04, cited by ID, not re-read]; "a successful store... might make like $5,000 in three months" [R-OWNED T-05, cited by ID, not re-read]. This is the single clearest seller self-contradiction on file — the written PDP disclaims income results across 5 separate pages while the phone sales process states specific income figures.
+- **YES** — Testimonial authenticity disclosure. readymerce.com/how-it-works headlines its quote section "Client Testimonials" / "Hear From Our Clients," then discloses in the same page's fine print that "for client confidentiality, some testimonials feature actors portraying verified experiences" — meaning the 3 named quotes on file (R-06/R-07/R-08) cannot be established as spoken by real named buyers from the page alone. `[R-PAGE via Exa]`.
+- **NO** — SEED's C10 line "refund → Readymerce keeps the store" ([R-OWNED]-sourced, marked INFERRED there): the fetched refund-policy/terms-of-service text (PT-15) says nothing about Readymerce retaining the store on refund; this is not a contradiction (SEED never asserted it as a fact, only INFERRED from a sales call) but DEEP could not corroborate it either — logged UNVERIFIED-BY-DEEP.
+

@@ -37,3 +37,10 @@ wave W1 · COMPLETE 1 · PARTIAL 0 · RUNNING [02-NW-SEED-02, 02-NW-SEED-03, VOC
 2026-09-24T20:36:03Z · 02-NW-NEW-SEED-01 · STARTED · ecomwebsites.com · sonnet · 25 min / 80 calls (slot freed)
 2026-09-24T20:36:03Z · 02-NW-NEW-SEED-02 · QUEUED · Ecom Family Academy (Meta pages Ecomfamilyhub / Ecomfamcrew / Ecom Family Academy) — launch when 02-KEYWORDS returns and a slot frees
 wave W1 · COMPLETE 3 · PARTIAL 0 · RUNNING [VOC-PB-01, VOC-PB-06, VOC-PB-05, VOC-OWNED-US, VOC-OWNED-UK, 02-KEYWORDS, 01-DEEP, 02-NW-NEW-SEED-01] (8 of 8) · QUEUED [02-NW-NEW-SEED-02] · open HARVEST-## 0 · last checkpoint 2026-09-24T20:36:03Z · credits ≈288.68 · scraper $0.00 · Exa ≈$0.55
+2026-09-24T20:46:35Z · VOC-OWNED-UK · COMPLETE · records 72/70 from 40 calls (37 UK, 2 IE, 1 NO) · C rows 13 · tags below floor NONE · outcomes BOOKED-FOLLOWUP 56 / DECLINED 9 / HUNG-UP 2 / UNKNOWN 5 · weakest link: 80 of 120 format-B files have no speaker diarization → BLOCKED-FORMAT (excluded, logged) · $0
+2026-09-24T20:46:35Z · VOC-OWNED-UK · AUDIT-PASS
+2026-09-24T20:46:35Z · 02-NW-NEW-SEED-02 · STARTED · Ecom Family Academy network (Meta pages Ecomfamilyhub / Ecomfamcrew / Ecom Family Academy) · sonnet · 25 min / 80 calls (slot freed)
+wave W1 · COMPLETE 4 · PARTIAL 0 · RUNNING [VOC-PB-01, VOC-PB-06, VOC-PB-05, VOC-OWNED-US, 02-KEYWORDS, 01-DEEP, 02-NW-NEW-SEED-01, 02-NW-NEW-SEED-02] (8 of 8) · QUEUED [] · open HARVEST-## 0 · last checkpoint 2026-09-24T20:46:35Z · credits ≈288.68 · scraper $0.00 · Exa ≈$0.55
+2026-09-24T20:47:12Z · VOC-PB-06 · COMPLETE · 04: COM 7 (5 VALIDATED; Reddit unreachable) · 05: URL 32 across 4 platforms, PLAN-VALIDATED PB-06/CP-03, PLAN-THIN CP-05 · 06: records 55/40 from 22 authors (CP-03 47/25 MET; CP-05 PARTIAL 10/25 chain exhausted); AS-01 CONFIRMED · Exa $0.65 · 18 min
+2026-09-24T20:47:12Z · VOC-PB-06 · AUDIT-PASS · 3 handoffs parse
+wave W1 · COMPLETE 5 · PARTIAL 0 · RUNNING [VOC-PB-01, VOC-PB-05, VOC-OWNED-US, 02-KEYWORDS, 01-DEEP, 02-NW-NEW-SEED-01, 02-NW-NEW-SEED-02] (7 of 8) · QUEUED [] · open HARVEST-## 0 · last checkpoint 2026-09-24T20:47:12Z · credits ≈288.68 · scraper $0.00 · Exa ≈$1.20

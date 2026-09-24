@@ -1,0 +1,18 @@
+{
+  "step": "06",
+  "mode": "HARVEST",
+  "scope": "PB-05",
+  "voc_corpus_path": "06-partials/06-VOC_MASTER.PB-05.csv",
+  "harvest_log_path": "06-partials/06-HARVEST-LOG.PB-05.md",
+  "records_total": 27,
+  "records_by_cp": {"CP-05": 14},
+  "floors": {
+    "met": ["fb+forum+quora_combined(13/7)", "tag:pain(13/7)", "tag:belief(10/5)", "tag:skepticism(4/4)", "tag:spend(2/2)", "tag:deeper_hope(2/2)"],
+    "partial": ["records_total(27/40)", "CP-05(14/25)", "source_types(3/4)", "tag:failed_solution(2/7)", "tag:objection(3/7)", "tag:trigger(3/5)", "tag:symptom(1/4)"]
+  },
+  "tags_below_floor": ["scene(0/5)", "desire(0/5)", "tired_of_hearing(0/2)", "horror_story(0/1)", "curiosity(0/1)", "corruption(0/1)"],
+  "blocked": ["reddit_post+comments (Apify hard limit; Exa cannot retrieve reddit.com) — 0 of 27-scoped-floor", "amazon_critical/5star/3star (not attempted this leg, time-boxed)", "trustpilot_balanced (BLOCKED-ON-TOOL run-wide)", "fb_post_comments (LOGIN_WALLED, 3 groups named)", "ad_comments (LATE-BOUND: 02.share_url)"],
+  "resume_point": "url_index=14 (all planned URLs mined; next step is OPERATOR-PASTE for Reddit + Amazon/Trustpilot lanes if leg resumes)",
+  "cost_usd": 0.35,
+  "coverage": "PARTIAL (N=27/floor 40) — chain exhausted: [Apify monthly hard limit (all actors), egress 403 (WebFetch/curl on all research hosts), Exa cannot retrieve reddit.com or Trustpilot] · CP-05 PARTIAL (N=14/25) · types 3/4 (forum, quora, youtube_transcript; reddit BLOCKED, reviews not run) · unique authors 14 · independent threads/videos 14 · cost $0.35 vs scoped cap · weakest link: Reddit (the platform most likely to hold PB-05's core population) fully BLOCKED-ON-TOOL all three legs · what closing it would cost: Apify plan reset or an alternate Reddit-capable credential, ~$0.05-0.10/thread via RC-RD once real thread URLs exist (operator paste of 5-10 r/dropshipping + r/dropship threads is the fastest unblock), plus Amazon/Trustpilot review lanes (not attempted this leg, time-boxed) for the reviews floor."
+}

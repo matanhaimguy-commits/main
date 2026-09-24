@@ -1,0 +1,18 @@
+{
+  "step": "05",
+  "scope": "PB-05",
+  "file": "05-partials/05-URL-CORPUS.PB-05.md",
+  "floor_table": {"file": "05-partials/05-URL-CORPUS.PB-05.md", "section": "§1"},
+  "url_count": 14,
+  "url_by_pb": {"PB-05": 14},
+  "url_by_lane": {"youtube_transcript": 8, "forum_thread": 5, "quora_answers": 1, "reddit_post+comments": 0, "fb_post_comments": 0},
+  "urls": {"file": "05-partials/05-URL-CORPUS.PB-05.md", "section": "§2"},
+  "recipe_ids": ["RC-YTX", "RC-EXA", "RC-WEB", "RC-QU", "RC-RD", "RC-FBC"],
+  "hv": [{"hv_id": "HV-PB-05", "pb_id": "PB-05", "cp_ids": ["CP-05"], "partial_file": "06-partials/06-VOC_MASTER.PB-05.csv"}],
+  "counter_format": "records n/40(PB-05) · CP-05 n/25 · sources n/14 (FETCHED · 0-yield · BLOCKED · PASTE) · types n/4 · pain n/7 · scene n/5 · failed_solution n/7 · objection n/7 · desire n/5 · trigger n/5 · belief n/5 · symptom n/4 · skepticism n/4 · spend n/2 · deeper_hope n/2 · tired_of_hearing n/2 · horror_story n/1 · curiosity n/1 · corruption n/1 · cost $x.xx",
+  "max_extra_sources": 8,
+  "plan_status": {"PB-05": "PLAN-THIN", "CP-05": "PLAN-THIN"},
+  "cp_thin": [],
+  "plan_cost_usd": 0.25,
+  "coverage": "URL 14/12 (LISTED 14 · QUERY-ONLY 0 · BLOCKED 5 · OPERATOR-PASTE 2) · PB below URL floor: [NONE total; reddit sub-floor unmet] · CP THIN: [NONE] · PLAN-VALIDATED: [NONE] · PLAN-THIN: [PB-05, CP-05] · plan cost $0.25/$2.67 · weakest link: Reddit+Facebook fully BLOCKED-ON-TOOL · what closing it would cost: Apify reset or operator-pasted Reddit thread URLs + ~$0.05-0.10/thread"
+}
