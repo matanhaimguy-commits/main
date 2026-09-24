@@ -240,3 +240,153 @@ Demonstration ranks first wherever the Truth Card lists something visibly demons
 **LEAK lines:** `LEAK: proof type she demands first (independent reviews, Q-O-0102) = NULL — P-12.AV-02 first100 PLANNED — B-07.AV-02 / OBJ-02` · `LEAK: T1 unproven half — OBJ-13.AV-02 (company legitimacy vs PT-16 counter-proof P-17)` · `LEAK: P0 proof rests on ASSUMED shoots — P-01, P-15 need a consenting live client store (OPERATOR-VALIDATES)` · `LEAK: INTERNAL "people like me" proof PLANNED (P-12) — the breaker today is the epiphany beat only (EB-AV-02)`. No `LEAK: P0 proof PLANNED` (every P0 has ≥2 types with ≥1 EXISTS/SHOOTABLE-NOW).
 
 `P-##: EXISTS 9 (P-02, P-03, P-04, P-05, P-06, P-07, P-08, P-09, P-13 internal; + P-17 counter-proof), SHOOTABLE-NOW 3 (P-01, P-14, P-15), PLANNED 4 (P-10, P-11, P-12, P-16), P0 with ≥2 types 4/4, BIG PROOF = P-03.AV-02`
+
+## §11 · CLAIMS RANKED (CLM-##) — AV-02 view, ranked in code
+
+Score = (contrast with what she tried + new hope + explains past failure + simplicity + novelty in this market, each 0/1) × weight of the highest-priority belief served (P0 = 3, P1 = 2); basis breaks ties (cited > competitor-claimed > category-typical > inferred). No verdict column. Every claim still passes 12/13's claims router (PT-09, F-13).
+
+| rank | id | claim | basis | note | proof_ids[] | belief_ids[] | source_type | score |
+|---|---|---|---|---|---|---|---|---|
+| 1 | CLM-01.AV-02 | "Your store is opened in your name from the first day and stays in your name. The money it makes goes to your bank — we never hold it." | cited | F-11 verbatim on /what-you-get; criteria 1·1·0·1·1 (novelty: 0 of 32 IM sell ownership as a check, NI-04) | P-03, P-01 | B-02, B-07, B-03 | PT-## (F-11) | 12 |
+| 2 | CLM-02.AV-02 | "In a lot of the stories that went wrong, the store was built inside the builder's own account — and until it's handed over, the platform treats it as theirs." | cited | Shopify Help Center / Shopify.dev rule (P-05, P-06); the "a lot of the stories" half is VOC (5 market authors, P-08), never a statistic; criteria 1·0·1·1·1 | P-05, P-06, P-08 | B-03, B-02 | R-PUB (platform docs) + corpus-language | 12 |
+| 3 | CLM-07.AV-02 | "You don't have to take our word for it: log in and see your own name on the store." | inferred | that the platform login displays the owner is inferred from F-11 + Shopify's ownership model until P-01 is filmed; criteria 1·1·0·1·1 | P-01, P-03 | B-07, B-02 | PT-## (F-11) + inferred | 12 |
+| 4 | CLM-03.AV-02 | "After your store goes live, our team reviews the first results and makes the corrections — that's where our work continues, not where it ends." | cited | PT-04, PT-08, F-07; the length of the post-launch window is agreed on the fit call (no minimum published); criteria 1·1·1·0·0 | P-02, P-15, P-09 | B-04, B-03 | PT-## | 9 |
+| 5 | CLM-04.AV-02 | "Before you pay you can read exactly what the $500 covers — and what it doesn't: product costs, platform fees and ad spend are yours, and you set the ad budget." | cited | PT-01, PT-04, PT-05, F-05; the managed-service fee above $500 is unpublished (PT-02) — say so; criteria 1·0·0·1·0 | P-14 | B-07, B-06 | PT-## | 6 |
+| 6 | CLM-05.AV-02 | "We don't promise what your store will earn. It's written on our pages." | cited | PT-09, F-13 (5 of 9 pages); contrasts with "They promised the moon" (Q-E-0008); criteria 1·0·0·1·0 | P-02 | B-02, B-06 | PT-## | 4 |
+| 7 | CLM-06.AV-02 | "The 7-day refund covers the $500 build fee — and it ends once you accept delivery or add anything. We'd rather you know that now." | cited | PT-15, F-10; criteria 0·0·0·1·0 | P-04 | B-07 | PT-## | 2 |
+
+**Top 5 with proof beside:** CLM-01 ← P-03 (EXISTS) + P-01 (SHOOTABLE-NOW) · CLM-02 ← P-05 + P-06 (EXISTS, platform docs) + P-08 (VOC language) · CLM-07 ← P-01 (SHOOTABLE-NOW) · CLM-03 ← P-02 (EXISTS) + P-15 (SHOOTABLE-NOW [A]) · CLM-04 ← P-14 (SHOOTABLE-NOW).
+
+`CLM: 7, cited 6, competitor-claimed 0, category-typical 0, inferred 1`
+
+## §12 · SKEPTICISM BANK (SK-##) + DO-NOT-SAY (DNS-##)
+
+**SK-## (06 rows kept by ID and extended; new rows `.AV-02`) — all eight reasons present in the corpus:**
+
+| id | verbatim | kind | reason | speaker_stage | self_protective_narrative | disarm_device | avatar_ids[] |
+|---|---|---|---|---|---|---|---|
+| SK-01 | "I gave somebody $4,500, and they took my money" (Q-O-0062 `[R-OWNED]`) · "they are not to be trusted with your money" (Q-E-0007) | EMOTIONAL | wasted too much money | AW-4 (dissatisfied) | "I won't be the one who pays twice." [D] | "not your fault" reframe | AV-02 |
+| SK-02 | "They promised the moon, but ... they do not deliver" (Q-E-0008) · "promises of more templates, ads, products etc. after you have paid" (Q-B-0001 `[R-SNIPPET]`) | LOGICAL | heard too many promises | AW-5 (retrospective) | "Anyone who promises is lying." [D] | honest box | AV-02 |
+| SK-03 | "I assume that the followers are fake" (Q-Y-0005) · "a lot of them fake the reviews" (Q-Y-0032) | LOGICAL | thinks the recommender exaggerates | AW-4 | "Their proof is manufactured." [D] | fact-based bridge (checks she runs herself — real reviews are PLANNED, P-12) | AV-02 |
+| SK-04 | "there was no way I was joining another program" (Q-Y-0022 `[R-SCRAPE]`) · "I've been burned many times" (Q-Y-0030) | EMOTIONAL | tried too many things | AW-3 (veteran) | "I'm done trying — that way I can't lose again." [D] | "not your fault" reframe | AV-02 |
+| SK-05 | "How do I know you're real?" (Q-O-0081) · "send me something to make me understand that you are legitimate" (Q-O-0055) — `[R-OWNED]` | LOGICAL | thinks the recommender exaggerates (legitimacy of the seller itself) | AW-4 (seeker) | "If I can't verify it, I'll assume the worst." [D] | fact-based bridge | AV-02 |
+| SK-06 | "I pay $500 and then I'm gonna have to pay more money down the road" (Q-O-0028 `[R-OWNED]`) | LOGICAL | heard too many promises (low anchor, hidden costs) | AW-4 | "The price they say is never the price." [D] | honest box | AV-02 |
+| SK-07.AV-02 | "a clever Shopify affiliate funnel with a big upsell" (Q-Y-0009 `[R-PAGE]`) | LOGICAL | sounds too simple ("free store") | AW-4 | "If it's that easy, there's a catch." [D] | fact-based bridge (full cost named, PT-05) | AV-02 |
+| SK-08.AV-02 | "Call me back in two weeks" (Q-O-0064) · "I have looked through and did my research, it's not for me." (Q-O-0144) — `[R-OWNED]` | EMOTIONAL | nearly ignores the recommendation | AW-4 (seeker) | "A polite exit costs me nothing." [D] | small honest win (the two checks she can run in two weeks) | AV-02 |
+| SK-09.AV-02 | "I'm not really interested in creating stores if those ones, but what I need is I need a proof of concept that actually works." (Q-O-0132 `[R-OWNED]`) | LOGICAL | doubts the problem is the same | unknown (06) | "A store isn't what failed me — the money was." [D] | real review (PLANNED P-12) → until then outside observer / fact-based bridge | AV-02 |
+| SK-10.AV-02 | "I think I will draw a line under [the vendor] and move on." (Q-F-0005) · "there was no way I was joining another program" (Q-Y-0022) | EMOTIONAL | does not want another product/routine | AW-4 / AW-3 | "Another program is another way to lose." [D] | guarantee (as conditioned) + "not your fault" reframe | AV-02 |
+
+Reasons present 8/8 (wasted money SK-01 · too many promises SK-02, SK-06 · recommender exaggerates SK-03, SK-05 · tried too many SK-04 · sounds too simple SK-07 · nearly ignores SK-08 · doubts the problem is the same SK-09 · no more routines SK-10). Self-protective narratives are analyst readings `[D]` of the verbatim beside them.
+
+**DO-NOT-SAY (DNS-##.AV-02):**
+
+| id | phrase | q_ids[] / im_ids[] | why_burned |
+|---|---|---|---|
+| DNS-01.AV-02 | "91 percent of our clients have a success rate within the first two to three weeks" (sales rep) | 01 §2 seller-internal contradiction `[R-OWNED T-04]` vs PT-09 / F-13 | contradicts the seller's own pages ("We make no income guarantees", 5 of 9 pages) — an unlabelled success figure is exactly the "promised the moon" pattern (Q-E-0008); **keep out of copy and out of calls** |
+| DNS-02.AV-02 | "our goal is to get you making 10k a month" / "Our goal is for every shop to make at least $10,000 in 6 months." (sales reps) | `[R-OWNED T-04]`; C-0020 `[R-OWNED]` vs PT-09, F-13 | income figure contradicting PT-09; MC-03 CORRECT-IN-COPY; feeds OBJ-07 and the refund-risk tier — **keep out of copy** |
+| DNS-03.AV-02 | "done for you" / "done-for-you" / "turnkey" as a hook word | 07 LANG corpus term check: "done for you" 0 · "turnkey" 0 of 307 passages; EK-06 ADS-ASSUME-ONLY (IM-21, IM-14, IM-19, IM-25) | the buyer never uses it; empty category word in a sophisticated market — say what gets built and whose name it is in |
+| DNS-04.AV-02 | "hands-free" / "fully automated" / "sit back and relax" | MC-02 CORRECT-IN-COPY (Q-O-0001); Q-E-0005 competitor claim | non-outcome promise contradicted by PT-05/PT-08 (ad spend hers; management level per call) |
+| DNS-05.AV-02 | "we're legit" / "trust us" / "we're not a scam" | SK-05 (Q-O-0081, Q-O-0055); EK-09.AV-02 | a bare claim at AW-4 triggers the screen it tries to pass; replaced by the checks she runs herself |
+| DNS-06.AV-02 | "free store" / "$20 store" / "no hidden fees" | EK-03 (Q-Y-0009, Q-B-0001, Q-O-0135); IM-27, IM-31 (NW-04, NW-06) | burned by incumbents across ≥2 networks; the buyer reads it as the upsell funnel |
+| DNS-07.AV-02 | "7-day 100% money-back guarantee" (unconditioned) | C-0002 (17 of 155 US calls) vs PT-15 / F-10; MC-07 | the refund voids on acceptance or any add-on — stating it unconditioned is a refund-dispute generator |
+| DNS-08.AV-02 | "you're gonna always have a personal assigned account manager" | C-0007 vs PT-19 / F-09 (UNKNOWN on 9 PDP pages) | unverified component; keep out until the operator confirms it in writing |
+| DNS-09.AV-02 | "If you don't go to the website within this minute, I'm gonna have to hang up and close this opportunity for you forever." | C-0024 `[R-OWNED]` | pressure close = the scam signature this avatar screens for (OBJ-03, SK-05); fails B-06's live wire |
+| DNS-10.AV-02 | "STOP buying courses!" · "we manage your store" | IM-23/26 (NW-04, 87 d); 10 §15B collision: "we manage your store" BURNED by NW-03's 540-day ad | incumbents' burned claims; the first belongs to NW-04, the second is FRESHEN-only (lead with review/corrections) |
+| DNS-11.AV-02 | client testimonials or "unfiltered results" presented as real people | 01 CONTRADICTS: "some testimonials feature actors portraying verified experiences"; PT-07 /results renders empty | to this avatar an actor-portrayed testimonial is fake proof (SK-03 "a lot of them fake the reviews") |
+| DNS-12.AV-02 | "easy money" / "anyone can do it" | MC-01 (Q-Y-0016 "make it seem like easy money when it's really not", Q-Y-0025) | distrusted explanation (06 Belief Map); 07 AW-3/AW-4 must_not_be_told |
+
+`SK: 10 rows, reasons 8/8, DNS: 12`
+
+## §13 · WARREN MAP — WM-AV-02 (validate, never correct)
+
+| row | content | Q-## |
+|---|---|---|
+| dreams_encouraged[] | a store that is simply finished and hers to step into — "I would just link into the store once it is finished" · to try again and have it work — "I was afraid to ever try again, but eventually I did" (cross-cluster, flagged) · hiring help was a reasonable dream — "why not pay Shopify expert to create my very own store" | Q-F-0005, Q-B-0004, Q-Y-0001 |
+| failures_justified[] | it was the vendor, not her — "It's cause your store is half-ass done" · "It wasn't because I wasn't smart enough, and it wasn't because I wasn't working hard enough. The strategy was dead, and no one told me." · the builder never showed up — "this coach never even scheduled a call with me" | Q-F-0002, Q-Y-0018, Q-Y-0019 |
+| fears_allayed[] | locked out of what she paid for — "now I can't access it, contact an administrator which should be me" → store in her name (F-11) · money held where she can't reach it — "over a thousand dollars sitting in my account … I can't pull my money out" → payouts to her bank (F-11) · left alone after launch — "At what point do I take over the store? Is it something I have to run on my own?" → early review + corrections (PT-04) | Q-F-0001, Q-O-0074, Q-O-0169 |
+| suspicions_confirmed[] | the pitches really are the same — "you know, the pitch is almost always the same" · cheap offers do hide upsells — "a clever Shopify affiliate funnel with a big upsell" · many builders really do keep the store in their own account until go-live (P-05, P-06) · some really were not to be trusted — "they are not to be trusted with your money" | Q-Y-0004, Q-Y-0009, Q-F-0001, Q-E-0007 |
+| enemies[] (candidates for Step 13, by kind — never a named person or brand in copy) | **familiar solution:** the build-and-leave store seller (LOCK-B blame_target; "they said they would build a store, but i am building the store???" Q-F-0004) · **industry practice:** building the client's store inside the builder's own account and "transferring it later" (MK-07; Q-F-0001) · **selling practice:** income promises and pressure closes ("They promised the moon" Q-E-0008; DNS-01/02/09.AV-02 — an enemy Readymerce must also remove from its own calls) · **fake proof:** bought followers and fake reviews ("I assume that the followers are fake" Q-Y-0005; "a lot of them fake the reviews" Q-Y-0032). VOC names individual people (a free-store promoter, a coach) — **never name them** | Q-F-0004, Q-F-0001, Q-E-0008, Q-Y-0005, Q-Y-0032 |
+
+`WM: avatars 1/1, rows filled 5/5, failures_justified GAP 0`
+
+## §14 · EPIPHANY BRIDGE MATERIAL — EB-AV-02 (IDs only)
+
+| beat | IDs |
+|---|---|
+| backstory | scene: 09 filmable scene 1 (Q-F-0001 locked out of the store she paid for) · IB-22 (Q-F-0018 handed over, shut down, "I'm in tears today") · PM-10 (Q-F-0004) · AE-14 (another failed solution: Q-O-0062) |
+| desire — external + internal | external: MD-01 / DS-01 (an income that is her own); MD-04 / DS-28 (have the store exist) · internal: MD-07 / DS-52 "try again without being robbed again" (HYPOTHESIS in 08 — used as a beat, never as the desire the ad sells) · deeper-hope Q-F-0005 |
+| the wall | FS-X2 → FS-02 → FS-03 → FS-04 (her order, §9) · residue Q-E-0006, Q-F-0018, Q-Y-0021, Q-O-0074 |
+| the epiphany | B-02.AV-02 broken via B-03.AV-02 (M-1: store held in the builder's account + builder's job ends at go-live) · P-05, P-06 · contradiction observation Q-O-0102 (she still checks) |
+| the plan | M-2 (LOCK-B UMS: early review, corrections, rollout — PT-04, PT-08) + F-11 ownership · solution requirement (GO-AV-02) · B-07.AV-02 (the two checks) |
+| conflict | OBJ-02, OBJ-13.AV-02, OBJ-04 · SK-05, SK-03 · counter-proof P-17.AV-02 (PT-16) |
+| achievement (small honest win) | her own name in the owner field the day the store opens (F-11, P-01) → the first early performance review arrives (PT-04, P-15) · timeline: sequence only (P-09; durations NULL, PT-06) |
+| transformation | IB-29 FULFILLMENT H-12 [scripted from her life: Q-F-0018] "The store is handed over and stays up; the access is theirs." · IB-30 Q-Y-0053 (verbatim fulfillment: "just making that decision felt like a huge weight off my shoulders") |
+
+`EB: 1/1, timeline source PT-04/PT-08 (sequence; PT-06 NULL), honest box SET`
+
+## §15 · HONEST TIMELINE + HONEST BOX (AV-02 view)
+
+- **honest_timeline.first_sign:** `NULL — searched: PT-06 (no buyer text on time-to-first-sale or time-to-profit), PT-09, PT-11..13` → the first *checkable* sign is procedural: the store opened in her name and configured (F-01, F-11), then a staged product release and a controlled ad test at budgets she approves (PT-04, F-05). No duration is published; the rep line "ready in seven after ten days" (C-0022 `[R-OWNED]`) is a sales-call claim and is not used.
+- **honest_timeline.full_effect:** `NULL — searched: PT-06, PT-09 ("Examples are gross revenue, not profit. Results are not typical and are not guaranteed")`. Source PT-04, PT-06, PT-08, PT-09. Never an overnight transformation; never a figure.
+- **honest_box.complaint** (top recurring first-use complaint in the competitor reviews — SIMILAR PRODUCT CONTEXT, 3 of 5 negative rows, SAMPLE(10)): promises not kept after payment — "Not 1 promise has been kept. All dates have been missed." (Q-E-0006) · "They promised the moon, but … they do not deliver" (Q-E-0008) · "never received any help other than adding the store online" (Q-E-0010). Category-typical (PT-10): extra costs and add-ons; the store does not remove the need to attract customers.
+- **honest_box.limitation** (the site's own, PT-##): no income, sales or profit guarantee (PT-09, F-13) · the $500 covers the build and research only — product costs, platform fees and ad spend are hers (PT-05) · the 7-day refund covers the $500 fee only and ends on accepting delivery, any add-on, or a request for more work (PT-15) · how long and how much the team manages after launch is agreed on the fit call, not published (PT-08, PT-02) · the company's site is new and scores low on automated trust tools (PT-16).
+- **honest_box.not_for:** "Best for someone who can set aside $500 plus platform fees and an ad budget they could afford to lose, and who wants a store in their own name that a team keeps working on after launch. If you need guaranteed income, or would be using money you can't afford to lose, this may not be the right fit."
+- **honest_box.remedy_line:** "Before you pay: read what's included and what isn't, ask on the fit call how many weeks the team stays after launch and get it in writing, and the day the store opens, check your own name in the owner field."
+
+## §16 · BELIEF AMMUNITION LEDGER (AV-02 view, IDs only)
+
+| belief | trust_asset | self_efficacy_proof | mechanism_sentence | competitor_contrast | urgency_lever |
+|---|---|---|---|---|---|
+| BB-I trust this brand | P-03, P-14 (published terms), P-01 | B-07 check she runs herself (P-01) | F-11 | FS-02 (vendor held the store — Q-F-0001) | HOLE — searched: 06 §14 WHAT-MADE-THEM-ACT, PT-## (no scarcity or deadline in any PT; the only time line on file is the pressure close C-0024 → DNS-09) |
+| BB-II my problem can be solved | P-05, P-06 | Q-Y-0018 (not her fault, language), Q-B-0004 (tried again) | M-1 (LOCK-B UMP + MK-07) | FS-02, FS-X2 | Q-B-0004 "I was afraid to ever try again, but eventually I did" |
+| BB-III THIS solves it | P-02, P-15 | P-01 (her own login) | M-2 (LOCK-B UMS: early review + corrections — PT-04) | LK-06 kept ("skip the trial and error") vs FS-02 practical failure Q-F-0004 | HOLE — searched: 06 §14, 10 §15B (post-launch window unpublished, PT-08) |
+| BB-IV better than the alternatives | P-05 (platform rule), P-07 (SIMILAR context, unnamed) | P-14 | NI-04 (store held by a builder isn't yours until transferred) | DF-02 no-cash-refund milestone guarantee vs PT-15 cash refund (as conditioned); DF-03 wider 20-day refund (a contrast that cuts against us — print, never hide) | HOLE — searched: DF-01..03, 03 §12 offer patterns |
+| BB-V now, not later | P-04 (refund window starts at payment — stated with conditions) | B-06 target (fixed first step, costs named) | HOLE — searched: 10 §15B, NI-01..05 (no mechanism makes "now" matter) | HOLE — searched: DF-01..03 (no competitor timing contrast) | HOLE — searched: PT-##, 06 §14 (no honest time lever; Q-O-0064 "Call me back in two weeks" is the HABIT to meet with the checklist, not a deadline) |
+| B-01.AV-02 | P-08 | HOLE — searched: 06 §5 BR-01..07 (a live wire — nothing for her to do yet) | HOLE — searched: none needed (honored, not moved) | FS-02 | HOLE — searched: 06 §14 (a live wire; no urgency by design) |
+| B-02.AV-02 | P-03, P-01 | P-14 | M-1 + F-11 | FS-02, FS-X2 | Q-B-0004 |
+| B-03.AV-02 | P-05, P-06 | Q-F-0001 (she lived it) | M-1 (MK-07 component + LOCK-B UMP) | FS-02 | HOLE — searched: 06 §14 |
+| B-04.AV-02 | P-02, P-15 | P-09 | M-2 (PT-04, PT-08) | LK-06 guard / FS-02 | HOLE — searched: PT-08 (no published window) |
+| B-05.AV-02 | EB-AV-02 | Q-Y-0018, Q-B-0004 | M-1 | FS-03 (coach walked away) | Q-B-0004 |
+| B-06.AV-02 | P-14 | PT-01 (fixed $500) | HOLE — searched: 10 §15B (no mechanism addresses funds) | FS-X2 (hidden add-ons) | HOLE — searched: 06 §14, PT-## (no honest money deadline; never C-0024) |
+| B-07.AV-02 | P-14, P-04, P-03 | P-01 | F-11 | FS-02 (nothing to check) | Q-O-0102 (she is already checking — the page meets her there) |
+
+`LEDGER: cells filled 47/60, holes 13 (urgency_lever 8, mechanism_sentence 3 [BB-V, B-01, B-06], competitor_contrast 1 [BB-V], self_efficacy_proof 1 [B-01])`
+
+## §17 · COUNTERS + GAPS + WHAT WE COULD NOT VERIFY
+
+**Coverage table (computed from the objects above):**
+
+| avatar | B-## count | with Q-## | classes covered (of 7) | P0 with ≥2 proof types | lane_applied |
+|---|---|---|---|---|---|
+| AV-02 | 7 (6 ladder + 1 bridge) | 7 | 7 | 4 of 4 | Stage-4 lane (mechanism made surer + New Information NI-04) — ASSUMED from person-level evidence; local_stage UNSCANNED n<5 |
+
+- OBJ total 13 · T1 8 · assigned 13 · UNRESOLVED (whole) 0 · with an unresolved half 4 (OBJ-02, OBJ-13.AV-02, OBJ-15.AV-02, OBJ-04)
+- FS total 4 · explained by M-1 2 (FS-02, FS-X2) · PARTIAL 1 (FS-03 — LOCK-A covers) · `ELIMINATION: INCOMPLETE — FS-04`
+- P-## EXISTS 9 (+1 counter-proof P-17) · SHOOTABLE-NOW 3 · PLANNED 4 · BIG PROOF P-03.AV-02
+- Counters by step: INPUTS 7/7 · BD-1 PARTIAL (T1 3/8) · FB 1/1 · EK 12 · AV-02 B-## 7, classes 7/7, V/I/E 3/3, P0 4, the_one_belief SET · GO 1/1 · OBJ 13 · FS 4 · P-## 16 (+counter) · CLM 7 · SK 10 (8/8) · DNS 12 · WM 5/5 · BS 1/1 FOUND · EB 1/1 · LEDGER 47/60
+
+**GAPs[]:**
+1. `GAP: local_stage UNSCANNED n<5 (07 §9 CP-03, 3 counted bodies)` → lane_applied ASSUMED (Stage-4) from person-level evidence; closes with HARVEST-15 / a ≥5-body CP-03 read.
+2. `GAP: independent reviews of Readymerce = 0 (PT-03, PT-07, PT-11..13, PT-18)` → the proof type AV-02 names first is PLANNED only (P-12).
+3. `GAP: post-launch window unpublished (PT-08, PT-02)` → the BIGGEST LEAP of GO-AV-02 and the unresolved half of OBJ-15.
+4. `GAP: P-01 / P-15 shoots ASSUMED` — need a consenting live client store (OPERATOR-VALIDATES).
+5. `GAP: market recurrence for B-06 (EXTERNAL) is OWNED only` (2 authors, SUPPORTED) — market VOC 0.
+6. `GAP: urgency_lever` — no honest time lever in PT-## (8 ledger holes); only the pressure close exists (DNS-09.AV-02).
+7. `GAP: competitor complaint evidence for AV-02 rests on 5 competitor Trustpilot rows (SIMILAR PRODUCT CONTEXT)` — HARVEST-15 (09 §11) remains BLOCKED-ON-TOOL (Apify limit; Trustpilot not retrievable) → OPERATOR-PASTE.
+
+**HARVEST order:** NOT ISSUED — no P0 belief carries `CURRENT: GAP` (7/7 currents traced to `[R-PAGE]`/`[R-PAGE via Exa]`/`[R-SCRAPE]`/`[R-OWNED]`); the single re-mine is reserved for that case only. 0 URLs appended to 05, 0 Q-## appended to 06, datasets/11-AV-02-minted.csv not created (nothing minted). Exa 0 runs · TranscriptAPI 0 credits.
+
+**LEAK list with cost to close:**
+- `LEAK: proof type demanded first (independent reviews, Q-O-0102) = NULL — B-07.AV-02 / OBJ-02` → first-100 review trail on a public profile (P-12) — weeks of delivery, $0 tooling.
+- `LEAK: T1 unproven half — OBJ-13.AV-02` (company legitimacy vs PT-16 ScamAdviser 0/100, ScamDoc 25%, F-16 no BBB) → publish a named company/contact page and a BBB profile; answer "why is the site new" in FAQ — operator hours, $0.
+- `LEAK: ATC→purchase — OBJ-15.AV-02` (post-launch window unpublished, PT-08) → one written minimum window per tier (10 `product_would_need`) — operator decision, $0.
+- `LEAK: ATC→purchase — OBJ-04` (managed-service fee unpublished, PT-02) → publish the fee range or state plainly that it is quoted on the fit call — $0.
+- `LEAK: P0 proof rests on ASSUMED shoots — P-01, P-15` → one screen-recording session in a consenting client store — ≈1 operator hour, $0.
+- `LEAK: INTERNAL "people like me" proof PLANNED (P-12)` — breaker today = the epiphany beat only (EB-AV-02); coverage test still passes (a breaker exists).
+- Sales-call leak (owned): reps' income lines and pressure close (DNS-01/02/09.AV-02) contradict PT-09 and are exactly what AV-02 screens for — script fix, $0.
+
+**WHAT WE COULD NOT VERIFY:** that the platform login shows the owner's name as F-11 implies (CLM-07 `inferred` until P-01 is filmed) · that an early performance review exists on file for a live client (PT-19 portal UNKNOWN) · the length of post-launch management (PT-08) · whether 09's "4 owned persons" vs the 5 owned authors in CL-01a's Q-set differ by a secondary-tag person (printed both) · any Readymerce buyer outcome (PT-06 NULL) · Reddit / Trustpilot complaint threads (BLOCKED-ON-TOOL; proof-loop UNSCANNED per 09).
+
+## COVERAGE STATEMENT
+
+Scope: AV-02. Beliefs: 7 minted, 7 traced to Q-## (VALIDATED 6 / SUPPORTED 1 / EARLY SIGNAL 0 / HYPOTHESIS 0 / CONTESTED 0); avatars with full VEHICLE/INTERNAL/EXTERNAL coverage: 1 of 1; lane pass: 1 of 1 avatars; objections: 13 (T1 8, unresolved 0 — 4 T1 with an unresolved half); failed solutions: 4, explained by M-1: 2 (+1 PARTIAL, FS-04 INCOMPLETE); proof: EXISTS 9 / SHOOTABLE-NOW 3 / PLANNED 4; P0 beliefs with a ≥2-type proof stack: 4 of 4; openings found: 1 of 1 avatars; domino: PARTIAL. Sources opened: 0 new external (re-mine not issued; 7 input files + 09 datasets read on disk; external mechanism evidence = 10's fetched Shopify Help Center + Shopify.dev pages). Floors met/missed: met — B-## ≥4 with Q-## (7), V/I/E each ≥1, one the_one_belief, OBJ ≥8 (13), faq_set_a ≥2 (3), FS ≥3 (4), CLM ≥5 (7), DNS ≥5 (12, incl. the reps' "91% success rate" and "$10k a month" lines and "done for you"/"turnkey" as a hook word), SK reasons 8/8, WM 5/5, EB 8 beats, EK floor; missed — ladder band 4–6 exceeded by the one bridge belief (B-07.AV-02), local_stage read (UNSCANNED n<5). What was not done and why: single re-mine not issued (no P0 CURRENT: GAP); HARVEST-15 complaint pages BLOCKED-ON-TOOL (Apify limit, Trustpilot not retrievable) → OPERATOR-PASTE; P-01/P-15 shoots ASSUMED (OPERATOR-VALIDATES); no GetHookd/Meta/Apify per brief. Weakest link: B-07.AV-02 / OBJ-02 — the proof she names first (independent reviews of the company) does not exist, and her own search will find the counter-proof first (PT-16 trust scores 0/100 and 25%). What closing it would cost: demo shoot (owner field + early review in a consenting client store, ≈1 operator hour, $0) + a written post-launch window per tier ($0) + a first-100 review trail (weeks) + HARVEST-15 OPERATOR-PASTE ($0) + the AV2 truth-test cell ($60, +$150 pre-check). Ads only assume a belief — Q-## shows buyers hold it; labels describe, paid testing decides.

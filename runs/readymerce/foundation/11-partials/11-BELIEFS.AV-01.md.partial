@@ -187,3 +187,93 @@ Tried statuses only (TRIED-FAILED / TRIED-HELPED-THEN-RETURNED / STOPPED-SIDE-EF
 
 `FS: total 6, tried-status 6, explained by M-1 4 (FS-01, FS-101, FS-102, FS-03), with emotional load 6, per avatar ≥3? Y`
 
+## 10 · PROOF MAP P-## (AV-01 re-order) + BIG PROOF
+
+**AV-01 re-order of the default rank (06 §8 trust signals):** he trusts "a peer's shown reality" ("this is like the reality of what it is", Q-Y-0024) and discounts sellers' reviews ("a lot of them fake the reviews", Q-Y-0032); authority_read RESENT → order for him: **1 demonstration (real screens) · 2 outside observer (peer post-mortems) · 3 data (practitioner count, conversion average) · 4 product truth (PDP text) · 5 timeline · 6 guarantee (closes, never opens) · authority NOT USED.** Provenance hierarchy honoured: owned proof (none yet) → owned demo (P-103/P-111) → exact-SKU product truth (P-101/102/108) → external mechanism evidence (P-104/105) → market VOC as language (P-106).
+
+| id | type | status | provenance | basis + note | tags[] | proof_rank (AV-01) | what_it_proves[] | trusted_by_avatars[] | pdp_section | ad_beat |
+|---|---|---|---|---|---|---|---|---|---|---|
+| P-101 | product_truth_pattern | EXISTS | PT-04, F-03, F-04, F-05, F-07 — readymerce.com/what-you-get [R-PAGE via Exa] | cited · EXACT PRODUCT MATERIAL: staged (not single-drop) release, "controlled ad testing with budgets you approve", early performance review, corrections + "new product rollout", supplier feasibility review · gap: named, not demonstrated; products per stage UNKNOWN (PT-19); "early" has no day number | — | 4 | B-101, B-102, B-105, B-107, OBJ-101, OBJ-102, OBJ-06, OBJ-103 | AV-01 (seller's words — medium) | how it works / mechanism | 5 (reveal) |
+| P-102 | product_truth_pattern | EXISTS | F-11, PT-14 — readymerce.com/what-you-get | cited · "The store account is in your name and stays in your name" · "Payouts go to your bank account — Readymerce never holds your revenue" · "The brand, listings, images and store assets belong to you" | — | 4 | B-103, B-104, OBJ-02, OBJ-03, OBJ-104 | AV-01 | ownership block | 7 |
+| P-103 | shootable_demo | SHOOTABLE-NOW | [A] screen recording inside a Readymerce-built store: Shopify admin → store owner = the client; payouts → the client's bank; the ad-budget approval step | inferred · ASSUMED: the operator has a build in progress (4 PAID/DEPOSIT prospects on file [R-OWNED]); needs that client's consent or a demo store in a staff member's own name · it demonstrates F-11/F-05; it does not show sales | — | 1 | B-103, B-104, OBJ-02, OBJ-03 | AV-01 (a shown reality) | proof block | 7 |
+| P-104 | external_mechanism_evidence | EXISTS | Product Lair, "How to Find Good Dropshipping Products: A Step-by-Step Guide", 2024-10-10, https://productlair.com/blog/how-to-find-good-dropshipping-products-a-step-by-step-guide [R-PAGE via Exa, opened by 10] | cited · "Most successful dropshippers test 5 to 10 products before finding one that scales profitably." · "Start each test with a small ad budget … and cut products that show no traction quickly." · source-read: opens at URL (10 §5) · same population (beginner dropshippers) · outcome = finding a product that scales, not income · honesty gaps: practitioner guide, not a study; one source vs consensus (WebSearch snippets agree, [R-SNIPPET], no floor); self-report vs measured; not about Readymerce | — | 3 | B-102, B-107, B-105, OBJ-101, OBJ-106 | AV-01 | mechanism block | 4 |
+| P-105 | data_stat | EXISTS | Littledata, "Average Ecommerce Conversion Rate", https://www.littledata.io/ecommerce-conversion-rate [R-PAGE via Exa] · Oberlo (Sept 2024) 1.58% | cited · "We found the average conversion rate for Shopify was 1.4%." · gap: an average across stores, not a promise; a new store with no reviews may convert lower (MK-12 caveat) · measured (vendor analytics), association only | — | 3 | B-105, B-101, OBJ-106 | AV-01 | failed-solutions block | 3 |
+| P-106 | outside_observer | EXISTS | market VOC peer post-mortems: Q-Y-0026 (Charlie Nuttall, YouTube [R-SCRAPE]) "you could have nine failed stores and that one winner will make you more money than all the others" · Q-Y-0030 (Alex Ulbin [R-SCRAPE]) "what I did learn is what doesn't work" · Q-B-0004 ([R-PAGE via Exa]; fragment exact, lead-in paraphrase-risk) "I was afraid to ever try again, but eventually I did – several times – and had success" | cited (as VOC) · people-like-me proof, NOT about Readymerce; provenance = market VOC as language · on-screen use needs creator attribution; never edited into a testimonial | — | 2 | B-102, B-106, B-107 | AV-01 (peers over gurus, Q-Y-0039) | story block | 1, 5 |
+| P-107 | guarantee | EXISTS | PT-15, F-10 — readymerce.com/refund-policy, /terms-of-service | cited · AS CONDITIONED: 7 days from payment, the $500 build fee only; voids immediately on (a) accepting delivery, (b) buying any add-on/upgrade, (c) requesting further work; never platform fees, ad spend, domain, apps, supplier costs | — | 6 | B-104, OBJ-03, OBJ-105 | AV-01 (closes residual fear only) | guarantee block | — (never opens) |
+| P-108 | product_truth_pattern | EXISTS | PT-01, PT-05, PT-09, F-13 — /pricing, /what-you-get, /how-it-works, /risk-disclaimer | cited · "What Is NOT Included": product costs, platform fees, ad spend, "Any income, sales or profitability guarantee" · "Results are not typical and are not guaranteed" · $500 one-time | — | 4 | B-103, B-104, OBJ-04, OBJ-07, OBJ-102 | AV-01 (confirms his suspicion — Warren) | offer / cost block · FAQ | 6 |
+| P-109 | timeline | EXISTS (partial) | build "7 up to 10 days" (Etsy) [R-OWNED T-09] · "within a matter of days" [R-SNIPPET] · review "early" (PT-04) | cited (owned) / snippet · build time only; no outcome timeline (PT-06 NULL) | — | 5 | OBJ-105, B-104 | AV-01 | timeline | — |
+| P-110 | curated_review | EXISTS | Q-E-0010 (Trustpilot, nn-dfysuccess.com, 1★, 2024-06-17) "I Never received any help to bring visitors to my store … 1 month and not one sale" · Q-E-0006 (ecomxpertz.com, 1★, 2026-02-24) "Not 1 item has been listed for sale in several months" | competitor PRODUCT_TRUTH · SIMILAR PRODUCT CONTEXT only — never proof for Readymerce; usable as competitor_contrast | SIMILAR-PRODUCT-CONTEXT | n/a | contrast for B-105, FS-101 | — | comparison | — |
+| P-111 | owned_demo | PLANNED | a delivered Readymerce client store's staged-release log — products per stage, budget approved per test, what the early review cut, the review date | inferred · closes the BIGGEST LEAP (PT-19) and OBJ-02's results half · cost: one delivered client + written consent | — | 1 (when real) | B-102, B-103, B-107, OBJ-02, OBJ-101 | AV-01 | mechanism / proof | 5 |
+| P-112 | first100 | PLANNED | [R-OWNED] outcome rows: 4 PAID/DEPOSIT prospects (O-a654f844 DEPOSIT, O-aeea92be DEPOSIT, O-5455cbcf PAID, O-7efb82c7 PAID) — outcome rows, **not testimonials**; 0 of 4 are AV-01 persons | owned · N reviews 0 · readymerce.com/results renders no cards (PT-07); site testimonials disclose "some testimonials feature actors portraying verified experiences" → never used as proof | — | 2 (when real) | B-104, OBJ-02, OBJ-03 | AV-01 | reviews | 7 |
+| P-113 | founder_note | PLANNED | a signed note on why products go live in stages and what the $500 does not cover | inferred · no founder named on the 9 PDP pages read (searched 01 §T3, §T5) | — | 5 | B-102, B-104 | AV-01 | founder block | — |
+
+authority: NOT USED — authority_read RESENT (06 §8); 0 credentialed sources filed.
+
+**BIG PROOF: P-104** (strongest at EXISTS for AV-01 — the only outside-the-seller proof that moves THE ONE BELIEF B-102 and the cause B-107), always stacked with P-101 (the product half) and P-106 (peers). Demonstration outranks it the day P-103 is shot / P-111 exists.
+
+**proof_stack_per_p0:**
+
+| B-## | proof types | ≥2? | ≥1 EXISTS/SHOOTABLE-NOW? |
+|---|---|---|---|
+| B-102 (the one) | external_mechanism_evidence (P-104) · outside_observer (P-106) · product_truth_pattern (P-101) · owned_demo (P-111 PLANNED) · founder_note (P-113 PLANNED) | YES (3 at EXISTS) | YES |
+| B-103 | product_truth_pattern (P-108, P-102) · shootable_demo (P-103 [A]) · owned_demo (P-111 PLANNED) | YES (2) | YES |
+| B-104 | product_truth_pattern (P-102, P-108) · shootable_demo (P-103 [A]) · guarantee (P-107) | YES (3) | YES |
+| B-107 | external_mechanism_evidence (P-104) · product_truth_pattern (P-101) · data_stat (P-105) · owned_demo (P-111 PLANNED) | YES (3) | YES |
+
+- **Coverage test (§6.5):** VEHICLE (B-103) breaker = P-103 demonstration + P-108 · INTERNAL (B-102) breaker = EB-AV1 epiphany beat + P-106 people-like-me · EXTERNAL (B-104) breaker = P-102/P-103/P-107 → no `LEAK: INTERNAL`. Weak spot printed: the people-like-me proof is market peers, not Readymerce buyers (owned version P-112 PLANNED).
+- **LEAK lines:** `LEAK: ATC→purchase — OBJ-01` · `LEAK: T1 unproven — OBJ-02 (results half)` · no `LEAK: P0 proof PLANNED` (every P0 has ≥2 types at EXISTS/SHOOTABLE-NOW). Risk flag (not a LEAK): P-103 is SHOOTABLE-NOW only under ASSUMED build access — if false, B-103 and B-104 each drop to one EXISTS type (product_truth_pattern + guarantee for B-104 still ≥2; B-103 would fall to 1 → `LEAK: P0 proof PLANNED — B-103`, cost: one demo store in a staff member's own name).
+
+`P-##: EXISTS 9, SHOOTABLE-NOW 1, PLANNED 3, P0 with ≥2 types 4/4, BIG PROOF = P-104`
+
+## 11 · CLAIMS RANKED CLM-##.AV-1 (by belief-moving power for AV-01; basis breaks ties only)
+
+Ranking criteria (§4.9): contrast with what he tried · new hope · explains past failures · simplicity · novelty in this market — weighted by the priority of the belief served (P0 first). No verdict column.
+
+| rank | id | claim (plain, avatar language) | basis | note | proof_ids[] | belief_ids[] | source_type |
+|---|---|---|---|---|---|---|---|
+| 1 | CLM-01.AV-1 | Your first store didn't prove online stores don't work for you — it got one try. | inferred | [D] cause read from FS-01 (25 authors, 06) + P-104; interpretation, not measured — never phrased as a statistic | P-104, P-106, P-101 | B-102, B-107 | corpus-language-only + R-PUB |
+| 2 | CLM-02.AV-1 | Sellers who find a product that sells usually tested five to ten first, each on a small budget. | cited | Product Lair 2024 — practitioner guide, not a study; not Readymerce data | P-104, P-106 | B-107, B-102 | R-PUB |
+| 3 | CLM-03.AV-1 | A Readymerce store goes live in stages, not all at once — each product is tested on an ad budget you approve. | cited | PT-04/F-05 EXACT PRODUCT MATERIAL; products per stage UNKNOWN (PT-19) — operator confirms before use | P-101, P-103 | B-107, B-104 | PT-04 |
+| 4 | CLM-09.AV-1 | Plenty of people lose money on a first store — and the ones who make it kept trying. | category-typical | corpus: 5 authors / 5 threads (B-106); peer lines, not a rate | P-106 | B-106, B-102 | corpus-language-only |
+| 5 | CLM-04.AV-1 | Hundreds of clicks and zero orders usually means the product didn't land, not that nobody came — the average Shopify store turns about 1 in 70 visits into a sale. | cited | Littledata 1.4% (Oberlo 1.58%) — an average across stores, not a promise; a new store may convert lower | P-105 | B-105, B-101 | R-PUB |
+| 6 | CLM-05.AV-1 | An early review cuts what isn't selling, and new products roll in. | cited | PT-04/F-07; "early" has no published day count | P-101 | B-107 | PT-04 |
+| 7 | CLM-06.AV-1 | The store is in your name from day one, and payouts go to your own bank. | cited | F-11 EXACT PRODUCT MATERIAL | P-102, P-103 | B-104, B-103 | F-11 |
+| 8 | CLM-07.AV-1 | The $500 is one-time; product costs, platform fees and the ad budget you set are separate — and no income is promised. | cited | PT-01, PT-05, PT-09, F-13; managed-service fee quoted on the fit call (PT-02) | P-108 | B-104, B-103 | PT-05 |
+| 9 | CLM-08.AV-1 | The $500 build fee is refundable within 7 days — until you accept delivery or add anything. | cited | PT-15 AS CONDITIONED (three voiding conditions; third-party costs never refundable) | P-107 | B-104 | PT-15 |
+
+**Top 5 with proof beside:** CLM-01 ← P-104 + P-106 + P-101 · CLM-02 ← P-104 (+ P-106) · CLM-03 ← P-101 + P-103 [A] · CLM-09 ← P-106 · CLM-04 ← P-105.
+
+`CLM: 9, cited 7, competitor-claimed 0, category-typical 1, inferred 1`
+
+## 12 · SKEPTICISM BANK SK-## + DO-NOT-SAY DNS-##.AV-1
+
+| id | verbatim | kind | reason | speaker_stage | self_protective_narrative | disarm_device | avatar_ids[] |
+|---|---|---|---|---|---|---|---|
+| SK-101.AV-1 | "it isn't all sunshine and rainbows" (Q-Y-0025) | LOGICAL | sounds too simple | AW-3 (veteran) | "if it sounds simple, it's the easy-money pitch again" | honest box (say the hard parts first) | AV-01 |
+| SK-04 | "I've tried Drop Shipping on and off for like 7 years now" (Q-Y-0028) · "I tried to get into this trading stuff. It didn't work." (Q-O-0110 [R-OWNED]) | EMOTIONAL | tried too many things | AW-3 (veteran) ‖ owned seeker | "I've tried everything; nothing works for someone like me" | "not your fault" reframe (the format gave each try one shot) | AV-01 |
+| SK-01 | "I spent thousands of dollars and hundreds of hours of my own time" (Q-Y-0029) · "throwing cash off a cliff" (Q-Y-0048) | EMOTIONAL | wasted too much money | AW-3 / AW-2 | "never again — keep the rest of my money safe" | small honest win (a capped first test he approves) + guarantee as closer | AV-01 |
+| SK-02 | "make it seem like easy money when it's really not" (Q-Y-0016) | LOGICAL | heard too many promises | AW-3 (seeker) | "they all say that" | fact-based bridge (PT-09 printed before any benefit; no income figure) | AV-01 |
+| SK-102.AV-1 | "I definitely was not an expert so take what I say with a grain of salt" (Q-Y-0039) [D: the corpus habit of discounting advice] | LOGICAL | nearly ignores the recommendation | AW-2 (former) | "advice is just someone's opinion" | outside observer (peer numbers, P-106) instead of advice | AV-01 |
+| SK-03 | "a lot of them fake the reviews" (Q-Y-0032) | LOGICAL | thinks the recommender exaggerates | AW-3 (veteran) | "reviews are bought" | fact-based bridge + a check he runs himself (store owner screen, P-103) — no reviews used | AV-01 |
+| SK-103.AV-1 | "you shouldn't apply this advice if that's not you" (Q-Y-0037) | LOGICAL | doubts the problem is the same | AW-3 (veteran) | "their case isn't mine" | his own numbers in the chain (~600 clicks, 0 orders — Q-F-0019) = "people like me" | AV-01 |
+| SK-104.AV-1 | "I closed it because I didn't have time to work the business" (Q-O-0090 [R-OWNED]) · "I have very little time" (Q-O-0154 [R-OWNED]) | EMOTIONAL | does not want another product/routine | NULL (owned; text places no stage) | "I can't take on one more thing" | fact-based bridge (tests run and read for him, F-05/F-07; level agreed on the fit call, PT-08 — never "hands-free") | AV-01 |
+| SK-06 | "Is it $500 it's starting from, and it goes up to $5,000 or what?" (Q-O-0155 [R-OWNED]) | LOGICAL | heard too many promises (the low anchor) | seeker (owned) | "the price will balloon after I pay" | honest box + the full cost sheet (P-108) | AV-01 |
+
+`SK: 9 rows, reasons 8/8` (absent reasons: none)
+
+| id | phrase | q_ids[] / im_ids[] | why_burned |
+|---|---|---|---|
+| DNS-01.AV-1 | "91 percent of our clients have a success rate within the first two to three weeks" (sales-rep line) | [R-OWNED T-04] (01 §2 / §T3 CONTRADICTS block, cited by ID) | contradicts the seller's own pages — "We make no income guarantees" on 5 of 9 pages (PT-09, F-13); an outcome promise to a buyer who is tired of promises (SK-02) — **keep out of all copy and calls** |
+| DNS-02.AV-1 | "our goal is to get you making 10k a month" · "Our goal is for every shop to make at least $10,000 in 6 months." · "might make like $5,000 in three months" | [R-OWNED T-04] · C-0020 · [R-OWNED T-05] | contradicts PT-09 / F-13; an unlabelled earnings figure — AW-3 must_not_be_told (07 §11); MC-03 CORRECT-IN-COPY — **keep out of copy** |
+| DNS-03.AV-1 | "done for you" / "done-for-you" / "turnkey" / "business in a box" as a hook word | 07 §11 term check: 0 of 307 passages; EK-06 ADS-ASSUME-ONLY (IM-25) | the buyer never says it — an unfamiliar term in the hook = no recognition (07 §15); AW-2 must_not_be_told the category before the pain (07 §11) |
+| DNS-04.AV-1 | "easy" / "easy money" / "simple" as the promise | Q-Y-0016, Q-Y-0025 (MC-01, 3 authors) | distrusted explanation (06 §5) — the exact phrase he is tired of |
+| DNS-05.AV-1 | "we find you a winning product" / "winning products" as a promise | Q-Y-0064 "it takes years to find a winning product", Q-F-0031; 09 tired_of_hearing | "winning product" promises are what failed him; AW-2 swap: "still no sales" (07 §11); non-outcome noun sold as an outcome |
+| DNS-06.AV-1 | "hands-free" / "fully automated" / "passive income" | MC-02 (Q-O-0001), Q-E-0005 (competitor), Q-E-0008 "They promised the moon, but … they do not deliver" | CORRECT-IN-COPY: PT-05 (ad spend, product costs excluded) + PT-08 (management level agreed per call) — the claim is not true of the product |
+| DNS-07.AV-1 | "7-day money-back guarantee" with no conditions | C-0002 "you do have a seven day money back guarantee" (17 of 155 US calls, 06 §16) | PT-15: voids on delivery acceptance, any add-on, any further-work request; $500 only — an unconditioned guarantee is a refund-dispute generator (MC-07) |
+| DNS-08.AV-1 | "a profitable store in one week" / "successful store within 30 days" challenge framing | Q-Y-0013 passage → Q-Y-0015 "i failed the challenge"; Q-Y-0040 | the one-shot launch taught as a deadline — his FS-03 (biggest-promise-least-delivered) |
+| DNS-09.AV-1 | "your personal assigned account manager" | C-0007 · PT-19 / F-09 UNKNOWN | not on any of the 9 PDP pages — unverifiable component |
+| DNS-10.AV-1 | "we manage your store" as the lead | NW-03 540-day ad (10 LOCK-B collision: "we manage" BURNED) | an incumbent's burned claim — lead with the review/replace step instead (10 FRESHEN) |
+| DNS-11.AV-1 | "Client Testimonials" / "Hear From Our Clients" quotes presented as buyer proof | readymerce.com/how-it-works disclosure "some testimonials feature actors portraying verified experiences" (01 §T3); SK-03 Q-Y-0032 | the buyer already assumes fake reviews; actor-voiced quotes confirm the suspicion — never proof |
+
+`SK: 9 rows, reasons 8/8, DNS: 11`
+

@@ -218,13 +218,13 @@ Rank = priority of the belief served (P0 3 · P1 2 · P2 1) × the five persuasi
 ## 12 · SKEPTICISM BANK — SK-## (AV-07 view of the eight reasons) + DO-NOT-SAY — DNS-##.AV-07
 | id | verbatim | kind | reason | speaker_stage | self_protective_narrative | disarm_device | avatar_ids[] |
 |---|---|---|---|---|---|---|---|
-| SK-01.AV-07 | "So I invested a lot of my money into into buying this business. And, unfortunately, it's become a disaster." (Q-O-0004) [R-OWNED] | EMOTIONAL | wasted too much money | AW-3 (dissatisfied) | "I'm not putting money into anything else until the business stabilises" (Q-O-0006 passage: "if the business stabilizes, we can do something") | small honest win ($500 bounded step, P-04) + "not your fault" reframe (FS-02.AV-07) | AV-07 |
+| SK-01.AV-07 | "So I invested a lot of my money into into buying this business. And, unfortunately, it's become a disaster." (Q-O-0004) [R-OWNED] | EMOTIONAL | wasted too much money | AW-3 (person-level, Q-O-0006; dissatisfied) | "I'm not putting money into anything else until the business stabilises" (Q-O-0006 passage: "if the business stabilizes, we can do something") | small honest win ($500 bounded step, P-04) + "not your fault" reframe (FS-02.AV-07) | AV-07 |
 | SK-04.AV-07 | "I must have three or four Shopify and other stores that are just sitting there … I haven't done anything with them in years." (Q-O-0103) [R-OWNED] | EMOTIONAL | tried too many things | AW-4 (seeker) | "I already have stores — another one won't change anything" [D] | "not your fault" reframe (B-01/B-02: nobody was assigned after the build) | AV-07 |
 | SK-03.AV-07 | "I thought this call was gonna just show me exactly what the $500 pays for. … I haven't been shown too much of anything yet." (Q-O-0002) [R-OWNED] | LOGICAL | thinks the recommender exaggerates | AW-4 (seeker) | "sellers talk, they don't show" [D] | fact-based bridge — show the package (P-08, P-01) | AV-07 |
 | SK-06.AV-07 | "I pay $500 and then I'm gonna have to pay more money down the road for services?" (Q-O-0028) [R-OWNED] | LOGICAL | heard too many promises (the low anchor) | AW-4 (seeker) | "the $500 is the bait" [D] (EK-03) | honest box + fact-based bridge — every cost named (P-04, P-05) | AV-07 |
 | SK-07.AV-07 | "I would not pay $2,500 to anybody unless I could see some results before I could pay you $2,500." (Q-O-0006) [R-OWNED] | LOGICAL | nearly ignores the recommendation ("I'd love to do business with you … maybe in the future") | AW-3 (dissatisfied) | "later, when things are stable" | small honest win + guarantee as conditioned (P-03) — closes only | AV-07 |
-| SK-08.AV-07 | "bigger stores are better priced (surprise!). I simply can't compete with the likes of H&B, Amazon etc." (Q-F-9008) [R-PAGE via Exa] | LOGICAL | doubts the problem is the same (he reads it as a price war, not an operations gap) | dissatisfied | "small shops lose online, full stop" | fact-based bridge — research step shown (F-03, P-14) | AV-07 |
-| SK-09.AV-07 | "I'm a computer consultant and I have very little time." (Q-O-0154) [R-OWNED] | EMOTIONAL | does not want another product/routine | veteran | "one more thing to run is one more thing I'll drop" (MD-02 negative mirror, Q-O-0090 pooled) | honest box — what he still does (approve, read reports) vs what the team does (P-01) | AV-07 |
+| SK-08.AV-07 | "bigger stores are better priced (surprise!). I simply can't compete with the likes of H&B, Amazon etc." (Q-F-9008) [R-PAGE via Exa] | LOGICAL | doubts the problem is the same (he reads it as a price war, not an operations gap) | AW-NULL (06 speaker_stage: dissatisfied) | "small shops lose online, full stop" | fact-based bridge — research step shown (F-03, P-14) | AV-07 |
+| SK-09.AV-07 | "I'm a computer consultant and I have very little time." (Q-O-0154) [R-OWNED] | EMOTIONAL | does not want another product/routine | AW-NULL (06 speaker_stage: veteran) | "one more thing to run is one more thing I'll drop" (MD-02 negative mirror, Q-O-0090 pooled) | honest box — what he still does (approve, read reports) vs what the team does (P-01) | AV-07 |
 | — | sounds too simple | — | sounds too simple | — | NULL — not in corpus (0 AV-07 rows; 0 pooled SK rows) | — | — |
 
 Pooled rows not voiced by AV-07 (for 12): SK-02 "They promised the moon, but ... they do not deliver" (Q-E-0008, competitor context) · SK-05 legitimacy "How do I know you're real?" (Q-O-0081) — 0 of 10 AV-07 persons.
@@ -246,3 +246,71 @@ Pooled rows not voiced by AV-07 (for 12): SK-02 "They promised the moon, but ...
 | DNS-10.AV-07 | "we'll take over / rescue your existing store" | 07 SR-04 (CP-04 variant NOT CARRIED) | no PT-## supports it (PT-04 is a new build) — OPERATOR-VALIDATES before any use |
 
 `DNS: 10`
+
+## 13 · WARREN MAP — WM-AV-07 (validate, never correct)
+| row | items (Q-##) | enemy kind (Step 13 candidates) |
+|---|---|---|
+| dreams_encouraged[] | "If I can turn this side hustle into a main job where I work anywhere in the world and don't have to worry about anything, that's ideal." (Q-O-0105) [R-OWNED] · "You guys can fully automate my online business … and then I pick the products" (Q-O-0001) [R-OWNED] — the dream honoured: he picks, someone else does the store work (the "fully" is corrected elsewhere, never mocked) | — |
+| failures_justified[] | "I had one before. I just ended it because I was dealing with a lot" (Q-O-0097) · "stores that are just sitting there … I haven't done anything with them in years" (Q-O-0103) · "I have very little time … we were late and we got marked down" (Q-O-0154) — justified: the store was never assigned to anyone after it was built (B-01/B-02) | — |
+| fears_allayed[] | "I pay $500 and then I'm gonna have to pay more money down the road" (Q-O-0028) → every cost named first (P-04, P-05) · "I would not pay $2,500 to anybody unless I could see some results" (Q-O-0006) → a $500 bounded step + refund as conditioned (P-03) · "I need to just trust the supplier" (Q-O-0003) → supplier feasibility review (F-04) | — |
+| suspicions_confirmed[] | "at an exorbitant cost, $5,000, $20,000, $15,000. I'm like, seriously? Come on." (Q-O-0104) — yes, the quotes are high (EK-09: published competitor prices $9,997–$19,997, $2,997/mo) · "bigger stores are better priced (surprise!)" (Q-F-9008) — yes, don't fight them on price · "At what point do I take over the store? Is it something I have to run on my own?" (Q-O-0169, pooled) — yes, most builds end at go-live (P-06) | — |
+| enemies[] | build-and-leave builders — the store handed over at go-live and left (Q-O-0169, Q-F-0004 pooled; P-06) | **familiar solution** (10 LOCK-B blame_target) |
+| | the $5,000–$20,000 build/management quote (Q-O-0104) | **industry pricing** |
+| | the "fully automated / hands-free" pitch that ends in "they do not deliver" (Q-E-0005 vs Q-E-0008 — competitor context) | **over-promise** (never names a competitor; never the prospect) |
+
+`WM: avatars 1/1, rows filled 5/5, failures_justified GAP 0`
+
+## 14 · EPIPHANY BRIDGE MATERIAL — EB-AV-07 (IDs only)
+| beat | IDs |
+|---|---|
+| backstory | 09 filmable_scene 1 (Q-O-0103: three or four stores "just sitting there" in the admin) · Q-O-0043 (an existing business doing $10k–$14k/mo) · EM-09 (CP-04: "its marketing slowed", Q-O-0124) |
+| desire — external / internal | external DS-03 → MD-01 (Q-O-0105 "turn this side hustle into a main job") · internal MD-02 (08 top for AV-07: "money that works while I ease off"; LF8 #5) · deeper-hope Q-O-0105 |
+| the wall | FS-01.AV-07 → FS-06.AV-07 → FS-02.AV-07 (his order: stores left idle; ran the shipping himself; bought a business that became a disaster) |
+| the epiphany | B-02.AV-07 broken ("ready to be loaded" → built ≠ running) · M-1 LOCK-B MK-06 (builder's job ends at go-live; P-06) |
+| the plan | M-2 LOCK-B (post-launch review + corrections + rollout, budgets he approves) · solution_requirement (GO-AV-07) · B-03.AV-07 |
+| conflict | OBJ-02.AV-07 (results before paying) · OBJ-04.AV-07 (more money later) · SK-04.AV-07 (too many stores already) |
+| achievement (small honest win) | the first early performance review report on his store (PT-04 step; P-09 SHOOTABLE-NOW [A]) — durations NULL (P-12; PT-06) |
+| transformation | IB-14 FULFILLMENT H-05 [scripted from Q-F-0015] "The store stops being an after-hours-and-weekends job" (nearest; 08 crystallized no CP-04 / MD-02 row — MD-02 Tier 3 not crystallized) · Q-O-0105 |
+
+`EB: 1/1, timeline source PT-04 (sequence) / PT-06 NULL (durations), honest box SET`
+
+## 15 · HONEST TIMELINE + HONEST BOX (AV-07 view; `.AV-07`)
+- **honest_timeline.AV-07** `{first_sign: "NULL — searched: PT-06 (0 buyer time-to-first-sale text), PT-04/PT-08/F-07 (process named, no durations), readymerce.com/how-it-works (PT-09 'Results are not typical and are not guaranteed'); sequence only: research → build in his name → staged product release → capped ad test at an approved budget → early performance review → corrections/rollout (PT-04)", full_effect: "NULL — searched: same pages; no range published; rep lines '2–3 weeks' / '$5,000 in three months' are DNS-01/02 and never a timeline", source: "PT-04 (sequence), PT-06 (NULL)"}`
+- **honest_box.AV-07**
+  - `complaint` (top recurring first-use complaint in the competitor reviews — SIMILAR PRODUCT CONTEXT): the store did not match what the marketing created — nothing listed or no help bringing visitors after it was set up: "Not 1 item has been listed for sale in several months" (Q-E-0006) · "I Never received any help to bring visitors to my store" (Q-E-0010) · 01 PT-10 category-typical: "extra costs, add-ons, and stores not matching the expectation created by the marketing" (R-16), "doesn't eliminate the need to attract customers" (R-17).
+  - `limitation` (the site's own): ad spend, product costs and platform fees are his (PT-05); no income, sales or ROI guarantee (F-13, PT-09); the ongoing-management level is "agreed on the fit call" — not fixed, no published minimum window (PT-08, PT-02); the refund covers the $500 build fee only and voids on accepting delivery or any add-on (PT-15); no PT-## says Readymerce takes over an existing store (07 SR-04); portal / account manager UNKNOWN (PT-19).
+  - `not_for`: **"Best for owners who want a new store built in their name and worked after it goes live, while they approve the budgets and read the reports. If you want your existing store taken over as-is, or a store that runs itself with no ad budget or decisions from you, this may not be the right fit."**
+  - `remedy_line`: "Before you pay, you'll see every cost — the $500 build, the platform fee, the ad budget you set, and the quoted management level — on one page."
+
+## 16 · BELIEF AMMUNITION LEDGER (AV-07; `.AV-07`)
+| belief | trust_asset | self_efficacy_proof | mechanism_sentence | competitor_contrast | urgency_lever |
+|---|---|---|---|---|---|
+| BB-I trust this brand | P-02 (F-11), P-04, P-05 (costs stated) | HOLE — searched: 06 §8 (a friend already selling / Google reviews — 0 for Readymerce; PT-03 NULL, BBB none F-16) | PT-04 written scope | EK-09 (quoted $5k–$20k) | HOLE — searched: 06 §14 WHAT-MADE-THEM-ACT for a trust trigger (none) |
+| BB-II my problem CAN be solved | P-12 (sequence) | Q-O-0043 (his business already sells) | B-02 (built ≠ running) | FS-01.AV-07 | Q-O-0103 ("in years") |
+| BB-III THIS solves it | P-01 (BIG PROOF) | P-09 [A] | M-2 LOCK-B (review → corrections → rollout) | P-06 (builders hand over at go-live) | HOLE — searched: 06 §14 (no "after launch" trigger line) |
+| BB-IV better than the alternatives | P-04 | Q-O-0029 (one owner already takes the $500 step) | B-03 third option | EK-09 · FS-02.AV-07 · LK-03 kept | Q-O-0104 ("seriously? Come on.") |
+| BB-V now, not later | P-03 (as conditioned) | Q-O-0054 "I just wanna go through with it" | PT-04 staged release starts small | FS-01.AV-07 (years idle) | Q-O-0029 "I'll start with the 500…" (WHAT-MADE-THEM-ACT) |
+| B-01.AV-07 | P-12 | Q-O-0151 (an owner who keeps a part-time store going when it is staffed) | PT-04 post-launch list | FS-06.AV-07 | Q-O-0097 |
+| B-02.AV-07 | P-06 | P-09 [A] | M-1 LOCK-B | P-06 | Q-O-0103 |
+| B-03.AV-07 | P-04 · P-03 | Q-O-0029 | M-2 LOCK-B | EK-09 | Q-O-0104 |
+| B-04.AV-07 | P-05 | HOLE — searched: AV-07 records for a buyer who approved budgets and read reports (0; P-10 PLANNED) | F-05 budgets you approve + reporting | Q-E-0008 (context: "they do not deliver") | HOLE — searched: 06 §14 |
+| B-05.AV-07 | P-01 (F-03 research) | Q-O-0043 | F-03 "chosen from the data" | Q-F-9008 (price war) | HOLE — searched: 06 §14 |
+| B-06.AV-07 | P-05 | P-13 · P-14 | F-05 capped tests | Q-O-0005 | Q-O-0124 (marketing slowing) |
+
+`LEDGER: cells filled 49/55, holes 6`
+
+## 17 · COUNTERS + GAPS + WHAT WE COULD NOT VERIFY
+| avatar | B-## count | with Q-## | classes covered (of 7) | P0 with ≥2 proof types | lane_applied |
+|---|---|---|---|---|---|
+| AV-07 | 6 | 6 | 6 (INTERNAL, CAUSE-INSTALLED, SOLUTION-BREAK, SOLUTION-LEVERAGE, VEHICLE, EXTERNAL; CAUSE-BLAMED carried in B-01) | 3 of 3 | Stage 1–2 reset → claim + Name-it, PROOF-led, Stage-4 "surer" as the comparison beat (local UNSCANNED n=0 vs market S4 pooled) |
+
+- `OBJ total 11 / T1 4 / assigned 10 / UNRESOLVED 1 (OBJ-18.AV-07, T2)` · `FS total 3 / explained by M-1 1 (+2 PARTIAL)` · `P-## EXISTS 11 (10 Readymerce + 1 competitor context P-15) / SHOOTABLE-NOW 2 / PLANNED 3`
+- Coverage test (§6.5): VEHICLE B-05 → P-14, P-08 · INTERNAL B-01 → P-09 [A], P-12 + EB failures-justified/epiphany beat · EXTERNAL B-06 → P-13, P-14, P-05 → no `LEAK: INTERNAL` line.
+- Order test: statement 1 = B-01 (Q-O-0097 + Q-O-0154, live_wire NO) · solution requirement precedes the product · BIGGEST LEAP printed at B-02 → PASS. Lane-pass test: lane differs from the market lane and names his own stage (UNSCANNED reset) and rung (AW-4/5) → PASS; the opener never names "no sales" (his stores sat, not failed). Live-wire rule: B-04 target keeps "someone else does the store work" (his owner-not-operator identity) → PASS.
+- **GAPs[]:** (1) B-05.AV-07 VEHICLE = EARLY SIGNAL (1 UK market author, 2022, Q-F-9008) · (2) B-02.AV-07 CAUSE-INSTALLED is OWNED-only (2 persons) and its causal step is UNSOURCED (the BIGGEST LEAP) · (3) OBJ-18.AV-07 existing-store takeover UNRESOLVED — no PT-## (07 SR-04) · (4) T1 LEAKs OBJ-02 (results) and OBJ-07 (ROI timeline) — no client result or timeline exists (PT-06, PT-07, PT-18) · (5) P-08/P-09 demonstration status rests on `[A]` · (6) local_stage UNSCANNED n=0 (0 ads to read — 09 HARVEST-20 open) · (7) ledger holes 6 (BB-I self-efficacy, BB-I urgency, BB-III urgency, B-04 self-efficacy, B-04 urgency, B-05 urgency).
+- **HARVEST-##:** none issued by 11-AV-07 — the single re-mine is reserved for a P0 `CURRENT: GAP`; all 3 P0 beliefs (B-02, B-03, B-04) trace to Q-## (0 GAP). Exa 0 runs · TranscriptAPI 0 credits · 0 URLs appended to 05 · 0 Q-## appended to 06 · no datasets/11-AV-07-minted.csv written (nothing minted).
+- **LEAK list with cost to close:** `LEAK: ATC→purchase — OBJ-07.AV-07` → P-11 written post-launch window (1 operator decision, $0) + P-10 first client report (1 consenting buyer, ≈2–4 weeks after launch [A]) · `LEAK: T1 unproven (results) — OBJ-02.AV-07` → P-10/P-16 (same client + consent) · `LEAK: demonstration [A] — P-08/P-09` → 1 screen-recording session of one build + one post-launch review ($0).
+- **What we could not verify:** whether the $500 package's post-launch work has a minimum duration (PT-08 "agreed on the fit call") · whether Readymerce can work on an owner's existing store (no PT) · portal / account manager (PT-19, DNS-07) · any Readymerce client outcome (PT-03, PT-06, PT-07, PT-18 NULL) · whether owners outside the seller-contacted sample hold B-02/B-06 (OWNED-only) · O-3fd51b13 = O-3dd099fe merge rests on 06's note (HAND-COUNTED crosswalk).
+
+**COVERAGE STATEMENT**
+Scope: AV-07. Beliefs: 6 minted, 6 traced to Q-## (VALIDATED 3 / SUPPORTED 2 / EARLY SIGNAL 1 / HYPOTHESIS 0 / CONTESTED 0); avatars with full VEHICLE/INTERNAL/EXTERNAL coverage: 1 of 1; lane pass: 1 of 1 avatars; objections: 11 (T1 4, unresolved 1); failed solutions: 3, explained by M-1: 1; proof: EXISTS 11 / SHOOTABLE-NOW 2 / PLANNED 3; P0 beliefs with a ≥2-type proof stack: 3 of 3; openings found: 1 of 1 avatars; domino: PARTIAL. Sources opened: 0 (no re-mine — 0 P0 CURRENT GAP; all evidence from on-disk inputs 01/01-DEEP/03/06/07/08/09/10). Floors met/missed: [MET — B-## ≥4 with Q-## (6), V/I/E 3/3, the_one_belief 1, OBJ ≥8 (11), faq_set_a ≥2 (4), FS ≥3 (3), CLM ≥5 (8), DNS ≥5 (10), SK every in-corpus reason (7/8; "sounds too simple" NULL — not in corpus), WM 5/5, EB 8/8, EK floor (07's 8 + 10's starting beliefs); MISSED — none]. What was not done and why: [single re-mine not run — no P0 CURRENT GAP; pond size / local stage not read — 09 HARVEST-20 open, UNSCANNED; results/timeline proof not built — no client outcome exists on any PT]. Weakest link: THE ONE BELIEF (B-03.AV-07) and all 4 T1 objections are carried by written process proof only — no Readymerce client result exists (PT-07 empty, PT-18 NULL, testimonials may feature actors) and the post-launch window is unwritten (PT-08); the avatar's evidence is 10 seller-contacted owners (1 DEPOSIT) + 3 market authors. What closing it would cost: [demo shoot — 1 screen-recording session of a build + a post-launch review ($0); 1 operator decision writing the minimum post-launch window (P-11); 1 consenting client report (P-10); HARVEST-20 re-mine for ≥7 more owner voices (Exa ≤$0.10 + operator EAS read)]. Ads only assume a belief — Q-## shows buyers hold it; labels describe, paid testing decides.

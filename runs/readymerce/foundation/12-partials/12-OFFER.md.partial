@@ -197,3 +197,43 @@ Bottom-of-equation test (§6 rule 2): time-delay levers 3 (≥1) · effort lever
 
 `LADDER: shape C, tiers 3 (+ overlay), validity PASS 4/4, floor PASS, sub not preselected, repair none (one design correction before print: cadence set to 2 cycles/month everywhere so the overlay cannot undercut T2/T3)`
 
+### GIFT LADDER (GIFT-##) — objections from 06 OBJ-## (`LATE-BOUND: 11.OBJ-##`: no 11 partial handoff on disk)
+
+| gift_id | gift | tier | kind | obj_id_killed | outcome_sped | cogs | threshold | asset_status | spec (sections with evidence IDs) |
+|---|---|---|---|---|---|---|---|---|---|
+| GIFT-01 | "Every Cost in Writing" sheet — one page before you pay | all tiers (baseline) | digital_guide | OBJ-04 ($500 is only the start — VALIDATED, 10 obs / 9 authors) + OBJ-02 (show what the $500 pays for — Q-O-0002) | — | $3.00 | baseline — sits below the 1.2–1.3× threshold on purpose: it kills a T1 objection before payment | TO-BUILD | the $500 fee and what it includes (PT-04) · what it never includes (PT-05: product costs, platform fees — category reference NW-04 discloses "$1/month for the first 3 months! After that, it's $39/month", ad spend, apps, domain) · the test budget YOU approve per round (F-05) · the refund terms in plain words (object 6) · every upgrade price (ladder) — answers "After paying $500, I should be paying £1 every month. You didn't tell me that earlier." (Q-O-0135, HUNG-UP) |
+| GIFT-02 | Guide: "A Store of Your Own, With More Than One Shot — how your products are released in stages, tested on a budget you approve, and reviewed" | all tiers (baseline) | digital_guide | OBJ-07 (how fast / how much — VALIDATED, 12 obs): sets the honest process in place of income talk | reading the first review without panic (the first sign, PT-04) | $1.00 | baseline | TO-BUILD (≈8 h one-time, amortised $1/order) | title = outcome ("a store of your own") + M-2 in plain words · §1 Why first stores die from one shot — 10 big_idea; NI-01 ("Most successful dropshippers test 5 to 10 products before finding one that scales profitably." Product Lair 2024); FS-01 (25 authors) · §2 Your first 7–10 days — PT-04; [R-OWNED] T-09; C-0022 · §3 How one round works and what you approve — PT-04; F-05 · §4 Reading your first review: why ~600 clicks and zero sales is a product signal — NI-02 (Littledata 1.4%; Oberlo 1.58%); Q-F-0019 · §5 What is yours: store, payouts, assets — F-11 · §6 What we do not promise, and why — F-13; PT-09 · components C1–C11 `INFERRED` (01) |
+| GIFT-03 | Round make-good — any scheduled round we miss is added free at the end | T2, T3 | extended_guarantee | OBJ-03 (scam — VALIDATED, 12 obs) + OBJ-08 (DFY vendors don't deliver — VALIDATED, 10 obs; "your store is half-ass done" Q-F-0002) | — | $7.80 | T2 $2,000 ≥ 1.2–1.3 × current AOV $500 ($600–$650) ✓ | TO-BUILD (terms) | copied element: work-for-free continuation — 2 independent networks converge (NW-03 "work for free until you do"; NW-08 "we continue working for free") ✓; cost = 10% miss rate ASSUMED × $78 |
+| GIFT-04 | Old-store second opinion — a written read of the store you already have (or had) before we build | T2, T3 (T1 in OV-02) | digital_guide | OBJ-02 (proof before paying — see our read of your own store first; "I need a proof of concept that actually works." Q-O-0132) | round 1 starts from what already failed (AV-01 "the product did not sell, so I had to close the store" Q-O-0108; AV-07 "I must have three or four Shopify stores just sitting there" Q-O-0103) | $12.00 | T2 ✓ | TO-BUILD (template, 1 h/store) | sections: products tried · traffic vs sales (NI-02) · what the one-shot launch looked like (MK-01) · what round 1 changes |
+
+Gift test (§6 rule 6): tied 4/4 · UNTIED — padding: 0.
+
+### GUARANTEE (object 6)
+
+**Current instrument — conditions as on file (verbatim where the run holds the words):**
+- rep line (C-0002, 17 of 155 calls): "you do have a seven day money back guarantee"
+- site fragment, verbatim (01-TRUTH-CARD T7, from readymerce.com/refund-policy): the guarantee is voided by "any additional service, add-on, upsell, or upgrade"
+- 01 PT-15 / F-10 (01's wording, two site pages word-for-word matching — full site text NOT on file): 7 days from the payment date · covers the $500 build fee only · void immediately, even inside 7 days, when the buyer (a) approves/accepts delivery, (b) buys ANY additional service, add-on, upsell or upgrade, (c) requests or commits to further work · never refundable: platform fees, ad spend, domain costs, apps, supplier costs.
+- `OPERATOR-PASTE: readymerce.com/refund-policy + the refund clause of readymerce.com/terms-of-service` (the verbatim paragraph; 12 runs no new research).
+
+**Why it fails the job:** (1) the window can close before the store exists — build 7–10 days vs a 7-day clock from payment: "if it's gonna take fourteen days how can i take back your money in seven" (Q-O-0030); (2) it voids on acceptance, so it never covers the part buyers fear ("your store is half-ass done" Q-F-0002; "They stole $20,000 and have lied to me repeatedly" Q-E-0006); (3) **it voids on any add-on — so every bump/OTO below would cancel the buyer's refund** (conflict printed; see object 10).
+
+**Top T1 objection class (06 §6, lost-call co-occurrence):** OBJ-01 money 6/13 · OBJ-02 proof 3/13 · OBJ-03 scam 2/13 → class = **money lost after paying** (no money now + fear of paying and getting nothing). A guarantee cannot create money (OV-01 tests that); it closes the fear half.
+
+| field | value |
+|---|---|
+| type | **performance on deliverables** (a stated, checkable result — the store and the tests — NEVER income: PT-09, F-13) |
+| days | **60 from payment** (template default 60; covers a ≤10-day build + first capped test + first review with room to spare) |
+| wording | **"60 days to see your store live in your name, your first products tested and your first review in your hands — or every penny of the $500 back. You keep what we built."** (`[N] days to [outcome] or every penny back`; "you keep" rests on F-11 ownership, not copied) |
+| scope | the $500 build fee on every tier; T2/T3 add GIFT-03 (missed rounds added free). Accepting delivery or buying the bump/upgrades does NOT void it (replaces PT-15's void triggers). Third-party costs stay non-refundable (PT-15) and are listed on GIFT-01. |
+| copied elements (≥2 NW) | cash refund window (NW-04 30-day, NW-05 20-day) ✓ · work-for-free continuation (NW-03, NW-08) ✓ |
+| no_return_under | N/A — service (no parcel to return); the analogue: the buyer never has to hand anything back to be refunded (F-11) |
+| placement[] | under the pay button · the booking/order confirmation page · the fit-call close (reps read the wording verbatim, replacing C-0002's bare line) · the story P.S. · retargeting to booked-not-paid prospects (BOOKED-FOLLOWUP 56 of 84 calls) |
+| status | `OPERATOR-VALIDATES` + legal review — it changes the site's published policy (PT-15). Refund reserve stays 5% (ASSUMED) in §3. |
+
+### RATIONALE + URGENCY (object 7)
+
+- **rationale_for_generosity:** "First stores die from one shot, not from e-commerce — so the rounds after launch are priced into the package instead of sold as extras." (10 big_idea; M-2) `[AUTHORED, CHECK THIS]`
+- **scarcity_source:** the site's "limited number of stores launched each month" (01 §2 specs, `[R-SNIPPET]`) is a literal capacity limit ONLY if the operator publishes the real monthly number → until then **`NONE — evergreen`**.
+- **urgency_device:** **`NONE — evergreen`** (no announced price rise, no gift deadline). Banned: "If you don't go to the website within this minute, I'm gonna have to hang up and close this opportunity for you forever." (C-0024) — a manufactured constraint.
+
