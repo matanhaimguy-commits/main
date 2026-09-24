@@ -4,3 +4,107 @@ Operator card: [BRAND NAME] = Readymerce (GIVEN, existing brand, option 1) · [S
 Late-binding check (once, at step 1, 22:29Z): 11-partials/ holds only 11-BELIEFS.AV-01/03/04.md.partial + PROGRESS partials — no 11-HANDOFF.AV-##.json → every 11 pointer = `LATE-BOUND: 11.<field>`; 12-partials/ empty → `LATE-BOUND: 12.offer`, `LATE-BOUND: 12.route`.
 Tool addendum (binding): Apify / Firecrawl scrape / Browserbase / WebFetch / curl = BLOCKED-ON-TOOL; working = GetHookd, Meta Ad Library, WebSearch, Exa agent, Higgsfield.
 
+## §1 · LOCK CARD
+
+**Inputs read (HANDOFF first, then pointed sections only):** 01-HANDOFF.json + 01-partials/01-HANDOFF.DEEP.json → 01-PRODUCT-TRUTH.md §TRUTH CARD T3 (PT-01..PT-20 + CONTRADICTS-the-seller block), T4 · 02-HANDOFF.json → 02-COMPETITOR-INTEL.md §2, §4 (NW-01..08), §15 (LK-01..16) + 02-swipe.csv (32 IM rows: narrator_pov, native_creative_description, hook_verbatim, cls_who_in_ad) · 03-HANDOFF.json → 03-VALIDATED-MESSAGING.md §10 (CR-01..06), §11 (PR-01..07 + narrator tally), §20 one-sheet, §21 swipe file · 06-HANDOFF.json → 06-VOC-REPORT.md §3 (FS-##), §7 (SK-01..06 + tired_of_hearing), §8 (trust + authority_read), §10 (icp_language_analysis + swap table), §2 Identity/Relief groups, §12 (worldview_map) + 06-VOC_MASTER.csv (author/thread counts computed in code) · 07-HANDOFF.json → 07 §10 (SR-01..04), §11 must_not_be_told · 08-HANDOFF.json → 08 §3 identity_permission lines · 09-HANDOFF.json → 09-AVATARS.md §7 (AV-01..07 blocks), §9 (ranking, reserve reasons), §2 (CL-09) · 10-HANDOFF.json → 10-MECHANISMS.md §15 (LOCK-A, LOCK-B), §16 (NI-01..05 hook_samples; New Identity brief), §17 keepers, §18 (collision.handle).
+
+| field | value | pointer |
+|---|---|---|
+| AV-★ | **AV-07 "The Owner Who Wants It Automated"** — existing business, online side stalled; UNTAPPED · VALIDATED · consciousness_entry "AW-4 impatience → confidence at 'we run the backend, you run the business'" · mechanism_read RIDES LOCK-B | 09 §7 AV-07, §9 rank 1 |
+| launch avatars | AV-07 · AV-01 Store That Died (RIDES A) · AV-04 Paycheck-Tethered (RIDES A) · AV-02 Paid-and-Got-Nothing (RIDES B) · AV-03 Stuck Starter (RIDES B) | 09-HANDOFF avatar_portfolio.launch |
+| reserve | AV-06 Fixed-Income Retiree (UNPROVEN, 0/9 converted, 9/9 booked follow-up) · AV-05 Evening-Only Parent (UNPROVEN, 0/9 converted, WALLET NULL) · CL-09 capital holder $15–35K (0 of 79 owned persons disclose the wallet) | 09 §9 |
+| M-1 / M-2 (LOCK-A MK-01 "The One-Shot Launch", PB-06+PB-05) | UMP "A first store is usually launched as a single bet — one guessed product, or one batch switched on at once…" · UMS "staged release (CS-07) … controlled ad testing at a budget the owner approves (CS-08); an early performance review (CS-09) … new products roll in (CS-10)" · big_idea "First stores die from getting one shot, not from e-commerce." | 10 §15 LOCK-A |
+| M-1 / M-2 (LOCK-B MK-06 "The Handover Cliff", PB-01) | UMP "Store builds are sold as the finish line: the builder hands the store over on launch day and leaves…" · UMS "Readymerce keeps a team on the store after it goes live…" · big_idea "Launch day is the starting line, not the finish line." | 10 §15 LOCK-B |
+| one system (10 [D]) | "the launch after the launch" — both locks run on CS-07→CS-10 | 10 §15 header |
+| positioning_draft (A) | "For people who want an online store but can't afford another one-shot flop, Readymerce is the done-for-you store service that launches your products in stages and tests each one on a budget you approve, unlike build-and-hand-over stores that switch everything on at once and hope, because a store finds what sells by trying more than once." | 10 §15 LOCK-A |
+| positioning_draft (B) | "For people who can't build a store around their job, Readymerce is the done-for-you store service that stays on your store after launch … unlike builders who hand over the keys on launch day, because launch day is the starting line, not the finish line." | 10 §15 LOCK-B |
+| wedge | A "Your store should get more than one shot." · B "We stay after launch day." · own claim (Meta, 4 of 31 own ads) "We build it. We run it. You own it." | 10 §15 |
+| lane | PB-05 S4 mechanism + New Information · PB-06 all three incl. New Identity (LATE-BOUND stage) · PB-01 S2 claim + Name-it | 10-HANDOFF locked[].lane |
+| blame_target | A: familiar solution (one-shot launch) · B: familiar solution (build-and-leave) | 10-HANDOFF |
+| sophistication + lever | POOLED S4 MIXED, modal ENLARGED-CLAIM, one-stage-ahead NEW INFO / IDENTIFICATION · DFY-only S2 PLURALITY → one-stage-ahead MECHANISM · SR-03 NEW IDENTITY CARRIED → 13 ("owner, not student") | 07-HANDOFF, 07 §10 |
+| geo | US (ASSUMED) · USD · en | brief INPUTS CARD |
+| authority_read | **RESENT** — MARKET_VOC SUPPORTED (≥3 authors), OWNED_PROOF SUPPORTED | 06 §8 |
+| enemy candidates | 06 worldview_map: suspects — fake reviews/followers (Q-Y-0032, Q-Y-0005), callers (Q-O-0119) · blames — gurus/coaches/strategy 3, scammers/vendors 5, customers/shipping 1, other 2 (11 tallied records) · 11 WM-AV#.enemies[] = `LATE-BOUND: 11.WM-AV#.enemies` (no 11 handoff on disk) | 06 §12 |
+| named_offer + route.split | `LATE-BOUND: 12.offer` · `LATE-BOUND: 12.route` (12-partials/ empty at 22:29Z) | — |
+| message_match source | 10 has no field named `message_match_words`; per 13 §2 alias: problem = M-1, mechanism = M-2, promise = big_promise (verbatim substrings, §14) | 10 §15, §18 |
+
+`INPUT FIELDS 17/20, late-bound: [11.WM-AV#.enemies, 11.live_wire, 11.beliefs/proof/objection/claims, 11.honest_box, 12.offer, 12.route]` (3 of 20 lock-card fields late-bound: 11 enemies, 12.offer, 12.route).
+
+## §2 · STRATEGIC ENEMY EN-1 + ALTERNATES
+
+Tally computed in code over 06-VOC_MASTER.csv (unique_author_id, thread_id) for the Q-## each 06 ledger (FS-02, FS-03, SK-02/03/06, worldview_map) and 10 §15 anchor names as *blaming* the object — symptom-only quotes ("still no sales") are not counted as blame. N = 180 unique authors in 06-VOC_MASTER.csv (358 rows incl. C-rows; 06-HANDOFF records_total ALL 307). Rule §6.3 in code: VALIDATED ≥3 authors across ≥2 threads · SUPPORTED 2 authors, or 1 author + ≥2 NW attacking · HYPOTHESIS ads-only/analyst-only · REJECTED = named competitor, LK-## liked property, or contradicts a live_wire YES belief (11 absent → live_wire LATE-BOUND). [A] ASSUMED ranking rule: a candidate whose charge applies to Readymerce's own PT-## (SELF-EXPOSURE) keeps its label but ranks after clean candidates.
+
+| object | blame_class | unique authors (n of N) | threads | q_ids[] | im_ids[] | keep-list conflict | live-wire conflict | label |
+|---|---|---|---|---|---|---|---|---|
+| E-A · the build-and-leave store deal (paid to build; half-done, locked out or left alone at launch) | blames (scammers/vendors — 06 worldview 5) | 8 of 180 authors (MARKET+OWNED only: 4 authors / 3 threads) | 4 | Q-F-0001, Q-F-0002, Q-F-0004, Q-E-0006, Q-E-0007, Q-E-0008, Q-E-0009, Q-O-0062 | 0 (10 collision: villain CLEAR; IM-31 attacks builder *price* "$2,000–$10,000", not the leave — not counted) | none | LATE-BOUND: 11.live_wire; SELF-EXPOSURE note: PT-10 (R-01, 1 disputed exact-SKU complaint: access codes withheld after a $250 deposit) | VALIDATED |
+| E-B · the one-shot launch (one guessed product or one batch, switched on once, then written off) | blames (the strategy / the winning-product pick) | 5 of 180 authors | 5 | Q-Y-0018, Q-Y-0064, Q-O-0082, Q-F-0031, Q-O-0108 | 0 (10 collision: villain CLEAR 0/8 NW) | none | LATE-BOUND: 11.live_wire; biggest_leap PT-19 (products per stage UNKNOWN), PT-05 (ad spend excluded) | VALIDATED |
+| E-C · gurus, courses and coaches that teach instead of build | blames (gurus/coaches/strategy — 06 worldview 3) | 3 of 180 authors | 3 | Q-Y-0016, Q-Y-0018, Q-Y-0019, Q-Y-0020, Q-O-0130, Q-O-0131 | IM-23, IM-24, IM-26 (NW-04 "STOP buying courses!") → 1 NW | none | LATE-BOUND: 11.live_wire; none on file (PT-14 "not a course, a template pack") | VALIDATED |
+| E-D · the free / $20 store with a catch (upsells and fees after you pay) | suspects | 4 of 180 authors | 4 | Q-Y-0009, Q-B-0001, Q-O-0028, Q-O-0135 | 0 (NW-04 / NW-06 SELL it) | **LK-03** "They Did As Promise! Made Me A $20 Website!" (NW-06) | SELF-EXPOSURE: Q-O-0028 and Q-O-0135 were said about Readymerce's OWN $500 (SK-06; PT-02, PT-05) | REJECTED as framed (category error: "the $20 store" is LK-03's liked property); re-frame "hidden fees" → SELF-EXPOSURE, not picked |
+| E-E · fake proof (fake reviews, fake followers, unlabelled results) | suspects | 3 of 180 authors | 3 | Q-Y-0005, Q-Y-0032, Q-Q-0002 | 0 | none | SELF-EXPOSURE: readymerce.com "some testimonials feature actors portraying verified experiences" (01 T3 CONTRADICTS) + 5 named owner portraits on the home page [R-PAGE via Exa, 13 datasets] | VALIDATED |
+| E-F · online scams and cold callers | blames (scammers) | 4 of 180 authors | 4 | Q-O-0011, Q-O-0147, Q-O-0148, Q-O-0012, Q-Y-0052 | 0 | none | SELF-EXPOSURE: Q-O-0012 was said to a Readymerce caller; PT-16 ScamAdviser 0/100, ScamDoc 25% | VALIDATED |
+| E-G · EcomXpertz (a named competitor) | blames (vendor) | 3 of 180 authors (MARKET+OWNED only: 0 authors / 0 threads) | 1 | Q-E-0006, Q-E-0007, Q-E-0009 | n/a | n/a | n/a | REJECTED (category error: named competitor) |
+| E-H · Shopify / the platform's support | blames (platform) | 1 of 180 authors | 1 | Q-F-0011 | n/a | n/a | contradicts PT-04 / PT-14 (Readymerce builds on Shopify/Etsy) | REJECTED (category error: the product's own platform, named company — contradicts PT-04/PT-14) |
+| E-I · end customers ("no tolerance for long shipping") | blames (customers/shipping — 06 worldview 1) | 1 of 180 authors | 1 | Q-Y-0044 | 0 | none | n/a | HYPOTHESIS |
+
+**Pick (by author count among non-REJECTED, clean before SELF-EXPOSURE [A]):**
+
+- **EN-1 · enemy: "the build-and-leave store deal"** — you pay someone to build a store; it arrives half-done, locked, or finished-and-abandoned on launch day, and the running is left to you. Never a named competitor (E-G EcomXpertz REJECTED separately).
+  - `q_ids[]`: Q-F-0001 "now I can't access it, contact an administrator which should be me" · Q-F-0002 "your store is half-ass done" · Q-F-0004 "they said they would build a store, but i am building the store???" · Q-E-0006 "They stole $20,000 and have lied to me repeatedly" · Q-E-0007 "they are not to be trusted with your money" · Q-E-0008 "They promised the moon, but ... they do not deliver" · Q-E-0009 "I had over $2000 worth of inventory" · Q-O-0062 "I gave somebody $4,500, and they took my money" `[R-OWNED]` — **8 authors / 4 threads** (MARKET+OWNED only: 4 authors / 3 threads; the 4 PRODUCT_TRUTH authors sit on one competitor's review page — counted as evidence of the *class*, never naming it). Fear twin (not counted as blame): Q-O-0169 "At what point do I take over the store? Is it something I have to run on my own?" `[R-OWNED]`.
+  - `im_ids[]`: 0 incumbents attack the *leave* (10 §15 LOCK-B collision: villain CLEAR); IM-31 attacks builder price only.
+  - `blame_class`: blames (06 worldview_map "scammers/vendors 5") · FS-02 ledger TOTAL 17 authors / 12 threads VALIDATED (06 §3).
+  - `what_we_are_for`: **a store in your name from day one, and a team that stays after launch day — reviewing the first results, fixing what's off, replacing what doesn't sell.** (PT-14 own live store account; PT-04 "early performance review, and post-launch corrections"; PT-08 ongoing optimisation — EXACT PRODUCT MATERIAL).
+  - `evidence_label`: **VALIDATED** (8 ≥3 authors, 4 ≥2 threads).
+  - Risk printed, not hidden: SELF-EXPOSURE PT-10 — the one exact-SKU complaint on file (R-01, disputed by the company) alleges store access codes withheld after a $250 deposit. The enemy is only safe if "keys in your name from day one" is operationally true → `OPERATOR-VALIDATES` before any ad names the enemy.
+- **enemy_alternates[0] · "the one-shot launch"** (LOCK-A blame_target) — q_ids Q-Y-0018, Q-Y-0064, Q-O-0082, Q-F-0031, Q-O-0108 · **5 authors / 5 threads** · im_ids 0 (villain CLEAR 0/8 NW) · blame_class blames (the strategy / the winning-product pick) · what_we_are_for: "a store that gets several fair tests — products released in stages, each tested on a budget you approve, the dead ones replaced" (PT-04) · **VALIDATED** · caveat: the *name* "one-shot launch" is 10's handle [D] for what these authors blame (the dead strategy, the single pick).
+- **enemy_alternates[1] · "gurus, courses and coaches that teach instead of build"** — q_ids Q-Y-0016, Q-Y-0018, Q-Y-0019, Q-Y-0020, Q-O-0130, Q-O-0131 · **3 authors / 3 threads** · im_ids IM-23, IM-24, IM-26 (NW-04 "STOP buying courses!", 1 NW — already used as a claim, 03 §20 "the course enemy" is do-not-reinvent) · blame_class blames (gurus/coaches) · what_we_are_for: "a live store you own, not another course" (PT-14 "not a course, a template pack") · **VALIDATED**.
+- Not picked, printed with reason: E-D REJECTED as framed (LK-03 liked property) and its re-frame is SELF-EXPOSURE (SK-06 was said about Readymerce's own $500) · E-E fake proof VALIDATED but SELF-EXPOSURE (the site's actors disclosure — attacking fake proof invites the check we fail today) · E-F scams/callers VALIDATED but SELF-EXPOSURE (Q-O-0012 said to a Readymerce caller; PT-16 0/100) · E-G REJECTED (named competitor) · E-H REJECTED (own platform) · E-I HYPOTHESIS (1 author).
+
+`ENEMY CANDIDATES 9, VALIDATED 5 (E-A, E-B, E-C, E-E, E-F), HYPOTHESIS 1, category errors 3 (E-D as framed, E-G, E-H), SELF-EXPOSURE held back 3 (E-D re-frame, E-E, E-F)`
+
+## §3 · NOT-FOR LIST NF-##
+
+Written from 09's RESERVE reasons and PT-## limitations, in avatar language. Rule §6.4 checked per line.
+
+| NF-## | line | excluded_ref (CL-##/PT-##) | Q-## wording source |
+|---|---|---|---|
+| NF-01 | "This is not for you if the store money would come out of your Social Security or pension. The store costs $500, and the ads and fees come on top." | AV-06 Fixed-Income Retiree (RESERVE — 0/9 converted, 9/9 booked follow-up; FIGHTS LOCK-A: a test budget she lacks) + PT-05 (ad spend, platform fees, product costs excluded) | Q-O-0007 "I get Social Security, so I need to protect that" `[R-OWNED]` · Q-O-0083 "not easy to get $500" `[R-OWNED]` |
+| NF-02 | "This is not for you if you need it to pay you this month. A new store takes tests, and nobody can promise the result." | PT-09 ("Results are not typical and are not guaranteed") + PT-05; 10 MK-24 keeper | Q-O-0008 "Could I get up to at least $10,000 a month in three months" `[R-OWNED]` · Q-F-9002 "we hardly survive with my pension" `[R-PAGE via Exa]` |
+| NF-03 | "This is not for you if the person you share money with hasn't said yes yet. Talk first. Then call us." | AV-05 Evening-Only Parent (RESERVE — 0/9 converted; 2 of 9 declined on time or the partner's veto; WALLET NULL) | Q-O-0018 "I need to talk to my husband about it" `[R-OWNED]` · Q-O-0167 "It's time for the kids to go to bed" `[R-OWNED]` |
+| NF-04 | "This is not for you if you want to hand over $15,000 or more for someone to run a portfolio of stores on a profit split." | CL-09 capital holder (RESERVE) + PT-01/PT-02 (a $500 build package; no profit share or managed portfolio published) | Q-## NULL — searched (0 of 79 owned persons disclose ≥$15K liquid; CL-09 is a competitor lens: IM-20 "If you are sitting on $25,000 or more…", COMPETITOR-CLAIMED) → **DECORATION** (§6.4: excludes nobody the corpus contains; kept because the operator's hypothesis (b) names it) |
+
+Rule check: NF-01..03 each name a RESERVE cluster the corpus contains + a PT-## limitation → REAL (3); NF-04 DECORATION (1). `not-for lines 4 (real 3, decoration 1)`.
+
+## §4 · POSITIONING STATEMENT POS-1
+
+- **statement:** "For owners whose online store is built but just sitting there, Readymerce is the store service that stays after launch day — putting your products live in stages, testing each one on a budget you approve, and replacing what doesn't sell — unlike store deals that end at 'I'll design you a beautiful store' (IM-23, NW-04) or 'we build the whole store + load 30 winning products' (IM-30 stated_fix, NW-06), because your store should get more than one shot."
+- **mechanism_ref:** M-2 LOCK-A MK-01 (staged release → capped tests → early review → replace) carried by M-2 LOCK-B MK-06 (post-launch review + corrections) — 10's one system "the launch after the launch".
+- **sub_avatar (AV-★ situation):** AV-07 — already runs a business (Q-O-0043 "sometimes 14 thousand 14 k sometimes 10 k"; Q-O-0003 clothing brand with a warehouse) and has self-built stores idle: Q-O-0103 "I must have three or four Shopify stores just sitting there" `[R-OWNED]`; wants the online side run without her: Q-O-0001 "You guys can fully automate my online business" (MC-02 correct-in-copy: PT-05/PT-08 — managed, not hands-free).
+- **subcategory_line:** "Not another store builder — for owners whose store is built and just sitting there." (from 10 §16b "Not another store builder — for people who'd rather own a store than learn to run one.")
+- **strategic_enemy:** EN-1 the build-and-leave store deal.
+- **not_for[]:** NF-01, NF-02, NF-03 (NF-04 DECORATION).
+- **moat_line:** "A copier can build a store in a day. To copy us it has to stay after launch day — and keep testing your products until something sells, in your name." (avatar slot AV-07 × mechanism slot CS-07→CS-10.)
+- **stranger_safe_line:** "We build your store in your name. Then we stay after it opens: we test your products a few at a time and swap out what doesn't sell."
+
+| test | line | result | fix applied |
+|---|---|---|---|
+| stranger test (§6.1) | stranger_safe_line | PASS — no incumbent named; states the wedge (stay after opening + staged tests) on its own | none |
+| different-not-better | statement | PASS — claims a different *process* (stays after launch; staged tests), never "better stores / more sales" (SR-01-X delivery advantage NOT CARRIED, 07 §10) | none |
+| both halves (§6.2) | mechanism_ref + sub_avatar | PASS — both filled | none |
+| completeness | enemy + not-for | PASS — EN-1 and NF-01..03 present | none |
+| claims check | statement | PASS — no income, time-to-sale or "hands-free" claim (PT-09; 07 must_not_be_told "never hands-free / fully automated") | "done-for-you" (positioning_draft) replaced by "store service" — banned word, §10 |
+
+## §5 · NARRATOR ARCHETYPE NAR-1
+
+Tally computed in code over 02-swipe.csv (32 IM, narrator_pov + native_creative_description; 03 §11 archetype tally brand 15 · founder/expert 7 · interview 4 agrees). **STRICT-STORY ads in this market: 0 of 32** (02 §6 "ranked_winners_strict: []"; 03 §21 "STRICT: NONE — PARTIAL (N=0/10)") — every type below is counted ALL-FORMAT and none can reach VALIDATED under §6.5.
+
+GetHookd `aggregate_ads` (5 calls, 0.05 cr): `landing_page_domain: ecomdegree.com` × cls_who_in_ad / cls_expert_type / cls_lead_style → `groups: []` each; `brand_id: 6294245` × cls_who_in_ad → `[]`; `join.ecomdegree.com` × cls_who_in_ad → `[]` → **analyzed 0 / total 203** (NW-01 active ads, 02 §2) — the classifier has not analyzed this brand's ads; the 02-swipe per-ad `cls_who_in_ad` column reads NULL / NOT ANALYZED on 32 of 32. Other networks: no above-floor domain → NOT RUN (only NW-01 is sized). `get_top_ads` → NOT RUN — needs operator yes: start_brand_spy.
+
+| narrator type | STRICT-STORY IM-## count | independent NW-## count | cls_who_in_ad (analyzed n/total N) | cls_expert_type | authority read agreement | label |
+|---|---|---|---|---|---|---|
+| brand / none / unknown | 0 (ALL-FORMAT 16: IM-01, IM-02, IM-04, IM-05, IM-10, IM-14, IM-18, IM-19, IM-23, IM-24, IM-25, IM-26, IM-27, IM-28, IM-29, IM-31) | 5 (NW-01, NW-03, NW-04, NW-05, NW-06) | analyzed 0/203 (NW-01 only) | 0 buckets | neutral | n/a — not a narrator |
+| founder / expert | 0 (ALL-FORMAT 6: IM-03, IM-06, IM-07, IM-12, IM-20, IM-22) | 2 (NW-01, NW-03) | analyzed 0/203 (NW-01 only) | 0 buckets | contradicts (RESENT) | HYPOTHESIS + `AUTHORITY` — contradicted by RESENT |
+| interview host/guest (expert-adjacent) | 0 (ALL-FORMAT 4: IM-08, IM-09, IM-11, IM-13) | 1 (NW-01) | analyzed 0/203 (NW-01 only) | 0 buckets | contradicts (RESENT) | HYPOTHESIS + `AUTHORITY` — contradicted by RESENT |
+| family member / caregiver [D from hook "I Didn't Have a Cape. Just a Laptop and a Family to Fight For!"; bodies unopened] | 0 (ALL-FORMAT 3: IM-15, IM-16, IM-17) | 1 (NW-02) | analyzed 0/203 (NW-01 only) | 0 buckets | neutral | HYPOTHESIS |
+| fellow sufferer / customer voice | 0 (ALL-FORMAT 3: IM-21, IM-30, IM-32) | 2 (NW-03, NW-06) | analyzed 0/203 (NW-01 only) | 0 buckets | agrees (peers trusted) | **SUPPORTED** (authority read alone: RESENT experts, trusts peers — Q-Y-0024, Q-Y-0039, Q-O-0137) |
+| insider who sees a pattern (the store manager who watches stores die after launch) | 0 (ALL-FORMAT 0) | 0 | — | — | neutral (not an expert; seen from where the problem is noticed) | **EARLY SIGNAL** (never seen in the market) |
+| retired professional | 0 (ALL-FORMAT 0) | 0 | — | — | neutral | EARLY SIGNAL (not used) |

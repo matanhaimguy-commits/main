@@ -1,3 +1,199 @@
 # STEP 12 — MODE: OFFER · Readymerce · agent 12-OFFER (W5)
 started_at: 2026-09-24T22:30Z · model: opus · box: 40 min / 150 calls · scope: §4-A objects 1–12, method steps 1–6 · no new research (rule: 12 runs no new research)
 
+## §1 · LOCK CARD + ASSUMPTIONS
+
+**Identity:** Readymerce (readymerce.com) — done-for-you Shopify/Etsy store build + optional ongoing management (SERVICE; no physical SKU) · market US `ASSUMED` · currency USD · category DFY e-commerce store service `INFERRED` (01 confirms) · truth-card band PROXY-SKU (01-DEEP) · lock state PROVISIONAL-ON-[A] (01).
+
+**Operator inputs (blank → printed with source):**
+| input | value | source / tag |
+|---|---|---|
+| HERO PRICE | **$500 one-time — "The Store Build & Research Package"** | GIVEN — site: PT-01 / F-12 (readymerce.com/pricing, /terms-of-service) `[R-PAGE via Exa]` |
+| upper tiers | "Boss Boost" / "Full Service Launch" ≈ **$2,000**; "higher packages exist" (rep: "even 500,000 packages but ... very very rare") | `INFERRED [R-OWNED]` — 01 SEED §2 price row, T-01/T-02/T-05/T-06 = 4 of 10 SEED-read calls; C-row recurrence in 06-VOC_MASTER.csv: a ladder above $500 pitched in **C-0011 (2 of 155 calls)** + **C-0016 (2 of 155 calls)**; the $500 entry itself in C-0001 (61 of 155), C-0019 (~10+ UK calls read), C-0023 (~10+). The site publishes NO second tier (PT-02: "no single number is published") → every price above $500 below is `INFERRED — OPERATOR-VALIDATES`. |
+| LANDED COGS | UNKNOWN (01: `unit_cost UNKNOWN — searched`; `landed_cogs N/A — service`) → **`INFERRED` category-typical labour-hours × rate + tooling**, computed in §3 with the assumption printed | `INFERRED` (basis: category-typical; offshore build labour — the only location hint is R-01 reviewer claim "workers from the Philippines", uncorroborated PT-17) |
+| MONTHLY AD BUDGET / DAILY TEST BUDGET | $3,000/mo / **$100/day** | `ASSUMED` |
+| ACCOUNT AGE · CREATIVE CAPACITY · FORMAT · OFFER ASSETS | new · 5 stories + 5 images/week · native story · TO-BUILD | `ASSUMED` |
+| shipping | $0 — digital service delivery (no parcel) | given (01 physical_form: service) |
+| consumption_model | one-time build + optional monthly management (PT-04, PT-08, F-07: "level of ongoing management ... agreed on the fit call") | given (EXACT PRODUCT MATERIAL) → ladder shape **C (kit / system)** |
+| refund instrument (current) | 7-day money-back on the $500 fee; voids on delivery acceptance, ANY add-on/upgrade purchase, or a request for further work; third-party costs never refundable | PT-15 / F-10 (refund-policy + terms-of-service, word-for-word matching) |
+| income claims | NONE allowed — "We make no income guarantees" (F-13, 5 of 9 site pages); PT-09 | given — rep lines "Our goal is for every shop to make at least $10,000 in 6 months." (C-0020, ~4 calls) and "91 percent ... success rate" (01 T-04) CONTRADICT PT-09 and are **kept out of every object below** |
+
+**testing_sequence (09 avatar_portfolio) — class · LF8 button · THE ONE BELIEF (09 §7 `one_belief_that_must_break`):**
+| # | AV | name | class | LF8 primary | THE ONE BELIEF |
+|---|---|---|---|---|---|
+| 1 ★ | AV-07 | Owner Who Wants It Automated | UNTAPPED | #5 Comfortable living (the business runs without me) | "a store only works if the owner runs it himself — or pays an agency a fortune" (Q-O-0103; Q-O-0006) |
+| 2 | AV-01 | The Store That Died | UNTAPPED | #3 Freedom from fear (of losing again) | "the store died because e-commerce doesn't work for someone like me (or I picked the wrong product)" (Q-O-0108; Q-F-9004) |
+| 3 | AV-04 | Paycheck-Tethered Builder | STEALABLE | #5 Comfortable living (income not hostage to the job) | "the only safe way to start is to keep the job and not bet the salary" (Q-O-0133; Q-O-0052) |
+| 4 | AV-02 | Paid-and-Got-Nothing | STEALABLE | #3 Freedom from fear (of being robbed again) | "every done-for-you offer is a scam that takes the money and leaves" (Q-O-0073; Q-O-0130) |
+| 5 | AV-03 | Stuck Starter | OWNED | #5 Comfortable living (the hard part done for me) | "the hard part is the build — once it's live, the job is done" (Q-F-0012; Q-F-0040) |
+Reserve AV-06, AV-05, CL-09 · expansion AV-08 (09).
+
+**MD-## top 5 (08 handoff):** MD-01 ★ "income not hostage to a job" (VALIDATED, top DS-01 "I'm actually thinking to, you know, replace my job" Q-O-0053) · MD-04 "build something of my own" (VALIDATED, DS-28 "So many years I've been thinking about it, but I never had time." Q-O-0160) · MD-02 "ease off / someone else runs it" (VALIDATED, DS-13 "build a a income that I can sit back and relax" Q-O-0015) · MD-03 provide for family (EARLY SIGNAL) · MD-05 big money (EARLY SIGNAL).
+
+**M-1 / M-2 / big_promise / lane (10 locked):** LOCK-A MK-01 "The One-Shot Launch" (PB-06 + PB-05) — M-1: a first store is launched as a single bet and written off when the guess misses · M-2: staged release + capped, owner-approved ad tests + early review, replace what doesn't sell (PT-04, F-05, F-07) · big_idea "First stores die from getting one shot, not from e-commerce." · wedge **"Your store should get more than one shot."** · big_promise: built in your name within days, launched in stages, every product gets a small test on a budget you approve, an early review shows what's selling and what gets replaced (no income, no time-to-sale) · LOCK-B MK-06 "The Handover Cliff" (PB-01) — wedge **"We stay after launch day."**; claim line "We build it. We run it. You own it." ([R-TOOL] Meta ad title, 4 of 31 ads; C-0004 50 of 155 calls). **lane:** PB-05 S4 → mechanism + new information · PB-06 all three (LATE-BOUND stage) · PB-01 S2 → claim + Name-it.
+
+**11 inputs:** `11-partials/` holds only `.partial` headers for AV-01/03/04 and no `11-HANDOFF.AV-##.json` at 22:36Z → `LATE-BOUND: 11.OBJ-##`, `LATE-BOUND: 11.P-##`, `LATE-BOUND: 11.GO-AV#` — objections from 06 OBJ-##, proof from 03 PR-## + PT-## (method step 4 fallback).
+
+**Kept out of every offer object (claims router):** "Our goal is for every shop to make at least $10,000 in 6 months." (C-0020) · "91 percent of our clients have a success rate within the first two to three weeks" (01 T-04) · "If you don't go to the website within this minute, I'm gonna have to hang up and close this opportunity for you forever." (C-0024 — manufactured urgency) · "fully automate" as a promise (MC-02; 10 LOCK-B correction) · any testimonial from readymerce.com/how-it-works (actor-portrayal disclosure, 01 T3 CONTRADICTS block).
+
+**Provisional economics (target CPA = AOV ÷ 2 at the anchor guess $500 → $250):** testable_concepts = floor(7 × 100 ÷ (2 × 250)) = **1** · max_adsets = floor(100 ÷ 250) = **0** → re-locked in §3.
+
+`INPUTS: files 8/9 (01+DEEP, 02, 03, 06, 07 handoff, 08, 09, 10; 11 LATE-BOUND), NW 8 (above-floor 1), OF 4, PP 7, FS 6, avatars 5 launch / 8 total, testable_concepts 1, max_adsets 0 (provisional)`
+
+## §2 · OFFER BENCHMARK (OB-##) — 02 §2/§4/§13 + 03 §12; all rows COMPETITOR-CLAIMED
+
+| ob_id | nw | floor | single_price | ladder_shape | tiers[] | gifts[] | guarantee | subscription Y/N + % | free_shipping_rule | funnel_destination | apps_detected[] | im_ids[] | days_active_longest |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| OB-01 | NW-01 Ecom Degree University (EDUCATION) | ABOVE-FLOOR | FREE webinar → $27 front-end | education ladder (free → coaching), not A/B/C | Free webinar → $27 → $47–97 → $99/mo → $1,995–1,997 → $2,997–3,000 → $4,300 | none in ads; $197 30-day coach access add-on (PDP) | CONTRADICTORY (claimed 'four figures or refund' vs BBB refund complaints) | Y ($99/mo community) | N/A (service) | MSL→squeeze/webinar→(offline sales)→paid (13 of 14 IMs webinar/squeeze, 1 comment-DM) | NOT RUN — get_shop skipped per brief | IM-01..IM-14 | 70 |
+| OB-02 | NW-02 Ecom Family net [D candidate brand] | UNSIZED | FREE AI store builder [D] | free lead magnet → course → coaching [D] | FREE / $1,495 / $7,500 [D] | '30 Winning Products' [D] | internally conflicting (30-day vs 72-hour) [D] | Y (Shopify $1/mo pass-through) [D] | N/A | UNKNOWN (3 IMs) | NOT RUN | IM-15..IM-17 | 0.1 |
+| OB-03 | NW-03 Ecom Accelerator | UNSIZED | $15K–$30K / $25K–$35K liquid capital | single capital-threshold tier + 70/30 profit share | 1 tier + profit share | none | 16-month 'No Profit No Payment' (share forfeited, work free; not cash) | N (profit share) | N/A | MSL→application-gated VSL (5 IMs) | NOT RUN | IM-18..IM-22 | 540 |
+| OB-04 | NW-04 Done for you brands | UNSIZED | $20 (20 products) | A-like quantity step ($20 → $97 for 50 products) + disclosed recurring fees | $20 / $97 + Shopify $1/mo×3 then $39/mo + Zendrop $79/mo; 'Fast Shipping Suppliers' $49 | none | 30-day 100% refund 'no questions asked'; CO-15 'refunded and keep the setup anyway' | Y (platform + supplier fees, disclosed) | N/A | direct PDP 3, quiz 2 | NOT RUN | IM-23..IM-27 | 87 |
+| OB-05 | NW-05 EcomXpertz | UNSIZED | $3,000/yr | 3-rung annual profit-share retainer | $3k (70/30) / $5k (80/20) / $7k (100/0) TikTok; $4k / $6k / $8k Amazon FBA | none | full refund only if project not started (20 days) | Y (annual) | N/A | UNKNOWN (1 IM) | NOT RUN | IM-28 | 36 |
+| OB-06 | NW-06 Ecom Websites (DORMANT) | UNSIZED | $0 / $20 advertised | bait-then-upsell (ad price ≠ funnel price) | $1/mo×3 + 'one-time processing fee of up to $500' | 30 products 'completely free' | none in ads; funnel 'all sales final' | Y (Shopify trial → paid plan) | N/A | MSL→quiz→Shopify-trial upsell (4 IMs) | NOT RUN | IM-29..IM-32 | 271 |
+| OB-07 | NW-07 Ecom Done For You | UNSIZED (0 ads) | $2,000 (Walmart automation) | UNKNOWN | $2,000; others UNKNOWN | none | '100% ROI guarantee within 6 months' (conditional; credit substitution) | N | N/A | PDP only (0 ads) | NOT RUN | — | NONE FOUND — 0 ads |
+| OB-08 | NW-08 Ecommerce Paradise | UNSIZED (0 ads) | $9,997 | C-like: 3 one-time build tiers + monthly turnkey + add-ons | $9,997 / $14,997 / $19,997 (promo $9,998.50) + $2,997/mo | none | milestone: 'suppliers approved, products live ... within 90 days — or we continue working for free ... There are no refunds' | Y ($2,997/mo turnkey) | N/A | PDP only (0 ads); top-tier 50% off 'Only 5 Spots' | NOT RUN | — | NONE FOUND — 0 ads |
+
+**Band floor:** above-floor networks with an offer context = 1 of 8 (NW-01 only; 02 §3) < 3 → **`BAND: NULL`**. Rows OB-02..OB-08 are UNSIZED — printed as a reference range, never counted as a band (02 rule: UNSIZED never counts toward crowding).
+
+**GetHookd `aggregate_ads` for the one above-floor domain (join.ecomdegree.com — 02 had price ladder but no ad-level offer classification):** `cls_offer_type` → 0 analyzed ads (groups []) · `cls_has_money_back_guarantee` → 0 analyzed ads · `cls_price_point` → 0 analyzed ads · `page_type` → landing_page 226 [R-TOOL, as_of 2026-09-24T22:32Z]. Read: the index has not classified NW-01's offers → offer_type / MBG / price_point = `NOT MAPPED — searched: aggregate_ads ×3 (0 analyzed)`; destination confirmed as landing page on 226 indexed ads.
+**Charged calls:** GetHookd aggregate_ads ×4 @0.01 = **0.04 cr** (balance 282.98 → 282.94, reconciled with get_user_profile before/after, free) · get_shop NOT RUN (skipped per brief) · Exa 0 · Apify 0 · **$ cost 0.00 (credits only)**.
+
+**Reference convergence across all 8 networks (NOT a band — UNSIZED included; an element is copied only when ≥2 independent networks converge):**
+
+| element | networks (count / 8) | ids | copy? |
+|---|---|---|---|
+| entry price ≤ $27 (free/$20 bait) | 4 / 8 | NW-01, NW-02, NW-04, NW-06 | YES (≥2) |
+| a rung ≥ $1,995 | 6 / 8 | NW-01, NW-02, NW-03, NW-05, NW-07, NW-08 | YES (≥2) |
+| recurring fee / subscription / retainer | 6 / 8 | NW-01, NW-02, NW-04, NW-05, NW-06, NW-08 | YES (≥2) |
+| a cash refund window (any length) | 2 / 8 | NW-04, NW-05 | YES (≥2) |
+| 'we keep working for free' continuation guarantee | 2 / 8 | NW-03, NW-08 | YES (≥2) |
+| quiz / application gate before price | 3 / 8 | NW-03, NW-04, NW-06 | YES (≥2) |
+| gift / free units in the offer | 2 / 8 | NW-02, NW-06 | YES (≥2) |
+
+Price map (03 §12 + code): ad-visible prices are bimodal — $0–$27 entries (NW-01, NW-02[D], NW-04, NW-06) vs ≥$1,995 rungs (NW-01, NW-02[D], NW-03, NW-05, NW-07, NW-08); **no network sells at Readymerce's $500 one-time point** (03 §12 'Price hole'). Same-function DFY build+manage band (NW-05 $3k–$8k/yr, NW-07 $2,000, NW-08 $9,997–$19,997 + $2,997/mo) = **$2,000–$19,997** reference range.
+**Hero price:** not re-set — $500 GIVEN (site). `OB: 8 rows (1 above-floor), band NULL (reference $0–$19,997; DFY build+manage $2,000–$19,997), charged calls 4, cost 0.04 cr / $0.00`
+
+## §3 · ECONOMICS LABELS (computed in code — formulas printed)
+
+**landed_cogs (T1) — `INFERRED` category-typical, labour-hours × rate + tooling:** hours {"fit call (C6)": 1.0, "niche/product research, 3 products (C3)": 3.0, "store build + config (C1)": 5.0, "branding logo/banner/structure (C2)": 2.0, "listings x3 (C1)": 2.0, "supplier + shipping profiles (C4)": 2.0, "staged release + capped ad-test setup (C5)": 2.0, "early review + corrections (PT-04)": 2.0} = **19 h** × **$12/h** (offshore build-team rate, INFERRED; band $8–$20/h) + tooling $15/store (research tool + design assets, INFERRED) = **$243.00** (band $167.00–$395.00). Shopify/Etsy plan, apps, domain, ad spend and product costs are paid by the buyer (PT-05) → $0 to Readymerce. Sales-close labour (phone reps) is NOT in COGS — see sensitivity S-3.
+**one test-and-review cycle ('shot')** = {"research 3 new products": 2.0, "list them": 1.5, "capped ad test setup + monitoring": 2.0, "review + report": 1.0} = 6.5 h × $12 = **$78.00** · cadence ASSUMED 2 cycles/month under management · account-manager time (C9) 1 h/week × $12 = $12/week.
+
+COGS multiple check: $500 ÷ $243.00 = **2.06×** vs the 5–6× rule for a blank price (5–6× = $1,215–$1,458) → the GIVEN $500 sits BELOW the rule; the price is not re-set (site GIVEN) — printed as the pressure the ladder must carry.
+
+| tier | price | basis | cycles | cogs formula | cogs | gift cogs | contribution = price − cogs − gifts − price×2.9% − price×5% − $0 ship |
+|---|---|---|---|---|---|---|---|
+| T1 Build | $500 | GIVEN (site PT-01/F-12) | 1 | T1 $243 + 0×$78 + 0 wk×$12 + 0 h×$12 | $243.00 | $4.00 | $213.50 |
+| T2 Build + Manage (90 days) | $2,000 | INFERRED [R-OWNED] ($2,000 "Full Service Launch", 01 SEED T-06) — OPERATOR-VALIDATES | 7 | T1 $243 + 6×$78 + 13 wk×$12 + 0 h×$12 | $867.00 | $23.80 | $951.20 |
+| T3 Build + Manage + Scale (180 days) | $3,000 | INFERRED — top-tier strength floor (≤0.55 × singles-math $6,500 = $3,575 → $3,000); OPERATOR-VALIDATES | 13 | T1 $243 + 12×$78 + 26 wk×$12 + 10.5 h×$12 | $1,617.00 | $23.80 | $1,122.20 |
+| bump (+2 products in wave 1) | $149 | INFERRED | — | 2×(1.0+0.75) h×$12 | $42.00 | — | $95.23 |
+| OTO1 (upgrade T1→T2) | $1,500 | INFERRED | +6 | T2 − T1 cogs + GIFT-03/04 | $643.80 | — | $737.70 |
+| OTO2 (second storefront) | $600 | INFERRED | — | 7 h×$12 | $84.00 | — | $468.60 |
+| subscription overlay (Keep-Running plan, per month) | $550/mo | INFERRED | 2/mo | 2×$78 + 4.33 wk×$12 | $208.00 | — | $298.55 |
+
+**breakeven_cpa_single** = price − landed COGS − 2.9% fees − 5% refund reserve − shipping = 500 − 243.00 − 14.50 − 25.00 − 0 = **$217.50**
+**gross_margin (T1)** = (500 − 243.00) ÷ 500 = **51.4%** vs 70% → **BELOW** (band 21.0%–66.6% across the rate band)
+
+**Tier-weighted order economics** (attach ASSUMED: bump 20% of orders · OTO1 10% of T1 buyers · OTO2 5% of orders; shipping $0; gift COGS inside tier COGS):
+
+| scenario | AOV (tiers only) | projected AOV (+bump/OTO) | cogs_per_order | cm_per_order = AOV − COGS − AOV×0.029 − 0 − AOV×0.05 | target_cpa = min(AOV÷2, cm) |
+|---|---|---|---|---|---|
+| EVIDENCE mix 90/8/2 (ASSUMED from [R-OWNED]: 4 of 84 calls paid/deposit, all at the $500 entry; upgrades seen only post-purchase, C-0016 2/155) — **LOCKED** | $670.00 | $864.80 | $396.92 | $399.56 | min($432.40, $399.56) = **$399.56** |
+| DEFAULT mix 20/55/25 (formula default) — upside scenario, not locked | $1,950.00 | $2,039.80 | $975.02 | $903.64 | min($1,019.90, $903.64) = **$903.64** |
+
+**target_cpa_locked = $399.56** (evidence mix). T1-only buyer breakeven: $217.50.
+
+| metric | formula | value | band | label | fix order (if BELOW) |
+|---|---|---|---|---|---|
+| CM/order | AOV − COGS − AOV×2.9% − ship − AOV×5% | $399.56 | ≥$35 PASS · 25–34 BORDER | PASS |  |
+| required_cvr @ CPC $0.80 | CPC ÷ target_cpa_locked | 0.200% | ≤3% PASS · 3–5 BORDER | PASS |  |
+| required_cvr @ CPC $1.25 | CPC ÷ target_cpa_locked | 0.313% | ≤3% PASS · 3–5 BORDER | PASS |  |
+| required_cvr @ CPC $1.75 | CPC ÷ target_cpa_locked | 0.438% | ≤3% PASS · 3–5 BORDER | PASS |  |
+| required_cvr @ CPC $0.80 (T1-only buyer) | CPC ÷ breakeven_cpa_single | 0.368% | ≤3% PASS · 3–5 BORDER | PASS |  |
+| required_cvr @ CPC $1.25 (T1-only buyer) | CPC ÷ breakeven_cpa_single | 0.575% | ≤3% PASS · 3–5 BORDER | PASS |  |
+| required_cvr @ CPC $1.75 (T1-only buyer) | CPC ÷ breakeven_cpa_single | 0.805% | ≤3% PASS · 3–5 BORDER | PASS |  |
+| aov_ratio (AOV:FE) | projected AOV ÷ $500 | 1.73 (ACCEPTABLE) | ≥2.0 PASS · 1.6–1.99 BORDER | BORDER | (BORDER → recommendation) raise OTO1 → add bump → deepen top tier → re-anchor single |
+| LTV60 : AOV | LTV60 = AOV + AOV×0.15 + AOV×0.15×2×0.8 (defaults: reorder 15%, sub attach 15%) | $1,202.07 → 1.39 | ≥2.0 PASS · 1.3–1.9 BORDER | BORDER |  |
+| LTV60 : AOV (service form, printed beside) | AOV + sub attach 15% × 2 mo × $550 × 0.8 | $996.80 → 1.15 | ≥2.0 PASS · 1.3–1.9 BORDER | BELOW | offer the Keep-Running plan at T1 (not preselected) → graduate T1 buyers via OTO1 |
+| Net margin | (cm − target_cpa − $500 ops ÷ orders) ÷ AOV; orders/mo = $3,000 ÷ target_cpa | -7.7% (7.5 orders/mo) | ≥30% PASS · 15–30 BORDER | BELOW | optimise to a booked call and hold CPA under the Net-30 line below → raise OTO1 attach → raise T1 toward 5× COGS |
+| Runway | cash ÷ monthly burn | UNKNOWN (cash not given) | ≥90d PASS · 60–90 BORDER | UNKNOWN | operator gives cash on hand |
+| gross_margin T1 (vs 70%) | (price − COGS) ÷ price | 51.4% | ≥70% | BELOW | labour efficiency or T1 price; T2/T3 carry the margin |
+
+**Six bands:** {'CM': 'PASS', 'CVR@1.25': 'PASS', 'AOV:FE': 'BORDER', 'LTV:AOV': 'BORDER', 'Net': 'BELOW', 'Runway': 'UNKNOWN'}
+Net-band note: at target_cpa = cm an order nets $0 by construction, so Net prints BELOW whenever cm < AOV÷2. Net ≥30% needs an actual CPA ≤ **$120.10** (cm − 0.30×AOV − $500 ÷ ($3,000 ÷ CPA), solved in code) = ≤ **$5.72 per booked call** at the 4.76% close rate. Paid testing decides; nothing here is a forecast.
+
+**profit_per_session[tier] = CVR × AOV × margin** (margin = contribution ÷ price, before ad cost; CVR 2.0% blended default · reader lane 4% · skimmer 1% — a landing-page purchase CVR for a $500+ phone-closed service is UNKNOWN; these are the formula defaults, not a forecast):
+
+| tier | AOV | margin | CVR 1% | CVR 2% | CVR 4% |
+|---|---|---|---|---|---|
+| T1 Build | $500 | 42.7% | $2.13 | $4.27 | $8.54 |
+| T2 Build + Manage (90 days) | $2,000 | 47.6% | $9.51 | $19.02 | $38.05 |
+| T3 Build + Manage + Scale (180 days) | $3,000 | 37.4% | $11.22 | $22.44 | $44.89 |
+| blended (evidence mix) | $864.80 | 46.2% | $4.00 | $7.99 | $15.98 |
+
+**Re-locked capacity:** testable_concepts = floor(7 × 100 ÷ (2 × 399.56)) = **0** · max_adsets = floor(100 ÷ 399.56) = **0** → a purchase-optimised test cannot fund one adset at $100/day (capacity BELOW).
+**Proxy lock (for ASSEMBLE; OPERATOR-VALIDATES):** the sale closes on the phone, so the ad optimises a booked call. close_rate = (PAID 2 + DEPOSIT 2) ÷ 84 calls = 4.76% [R-OWNED] SAMPLE(84) (06 §6 outcome denominators; seller-contacted prospects) → target_cost_per_booked_call = 399.56 × 0.0476 = **$19.03** → testable_concepts_proxy = floor(700 ÷ (2 × 19.03)) = **18** · max_adsets_proxy = min(5, floor(100 ÷ 19.03)) = **5**. T1-only guard: a booked call must cost ≤ **$10.36** (= 217.50 × 0.0476) while the front end sells only the $500 package.
+
+**Sensitivities (printed, not locked):** S-1 labour $8/h → T1 COGS $167.00, breakeven $293.50; $20/h → $395.00, breakeven $65.50 · S-2 default mix 20/55/25 → projected AOV $2,039.80, cm $903.64, target CPA $903.64, AOV ratio 4.08 · S-3 rep commission 10% of AOV (ASSUMED, outside the formula) → cm_per_order − $86.48.
+
+`ECON: breakeven $217.50, CM/order $399.56, target CPA $399.56, AOV ratio 1.73 [ACCEPTABLE], bands PASS 2 / BORDER 2 / BELOW 1 (+ Runway UNKNOWN)`
+
+## §4 · VALUE-EQUATION SCORECARD
+
+Value = (Dream Outcome × Perceived Likelihood) ÷ (Time Delay × Effort & Sacrifice)
+
+| component | lever | id | note |
+|---|---|---|---|
+| dream_outcome | a store of my own, in my name — the idea finally real (MD-04) | DS-28 · Q-O-0160 | "So many years I've been thinking about it, but I never had time." — status word: "my brand" (AV-07 what_they_call_it) |
+| dream_outcome | income that isn't hostage to the job (MD-01 ★) | DS-01 · Q-O-0053 | "I'm actually thinking to, you know, replace my job" — the offer names the store and the tests, NEVER an income figure (PT-09, F-13) |
+| dream_outcome | someone else runs it (MD-02) · deeper hope | DS-13 · Q-O-0015 · DS-03 Q-O-0105 | "build a a income that I can sit back and relax"; deeper hope: "...work anywhere in the world and don't have to worry about anything" |
+| likelihood | M-2: staged release + capped, owner-approved tests + early review — more than one shot | PT-04 · F-05 · F-07 · 10 LOCK-A | the mechanism itself raises perceived likelihood without an income claim; biggest leap = products/stage UNKNOWN (PT-19) → the ladder states cycles per tier |
+| likelihood | ownership you can log into (demonstrable) | F-11 · C11 | "The store account is in your name and stays in your name"; "Payouts go to your bank account — Readymerce never holds your revenue" |
+| likelihood | first review report (demonstrable) | PT-04 · F-05 | "Ad monitoring and adjustments, plus regular reporting" — shown to the buyer, not described |
+| likelihood | guarantee redesigned against OBJ-01/OBJ-03 (§5 object 6) | PR-02 (2 NW) · PT-15 | counted from launch, keep-what-we-built — OPERATOR-VALIDATES |
+| likelihood | business-model transparency → every cost in writing (GIFT-01) | PR-07 (3 NW, longest-running proof element) · OBJ-04 | 03 proof_stack qual>PR-07>PR-01>PR-02; P-## = LATE-BOUND: 11.P-## |
+| likelihood — DEFICIT | no verified client proof: results page renders empty; testimonials carry an actor disclosure; ScamAdviser 0/100, ScamDoc 25% | PT-07 · PT-16 · F-14 · F-15 | PR-01 volume proof = NULL for Readymerce → proof asset TO-BUILD (consented client reports) — the weakest lever |
+| time_delay | store built in 7–10 days (shipping analogue ≤10 days ✓) | [R-OWNED] 01 T-09 · C-0022 (~12+ calls) · site 'within a matter of days' [R-SNIPPET] | deliverable timeframe, not an outcome timeframe |
+| time_delay | first sign = the first cycle's early review | PT-04 (day number UNKNOWN) | operator sets the day (INFERRED proposal: ≤21 days from launch) — OPERATOR-VALIDATES |
+| time_delay | guarantee clock starts at launch, not payment | Q-O-0030 · PT-15 | "if it's gonna take fourteen days how can i take back your money in seven" — the current window can close before the store exists |
+| effort | nothing to learn — done for you | AD-03 (VALIDATED) · Q-O-0056 · PT-04 | "I don't wanna be trained to do it" |
+| effort | the buyer's whole routine = one fit call + approve test budgets | F-06 · F-05 | one-step routine |
+| effort | every cost on one page before paying (GIFT-01) | OBJ-04 · Q-O-0135 · SK-06 | "After paying $500, I should be paying £1 every month. You didn't tell me that earlier." |
+| effort | split payment / BNPL | OBJ-01 · Q-O-0098 · C-0006 (15/155) | not in the current offer (UNKNOWN) → tested as OV-01, not assumed |
+| effort | plain-words guide to what happens and when (GIFT-02) | OBJ-07 · NI-01 · NI-02 | replaces the rep's "$10,000 in 6 months" (C-0020) with the honest process |
+
+Bottom-of-equation test (§6 rule 2): time-delay levers 3 (≥1) · effort levers 5 (≥1), each with IDs → **PASS**. Likelihood is the soft side: 1 printed DEFICIT row (no verified proof) — the guarantee and the demonstrables carry it until real client reports exist.
+
+`VE: levers top 8 / bottom 8, test PASS`
+
+## §5 · THE OFFER
+
+### OFFER-1 · ladder (shape C — kit / system; consumption_model = one-time build + optional monthly management)
+
+**Unit = one test-and-review cycle ("a shot")** — research → list → capped test on a budget the owner approves → review → replace (M-2, PT-04). **Singles-math anchor = units × $500**, the site's own price for one build + first tested round (PT-01) — the only single price read; a round is not sold alone today, so the anchor reads "what N shots cost bought the way you bought the first one" (AV-01 bought three separate stores: "I've lost about $1,000 in total across three stores" Q-Y-0023). No "was" price is invented. **Display caveat (OPERATOR-VALIDATES):** if the operator judges a round ≠ a $500 package, the box shows per-round $ only and the strength floor is re-read.
+
+| tier | contents (C-## INFERRED unless noted) | units | total | price_per_unit | singles-math | pct_vs_single (per unit) | saving_$ | saving_% | per_day_chip | badge | reason_line | contribution | margin_vs_breakeven (contrib − $217.50) | margin_vs_target_CPA (contrib − $399.56) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| T1 Build — "The Store Build & Research Package" | C1 store built on Shopify or Etsy in your name · C2 brand name direction, logo, banner, structure · C3 niche/product research + 3 vetted products listed (count INFERRED: SEED + C-0003 25/155; PT-19 unconfirmed) · C4 supplier + shipping profiles · C6 fit call · C5 staged release + 1st capped test on a budget you approve (ad spend yours, PT-05) · early review + corrections (PT-04) · C11 ownership · GIFT-01 + GIFT-02 | 1 | $500 | $500.00 | $500 | +0.0% | $0 | 0.0% | one-time | Start here | Your store built in your name in 7–10 days, 3 researched products, the first test and an early review. | $213.50 | -4.00 | -186.06 |
+| T2 Build + Manage — "The Second-Shot Launch" (90 days) | everything in T1 + 6 more test-and-review cycles over 90 days (2/month: new products researched, listed, tested on a capped budget you approve, reviewed, replaced — C7/CS-10) + account manager (C9) + reports (F-05) + GIFT-03 cycle make-good + GIFT-04 old-store audit | 7 | $2,000 | $285.71 | $3,500 | -42.9% | $1,500 | 42.9% | $22.22/day over 90 days | Recommended | More than one shot: 7 tested rounds and a team that stays after launch day. | $951.20 | +733.70 | +551.64 |
+| T3 Build + Manage + Scale — "The Full Run" (180 days) | everything in T2 + 6 more cycles (13 total over 180 days) + scaling what passes review (retargeting + one campaign built around the products that sell — C5 SEED T-06) + priority build slot (C9 SEED)  | 13 | $3,000 | $230.77 | $6,500 | -53.8% | $3,500 | 53.8% | $16.67/day over 180 days | Lowest price per round | 13 tested rounds over six months, and the products that sell get scaled. | $1,122.20 | +904.70 | +722.64 |
+
+**subscription_overlay — "Keep-Running plan" (the management plan):** $550/month, 2 cycles/month → $275.00/cycle · `preselected: false` — **NOT PRESELECTED** (§3.4: PT has no repurchase language; PT-08 cadence is 'agreed on the fit call'; 0 repurchase quotes on file) · `one_time_visible: true` · `cancel_frictionless: true` (cancel any month by one email — OPERATOR-VALIDATES) · `gift_stacked: true` (GIFT-01/02 kept) · `%`: +10% vs T2's implied management rate ($1,500 ÷ 3 = $500/mo) — the month-to-month flexibility premium, priced so it never undercuts a committed tier (checked below).
+- cannibalisation check T1 + 3 months of plan vs T2: $2,150 for 7 cycles vs $2,000 → tier cheaper by $150 → PASS
+- cannibalisation check T1 + 6 months of plan vs T3: $3,800 for 13 cycles vs $3,000 → tier cheaper by $800 → PASS
+
+**validity_check (4 computed columns):**
+
+| check | result | values |
+|---|---|---|
+| bigger tier strictly lower per-unit | PASS | $500.00 > $285.71 > $230.77 |
+| more product (units) | PASS | 1 < 7 < 13 |
+| subscription per-unit ≤ single | PASS | $275.00 ≤ $500 |
+| no two tiers at one per-unit | PASS | [500.0, 285.71, 230.77, 275.0] |
+
+**strength_floor:** mid (T2) 42.9% below singles-math (≥30%) → PASS · top (T3) 53.8% (≥45% or free units) → PASS · headline is units (rounds) + guarantee, never flat money-off <25% → PASS ⇒ **PASS**
+**display_rule (bigger of $ or %):** T2 shows **"Save $1,500"** (1,500 > 42.9) · T3 shows **"Save $3,500"** · T1 shows no saving (it is the single). Per-round price printed under each tier ("$285.71 a round").
+**decoy:** no dummy tier is added (a fake tier fails the honesty half of the screenshot test). T1 does the decoy work on price-per-round: $500 a round vs T2 $285.71 — the target tier T2 wins on per-round price, on rounds (7 vs 1) and on the post-launch team (LOCK-B "We stay after launch day."). T3 is the anchor that makes T2's step look small (+$1,000 for +6 rounds + scaling).
+**margin per tier:** T1 contribution $213.50 ≥ $0 but BELOW the locked blended CPA by $186.06 → **T1 survives only at CPA ≤ $213.50 (≈ $10.17 per booked call at 4.76% close)**; T2 +$551.64 and T3 +$722.64 over the locked CPA. Margin survives every tier at breakeven? T1 −$4.00 after gift COGS (GIFT-01/02) vs $217.50 → **NO (T1 is at breakeven, not above it)**.
+
+`LADDER: shape C, tiers 3 (+ overlay), validity PASS 4/4, floor PASS, sub not preselected, repair none (one design correction before print: cadence set to 2 cycles/month everywhere so the overlay cannot undercut T2/T3)`
+

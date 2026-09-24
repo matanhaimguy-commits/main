@@ -564,3 +564,13 @@ COVERAGE: URL 80/60 (LISTED 70 · QUERY-ONLY 0 (PB-01 URL-24/25 print QUERY-ONLY
 
 Not retrieved (listed, not harvested): https://www.quora.com/How-do-I-start-a-Shopify-store-if-I-have-no-experience (shell only) · https://www.quora.com/How-much-time-will-it-take-to-create-a-Shopify-store-Also-how-much-time-should-be-dedicated-daily-for-managing-it (shell only). Count: 18 URLs appended · 22 Q-## appended to 06-VOC_MASTER.csv (harvester_id 09).
 
+
+## 11-AV-03 APPENDIX — 2026-09-24 (single P0 re-mine HARVEST-24 for B-02.AV-3 INTERNAL, which rested on one thread; appended, body untouched)
+| url_id | cluster | lane | url | author | date | tier | Q-## | recipe |
+|---|---|---|---|---|---|---|---|---|
+| URL-11A3-01 | CL-02 | forum_thread | https://community.shopify.com/t/how-can-i-deactivate-my-online-shop-with-minimal-tech-skills/185762/1 | Heartwork_beads | 2023-01-23 | [R-PAGE via Exa] | Q-F-8301 | RC-EXA (Exa agent_run medium, agent_run_0f900213ad3648cea3327d6f2513c6d7) |
+| URL-11A3-02 | CL-02 | forum_thread | https://community.constantcontact.com/ask-the-community/post/do-i-just-quit-BsjcNQse7meIa0T | YvondaL | "7 months ago" | [R-PAGE via Exa] | Q-F-8302 | RC-EXA |
+| URL-11A3-03 | CL-02 | blog_post | https://gracecwalker.com/why-i-decided-to-close-my-shopify-ecommerce-fashion-clothing-store-a-reflection-on-challenges-and-lessons-learned/ | Grace C. Walker | 2023-01-22 | [R-PAGE via Exa] | Q-B-8301 | RC-EXA |
+| URL-11A3-04 | CL-02 | forum_thread | https://community.shopify.com/t/help-no-sales-on-my-store-getting-frustrated/342203/1 | Tinamarie31094 | 2024-07-24 | [R-PAGE via Exa] | Q-F-8303 | RC-EXA |
+
+Count: 4 URLs appended · 4 Q-## appended to 06-VOC_MASTER.csv (harvester_id 11-AV-03; copy datasets/11-AV-03-minted.csv). Exa returned 4 of ≤10 requested; no page reported unretrievable. Cost ≈ $0.10.

@@ -129,3 +129,6 @@ wave W4 · COMPLETE 0 · PARTIAL 0 · RUNNING [09] (1 of 8) · QUEUED [] · open
 2026-09-24T22:28:47Z · 13 · STARTED · opus · 40/150 · 11/12 LATE-BOUND
 2026-09-24T22:28:47Z · 12-OFFER · STARTED · opus · 40/150 · MODE: OFFER
 wave W5 · COMPLETE 0 · PARTIAL 0 · RUNNING [11-AV-07, 11-AV-01, 11-AV-04, 11-AV-02, 11-AV-03, 13, 12-OFFER] (7 of 8) · QUEUED [] · open HARVEST-## 23 · last checkpoint 2026-09-24T22:28:47Z · credits ≈283.0 · scraper $0.00 · Exa ≈$5.00
+2026-09-24T22:42:04Z · 11-AV-04 · COMPLETE · 7 beliefs all traced (VALIDATED; 2 OWNED-ONLY); the_one_belief B-42 "the only safe way to start is to keep the job and wait until I'm ready" (keep-the-job = live wire); lane S4/AW-4 mechanism-made-surer + New Information; OBJ 12 (T1 7, 0 unresolved); FS 3 (1 explained by M-1); proof EXISTS 8 / SHOOTABLE 2 / PLANNED 5; P0 stacks 2 of 3; domino PARTIAL (terms/trust/money survive); LEAK: INTERNAL people-like-me proof PLANNED, OBJ-03 legitimacy T1; DNS incl. 91% / $10k / done-for-you / hands-free / quit your job; honest timeline NULL — searched · $0
+2026-09-24T22:42:04Z · 11-AV-04 · AUDIT-PASS
+wave W5 · COMPLETE 1 · PARTIAL 0 · RUNNING [11-AV-07, 11-AV-01, 11-AV-02, 11-AV-03, 13, 12-OFFER] (6 of 8) · QUEUED [] · open HARVEST-## 23 · last checkpoint 2026-09-24T22:42:04Z · credits ≈283.0 · scraper $0.00 · Exa ≈$5.00
