@@ -1,0 +1,38 @@
+{
+  "step": "02",
+  "scope": "NW-NEW-SEED-01",
+  "seed_domain": "ecomwebsites.com",
+  "network_map": [
+    {
+      "nw_id": "NW-NEW-SEED-01",
+      "name": "Ecom Websites",
+      "domain": "ecomwebsites.com",
+      "brand_id": 1437830,
+      "fb_page_id": "113202963644035",
+      "active_ads": "0 (current, [R-TOOL] cross-confirmed GetHookd+Meta); historical 922 (GetHookd) / 627 (Meta ALL) - not comparable, never added",
+      "scale": "UNSIZED (no shop record for this domain)",
+      "competitor_quality": "INCUMBENT (>=1 ad >=180 days: 271d) but DORMANT (0 active, dark since 2026-06-21)",
+      "longest_days_active": {"ad_id": 70486040, "days": 271},
+      "competitor_components": {"file": "02-partials/02-COMPETITOR-INTEL.NW-NEW-SEED-01.md", "section": "§4"}
+    }
+  ],
+  "penetration_offer": "Free (or $20) done-for-you Shopify store, 30 products + suppliers pre-loaded, built in a claimed 10 minutes; actual funnel converts to $1/mo x3mo Shopify trial + processing fee up to $500 USD, no refunds/all sales final",
+  "money_read": "UNSCANNED (1 network); whole-market read is [MERGE]. This network alone: 0 currently-active ads but 922/627-row historical corpus and a 271-day single ad - a real, large, currently-dormant advertiser.",
+  "im_records": {"file": "02-partials/02-swipe.NW-NEW-SEED-01.csv", "section": "4 rows: IM-01, IM-02, IM-03 + 1 longevity-anchor DCO variant of IM-01"},
+  "ranked_winners_strict": "NONE FOUND — searched (0 of 3 coded concepts bucket as STRICT-STORY; all are NON-STORY direct-response copy)",
+  "ranked_winners_all": {"file": "02-partials/02-COMPETITOR-INTEL.NW-NEW-SEED-01.md", "section": "§7"},
+  "avatar_coverage_map": {"file": "02-partials/02-COMPETITOR-INTEL.NW-NEW-SEED-01.md", "section": "§9"},
+  "problem_lane_coverage": {"file": "02-partials/02-COMPETITOR-INTEL.NW-NEW-SEED-01.md", "section": "§10"},
+  "lanes_nobody_sells": "LATE-BOUND: 03 MERGE",
+  "incumbent_mechanism_map": {"file": "02-partials/02-COMPETITOR-INTEL.NW-NEW-SEED-01.md", "section": "§12"},
+  "offer_funnel_table": {"file": "02-partials/02-COMPETITOR-INTEL.NW-NEW-SEED-01.md", "section": "§13"},
+  "loser_winner_pairs": "NONE FOUND — searched (CO-01 vs CO-02/CO-03 cross-concept longevity contrast noted §14, not a strict same-CO-## pair)",
+  "keep_list": {"file": "02-partials/02-COMPETITOR-INTEL.NW-NEW-SEED-01.md", "section": "§15", "note": "Trustpilot WAS reachable via Exa for this domain (exception to the run's general BLOCKED-ON-TOOL posture); LK-01..LK-03 filed, 4.7/5 2042 reviews"},
+  "hook_bank_raw": {"file": "02-partials/02-COMPETITOR-INTEL.NW-NEW-SEED-01.md", "section": "§16"},
+  "new_seeds": [
+    {"seed_id": "cand-1", "domain": "doneforyoubrands.co", "how_found": "unscoped search_ads crawl-completion check", "sizing_row": "brand_id 297031, active_ads:32, near-identical $20 pre-built store offer wording", "queued": "NOT CRAWLED (cap)"},
+    {"seed_id": "cand-2", "domain": "ecomaccelerator.io", "how_found": "unscoped search_ads crawl-completion check", "sizing_row": "brand_id 134049, active_ads:85, different offer ($15K-$30K liquid profit-share store management)", "queued": "NOT CRAWLED (cap)"},
+    {"seed_id": "cand-3", "domain": "ecomflame.com", "how_found": "unscoped search_ads crawl-completion check", "sizing_row": "brand_id 8030, active_ads:0, one ad 866 days_active", "queued": "NOT CRAWLED (cap)"}
+  ],
+  "coverage": "networks 1 (ABOVE-FLOOR-by-current-active 0, but ad-corpus INDEXED 1); seeds 1 (NEW SEED); IM records 3 distinct concepts + 1 longevity-anchor variant (all NON-STORY); historical corpus 922/627 rows, sampled 45, ~30 opened in full; lanes 4 of 7 touched (PB-01,PB-05,PB-03,PB-02-light); avatar detected 3 of 3 coded IM (100%); credits GetHookd 1.90/2.5, Exa $0.125/$0.40, Meta $0.00; new seeds 3 NOT CRAWLED; key finding: ad-stated $0/$20 price resolves at the live funnel to a $1/mo x3mo Shopify trial + processing fee up to $500 USD with an explicit no-refund/all-sales-final policy — direct contrast to Readymerce C10"
+}
