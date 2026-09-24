@@ -538,3 +538,29 @@ New COM-32: platform forum, name "Shopify Community" (community.shopify.com), a 
 Engagement, dates and authors only as read by the partials; 0-yield lanes keep their reasons; walled pages listed, not harvested.
 
 COVERAGE: URL 80/60 (LISTED 70 · QUERY-ONLY 0 (PB-01 URL-24/25 print QUERY-ONLY → BLOCKED) · BLOCKED 7 · OPERATOR-PASTE 4; + 6 added in 06 + 2 owned units) · PB below URL floor: [NONE] · CP THIN: [CP-01, CP-05 (PB-06 leg)] · PLAN-VALIDATED: [PB-01, PB-06, CP-03, CP-05 (PB-01 leg)] · PLAN-THIN: [PB-05, CP-01, CP-05 (PB-05/PB-06 legs)] · plan cost $1.025/$8.00 · weakest link: reddit_post+comments has 0 URLs across all three PBs · what closing it would cost: Apify reset (≈$5–15 billing) + ≈$0.10 per PB reddit-scraper run, or operator-pasted thread URLs
+
+## 09 APPENDIX — 2026-09-24 (URLs mined by step 09's population-first pass; appended, body untouched)
+
+| URL-## | cluster | lane | url | author(s) | date | tier | Q-## minted | recipe |
+|---|---|---|---|---|---|---|---|---|
+| URL-09-01 | CL-05 | forum_thread | https://community.shopify.com/t/how-can-i-start-an-online-sports-shoe-store-with-minimal-skills/232314 | Anino | 2023-07-13 | [R-PAGE via Exa] | Q-F-9001, Q-F-9002 | RC-EXA (Exa agent_run medium) |
+| URL-09-02 | CL-05 | forum_thread | https://community.shopify.com/t/is-committing-to-googles-ad-campaign-worth-the-cost-for-a-newbie/133672 | Marinerman44 (Edward) | 2022-07 | [R-PAGE via Exa] | Q-F-9003 | RC-EXA (Exa agent_run medium) |
+| URL-09-03 | CL-05 | forum_thread | https://www.warriorforum.com/main-internet-marketing-discussion-forum/1418861-can-anyone-help-me-make-my-website-succeed-advice-only-please-im-getting-skint.html | Jim Bridge | NULL (page shows "6 years ago") | [R-PAGE via Exa] | Q-F-9004 | RC-EXA (Exa agent_run medium) |
+| URL-09-04 | CL-05 | forum_thread | https://www.warriorforum.com/ecommerce-sites-wholesaling-drop-shipping/1513502-shopify-syncee-dropshipping-good-combination.html | Darrell Hagan | NULL (page shows "1 year ago") | [R-PAGE via Exa] | Q-F-9005 | RC-EXA (Exa agent_run medium) |
+| URL-09-05 | CL-05 | blog_comments/article | https://growingourretirement.com/about/ | Larry and Martha | NULL (not shown on page) | [R-PAGE via Exa] | Q-B-9001 | RC-EXA (Exa agent_run medium) |
+| URL-09-06 | CL-04 | blog_comments/article | https://kaboutjie.com/why-i-want-to-be-a-mommy-blogger/ | Lynne Huysamen | 2016-02-16 | [R-PAGE via Exa] | Q-B-9002, Q-B-9003 | RC-EXA (Exa agent_run medium) |
+| URL-09-07 | CL-04 | blog_comments/article | https://shopstorm.com/blog/shopstorm-stories-trendy-treehouse/ | Tara Johnston | 2016-08-24 | [R-PAGE via Exa] | Q-B-9004 | RC-EXA (Exa agent_run medium) |
+| URL-09-08 | CL-04 | blog_comments/article | https://www.everythingshewants.net/2016/05/natural-beauty-products-and-soy-candles.html | Sophia Sylvester | 2016-05-19 | [R-PAGE via Exa] | Q-B-9005 | RC-EXA (Exa agent_run medium) |
+| URL-09-09 | CL-04 | blog_comments/article | https://www.websitebuilderexpert.com/interviews/simply-preloved-childrens-boutique/ | Kate Casey | 2023-05-31 | [R-PAGE via Exa] | Q-B-9006, Q-B-9007 | RC-EXA (Exa agent_run medium) |
+| URL-09-10 | CL-04 | blog_comments/article | https://isossychildren.blogspot.com/2013/06/isossy-children-meets-natrice-grosvenor.html | Natrice Grosvenor | 2013-06-21 | [R-PAGE via Exa] | Q-B-9008 | RC-EXA (Exa agent_run medium) |
+| URL-09-11 | CL-07 | blog_comments/article | https://www.noshameincome.com/blog/ecommerce-store-case-study/ | John Shea | 2015-09-14 | [R-PAGE via Exa] | Q-B-9009, Q-B-9010 | RC-EXA (Exa agent_run medium) |
+| URL-09-12 | CL-07 | blog_comments/article | https://voyagedallas.com/interview/inspiring-conversations-with-becky-beach-of-mom-beach-llc/ | Becky Beach | 2025-06-05 | [R-PAGE via Exa] | Q-B-9011 | RC-EXA (Exa agent_run medium) |
+| URL-09-13 | CL-07 | blog_comments/article | https://blog.ordoro.com/2012/03/08/customer-success-ethereal-decor/ | Cynthia Oliver | 2012-03-08 | [R-PAGE via Exa] | Q-B-9012 | RC-EXA (Exa agent_run medium) |
+| URL-09-14 | CL-07 | blog_comments/article | https://www.starterstory.com/launch-store-from-home | Dennis Michels | 2019-10-20 | [R-PAGE via Exa] | Q-B-9013 | RC-EXA (Exa agent_run medium) |
+| URL-09-15 | CL-07 | blog_comments/article | https://www.shopify.com/au/blog/14081185-how-an-ex-con-turned-his-life-around-and-built-an-80k-per-month-ecommerce-business | Robert Nava | 2016-12-10 | [R-PAGE via Exa] | Q-B-9014 | RC-EXA (Exa agent_run medium) |
+| URL-09-16 | CL-06 | forum_thread | https://community.shopify.com/t/can-i-easily-move-my-woocommerce-store-to-shopify-as-a-non-techy-user/577555/1 | emmaoli3 | 2025-11-29 | [R-PAGE via Exa] | Q-F-9006 | RC-EXA (Exa agent_run medium) |
+| URL-09-17 | CL-06 | forum_thread | https://community.shopify.com/t/how-can-i-modify-variant-options-and-stock-info-in-supply-theme/68832 | _littlehoney | 2021-09-29 | [R-PAGE via Exa] | Q-F-9007 | RC-EXA (Exa agent_run medium) |
+| URL-09-18 | CL-06 | forum_thread | https://www.ukbusinessforums.co.uk/threads/new-business-model-vat.418609/ | dafcjim | 2022-06-20 | [R-PAGE via Exa] | Q-F-9008 | RC-EXA (Exa agent_run medium) |
+
+Not retrieved (listed, not harvested): https://www.quora.com/How-do-I-start-a-Shopify-store-if-I-have-no-experience (shell only) · https://www.quora.com/How-much-time-will-it-take-to-create-a-Shopify-store-Also-how-much-time-should-be-dedicated-daily-for-managing-it (shell only). Count: 18 URLs appended · 22 Q-## appended to 06-VOC_MASTER.csv (harvester_id 09).
+

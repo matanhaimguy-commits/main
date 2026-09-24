@@ -1,0 +1,158 @@
+{
+"CL-01a": {
+"owned_persons": 4,
+"owned_q": 12,
+"owned_best_outcome": {
+"BOOKED-FOLLOWUP": 2,
+"DECLINED": 2
+},
+"owned_US": 3,
+"owned_nofund": 1,
+"sec_persons": 5,
+"market_q": 18,
+"market_authors": 16,
+"market_threads": 10,
+"product_truth_q": 5
+},
+"CL-01b": {
+"owned_persons": 5,
+"owned_q": 10,
+"owned_best_outcome": {
+"UNKNOWN": 1,
+"BOOKED-FOLLOWUP": 4
+},
+"owned_US": 3,
+"owned_nofund": 1,
+"sec_persons": 7,
+"market_q": 43,
+"market_authors": 17,
+"market_threads": 17,
+"product_truth_q": 0
+},
+"CL-02": {
+"owned_persons": 16,
+"owned_q": 29,
+"owned_best_outcome": {
+"DECLINED": 2,
+"BOOKED-FOLLOWUP": 12,
+"UNKNOWN": 2
+},
+"owned_US": 5,
+"owned_nofund": 4,
+"sec_persons": 0,
+"market_q": 46,
+"market_authors": 29,
+"market_threads": 18,
+"product_truth_q": 0
+},
+"CL-03": {
+"owned_persons": 9,
+"owned_q": 21,
+"owned_best_outcome": {
+"PAID": 1,
+"BOOKED-FOLLOWUP": 5,
+"DECLINED": 2,
+"UNKNOWN": 1
+},
+"owned_US": 5,
+"owned_nofund": 2,
+"sec_persons": 0,
+"market_q": 3,
+"market_authors": 3,
+"market_threads": 3,
+"product_truth_q": 0
+},
+"CL-04": {
+"owned_persons": 9,
+"owned_q": 23,
+"owned_best_outcome": {
+"BOOKED-FOLLOWUP": 6,
+"DECLINED": 2,
+"UNKNOWN": 1
+},
+"owned_US": 4,
+"owned_nofund": 1,
+"sec_persons": 3,
+"market_q": 0,
+"market_authors": 0,
+"market_threads": 0,
+"product_truth_q": 0
+},
+"CL-05": {
+"owned_persons": 9,
+"owned_q": 24,
+"owned_best_outcome": {
+"BOOKED-FOLLOWUP": 9
+},
+"owned_US": 5,
+"owned_nofund": 1,
+"sec_persons": 0,
+"market_q": 0,
+"market_authors": 0,
+"market_threads": 0,
+"product_truth_q": 0
+},
+"CL-06": {
+"owned_persons": 10,
+"owned_q": 24,
+"owned_best_outcome": {
+"DEPOSIT": 1,
+"DECLINED": 1,
+"BOOKED-FOLLOWUP": 7,
+"UNKNOWN": 1
+},
+"owned_US": 7,
+"owned_nofund": 2,
+"sec_persons": 0,
+"market_q": 0,
+"market_authors": 5,
+"market_threads": 1,
+"product_truth_q": 5
+},
+"CL-07": {
+"owned_persons": 8,
+"owned_q": 28,
+"owned_best_outcome": {
+"DEPOSIT": 1,
+"DECLINED": 1,
+"BOOKED-FOLLOWUP": 5,
+"PAID": 1
+},
+"owned_US": 5,
+"owned_nofund": 5,
+"sec_persons": 0,
+"market_q": 0,
+"market_authors": 0,
+"market_threads": 0,
+"product_truth_q": 0
+},
+"CL-00": {
+"owned_persons": 9,
+"owned_q": 10,
+"owned_best_outcome": {
+"BOOKED-FOLLOWUP": 4,
+"UNKNOWN": 2,
+"HUNG-UP": 1,
+"DECLINED": 2
+},
+"owned_US": 2,
+"owned_nofund": 1,
+"sec_persons": 0,
+"market_q": 0,
+"market_authors": 0,
+"market_threads": 0,
+"product_truth_q": 0
+},
+"CL-XX (responder/non-sufferer)": {
+"owned_persons": 0,
+"owned_q": 0,
+"owned_best_outcome": {},
+"owned_US": 0,
+"owned_nofund": 0,
+"sec_persons": 0,
+"market_q": 6,
+"market_authors": 6,
+"market_threads": 5,
+"product_truth_q": 0
+}
+}

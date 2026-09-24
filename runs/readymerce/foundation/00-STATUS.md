@@ -115,3 +115,17 @@ wave W3 · COMPLETE 2 · PARTIAL 0 · RUNNING [07] (1 of 8) · QUEUED [] · open
 2026-09-24T22:07:57Z · W4 · WAVE-START · agents [09]
 2026-09-24T22:07:57Z · 09 · STARTED · opus · 40 min / 150 calls · fills 08's LATE-BOUND 07.EM-##
 wave W4 · COMPLETE 0 · PARTIAL 0 · RUNNING [09] (1 of 8) · QUEUED [] · open HARVEST-## 13 · last checkpoint 2026-09-24T22:07:57Z · credits ≈283.07 · scraper $0.00 · Exa ≈$4.60
+2026-09-24T22:28:47Z · 09 · COMPLETE · avatars 7 VALIDATED / 1 EARLY (8 AV); classes OWNED 1 / STEALABLE 2 / UNTAPPED 3 / UNPROVEN 2; ponds sized 0 of 8 (EAS UNAVAILABLE, Apify blocked); CAM 36 of 488 ads opened, SINGLE-NETWORK; launch AV-07 "Owner Wants It Automated" (★, UNTAPPED, 29/40) · AV-01 "Store That Died" (UNTAPPED, 29/40) · AV-04 "Paycheck-Tethered" (STEALABLE, 26/40) · AV-02 "Paid-and-Got-Nothing" (STEALABLE, 24/40) · AV-03 "Stuck Starter" (OWNED, 28/40); reserve AV-06 "Fixed-Income Retiree" (UNPROVEN — 9/9 booked follow-up, 0 paid = the tire-kicker pattern), AV-05 "Evening-Only Parent" (UNPROVEN — 0/9 converted, 0 fathers in market voices), CL-09 capital holders; expansion AV-08 "Restart After Floor Fell"; owned conversions 4 of 79 persons (AV-07 1, AV-04 1, AV-08 2); +22 Q minted, +18 URLs; HARVEST-14..23 · Exa $0.40 · GetHookd 0.09 · 19 min
+2026-09-24T22:28:47Z · 09 · AUDIT-PASS
+2026-09-24T22:28:47Z · 09 · HARVEST-ORDER-ISSUED · HARVEST-14..23
+2026-09-24T22:28:47Z · W4 · WAVE-END · wall-clock 22:49→23:09 (20 min, band 20–40) · COMPLETE 1 · .partial remaining 0
+2026-09-24T22:28:47Z · 00 · CHECKPOINT · git push
+2026-09-24T22:28:47Z · W5 · WAVE-START · agents [11-AV-07, 11-AV-01, 11-AV-04, 11-AV-02, 11-AV-03, 13, 12-OFFER] (7 of 8)
+2026-09-24T22:28:47Z · 11-AV-07 · STARTED · opus · 40/150
+2026-09-24T22:28:47Z · 11-AV-01 · STARTED · opus · 40/150
+2026-09-24T22:28:47Z · 11-AV-04 · STARTED · opus · 40/150
+2026-09-24T22:28:47Z · 11-AV-02 · STARTED · opus · 40/150
+2026-09-24T22:28:47Z · 11-AV-03 · STARTED · opus · 40/150
+2026-09-24T22:28:47Z · 13 · STARTED · opus · 40/150 · 11/12 LATE-BOUND
+2026-09-24T22:28:47Z · 12-OFFER · STARTED · opus · 40/150 · MODE: OFFER
+wave W5 · COMPLETE 0 · PARTIAL 0 · RUNNING [11-AV-07, 11-AV-01, 11-AV-04, 11-AV-02, 11-AV-03, 13, 12-OFFER] (7 of 8) · QUEUED [] · open HARVEST-## 23 · last checkpoint 2026-09-24T22:28:47Z · credits ≈283.0 · scraper $0.00 · Exa ≈$5.00
