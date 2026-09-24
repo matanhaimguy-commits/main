@@ -48,3 +48,10 @@ CALL 4/N | Transcription-Outgoing Call with +14046637285 (rank4) | records: 3 | 
 CALL 5/N | Transcription-Outgoing Call with +12396994029 (1) (rank5) | records: 2 | running_total: 11
 CALL 6/N | Transcription-Outgoing Call with +12396994029 (rank6) | records: 2 | running_total: 13
 CHECKPOINT url_index=6 records=13 cost=$0
+CALL 7/N  | Transcription-Outgoing Call with +18723444380 (rank7)  | records: 3 | running_total: 16
+CALL 8/N  | Transcription-Outgoing Call with +14372612571 (rank8)  | records: 3 | running_total: 19
+CALL 9/N  | Transcription-Outgoing Call with +15878791324 (rank9)  | records: 3 | running_total: 22
+CALL 10/N | Transcription-Outgoing Call with +15512245308 (rank10) | records: 4 | running_total: 26
+CALL 11/N | Transcription-Outgoing Call with +16476422279 (rank11) | records: 3 | running_total: 29
+CALL 12/N | Transcription-Outgoing Call with +15182104178 (rank12) | records: 3 | running_total: 32
+CHECKPOINT url_index=12 records=32 cost=$0
