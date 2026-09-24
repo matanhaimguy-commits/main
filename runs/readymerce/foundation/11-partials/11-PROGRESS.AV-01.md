@@ -1,6 +1,6 @@
 # 11-PROGRESS.AV-01
 - 22:29Z start; read BRIEF-11-COMMON, AGENT-BRIEF-COMMON (+TOOL CARD ADDENDUM), OPERATING-RULES, STEP-11; handoffs 01/01-DEEP/03/06/07/08/09/10 read.
-RESUME POINT: 11-BELIEFS.AV-01.md complete — next handoff JSON
+RESUME POINT: DONE — all three AV-01 outputs on disk
 - 22:37Z §1 lock card written
 - 22:37Z §2 BD-1 + §3 FB written
 - 22:38Z §4 EK written
@@ -12,3 +12,4 @@ RESUME POINT: 11-BELIEFS.AV-01.md complete — next handoff JSON
 - 22:43Z §11 CLM + §12 SK/DNS written
 - 22:44Z §13–§16 written
 - 22:45Z §17 + COVERAGE written; renamed 11-BELIEFS.AV-01.md
+- 22:46Z 11-HANDOFF.AV-01.json written (1936 B, valid JSON); re-mine not triggered (no P0 CURRENT GAP); cost $0.00; ~62 tool calls

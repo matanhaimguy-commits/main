@@ -9,3 +9,8 @@ RESUME POINT: writing §1 LOCK CARD; poll Exa run before §17
 RESUME POINT: §8 OBJ inventory next
 - 22:45Z §8 OBJ (11), §9 FS (4; INCOMPLETE ×3), §10 proof map (16 + X-01) written
 RESUME POINT: §11 CLM next
+- 22:47Z §11 CLM 9, §12 SK 6 (+2 NULL) + DNS 12, §13 WM 5/5, §14 EB, §15 timeline/box, §16 ledger written
+RESUME POINT: §17 counters + coverage statement
+- 22:47Z §17 counters + COVERAGE STATEMENT written; 11-BELIEFS.AV-03.md renamed from .partial
+- 22:48Z 11-HANDOFF.AV-03.json written + validated
+RESUME POINT: DONE — all 17 objects written; nothing to resume (open GAPs listed in 11-BELIEFS.AV-03.md §17)

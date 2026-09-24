@@ -1,5 +1,5 @@
 # STEP 11 — BELIEF DOC · SCOPE: AV-03 ("Stuck Starter") · agent 11-AV-03 · wave W5
-started: 2026-09-24T22:29Z · status: IN PROGRESS (lock card follows)
+started: 2026-09-24T22:29Z · finished: 2026-09-24T22:47Z · status: COMPLETE (DONE) · agent 11-AV-03 · model opus
 
 ## §1 · LOCK CARD
 
@@ -280,3 +280,70 @@ started: 2026-09-24T22:29Z · status: IN PROGRESS (lock card follows)
 | enemies[] (Step 13 candidates, by kind) | **the familiar solution — build-and-leave** (the builder's job ends the day the store goes live: Q-F-0018, Q-B-8301, Q-F-8303; P-04) · **the platform's help system** (Q-F-0006, Q-F-0011, Q-F-8301) · **the "it's easy" promise** (Q-F-0010, Q-Y-0016) — never the prospect, never a named competitor |
 
 `WM: avatars 1/1, rows filled 5/5, failures_justified GAP 0`
+
+## §14 · EPIPHANY BRIDGE MATERIAL — EB-AV3 (IDs only)
+
+| beat | IDs |
+|---|---|
+| 1 backstory | PP-01 + PP-03 · scene: week ten, still on the theme settings (Q-F-0013) · the product step at signup (Q-F-0041) · 09 filmable scenes 1–3 |
+| 2 desire — external / internal | external DS-29 (Q-O-0024 [R-OWNED]) · internal MD-04 / DS-28 (negative mirror Q-O-0153 [R-OWNED]) · deeper-hope Q-O-0015 [R-OWNED] · brand desire MD-01 / DS-01 |
+| 3 the wall | FS-05.AV-3 → FS-01.AV-3 → FS-02.AV-3 (his order: tutorials → own attempt → paid builder) · FS-06.AV-3 side-wall |
+| 4 the epiphany | B-03.AV-3 broken (THE ONE BELIEF) · M-1 = LOCK-B UMP (MK-06) · bridge P-04 (Shopify.dev) · B-02.AV-3 reframed ("not your fault") |
+| 5 the plan | M-2 = LOCK-B UMS (CS-08, CS-09, CS-10) · solution requirement (GO-AV3) · P-02 |
+| 6 conflict | OBJ-01.AV-3, OBJ-02.AV-3, OBJ-05.AV-3 · SK-02.AV-3, SK-05.AV-3 |
+| 7 achievement (small honest win) | the store live in days — P-07 (PT-04 build; 7–10 d [R-OWNED T-09]) · first staged test on a budget he approved — P-02 (PT-04, F-05) |
+| 8 transformation | IB-31 (H-13 [scripted from Q-F-0012]) · IB-27 (H-10 [scripted from Q-F-0013, Q-F-0006]) · IB-25 (H-08 [scripted from Q-O-0153]) · IB-30 (Q-Y-0053) — H-## scenes never cast an ad image |
+
+`EB: 1/1, timeline source PT-04 + P-07 ([R-OWNED T-09]), honest box SET`
+
+## §15 · HONEST TIMELINE + HONEST BOX
+
+- **honest_timeline:**
+  - `first_sign`: the store live in days — build "7 up to 10 days" for Etsy ([R-OWNED T-09], a sales-call statement, via 01 §2) and "within a matter of days" ([R-SNIPPET]); the "early performance review" has no published day number (PT-04). Source PT-04 + P-07.AV-3 — seller statements, not buyer-reported ranges.
+  - `full_effect`: **NULL — searched:** PT-06 (no buyer text on time-to-first-sale or time-to-profit; the only figure, "$39,000 in nine months", is an unverified award-body paraphrase), PT-09 ("Results are not typical and are not guaranteed"), PT-08 (post-launch level agreed per client), PT-11/PT-13 (0 reviews, 0 follow-ups). No range may be printed; never an overnight transformation.
+  - `source`: PT-04, PT-06, PT-08, PT-09.
+- **honest_box:**
+  - `complaint` (top recurring first-use complaint, SIMILAR PRODUCT CONTEXT): the store goes live, then no one helps and nothing sells — "I started my Shopify store, but after my store was online, I Never received any help to bring visitors to my store … 1 month and not one sale" (Q-E-0010, competitor Trustpilot) · "When the store was transferred to me, the store was shutdown almost immediately" (Q-F-0018) · "soon after I launched my store, the nightmare began" (Q-B-8301) · "he did a good job but then it still wasn't making sales" (Q-F-8303) · owned: "with all of their management and experience my store didn't even make $20" (Q-O-0101 [R-OWNED]) — 4 non-owned authors + 1 owned person, 5 threads (code); category-typical PT-10 (R-17 "doesn't eliminate the need to attract customers").
+  - `limitation` (the site's own): product costs, platform fees and ad spend are not in the $500 and no income, sales or profit is guaranteed (PT-05, PT-09, F-13); the post-launch management level is "agreed on the fit call", not a fixed period (PT-08, F-07); the 7-day refund covers the $500 only and voids on delivery acceptance, any add-on, or a request for further work (PT-15) — while the build takes 7–10 days (P-07); product count per store unpublished (PT-19).
+  - `not_for`: "Best for someone who has been stuck on the setup or the product pick and wants a finished store in their own name, with a team that keeps working on it after it goes live. If what you need is guaranteed sales or a set income — or you can't fund platform fees, products and an ad-test budget on top of the $500 — this may not be the right fit."
+  - `remedy_line`: "Before you pay, ask on the fit call for the post-launch window and the first test budget in writing — and know the refund closes 7 days after payment, or sooner if you approve delivery or add a service."
+
+## §16 · BELIEF AMMUNITION LEDGER (IDs; holes printed)
+
+| belief | trust_asset | self_efficacy_proof | mechanism_sentence | competitor_contrast | urgency_lever |
+|---|---|---|---|---|---|
+| BB-I trust this brand | P-03, P-10, P-06 | HOLE — searched: 0 exact-SKU reviews (PT-03, PT-11), /results empty (PT-07), trust scores low (PT-16) → P-12 PLANNED | M-2 (LOCK-B UMS) | FS-02.AV-3 / LK-03 | Q-O-0166 [R-OWNED] "when I saw your advert yesterday, I just clicked on it" |
+| BB-II my problem CAN be solved | P-05, P-04 | P-01 (SHOOTABLE-NOW) · Q-F-0012 | M-1 (LOCK-B UMP) | FS-05.AV-3 / LK-02 | Q-Y-0053 "After weeks of overthinking, I finally committed" |
+| BB-III THIS solves it | P-02 | P-01 · P-07 | M-2 · PT-04 | FS-02.AV-3 / LK-06 | Q-Y-0064 "it takes years to find a winning product" |
+| BB-IV better than the alternatives | P-02, P-03 | P-04 | MK-06 core_compare_contrast (10 §15B) | FS-02.AV-3, FS-01.AV-3 / LK-03 | HOLE — searched: 06 §14 WHAT-MADE-THEM-ACT for a switch-from-competitor trigger in AV-03 records — 0 |
+| BB-V now, not later | P-06 (as conditioned) | P-07 | M-2 | FS-05.AV-3 (weeks lost) | Q-Y-0053 · Q-O-0159 [R-OWNED] "I tried to call you on that Friday" |
+| B-01.AV-3 | P-02 | P-01 | M-1 | FS-05.AV-3 / LK-02 | Q-Y-0053 |
+| B-02.AV-3 | P-05 | P-01 · P-07 · (P-12 PLANNED) | M-1 | FS-05.AV-3, FS-01.AV-3 / LK-02 | HOLE — searched: AV-03 WHAT-MADE-THEM-ACT rows for a "realised it wasn't me" trigger — 0 |
+| B-03.AV-3 | P-02, P-04 | P-07 · (P-11 PLANNED) | M-1 → M-2 | FS-02.AV-3 / LK-03, LK-06 | Q-O-0153 [R-OWNED] negative mirror · Q-Y-0053 |
+| B-04.AV-3 | P-03, P-06 | P-01 | M-2 | FS-02.AV-3 / LK-03 | HOLE — searched: 06 §14 AV-03 rows for a vendor-choice trigger — 0 |
+| B-05.AV-3 | P-09 | HOLE — searched: 0 records of a new AV-03-type store beating incumbents (corpus + PT-06) | LOCK-A UMS (staged tests) | FS-06.AV-3 | Q-Y-0064 |
+| B-06.AV-3 | P-09, P-08 | Q-Y-0053 (her own decision relief) | LOCK-A UMS | FS-01.AV-3 (idea-hop, Q-Y-0059) | Q-Y-0053 |
+
+`LEDGER: cells filled 50/55, holes 5`
+
+## §17 · COUNTERS + GAPS + WHAT WE COULD NOT VERIFY
+
+**Lock-card fill (code over this file):** Q-## cited 99 — tiered 99 / untiered 0 / [A] 2 (ASSUMED lines) · by tier: [R-OWNED] 40 · [R-PAGE via Exa] 28 · [R-SCRAPE] 20 · [R-PAGE] 7 · [R-SNIPPET] 4 (Q-B-0001, Q-F-0034, Q-Q-0004, Q-Q-0005 — none is a `current` belief; Q-F-0034 in FS-06 counts toward no floor).
+
+| scope | B-## count | with Q-## | classes covered (of 7) | V/I/E | P0 with ≥2 proof types | lane_applied |
+|---|---|---|---|---|---|---|
+| AV-03 | 6 | 6 | 6 | 3/3 | 3/3 | SET — Name-it MECHANISM handle first (S2 in an OWNED pond → one stage ahead), claim second; ≠ pooled S4 lane |
+
+- OBJ total 11 / T1 6 / assigned 11 / UNRESOLVED 0 (1 partial → LEAK) · faq_set_a 3
+- FS total 4 / explained by M-1 1 (FS-02) / `ELIMINATION: INCOMPLETE` 3 (FS-05, FS-01, FS-06)
+- P-## EXISTS 9 (+1 NOT-FOR-COPY) / SHOOTABLE-NOW 1 / PLANNED 4 / NULL 1 · BIG PROOF P-02.AV-3
+- CLM 9 (cited 7, inferred 2) · SK 6 (+2 NULL reasons) · DNS 12 · EK 10 · WM 5/5 · EB 8/8 beats · ledger 50/55 (holes 5)
+- **HARVEST-24 (the single re-mine, issued and run):** gap = P0 belief B-02.AV-3 (INTERNAL) rested on one thread (Shopify Community 192077; 4 authors) → Exa agent_run_0f900213ad3648cea3327d6f2513c6d7 (medium, $0.10) → 4 URLs appended to 05 (`## 11-AV-03 APPENDIX`), 4 Q-## appended to 06-VOC_MASTER.csv (Q-F-8301, Q-F-8302, Q-B-8301, Q-F-8303; harvester_id 11-AV-03; copy datasets/11-AV-03-minted.csv) → steps 5–9 re-run for AV-03: B-02 SUPPORTED → VALIDATED (5 auth / 3 thr); B-03 +2 authors; FS-05 +2, FS-02 +2. No second re-mine.
+- **GAPs[]:** (1) BIGGEST LEAP — GO S5 "the weeks after launch decide whether a new store makes it" UNSOURCED (10 NB-3; VOC-only) · (2) P-11 recorded post-launch review PLANNED — the decisive demonstration of B-03 · (3) "people like me" proof for B-02 PLANNED (P-12, P-14) · (4) ELIMINATION: INCOMPLETE FS-05 / FS-01 / FS-06 under LOCK-B · (5) honest_timeline.full_effect NULL · (6) OBJ-06 trust screen partial (PT-16, F-16) · (7) fish UNSIZED — HARVEST-16 (09) still open · (8) SK reasons "sounds too simple" and "doubts the problem is the same" NULL in AV-03's corpus.
+- **LEAK list with cost to close:** `LEAK: ATC→purchase — OBJ-06.AV-3` (no third-party trust asset; automated trust scores 0/100 and 25%) — publish company identity + 1 Google Business profile + first reviews (P-12), 0 credits · LEAK-RISK B-03 demo (P-11) — 1 client consent + 1 recording · LEAK-RISK B-02 people-like-me (P-12/P-14) — first cohort reviews/referrals.
+- **What we could not verify:** that the $500 package includes a meaningful post-launch window (PT-08 "agreed on the fit call"; 10 product_would_need) · build duration on the PDP (7–10 d is a rep line) · product count per store (PT-19) · reporting portal / account manager (F-08, F-09 UNKNOWN) · any Readymerce buyer outcome (PT-06, PT-11) · whether site testimonials are real buyers (actors disclosure) · Reddit / Trustpilot / YouTube-comment voices for this avatar (BLOCKED-ON-TOOL; not retried).
+- **Notes for Step 12 ASSEMBLE:** BD-1.AV-3 is a candidate on MD-01 (entered via MD-04) — DOMINO PARTIAL; merge DNS/CLM/EK by meaning (DNS-04 and DNS-09 are AV-03-pond-specific); OBJ-02 raised to T1 for this avatar only; minted Q-## band 83## used to avoid id collisions with parallel 11-AV agents.
+
+## COVERAGE STATEMENT
+
+Scope: AV-03. Beliefs: 6 minted, 6 traced to Q-## (VALIDATED 5 / SUPPORTED 1 / EARLY SIGNAL 0 / HYPOTHESIS 0 / CONTESTED 0); avatars with full VEHICLE/INTERNAL/EXTERNAL coverage: 1 of 1; lane pass: 1 of 1 avatars; objections: 11 (T1 6, unresolved 0); failed solutions: 4, explained by M-1: 1; proof: EXISTS 9 / SHOOTABLE-NOW 1 / PLANNED 4; P0 beliefs with a ≥2-type proof stack: 3 of 3; openings found: 1 of 1 avatars; domino: PARTIAL. Sources opened: 4 web pages (Exa HARVEST-24) + 7 input files (01, 03, 06, 07, 08, 09, 10 at their pointed sections). Floors met/missed: met — B-## ≥4 with Q-## (6), V/I/E 3/3, one the_one_belief, OBJ ≥8 (11), faq_set_a ≥2 (3), FS ≥3 (4), every P0 and T1 owns a P-##, CLM ≥5 (9), DNS ≥5 (12), WM 5/5, EK floor (10 rows incl. 10 §13a); missed — elimination completeness (FS-05, FS-01, FS-06 INCOMPLETE under LOCK-B), honest_timeline.full_effect NULL, 2 of 8 skepticism reasons NULL in corpus. What was not done and why: BD-1 not reconciled across avatars (Step 12 ASSEMBLE); demos P-01/P-11 not shot (production, not research); no external source sought for NB-3 (11 records basis, never adds a mechanism source); Reddit/Trustpilot/YouTube-comment lanes BLOCKED-ON-TOOL; GetHookd/Meta/Apify not used (not in budget); fish UNSIZED (HARVEST-16 open). Weakest link: B-03.AV-3 (THE ONE BELIEF) rests on an UNSOURCED step — "the weeks after launch decide whether a new store makes it" — with its decisive demonstration (a recorded post-launch review) PLANNED, and LOCK-B explains only 1 of AV-03's 4 failed solutions (his most-used, the pre-launch setup stall FS-05, is ELIMINATION: INCOMPLETE). What closing it would cost: 1 client-consented recorded early review (0 credits) + the operator publishing a minimum post-launch window per tier on /what-you-get (0 credits) + optionally 1 Exa run ≈ $0.10 for a post-launch store-survival source; spend this step: $0.10 (1 Exa run). Ads only assume a belief — Q-## shows buyers hold it; labels describe, paid testing decides.

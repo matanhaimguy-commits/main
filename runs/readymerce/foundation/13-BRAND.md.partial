@@ -263,3 +263,133 @@ Grades computed with a Flesch-Kincaid script (scratch grade.py; syllable heurist
 
 **geo_register_note (US):** "store" not "shop"; "$500" never "£"; "orders" / "sales"; contractions allowed in speech ("didn't"); no UK idiom (37 of 86 OWNED_PROOF persons carry `call_market: UK` vs 44 US — computed over 06-VOC_MASTER.csv life_context; their wording is kept as evidence, never as copy register).
 
+## §11 · STORY STORY-1
+
+**master (100 words, 15 stacked lines, longest sentence 11 words — counted in code):**
+
+> First stores don't die from e-commerce.
+> They die from one shot.
+> One guessed product. One push of ads.
+> Then the builder leaves.
+> We heard it on call after call:
+> "I must have three or four Shopify stores just sitting there."
+> Stores that sell often test five to ten products first.
+> So we built Readymerce around the second shot.
+> Your store is built in your name.
+> Products go live in stages.
+> Each gets a small test on a budget you approve.
+> We review the first results with you.
+> We replace what doesn't sell.
+> We stay after launch day.
+> No income promises.
+
+- **stamp: POSITIONED** — no founder biography is on file (no `[R-OWNED]` founder account in any input), and the site's "some testimonials feature actors" disclosure rules out inventing one.
+- **positioned_rules_applied:** no profession, illness or family-event claim about a named person ✔ · no tragedy ✔ · the one quote is a verbatim, unnamed prospect line (Q-O-0103 `[R-OWNED]`) ✔ · every mechanism line = PT-04 / PT-14 (EXACT PRODUCT MATERIAL) ✔ · "Stores that sell often test five to ten products first" = 10 NI-01 (Product Lair 2024, practitioner guide, `[R-PAGE via Exa]` — "not a study"; claims router must keep "often", never "always") ✔ · "No income promises" = PT-09 ✔ · **discovery frame: A — independent research** (the pattern heard across the brand's own sales calls + the practitioner testing figure); not B (no trusted-peer founder story on file), not C.
+- **founder_presence_plan:** lever = New Information (POOLED S4 one-stage-ahead, 07) → a presence plan is required, but a founder cannot appear without a real account → **founder: NULL until the operator supplies a real founder account (`[R-OWNED]`)**; stand-in: the alt narrator (a REAL Readymerce store manager, §5) carries the New Information (NI-01, NI-02, NI-04) on camera — one short piece per creative test batch, same room register as REG-1 → `OPERATOR-VALIDATES` that person exists and consents.
+- **pdp_cut (71 words, longest sentence 12 words):**
+
+> Most first stores get one shot.
+> One guessed product, one push of ads, then the builder leaves.
+> Readymerce works the other way.
+> We build your store in your name.
+> We put products live in stages.
+> Each one gets a small test on a budget you approve.
+> We review the first results with you and replace what doesn't sell.
+> We stay after launch day.
+> No income promises. Just more than one shot.
+
+- §6.11: POSITIONED, no named-person biography, discovery frame named → **PASS**.
+
+## §12 · VISUAL IDENTITY VIS-1
+
+- **palette** (contrast reason only — computed in code, WCAG relative luminance):
+
+| role | hex | contrast |
+|---|---|---|
+| primary (Pine) | #1F3A34 | 11.17:1 on Paper — section bands and headings |
+| cta_accent (Ember) | #E0621F | the only saturated element: 3.22:1 vs Paper and 3.47:1 vs Pine (both ≥3:1 for a UI control); label in Ink on Ember 4.82:1 (AA body) |
+| text_dark (Ink) | #1C1C1A | 15.55:1 on Paper |
+| background (Paper) | #F7F4EE | — |
+
+  §6.12: the CTA is the highest-contrast *coloured* element against both backgrounds (Paper and Pine; candidates tested in code: #D9541A min 3.05, #E8672A 2.99, #F2A33A 1.90 …) → PASS; body ≥16px on mobile (spec); no colour-psychology claim made.
+- **fonts (Google Fonts):** heading **Fraunces** — a soft, sturdy serif that reads like print on a note or a report sheet (the carrier rule), legible at large sizes; body **Inter** — built for screens, holds up at 16px on a phone.
+- **product_element_id:** `9597a0b7-58a4-42f0-bdc9-1b2663b1ce17` ("readymerce-store-laptop", prop) — created from image job e715e319… (marketing_studio_image). `[A]` created from the un-cut shot because `remove_background` job b4a1bac6… sat `queued` for >10 min; cut-out + upscale job ids recorded below.
+- **model_element_or_soul_id:** **NULL** — no spokesperson photos (operator card); no recurring face generated on purpose: the register casts real owners, and a synthetic recurring face would repeat the site's actors problem. Full generation prompt kept beside the NULL (§6 casting spec AV-07 row → `generate_image {model:"soul_2"}` "woman, late 40s, owner of a small clothing business, cardigan, reading glasses pushed up, candid in her back room at early evening, natural light" → `show_reference_elements {action:"create", category:"character"}`) — run only if the operator wants an illustrative narrator, labelled SYNTHESIZED.
+- **environment_element_id:** `de8b79fa-3285-4487-8076-c22e091bfd4d` ("readymerce-owner-backroom", environment) — from the photography-style reference frame 3c4f070b….
+- **asset_paths:** `assets/readymerce-visual-identity/README.md` (every URL + job_id; files NOT downloaded — `curl` to the image CDN returned `CONNECT tunnel failed, response 403`, egress policy) → all visuals PROVISIONAL.
+- **wordmark_direction:** "Readymerce" in a soft sturdy serif (Fraunces-like), Pine on Paper, with a three-step mark (two Pine squares, the third Ember) = "launched in stages"; finalize in vector; the AI render is direction only.
+- **packaging_proofread:** the "packaging" is the store UI on a device (PT-14: "not a course, a template pack") — product element prompt forbade readable text, logos and brand names; no font names or placeholders are baked into any product/gallery frame by prompt; board frame 760a66bd… intentionally shows hex + role names (a spec board, not packaging); percentages: none used. **Visual proofread character-by-character: NOT VERIFIED — the images cannot be opened in this runtime (egress 403) → `OPERATOR-VALIDATES`** (check: wordmark spelling "Readymerce"; sticky note "3 stores. 0 orders."; app chrome "Sessions 600" / "Orders 0"; "Stage 1" / "Testing" / "Replaced"; "Week 2 review" / "Keep: 2" / "Replace: 1" / "Next: 3 new products"; note "Store in your name."). components per 01: `C1 store build · C2 branding · C3 vetted products (count UNKNOWN, PT-19) · C4 supplier setup · C5 marketing (staged ad tests) · C6 strategy/fit call · C7 ongoing management (level agreed on the fit call, PT-08) · C8 portal/credits (UNKNOWN, PT-19) · C9 account manager (UNKNOWN, PT-19) · C10 7-day refund (conditioned, PT-15) · C11 ownership (PT-14)` — C1, C2, C5, C6, C7, C10, C11 **given** (PDP, PT-04/PT-08/PT-14/PT-15) · C3, C4 **INFERRED: 01 §2 SEED [R-OWNED]** (PT-04 describes research + supplier/shipping setup without a count) · C8, C9 **INFERRED: 01 §2 SEED [R-OWNED], UNKNOWN on PDP (PT-19)**. The Week-2 frame's "Keep: 2 / Replace: 1 / Next: 3" are illustrative counts, not a fact (PT-19 products per stage UNKNOWN) → label the frame "example" on the page.
+
+| item | model | job_id | path | Element/Soul id | proofread result |
+|---|---|---|---|---|---|
+| product shot (store on laptop) | marketing_studio_image (1200×896) | e715e319-0bc4-4191-ac19-b918f61b7604 | https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260924_223444_e715e319-0bc4-4191-ac19-b918f61b7604.png | product 9597a0b7-58a4-42f0-bdc9-1b2663b1ce17 | prompt: no readable text; visual NOT VERIFIED |
+| ↳ remove_background | image_background_remover | b4a1bac6-c3d9-4cdf-be49-485bbeb98637 | LATE — status `queued` at write time | — | — |
+| ↳ upscale 2k | bytedance_image_upscale | 41999a0b-6354-4ff8-8b55-b3e862744b9b (correct 1200×896) · 405e5cb9-f385-4352-92a4-653c6a8a1c4c (submitted with wrong source dims 1024×768 — discard) | see README | — | — |
+| 1 logo direction / wordmark | nano_banana_2 (server label nano_banana_flash) 1376×768 | 055503d4-ba4b-4e0d-a358-0d7747d447de | https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260924_223606_055503d4-ba4b-4e0d-a358-0d7747d447de.png | — | spelling NOT VERIFIED — OPERATOR-VALIDATES |
+| 2 palette + type board | nano_banana_2 1376×768 | 760a66bd-3302-491c-b605-f722034b9904 | https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260924_223606_760a66bd-3302-491c-b605-f722034b9904.png | — | hex labels NOT VERIFIED |
+| 3 hero lifestyle (AV-07 owner, back room) | nano_banana_2 1376×768 | 81c0de04-c5c7-4e47-a014-604542259733 | https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260924_224107_81c0de04-c5c7-4e47-a014-604542259733.png | refs product 9597a0b7… + environment de8b79fa… | SYNTHESIZED person — label as illustration |
+| 4 PDP gallery 1 — "Store in your name." | nano_banana_2 1024×1024 | 5e072d67-a7c0-4744-9aaa-5638f1ed1a8c | https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260924_224107_5e072d67-a7c0-4744-9aaa-5638f1ed1a8c.png | refs product + environment | note text NOT VERIFIED |
+| 5 PDP gallery 2 — Stage 1 tests | nano_banana_2 1024×1024 | 660519cf-662d-4340-b4c0-830205c96ed2 | https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260924_224107_660519cf-662d-4340-b4c0-830205c96ed2.png | — | UI text NOT VERIFIED |
+| 6 PDP gallery 3 — Week 2 review | nano_banana_2 1024×1024 | b5bf0fc6-cfc2-4366-a361-f68b0bc27675 | https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260924_224107_b5bf0fc6-cfc2-4366-a361-f68b0bc27675.png | refs product | counts are illustrative (PT-19) |
+| 7 ad-ready — AV-07 "3 stores. 0 orders." | nano_banana_2 928×1152 | ba50bd13-e218-46d8-b072-3c7ddba774c0 | https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260924_223606_ba50bd13-e218-46d8-b072-3c7ddba774c0.png | — (no product, no brand: native rule) | SYNTHESIZED person; note text NOT VERIFIED |
+| 8 ad-ready — AV-01 "Sessions 600 / Orders 0" | nano_banana_2 928×1152 | d9a1f85e-2cbf-4434-8430-b033698df55c | https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260924_223606_d9a1f85e-2cbf-4434-8430-b033698df55c.png | — | SYNTHESIZED person; UI text NOT VERIFIED |
+| 9 photography-style reference (environment) | nano_banana_2 1376×768 | 3c4f070b-edff-4df2-b45b-fffa2021658b | https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260924_223606_3c4f070b-edff-4df2-b45b-fffa2021658b.png | environment de8b79fa-3285-4487-8076-c22e091bfd4d | no text by prompt |
+
+Cost: preflight `get_cost` marketing_studio_image 2 cr, nano_banana_2 1.5 cr; balance 1,998.34 → 1,977.84 after generation (20.50 cr; bg-removal/upscale may add) — ≤100 cap ✔. 10 images generated (≤10 ✔). **Size rule breach, printed: width+height ≤2000 was exceeded on 10 of 10 renders** (sums computed: 16:9 1376+768 = 2,144 · 1:1 1024+1024 = 2,048 · 4:5 928+1152 = 2,080 · product 1200+896 = 2,096) — the models' smallest default ('1k') for these aspect ratios; `[A]` treated as direction frames, not finals; re-render at an explicit smaller size if the operator enforces the rule.
+
+`IDENTITY SET 6 of 6 item types generated (9 frames + product shot = 10 images), ELEMENTS product 9597a0b7-58a4-42f0-bdc9-1b2663b1ce17, model/soul NULL, environment de8b79fa-3285-4487-8076-c22e091bfd4d`
+
+## §13 · TRIBE AESTHETIC TRIBE-1
+
+Runs: `lane` includes **New Identity** (10 LOCK-A: PB-06 "all three lanes" + 10 §16b brief) and 07 **SR-03 NEW IDENTITY CARRIED → 13**.
+
+- **role_wanted: acknowledgment** — to be seen as the *owner*, not the student or the operator: "I don't wanna be trained to do it. I wanna just put the money forward." (Q-O-0056 `[R-OWNED]`) · "You guys can fully automate my online business." (Q-O-0001 `[R-OWNED]`; MC-02 correct-in-copy). Smaller second identity: the one who tried again — "I was afraid to ever try again, but eventually I did" (Q-B-0004).
+- **aesthetic_already_used[]:** the tribe's own format on the platforms 09 names is the **post-mortem** — first-person "how I lost…" videos and forum posts with the numbers on screen: https://youtu.be/x9lgR_iHPuQ (Q-Y-0014 "i got zero sales which means i lost 254 dollars") · https://youtu.be/3d55w3wDSII (Q-Y-0046 "it didn't sell one product not one product") · https://youtu.be/AZIC4HjKj7s (Q-Y-0027 "there's plenty of us losing, including myself") · https://www.warriorforum.com/social-media/1458034-ive-spent-600on-fb-a… (Q-F-0019 "still no sales. i've got ~600 clicks"). **Visual aesthetic of those videos: NOT OBSERVED** (corpus holds transcripts/text only; 10 §16b "UNKNOWN — searched") — the *format* (confession + dashboard numbers) is observed; the look is not invented.
+- **identity_permission_line:** "I'm not lazy. I just don't wanna be trained to do it." — `[D]` construction; second half verbatim Q-O-0056; permission logic from 08 MD-02 `identity_permission` "I don't expect to just, you know, do all the work myself" (Q-O-0056).
+- **inauthenticity_risks[]:** actors presented as owners (site disclosure) · lifestyle flex (cars, boats, beaches — the tribe's post-mortems are the opposite) · "fully automated / hands-free" (MC-02) · income screenshots without a verifiable owner (SK-03 "a lot of them fake the reviews") · a founder persona with no founder account · the pre-existing synthetic "Readymerce-Strategist" character.
+
+## §14 · CONGRUENCE SPEC CONG-1
+
+- **message_match_words** (verbatim substrings of 10 §15; 10 prints no field named `message_match_words` → built per 13 §2 alias problem = M-1, mechanism = M-2, promise = big_promise):
+  - **problem (M-1):** "launched as a single bet" (LOCK-A UMP) · "hands the store over on launch day and leaves" (LOCK-B UMP)
+  - **mechanism (M-2):** "puts products live in waves; each product gets controlled ad testing at a budget the owner approves" (LOCK-A UMS) · "keeps a team on the store after it goes live" (LOCK-B UMS)
+  - **promise (big_promise):** "Your store is built in your name within days, then launched in stages" (LOCK-A) · "you're not left alone on launch day" (LOCK-B) — "within days" rests on `[R-SNIPPET]` + `[R-OWNED]` T-09 only → claims router (11/12) decides whether it prints.
+  - plain words carried on the fold and in story beats 5–8: **one shot · in stages · a budget you approve · in your name · we stay after launch day**.
+- **scene_level_rule (AV-★ scenes):** an ad opening on scene 1 (stores "just sitting there" in the admin, Q-O-0103) lands on a fold that shows the same idle-admin frame and says "sitting there"; scene 2 (moving money to fund the $500) lands on a fold whose first price line states "$500 — and what it doesn't cover" (PT-05); scene 3 (the marketing slowing down, Q-O-0124) lands on a fold that names "a small test on a budget you approve". Never a scene on the page that the ad did not show.
+- **narrator_continuity:** ad narrator = peer owner (SUPPORTED); page proof voice = REAL owners only + the REAL insider store manager; no founder voice (NULL), no actor testimonials; the five named portraits on today's home page need REAL provenance or removal before any peer-narrator ad points at the page.
+- **catfish_test:** planned fold "Your store should get more than one shot. We build it in your name. Then we stay after it goes live." vs 10 `new_information[].hook_samples`: NI-01 (2) "Your first store didn't fail. It ran out of shots." → MATCH (one shot) · NI-01 (1) "The people with a product that sells almost never found it on the first try." → MATCH · NI-04 (1) "Before you ask if a store will sell, ask whose name is on it." → MATCH (in your name) · NI-02 "600 clicks and zero sales…" → CONDITIONAL (fold variant must show the clicks-no-orders scene) · NI-03 Etsy search → CONDITIONAL (own fold variant) · NI-05 payout hold → CONDITIONAL (only if the operator confirms verification is handled, 10 §16a). **Result: PASS** for the primary hook set (NI-01, NI-04); 3 CONDITIONAL cells re-checked against the first cell in 12 ASSEMBLE.
+
+## §15 · BRAND FACT SHEET FACT-1 v1
+
+| field | value | pointer ID | tier |
+|---|---|---|---|
+| name + status | Readymerce · PROVISIONAL (registry NOT FETCHED; §9) | NAME-1; datasets/13-exa-runs.md | [R-PAGE via Exa] |
+| SKU | "The Store Build & Research Package," $500 one-time; managed fee quoted on the fit call, no published number | PT-01, PT-02 | [R-PAGE via Exa] |
+| Truth Card pointer | 01-PRODUCT-TRUTH.md §TRUTH CARD T3 (PT-01..PT-20), band PROXY-SKU | 01-HANDOFF.DEEP product_truth_card | [R-PAGE via Exa] |
+| components[] | C1 store build (given) · C2 branding (given) · C3 vetted products, count UNKNOWN (INFERRED: 01 §2 SEED [R-OWNED]; PT-19) · C4 supplier setup (INFERRED: 01 §2; PT-04 shipping-profile setup) · C5 staged ad testing (given) · C6 fit/strategy call (given) · C7 ongoing management, level agreed on the call (given, PT-08) · C8 portal/credits (INFERRED: 01 §2; UNKNOWN PT-19) · C9 account manager (INFERRED: 01 §2; UNKNOWN PT-19) · C10 7-day refund, conditioned (given, PT-15) · C11 ownership, own live store account (given, PT-14) | 01-HANDOFF components; PT-04, PT-08, PT-14, PT-15, PT-19 | [R-PAGE via Exa] + INFERRED |
+| avatars + states | AV-★ AV-07 (UNTAPPED, VALIDATED) · launch AV-01 (UNTAPPED), AV-04 (STEALABLE), AV-02 (STEALABLE, EARLY SIGNAL), AV-03 (OWNED) · reserve AV-06, AV-05, CL-09 | 09-HANDOFF avatar_portfolio | [R-OWNED]+[R-PAGE] (09) |
+| shared problem | a store that got one shot and was left alone after launch (LOCK-A M-1 + LOCK-B M-1) | 10 §15 LOCK-A/B ump | [D] |
+| shared promise | "Your store is built in your name within days, then launched in stages" / "you're not left alone on launch day" | 10 §15 big_promise | [R-PAGE via Exa] (PT-04) + [R-SNIPPET] timing |
+| ump | LOCK-A MK-01 The One-Shot Launch · LOCK-B MK-06 The Handover Cliff | 10 §15 | [D] on given basis |
+| ums | staged release + capped tests + early review (CS-07..CS-10) · post-launch review + corrections | 10 §15; PT-04, PT-08 | [R-PAGE via Exa] |
+| big_idea | "First stores die from getting one shot, not from e-commerce." · "Launch day is the starting line, not the finish line." | 10 §15 | [D] |
+| big_promise | see shared promise; no income, time-to-sale or hands-free claim (PT-09) | 10 §15 | [R-PAGE via Exa] |
+| big_proof | process proof only (PT-04 26 bullet points); outcome proof NULL (PT-07, PT-18) — LATE-BOUND: 11.proof | PT-04, PT-07, PT-18 | LATE-BOUND |
+| positioning | POS-1 statement; subcategory "Not another store builder — for owners whose store is built and just sitting there." | §4 | [D] |
+| strategic enemy | EN-1 the build-and-leave store deal (VALIDATED, 8 authors / 4 threads) | §2 | computed |
+| route + offer | LATE-BOUND: 12.offer · LATE-BOUND: 12.route | 12-partials (empty) | LATE-BOUND |
+| beliefs / proof / objection pointers | LATE-BOUND: 11.beliefs · LATE-BOUND: 11.proof · LATE-BOUND: 11.objections · LATE-BOUND: 11.claims | 11-partials (no HANDOFF) | LATE-BOUND |
+| voice + banned words | VOICE-1: plain-spoken · straight about limits · stays with you; 17 banned-word entries | §10 | computed |
+| narrator | peer owner (SUPPORTED) · alt insider store manager, REAL only (EARLY SIGNAL) | §5 | computed |
+| story stamp | POSITIONED · discovery frame A (independent research) | §11 | [D] |
+| palette + fonts | Pine #1F3A34 · Ember #E0621F (CTA only) · Ink #1C1C1A · Paper #F7F4EE · Fraunces / Inter | §12 | computed |
+| Honest Box [D] (11 absent) | top complaint PT-10 (1 disputed exact-SKU complaint: access codes withheld after a $250 deposit) → limitation PT-15 (refund voids on acceptance or any add-on; covers the $500 only) + PT-05 (ad spend, product costs, platform fees excluded) → not-for NF-01, NF-02 → remedy: store in your name from day one (PT-14), the what-you-get list published (MK-22), refund conditions stated plainly (MK-23) | PT-10, PT-15, PT-05, NF-01, NF-02; 10 §17 | [D] |
+| market terms | store · orders · no sales · the 500 · legit · side hustle · the backend · sitting there | 06 §10 | [R-SCRAPE]/[R-OWNED] (06) |
+| ledger path | 06-VOC-LEDGERS.csv · 01 §TRUTH CARD T8 · 10 §5 basis ledger · datasets/13-exa-runs.md | — | — |
+| assets | assets/readymerce-visual-identity/README.md (URLs + job_ids; PROVISIONAL) | §12 | [R-TOOL] Higgsfield |
+| version | v1 | — | — |
+| version_rule | "any fact change re-issues the sheet, bumps v1 → v2, re-stamps every doc's front matter, flags every live downstream asset for a congruence re-check" | 13 §4.14 | — |
+| late_bound[] | 12.offer · 12.route · 11.beliefs · 11.proof · 11.objections · 11.claims · 11.live_wire · 11.WM-AV#.enemies · 11.honest_box | — | LATE-BOUND |
+
+**lint (§6.13, computed):** fields 27 · pointers resolved 21/24 (the rest print LATE-BOUND: 3) · late-bound keys 9 · components[] 11 of 11 filled (given 7 · INFERRED 4) · version + version_rule present ✔ · **tiered 14 / untiered 3 / [D]-[A] 6** (untiered = structural rows: version, version_rule, ledger path; LATE-BOUND rows counted apart: 4).
+
