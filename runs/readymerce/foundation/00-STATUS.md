@@ -76,3 +76,12 @@ wave W1 · COMPLETE 11 · PARTIAL 3 · RUNNING [02-NW-NEW-SEED-03, 02-NW-NEW-SEE
 2026-09-24T21:06:57Z · 02-NW-NEW-SEED-03 · COMPLETE · doneforyoubrands.co: brand 297031, 32–35 active ads, 4 concepts, 5 IM coded FULL-BODY (all NON-STORY), $20 pre-built Shopify store on the Shopify-commission playbook; quiz gate (Heyflow) added Aug–Sep 2026; recurring costs itemized (Shopify $39/mo, Zendrop $79/mo); pairs NONE FOUND; LK 1 (PDP) · 1.34 cr + $0.10 Exa
 2026-09-24T21:06:57Z · 02-NW-NEW-SEED-03 · AUDIT-PASS
 wave W1 · COMPLETE 12 · PARTIAL 3 · RUNNING [02-NW-NEW-SEED-05] (1 of 8) · QUEUED [] · open HARVEST-## 0 · last checkpoint 2026-09-24T21:06:57Z · credits ≈281.9 · scraper $0.00 · Exa ≈$4.15
+2026-09-24T21:19:15Z · 02-NW-NEW-SEED-05 · COMPLETE · Ecom Degree University (ecomdegree.com; brands 6294245 + 118898 merged NW-APPEND): active 203/210/262 (3 bases), 14 of 210 opened FULL-BODY (HYBRID 1 founder VSL w/ transcript, BORDERLINE 5 transcript-pending, NON-STORY 8); network_type EDUCATION/COACHING (Walmart retail-arbitrage training) — same desire, different mechanism; price $27–$4,300; BBB F / Trustpilot 3.9★ refund complaints; pair 1; LK 3 · 0.45 cr + $0.15 Exa
+2026-09-24T21:19:15Z · 02-NW-NEW-SEED-05 · AUDIT-PASS
+2026-09-24T21:19:15Z · W1 · WAVE-END · wall-clock 20:26→21:32 (66 min vs band 30–40; extended by 5 new-seed crawls after the 3 original seeds carried no ad corpus) · agents 15 · COMPLETE 12 · PARTIAL-COMPLETE 3 (VOC-PB-01, VOC-PB-05, 02-KEYWORDS) · .partial files remaining 0 · 02 credits ≈9.9 (band 5–7; overage logged) · Exa ≈$4.30 · Apify $0 (blocked)
+2026-09-24T21:19:15Z · 00 · CHECKPOINT · W1 files on disk; git push; attach deferred to W2 (merged files)
+2026-09-24T21:19:15Z · W2 · WAVE-START · agents [03 (MERGE + synthesis), 06-MERGE, 07-SOPH]
+2026-09-24T21:19:15Z · 03 · STARTED · opus · 40 min / 150 calls · merges 9 partials (3 seeds + 5 new seeds + KEYWORDS)
+2026-09-24T21:19:15Z · 06-MERGE · STARTED · opus · 30 min / 80 calls (orchestrator override of the 20-min default: 5 partials ≈330 rows + §1–§18 synthesis) · 03 AS-## LATE-BOUND
+2026-09-24T21:19:15Z · 07-SOPH · STARTED · opus · 40 min / 150 calls · reads the 02 partials directly
+wave W2 · COMPLETE 0 · PARTIAL 0 · RUNNING [03, 06-MERGE, 07-SOPH] (3 of 8) · QUEUED [] · open HARVEST-## 0 · last checkpoint 2026-09-24T21:19:15Z · credits ≈281.4 · scraper $0.00 · Exa ≈$4.30
