@@ -151,3 +151,6 @@ wave W5 · COMPLETE 6 · PARTIAL 0 · RUNNING [13] (1 of 8) · QUEUED [] · open
 2026-09-24T22:50:49Z · W5 · WAVE-END · 7 agents · COMPLETE 7 / PARTIAL 0 · started ≈23:09Z... corrected: started 22:09Z, ended 2026-09-24T22:50:49Z · wall-clock ≈0:42 (band 0:25–0:45) · no .partial remaining · HARVEST-24 issued+closed by 11-AV-03
 2026-09-24T22:50:49Z · CHECKPOINT · files + STATUS + git push
 wave W5 · COMPLETE 7 · PARTIAL 0 · RUNNING [] (0 of 8) · QUEUED [12-ASSEMBLE] · open HARVEST-## 23 · last checkpoint 2026-09-24T22:50:49Z · credits ≈282.9 · scraper $0.00 · Exa ≈$5.30 · Higgsfield 1,977.5 cr
+2026-09-24T22:51:20Z · W6 · WAVE-START · agents [12 MODE: ASSEMBLE] · 1 of 8 · model opus · time box OVERRIDE 40 min / 120 calls (default merge/assemble 20/60; reason: 5 partials ≈400 KB to merge + handoff.json v2 ≈60 keys + File 1 14 sections, same override class as 06-MERGE)
+2026-09-24T22:51:20Z · 12-ASSEMBLE · STARTED
+wave W6 · COMPLETE 0 · PARTIAL 0 · RUNNING [12-ASSEMBLE] (1 of 8) · QUEUED [] · open HARVEST-## 23 · last checkpoint 2026-09-24T22:51:20Z · credits ≈282.9 · scraper $0.00 · Exa ≈$5.30 · Higgsfield 1,977.5 cr
