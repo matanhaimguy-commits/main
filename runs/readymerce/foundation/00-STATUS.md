@@ -6,3 +6,9 @@ RUN readymerce · US (ASSUMED) · standard · claude-code · started 2026-09-24T
 2026-09-24T20:12:38Z · W0 · WAVE-START · agents [01]
 2026-09-24T20:12:38Z · 01 · STARTED · MODE: SEED · model opus · box 10 min / 40 calls
 wave W0 · COMPLETE 0 · PARTIAL 0 · RUNNING [01] (1 of 8) · QUEUED [] · open HARVEST-## 0 · last checkpoint 2026-09-24T20:12:38Z · credits 291.22 · scraper $0.00
+2026-09-24T20:26:22Z · 01 · COMPLETE · 01-PRODUCT-TRUTH.md 33,833 B · coverage: COVERAGE (SEED): pdp BLOCKED-ON-TOOL (identity from [R-SNIPPET] + Meta [R-TOOL] + [R-OWNED]); reviews reachable 5 [R-SNIPPET], read in full 0; seeds 3 (0 of 3 PDPs fetched); components 11 (0 given / 11 INFERRED); PB 7 (SUPPORTED 3 / HYPOTHESIS 4); CP 7; lanes 3 (PB-01, PB-06, PB-05) MULTI-PROBLEM: STRONG; CONFIDENCE lead problem LOW · GetHookd 0.6 cr (0.1 over cap) · 7 min wall-clock
+2026-09-24T20:26:22Z · 01 · AUDIT-PASS · file non-partial, coverage statement present, 01-HANDOFF.json parses
+2026-09-24T20:26:22Z · 00 · BLOCKED-ON-TOOL · Apify: Monthly usage hard limit exceeded (every actor) · Firecrawl scrape: Insufficient credits · Browserbase: 401 Unauthorized · WebFetch/curl: egress policy 403 for readymerce.com, trustpilot.com, youtube.com, reddit.com · Exa agent cannot retrieve reddit.com or trustpilot.com pages · VERIFIED by orchestrator tests (Exa reads readymerce.com OK; TranscriptAPI OK; GetHookd OK; Meta OK)
+2026-09-24T20:26:22Z · 00 · CHECKPOINT · tool card revised on run card + common brief addendum (SUBSTITUTED rows printed); Exa spend so far $0.225
+2026-09-24T20:26:22Z · W0 · WAVE-END · wall-clock 20:12→20:20 (8 min, band ≈10) · COMPLETE 1 · PARTIAL 0
+wave W0 · COMPLETE 1 · PARTIAL 0 · RUNNING [] (0 of 8) · QUEUED [] · open HARVEST-## 0 · last checkpoint 2026-09-24T20:26:22Z · credits 290.62 · scraper $0.00 · Exa $0.225

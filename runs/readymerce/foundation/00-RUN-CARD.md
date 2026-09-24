@@ -28,9 +28,9 @@ Balances before W0: GetHookd 291.22 credits · Higgsfield 1,998.34 credits (ultr
 | capability | status | provider / substitute | steps |
 |---|---|---|---|
 | Ad-intelligence source | AVAILABLE (GetHookd MCP `mcp__Gethooked__*`, 291.22 cr) + AVAILABLE (Meta Ad Library via `mcp__Facebook_Ads__ads_library_search`, free, live: 4,519 ads on a test term) | Apify `igolaizola/facebook-ad-library-scraper` as the third rung | 01·02·03·07·09·10·12·13 |
-| Scraper (reviews, subreddits, threads, groups, comments, pages) | AVAILABLE (Apify MCP `mcp__Apify__call-actor` / `get-dataset-items` / `apify--rag-web-browser`, BRONZE) | browser (`mcp__browserbase__*`) / WebFetch / Firecrawl → OPERATOR-PASTE | 01·04·05·06·09·10·11 |
-| Transcript source | AVAILABLE (GetHookd `transcribe_ad`; TranscriptAPI MCP `mcp__TranscriptAPI__get_youtube_transcript`; Apify `johnvc/YoutubeTranscripts`) | — | 02·05·06·07·13 |
-| Web search + fetch | AVAILABLE (WebSearch, WebFetch, `mcp__Firecrawl__firecrawl_search/scrape`, browserbase, `mcp__Readymerce_Exa__agent_run`) | — | every step |
+| Scraper (reviews, subreddits, threads, groups, comments, pages) | **UNAVAILABLE — verified 20:35Z:** Apify `Monthly usage hard limit exceeded`; Firecrawl scrape `Insufficient credits`; Browserbase `401 Unauthorized`; WebFetch/curl egress 403 for every research host | SUBSTITUTED → Exa research agent `mcp__Readymerce_Exa__agent_run` for ordinary pages (`[R-PAGE via Exa]`; Reddit + Trustpilot NOT retrievable) → WebSearch snippets `[R-SNIPPET]` → OPERATOR-PASTE | 01·04·05·06·09·10·11 |
+| Transcript source | AVAILABLE (GetHookd `transcribe_ad`; TranscriptAPI MCP `mcp__TranscriptAPI__get_youtube_transcript` + `search_youtube` — verified 20:33Z) | Apify `johnvc/YoutubeTranscripts` UNAVAILABLE (limit) | 02·05·06·07·13 |
+| Web search + fetch | SUBSTITUTED: WebSearch AVAILABLE (snippets); WebFetch UNAVAILABLE (egress policy 403 — readymerce.com, trustpilot.com, youtube.com, reddit.com all denied); page reads via `mcp__Readymerce_Exa__agent_run` (verified: read readymerce.com pricing/refund pages verbatim) | — | every step |
 | Code execution | AVAILABLE (Bash, python3 3.11, node 22) | — | every step |
 | Search-volume corroboration | UNAVAILABLE (no Ahrefs / SimilarWeb MCP) → `search_volume: UNSCANNED` | none | 07 |
 | Audience-size read (Meta EAS) | UNAVAILABLE (drafting ad sets in the operator's ad account is an outward action not authorised for this run) → `fish: UNSIZED — method: EAS` | none | 09 |
