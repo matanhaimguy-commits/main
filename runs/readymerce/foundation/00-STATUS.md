@@ -60,3 +60,9 @@ wave W1 · COMPLETE 7 · PARTIAL 2 · RUNNING [02-KEYWORDS, 02-NW-NEW-SEED-01, 0
 2026-09-24T20:50:59Z · 02-NW-NEW-SEED-01 · AUDIT-PASS
 2026-09-24T20:50:59Z · 00 · CREDIT-NOTE · 02 spend so far ≈5.4 cr across 4 networks (+KEYWORDS ≤3, +NEW-SEED-02 ≤2.5 pending) vs the standard band ≈5–7 cr; orchestrator allows ≤2 further new-seed crawls at ≤1.5 cr each only if 02-KEYWORDS surfaces networks with ≥30 active ads (the original seeds carried no ad corpus)
 wave W1 · COMPLETE 8 · PARTIAL 2 · RUNNING [02-KEYWORDS, 02-NW-NEW-SEED-02] (2 of 8) · QUEUED [] · open HARVEST-## 0 · last checkpoint 2026-09-24T20:50:59Z · credits ≈286.8 · scraper $0.00 · Exa ≈$3.70
+2026-09-24T20:52:31Z · 02-KEYWORDS · PARTIAL-COMPLETE · 9 lane terms + 5 avatar phrases on GetHookd (28 charged) + Meta (14 free); raw counts SATURATED on every term but vocabulary shared with fitness/apps/supplements → relevant distinct page_id is the usable column; new seeds K01 ecomwebsites.com (crawled), K02 socialtoast.ai (low fit), K03 Ecom Family cluster (crawling), K04 Cameron Hoffman – Business, K05 Ecom Accelerator, K06 Done for you brands (unsized); list_similar_shops NOT RUN (no relevant shop_id) · 2.29 cr
+2026-09-24T20:52:31Z · 02-KEYWORDS · AUDIT-PASS
+2026-09-24T20:52:31Z · 02-NW-NEW-SEED-03 · STARTED · doneforyoubrands.co · sonnet · 20 min / 60 calls · cap 1.5 cr · early-exit rule if <5 ads
+2026-09-24T20:52:31Z · 02-NW-NEW-SEED-04 · STARTED · ecomaccelerator.io · sonnet · 20 min / 60 calls · cap 1.5 cr · early-exit rule if <5 ads
+2026-09-24T20:52:31Z · 00 · NOTE · Cameron Hoffman – Business, socialtoast.ai, ecomflame.com → NOT CRAWLED (cap)
+wave W1 · COMPLETE 9 · PARTIAL 3 · RUNNING [02-NW-NEW-SEED-02, 02-NW-NEW-SEED-03, 02-NW-NEW-SEED-04] (3 of 8) · QUEUED [] · open HARVEST-## 0 · last checkpoint 2026-09-24T20:52:31Z · credits ≈286.08 · scraper $0.00 · Exa ≈$3.70
