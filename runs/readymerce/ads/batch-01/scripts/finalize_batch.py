@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Orchestrator finalizer: merge -> gallery.html, source-notes.md, qa-notes.md, campaign-spec.json ads rows, campaign.zip, final audit. Read-only on fragments/ and ads/."""
 import json,os,re,subprocess,glob,csv,zipfile,html,sys
-B=os.path.dirname(os.path.abspath(__file__)); os.chdir(B)
+HERE=os.path.dirname(os.path.abspath(__file__)); B=os.path.dirname(HERE); os.chdir(B)
 SK='/root/.claude/skills/synced/ecbb512e-baad-4579-8fb7-650b733b4f86_5b0c7e87-40d3-427d-b2a8-b08eea6731f4/readymerce-ads-machine/scripts/audit_batch.py'
-subprocess.run([sys.executable,'merge_batch.py'],check=True)
+subprocess.run([sys.executable,os.path.join(HERE,'merge_batch.py')],check=True)
 b=json.load(open('batch.json'))
 caps={c['id']:c for c in b['captions']}
 # pairing map: first CAP-## token on a line that names the ad id
@@ -60,7 +60,7 @@ json.dump(spec,open('campaign-spec.json','w'),indent=1,ensure_ascii=False)
 with zipfile.ZipFile('campaign.zip','w',zipfile.ZIP_DEFLATED) as z:
     for p in ['batch.json','ad-index.csv','captions.txt','headlines.txt','stories.txt','test-plan.md','campaign-spec.json','gallery.html','qa-notes.md','source-notes.md']:
         if os.path.exists(p): z.write(p)
-    for d in ['images','prompts','contact-sheets','videos','ads']:
+    for d in ['images','prompts','contact-sheets','videos','ads','work','briefs','scripts']:
         for p in glob.glob(d+'/**/*',recursive=True):
             if os.path.isfile(p) and not p.endswith('.partial'): z.write(p)
 print('gallery, notes, spec rows',len(rowsc),'zip',os.path.getsize('campaign.zip'),'bytes')

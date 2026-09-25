@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Orchestrator merge: fragments/C*.json + fragments/captions.json + fragments/images.json -> batch.json, ad-index.csv, stories.txt.
-Usage: python3 merge_batch.py [--with-images]. Never edits fragments. Prints what is missing."""
+Usage: python3 scripts/merge_batch.py (run from anywhere; works on the batch folder above scripts/) [--with-images]. Never edits fragments. Prints what is missing."""
 import json,glob,os,csv,sys
-B=os.path.dirname(os.path.abspath(__file__)); os.chdir(B)
+B=os.path.dirname(os.path.dirname(os.path.abspath(__file__))); os.chdir(B)
 skel=json.load(open('work/batch-skeleton.json'))
 order=[a['id'] for a in skel['ads']]
 ads={}
