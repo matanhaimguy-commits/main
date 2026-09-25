@@ -1,4 +1,6 @@
 {
+ "status": "DONE",
+ "status_reason": "3/3 shots rendered and QA'd (identity viewed on all 9 frames, words matched by faster-whisper base + small.en), stitched raw + captioned MP4s uploaded and confirmed, 9/9 frames and the end-card proof in the repo with md5 matching, 258.0 of 260 credits used",
  "agent": "P5-VIDEO-C1",
  "concept": "C1 VF1 UGC confessional 'Nobody Worked Them' (AV-07, AN-01, B-02.AV-07)",
  "aspect": "9:16",
@@ -51,9 +53,14 @@
     "'open' -> 'opened' (base only; small.en hears 'open': ASR)"
    ],
    "qa": {
-    "status": "pass-words / identity-pending",
-    "notes": "all seven sentences present in order (repair fixed the omission). Frames at 0/7.0/13.9 s were extracted in the sandbox but NOT transported (time box); identity for this shot not yet viewed. The stitched MP4 includes this clip."
-   }
+    "status": "pass",
+    "notes": "all seven sentences present in order (repair fixed the omission; small.en word-exact, base hears 'opened' for 'open'). Frames at 0/7.0/13.9 s viewed: same face, dark brown hair with grey, reading glasses on head, oatmeal cardigan, navy tee, same back room (rails, brass desk lamp, wooden desk) as shots 1 and 3 and the reference; mouth open mid-word at 0 s and 13.9 s (lip movement present); at 7.0 s she glances off toward the shop (the scripted gesture); no on-screen text or logos; framing native (propped selfie)."
+   },
+   "frames": [
+    "videos/frames/C1-V-shot2-1.jpg",
+    "videos/frames/C1-V-shot2-2.jpg",
+    "videos/frames/C1-V-shot2-3.jpg"
+   ]
   },
   {
    "k": 3,
@@ -122,15 +129,25 @@
   "videos/frames/C1-V-shot1-1.jpg",
   "videos/frames/C1-V-shot1-2.jpg",
   "videos/frames/C1-V-shot1-3.jpg",
+  "videos/frames/C1-V-shot2-1.jpg",
+  "videos/frames/C1-V-shot2-2.jpg",
+  "videos/frames/C1-V-shot2-3.jpg",
   "videos/frames/C1-V-shot3-1.jpg",
   "videos/frames/C1-V-shot3-2.jpg",
   "videos/frames/C1-V-shot3-3.jpg"
  ],
  "endcard_proof": {
   "path": "videos/C1-V-endcard.jpg",
-  "status": "NOT WRITTEN",
-  "why": "base64 transport of the 7,418-byte proof failed md5 on this pass; no partial or corrupt file was written",
-  "regenerate": "sandbox: curl the captioned media url, ffmpeg -ss 43.42 -i C1-V-45s-captioned.mp4 -frames:v 1 -vf scale=270:480 -q:v 12 endcard.jpg (sandbox md5 90bce220eb90db1fafa70fa43d92f9d4), then IMAGE-TRANSPORT with per-line hash check"
+  "status": "pass",
+  "size": "270x480, 7418 bytes",
+  "md5": "90bce220eb90db1fafa70fa43d92f9d4 (matches sandbox)",
+  "source": "captioned media ef73f978-2569-41dc-be46-bd3baae0f5fa at 43.42 s",
+  "text_seen": [
+   "Loaded and live",
+   "$500 Build · readymerce.com",
+   "Ad spend and fees are yours."
+  ],
+  "proofread": "character by character: 'Loaded and live' = C1.md 3-word CTA and VIDEO-BRIEF end card; '$500 Build · readymerce.com' = VIDEO-BRIEF offer line; 'Ad spend and fees are yours.' = C1.md end-card honesty line. Deviation logged: C1.md's small line reads 'The $500 Build. Ad spend and fees are yours.'; the render follows VIDEO-BRIEF ('$500 Build · readymerce.com') and keeps the honesty sentence without 'The'. No em dashes, no invented text, all three lines inside the central safe zone (y 565..743 of 1280)."
  },
  "credits_used": 258.0,
  "credits_breakdown": {
@@ -156,7 +173,18 @@
   "Store-on-laptop product element (9597a0b7) not passed to Seedance: fragments/images.json does not exist and an AI-redrawn store screen would invent product UI; laptop screens are kept soft/unreadable. Overlay the real product render in the edit if wanted.",
   "Voice: generated per clip (no audio reference); operator should listen for voice continuity across the three cuts.",
   "Frames transported per IMAGE-TRANSPORT.md via base64 with per-line md5 checks; every saved JPEG's md5 matches the sandbox original. Shot 1 frames 270x480 at ffmpeg q 22, shot 3 at q 28 (smaller payload).",
-  "RESUME POINT: (1) transport videos/frames/C1-V-shot2-{1,2,3}.jpg from repair clip 8ab3670f at t = 0 / 7.0 / 13.9 s (ffmpeg scale=270:480,hqdn3d=10:8:0:0 -q:v 28; sandbox md5 of shot2-1 = b48e80f5fbf24a86ed1edb849eb9c762) and view them for identity; (2) transport videos/C1-V-endcard.jpg as in endcard_proof.regenerate and proofread the three end-card strings; (3) then flip shots[k=2].qa to pass and set endcard_proof.status. No further credits needed (0 spend for all three steps).",
-  "Helper scripts for resume (analyze.py, stitch.py with the ASS caption/end-card build, fix.py base64 line-hash repair) are in the P5 scratchpad: /tmp/claude-0/-home-user-main/f17b751e-4cff-5e58-b450-ed5547476704/scratchpad/p5/"
- ]
+  "Helper scripts for resume (analyze.py, stitch.py with the ASS caption/end-card build, fix.py base64 line-hash repair) are in the P5 scratchpad: /tmp/claude-0/-home-user-main/f17b751e-4cff-5e58-b450-ed5547476704/scratchpad/p5/",
+  "Close-out (P5 resume): shot-2 repair frames and the end-card proof moved with numbered 56/66-line base64 chunks plus per-line md5 checks; every file's md5 matches the sandbox original. No generation calls or credits in the close-out."
+ ],
+ "frames_md5": {
+  "videos/frames/C1-V-shot1-1.jpg": "f3eaed4887b7f7129346e1670506b615",
+  "videos/frames/C1-V-shot1-2.jpg": "5e250f750e4fa4a64feb4a0cb32291f4",
+  "videos/frames/C1-V-shot1-3.jpg": "fe872270127304ba618b3e011eeded62",
+  "videos/frames/C1-V-shot2-1.jpg": "b48e80f5fbf24a86ed1edb849eb9c762",
+  "videos/frames/C1-V-shot2-2.jpg": "b7031c5b736046f2814d42cef38c9fb7",
+  "videos/frames/C1-V-shot2-3.jpg": "dc690365370cd92b22c3eedf4c5bb626",
+  "videos/frames/C1-V-shot3-1.jpg": "48bb56707c44d170c33825f779f49638",
+  "videos/frames/C1-V-shot3-2.jpg": "2788196378c01a70d48ed3e963a0909e",
+  "videos/frames/C1-V-shot3-3.jpg": "700367804f86e2da0a07f40e9de79389"
+ }
 }

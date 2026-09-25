@@ -1,0 +1,473 @@
+{
+ "C1-V1": {
+  "job_id": "f120c23b-5e0b-406f-8696-701ea1f817c4",
+  "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+  "width": 2048,
+  "height": 2048,
+  "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014043_f120c23b-5e0b-406f-8696-701ea1f817c4.png",
+  "local_file": "images/C1-V1.jpg",
+  "md5": "3781d5bc57a02e28bda882e12dc4874f",
+  "aspect_ok": true,
+  "qa": {
+   "status": "pass",
+   "notes": "All 8 manifest strings exact. Minor: CTA label renders white, not Ink; faint illegible marks in planner squares. Laptop matches product reference. First submission passed element ids as medias -> 404 'Media input not found' (no job, no charge); resubmitted with source job ids. | transport: sandbox curl -> identify -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 -w76 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 800px instead of 800px q74 JPEG (a q74 800px JPEG did not fit one sandbox call's output); AVIF md5 3a4f70010cea72575bca1ca5b0d8ccb3 matched. Proof 800x800."
+  },
+  "repair_of": null,
+  "proof_px": [
+   800,
+   800
+  ],
+  "vehicle": "V1 designed clarity static · A8a #1 Headline + Benefits (planner IMV)",
+  "aspect": "1:1"
+ },
+ "C1-V2": {
+  "job_id": "7e46b549-0b61-41b4-af43-65611fc1091d",
+  "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+  "width": 1856,
+  "height": 2304,
+  "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_013954_7e46b549-0b61-41b4-af43-65611fc1091d.png",
+  "local_file": "images/C1-V2.jpg",
+  "md5": "3a6eb8a6d312af754aea9e3e012290cf",
+  "aspect_ok": true,
+  "qa": {
+   "status": "pass",
+   "notes": "All 7 messages plus '6:42', 'market crew', avatars D and M exact; apostrophes curly. Generic chat chrome, slate bubbles, no brand. | transport: sandbox curl -> identify -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 -w76 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 800px instead of 800px q74 JPEG (a q74 800px JPEG did not fit one sandbox call's output); AVIF md5 25da89d1b6a7a096fb9779b9c4fffc69 matched. Proof 644x800."
+  },
+  "repair_of": null,
+  "proof_px": [
+   644,
+   800
+  ],
+  "vehicle": "V2 native static · A8b N2 group chat",
+  "aspect": "4:5"
+ },
+ "C1-V3": {
+  "job_id": "6b075bbd-c299-4825-8aed-143ad95ae663",
+  "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+  "width": 1856,
+  "height": 2304,
+  "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_013954_6b075bbd-c299-4825-8aed-143ad95ae663.png",
+  "local_file": "images/C1-V3.jpg",
+  "md5": "cd5623386f8abcc2ceb965cd501c8922",
+  "aspect_ok": true,
+  "qa": {
+   "status": "pass",
+   "notes": "No text, logos, people or product. Receipt 'two pencil lines' detail faint/ambiguous at proof size: operator to confirm on the full-res rawUrl. | transport: sandbox curl -> identify -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 -w76 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 800px instead of 800px q74 JPEG (a q74 800px JPEG did not fit one sandbox call's output); AVIF md5 351d676b66d2be928c19d37c90b99be4 matched. Proof 644x800."
+  },
+  "repair_of": null,
+  "proof_px": [
+   644,
+   800
+  ],
+  "vehicle": "V3 story image · A8b N8 Story Snapshot",
+  "aspect": "4:5"
+ },
+ "C2-V1": {
+  "job_id": "39b7dbf6-a572-4e2a-bcb1-e5101a62b1f2",
+  "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+  "width": 1856,
+  "height": 2304,
+  "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014043_39b7dbf6-a572-4e2a-bcb1-e5101a62b1f2.png",
+  "local_file": "images/C2-V1.jpg",
+  "md5": "ba9e7d8f47fe7190288d0f172b763fd2",
+  "aspect_ok": true,
+  "qa": {
+   "status": "pass",
+   "notes": "All 8 strings exact; chart one line climbing, one flat. Minor: CTA label white, not Ink. First submission with element id -> 404 (no job); resubmitted with product source job. | transport: sandbox curl -> identify -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 -w76 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 800px instead of 800px q74 JPEG (a q74 800px JPEG did not fit one sandbox call's output); AVIF md5 df46add03ff95c995d299af63fde1e1d matched. Proof 644x800."
+  },
+  "repair_of": null,
+  "proof_px": [
+   644,
+   800
+  ],
+  "vehicle": "V1 designed clarity static · A8a #6 Atypical Text (dashboard)",
+  "aspect": "4:5"
+ },
+ "C2-V2": {
+  "job_id": "562421f6-704d-4f19-8f6a-550511ae29ff",
+  "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+  "width": 1856,
+  "height": 2304,
+  "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_020130_562421f6-704d-4f19-8f6a-550511ae29ff.png",
+  "local_file": "images/C2-V2.jpg",
+  "md5": "0ea381ccc38666408b11355cb1237cc1",
+  "aspect_ok": true,
+  "qa": {
+   "status": "fail",
+   "notes": "FAIL after one repair. Original d460ce21: lines 1 and 5 ('store 1: ...' / 'store 2: ...') not fully struck through, proof line only partly grey, chrome read as Apple Notes (yellow chevron, share/ellipsis icons). Repair 562421f6 (chrome made generic, strike-through instruction simplified): chrome now generic, but strike-through still covers only 'store 1:' / 'store 2:' and proof line still partly grey. All words spelled correctly. local_file = repair render. Operator fix: add full strike-through in post. | transport: sandbox curl -> identify -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 -w76 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 680px instead of 800px q74 JPEG (a q74 800px JPEG did not fit one sandbox call's output); AVIF md5 140a29646c6d58c2b5ce9825817f8580 matched. Proof 548x680."
+  },
+  "repair_of": "d460ce21-aedf-491e-899b-d8167b2f608f",
+  "repair_of_rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_013954_d460ce21-aedf-491e-899b-d8167b2f608f.png",
+  "proof_px": [
+   548,
+   680
+  ],
+  "vehicle": "V2 native static · A8b N1 Notes-app list",
+  "aspect": "4:5"
+ },
+ "C2-V3": {
+  "job_id": "fc86d3d4-9d81-4dae-bbed-7106f2d2dd4c",
+  "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+  "width": 2048,
+  "height": 2048,
+  "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_013954_fc86d3d4-9d81-4dae-bbed-7106f2d2dd4c.png",
+  "local_file": "images/C2-V3.jpg",
+  "md5": "d6b0c60b6b2a950e9950bdf75e230a3f",
+  "aspect_ok": true,
+  "qa": {
+   "status": "pass",
+   "notes": "All 4 post lines exact, lowercase kept; icons without counts; no name/handle. | transport: sandbox curl -> identify -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 -w76 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 720px instead of 800px q74 JPEG (a q74 800px JPEG did not fit one sandbox call's output); AVIF md5 a5daa669f5ab459b6a837d8566b57c0b matched. Proof 720x720."
+  },
+  "repair_of": null,
+  "proof_px": [
+   720,
+   720
+  ],
+  "vehicle": "V3 story image · A8b N9 Direct Feed Post",
+  "aspect": "1:1"
+ },
+ "C3-V1": {
+  "job_id": "d9f53c95-545c-45ab-a65a-36ccb7324463",
+  "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+  "width": 2048,
+  "height": 2048,
+  "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014043_d9f53c95-545c-45ab-a65a-36ccb7324463.png",
+  "local_file": "images/C3-V1.jpg",
+  "md5": "51c23357ddf31ea54ed24f1ba05019e1",
+  "aspect_ok": true,
+  "qa": {
+   "status": "pass",
+   "notes": "All 5 strings exact; blank badge, keys and mug present. Minor: subhead reads near-black rather than Pine. First submission with element id -> 404 (no job); resubmitted with product source job. | transport: sandbox curl -> identify -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 -w76 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 740px instead of 800px q74 JPEG (a q74 800px JPEG did not fit one sandbox call's output); AVIF md5 7ebb8ee5026faa6a23a486c7c7fd73b5 matched. Proof 740x740."
+  },
+  "repair_of": null,
+  "proof_px": [
+   740,
+   740
+  ],
+  "vehicle": "V1 designed clarity static (kitchen-table morning scene)",
+  "aspect": "1:1"
+ },
+ "C3-V2": {
+  "job_id": "4f2b32d2-48f7-4aca-8160-2f789575ef62",
+  "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+  "width": 1856,
+  "height": 2304,
+  "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_020758_4f2b32d2-48f7-4aca-8160-2f789575ef62.png",
+  "local_file": "images/C3-V2.jpg",
+  "md5": "e109ab6cd80552e3016bc5d51f70b39b",
+  "aspect_ok": true,
+  "qa": {
+   "status": "fail",
+   "notes": "FAIL after one repair. Original 9bf55f43: all text correct but a Toyota emblem is visible on the steering wheel (logo violation). Repair 4f2b32d2 (unbadged wheel requested): wheel clean, but the body text box is duplicated and one copy reads 'aprove' (misspelled). local_file = ORIGINAL render (better base). Operator fix: retouch out the wheel emblem on the original. | transport: sandbox curl -> identify -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 -w76 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 680px instead of 800px q74 JPEG (a q74 800px JPEG did not fit one sandbox call's output); AVIF md5 201aa1682bfdfdd9432442cfbd8df9be matched. Proof 548x680."
+  },
+  "repair_of": "9bf55f43-b414-493c-a1be-51348bacd6f9",
+  "repair_of_rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_013954_9bf55f43-b414-493c-a1be-51348bacd6f9.png",
+  "local_file_source_job": "9bf55f43-b414-493c-a1be-51348bacd6f9",
+  "local_file_source_rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_013954_9bf55f43-b414-493c-a1be-51348bacd6f9.png",
+  "proof_px": [
+   548,
+   680
+  ],
+  "vehicle": "V2 native static · A8b N4 phone story (car)",
+  "aspect": "4:5"
+ },
+ "C3-V3": {
+  "job_id": "1710a8e3-6380-497d-8223-e690a96928a2",
+  "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+  "width": 2048,
+  "height": 2048,
+  "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_020938_1710a8e3-6380-497d-8223-e690a96928a2.png",
+  "local_file": "images/C3-V3.jpg",
+  "md5": "6acd485a961ea1ce763176a12afd4b8d",
+  "aspect_ok": true,
+  "qa": {
+   "status": "pass",
+   "notes": "PASS on repair. Original 0cabf9d1 rendered 'overherrd'. Repair 1710a8e3 (same text, spelling emphasised): 'five years of “when i'm ready.” one sentence overheard in the break room changed it.' exact, curly quotes and apostrophe correct. local_file = repair render. | transport: sandbox curl -> identify -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 -w76 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 600px instead of 800px q74 JPEG (a q74 800px JPEG did not fit one sandbox call's output); AVIF md5 1ace35159b120397073be057fa92fc99 matched. Proof 600x600."
+  },
+  "repair_of": "0cabf9d1-62f3-4842-92ca-4eb848f27329",
+  "repair_of_rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014402_0cabf9d1-62f3-4842-92ca-4eb848f27329.png",
+  "proof_px": [
+   600,
+   600
+  ],
+  "vehicle": "V3 story image · A8b N9 Direct Feed Post",
+  "aspect": "1:1"
+ },
+ "C4-V1": {
+  "job_id": "e37653a6-ee85-4d24-8122-398cc1e96354",
+  "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+  "width": 1856,
+  "height": 2304,
+  "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014403_e37653a6-ee85-4d24-8122-398cc1e96354.png",
+  "local_file": "images/C4-V1.jpg",
+  "md5": "d9e9c853aad60973871547bfde8e385c",
+  "aspect_ok": true,
+  "qa": {
+   "status": "pass",
+   "notes": "All 14 strings exact; row labels in small caps (allowed). Minor: CTA label white, not Ink. | transport: sandbox curl -> identify -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 -w76 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 720px instead of 800px q74 JPEG (a q74 800px JPEG did not fit one sandbox call's output); AVIF md5 208e70019936056a3a8d995415c23607 matched. Proof 580x720."
+  },
+  "repair_of": null,
+  "proof_px": [
+   580,
+   720
+  ],
+  "vehicle": "V1 designed clarity static · A8a #4 Us vs Them split frame",
+  "aspect": "4:5"
+ },
+ "C4-V2": {
+  "job_id": "b5f32556-b4b5-48df-8e63-bc646f0ab793",
+  "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+  "width": 2048,
+  "height": 2048,
+  "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014402_b5f32556-b4b5-48df-8e63-bc646f0ab793.png",
+  "local_file": "images/C4-V2.jpg",
+  "md5": "ddc0a0761917d3d9f397f5203b651de0",
+  "aspect_ok": true,
+  "qa": {
+   "status": "pass",
+   "notes": "All 8 strings exact ('11:47', search query, headline, items 1-2, curly-quoted docs line, attribution, 'Store owner: in your name.'). Generic UI, no brand. | transport: sandbox curl -> identify -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 -w76 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 620px instead of 800px q74 JPEG (a q74 800px JPEG did not fit one sandbox call's output); AVIF md5 e469f4287958ed2faaf82653c557c02c matched. Proof 620x620."
+  },
+  "repair_of": null,
+  "proof_px": [
+   620,
+   620
+  ],
+  "vehicle": "V2 native static · A8b N5 Search bar + answer card",
+  "aspect": "1:1"
+ },
+ "C4-V3": {
+  "job_id": "f869c5d5-4857-4197-ba41-df8cac7c9923",
+  "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+  "width": 2048,
+  "height": 2048,
+  "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014402_f869c5d5-4857-4197-ba41-df8cac7c9923.png",
+  "local_file": null,
+  "md5": null,
+  "aspect_ok": true,
+  "qa": {
+   "status": "pending",
+   "notes": "Rendered; NOT transported or QA'd (time box expired). Check full-res rawUrl against the manifest before use. | render dims from job result; not verified by identify."
+  },
+  "repair_of": null,
+  "proof_px": null,
+  "vehicle": "V3 story image · A8b N10 News-style static",
+  "aspect": "1:1"
+ },
+ "C5-V1": {
+  "job_id": "20c6c2f5-ed16-4b5c-83c4-ef67abbbd223",
+  "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+  "width": 2048,
+  "height": 2048,
+  "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014402_20c6c2f5-ed16-4b5c-83c4-ef67abbbd223.png",
+  "local_file": null,
+  "md5": null,
+  "aspect_ok": true,
+  "qa": {
+   "status": "pending",
+   "notes": "Rendered; NOT transported or QA'd (time box expired). Check full-res rawUrl against the manifest before use. | render dims from job result; not verified by identify."
+  },
+  "repair_of": null,
+  "proof_px": null,
+  "vehicle": "V1 designed clarity static · A8a #7 Post-it / Handwritten",
+  "aspect": "1:1"
+ },
+ "C5-V2": {
+  "job_id": "98dc6631-d671-490b-8652-ad24b1177d6a",
+  "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+  "width": 2048,
+  "height": 2048,
+  "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014402_98dc6631-d671-490b-8652-ad24b1177d6a.png",
+  "local_file": null,
+  "md5": null,
+  "aspect_ok": true,
+  "qa": {
+   "status": "pending",
+   "notes": "Rendered; NOT transported or QA'd (time box expired). Check full-res rawUrl against the manifest before use. | render dims from job result; not verified by identify."
+  },
+  "repair_of": null,
+  "proof_px": null,
+  "vehicle": "V2 native static · A8b N9 Direct Feed Post + replies",
+  "aspect": "1:1"
+ },
+ "C5-V3": {
+  "job_id": "e00df177-fab1-4f6b-ac22-a75f56a1b2a5",
+  "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+  "width": 1856,
+  "height": 2304,
+  "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014402_e00df177-fab1-4f6b-ac22-a75f56a1b2a5.png",
+  "local_file": null,
+  "md5": null,
+  "aspect_ok": true,
+  "qa": {
+   "status": "pending",
+   "notes": "Rendered; NOT transported or QA'd (time box expired). Check full-res rawUrl against the manifest before use. | render dims from job result; not verified by identify."
+  },
+  "repair_of": null,
+  "proof_px": null,
+  "vehicle": "V3 story image · A8b N8 Story Snapshot",
+  "aspect": "4:5"
+ },
+ "spend_credits": 36,
+ "balance_after": 1633.84,
+ "spend_note": "spend_credits = own jobs: 18 image jobs (15 + 3 repairs) x 2 cr. Account balance went 1926.34 -> 1633.84 (delta 292.50) because the account is shared with concurrent jobs (P5 video render running at the same time); that delta is not P4 spend.",
+ "jobs_log": [
+  {
+   "id": "C1-V1",
+   "job_id": "f120c23b-5e0b-406f-8696-701ea1f817c4",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014043_f120c23b-5e0b-406f-8696-701ea1f817c4.png",
+   "result": "rendered, qa pass",
+   "credits": 2
+  },
+  {
+   "id": "C1-V2",
+   "job_id": "7e46b549-0b61-41b4-af43-65611fc1091d",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_013954_7e46b549-0b61-41b4-af43-65611fc1091d.png",
+   "result": "rendered, qa pass",
+   "credits": 2
+  },
+  {
+   "id": "C1-V3",
+   "job_id": "6b075bbd-c299-4825-8aed-143ad95ae663",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_013954_6b075bbd-c299-4825-8aed-143ad95ae663.png",
+   "result": "rendered, qa pass",
+   "credits": 2
+  },
+  {
+   "id": "C2-V1",
+   "job_id": "39b7dbf6-a572-4e2a-bcb1-e5101a62b1f2",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014043_39b7dbf6-a572-4e2a-bcb1-e5101a62b1f2.png",
+   "result": "rendered, qa pass",
+   "credits": 2
+  },
+  {
+   "id": "C2-V2",
+   "job_id": "d460ce21-aedf-491e-899b-d8167b2f608f",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_013954_d460ce21-aedf-491e-899b-d8167b2f608f.png",
+   "result": "rendered, QA fail -> repaired",
+   "credits": 2
+  },
+  {
+   "id": "C2-V2",
+   "job_id": "562421f6-704d-4f19-8f6a-550511ae29ff",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_020130_562421f6-704d-4f19-8f6a-550511ae29ff.png",
+   "result": "rendered, qa fail",
+   "credits": 2
+  },
+  {
+   "id": "C2-V3",
+   "job_id": "fc86d3d4-9d81-4dae-bbed-7106f2d2dd4c",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_013954_fc86d3d4-9d81-4dae-bbed-7106f2d2dd4c.png",
+   "result": "rendered, qa pass",
+   "credits": 2
+  },
+  {
+   "id": "C3-V1",
+   "job_id": "d9f53c95-545c-45ab-a65a-36ccb7324463",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014043_d9f53c95-545c-45ab-a65a-36ccb7324463.png",
+   "result": "rendered, qa pass",
+   "credits": 2
+  },
+  {
+   "id": "C3-V2",
+   "job_id": "9bf55f43-b414-493c-a1be-51348bacd6f9",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_013954_9bf55f43-b414-493c-a1be-51348bacd6f9.png",
+   "result": "rendered, QA fail -> repaired",
+   "credits": 2
+  },
+  {
+   "id": "C3-V2",
+   "job_id": "4f2b32d2-48f7-4aca-8160-2f789575ef62",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_020758_4f2b32d2-48f7-4aca-8160-2f789575ef62.png",
+   "result": "rendered, qa fail",
+   "credits": 2
+  },
+  {
+   "id": "C3-V3",
+   "job_id": "0cabf9d1-62f3-4842-92ca-4eb848f27329",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014402_0cabf9d1-62f3-4842-92ca-4eb848f27329.png",
+   "result": "rendered, QA fail -> repaired",
+   "credits": 2
+  },
+  {
+   "id": "C3-V3",
+   "job_id": "1710a8e3-6380-497d-8223-e690a96928a2",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_020938_1710a8e3-6380-497d-8223-e690a96928a2.png",
+   "result": "rendered, qa pass",
+   "credits": 2
+  },
+  {
+   "id": "C4-V1",
+   "job_id": "e37653a6-ee85-4d24-8122-398cc1e96354",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014403_e37653a6-ee85-4d24-8122-398cc1e96354.png",
+   "result": "rendered, qa pass",
+   "credits": 2
+  },
+  {
+   "id": "C4-V2",
+   "job_id": "b5f32556-b4b5-48df-8e63-bc646f0ab793",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014402_b5f32556-b4b5-48df-8e63-bc646f0ab793.png",
+   "result": "rendered, qa pass",
+   "credits": 2
+  },
+  {
+   "id": "C4-V3",
+   "job_id": "f869c5d5-4857-4197-ba41-df8cac7c9923",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014402_f869c5d5-4857-4197-ba41-df8cac7c9923.png",
+   "result": "rendered, qa pending",
+   "credits": 2
+  },
+  {
+   "id": "C5-V1",
+   "job_id": "20c6c2f5-ed16-4b5c-83c4-ef67abbbd223",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014402_20c6c2f5-ed16-4b5c-83c4-ef67abbbd223.png",
+   "result": "rendered, qa pending",
+   "credits": 2
+  },
+  {
+   "id": "C5-V2",
+   "job_id": "98dc6631-d671-490b-8652-ad24b1177d6a",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014402_98dc6631-d671-490b-8652-ad24b1177d6a.png",
+   "result": "rendered, qa pending",
+   "credits": 2
+  },
+  {
+   "id": "C5-V3",
+   "job_id": "e00df177-fab1-4f6b-ac22-a75f56a1b2a5",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014402_e00df177-fab1-4f6b-ac22-a75f56a1b2a5.png",
+   "result": "rendered, qa pending",
+   "credits": 2
+  },
+  {
+   "id": "C1-V1",
+   "job_id": null,
+   "result": "submission refused: reference element id passed as media -> 404 Media input not found; no job, no charge; resubmitted with source job ids",
+   "credits": 0
+  },
+  {
+   "id": "C2-V1",
+   "job_id": null,
+   "result": "submission refused: reference element id passed as media -> 404 Media input not found; no job, no charge; resubmitted with source job ids",
+   "credits": 0
+  },
+  {
+   "id": "C3-V1",
+   "job_id": null,
+   "result": "submission refused: reference element id passed as media -> 404 Media input not found; no job, no charge; resubmitted with source job ids",
+   "credits": 0
+  }
+ ],
+ "summary": {
+  "rendered": 15,
+  "transported": 11,
+  "qa_pass": 9,
+  "qa_fail": 2,
+  "qa_pending": 4,
+  "repairs": 3,
+  "ids_left": [
+   "C4-V3",
+   "C5-V1",
+   "C5-V2",
+   "C5-V3"
+  ]
+ }
+}
