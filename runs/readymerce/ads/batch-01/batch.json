@@ -1,0 +1,1465 @@
+{
+ "requested_count": 15,
+ "batch": "readymerce-batch-01",
+ "generated_by": "merge_batch.py (orchestrator)",
+ "awareness_split": {
+  "problem aware": 6,
+  "solution aware": 3,
+  "product aware": 3,
+  "unaware": 3
+ },
+ "sku_split": {
+  "main": 15
+ },
+ "aspect_split": {
+  "1:1": 8,
+  "4:5": 7
+ },
+ "ads": [
+  {
+   "id": "C1-V1",
+   "concept_id": "C1",
+   "vehicle": "V1",
+   "launch_status": "launch",
+   "persona": "AV7-owner-automate: runs a business; 3-4 stores built and \"just sitting there\" (Q-O-0103); age [A] 40-55 (13 §5)",
+   "lf8_root": "#5 Comfortable living (secondary #6)",
+   "desire": "MD-02: the online side worked on instead of \"just sitting there\" (Q-O-0103); \"turn this side hustle into a main job\" (Q-O-0105, his want)",
+   "angle": "AN-01: a built store isn't a running store; nobody was assigned to it after the build",
+   "angle_source": "AN-01 · Q-O-0103, Q-O-0097, Q-O-0154, Q-O-0124 · runner-up AN-02 (wave 2)",
+   "target_belief": "B-02.AV-07",
+   "offer": "T1 \"Start with the $500 Build\" ($500 one-time, PT-01; only live price). Refund only as conditioned (PT-15) or omitted. No T2/T3/bump/OTO/60-day/7-10 days/product count.",
+   "format": "IMV on A8a #1 Headline + Benefits",
+   "lane": "clarity lane (A6) · LOCK-B MK-06 · S1-2 reset -> claim + Name-it, PROOF-led",
+   "destination": "PDP https://readymerce.com (short congruence lander recommended, 01-preflight §3)",
+   "mechanism_match_words": "problem \"one shot; left on launch day\" · mechanism \"in stages; a budget you approve\" · promise \"in your name; we stay after launch day\"",
+   "awareness": "problem aware",
+   "sku": "main",
+   "aspect": "1:1",
+   "image_file": "images/C1-V1.png",
+   "prompt_file": "prompts/C1-V1.txt",
+   "qa": {
+    "status": "pending",
+    "notes": "awaiting render"
+   },
+   "headline": "Three or four online stores built. Still just sitting there.",
+   "hook": "Three or four online stores built. Still just sitting there.",
+   "subhead": "Building them was never the problem. Nobody was assigned to work them after they went live.",
+   "body": "Opened in your name, first products picked from search data. | Products released in stages, each a small test on a budget you approve. | After launch: results reviewed, fixes made, new products added.",
+   "proof": "In writing: exactly what the $500 pays for, after launch too.",
+   "cta_outcome": "Loaded and live",
+   "audience_cue": "\"Three or four online stores built\" in the owner's words, with a paper planner where \"Launch day\" is circled and every week after it is empty",
+   "scenario": "IMV: a back-room desk at early evening; an open month planner with \"Launch day\" circled and every square after it blank, beside the store open on a laptop; the owner's idle stores (Q-O-0103) made visible as empty post-launch weeks",
+   "tone": "plain-spoken, straight about limits, stays with you (13 VOICE-1); customer register from 07 voice card AV-07",
+   "medium": "designed clarity static, REG-1 register, palette Pine/Ember(CTA only)/Ink/Paper, product element 9597a0b7-58a4-42f0-bdc9-1b2663b1ce17 (store on a laptop); typography heavy soft serif headline (Fraunces-like) + Inter-like sans; one photographic region (overhead desk, real-camera grain) inside a designed Paper layout",
+   "composition": "Square in three bands: two-line serif headline and Pine subhead across the top third; middle band with an overhead desk photo on the left 58% (planner with circled 'Launch day' and blank weeks, laptop with the store lower right) and a Paper column of three icon callouts on the right; Pine bottom strip with the proof card left and the single Ember button right",
+   "reading_path": "Top-left headline, down to the subhead, into the circled 'Launch day' square and the empty weeks, across to the laptop, down the three right-hand callouts, then the proof card bottom-left and the Ember button bottom-right",
+   "product_role": "product element 9597a0b7-58a4-42f0-bdc9-1b2663b1ce17 (the store open on a laptop, screen content unchanged) sharp beside the body callouts; environment element de8b79fa-3285-4487-8076-c22e091bfd4d for the desk and light only",
+   "cta_candidates": [
+    "Loaded and live",
+    "Worked after launch",
+    "No longer sitting"
+   ],
+   "hook_candidates": [
+    "Three or four online stores built. Still just sitting there. (WINNER, Q-O-0103, 14/14; 09 winner + 'online' for Stranger clarity)",
+    "Three or four stores built. Still just sitting there. (09 original, 13/14; superseded)",
+    "Run a business? The online store is \"just sitting there\"? (runner-up, wave 2, 12/14)",
+    "\"I haven't done anything with them in years.\" (cut: 'them' has no antecedent)",
+    "A built store isn't a running store. (cut: no WHO, insider shorthand)",
+    "The store got built. Then nobody was assigned to it. (cut: not his words)",
+    "\"I had one before. I just ended it because I was dealing with a lot.\" (cut: fails No-Questions)"
+   ],
+   "word_count_on_image": 74,
+   "primary_text": "caption pool",
+   "status": "written",
+   "rationale": "IMV of the LOCK-B cause: the idle stores Q-O-0103 shown as empty weeks after a circled 'Launch day'; subhead installs B-02.AV-07 (built is not running; nobody was assigned after go-live); body = UMS (in your name, stages, budget you approve, worked after launch); proof = the written $500 scope incl. after-launch (Q-O-0002, P-01, price-first per AV-07 copy_emphasis); CTA from his 'ready to be loaded'. Untapped avatar, 0 of 8 networks name the post-launch step.",
+   "hook_proposed": {
+    "text": "Three or four stores built. Still just sitting there.",
+    "source": "Q-O-0103",
+    "from": "work/09-hook-candidates.md (winner, /14 >=11)"
+   },
+   "text_manifest": {
+    "headline": "Three or four online stores built. Still just sitting there.",
+    "subhead": "Building them was never the problem. Nobody was assigned to work them after they went live.",
+    "imv_label": "Launch day",
+    "callout_1": "Opened in your name, first products picked from search data.",
+    "callout_2": "Products released in stages, each a small test on a budget you approve.",
+    "callout_3": "After launch: results reviewed, fixes made, new products added.",
+    "proof": "In writing: exactly what the $500 pays for, after launch too.",
+    "cta_button": "Loaded and live"
+   },
+   "source_ids": [
+    "Q-O-0103",
+    "Q-O-0002",
+    "B-02.AV-07",
+    "PT-01",
+    "PT-04",
+    "PT-08",
+    "F-01",
+    "F-03",
+    "F-05",
+    "F-07",
+    "F-11",
+    "P-01.AV-07",
+    "P-04.AV-07",
+    "AN-01"
+   ],
+   "palette": "Pine #1F3A34 · Ember #E0621F (button only) · Ink #1C1C1A · Paper #F7F4EE",
+   "gates": "Stranger PASS · No-Questions PASS · Familiarity PASS · Aha PASS · So-What PASS · Squint PASS · Phone PASS (7/7)"
+  },
+  {
+   "id": "C1-V2",
+   "concept_id": "C1",
+   "vehicle": "V2",
+   "launch_status": "launch",
+   "persona": "AV7-owner-automate: runs a business; 3-4 stores built and \"just sitting there\" (Q-O-0103); age [A] 40-55 (13 §5)",
+   "lf8_root": "#5 Comfortable living (secondary #6)",
+   "desire": "MD-02: the online side worked on instead of \"just sitting there\" (Q-O-0103); \"turn this side hustle into a main job\" (Q-O-0105, his want)",
+   "angle": "AN-01: a built store isn't a running store; nobody was assigned to it after the build",
+   "angle_source": "AN-01 · Q-O-0103, Q-O-0097, Q-O-0154, Q-O-0124 · runner-up AN-02 (wave 2)",
+   "target_belief": "B-02.AV-07",
+   "offer": "T1 \"Start with the $500 Build\" ($500 one-time, PT-01; only live price). Refund only as conditioned (PT-15) or omitted. No T2/T3/bump/OTO/60-day/7-10 days/product count.",
+   "format": "N2 group chat",
+   "lane": "clarity lane (A6) · LOCK-B MK-06 · S1-2 reset -> claim + Name-it, PROOF-led",
+   "destination": "PDP https://readymerce.com (short congruence lander recommended, 01-preflight §3)",
+   "mechanism_match_words": "problem \"one shot; left on launch day\" · mechanism \"in stages; a budget you approve\" · promise \"in your name; we stay after launch day\"",
+   "awareness": "problem aware",
+   "sku": "main",
+   "aspect": "4:5",
+   "image_file": "images/C1-V2.png",
+   "prompt_file": "prompts/C1-V2.txt",
+   "qa": {
+    "status": "pending",
+    "notes": "awaiting render"
+   },
+   "headline": "marketing's slowed down so much and my stores are just sitting there",
+   "hook": "marketing's slowed down so much and my stores are just sitting there",
+   "subhead": "building them was never the problem / nobody worked them after they went live. that's what decides a store",
+   "body": "i got a team that stays on after launch. they review results, fix listings, test the next product",
+   "proof": "not automatic. i approve the ad budget and read the report",
+   "cta_outcome": "Loaded and live",
+   "audience_cue": "first bubble in the owner's own words: \"marketing's slowed down so much and my stores are just sitting there\"",
+   "scenario": "a 6:42pm group chat among three small-business owners after closing: one vents that the marketing slowed and her online stores sit; a friend names the cause (nobody worked them after launch); another describes a team that stays on after launch, managed not automatic",
+   "tone": "plain-spoken, straight about limits, stays with you (13 VOICE-1); customer register from 07 voice card AV-07",
+   "medium": "generic messaging-app screenshot, organic native phone content, default system font, no brand/product/price/offer (V2 rule)",
+   "composition": "Full-bleed 4:5 phone screenshot: thin status bar and 'market crew' header on top, seven chat bubbles alternating right slate-blue (me) and left grey with D and M initial avatars, empty input field at the bottom; no frame, no hand",
+   "reading_path": "Header, then bubbles top to bottom: the owner's two right-hand bubbles, D's two-bubble belief reply, M's process and limit bubbles, ending on the owner's right-hand 'loaded and live' bubble",
+   "product_role": "none: no product, brand, price or offer on the image",
+   "cta_candidates": [
+    "Loaded and live",
+    "Worked after launch",
+    "No longer sitting"
+   ],
+   "hook_candidates": [
+    "marketing's slowed down so much and my stores are just sitting there (WINNER, Q-O-0124 + Q-O-0103, 12/14)",
+    "i must have three or four shopify stores just sitting there (blocked: shares V1 content)",
+    "quoted $5,000, $20,000, $15,000 for a store. seriously? come on. (reserve for AN-02 wave 2)",
+    "should i hire a developer or just do the store myself (cut <11)",
+    "how do you keep the online side going when the business takes the whole day (cut <11)"
+   ],
+   "word_count_on_image": 83,
+   "primary_text": "caption pool",
+   "status": "written",
+   "rationale": "Native N2 chat: the owner's trigger moment (EM-09, Q-O-0124) + the idle stores (Q-O-0103) as the first message; the belief B-02.AV-07 arrives as a friend's reply, the UMS as another friend's lived process (PT-04) and the honest limit 'not automatic' (B-04, corrects Q-O-0001). Composite voices, initials only, no company, no price; 'a store' not 'one of mine' (DNS-11).",
+   "hook_proposed": {
+    "text": "marketing's slowed down so much and my stores are just sitting there",
+    "source": "Q-O-0124 + Q-O-0103",
+    "from": "work/09-hook-candidates.md (winner, /14 >=11)"
+   },
+   "text_manifest": {
+    "status_time": "6:42",
+    "header_title": "market crew",
+    "header_avatars": [
+     "D",
+     "M"
+    ],
+    "msg1_me_hook": "marketing's slowed down so much and my stores are just sitting there",
+    "msg2_me": "three of them. haven't done anything with them in years",
+    "msg3_D_belief": "building them was never the problem",
+    "msg4_D_belief": "nobody worked them after they went live. that's what decides a store",
+    "msg5_M_body": "i got a team that stays on after launch. they review results, fix listings, test the next product",
+    "msg6_M_proof": "not automatic. i approve the ad budget and read the report",
+    "msg7_me_cta": "ok. i want a store that's loaded and live"
+   },
+   "source_ids": [
+    "Q-O-0124",
+    "Q-O-0103",
+    "Q-O-0001",
+    "B-02.AV-07",
+    "B-04.AV-07",
+    "OBJ-16.AV-07",
+    "PT-04",
+    "PT-08",
+    "F-05",
+    "F-07",
+    "AN-01"
+   ],
+   "gates": "Thumb-Stop PASS"
+  },
+  {
+   "id": "C1-V3",
+   "concept_id": "C1",
+   "vehicle": "V3",
+   "launch_status": "launch",
+   "persona": "AV7-owner-automate: runs a business; 3-4 stores built and \"just sitting there\" (Q-O-0103); age [A] 40-55 (13 §5)",
+   "lf8_root": "#5 Comfortable living (secondary #6)",
+   "desire": "MD-02: the online side worked on instead of \"just sitting there\" (Q-O-0103); \"turn this side hustle into a main job\" (Q-O-0105, his want)",
+   "angle": "AN-01: a built store isn't a running store; nobody was assigned to it after the build",
+   "angle_source": "AN-01 · Q-O-0103, Q-O-0097, Q-O-0154, Q-O-0124 · runner-up AN-02 (wave 2)",
+   "target_belief": "B-02.AV-07",
+   "offer": "T1 \"Start with the $500 Build\" ($500 one-time, PT-01; only live price). Refund only as conditioned (PT-15) or omitted. No T2/T3/bump/OTO/60-day/7-10 days/product count.",
+   "format": "N8 Story Snapshot",
+   "lane": "story lane (A6) · LOCK-B MK-06 · S1-2 reset -> claim + Name-it, PROOF-led",
+   "destination": "PDP https://readymerce.com (short congruence lander recommended, 01-preflight §3)",
+   "mechanism_match_words": "problem \"one shot; left on launch day\" · mechanism \"in stages; a budget you approve\" · promise \"in your name; we stay after launch day\"",
+   "awareness": "problem aware",
+   "sku": "main",
+   "aspect": "4:5",
+   "image_file": "images/C1-V3.png",
+   "prompt_file": "prompts/C1-V3.txt",
+   "qa": {
+    "status": "pending",
+    "notes": "awaiting render"
+   },
+   "headline": "Who works your store after launch day?",
+   "hook": "I've never said this out loud, not even to my accountant. I have three online stores built and sitting in the admin, and I haven't done anything with them in years.",
+   "subhead": "A built store is not a running store, and nobody had the job of running mine.",
+   "body": "Built in my name. Products in stages, small ad tests on a budget I approve, a written review of what to keep and what to replace, and they stay after launch day.",
+   "proof": "What the $500 covers and excludes, 'no income guarantees', and the 7-day refund read twice with its conditions (PT-04, PT-05, F-13, PT-15); the platform's own builder guide: hand over 'when it's ready to go live' (P-06.AV-07)",
+   "cta_outcome": "Loaded and live",
+   "audience_cue": "story opening in a shop owner's voice about 'three online stores built and sitting in the admin'; image = the back-room desk with a shut laptop and a receipt showing two pencil lines",
+   "scenario": "the back room of a small clothing shop after closing: a shut laptop with a face-down shipping receipt showing two pencil lines, one short and one long (the story's chance-discovery object)",
+   "tone": "plain-spoken, straight about limits, stays with you (13 VOICE-1); customer register from 07 voice card AV-07",
+   "medium": "candid iPhone snapshot (N8 Story Snapshot), natural window light + desk lamp, slight grain, object scene, no people, no text, no product/brand/price/offer",
+   "composition": "Candid 4:5 downward phone snapshot, slightly tilted: the shut laptop fills the lower centre with the face-down receipt and its two pencil lines just below centre in sharp focus; clothing rails blur at both edges; invoices, stapler and tape at the desk corners; lamp warmth right, window blue left",
+   "reading_path": "Eye lands on the two pencil lines on the receipt, moves out across the shut laptop to the blurred clothing rails and the face-down invoices, then down to the headline and the story's first line",
+   "product_role": "none: no product, brand, price or offer on the image",
+   "cta_candidates": [
+    "Loaded and live",
+    "Worked after launch",
+    "No longer sitting"
+   ],
+   "hook_candidates": [
+    "I've never said this out loud, not even to my accountant. I have three online stores built and sitting in the admin, and I haven't done anything with them in years.",
+    "6:40pm in the back room, the last invoice of the day paid. I opened the admin to check one thing and saw the date on my newest store.",
+    "Three quotes on my desk: $5,000, $20,000, $15,000. I laughed at the first one. Then I stopped laughing, because I already had three online stores that did nothing.",
+    "The marketing was the thing bringing in the money. The week it slowed down was the week I finally looked at the online stores I'd forgotten I owned.",
+    "A woman at the shipping counter asked me one question about my online stores. \"So who's working on them?\" I had no answer."
+   ],
+   "word_count_on_image": 0,
+   "primary_text": "I've never said this out loud, not even to my accountant. I have three online stores built and sitting in the admin, and I haven't done anything with them in years.\n\nI run a small clothing shop. The back room is where I do the books, at a desk wedged between two rails of stock and a box of spare hangers.\n\nEvery March my accountant sits in that room with me and goes through the year line by line. This year he stopped on the platform fees.\n\n\"What are these three?\" he asked.\n\n\"My online stores,\" I said.\n\n\"How are they doing?\"\n\n\"Slow,\" I said. Which was a lie. Slow would have meant something was happening.\n\nThe truth is they were built. Themes picked, pages set up, a few products half chosen. Ready to be loaded, and just sitting there. I had been paying every month for three stores nobody had visited in years.\n\nHe didn't push. He made a small pencil mark next to the line and moved on. I remember that mark more than anything else he said that day.\n\nAfter he left I sat there with the laptop shut. It was 6:40. The shop was closed. I could hear the rail creak when the heating came on. I didn't open it.\n\nI didn't know yet that the thing that changed it would be a stranger with a pen at the shipping counter.\n\nAnyway. I should back up.\n\nI bought this shop with most of what I had saved. It was supposed to be the steady part. The online side was supposed to be the growth.\n\nFor a few years the marketing was the one bringing in the money. Then it slowed down so much that some weeks the door barely opened.\n\nThe first store I built myself, over a winter of evenings. It went live in November. By the second week of December I was packing orders at midnight, sending them off late, and apologizing to people I had never met. I'm good at a lot of things, but I have very little time.\n\n\"I had one before,\" I would tell people later. \"I just ended it because I was dealing with a lot.\"\n\nThe second store I built in a weekend, full of good intentions. It never had a single product loaded.\n\nFor the third, I did what everyone says to do. I asked about hiring someone.\n\nI got three quotes. $5,000. $20,000. $15,000.\n\nI'm like, seriously? Come on.\n\nI would not pay $2,500 to anybody unless I could see some results. Let alone twenty thousand.\n\nWhat I actually wanted was someone to fully automate my online business. I would have paid for that. Just not twenty thousand dollars of it, up front, on a promise.\n\nSo I built the third one myself too. Watched the videos, picked a theme, and it went live on a Sunday afternoon. Then Monday came, the shop needed me, and it sat.\n\nI added it up once. Three stores. The monthly fees. A theme I paid for twice. The weekends I will never get back. I stopped adding.\n\nSome nights I would open the admin, look at the three store names, and close it again without clicking anything. It felt like opening a drawer of bills.\n\nWhat I told myself was always the same. I'm not a computer person. I don't have the time. I can't compete with the big stores anyway.\n\nNone of that turned out to be the reason.\n\nThe reason showed up on an ordinary Sunday, doing stock in the shop.\n\nI was moving the scarves to the front because they had sold. I was marking down a jacket that hadn't moved in six weeks. I was changing the window. And somewhere between the price gun and the mannequin, I realized I had done this every single week for eleven years.\n\nThat's the job. Opening day isn't the job. The job is every week after it. See what sells, move it forward, take out what doesn't, bring in the next thing.\n\nI would never open up once, flip the sign, and walk away for three years.\n\nThat is exactly what happened to all three of my stores.\n\nThat night I went looking for why. I found the platform's own guide for people who build stores for clients. It says the builder can \"transfer ownership to the client when it's ready to go live.\"\n\nReady to go live. That is where the builder's job is designed to end.\n\nHere is what I finally understood. On launch day a store is a set of guesses. Which products. Which photos. Which price. Which words in the title. The first weeks after it opens are when those guesses finally get tested by real people. Somebody clicks and leaves. One product gets looked at and nothing else does. A listing gets no attention at all.\n\nThat information is worth nothing unless somebody reads it and acts on it. Fix the listing. Drop the product nobody wants. Put the next one live. Test it small. Read it again.\n\nNobody was assigned to that work on my stores. Not the builder, whose job ended on launch day. Not me, because the shop takes the whole day. So each store froze on the day it went live and stayed exactly like that.\n\nIt wasn't the platform, and it wasn't me. A built store is not a running store, and nobody had the job of running mine.\n\nWhich raised a worse question. Who would take that job? I didn't have the hours, and the people who did wanted twenty thousand dollars.\n\nI got my answer in a queue.\n\nA few days later I was at the shipping counter with two returns. The woman ahead of me had a stack of small parcels, all labeled. Online orders.\n\nI said something like, \"I've got online stores too.\"\n\nShe turned around. \"So who's working on them?\"\n\nI opened my mouth to answer and realized nobody ever had.\n\nHer first store, she said, had been handed over the day it went live, and the builder disappeared. Then she took the pen from the counter, turned my receipt over, and drew two lines. A short one and a long one.\n\n\"Everyone quotes you this,\" she said, tapping the short one. Then the long one. \"This is the part that decides it.\"\n\nA small team built the store she has now, in her name, and they're still on it. Products go live in stages, small ad tests on a budget she approves, and a written review of what to keep and what to replace.\n\n\"It's not automatic,\" she said. \"I approve the budget and read what they send. I just don't do the work.\"\n\nShe wrote a name under the two lines. Readymerce. Then she was gone.\n\nI didn't trust it. I pay $500 and then I'm going to have to pay more money down the road, I thought.\n\nSo I read their page the way my accountant reads a receipt.\n\nThe $500 is one-time. The store is opened in your name and stays in your name. Products are picked from search demand and competition data and go live in stages, each with a small ad test on a budget you approve. After launch: an early performance review, corrections, new products.\n\nThen the part most companies bury. Product costs, platform fees and ad spend are yours, not in the $500. The ongoing work is quoted on the call before you commit. No income guarantees. I trusted that more than a promise.\n\nThe refund I read twice. Seven days from payment, the $500 fee only, and it ends when you accept delivery, buy any add-on, or ask for more work.\n\nOn the call I said it straight. Show me exactly what the $500 pays for. They did, line by line, including after launch day. And they said it isn't fully automatic. I approve budgets and read reports. They do the work.\n\nMy own stores sat because the shop needed me. The agencies wanted $5,000 to $20,000 before I saw anything. A builder hands it over on launch day. This was $500, every other cost named, and the work after launch on the list.\n\n\"I'll start with the 500,\" I said.\n\nIt was a new store, built in my name, on the platform we agreed on the call. The first time I logged in, my own name was in the owner field. I looked at it longer than I'd like to admit.\n\nProducts went live in stages, the first test on a budget I approved. What to do next was no longer my job.\n\nThen the first written review came in.\n\nI opened it in the back room at 6:40, shop closed, the rail creaking. The laptop was open this time.\n\nIt said what to keep. What to replace, and why. Which listings they had already fixed, and what was going live next.\n\nIt was the first time in years anyone had done anything with a store of mine after launch day.\n\nRelief, mostly. Like someone had finally walked into a room I had left the lights on in for three years.\n\nThe next March, my accountant stopped on the platform fees again. I told him the truth. Three stores that sat. One that's live, in my name, with a team still on it. He rubbed out his pencil mark.\n\nIf I could tell the owner I was that night at 6:40 one thing, it would be this. You didn't fail at building stores. You built three. Nobody ever had the job of working them after they went live.\n\nEvery month mine sat, I paid for stores that did nothing. The $500 Build is what I started with, in my name, in stages, on a budget I approve. And they stay after launch day.\n\nThe receipt with the two lines is still on my desk.\n\nP.S. The build was never the hard part. Ask anyone you talk to the question she asked me: who's working on it after it goes live? Mine finally has someone. It's loaded and live.",
+   "status": "written",
+   "rationale": "B4 #3 confession by a peer owner (13 NAR-1) modelled on S3 (confession, money, structural gap, callback P.S.) and S16 (comparison sting, unnamed lived expert drawing the mechanism, someone else notices). Installs B-02.AV-07 in the stock-take scene and the platform's builder guide (P-06); chance discovery at the shipping counter at 55.5%; skepticism via Q-O-0028; exclusions and the conditioned refund before paying; rung-2 result at full strength (store in her name, first stage tested, written keep/replace review, team still on it); no revenue figure.",
+   "v3_image_type": "N8 Story Snapshot",
+   "pov": "customer composite (peer owner, 13 NAR-1)",
+   "story_concept": "#3 The confession",
+   "swipe_models": [
+    "S3",
+    "S16"
+   ],
+   "story_words": "900-1,700 (trio V3); 1,200-1,700 per handoff story_briefs",
+   "hook_variants_start": "work/09-hook-candidates.md §B5 (C1)",
+   "conviction_map": "work/08-concept-slate.md C1",
+   "story_hooks": [
+    {
+     "id": "H1",
+     "class": "Confession",
+     "text": "I've never said this out loud, not even to my accountant. I have three online stores built and sitting in the admin, and I haven't done anything with them in years.",
+     "trace": "Q-O-0103"
+    },
+    {
+     "id": "H2",
+     "class": "Specific-moment scene with a timestamp",
+     "text": "6:40pm in the back room, the last invoice of the day paid. I opened the admin to check one thing and saw the date on my newest store.",
+     "trace": "Q-O-0103"
+    },
+    {
+     "id": "H3",
+     "class": "The math moment",
+     "text": "Three quotes on my desk: $5,000, $20,000, $15,000. I laughed at the first one. Then I stopped laughing, because I already had three online stores that did nothing.",
+     "trace": "Q-O-0104 · Q-O-0103"
+    },
+    {
+     "id": "H4",
+     "class": "Quiet observation",
+     "text": "The marketing was the thing bringing in the money. The week it slowed down was the week I finally looked at the online stores I'd forgotten I owned.",
+     "trace": "Q-O-0124"
+    },
+    {
+     "id": "H5",
+     "class": "The overheard line",
+     "text": "A woman at the shipping counter asked me one question about my online stores. \"So who's working on them?\" I had no answer.",
+     "trace": "B-02.AV-07 · Q-O-0103"
+    }
+   ],
+   "story_word_count": 1685,
+   "chance_discovery_position_pct": 55.5,
+   "meta_headline_options": [
+    "Who works your store after launch day?",
+    "Loaded and live"
+   ],
+   "description": "The $500 Build: built in your name, worked after it goes live.",
+   "cta_button": "Shop Now",
+   "b16": "20/20 PASS",
+   "source_ids": [
+    "Q-O-0103",
+    "Q-O-0124",
+    "Q-O-0097",
+    "Q-O-0154",
+    "Q-O-0004",
+    "Q-F-9006",
+    "Q-O-0104",
+    "Q-O-0006",
+    "Q-O-0001",
+    "Q-F-9008",
+    "Q-O-0028",
+    "Q-O-0002",
+    "Q-O-0029",
+    "PT-01",
+    "PT-02",
+    "PT-04",
+    "PT-05",
+    "PT-08",
+    "PT-15",
+    "F-03",
+    "F-05",
+    "F-06",
+    "F-07",
+    "F-10",
+    "F-11",
+    "F-13",
+    "B-01.AV-07",
+    "B-02.AV-07",
+    "B-03.AV-07",
+    "B-04.AV-07",
+    "OBJ-04.AV-07",
+    "OBJ-12.AV-07",
+    "OBJ-16.AV-07",
+    "P-06.AV-07",
+    "SK-06.AV-07",
+    "TR-AV-07",
+    "AN-01"
+   ]
+  },
+  {
+   "id": "C2-V1",
+   "concept_id": "C2",
+   "vehicle": "V1",
+   "launch_status": "launch",
+   "persona": "AV1-store-died: first store(s) closed after one product / one batch (Q-O-0108, Q-F-9004); age [A] 25-45",
+   "lf8_root": "#3 Freedom from fear of losing again (secondary #6)",
+   "desire": "MD-04: \"try again\" (Q-B-0004) without having to \"literally lose all my money\" (Q-Y-0049)",
+   "angle": "AN-05: the first store didn't prove e-commerce can't work for him; it got one shot",
+   "angle_source": "AN-05 · Q-O-0108, Q-F-9004, Q-Y-0014, Q-F-0019, Q-Y-0027 · runner-up AN-06 (wave 2)",
+   "target_belief": "B-102.AV-01",
+   "offer": "T1 \"Start with the $500 Build\" ($500 one-time, PT-01; only live price). Refund only as conditioned (PT-15) or omitted. No T2/T3/bump/OTO/60-day/7-10 days/product count.",
+   "format": "A8a #6 Atypical Text (hook on the store dashboard)",
+   "lane": "clarity lane (A6) · LOCK-A MK-01 · NEW INFORMATION -> mechanism DESCRIBED",
+   "destination": "PDP https://readymerce.com (short LOCK-A congruence lander recommended, 01-preflight §3; 'one shot' not yet on the live page)",
+   "mechanism_match_words": "problem \"one shot\" · mechanism \"in stages; a budget you approve\" · promise \"in your name\"",
+   "awareness": "problem aware",
+   "sku": "main",
+   "aspect": "4:5",
+   "image_file": "images/C2-V1.png",
+   "prompt_file": "prompts/C2-V1.txt",
+   "qa": {
+    "status": "pending",
+    "notes": "awaiting render"
+   },
+   "headline": "~600 clicks. Still no sales. Then I closed the store.",
+   "hook": "~600 clicks. Still no sales. Then I closed the store.",
+   "subhead": "The product did not sell. It was also the only shot the store ever got.",
+   "body": "Readymerce builds your next store in your name and puts products live in stages. Each gets a small ad test on a budget you approve. What doesn't sell gets replaced.",
+   "proof": "“Most successful dropshippers test 5 to 10 products before finding one that scales profitably.” Product Lair, 2024 (P-104.AV-01)",
+   "cta_outcome": "A second shot",
+   "audience_cue": "The owner's own store dashboard carrying '~600 clicks. Still no sales. Then I closed the store.'",
+   "scenario": "His Sunday-night store dashboard (clicks climbing, sales flat on zero, the store closed) answered by a next store in his name, products live in stages on a budget he approves (Q-F-0019, Q-O-0108, Q-Y-0014)",
+   "tone": "plain-spoken, straight about limits, stays with you (13 VOICE-1); customer register from 07 voice card AV-01",
+   "medium": "designed clarity static, flat digital UI card + Paper panel; only photographic region = product element 9597a0b7-58a4-42f0-bdc9-1b2663b1ce17 (store on a laptop, screen unchanged); palette Pine/Ember (button only)/Ink/Paper",
+   "composition": "Top 55%: flat white analytics dashboard card with the three-line Ink headline and a label-free chart (one line climbing, one flat on zero); bottom 45% Paper panel: full-width Pine serif subhead, left column of three icon body lines, right column the laptop product on a wooden surface, proof quote under the body, Ember button bottom right",
+   "reading_path": "Dashboard headline top-left > Pine serif subhead across the middle > three icon body lines down the left column with the laptop beside them > proof quote and source > Ember CTA button bottom right",
+   "product_role": "product element 9597a0b7 (store open on a laptop, screen content unchanged) beside the body, sharp; V1 only",
+   "cta_candidates": [
+    "A second shot",
+    "Try again, smaller",
+    "Several fair tests"
+   ],
+   "hook_candidates": [
+    {
+     "text": "~600 clicks. Still no sales. Then I closed the store.",
+     "source": "Q-F-0019 + Q-O-0108",
+     "score": 14,
+     "status": "WINNER (used, unchanged)"
+    },
+    {
+     "text": "\"the product did not sell, so I had to close the store\"",
+     "source": "Q-O-0108",
+     "score": 12,
+     "status": "runner-up (wave 2)"
+    },
+    {
+     "text": "\"i got zero sales which means i lost 254 dollars\"",
+     "source": "Q-Y-0014",
+     "score": 13,
+     "status": "reserve for AN-06 wave 2"
+    },
+    {
+     "text": "Your first store didn't fail. It ran out of shots.",
+     "source": "NI-01 sample",
+     "score": 8,
+     "status": "cut (<11)"
+    },
+    {
+     "text": "It didn't sell one product. Not one product.",
+     "source": "Q-Y-0046",
+     "score": 10,
+     "status": "cut (No-Questions: 'it')"
+    }
+   ],
+   "word_count_on_image": 75,
+   "primary_text": "caption pool",
+   "status": "written",
+   "rationale": "Atypical Text puts his own headline on the surface he refreshed every Sunday night (Q-F-0019); the subhead agrees the product failed, then reframes it as the store's only shot (B-102.AV-01, LOCK-A M-1); the body names the staged, capped, replace-what-doesn't-sell mechanism in his name (PT-04, F-05, F-11); proof = BIG PROOF P-104; CTA pays off 'one shot'. 75 words; gates PASS 7/7 (Squint/Phone confirm at render).",
+   "hook_proposed": {
+    "text": "~600 clicks. Still no sales. Then I closed the store.",
+    "source": "Q-F-0019 + Q-O-0108",
+    "from": "work/09-hook-candidates.md (winner, /14 >=11)"
+   }
+  },
+  {
+   "id": "C2-V2",
+   "concept_id": "C2",
+   "vehicle": "V2",
+   "launch_status": "launch",
+   "persona": "AV1-store-died: first store(s) closed after one product / one batch (Q-O-0108, Q-F-9004); age [A] 25-45",
+   "lf8_root": "#3 Freedom from fear of losing again (secondary #6)",
+   "desire": "MD-04: \"try again\" (Q-B-0004) without having to \"literally lose all my money\" (Q-Y-0049)",
+   "angle": "AN-05: the first store didn't prove e-commerce can't work for him; it got one shot",
+   "angle_source": "AN-05 · Q-O-0108, Q-F-9004, Q-Y-0014, Q-F-0019, Q-Y-0027 · runner-up AN-06 (wave 2)",
+   "target_belief": "B-102.AV-01",
+   "offer": "T1 \"Start with the $500 Build\" ($500 one-time, PT-01; only live price). Refund only as conditioned (PT-15) or omitted. No T2/T3/bump/OTO/60-day/7-10 days/product count.",
+   "format": "N1 Notes-app list",
+   "lane": "clarity lane (A6) · LOCK-A MK-01 · NEW INFORMATION -> mechanism DESCRIBED",
+   "destination": "PDP https://readymerce.com (short LOCK-A congruence lander recommended, 01-preflight §3; 'one shot' not yet on the live page)",
+   "mechanism_match_words": "problem \"one shot\" · mechanism \"in stages; a budget you approve\" · promise \"in your name\"",
+   "awareness": "problem aware",
+   "sku": "main",
+   "aspect": "4:5",
+   "image_file": "images/C2-V2.png",
+   "prompt_file": "prompts/C2-V2.txt",
+   "qa": {
+    "status": "pending",
+    "notes": "awaiting render"
+   },
+   "headline": "Ive had 2 stores on Shopify both failed",
+   "hook": "Ive had 2 stores on Shopify both failed",
+   "subhead": "turns out neither store ever tested more than one product",
+   "body": "[crossed out] store 1: posture correctors. $50 ad sets. still no sales / new interests, same product / reviews, discounts, trust badges / the one week challenge / store 2: chess boards. 10 days of ads. still no orders · next time: - products go live in stages, not one - small ad test on each one, budget I approve - early review, replace what doesn't sell - store + payouts in MY name",
+   "proof": "(read somewhere: most successful dropshippers test 5 to 10 products before finding one) (P-104.AV-01 paraphrase in a private note)",
+   "cta_outcome": "A second shot",
+   "audience_cue": "Note title in his own typing: 'Ive had 2 stores on Shopify both failed'",
+   "scenario": "The late-night private notes-app list he typed the night he worked out why: every failed try crossed out (one product per store, new interests, trust badges, the one-week challenge), then a 'next time:' list and 'Goal: a second shot' (Q-F-9004, Q-Y-0028, Q-F-0019, Q-F-0024, Q-Y-0015, Q-F-0021)",
+   "tone": "plain-spoken, straight about limits, stays with you (13 VOICE-1); customer register from 07 voice card AV-01",
+   "medium": "flat generic notes-app screenshot (off-white page, black system sans, grey strikethroughs), organic native phone content; no brand, product, price or offer",
+   "composition": "Single-column phone note: bold title at top, one 'turns out' line, five struck-through lines, a 'next time:' label with four hyphen lines, one grey note line, a bold Goal line at the bottom; blank generic toolbar and status bar",
+   "reading_path": "Bold title > 'turns out' line > five crossed-out tries > 'next time:' list > grey 5-to-10 note > bold Goal line",
+   "product_role": "none: no product, brand, price or offer on the image",
+   "cta_candidates": [
+    "A second shot",
+    "Try again, smaller",
+    "Several fair tests"
+   ],
+   "hook_candidates": [
+    {
+     "text": "Ive had 2 stores on Shopify both failed",
+     "source": "Q-F-9004",
+     "score": 13,
+     "status": "WINNER (used, verbatim)"
+    },
+    {
+     "text": "store #1: one product. zero sales. lost 254 dollars",
+     "source": "Q-Y-0014",
+     "score": 13,
+     "status": "runner-up (list line 1)"
+    },
+    {
+     "text": "things i'd do different on store #3",
+     "source": "written",
+     "score": 10,
+     "status": "cut (<11)"
+    },
+    {
+     "text": "there's plenty of us losing, including myself",
+     "source": "Q-Y-0027",
+     "score": 7,
+     "status": "cut (No-Questions)"
+    },
+    {
+     "text": "stores i tried",
+     "source": "written",
+     "score": 5,
+     "status": "cut (vague)"
+    }
+   ],
+   "word_count_on_image": 98,
+   "primary_text": "caption pool",
+   "status": "written",
+   "rationale": "N1 lets the avatar's own verbatim confession title the note (Q-F-9004) and shows FS-01 > FS-101 > FS-102 > FS-03 crossed out in his words; the 'turns out' line installs B-101/B-102 and the 'next time' list is the LOCK-A mechanism in his voice; composite voice, never a review; Thumb-Stop PASS.",
+   "hook_proposed": {
+    "text": "Ive had 2 stores on Shopify both failed",
+    "source": "Q-F-9004",
+    "from": "work/09-hook-candidates.md (winner, /14 >=11)"
+   }
+  },
+  {
+   "id": "C2-V3",
+   "concept_id": "C2",
+   "vehicle": "V3",
+   "launch_status": "launch",
+   "persona": "AV1-store-died: first store(s) closed after one product / one batch (Q-O-0108, Q-F-9004); age [A] 25-45",
+   "lf8_root": "#3 Freedom from fear of losing again (secondary #6)",
+   "desire": "MD-04: \"try again\" (Q-B-0004) without having to \"literally lose all my money\" (Q-Y-0049)",
+   "angle": "AN-05: the first store didn't prove e-commerce can't work for him; it got one shot",
+   "angle_source": "AN-05 · Q-O-0108, Q-F-9004, Q-Y-0014, Q-F-0019, Q-Y-0027 · runner-up AN-06 (wave 2)",
+   "target_belief": "B-102.AV-01",
+   "offer": "T1 \"Start with the $500 Build\" ($500 one-time, PT-01; only live price). Refund only as conditioned (PT-15) or omitted. No T2/T3/bump/OTO/60-day/7-10 days/product count.",
+   "format": "N9 Direct Feed Post",
+   "lane": "story lane (A6) · LOCK-A MK-01 · NEW INFORMATION -> mechanism DESCRIBED",
+   "destination": "PDP https://readymerce.com (short LOCK-A congruence lander recommended, 01-preflight §3; 'one shot' not yet on the live page)",
+   "mechanism_match_words": "problem \"one shot\" · mechanism \"in stages; a budget you approve\" · promise \"in your name\"",
+   "awareness": "problem aware",
+   "sku": "main",
+   "aspect": "1:1",
+   "image_file": "images/C2-V3.png",
+   "prompt_file": "prompts/C2-V3.txt",
+   "qa": {
+    "status": "pending",
+    "notes": "awaiting render"
+   },
+   "headline": "If your store died after one product",
+   "hook": "$254 for my first store. About $750 for the second. It took one number I had never bothered to count to explain both of them.",
+   "subhead": "I didn't have two failed stores. I had two stores that each got one shot, and one guess misses a lot more often than it hits.",
+   "body": "Mechanism beat: an average store converts about 1.4% of visits (P-105, 'an average, not a promise'), so ~600 clicks should be about 8 orders; zero meant the product missed; every fix was aimed at the store, not the product; 'Most successful dropshippers test 5 to 10 products before finding one that scales profitably.' (P-104); the chance discovery (tire shop, 55.9%) leads to a store built in his name with products released in stages, controlled ad testing on a budget he approves, an early review and replacements (PT-04, F-05, F-11).",
+   "proof": "P-104.AV-01 quote (Product Lair practitioner guide) · P-105.AV-01 Littledata 1.4% average · PT-05/F-13 'What Is NOT Included' + 'We make no income guarantees' · PT-15 refund as conditioned · F-11 owner field and payouts in his name",
+   "cta_outcome": "A second shot",
+   "audience_cue": "Lowercase N9 post '$254 gone on my first store. $1,000 by the second. then i counted the products i'd actually tested. two.' + story H1",
+   "scenario": "Two stores closed after one product each; the Sunday-night refresh, the envelope math ($44 + $210 = $254, about $750, a little over $1,000), counting the products tested (2), the conversion average, a stranger in a tire shop, the staged-release store in his name and the first written review (rung 2)",
+   "tone": "confessional post-mortem, plain money figures, retrospective, relieved at the end (07 voice card AV-01; 13 VOICE-1)",
+   "medium": "flat text-first N9 Direct Feed Post card: white square, generic grey avatar placeholder, large lowercase black system sans text, blank reaction icons; no brand, product, price or offer",
+   "composition": "White square card: small grey avatar circle and a blank name bar top-left, four lines of large lowercase post text across the centre-left, three light-grey outline reaction icons along the bottom",
+   "reading_path": "Post text from '$254 gone on my first store.' down to 'two.'; reaction icons last",
+   "product_role": "none: no product, brand, price or offer on the image (V3 rule)",
+   "cta_candidates": [
+    "A second shot",
+    "Try again, smaller",
+    "Several fair tests"
+   ],
+   "hook_candidates": [
+    "$254 for my first store. About $750 for the second. It took one number I had never bothered to count to explain both of them.",
+    "Two stores, both closed, and I only ever told my family about the first one.",
+    "11:48pm on a Sunday, I posted my store's numbers in a forum and asked a room full of strangers what I was doing wrong.",
+    "My second store didn't close for the reason I told everyone. It took a woman in a tire shop waiting room to tell me the real one.",
+    "The night I closed my second store I felt relieved, and I hated myself for feeling relieved."
+   ],
+   "word_count_on_image": 19,
+   "primary_text": "$254 for my first store. About $750 for the second. It took one number I had never bothered to count to explain both of them.\n\nStore one ended at our kitchen table on a Sunday night. My wife was asleep, the laptop was open, and the dashboard said about 600 clicks in three weeks and zero orders. I kept hitting refresh like the zero was a glitch.\n\nForty-four dollars for the website. Two hundred and ten on ads. I added it up on the back of an envelope, $254, and wrote a zero next to it for the sales.\n\nThe next morning I told her the store had been \"a test.\" I didn't mention I'd already picked a name for the second one.\n\nThat envelope is still in our kitchen drawer. There are two more numbers on it now, one in blue pen and one in pencil, and the smallest one is the one that changed everything.\n\nWhy a store at all? I sell solar on commission. Some months are great. Some months the homeowners just aren't interested, and you feel it at the grocery store. I wanted something steadier that was mine. Just something that didn't depend on a stranger in a driveway saying yes.\n\nAnyway. Let me back up.\n\nStore one sold posture correctors. I found the product the way a lot of people do, from a video of a guy saying it was about to blow up. I built the store over two weekends, turned on a $50 ad set, and waited.\n\nClicks came in. Sales didn't.\n\nSo I did what the forums said. I posted my numbers, still no sales, about 600 clicks, and people answered fast. Your landing page. Your targeting. You need more traffic.\n\nI tried new interests. Same product, more clicks, still no sales.\n\nI installed everything. Reviews, discounts, an email pop-up, trust badges, a cleaner product page. No one had bought anything.\n\nI paid for one of those one-week store challenges. I failed the challenge too.\n\nAfter three weeks I stopped. The product did not sell, so I had to close the store. That's how I explained it to myself, and that's how I explained it to my brother.\n\nEleven months later I opened store two anyway and told myself I'd learned my lesson.\n\nStore two sold chess boards. Nicer theme, better photos. After ten days of ads, still no orders. People came. Nobody bought. Nobody even put one in a cart.\n\nAt 1am one night I typed \"I am growing tired of looking at all the traffic and no sales\" into a forum, then deleted it. Nobody was going to tell me anything new.\n\nWhen you do all that work just to find out people don't even want the thing you're selling, it's extremely discouraging. It makes you want to give up. So I did, faster than the first time. I had to stop or I was going to lose all my money.\n\nIt felt like pure loss. Money, time, energy, and honestly hope.\n\nFor months after that, if anyone brought up online stores, I'd say \"I tried dropshipping\" the way people say \"I tried running.\" The videos make it seem like easy money when it's really not, and I had decided I wasn't one of the people it works for. I definitely was not an expert.\n\nThen my wife cleaned out the kitchen drawer, held up the envelope, and asked, \"What's this?\"\n\nUnder the $254, in blue pen, was store two: theme, apps, plan fees, ads. About $750. A little over a thousand dollars total.\n\nThen I counted something I had never counted. How many products had those two stores actually tested? I wrote the answer under the money in pencil.\n\n2.\n\nOne product per store. A thousand dollars and the better part of two years, and my stores had tested two products.\n\nI looked up what a normal store converts at. A Shopify analytics company publishes the average, and it's about 1.4 percent. Of every hundred visits, a little over one turns into an order. So I ran my own numbers. About 600 clicks at an average store's rate is around eight orders. That's an average, not a promise. But it isn't zero.\n\nZero isn't what you get when a store is a little off. Zero is what you get when the people come, look at the one thing on the shelf, and don't want it. My traffic was fine. My trust badges were fine. The product missed, and the store never got a second one.\n\nThat's why nothing I tried moved. New interests brought more people to the same product. Reviews and badges polished the shelf around the same product. The challenge put a deadline on the same single guess. Every fix was aimed at the store. Not one of them changed what was on the shelf.\n\nA product-research guide I found that week said it plainly: \"Most successful dropshippers test 5 to 10 products before finding one that scales profitably.\"\n\nFive to ten. I had tested two, in two separate stores, and called myself a failure both times.\n\nI didn't have two failed stores. I had two stores that each got one shot, and one guess misses a lot more often than it hits.\n\nThat felt lighter and worse. Lighter because it wasn't me. Worse because I still couldn't do anything with it. I couldn't afford five to ten more rounds of what I'd been doing, one product at a time with ads running until the money ran out. That way had cost me a thousand dollars for two answers.\n\nSo the envelope went back in the drawer.\n\nA few weeks later, in a tire shop waiting room, I was doing commission math on the back of that same envelope because it was the only paper in my truck.\n\nThe woman in the next chair glanced over. \"Two fifty-four and a zero. Rough ratio.\"\n\nI laughed and told her the whole thing in ninety seconds. She'd bought stock for a small chain of gift shops most of her working life, and she asked one question.\n\n\"How many products did you put on the shelf?\"\n\n\"One,\" I said. \"Per store.\"\n\n\"We never stock one thing and wait,\" she said. \"We put a few new things out in small amounts, watch what moves, and send back what doesn't. Most of it doesn't. You don't close the shop because one item sat. You pull the item.\"\n\nThen the line I still repeat: \"You didn't run two stores. You ran one product twice.\"\n\nThat night I searched for what she described and found a page that said it almost word for word. A company called Readymerce builds the store in your name, then releases products in stages instead of one single drop, each with controlled ad testing on a budget you approve. An early performance review decides what stays. What doesn't sell gets replaced with new products, picked from search demand and competition data.\n\nMy first reaction wasn't \"finally.\" It was \"here we go.\" I've been burned many times, and a lot of these companies fake the reviews, so I skipped the testimonials and read the fine print.\n\nWhat got me was a section called \"What Is NOT Included\": product costs, platform fees, ad spend, and any income, sales or profitability guarantee. Every guru I'd paid made it seem like easy money. This was the first page that agreed with me that it isn't.\n\nOn the call I asked straight out: is it $500 and then it goes up to $5,000? It's $500 for the build, one time. The ad budget for the tests is mine, and I set it. Anything past the build, like how much ongoing help, gets quoted on that call.\n\nThe refund is seven days from payment, on the $500 fee only, and it ends when you accept delivery, buy any add-on, or ask for further work. Narrow, but written plainly. And the store and its payouts would be in my name either way.\n\nWhen it was ready, I logged in and checked the owner field first. My name.\n\nThe first products went live in stages, each with a test budget I'd approved before a dollar was spent. I knew the most any test could cost me before it started.\n\nThe first product didn't do much. Old me would have closed the store that night. Instead the early review came in writing: which product to keep testing, which to replace, and why, with the replacement already lined up. Someone was still on my store after it went live, reading the numbers I used to stare at alone at midnight.\n\nMy wife read it over my shoulder. She's watched me close two stores. \"So they're not giving up on it.\"\n\nNo. And neither am I.\n\nThe store is still open, in my name. The first stage is tested, the first written review is in my hands, and the team is still on it after launch day. For the first time in three tries, a product that didn't sell didn't mean the store was dead. Sunday nights I don't sit there hitting refresh anymore. And when someone brings up online stores, I don't say \"I tried.\" I say I have one.\n\nIt was never really the dollars. It was the number of shots. What I needed was a store in my name that gets more than one: products in stages, each with a small test on a budget I approve, and someone who reviews the results and replaces what doesn't sell.\n\nIt starts with the $500 Build. Ad spend, product costs and platform fees are extra, and they say so before you pay. No income promise, and I wouldn't trust one.\n\nI was afraid to ever try again. Eventually I did. If I'd stopped at store two, one product nobody wanted would have been the last word on me. Give the next one what mine never got. A second shot.\n\nP.S. The smallest number on that envelope is in pencil. 2. If I'd counted after store one, I'd have skipped store two.",
+   "status": "written",
+   "rationale": "Reformed failed-solution buyer tells the math moment (B4 #5) on S14 (result-first loop, costs, late-night numbers, P.S. regret) + S5 (cautionary twin stores, failed ladder, lived-expert chance meeting, fine-print check, log, money math); installs 9/9 beliefs; rung-2 result at full strength; refund only as conditioned; B16 20/20.",
+   "v3_image_type": "N9 Direct Feed Post",
+   "pov": "the reformed failed-solution buyer",
+   "story_concept": "#5 The math moment",
+   "swipe_models": [
+    "S5",
+    "S14"
+   ],
+   "story_words": "1,683 (python, clean copy with H1; target 900-1,700); chance discovery at 55.9%, brand first named at 66.2%",
+   "hook_variants_start": "work/09-hook-candidates.md §B5 (C2)",
+   "conviction_map": "work/08-concept-slate.md C2",
+   "story_hooks": [
+    {
+     "id": "H1",
+     "class": "The math moment",
+     "text": "$254 for my first store. About $750 for the second. It took one number I had never bothered to count to explain both of them.",
+     "trace": "Q-Y-0014 · Q-Y-0023"
+    },
+    {
+     "id": "H2",
+     "class": "Confession",
+     "text": "Two stores, both closed, and I only ever told my family about the first one.",
+     "trace": "Q-F-9004"
+    },
+    {
+     "id": "H3",
+     "class": "Specific-moment scene with a timestamp",
+     "text": "11:48pm on a Sunday, I posted my store's numbers in a forum and asked a room full of strangers what I was doing wrong.",
+     "trace": "Q-F-0019 · Q-F-0022"
+    },
+    {
+     "id": "H4",
+     "class": "Contrarian open loop",
+     "text": "My second store didn't close for the reason I told everyone. It took a woman in a tire shop waiting room to tell me the real one.",
+     "trace": "B-102.AV-01 · Q-O-0108"
+    },
+    {
+     "id": "H5",
+     "class": "Emotional contradiction",
+     "text": "The night I closed my second store I felt relieved, and I hated myself for feeling relieved.",
+     "trace": "Q-Y-0031 · Q-O-0108"
+    }
+   ],
+   "headline_meta": "If your store died after one product",
+   "description": "What I found when I counted products instead of dollars.",
+   "cta_button": "Shop Now"
+  },
+  {
+   "id": "C3-V1",
+   "concept_id": "C3",
+   "vehicle": "V1",
+   "launch_status": "launch",
+   "persona": "AV4-paycheck-side: full-time job; the store gets the leftover hours (Q-F-0015); age [A] 25-50 employed",
+   "lf8_root": "#5 Comfortable living (secondary #3)",
+   "desire": "MD-01: \"a stable income flow\" (Q-O-0046) without having to \"quit and then start struggling\" (Q-O-0133)",
+   "angle": "AN-10: keep the salary, that's the safe part; the store starts now beside the job on small capped tests he approves",
+   "angle_source": "AN-10 · Q-O-0133, Q-O-0052, Q-F-0015, Q-O-0116, Q-O-0056 · runner-up AN-09 (wave 2)",
+   "target_belief": "B-42.AV-04",
+   "offer": "T1 \"Start with the $500 Build\" ($500 one-time, PT-01; only live price). Refund only as conditioned (PT-15) or omitted. No T2/T3/bump/OTO/60-day/7-10 days/product count.",
+   "format": "A8a #3 Avatar Callout",
+   "lane": "clarity lane (A6) · LOCK-A MK-01 · S4 -> mechanism made surer + New Information",
+   "destination": "PDP https://readymerce.com (short congruence lander recommended, 01-preflight §3)",
+   "mechanism_match_words": "problem \"one shot\" · mechanism \"a budget you approve\" · promise \"in your name\"",
+   "awareness": "solution aware",
+   "sku": "main",
+   "aspect": "1:1",
+   "image_file": "images/C3-V1.png",
+   "prompt_file": "prompts/C3-V1.txt",
+   "qa": {
+    "status": "pending",
+    "notes": "awaiting render"
+   },
+   "headline": "Earn good money now? Don't quit to start a store.",
+   "hook": "Earn good money now? Don't quit to start a store.",
+   "subhead": "Starting a store only feels like betting the paycheck when it launches as one shot: one guessed product, after hours.",
+   "body": "Keep the salary. Keep your evenings. / Products go live in stages, each on a small test. / You approve the budget. The team runs the tests.",
+   "proof": "The store stays in your name. Payouts go to your bank. No income promises.",
+   "cta_outcome": "Start without quitting",
+   "audience_cue": "The callout \"Earn good money now?\" plus a blank work ID badge on a lanyard lying beside the laptop: a salaried person who wants a store but won't quit for one",
+   "scenario": "Early morning before the shift: the work badge, keys and travel mug on the kitchen table beside the laptop where the store is already open; the salary stays, the store starts beside the job on small tests he approves (Q-O-0133, Q-F-0015)",
+   "tone": "plain-spoken, straight about limits, stays with you (13 VOICE-1); customer register from 07 voice card AV-04",
+   "medium": "Designed clarity static on Paper #F7F4EE: soft serif hook, sans body with Pine line icons, one photographic inset (wooden kitchen table, early-morning window light) holding product element 9597a0b7; palette Pine #1F3A34, Ember #E0621F on the CTA button only, Ink #1C1C1A, Paper",
+   "composition": "Upper 40 percent open Paper text field with a two-line serif hook and a Pine subhead; lower half split in two columns: left column holds three icon-led body lines, a proof line under a thin Pine rule and an Ember button; right column is a rounded photo inset of the laptop store beside a blank badge, keys and mug",
+   "reading_path": "Top-left hook, down to the Pine subhead, down the left column through the three icon lines and the proof rule to the Ember button at bottom left, then across to the laptop-and-badge photo at lower right",
+   "product_role": "The store open on a laptop from Higgsfield product element 9597a0b7-58a4-42f0-bdc9-1b2663b1ce17, screen content unchanged, sharp in the lower-right inset beside the body; the blank work badge next to it carries the angle (job kept, store started)",
+   "cta_candidates": [
+    "Keep the paycheck",
+    "Keep your salary",
+    "Start beside work"
+   ],
+   "hook_candidates": [
+    "Earn good money now? Don't quit to start a store. (Q-O-0133, 12/14, WINNER, kept)",
+    "Full-time job. The store only gets the hours after. (Q-F-0015, 12/14, reserve AN-09 wave 2)",
+    "Good salary. Store idea. Scared to quit and start struggling. (Q-O-0133, 11/14, runner-up, no turn)",
+    "Keep the salary. Start the store beside the job. (CLM-03, 9/14, cut: answer before problem)",
+    "\"Can I review full contract before making payment?\" (Q-O-0116, 7/14, cut: contract for what?)",
+    "Waiting until you're ready to start a store? (Q-O-0052, 5/14, cut: weak charge)",
+    "Quit-your-job ads vs a store that starts beside the job. (B-42.AV-04, 9/14, cut: names the enemy ads, not his moment)"
+   ],
+   "word_count_on_image": 72,
+   "primary_text": "caption pool",
+   "status": "written",
+   "rationale": "C3 memo work/08-concept-slate.md; written in ads/C3.md. Avatar Callout honours the live wire (Q-O-0133) and takes the only counter-position in the market (IM-14 sells quitting). Subhead installs the Aha (the one-shot launch is the bet, not starting; LOCK-A M-1, B-47). Body = keep salary + evenings, staged small tests (why different), approve/team runs (ease). Proof = F-11 ownership + F-13 no income promises for a procedural sceptic (OBJ-03, SK-05). Price kept off a solution-aware image (A11). CTA from Q-O-0133 words. Gates PASS 7/7 (spec).",
+   "text_manifest": {
+    "hook": [
+     "Earn good money now?",
+     "Don't quit to start a store."
+    ],
+    "subhead": "Starting a store only feels like betting the paycheck when it launches as one shot: one guessed product, after hours.",
+    "body": [
+     "Keep the salary. Keep your evenings.",
+     "Products go live in stages, each on a small test.",
+     "You approve the budget. The team runs the tests."
+    ],
+    "proof": "The store stays in your name. Payouts go to your bank. No income promises.",
+    "cta": "Start without quitting"
+   },
+   "voc_trace": "hook Q-O-0133 · subhead Q-F-0015 (after hours) + Q-O-0133 · body Q-O-0176 (salary) + IB-14 · CTA Q-O-0133",
+   "source_ids": [
+    "Q-O-0133",
+    "Q-F-0015",
+    "Q-O-0176",
+    "Q-O-0055",
+    "PT-04",
+    "F-05",
+    "F-11",
+    "F-13",
+    "B-42.AV-04",
+    "B-47.AV-04",
+    "OBJ-03",
+    "OBJ-11",
+    "P-01.AV-04",
+    "P-02.AV-04",
+    "AN-10"
+   ],
+   "higgsfield_product_element": "9597a0b7-58a4-42f0-bdc9-1b2663b1ce17",
+   "gates": "Stranger PASS · No-Questions PASS · Familiarity PASS · Aha PASS · So-What PASS · Squint PASS (spec) · Phone PASS (spec)",
+   "hook_proposed": {
+    "text": "Earn good money now? Don't quit to start a store.",
+    "source": "Q-O-0133",
+    "from": "work/09-hook-candidates.md (winner, /14 >=11)"
+   }
+  },
+  {
+   "id": "C3-V2",
+   "concept_id": "C3",
+   "vehicle": "V2",
+   "launch_status": "launch",
+   "persona": "AV4-paycheck-side: full-time job; the store gets the leftover hours (Q-F-0015); age [A] 25-50 employed",
+   "lf8_root": "#5 Comfortable living (secondary #3)",
+   "desire": "MD-01: \"a stable income flow\" (Q-O-0046) without having to \"quit and then start struggling\" (Q-O-0133)",
+   "angle": "AN-10: keep the salary, that's the safe part; the store starts now beside the job on small capped tests he approves",
+   "angle_source": "AN-10 · Q-O-0133, Q-O-0052, Q-F-0015, Q-O-0116, Q-O-0056 · runner-up AN-09 (wave 2)",
+   "target_belief": "B-42.AV-04",
+   "offer": "T1 \"Start with the $500 Build\" ($500 one-time, PT-01; only live price). Refund only as conditioned (PT-15) or omitted. No T2/T3/bump/OTO/60-day/7-10 days/product count.",
+   "format": "N4 Phone story (parked car, link sticker = CTA)",
+   "lane": "clarity lane (A6) · LOCK-A MK-01 · S4 -> mechanism made surer + New Information",
+   "destination": "PDP https://readymerce.com (short congruence lander recommended, 01-preflight §3)",
+   "mechanism_match_words": "problem \"one shot\" · mechanism \"a budget you approve\" · promise \"in your name\"",
+   "awareness": "solution aware",
+   "sku": "main",
+   "aspect": "4:5",
+   "image_file": "images/C3-V2.png",
+   "prompt_file": "prompts/C3-V2.txt",
+   "qa": {
+    "status": "pending",
+    "notes": "awaiting render"
+   },
+   "headline": "i work a full time job, so my store only gets me after hours",
+   "hook": "i work a full time job, so my store only gets me after hours",
+   "subhead": "turns out the job was never the risk. betting the store on one guessed product was.",
+   "body": "new plan: keep the salary. a team runs small tests on a budget i approve.",
+   "proof": "reading every term before i pay. store stays in my name.",
+   "cta_outcome": "Start without quitting",
+   "audience_cue": "POV from a driver's seat after a shift: a blank work badge hanging from the mirror, a hi-vis vest on the passenger seat, a warehouse wall at dusk, and the first story line naming the full-time job and the after-hours store",
+   "scenario": "Parked in the staff lot right after the shift at dusk; the store only ever gets his after-hours time, and he posts his new plan: keep the salary, small tests on a budget he approves (Q-F-0015, Q-O-0133, Q-O-0116)",
+   "tone": "plain-spoken, straight about limits, stays with you (13 VOICE-1); customer register from 07 voice card AV-04",
+   "medium": "Candid phone-photo realism, organic native story: POV windshield shot at dusk with grain, generic story text boxes and one generic link sticker; no brand, product, price or offer",
+   "composition": "Full-bleed vertical POV photo through a windshield, steering wheel along the bottom edge and a badge hanging from the mirror; three stacked white-highlight text boxes running from the upper third to below center, one shadowed line under them, a link sticker centered in the lower third",
+   "reading_path": "Progress bars at the very top, first text box in the upper third, down through the second and third boxes, the small shadowed line, then the link sticker above the steering wheel",
+   "product_role": "none: no product, brand, price or offer on the image (V2 rule); the service appears only as his plan in the text",
+   "cta_candidates": [
+    "Keep the paycheck",
+    "Keep your salary",
+    "Start beside work"
+   ],
+   "hook_candidates": [
+    "i work a full time job, so my store only gets me after hours (Q-F-0015, 13/14, WINNER, kept)",
+    "on the drive in. i wish i was doing something else. (Q-O-0096, 11/14, runner-up; store never named, used as the V3/video scene)",
+    "the one thing i don't have in my life is time (Q-O-0143, 7/14, cut: time for what?)",
+    "i earn good money. i don't want to quit and then start struggling. (Q-O-0133, 12/14, blocked: same stem/quote as V1)",
+    "my store gets whatever's left after the shift (written from Q-F-0015, 11/14, runner-up wave 2)"
+   ],
+   "word_count_on_image": 59,
+   "primary_text": "caption pool",
+   "status": "written",
+   "rationale": "C3 memo work/08-concept-slate.md; written in ads/C3.md. N4 phone story from the AV-04 scene 'after the shift' (13 §6 REG-1, Q-F-0015). Hook opens on the avatar's opening belief B-41; the 'turns out' line turns it to B-42 (the job was never the risk; one guessed product was, LOCK-A M-1). Body is his plan, not a verdict, so the composite voice is never a customer review (B15d, A14). Proof is transparency he runs himself (Q-O-0116, F-11). Link sticker = the 3-word CTA. Thumb-Stop PASS (spec).",
+   "text_manifest": {
+    "hook": "i work a full time job, so my store only gets me after hours",
+    "subhead": "turns out the job was never the risk. betting the store on one guessed product was.",
+    "body": "new plan: keep the salary. a team runs small tests on a budget i approve.",
+    "proof": "reading every term before i pay. store stays in my name.",
+    "cta_sticker": "Start without quitting"
+   },
+   "voc_trace": "hook Q-F-0015 · subhead Q-O-0133 + B-47.AV-04 · body Q-O-0176 + F-05 · proof Q-O-0116 + F-11 · CTA Q-O-0133",
+   "source_ids": [
+    "Q-F-0015",
+    "Q-O-0133",
+    "Q-O-0176",
+    "Q-O-0116",
+    "F-05",
+    "F-11",
+    "PT-04",
+    "B-41.AV-04",
+    "B-42.AV-04",
+    "B-47.AV-04",
+    "AN-10"
+   ],
+   "gates": "Thumb-Stop PASS (spec)",
+   "hook_proposed": {
+    "text": "I work a full time job, so my store only gets me after hours",
+    "source": "Q-F-0015",
+    "from": "work/09-hook-candidates.md (winner, /14 >=11)"
+   }
+  },
+  {
+   "id": "C3-V3",
+   "concept_id": "C3",
+   "vehicle": "V3",
+   "launch_status": "launch",
+   "persona": "AV4-paycheck-side: full-time job; the store gets the leftover hours (Q-F-0015); age [A] 25-50 employed",
+   "lf8_root": "#5 Comfortable living (secondary #3)",
+   "desire": "MD-01: \"a stable income flow\" (Q-O-0046) without having to \"quit and then start struggling\" (Q-O-0133)",
+   "angle": "AN-10: keep the salary, that's the safe part; the store starts now beside the job on small capped tests he approves",
+   "angle_source": "AN-10 · Q-O-0133, Q-O-0052, Q-F-0015, Q-O-0116, Q-O-0056 · runner-up AN-09 (wave 2)",
+   "target_belief": "B-42.AV-04",
+   "offer": "T1 \"Start with the $500 Build\" ($500 one-time, PT-01; only live price). Refund only as conditioned (PT-15) or omitted. No T2/T3/bump/OTO/60-day/7-10 days/product count.",
+   "format": "N9 Direct Feed Post",
+   "lane": "story lane (A6) · LOCK-A MK-01 · S4 -> mechanism made surer + New Information",
+   "destination": "PDP https://readymerce.com (short congruence lander recommended, 01-preflight §3)",
+   "mechanism_match_words": "problem \"one shot\" · mechanism \"a budget you approve\" · promise \"in your name\"",
+   "awareness": "solution aware",
+   "sku": "main",
+   "aspect": "1:1",
+   "image_file": "images/C3-V3.png",
+   "prompt_file": "prompts/C3-V3.txt",
+   "qa": {
+    "status": "pending",
+    "notes": "awaiting render"
+   },
+   "headline": "Keep the job. Start the store beside it.",
+   "hook": "\"Nobody quits to start one,\" the guy from purchasing said in the break room. He wasn't even talking to me.",
+   "subhead": "So the job was never the risky part. It was the safe part.",
+   "body": "A new store's first weeks are a loop: pick a product, put a small ad budget behind it, read what happened, cut what isn't moving, put the next one up. It runs on weekdays, not Sunday nights. Several small tests, on a budget you approve, run in somebody's working day while the paycheck keeps coming, is a different bet.",
+   "proof": "In writing: $500 one-time for the build. The store in my name, staying in my name, payouts to my bank. Product costs, platform fees and ad spend extra and mine, with every test budget one I approve. Not a course. And on page after page, no income promises.",
+   "cta_outcome": "Start without quitting",
+   "audience_cue": "A lowercase feed post about five years of saying “when i'm ready” and a sentence overheard in a work break room: people with a steady job who keep waiting to start a store",
+   "scenario": "A receiving clerk hears a coworker say \"Nobody quits to start one\" in the break room; it reframes five years of waiting to quit, and a later chance clue from the same coworker leads him to start the store beside the job (story beats: dock, parked car, after-hours store closed in overtime, trial-order aha, paper checks, the written review read in the parked car)",
+   "tone": "plain-spoken, straight about limits, stays with you (13 VOICE-1); customer register from 07 voice card AV-04",
+   "medium": "Flat text-first Direct Feed Post card: plain white to very light warm grey background, black system sans-serif lowercase text, a small empty grey profile placeholder; no photo, no brand colour",
+   "composition": "Single flat square text card: small empty grey profile circle and two blank bars top-left, one left-aligned block of large lowercase post text across the middle with wide margins, the rest empty background",
+   "reading_path": "Tiny empty profile placeholder at top left, then straight down into the two lines of post text read left to right, ending on the words \"changed it.\" with nothing after",
+   "product_role": "none: no product, brand, price, offer or photo (B14 story image rule)",
+   "cta_candidates": [
+    "Keep the paycheck",
+    "Keep your salary",
+    "Start beside work"
+   ],
+   "hook_candidates": [
+    "H1 [The overheard line] \"Nobody quits to start one,\" the guy from purchasing said in the break room. He wasn't even talking to me.",
+    "H2 [Specific-moment scene with a timestamp] 9:47pm, kitchen table, boots still on. I'd fallen asleep in front of my own store's ad dashboard again, and it still said zero orders.",
+    "H3 [Confession] For five years I told my wife I'd start the store when I was ready. The truth is I was scared of losing my paycheck, and I never told her that part.",
+    "H4 [The math moment] Five hundred and twenty. That's how many evenings I gave my store idea over five years, and I worked it out on the back of a pay stub in a parked car.",
+    "H5 [The strange object] There's a printed refund policy in my work locker with one line circled in pen and a question written in the margin."
+   ],
+   "word_count_on_image": 15,
+   "primary_text": "\"Nobody quits to start one,\" the guy from purchasing said in the break room. He wasn't even talking to me.\n\nI've worked receiving at a distribution center for eleven years. All day I scan other people's products. Phone stands, dog beds, candle kits, boxes of stuff somebody is selling online. I check them in and send them on.\n\nFor five of those years I had my own store idea sitting in a folder on my laptop, with a closed store behind it that almost nobody knew about.\n\nMy wife knew. Nobody at work did.\n\nWhat nobody knew about was the car. Most mornings I'd park, turn the engine off and just sit there with my hands on the wheel. Some days I'd say it out loud. \"Come on, man. I wish I was doing something else.\" Then I'd clip my badge on and go in.\n\nSame spot, same thermos, same sentence.\n\nI was forty-one. I figured I'd be saying it in that parking spot at fifty-one.\n\nIt took one sentence in a break room, and it wasn't even meant for me, to show me what I'd had backwards the whole time.\n\nLet me back up.\n\nI earn good money. Not rich. Good, with benefits I actually need. And every plan I ever made for the store hit the same wall: I don't want to quit and then start struggling.\n\nSo I did what you do. I did it after hours.\n\nThe first two years went to figuring out which platform was even the right one. Every answer opened three more tabs.\n\nThen I built one. One product, picked the way you pick a lottery number, on a gut feeling on a Sunday. The listings, photos and shipping settings ate my evenings for two months. Much more complicated to set up and manage than any video made it look.\n\nI ran ads on weekends and checked them on my breaks. It didn't sell one product. Not one.\n\nThen overtime season hit. Twelve-hour days. I'd get home after nine, open the laptop and wake up an hour later with my boots on and the dashboard still glowing. In January I closed the store, because I didn't have time to try and work the business to see sales.\n\nMy wife never said I told you so. She just stopped asking about it, which was worse.\n\nAfter that I got careful. I watched the walk-out-on-your-job ads and the course ads, and bought neither. I'm not lazy. I just don't wanna be trained to do it. I already have a job.\n\nSo I made a rule. When I'm ready, I'll do it properly: save up, give notice, go full time. \"I got till October.\" October came and went. So did the next one.\n\nOnce, in the car after a shift, I did the math on the back of a pay stub. Five years, two evenings a week. Over five hundred evenings I'd given that idea, and my store got maybe one real try out of all of them.\n\nI figured that said something about me.\n\nThen, a few weeks ago, a kid from the night crew told the break room he was quitting in the spring because his online store was about to take off. The guy from purchasing didn't look up from his sandwich.\n\n\"Nobody quits to start one,\" he said. Flat, the way he says everything. Then he went back to eating.\n\nHe wasn't talking to me. I was two tables over, and my ears went hot like he'd said it straight to me.\n\nBecause quitting to start one was my plan.\n\nAnd here's the part that should have been obvious, to me of all people.\n\nAt work, a new item never shows up as a truckload. Purchasing orders a small trial first. If it moves, they reorder. If it doesn't, it's gone next month and nobody takes it personally. I've checked in thousands of those trial orders. Nobody ever bets the building on one.\n\nMy store was one truckload of one guess.\n\nAnd my plan was to make that bet bigger. Wait until I was ready, quit, and put my paycheck behind the next guess.\n\nThat afternoon in the car I finally looked up how stores that actually sell find the thing that sells. One practitioner guide put it plainly: \"Most successful dropshippers test 5 to 10 products before finding one that scales profitably.\"\n\nA new store's first weeks aren't a build. They're a loop. Pick a product, put a small ad budget behind it, read what happened, cut what isn't moving, put the next one up. Again and again, like trial orders on my dock. It runs on weekdays, not Sunday nights.\n\nSomebody with a full-time job can do the build once. After that he gets one pass through the loop, maybe, in leftover hours. When that one guess misses, it looks like the idea failed. It didn't. One guess only proved one guess missed.\n\nThat's the one-shot launch, and that's what killed my store. Not my job, and not me.\n\nIt's also why waiting never helped. Waiting until you're ready doesn't add a single test. It just makes the eventual bet bigger. And quitting first doesn't fix the one shot. It puts your salary on it.\n\nSo the job was never the risky part. It was the safe part. What I needed was the loop running in somebody's working day, at a cost I set, while my paycheck kept coming.\n\nI didn't know anybody who did that.\n\nTwo days later the purchasing guy sat across from me, because mine was the only open seat. I asked what he'd meant.\n\nHe shrugged. His wife had wanted a store for years but wouldn't touch it while she was working. She'd been reading about a place that builds the store in your name and puts products up in stages, a small test on each, on a budget you approve, while you keep your job. She hadn't signed up. He just liked the logic. \"It's how I'd buy,\" he said. \"Small first.\"\n\nBefore his break ended he texted me the name. Readymerce.\n\nI didn't trust it. I've seen a hundred of these. So I asked for the full contract before making payment, printed the terms and the refund policy, and read them on my breaks with a pen.\n\nIn writing: $500 one-time for the build. The store in my name, staying in my name, payouts to my bank. Product costs, platform fees and ad spend extra and mine, with every test budget one I approve. Not a course. And on page after page, no income promises.\n\nThat last line is what got me. Every pitch I'd ever heard gave me a number. This one refused to.\n\nI circled the refund. Seven days from payment, the $500 build fee only, and it ends the moment you accept the delivery, buy any add-on or upgrade, or ask for further work. Platform fees and ad spend never come back. In the margin I wrote: if the build isn't done inside a week, what is that protecting? Not much, and they don't pretend otherwise.\n\nSo my safety was the list, not the refund. Every cost named before I spent a dollar, the store in my name, a test budget I'd type myself. And the paycheck still landing every Friday.\n\nOn the call they settled what I'd been stuck on for two years, Shopify or Etsy, and agreed how much the team keeps doing after launch. I paid on my lunch break, sitting in the car. Got the confirmation email and went back to the dock.\n\nThe store opened in my name. I checked the owner field on my break like a man checking a lottery ticket.\n\nThe products were picked from search demand and competition data, not a gut feeling on a Sunday, and they went live in stages. The first stage got a small test, on a budget I approved from my phone between two trucks.\n\nI didn't open the laptop at night. Not once. I ate dinner at the table with my wife.\n\nThen the first review came, written. I read it in the parked car after my shift. Which products to keep, which to replace, what goes in the next stage. Somebody had run the loop on my store in their working day.\n\nI was sitting in the exact spot where I used to say I wish I was doing something else. And I was doing something else. It was just happening while I was at work.\n\nThe team is still on it. The next stage, the corrections, the reports I can check whenever I want. My store doesn't get my leftover hours anymore. It gets somebody's real ones.\n\nI still clock in at six. I still earn good money. I didn't quit anything. For the first time in five years the store exists, in my name, being worked on, and my salary never had to be the bet.\n\nLast week the purchasing guy asked how the thing was going. I showed him the review on my phone. He read it the way he reads a trial order, nodded and said, \"Small first.\"\n\nIf you're reading this in a parked car before a shift, here's what I wish somebody had told me. The job isn't what's stopping you. It's the safe part. What stopped me was the one-shot launch: one guessed product, all at once, in the hours after work.\n\nSeveral small tests, on a budget you approve, run in somebody's working day while the paycheck keeps coming, is a different bet. You don't get trained. And the store is in your name.\n\nThat's the $500 Build. You see what's included and what isn't on the call, and you can read every term before you pay. I did. Twice.\n\nP.S. Waiting until I was ready cost me five years and over five hundred evenings, and my store got one shot out of all of them. Yours should get more than one.\n\nThe $500 Build: your store built and opened in your name, products released in stages, each tested on a budget you approve, a written review of what to keep and what to replace, and a team still working on it after launch. Ad spend, product costs and platform fees are extra. The refund window is 7 days from payment, covers the $500 build fee only, and ends when you accept delivery, buy any add-on or upgrade, or ask for further work. No income promises.\n\nStart without quitting.",
+   "status": "written",
+   "rationale": "C3 memo work/08-concept-slate.md; written in ads/C3.md. Lived-authority employee (receiving clerk) + B4 #8 overheard line, library mode S12 + S18. Installs the full 11 §7 chain to B-42.AV-04; product enters by chance clue at 57% (brand at 60.5%); skepticism = paper checks and the conditioned refund; result = Result Ladder rung 2 at full strength (store in his name, first stage tested on a budget he approved, written keep/replace review, team still on it), no income/quit figure. Close ends on 'one shot', 'a budget you approve', 'in your name'. B16 20/20.",
+   "v3_image_type": "N9 Direct Feed Post",
+   "pov": "lived-authority narrator (salaried employee; the job is the life context, no credential)",
+   "story_concept": "#8 The overheard line",
+   "swipe_models": [
+    "S12",
+    "S18"
+   ],
+   "story_words": 1666,
+   "hook_variants_start": "work/09-hook-candidates.md §B5 (C3)",
+   "conviction_map": "work/08-concept-slate.md C3",
+   "story_hooks": [
+    {
+     "id": "H1",
+     "class": "The overheard line",
+     "text": "\"Nobody quits to start one,\" the guy from purchasing said in the break room. He wasn't even talking to me.",
+     "trace": "B-42.AV-04 (craft)"
+    },
+    {
+     "id": "H2",
+     "class": "Specific-moment scene with a timestamp",
+     "text": "9:47pm, kitchen table, boots still on. I'd fallen asleep in front of my own store's ad dashboard again, and it still said zero orders.",
+     "trace": "Q-F-0015 · Q-O-0090 · Q-Y-0046"
+    },
+    {
+     "id": "H3",
+     "class": "Confession",
+     "text": "For five years I told my wife I'd start the store when I was ready. The truth is I was scared of losing my paycheck, and I never told her that part.",
+     "trace": "Q-O-0052 · Q-O-0133"
+    },
+    {
+     "id": "H4",
+     "class": "The math moment",
+     "text": "Five hundred and twenty. That's how many evenings I gave my store idea over five years, and I worked it out on the back of a pay stub in a parked car.",
+     "trace": "Q-F-0015"
+    },
+    {
+     "id": "H5",
+     "class": "The strange object",
+     "text": "There's a printed refund policy in my work locker with one line circled in pen and a question written in the margin.",
+     "trace": "Q-O-0116 · Q-O-0030"
+    }
+   ],
+   "image_text": "five years of “when i'm ready.” one sentence overheard in the break room changed it.",
+   "description": "Small tests on a budget you approve. Store in your name.",
+   "cta_button": "Shop Now",
+   "destination_url": "https://readymerce.com",
+   "source_ids": [
+    "Q-O-0133",
+    "Q-F-0015",
+    "Q-O-0052",
+    "Q-O-0057",
+    "Q-O-0096",
+    "Q-O-0116",
+    "Q-O-0030",
+    "Q-O-0047",
+    "Q-O-0031",
+    "Q-O-0048",
+    "Q-O-0049",
+    "Q-O-0090",
+    "Q-O-0143",
+    "Q-O-0056",
+    "Q-O-0055",
+    "Q-O-0111",
+    "Q-O-0134",
+    "Q-F-0016",
+    "Q-F-0017",
+    "Q-O-0082",
+    "Q-Y-0046",
+    "Q-Y-0016",
+    "PT-01",
+    "PT-04",
+    "PT-05",
+    "PT-08",
+    "PT-15",
+    "F-01",
+    "F-03",
+    "F-05",
+    "F-06",
+    "F-07",
+    "F-09",
+    "F-10",
+    "F-11",
+    "F-13",
+    "P-05.AV-04",
+    "B-41.AV-04",
+    "B-42.AV-04",
+    "B-43.AV-04",
+    "B-44.AV-04",
+    "B-45.AV-04",
+    "B-46.AV-04",
+    "B-47.AV-04",
+    "AN-10",
+    "TR-AV-04",
+    "IB-14"
+   ],
+   "gates": "B16 20/20",
+   "hook_proposed": null
+  },
+  {
+   "id": "C4-V1",
+   "concept_id": "C4",
+   "vehicle": "V1",
+   "launch_status": "benched",
+   "persona": "AV2-paid-got-nothing: paid a builder or vendor, got a half-done or locked store (Q-F-0004, Q-O-0062); age [A] 35-60 (13 §5); awareness AW-4",
+   "lf8_root": "#3 Freedom from fear of being taken again (Q-O-0062, Q-O-0073); secondary #6 vindication (Q-B-0004)",
+   "desire": "MD-04: \"I would just link into the store once it is finished\" (Q-F-0005), in her own name (handoff lists AN-13 under MD-01; MD-04 kept per slate)",
+   "angle": "AN-13: the burned stores went wrong in two checkable places: the store sat in the builder's account, and the builder stopped on launch day. Check both before you pay.",
+   "angle_source": "AN-13 · AV-02 cares because \"they said they would build a store, but i am building the store???\" (Q-F-0004) and \"now I can't access it, contact an administrator which should be me\" (Q-F-0001) · also Q-O-0062, Q-O-0073, Q-O-0102, Q-Y-0004 · runner-up AN-15 (wave 2)",
+   "target_belief": "B-02.AV-02",
+   "offer": "T1 \"Start with the $500 Build\" ($500 one-time, PT-01/F-12): store opened in your name (F-01, F-11), payouts to your bank (F-11), staged release with ad tests on budgets you approve (PT-04, F-05), early performance review and post-launch corrections (PT-04, PT-08); excludes product costs, platform fees, ad spend, any income guarantee (PT-05); refund only as conditioned (PT-15). No T2/T3/bump/OTO/60-day/duration/product count/urgency.",
+   "format": "A8a #4 Us vs Them (split frame)",
+   "lane": "clarity lane (A6) · LOCK-B MK-06 + NI-04 ownership · S4 (ASSUMED) -> LOCK-B made surer + New Information · contradiction route (GO-AV-02)",
+   "destination": "PDP https://readymerce.com (LOCK-B congruence lander recommended, 01-preflight §3)",
+   "mechanism_match_words": "problem \"left on launch day\" · mechanism \"a budget you approve\" · promise \"in your name; we stay after launch day\" (only \"in your name\" and \"budgets you approve\" are live on the page; C4 never prints \"we stay after launch day\")",
+   "awareness": "product aware",
+   "sku": "main",
+   "aspect": "4:5",
+   "image_file": "images/C4-V1.png",
+   "prompt_file": "prompts/C4-V1.txt",
+   "qa": {
+    "status": "pending",
+    "notes": "awaiting render"
+   },
+   "headline": "\"Contact an administrator.\" On the store I paid for.",
+   "hook": "\"Contact an administrator.\" On the store I paid for.",
+   "subhead": "The store builds that took people's money went wrong in two places. Check both before you pay.",
+   "body": "Once the store is finished and live, the team reviews the first results and makes corrections.",
+   "proof": "In writing: “The store account is in your name and stays in your name.”",
+   "cta_outcome": "In your name",
+   "audience_cue": "\"Contact an administrator.\" On the store I paid for. (the lock-out line only a paid-and-locked-out buyer recognises)",
+   "scenario": "split frame: last time (store owner: the builder; after launch day: nobody) vs the $500 Build (store owner: you; after launch day: the team), with the store open on a laptop in the winning Pine panel",
+   "tone": "plain-spoken, straight about limits, stays with you (13 VOICE-1); her register: guarded, checks before paying (07 AV-02)",
+   "medium": "designed clarity static: flat Paper #F7F4EE layout with fine paper grain, crisp vector split panels, Fraunces-like serif + Inter-like sans; palette Pine #1F3A34 / Ember #E0621F (CTA only) / Ink #1C1C1A / Paper; one photographic element: product element 9597a0b7-58a4-42f0-bdc9-1b2663b1ce17",
+   "composition": "4:5 two-panel vertical split under a full-width Paper header band; left warm-grey panel with an Ink padlock-over-blank-login icon, right Pine panel with the product laptop in its lower half; two row-label pills straddling the seam; full-width proof band; Ember CTA button bottom right",
+   "reading_path": "hook across the top, subhead, left then right column headers, row 1 (seam label, left cell, right cell), row 2, body above the laptop in the Pine panel, proof band, CTA button bottom right",
+   "product_role": "Higgsfield product element 9597a0b7-58a4-42f0-bdc9-1b2663b1ce17: the store open on a laptop from the reference, screen content unchanged, sharp, lower half of the right Pine panel beside the body; environment element de8b79fa not used",
+   "cta_candidates": [
+    "In your name",
+    "Check it first",
+    "Yours to check"
+   ],
+   "hook_candidates": [
+    "\"Contact an administrator.\" On the store I paid for. | Q-F-0001 | 14/14 | WINNER",
+    "Locked out of the store I paid $4,500 for. | Q-F-0001 + Q-O-0062 | 13/14 | runner-up wave 2",
+    "Paid a builder? Check whose name is on the store. | NI-04 + Q-F-0001 | 10/14 | cut",
+    "Before you ask if a store will sell, ask whose name is on it. | NI-04 | 8/14 | cut",
+    "\"I gave somebody $4,500, and they took my money.\" | Q-O-0062 | 10/14 | cut",
+    "\"your store is half-ass done\" | Q-F-0002 | 11/14 | runner-up native wave 2"
+   ],
+   "word_count_on_image": 75,
+   "primary_text": "caption pool",
+   "status": "written",
+   "rationale": "THE ONE belief B-02.AV-02 shown as a comparison she can check: the two places her last build failed (store owner, after launch day) against the $500 Build's answers (F-11, PT-04). Hook = her own lock-out line (Q-F-0001, 14/14). Proof = the written ownership commitment (P-03, BIG PROOF). CTA = the page's own words. Us vs Them form borrowed from CR-05 (form only). 75 words; gates 7/7.",
+   "hook_proposed": {
+    "text": "\"Contact an administrator.\" On the store I paid for.",
+    "source": "Q-F-0001",
+    "from": "work/09-hook-candidates.md (winner, /14 >=11)"
+   },
+   "split_frame": {
+    "left_header": "Last time",
+    "right_header": "The $500 Build",
+    "row_labels": [
+     "Store owner",
+     "After launch day"
+    ],
+    "left_cells": [
+     "The builder",
+     "Nobody"
+    ],
+    "right_cells": [
+     "You",
+     "The team"
+    ]
+   }
+  },
+  {
+   "id": "C4-V2",
+   "concept_id": "C4",
+   "vehicle": "V2",
+   "launch_status": "benched",
+   "persona": "AV2-paid-got-nothing: paid a builder or vendor, got a half-done or locked store (Q-F-0004, Q-O-0062); age [A] 35-60 (13 §5); awareness AW-4",
+   "lf8_root": "#3 Freedom from fear of being taken again (Q-O-0062, Q-O-0073); secondary #6 vindication (Q-B-0004)",
+   "desire": "MD-04: \"I would just link into the store once it is finished\" (Q-F-0005), in her own name (handoff lists AN-13 under MD-01; MD-04 kept per slate)",
+   "angle": "AN-13: the burned stores went wrong in two checkable places: the store sat in the builder's account, and the builder stopped on launch day. Check both before you pay.",
+   "angle_source": "AN-13 · AV-02 cares because \"they said they would build a store, but i am building the store???\" (Q-F-0004) and \"now I can't access it, contact an administrator which should be me\" (Q-F-0001) · also Q-O-0062, Q-O-0073, Q-O-0102, Q-Y-0004 · runner-up AN-15 (wave 2)",
+   "target_belief": "B-02.AV-02",
+   "offer": "T1 \"Start with the $500 Build\" ($500 one-time, PT-01/F-12): store opened in your name (F-01, F-11), payouts to your bank (F-11), staged release with ad tests on budgets you approve (PT-04, F-05), early performance review and post-launch corrections (PT-04, PT-08); excludes product costs, platform fees, ad spend, any income guarantee (PT-05); refund only as conditioned (PT-15). No T2/T3/bump/OTO/60-day/duration/product count/urgency.",
+   "format": "A8b N5 Search bar + answer card (generic UI)",
+   "lane": "clarity lane (A6) · LOCK-B MK-06 + NI-04 ownership · S4 (ASSUMED) -> LOCK-B made surer + New Information · contradiction route (GO-AV-02)",
+   "destination": "PDP https://readymerce.com (LOCK-B congruence lander recommended, 01-preflight §3)",
+   "mechanism_match_words": "problem \"left on launch day\" · mechanism \"a budget you approve\" · promise \"in your name; we stay after launch day\" (only \"in your name\" and \"budgets you approve\" are live on the page; C4 never prints \"we stay after launch day\")",
+   "awareness": "product aware",
+   "sku": "main",
+   "aspect": "1:1",
+   "image_file": "images/C4-V2.png",
+   "prompt_file": "prompts/C4-V2.txt",
+   "qa": {
+    "status": "pending",
+    "notes": "awaiting render"
+   },
+   "headline": "they said they would build a store but i am building the store",
+   "hook": "they said they would build a store but i am building the store",
+   "subhead": "Builds like this often went wrong in two places. You can check both before you pay.",
+   "body": "1. Whose account the store sits in until it's transferred to you · 2. Who is still working on it after launch day",
+   "proof": "“You own and configure the store during the build phase, then transfer ownership to the client when it's ready to go live.” (Platform docs written for store builders; P-06.AV-02)",
+   "cta_outcome": "In your name",
+   "audience_cue": "her own forum complaint typed into a search bar: \"they said they would build a store but i am building the store\"",
+   "scenario": "11:47 pm, she types her complaint word for word into a generic search bar and gets a plain answer card naming the two checks and the platform's own rule",
+   "tone": "plain-spoken, straight about limits, stays with you (13 VOICE-1); her register: guarded, checks before paying (07 AV-02)",
+   "medium": "organic phone screenshot, generic unbranded search UI, light mode, system sans, slight JPEG compression; no product, brand, price or offer",
+   "composition": "1:1 flat phone screenshot crop: thin status bar, rounded grey search pill at the top, white rounded answer card filling the lower three quarters (bold first line, two numbered checks, grey quote with a left rule and source line, bold last line)",
+   "reading_path": "status bar time, search query, bold first answer line, check 1, check 2, quote and source, bold last line",
+   "product_role": "none: no product, brand, price or offer on the image",
+   "cta_candidates": [
+    "In your name",
+    "Check it first",
+    "Yours to check"
+   ],
+   "hook_candidates": [
+    "they said they would build a store but i am building the store | Q-F-0004 | 13/14 | WINNER",
+    "store builder locked me out contact an administrator | Q-F-0001 | 13/14 | blocked (V1 stem)",
+    "how to check if a store builder is legit | written ('legit' her word) | 11/14 | runner-up wave 2",
+    "go do a google review of your company | Q-O-0102 | 6/14 | cut",
+    "i need a proof of concept that actually works | Q-O-0132 | 8/14 | cut"
+   ],
+   "word_count_on_image": 83,
+   "primary_text": "caption pool",
+   "status": "written",
+   "rationale": "Native N5: hook = her verbatim forum line as a query (Q-F-0004); the answer card installs B-03 (the cause) and B-07 (she can check) with the platform's own sentence as proof (P-06), no brand anywhere; CTA as the card's last line. Thumb-Stop PASS.",
+   "hook_proposed": {
+    "text": "they said they would build a store but i am building the store",
+    "source": "Q-F-0004",
+    "from": "work/09-hook-candidates.md (winner, /14 >=11)"
+   },
+   "cta_line_on_image": "Store owner: in your name."
+  },
+  {
+   "id": "C4-V3",
+   "concept_id": "C4",
+   "vehicle": "V3",
+   "launch_status": "benched",
+   "persona": "AV2-paid-got-nothing: paid a builder or vendor, got a half-done or locked store (Q-F-0004, Q-O-0062); age [A] 35-60 (13 §5); awareness AW-4",
+   "lf8_root": "#3 Freedom from fear of being taken again (Q-O-0062, Q-O-0073); secondary #6 vindication (Q-B-0004)",
+   "desire": "MD-04: \"I would just link into the store once it is finished\" (Q-F-0005), in her own name (handoff lists AN-13 under MD-01; MD-04 kept per slate)",
+   "angle": "AN-13: the burned stores went wrong in two checkable places: the store sat in the builder's account, and the builder stopped on launch day. Check both before you pay.",
+   "angle_source": "AN-13 · AV-02 cares because \"they said they would build a store, but i am building the store???\" (Q-F-0004) and \"now I can't access it, contact an administrator which should be me\" (Q-F-0001) · also Q-O-0062, Q-O-0073, Q-O-0102, Q-Y-0004 · runner-up AN-15 (wave 2)",
+   "target_belief": "B-02.AV-02",
+   "offer": "T1 \"Start with the $500 Build\" ($500 one-time, PT-01/F-12): store opened in your name (F-01, F-11), payouts to your bank (F-11), staged release with ad tests on budgets you approve (PT-04, F-05), early performance review and post-launch corrections (PT-04, PT-08); excludes product costs, platform fees, ad spend, any income guarantee (PT-05); refund only as conditioned (PT-15). No T2/T3/bump/OTO/60-day/duration/product count/urgency.",
+   "format": "N10 News-style static (V3 story image) + long-form story (B18)",
+   "lane": "story lane (A6) · LOCK-B MK-06 + NI-04 ownership · S4 (ASSUMED) -> LOCK-B made surer + New Information · contradiction route (GO-AV-02)",
+   "destination": "PDP https://readymerce.com (LOCK-B congruence lander recommended, 01-preflight §3)",
+   "mechanism_match_words": "problem \"left on launch day\" · mechanism \"a budget you approve\" · promise \"in your name; we stay after launch day\" (only \"in your name\" and \"budgets you approve\" are live on the page; C4 never prints \"we stay after launch day\")",
+   "awareness": "product aware",
+   "sku": "main",
+   "aspect": "1:1",
+   "image_file": "images/C4-V3.png",
+   "prompt_file": "prompts/C4-V3.txt",
+   "qa": {
+    "status": "pending",
+    "notes": "awaiting render"
+   },
+   "headline": "Read this before you pay a store builder",
+   "hook": "The login page told me to contact an administrator. I read it three times, because the administrator was supposed to be me.",
+   "subhead": "N10 standfirst: The same two gaps keep showing up: the store sat in the builder's account, and the work stopped on launch day.",
+   "body": "story (primary_text): skeptic who resisted, #2 The investigation, S2 + S17; 1,687 words; product at 66%",
+   "proof": "in-story proof beats: F-11 page quote (\"The store account is in your name and stays in your name.\"), P-06 platform docs sentence, PT-05 written exclusions, PT-15 refund with every condition, her own owner field (P-01, told as experience)",
+   "cta_outcome": "In your name",
+   "audience_cue": "N10 headline \"Paid to have an online store built, then locked out of it\" + story H1 (the lock-out line)",
+   "scenario": "an online article about paid store builds that locked owners out; its photo is the story's evidence: the receipts folder on a kitchen table at night beside a closed laptop and cold tea",
+   "tone": "plain-spoken, straight about limits, stays with you (13 VOICE-1); her register: guarded, checks before paying (07 AV-02)",
+   "medium": "organic news-article crop, blank masthead rule, bold editorial serif headline, grey sans standfirst, candid phone photo with lamp light and grain; no product, brand, price or offer",
+   "composition": "1:1 news-article crop: blank thin rule where a masthead would sit, headline across the upper third, standfirst, grey byline bars, wide candid photo filling the lower half (manila receipts folder, closed laptop, cold mug, phone face down)",
+   "reading_path": "headline, standfirst, photo",
+   "product_role": "none: no product, brand, price or offer on the image",
+   "cta_candidates": [
+    "In your name",
+    "Check it first",
+    "Yours to check"
+   ],
+   "hook_candidates": [
+    "The login page told me to contact an administrator. I read it three times, because the administrator was supposed to be me.",
+    "$4,500 for the build. $97 for an ad pack that never arrived. A deposit to a marketing guy that I still can't make myself write down.",
+    "Everyone told me the lesson was simple: never pay anyone to build me a store again. It turned out to be the wrong lesson.",
+    "I Googled the company in the middle of the sales call, while the man was still talking, and I never told him what I found.",
+    "My sister said if I paid one more person to build me a store, she was taking my debit card. She was only half joking."
+   ],
+   "word_count_on_image": 33,
+   "primary_text": "The login page told me to contact an administrator. I read it three times, because the administrator was supposed to be me.\n\nIt was 11:40 on a Tuesday night. I was at the kitchen table with a cup of tea gone cold, typing the same password into the same box, and the same grey line kept coming back. Contact an administrator.\n\nI had paid $4,500 for that store. I had the receipts in a manila folder, and a three-week-old email from the man who built it: \"almost done, you're going to love it.\" I'd told my sister it would be live by the weekend.\n\nI tried the help chat. I couldn't even speak to anyone. As far as the system could tell, I wasn't anyone. I didn't know then that the explanation would come from the woman who does my taxes.\n\nMy sister texted at 11:52. \"Did it go live?\" I typed \"not yet\" and deleted it. Then I typed \"I think I got scammed\" and sent that instead.\n\nShe called right away. She wasn't mean about it, which somehow made it worse. \"They're all scams,\" she said. \"Every one of them. Please don't pay another person to build you anything.\"\n\nI said okay, and I meant it. I closed the laptop and sat with my hand flat on the lid, thinking I'd just flushed the money and the time down the drain, and the hope with it.\n\nFor most of a year I agreed with her. I scrolled past every ad with a laptop in it. I was afraid to ever try again.\n\nShe was wrong about one thing, though. It took me eleven months to find out which.\n\nI should back up.\n\nThe $4,500 builder was my second try.\n\nThe first was a store program that cost nothing up front. I thought I'd just link into the store once it was finished.\n\nWhat I got was a half-empty theme and a stream of emails about the next thing to buy: $97 for an ad pack that never showed up, promises of more templates and products, all after I'd paid.\n\nOne night I typed into a forum, \"they said they would build a store, but i am building the store???\" Someone replied that my store was half-done. I drew a line under it and moved on.\n\nThe second time, I paid a real person with a real phone number, because I'd decided the first one failed for being cheap. He sent mockups and a logo. Then the replies slowed, then \"almost done,\" then the login page.\n\nSomewhere in between, a marketing guy took a deposit to \"get traffic to it\" and never even scheduled a call with me.\n\nI added it up once, on the inside flap of the folder, in pen. $4,597, not counting the marketing guy, because I couldn't make myself write that one down.\n\nThe money was bad. What it did to me was worse.\n\nI'm the one in my family who reads the terms, and I'd been taken twice, maybe three times, by people who smiled at me on video calls. I felt stupid in a way I hadn't since school.\n\nHere's the strange part. Even while I was telling my sister they were all scams, I kept checking.\n\nI read every review. I asked for the full contract before any call. When one company did call, I Googled them while the man was still talking. The pitch was almost always the same.\n\nIf I truly believed they were all scams, why was I still checking? Nobody reads reviews of something they think is always a lie. Part of me knew some were real. I just had no way to tell them apart.\n\nSo I started digging. Late at night I read forum posts from people who'd paid someone to build a store and ended up where I did. \"When the store was transferred to me, the store was shutdown almost immediately,\" one woman wrote. She was in tears.\n\nI kept a note on my phone of every story: the price, the promises, the reviews. I was hunting for the red flag I should have caught. The note never showed a pattern, because I was writing down the wrong things.\n\nThe woman who does my taxes works above a dry cleaner. In February I brought her the folder with everything else.\n\nShe flipped through the receipts. Then she asked a question nobody had asked me in two years, including me.\n\n\"Whose name is the store account in?\"\n\nI started to say mine. Then I thought about that login page.\n\n\"I don't actually know,\" I said.\n\nShe nodded like she'd heard it before. \"Then it isn't your store yet. It's his, and you're a guest in it.\" Then she asked a second question. \"After it went live, who was supposed to be working on it?\"\n\nNobody.\n\nThree different people had my money, and not one of them ever mentioned whose name the store would be in, or who'd still be there after launch day. They were all paid to get it to launch day. None of them were paid for the day after.\n\nThat night I read the fine print. Not the builders'. The platform's.\n\nIts own documentation for people who build stores for clients says it in one sentence: \"You own and configure the store during the build phase, then transfer ownership to the client when it's ready to go live.\"\n\nSo while the store is being built, it belongs to the builder. It becomes yours at go-live, which is also the moment the builder's job is designed to end.\n\nTwo things had gone wrong, and neither was me being stupid. My store sat in someone else's account, so when he stopped answering, I was locked out of my own work.\n\nAnd his job ended on launch day, exactly when a new store needs someone reading the first results, fixing listings and testing the next product.\n\nIt's like paying someone to build a house on your land, letting them keep the deed until move-in day, then watching them drive off that same afternoon, right when you find out which pipes leak.\n\nI hadn't failed those stores. They were set up to fail me at the handover.\n\nAnd my sister was wrong about one thing. They weren't all scams. The ones that burned me had the same two holes, and I could check for both before I paid anyone.\n\nOn my way out, she added, \"One of my clients had hers built this spring. It was in her name from the first day. I've seen her statements. The payouts go straight to her bank.\" She wrote a name on a sticky note. Readymerce.\n\nI put the sticky note in the folder and didn't touch it for two weeks.\n\nWhen I finally looked, I Googled them. Almost nothing: a new site, no reviews I could read. A year earlier, that alone would have ended it.\n\nBut I wasn't shopping for a pitch anymore. I needed two answers in writing.\n\nThe first answer was on their page in plain words: \"The store account is in your name and stays in your name.\" Right under it: \"Payouts go to your bank account.\"\n\nThe second answer was further down the same page. After the store goes live, their list says products go out in stages, each with a small ad test on a budget you approve. Then an early performance review, post-launch corrections, new products rolled in.\n\nHow much ongoing work you get is agreed on a call, so I asked on the call and wrote down every word.\n\nThen I went looking for the catch. What I found was a list of what the $500 doesn't cover: product costs, platform fees, ad spend, and any promise of income. Nobody who'd pitched me had ever written down what they wouldn't do.\n\nI read the refund policy twice. The $500 fee is refundable for 7 days from payment, and that ends the moment you accept delivery, buy any add-on, or ask for more work. Platform fees, ad spend, domain, apps and supplier costs are never refunded.\n\nNarrower than I'd like. But it was the first refund anyone had explained to me before I paid.\n\nI still waited until the $500 and an ad budget I could afford to lose were actually in my account, not borrowed. Then I paid.\n\nThe day the store opened, I didn't wait for an email. I logged in myself, at the same kitchen table.\n\nNo grey line. The owner field had my name in it.\n\nI sat there longer than I'd admit.\n\nThe first products went live in stages. Each got a small ad test, on a budget I approved myself.\n\nThen the first review came, in writing: which products to keep, which to replace, what they were changing on the listings. After launch day, they were still there. That was the part I had never once had.\n\nMy sister came over on a Sunday and asked, carefully, the way you'd ask about an ex, \"So is it live?\"\n\nI turned the laptop around. She read the owner field out loud, and it was my name.\n\nShe was quiet for a second. Then she said, \"Okay. Show me the review.\"\n\nI showed her. And for the first time in two years, talking about the store didn't make my face go hot.\n\nThe folder is still in my kitchen drawer. I don't open it at night anymore.\n\nIf I could talk to the woman at that kitchen table, I'd tell her she was never stupid. She was sold a finish line.\n\nSo here's all I'd tell anyone holding a folder like mine. Paying someone to build it wasn't your mistake. Buying a build that ended on launch day, inside someone else's account, was.\n\nBefore you pay anyone, get two answers in writing. Who is still working on it after launch day? And whose name is it in?\n\nIf the money isn't there yet, wait. I did.\n\nWhen it is, the only right answer to that second question is three words long.\n\nIn your name.",
+   "status": "written",
+   "rationale": "Story lane for the most skeptical avatar: she keeps checking, so she already believes some are real (contradiction route); an unnamed lived expert asks the two questions (S2), the platform's own sentence explains the cause, the product enters by chance at 66%, she runs the two checks herself and ends with her own name in the owner field, the first stage tested, the written review, the team still there (rung 2), and the doubter reading it (S17). B16 20/20.",
+   "v3_image_type": "N10 News-style static",
+   "pov": "the skeptic who resisted",
+   "story_concept": "#2 The investigation",
+   "swipe_models": [
+    "S2",
+    "S17"
+   ],
+   "story_words": 1687,
+   "hook_variants_start": "work/09-hook-candidates.md §B5 (C4)",
+   "conviction_map": "work/08-concept-slate.md C4",
+   "description": "Two checks first: whose name the store is in, and who stays after launch day.",
+   "story_hooks": [
+    {
+     "id": "H1",
+     "class": "Specific-moment scene",
+     "text": "The login page told me to contact an administrator. I read it three times, because the administrator was supposed to be me.",
+     "trace": "Q-F-0001"
+    },
+    {
+     "id": "H2",
+     "class": "The math moment",
+     "text": "$4,500 for the build. $97 for an ad pack that never arrived. A deposit to a marketing guy that I still can't make myself write down.",
+     "trace": "Q-O-0062 · Q-B-0001 · Q-O-0130 · Q-Y-0019"
+    },
+    {
+     "id": "H3",
+     "class": "Contrarian open loop",
+     "text": "Everyone told me the lesson was simple: never pay anyone to build me a store again. It turned out to be the wrong lesson.",
+     "trace": "Q-Y-0022 · B-04.AV-02"
+    },
+    {
+     "id": "H4",
+     "class": "Confession",
+     "text": "I Googled the company in the middle of the sales call, while the man was still talking, and I never told him what I found.",
+     "trace": "Q-O-0102"
+    },
+    {
+     "id": "H5",
+     "class": "Conflict",
+     "text": "My sister said if I paid one more person to build me a store, she was taking my debit card. She was only half joking.",
+     "trace": "Q-O-0073 · SK-04 · [WRITTEN]"
+    }
+   ],
+   "image_text": {
+    "headline": "Paid to have an online store built, then locked out of it",
+    "standfirst": "The same two gaps keep showing up: the store sat in the builder's account, and the work stopped on launch day."
+   },
+   "cta_button": "Shop Now -> https://readymerce.com"
+  },
+  {
+   "id": "C5-V1",
+   "concept_id": "C5",
+   "vehicle": "V1",
+   "launch_status": "benched",
+   "persona": "AV3-stuck-starter: weeks in the setup or stuck on the product pick (Q-F-0013, Q-F-0041); age [A] 25-55",
+   "lf8_root": "#5 Comfortable living (secondary #3)",
+   "desire": "MD-04: finally \"get on live\" (Q-O-0014) after \"weeks of overthinking\" (Q-Y-0053)",
+   "angle": "AN-16: the setup was never the wall; the builder's job ends the day the store goes live; a store needs someone after launch day",
+   "angle_source": "AN-16 · Q-F-0013, Q-F-0006, Q-F-0012, Q-F-0018, Q-O-0169 · runner-up AN-17 (wave 2)",
+   "target_belief": "B-03.AV-03",
+   "offer": "T1 \"Start with the $500 Build\" ($500 one-time, PT-01; only live price). Refund only as conditioned (PT-15) or omitted. No T2/T3/bump/OTO/60-day/7-10 days/product count.",
+   "format": "A8a #7 Post-it / Handwritten",
+   "lane": "clarity lane (A6) · LOCK-B MK-06 · S2 OWNED pond -> Name-it mechanism first, claim second",
+   "destination": "PDP https://readymerce.com (short congruence lander recommended, 01-preflight §3)",
+   "mechanism_match_words": "problem \"left on launch day\" · mechanism \"in stages\" · promise \"we stay after launch day\"",
+   "awareness": "unaware",
+   "sku": "main",
+   "aspect": "1:1",
+   "image_file": "images/C5-V1.png",
+   "prompt_file": "prompts/C5-V1.txt",
+   "qa": {
+    "status": "pending",
+    "notes": "awaiting render"
+   },
+   "headline": "10 weeks on simple setup tasks. My store still isn't live.",
+   "hook": "10 weeks on simple setup tasks. My store still isn't live.",
+   "subhead": "Paying someone to build it fixes the setup. But builders leave the day it goes live, when the real work starts.",
+   "body": "After launch: an early review, corrections, new products. / Products released in stages, tested on a budget you approve. / Built in your name, listings and shipping set up.",
+   "proof": "Shopify's guide for builders: transfer the store “when it's ready to go live.”",
+   "cta_outcome": "Live, not stuck",
+   "audience_cue": "his own handwriting on a sticky note: '10 weeks on simple setup tasks. My store still isn't live.' plus ten tally marks",
+   "scenario": "a starter in week ten of setting up an online store in the evenings (Q-F-0013), still unable to get it live (Q-O-0014); the note on the monitor counts the weeks",
+   "tone": "plain-spoken, straight about limits, stays with you (13 VOICE-1); hook in the starter's own frustrated register (07 AV-03)",
+   "medium": "designed clarity static on flat Paper (#F7F4EE) with faint grain; one photographic pale-yellow sticky note hand-lettered in Ink marker; product element 9597a0b7-58a4-42f0-bdc9-1b2663b1ce17 photographed; flat Fraunces-style/Inter-style type; Pine icons and strip, Ember button only",
+   "composition": "square; tilted sticky note fills the upper-left 45% x 62% with the hand-lettered hook and tally marks; typed subhead spans under it; lower half split: three Pine-icon body lines left, product laptop three-quarter view right at 38% width on the strip edge; one small italic proof line; full-width Pine strip in the bottom 13% with an Ember button centered-right",
+   "reading_path": "sticky-note hook upper-left, down to the full-width subhead, down the lower-left icon list beside the laptop, across the small proof line, to the Ember button bottom-right",
+   "product_role": "product element 9597a0b7 (the store open on a laptop, screen content unchanged) sharp in the lower-right beside the body lines: the 'built in your name' deliverable next to the after-launch list",
+   "cta_candidates": [
+    "Out of setup",
+    "Finished and live",
+    "Live, not stuck"
+   ],
+   "hook_candidates": [
+    "10 weeks on simple setup tasks. My store still isn't live. (WINNER, 14/14; improved from the 09 winner: 'setup' names the object, 'My' fits his handwriting)",
+    "10 weeks on simple tasks. The store still isn't live. (09 winner 14/14, superseded)",
+    "Week 10. Still changing the theme image. (runner-up, wave 2, 12/14)",
+    "Setting up the store: \"a snowstorm of information.\" (runner-up, wave 2, 12/14)",
+    "\"Do I just choose what I want to sell?\" (reserve for AN-17, 11/14)",
+    "Launch day is the starting line, not the finish line. (cut, 3/14)"
+   ],
+   "word_count_on_image": 75,
+   "primary_text": "caption pool",
+   "status": "written",
+   "rationale": "C5 unaware entry for AV-03: the hook is his lived moment in his words (Q-F-0013 + Q-O-0014); the subhead names the LOCK-B mechanism before any build claim (S2 OWNED pond, DNS-19 avoided); body leads with the after-launch page words (PT-04, PT-08), then staged tests (F-05), then ownership (F-11); proof is the platform's own handover line (P-04.AV-03). 75 words on image; gates 7/7.",
+   "hook_proposed": {
+    "text": "10 weeks on simple tasks. The store still isn't live.",
+    "source": "Q-F-0013 + Q-O-0014",
+    "from": "work/09-hook-candidates.md (winner, /14 >=11)"
+   }
+  },
+  {
+   "id": "C5-V2",
+   "concept_id": "C5",
+   "vehicle": "V2",
+   "launch_status": "benched",
+   "persona": "AV3-stuck-starter: weeks in the setup or stuck on the product pick (Q-F-0013, Q-F-0041); age [A] 25-55",
+   "lf8_root": "#5 Comfortable living (secondary #3)",
+   "desire": "MD-04: finally \"get on live\" (Q-O-0014) after \"weeks of overthinking\" (Q-Y-0053)",
+   "angle": "AN-16: the setup was never the wall; the builder's job ends the day the store goes live; a store needs someone after launch day",
+   "angle_source": "AN-16 · Q-F-0013, Q-F-0006, Q-F-0012, Q-F-0018, Q-O-0169 · runner-up AN-17 (wave 2)",
+   "target_belief": "B-03.AV-03",
+   "offer": "T1 \"Start with the $500 Build\" ($500 one-time, PT-01; only live price). Refund only as conditioned (PT-15) or omitted. No T2/T3/bump/OTO/60-day/7-10 days/product count.",
+   "format": "N9 Direct Feed Post",
+   "lane": "clarity lane (A6) · LOCK-B MK-06 · S2 OWNED pond -> Name-it mechanism first, claim second",
+   "destination": "PDP https://readymerce.com (short congruence lander recommended, 01-preflight §3)",
+   "mechanism_match_words": "problem \"left on launch day\" · mechanism \"in stages\" · promise \"we stay after launch day\"",
+   "awareness": "unaware",
+   "sku": "main",
+   "aspect": "1:1",
+   "image_file": "images/C5-V2.png",
+   "prompt_file": "prompts/C5-V2.txt",
+   "qa": {
+    "status": "pending",
+    "notes": "awaiting render"
+   },
+   "headline": "trying to set up my store for weeks. i'm tech savvy and competent. still no simple step by step",
+   "hook": "trying to set up my store for weeks. i'm tech savvy and competent. still no simple step by step",
+   "subhead": "the setup is only half of it. builders hand the store over the day it goes live, then they're gone",
+   "body": "get it built in your name by people who stay after launch. early review, fixes, products added in stages",
+   "proof": "i hired a freelancer to build mine. soon after i launched my store, the nightmare began (composite peer reply built on Q-B-8301; category-typical, never framed as a Readymerce review)",
+   "cta_outcome": "Live, not stuck",
+   "audience_cue": "a lowercase text post in the starter's own words: 'trying to set up my store for weeks. i'm tech savvy and competent. still no simple step by step'",
+   "scenario": "the starter posts his frustration after weeks in the settings (Q-F-0012); a stranger explains that builders hand over the day it goes live; another was left alone after launch (Q-B-8301); the poster saves the thread with a new goal",
+   "tone": "candid forum frustration turning into relief; peer-to-peer, lowercase, no marketing register (07 AV-03 rhythm)",
+   "medium": "candid phone screenshot of a generic light-mode feed post with a reply thread; flat pale blue-grey text card; names and avatars scribbled out by hand; no brand, product, price or offer",
+   "composition": "square screenshot crop: scribbled header row on top, flat pale blue-grey text card taking 42% of the height with three lowercase lines, bare icon row, then four stacked grey comment bubbles with scribbled avatars down the lower half",
+   "reading_path": "large lowercase card text top-left, then down through reply 1, reply 2, reply 3, ending on the poster's own 'new goal' reply at the bottom",
+   "product_role": "none: no product, brand, price or offer on the image (native rule)",
+   "cta_candidates": [
+    "Out of setup",
+    "Finished and live",
+    "Live, not stuck"
+   ],
+   "hook_candidates": [
+    "trying to set up my store for weeks. i'm tech savvy and competent. still no simple step by step (WINNER, 12/14, unchanged)",
+    "when the store was transferred to me, the store was shutdown almost immediately (runner-up, used as a V3 beat, 12/14)",
+    "10 weeks in and the store still isn't live (blocked: shares the V1 stem, 13/14)",
+    "it won't let me get on live at all (cut: 'it' = ?, 8/14)",
+    "no wonder people give up (cut: give up on what?, 7/14)"
+   ],
+   "word_count_on_image": 81,
+   "primary_text": "caption pool",
+   "status": "written",
+   "rationale": "Native mirror of C5: the card is the verbatim live wire (Q-F-0012, pride kept); the belief shift arrives as a stranger's reply (M-1), proof as a lived handover story (Q-B-8301, P-05 category context), the solution requirement in page words (F-11, PT-04), and the CTA as the poster's own goal line. Card 19 words; thread 81 words total; Thumb-Stop PASS by spec.",
+   "hook_proposed": {
+    "text": "trying to set up my store for weeks. i'm tech savvy and competent. still no simple step by step",
+    "source": "Q-F-0012",
+    "from": "work/09-hook-candidates.md (winner, /14 >=11)"
+   }
+  },
+  {
+   "id": "C5-V3",
+   "concept_id": "C5",
+   "vehicle": "V3",
+   "launch_status": "benched",
+   "persona": "AV3-stuck-starter: weeks in the setup or stuck on the product pick (Q-F-0013, Q-F-0041); age [A] 25-55",
+   "lf8_root": "#5 Comfortable living (secondary #3)",
+   "desire": "MD-04: finally \"get on live\" (Q-O-0014) after \"weeks of overthinking\" (Q-Y-0053)",
+   "angle": "AN-16: the setup was never the wall; the builder's job ends the day the store goes live; a store needs someone after launch day",
+   "angle_source": "AN-16 · Q-F-0013, Q-F-0006, Q-F-0012, Q-F-0018, Q-O-0169 · runner-up AN-17 (wave 2)",
+   "target_belief": "B-03.AV-03",
+   "offer": "T1 \"Start with the $500 Build\" ($500 one-time, PT-01; only live price). Refund only as conditioned (PT-15) or omitted. No T2/T3/bump/OTO/60-day/7-10 days/product count.",
+   "format": "N8 Story Snapshot",
+   "lane": "story lane (A6) · LOCK-B MK-06 · S2 OWNED pond -> Name-it mechanism first, claim second",
+   "destination": "PDP https://readymerce.com (short congruence lander recommended, 01-preflight §3)",
+   "mechanism_match_words": "problem \"left on launch day\" · mechanism \"in stages\" · promise \"we stay after launch day\"",
+   "awareness": "unaware",
+   "sku": "main",
+   "aspect": "4:5",
+   "image_file": "images/C5-V3.png",
+   "prompt_file": "prompts/C5-V3.txt",
+   "qa": {
+    "status": "pending",
+    "notes": "awaiting render"
+   },
+   "headline": "Weeks into store setup and still not live",
+   "hook": "Week 10, Tuesday, 9:40pm. I changed the theme image on my store again. That's the fourth one, and the store still isn't live.",
+   "subhead": "I had been asking the wrong question. It was never \"how do I finish this setup.\" It was \"who's still working on it after it goes live?\"",
+   "body": "A store build ends on launch day; the first real information, and every keep, replace and rewrite decision, only arrives after it goes live, which is exactly when the owner is left alone (M-1). The 00 Build: opened in her name, first products from demand and competition data, released in stages, tested on a budget she approves, an early performance review and post-launch corrections (F-01, F-03, PT-04, F-05, PT-08, F-11).",
+   "proof": "The platform's own builder guide: transfer ownership to the client \"when it's ready to go live\" (P-04.AV-03); the page's written after-launch list (P-02.AV-03); category handover stories Q-F-0018, Q-B-8301, Q-F-8303 (P-05, similar context); refund stated only as conditioned (PT-15).",
+   "cta_outcome": "Live, not stuck",
+   "audience_cue": "the Week 10 diary opening (9:40pm, fourth theme image, still not live) and the photo of the desk with the tally-mark sticky note",
+   "scenario": "a composite starter keeps a phone diary through ten weeks in the settings (help pages, bots, product-flipping, a platform restart, reading about builders who left); a neighbour's question at a birthday party reframes it; she finds a build that stays after launch day, checks every term, and ends live in her name with the first written review in hand",
+   "tone": "first-person diary, plain and slightly wry, proud of competence, relief at the end; no hype (07 AV-03, B12)",
+   "medium": "candid iPhone Story Snapshot, night desk lit by a lamp and a blurred settings screen, pale-yellow sticky note with ten tally marks, cold tea; no text, no person, no product",
+   "composition": "4:5 vertical, handheld from standing height looking down 30 degrees, slightly tilted; open laptop and tally-mark sticky note in the upper-middle third; cold mug, face-down phone, crossed-out notepad and cable scattered in the lower third; lamp pool of warm light left, dark window behind",
+   "reading_path": "eye lands on the sticky note's ten tally marks on the laptop bezel, drops to the cold mug and scribbled notepad, and rests on the dark blurred screen",
+   "product_role": "none: no product, brand, price or offer in the story image (B14)",
+   "cta_candidates": [
+    "Out of setup",
+    "Finished and live",
+    "Live, not stuck"
+   ],
+   "hook_candidates": [
+    "Week 10, Tuesday, 9:40pm. I changed the theme image again. That's the fourth one. The store still isn't live. (09 B5 H1, adapted as final H1)",
+    "I'm tech savvy and competent, and I cried over a shipping settings page. (09 B5 H2, not used: the tears in Q-F-0018 belong to the handover story)",
+    "There's a sticky note on my monitor with ten tally marks, one for every week I've told myself the store goes live this weekend. (09 B5 H3, adapted as H2)",
+    "My friend paid someone to build hers so she could get started quickly. It was shut down almost immediately after they handed it over. (09 B5 H4, used as a body beat)",
+    "\"Do I just choose what I want to sell?\" was the last thing I typed before I closed the laptop for a month. (09 B5 H5, not used: AN-17 territory)"
+   ],
+   "word_count_on_image": 0,
+   "primary_text": "Week 10, Tuesday, 9:40pm. I changed the theme image on my store again. That's the fourth one, and the store still isn't live.\n\nTonight I pressed the go-live button one more time. \"Something went wrong.\" It won't let me get on live at all, and nothing on the screen says why.\n\nI want to be clear about one thing, because I know how this sounds. I'm tech savvy and competent. I run the front desk at a dental office. I cannot find a simple step by step for this.\n\nTen weeks on simple tasks.\n\nMy sister thinks the store is almost done. I've been saying \"almost done\" since week four.\n\nWhat scares me isn't the money. It's becoming the person who built a whole store and never launched it.\n\nI didn't know yet that a woman I'd never met, standing by a cooler at my nephew's birthday party, was about to tell me I'd been asking the wrong question the whole time.\n\nI should back up. I kept notes on my phone the whole way through. Here they are, mostly the way I wrote them.\n\nWeek 1, Sunday. Opened the account. Picked a theme. Bought a domain the same night. Figured I'd be live by Friday. Normal people set up stores all the time, right?\n\nWeek 2, Monday. First monthly charge for the plan. Zero products listed, and I'm already paying for it.\n\nWeek 3, Thursday. Third night in the help pages. Tons of links, like a snowstorm of information, but nothing that actually helps me! Just performing one task is a marathon of reading.\n\nWeek 4. Tried the chat. Then the bot. Then email. The bot sent me the same article three times. Never an answer to the basic question, which was how to put my own photo on the front page.\n\nWeek 5, Saturday. It's asking me for my first product. Do I just choose what I want to sell? Candles on Monday. Dog bandanas by Wednesday. Phone stands on Friday. I have a spreadsheet full of product ideas and zero products. I keep jumping from one idea to another.\n\nWeek 6, Friday. Skipped dinner with my friends to fight the shipping settings. Told them I had a migraine. What I actually had was a shipping profile that wouldn't save. Got stuck four times on one page.\n\nWeek 7. Cancelled the whole thing and started over. Second attempt, same spot. Now I'm eyeing a different platform, which I know is just starting over with extra steps.\n\nWeek 8. YouTube on my lunch break, YouTube at 11pm with my tea going cold by the trackpad and my eyes burning. I watched one nine-minute video three times for a thirty-second answer. The one thing in the video never looks like the one thing on my screen. It's intensely time consuming and aggravating.\n\nWeek 9, Wednesday. Opened a tab to pay somebody to build it. Then I read what happened to people who did.\n\nOne woman had someone build her store so she could get started quickly. When it was transferred to her, it was shut down almost immediately, and she wrote that she was in tears.\n\nAnother hired a freelancer, and soon after the store launched, \"the nightmare began.\" A man paid two different experts and it still wasn't making sales.\n\nSame chapter every time. Built, handed over, then nothing.\n\nThat night, around 1am, I went looking for why. I ended up in the platform's own guide for people who build stores for clients. It tells them to transfer ownership to the client \"when it's ready to go live.\"\n\nI read that line five times, and then every one of those posts made sense.\n\nA store build is a project, and its end date is launch day. Nothing sneaky about it. It's the job description. The builder works on the store while it's closed, hands it over the moment it opens, and moves on to the next one.\n\nBut a store that isn't open can't tell anyone anything. Nobody has visited. No product has been tested. The first real information only starts arriving after it goes live: which products people click, which listings they leave, what a small ad test shows.\n\nEvery decision that shapes a new store runs on that information. Which product stays. Which one gets replaced. Which listing gets rewritten. What goes up next.\n\nThink of a contractor who builds a restaurant and hands over the keys the night before opening. The building can be perfect. The first week is still when you find out which dishes people order and which ones come back to the kitchen.\n\nAnd the contractor is long gone by then. He should be. That was never his job.\n\nSo the weeks right after launch are where a new store is made or lost, and that is exactly when the owner gets left alone. Those people didn't pick bad builders. They bought a job that ended on launch day.\n\nI closed the tab. Fine, I thought. I'll finish it myself.\n\nWeek 10, Tuesday. Fourth theme image. Still not live. I drew the tenth tally mark on the sticky note stuck to the corner of my laptop, one for every Sunday I'd told myself this is the weekend it goes live. Then I put the laptop on the floor so I wouldn't have to look at it.\n\nThat's when it hit me. Even if I finished, I'd be standing alone in that restaurant on opening night, with nobody in the kitchen. Maybe the techies really are the only ones who understand this. No wonder people give up.\n\nWeek 10, Saturday. My nephew's seventh birthday. I was refilling the ice in my sister's kitchen when her neighbor came in for a lighter. My sister announced I'm opening an online store, and the neighbor asked when it goes live.\n\n\"Almost done,\" I said.\n\nShe laughed, not meanly. She'd paid someone to build hers last year. \"Everybody warned me about the setup,\" she said. \"The setup was the part he did. It was the week after that I needed somebody.\"\n\nThen she said the thing I wrote on the back of my hand. \"Next time, before I pay anyone, I'm asking one question. What do you do the week after it goes live?\"\n\nI had been asking the wrong question. First it was \"how do I finish this setup,\" then \"can I finish it myself.\" It was never either one. It was \"who's still working on it after it goes live?\"\n\nWeek 11, Monday. I typed her question into a search bar.\n\nOne page answered it as a list, which is the only way I trust anything anymore. It was on a site called Readymerce. For after the store goes live: an early performance review, post-launch corrections, ongoing listing optimisation and new product rollout. Products released in stages. Ad testing with budgets you approve.\n\nI didn't trust it. I'd just read about people who paid for a store and got left holding it. And part of me still thought, what would stop me from just doing this myself?\n\nTen tally marks, that's what.\n\nSo I checked everything before paying a cent. The $500 is one time. Product costs, platform fees and ad spend are extra, and the page says so up front. The store is in my name and stays in my name. Payouts go to my own bank account.\n\nThere's even a line saying they make no income guarantees, which, weirdly, is what made me book the call.\n\nOn the call I asked what I'd been too embarrassed to ask anyone: is it something I have to run on my own? How much work they keep doing after launch gets agreed right there, with the platform and the scope. I wrote it all down.\n\nI read the refund terms twice, too. Seven days from payment, on the $500 fee only, and it ends if you accept delivery, buy any add-on or ask for more work. At least it was in writing.\n\nI paid. That night I closed the laptop before ten, and I stopped counting weeks.\n\nThe morning it went live, I opened it on my phone in the break room and looked at the owner field. My name. Mine, and it stays mine. I hadn't touched a single setting.\n\nThe first products weren't me flipping between candles and dog bandanas at midnight. They came from research on what people search for and how crowded it is, went up in stages, and each got a small ad test on a budget I approved between two patients.\n\nThen the week after happened, with somebody in the kitchen.\n\nThe first written review came in. What to keep. What to replace. Which listing needed rewriting. What goes up next. The corrections got made. Nobody sent me a tutorial.\n\nMy sister opened the store on her phone at dinner, scrolled for a long time, and said, \"Wait. This is actually yours?\" She's stopped asking when it goes live.\n\nIt's Tuesday again, 9:40pm, and I'm not in the settings. The listings are up. Someone who isn't me is reading how they're doing and telling me what they'd change next. I approve what needs approving and close the laptop.\n\nThe sticky note with ten tally marks is in my desk drawer. I kept it on purpose.\n\nIf I could tell week-one me one thing: the setup was never the wall. It really is a maze, and being stuck in it said nothing about me.\n\nBut it's only the half that ends on launch day. The half that decides a store starts after, and without someone there, you get left on launch day.\n\nWhat I needed was a store built in my name, products going live in stages, and people who stay after launch day. For me that started with the $500 Build.\n\nEvery week I spent in the settings was another week the store I started didn't exist. If there's a note on your screen counting weeks, ask the neighbor's question before you pay anyone.\n\nThere's a new note on my laptop now. Three words.\n\nLive, not stuck.",
+   "status": "written",
+   "rationale": "THE ONE belief B-03.AV-03 installed through a dated diary (S15) with the S24 wrong-question pivot: the research night on the platform's own handover line gives the aha, a stranger's question at a family party (55.3%) turns it into the right question, and the product enters only as the page that answers it (64.9%). Result at rung 2, full strength, every Before mirrored; refund only as conditioned; 1,686 words.",
+   "v3_image_type": "N8 Story Snapshot",
+   "pov": "the customer (composite, first person, diary form)",
+   "story_concept": "#11 The diary",
+   "swipe_models": [
+    "S15",
+    "S24"
+   ],
+   "story_words": "900-1,700 (trio V3); 1,200-1,700 per handoff story_briefs",
+   "hook_variants_start": "work/09-hook-candidates.md §B5 (C5)",
+   "conviction_map": "work/08-concept-slate.md C5",
+   "description": "Built in your name, and still worked on after launch day.",
+   "cta_button": "Shop Now",
+   "story_hooks": [
+    {
+     "id": "H1",
+     "class": "Specific-moment scene with a timestamp",
+     "text": "Week 10, Tuesday, 9:40pm. I changed the theme image on my store again. That's the fourth one, and the store still isn't live.",
+     "trace": "Q-F-0013 · Q-O-0014",
+     "in_place": true
+    },
+    {
+     "id": "H2",
+     "class": "The strange object",
+     "text": "A sticky note on my laptop has ten tally marks on it, one for every Sunday I swore my store would go live that weekend.",
+     "trace": "Q-F-0013"
+    },
+    {
+     "id": "H3",
+     "class": "Emotional contradiction",
+     "text": "Everyone at work calls me when the computers act up. My own store has beaten me for ten weeks straight.",
+     "trace": "Q-F-0012 · Q-F-0013"
+    },
+    {
+     "id": "H4",
+     "class": "Confession",
+     "text": "I haven't told anyone at work that I have an online store. It's been ten weeks, and it has never once been live.",
+     "trace": "Q-O-0153 · Q-O-0014"
+    },
+    {
+     "id": "H5",
+     "class": "Private 3am realization",
+     "text": "Twenty-two help tabs open at 1am, and not one of them has gotten my store any closer to live.",
+     "trace": "Q-F-0006 · Q-O-0014"
+    }
+   ],
+   "story_word_count": 1686,
+   "b16": "20/20",
+   "chance_discovery_position": "55.3%",
+   "product_entry_position": "64.9%"
+  }
+ ],
+ "captions": [
+  {
+   "id": "CAP-01",
+   "tone": "calm, peer-to-owner, quietly wry; plain-spoken, straight about limits (13 VOICE-1)",
+   "structure": "A familiar moment: the idle stores in the admin (scene) -> belief shift with its reason (a built store is not a running store; the build ended when the store was ready, so nobody was assigned to what comes after) -> the $500 Build told in time order (before launch / at launch / after launch) -> who does what -> ownership -> limits, one-time price and the conditioned refund in one paragraph -> cost of waiting -> CTA",
+   "text": "You run a business, and somewhere in your admin there's an online store that's built and just sitting there. Maybe three or four of them.\n\nYou open the dashboard to check on something else, and there they are. Logo done. Pages done. Ready to be loaded. Nobody has touched them in months, maybe years, because the business in front of you needed you first. The marketing slowed down, the week filled up, and the stores waited.\n\nHere's the part nobody says out loud. A built store is not a running store. What decides a store comes after it goes live: choosing the first products, testing them, reading the results, replacing what doesn't sell. The build ended when the store was ready, so nobody was ever assigned to that part. Your stores didn't fail. Nobody was on them.\n\nSo Readymerce built the $500 Build around the part after launch. In order:\n\nBefore launch: a fit call to agree the platform (Shopify or Etsy) and scope with you. Research on demand and competition picks your niche and first products from data, not a hunch. Then a new store, opened in your name, with the logo, banner, structure, listings and shipping profiles done.\n\nAt launch: products go live in stages instead of one big drop. They get small, controlled ad tests on a budget you approve.\n\nAfter launch: an early performance review, in a report you can read, on what to keep, replace or roll out next. Then the corrections: ads monitored and adjusted, listings worked on.\n\nYou approve the budgets and read the reports. We do the testing, the adjustments and the listing work.\n\nThe store account is in your name and stays in your name. Payouts go to your bank account. The brand, listings and images belong to you.\n\nThe $500 is one-time and doesn't cover ad spend, product costs or platform fees. Ongoing work after launch is agreed on that fit call, and any fee for it is quoted there. There's a 7-day refund on the $500 fee, counted from the day you pay. It ends early if you approve the delivered store, buy any add-on or upgrade, or ask for more work. And we don't promise sales or income. Nobody honest can.\n\nEvery month those stores sit is another month with nothing tested.\n\nNot just sitting."
+  },
+  {
+   "id": "CAP-02",
+   "tone": "blunt, on-your-side, no hype; honours the burned buyer's distrust instead of arguing with it",
+   "structure": "Failed attempts: the closed store and every workaround tried -> the skepticism honoured -> belief shift with its reason (the store got one shot; more clicks on one product cannot find a product) -> the product explained as a last-time / this-time contrast, one line per failed try -> ownership -> every limit and the conditioned refund framed for someone who lost money before -> loss line -> CTA",
+   "text": "Closed a Shopify store because the product didn't sell? Maybe you've closed two.\n\nYou didn't give up early. You ran more ad sets, tried different interests, cleaned up the product pages, maybe paid someone to redo the site. Hundreds of clicks came in. The orders didn't. At some point it was close the store or keep losing money.\n\nYou're tired of people selling this like it's nothing. It isn't. You know that better than they do.\n\nHere's what nobody told you. Your store didn't prove you can't do this. It got one shot. One product, one push, and when it missed, the whole store went with it. More clicks on the same product only tell you the same thing again. What finds a product that sells is testing several, small, and reading the results before anything grows.\n\nThat's the idea behind the $500 Build from Readymerce. Next to last time:\n\nLast time, you picked the product. This time, research on demand and competition picks the niche and first products.\nLast time, one product carried the whole store. This time, products go live in stages, not one big drop.\nLast time, ad spend ran until the money ran out. This time, products get small, controlled ad tests on a budget you approve.\nLast time, you read the numbers alone. This time, an early performance review arrives in a report you can read: keep, replace, or roll out the next.\nLast time, you were alone after launch. This time, we're still there making corrections.\n\nThe store is built on Shopify or Etsy, opened in your name and kept in your name. Payouts go to your own bank account.\n\nYou've lost money before, so here's every limit up front. The $500 is a one-time fee. It doesn't cover ad spend, product costs or platform fees. Ongoing work after launch is agreed on a fit call, where the platform and scope are set, and any fee for it is quoted there. The 7-day refund counts from the day you pay and covers the $500 only. It ends early, even inside those 7 days, if you approve the delivered store, buy any add-on or upgrade, or ask for further work. We don't promise sales.\n\nWalk away now and that one-shot store gets the last word on whether this works for you.\n\nA second shot."
+  },
+  {
+   "id": "CAP-03",
+   "tone": "warm, practical, day-shaped; respects the salary as the sensible choice",
+   "structure": "An interrupted activity: one workday, the store interrupted four times -> the quit question and the sensible answer -> belief shift with its reason (keeping the salary is the safe part; the store's working hours never had to be his) -> the product explained by replaying the same day with the $500 Build (drive in / morning / lunch / after the shift) -> his part -> ownership -> the fine print and the conditioned refund, read on a break -> now line -> CTA",
+   "text": "Got a full-time job and a store that only gets you after hours? You know how the day goes.\n\nOn the drive in, you're thinking about the product listings. At lunch you open the laptop, get ten minutes in, and a meeting pulls you back. After the shift you sit down to it, too tired to think. The store gets whatever is left, and some weeks that's nothing.\n\nSomewhere in there you wonder about quitting to go all in. Then the sensible part of you answers: I earn good money now. I don't want to quit and then start struggling.\n\nThat part of you is right. Keeping your salary is the safe part of the plan, not the thing in the way. What's in the way is that the store's working hours were always yours, squeezed into the edges of the day. They don't have to be.\n\nHere's the same day with the $500 Build from Readymerce.\n\nOn the drive in, no setup is waiting for tonight. The store was built on Shopify or Etsy, in your name, with the niche and first products chosen from research on demand and competition.\n\nThrough the morning, products go live in stages, running small, controlled ad tests on a budget you approved. We monitor and adjust the ads.\n\nAt lunch, you read the early performance review, a report on what to keep, what to replace and what comes next.\n\nAfter the shift, the listing fixes aren't waiting for you. The corrections after launch are our job.\n\nYour part: approve the budgets, read the reports, make the calls. The store account stays in your name, and payouts go to your bank account.\n\nThe fine print, in plain words. The $500 is one-time and doesn't include ad spend, product costs or platform fees. Ongoing work after launch is agreed on a fit call, where the platform and scope are set, and any fee for it is quoted there. The 7-day refund counts from the day you pay and covers the $500 fee. It ends early if you approve the delivered store, buy any add-on or upgrade, or ask for more work. Read the terms on a break, before you pay. No income promise, and your job stays your job.\n\nWaiting until you feel ready means no product gets tested this month either.\n\nKeep the paycheck."
+  },
+  {
+   "id": "CAP-04",
+   "tone": "plain, itemised, candid; answers the buying question line by line and invites checking",
+   "structure": "An honest explanation: the buying question (what does $500 pay for) -> belief shift with its reason (two things to check before paying anyone: whose name the store account is in, and whether the builder stops at launch) -> the full line-by-line list for the $500 -> proof against the two checks (ownership, after-launch work) -> exclusions -> the refund in plain words with every condition -> no-pressure close -> CTA",
+   "text": "What does $500 actually pay for? If you've paid someone to build a store before and ended up building half of it yourself, that's the first thing to ask. Here's the straight answer from Readymerce.\n\nTwo things are worth checking before you pay anyone to build a store, us included. Whose name is the store account in? If it sits in the builder's account, you can end up locked out of a store you paid for. And what happens the day after it goes live? If the builder's job ends at launch, you're alone with the part that decides whether anything sells.\n\nThe full list for the $500 Build (on our pricing page, the Store Build & Research Package):\n\nResearch on search demand, seasonality and competition to choose your niche and first products.\nA fit call, where the platform (Shopify or Etsy) and the scope get agreed with you.\nA supplier and production check.\nBrand name direction, logo, banner and store structure.\nProduct listings with titles, tags, descriptions, images and variants.\nShipping profiles set up.\nProducts released in stages, not one big drop.\nControlled ad tests on budgets you approve, with the ads monitored and adjusted.\nAn early performance review, in a report you can read.\nCorrections after launch, with the level of ongoing work agreed on the fit call.\n\nOn the two checks. The store is opened in your name and stays in your name. Payouts go to your bank account. The brand, listings, images and store assets belong to you. And the review and corrections happen after launch, so the job doesn't end when the store opens.\n\nWhat the $500 doesn't include: ad spend, product costs, platform fees like your Shopify plan, and any promise of income or sales. It isn't a template pack. Any fee for ongoing work beyond the list is quoted on the fit call.\n\nThe refund, in plain words. The $500 is paid once, with a 7-day refund counted from the day you pay. It covers the $500 fee only, never ad spend, platform fees, domain, apps or supplier costs. It ends early, even inside the 7 days, if you approve the delivered store, buy any add-on or upgrade, or ask for further work.\n\nIf the money isn't there yet, waiting is the right call. When it is, check every line of this first.\n\nIn your name."
+  },
+  {
+   "id": "CAP-05",
+   "tone": "warm, direct letter from the team; agrees the setup is a maze, then moves the finish line",
+   "structure": "A personal brand letter: addressed note -> the evenings acknowledged (theme editor, help-doc snowstorm, capability honoured) -> belief shift with its reason (yes, the setup is a maze, but live is the starting line; a builder who leaves at launch leaves you with the part that decides it) -> the build told briefly, the after-launch work told at length -> ownership -> what we won't promise, the one-time price and the conditioned refund -> cost of waiting -> CTA",
+   "text": "From the Readymerce team, to anyone who has spent weeks setting up a store that still isn't live.\n\nWe know what those evenings look like. The theme editor open. A help article that links to three more, a snowstorm of information, and none of it answers your question. One small task that turns into a whole night of reading. You're tech savvy and competent. That was never the problem. And still, weeks in, the store won't go live.\n\nSo here's what we'd want you to hear before you give up on it, or pay someone to finish it.\n\nThe setup really is a maze. But getting the store live isn't the finish line. It's the starting line. What decides whether a store works comes after launch day: choosing the first products, testing them, reading the results, replacing what doesn't sell. If whoever builds your store hands it over on launch day and leaves, you're alone with exactly that part.\n\nThat's the part we built the $500 Build around.\n\nYes, we build the store. After a fit call to agree the platform (Shopify or Etsy) and scope, we research demand and competition to choose your niche and first products, then set up the store in your name with the logo, banner, structure, listings and shipping profiles done.\n\nThen comes the part that matters. Products go live in stages instead of one big drop. They get small, controlled ad tests on a budget you approve, and we monitor and adjust the ads. You get an early performance review, in a report you can read. After launch we're still there, making the corrections.\n\nThe store stays in your name. Payouts go to your bank account. The brand, listings and images belong to you.\n\nWe'll be straight about the rest, too. The $500 is paid once and doesn't cover ad spend, product costs or platform fees. Ongoing work after launch is agreed on the fit call, and any fee for it is quoted there. The 7-day refund runs from the day you pay and covers the $500 fee only. It ends early if you approve the delivered store, buy any add-on or upgrade, or ask for further work. And we don't promise income or sales.\n\nEvery month in the settings is another month without a single product tested.\n\nLive, not stuck."
+  }
+ ],
+ "headlines": [
+  {
+   "id": "HL-01",
+   "text": "Built a store that's just sitting there?"
+  },
+  {
+   "id": "HL-02",
+   "text": "What the $500 covers, and what it doesn't"
+  },
+  {
+   "id": "HL-03",
+   "text": "Your store in your name, not left at launch"
+  },
+  {
+   "id": "HL-04",
+   "text": "$500 to give your store more than one shot"
+  },
+  {
+   "id": "HL-05",
+   "text": "Full-time job? Your store can still get tested."
+  }
+ ],
+ "missing_fragments": []
+}

@@ -1,0 +1,27 @@
+Create one finished square 1:1 static feed ad, 1080 x 1080 px, filling the whole canvas edge to edge. No device frame, no mockup border, no page number, no production labels.
+
+AUDIENCE AND MOMENT: US adults aged 25 to 50 with a steady full-time job who want an online store of their own but will not quit the job to start one. Awareness: solution aware. The moment: early morning before the shift, the work ID badge lying on the kitchen table beside the laptop where the store is already open. One point: keeping the salary is the safe part; the store can start beside the job on small tests the owner approves. Vehicle: designed clarity static, Avatar Callout layout. Angle: keep the salary, start beside the job. Belief shift: starting only feels like betting the paycheck because stores launch as one shot.
+
+MEDIUM AND STYLE: a calm, plain-spoken editorial print layout on a warm paper background, combined with one photographic inset. Not glossy, not a tech dashboard, not a stock-photo collage.
+
+READING ORDER: (1) the hook at top left, (2) the subheadline directly under it, (3) three short body lines with small icons in the lower-left column, (4) the proof line under the body, (5) the orange CTA button at bottom left. The photograph sits in the lower-right column and never covers any text.
+
+EXACT TEXT MANIFEST. Render every string exactly as written, spelling, capitals and punctuation unchanged, and add no other words:
+1. HOOK, top left, the largest type on the canvas, two lines, Ink #1C1C1A, a soft sturdy serif similar to Fraunces, bold. Line 1: "Earn good money now?" Line 2: "Don't quit to start a store."
+2. SUBHEADLINE, directly under the hook, about half the hook's size, Pine #1F3A34, a clean sans serif similar to Inter, regular weight, up to three lines: "Starting a store only feels like betting the paycheck when it launches as one shot: one guessed product, after hours."
+3. BODY, lower-left column, three separate lines in Ink #1C1C1A, clean sans serif, medium weight, each line preceded by a small simple Pine #1F3A34 line icon (icon 1: an ID badge on a lanyard; icon 2: three ascending steps; icon 3: a check mark inside a circle):
+   Line 1: "Keep the salary. Keep your evenings."
+   Line 2: "Products go live in stages, each on a small test."
+   Line 3: "You approve the budget. The team runs the tests."
+4. PROOF, under the body, separated from it by a thin Pine #1F3A34 horizontal rule, smaller Ink #1C1C1A sans serif: "The store stays in your name. Payouts go to your bank. No income promises."
+5. CTA, bottom left, a rounded rectangular button filled Ember #E0621F with its label in Ink #1C1C1A, sans serif, semibold: "Start without quitting"
+
+ART DIRECTION AND GEOMETRY: background Paper #F7F4EE across the whole canvas. The upper 40 percent is a clean text field holding the hook and subheadline. The lower-right column (about 48 percent of the width, the lower 58 percent of the height) is a photographic inset with softly rounded corners: a real wooden kitchen table in soft early-morning window light; on it, the store open on a laptop from the product reference, screen content unchanged, sharp and in focus, seen in three-quarter view; beside the laptop a plain dark lanyard with a blank white work ID badge (no text, no photo, no logo), a set of car keys and a brushed steel travel mug. Realistic shadows, gentle depth of field, no people, no hands. Palette: Pine #1F3A34 for the subheadline, the icons and the rule; Ember #E0621F only on the CTA button and nowhere else; Ink #1C1C1A for text; Paper #F7F4EE for the background. Margins of at least 64 px, strong contrast, natural line breaks, every line readable at phone size.
+
+PRODUCT REFERENCE: use the Higgsfield product element 9597a0b7-58a4-42f0-bdc9-1b2663b1ce17 ("readymerce-store-laptop") in the image-reference role. Show the store open on a laptop from the reference, screen content unchanged. Do not redraw, relabel or add interface text, logos or brand names on the screen or the laptop body. Do not invent a second device.
+
+INCIDENTAL TEXT: the badge, lanyard, keys, mug and table carry no writing. No words anywhere except the five manifest strings.
+
+EXCLUSIONS: no logo, no wordmark, no brand name, no price, no dollar sign, no discount burst, no star ratings, no review quotes, no testimonial, no seals or badges, no stickers, no people, faces or hands, no extra headline, no invented numbers or statistics, no em dashes, no orange anywhere except the CTA button, no dark console-style interface, no glossy stock-photo look.
+
+NEGATIVE PROMPT: logo, watermark, brand name, wordmark, price tag, dollar sign, sale burst, stars, rating, review card, seal, badge text, extra text, misspelled words, garbled letters, people, face, hands, second laptop, phone screen, dark UI, neon, lens flare, glossy 3D render, em dash.
