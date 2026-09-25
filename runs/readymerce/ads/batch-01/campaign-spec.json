@@ -1,0 +1,95 @@
+{
+ "_purpose": "Paused-campaign build spec for Meta Ads Manager. Nothing has been created in any ad account. Fill every OPERATOR_* field, then build or ask the orchestrator to build it PAUSED in the named account.",
+ "ad_account_id": "OPERATOR_FILL (candidates seen: Stride 1522151579591964 GBP, Skin 2840958756273447 USD, Nocta 1013448741395150 GBP \u2014 all under business Readymerce 1461594885738703; none is confirmed as Readymerce's own marketing account)",
+ "page_id": "OPERATOR_FILL (the Readymerce Facebook page)",
+ "pixel_id": "OPERATOR_FILL",
+ "conversion_event": "OPERATOR_FILL (Lead/Schedule for booked call, or Purchase if the pixel fires on payment)",
+ "campaign": {
+  "name": "RM-ABO-01-LAUNCH3",
+  "objective": "OUTCOME_LEADS (switch to OUTCOME_SALES if the event is Purchase)",
+  "buying_type": "AUCTION",
+  "budget_optimization": "ABO (skill A19: under ~$150/day)",
+  "status": "PAUSED",
+  "special_ad_categories": "OPERATOR_FILL (none expected; confirm)"
+ },
+ "adsets": [
+  {
+   "name": "C1-AV7-owner-automate",
+   "daily_budget_usd": 33.33,
+   "optimization_goal": "conversion event above",
+   "targeting": {
+    "countries": [
+     "US"
+    ],
+    "age_min": 18,
+    "age_max": 65,
+    "genders": "all",
+    "detailed": "broad",
+    "exclusions": "customer list + booked-call list (OPERATOR_FILL)"
+   },
+   "placements": "automatic",
+   "start_time": "00:00 account time",
+   "ads": [
+    "C1-V1",
+    "C1-V2",
+    "C1-V3"
+   ]
+  },
+  {
+   "name": "C2-AV1-store-died",
+   "daily_budget_usd": 33.33,
+   "optimization_goal": "conversion event above",
+   "targeting": {
+    "countries": [
+     "US"
+    ],
+    "age_min": 18,
+    "age_max": 65,
+    "genders": "all",
+    "detailed": "broad",
+    "exclusions": "same"
+   },
+   "placements": "automatic",
+   "start_time": "00:00 account time",
+   "ads": [
+    "C2-V1",
+    "C2-V2",
+    "C2-V3"
+   ]
+  },
+  {
+   "name": "C3-AV4-paycheck-side",
+   "daily_budget_usd": 33.33,
+   "optimization_goal": "conversion event above",
+   "targeting": {
+    "countries": [
+     "US"
+    ],
+    "age_min": 18,
+    "age_max": 65,
+    "genders": "all",
+    "detailed": "broad",
+    "exclusions": "same"
+   },
+   "placements": "automatic",
+   "start_time": "00:00 account time",
+   "ads": [
+    "C3-V1",
+    "C3-V2",
+    "C3-V3"
+   ]
+  }
+ ],
+ "ads": "filled by the orchestrator from batch.json after P2/P4: per ad {name, adset, image (full-res rawUrl + Higgsfield job_id; local proof copy in images/), primary_text (V1/V2: caption from the pool per work/pairing-map.md; V3: the story with 5 hook text options), headline, description, cta_button:'SHOP_NOW', destination:'https://readymerce.com', url_params:'utm_source=meta&utm_campaign=RM-ABO-01&utm_content=<ad id>'}",
+ "benched": [
+  "C4-V1",
+  "C4-V2",
+  "C4-V3",
+  "C5-V1",
+  "C5-V2",
+  "C5-V3",
+  "videos C1/C2/C3 (scripts)"
+ ],
+ "rules_reference": "test-plan.md \u00a72\u2013\u00a75",
+ "status": "SPEC ONLY \u2014 not built"
+}
