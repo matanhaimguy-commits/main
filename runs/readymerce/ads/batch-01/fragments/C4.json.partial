@@ -1,0 +1,243 @@
+[
+ {
+  "id": "C4-V1",
+  "concept_id": "C4",
+  "vehicle": "V1",
+  "launch_status": "benched",
+  "persona": "AV2-paid-got-nothing: paid a builder or vendor, got a half-done or locked store (Q-F-0004, Q-O-0062); age [A] 35-60 (13 §5); awareness AW-4",
+  "lf8_root": "#3 Freedom from fear of being taken again (Q-O-0062, Q-O-0073); secondary #6 vindication (Q-B-0004)",
+  "desire": "MD-04: \"I would just link into the store once it is finished\" (Q-F-0005), in her own name (handoff lists AN-13 under MD-01; MD-04 kept per slate)",
+  "angle": "AN-13: the burned stores went wrong in two checkable places: the store sat in the builder's account, and the builder stopped on launch day. Check both before you pay.",
+  "angle_source": "AN-13 · AV-02 cares because \"they said they would build a store, but i am building the store???\" (Q-F-0004) and \"now I can't access it, contact an administrator which should be me\" (Q-F-0001) · also Q-O-0062, Q-O-0073, Q-O-0102, Q-Y-0004 · runner-up AN-15 (wave 2)",
+  "target_belief": "B-02.AV-02",
+  "offer": "T1 \"Start with the $500 Build\" ($500 one-time, PT-01/F-12): store opened in your name (F-01, F-11), payouts to your bank (F-11), staged release with ad tests on budgets you approve (PT-04, F-05), early performance review and post-launch corrections (PT-04, PT-08); excludes product costs, platform fees, ad spend, any income guarantee (PT-05); refund only as conditioned (PT-15). No T2/T3/bump/OTO/60-day/duration/product count/urgency.",
+  "format": "A8a #4 Us vs Them (split frame)",
+  "lane": "clarity lane (A6) · LOCK-B MK-06 + NI-04 ownership · S4 (ASSUMED) -> LOCK-B made surer + New Information · contradiction route (GO-AV-02)",
+  "destination": "PDP https://readymerce.com (LOCK-B congruence lander recommended, 01-preflight §3)",
+  "mechanism_match_words": "problem \"left on launch day\" · mechanism \"a budget you approve\" · promise \"in your name; we stay after launch day\" (only \"in your name\" and \"budgets you approve\" are live on the page; C4 never prints \"we stay after launch day\")",
+  "awareness": "product aware",
+  "sku": "main",
+  "aspect": "4:5",
+  "image_file": "images/C4-V1.png",
+  "prompt_file": "prompts/C4-V1.txt",
+  "qa": {
+   "status": "pending",
+   "notes": "awaiting render"
+  },
+  "headline": "\"Contact an administrator.\" On the store I paid for.",
+  "hook": "\"Contact an administrator.\" On the store I paid for.",
+  "subhead": "The store builds that took people's money went wrong in two places. Check both before you pay.",
+  "body": "Once the store is finished and live, the team reviews the first results and makes corrections.",
+  "proof": "In writing: “The store account is in your name and stays in your name.”",
+  "cta_outcome": "In your name",
+  "audience_cue": "\"Contact an administrator.\" On the store I paid for. (the lock-out line only a paid-and-locked-out buyer recognises)",
+  "scenario": "split frame: last time (store owner: the builder; after launch day: nobody) vs the $500 Build (store owner: you; after launch day: the team), with the store open on a laptop in the winning Pine panel",
+  "tone": "plain-spoken, straight about limits, stays with you (13 VOICE-1); her register: guarded, checks before paying (07 AV-02)",
+  "medium": "designed clarity static: flat Paper #F7F4EE layout with fine paper grain, crisp vector split panels, Fraunces-like serif + Inter-like sans; palette Pine #1F3A34 / Ember #E0621F (CTA only) / Ink #1C1C1A / Paper; one photographic element: product element 9597a0b7-58a4-42f0-bdc9-1b2663b1ce17",
+  "composition": "4:5 two-panel vertical split under a full-width Paper header band; left warm-grey panel with an Ink padlock-over-blank-login icon, right Pine panel with the product laptop in its lower half; two row-label pills straddling the seam; full-width proof band; Ember CTA button bottom right",
+  "reading_path": "hook across the top, subhead, left then right column headers, row 1 (seam label, left cell, right cell), row 2, body above the laptop in the Pine panel, proof band, CTA button bottom right",
+  "product_role": "Higgsfield product element 9597a0b7-58a4-42f0-bdc9-1b2663b1ce17: the store open on a laptop from the reference, screen content unchanged, sharp, lower half of the right Pine panel beside the body; environment element de8b79fa not used",
+  "cta_candidates": [
+   "In your name",
+   "Check it first",
+   "Yours to check"
+  ],
+  "hook_candidates": [
+   "\"Contact an administrator.\" On the store I paid for. | Q-F-0001 | 14/14 | WINNER",
+   "Locked out of the store I paid $4,500 for. | Q-F-0001 + Q-O-0062 | 13/14 | runner-up wave 2",
+   "Paid a builder? Check whose name is on the store. | NI-04 + Q-F-0001 | 10/14 | cut",
+   "Before you ask if a store will sell, ask whose name is on it. | NI-04 | 8/14 | cut",
+   "\"I gave somebody $4,500, and they took my money.\" | Q-O-0062 | 10/14 | cut",
+   "\"your store is half-ass done\" | Q-F-0002 | 11/14 | runner-up native wave 2"
+  ],
+  "word_count_on_image": 75,
+  "primary_text": "caption pool",
+  "status": "written",
+  "rationale": "THE ONE belief B-02.AV-02 shown as a comparison she can check: the two places her last build failed (store owner, after launch day) against the $500 Build's answers (F-11, PT-04). Hook = her own lock-out line (Q-F-0001, 14/14). Proof = the written ownership commitment (P-03, BIG PROOF). CTA = the page's own words. Us vs Them form borrowed from CR-05 (form only). 75 words; gates 7/7.",
+  "hook_proposed": {
+   "text": "\"Contact an administrator.\" On the store I paid for.",
+   "source": "Q-F-0001",
+   "from": "work/09-hook-candidates.md (winner, /14 >=11)"
+  },
+  "split_frame": {
+   "left_header": "Last time",
+   "right_header": "The $500 Build",
+   "row_labels": [
+    "Store owner",
+    "After launch day"
+   ],
+   "left_cells": [
+    "The builder",
+    "Nobody"
+   ],
+   "right_cells": [
+    "You",
+    "The team"
+   ]
+  }
+ },
+ {
+  "id": "C4-V2",
+  "concept_id": "C4",
+  "vehicle": "V2",
+  "launch_status": "benched",
+  "persona": "AV2-paid-got-nothing: paid a builder or vendor, got a half-done or locked store (Q-F-0004, Q-O-0062); age [A] 35-60 (13 §5); awareness AW-4",
+  "lf8_root": "#3 Freedom from fear of being taken again (Q-O-0062, Q-O-0073); secondary #6 vindication (Q-B-0004)",
+  "desire": "MD-04: \"I would just link into the store once it is finished\" (Q-F-0005), in her own name (handoff lists AN-13 under MD-01; MD-04 kept per slate)",
+  "angle": "AN-13: the burned stores went wrong in two checkable places: the store sat in the builder's account, and the builder stopped on launch day. Check both before you pay.",
+  "angle_source": "AN-13 · AV-02 cares because \"they said they would build a store, but i am building the store???\" (Q-F-0004) and \"now I can't access it, contact an administrator which should be me\" (Q-F-0001) · also Q-O-0062, Q-O-0073, Q-O-0102, Q-Y-0004 · runner-up AN-15 (wave 2)",
+  "target_belief": "B-02.AV-02",
+  "offer": "T1 \"Start with the $500 Build\" ($500 one-time, PT-01/F-12): store opened in your name (F-01, F-11), payouts to your bank (F-11), staged release with ad tests on budgets you approve (PT-04, F-05), early performance review and post-launch corrections (PT-04, PT-08); excludes product costs, platform fees, ad spend, any income guarantee (PT-05); refund only as conditioned (PT-15). No T2/T3/bump/OTO/60-day/duration/product count/urgency.",
+  "format": "A8b N5 Search bar + answer card (generic UI)",
+  "lane": "clarity lane (A6) · LOCK-B MK-06 + NI-04 ownership · S4 (ASSUMED) -> LOCK-B made surer + New Information · contradiction route (GO-AV-02)",
+  "destination": "PDP https://readymerce.com (LOCK-B congruence lander recommended, 01-preflight §3)",
+  "mechanism_match_words": "problem \"left on launch day\" · mechanism \"a budget you approve\" · promise \"in your name; we stay after launch day\" (only \"in your name\" and \"budgets you approve\" are live on the page; C4 never prints \"we stay after launch day\")",
+  "awareness": "product aware",
+  "sku": "main",
+  "aspect": "1:1",
+  "image_file": "images/C4-V2.png",
+  "prompt_file": "prompts/C4-V2.txt",
+  "qa": {
+   "status": "pending",
+   "notes": "awaiting render"
+  },
+  "headline": "they said they would build a store but i am building the store",
+  "hook": "they said they would build a store but i am building the store",
+  "subhead": "Builds like this often went wrong in two places. You can check both before you pay.",
+  "body": "1. Whose account the store sits in until it's transferred to you · 2. Who is still working on it after launch day",
+  "proof": "“You own and configure the store during the build phase, then transfer ownership to the client when it's ready to go live.” (Platform docs written for store builders; P-06.AV-02)",
+  "cta_outcome": "In your name",
+  "audience_cue": "her own forum complaint typed into a search bar: \"they said they would build a store but i am building the store\"",
+  "scenario": "11:47 pm, she types her complaint word for word into a generic search bar and gets a plain answer card naming the two checks and the platform's own rule",
+  "tone": "plain-spoken, straight about limits, stays with you (13 VOICE-1); her register: guarded, checks before paying (07 AV-02)",
+  "medium": "organic phone screenshot, generic unbranded search UI, light mode, system sans, slight JPEG compression; no product, brand, price or offer",
+  "composition": "1:1 flat phone screenshot crop: thin status bar, rounded grey search pill at the top, white rounded answer card filling the lower three quarters (bold first line, two numbered checks, grey quote with a left rule and source line, bold last line)",
+  "reading_path": "status bar time, search query, bold first answer line, check 1, check 2, quote and source, bold last line",
+  "product_role": "none: no product, brand, price or offer on the image",
+  "cta_candidates": [
+   "In your name",
+   "Check it first",
+   "Yours to check"
+  ],
+  "hook_candidates": [
+   "they said they would build a store but i am building the store | Q-F-0004 | 13/14 | WINNER",
+   "store builder locked me out contact an administrator | Q-F-0001 | 13/14 | blocked (V1 stem)",
+   "how to check if a store builder is legit | written ('legit' her word) | 11/14 | runner-up wave 2",
+   "go do a google review of your company | Q-O-0102 | 6/14 | cut",
+   "i need a proof of concept that actually works | Q-O-0132 | 8/14 | cut"
+  ],
+  "word_count_on_image": 83,
+  "primary_text": "caption pool",
+  "status": "written",
+  "rationale": "Native N5: hook = her verbatim forum line as a query (Q-F-0004); the answer card installs B-03 (the cause) and B-07 (she can check) with the platform's own sentence as proof (P-06), no brand anywhere; CTA as the card's last line. Thumb-Stop PASS.",
+  "hook_proposed": {
+   "text": "they said they would build a store but i am building the store",
+   "source": "Q-F-0004",
+   "from": "work/09-hook-candidates.md (winner, /14 >=11)"
+  },
+  "cta_line_on_image": "Store owner: in your name."
+ },
+ {
+  "id": "C4-V3",
+  "concept_id": "C4",
+  "vehicle": "V3",
+  "launch_status": "benched",
+  "persona": "AV2-paid-got-nothing: paid a builder or vendor, got a half-done or locked store (Q-F-0004, Q-O-0062); age [A] 35-60 (13 §5); awareness AW-4",
+  "lf8_root": "#3 Freedom from fear of being taken again (Q-O-0062, Q-O-0073); secondary #6 vindication (Q-B-0004)",
+  "desire": "MD-04: \"I would just link into the store once it is finished\" (Q-F-0005), in her own name (handoff lists AN-13 under MD-01; MD-04 kept per slate)",
+  "angle": "AN-13: the burned stores went wrong in two checkable places: the store sat in the builder's account, and the builder stopped on launch day. Check both before you pay.",
+  "angle_source": "AN-13 · AV-02 cares because \"they said they would build a store, but i am building the store???\" (Q-F-0004) and \"now I can't access it, contact an administrator which should be me\" (Q-F-0001) · also Q-O-0062, Q-O-0073, Q-O-0102, Q-Y-0004 · runner-up AN-15 (wave 2)",
+  "target_belief": "B-02.AV-02",
+  "offer": "T1 \"Start with the $500 Build\" ($500 one-time, PT-01/F-12): store opened in your name (F-01, F-11), payouts to your bank (F-11), staged release with ad tests on budgets you approve (PT-04, F-05), early performance review and post-launch corrections (PT-04, PT-08); excludes product costs, platform fees, ad spend, any income guarantee (PT-05); refund only as conditioned (PT-15). No T2/T3/bump/OTO/60-day/duration/product count/urgency.",
+  "format": "N10 News-style static (V3 story image) + long-form story (B18)",
+  "lane": "story lane (A6) · LOCK-B MK-06 + NI-04 ownership · S4 (ASSUMED) -> LOCK-B made surer + New Information · contradiction route (GO-AV-02)",
+  "destination": "PDP https://readymerce.com (LOCK-B congruence lander recommended, 01-preflight §3)",
+  "mechanism_match_words": "problem \"left on launch day\" · mechanism \"a budget you approve\" · promise \"in your name; we stay after launch day\" (only \"in your name\" and \"budgets you approve\" are live on the page; C4 never prints \"we stay after launch day\")",
+  "awareness": "product aware",
+  "sku": "main",
+  "aspect": "1:1",
+  "image_file": "images/C4-V3.png",
+  "prompt_file": "prompts/C4-V3.txt",
+  "qa": {
+   "status": "pending",
+   "notes": "awaiting render"
+  },
+  "headline": "Read this before you pay a store builder",
+  "hook": "The login page told me to contact an administrator. I read it three times, because the administrator was supposed to be me.",
+  "subhead": "N10 standfirst: The same two gaps keep showing up: the store sat in the builder's account, and the work stopped on launch day.",
+  "body": "story (primary_text): skeptic who resisted, #2 The investigation, S2 + S17; 1,687 words; product at 66%",
+  "proof": "in-story proof beats: F-11 page quote (\"The store account is in your name and stays in your name.\"), P-06 platform docs sentence, PT-05 written exclusions, PT-15 refund with every condition, her own owner field (P-01, told as experience)",
+  "cta_outcome": "In your name",
+  "audience_cue": "N10 headline \"Paid to have an online store built, then locked out of it\" + story H1 (the lock-out line)",
+  "scenario": "an online article about paid store builds that locked owners out; its photo is the story's evidence: the receipts folder on a kitchen table at night beside a closed laptop and cold tea",
+  "tone": "plain-spoken, straight about limits, stays with you (13 VOICE-1); her register: guarded, checks before paying (07 AV-02)",
+  "medium": "organic news-article crop, blank masthead rule, bold editorial serif headline, grey sans standfirst, candid phone photo with lamp light and grain; no product, brand, price or offer",
+  "composition": "1:1 news-article crop: blank thin rule where a masthead would sit, headline across the upper third, standfirst, grey byline bars, wide candid photo filling the lower half (manila receipts folder, closed laptop, cold mug, phone face down)",
+  "reading_path": "headline, standfirst, photo",
+  "product_role": "none: no product, brand, price or offer on the image",
+  "cta_candidates": [
+   "In your name",
+   "Check it first",
+   "Yours to check"
+  ],
+  "hook_candidates": [
+   "The login page told me to contact an administrator. I read it three times, because the administrator was supposed to be me.",
+   "$4,500 for the build. $97 for an ad pack that never arrived. A deposit to a marketing guy that I still can't make myself write down.",
+   "Everyone told me the lesson was simple: never pay anyone to build me a store again. It turned out to be the wrong lesson.",
+   "I Googled the company in the middle of the sales call, while the man was still talking, and I never told him what I found.",
+   "My sister said if I paid one more person to build me a store, she was taking my debit card. She was only half joking."
+  ],
+  "word_count_on_image": 33,
+  "primary_text": "The login page told me to contact an administrator. I read it three times, because the administrator was supposed to be me.\n\nIt was 11:40 on a Tuesday night. I was at the kitchen table with a cup of tea gone cold, typing the same password into the same box, and the same grey line kept coming back. Contact an administrator.\n\nI had paid $4,500 for that store. I had the receipts in a manila folder, and a three-week-old email from the man who built it: \"almost done, you're going to love it.\" I'd told my sister it would be live by the weekend.\n\nI tried the help chat. I couldn't even speak to anyone. As far as the system could tell, I wasn't anyone. I didn't know then that the explanation would come from the woman who does my taxes.\n\nMy sister texted at 11:52. \"Did it go live?\" I typed \"not yet\" and deleted it. Then I typed \"I think I got scammed\" and sent that instead.\n\nShe called right away. She wasn't mean about it, which somehow made it worse. \"They're all scams,\" she said. \"Every one of them. Please don't pay another person to build you anything.\"\n\nI said okay, and I meant it. I closed the laptop and sat with my hand flat on the lid, thinking I'd just flushed the money and the time down the drain, and the hope with it.\n\nFor most of a year I agreed with her. I scrolled past every ad with a laptop in it. I was afraid to ever try again.\n\nShe was wrong about one thing, though. It took me eleven months to find out which.\n\nI should back up.\n\nThe $4,500 builder was my second try.\n\nThe first was a store program that cost nothing up front. I thought I'd just link into the store once it was finished.\n\nWhat I got was a half-empty theme and a stream of emails about the next thing to buy: $97 for an ad pack that never showed up, promises of more templates and products, all after I'd paid.\n\nOne night I typed into a forum, \"they said they would build a store, but i am building the store???\" Someone replied that my store was half-done. I drew a line under it and moved on.\n\nThe second time, I paid a real person with a real phone number, because I'd decided the first one failed for being cheap. He sent mockups and a logo. Then the replies slowed, then \"almost done,\" then the login page.\n\nSomewhere in between, a marketing guy took a deposit to \"get traffic to it\" and never even scheduled a call with me.\n\nI added it up once, on the inside flap of the folder, in pen. $4,597, not counting the marketing guy, because I couldn't make myself write that one down.\n\nThe money was bad. What it did to me was worse.\n\nI'm the one in my family who reads the terms, and I'd been taken twice, maybe three times, by people who smiled at me on video calls. I felt stupid in a way I hadn't since school.\n\nHere's the strange part. Even while I was telling my sister they were all scams, I kept checking.\n\nI read every review. I asked for the full contract before any call. When one company did call, I Googled them while the man was still talking. The pitch was almost always the same.\n\nIf I truly believed they were all scams, why was I still checking? Nobody reads reviews of something they think is always a lie. Part of me knew some were real. I just had no way to tell them apart.\n\nSo I started digging. Late at night I read forum posts from people who'd paid someone to build a store and ended up where I did. \"When the store was transferred to me, the store was shutdown almost immediately,\" one woman wrote. She was in tears.\n\nI kept a note on my phone of every story: the price, the promises, the reviews. I was hunting for the red flag I should have caught. The note never showed a pattern, because I was writing down the wrong things.\n\nThe woman who does my taxes works above a dry cleaner. In February I brought her the folder with everything else.\n\nShe flipped through the receipts. Then she asked a question nobody had asked me in two years, including me.\n\n\"Whose name is the store account in?\"\n\nI started to say mine. Then I thought about that login page.\n\n\"I don't actually know,\" I said.\n\nShe nodded like she'd heard it before. \"Then it isn't your store yet. It's his, and you're a guest in it.\" Then she asked a second question. \"After it went live, who was supposed to be working on it?\"\n\nNobody.\n\nThree different people had my money, and not one of them ever mentioned whose name the store would be in, or who'd still be there after launch day. They were all paid to get it to launch day. None of them were paid for the day after.\n\nThat night I read the fine print. Not the builders'. The platform's.\n\nIts own documentation for people who build stores for clients says it in one sentence: \"You own and configure the store during the build phase, then transfer ownership to the client when it's ready to go live.\"\n\nSo while the store is being built, it belongs to the builder. It becomes yours at go-live, which is also the moment the builder's job is designed to end.\n\nTwo things had gone wrong, and neither was me being stupid. My store sat in someone else's account, so when he stopped answering, I was locked out of my own work.\n\nAnd his job ended on launch day, exactly when a new store needs someone reading the first results, fixing listings and testing the next product.\n\nIt's like paying someone to build a house on your land, letting them keep the deed until move-in day, then watching them drive off that same afternoon, right when you find out which pipes leak.\n\nI hadn't failed those stores. They were set up to fail me at the handover.\n\nAnd my sister was wrong about one thing. They weren't all scams. The ones that burned me had the same two holes, and I could check for both before I paid anyone.\n\nOn my way out, she added, \"One of my clients had hers built this spring. It was in her name from the first day. I've seen her statements. The payouts go straight to her bank.\" She wrote a name on a sticky note. Readymerce.\n\nI put the sticky note in the folder and didn't touch it for two weeks.\n\nWhen I finally looked, I Googled them. Almost nothing: a new site, no reviews I could read. A year earlier, that alone would have ended it.\n\nBut I wasn't shopping for a pitch anymore. I needed two answers in writing.\n\nThe first answer was on their page in plain words: \"The store account is in your name and stays in your name.\" Right under it: \"Payouts go to your bank account.\"\n\nThe second answer was further down the same page. After the store goes live, their list says products go out in stages, each with a small ad test on a budget you approve. Then an early performance review, post-launch corrections, new products rolled in.\n\nHow much ongoing work you get is agreed on a call, so I asked on the call and wrote down every word.\n\nThen I went looking for the catch. What I found was a list of what the $500 doesn't cover: product costs, platform fees, ad spend, and any promise of income. Nobody who'd pitched me had ever written down what they wouldn't do.\n\nI read the refund policy twice. The $500 fee is refundable for 7 days from payment, and that ends the moment you accept delivery, buy any add-on, or ask for more work. Platform fees, ad spend, domain, apps and supplier costs are never refunded.\n\nNarrower than I'd like. But it was the first refund anyone had explained to me before I paid.\n\nI still waited until the $500 and an ad budget I could afford to lose were actually in my account, not borrowed. Then I paid.\n\nThe day the store opened, I didn't wait for an email. I logged in myself, at the same kitchen table.\n\nNo grey line. The owner field had my name in it.\n\nI sat there longer than I'd admit.\n\nThe first products went live in stages. Each got a small ad test, on a budget I approved myself.\n\nThen the first review came, in writing: which products to keep, which to replace, what they were changing on the listings. After launch day, they were still there. That was the part I had never once had.\n\nMy sister came over on a Sunday and asked, carefully, the way you'd ask about an ex, \"So is it live?\"\n\nI turned the laptop around. She read the owner field out loud, and it was my name.\n\nShe was quiet for a second. Then she said, \"Okay. Show me the review.\"\n\nI showed her. And for the first time in two years, talking about the store didn't make my face go hot.\n\nThe folder is still in my kitchen drawer. I don't open it at night anymore.\n\nIf I could talk to the woman at that kitchen table, I'd tell her she was never stupid. She was sold a finish line.\n\nSo here's all I'd tell anyone holding a folder like mine. Paying someone to build it wasn't your mistake. Buying a build that ended on launch day, inside someone else's account, was.\n\nBefore you pay anyone, get two answers in writing. Who is still working on it after launch day? And whose name is it in?\n\nIf the money isn't there yet, wait. I did.\n\nWhen it is, the only right answer to that second question is three words long.\n\nIn your name.",
+  "status": "written",
+  "rationale": "Story lane for the most skeptical avatar: she keeps checking, so she already believes some are real (contradiction route); an unnamed lived expert asks the two questions (S2), the platform's own sentence explains the cause, the product enters by chance at 66%, she runs the two checks herself and ends with her own name in the owner field, the first stage tested, the written review, the team still there (rung 2), and the doubter reading it (S17). B16 20/20.",
+  "v3_image_type": "N10 News-style static",
+  "pov": "the skeptic who resisted",
+  "story_concept": "#2 The investigation",
+  "swipe_models": [
+   "S2",
+   "S17"
+  ],
+  "story_words": 1687,
+  "hook_variants_start": "work/09-hook-candidates.md §B5 (C4)",
+  "conviction_map": "work/08-concept-slate.md C4",
+  "description": "Two checks first: whose name the store is in, and who stays after launch day.",
+  "story_hooks": [
+   {
+    "id": "H1",
+    "class": "Specific-moment scene",
+    "text": "The login page told me to contact an administrator. I read it three times, because the administrator was supposed to be me.",
+    "trace": "Q-F-0001"
+   },
+   {
+    "id": "H2",
+    "class": "The math moment",
+    "text": "$4,500 for the build. $97 for an ad pack that never arrived. A deposit to a marketing guy that I still can't make myself write down.",
+    "trace": "Q-O-0062 · Q-B-0001 · Q-O-0130 · Q-Y-0019"
+   },
+   {
+    "id": "H3",
+    "class": "Contrarian open loop",
+    "text": "Everyone told me the lesson was simple: never pay anyone to build me a store again. It turned out to be the wrong lesson.",
+    "trace": "Q-Y-0022 · B-04.AV-02"
+   },
+   {
+    "id": "H4",
+    "class": "Confession",
+    "text": "I Googled the company in the middle of the sales call, while the man was still talking, and I never told him what I found.",
+    "trace": "Q-O-0102"
+   },
+   {
+    "id": "H5",
+    "class": "Conflict",
+    "text": "My sister said if I paid one more person to build me a store, she was taking my debit card. She was only half joking.",
+    "trace": "Q-O-0073 · SK-04 · [WRITTEN]"
+   }
+  ],
+  "image_text": {
+   "headline": "Paid to have an online store built, then locked out of it",
+   "standfirst": "The same two gaps keep showing up: the store sat in the builder's account, and the work stopped on launch day."
+  },
+  "cta_button": "Shop Now -> https://readymerce.com"
+ }
+]
