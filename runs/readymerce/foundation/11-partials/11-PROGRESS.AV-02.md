@@ -1,0 +1,23 @@
+# 11-PROGRESS · AV-02 (Paid-and-Got-Nothing) · agent 11-AV-02 · W5
+- 2026-09-24T22:29Z start · inputs read: 01+01-DEEP, 03, 06, 07, 08, 09 (§7 AV-02 block, §5 pond row, §8–§11), 10 (§1 lanes, §5 basis, §9, §13a/c R-3/R-5, §15B LOCK-B, §16) — HANDOFF first, pointed sections only
+- 22:36Z ledgers computed in code (scratchpad av02calc.py → counts only; nothing written outside foundation/)
+RESUME POINT: lock card + BD-1 (writing §1–§4)
+- 22:38Z §1–§4 written (lock card, BD-1 PARTIAL, FB-AV-02, EK 12 rows)
+RESUME POINT: §5 belief ladder
+- 22:39Z §5 ladder written (7 B-##, classes 7/7, P0 4, the_one_belief B-02.AV-02)
+RESUME POINT: §6 GO-AV-02
+- 22:40Z §6 GO-AV-02 + §7 BS-AV-02 written (lane 4 ASSUMED from person-level evidence; opening FOUND Q-F-0004)
+RESUME POINT: §8 objections
+- 22:40Z §8 objections written (13 rows, T1 8, faq_set_a 3)
+RESUME POINT: §9 FS
+- 22:41Z §9 FS written (4 rows; ELIMINATION: INCOMPLETE FS-04)
+RESUME POINT: §10 proof map
+- 22:42Z §10 proof map written (EXISTS 9 + 1 counter, SHOOTABLE 3, PLANNED 4; BIG PROOF P-03.AV-02)
+RESUME POINT: §11 claims
+- 22:42Z §11 CLM (7) + §12 SK (10, reasons 8/8) + DNS (12) written
+RESUME POINT: §13 Warren map
+- 22:43Z §13 WM, §14 EB, §15 timeline+box, §16 ledger written
+RESUME POINT: §17 counters + coverage
+- 22:44Z §17 counters + COVERAGE STATEMENT written; 11-BELIEFS.AV-02.md renamed from .partial; 11-HANDOFF.AV-02.json validated (1865 bytes)
+- tool calls ≈45 of 150 · elapsed ≈16 min of 40 · spend $0 (Exa 0, TranscriptAPI 0) · re-mine NOT ISSUED (no P0 CURRENT: GAP)
+RESUME POINT: DONE — nothing pending for AV-02 (open items are operator actions listed in 11-BELIEFS.AV-02.md §17)

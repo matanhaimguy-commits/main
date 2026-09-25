@@ -1,0 +1,3686 @@
+{
+ "handoff_version": 2,
+ "generated_at": "2026-09-24T23:14Z",
+ "files": {
+  "offer_testplan_playbook": "12-OFFER-TESTPLAN-PLAYBOOK.md",
+  "beliefs": "11-BELIEFS.md",
+  "beliefs_handoff": "11-HANDOFF.json",
+  "offer_partial": "12-partials/12-OFFER.md",
+  "brand": "13-BRAND.md",
+  "brand_handoff": "13-HANDOFF.json",
+  "brand_assets": "assets/readymerce-visual-identity/README.md",
+  "product_truth": "01-PRODUCT-TRUTH.md",
+  "competitor_intel": "02-COMPETITOR-INTEL.md",
+  "swipe": "02-swipe.csv",
+  "messaging": "03-VALIDATED-MESSAGING.md",
+  "voc_report": "06-VOC-REPORT.md",
+  "voc_corpus": "06-VOC_MASTER.csv",
+  "awareness": "07-AWARENESS-SOPHISTICATION.md",
+  "desires": "08-DESIRES-LF8.md",
+  "avatars": "09-AVATARS.md",
+  "mechanisms": "10-MECHANISMS.md",
+  "playbook": "12-OFFER-TESTPLAN-PLAYBOOK.md §13",
+  "step_handoff": "12-HANDOFF.json"
+ },
+ "market": {
+  "country": "US",
+  "currency": "USD",
+  "label": "ASSUMED"
+ },
+ "geo_mode": "single-country US, broad, automatic placements",
+ "monthly_ad_budget": "$3,000 ($100/day) ASSUMED",
+ "launch_message_blueprint": {
+  "concept_cards": [
+   {
+    "cell": "CELL-01",
+    "avatar": "AV-07",
+    "angle": "AN-01",
+    "premise": "Your stores didn't fail — nobody was assigned to them after the build; a built store isn't a running store.",
+    "frame": "story/transformation",
+    "lead_hook": "Same store. One sat for years. One got worked every week after it went live.",
+    "scene": "three or four stores \"just sitting there\" in the admin (Q-O-0103)",
+    "format": "NATIVE_STORY"
+   },
+   {
+    "cell": "CELL-02",
+    "avatar": "AV-07",
+    "angle": "AN-02",
+    "premise": "It was never \"do it myself\" or \"$5,000–$20,000\": a published $500 first step with a team that stays after go-live is the third option.",
+    "frame": "bold proclamation",
+    "lead_hook": "It was never only \"hire a developer\" or \"do it myself.\"",
+    "scene": "moving money between her own accounts mid-call to fund the $500 (O-a654f844 marker)",
+    "format": "STATIC"
+   },
+   {
+    "cell": "CELL-03",
+    "avatar": "AV-07",
+    "angle": "AN-03",
+    "premise": "Managed, not automatic: a team does the store's weekly work (review → fix → test) while you approve budgets and read reports.",
+    "frame": "mechanism reveal",
+    "lead_hook": "\"We don't have the budget to be able to do a lot of ads.\"",
+    "scene": "watching the marketing that \"was the one bringing in the money\" slow down (Q-O-0124)",
+    "format": "NATIVE_STORY"
+   },
+   {
+    "cell": "CELL-04",
+    "avatar": "AV-07",
+    "angle": "AN-04",
+    "premise": "The builder's job ends the day the store goes live — the platform's own guide says so; the weeks after are where it runs or sits.",
+    "frame": "social proof/us-vs-them",
+    "lead_hook": "Paid a builder? Ask what happened the week after it went live.",
+    "scene": "three or four stores \"just sitting there\" in the admin (Q-O-0103)",
+    "format": "NATIVE_STORY"
+   },
+   {
+    "cell": "CELL-05",
+    "avatar": "AV-01",
+    "angle": "AN-05",
+    "premise": "Your first store didn't prove e-commerce can't work for you — it got one shot, and one guess misses more often than it hits.",
+    "frame": "story/transformation",
+    "lead_hook": "\"Ive had 2 stores on Shopify both failed.\"",
+    "scene": "Sunday night, dashboard open: ~600 sessions, 0 orders (Q-F-0019)",
+    "format": "NATIVE_STORY"
+   },
+   {
+    "cell": "CELL-06",
+    "avatar": "AV-01",
+    "angle": "AN-06",
+    "premise": "Hundreds of clicks and zero orders is a product signal, not a traffic signal — the next product needs a test, not more clicks.",
+    "frame": "mechanism reveal",
+    "lead_hook": "\"i got zero sales which means i lost 254 dollars.\"",
+    "scene": "filming the post-mortem: \"lost 254 dollars\" (Q-Y-0014)",
+    "format": "NATIVE_STORY"
+   },
+   {
+    "cell": "CELL-07",
+    "avatar": "AV-01",
+    "angle": "AN-07",
+    "premise": "You're right to guard your money: every cost written before you pay, the store and payouts in your name, no test spends a dollar you didn't approve.",
+    "frame": "fear+hope",
+    "lead_hook": "It isn't easy money. It's small tests you approve and can stop.",
+    "scene": "closing the store tab and cancelling the plan (Q-O-0108)",
+    "format": "STATIC"
+   },
+   {
+    "cell": "CELL-08",
+    "avatar": "AV-01",
+    "angle": "AN-08",
+    "premise": "The ones who found a product that sells almost never found it first — they tested five to ten, each on a small budget.",
+    "frame": "social proof/us-vs-them",
+    "lead_hook": "One product and a one-week deadline — or five to ten, each on a small budget.",
+    "scene": "Sunday night, dashboard open: ~600 sessions, 0 orders (Q-F-0019)",
+    "format": "NATIVE_STORY"
+   },
+   {
+    "cell": "CELL-09",
+    "avatar": "AV-04",
+    "angle": "AN-09",
+    "premise": "It wasn't a lack of ability — the after-hours route asked you to run a second full job in leftover hours.",
+    "frame": "social proof/us-vs-them",
+    "lead_hook": "\"I work a full time job as well, so am only able to attend to my store after hours.\"",
+    "scene": "after the shift, the store gets the leftover hours (Q-F-0015)",
+    "format": "NATIVE_STORY"
+   },
+   {
+    "cell": "CELL-10",
+    "avatar": "AV-04",
+    "angle": "AN-10",
+    "premise": "Keep the salary — that's the safe part; the store can start now beside the job on small, capped tests you approve.",
+    "frame": "bold proclamation",
+    "lead_hook": "On break: \"Can I review full contract before making payment?\"",
+    "scene": "on break at work: \"Can I review full contract before making payment?\" (Q-O-0116)",
+    "format": "STATIC"
+   },
+   {
+    "cell": "CELL-11",
+    "avatar": "AV-04",
+    "angle": "AN-11",
+    "premise": "A first store that got one guess only proved one guess missed; sellers who find a product usually tested several, each small.",
+    "frame": "fear+hope",
+    "lead_hook": "\"I picked the baby store. It just didn't work\"?",
+    "scene": "\"I wish I was doing something else\" on the drive in (Q-O-0096)",
+    "format": "NATIVE_STORY"
+   },
+   {
+    "cell": "CELL-12",
+    "avatar": "AV-04",
+    "angle": "AN-12",
+    "premise": "You don't need to be trained into a second job: the build, tests and fixes are done; you approve and read — and the whole cost is on one line.",
+    "frame": "story/transformation",
+    "lead_hook": "\"The one thing I don't have in my life is time.\"",
+    "scene": "after the shift, the store gets the leftover hours (Q-F-0015)",
+    "format": "NATIVE_STORY"
+   },
+   {
+    "cell": "CELL-13",
+    "avatar": "AV-02",
+    "angle": "AN-13",
+    "premise": "The burned stores went wrong in two checkable places: the store sat in the builder's account, and the builder stopped on launch day. Check both before you pay.",
+    "frame": "mechanism reveal",
+    "lead_hook": "\"they said they would build a store, but i am building the store???\"",
+    "scene": "the login that says \"contact an administrator\" (Q-F-0001)",
+    "format": "NATIVE_STORY"
+   },
+   {
+    "cell": "CELL-14",
+    "avatar": "AV-02",
+    "angle": "AN-14",
+    "premise": "Paying someone to build it wasn't the mistake — the version you bought stopped at go-live; here is what's different on paper.",
+    "frame": "social proof/us-vs-them",
+    "lead_hook": "\"I need a proof of concept that actually works.\"",
+    "scene": "typing the company name into Google reviews mid-call (Q-O-0102)",
+    "format": "STATIC"
+   },
+   {
+    "cell": "CELL-15",
+    "avatar": "AV-02",
+    "angle": "AN-15",
+    "premise": "If the money isn't there yet, waiting is right; when it is, the first step is a fixed $500 with every other cost named and a store you can check before and after paying.",
+    "frame": "fear+hope",
+    "lead_hook": "If the money isn't there yet, waiting is the right call. When it is: $500, every other cost named first.",
+    "scene": "checking the account where \"over a thousand dollars\" is stuck (Q-O-0074)",
+    "format": "NATIVE_STORY"
+   },
+   {
+    "cell": "CELL-16",
+    "avatar": "AV-03",
+    "angle": "AN-16",
+    "premise": "The setup was never your wall — the builder's job ends the day the store goes live; a store needs someone after launch day.",
+    "frame": "mechanism reveal",
+    "lead_hook": "Launch day is the starting line, not the finish line.",
+    "scene": "week ten, still changing the theme image (Q-F-0013)",
+    "format": "NATIVE_STORY"
+   },
+   {
+    "cell": "CELL-17",
+    "avatar": "AV-03",
+    "angle": "AN-17",
+    "premise": "\"What should I sell?\" is answered by small tests, not a perfect first pick — products chosen from data and released in stages.",
+    "frame": "story/transformation",
+    "lead_hook": "\"After weeks of overthinking, I finally committed.\"",
+    "scene": "at the signup product step: \"Do I just choose what I want to sell\" (Q-F-0041)",
+    "format": "NATIVE_STORY"
+   },
+   {
+    "cell": "CELL-18",
+    "avatar": "AV-03",
+    "angle": "AN-18",
+    "premise": "One published price and a store in your name — and the team is still on it after it opens.",
+    "frame": "bold proclamation",
+    "lead_hook": "\"I don't know where to start or what I should sell.\"",
+    "scene": "scrolling help links \"like a snowstorm of information\" (Q-F-0006)",
+    "format": "STATIC"
+   }
+  ],
+  "story_briefs": [
+   {
+    "cell": "CELL-01",
+    "structure": "ST-04",
+    "prior_attempts": "FS sequence of AV-07 (11 §9)",
+    "discovery_frame": "A independent research",
+    "length": "1,200–1,700 words",
+    "hero_at": "≥60%",
+    "belief_to_break": "B-02.AV-07"
+   },
+   {
+    "cell": "CELL-03",
+    "structure": "ST-02",
+    "prior_attempts": "FS sequence of AV-07 (11 §9)",
+    "discovery_frame": "A independent research",
+    "length": "1,200–1,700 words",
+    "hero_at": "≥60%",
+    "belief_to_break": "B-04.AV-07"
+   },
+   {
+    "cell": "CELL-04",
+    "structure": "ST-03",
+    "prior_attempts": "FS sequence of AV-07 (11 §9)",
+    "discovery_frame": "A independent research",
+    "length": "1,200–1,700 words",
+    "hero_at": "≥60%",
+    "belief_to_break": "B-02.AV-07"
+   },
+   {
+    "cell": "CELL-05",
+    "structure": "ST-05",
+    "prior_attempts": "FS sequence of AV-01 (11 §9)",
+    "discovery_frame": "A independent research",
+    "length": "1,200–1,700 words",
+    "hero_at": "≥60%",
+    "belief_to_break": "B-102.AV-01"
+   },
+   {
+    "cell": "CELL-06",
+    "structure": "ST-01",
+    "prior_attempts": "FS sequence of AV-01 (11 §9)",
+    "discovery_frame": "A independent research",
+    "length": "1,200–1,700 words",
+    "hero_at": "≥60%",
+    "belief_to_break": "B-107.AV-01"
+   },
+   {
+    "cell": "CELL-08",
+    "structure": "ST-01",
+    "prior_attempts": "FS sequence of AV-01 (11 §9)",
+    "discovery_frame": "A independent research",
+    "length": "1,200–1,700 words",
+    "hero_at": "≥60%",
+    "belief_to_break": "B-107.AV-01"
+   },
+   {
+    "cell": "CELL-09",
+    "structure": "ST-05",
+    "prior_attempts": "FS sequence of AV-04 (11 §9)",
+    "discovery_frame": "A independent research",
+    "length": "1,200–1,700 words",
+    "hero_at": "≥60%",
+    "belief_to_break": "B-44.AV-04"
+   },
+   {
+    "cell": "CELL-11",
+    "structure": "ST-04",
+    "prior_attempts": "FS sequence of AV-04 (11 §9)",
+    "discovery_frame": "A independent research",
+    "length": "1,200–1,700 words",
+    "hero_at": "≥60%",
+    "belief_to_break": "B-47.AV-04"
+   },
+   {
+    "cell": "CELL-12",
+    "structure": "ST-01",
+    "prior_attempts": "FS sequence of AV-04 (11 §9)",
+    "discovery_frame": "A independent research",
+    "length": "1,200–1,700 words",
+    "hero_at": "≥60%",
+    "belief_to_break": "B-46.AV-04"
+   },
+   {
+    "cell": "CELL-13",
+    "structure": "ST-05",
+    "prior_attempts": "FS sequence of AV-02 (11 §9)",
+    "discovery_frame": "A independent research",
+    "length": "1,200–1,700 words",
+    "hero_at": "≥60%",
+    "belief_to_break": "B-02.AV-02"
+   },
+   {
+    "cell": "CELL-15",
+    "structure": "ST-03",
+    "prior_attempts": "FS sequence of AV-02 (11 §9)",
+    "discovery_frame": "A independent research",
+    "length": "1,200–1,700 words",
+    "hero_at": "≥60%",
+    "belief_to_break": "B-07.AV-02"
+   },
+   {
+    "cell": "CELL-16",
+    "structure": "ST-04",
+    "prior_attempts": "FS sequence of AV-03 (11 §9)",
+    "discovery_frame": "A independent research",
+    "length": "1,200–1,700 words",
+    "hero_at": "≥60%",
+    "belief_to_break": "B-03.AV-03"
+   },
+   {
+    "cell": "CELL-17",
+    "structure": "ST-03",
+    "prior_attempts": "FS sequence of AV-03 (11 §9)",
+    "discovery_frame": "A independent research",
+    "length": "1,200–1,700 words",
+    "hero_at": "≥60%",
+    "belief_to_break": "B-06.AV-03"
+   }
+  ]
+ },
+ "avatars": [
+  {
+   "id": "AV-07",
+   "name": "The Owner Who Wants It Automated ★",
+   "six_dimensions": {
+    "desire": "Q-O-0001 · Q-E-0001 (competitor context)",
+    "problem": "Q-O-0004 · Q-F-9006",
+    "awareness": "AW-4 9 / AW-5 5 / AW-3 1",
+    "experience": "Q-O-0004 · Q-O-0097",
+    "behaviour": "Q-O-0002 · Q-F-9006",
+    "belief": "Q-O-0001 · Q-F-9008"
+   },
+   "lf8_primary": "#5",
+   "need_stack": {
+    "sku_can_keep": "a store with its first staged tests running and a review date, tied to her existing products, inside 7–30 days"
+   },
+   "consciousness_journey": {
+    "entry": "AW-4 impatience → confidence at \"we run the backend, you run the business\" (09)",
+    "lift": "BS-AV-07 B-01 → B-02 → B-05 → B-06 → B-03 → B-04",
+    "resolution": "final buying belief FB-AV-07 + BB-V \"start the $500 step now\"",
+    "do_not_use": "DNS-03/04/05/01/02; \"no sales\"/\"failed\"",
+    "asset_map": "EB-AV-07: backstory Q-O-0103 · wall FS-01→06→02 · epiphany B-02 + P-06 · plan M-2 + P-09 · achievement P-09 [A] · transformation IB-14/Q-O-0105"
+   },
+   "deeper_hope_quotes": [
+    "Q-O-0105"
+   ],
+   "filmable_scenes": [
+    "three or four stores \"just sitting there\" in the admin (Q-O-0103)",
+    "moving money between her own accounts mid-call to fund the $500 (O-a654f844 marker)",
+    "watching the marketing that \"was the one bringing in the money\" slow down (Q-O-0124)"
+   ],
+   "state": "LAUNCH",
+   "the_one_belief": "B-03.AV-07"
+  },
+  {
+   "id": "AV-01",
+   "name": "The Store That Died",
+   "six_dimensions": {
+    "desire": "Q-O-0109 · Q-Y-0027",
+    "problem": "Q-O-0111 · Q-Y-0013",
+    "awareness": "AW-2 25 / AW-3 18",
+    "experience": "Q-O-0090 · Q-F-0026",
+    "behaviour": "Q-O-0090 · Q-Y-0013",
+    "belief": "Q-O-0112 · Q-Y-0016"
+   },
+   "lf8_primary": "#3",
+   "need_stack": {
+    "sku_can_keep": "a store with its first staged product tests running and a review date on the calendar (7–30 days)"
+   },
+   "consciousness_journey": {
+    "entry": "AW-2 grief → hope-with-guard: \"it wasn't the store, it was the one shot\" (09)",
+    "lift": "BS-AV-01 B-106 → B-101 → B-105 → B-107 → B-102 → requirement → B-103 → B-104",
+    "resolution": "final buying belief FB-AV-01 + BB-V",
+    "do_not_use": "DNS-03/08/09/01/02",
+    "asset_map": "EB-AV-01: backstory PP-02/EM-06 · wall FS-01→101→102→03 · epiphany B-102 + P-104 · plan M-2 + P-101 · achievement P-109 · transformation IB-29/IB-30"
+   },
+   "deeper_hope_quotes": [
+    "Q-Y-0027",
+    "Q-B-0004"
+   ],
+   "filmable_scenes": [
+    "Sunday night, dashboard open: ~600 sessions, 0 orders (Q-F-0019)",
+    "filming the post-mortem: \"lost 254 dollars\" (Q-Y-0014)",
+    "closing the store tab and cancelling the plan (Q-O-0108)"
+   ],
+   "state": "LAUNCH",
+   "the_one_belief": "B-102.AV-01"
+  },
+  {
+   "id": "AV-04",
+   "name": "The Paycheck-Tethered Builder",
+   "six_dimensions": {
+    "desire": "Q-O-0046 · Q-O-0176",
+    "problem": "Q-F-0015 · Q-O-0133",
+    "awareness": "AW-4 7 / AW-2 3 / AW-5 2",
+    "experience": "Q-O-0049 · Q-O-0090",
+    "behaviour": "Q-O-0116 · Q-F-0015",
+    "belief": "Q-O-0133 · Q-O-0052"
+   },
+   "lf8_primary": "#5",
+   "need_stack": {
+    "sku_can_keep": "09 §7 AV-04 need_stack (a store tested beside the job)"
+   },
+   "consciousness_journey": {
+    "entry": "AW-4 frustration → control: \"keep the salary, add a store that runs without you\" (09)",
+    "lift": "BS-AV-04 (11 §7, causal chain from B-41)",
+    "resolution": "final buying belief FB-AV-04 + BB-V",
+    "do_not_use": "DNS-13/04/15/01/02",
+    "asset_map": "EB-AV-04 (11 §14)"
+   },
+   "deeper_hope_quotes": [
+    "Q-O-0176"
+   ],
+   "filmable_scenes": [
+    "on break at work: \"Can I review full contract before making payment?\" (Q-O-0116)",
+    "after the shift, the store gets the leftover hours (Q-F-0015)",
+    "\"I wish I was doing something else\" on the drive in (Q-O-0096)"
+   ],
+   "state": "LAUNCH",
+   "the_one_belief": "B-42.AV-04"
+  },
+  {
+   "id": "AV-02",
+   "name": "Paid-and-Got-Nothing",
+   "six_dimensions": {
+    "desire": "Q-F-0005",
+    "problem": "Q-F-0001 · Q-F-0004",
+    "awareness": "AW-4 13 of 26 / AW-5 5",
+    "experience": "Q-O-0062 · Q-F-0018",
+    "behaviour": "Q-O-0102 · Q-O-0116",
+    "belief": "Q-O-0073 · Q-Y-0004"
+   },
+   "lf8_primary": "#3",
+   "need_stack": {
+    "sku_can_keep": "09 §7 AV-02 need_stack (a store in her name, checkable)"
+   },
+   "consciousness_journey": {
+    "entry": "AW-4 resentment → verify: enters at the handover cliff, not at the store (09)",
+    "lift": "BS-AV-02 (11 §7, contradiction route from B-03.AV-02)",
+    "resolution": "final buying belief FB-AV-02 + BB-V",
+    "do_not_use": "DNS-16/17/14/01/02",
+    "asset_map": "EB-AV-02 (11 §14)"
+   },
+   "deeper_hope_quotes": [
+    "Q-F-0005"
+   ],
+   "filmable_scenes": [
+    "the login that says \"contact an administrator\" (Q-F-0001)",
+    "typing the company name into Google reviews mid-call (Q-O-0102)",
+    "checking the account where \"over a thousand dollars\" is stuck (Q-O-0074)"
+   ],
+   "state": "LAUNCH",
+   "the_one_belief": "B-02.AV-02"
+  },
+  {
+   "id": "AV-03",
+   "name": "The Stuck Starter",
+   "six_dimensions": {
+    "desire": "Q-O-0015 · Q-O-0153",
+    "problem": "Q-F-0006 · Q-F-0013",
+    "awareness": "AW-4 19 / AW-3 14 / AW-2 17",
+    "experience": "Q-F-0018 · Q-F-0012",
+    "behaviour": "Q-F-0041 · Q-F-0006",
+    "belief": "Q-F-0012 · Q-F-0040"
+   },
+   "lf8_primary": "#5",
+   "need_stack": {
+    "sku_can_keep": "09 §7 AV-03 need_stack (a finished store, worked after launch)"
+   },
+   "consciousness_journey": {
+    "entry": "AW-2 overwhelm → relief at \"we build it and stay after launch day\" (09)",
+    "lift": "BS-AV-03 (11 §7, yes-but-incomplete route from B-01.AV-03)",
+    "resolution": "final buying belief FB-AV-03 + BB-V",
+    "do_not_use": "DNS-03/19/08/09/18/05",
+    "asset_map": "EB-AV-03 (11 §14)"
+   },
+   "deeper_hope_quotes": [
+    "Q-O-0015"
+   ],
+   "filmable_scenes": [
+    "week ten, still changing the theme image (Q-F-0013)",
+    "at the signup product step: \"Do I just choose what I want to sell\" (Q-F-0041)",
+    "scrolling help links \"like a snowstorm of information\" (Q-F-0006)"
+   ],
+   "state": "LAUNCH",
+   "the_one_belief": "B-03.AV-03"
+  },
+  {
+   "id": "AV-05",
+   "name": "The Evening-Only Parent (operator hypothesis a)",
+   "state": "UNPROVEN — RESERVE (HYPOTHESIS; 0 of 9 converted; HARVEST-18)"
+  },
+  {
+   "id": "AV-06",
+   "name": "The Fixed-Income Retiree (operator hypothesis b)",
+   "state": "UNPROVEN — RESERVE (HYPOTHESIS; 0 of 9 converted; HARVEST-19)"
+  },
+  {
+   "id": "AV-08",
+   "name": "The Restart After the Floor Fell",
+   "state": "EXPANSION (fit 22 < gate)"
+  }
+ ],
+ "avatar_portfolio": {
+  "primary": "AV-07",
+  "launch": [
+   "AV-07",
+   "AV-01",
+   "AV-04",
+   "AV-02",
+   "AV-03"
+  ],
+  "reserve": [
+   "AV-06 (UNPROVEN, operator hypothesis b)",
+   "AV-05 (UNPROVEN, operator hypothesis a)",
+   "CL-09 (RESERVE)"
+  ],
+  "testing_sequence": [
+   "AV-07",
+   "AV-01",
+   "AV-04",
+   "AV-02",
+   "AV-03"
+  ],
+  "expansion_queue": [
+   "AV-08"
+  ]
+ },
+ "product_truth_card": {
+  "file": "01-PRODUCT-TRUTH.md",
+  "section": "§TRUTH CARD > T3",
+  "band": "PROXY-SKU"
+ },
+ "components": [
+  "C1 store build (given)",
+  "C2 branding (given)",
+  "C3 vetted products, count UNKNOWN (INFERRED; PT-19)",
+  "C4 supplier setup (INFERRED; PT-04)",
+  "C5 staged ad testing (given)",
+  "C6 fit/strategy call (given)",
+  "C7 ongoing management, level agreed on the call (given, PT-08)",
+  "C8 portal/credits (INFERRED; UNKNOWN PT-19)",
+  "C9 account manager (INFERRED; UNKNOWN PT-19)",
+  "C10 7-day refund, conditioned (given, PT-15)",
+  "C11 ownership (given, PT-14/F-11)"
+ ],
+ "wedge": {
+  "LOCK-A": "Your store should get more than one shot.",
+  "LOCK-B": "We stay after launch day."
+ },
+ "objection_table": {
+  "file": "11-BELIEFS.md",
+  "section": "§8",
+  "crosswalk_rows": 15,
+  "rows": 59,
+  "t1": 32,
+  "unresolved": [
+   "OBJ-01.AV-01",
+   "OBJ-18.AV-07"
+  ]
+ },
+ "proof_registry": {
+  "file": "11-BELIEFS.md",
+  "section": "§10",
+  "big_proof": "P-01.AV-07",
+  "per_avatar_big_proof": {
+   "AV-07": "P-01.AV-07",
+   "AV-01": "P-104.AV-01",
+   "AV-04": "P-01.AV-04",
+   "AV-02": "P-03.AV-02",
+   "AV-03": "P-02.AV-03"
+  },
+  "counts": {
+   "EXISTS": 46,
+   "SHOOTABLE-NOW": 9,
+   "PLANNED": 19
+  },
+  "outcome_proof": "NULL — searched: PT-03, PT-06, PT-07, PT-18"
+ },
+ "curated_reviews": {
+  "readymerce": [],
+  "note": "NULL — searched: PT-03, PT-07, PT-11..13 (0 Readymerce reviews); competitor reviews (Q-E-0001..0010) are SIMILAR PRODUCT CONTEXT only, never proof; site testimonials disclose actors (DNS-10)"
+ },
+ "honest_box": {
+  "file": "11-BELIEFS.md",
+  "section": "§15",
+  "not_for": "guaranteed income/sales · a store that runs itself · salary replaced by a set date · existing store taken over · money they can't afford to lose",
+  "timeline": "first_sign procedural (PT-04); full_effect NULL — searched PT-06, PT-09"
+ },
+ "offer_architecture": {
+  "target_cpa_locked": 399.56,
+  "cm_per_order": 399.56,
+  "breakeven_cpa": 217.5,
+  "projected_aov": 864.8,
+  "aov_ratio": "1.73 ACCEPTABLE (BORDER band)",
+  "anchor_single": "$500 GIVEN (site PT-01); singles-math = rounds × $500",
+  "ladder_shape": "C (kit / system)",
+  "tiers": [
+   {
+    "tier": "T1",
+    "name": "Start with the $500 Build",
+    "price": 500,
+    "units": 1,
+    "per_unit": 500.0,
+    "basis": "GIVEN"
+   },
+   {
+    "tier": "T2",
+    "name": "The Second-Shot Launch (90 days)",
+    "price": 2000,
+    "units": 7,
+    "per_unit": 285.71,
+    "save": "$1,500",
+    "basis": "INFERRED — OPERATOR-VALIDATES"
+   },
+   {
+    "tier": "T3",
+    "name": "The Full Run (180 days)",
+    "price": 3000,
+    "units": 13,
+    "per_unit": 230.77,
+    "save": "$3,500",
+    "basis": "INFERRED — OPERATOR-VALIDATES"
+   }
+  ],
+  "decoy": "none added; T1 per-round $500 vs T2 $285.71",
+  "subscription_overlay": "Keep-Running plan $550/mo, NOT PRESELECTED, one-time visible, cancel frictionless (OPERATOR-VALIDATES), gifts stacked",
+  "gifts": [
+   "GIFT-01 Every Cost in Writing (all tiers)",
+   "GIFT-02 guide (all tiers)",
+   "GIFT-03 round make-good (T2/T3)",
+   "GIFT-04 old-store second opinion (T2/T3)"
+  ],
+  "guarantee": "performance on deliverables, 60 days from payment, every penny of the $500 back, keep what we built; replaces PT-15 — OPERATOR-VALIDATES + legal",
+  "named_offer": "The Second-Shot Launch — your own store, built in your name in 7–10 days, then 90 days of tested rounds so it's never just sitting there.",
+  "offer_beat": "Start with the $500 Build: your store in your name in 7–10 days, first products tested on a budget you approve, every cost in writing first. Not live and tested in 60 days? Every penny back. No countdown.",
+  "rationale": "First stores die from one shot, not from e-commerce — so the rounds after launch are priced into the package instead of sold as extras. [AUTHORED, CHECK THIS]",
+  "urgency": "NONE — evergreen",
+  "bump": "+2 products in the first wave, $149 (INFERRED)",
+  "oto1": "T1 → T2 upgrade, $1,500 (INFERRED)",
+  "oto2": "second storefront on the other platform, $600 (INFERRED)",
+  "offer_variants": [
+   "OV-01 split entry $250 + $250 — CVR to beat 2.21%",
+   "OV-02 $900 Second Shot — CVR to beat 1.03%"
+  ],
+  "strength_label": "ACCEPTABLE"
+ },
+ "route": {
+  "locked": {
+   "LOCK-A MK-01": [
+    "AV-01",
+    "AV-04"
+   ],
+   "LOCK-B MK-06": [
+    "AV-07",
+    "AV-02",
+    "AV-03"
+   ]
+  },
+  "split": "natives 13 / statics 5",
+  "split_static": [
+   "CELL-02",
+   "CELL-07",
+   "CELL-10",
+   "CELL-14",
+   "CELL-18"
+  ],
+  "split_native": [
+   "CELL-01",
+   "CELL-03",
+   "CELL-04",
+   "CELL-05",
+   "CELL-06",
+   "CELL-08",
+   "CELL-09",
+   "CELL-11",
+   "CELL-12",
+   "CELL-13",
+   "CELL-15",
+   "CELL-16",
+   "CELL-17"
+  ],
+  "per_avatar_exceptions": {
+   "AV-07": "S1–2 reset → claim + Name-it, PROOF-led (LOCK-B)",
+   "AV-01": "NEW INFORMATION → mechanism DESCRIBED (LOCK-A)",
+   "AV-04": "S4 → mechanism made surer + New Information (LOCK-A)",
+   "AV-02": "S4 (ASSUMED) → LOCK-B made surer + NI-04 ownership",
+   "AV-03": "S2 OWNED pond → Name-it mechanism first, claim second (LOCK-B)"
+  }
+ },
+ "brand_name": {
+  "name": "Readymerce",
+  "status": "PROVISIONAL"
+ },
+ "positioning": {
+  "statement": {
+   "file": "13-BRAND.md",
+   "section": "§4"
+  },
+  "sub_avatar": "AV-07 owner, stores 'just sitting there' (Q-O-0103)",
+  "strategic_enemy": "EN-1 build-and-leave store deal (VALIDATED)",
+  "not_for": [
+   "NF-01",
+   "NF-02",
+   "NF-03"
+  ]
+ },
+ "narrator_archetype": {
+  "primary": "fellow sufferer (peer owner)",
+  "alt": "insider store manager, REAL only",
+  "label": "SUPPORTED|EARLY SIGNAL"
+ },
+ "photographic_register": {
+  "file": "13-BRAND.md",
+  "section": "§6",
+  "id": "REG-1"
+ },
+ "identity": {
+  "palette": {
+   "primary": "#1F3A34",
+   "cta_accent": "#E0621F",
+   "text_dark": "#1C1C1A",
+   "background": "#F7F4EE"
+  },
+  "fonts": {
+   "heading": "Fraunces",
+   "body": "Inter"
+  },
+  "product_element_id": "9597a0b7-58a4-42f0-bdc9-1b2663b1ce17",
+  "model_element_or_soul_id": null,
+  "environment_element_id": "de8b79fa-3285-4487-8076-c22e091bfd4d"
+ },
+ "tribe_aesthetic": {
+  "file": "13-BRAND.md",
+  "section": "§13",
+  "id": "TRIBE-1",
+  "role_wanted": "acknowledgment — the owner, not the student or operator"
+ },
+ "congruence_spec": {
+  "file": "13-BRAND.md",
+  "section": "§14",
+  "id": "CONG-1",
+  "message_match_words": {
+   "problem": "one shot; left on launch day",
+   "mechanism": "in stages; a budget you approve",
+   "promise": "in your name; we stay after launch day"
+  }
+ },
+ "fact_sheet": {
+  "version": "v1 (12 ASSEMBLE copy with late-bound rows filled; 13-BRAND.md unchanged)",
+  "rows": [
+   {
+    "field": "name + status",
+    "value": "Readymerce · PROVISIONAL (registry NOT FETCHED; §9)",
+    "pointer": "NAME-1; datasets/13-exa-runs.md",
+    "tier": "[R-PAGE via Exa]"
+   },
+   {
+    "field": "SKU",
+    "value": "\"The Store Build & Research Package,\" $500 one-time; managed fee quoted on the fit call, no published number",
+    "pointer": "PT-01, PT-02",
+    "tier": "[R-PAGE via Exa]"
+   },
+   {
+    "field": "Truth Card pointer",
+    "value": "01-PRODUCT-TRUTH.md §TRUTH CARD T3 (PT-01..PT-20), band PROXY-SKU",
+    "pointer": "01-HANDOFF.DEEP product_truth_card",
+    "tier": "[R-PAGE via Exa]"
+   },
+   {
+    "field": "components[]",
+    "value": "C1 store build (given) · C2 branding (given) · C3 vetted products, count UNKNOWN (INFERRED: 01 §2 SEED [R-OWNED]; PT-19) · C4 supplier setup (INFERRED: 01 §2; PT-04 shipping-profile setup) · C5 staged ad testing (given) · C6 fit/strategy call (given) · C7 ongoing management, level agreed on the call (given, PT-08) · C8 portal/credits (INFERRED: 01 §2; UNKNOWN PT-19) · C9 account manager (INFERRED: 01 §2; UNKNOWN PT-19) · C10 7-day refund, conditioned (given, PT-15) · C11 ownership, own live store account (given, PT-14)",
+    "pointer": "01-HANDOFF components; PT-04, PT-08, PT-14, PT-15, PT-19",
+    "tier": "[R-PAGE via Exa] + INFERRED"
+   },
+   {
+    "field": "avatars + states",
+    "value": "AV-★ AV-07 (UNTAPPED, VALIDATED) · launch AV-01 (UNTAPPED), AV-04 (STEALABLE), AV-02 (STEALABLE, EARLY SIGNAL), AV-03 (OWNED) · reserve AV-06, AV-05, CL-09",
+    "pointer": "09-HANDOFF avatar_portfolio",
+    "tier": "[R-OWNED]+[R-PAGE] (09)"
+   },
+   {
+    "field": "shared problem",
+    "value": "a store that got one shot and was left alone after launch (LOCK-A M-1 + LOCK-B M-1)",
+    "pointer": "10 §15 LOCK-A/B ump",
+    "tier": "[D]"
+   },
+   {
+    "field": "shared promise",
+    "value": "\"Your store is built in your name within days, then launched in stages\" / \"you're not left alone on launch day\"",
+    "pointer": "10 §15 big_promise",
+    "tier": "[R-PAGE via Exa] (PT-04) + [R-SNIPPET] timing"
+   },
+   {
+    "field": "ump",
+    "value": "LOCK-A MK-01 The One-Shot Launch · LOCK-B MK-06 The Handover Cliff",
+    "pointer": "10 §15",
+    "tier": "[D] on given basis"
+   },
+   {
+    "field": "ums",
+    "value": "staged release + capped tests + early review (CS-07..CS-10) · post-launch review + corrections",
+    "pointer": "10 §15; PT-04, PT-08",
+    "tier": "[R-PAGE via Exa]"
+   },
+   {
+    "field": "big_idea",
+    "value": "\"First stores die from getting one shot, not from e-commerce.\" · \"Launch day is the starting line, not the finish line.\"",
+    "pointer": "10 §15",
+    "tier": "[D]"
+   },
+   {
+    "field": "big_promise",
+    "value": "see shared promise; no income, time-to-sale or hands-free claim (PT-09)",
+    "pointer": "10 §15",
+    "tier": "[R-PAGE via Exa]"
+   },
+   {
+    "field": "big_proof",
+    "value": "BIG PROOF P-01.AV-07 — PT-04 written post-launch + staged-test scope (EXISTS); outcome proof NULL (PT-07, PT-18) — 11 §10",
+    "pointer": "11-BELIEFS.md §10",
+    "tier": "[R-PAGE via Exa]",
+    "value_13": "process proof only (PT-04 26 bullet points); outcome proof NULL (PT-07, PT-18) — LATE-BOUND: 11.proof",
+    "filled_by": "12 ASSEMBLE"
+   },
+   {
+    "field": "positioning",
+    "value": "POS-1 statement; subcategory \"Not another store builder — for owners whose store is built and just sitting there.\"",
+    "pointer": "§4",
+    "tier": "[D]"
+   },
+   {
+    "field": "strategic enemy",
+    "value": "EN-1 the build-and-leave store deal (VALIDATED, 8 authors / 4 threads)",
+    "pointer": "§2",
+    "tier": "computed"
+   },
+   {
+    "field": "route + offer",
+    "value": "offer: named offer \"The Second-Shot Launch\" (T2 $2,000 INFERRED) · entry \"Start with the $500 Build\" (GIVEN) · ladder shape C T1/T2/T3 · 60-day deliverables guarantee OPERATOR-VALIDATES · urgency NONE — evergreen · strength ACCEPTABLE (12 §5) | route: LOCK-B for AV-07/AV-02/AV-03, LOCK-A for AV-01/AV-04; natives 13 / statics 5; per-avatar lanes 12 §1a",
+    "pointer": "12-OFFER-TESTPLAN-PLAYBOOK.md §5, §9; handoff.json route",
+    "tier": "[D] + GIVEN/INFERRED",
+    "value_13": "LATE-BOUND: 12.offer · LATE-BOUND: 12.route",
+    "filled_by": "12 ASSEMBLE"
+   },
+   {
+    "field": "beliefs / proof / objection pointers",
+    "value": "beliefs 11 §5 (33, THE ONE ×5) · proof 11 §10 · objections 11 §8 crosswalk (59 rows, T1 32) · claims 11 §11 (17 deduped) · live_wire rows B-103/B-104.AV-01, B-42/B-44/B-46.AV-04, B-04.AV-07, B-06.AV-02",
+    "pointer": "11-BELIEFS.md",
+    "tier": "[D] on tiered Q-##",
+    "value_13": "LATE-BOUND: 11.beliefs · LATE-BOUND: 11.proof · LATE-BOUND: 11.objections · LATE-BOUND: 11.claims",
+    "filled_by": "12 ASSEMBLE"
+   },
+   {
+    "field": "voice + banned words",
+    "value": "VOICE-1: plain-spoken · straight about limits · stays with you; 17 banned-word entries",
+    "pointer": "§10",
+    "tier": "computed"
+   },
+   {
+    "field": "narrator",
+    "value": "peer owner (SUPPORTED) · alt insider store manager, REAL only (EARLY SIGNAL)",
+    "pointer": "§5",
+    "tier": "computed"
+   },
+   {
+    "field": "story stamp",
+    "value": "POSITIONED · discovery frame A (independent research)",
+    "pointer": "§11",
+    "tier": "[D]"
+   },
+   {
+    "field": "palette + fonts",
+    "value": "Pine #1F3A34 · Ember #E0621F (CTA only) · Ink #1C1C1A · Paper #F7F4EE · Fraunces / Inter",
+    "pointer": "§12",
+    "tier": "computed"
+   },
+   {
+    "field": "Honest Box [D] (11 absent)",
+    "value": "Honest Box (11 merged §15): complaint = store live then no help / nothing sells (Q-E-0010, Q-E-0006, Q-F-0018; SIMILAR PRODUCT CONTEXT) · limitation PT-05/PT-08/PT-09/PT-15/PT-19 · not_for (merged) · remedy line (11 §15)",
+    "pointer": "11-BELIEFS.md §15",
+    "tier": "[D]",
+    "value_13": "top complaint PT-10 (1 disputed exact-SKU complaint: access codes withheld after a $250 deposit) → limitation PT-15 (refund voids on acceptance or any add-on; covers the $500 only) + PT-05 (ad spend, product costs, platform fees excluded) → not-for NF-01, NF-02 → remedy: store in your name from day one (PT-14), the what-you-get list published (MK-22), refund conditions stated plainly (MK-23)",
+    "filled_by": "12 ASSEMBLE"
+   },
+   {
+    "field": "market terms",
+    "value": "store · orders · no sales · the 500 · legit · side hustle · the backend · sitting there",
+    "pointer": "06 §10",
+    "tier": "[R-SCRAPE]/[R-OWNED] (06)"
+   },
+   {
+    "field": "ledger path",
+    "value": "06-VOC-LEDGERS.csv · 01 §TRUTH CARD T8 · 10 §5 basis ledger · datasets/13-exa-runs.md",
+    "pointer": "—",
+    "tier": "—"
+   },
+   {
+    "field": "assets",
+    "value": "assets/readymerce-visual-identity/README.md (URLs + job_ids; PROVISIONAL)",
+    "pointer": "§12",
+    "tier": "[R-TOOL] Higgsfield"
+   },
+   {
+    "field": "version",
+    "value": "v1",
+    "pointer": "—",
+    "tier": "—"
+   },
+   {
+    "field": "version_rule",
+    "value": "\"any fact change re-issues the sheet, bumps v1 → v2, re-stamps every doc's front matter, flags every live downstream asset for a congruence re-check\"",
+    "pointer": "13 §4.14",
+    "tier": "—"
+   },
+   {
+    "field": "late_bound[]",
+    "value": "none — 12.offer, 12.route, 11.beliefs, 11.proof, 11.objections, 11.claims, 11.live_wire, 11.WM-AV#.enemies, 11.honest_box filled in THIS copy by 12 ASSEMBLE (13-BRAND.md itself unchanged)",
+    "pointer": "handoff.json fact_sheet",
+    "tier": "resolved",
+    "value_13": "12.offer · 12.route · 11.beliefs · 11.proof · 11.objections · 11.claims · 11.live_wire · 11.WM-AV#.enemies · 11.honest_box",
+    "filled_by": "12 ASSEMBLE"
+   }
+  ],
+  "late_bound_filled": 5
+ },
+ "name_options": [
+  "NAME-1 Readymerce (GIVEN, PROVISIONAL)",
+  "NAME-2 Launchkeep",
+  "NAME-3 Afterlaunch"
+ ],
+ "ammunition": {
+  "file": "11-BELIEFS.md",
+  "section": "§16",
+  "cells": "251/290",
+  "playbook": "12-OFFER-TESTPLAN-PLAYBOOK.md §13"
+ },
+ "sampling_program": "NOT MAPPED — service (no physical sample); analogue: demo shoot (P-08/P-09.AV-07, P-103.AV-01, P-07.AV-04, P-01/P-15.AV-02, P-01.AV-03) + first-100 client reports (P-10.AV-07, P-111.AV-01, P-12.AV-02)",
+ "lint_checks_exported": [
+  "DNS-01..DNS-19 (11 §12) never in copy or calls",
+  "no income, speed or success-rate claim (PT-09, F-13)",
+  "refund only AS CONDITIONED until the 60-day guarantee is adopted (DNS-06)",
+  "no actor testimonials as clients (DNS-10)",
+  "\"done for you\"/\"turnkey\" never the hook word (0 of 307)",
+  "competitor reviews = SIMILAR PRODUCT CONTEXT only"
+ ],
+ "desire_leaderboard": {
+  "file": "08-DESIRES-LF8.md",
+  "section": "§12",
+  "primary": "MD-01",
+  "top": [
+   "MD-01 VALIDATED",
+   "MD-04 VALIDATED",
+   "MD-02 VALIDATED"
+  ]
+ },
+ "mass_desires": [
+  {
+   "md_id": "MD-01",
+   "label": "VALIDATED",
+   "lf8_roots": [
+    "1",
+    "3",
+    "5",
+    "8"
+   ]
+  },
+  {
+   "md_id": "MD-04",
+   "label": "VALIDATED",
+   "lf8_roots": [
+    "3",
+    "6",
+    "8"
+   ]
+  },
+  {
+   "md_id": "MD-02",
+   "label": "VALIDATED",
+   "lf8_roots": [
+    "5",
+    "3",
+    "6"
+   ]
+  }
+ ],
+ "crystallization_bank": {
+  "file": "08-DESIRES-LF8.md",
+  "section": "§14",
+  "ids": "IB-01..IB-32"
+ },
+ "belief_sequence": {
+  "AV-07": [
+   "B-01.AV-07",
+   "B-02.AV-07",
+   "B-05.AV-07",
+   "B-06.AV-07",
+   "B-03.AV-07",
+   "B-04.AV-07",
+   "FINAL"
+  ],
+  "AV-01": [
+   "B-106.AV-01",
+   "B-101.AV-01",
+   "B-105.AV-01",
+   "B-107.AV-01",
+   "B-102.AV-01",
+   "SOLUTION-REQUIREMENT",
+   "B-103.AV-01",
+   "B-104.AV-01",
+   "FINAL"
+  ],
+  "AV-04": {
+   "file": "11-BELIEFS.md",
+   "section": "§7.AV-04"
+  },
+  "AV-02": {
+   "file": "11-BELIEFS.md",
+   "section": "§7.AV-02"
+  },
+  "AV-03": {
+   "file": "11-BELIEFS.md",
+   "section": "§7.AV-03"
+  }
+ },
+ "lane_pass": {
+  "AV-07": "S1–2 reset → claim + Name-it, PROOF-led (LOCK-B)",
+  "AV-01": "NEW INFORMATION → mechanism DESCRIBED (LOCK-A)",
+  "AV-04": "S4 → mechanism made surer + New Information (LOCK-A)",
+  "AV-02": "S4 (ASSUMED) → LOCK-B made surer + NI-04 ownership",
+  "AV-03": "S2 OWNED pond → Name-it mechanism first, claim second (LOCK-B)"
+ },
+ "keep_list": {
+  "file": "02-COMPETITOR-INTEL.md",
+  "section": "§15",
+  "used": [
+   "LK-03",
+   "LK-06",
+   "LK-07",
+   "LK-15"
+  ]
+ },
+ "awareness_snapshot": {
+  "pooled_stage": "S4 MIXED",
+  "dfy_only_stage": "S2 PLURALITY",
+  "entry_recommendation": "validation lane AW-3; expansion AW-2, AW-1, AW-4",
+  "per_avatar": {
+   "AV-07": "AW-4/5",
+   "AV-01": "AW-2>3",
+   "AV-04": "AW-4",
+   "AV-02": "AW-4",
+   "AV-03": "AW-2/3"
+  }
+ },
+ "angles": [
+  {
+   "id": "AN-01",
+   "md_id": "MD-02",
+   "lf8_root": "#5",
+   "territory": "FRESH",
+   "structure": "ST-04",
+   "market_validation": "FRESH — 0 of 8 NW name the post-launch step (10 §12); CP-04 0 ads (07 §9)",
+   "voc_root": "Q-O-0103",
+   "premise": "Your stores didn't fail — nobody was assigned to them after the build; a built store isn't a running store.",
+   "hook_direction": "Same store. One sat for years. One got worked every week after it went live.",
+   "strategic_frame": "story/transformation",
+   "belief_to_break": "B-02.AV-07"
+  },
+  {
+   "id": "AN-02",
+   "md_id": "MD-01",
+   "lf8_root": "#1",
+   "territory": "CHALLENGER-3",
+   "structure": "ST-03",
+   "market_validation": "CHALLENGER-3 vs VA-01 \"we build it for you\" (NW-03/04/06); BI-01 territory",
+   "voc_root": "Q-O-0104",
+   "premise": "It was never \"do it myself\" or \"$5,000–$20,000\": a published $500 first step with a team that stays after go-live is the third option.",
+   "hook_direction": "It was never only \"hire a developer\" or \"do it myself.\"",
+   "strategic_frame": "bold proclamation",
+   "belief_to_break": "B-03.AV-07"
+  },
+  {
+   "id": "AN-03",
+   "md_id": "MD-02",
+   "lf8_root": "#5",
+   "territory": "FRESH (FRESHEN wording — never \"we manage\", DNS-05)",
+   "structure": "ST-02",
+   "market_validation": "FRESH — LOCK-B handle CLEAR (10 collision FRESHEN); MC-02 correct-in-copy",
+   "voc_root": "Q-O-0001",
+   "premise": "Managed, not automatic: a team does the store's weekly work (review → fix → test) while you approve budgets and read reports.",
+   "hook_direction": "\"We don't have the budget to be able to do a lot of ads.\"",
+   "strategic_frame": "mechanism reveal",
+   "belief_to_break": "B-04.AV-07"
+  },
+  {
+   "id": "AN-04",
+   "md_id": "MD-01",
+   "lf8_root": "#1",
+   "territory": "FRESH (EN-1 villain CLEAR, 13 §2)",
+   "structure": "ST-03",
+   "market_validation": "FRESH — EN-1 build-and-leave VALIDATED 8 authors / 0 NW attack it (13 §2)",
+   "voc_root": "Q-O-0169",
+   "premise": "The builder's job ends the day the store goes live — the platform's own guide says so; the weeks after are where it runs or sits.",
+   "hook_direction": "Paid a builder? Ask what happened the week after it went live.",
+   "strategic_frame": "social proof/us-vs-them",
+   "belief_to_break": "B-02.AV-07"
+  },
+  {
+   "id": "AN-05",
+   "md_id": "MD-04",
+   "lf8_root": "#3",
+   "territory": "FRESH",
+   "structure": "ST-05",
+   "market_validation": "FRESH — LOCK-A villain CLEAR 0/8 NW; PB-06 lane nobody sells (02)",
+   "voc_root": "Q-O-0108",
+   "premise": "Your first store didn't prove e-commerce can't work for you — it got one shot, and one guess misses more often than it hits.",
+   "hook_direction": "\"Ive had 2 stores on Shopify both failed.\"",
+   "strategic_frame": "story/transformation",
+   "belief_to_break": "B-102.AV-01"
+  },
+  {
+   "id": "AN-06",
+   "md_id": "MD-01",
+   "lf8_root": "#3",
+   "territory": "FRESH (NI-02)",
+   "structure": "ST-01",
+   "market_validation": "FRESH — NI-02 new information (10 §16a); 0 of 20 long-runners name it (03 §16)",
+   "voc_root": "Q-Y-0014",
+   "premise": "Hundreds of clicks and zero orders is a product signal, not a traffic signal — the next product needs a test, not more clicks.",
+   "hook_direction": "\"i got zero sales which means i lost 254 dollars.\"",
+   "strategic_frame": "mechanism reveal",
+   "belief_to_break": "B-107.AV-01"
+  },
+  {
+   "id": "AN-07",
+   "md_id": "MD-01",
+   "lf8_root": "#3",
+   "territory": "CHALLENGER-3",
+   "structure": "ST-01",
+   "market_validation": "CHALLENGER-3 vs VA-03 business-model transparency (NW-03/04/06)",
+   "voc_root": "Q-Y-0030",
+   "premise": "You're right to guard your money: every cost written before you pay, the store and payouts in your name, no test spends a dollar you didn't approve.",
+   "hook_direction": "It isn't easy money. It's small tests you approve and can stop.",
+   "strategic_frame": "fear+hope",
+   "belief_to_break": "B-104.AV-01"
+  },
+  {
+   "id": "AN-08",
+   "md_id": "MD-04",
+   "lf8_root": "#6",
+   "territory": "FRESH (NI-01)",
+   "structure": "ST-01",
+   "market_validation": "FRESH — NI-01 (Product Lair 2024, practitioner guide); 0 of 20 long-runners name it",
+   "voc_root": "Q-Y-0064",
+   "premise": "The ones who found a product that sells almost never found it first — they tested five to ten, each on a small budget.",
+   "hook_direction": "One product and a one-week deadline — or five to ten, each on a small budget.",
+   "strategic_frame": "social proof/us-vs-them",
+   "belief_to_break": "B-107.AV-01"
+  },
+  {
+   "id": "AN-09",
+   "md_id": "MD-01",
+   "lf8_root": "#5",
+   "territory": "CHALLENGER-2",
+   "structure": "ST-05",
+   "market_validation": "CHALLENGER-2 vs VA-04 \"it's not you — it's the barrier\" (NW-04/06) — own wording only (DNS-18)",
+   "voc_root": "Q-F-0015",
+   "premise": "It wasn't a lack of ability — the after-hours route asked you to run a second full job in leftover hours.",
+   "hook_direction": "\"I work a full time job as well, so am only able to attend to my store after hours.\"",
+   "strategic_frame": "social proof/us-vs-them",
+   "belief_to_break": "B-44.AV-04"
+  },
+  {
+   "id": "AN-10",
+   "md_id": "MD-01",
+   "lf8_root": "#3",
+   "territory": "FRESH (no NW sells keep-the-job; NW-01/IM-14 sell quitting)",
+   "structure": "ST-04",
+   "market_validation": "FRESH — counter-position to IM-14 \"Don't get another job in 2026\" (NW-01)",
+   "voc_root": "Q-O-0133",
+   "premise": "Keep the salary — that's the safe part; the store can start now beside the job on small, capped tests you approve.",
+   "hook_direction": "On break: \"Can I review full contract before making payment?\"",
+   "strategic_frame": "bold proclamation",
+   "belief_to_break": "B-42.AV-04"
+  },
+  {
+   "id": "AN-11",
+   "md_id": "MD-01",
+   "lf8_root": "#5",
+   "territory": "FRESH (NI-01)",
+   "structure": "ST-04",
+   "market_validation": "FRESH — NI-01 new information (10 §16a)",
+   "voc_root": "Q-O-0082",
+   "premise": "A first store that got one guess only proved one guess missed; sellers who find a product usually tested several, each small.",
+   "hook_direction": "\"I picked the baby store. It just didn't work\"?",
+   "strategic_frame": "fear+hope",
+   "belief_to_break": "B-47.AV-04"
+  },
+  {
+   "id": "AN-12",
+   "md_id": "MD-02",
+   "lf8_root": "#5",
+   "territory": "CHALLENGER-1",
+   "structure": "ST-01",
+   "market_validation": "CHALLENGER-1 vs VA-05 \"delivered, not taught\" (NW-04 only) — never \"STOP buying courses\" (DNS-15)",
+   "voc_root": "Q-O-0056",
+   "premise": "You don't need to be trained into a second job: the build, tests and fixes are done; you approve and read — and the whole cost is on one line.",
+   "hook_direction": "\"The one thing I don't have in my life is time.\"",
+   "strategic_frame": "story/transformation",
+   "belief_to_break": "B-46.AV-04"
+  },
+  {
+   "id": "AN-13",
+   "md_id": "MD-01",
+   "lf8_root": "#3",
+   "territory": "FRESH (NI-04: 0 of 32 IM sell ownership as a check)",
+   "structure": "ST-05",
+   "market_validation": "FRESH — NI-04 (10 §16a); EN-1 VALIDATED 8 authors (13 §2)",
+   "voc_root": "Q-F-0001",
+   "premise": "The burned stores went wrong in two checkable places: the store sat in the builder's account, and the builder stopped on launch day. Check both before you pay.",
+   "hook_direction": "\"they said they would build a store, but i am building the store???\"",
+   "strategic_frame": "mechanism reveal",
+   "belief_to_break": "B-02.AV-02"
+  },
+  {
+   "id": "AN-14",
+   "md_id": "MD-04",
+   "lf8_root": "#3",
+   "territory": "CHALLENGER-3",
+   "structure": "ST-04",
+   "market_validation": "CHALLENGER-3 vs VA-03 transparency (NW-03/04/06)",
+   "voc_root": "Q-O-0102",
+   "premise": "Paying someone to build it wasn't the mistake — the version you bought stopped at go-live; here is what's different on paper.",
+   "hook_direction": "\"I need a proof of concept that actually works.\"",
+   "strategic_frame": "social proof/us-vs-them",
+   "belief_to_break": "B-04.AV-02"
+  },
+  {
+   "id": "AN-15",
+   "md_id": "MD-01",
+   "lf8_root": "#3",
+   "territory": "FRESH",
+   "structure": "ST-03",
+   "market_validation": "FRESH — no NW addresses the burned buyer's check (09 CAM)",
+   "voc_root": "Q-O-0074",
+   "premise": "If the money isn't there yet, waiting is right; when it is, the first step is a fixed $500 with every other cost named and a store you can check before and after paying.",
+   "hook_direction": "If the money isn't there yet, waiting is the right call. When it is: $500, every other cost named first.",
+   "strategic_frame": "fear+hope",
+   "belief_to_break": "B-07.AV-02"
+  },
+  {
+   "id": "AN-16",
+   "md_id": "MD-04",
+   "lf8_root": "#1",
+   "territory": "FRESH (handle CLEAR; the build claim is OWNED by 4 NW)",
+   "structure": "ST-04",
+   "market_validation": "FRESH — MECHANISM step one stage ahead of the S2 claim (07 §15 SR-01)",
+   "voc_root": "Q-F-0013",
+   "premise": "The setup was never your wall — the builder's job ends the day the store goes live; a store needs someone after launch day.",
+   "hook_direction": "Launch day is the starting line, not the finish line.",
+   "strategic_frame": "mechanism reveal",
+   "belief_to_break": "B-03.AV-03"
+  },
+  {
+   "id": "AN-17",
+   "md_id": "MD-04",
+   "lf8_root": "#1",
+   "territory": "FRESH (NI-01)",
+   "structure": "ST-03",
+   "market_validation": "FRESH — NI-01; EM-10 crowded entry reframed (07 §14a)",
+   "voc_root": "Q-F-0041",
+   "premise": "\"What should I sell?\" is answered by small tests, not a perfect first pick — products chosen from data and released in stages.",
+   "hook_direction": "\"After weeks of overthinking, I finally committed.\"",
+   "strategic_frame": "story/transformation",
+   "belief_to_break": "B-06.AV-03"
+  },
+  {
+   "id": "AN-18",
+   "md_id": "MD-01",
+   "lf8_root": "#1",
+   "territory": "CHALLENGER-3",
+   "structure": "ST-01",
+   "market_validation": "CHALLENGER-3 vs VA-01 (OWNED pond: IM-29 271 d)",
+   "voc_root": "Q-O-0002",
+   "premise": "One published price and a store in your name — and the team is still on it after it opens.",
+   "hook_direction": "\"I don't know where to start or what I should sell.\"",
+   "strategic_frame": "bold proclamation",
+   "belief_to_break": "B-04.AV-03"
+  }
+ ],
+ "reserve_queue": [
+  {
+   "id": "AN-R01",
+   "avatar": "AV-07",
+   "premise": "AF-07 \"Your store's first report went unread.\" (MK-04 the unread first weeks)",
+   "frame": "mechanism reveal",
+   "executions_tried": 0
+  },
+  {
+   "id": "AN-R02",
+   "avatar": "AV-07",
+   "premise": "Your existing brand's products, released in stages on a new store in your name (need_stack \"tied to her existing products\"; Q-O-0043) — never a takeover claim (DNS-11)",
+   "frame": "story/transformation",
+   "executions_tried": 0
+  },
+  {
+   "id": "AN-R03",
+   "avatar": "AV-01",
+   "premise": "AF-05 \"Nobody told you when to stop spending.\" (MK-03 the bottomless ad budget)",
+   "frame": "mechanism reveal",
+   "executions_tried": 0
+  },
+  {
+   "id": "AN-R04",
+   "avatar": "AV-01",
+   "premise": "AF-04 \"The product sold. The supplier didn't.\" (MK-05 product-first, supplier-second)",
+   "frame": "social proof/us-vs-them",
+   "executions_tried": 0
+  },
+  {
+   "id": "AN-R05",
+   "avatar": "AV-04",
+   "premise": "AF-09 \"Every new idea restarted the clock.\" (MK-26 the idea-hop loop)",
+   "frame": "mechanism reveal",
+   "executions_tried": 0
+  },
+  {
+   "id": "AN-R06",
+   "avatar": "AV-04",
+   "premise": "the family-time motive as a SECONDARY trait inside AV-04 (MD-08 EARLY SIGNAL; operator hypothesis a stays HYPOTHESIS — never its own adset)",
+   "frame": "story/transformation",
+   "executions_tried": 0
+  },
+  {
+   "id": "AN-R07",
+   "avatar": "AV-02",
+   "premise": "AF-03 \"Whose name is on your store?\" (MK-07 borrowed keys) as a static",
+   "frame": "bold proclamation",
+   "executions_tried": 0
+  },
+  {
+   "id": "AN-R08",
+   "avatar": "AV-02",
+   "premise": "AF-13 \"It wasn't a scam. It was a payout hold.\" (MK-13; NI-05 conditional — OPERATOR-VALIDATES verification step first)",
+   "frame": "mechanism reveal",
+   "executions_tried": 0
+  },
+  {
+   "id": "AN-R09",
+   "avatar": "AV-03",
+   "premise": "AF-12 \"10 weeks on 'simple' tasks.\" (MK-15 the snowstorm setup)",
+   "frame": "story/transformation",
+   "executions_tried": 0
+  },
+  {
+   "id": "AN-R10",
+   "avatar": "AV-03",
+   "premise": "AF-06 \"You didn't get stuck. You got the steps out of order.\" (MK-09 the out-of-order build)",
+   "frame": "mechanism reveal",
+   "executions_tried": 0
+  },
+  {
+   "avatar": "AV-05",
+   "state": "UNPROVEN — reserve until HARVEST-18"
+  },
+  {
+   "avatar": "AV-06",
+   "state": "UNPROVEN — reserve until HARVEST-19"
+  },
+  {
+   "avatar": "CL-09",
+   "state": "RESERVE — HARVEST-21"
+  }
+ ],
+ "expansion_queue": [
+  "AV-08"
+ ],
+ "mechanism_disqualified_keepers": [
+  "MK-17 positioning — \"here is exactly how we get paid\" (own fee facts only)",
+  "MK-18 trust play — \"we only win when you win\" NOT available (answer as an objection)",
+  "MK-19 positioning/timeline — ground-floor marketplace CONTROL (VA-02): do not copy",
+  "MK-20 positioning — \"not a course, a template pack\" (PT-14)",
+  "MK-21 hook — \"you're not less capable than people making money online\" (VA-04; NW-06 owns it)",
+  "MK-22 trust play — publish the what-you-get list (Q-O-0002)",
+  "MK-23 trust play/timeline — state the 7-day voiding conditions (PT-15)",
+  "MK-24 timeline frame — \"results are not typical and are not guaranteed\" (PT-09) vs \"$10,000 a month in three months\" (Q-O-0008)",
+  "MK-25 positioning — exclusions up front (PT-05; Q-O-0028)"
+ ],
+ "gradualization_chain": [
+  {
+   "lock": "LOCK-A MK-01",
+   "file": "10-MECHANISMS.md",
+   "section": "§15 LOCK-A / §13c R-1,R-2"
+  },
+  {
+   "lock": "LOCK-B MK-06",
+   "file": "10-MECHANISMS.md",
+   "section": "§15 LOCK-B / §13c R-3"
+  },
+  {
+   "avatar": "AV-07",
+   "go": "GO-AV-07",
+   "file": "11-BELIEFS.md",
+   "section": "§6"
+  },
+  {
+   "avatar": "AV-01",
+   "go": "GO-AV-01",
+   "file": "11-BELIEFS.md",
+   "section": "§6"
+  },
+  {
+   "avatar": "AV-04",
+   "go": "GO-AV-04",
+   "file": "11-BELIEFS.md",
+   "section": "§6"
+  },
+  {
+   "avatar": "AV-02",
+   "go": "GO-AV-02",
+   "file": "11-BELIEFS.md",
+   "section": "§6"
+  },
+  {
+   "avatar": "AV-03",
+   "go": "GO-AV-03",
+   "file": "11-BELIEFS.md",
+   "section": "§6"
+  }
+ ],
+ "proven_structures": [
+  {
+   "id": "ST-01",
+   "name": "Founder math VSL",
+   "note": "the math is shown, not asserted"
+  },
+  {
+   "id": "ST-02",
+   "name": "Capital-qualifier offer explainer",
+   "note": "filters buyers in line 1 (qualifier borrowed; NW-03 claims not)"
+  },
+  {
+   "id": "ST-03",
+   "name": "Stop-X direct personal offer",
+   "note": "names the resented enemy then hands over the asset"
+  },
+  {
+   "id": "ST-04",
+   "name": "Recognition → reframe → removal",
+   "note": "VD-01 best structure"
+  },
+  {
+   "id": "ST-05",
+   "name": "Accusation → loophole → collect",
+   "note": "indignation converts to agency (structure only)"
+  },
+  {
+   "id": "ST-06",
+   "name": "Withheld-reveal teaser",
+   "note": "curiosity sells the click — not used in the launch batch"
+  }
+ ],
+ "observed_patterns": {
+  "hooks": {
+   "file": "03-VALIDATED-MESSAGING.md",
+   "section": "§9"
+  },
+  "creative": {
+   "file": "03-VALIDATED-MESSAGING.md",
+   "section": "§10"
+  },
+  "proof": {
+   "file": "03-VALIDATED-MESSAGING.md",
+   "section": "§11"
+  },
+  "offer": {
+   "file": "03-VALIDATED-MESSAGING.md",
+   "section": "§12"
+  }
+ },
+ "icp_language_analysis": {
+  "swap_table": {
+   "file": "06-VOC-REPORT.md",
+   "section": "§10"
+  },
+  "tone": "MARKET confessional post-mortem; OWNED guarded, transactional, question-led",
+  "market_terms": [
+   "store",
+   "orders",
+   "no sales",
+   "the 500",
+   "legit",
+   "side hustle",
+   "the backend",
+   "sitting there"
+  ]
+ },
+ "voc_corpus": {
+  "path": "06-VOC_MASTER.csv",
+  "q_count": 333,
+  "rows_total": 362,
+  "c_rows": 29,
+  "corpus": {
+   "MARKET_VOC": 142,
+   "OWNED_PROOF": 210,
+   "OWNED_PROOF_Q": 181,
+   "PRODUCT_TRUTH": 10
+  },
+  "tiers": {
+   "[R-PAGE via Exa]": 81,
+   "[R-PAGE]": 12,
+   "[R-SNIPPET]": 5,
+   "[R-SCRAPE]": 54,
+   "[R-OWNED]": 181
+  },
+  "method": "python3 csv count"
+ },
+ "margin_sanity": {
+  "T1_contribution": 213.5,
+  "T1_vs_breakeven": -4.0,
+  "T2_vs_target_cpa": 551.64,
+  "T3_vs_target_cpa": 722.64,
+  "net_band": "BELOW (-7.7%)",
+  "note": "T1 survives only at booked-call CPA ≤ $10.17–10.36 (OPERATOR-VALIDATES)"
+ },
+ "swipe_refs": [
+  "IM-29 (NW-06, 271 d)",
+  "IM-23 (NW-04, 87 d)",
+  "IM-18 (NW-03, 540 d — CONTROL, do not copy)",
+  "IM-20..22 (NW-03)",
+  "IM-27",
+  "IM-31/32",
+  {
+   "file": "03-VALIDATED-MESSAGING.md",
+   "section": "§21"
+  },
+  {
+   "file": "02-swipe.csv"
+  }
+ ],
+ "test_cells": [
+  {
+   "cell_id": "CELL-01",
+   "key": "AV-07 × PP-06 × MD-02 × AN-01",
+   "avatar_id": "AV-07",
+   "problem_id": "PP-06",
+   "desire_id": "MD-02",
+   "lf8_root": "#5",
+   "angle": {
+    "id": "AN-01",
+    "premise": "Your stores didn't fail — nobody was assigned to them after the build; a built store isn't a running store.",
+    "strategic_frame": "story/transformation",
+    "lane": "S1–2 reset → claim + Name-it, PROOF-led (LOCK-B)",
+    "territory": "FRESH",
+    "belief_to_break": "B-02.AV-07",
+    "structure": "ST-04",
+    "awareness_entry": "AW-4",
+    "avoid_list": "\"done-for-you\"/\"turnkey\" (DNS-03) · \"fully automated\"/\"hands-free\" as our claim (DNS-04) · income/ROI/success-rate figures (DNS-01/02) · \"we manage your store\" (DNS-05) · \"no sales\"/\"failed\" (his stores SAT) · existing-store takeover (DNS-11)"
+   },
+   "hook_seeds": [
+    {
+     "cls": "CONTRAST",
+     "text": "Same store. One sat for years. One got worked every week after it went live.",
+     "src": "B-02.AV-07"
+    },
+    {
+     "cls": "SCENE",
+     "text": "Three or four stores, built, sitting in the admin for years.",
+     "src": "Q-O-0103"
+    },
+    {
+     "cls": "ADMISSION",
+     "text": "\"I had one before. I just ended it because I was dealing with a lot.\"",
+     "src": "Q-O-0097"
+    },
+    {
+     "cls": "CALLOUT",
+     "text": "You run a business. Your store is \"just sitting there ready to be loaded.\"",
+     "src": "Q-O-0103"
+    },
+    {
+     "cls": "CORRECTION",
+     "text": "A built store isn't a running store.",
+     "src": "B-02.AV-07"
+    }
+   ],
+   "image_concept": "three or four stores \"just sitting there\" in the admin (Q-O-0103)",
+   "proof_ids": [
+    "P-01.AV-07",
+    "P-06.AV-07",
+    "P-09.AV-07"
+   ],
+   "objection_ids": [
+    "OBJ-12.AV-07",
+    "OBJ-16.AV-07"
+   ],
+   "offer_beat": "offer_architecture.offer_beat",
+   "tested_variable": "avatar (WHO)",
+   "held_constant": [
+    "concept/structure skeleton per angle (one story per ad; no mid-test edits)",
+    "offer (T1 \"Start with the $500 Build\" + offer_beat §5 object 9)",
+    "product (Readymerce $500 Store Build & Research Package, PT-01)",
+    "mechanism (the avatar's locked M-1/M-2, 10 §15)",
+    "image polish (REG-1 phone-real register, 13 §6)",
+    "copy quality (one writer contract §14, one writer)"
+   ],
+   "voc_roots": [
+    "Q-O-0103",
+    "Q-O-0097",
+    "Q-O-0154",
+    "Q-O-0169"
+   ],
+   "market_validation": "FRESH — 0 of 8 NW name the post-launch step (10 §12); CP-04 0 ads (07 §9)",
+   "format": "NATIVE_STORY",
+   "status": "READY",
+   "ad_name": "AV7-A1-your-stores-didn-t-fail-nobo"
+  },
+  {
+   "cell_id": "CELL-02",
+   "key": "AV-07 × PP-06 × MD-01 × AN-02",
+   "avatar_id": "AV-07",
+   "problem_id": "PP-06",
+   "desire_id": "MD-01",
+   "lf8_root": "#1",
+   "angle": {
+    "id": "AN-02",
+    "premise": "It was never \"do it myself\" or \"$5,000–$20,000\": a published $500 first step with a team that stays after go-live is the third option.",
+    "strategic_frame": "bold proclamation",
+    "lane": "S1–2 reset → claim + Name-it, PROOF-led (LOCK-B)",
+    "territory": "CHALLENGER-3",
+    "belief_to_break": "B-03.AV-07",
+    "structure": "ST-03",
+    "awareness_entry": "AW-5",
+    "avoid_list": "\"done-for-you\"/\"turnkey\" (DNS-03) · \"fully automated\"/\"hands-free\" as our claim (DNS-04) · income/ROI/success-rate figures (DNS-01/02) · \"we manage your store\" (DNS-05) · \"no sales\"/\"failed\" (his stores SAT) · existing-store takeover (DNS-11)"
+   },
+   "hook_seeds": [
+    {
+     "cls": "CORRECTION",
+     "text": "It was never only \"hire a developer\" or \"do it myself.\"",
+     "src": "Q-F-9006"
+    },
+    {
+     "cls": "CONTRAST",
+     "text": "$5,000, $20,000, $15,000 — or do it yourself. There's a third option.",
+     "src": "Q-O-0104"
+    },
+    {
+     "cls": "CALLOUT",
+     "text": "Quoted $5k–$20k for a store? \"I'm like, seriously? Come on.\"",
+     "src": "Q-O-0104"
+    },
+    {
+     "cls": "ADMISSION",
+     "text": "\"I would not pay $2,500 to anybody unless I could see some results.\"",
+     "src": "Q-O-0006"
+    },
+    {
+     "cls": "SCENE",
+     "text": "\"I'll start with the 500, and then I'll hopefully graduate to the next level.\"",
+     "src": "Q-O-0029"
+    }
+   ],
+   "image_concept": "moving money between her own accounts mid-call to fund the $500 (O-a654f844 marker)",
+   "proof_ids": [
+    "P-04.AV-07",
+    "P-05.AV-07",
+    "P-03.AV-07"
+   ],
+   "objection_ids": [
+    "OBJ-13.AV-07",
+    "OBJ-04.AV-07"
+   ],
+   "offer_beat": "offer_architecture.offer_beat",
+   "tested_variable": "avatar (WHO)",
+   "held_constant": [
+    "concept/structure skeleton per angle (one story per ad; no mid-test edits)",
+    "offer (T1 \"Start with the $500 Build\" + offer_beat §5 object 9)",
+    "product (Readymerce $500 Store Build & Research Package, PT-01)",
+    "mechanism (the avatar's locked M-1/M-2, 10 §15)",
+    "image polish (REG-1 phone-real register, 13 §6)",
+    "copy quality (one writer contract §14, one writer)"
+   ],
+   "voc_roots": [
+    "Q-O-0104",
+    "Q-O-0006",
+    "Q-F-9006",
+    "Q-O-0029"
+   ],
+   "market_validation": "CHALLENGER-3 vs VA-01 \"we build it for you\" (NW-03/04/06); BI-01 territory",
+   "format": "STATIC",
+   "status": "READY",
+   "ad_name": "AV7-A2-it-was-never-do-it-myself-or"
+  },
+  {
+   "cell_id": "CELL-03",
+   "key": "AV-07 × PP-06 × MD-02 × AN-03",
+   "avatar_id": "AV-07",
+   "problem_id": "PP-06",
+   "desire_id": "MD-02",
+   "lf8_root": "#5",
+   "angle": {
+    "id": "AN-03",
+    "premise": "Managed, not automatic: a team does the store's weekly work (review → fix → test) while you approve budgets and read reports.",
+    "strategic_frame": "mechanism reveal",
+    "lane": "S1–2 reset → claim + Name-it, PROOF-led (LOCK-B)",
+    "territory": "FRESH (FRESHEN wording — never \"we manage\", DNS-05)",
+    "belief_to_break": "B-04.AV-07",
+    "structure": "ST-02",
+    "awareness_entry": "AW-4",
+    "avoid_list": "\"done-for-you\"/\"turnkey\" (DNS-03) · \"fully automated\"/\"hands-free\" as our claim (DNS-04) · income/ROI/success-rate figures (DNS-01/02) · \"we manage your store\" (DNS-05) · \"no sales\"/\"failed\" (his stores SAT) · existing-store takeover (DNS-11)"
+   },
+   "hook_seeds": [
+    {
+     "cls": "ADMISSION",
+     "text": "\"We don't have the budget to be able to do a lot of ads.\"",
+     "src": "Q-O-0005"
+    },
+    {
+     "cls": "CORRECTION",
+     "text": "Not fully automated. Managed — you approve the budget, you read the report.",
+     "src": "B-04.AV-07"
+    },
+    {
+     "cls": "SCENE",
+     "text": "The marketing \"was the one bringing in the money, but it's slowed down so much.\"",
+     "src": "Q-O-0124"
+    },
+    {
+     "cls": "CALLOUT",
+     "text": "\"You guys can fully automate my online business\"? Here's what that honestly looks like.",
+     "src": "Q-O-0001"
+    },
+    {
+     "cls": "CONTRAST",
+     "text": "Your week: running the business. The store's week: review, fix, test. Nobody had the second list.",
+     "src": "B-01.AV-07"
+    }
+   ],
+   "image_concept": "watching the marketing that \"was the one bringing in the money\" slow down (Q-O-0124)",
+   "proof_ids": [
+    "P-09.AV-07",
+    "P-01.AV-07",
+    "P-05.AV-07"
+   ],
+   "objection_ids": [
+    "OBJ-16.AV-07",
+    "OBJ-15.AV-07"
+   ],
+   "offer_beat": "offer_architecture.offer_beat",
+   "tested_variable": "avatar (WHO)",
+   "held_constant": [
+    "concept/structure skeleton per angle (one story per ad; no mid-test edits)",
+    "offer (T1 \"Start with the $500 Build\" + offer_beat §5 object 9)",
+    "product (Readymerce $500 Store Build & Research Package, PT-01)",
+    "mechanism (the avatar's locked M-1/M-2, 10 §15)",
+    "image polish (REG-1 phone-real register, 13 §6)",
+    "copy quality (one writer contract §14, one writer)"
+   ],
+   "voc_roots": [
+    "Q-O-0001",
+    "Q-O-0005",
+    "Q-O-0124",
+    "Q-O-0045"
+   ],
+   "market_validation": "FRESH — LOCK-B handle CLEAR (10 collision FRESHEN); MC-02 correct-in-copy",
+   "format": "NATIVE_STORY",
+   "status": "READY",
+   "ad_name": "AV7-A3-managed-not-automatic-a-team"
+  },
+  {
+   "cell_id": "CELL-04",
+   "key": "AV-07 × PP-01 × MD-01 × AN-04",
+   "avatar_id": "AV-07",
+   "problem_id": "PP-01",
+   "desire_id": "MD-01",
+   "lf8_root": "#1",
+   "angle": {
+    "id": "AN-04",
+    "premise": "The builder's job ends the day the store goes live — the platform's own guide says so; the weeks after are where it runs or sits.",
+    "strategic_frame": "social proof/us-vs-them",
+    "lane": "S1–2 reset → claim + Name-it, PROOF-led (LOCK-B)",
+    "territory": "FRESH (EN-1 villain CLEAR, 13 §2)",
+    "belief_to_break": "B-02.AV-07",
+    "structure": "ST-03",
+    "awareness_entry": "AW-4",
+    "avoid_list": "\"done-for-you\"/\"turnkey\" (DNS-03) · \"fully automated\"/\"hands-free\" as our claim (DNS-04) · income/ROI/success-rate figures (DNS-01/02) · \"we manage your store\" (DNS-05) · \"no sales\"/\"failed\" (his stores SAT) · existing-store takeover (DNS-11)"
+   },
+   "hook_seeds": [
+    {
+     "cls": "CALLOUT",
+     "text": "Paid a builder? Ask what happened the week after it went live.",
+     "src": "Q-O-0169"
+    },
+    {
+     "cls": "SCENE",
+     "text": "\"At what point do I take over the store? Is it something I have to run on my own?\"",
+     "src": "Q-O-0169"
+    },
+    {
+     "cls": "CORRECTION",
+     "text": "The platform's own guide has builders hand it over \"when it's ready to go live.\" That's where their job ends.",
+     "src": "P-06.AV-07"
+    },
+    {
+     "cls": "ADMISSION",
+     "text": "\"I too have found this process to be not as they said it would be.\"",
+     "src": "Q-F-0004"
+    },
+    {
+     "cls": "CONTRAST",
+     "text": "Launch day is the starting line, not the finish line.",
+     "src": "10 LOCK-B big_idea"
+    }
+   ],
+   "image_concept": "three or four stores \"just sitting there\" in the admin (Q-O-0103)",
+   "proof_ids": [
+    "P-06.AV-07",
+    "P-07.AV-07",
+    "P-01.AV-07"
+   ],
+   "objection_ids": [
+    "OBJ-02.AV-07",
+    "OBJ-18.AV-07"
+   ],
+   "offer_beat": "offer_architecture.offer_beat",
+   "tested_variable": "avatar (WHO)",
+   "held_constant": [
+    "concept/structure skeleton per angle (one story per ad; no mid-test edits)",
+    "offer (T1 \"Start with the $500 Build\" + offer_beat §5 object 9)",
+    "product (Readymerce $500 Store Build & Research Package, PT-01)",
+    "mechanism (the avatar's locked M-1/M-2, 10 §15)",
+    "image polish (REG-1 phone-real register, 13 §6)",
+    "copy quality (one writer contract §14, one writer)"
+   ],
+   "voc_roots": [
+    "Q-O-0169",
+    "Q-F-0004",
+    "Q-F-0018",
+    "Q-O-0103"
+   ],
+   "market_validation": "FRESH — EN-1 build-and-leave VALIDATED 8 authors / 0 NW attack it (13 §2)",
+   "format": "NATIVE_STORY",
+   "status": "READY",
+   "ad_name": "AV7-A4-the-builder-s-job-ends-the-d"
+  },
+  {
+   "cell_id": "CELL-05",
+   "key": "AV-01 × PP-02 × MD-04 × AN-05",
+   "avatar_id": "AV-01",
+   "problem_id": "PP-02",
+   "desire_id": "MD-04",
+   "lf8_root": "#3",
+   "angle": {
+    "id": "AN-05",
+    "premise": "Your first store didn't prove e-commerce can't work for you — it got one shot, and one guess misses more often than it hits.",
+    "strategic_frame": "story/transformation",
+    "lane": "NEW INFORMATION → mechanism DESCRIBED (LOCK-A)",
+    "territory": "FRESH",
+    "belief_to_break": "B-102.AV-01",
+    "structure": "ST-05",
+    "awareness_entry": "AW-2",
+    "avoid_list": "\"done for you\" in the hook (DNS-03) · \"easy\" (DNS-08) · \"winning product\" as a promise (DNS-09) · income figures (DNS-01/02) · product name before the solution requirement · calling his closed store a mistake"
+   },
+   "hook_seeds": [
+    {
+     "cls": "ADMISSION",
+     "text": "\"Ive had 2 stores on Shopify both failed.\"",
+     "src": "Q-F-9004"
+    },
+    {
+     "cls": "SCENE",
+     "text": "Sunday night. ~600 clicks. Still no sales.",
+     "src": "Q-F-0019"
+    },
+    {
+     "cls": "CORRECTION",
+     "text": "Your first store didn't fail. It ran out of shots.",
+     "src": "NI-01 hook sample"
+    },
+    {
+     "cls": "CALLOUT",
+     "text": "\"There's plenty of us losing, including myself.\"",
+     "src": "Q-Y-0027"
+    },
+    {
+     "cls": "CONTRAST",
+     "text": "\"You could have nine failed stores and that one winner will make you more money than all the others.\"",
+     "src": "Q-Y-0026"
+    }
+   ],
+   "image_concept": "Sunday night, dashboard open: ~600 sessions, 0 orders (Q-F-0019)",
+   "proof_ids": [
+    "P-104.AV-01",
+    "P-106.AV-01",
+    "P-101.AV-01"
+   ],
+   "objection_ids": [
+    "OBJ-101.AV-01",
+    "OBJ-106.AV-01"
+   ],
+   "offer_beat": "offer_architecture.offer_beat",
+   "tested_variable": "avatar (WHO)",
+   "held_constant": [
+    "concept/structure skeleton per angle (one story per ad; no mid-test edits)",
+    "offer (T1 \"Start with the $500 Build\" + offer_beat §5 object 9)",
+    "product (Readymerce $500 Store Build & Research Package, PT-01)",
+    "mechanism (the avatar's locked M-1/M-2, 10 §15)",
+    "image polish (REG-1 phone-real register, 13 §6)",
+    "copy quality (one writer contract §14, one writer)"
+   ],
+   "voc_roots": [
+    "Q-O-0108",
+    "Q-F-9004",
+    "Q-Y-0027",
+    "Q-Y-0026",
+    "Q-F-0019"
+   ],
+   "market_validation": "FRESH — LOCK-A villain CLEAR 0/8 NW; PB-06 lane nobody sells (02)",
+   "format": "NATIVE_STORY",
+   "status": "READY",
+   "ad_name": "AV1-A1-your-first-store-didn-t-prov"
+  },
+  {
+   "cell_id": "CELL-06",
+   "key": "AV-01 × PP-02 × MD-01 × AN-06",
+   "avatar_id": "AV-01",
+   "problem_id": "PP-02",
+   "desire_id": "MD-01",
+   "lf8_root": "#3",
+   "angle": {
+    "id": "AN-06",
+    "premise": "Hundreds of clicks and zero orders is a product signal, not a traffic signal — the next product needs a test, not more clicks.",
+    "strategic_frame": "mechanism reveal",
+    "lane": "NEW INFORMATION → mechanism DESCRIBED (LOCK-A)",
+    "territory": "FRESH (NI-02)",
+    "belief_to_break": "B-107.AV-01",
+    "structure": "ST-01",
+    "awareness_entry": "AW-3",
+    "avoid_list": "\"done for you\" in the hook (DNS-03) · \"easy\" (DNS-08) · \"winning product\" as a promise (DNS-09) · income figures (DNS-01/02) · product name before the solution requirement · calling his closed store a mistake"
+   },
+   "hook_seeds": [
+    {
+     "cls": "SCENE",
+     "text": "\"i got zero sales which means i lost 254 dollars.\"",
+     "src": "Q-Y-0014"
+    },
+    {
+     "cls": "CONTRAST",
+     "text": "~600 clicks at an average ~1.4% should bring about 8 orders. Zero means the product missed — not the traffic.",
+     "src": "P-105.AV-01"
+    },
+    {
+     "cls": "ADMISSION",
+     "text": "\"I am growing tired of looking at all the traffic and no sales.\"",
+     "src": "Q-F-0022"
+    },
+    {
+     "cls": "CORRECTION",
+     "text": "More clicks for the same product was never going to change the answer.",
+     "src": "B-105.AV-01"
+    },
+    {
+     "cls": "CALLOUT",
+     "text": "\"I've tried selling jewelry I've tried selling baby pacifiers chess boards…\"",
+     "src": "Q-Y-0028"
+    }
+   ],
+   "image_concept": "filming the post-mortem: \"lost 254 dollars\" (Q-Y-0014)",
+   "proof_ids": [
+    "P-105.AV-01",
+    "P-104.AV-01",
+    "P-101.AV-01"
+   ],
+   "objection_ids": [
+    "OBJ-102.AV-01",
+    "OBJ-101.AV-01"
+   ],
+   "offer_beat": "offer_architecture.offer_beat",
+   "tested_variable": "avatar (WHO)",
+   "held_constant": [
+    "concept/structure skeleton per angle (one story per ad; no mid-test edits)",
+    "offer (T1 \"Start with the $500 Build\" + offer_beat §5 object 9)",
+    "product (Readymerce $500 Store Build & Research Package, PT-01)",
+    "mechanism (the avatar's locked M-1/M-2, 10 §15)",
+    "image polish (REG-1 phone-real register, 13 §6)",
+    "copy quality (one writer contract §14, one writer)"
+   ],
+   "voc_roots": [
+    "Q-Y-0014",
+    "Q-F-0019",
+    "Q-F-0022",
+    "Q-Y-0028"
+   ],
+   "market_validation": "FRESH — NI-02 new information (10 §16a); 0 of 20 long-runners name it (03 §16)",
+   "format": "NATIVE_STORY",
+   "status": "READY",
+   "ad_name": "AV1-A2-hundreds-of-clicks-and-zero"
+  },
+  {
+   "cell_id": "CELL-07",
+   "key": "AV-01 × PP-04 × MD-01 × AN-07",
+   "avatar_id": "AV-01",
+   "problem_id": "PP-04",
+   "desire_id": "MD-01",
+   "lf8_root": "#3",
+   "angle": {
+    "id": "AN-07",
+    "premise": "You're right to guard your money: every cost written before you pay, the store and payouts in your name, no test spends a dollar you didn't approve.",
+    "strategic_frame": "fear+hope",
+    "lane": "NEW INFORMATION → mechanism DESCRIBED (LOCK-A)",
+    "territory": "CHALLENGER-3",
+    "belief_to_break": "B-104.AV-01",
+    "structure": "ST-01",
+    "awareness_entry": "AW-3",
+    "avoid_list": "\"done for you\" in the hook (DNS-03) · \"easy\" (DNS-08) · \"winning product\" as a promise (DNS-09) · income figures (DNS-01/02) · product name before the solution requirement · calling his closed store a mistake"
+   },
+   "hook_seeds": [
+    {
+     "cls": "CORRECTION",
+     "text": "It isn't easy money. It's small tests you approve and can stop.",
+     "src": "B-103.AV-01"
+    },
+    {
+     "cls": "ADMISSION",
+     "text": "\"I've been burned many times.\"",
+     "src": "Q-Y-0030"
+    },
+    {
+     "cls": "CALLOUT",
+     "text": "\"Is that one-off payment or I need to make a regular payment?\" Here's every cost, first.",
+     "src": "Q-O-0112"
+    },
+    {
+     "cls": "SCENE",
+     "text": "\"i had to give up or else i would literally lose all my money.\"",
+     "src": "Q-Y-0049"
+    },
+    {
+     "cls": "CONTRAST",
+     "text": "One store, one guess — or several small capped tries in a store in your name.",
+     "src": "B-107.AV-01"
+    }
+   ],
+   "image_concept": "closing the store tab and cancelling the plan (Q-O-0108)",
+   "proof_ids": [
+    "P-108.AV-01",
+    "P-102.AV-01",
+    "P-107.AV-01",
+    "P-103.AV-01"
+   ],
+   "objection_ids": [
+    "OBJ-04.AV-01",
+    "OBJ-03.AV-01"
+   ],
+   "offer_beat": "offer_architecture.offer_beat",
+   "tested_variable": "avatar (WHO)",
+   "held_constant": [
+    "concept/structure skeleton per angle (one story per ad; no mid-test edits)",
+    "offer (T1 \"Start with the $500 Build\" + offer_beat §5 object 9)",
+    "product (Readymerce $500 Store Build & Research Package, PT-01)",
+    "mechanism (the avatar's locked M-1/M-2, 10 §15)",
+    "image polish (REG-1 phone-real register, 13 §6)",
+    "copy quality (one writer contract §14, one writer)"
+   ],
+   "voc_roots": [
+    "Q-Y-0030",
+    "Q-Y-0049",
+    "Q-O-0112",
+    "Q-Y-0032"
+   ],
+   "market_validation": "CHALLENGER-3 vs VA-03 business-model transparency (NW-03/04/06)",
+   "format": "STATIC",
+   "status": "READY",
+   "ad_name": "AV1-A3-you-re-right-to-guard-your-m"
+  },
+  {
+   "cell_id": "CELL-08",
+   "key": "AV-01 × PP-03 × MD-04 × AN-08",
+   "avatar_id": "AV-01",
+   "problem_id": "PP-03",
+   "desire_id": "MD-04",
+   "lf8_root": "#6",
+   "angle": {
+    "id": "AN-08",
+    "premise": "The ones who found a product that sells almost never found it first — they tested five to ten, each on a small budget.",
+    "strategic_frame": "social proof/us-vs-them",
+    "lane": "NEW INFORMATION → mechanism DESCRIBED (LOCK-A)",
+    "territory": "FRESH (NI-01)",
+    "belief_to_break": "B-107.AV-01",
+    "structure": "ST-01",
+    "awareness_entry": "AW-3",
+    "avoid_list": "\"done for you\" in the hook (DNS-03) · \"easy\" (DNS-08) · \"winning product\" as a promise (DNS-09) · income figures (DNS-01/02) · product name before the solution requirement · calling his closed store a mistake"
+   },
+   "hook_seeds": [
+    {
+     "cls": "CONTRAST",
+     "text": "One product and a one-week deadline — or five to ten, each on a small budget.",
+     "src": "P-104.AV-01"
+    },
+    {
+     "cls": "CALLOUT",
+     "text": "Still hunting the one product? \"it takes years to find a winning product.\"",
+     "src": "Q-Y-0064"
+    },
+    {
+     "cls": "CORRECTION",
+     "text": "The people with a product that sells almost never found it on the first try.",
+     "src": "NI-01 hook sample"
+    },
+    {
+     "cls": "SCENE",
+     "text": "\"i failed the challenge.\"",
+     "src": "Q-Y-0015"
+    },
+    {
+     "cls": "ADMISSION",
+     "text": "\"the product you're trying to sell people don't even want to buy.\"",
+     "src": "Q-Y-0031"
+    }
+   ],
+   "image_concept": "Sunday night, dashboard open: ~600 sessions, 0 orders (Q-F-0019)",
+   "proof_ids": [
+    "P-104.AV-01",
+    "P-106.AV-01",
+    "P-101.AV-01"
+   ],
+   "objection_ids": [
+    "OBJ-101.AV-01",
+    "OBJ-07.AV-01"
+   ],
+   "offer_beat": "offer_architecture.offer_beat",
+   "tested_variable": "avatar (WHO)",
+   "held_constant": [
+    "concept/structure skeleton per angle (one story per ad; no mid-test edits)",
+    "offer (T1 \"Start with the $500 Build\" + offer_beat §5 object 9)",
+    "product (Readymerce $500 Store Build & Research Package, PT-01)",
+    "mechanism (the avatar's locked M-1/M-2, 10 §15)",
+    "image polish (REG-1 phone-real register, 13 §6)",
+    "copy quality (one writer contract §14, one writer)"
+   ],
+   "voc_roots": [
+    "Q-Y-0064",
+    "Q-Y-0031",
+    "Q-Y-0026",
+    "Q-Y-0015"
+   ],
+   "market_validation": "FRESH — NI-01 (Product Lair 2024, practitioner guide); 0 of 20 long-runners name it",
+   "format": "NATIVE_STORY",
+   "status": "READY",
+   "ad_name": "AV1-A4-the-ones-who-found-a-product"
+  },
+  {
+   "cell_id": "CELL-09",
+   "key": "AV-04 × PP-06 × MD-01 × AN-09",
+   "avatar_id": "AV-04",
+   "problem_id": "PP-06",
+   "desire_id": "MD-01",
+   "lf8_root": "#5",
+   "angle": {
+    "id": "AN-09",
+    "premise": "It wasn't a lack of ability — the after-hours route asked you to run a second full job in leftover hours.",
+    "strategic_frame": "social proof/us-vs-them",
+    "lane": "S4 → mechanism made surer + New Information (LOCK-A)",
+    "territory": "CHALLENGER-2",
+    "belief_to_break": "B-44.AV-04",
+    "structure": "ST-05",
+    "awareness_entry": "AW-3",
+    "avoid_list": "\"quit/replace your job\" as a promise (DNS-13) · \"hands-free\" (DNS-04) · re-explaining \"we build it for you\" (07 AW-4 must_not_be_told) · courses/training language (DNS-15) · a bigger number (SK-02)"
+   },
+   "hook_seeds": [
+    {
+     "cls": "SCENE",
+     "text": "\"I work a full time job as well, so am only able to attend to my store after hours.\"",
+     "src": "Q-F-0015"
+    },
+    {
+     "cls": "ADMISSION",
+     "text": "\"i closed it because i didn't have time to try and work the business to see sales.\"",
+     "src": "Q-O-0090"
+    },
+    {
+     "cls": "CORRECTION",
+     "text": "Stores don't fail from bad ideas. They fail from Tuesday nights.",
+     "src": "AF-11 hook_seed"
+    },
+    {
+     "cls": "CALLOUT",
+     "text": "Five years in and still not sure \"what's gonna be the best platform\"?",
+     "src": "Q-O-0049"
+    },
+    {
+     "cls": "CONTRAST",
+     "text": "Your evenings vs a team's working day: which one should run the tests?",
+     "src": "B-41.AV-04"
+    }
+   ],
+   "image_concept": "after the shift, the store gets the leftover hours (Q-F-0015)",
+   "proof_ids": [
+    "P-01.AV-04",
+    "P-07.AV-04",
+    "P-09.AV-04"
+   ],
+   "objection_ids": [
+    "OBJ-06.AV-04",
+    "OBJ-44.AV-04"
+   ],
+   "offer_beat": "offer_architecture.offer_beat",
+   "tested_variable": "avatar (WHO)",
+   "held_constant": [
+    "concept/structure skeleton per angle (one story per ad; no mid-test edits)",
+    "offer (T1 \"Start with the $500 Build\" + offer_beat §5 object 9)",
+    "product (Readymerce $500 Store Build & Research Package, PT-01)",
+    "mechanism (the avatar's locked M-1/M-2, 10 §15)",
+    "image polish (REG-1 phone-real register, 13 §6)",
+    "copy quality (one writer contract §14, one writer)"
+   ],
+   "voc_roots": [
+    "Q-F-0015",
+    "Q-F-0016",
+    "Q-O-0090",
+    "Q-O-0049",
+    "Q-F-0014"
+   ],
+   "market_validation": "CHALLENGER-2 vs VA-04 \"it's not you — it's the barrier\" (NW-04/06) — own wording only (DNS-18)",
+   "format": "NATIVE_STORY",
+   "status": "READY",
+   "ad_name": "AV4-A1-it-wasn-t-a-lack-of-ability"
+  },
+  {
+   "cell_id": "CELL-10",
+   "key": "AV-04 × PP-05 × MD-01 × AN-10",
+   "avatar_id": "AV-04",
+   "problem_id": "PP-05",
+   "desire_id": "MD-01",
+   "lf8_root": "#3",
+   "angle": {
+    "id": "AN-10",
+    "premise": "Keep the salary — that's the safe part; the store can start now beside the job on small, capped tests you approve.",
+    "strategic_frame": "bold proclamation",
+    "lane": "S4 → mechanism made surer + New Information (LOCK-A)",
+    "territory": "FRESH (no NW sells keep-the-job; NW-01/IM-14 sell quitting)",
+    "belief_to_break": "B-42.AV-04",
+    "structure": "ST-04",
+    "awareness_entry": "AW-4",
+    "avoid_list": "\"quit/replace your job\" as a promise (DNS-13) · \"hands-free\" (DNS-04) · re-explaining \"we build it for you\" (07 AW-4 must_not_be_told) · courses/training language (DNS-15) · a bigger number (SK-02)"
+   },
+   "hook_seeds": [
+    {
+     "cls": "SCENE",
+     "text": "On break: \"Can I review full contract before making payment?\"",
+     "src": "Q-O-0116"
+    },
+    {
+     "cls": "CALLOUT",
+     "text": "\"I earn good money now, so I don't want to quit and then start struggling.\" Good. Don't.",
+     "src": "Q-O-0133"
+    },
+    {
+     "cls": "CORRECTION",
+     "text": "Keep the salary. Start with small tests on budgets you approve.",
+     "src": "CLM-03 (CLM-01.AV-04)"
+    },
+    {
+     "cls": "ADMISSION",
+     "text": "\"anytime that I know that I'm ready ... I'll get back to you.\"",
+     "src": "Q-O-0052"
+    },
+    {
+     "cls": "CONTRAST",
+     "text": "Quit-your-job ads vs a store that starts beside the job.",
+     "src": "B-42.AV-04"
+    }
+   ],
+   "image_concept": "on break at work: \"Can I review full contract before making payment?\" (Q-O-0116)",
+   "proof_ids": [
+    "P-01.AV-04",
+    "P-07.AV-04",
+    "P-04.AV-04"
+   ],
+   "objection_ids": [
+    "OBJ-11.AV-04",
+    "OBJ-04.AV-04"
+   ],
+   "offer_beat": "offer_architecture.offer_beat",
+   "tested_variable": "avatar (WHO)",
+   "held_constant": [
+    "concept/structure skeleton per angle (one story per ad; no mid-test edits)",
+    "offer (T1 \"Start with the $500 Build\" + offer_beat §5 object 9)",
+    "product (Readymerce $500 Store Build & Research Package, PT-01)",
+    "mechanism (the avatar's locked M-1/M-2, 10 §15)",
+    "image polish (REG-1 phone-real register, 13 §6)",
+    "copy quality (one writer contract §14, one writer)"
+   ],
+   "voc_roots": [
+    "Q-O-0133",
+    "Q-O-0052",
+    "Q-O-0026",
+    "Q-O-0057"
+   ],
+   "market_validation": "FRESH — counter-position to IM-14 \"Don't get another job in 2026\" (NW-01)",
+   "format": "STATIC",
+   "status": "READY",
+   "ad_name": "AV4-A2-keep-the-salary-that-s-the-s"
+  },
+  {
+   "cell_id": "CELL-11",
+   "key": "AV-04 × PP-02 × MD-01 × AN-11",
+   "avatar_id": "AV-04",
+   "problem_id": "PP-02",
+   "desire_id": "MD-01",
+   "lf8_root": "#5",
+   "angle": {
+    "id": "AN-11",
+    "premise": "A first store that got one guess only proved one guess missed; sellers who find a product usually tested several, each small.",
+    "strategic_frame": "fear+hope",
+    "lane": "S4 → mechanism made surer + New Information (LOCK-A)",
+    "territory": "FRESH (NI-01)",
+    "belief_to_break": "B-47.AV-04",
+    "structure": "ST-04",
+    "awareness_entry": "AW-4",
+    "avoid_list": "\"quit/replace your job\" as a promise (DNS-13) · \"hands-free\" (DNS-04) · re-explaining \"we build it for you\" (07 AW-4 must_not_be_told) · courses/training language (DNS-15) · a bigger number (SK-02)"
+   },
+   "hook_seeds": [
+    {
+     "cls": "CALLOUT",
+     "text": "\"I picked the baby store. It just didn't work\"?",
+     "src": "Q-O-0082"
+    },
+    {
+     "cls": "CORRECTION",
+     "text": "A first store that got one guess only proved one guess missed.",
+     "src": "B-47.AV-04"
+    },
+    {
+     "cls": "SCENE",
+     "text": "On the drive in: \"I wish I was doing something else.\"",
+     "src": "Q-O-0096"
+    },
+    {
+     "cls": "ADMISSION",
+     "text": "\"my store didn't even make $20, so I had to come out.\"",
+     "src": "Q-O-0101"
+    },
+    {
+     "cls": "CONTRAST",
+     "text": "One product switched on at once — or five to ten, each tested small.",
+     "src": "P-05.AV-04"
+    }
+   ],
+   "image_concept": "\"I wish I was doing something else\" on the drive in (Q-O-0096)",
+   "proof_ids": [
+    "P-05.AV-04",
+    "P-15.AV-04",
+    "P-01.AV-04"
+   ],
+   "objection_ids": [
+    "OBJ-07.AV-04",
+    "OBJ-02.AV-04"
+   ],
+   "offer_beat": "offer_architecture.offer_beat",
+   "tested_variable": "avatar (WHO)",
+   "held_constant": [
+    "concept/structure skeleton per angle (one story per ad; no mid-test edits)",
+    "offer (T1 \"Start with the $500 Build\" + offer_beat §5 object 9)",
+    "product (Readymerce $500 Store Build & Research Package, PT-01)",
+    "mechanism (the avatar's locked M-1/M-2, 10 §15)",
+    "image polish (REG-1 phone-real register, 13 §6)",
+    "copy quality (one writer contract §14, one writer)"
+   ],
+   "voc_roots": [
+    "Q-O-0082",
+    "Q-Y-0046",
+    "Q-O-0101",
+    "Q-O-0096"
+   ],
+   "market_validation": "FRESH — NI-01 new information (10 §16a)",
+   "format": "NATIVE_STORY",
+   "status": "READY",
+   "ad_name": "AV4-A3-a-first-store-that-got-one-g"
+  },
+  {
+   "cell_id": "CELL-12",
+   "key": "AV-04 × PP-05 × MD-02 × AN-12",
+   "avatar_id": "AV-04",
+   "problem_id": "PP-05",
+   "desire_id": "MD-02",
+   "lf8_root": "#5",
+   "angle": {
+    "id": "AN-12",
+    "premise": "You don't need to be trained into a second job: the build, tests and fixes are done; you approve and read — and the whole cost is on one line.",
+    "strategic_frame": "story/transformation",
+    "lane": "S4 → mechanism made surer + New Information (LOCK-A)",
+    "territory": "CHALLENGER-1",
+    "belief_to_break": "B-46.AV-04",
+    "structure": "ST-01",
+    "awareness_entry": "AW-4",
+    "avoid_list": "\"quit/replace your job\" as a promise (DNS-13) · \"hands-free\" (DNS-04) · re-explaining \"we build it for you\" (07 AW-4 must_not_be_told) · courses/training language (DNS-15) · a bigger number (SK-02)"
+   },
+   "hook_seeds": [
+    {
+     "cls": "CALLOUT",
+     "text": "\"The one thing I don't have in my life is time.\"",
+     "src": "Q-O-0143"
+    },
+    {
+     "cls": "ADMISSION",
+     "text": "\"I don't wanna be trained to do it. I wanna just put the money forward.\"",
+     "src": "Q-O-0056"
+    },
+    {
+     "cls": "SCENE",
+     "text": "\"a part time job ... fifteen to eighteen hours a week.\"",
+     "src": "Q-O-0050"
+    },
+    {
+     "cls": "CORRECTION",
+     "text": "Not a course. Nothing to learn before it runs.",
+     "src": "CLM-16 (PT-14)"
+    },
+    {
+     "cls": "CONTRAST",
+     "text": "$500 one-time, fees and an ad budget you set — vs another course that trains you into a second job.",
+     "src": "CLM-04 (CLM-06.AV-04)"
+    }
+   ],
+   "image_concept": "after the shift, the store gets the leftover hours (Q-F-0015)",
+   "proof_ids": [
+    "P-01.AV-04",
+    "P-04.AV-04",
+    "P-07.AV-04"
+   ],
+   "objection_ids": [
+    "OBJ-44.AV-04",
+    "OBJ-04.AV-04"
+   ],
+   "offer_beat": "offer_architecture.offer_beat",
+   "tested_variable": "avatar (WHO)",
+   "held_constant": [
+    "concept/structure skeleton per angle (one story per ad; no mid-test edits)",
+    "offer (T1 \"Start with the $500 Build\" + offer_beat §5 object 9)",
+    "product (Readymerce $500 Store Build & Research Package, PT-01)",
+    "mechanism (the avatar's locked M-1/M-2, 10 §15)",
+    "image polish (REG-1 phone-real register, 13 §6)",
+    "copy quality (one writer contract §14, one writer)"
+   ],
+   "voc_roots": [
+    "Q-O-0056",
+    "Q-F-0005",
+    "Q-O-0143",
+    "Q-O-0050"
+   ],
+   "market_validation": "CHALLENGER-1 vs VA-05 \"delivered, not taught\" (NW-04 only) — never \"STOP buying courses\" (DNS-15)",
+   "format": "NATIVE_STORY",
+   "status": "READY",
+   "ad_name": "AV4-A4-you-don-t-need-to-be-trained"
+  },
+  {
+   "cell_id": "CELL-13",
+   "key": "AV-02 × PP-04 × MD-01 × AN-13",
+   "avatar_id": "AV-02",
+   "problem_id": "PP-04",
+   "desire_id": "MD-01",
+   "lf8_root": "#3",
+   "angle": {
+    "id": "AN-13",
+    "premise": "The burned stores went wrong in two checkable places: the store sat in the builder's account, and the builder stopped on launch day. Check both before you pay.",
+    "strategic_frame": "mechanism reveal",
+    "lane": "S4 (ASSUMED) → LOCK-B made surer + NI-04 ownership",
+    "territory": "FRESH (NI-04: 0 of 32 IM sell ownership as a check)",
+    "belief_to_break": "B-02.AV-02",
+    "structure": "ST-05",
+    "awareness_entry": "AW-4",
+    "avoid_list": "\"legit/trust us\" (DNS-16) · \"free/$20 store\" (DNS-17) · pressure close (DNS-14) · income figures (DNS-01/02) · re-teaching what a builder is · leading with the brand"
+   },
+   "hook_seeds": [
+    {
+     "cls": "CALLOUT",
+     "text": "\"they said they would build a store, but i am building the store???\"",
+     "src": "Q-F-0004"
+    },
+    {
+     "cls": "SCENE",
+     "text": "\"now I can't access it, contact an administrator which should be me.\"",
+     "src": "Q-F-0001"
+    },
+    {
+     "cls": "CORRECTION",
+     "text": "Before you ask if a store will sell, ask whose name is on it.",
+     "src": "NI-04 hook sample"
+    },
+    {
+     "cls": "ADMISSION",
+     "text": "\"I felt like it was a scam.\"",
+     "src": "Q-O-0073"
+    },
+    {
+     "cls": "CONTRAST",
+     "text": "The store they held in their account vs a store opened in your name from day one.",
+     "src": "CLM-10 / CLM-02"
+    }
+   ],
+   "image_concept": "the login that says \"contact an administrator\" (Q-F-0001)",
+   "proof_ids": [
+    "P-03.AV-02",
+    "P-05.AV-02",
+    "P-06.AV-02",
+    "P-01.AV-02"
+   ],
+   "objection_ids": [
+    "OBJ-03.AV-02",
+    "OBJ-13.AV-02"
+   ],
+   "offer_beat": "offer_architecture.offer_beat",
+   "tested_variable": "avatar (WHO)",
+   "held_constant": [
+    "concept/structure skeleton per angle (one story per ad; no mid-test edits)",
+    "offer (T1 \"Start with the $500 Build\" + offer_beat §5 object 9)",
+    "product (Readymerce $500 Store Build & Research Package, PT-01)",
+    "mechanism (the avatar's locked M-1/M-2, 10 §15)",
+    "image polish (REG-1 phone-real register, 13 §6)",
+    "copy quality (one writer contract §14, one writer)"
+   ],
+   "voc_roots": [
+    "Q-F-0001",
+    "Q-F-0004",
+    "Q-O-0073",
+    "Q-O-0062"
+   ],
+   "market_validation": "FRESH — NI-04 (10 §16a); EN-1 VALIDATED 8 authors (13 §2)",
+   "format": "NATIVE_STORY",
+   "status": "READY",
+   "ad_name": "AV2-A1-the-burned-stores-went-wrong"
+  },
+  {
+   "cell_id": "CELL-14",
+   "key": "AV-02 × PP-04 × MD-04 × AN-14",
+   "avatar_id": "AV-02",
+   "problem_id": "PP-04",
+   "desire_id": "MD-04",
+   "lf8_root": "#3",
+   "angle": {
+    "id": "AN-14",
+    "premise": "Paying someone to build it wasn't the mistake — the version you bought stopped at go-live; here is what's different on paper.",
+    "strategic_frame": "social proof/us-vs-them",
+    "lane": "S4 (ASSUMED) → LOCK-B made surer + NI-04 ownership",
+    "territory": "CHALLENGER-3",
+    "belief_to_break": "B-04.AV-02",
+    "structure": "ST-04",
+    "awareness_entry": "AW-3",
+    "avoid_list": "\"legit/trust us\" (DNS-16) · \"free/$20 store\" (DNS-17) · pressure close (DNS-14) · income figures (DNS-01/02) · re-teaching what a builder is · leading with the brand"
+   },
+   "hook_seeds": [
+    {
+     "cls": "ADMISSION",
+     "text": "\"I need a proof of concept that actually works.\"",
+     "src": "Q-O-0132"
+    },
+    {
+     "cls": "CALLOUT",
+     "text": "Googling a store company mid-call? Check these two things instead.",
+     "src": "Q-O-0102"
+    },
+    {
+     "cls": "CORRECTION",
+     "text": "Paying someone to build it wasn't the mistake. The version you bought stopped at go-live.",
+     "src": "B-04.AV-02"
+    },
+    {
+     "cls": "SCENE",
+     "text": "\"Can I review full contract before making payment?\"",
+     "src": "Q-O-0116"
+    },
+    {
+     "cls": "CONTRAST",
+     "text": "\"the pitch is almost always the same\" — so here is what is different, in writing.",
+     "src": "Q-Y-0004"
+    }
+   ],
+   "image_concept": "typing the company name into Google reviews mid-call (Q-O-0102)",
+   "proof_ids": [
+    "P-14.AV-02",
+    "P-02.AV-02",
+    "P-03.AV-02"
+   ],
+   "objection_ids": [
+    "OBJ-02.AV-02",
+    "OBJ-04.AV-02"
+   ],
+   "offer_beat": "offer_architecture.offer_beat",
+   "tested_variable": "avatar (WHO)",
+   "held_constant": [
+    "concept/structure skeleton per angle (one story per ad; no mid-test edits)",
+    "offer (T1 \"Start with the $500 Build\" + offer_beat §5 object 9)",
+    "product (Readymerce $500 Store Build & Research Package, PT-01)",
+    "mechanism (the avatar's locked M-1/M-2, 10 §15)",
+    "image polish (REG-1 phone-real register, 13 §6)",
+    "copy quality (one writer contract §14, one writer)"
+   ],
+   "voc_roots": [
+    "Q-O-0102",
+    "Q-O-0116",
+    "Q-O-0132",
+    "Q-Y-0004"
+   ],
+   "market_validation": "CHALLENGER-3 vs VA-03 transparency (NW-03/04/06)",
+   "format": "STATIC",
+   "status": "READY",
+   "ad_name": "AV2-A2-paying-someone-to-build-it-w"
+  },
+  {
+   "cell_id": "CELL-15",
+   "key": "AV-02 × PP-05 × MD-01 × AN-15",
+   "avatar_id": "AV-02",
+   "problem_id": "PP-05",
+   "desire_id": "MD-01",
+   "lf8_root": "#3",
+   "angle": {
+    "id": "AN-15",
+    "premise": "If the money isn't there yet, waiting is right; when it is, the first step is a fixed $500 with every other cost named and a store you can check before and after paying.",
+    "strategic_frame": "fear+hope",
+    "lane": "S4 (ASSUMED) → LOCK-B made surer + NI-04 ownership",
+    "territory": "FRESH",
+    "belief_to_break": "B-07.AV-02",
+    "structure": "ST-03",
+    "awareness_entry": "AW-4",
+    "avoid_list": "\"legit/trust us\" (DNS-16) · \"free/$20 store\" (DNS-17) · pressure close (DNS-14) · income figures (DNS-01/02) · re-teaching what a builder is · leading with the brand"
+   },
+   "hook_seeds": [
+    {
+     "cls": "CONTRAST",
+     "text": "If the money isn't there yet, waiting is the right call. When it is: $500, every other cost named first.",
+     "src": "B-06.AV-02"
+    },
+    {
+     "cls": "ADMISSION",
+     "text": "\"I gave somebody $4,500, and they took my money.\"",
+     "src": "Q-O-0062"
+    },
+    {
+     "cls": "SCENE",
+     "text": "\"over a thousand dollars sitting in my account … I can't pull my money out.\"",
+     "src": "Q-O-0074"
+    },
+    {
+     "cls": "CALLOUT",
+     "text": "\"I was afraid to ever try again, but eventually I did.\"",
+     "src": "Q-B-0004"
+    },
+    {
+     "cls": "CORRECTION",
+     "text": "Not every one of them: the ones that burned people kept the store in their account and stopped at launch.",
+     "src": "B-02.AV-02"
+    }
+   ],
+   "image_concept": "checking the account where \"over a thousand dollars\" is stuck (Q-O-0074)",
+   "proof_ids": [
+    "P-03.AV-02",
+    "P-02.AV-02",
+    "P-04.AV-02"
+   ],
+   "objection_ids": [
+    "OBJ-01.AV-02",
+    "OBJ-15.AV-02"
+   ],
+   "offer_beat": "offer_architecture.offer_beat",
+   "tested_variable": "avatar (WHO)",
+   "held_constant": [
+    "concept/structure skeleton per angle (one story per ad; no mid-test edits)",
+    "offer (T1 \"Start with the $500 Build\" + offer_beat §5 object 9)",
+    "product (Readymerce $500 Store Build & Research Package, PT-01)",
+    "mechanism (the avatar's locked M-1/M-2, 10 §15)",
+    "image polish (REG-1 phone-real register, 13 §6)",
+    "copy quality (one writer contract §14, one writer)"
+   ],
+   "voc_roots": [
+    "Q-O-0074",
+    "Q-O-0063",
+    "Q-O-0062",
+    "Q-B-0004"
+   ],
+   "market_validation": "FRESH — no NW addresses the burned buyer's check (09 CAM)",
+   "format": "NATIVE_STORY",
+   "status": "READY",
+   "ad_name": "AV2-A3-if-the-money-isn-t-there-yet"
+  },
+  {
+   "cell_id": "CELL-16",
+   "key": "AV-03 × PP-01 × MD-04 × AN-16",
+   "avatar_id": "AV-03",
+   "problem_id": "PP-01",
+   "desire_id": "MD-04",
+   "lf8_root": "#1",
+   "angle": {
+    "id": "AN-16",
+    "premise": "The setup was never your wall — the builder's job ends the day the store goes live; a store needs someone after launch day.",
+    "strategic_frame": "mechanism reveal",
+    "lane": "S2 OWNED pond → Name-it mechanism first, claim second (LOCK-B)",
+    "territory": "FRESH (handle CLEAR; the build claim is OWNED by 4 NW)",
+    "belief_to_break": "B-03.AV-03",
+    "structure": "ST-04",
+    "awareness_entry": "AW-2",
+    "avoid_list": "\"done-for-you\"/\"business in a box\" (DNS-03) · \"we build your entire store / skip the setup\" (DNS-19) · \"easy\" (DNS-08) · \"winning product\" in an AW-2 hook (DNS-09) · \"you're not less capable\" (DNS-18) · \"we manage your store\" (DNS-05)"
+   },
+   "hook_seeds": [
+    {
+     "cls": "CORRECTION",
+     "text": "Launch day is the starting line, not the finish line.",
+     "src": "10 LOCK-B big_idea"
+    },
+    {
+     "cls": "SCENE",
+     "text": "\"I've spent 10 weeks on simple tasks that the system doesn't verify.\"",
+     "src": "Q-F-0013"
+    },
+    {
+     "cls": "CALLOUT",
+     "text": "\"tons of links that are like a snowstorm of information, but nothing that actually helps me!\"",
+     "src": "Q-F-0006"
+    },
+    {
+     "cls": "ADMISSION",
+     "text": "\"I'm tech savvy and competent. I cannot find a simple step by step.\"",
+     "src": "Q-F-0012"
+    },
+    {
+     "cls": "CONTRAST",
+     "text": "\"When the store was transferred to me, the store was shutdown almost immediately.\"",
+     "src": "Q-F-0018"
+    }
+   ],
+   "image_concept": "week ten, still changing the theme image (Q-F-0013)",
+   "proof_ids": [
+    "P-02.AV-03",
+    "P-04.AV-03",
+    "P-05.AV-03"
+   ],
+   "objection_ids": [
+    "OBJ-02.AV-03",
+    "OBJ-01.AV-03"
+   ],
+   "offer_beat": "offer_architecture.offer_beat",
+   "tested_variable": "avatar (WHO)",
+   "held_constant": [
+    "concept/structure skeleton per angle (one story per ad; no mid-test edits)",
+    "offer (T1 \"Start with the $500 Build\" + offer_beat §5 object 9)",
+    "product (Readymerce $500 Store Build & Research Package, PT-01)",
+    "mechanism (the avatar's locked M-1/M-2, 10 §15)",
+    "image polish (REG-1 phone-real register, 13 §6)",
+    "copy quality (one writer contract §14, one writer)"
+   ],
+   "voc_roots": [
+    "Q-F-0013",
+    "Q-F-0006",
+    "Q-F-0018",
+    "Q-F-0012"
+   ],
+   "market_validation": "FRESH — MECHANISM step one stage ahead of the S2 claim (07 §15 SR-01)",
+   "format": "NATIVE_STORY",
+   "status": "READY",
+   "ad_name": "AV3-A1-the-setup-was-never-your-wal"
+  },
+  {
+   "cell_id": "CELL-17",
+   "key": "AV-03 × PP-03 × MD-04 × AN-17",
+   "avatar_id": "AV-03",
+   "problem_id": "PP-03",
+   "desire_id": "MD-04",
+   "lf8_root": "#1",
+   "angle": {
+    "id": "AN-17",
+    "premise": "\"What should I sell?\" is answered by small tests, not a perfect first pick — products chosen from data and released in stages.",
+    "strategic_frame": "story/transformation",
+    "lane": "S2 OWNED pond → Name-it mechanism first, claim second (LOCK-B)",
+    "territory": "FRESH (NI-01)",
+    "belief_to_break": "B-06.AV-03",
+    "structure": "ST-03",
+    "awareness_entry": "AW-3",
+    "avoid_list": "\"done-for-you\"/\"business in a box\" (DNS-03) · \"we build your entire store / skip the setup\" (DNS-19) · \"easy\" (DNS-08) · \"winning product\" in an AW-2 hook (DNS-09) · \"you're not less capable\" (DNS-18) · \"we manage your store\" (DNS-05)"
+   },
+   "hook_seeds": [
+    {
+     "cls": "SCENE",
+     "text": "\"After weeks of overthinking, I finally committed.\"",
+     "src": "Q-Y-0053"
+    },
+    {
+     "cls": "CALLOUT",
+     "text": "\"Do I just choose what I want to sell\"?",
+     "src": "Q-F-0041"
+    },
+    {
+     "cls": "ADMISSION",
+     "text": "\"I developed one, but I never launched it. That's the problem.\"",
+     "src": "Q-O-0153"
+    },
+    {
+     "cls": "CORRECTION",
+     "text": "\"What should I sell?\" gets answered by small tests, not a perfect first guess.",
+     "src": "B-06.AV-03"
+    },
+    {
+     "cls": "CONTRAST",
+     "text": "One perfect pick vs products chosen from search data, released in stages.",
+     "src": "CLM-08 (CLM-06.AV-03)"
+    }
+   ],
+   "image_concept": "at the signup product step: \"Do I just choose what I want to sell\" (Q-F-0041)",
+   "proof_ids": [
+    "P-08.AV-03",
+    "P-02.AV-03",
+    "P-09.AV-03"
+   ],
+   "objection_ids": [
+    "OBJ-09.AV-03",
+    "OBJ-08.AV-03"
+   ],
+   "offer_beat": "offer_architecture.offer_beat",
+   "tested_variable": "avatar (WHO)",
+   "held_constant": [
+    "concept/structure skeleton per angle (one story per ad; no mid-test edits)",
+    "offer (T1 \"Start with the $500 Build\" + offer_beat §5 object 9)",
+    "product (Readymerce $500 Store Build & Research Package, PT-01)",
+    "mechanism (the avatar's locked M-1/M-2, 10 §15)",
+    "image polish (REG-1 phone-real register, 13 §6)",
+    "copy quality (one writer contract §14, one writer)"
+   ],
+   "voc_roots": [
+    "Q-F-0041",
+    "Q-F-0040",
+    "Q-O-0153",
+    "Q-Y-0053"
+   ],
+   "market_validation": "FRESH — NI-01; EM-10 crowded entry reframed (07 §14a)",
+   "format": "NATIVE_STORY",
+   "status": "READY",
+   "ad_name": "AV3-A2-what-should-i-sell-is-answe"
+  },
+  {
+   "cell_id": "CELL-18",
+   "key": "AV-03 × PP-01 × MD-01 × AN-18",
+   "avatar_id": "AV-03",
+   "problem_id": "PP-01",
+   "desire_id": "MD-01",
+   "lf8_root": "#1",
+   "angle": {
+    "id": "AN-18",
+    "premise": "One published price and a store in your name — and the team is still on it after it opens.",
+    "strategic_frame": "bold proclamation",
+    "lane": "S2 OWNED pond → Name-it mechanism first, claim second (LOCK-B)",
+    "territory": "CHALLENGER-3",
+    "belief_to_break": "B-04.AV-03",
+    "structure": "ST-01",
+    "awareness_entry": "AW-4",
+    "avoid_list": "\"done-for-you\"/\"business in a box\" (DNS-03) · \"we build your entire store / skip the setup\" (DNS-19) · \"easy\" (DNS-08) · \"winning product\" in an AW-2 hook (DNS-09) · \"you're not less capable\" (DNS-18) · \"we manage your store\" (DNS-05)"
+   },
+   "hook_seeds": [
+    {
+     "cls": "ADMISSION",
+     "text": "\"I don't know where to start or what I should sell.\"",
+     "src": "Q-F-0040"
+    },
+    {
+     "cls": "CONTRAST",
+     "text": "One published price: $500 for the build and research. Everything else named before you pay.",
+     "src": "CLM-04 (CLM-07.AV-03)"
+    },
+    {
+     "cls": "CALLOUT",
+     "text": "\"I thought this call was gonna just show me exactly what the $500 pays for.\"",
+     "src": "Q-O-0002"
+    },
+    {
+     "cls": "CORRECTION",
+     "text": "We build it in your name. Then we stay after it opens.",
+     "src": "13 POS-1 stranger_safe_line"
+    },
+    {
+     "cls": "SCENE",
+     "text": "\"At what point do I take over the store? Is it something I have to run on my own?\"",
+     "src": "Q-O-0169"
+    }
+   ],
+   "image_concept": "scrolling help links \"like a snowstorm of information\" (Q-F-0006)",
+   "proof_ids": [
+    "P-10.AV-03",
+    "P-03.AV-03",
+    "P-02.AV-03"
+   ],
+   "objection_ids": [
+    "OBJ-01.AV-03",
+    "OBJ-05.AV-03"
+   ],
+   "offer_beat": "offer_architecture.offer_beat",
+   "tested_variable": "avatar (WHO)",
+   "held_constant": [
+    "concept/structure skeleton per angle (one story per ad; no mid-test edits)",
+    "offer (T1 \"Start with the $500 Build\" + offer_beat §5 object 9)",
+    "product (Readymerce $500 Store Build & Research Package, PT-01)",
+    "mechanism (the avatar's locked M-1/M-2, 10 §15)",
+    "image polish (REG-1 phone-real register, 13 §6)",
+    "copy quality (one writer contract §14, one writer)"
+   ],
+   "voc_roots": [
+    "Q-O-0002",
+    "Q-O-0015",
+    "Q-O-0169",
+    "Q-F-0006"
+   ],
+   "market_validation": "CHALLENGER-3 vs VA-01 (OWNED pond: IM-29 271 d)",
+   "format": "STATIC",
+   "status": "READY",
+   "ad_name": "AV3-A3-one-published-price-and-a-st"
+  }
+ ],
+ "campaign_structure": {
+  "campaign": {
+   "name": "RM-CBO-01-LAUNCH5",
+   "objective": "OUTCOME_LEADS (booked call; proxy — OPERATOR-VALIDATES)",
+   "budget_optimization": "CBO",
+   "daily_budget_usd": 100,
+   "start": "00:00 account time",
+   "countries": [
+    "US"
+   ],
+   "placements": "automatic"
+  },
+  "adsets": [
+   {
+    "name": "AV7-owner-automate",
+    "targeting": "broad, US, 18+",
+    "min_daily_spend_usd": 10,
+    "ads": [
+     {
+      "name": "AV7-A1-your-stores-didn-t-fail-nobo",
+      "cell": "CELL-01",
+      "format": "NATIVE_STORY",
+      "hook_options": 5
+     },
+     {
+      "name": "AV7-A2-it-was-never-do-it-myself-or",
+      "cell": "CELL-02",
+      "format": "STATIC",
+      "hook_options": 5
+     },
+     {
+      "name": "AV7-A3-managed-not-automatic-a-team",
+      "cell": "CELL-03",
+      "format": "NATIVE_STORY",
+      "hook_options": 5
+     },
+     {
+      "name": "AV7-A4-the-builder-s-job-ends-the-d",
+      "cell": "CELL-04",
+      "format": "NATIVE_STORY",
+      "hook_options": 5
+     }
+    ]
+   },
+   {
+    "name": "AV1-store-died",
+    "targeting": "broad, US, 18+",
+    "min_daily_spend_usd": 10,
+    "ads": [
+     {
+      "name": "AV1-A1-your-first-store-didn-t-prov",
+      "cell": "CELL-05",
+      "format": "NATIVE_STORY",
+      "hook_options": 5
+     },
+     {
+      "name": "AV1-A2-hundreds-of-clicks-and-zero",
+      "cell": "CELL-06",
+      "format": "NATIVE_STORY",
+      "hook_options": 5
+     },
+     {
+      "name": "AV1-A3-you-re-right-to-guard-your-m",
+      "cell": "CELL-07",
+      "format": "STATIC",
+      "hook_options": 5
+     },
+     {
+      "name": "AV1-A4-the-ones-who-found-a-product",
+      "cell": "CELL-08",
+      "format": "NATIVE_STORY",
+      "hook_options": 5
+     }
+    ]
+   },
+   {
+    "name": "AV4-paycheck-side",
+    "targeting": "broad, US, 18+",
+    "min_daily_spend_usd": 10,
+    "ads": [
+     {
+      "name": "AV4-A1-it-wasn-t-a-lack-of-ability",
+      "cell": "CELL-09",
+      "format": "NATIVE_STORY",
+      "hook_options": 5
+     },
+     {
+      "name": "AV4-A2-keep-the-salary-that-s-the-s",
+      "cell": "CELL-10",
+      "format": "STATIC",
+      "hook_options": 5
+     },
+     {
+      "name": "AV4-A3-a-first-store-that-got-one-g",
+      "cell": "CELL-11",
+      "format": "NATIVE_STORY",
+      "hook_options": 5
+     },
+     {
+      "name": "AV4-A4-you-don-t-need-to-be-trained",
+      "cell": "CELL-12",
+      "format": "NATIVE_STORY",
+      "hook_options": 5
+     }
+    ]
+   },
+   {
+    "name": "AV2-paid-got-nothing",
+    "targeting": "broad, US, 18+",
+    "min_daily_spend_usd": 10,
+    "ads": [
+     {
+      "name": "AV2-A1-the-burned-stores-went-wrong",
+      "cell": "CELL-13",
+      "format": "NATIVE_STORY",
+      "hook_options": 5
+     },
+     {
+      "name": "AV2-A2-paying-someone-to-build-it-w",
+      "cell": "CELL-14",
+      "format": "STATIC",
+      "hook_options": 5
+     },
+     {
+      "name": "AV2-A3-if-the-money-isn-t-there-yet",
+      "cell": "CELL-15",
+      "format": "NATIVE_STORY",
+      "hook_options": 5
+     }
+    ]
+   },
+   {
+    "name": "AV3-stuck-starter",
+    "targeting": "broad, US, 18+",
+    "min_daily_spend_usd": 10,
+    "ads": [
+     {
+      "name": "AV3-A1-the-setup-was-never-your-wal",
+      "cell": "CELL-16",
+      "format": "NATIVE_STORY",
+      "hook_options": 5
+     },
+     {
+      "name": "AV3-A2-what-should-i-sell-is-answe",
+      "cell": "CELL-17",
+      "format": "NATIVE_STORY",
+      "hook_options": 5
+     },
+     {
+      "name": "AV3-A3-one-published-price-and-a-st",
+      "cell": "CELL-18",
+      "format": "STATIC",
+      "hook_options": 5
+     }
+    ]
+   }
+  ],
+  "statics_rule": "one 3-2-2 dynamic set per adset (3 images × 2 primary texts × 2 headlines), max 2 live",
+  "build_via": "Meta Ads Manager UI or manage_campaign MCP — NOT executed by this step (no ad-account write authorised)"
+ },
+ "kill_scale_rules": {
+  "layer1_day3": {
+   "purchase_breakeven": 217.5,
+   "proxy_booked_call": 10.36,
+   "rules": [
+    "≥1× spent & 0 form starts → OFF",
+    "≥2× spent & 0 booked calls → OFF",
+    "CPM ≥$100 after ≥0.5× → OFF",
+    "≥1 booked call or ≥2 form starts at KPI → KEEP"
+   ]
+  },
+  "day1_warning": "$50 spend, CPC >$2 & 0 booked calls → Bucket 1 read",
+  "layer2_day7": [
+   "BREAKTHROUGH",
+   "SPEND WINNER",
+   "KPI WINNER",
+   "LOSER"
+  ],
+  "scale": "ROAS ≥2.5 × 2 days (offline deposits/paid) → +$50/48h to $300–500, then +20%/72h",
+  "winner_confirmed": "$1K spend at target CPA",
+  "angle_death": "≥3 executions across ≥2 batches",
+  "product_decision": "after 5–8 avatars and ≥2 one-at-a-time fixes",
+  "label": "proxy thresholds OPERATOR-VALIDATES"
+ },
+ "kpi_table": {
+  "file": "12-OFFER-TESTPLAN-PLAYBOOK.md",
+  "section": "§10",
+  "booked_call_target": 19.03,
+  "t1_guard": 10.36,
+  "form_start_max": 4.76
+ },
+ "budget_rules": {
+  "daily": 100,
+  "campaign_min_purchase": 310.71,
+  "campaign_min_proxy": 100,
+  "adset_floor": 10,
+  "read_1": "72h",
+  "read_2": "day 7",
+  "min_spend_before_cpa_kill_purchase": 435.0,
+  "min_spend_before_cpa_kill_proxy": 20.72,
+  "pre_check": "$50/day statics × 3 days",
+  "capacity_purchase": 0.25,
+  "capacity_proxy": 5.25
+ },
+ "decision_calendar": {
+  "d0": "warm-up + launch 00:00",
+  "d1": "early warning $50",
+  "d3": "Layer 1",
+  "d4": "variations begin",
+  "d7": "Layer 2",
+  "d14": "exit-testing read"
+ },
+ "buy_now_triggers": {
+  "AV-07": {
+   "sm": "early evening, small-business back room / desk: the marketing that \"was the one bringing in the money\" slows while \"three or four Shopify and other stores\" sit untouched (Q-O-0124, Q-O-0103; EM-09)",
+   "ae": "EM-09 store/marketing slowed (Q-O-0124) · AE-05 built, never launched (Q-O-0153, Q-F-0018) · AE-06 a years-long delay recognised (Q-O-0160, Q-O-0152)",
+   "push": "\"it's slowed down so much\" (Q-O-0124)",
+   "pull": "\"If I can turn this side hustle into a main job where I work anywhere in the world and don't have to worry about anything, that's ideal.\" (Q-O-0105)",
+   "anx": "\"I pay $500 and then I'm gonna have to pay more money down the road for services?\" (Q-O-0028)",
+   "hab": "\"I'm a computer consultant and I have very little time.\" (Q-O-0154) · stores idle \"in years\" (Q-O-0103)",
+   "coi": "UNQUANTIFIED — no loss-amount wallet quote from AV-07 persons; context only: agency quotes \"$5,000, $20,000, $15,000\" (Q-O-0104) = the alternative's price, not a loss",
+   "lack": "IB-19 (Q-O-0103)",
+   "ful": "H-09 (IB-26)",
+   "hot": "EM-09 + MICRO-DREAM SCENE Q-O-0103 (the idle admin)",
+   "loss": "[AUTHORED, CHECK THIS] \"Every month the stores sit, the build you already paid for earns nothing.\" (from Q-O-0103 \"in years\")",
+   "act": "\"I'll start with the 500, and then I'll hopefully graduate to the next level\" (Q-O-0029) · \"I just wanna go through with it\" (Q-O-0054)"
+  },
+  "AV-01": {
+   "sm": "Sunday night, kitchen table, dashboard open: ~600 sessions, 0 orders (Q-F-0019; EM-06) → the post-mortem count (Q-Y-0014; EM-07)",
+   "ae": "EM-08 deciding whether to try again (Q-Y-0015, Q-B-0004) · AE-08 closed the store for lack of time (Q-O-0090)",
+   "push": "\"I am growing tired of looking at all the traffic and no sales\" (Q-F-0022)",
+   "pull": "\"I'm looking for a steady income\" (Q-O-0109)",
+   "anx": "\"i had to give up or else i would literally lose all my money\" (Q-Y-0049)",
+   "hab": "\"that's why i'm going to continue working on the store to make it profitable\" (Q-Y-0015; OBJ-106.AV-01)",
+   "coi": "$41,754 (past losses quoted by AV-01/CP-03 voices (EM-07), SAMPLE(4) — the price of the one-shot pattern, never a forecast)",
+   "lack": "NULL — searched: 08 §14 CP-03 rows (IB-12 \"leave out\"); nearest IB-08 (Q-O-0037)",
+   "ful": "H-12 (IB-29) · IB-30 verbatim (Q-Y-0053)",
+   "hot": "EM-06 (Q-F-0019)",
+   "loss": "[AUTHORED, CHECK THIS] \"Close it for good and the one-shot store stays the last word on whether this works for you.\" (FS-01; B-102.AV-01)",
+   "act": "\"I was afraid to ever try again, but eventually I did\" (Q-B-0004) · \"i failed the challenge … that's why i'm going to continue\" (Q-Y-0015)"
+  },
+  "AV-04": {
+   "sm": "after the shift, kitchen table: the store gets the leftover hours (Q-F-0015; EM-01) · on break asking for the contract (Q-O-0116)",
+   "ae": "AE-03 fatigue after 20 years (Q-O-0111) · AE-08 closed the store for lack of time (Q-O-0090)",
+   "push": "\"come on, man. I wish I was doing something else.\" (Q-O-0096)",
+   "pull": "\"a stable income flow\" (Q-O-0046) · \"To make 100% of my salary and above from it.\" (Q-O-0176)",
+   "anx": "\"I earn good money now, so I don't want to quit and then start struggling.\" (Q-O-0133)",
+   "hab": "\"anytime that I know that I'm ready ... I'll get back to you\" (Q-O-0052)",
+   "coi": "UNQUANTIFIED — no loss-amount wallet quote from AV-04 persons; time cost only: \"a part time job ... fifteen to eighteen hours a week\" (Q-O-0050)",
+   "lack": "IB-06 (Q-F-0015)",
+   "ful": "H-05 (IB-14)",
+   "hot": "EM-01 (Q-F-0015)",
+   "loss": "[AUTHORED, CHECK THIS] \"Waiting until you're 'ready' means the store gets no tests at all this month.\" (Q-O-0052)",
+   "act": "\"If I can make the money, I'm a do it\" (Q-O-0072) · \"After weeks of overthinking, I finally committed\" (Q-Y-0053)"
+  },
+  "AV-02": {
+   "sm": "at the home desk, the login screen: \"contact an administrator which should be me\" (Q-F-0001; EM-03) · mid-call, typing the company into Google reviews (Q-O-0102)",
+   "ae": "AE-14 a scam / lost money (Q-O-0062, Q-O-0148) · AE-05 the builder's store shut down (Q-F-0018)",
+   "push": "\"they said they would build a store, but i am building the store???\" (Q-F-0004)",
+   "pull": "\"I would just link into the store once it is finished\" (Q-F-0005)",
+   "anx": "\"I felt like it was a scam\" (Q-O-0073)",
+   "hab": "\"go do a Google review of your company and see\" (Q-O-0102) · \"Call me back in two weeks\" (Q-O-0064)",
+   "coi": "$5,500 ([R-OWNED] money already lost or stuck (Q-O-0074 \"over a thousand\" = lower bound); competitor context kept apart: Q-E-0006 $20,000, Q-E-0010 $69+$169 (SIMILAR PRODUCT CONTEXT, not summed))",
+   "lack": "IB-22 (Q-F-0018)",
+   "ful": "H-12 (IB-29)",
+   "hot": "EM-03 (Q-F-0001, Q-F-0004)",
+   "loss": "[AUTHORED, CHECK THIS] \"Staying out means the last builder's half-done store stays the only version you've seen.\" (Q-F-0002)",
+   "act": "\"I'm getting it ready promise\" (Q-O-0013 — the scam-burned caller who put down a DEPOSIT) · \"I was afraid to ever try again, but eventually I did\" (Q-B-0004)"
+  },
+  "AV-03": {
+   "sm": "evening, week ten, still on the theme settings (Q-F-0013; EM-02) · at the signup product step (Q-F-0041; EM-10)",
+   "ae": "AE-07 end of an overthinking spell (Q-Y-0053) · AE-05 built, never launched (Q-O-0153)",
+   "push": "\"tons of links that are like a snowstorm of information, but nothing that actually helps me!\" (Q-F-0006)",
+   "pull": "\"build a a income that I can sit back and relax\" (Q-O-0015)",
+   "anx": "\"When the store was transferred to me, the store was shutdown almost immediately\" (Q-F-0018)",
+   "hab": "\"I would like to get in touch with y'all when I'm more prepared\" (Q-O-0026; OBJ-07.AV-03)",
+   "coi": "UNQUANTIFIED — time cost only: \"10 weeks on simple tasks\" (Q-F-0013); no money-loss quote from AV-03 persons",
+   "lack": "IB-17 (Q-F-0013)",
+   "ful": "H-10 (IB-27)",
+   "hot": "EM-02 (Q-F-0006, Q-F-0013)",
+   "loss": "[AUTHORED, CHECK THIS] \"Another month in the settings is another month the store you started doesn't exist.\" (Q-O-0153)",
+   "act": "\"After weeks of overthinking, I finally committed\" (Q-Y-0053)"
+  }
+ },
+ "second_wave_queue": {
+  "reserve_angles": [
+   "AN-R01",
+   "AN-R02",
+   "AN-R03",
+   "AN-R04",
+   "AN-R05",
+   "AN-R06",
+   "AN-R07",
+   "AN-R08",
+   "AN-R09",
+   "AN-R10"
+  ],
+  "expansion_avatars": [
+   "AV-08"
+  ],
+  "awareness_rewrite": "winning story ±1 awareness level, own CBO",
+  "offer_variants": [
+   "OV-01",
+   "OV-02"
+  ]
+ },
+ "prelander_trigger": "$500–1,000/day + ROAS ≥2.5 over 48h → advertorial from the winning story, read on buying intent",
+ "tracking_sheet_columns": [
+  "AD",
+  "Budget",
+  "Ad Set Name",
+  "Amount Spent",
+  "Adds To Cart",
+  "Checkouts Initiated",
+  "Cost per add to cart",
+  "Results",
+  "Cost per Results",
+  "Purchase ROAS",
+  "Purchases Conversion value",
+  "CTR (link)",
+  "CPC (link)",
+  "CPM",
+  "Impressions",
+  "Frequency",
+  "Landing-page-view rate per link-click",
+  "Ad Schedule",
+  "Date Created",
+  "cell_id",
+  "avatar",
+  "problem",
+  "desire",
+  "lf8",
+  "angle",
+  "UMP",
+  "structure",
+  "awareness",
+  "hypothesis",
+  "learning",
+  "next_hypothesis",
+  "source_type (Iteration | Imitation | Ideation)",
+  "result_label"
+ ],
+ "writer_handoff": {
+  "AV-07": {
+   "persona_tag": "AV7-owner-automate — runs a business; 3–4 stores built and \"just sitting there\" (Q-O-0103)",
+   "awareness_level + tired_of_hearing": "AW-4/5 · tired: $5k–$20k agency quotes (Q-O-0104); \"fully automated/hands-free\" as a claim (DNS-04)",
+   "activation_moment": "TR-AV-07 struggling_moment (EM-09; Q-O-0124, Q-O-0103)",
+   "conversation_in_head[]": "Q-O-0103 · Q-O-0001 · Q-O-0104 · Q-O-0006 · Q-O-0028 · Q-O-0027 · Q-O-0029 · Q-O-0154",
+   "failed_solutions_sequence[]": "FS-01.AV-07 → FS-06.AV-07 → FS-02.AV-07",
+   "belief_to_break": "B-03.AV-07 (THE ONE) · FB-AV-07",
+   "ump_ums_plain": "M-1: the builder's job ends the day the store goes live · M-2: a team keeps working it after — review first results, fix, test the next product on a budget you approve (10 LOCK-B)",
+   "enemy": "EN-1 the build-and-leave store deal (13) + industry pricing ($5k–$20k, WM-AV-07)",
+   "gradualization_ladder": "GO-AV-07 · lane_applied S1–2 reset claim + Name-it, proof-led · BS-AV-07 B-01 → B-02 → B-05 → B-06 → B-03 → B-04 → final",
+   "proof_ranked[]": "P-08.AV-07 [A] · P-09.AV-07 [A] · P-01.AV-07 · P-04.AV-07 · P-05.AV-07 · P-06.AV-07 · P-03.AV-07 (close only)",
+   "objections_even_if[] + jtbd_forces": "OBJ-02.AV-07 · OBJ-04.AV-07 · OBJ-12.AV-07 · OBJ-07.AV-07 (even_if lines 11 §8) · forces TR-AV-07",
+   "day_after_picture": "deeper hope Q-O-0105 + H-09 (IB-26)",
+   "offer_summary": "T1 \"Start with the $500 Build\" → OTO1 T2 \"The Second-Shot Launch\" $2,000 (§5)",
+   "cost_of_inaction": "UNQUANTIFIED (TR-AV-07)",
+   "behaviour_scenes[3] + tribe_aesthetic": "09 AV-07 scenes 1–3 (S07-1..3) · TRIBE-1 role_wanted: acknowledgment as the owner (13 §13)",
+   "lane + strategic_frame": "LOCK-B lane (§1a) · frames F1/F3/F2/F4 (CELL-01..04)",
+   "message_match_words": "problem \"one shot; left on launch day\" · mechanism \"in stages; a budget you approve\" · promise \"in your name; we stay after launch day\" (13)",
+   "primary_buying_reason": "someone stays on the store after it goes live, at a published first step (B-03.AV-07; Q-O-0029)",
+   "practical_change": "the idle store gets a weekly review → fix → test cycle he approves (PT-04, F-05)",
+   "everyday_transformation": "IB-26 H-09 \"One of the three or four stores that sat 'ready to be loaded' is loaded and switched on.\"",
+   "benefit_statement_for_copy": "[AUTHORED, CHECK THIS] \"Your store gets worked every week after it goes live — you approve the budget and read the report.\" (CLM-01, CLM-03)",
+   "copy_emphasis": "proof-led; show the package (Q-O-0002); price first; managed, not automatic (B-04.AV-07)",
+   "customer_language[]": "\"just sitting there\" · \"the backend\" · \"the 500\" · \"automate\" · \"my brand\" · \"seriously? Come on.\"",
+   "narrator_material": "peer owner (13 NAR-1, SUPPORTED): Q-O-0103, Q-O-0097 lived lines · insider store manager REAL only",
+   "alternative_connection": "DIY vs $5k–$20k agency vs published $500 (B-03.AV-07; EK-09.AV-07)",
+   "open_questions[]": "post-launch window per tier (PT-08) · existing-store takeover (OBJ-18.AV-07) · managed-fee range (PT-02) · local stage (HARVEST-20)"
+  },
+  "AV-01": {
+   "persona_tag": "AV1-store-died — first store(s) closed after one product / one batch (Q-O-0108, Q-F-9004)",
+   "awareness_level + tired_of_hearing": "AW-2→3 · tired: easy-money guru content (Q-Y-0016); \"winning product\" promises",
+   "activation_moment": "TR-AV-01 struggling_moment (EM-06/EM-07; Q-F-0019, Q-Y-0014)",
+   "conversation_in_head[]": "Q-O-0108 · Q-F-9004 · Q-Y-0027 · Q-F-0022 · Q-Y-0016 · Q-Y-0030 · Q-O-0112 · Q-Y-0049",
+   "failed_solutions_sequence[]": "FS-01.AV-01 → FS-101.AV-01 → FS-102.AV-01 → FS-03.AV-01",
+   "belief_to_break": "B-102.AV-01 (THE ONE) · FB-AV-01",
+   "ump_ums_plain": "M-1: a first store is launched as a single bet and written off when the guess misses · M-2: products released in stages, each tested on a budget he approves, an early review replaces what doesn't sell (10 LOCK-A)",
+   "enemy": "the one-shot launch (familiar solution, E-B 13) + easy-money store videos (industry)",
+   "gradualization_ladder": "GO-AV-01 · New Information → mechanism described · BS-AV-01 B-106 → B-101 → B-105 → B-107 → B-102 → requirement → B-103 → B-104 → final",
+   "proof_ranked[]": "P-103.AV-01 [A] · P-106.AV-01 · P-104.AV-01 · P-105.AV-01 · P-101.AV-01 · P-109.AV-01 · P-107.AV-01 (close only)",
+   "objections_even_if[] + jtbd_forces": "OBJ-101.AV-01 · OBJ-102.AV-01 · OBJ-04.AV-01 · OBJ-01.AV-01 (LEAK) · forces TR-AV-01",
+   "day_after_picture": "deeper hope Q-Y-0027 + H-12 (IB-29)",
+   "offer_summary": "T1 $500 Build (+ bump +2 first-wave products $149) → OV-02 $900 Second Shot after a winner (§5)",
+   "cost_of_inaction": "$41,754 summed past losses, SAMPLE(4), median $750 (TR-AV-01)",
+   "behaviour_scenes[3] + tribe_aesthetic": "09 AV-01 scenes 1–3 (S01-1..3) · TRIBE-1 aesthetic_already_used: the post-mortem format (13 §13)",
+   "lane + strategic_frame": "LOCK-A New Information (§1a) · frames F1/F2/F5/F4 (CELL-05..08)",
+   "message_match_words": "problem \"one shot\" · mechanism \"in stages; a budget you approve\" · promise \"in your name\" (13)",
+   "primary_buying_reason": "a second try made of several small capped tries (FB-AV-01; Q-O-0109)",
+   "practical_change": "products go live in turns, each with a capped test he approves (PT-04, F-05)",
+   "everyday_transformation": "IB-29 H-12 \"The store is handed over and stays up; the access is theirs.\"",
+   "benefit_statement_for_copy": "[AUTHORED, CHECK THIS] \"Your store gets more than one shot — several products, each tested small on a budget you approve.\" (CLM-03, CLM-05)",
+   "copy_emphasis": "agree first (not easy money); new information before mechanism; every cost before benefit",
+   "customer_language[]": "\"still no sales\" · \"didn't sell one product\" · \"I had to close the store\" · \"burned many times\" · \"throwing cash off a cliff\"",
+   "narrator_material": "peer who lost on a first store (Q-Y-0027, Q-Y-0026 veteran lines, creator attribution) — 13 peer narrator",
+   "alternative_connection": "one store tweaked alone vs several capped tries (OBJ-106.AV-01; FS-101/102.AV-01)",
+   "open_questions[]": "products per stage (PT-19) · test budget + stop rule · local stage (HARVEST-14) · owned converted 0 of 5"
+  },
+  "AV-04": {
+   "persona_tag": "AV4-paycheck-side — full-time job; store gets the leftover hours (Q-F-0015)",
+   "awareness_level + tired_of_hearing": "AW-4 · tired: courses that train you (Q-O-0056)",
+   "activation_moment": "TR-AV-04 struggling_moment (EM-01; Q-F-0015, Q-O-0116)",
+   "conversation_in_head[]": "Q-F-0015 · Q-O-0133 · Q-O-0052 · Q-O-0056 · Q-O-0046 · Q-O-0176 · Q-O-0116 · Q-O-0090",
+   "failed_solutions_sequence[]": "FS-05.AV-04 → FS-01.AV-04 → FS-41.AV-04 (11 §9 AV-04 block)",
+   "belief_to_break": "B-42.AV-04 (THE ONE, live wire honoured) · FB-AV-04",
+   "ump_ums_plain": "M-1: the first store is launched as one bet — for a salaried person the bet feels like the salary · M-2: small capped tests he approves, run by a team, early review (10 LOCK-A)",
+   "enemy": "the one-guess all-at-once launch + quit-your-job pitch + courses that train you (11 WM-AV-04)",
+   "gradualization_ladder": "GO-AV-04 · S4 surer + New Information · causal chain B-41 → … → requirement → product (11 §7)",
+   "proof_ranked[]": "P-07.AV-04 [A] · P-08.AV-04 [A] · P-01.AV-04 · P-05.AV-04 · P-04.AV-04 · P-02.AV-04 · P-03.AV-04 (close only)",
+   "objections_even_if[] + jtbd_forces": "OBJ-11.AV-04 · OBJ-04.AV-04 · OBJ-41.AV-04 · OBJ-03.AV-04 (LEAK) · forces TR-AV-04",
+   "day_after_picture": "deeper hope Q-O-0176 + H-05 (IB-14)",
+   "offer_summary": "T1 $500 Build, keep the job (§5) → OV-01 split entry after a winner",
+   "cost_of_inaction": "UNQUANTIFIED (TR-AV-04)",
+   "behaviour_scenes[3] + tribe_aesthetic": "09 AV-04 scenes 1–3 (S04-1..3) · TRIBE-1 identity_permission \"I'm not lazy. I just don't wanna be trained to do it.\"",
+   "lane + strategic_frame": "LOCK-A S4 surer (§1a) · frames F4/F3/F5/F1 (CELL-09..12)",
+   "message_match_words": "problem \"one shot\" · mechanism \"a budget you approve\" · promise \"in your name\" (13)",
+   "primary_buying_reason": "start now without betting the salary (B-42.AV-04; Q-O-0133)",
+   "practical_change": "the store's tests run in the team's day, not his evenings (B-41.AV-04)",
+   "everyday_transformation": "IB-14 H-05 \"The store stops being an after-hours-and-weekends job.\"",
+   "benefit_statement_for_copy": "[AUTHORED, CHECK THIS] \"Keep the salary. Your store starts on small tests you approve, run in our working day — not your evenings.\" (CLM-03)",
+   "copy_emphasis": "keep-the-job honoured in every line; terms and refund conditions on paper (procedural sceptic)",
+   "customer_language[]": "\"side hustle\" · \"replace my job\" · \"a stable income flow\" · \"I don't wanna be trained\" · \"when I'm ready\"",
+   "narrator_material": "employed peer (PLANNED: consented account from PAID buyer O-5455cbcf — P-09.AV-04) · until then peer lines Q-F-0015/16/17",
+   "alternative_connection": "evenings + courses vs a team running capped tests (FS-05.AV-04; OBJ-44.AV-04)",
+   "open_questions[]": "B-44.AV-04 people-like-me proof (LEAK) · products per stage (PT-19) · local stage S4 HYPOTHESIS (HARVEST-17)"
+  },
+  "AV-02": {
+   "persona_tag": "AV2-paid-got-nothing — paid a builder/vendor, got a half-done or locked store (Q-F-0004, Q-O-0062)",
+   "awareness_level + tired_of_hearing": "AW-4 · tired: free/cheap stores with big upsells (Q-Y-0009); fake social proof (Q-Y-0005)",
+   "activation_moment": "TR-AV-02 struggling_moment (EM-03; Q-F-0001, Q-O-0102)",
+   "conversation_in_head[]": "Q-F-0001 · Q-F-0004 · Q-O-0062 · Q-O-0073 · Q-O-0102 · Q-O-0132 · Q-O-0116 · Q-F-0005",
+   "failed_solutions_sequence[]": "FS-02.AV-02 → FS-X2.AV-02 → FS-03.AV-02 → FS-04.AV-02 (11 §9)",
+   "belief_to_break": "B-02.AV-02 (THE ONE) · FB-AV-02",
+   "ump_ums_plain": "M-1: the build is sold as the finish line and the store sits in the builder's account until handover · M-2: store opened in your name from day one; a team keeps working after launch (10 LOCK-B + F-11)",
+   "enemy": "EN-1 build-and-leave + the store held in the builder's account + pressure closes / fake proof (11 WM-AV-02)",
+   "gradualization_ladder": "GO-AV-02 · S4 surer + NI-04 · contradiction route (11 §6–7)",
+   "proof_ranked[]": "P-01.AV-02 [A] · P-14.AV-02 [A] · P-03.AV-02 · P-05.AV-02 · P-06.AV-02 · P-02.AV-02 · P-04.AV-02 (close only)",
+   "objections_even_if[] + jtbd_forces": "OBJ-03.AV-02 · OBJ-13.AV-02 (LEAK) · OBJ-02.AV-02 · OBJ-15.AV-02 (LEAK) · forces TR-AV-02",
+   "day_after_picture": "deeper hope Q-F-0005 + H-12 (IB-29)",
+   "offer_summary": "T1 $500 Build + GIFT-01 every cost in writing + 60-day deliverables guarantee (OPERATOR-VALIDATES) (§5)",
+   "cost_of_inaction": "$5,500 already lost/stuck [R-OWNED] (TR-AV-02)",
+   "behaviour_scenes[3] + tribe_aesthetic": "09 AV-02 scenes 1–3 (S02-1..3) · TRIBE-1 inauthenticity risks: actors as owners, income screenshots",
+   "lane + strategic_frame": "LOCK-B + NI-04 (§1a) · frames F2/F4/F5 (CELL-13..15)",
+   "message_match_words": "problem \"left on launch day\" · mechanism \"a budget you approve\" · promise \"in your name; we stay after launch day\" (13)",
+   "primary_buying_reason": "a store she can check — her name on it, a team still on it after launch (B-02.AV-02)",
+   "practical_change": "she logs in and sees her own name in the owner field (CLM-02; P-01.AV-02 [A])",
+   "everyday_transformation": "IB-29 H-12 \"The store is handed over and stays up; the access is theirs.\"",
+   "benefit_statement_for_copy": "[AUTHORED, CHECK THIS] \"Check two things before you pay anyone: whose name the store is in, and who is still working on it the week after it goes live.\" (GO-AV-02 solution_requirement)",
+   "copy_emphasis": "confirm the suspicion first; checks she runs herself; no bare \"trust us\" (DNS-16)",
+   "customer_language[]": "\"scam\" · \"they took my money\" · \"half-ass done\" · \"contact an administrator\" · \"proof of concept\"",
+   "narrator_material": "peer who was burned and checked (Q-O-0013 DEPOSIT after \"all these scams\" — outcome row, not a testimonial)",
+   "alternative_connection": "the builder-held store vs a store in your name (CLM-10, CLM-02)",
+   "open_questions[]": "independent reviews = 0 (P-12.AV-02 PLANNED) · PT-16 trust scores · post-launch window (PT-08) · local stage (HARVEST-15)"
+  },
+  "AV-03": {
+   "persona_tag": "AV3-stuck-starter — weeks in the setup or stuck on the product pick (Q-F-0013, Q-F-0041)",
+   "awareness_level + tired_of_hearing": "AW-2/3 (AW-4 on calls) · tired: \"just watch this YouTube tutorial\"; bots and support chats (Q-F-0011)",
+   "activation_moment": "TR-AV-03 struggling_moment (EM-02/EM-10; Q-F-0013, Q-F-0041)",
+   "conversation_in_head[]": "Q-F-0013 · Q-F-0006 · Q-F-0012 · Q-F-0040 · Q-F-0041 · Q-O-0153 · Q-O-0002 · Q-O-0015",
+   "failed_solutions_sequence[]": "FS-05.AV-03 → FS-01.AV-03 → FS-02.AV-03 → FS-06.AV-03 (11 §9)",
+   "belief_to_break": "B-03.AV-03 (THE ONE) · FB-AV-03",
+   "ump_ums_plain": "M-1: the builder hands the store over on launch day and leaves · M-2: a team stays after it goes live — first results read, corrections, products rolled in (10 LOCK-B)",
+   "enemy": "build-and-leave + the platform help system + the \"it's easy\" promise (11 WM-AV-03)",
+   "gradualization_ladder": "GO-AV-03 · S2 Name-it mechanism first · yes-but-incomplete route (11 §6–7)",
+   "proof_ranked[]": "P-01.AV-03 [A] · P-02.AV-03 · P-04.AV-03 · P-05.AV-03 · P-07.AV-03 · P-10.AV-03 · P-06.AV-03 (close only)",
+   "objections_even_if[] + jtbd_forces": "OBJ-01.AV-03 · OBJ-02.AV-03 · OBJ-05.AV-03 · OBJ-06.AV-03 · forces TR-AV-03",
+   "day_after_picture": "deeper hope Q-O-0015 + H-10 (IB-27)",
+   "offer_summary": "T1 $500 Build + GIFT-02 guide (§5)",
+   "cost_of_inaction": "UNQUANTIFIED — time only (TR-AV-03)",
+   "behaviour_scenes[3] + tribe_aesthetic": "09 AV-03 scenes 1–3 (S03-1..3) · TRIBE-1 role_wanted: owner, not student",
+   "lane + strategic_frame": "LOCK-B S2 Name-it (§1a) · frames F2/F1/F3 (CELL-16..18)",
+   "message_match_words": "problem \"left on launch day\" · mechanism \"in stages\" · promise \"we stay after launch day\" (13)",
+   "primary_buying_reason": "the store finally exists — and is not left alone after it goes live (B-03.AV-03)",
+   "practical_change": "no more weeks in the settings; listings, payments, shipping configured (F-01, CLM-13)",
+   "everyday_transformation": "IB-27 H-10 \"An evening with no help-doc marathon — the listings are already up.\"",
+   "benefit_statement_for_copy": "[AUTHORED, CHECK THIS] \"We build it in your name. Then we stay after it opens.\" (13 POS-1 stranger_safe_line)",
+   "copy_emphasis": "name the mechanism before the claim (OWNED pond); honour \"tech savvy and competent\"",
+   "customer_language[]": "\"a snowstorm of information\" · \"a simple step by step\" · \"what I should sell\" · \"No wonder people give up\" · \"10 weeks on simple tasks\"",
+   "narrator_material": "peer who stalled at setup (Q-F-0012, Q-F-0013 forum voices) — 13 peer narrator",
+   "alternative_connection": "tutorials/DIY vs a builder who leaves vs a team that stays (FS-05/FS-02.AV-03)",
+   "open_questions[]": "FS-05 elimination INCOMPLETE (pre-launch stall) · post-launch window (PT-08) · build-day range on the PDP · fish UNSIZED (HARVEST-16)"
+  }
+ },
+ "creative_research_playbook_path": "12-OFFER-TESTPLAN-PLAYBOOK.md §13",
+ "claims_ranked": [
+  {
+   "rank": 1,
+   "id": "CLM-01",
+   "family": "POST",
+   "claim": "After your store goes live, a team keeps working on it — reviewing the first results, fixing what's off and rolling in new products. You see the reports. [CLM-01.AV-07]",
+   "basis": "cited",
+   "members": "CLM-01.AV-07, CLM-03.AV-02, CLM-01.AV-03, CLM-02.AV-04, CLM-05.AV-01, CLM-08.AV-04",
+   "avatars": 5,
+   "proof_ids": "P-01.AV-04, P-01.AV-07, P-02.AV-02, P-02.AV-03, P-07.AV-04, P-08.AV-04, P-09.AV-02, P-09.AV-07, P-101.AV-01, P-11.AV-03, P-12.AV-07, P-15.AV-02",
+   "score": 38
+  },
+  {
+   "rank": 2,
+   "id": "CLM-02",
+   "family": "NAME",
+   "claim": "Your store is opened in your name from the first day and stays in your name. The money it makes goes to your bank — we never hold it. [CLM-01.AV-02]",
+   "basis": "cited",
+   "members": "CLM-06.AV-07, CLM-06.AV-01, CLM-05.AV-04, CLM-01.AV-02, CLM-07.AV-02, CLM-05.AV-03",
+   "avatars": 5,
+   "proof_ids": "P-01.AV-02, P-02.AV-04, P-02.AV-07, P-03.AV-02, P-03.AV-03, P-06.AV-04, P-07.AV-07, P-102.AV-01, P-103.AV-01",
+   "score": 33
+  },
+  {
+   "rank": 3,
+   "id": "CLM-03",
+   "family": "CAPPED",
+   "claim": "Keep your salary. Your store starts with small tests on budgets you approve — nothing here bets the paycheck. [CLM-01.AV-04]",
+   "basis": "cited",
+   "members": "CLM-04.AV-07, CLM-03.AV-01, CLM-01.AV-04",
+   "avatars": 3,
+   "proof_ids": "P-01.AV-04, P-01.AV-07, P-05.AV-07, P-07.AV-04, P-101.AV-01, P-103.AV-01, P-13.AV-07",
+   "score": 22
+  },
+  {
+   "rank": 4,
+   "id": "CLM-04",
+   "family": "COST",
+   "claim": "Before you pay you can read exactly what the $500 covers — and what it doesn't: product costs, platform fees and ad spend are yours, and you set the ad budget. [CLM-04.AV-02]",
+   "basis": "cited",
+   "members": "CLM-07.AV-01, CLM-06.AV-04, CLM-04.AV-02, CLM-05.AV-02, CLM-07.AV-03",
+   "avatars": 4,
+   "proof_ids": "P-02.AV-02, P-04.AV-04, P-10.AV-03, P-108.AV-01, P-14.AV-02",
+   "score": 18
+  },
+  {
+   "rank": 5,
+   "id": "CLM-05",
+   "family": "5TO10",
+   "claim": "Sellers who find a product that sells usually tested five to ten first, each on a small budget. [CLM-02.AV-01]",
+   "basis": "cited",
+   "members": "CLM-08.AV-07, CLM-02.AV-01, CLM-03.AV-04, CLM-09.AV-03",
+   "avatars": 4,
+   "proof_ids": "P-01.AV-04, P-05.AV-04, P-08.AV-03, P-104.AV-01, P-106.AV-01, P-14.AV-07",
+   "score": 18
+  },
+  {
+   "rank": 6,
+   "id": "CLM-06",
+   "family": "HANDOVER",
+   "claim": "The platform's own guide has store builders hand the store over \"when it's ready to go live\" — that's where most builders' job ends. [CLM-02.AV-07]",
+   "basis": "cited",
+   "members": "CLM-02.AV-07, CLM-02.AV-03",
+   "avatars": 2,
+   "proof_ids": "P-04.AV-03, P-05.AV-03, P-06.AV-07",
+   "score": 16
+  },
+  {
+   "rank": 7,
+   "id": "CLM-07",
+   "family": "NOTYOU",
+   "claim": "Getting stuck on the setup isn't about being smart. Capable people stall at exactly this step — the setup was never the part you needed to learn. [CLM-03.AV-03]",
+   "basis": "inferred",
+   "members": "CLM-04.AV-04, CLM-03.AV-03",
+   "avatars": 2,
+   "proof_ids": "P-01.AV-03, P-05.AV-03, P-09.AV-04, P-10.AV-04",
+   "score": 13
+  },
+  {
+   "rank": 8,
+   "id": "CLM-08",
+   "family": "DATA",
+   "claim": "Products are released in stages, not one big drop, and chosen from search demand, seasonality and competition data — not by trying to out-price the big stores. [CLM-05.AV-07]",
+   "basis": "cited",
+   "members": "CLM-05.AV-07, CLM-06.AV-03",
+   "avatars": 2,
+   "proof_ids": "P-01.AV-07, P-02.AV-03, P-08.AV-03, P-08.AV-07, P-09.AV-03, P-14.AV-07",
+   "score": 9
+  },
+  {
+   "rank": 9,
+   "id": "CLM-09",
+   "family": "ONETRY",
+   "claim": "Your first store didn't prove online stores don't work for you — it got one try. [CLM-01.AV-01]",
+   "basis": "inferred",
+   "members": "CLM-01.AV-01",
+   "avatars": 1,
+   "proof_ids": "P-101.AV-01, P-104.AV-01, P-106.AV-01",
+   "score": 9
+  },
+  {
+   "rank": 10,
+   "id": "CLM-10",
+   "family": "HELD",
+   "claim": "In a lot of the stories that went wrong, the store was built inside the builder's own account — and until it's handed over, the platform treats it as theirs. [CLM-02.AV-02]",
+   "basis": "cited",
+   "members": "CLM-02.AV-02",
+   "avatars": 1,
+   "proof_ids": "P-05.AV-02, P-06.AV-02, P-08.AV-02",
+   "score": 8
+  },
+  {
+   "rank": 11,
+   "id": "CLM-11",
+   "family": "REFUND",
+   "claim": "The $500 build fee is refundable within 7 days — until you accept delivery or add any service. [CLM-07.AV-07]",
+   "basis": "cited",
+   "members": "CLM-07.AV-07, CLM-08.AV-01, CLM-06.AV-02",
+   "avatars": 3,
+   "proof_ids": "P-03.AV-07, P-04.AV-02, P-107.AV-01",
+   "score": 7
+  },
+  {
+   "rank": 12,
+   "id": "CLM-12",
+   "family": "THIRD",
+   "claim": "You don't have to choose between doing it yourself and a $5,000–$20,000 agency: the first step is $500, published. [CLM-03.AV-07]",
+   "basis": "cited",
+   "members": "CLM-03.AV-07",
+   "avatars": 1,
+   "proof_ids": "P-04.AV-07, P-05.AV-07",
+   "score": 7
+  },
+  {
+   "rank": 13,
+   "id": "CLM-13",
+   "family": "SETUP",
+   "claim": "Your store is set up for you — payments, shipping, listings — and opened in your name. No more weeks in the settings. [CLM-04.AV-03]",
+   "basis": "cited",
+   "members": "CLM-04.AV-03",
+   "avatars": 1,
+   "proof_ids": "P-01.AV-03, P-02.AV-03, P-07.AV-03",
+   "score": 6
+  },
+  {
+   "rank": 14,
+   "id": "CLM-14",
+   "family": "PLENTY",
+   "claim": "Plenty of people lose money on a first store — and the ones who make it kept trying. [CLM-09.AV-01]",
+   "basis": "category-typical",
+   "members": "CLM-09.AV-01",
+   "avatars": 1,
+   "proof_ids": "P-106.AV-01",
+   "score": 6
+  },
+  {
+   "rank": 15,
+   "id": "CLM-15",
+   "family": "CLICKS",
+   "claim": "Hundreds of clicks and zero orders usually means the product didn't land, not that nobody came — the average Shopify store turns about 1 in 70 visits into a sale. [CLM-04.AV-01]",
+   "basis": "cited",
+   "members": "CLM-04.AV-01",
+   "avatars": 1,
+   "proof_ids": "P-105.AV-01",
+   "score": 5
+  },
+  {
+   "rank": 16,
+   "id": "CLM-16",
+   "family": "NOCOURSE",
+   "claim": "Not a course. Nothing to learn before it runs. [CLM-07.AV-04]",
+   "basis": "cited",
+   "members": "CLM-07.AV-04",
+   "avatars": 1,
+   "proof_ids": "P-01.AV-04, P-04.AV-04",
+   "score": 3
+  },
+  {
+   "rank": 17,
+   "id": "CLM-17",
+   "family": "DAYS",
+   "claim": "Your store can be live in days — not the ten weeks people spend on setup. [CLM-08.AV-03]",
+   "basis": "inferred",
+   "members": "CLM-08.AV-03",
+   "avatars": 1,
+   "proof_ids": "P-07.AV-03",
+   "score": 2
+  }
+ ],
+ "claims_register": [],
+ "ready_for_P3": "OPERATOR-CLEARED",
+ "patch_note": "PATCH NOTE — this handoff emits `claims_register: []` and `ready_for_P3: \"OPERATOR-CLEARED\"`. The page prompt and the ad prompt take a one-line input patch: accept `claims_register: []` when `claims_ranked[]` is present; treat `ready_for_P3: OPERATOR-CLEARED` as YES.",
+ "late_bound": [
+  "OPERATOR-VALIDATES: booked-call proxy economics (close 4.76% SAMPLE(84))",
+  "OPERATOR-VALIDATES: 60-day deliverables guarantee (replaces PT-15) + legal",
+  "OPERATOR-VALIDATES: T2/T3 prices, bump/OTO prices",
+  "OPERATOR-VALIDATES: build 7–10 days before print",
+  "13.name_status PROVISIONAL (USPTO NOT FETCHED)"
+ ],
+ "schema_lint": {
+  "per_key": {
+   "handoff_version": "untiered",
+   "generated_at": "untiered",
+   "files": "tiered",
+   "market": "[A]",
+   "geo_mode": "untiered",
+   "monthly_ad_budget": "[A]",
+   "launch_message_blueprint": "tiered",
+   "avatars": "[A]",
+   "avatar_portfolio": "tiered",
+   "product_truth_card": "tiered",
+   "components": "[A]",
+   "wedge": "tiered",
+   "objection_table": "tiered",
+   "proof_registry": "tiered",
+   "curated_reviews": "tiered",
+   "honest_box": "tiered",
+   "offer_architecture": "[A]",
+   "route": "[A]",
+   "brand_name": "untiered",
+   "positioning": "tiered",
+   "narrator_archetype": "untiered",
+   "photographic_register": "tiered",
+   "identity": "untiered",
+   "tribe_aesthetic": "tiered",
+   "congruence_spec": "tiered",
+   "fact_sheet": "[A]",
+   "name_options": "untiered",
+   "ammunition": "tiered",
+   "sampling_program": "tiered",
+   "lint_checks_exported": "tiered",
+   "desire_leaderboard": "tiered",
+   "mass_desires": "tiered",
+   "crystallization_bank": "tiered",
+   "belief_sequence": "tiered",
+   "lane_pass": "[A]",
+   "keep_list": "tiered",
+   "awareness_snapshot": "tiered",
+   "angles": "tiered",
+   "reserve_queue": "[A]",
+   "expansion_queue": "tiered",
+   "mechanism_disqualified_keepers": "tiered",
+   "gradualization_chain": "tiered",
+   "proven_structures": "tiered",
+   "observed_patterns": "tiered",
+   "icp_language_analysis": "tiered",
+   "voc_corpus": "tiered",
+   "margin_sanity": "[A]",
+   "swipe_refs": "tiered",
+   "test_cells": "[A]",
+   "campaign_structure": "[A]",
+   "kill_scale_rules": "[A]",
+   "kpi_table": "tiered",
+   "budget_rules": "untiered",
+   "decision_calendar": "untiered",
+   "buy_now_triggers": "tiered",
+   "second_wave_queue": "tiered",
+   "prelander_trigger": "untiered",
+   "tracking_sheet_columns": "untiered",
+   "writer_handoff": "[A]",
+   "creative_research_playbook_path": "tiered",
+   "claims_ranked": "tiered",
+   "claims_register": "untiered",
+   "ready_for_P3": "untiered",
+   "late_bound": "[A]"
+  },
+  "tiered": 36,
+  "untiered": 13,
+  "[A]": 15,
+  "rule": "tiered = carries an evidence ID/tier; [A] = carries ASSUMED/INFERRED/OPERATOR-VALIDATES; untiered = structural"
+ },
+ "coverage_statement": "Offer: ACCEPTABLE, benchmark networks 1, anchor COGS-multiple 2.06× (GIVEN $500; BAND: NULL), price given (T1) / INFERRED (T2, T3), tiers valid Y, subscription not preselected, urgency NONE. Economics: target CPA $399.56, breakeven $217.50, CM/order $399.56, AOV ratio 1.73 ACCEPTABLE, testable concepts 0 (booked-call proxy 18, OPERATOR-VALIDATES), max adsets 0 (proxy 5, OPERATOR-VALIDATES). Merge: 5 partials → 11-BELIEFS.md. Test plan: 5 adsets × 3–4 ads = 18 cells (READY 18 / FLAGGED 0), budget $100/day, decisions day 3/7. Playbook: 50 verbatim, 36 openings, 18 angles, QC 13/13. Contract: filled AV-07 26/26, AV-01 26/26, AV-04 26/26, AV-02 26/26, AV-03 26/26; STRANGER TEST PASS. Handoff: 65 keys, version 2, late-bound [none from 11/13; OPERATOR-VALIDATES: booked-call proxy, 60-day guarantee, T2/T3 + complement prices, build 7–10 days; 13.name_status PROVISIONAL], patch note present. Weakest link: zero Readymerce outcome proof plus a purchase-level test the $100/day budget cannot fund — the whole plan rides a booked-call proxy built on 4 closes in 84 seller-contacted calls; cost to close: operator confirms the proxy + publishes the post-launch window and per-stage product count ($0), one ≈1-hour demo shoot ($0), one consenting client's post-launch report (weeks after a first sale). No ROAS or profit is read from a spy score or an ad's runtime; paid testing decides."
+}

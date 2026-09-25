@@ -1,0 +1,190 @@
+{
+ "status": "DONE",
+ "status_reason": "3/3 shots rendered and QA'd (identity viewed on all 9 frames, words matched by faster-whisper base + small.en), stitched raw + captioned MP4s uploaded and confirmed, 9/9 frames and the end-card proof in the repo with md5 matching, 258.0 of 260 credits used",
+ "agent": "P5-VIDEO-C1",
+ "concept": "C1 VF1 UGC confessional 'Nobody Worked Them' (AV-07, AN-01, B-02.AV-07)",
+ "aspect": "9:16",
+ "hook_rendered": "H1",
+ "character_ref": {
+  "job_id": "c8f8051d-81a0-4135-af57-779733799a79",
+  "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_013422_c8f8051d-81a0-4135-af57-779733799a79.png",
+  "model": "nano_banana_2 (served as nano_banana_flash)",
+  "size": "768x1376",
+  "credits": 1.5,
+  "prompt_source": "ads/C1.md AI SHOT PROMPTS, character reference prompt (verbatim + 'looking into the lens', 'eye level')",
+  "label": "SYNTHESIZED narrator illustration; never presented as a Readymerce customer (13-BRAND 5, DNS-10)",
+  "qa": {
+   "status": "pass",
+   "notes": "viewed 300px proof: late-40s woman, dark brown hair with grey, reading glasses on head, oatmeal cardigan, navy tee, back room with rails and warm desk lamp; no text/logos"
+  }
+ },
+ "shots": [
+  {
+   "k": 1,
+   "beat": "hook (H1) + lead",
+   "job_id": "02ffd78e-bbd1-4dc3-9f04-8a0a6919c76d",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014109_02ffd78e-bbd1-4dc3-9f04-8a0a6919c76d.mp4",
+   "duration_s": 15.072,
+   "requested_s": 15,
+   "probe": "720x1280, 24 fps, h264 + native audio, 8,723,572 bytes",
+   "spoken_line": "I have three online stores I haven't touched in years. Built, ready to be loaded. Meanwhile the shop's marketing has slowed down so much. I built one myself, then ended it. I was dealing with a lot.",
+   "words": 36,
+   "transcript": "I have three online stores I haven't touched in years. Built, ready to be loaded. Meanwhile, the shop's marketing has slowed down so much. I built one myself, then ended it. I was dealing with a lot.",
+   "transcript_small_en": "I have three online stores I haven't touched in years, built, ready to be loaded. Meanwhile, the shop's marketing has slowed down so much. I built one myself, then ended it. I was dealing with a lot.",
+   "mismatches": [],
+   "qa": {
+    "status": "pass",
+    "notes": "word-exact (faster-whisper base and small.en). Frames 0/7.54/14.97 s: same face, hair, glasses, cardigan as the reference; mouth open mid-word (lip movement present); selfie arm framing at 0 s, settles to a propped-phone framing by mid-shot (still native UGC); no on-screen text. Flag: at 0 s the laptop lid carries a small generic logo mark low in frame (inside the bottom-20% Reels UI zone); crop or blur in the edit if it reads at feed size."
+   }
+  },
+  {
+   "k": 2,
+   "beat": "failed fixes + aha (repair render)",
+   "job_id": "8ab3670f-a64d-4cd8-9549-62d1586f0bca",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_020251_8ab3670f-a64d-4cd8-9549-62d1586f0bca.mp4",
+   "duration_s": 14.08,
+   "requested_s": 14,
+   "probe": "720x1280, 24 fps, h264 + native audio, 7,436,525 bytes",
+   "spoken_line": "Asked about hiring someone. Five, twenty, fifteen thousand. Seriously? Come on. Then it clicked. I'd never open this shop and walk away. My stores got exactly that. Nobody worked them after launch.",
+   "words": 32,
+   "transcript": "asked about hiring someone. Five, twenty, fifteen thousand. Seriously, come on. Then it clicked. I'd never opened this shop and walk away. My stores got exactly that. Nobody worked them after launch.",
+   "transcript_small_en": "asked about hiring someone. Five, 20, 15,000? Seriously, come on. Then it clicked. I'd never open this shop and walk away. My stores got exactly that. Nobody worked them after launch.",
+   "mismatches": [
+    "'open' -> 'opened' (base only; small.en hears 'open': ASR)"
+   ],
+   "qa": {
+    "status": "pass",
+    "notes": "all seven sentences present in order (repair fixed the omission; small.en word-exact, base hears 'opened' for 'open'). Frames at 0/7.0/13.9 s viewed: same face, dark brown hair with grey, reading glasses on head, oatmeal cardigan, navy tee, same back room (rails, brass desk lamp, wooden desk) as shots 1 and 3 and the reference; mouth open mid-word at 0 s and 13.9 s (lip movement present); at 7.0 s she glances off toward the shop (the scripted gesture); no on-screen text or logos; framing native (propped selfie)."
+   },
+   "frames": [
+    "videos/frames/C1-V-shot2-1.jpg",
+    "videos/frames/C1-V-shot2-2.jpg",
+    "videos/frames/C1-V-shot2-3.jpg"
+   ]
+  },
+  {
+   "k": 3,
+   "beat": "product + proof + CTA",
+   "job_id": "cb56b79c-6cc3-44ea-9e10-f32f5ff213c4",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014110_cb56b79c-6cc3-44ea-9e10-f32f5ff213c4.mp4",
+   "duration_s": 15.072,
+   "requested_s": 15,
+   "probe": "720x1280, 24 fps, h264 + native audio, 6,825,717 bytes",
+   "spoken_line": "I started with the $500 Build. New store, my name, products in stages, small tests on a budget I approve. It's live. First review: keep or replace. They're still on it. Ad spend's mine. Loaded and live.",
+   "words": 37,
+   "transcript": "I started with the $500 build, new store, my name, products and stages, small tests on a budget I approve, it's live. First review, keep a replace. They're still on it, ad spends mine, loaded and live.",
+   "transcript_small_en": "I started with the $500 build, new store, my name, products and stages, small tests on a budget I approve. It's live. First review, keep or replace. They're still on it. Ad spends mine, loaded and live.",
+   "mismatches": [
+    "'in stages' -> 'and stages' (both base and small.en; reduced unstressed 'in', meaning intact; operator listen-check)",
+    "'keep or replace' -> 'keep a replace' (base only; small.en hears 'or': ASR error)"
+   ],
+   "qa": {
+    "status": "pass",
+    "notes": "Speech ends at 13.9 s, then a silent relieved smile to 15.07 s (end-card room). Frames 0/7.54/14.97 s: identity matches shots 1 and the reference; talking mouth at 0 s, relieved smile at end; wall clock shows small numerals (script asked hands only; not legible at feed size); laptop screen not readable; no text/logos. Product first named at about 29 s of 44 s (66%), after the belief break (C0.5)."
+   }
+  }
+ ],
+ "rejected_attempts": [
+  {
+   "k": 2,
+   "job_id": "5aef16e2-2303-429f-a2a7-c4a06460173c",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014109_5aef16e2-2303-429f-a2a7-c4a06460173c.mp4",
+   "duration_s": 13.056,
+   "requested_s": 13,
+   "credits": 58.5,
+   "spoken_line": "Asked about hiring someone. Five, twenty, fifteen thousand. Seriously? Come on. Then it clicked. I'd never open this shop and walk away. My stores got exactly that. Nobody worked them after launch.",
+   "transcript": "asked about hiring someone. Five, 20, 15,000. Seriously, come on. Then it clicked. My stores got exactly that. Nobody worked them after launch.",
+   "transcript_small_en": "asked about hiring someone, five, 20, 15,000. Seriously, come on. Then it clicked. My stores got exactly that. Nobody worked them after launch.",
+   "mismatches": [
+    "MISSING sentence: 'I'd never open this shop and walk away.' (confirmed by base and small.en); without it 'My stores got exactly that' has no referent"
+   ],
+   "qa": {
+    "status": "fail",
+    "notes": "wrong words -> the one repair allowed by the brief: job 8ab3670f-a64d-4cd8-9549-62d1586f0bca, 14 s, prompt names all seven sentences in order and drops the over-the-shoulder glance"
+   }
+  }
+ ],
+ "stitched": {
+  "media_id_raw": "d5a80e70-dca1-4495-add3-aade4457f673",
+  "url_raw": "https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/d5a80e70-dca1-4495-add3-aade4457f673.mp4",
+  "file_raw": "C1-V-45s.mp4 (23,412,908 bytes)",
+  "media_id_captioned": "ef73f978-2569-41dc-be46-bd3baae0f5fa",
+  "url_captioned": "https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/ef73f978-2569-41dc-be46-bd3baae0f5fa.mp4",
+  "file_captioned": "C1-V-45s-captioned.mp4 (19,623,186 bytes)",
+  "upload": "PUT 200 + 200, media_confirm status uploaded (both)",
+  "duration_s": 44.224,
+  "clip_durations_s": [
+   15.072,
+   14.08,
+   15.072
+  ],
+  "encode": "720x1280, 30 fps, h264 crf 18/19, aac 192k, faststart",
+  "safe_zone_ok": true,
+  "safe_zone_check": "captions rendered alone on black and bounding-boxed at every card midpoint: supers y 823..971 px, end card y 565..743 px (limits 179..1024 px of 1280 = top 14% / bottom 20% clear); x 142..580 of 720",
+  "captions": "9 supers from the script's On-screen text column, Montserrat ExtraBold 56 px, white with dark outline, 2-4 words per line, timed to faster-whisper word timestamps (starts s: 0.0, 3.93, 5.91, 10.03, 15.07, 20.9, 25.38, 29.15, 35.94); no fallback timing used",
+  "end_card": "last 2 s (42.22..44.22 s): frame dimmed 50% + 'Loaded and live' (82 px) / '$500 Build · readymerce.com' (40 px) / 'Ad spend and fees are yours.' (30 px, the script's offer-honesty line); overlaps the spoken 'Loaded and live'",
+  "status": "built and uploaded"
+ },
+ "frames": [
+  "videos/frames/C1-V-shot1-1.jpg",
+  "videos/frames/C1-V-shot1-2.jpg",
+  "videos/frames/C1-V-shot1-3.jpg",
+  "videos/frames/C1-V-shot2-1.jpg",
+  "videos/frames/C1-V-shot2-2.jpg",
+  "videos/frames/C1-V-shot2-3.jpg",
+  "videos/frames/C1-V-shot3-1.jpg",
+  "videos/frames/C1-V-shot3-2.jpg",
+  "videos/frames/C1-V-shot3-3.jpg"
+ ],
+ "endcard_proof": {
+  "path": "videos/C1-V-endcard.jpg",
+  "status": "pass",
+  "size": "270x480, 7418 bytes",
+  "md5": "90bce220eb90db1fafa70fa43d92f9d4 (matches sandbox)",
+  "source": "captioned media ef73f978-2569-41dc-be46-bd3baae0f5fa at 43.42 s",
+  "text_seen": [
+   "Loaded and live",
+   "$500 Build · readymerce.com",
+   "Ad spend and fees are yours."
+  ],
+  "proofread": "character by character: 'Loaded and live' = C1.md 3-word CTA and VIDEO-BRIEF end card; '$500 Build · readymerce.com' = VIDEO-BRIEF offer line; 'Ad spend and fees are yours.' = C1.md end-card honesty line. Deviation logged: C1.md's small line reads 'The $500 Build. Ad spend and fees are yours.'; the render follows VIDEO-BRIEF ('$500 Build · readymerce.com') and keeps the honesty sentence without 'The'. No em dashes, no invented text, all three lines inside the central safe zone (y 565..743 of 1280)."
+ },
+ "credits_used": 258.0,
+ "credits_breakdown": {
+  "character_ref_nano_banana_2": 1.5,
+  "shot1_seedance_15s": 67.5,
+  "shot2_seedance_13s_rejected": 58.5,
+  "shot3_seedance_15s": 67.5,
+  "shot2_repair_seedance_14s": 63.0
+ },
+ "cap": 260,
+ "balance_before": 1927.84,
+ "balance_after": 1633.84,
+ "balance_note": "workspace balance is shared with parallel agents (P4 image renders); credits_used is summed from this job's own transaction lines, not from the balance difference",
+ "hook_variants_unrendered": [
+  "H2",
+  "H3"
+ ],
+ "negative_prompt_all_shots": "no on-screen text, no captions, no subtitles, no logos, no watermarks, no readable screen text, no warped hands, no extra fingers, no plastic skin, no studio lighting, no slow motion, no beauty filter, no other people",
+ "notes": [
+  "Script split along the brief's beat boundaries into 3 talking shots (15 s / 13-14 s / 15 s); each is one continuous selfie take with the character reference as image_references; C8 b-roll inserts (hands, quotes, receipt, empty shop floor) are not rendered and remain for a creator or a later b-roll pass.",
+  "Shot 3 spoken line trimmed from the ads/C1.md 41-45 s block to fit 37 words / 15 s: dropped 'So' and 'I approve it.' (already said as 'a budget I approve'), 'what to keep, what to replace' -> 'keep or replace'. No new facts; the $500 line and 'Loaded and live' are the final spoken beats.",
+  "'$500' was written as 'five-hundred-dollar' in the Seedance prompt for pronunciation; both ASR passes transcribe '$500 build'.",
+  "Store-on-laptop product element (9597a0b7) not passed to Seedance: fragments/images.json does not exist and an AI-redrawn store screen would invent product UI; laptop screens are kept soft/unreadable. Overlay the real product render in the edit if wanted.",
+  "Voice: generated per clip (no audio reference); operator should listen for voice continuity across the three cuts.",
+  "Frames transported per IMAGE-TRANSPORT.md via base64 with per-line md5 checks; every saved JPEG's md5 matches the sandbox original. Shot 1 frames 270x480 at ffmpeg q 22, shot 3 at q 28 (smaller payload).",
+  "Helper scripts for resume (analyze.py, stitch.py with the ASS caption/end-card build, fix.py base64 line-hash repair) are in the P5 scratchpad: /tmp/claude-0/-home-user-main/f17b751e-4cff-5e58-b450-ed5547476704/scratchpad/p5/",
+  "Close-out (P5 resume): shot-2 repair frames and the end-card proof moved with numbered 56/66-line base64 chunks plus per-line md5 checks; every file's md5 matches the sandbox original. No generation calls or credits in the close-out."
+ ],
+ "frames_md5": {
+  "videos/frames/C1-V-shot1-1.jpg": "f3eaed4887b7f7129346e1670506b615",
+  "videos/frames/C1-V-shot1-2.jpg": "5e250f750e4fa4a64feb4a0cb32291f4",
+  "videos/frames/C1-V-shot1-3.jpg": "fe872270127304ba618b3e011eeded62",
+  "videos/frames/C1-V-shot2-1.jpg": "b48e80f5fbf24a86ed1edb849eb9c762",
+  "videos/frames/C1-V-shot2-2.jpg": "b7031c5b736046f2814d42cef38c9fb7",
+  "videos/frames/C1-V-shot2-3.jpg": "dc690365370cd92b22c3eedf4c5bb626",
+  "videos/frames/C1-V-shot3-1.jpg": "48bb56707c44d170c33825f779f49638",
+  "videos/frames/C1-V-shot3-2.jpg": "2788196378c01a70d48ed3e963a0909e",
+  "videos/frames/C1-V-shot3-3.jpg": "700367804f86e2da0a07f40e9de79389"
+ }
+}
