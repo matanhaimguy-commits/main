@@ -90,11 +90,11 @@
   "height": 2304,
   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_020130_562421f6-704d-4f19-8f6a-550511ae29ff.png",
   "local_file": "images/C2-V2.jpg",
-  "md5": "0ea381ccc38666408b11355cb1237cc1",
+  "md5": "6f9a0c6dd6009045be824f9e2b342291",
   "aspect_ok": true,
   "qa": {
-   "status": "fail",
-   "notes": "FAIL after one repair. Original d460ce21: lines 1 and 5 ('store 1: ...' / 'store 2: ...') not fully struck through, proof line only partly grey, chrome read as Apple Notes (yellow chevron, share/ellipsis icons). Repair 562421f6 (chrome made generic, strike-through instruction simplified): chrome now generic, but strike-through still covers only 'store 1:' / 'store 2:' and proof line still partly grey. All words spelled correctly. local_file = repair render. Operator fix: add full strike-through in post. | transport: sandbox curl -> identify -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 -w76 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 680px instead of 800px q74 JPEG (a q74 800px JPEG did not fit one sandbox call's output); AVIF md5 140a29646c6d58c2b5ce9825817f8580 matched. Proof 548x680."
+   "status": "pass (post-fixed)",
+   "notes": "Round-2 re-render 848aea81 failed (see attempts). Post-fixed the file on record (562421f6): all five tried lines now carry one continuous thin grey strikethrough end to end; proof line uniformly mid-grey; all 13 strings exact and unchanged; generic chrome, no brand. Unfixed version kept as images/C2-V2-orig.jpg. | transport: sandbox curl -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 680px instead of 800px q74 JPEG. AVIF md5 acc004b2f43f644f69b39a9be47f1658 matched."
   },
   "repair_of": "d460ce21-aedf-491e-899b-d8167b2f608f",
   "repair_of_rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_013954_d460ce21-aedf-491e-899b-d8167b2f608f.png",
@@ -103,7 +103,35 @@
    680
   ],
   "vehicle": "V2 native static · A8b N1 Notes-app list",
-  "aspect": "4:5"
+  "aspect": "4:5",
+  "orig_local_file": "images/C2-V2-orig.jpg",
+  "orig_md5": "0ea381ccc38666408b11355cb1237cc1",
+  "attempts": [
+   {
+    "job_id": "d460ce21-aedf-491e-899b-d8167b2f608f",
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_013954_d460ce21-aedf-491e-899b-d8167b2f608f.png",
+    "result": "fail: lines 1 and 5 only partly struck, proof line partly grey, Apple-Notes-like chrome"
+   },
+   {
+    "job_id": "562421f6-704d-4f19-8f6a-550511ae29ff",
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_020130_562421f6-704d-4f19-8f6a-550511ae29ff.png",
+    "result": "fail: strike only on 'store 1:' / 'store 2:', proof line partly grey; chrome generic, all words correct. Chosen as post-fix base"
+   },
+   {
+    "job_id": "848aea81-f1b7-41e1-b934-c695540ae44c",
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_022409_848aea81-f1b7-41e1-b934-c695540ae44c.png",
+    "round": 2,
+    "result": "fail: 'reviews, discounts, trust badges' and the whole store 2 line unstruck, wrapped 'sales' unstruck, proof line still partly grey (prompt changed in presentation only: explicit continuous-strikethrough rule + all-grey note rule; strings unchanged). AVIF md5 b98fea8d65491bfcc69ec8595a63e161"
+   }
+  ],
+  "post_fix": {
+   "source_job": "562421f6-704d-4f19-8f6a-550511ae29ff",
+   "tool": "sandbox Python/Pillow+numpy on the 1856x2304 source",
+   "steps": "per struck line, strike rows detected from the rendered partial strike (rows 777-779, 885-888, 980-982, 1075-1078, 1170-1173) and extended as a continuous line across the full text width (x 100 to line end) in the sampled strike colour (~rgb 144-158); proof-line bands y 1892-2070 clamped to the rendered grey (rgb 122,121,118) so every character matches the '(read somewhere:' grey. No text altered.",
+   "fixed_fullres_md5": "377b6ac7e8481526b08bc05362cb059c",
+   "fixed_avif_md5": "acc004b2f43f644f69b39a9be47f1658",
+   "note": "fixed full-res PNG existed only in the ephemeral sandbox; not hosted. rawUrl is the unfixed source; re-run the steps to regenerate full-res."
+  }
  },
  "C2-V3": {
   "job_id": "fc86d3d4-9d81-4dae-bbed-7106f2d2dd4c",
@@ -148,28 +176,53 @@
   "aspect": "1:1"
  },
  "C3-V2": {
-  "job_id": "4f2b32d2-48f7-4aca-8160-2f789575ef62",
+  "job_id": "9bf55f43-b414-493c-a1be-51348bacd6f9",
   "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
   "width": 1856,
   "height": 2304,
-  "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_020758_4f2b32d2-48f7-4aca-8160-2f789575ef62.png",
+  "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_013954_9bf55f43-b414-493c-a1be-51348bacd6f9.png",
   "local_file": "images/C3-V2.jpg",
-  "md5": "e109ab6cd80552e3016bc5d51f70b39b",
+  "md5": "a63ff4990721301bf2924bad9b2b5054",
   "aspect_ok": true,
   "qa": {
-   "status": "fail",
-   "notes": "FAIL after one repair. Original 9bf55f43: all text correct but a Toyota emblem is visible on the steering wheel (logo violation). Repair 4f2b32d2 (unbadged wheel requested): wheel clean, but the body text box is duplicated and one copy reads 'aprove' (misspelled). local_file = ORIGINAL render (better base). Operator fix: retouch out the wheel emblem on the original. | transport: sandbox curl -> identify -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 -w76 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 680px instead of 800px q74 JPEG (a q74 800px JPEG did not fit one sandbox call's output); AVIF md5 201aa1682bfdfdd9432442cfbd8df9be matched. Proof 548x680."
+   "status": "pass (post-fixed)",
+   "notes": "Round-2 re-render 9afff7da failed (duplicated proof line). Post-fixed the original 9bf55f43: steering-wheel emblem removed (hub now plain dark, no logo anywhere); all 5 strings exact. Residual cosmetic: the render shows a visibly wide space in 'guessed  product' inside the text box (render artefact, words correct). Unfixed version kept as images/C3-V2-orig.jpg. | transport: sandbox curl -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 560px instead of 800px q74 JPEG. AVIF md5 074b46813f4ad5fc030e869c3d7d9808 matched."
   },
-  "repair_of": "9bf55f43-b414-493c-a1be-51348bacd6f9",
-  "repair_of_rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_013954_9bf55f43-b414-493c-a1be-51348bacd6f9.png",
-  "local_file_source_job": "9bf55f43-b414-493c-a1be-51348bacd6f9",
-  "local_file_source_rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_013954_9bf55f43-b414-493c-a1be-51348bacd6f9.png",
+  "repair_of": null,
   "proof_px": [
-   548,
-   680
+   451,
+   560
   ],
   "vehicle": "V2 native static · A8b N4 phone story (car)",
-  "aspect": "4:5"
+  "aspect": "4:5",
+  "orig_local_file": "images/C3-V2-orig.jpg",
+  "orig_md5": "e109ab6cd80552e3016bc5d51f70b39b",
+  "attempts": [
+   {
+    "job_id": "9bf55f43-b414-493c-a1be-51348bacd6f9",
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_013954_9bf55f43-b414-493c-a1be-51348bacd6f9.png",
+    "result": "fail: Toyota emblem on steering-wheel hub; all text correct. Chosen as post-fix base"
+   },
+   {
+    "job_id": "4f2b32d2-48f7-4aca-8160-2f789575ef62",
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_020758_4f2b32d2-48f7-4aca-8160-2f789575ef62.png",
+    "result": "fail: body text box duplicated, one copy misspelled 'aprove'"
+   },
+   {
+    "job_id": "9afff7da-f5b5-4ccf-9d33-e905ea891f29",
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_022409_9afff7da-f5b5-4ccf-9d33-e905ea891f29.png",
+    "round": 2,
+    "result": "fail: proof line 'reading every term before i pay.' rendered twice; no emblem visible. Exclusion 'steering wheel centre plain and blank, no car maker emblem or logo anywhere, no badge on the dashboard' added; the requested double-space removal was a no-op (prompt already read 'one guessed product' with a single space). AVIF md5 1a573c9e9a7117784ae6f145c21c8d49"
+   }
+  ],
+  "post_fix": {
+   "source_job": "9bf55f43-b414-493c-a1be-51348bacd6f9",
+   "tool": "sandbox Python/Pillow+numpy on the 1856x2304 source",
+   "steps": "emblem located from chrome highlights (bbox x343-583, y2033-2303); elliptical region centre (467,2160) rx163 ry170 clamped to the surrounding hub colour (median rgb 11,13,16 +12), Gaussian blur r28, grain noise sd3.5, feathered-mask composite. Emblem-region only; bright pixels in the region 2261 -> 45.",
+   "fixed_fullres_md5": "1e998eaae33947bb0d0428365eaf257b",
+   "fixed_avif_md5": "074b46813f4ad5fc030e869c3d7d9808",
+   "note": "fixed full-res PNG not hosted; rawUrl is the unfixed source."
+  }
  },
  "C3-V3": {
   "job_id": "1710a8e3-6380-497d-8223-e690a96928a2",
@@ -241,15 +294,18 @@
   "width": 2048,
   "height": 2048,
   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014402_f869c5d5-4857-4197-ba41-df8cac7c9923.png",
-  "local_file": null,
-  "md5": null,
+  "local_file": "images/C4-V3.jpg",
+  "md5": "312d7c14561d3e43756b1e88ea3123e4",
   "aspect_ok": true,
   "qa": {
-   "status": "pending",
-   "notes": "Rendered; NOT transported or QA'd (time box expired). Check full-res rawUrl against the manifest before use. | render dims from job result; not verified by identify."
+   "status": "pass",
+   "notes": "Headline 'Paid to have an online store built, then locked out of it' and standfirst exact (curly apostrophe in builder's). Blank masthead rule, grey byline bar, no publication name/logo; receipts illegible, folder unlabeled, laptop closed without logo, plain mug; a phone lies on the desk (screen dark). | transport: sandbox curl -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 620px instead of 800px q74 JPEG. AVIF md5 a832c08534a6a4c24201bbb9c76555bd matched."
   },
   "repair_of": null,
-  "proof_px": null,
+  "proof_px": [
+   620,
+   620
+  ],
   "vehicle": "V3 story image · A8b N10 News-style static",
   "aspect": "1:1"
  },
@@ -259,15 +315,18 @@
   "width": 2048,
   "height": 2048,
   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014402_20c6c2f5-ed16-4b5c-83c4-ef67abbbd223.png",
-  "local_file": null,
-  "md5": null,
+  "local_file": "images/C5-V1.jpg",
+  "md5": "0f646d7f692ba2adbf1a695027bc27a3",
   "aspect_ok": true,
   "qa": {
-   "status": "pending",
-   "notes": "Rendered; NOT transported or QA'd (time box expired). Check full-res rawUrl against the manifest before use. | render dims from job result; not verified by identify."
+   "status": "pass",
+   "notes": "All 10 strings exact: 4-line hook on sticky note, subhead, 3 icon body lines (calendar, stairs, key), proof line with curly quotes, CTA 'Live, not stuck'. Laptop matches product reference. Minor: proof line rendered light on the Pine strip rather than Ink 75%; CTA label white rather than Ink; tally shows three groups of five (check against intended count). | transport: sandbox curl -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 600px instead of 800px q74 JPEG. AVIF md5 f8b7ba213c015405b14792b63adf3592 matched."
   },
   "repair_of": null,
-  "proof_px": null,
+  "proof_px": [
+   600,
+   600
+  ],
   "vehicle": "V1 designed clarity static · A8a #7 Post-it / Handwritten",
   "aspect": "1:1"
  },
@@ -277,15 +336,18 @@
   "width": 2048,
   "height": 2048,
   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014402_98dc6631-d671-490b-8652-ad24b1177d6a.png",
-  "local_file": null,
-  "md5": null,
+  "local_file": "images/C5-V2.jpg",
+  "md5": "a9b0c1429c8ee0fcf90a105b5577d1a4",
   "aspect_ok": true,
   "qa": {
-   "status": "pending",
-   "notes": "Rendered; NOT transported or QA'd (time box expired). Check full-res rawUrl against the manifest before use. | render dims from job result; not verified by identify."
+   "status": "pass",
+   "notes": "All 7 strings exact (3-line post card on pale blue-grey, 4 replies incl. CTA 'saving this. new goal: live, not stuck'). Every name and avatar scribbled out; generic heart/comment/share icons with no counts; no brand. | transport: sandbox curl -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 560px instead of 800px q74 JPEG. AVIF md5 c7af5e4c342c05d81720c880cd2f082c matched."
   },
   "repair_of": null,
-  "proof_px": null,
+  "proof_px": [
+   560,
+   560
+  ],
   "vehicle": "V2 native static · A8b N9 Direct Feed Post + replies",
   "aspect": "1:1"
  },
@@ -295,21 +357,24 @@
   "width": 1856,
   "height": 2304,
   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014402_e00df177-fab1-4f6b-ac22-a75f56a1b2a5.png",
-  "local_file": null,
-  "md5": null,
+  "local_file": "images/C5-V3.jpg",
+  "md5": "37da46df36fd2f6ad3eb399899aa8793",
   "aspect_ok": true,
   "qa": {
-   "status": "pending",
-   "notes": "Rendered; NOT transported or QA'd (time box expired). Check full-res rawUrl against the manifest before use. | render dims from job result; not verified by identify."
+   "status": "pass",
+   "notes": "Night home desk, open silver laptop with blurred grey settings form, tally-mark sticky note, mug, notebook, pen; no people, no logo visible, no readable text at proof size. Operator: confirm at full res that the notebook scribbles and screen UI stay illegible. | transport: sandbox curl -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 520px instead of 800px q74 JPEG. AVIF md5 ec59142dfff7cb8e412193622aad4092 matched."
   },
   "repair_of": null,
-  "proof_px": null,
+  "proof_px": [
+   419,
+   520
+  ],
   "vehicle": "V3 story image · A8b N8 Story Snapshot",
   "aspect": "4:5"
  },
- "spend_credits": 36,
- "balance_after": 1633.84,
- "spend_note": "spend_credits = own jobs: 18 image jobs (15 + 3 repairs) x 2 cr. Account balance went 1926.34 -> 1633.84 (delta 292.50) because the account is shared with concurrent jobs (P5 video render running at the same time); that delta is not P4 spend.",
+ "spend_credits": 40,
+ "balance_after": 1629.84,
+ "spend_note": "Round 1: 18 image jobs x 2 cr = 36 (account balance 1926.34 -> 1633.84 also included concurrent P5 video jobs). Round 2: 2 image jobs x 2 cr = 4; balance 1633.84 -> 1629.84 (delta exactly 4.00). Post-fixes and transports used no credits.",
  "jobs_log": [
   {
    "id": "C1-V1",
@@ -454,20 +519,32 @@
    "job_id": null,
    "result": "submission refused: reference element id passed as media -> 404 Media input not found; no job, no charge; resubmitted with source job ids",
    "credits": 0
+  },
+  {
+   "id": "C2-V2",
+   "job_id": "848aea81-f1b7-41e1-b934-c695540ae44c",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_022409_848aea81-f1b7-41e1-b934-c695540ae44c.png",
+   "result": "round 2 render, qa fail -> post-fixed 562421f6",
+   "credits": 2
+  },
+  {
+   "id": "C3-V2",
+   "job_id": "9afff7da-f5b5-4ccf-9d33-e905ea891f29",
+   "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_022409_9afff7da-f5b5-4ccf-9d33-e905ea891f29.png",
+   "result": "round 2 render, qa fail -> post-fixed 9bf55f43",
+   "credits": 2
   }
  ],
  "summary": {
   "rendered": 15,
-  "transported": 11,
-  "qa_pass": 9,
-  "qa_fail": 2,
-  "qa_pending": 4,
+  "transported": 15,
+  "qa_pass": 15,
+  "qa_pass_post_fixed": 2,
+  "qa_fail": 0,
+  "qa_pending": 0,
   "repairs": 3,
-  "ids_left": [
-   "C4-V3",
-   "C5-V1",
-   "C5-V2",
-   "C5-V3"
-  ]
- }
+  "round2_renders": 2,
+  "ids_left": []
+ },
+ "spend_credits_round2": 4
 }

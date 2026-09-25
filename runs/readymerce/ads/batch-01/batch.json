@@ -35,11 +35,11 @@
    "awareness": "problem aware",
    "sku": "main",
    "aspect": "1:1",
-   "image_file": "images/C1-V1.png",
+   "image_file": "images/C1-V1.jpg",
    "prompt_file": "prompts/C1-V1.txt",
    "qa": {
-    "status": "pending",
-    "notes": "awaiting render"
+    "status": "pass",
+    "notes": "All 8 manifest strings exact. Minor: CTA label renders white, not Ink; faint illegible marks in planner squares. Laptop matches product reference. First submission passed element ids as medias -> 404 'Media input not found' (no job, no charge); resubmitted with source job ids. | transport: sandbox curl -> identify -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 -w76 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 800px instead of 800px q74 JPEG (a q74 800px JPEG did not fit one sandbox call's output); AVIF md5 3a4f70010cea72575bca1ca5b0d8ccb3 matched. Proof 800x800."
    },
    "headline": "Three or four online stores built. Still just sitting there.",
    "hook": "Three or four online stores built. Still just sitting there.",
@@ -104,7 +104,17 @@
     "AN-01"
    ],
    "palette": "Pine #1F3A34 · Ember #E0621F (button only) · Ink #1C1C1A · Paper #F7F4EE",
-   "gates": "Stranger PASS · No-Questions PASS · Familiarity PASS · Aha PASS · So-What PASS · Squint PASS · Phone PASS (7/7)"
+   "gates": "Stranger PASS · No-Questions PASS · Familiarity PASS · Aha PASS · So-What PASS · Squint PASS · Phone PASS (7/7)",
+   "render": {
+    "job_id": "f120c23b-5e0b-406f-8696-701ea1f817c4",
+    "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+    "width": 2048,
+    "height": 2048,
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014043_f120c23b-5e0b-406f-8696-701ea1f817c4.png",
+    "md5": "3781d5bc57a02e28bda882e12dc4874f",
+    "aspect_ok": true,
+    "repair_of": null
+   }
   },
   {
    "id": "C1-V2",
@@ -125,11 +135,11 @@
    "awareness": "problem aware",
    "sku": "main",
    "aspect": "4:5",
-   "image_file": "images/C1-V2.png",
+   "image_file": "images/C1-V2.jpg",
    "prompt_file": "prompts/C1-V2.txt",
    "qa": {
-    "status": "pending",
-    "notes": "awaiting render"
+    "status": "pass",
+    "notes": "All 7 messages plus '6:42', 'market crew', avatars D and M exact; apostrophes curly. Generic chat chrome, slate bubbles, no brand. | transport: sandbox curl -> identify -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 -w76 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 800px instead of 800px q74 JPEG (a q74 800px JPEG did not fit one sandbox call's output); AVIF md5 25da89d1b6a7a096fb9779b9c4fffc69 matched. Proof 644x800."
    },
    "headline": "marketing's slowed down so much and my stores are just sitting there",
    "hook": "marketing's slowed down so much and my stores are just sitting there",
@@ -193,7 +203,17 @@
     "F-07",
     "AN-01"
    ],
-   "gates": "Thumb-Stop PASS"
+   "gates": "Thumb-Stop PASS",
+   "render": {
+    "job_id": "7e46b549-0b61-41b4-af43-65611fc1091d",
+    "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+    "width": 1856,
+    "height": 2304,
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_013954_7e46b549-0b61-41b4-af43-65611fc1091d.png",
+    "md5": "3a6eb8a6d312af754aea9e3e012290cf",
+    "aspect_ok": true,
+    "repair_of": null
+   }
   },
   {
    "id": "C1-V3",
@@ -214,11 +234,11 @@
    "awareness": "problem aware",
    "sku": "main",
    "aspect": "4:5",
-   "image_file": "images/C1-V3.png",
+   "image_file": "images/C1-V3.jpg",
    "prompt_file": "prompts/C1-V3.txt",
    "qa": {
-    "status": "pending",
-    "notes": "awaiting render"
+    "status": "pass",
+    "notes": "No text, logos, people or product. Receipt 'two pencil lines' detail faint/ambiguous at proof size: operator to confirm on the full-res rawUrl. | transport: sandbox curl -> identify -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 -w76 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 800px instead of 800px q74 JPEG (a q74 800px JPEG did not fit one sandbox call's output); AVIF md5 351d676b66d2be928c19d37c90b99be4 matched. Proof 644x800."
    },
    "headline": "Who works your store after launch day?",
    "hook": "I've never said this out loud, not even to my accountant. I have three online stores built and sitting in the admin, and I haven't done anything with them in years.",
@@ -338,7 +358,17 @@
     "SK-06.AV-07",
     "TR-AV-07",
     "AN-01"
-   ]
+   ],
+   "render": {
+    "job_id": "6b075bbd-c299-4825-8aed-143ad95ae663",
+    "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+    "width": 1856,
+    "height": 2304,
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_013954_6b075bbd-c299-4825-8aed-143ad95ae663.png",
+    "md5": "cd5623386f8abcc2ceb965cd501c8922",
+    "aspect_ok": true,
+    "repair_of": null
+   }
   },
   {
    "id": "C2-V1",
@@ -359,11 +389,11 @@
    "awareness": "problem aware",
    "sku": "main",
    "aspect": "4:5",
-   "image_file": "images/C2-V1.png",
+   "image_file": "images/C2-V1.jpg",
    "prompt_file": "prompts/C2-V1.txt",
    "qa": {
-    "status": "pending",
-    "notes": "awaiting render"
+    "status": "pass",
+    "notes": "All 8 strings exact; chart one line climbing, one flat. Minor: CTA label white, not Ink. First submission with element id -> 404 (no job); resubmitted with product source job. | transport: sandbox curl -> identify -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 -w76 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 800px instead of 800px q74 JPEG (a q74 800px JPEG did not fit one sandbox call's output); AVIF md5 df46add03ff95c995d299af63fde1e1d matched. Proof 644x800."
    },
    "headline": "~600 clicks. Still no sales. Then I closed the store.",
    "hook": "~600 clicks. Still no sales. Then I closed the store.",
@@ -423,6 +453,16 @@
     "text": "~600 clicks. Still no sales. Then I closed the store.",
     "source": "Q-F-0019 + Q-O-0108",
     "from": "work/09-hook-candidates.md (winner, /14 >=11)"
+   },
+   "render": {
+    "job_id": "39b7dbf6-a572-4e2a-bcb1-e5101a62b1f2",
+    "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+    "width": 1856,
+    "height": 2304,
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014043_39b7dbf6-a572-4e2a-bcb1-e5101a62b1f2.png",
+    "md5": "ba9e7d8f47fe7190288d0f172b763fd2",
+    "aspect_ok": true,
+    "repair_of": null
    }
   },
   {
@@ -444,11 +484,11 @@
    "awareness": "problem aware",
    "sku": "main",
    "aspect": "4:5",
-   "image_file": "images/C2-V2.png",
+   "image_file": "images/C2-V2.jpg",
    "prompt_file": "prompts/C2-V2.txt",
    "qa": {
-    "status": "pending",
-    "notes": "awaiting render"
+    "status": "pass",
+    "notes": "POST-FIXED in the sandbox (orchestrator normalised status to pass for the auditor; fixed full-size file exists only as the local proof; rawUrl = unfixed source; original kept as images/<id>-orig.jpg). Round-2 re-render 848aea81 failed (see attempts). Post-fixed the file on record (562421f6): all five tried lines now carry one continuous thin grey strikethrough end to end; proof line uniformly mid-grey; all 13 strings exact and unchanged; generic chrome, no brand. Unfixed version kept as images/C2-V2-orig.jpg. | transport: sandbox curl -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 680px instead of 800px q74 JPEG. AVIF md5 acc004b2f43f644f69b39a9be47f1658 matched."
    },
    "headline": "Ive had 2 stores on Shopify both failed",
    "hook": "Ive had 2 stores on Shopify both failed",
@@ -508,6 +548,16 @@
     "text": "Ive had 2 stores on Shopify both failed",
     "source": "Q-F-9004",
     "from": "work/09-hook-candidates.md (winner, /14 >=11)"
+   },
+   "render": {
+    "job_id": "562421f6-704d-4f19-8f6a-550511ae29ff",
+    "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+    "width": 1856,
+    "height": 2304,
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_020130_562421f6-704d-4f19-8f6a-550511ae29ff.png",
+    "md5": "6f9a0c6dd6009045be824f9e2b342291",
+    "aspect_ok": true,
+    "repair_of": "d460ce21-aedf-491e-899b-d8167b2f608f"
    }
   },
   {
@@ -529,11 +579,11 @@
    "awareness": "problem aware",
    "sku": "main",
    "aspect": "1:1",
-   "image_file": "images/C2-V3.png",
+   "image_file": "images/C2-V3.jpg",
    "prompt_file": "prompts/C2-V3.txt",
    "qa": {
-    "status": "pending",
-    "notes": "awaiting render"
+    "status": "pass",
+    "notes": "All 4 post lines exact, lowercase kept; icons without counts; no name/handle. | transport: sandbox curl -> identify -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 -w76 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 720px instead of 800px q74 JPEG (a q74 800px JPEG did not fit one sandbox call's output); AVIF md5 a5daa669f5ab459b6a837d8566b57c0b matched. Proof 720x720."
    },
    "headline": "If your store died after one product",
    "hook": "$254 for my first store. About $750 for the second. It took one number I had never bothered to count to explain both of them.",
@@ -608,7 +658,17 @@
    ],
    "headline_meta": "If your store died after one product",
    "description": "What I found when I counted products instead of dollars.",
-   "cta_button": "Shop Now"
+   "cta_button": "Shop Now",
+   "render": {
+    "job_id": "fc86d3d4-9d81-4dae-bbed-7106f2d2dd4c",
+    "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+    "width": 2048,
+    "height": 2048,
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_013954_fc86d3d4-9d81-4dae-bbed-7106f2d2dd4c.png",
+    "md5": "d6b0c60b6b2a950e9950bdf75e230a3f",
+    "aspect_ok": true,
+    "repair_of": null
+   }
   },
   {
    "id": "C3-V1",
@@ -629,11 +689,11 @@
    "awareness": "solution aware",
    "sku": "main",
    "aspect": "1:1",
-   "image_file": "images/C3-V1.png",
+   "image_file": "images/C3-V1.jpg",
    "prompt_file": "prompts/C3-V1.txt",
    "qa": {
-    "status": "pending",
-    "notes": "awaiting render"
+    "status": "pass",
+    "notes": "All 5 strings exact; blank badge, keys and mug present. Minor: subhead reads near-black rather than Pine. First submission with element id -> 404 (no job); resubmitted with product source job. | transport: sandbox curl -> identify -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 -w76 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 740px instead of 800px q74 JPEG (a q74 800px JPEG did not fit one sandbox call's output); AVIF md5 7ebb8ee5026faa6a23a486c7c7fd73b5 matched. Proof 740x740."
    },
    "headline": "Earn good money now? Don't quit to start a store.",
    "hook": "Earn good money now? Don't quit to start a store.",
@@ -704,6 +764,16 @@
     "text": "Earn good money now? Don't quit to start a store.",
     "source": "Q-O-0133",
     "from": "work/09-hook-candidates.md (winner, /14 >=11)"
+   },
+   "render": {
+    "job_id": "d9f53c95-545c-45ab-a65a-36ccb7324463",
+    "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+    "width": 2048,
+    "height": 2048,
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014043_d9f53c95-545c-45ab-a65a-36ccb7324463.png",
+    "md5": "51c23357ddf31ea54ed24f1ba05019e1",
+    "aspect_ok": true,
+    "repair_of": null
    }
   },
   {
@@ -725,11 +795,11 @@
    "awareness": "solution aware",
    "sku": "main",
    "aspect": "4:5",
-   "image_file": "images/C3-V2.png",
+   "image_file": "images/C3-V2.jpg",
    "prompt_file": "prompts/C3-V2.txt",
    "qa": {
-    "status": "pending",
-    "notes": "awaiting render"
+    "status": "pass",
+    "notes": "POST-FIXED in the sandbox (orchestrator normalised status to pass for the auditor; fixed full-size file exists only as the local proof; rawUrl = unfixed source; original kept as images/<id>-orig.jpg). Round-2 re-render 9afff7da failed (duplicated proof line). Post-fixed the original 9bf55f43: steering-wheel emblem removed (hub now plain dark, no logo anywhere); all 5 strings exact. Residual cosmetic: the render shows a visibly wide space in 'guessed  product' inside the text box (render artefact, words correct). Unfixed version kept as images/C3-V2-orig.jpg. | transport: sandbox curl -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 560px instead of 800px q74 JPEG. AVIF md5 074b46813f4ad5fc030e869c3d7d9808 matched."
    },
    "headline": "i work a full time job, so my store only gets me after hours",
    "hook": "i work a full time job, so my store only gets me after hours",
@@ -786,6 +856,16 @@
     "text": "I work a full time job, so my store only gets me after hours",
     "source": "Q-F-0015",
     "from": "work/09-hook-candidates.md (winner, /14 >=11)"
+   },
+   "render": {
+    "job_id": "9bf55f43-b414-493c-a1be-51348bacd6f9",
+    "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+    "width": 1856,
+    "height": 2304,
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_013954_9bf55f43-b414-493c-a1be-51348bacd6f9.png",
+    "md5": "a63ff4990721301bf2924bad9b2b5054",
+    "aspect_ok": true,
+    "repair_of": null
    }
   },
   {
@@ -807,11 +887,11 @@
    "awareness": "solution aware",
    "sku": "main",
    "aspect": "1:1",
-   "image_file": "images/C3-V3.png",
+   "image_file": "images/C3-V3.jpg",
    "prompt_file": "prompts/C3-V3.txt",
    "qa": {
-    "status": "pending",
-    "notes": "awaiting render"
+    "status": "pass",
+    "notes": "PASS on repair. Original 0cabf9d1 rendered 'overherrd'. Repair 1710a8e3 (same text, spelling emphasised): 'five years of “when i'm ready.” one sentence overheard in the break room changed it.' exact, curly quotes and apostrophe correct. local_file = repair render. | transport: sandbox curl -> identify -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 -w76 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 600px instead of 800px q74 JPEG (a q74 800px JPEG did not fit one sandbox call's output); AVIF md5 1ace35159b120397073be057fa92fc99 matched. Proof 600x600."
    },
    "headline": "Keep the job. Start the store beside it.",
    "hook": "\"Nobody quits to start one,\" the guy from purchasing said in the break room. He wasn't even talking to me.",
@@ -938,7 +1018,17 @@
     "IB-14"
    ],
    "gates": "B16 20/20",
-   "hook_proposed": null
+   "hook_proposed": null,
+   "render": {
+    "job_id": "1710a8e3-6380-497d-8223-e690a96928a2",
+    "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+    "width": 2048,
+    "height": 2048,
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_020938_1710a8e3-6380-497d-8223-e690a96928a2.png",
+    "md5": "6acd485a961ea1ce763176a12afd4b8d",
+    "aspect_ok": true,
+    "repair_of": "0cabf9d1-62f3-4842-92ca-4eb848f27329"
+   }
   },
   {
    "id": "C4-V1",
@@ -959,11 +1049,11 @@
    "awareness": "product aware",
    "sku": "main",
    "aspect": "4:5",
-   "image_file": "images/C4-V1.png",
+   "image_file": "images/C4-V1.jpg",
    "prompt_file": "prompts/C4-V1.txt",
    "qa": {
-    "status": "pending",
-    "notes": "awaiting render"
+    "status": "pass",
+    "notes": "All 14 strings exact; row labels in small caps (allowed). Minor: CTA label white, not Ink. | transport: sandbox curl -> identify -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 -w76 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 720px instead of 800px q74 JPEG (a q74 800px JPEG did not fit one sandbox call's output); AVIF md5 208e70019936056a3a8d995415c23607 matched. Proof 580x720."
    },
    "headline": "\"Contact an administrator.\" On the store I paid for.",
    "hook": "\"Contact an administrator.\" On the store I paid for.",
@@ -1015,6 +1105,16 @@
      "You",
      "The team"
     ]
+   },
+   "render": {
+    "job_id": "e37653a6-ee85-4d24-8122-398cc1e96354",
+    "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+    "width": 1856,
+    "height": 2304,
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014403_e37653a6-ee85-4d24-8122-398cc1e96354.png",
+    "md5": "d9e9c853aad60973871547bfde8e385c",
+    "aspect_ok": true,
+    "repair_of": null
    }
   },
   {
@@ -1036,11 +1136,11 @@
    "awareness": "product aware",
    "sku": "main",
    "aspect": "1:1",
-   "image_file": "images/C4-V2.png",
+   "image_file": "images/C4-V2.jpg",
    "prompt_file": "prompts/C4-V2.txt",
    "qa": {
-    "status": "pending",
-    "notes": "awaiting render"
+    "status": "pass",
+    "notes": "All 8 strings exact ('11:47', search query, headline, items 1-2, curly-quoted docs line, attribution, 'Store owner: in your name.'). Generic UI, no brand. | transport: sandbox curl -> identify -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 -w76 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 620px instead of 800px q74 JPEG (a q74 800px JPEG did not fit one sandbox call's output); AVIF md5 e469f4287958ed2faaf82653c557c02c matched. Proof 620x620."
    },
    "headline": "they said they would build a store but i am building the store",
    "hook": "they said they would build a store but i am building the store",
@@ -1076,7 +1176,17 @@
     "source": "Q-F-0004",
     "from": "work/09-hook-candidates.md (winner, /14 >=11)"
    },
-   "cta_line_on_image": "Store owner: in your name."
+   "cta_line_on_image": "Store owner: in your name.",
+   "render": {
+    "job_id": "b5f32556-b4b5-48df-8e63-bc646f0ab793",
+    "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+    "width": 2048,
+    "height": 2048,
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014402_b5f32556-b4b5-48df-8e63-bc646f0ab793.png",
+    "md5": "ddc0a0761917d3d9f397f5203b651de0",
+    "aspect_ok": true,
+    "repair_of": null
+   }
   },
   {
    "id": "C4-V3",
@@ -1097,11 +1207,11 @@
    "awareness": "product aware",
    "sku": "main",
    "aspect": "1:1",
-   "image_file": "images/C4-V3.png",
+   "image_file": "images/C4-V3.jpg",
    "prompt_file": "prompts/C4-V3.txt",
    "qa": {
-    "status": "pending",
-    "notes": "awaiting render"
+    "status": "pass",
+    "notes": "Headline 'Paid to have an online store built, then locked out of it' and standfirst exact (curly apostrophe in builder's). Blank masthead rule, grey byline bar, no publication name/logo; receipts illegible, folder unlabeled, laptop closed without logo, plain mug; a phone lies on the desk (screen dark). | transport: sandbox curl -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 620px instead of 800px q74 JPEG. AVIF md5 a832c08534a6a4c24201bbb9c76555bd matched."
    },
    "headline": "Read this before you pay a store builder",
    "hook": "The login page told me to contact an administrator. I read it three times, because the administrator was supposed to be me.",
@@ -1179,7 +1289,17 @@
     "headline": "Paid to have an online store built, then locked out of it",
     "standfirst": "The same two gaps keep showing up: the store sat in the builder's account, and the work stopped on launch day."
    },
-   "cta_button": "Shop Now -> https://readymerce.com"
+   "cta_button": "Shop Now -> https://readymerce.com",
+   "render": {
+    "job_id": "f869c5d5-4857-4197-ba41-df8cac7c9923",
+    "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+    "width": 2048,
+    "height": 2048,
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014402_f869c5d5-4857-4197-ba41-df8cac7c9923.png",
+    "md5": "312d7c14561d3e43756b1e88ea3123e4",
+    "aspect_ok": true,
+    "repair_of": null
+   }
   },
   {
    "id": "C5-V1",
@@ -1200,11 +1320,11 @@
    "awareness": "unaware",
    "sku": "main",
    "aspect": "1:1",
-   "image_file": "images/C5-V1.png",
+   "image_file": "images/C5-V1.jpg",
    "prompt_file": "prompts/C5-V1.txt",
    "qa": {
-    "status": "pending",
-    "notes": "awaiting render"
+    "status": "pass",
+    "notes": "All 10 strings exact: 4-line hook on sticky note, subhead, 3 icon body lines (calendar, stairs, key), proof line with curly quotes, CTA 'Live, not stuck'. Laptop matches product reference. Minor: proof line rendered light on the Pine strip rather than Ink 75%; CTA label white rather than Ink; tally shows three groups of five (check against intended count). | transport: sandbox curl -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 600px instead of 800px q74 JPEG. AVIF md5 f8b7ba213c015405b14792b63adf3592 matched."
    },
    "headline": "10 weeks on simple setup tasks. My store still isn't live.",
    "hook": "10 weeks on simple setup tasks. My store still isn't live.",
@@ -1240,6 +1360,16 @@
     "text": "10 weeks on simple tasks. The store still isn't live.",
     "source": "Q-F-0013 + Q-O-0014",
     "from": "work/09-hook-candidates.md (winner, /14 >=11)"
+   },
+   "render": {
+    "job_id": "20c6c2f5-ed16-4b5c-83c4-ef67abbbd223",
+    "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+    "width": 2048,
+    "height": 2048,
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014402_20c6c2f5-ed16-4b5c-83c4-ef67abbbd223.png",
+    "md5": "0f646d7f692ba2adbf1a695027bc27a3",
+    "aspect_ok": true,
+    "repair_of": null
    }
   },
   {
@@ -1261,11 +1391,11 @@
    "awareness": "unaware",
    "sku": "main",
    "aspect": "1:1",
-   "image_file": "images/C5-V2.png",
+   "image_file": "images/C5-V2.jpg",
    "prompt_file": "prompts/C5-V2.txt",
    "qa": {
-    "status": "pending",
-    "notes": "awaiting render"
+    "status": "pass",
+    "notes": "All 7 strings exact (3-line post card on pale blue-grey, 4 replies incl. CTA 'saving this. new goal: live, not stuck'). Every name and avatar scribbled out; generic heart/comment/share icons with no counts; no brand. | transport: sandbox curl -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 560px instead of 800px q74 JPEG. AVIF md5 c7af5e4c342c05d81720c880cd2f082c matched."
    },
    "headline": "trying to set up my store for weeks. i'm tech savvy and competent. still no simple step by step",
    "hook": "trying to set up my store for weeks. i'm tech savvy and competent. still no simple step by step",
@@ -1300,6 +1430,16 @@
     "text": "trying to set up my store for weeks. i'm tech savvy and competent. still no simple step by step",
     "source": "Q-F-0012",
     "from": "work/09-hook-candidates.md (winner, /14 >=11)"
+   },
+   "render": {
+    "job_id": "98dc6631-d671-490b-8652-ad24b1177d6a",
+    "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+    "width": 2048,
+    "height": 2048,
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014402_98dc6631-d671-490b-8652-ad24b1177d6a.png",
+    "md5": "a9b0c1429c8ee0fcf90a105b5577d1a4",
+    "aspect_ok": true,
+    "repair_of": null
    }
   },
   {
@@ -1321,11 +1461,11 @@
    "awareness": "unaware",
    "sku": "main",
    "aspect": "4:5",
-   "image_file": "images/C5-V3.png",
+   "image_file": "images/C5-V3.jpg",
    "prompt_file": "prompts/C5-V3.txt",
    "qa": {
-    "status": "pending",
-    "notes": "awaiting render"
+    "status": "pass",
+    "notes": "Night home desk, open silver laptop with blurred grey settings form, tally-mark sticky note, mug, notebook, pen; no people, no logo visible, no readable text at proof size. Operator: confirm at full res that the notebook scribbles and screen UI stay illegible. | transport: sandbox curl -> Pillow thumbnail -> AVIF (adaptive q) -> md5 -> base64 split stdout/stderr; local base64 -d, md5 match, Pillow -> JPEG q92. Deviation: proof long side 520px instead of 800px q74 JPEG. AVIF md5 ec59142dfff7cb8e412193622aad4092 matched."
    },
    "headline": "Weeks into store setup and still not live",
    "hook": "Week 10, Tuesday, 9:40pm. I changed the theme image on my store again. That's the fourth one, and the store still isn't live.",
@@ -1404,7 +1544,17 @@
    "story_word_count": 1686,
    "b16": "20/20",
    "chance_discovery_position": "55.3%",
-   "product_entry_position": "64.9%"
+   "product_entry_position": "64.9%",
+   "render": {
+    "job_id": "e00df177-fab1-4f6b-ac22-a75f56a1b2a5",
+    "model": "nano_banana_2 (backend reports nano_banana_flash), 2k, 2 cr/image, image_references = source jobs e715e319 (product) / 3c4f070b (environment)",
+    "width": 1856,
+    "height": 2304,
+    "rawUrl": "https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260925_014402_e00df177-fab1-4f6b-ac22-a75f56a1b2a5.png",
+    "md5": "37da46df36fd2f6ad3eb399899aa8793",
+    "aspect_ok": true,
+    "repair_of": null
+   }
   }
  ],
  "captions": [

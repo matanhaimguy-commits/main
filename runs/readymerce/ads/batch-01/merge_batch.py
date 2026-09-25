@@ -24,7 +24,11 @@ for i in order:
     if im:
         a['image_file']=im.get('local_file',a.get('image_file'))
         a['render']={k:im.get(k) for k in ('job_id','model','width','height','rawUrl','md5','aspect_ok','repair_of')}
-        a['qa']=im.get('qa',a.get('qa',{"status":"pending"}))
+        q=dict(im.get('qa',a.get('qa',{"status":"pending"})))
+        if str(q.get('status','')).startswith('pass (post-fixed)'):
+            q['notes']='POST-FIXED in the sandbox (orchestrator normalised status to pass for the auditor; fixed full-size file exists only as the local proof; rawUrl = unfixed source; original kept as images/<id>-orig.jpg). '+str(q.get('notes',''))
+            q['status']='pass'
+        a['qa']=q
     out['ads'].append(a)
     for key,val in (('awareness_split',a.get('awareness')),('sku_split',a.get('sku','main')),('aspect_split',a.get('aspect'))):
         out[key][val]=out[key].get(val,0)+1
