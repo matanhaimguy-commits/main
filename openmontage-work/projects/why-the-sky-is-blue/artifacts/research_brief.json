@@ -1,0 +1,259 @@
+{
+  "version": "1.0",
+  "topic": "Why is the sky blue?",
+  "research_date": "2026-10-12",
+  "research_summary": "The textbook answer (Rayleigh scattering: air molecules scatter short wavelengths far more than long ones, roughly 1/wavelength^4) is well covered, but most short explainers stop there and leave the obvious follow-up unanswered: if shorter waves scatter more, why isn't the sky violet? The answer (less violet in sunlight plus eyes far more sensitive to blue) is the underserved 'aha', and red sunsets are the same physics seen from the other side.",
+  "landscape": {
+    "existing_content": [
+      {
+        "title": "SciShow: Why Is the Sky Blue? (World's Most Asked Questions)",
+        "url": "https://laughingsquid.com/scishow-explains-why-the-sky-is-blue/",
+        "source": "YouTube / SciShow",
+        "angle": "Q&A explainer",
+        "what_it_covers": "Scattering through the atmosphere plus the role of human perception",
+        "what_it_misses": "Long-form; not a tight visual sub-minute piece"
+      },
+      {
+        "title": "minutephysics: Why the Sky is Blue explained in ten seconds",
+        "source": "YouTube / minutephysics",
+        "angle": "Ultra-short",
+        "what_it_covers": "One-line Rayleigh scattering answer",
+        "what_it_misses": "No violet puzzle, no sunset link"
+      },
+      {
+        "title": "NASA Space Place in a Snap: Why Is the Sky Blue?",
+        "url": "https://plus.nasa.gov/video/space-place-in-a-snap-why-is-the-sky-blue-2/",
+        "source": "NASA+",
+        "angle": "Kids' science",
+        "what_it_covers": "Why blue and not purple, green or orange",
+        "what_it_misses": "Aimed at children; little visual physics of wavelength"
+      },
+      {
+        "title": "IOP / Teachers TV milk-in-water demonstration",
+        "url": "https://www.stem.org.uk/rxx9r",
+        "source": "STEM Learning",
+        "angle": "Classroom experiment",
+        "what_it_covers": "Scattering demo, reddened transmitted light",
+        "what_it_misses": "Classroom format, not shareable short"
+      }
+    ],
+    "saturated_angles": [
+      "One-line 'Rayleigh scattering' definition with a rainbow graphic"
+    ],
+    "underserved_gaps": [
+      "Short visual explainer that answers 'why not violet?' instead of skipping it",
+      "Connecting blue sky and red sunset as one mechanism in under a minute"
+    ]
+  },
+  "trending": {
+    "recent_developments": [],
+    "active_discussions": [
+      {
+        "platform": "reddit r/explainlikeimfive",
+        "topic_or_url": "https://redlib.ssps.io/r/explainlikeimfive/comments/1iytxes/eli5_why_is_the_sky_blue",
+        "sentiment": "curious; corrects a teacher's 'ozone mirror reflects the ocean' claim"
+      }
+    ],
+    "timeliness_window": "evergreen"
+  },
+  "data_points": [
+    {
+      "claim": "Rayleigh scattering intensity is inversely proportional to the fourth power of wavelength",
+      "source_url": "https://en.wikipedia.org/wiki/Rayleigh_scattering",
+      "source_name": "Wikipedia: Rayleigh scattering",
+      "credibility": "secondary_source",
+      "surprise_factor": "notable",
+      "usable_as": "script_anchor"
+    },
+    {
+      "claim": "Blue light (~425 nm) is scattered about 5.5x more than red light (~650 nm); the exact ratio depends on wavelengths chosen",
+      "source_url": "https://ltb.itc.utwente.nl/518/concept/92592",
+      "source_name": "University of Twente Living Textbook",
+      "credibility": "primary_source",
+      "surprise_factor": "surprising",
+      "usable_as": "stat_card"
+    },
+    {
+      "claim": "Violet scatters even more than blue; the sky looks blue because sunlight contains less violet, some is absorbed high up, and human eyes are much less sensitive to violet",
+      "source_url": "https://math.ucr.edu/home/baez/physics/General/BlueSky/blue_sky.html",
+      "source_name": "UCR Physics FAQ",
+      "credibility": "primary_source",
+      "surprise_factor": "counterintuitive",
+      "usable_as": "hook"
+    },
+    {
+      "claim": "Clouds are white because droplets 100-1000x the wavelength scatter all colors about equally (Mie scattering)",
+      "source_url": "https://acd-ext.gsfc.nasa.gov/anonftp/acd/daac_ozone/Lecture4/Text/Lecture_4/raymie.html",
+      "source_name": "NASA GSFC atmospheric optics lecture",
+      "credibility": "primary_source",
+      "surprise_factor": "notable",
+      "usable_as": "script_anchor"
+    },
+    {
+      "claim": "At sunrise/sunset light crosses far more atmosphere, so blue is scattered out of the beam, leaving reds and oranges",
+      "source_url": "https://theconversation.com/why-is-the-sky-blue-246393",
+      "source_name": "The Conversation",
+      "credibility": "secondary_source",
+      "surprise_factor": "expected",
+      "usable_as": "closing_punch"
+    },
+    {
+      "claim": "The Moon has no air, so its daytime sky is black; Mars' thin dusty air gives a butterscotch sky and blue sunsets",
+      "source_url": "https://astronomy.com/magazine/ask-astro/2015/02/black-sky",
+      "source_name": "Astronomy magazine",
+      "credibility": "secondary_source",
+      "surprise_factor": "surprising",
+      "usable_as": "hook"
+    }
+  ],
+  "audience_insights": {
+    "common_questions": [
+      "Why is the sky blue? (one of the most common children's questions)",
+      "Why isn't the sky violet if violet scatters more?",
+      "Why are sunsets red and orange?",
+      "Is the sky blue because it reflects the ocean?",
+      "Why are clouds white if the sky is blue?"
+    ],
+    "misconceptions": [
+      {
+        "myth": "The sky is blue because it reflects the ocean",
+        "reality": "Air scatters blue light; the sky is blue far inland too. (The ocean is mostly blue because water absorbs red.)",
+        "source": "https://van.physics.illinois.edu/ask/listing/22358"
+      },
+      {
+        "myth": "Shorter waves scatter more, so the sky must be the shortest color we can see",
+        "reality": "Violet scatters most, but sunlight has less of it and our eyes favor blue",
+        "source": "https://math.ucr.edu/home/baez/physics/General/BlueSky/blue_sky.html"
+      }
+    ],
+    "knowledge_level": "General public: knows the question, maybe the word 'scattering', rarely the violet puzzle",
+    "pain_points": [
+      "Explanations stop at a jargon word without showing the mechanism"
+    ]
+  },
+  "expert_voices": [
+    {
+      "name": "John Tyndall",
+      "title_or_affiliation": "Physicist, 1869 experiments",
+      "position": "Showed tiny particles scatter blue light preferentially",
+      "source_url": "https://britannica.com/science/Tyndall-effect"
+    },
+    {
+      "name": "Lord Rayleigh",
+      "title_or_affiliation": "Physicist, 1871 papers",
+      "position": "Derived the wavelength^-4 dependence; later showed it applies to molecules themselves",
+      "source_url": "https://aip.brightspotcdn.com/PTO.v35.i1.42_1.online.pdf"
+    }
+  ],
+  "angles_discovered": [
+    {
+      "name": "The Sky Should Be Violet",
+      "hook": "By the physics, the sky should be violet. So why does it look blue?",
+      "type": "contrarian",
+      "why_now": "The violet puzzle is the most-skipped part of popular explainers",
+      "grounded_in": [
+        "data_points[2]",
+        "audience_insights.misconceptions[1]"
+      ]
+    },
+    {
+      "name": "Follow One Beam of Sunlight",
+      "hook": "Sunlight is white. Space is black. So why is the sky blue?",
+      "type": "evergreen",
+      "why_now": "Evergreen top question; a journey makes the mechanism visible",
+      "grounded_in": [
+        "data_points[0]",
+        "data_points[1]",
+        "data_points[4]"
+      ]
+    },
+    {
+      "name": "Three Skies: Moon, Mars, Earth",
+      "hook": "On the Moon the daytime sky is black. On Mars it's butterscotch. Why is ours blue?",
+      "type": "narrative",
+      "why_now": "Comparison makes the role of air obvious",
+      "grounded_in": [
+        "data_points[5]",
+        "data_points[3]"
+      ]
+    }
+  ],
+  "visual_references": [
+    {
+      "description": "Milk-in-water beaker demo",
+      "url": "https://www.stem.org.uk/rxx9r",
+      "what_works": "Blue side-scatter vs orange transmitted light in one frame"
+    }
+  ],
+  "sources": [
+    {
+      "url": "https://ltb.itc.utwente.nl/518/concept/92592",
+      "title": "Rayleigh Scattering in the Earth's Atmosphere",
+      "used_for": "5.5x ratio",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://math.ucr.edu/home/baez/physics/General/BlueSky/blue_sky.html",
+      "title": "Physics FAQ: Why is the sky blue?",
+      "used_for": "violet puzzle",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://acd-ext.gsfc.nasa.gov/anonftp/acd/daac_ozone/Lecture4/Text/Lecture_4/raymie.html",
+      "title": "NASA: Rayleigh and Mie scattering",
+      "used_for": "clouds, sunsets",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://bigthink.com/starts-with-a-bang/why-the-sky-is-blue-according-to-science/",
+      "title": "Why the sky is blue, according to science",
+      "used_for": "vision",
+      "reliability": "secondary"
+    },
+    {
+      "url": "https://theconversation.com/why-is-the-sky-blue-246393",
+      "title": "Why is the sky blue?",
+      "used_for": "molecules, sunsets",
+      "reliability": "secondary"
+    },
+    {
+      "url": "https://astronomy.com/magazine/ask-astro/2015/02/black-sky",
+      "title": "Why is the sky black in space?",
+      "used_for": "Moon/Mars",
+      "reliability": "secondary"
+    },
+    {
+      "url": "https://www.nbcnews.com/id/wbna3077395",
+      "title": "What makes skies blue or red?",
+      "used_for": "Mars sunsets",
+      "reliability": "secondary"
+    },
+    {
+      "url": "https://van.physics.illinois.edu/ask/listing/22358",
+      "title": "Why the ocean is blue",
+      "used_for": "ocean myth",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://britannica.com/science/Tyndall-effect",
+      "title": "Tyndall effect",
+      "used_for": "history",
+      "reliability": "secondary"
+    },
+    {
+      "url": "https://aip.brightspotcdn.com/PTO.v35.i1.42_1.online.pdf",
+      "title": "Physics Today historical article",
+      "used_for": "history",
+      "reliability": "primary"
+    },
+    {
+      "url": "https://redlib.ssps.io/r/explainlikeimfive/comments/1iytxes/eli5_why_is_the_sky_blue",
+      "title": "ELI5: Why is the sky blue",
+      "used_for": "audience question",
+      "reliability": "anecdotal"
+    }
+  ],
+  "metadata": {
+    "searches_executed": 10
+  }
+}

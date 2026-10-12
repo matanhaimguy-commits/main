@@ -1,0 +1,224 @@
+{
+  "version": "1.0",
+  "project_id": "why-the-sky-is-blue",
+  "pipeline_type": "animated-explainer",
+  "stage": "script",
+  "status": "awaiting_human",
+  "timestamp": "2026-10-12T14:48:23.780369+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": false,
+  "artifacts": {
+    "script": {
+      "version": "1.0",
+      "title": "Sunlight, Sorted by Color: Why Is the Sky Blue?",
+      "total_duration_seconds": 45,
+      "voice_performance": {
+        "performance_intent": "Warm, curious science narrator: unhurried, a friend pointing at the sky.",
+        "pacing_profile": "conversational",
+        "energy_curve": "Curious hook -> steady build -> playful twist -> slow, calm landing",
+        "pause_policy": "Short pause after each section; longer pause before the final three short sentences.",
+        "sample_section_id": "s3",
+        "provider_notes": {
+          "piper": "No emotion controls: rely on punctuation, per-section synthesis, length_scale tuned so total narration lands near 43s, and inserted silences between sections."
+        }
+      },
+      "sections": [
+        {
+          "id": "s1",
+          "label": "Hook",
+          "text": "Sunlight is white. Space is black. So why is the sky blue?",
+          "start_seconds": 0.0,
+          "end_seconds": 5.3,
+          "speaker_directions": "measured pace, curious; emphasize white, black, blue. Three short beats; slight lift on the question.",
+          "delivery_cues": {
+            "pace": "measured",
+            "energy": "curious",
+            "emphasis_words": [
+              "white",
+              "black",
+              "blue"
+            ],
+            "pause_after_seconds": 0.5,
+            "delivery_note": "Three short beats; slight lift on the question.",
+            "provider_text": "Sunlight is white. Space is black. So why is the sky blue?"
+          },
+          "enhancement_cues": [
+            {
+              "type": "animation",
+              "description": "Black space, a white Sun; a white beam travels toward a small Earth; the sky over Earth glows blue as the question lands",
+              "timestamp_seconds": 1.0
+            }
+          ],
+          "pronunciation_guides": [],
+          "source_ref": "research_brief"
+        },
+        {
+          "id": "s2",
+          "label": "White light is every color",
+          "text": "That white light is really every color mixed together, each one a wave of a different length.",
+          "start_seconds": 5.3,
+          "end_seconds": 12.4,
+          "speaker_directions": "conversational pace, warm; emphasize every, length. Unfold the idea gently.",
+          "delivery_cues": {
+            "pace": "conversational",
+            "energy": "warm",
+            "emphasis_words": [
+              "every",
+              "length"
+            ],
+            "pause_after_seconds": 0.3,
+            "delivery_note": "Unfold the idea gently.",
+            "provider_text": "That white light is really every color mixed together, each one a wave of a different length."
+          },
+          "enhancement_cues": [
+            {
+              "type": "animation",
+              "description": "The white beam fans out into six colored sine waves; red long and lazy, violet short and tight",
+              "timestamp_seconds": 6.3
+            },
+            {
+              "type": "overlay",
+              "description": "Tiny label: 'long wave' (red) / 'short wave' (blue)",
+              "timestamp_seconds": 9.3
+            }
+          ],
+          "pronunciation_guides": [],
+          "source_ref": "research_brief"
+        },
+        {
+          "id": "s3",
+          "label": "Molecules are picky",
+          "text": "When sunlight hits our air, tiny nitrogen and oxygen molecules scatter it. But they're picky: short blue waves scatter about five times more than long red ones.",
+          "start_seconds": 12.4,
+          "end_seconds": 23.6,
+          "speaker_directions": "measured pace, intrigued; emphasize picky, five times. Pause after 'picky' to set up the reveal.",
+          "delivery_cues": {
+            "pace": "measured",
+            "energy": "intrigued",
+            "emphasis_words": [
+              "picky",
+              "five times"
+            ],
+            "pause_after_seconds": 0.4,
+            "delivery_note": "Pause after 'picky' to set up the reveal.",
+            "provider_text": "When sunlight hits our air, tiny nitrogen and oxygen molecules scatter it. But they're picky: short blue waves scatter about five times more than long red ones."
+          },
+          "enhancement_cues": [
+            {
+              "type": "animation",
+              "description": "Zoom to molecule scale: N2/O2 dots; a red wave passes straight through, a blue wave hits a molecule and splashes outward",
+              "timestamp_seconds": 13.4
+            },
+            {
+              "type": "stat_card",
+              "description": "'Blue scatters ~5x more than red'",
+              "timestamp_seconds": 19.4
+            }
+          ],
+          "pronunciation_guides": [],
+          "source_ref": "research_brief"
+        },
+        {
+          "id": "s4",
+          "label": "Blue from everywhere",
+          "text": "So blue gets bounced all across the sky, and reaches your eyes from every direction.",
+          "start_seconds": 23.6,
+          "end_seconds": 30.0,
+          "speaker_directions": "conversational pace, satisfied; emphasize every direction. Land the payoff, slightly brighter.",
+          "delivery_cues": {
+            "pace": "conversational",
+            "energy": "satisfied",
+            "emphasis_words": [
+              "every direction"
+            ],
+            "pause_after_seconds": 0.4,
+            "delivery_note": "Land the payoff, slightly brighter.",
+            "provider_text": "So blue gets bounced all across the sky, and reaches your eyes from every direction."
+          },
+          "enhancement_cues": [
+            {
+              "type": "animation",
+              "description": "Pull back: blue waves ricochet between molecules, filling the sky; a little person looks up, blue arrows arrive from all around",
+              "timestamp_seconds": 24.6
+            }
+          ],
+          "pronunciation_guides": [],
+          "source_ref": "research_brief"
+        },
+        {
+          "id": "s5",
+          "label": "Why not violet?",
+          "text": "Violet is even shorter, so why not a purple sky? The Sun sends less violet, and your eyes are tuned to blue.",
+          "start_seconds": 30.0,
+          "end_seconds": 39.2,
+          "speaker_directions": "measured pace, playful; emphasize even shorter, tuned to blue. Pose the question with a smile, then answer plainly.",
+          "delivery_cues": {
+            "pace": "measured",
+            "energy": "playful",
+            "emphasis_words": [
+              "even shorter",
+              "tuned to blue"
+            ],
+            "pause_after_seconds": 0.4,
+            "delivery_note": "Pose the question with a smile, then answer plainly.",
+            "provider_text": "Violet is even shorter, so why not a purple sky? The Sun sends less violet, and your eyes are tuned to blue."
+          },
+          "enhancement_cues": [
+            {
+              "type": "animation",
+              "description": "The sky briefly tints violet with a question mark; sunlight spectrum bars show less violet; an eye icon with a sensitivity curve peaking toward blue/green; the sky settles back to blue",
+              "timestamp_seconds": 31.0
+            }
+          ],
+          "pronunciation_guides": [],
+          "source_ref": "research_brief"
+        },
+        {
+          "id": "s6",
+          "label": "Sunset and landing",
+          "text": "At sunset, light crosses so much air that the blue is scattered away, leaving reds and oranges. Same air. Same physics. Just sunlight, sorted by color.",
+          "start_seconds": 39.2,
+          "end_seconds": 50.4,
+          "speaker_directions": "slow pace, calm wonder; emphasize sunset, sorted by color. Slow down for the final three short sentences.",
+          "delivery_cues": {
+            "pace": "slow",
+            "energy": "calm wonder",
+            "emphasis_words": [
+              "sunset",
+              "sorted by color"
+            ],
+            "pause_after_seconds": 0.8,
+            "delivery_note": "Slow down for the final three short sentences.",
+            "provider_text": "At sunset, light crosses so much air that the blue is scattered away, leaving reds and oranges. Same air. Same physics. Just sunlight, sorted by color."
+          },
+          "enhancement_cues": [
+            {
+              "type": "animation",
+              "description": "Sun sinks to the horizon; its beam crosses a long slab of air; blue peels off along the way and only red/orange arrive; sky turns amber",
+              "timestamp_seconds": 40.2
+            },
+            {
+              "type": "overlay",
+              "description": "Final title: 'Sunlight, sorted by color.'",
+              "timestamp_seconds": 46.2
+            }
+          ],
+          "pronunciation_guides": [],
+          "source_ref": "research_brief"
+        }
+      ],
+      "metadata": {
+        "word_count": 119,
+        "estimated_seconds_at_150wpm": 47.6
+      }
+    }
+  },
+  "review": {
+    "summary": "119 words, est 47.6s at 150 wpm"
+  },
+  "cost_snapshot": {
+    "spent_usd": 0.0,
+    "budget_usd": 0.0
+  }
+}

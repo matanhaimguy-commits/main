@@ -1,0 +1,486 @@
+{
+  "version": "1.0",
+  "project_id": "why-the-sky-is-blue",
+  "pipeline_type": "animated-explainer",
+  "stage": "proposal",
+  "status": "completed",
+  "timestamp": "2026-10-12T14:48:23.378310+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "proposal_packet": {
+      "version": "1.0",
+      "concept_options": [
+        {
+          "id": "c1",
+          "title": "The Sky Should Be Violet",
+          "hook": "By the physics, the sky should be violet. So why does it look blue?",
+          "narrative_structure": "myth_busting",
+          "visual_approach": "Spectrum bar that 'predicts' violet, then a reveal of sunlight's spectrum and the eye's sensitivity curve.",
+          "suggested_playbook": "custom",
+          "target_audience": "Curious adults who already half-know 'scattering'",
+          "target_platform": "youtube",
+          "target_duration_seconds": 45,
+          "key_points": [
+            "Short waves scatter more",
+            "Violet scatters most",
+            "Less violet in sunlight + eyes favor blue"
+          ],
+          "core_message": "The blue sky is physics plus biology.",
+          "cta": "Look up at the next clear sky and notice the paler blue near the horizon.",
+          "tone": "playful contrarian",
+          "grounded_in": [
+            "data_points[2]",
+            "audience_insights.misconceptions[1]"
+          ],
+          "why_this_works": "Answers the follow-up question most explainers skip (UCR Physics FAQ)."
+        },
+        {
+          "id": "c2",
+          "title": "Sunlight, Sorted by Color",
+          "hook": "Sunlight is white. Space is black. So why is the sky blue?",
+          "narrative_structure": "journey",
+          "visual_approach": "Follow one beam of white sunlight from the Sun into the air: it splits into colored waves, blue ones ping-pong off molecules across the sky, red ones pass straight through; ends on a sunset.",
+          "suggested_playbook": "custom",
+          "target_audience": "General public, teens and up",
+          "target_platform": "youtube",
+          "target_duration_seconds": 45,
+          "key_points": [
+            "White light is all colors",
+            "Air molecules scatter short blue waves ~5x more than red",
+            "Blue reaches you from every direction",
+            "Why not violet: less in sunlight, eyes favor blue",
+            "Sunset: long path scatters the blue away"
+          ],
+          "core_message": "The blue sky is sunlight sorted by color.",
+          "cta": "Next sunset, remember: same air, same physics.",
+          "tone": "warm, curious wonder",
+          "grounded_in": [
+            "data_points[0]",
+            "data_points[1]",
+            "data_points[2]",
+            "data_points[4]"
+          ],
+          "why_this_works": "A single followable journey shows the mechanism, folds in the violet twist as a mid-point surprise, and pays off with sunsets everyone has seen."
+        },
+        {
+          "id": "c3",
+          "title": "Three Skies",
+          "hook": "On the Moon, the daytime sky is black. On Mars it's butterscotch. Why is ours blue?",
+          "narrative_structure": "comparison",
+          "visual_approach": "Three side-by-side worlds; air is added or removed and the sky color changes in each.",
+          "suggested_playbook": "custom",
+          "target_audience": "Space fans",
+          "target_platform": "youtube",
+          "target_duration_seconds": 45,
+          "key_points": [
+            "No air = black sky",
+            "Dusty thin air = butterscotch",
+            "Our air scatters blue"
+          ],
+          "core_message": "The sky's color is the air's fingerprint.",
+          "cta": "Ask: what color would an alien sky be?",
+          "tone": "adventurous",
+          "grounded_in": [
+            "data_points[5]",
+            "data_points[3]"
+          ],
+          "why_this_works": "Comparison makes air's role obvious (Astronomy magazine)."
+        }
+      ],
+      "selected_concept": {
+        "concept_id": "c2",
+        "rationale": "Journey structure is the clearest for a 45s general-audience piece and absorbs c1's violet twist as its mid-point surprise.",
+        "modifications": [
+          "Fold in c1's 'why not violet?' beat"
+        ]
+      },
+      "production_plan": {
+        "pipeline": "animated-explainer",
+        "playbook": "custom",
+        "render_runtime": "remotion",
+        "composition_mode": "atelier",
+        "renderer_family": "explainer-teacher",
+        "art_direction": "'Light, sorted': navy space -> cerulean day -> amber sunset. Sun as a soft gold disc; light drawn as glowing sine waves in true spectral colors; air molecules as small pale-blue dots; blue waves ricochet between molecules; on-screen labels minimal, rounded sans-serif.",
+        "taste_profile": {
+          "design_read": "Curious-science short for a general audience: make invisible light physics feel tactile and luminous; calm wonder, not hype.",
+          "visual_variance": 5,
+          "motion_intensity": 5,
+          "information_density": 3,
+          "palette_discipline": "Night-space navy base that warms to daytime cerulean and ends in sunset amber; spectral wave colors (red/orange/yellow/green/blue/violet) are the only saturated accents.",
+          "layout_variation": "Alternate wide 'sky world' frames (sun, atmosphere, horizon) with close-up 'molecule scale' frames where single waves hit single molecules.",
+          "reference_strategy": "No generated images (no image keys): every visual is hand-drawn vector/SVG animation authored for this piece; one review still per scene at the storyboard gate.",
+          "anti_patterns": [
+            "generic AI-purple gradient backgrounds",
+            "text-only slides",
+            "stock rainbow clip-art",
+            "dense labels on physics diagrams"
+          ],
+          "quality_gates": [
+            "Every scene shows the mechanism (waves, molecules, path length) rather than just stating it",
+            "No more than one short on-screen label per beat"
+          ]
+        },
+        "delivery_promise": {
+          "promise_type": "teacher_explainer",
+          "motion_required": true,
+          "source_required": false,
+          "tone_mode": "warm curious wonder",
+          "quality_floor": "presentable",
+          "approved_fallback": null
+        },
+        "stages": [
+          {
+            "stage": "script",
+            "tools": [],
+            "approach": "Write ~110-word narration for 45s with voice cues"
+          },
+          {
+            "stage": "scene_plan",
+            "tools": [],
+            "approach": "6-7 bespoke animated scenes; storyboard stills for review"
+          },
+          {
+            "stage": "assets",
+            "tools": [
+              {
+                "tool_name": "piper_tts",
+                "role": "narration",
+                "provider": "piper",
+                "available": true,
+                "estimated_cost_usd": 0.0,
+                "why_this_provider": "Only free, offline voice; no paid API keys by user request. Voice en_US-lessac-medium."
+              },
+              {
+                "tool_name": "audio_mixer",
+                "role": "local ambient music bed synthesis/mix",
+                "provider": "ffmpeg",
+                "available": true,
+                "estimated_cost_usd": 0.0,
+                "why_this_provider": "Online music sources are blocked by this network; a soft synthesized pad is free and local."
+              }
+            ],
+            "approach": "Narration per section, ambient pad, bespoke Remotion scene components",
+            "fallback_if_unavailable": "None needed: all local"
+          },
+          {
+            "stage": "edit",
+            "tools": [],
+            "approach": "Timeline from measured narration durations, subtitles on"
+          },
+          {
+            "stage": "compose",
+            "tools": [
+              {
+                "tool_name": "video_compose",
+                "role": "render",
+                "provider": "remotion",
+                "available": true,
+                "estimated_cost_usd": 0.0,
+                "why_this_provider": "Remotion verified working on this machine (demos rendered)"
+              }
+            ],
+            "approach": "Atelier Remotion render 1920x1080 30fps"
+          }
+        ],
+        "quality_tradeoffs": [
+          {
+            "tradeoff": "Voice",
+            "recommendation": "Free Piper voice now; a paid voice (e.g. ElevenLabs/OpenAI) can be swapped in later with one key",
+            "quality_impact": "Piper sounds clear but somewhat flat/robotic"
+          },
+          {
+            "tradeoff": "Visuals",
+            "recommendation": "Hand-built vector animation (no image generation keys)",
+            "quality_impact": "Clean diagrammatic look; no photoreal skies"
+          }
+        ],
+        "alternative_paths": [
+          {
+            "description": "Free: Piper voice + bespoke Remotion animation + local ambient pad",
+            "total_cost_usd": 0.0,
+            "quality_level": "free",
+            "what_changes": "Recommended; nothing paid"
+          },
+          {
+            "description": "Standard: same visuals with a premium cloud voice",
+            "total_cost_usd": 0.05,
+            "quality_level": "standard",
+            "what_changes": "Needs one paid TTS key (not added, per your request)"
+          }
+        ],
+        "music_source": {
+          "source_type": "user_library",
+          "track_path": "music_library/soft-sky-pad.wav",
+          "provider": "local ffmpeg synthesis",
+          "mood_direction": "soft airy ambient pad, very low under narration",
+          "estimated_cost_usd": 0.0
+        },
+        "voice_selection": {
+          "provider": "piper",
+          "voice_id": "en_US-lessac-medium",
+          "rationale": "Only free offline voice available; clear US English",
+          "estimated_cost_usd": 0.0,
+          "delivery_style": "warm, curious, unhurried",
+          "pacing_policy": "~150 wpm; pauses via punctuation and per-section silence",
+          "sample_approval_required": true
+        },
+        "decision_log_ref": "/home/user/main/OpenMontage/projects/why-the-sky-is-blue/decision_log.json"
+      },
+      "cost_estimate": {
+        "total_estimated_usd": 0.0,
+        "line_items": [
+          {
+            "tool": "piper_tts",
+            "operation": "narration ~110 words",
+            "quantity": 1,
+            "estimated_usd": 0.0,
+            "notes": "local"
+          },
+          {
+            "tool": "audio_mixer",
+            "operation": "ambient pad + mix",
+            "quantity": 1,
+            "estimated_usd": 0.0,
+            "notes": "local"
+          },
+          {
+            "tool": "video_compose",
+            "operation": "Remotion render",
+            "quantity": 1,
+            "estimated_usd": 0.0,
+            "notes": "local"
+          }
+        ],
+        "budget_cap_usd": 0.0,
+        "budget_verdict": "within_budget",
+        "savings_options": []
+      },
+      "approval": {
+        "status": "approved",
+        "approved_budget_usd": 0.0,
+        "user_notes": "Approval policy from the user's own request: 'stop for my approval at the script and the storyboard'; no paid API keys. The user delegated proposal choices to the agent's recommendations; concept, runtime (Remotion vs HyperFrames), voice and music are presented to the user for override at the script gate. Storyboard gate = scene_plan + per-scene review stills."
+      },
+      "metadata": {
+        "approval_policy": "user-specified gates: script, storyboard"
+      }
+    },
+    "decision_log": {
+      "version": "1.0",
+      "project_id": "why-the-sky-is-blue",
+      "decisions": [
+        {
+          "decision_id": "d-pipeline",
+          "stage": "proposal",
+          "category": "pipeline_selection",
+          "subject": "Pipeline",
+          "options_considered": [
+            {
+              "option_id": "animated-explainer",
+              "label": "animated-explainer",
+              "score": 0.95,
+              "reason": "Topic-to-explainer with narration"
+            },
+            {
+              "option_id": "animation",
+              "label": "animation",
+              "score": 0.6,
+              "reason": "Motion-first, less narration-led",
+              "rejected_because": "Brief is a narrated explainer"
+            }
+          ],
+          "selected": "animated-explainer",
+          "reason": "User asked for an animated explainer",
+          "user_visible": true,
+          "user_approved": true
+        },
+        {
+          "decision_id": "d-concept",
+          "stage": "proposal",
+          "category": "concept_selection",
+          "subject": "Concept",
+          "options_considered": [
+            {
+              "option_id": "c1",
+              "label": "The Sky Should Be Violet",
+              "score": 0.75,
+              "reason": "Strong twist",
+              "rejected_because": "Better as a beat inside c2"
+            },
+            {
+              "option_id": "c2",
+              "label": "Sunlight, Sorted by Color",
+              "score": 0.9,
+              "reason": "Clearest mechanism + sunset payoff"
+            },
+            {
+              "option_id": "c3",
+              "label": "Three Skies",
+              "score": 0.65,
+              "reason": "Fun, but spends time off-Earth",
+              "rejected_because": "Less focused on the actual mechanism"
+            }
+          ],
+          "selected": "c2",
+          "reason": "Clearest for 45s; includes c1's violet twist. Delegated by user; open to override at script gate.",
+          "user_visible": true,
+          "user_approved": false
+        },
+        {
+          "decision_id": "d-runtime",
+          "stage": "proposal",
+          "category": "render_runtime_selection",
+          "subject": "Composition runtime",
+          "options_considered": [
+            {
+              "option_id": "remotion",
+              "label": "Remotion (React/SVG)",
+              "score": 0.85,
+              "reason": "Frame-exact SVG wave/molecule animation, word-level captions, verified rendering on this machine"
+            },
+            {
+              "option_id": "hyperframes",
+              "label": "HyperFrames (HTML/GSAP)",
+              "score": 0.75,
+              "reason": "Excellent kinetic HTML/GSAP motion",
+              "rejected_because": "Caption burn parity is Remotion-only; Remotion already proven here"
+            },
+            {
+              "option_id": "ffmpeg",
+              "label": "FFmpeg",
+              "score": 0.2,
+              "reason": "Only pans over stills",
+              "rejected_because": "No still images to pan; motion is the point"
+            }
+          ],
+          "selected": "remotion",
+          "reason": "Recommended; presented to user at script gate for override",
+          "user_visible": true,
+          "user_approved": false
+        },
+        {
+          "decision_id": "d-mode",
+          "stage": "proposal",
+          "category": "composition_mode",
+          "subject": "Composition authoring mode",
+          "options_considered": [
+            {
+              "option_id": "atelier",
+              "label": "Atelier (bespoke scenes)",
+              "score": 0.85,
+              "reason": "Physics needs custom diagrams: waves hitting molecules"
+            },
+            {
+              "option_id": "templated",
+              "label": "Templated stock cards",
+              "score": 0.5,
+              "reason": "Fast",
+              "rejected_because": "Text/stat cards can't show scattering"
+            }
+          ],
+          "selected": "atelier",
+          "reason": "Hero single explainer; mechanism must be drawn",
+          "user_visible": true,
+          "user_approved": false
+        },
+        {
+          "decision_id": "d-voice",
+          "stage": "proposal",
+          "category": "voice_selection",
+          "subject": "Narration TTS provider",
+          "options_considered": [
+            {
+              "option_id": "piper",
+              "label": "Piper en_US-lessac-medium (free, offline)",
+              "score": 0.7,
+              "reason": "Only free option available"
+            },
+            {
+              "option_id": "paid",
+              "label": "Cloud voices (ElevenLabs, OpenAI, Google...)",
+              "score": 0.9,
+              "reason": "More natural",
+              "rejected_because": "User asked for no paid API keys"
+            }
+          ],
+          "selected": "piper",
+          "reason": "No paid keys",
+          "user_visible": true,
+          "user_approved": false
+        },
+        {
+          "decision_id": "d-music",
+          "stage": "proposal",
+          "category": "music_source",
+          "subject": "Background music",
+          "options_considered": [
+            {
+              "option_id": "pad",
+              "label": "Locally synthesized soft ambient pad",
+              "score": 0.7,
+              "reason": "Free, local, unobtrusive"
+            },
+            {
+              "option_id": "pixabay",
+              "label": "Pixabay royalty-free search",
+              "score": 0.8,
+              "reason": "Real produced track",
+              "rejected_because": "pixabay.com blocked by this machine's network policy (403)"
+            },
+            {
+              "option_id": "none",
+              "label": "No music",
+              "score": 0.5,
+              "reason": "Simplest",
+              "rejected_because": "Video feels emptier"
+            },
+            {
+              "option_id": "byo",
+              "label": "User-provided track in music_library/",
+              "score": 0.9,
+              "reason": "Best if user has one",
+              "rejected_because": "None provided yet"
+            }
+          ],
+          "selected": "pad",
+          "reason": "Only working music source; user can drop in a track anytime",
+          "user_visible": true,
+          "user_approved": false
+        },
+        {
+          "decision_id": "d-playbook",
+          "stage": "proposal",
+          "category": "playbook_selection",
+          "subject": "Visual identity",
+          "options_considered": [
+            {
+              "option_id": "custom",
+              "label": "Custom 'Light, sorted' art direction",
+              "score": 0.85,
+              "reason": "Subject has its own visual world: sky colors"
+            },
+            {
+              "option_id": "flat-motion-graphics",
+              "label": "flat-motion-graphics preset",
+              "score": 0.5,
+              "reason": "Generic",
+              "rejected_because": "Doesn't use the sky's own palette"
+            }
+          ],
+          "selected": "custom",
+          "reason": "Palette taken directly from the subject (space, day sky, sunset)",
+          "user_visible": true,
+          "user_approved": false
+        }
+      ]
+    }
+  },
+  "cost_snapshot": {
+    "spent_usd": 0.0,
+    "budget_usd": 0.0
+  },
+  "metadata": {
+    "approval_basis": "User instruction: approval stops only at script and storyboard; proposal choices delegated and shown for override at script gate."
+  }
+}

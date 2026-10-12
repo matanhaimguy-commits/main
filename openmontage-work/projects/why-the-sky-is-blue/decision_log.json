@@ -1,0 +1,209 @@
+{
+  "version": "1.0",
+  "project_id": "why-the-sky-is-blue",
+  "decisions": [
+    {
+      "decision_id": "d-pipeline",
+      "stage": "proposal",
+      "category": "pipeline_selection",
+      "subject": "Pipeline",
+      "options_considered": [
+        {
+          "option_id": "animated-explainer",
+          "label": "animated-explainer",
+          "score": 0.95,
+          "reason": "Topic-to-explainer with narration"
+        },
+        {
+          "option_id": "animation",
+          "label": "animation",
+          "score": 0.6,
+          "reason": "Motion-first, less narration-led",
+          "rejected_because": "Brief is a narrated explainer"
+        }
+      ],
+      "selected": "animated-explainer",
+      "reason": "User asked for an animated explainer",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "d-concept",
+      "stage": "proposal",
+      "category": "concept_selection",
+      "subject": "Concept",
+      "options_considered": [
+        {
+          "option_id": "c1",
+          "label": "The Sky Should Be Violet",
+          "score": 0.75,
+          "reason": "Strong twist",
+          "rejected_because": "Better as a beat inside c2"
+        },
+        {
+          "option_id": "c2",
+          "label": "Sunlight, Sorted by Color",
+          "score": 0.9,
+          "reason": "Clearest mechanism + sunset payoff"
+        },
+        {
+          "option_id": "c3",
+          "label": "Three Skies",
+          "score": 0.65,
+          "reason": "Fun, but spends time off-Earth",
+          "rejected_because": "Less focused on the actual mechanism"
+        }
+      ],
+      "selected": "c2",
+      "reason": "Clearest for 45s; includes c1's violet twist. Delegated by user; open to override at script gate.",
+      "user_visible": true,
+      "user_approved": false
+    },
+    {
+      "decision_id": "d-runtime",
+      "stage": "proposal",
+      "category": "render_runtime_selection",
+      "subject": "Composition runtime",
+      "options_considered": [
+        {
+          "option_id": "remotion",
+          "label": "Remotion (React/SVG)",
+          "score": 0.85,
+          "reason": "Frame-exact SVG wave/molecule animation, word-level captions, verified rendering on this machine"
+        },
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames (HTML/GSAP)",
+          "score": 0.75,
+          "reason": "Excellent kinetic HTML/GSAP motion",
+          "rejected_because": "Caption burn parity is Remotion-only; Remotion already proven here"
+        },
+        {
+          "option_id": "ffmpeg",
+          "label": "FFmpeg",
+          "score": 0.2,
+          "reason": "Only pans over stills",
+          "rejected_because": "No still images to pan; motion is the point"
+        }
+      ],
+      "selected": "remotion",
+      "reason": "Recommended; presented to user at script gate for override",
+      "user_visible": true,
+      "user_approved": false
+    },
+    {
+      "decision_id": "d-mode",
+      "stage": "proposal",
+      "category": "composition_mode",
+      "subject": "Composition authoring mode",
+      "options_considered": [
+        {
+          "option_id": "atelier",
+          "label": "Atelier (bespoke scenes)",
+          "score": 0.85,
+          "reason": "Physics needs custom diagrams: waves hitting molecules"
+        },
+        {
+          "option_id": "templated",
+          "label": "Templated stock cards",
+          "score": 0.5,
+          "reason": "Fast",
+          "rejected_because": "Text/stat cards can't show scattering"
+        }
+      ],
+      "selected": "atelier",
+      "reason": "Hero single explainer; mechanism must be drawn",
+      "user_visible": true,
+      "user_approved": false
+    },
+    {
+      "decision_id": "d-voice",
+      "stage": "proposal",
+      "category": "voice_selection",
+      "subject": "Narration TTS provider",
+      "options_considered": [
+        {
+          "option_id": "piper",
+          "label": "Piper en_US-lessac-medium (free, offline)",
+          "score": 0.7,
+          "reason": "Only free option available"
+        },
+        {
+          "option_id": "paid",
+          "label": "Cloud voices (ElevenLabs, OpenAI, Google...)",
+          "score": 0.9,
+          "reason": "More natural",
+          "rejected_because": "User asked for no paid API keys"
+        }
+      ],
+      "selected": "piper",
+      "reason": "No paid keys",
+      "user_visible": true,
+      "user_approved": false
+    },
+    {
+      "decision_id": "d-music",
+      "stage": "proposal",
+      "category": "music_source",
+      "subject": "Background music",
+      "options_considered": [
+        {
+          "option_id": "pad",
+          "label": "Locally synthesized soft ambient pad",
+          "score": 0.7,
+          "reason": "Free, local, unobtrusive"
+        },
+        {
+          "option_id": "pixabay",
+          "label": "Pixabay royalty-free search",
+          "score": 0.8,
+          "reason": "Real produced track",
+          "rejected_because": "pixabay.com blocked by this machine's network policy (403)"
+        },
+        {
+          "option_id": "none",
+          "label": "No music",
+          "score": 0.5,
+          "reason": "Simplest",
+          "rejected_because": "Video feels emptier"
+        },
+        {
+          "option_id": "byo",
+          "label": "User-provided track in music_library/",
+          "score": 0.9,
+          "reason": "Best if user has one",
+          "rejected_because": "None provided yet"
+        }
+      ],
+      "selected": "pad",
+      "reason": "Only working music source; user can drop in a track anytime",
+      "user_visible": true,
+      "user_approved": false
+    },
+    {
+      "decision_id": "d-playbook",
+      "stage": "proposal",
+      "category": "playbook_selection",
+      "subject": "Visual identity",
+      "options_considered": [
+        {
+          "option_id": "custom",
+          "label": "Custom 'Light, sorted' art direction",
+          "score": 0.85,
+          "reason": "Subject has its own visual world: sky colors"
+        },
+        {
+          "option_id": "flat-motion-graphics",
+          "label": "flat-motion-graphics preset",
+          "score": 0.5,
+          "reason": "Generic",
+          "rejected_because": "Doesn't use the sky's own palette"
+        }
+      ],
+      "selected": "custom",
+      "reason": "Palette taken directly from the subject (space, day sky, sunset)",
+      "user_visible": true,
+      "user_approved": false
+    }
+  ]
+}
