@@ -1,0 +1,326 @@
+{
+  "version": "1.0",
+  "project_id": "why-the-sky-is-blue",
+  "pipeline_type": "animated-explainer",
+  "stage": "scene_plan",
+  "status": "awaiting_human",
+  "timestamp": "2026-10-12T15:16:04.720229+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": false,
+  "artifacts": {
+    "scene_plan": {
+      "version": "1.0",
+      "style_playbook": "custom",
+      "scenes": [
+        {
+          "id": "sc1",
+          "type": "animation",
+          "description": "SUBJECT: a small white Sun (left third) and a tiny Earth (right third) in black starfield space. MOTION: a white beam travels Sun\u2192Earth; on 'blue' (~4.7s) a thin cerulean atmosphere halo blooms around Earth. SCENE: deep space navy-black, sparse twinkling stars. FRAMING: extreme wide, Sun left, Earth right, both small; negative space dominates. CAMERA: N/A \u2014 Remotion native vector scene, no virtual camera",
+          "start_seconds": 0,
+          "end_seconds": 5.45,
+          "script_section_id": "s1",
+          "framing": "extreme wide, Sun left third, Earth right third",
+          "movement": "beam travels left\u2192right, atmosphere halo blooms on 'blue'",
+          "transition_in": "fade from black",
+          "transition_out": "beam carries into next scene (match cut on the white beam)",
+          "overlay_notes": "Captions bottom-center (subtitle role)",
+          "shot_language": {
+            "shot_size": "extreme_wide",
+            "camera_movement": "static",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "Set the paradox: white light, black space, yet a blue sky",
+          "narrative_role": "establish_context",
+          "information_role": "White sunlight crosses black space; only near Earth does blue appear",
+          "hero_moment": false,
+          "texture_keywords": [
+            "clean",
+            "luminous",
+            "soft glow"
+          ],
+          "required_assets": [
+            {
+              "type": "remotion_component",
+              "description": "Hand-authored SVG/React scene in Composition.tsx (atelier)",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc2",
+          "type": "diagram",
+          "description": "SUBJECT: the white beam fanning into six stacked spectral sine waves (red, orange, yellow, green, blue, violet). MOTION: beam enters left, splits at a soft glowing node; waves draw left\u2192right; red wave long and lazy, violet short and tight; brackets label 'long wave' (red) and 'short wave' (violet) at ~10s. SCENE: night-navy background, faint grid. FRAMING: medium, waves fill middle band. CAMERA: N/A \u2014 Remotion native vector scene, no virtual camera",
+          "start_seconds": 5.45,
+          "end_seconds": 11.55,
+          "script_section_id": "s2",
+          "framing": "medium; wave stack centered, split node at left",
+          "movement": "waves draw on progressively, gentle phase motion",
+          "transition_in": "match cut on white beam",
+          "transition_out": "waves slide off right",
+          "overlay_notes": "Two small labels: 'long wave' / 'short wave'",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "color_temperature": "mixed"
+          },
+          "shot_intent": "Show white light is a mix of waves of different lengths",
+          "narrative_role": "introduce_subject",
+          "information_role": "Each color is a wave; wavelength differs",
+          "hero_moment": false,
+          "texture_keywords": [
+            "clean",
+            "luminous",
+            "soft glow"
+          ],
+          "required_assets": [
+            {
+              "type": "remotion_component",
+              "description": "Hand-authored SVG/React scene in Composition.tsx (atelier)",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc3",
+          "type": "animation",
+          "description": "SUBJECT: a field of air molecules (paired dots: N\u2082 pale blue, O\u2082 soft white) drifting slowly. MOTION: zoom-feel scale-up from tiny specks to visible pairs; colored waves enter from left among them; labels 'N\u2082' and 'O\u2082' pop on one molecule each when named. SCENE: deep indigo with slight haze. FRAMING: wide field of molecules, depth via size/blur (FG large blurred, BG small sharp). CAMERA: N/A \u2014 Remotion native vector scene, no virtual camera",
+          "start_seconds": 11.55,
+          "end_seconds": 16.45,
+          "script_section_id": "s3",
+          "framing": "wide molecule field with FG/MG/BG depth layers",
+          "movement": "slow parallax drift; scale-up reveal",
+          "transition_in": "soft dissolve",
+          "transition_out": "dissolve",
+          "overlay_notes": "Labels N\u2082, O\u2082",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "depth_of_field": "medium",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "Introduce the scatterers at their own tiny scale",
+          "narrative_role": "build_tension",
+          "information_role": "Air is made of tiny molecules",
+          "hero_moment": false,
+          "texture_keywords": [
+            "clean",
+            "luminous",
+            "soft glow"
+          ],
+          "required_assets": [
+            {
+              "type": "remotion_component",
+              "description": "Hand-authored SVG/React scene in Composition.tsx (atelier)",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc4",
+          "type": "animation",
+          "description": "SIGNATURE MOMENT. SUBJECT: one large molecule center; two lanes: a long red wave (top lane) and a short blue wave (bottom lane). MOTION: on 'picky' the red wave passes straight through the molecule untouched; the blue wave hits and SPLASHES into ripples/arrows radiating in all directions (the signature 'blue splash'); on 'five times' a large '\u00d75' counter springs in beside the splash with five blue arrows vs one red. SCENE: dark indigo spotlight vignette. FRAMING: close-up, molecule dead center. CAMERA: N/A \u2014 Remotion native vector scene, no virtual camera",
+          "start_seconds": 16.45,
+          "end_seconds": 21.6,
+          "script_section_id": "s3",
+          "framing": "close-up, molecule centered, two horizontal lanes",
+          "movement": "red passes through; blue hits and bursts radially; \u00d75 springs in",
+          "transition_in": "dissolve",
+          "transition_out": "radial blue ripples expand to fill frame (wipe into sky)",
+          "overlay_notes": "Big '\u00d75' stat; small 'red' / 'blue' lane tags",
+          "shot_language": {
+            "shot_size": "close_up",
+            "camera_movement": "static",
+            "lighting_key": "low_key",
+            "color_temperature": "mixed"
+          },
+          "shot_intent": "Make the selective scattering visible and memorable",
+          "narrative_role": "deliver_payload",
+          "information_role": "Blue scatters ~5x more than red",
+          "hero_moment": true,
+          "texture_keywords": [
+            "clean",
+            "luminous",
+            "soft glow"
+          ],
+          "required_assets": [
+            {
+              "type": "remotion_component",
+              "description": "Hand-authored SVG/React scene in Composition.tsx (atelier)",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc5",
+          "type": "animation",
+          "description": "SUBJECT: a small person standing on a gentle hill, looking up. MOTION: blue light zig-zags between floating molecules across the sky; sky gradient fills from navy to bright cerulean; blue arrows converge on the person's eye from many directions. SCENE: daytime landscape silhouette, soft green-teal hill. FRAMING: wide, horizon in lower third, person small at right third. CAMERA: N/A \u2014 Remotion native vector scene, no virtual camera",
+          "start_seconds": 21.6,
+          "end_seconds": 26.8,
+          "script_section_id": "s4",
+          "framing": "wide landscape, horizon lower third, person right third",
+          "movement": "sky floods with blue; arrows converge on eye",
+          "transition_in": "radial ripple wipe",
+          "transition_out": "soft crossfade",
+          "overlay_notes": "None besides captions",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lighting_key": "natural",
+            "color_temperature": "cool"
+          },
+          "shot_intent": "Turn the micro mechanism into the everyday experience of a blue sky",
+          "narrative_role": "resolution",
+          "information_role": "Scattered blue reaches you from every direction",
+          "hero_moment": false,
+          "texture_keywords": [
+            "clean",
+            "luminous",
+            "soft glow"
+          ],
+          "required_assets": [
+            {
+              "type": "remotion_component",
+              "description": "Hand-authored SVG/React scene in Composition.tsx (atelier)",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc6",
+          "type": "diagram",
+          "description": "SUBJECT: the violet puzzle \u2014 a sky panel, a sunlight spectrum bar chart, and a stylized eye. MOTION: on 'purple sky?' the sky panel tints violet with a playful '?'; on 'Sun sends less violet' spectrum bars rise with the violet bar visibly short; on 'eyes are tuned to blue' an eye opens and a sensitivity curve draws, peaking near blue-green; sky panel settles back to blue. SCENE: twilight-navy background. FRAMING: split layout: sky panel left, chart + eye right. CAMERA: N/A \u2014 Remotion native vector scene, no virtual camera",
+          "start_seconds": 26.8,
+          "end_seconds": 34.15,
+          "script_section_id": "s5",
+          "framing": "split: sky panel left 40%, chart/eye right 60%",
+          "movement": "sequential reveals synced to phrases",
+          "transition_in": "crossfade",
+          "transition_out": "fade",
+          "overlay_notes": "'?' mark, tiny labels 'sunlight' and 'your eyes'",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "color_temperature": "mixed"
+          },
+          "shot_intent": "Answer the obvious follow-up question",
+          "narrative_role": "comparison",
+          "information_role": "Less violet in sunlight + eyes most sensitive to blue",
+          "hero_moment": false,
+          "texture_keywords": [
+            "clean",
+            "luminous",
+            "soft glow"
+          ],
+          "required_assets": [
+            {
+              "type": "remotion_component",
+              "description": "Hand-authored SVG/React scene in Composition.tsx (atelier)",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc7",
+          "type": "animation",
+          "description": "SUBJECT: a low sunset Sun on the horizon and the long curved path its light takes through a thick atmosphere slab. MOTION: Sun sinks; a curved band of air thickens along the path; blue wave fragments peel off and drift away along the path; only orange/red arrive at the viewer; sky warms to amber and rose. SCENE: sunset landscape, warm gradient. FRAMING: wide, horizon center-low, Sun at left near horizon, viewer marker right. CAMERA: N/A \u2014 Remotion native vector scene, no virtual camera",
+          "start_seconds": 34.15,
+          "end_seconds": 40.85,
+          "script_section_id": "s6",
+          "framing": "wide; horizon low; long curved light path left\u2192right",
+          "movement": "sun sinks, blue peels off along path, sky warms",
+          "transition_in": "fade",
+          "transition_out": "color hold into title",
+          "overlay_notes": "None besides captions",
+          "shot_language": {
+            "shot_size": "wide",
+            "camera_movement": "static",
+            "lighting_key": "golden_hour",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Pay off with the sunset everyone has seen \u2014 same physics",
+          "narrative_role": "emotional_beat",
+          "information_role": "Long path scatters blue away, leaving reds",
+          "hero_moment": false,
+          "texture_keywords": [
+            "clean",
+            "luminous",
+            "soft glow"
+          ],
+          "required_assets": [
+            {
+              "type": "remotion_component",
+              "description": "Hand-authored SVG/React scene in Composition.tsx (atelier)",
+              "source": "generate"
+            }
+          ]
+        },
+        {
+          "id": "sc8",
+          "type": "text_card",
+          "description": "SUBJECT: the closing line 'Sunlight, sorted by color.' over a dusk sky. MOTION: 'Same air.' and 'Same physics.' appear as two quiet lines timed to narration, then the title resolves with the six spectral colors sorting into order as a thin underline. SCENE: dusk gradient amber\u2192violet with first stars. FRAMING: centered typographic composition. CAMERA: N/A \u2014 Remotion native vector scene, no virtual camera",
+          "start_seconds": 40.85,
+          "end_seconds": 46.5,
+          "script_section_id": "s6",
+          "framing": "centered type",
+          "movement": "staggered line reveals; spectral underline sorts into order; slow fade out",
+          "transition_in": "color hold",
+          "transition_out": "fade to black",
+          "overlay_notes": "Text exact (rendered by Remotion, not generated)",
+          "shot_language": {
+            "shot_size": "medium",
+            "camera_movement": "static",
+            "color_temperature": "warm"
+          },
+          "shot_intent": "Land the core message",
+          "narrative_role": "call_to_action",
+          "information_role": "The blue sky is sunlight, sorted by color",
+          "hero_moment": false,
+          "texture_keywords": [
+            "clean",
+            "luminous",
+            "soft glow"
+          ],
+          "required_assets": [
+            {
+              "type": "remotion_component",
+              "description": "Hand-authored SVG/React scene in Composition.tsx (atelier)",
+              "source": "generate"
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "total_duration_seconds": 46.5,
+        "timing_source": "ElevenLabs Scribe word timings of narration take 1, adjusted for 1.08x tempo",
+        "art_direction": "projects/why-the-sky-is-blue/art-direction.md",
+        "signature_device": "blue splash (sc4; echoed in sc7 as blue peeling away)",
+        "scene_distinctness": {
+          "sc1": "Sun+Earth in space",
+          "sc2": "spectrum wave stack",
+          "sc3": "molecule field",
+          "sc4": "red vs blue at one molecule",
+          "sc5": "person under blue sky",
+          "sc6": "violet puzzle: chart+eye",
+          "sc7": "sunset light path",
+          "sc8": "closing typography"
+        },
+        "captions": "accessibility subtitles from word timings, bottom center, 2 lines max"
+      }
+    }
+  },
+  "review": {
+    "summary": "8 scenes, 0-46.5s, no gaps; types: animation x4, diagram x2, text_card x1 (+hero); no 3 consecutive same type; distinct subjects"
+  },
+  "cost_snapshot": {
+    "spent_usd_estimate": 1.8,
+    "breakdown": {
+      "elevenlabs_tts_4_takes": 0.55,
+      "elevenlabs_music_4_takes": 1.2,
+      "elevenlabs_scribe": 0.05
+    }
+  },
+  "metadata": {
+    "note": "Storyboard gate (user policy): scene_plan reviewed together with per-scene stills."
+  }
+}

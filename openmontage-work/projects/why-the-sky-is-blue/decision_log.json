@@ -204,6 +204,88 @@
       "reason": "Palette taken directly from the subject (space, day sky, sunset)",
       "user_visible": true,
       "user_approved": false
+    },
+    {
+      "decision_id": "d-voice-2",
+      "stage": "assets",
+      "category": "voice_selection",
+      "subject": "Narration TTS provider",
+      "options_considered": [
+        {
+          "option_id": "elevenlabs-abby",
+          "label": "ElevenLabs eleven_v4, voice Abby (IKuPqyuiEnnZFcU4OVzH)",
+          "score": 0.92,
+          "reason": "User requested ElevenLabs via connected MCP; warm, clear educational narrator"
+        },
+        {
+          "option_id": "piper",
+          "label": "Piper en_US-lessac-medium",
+          "score": 0.6,
+          "reason": "Free offline",
+          "rejected_because": "Changed by user to ElevenLabs"
+        }
+      ],
+      "selected": "elevenlabs-abby",
+      "reason": "User instruction. 4 takes generated; take 1 (Zmubg2...) chosen as tightest with clean section pauses; tempo 1.08x to land 45.3s.",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "d-music-2",
+      "stage": "assets",
+      "category": "music_source",
+      "subject": "Background music",
+      "options_considered": [
+        {
+          "option_id": "elevenlabs-music",
+          "label": "ElevenLabs eleven_music_v2_5 ambient bed",
+          "score": 0.9,
+          "reason": "User requested ElevenLabs"
+        },
+        {
+          "option_id": "pad",
+          "label": "Locally synthesized pad",
+          "score": 0.6,
+          "reason": "Free",
+          "rejected_because": "Changed by user to ElevenLabs"
+        }
+      ],
+      "selected": "elevenlabs-music",
+      "reason": "User instruction. 4 takes; take 2 (3x6Dl2...) chosen for steady level (LRA 5.0) and end fade aligning with video end when offset 2.5s; Scribe transcript empty => no vocals.",
+      "user_visible": true,
+      "user_approved": true
+    },
+    {
+      "decision_id": "d-runtime-2",
+      "stage": "script",
+      "category": "render_runtime_selection",
+      "subject": "Composition runtime",
+      "options_considered": [
+        {
+          "option_id": "remotion",
+          "label": "Remotion",
+          "score": 0.85,
+          "reason": "Recommended"
+        },
+        {
+          "option_id": "hyperframes",
+          "label": "HyperFrames",
+          "score": 0.75,
+          "reason": "Alternative",
+          "rejected_because": "User accepted recommendation at script gate"
+        },
+        {
+          "option_id": "ffmpeg",
+          "label": "FFmpeg",
+          "score": 0.2,
+          "reason": "Stills only",
+          "rejected_because": "Motion required"
+        }
+      ],
+      "selected": "remotion",
+      "reason": "Presented both at script gate; user approved without change",
+      "user_visible": true,
+      "user_approved": true
     }
   ]
 }
