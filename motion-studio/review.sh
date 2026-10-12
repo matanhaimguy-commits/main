@@ -3,8 +3,10 @@
 set -euo pipefail
 V=${1:-out/final.mp4}; T=${2:-4.1}
 mkdir -p out
-# Contact sheet: 2 frames per second, 6 across
-ffmpeg -loglevel error -y -i "$V" -vf "fps=2,scale=270:-1,tile=6x5" -frames:v 1 out/contact.png
+# Contact sheet: 2 frames per second, 6 across, as many rows as the video needs
+DUR=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$V")
+ROWS=$(python3 -c "import math; print(math.ceil(float('$DUR') * 2 / 6))")
+ffmpeg -loglevel error -y -i "$V" -vf "fps=2,scale=270:-1,tile=6x$ROWS" -frames:v 1 out/contact.png
 # Strip: 12 frames around a fast moment, to catch glitches
 ffmpeg -loglevel error -y -ss "$T" -i "$V" -vf "scale=320:-1,tile=12x1" -frames:v 1 out/strip.png
 # Phone test: how it reads at 360px wide

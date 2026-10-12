@@ -20,7 +20,7 @@ a reference (frame, video, or image folder), music (file or "synthesize").
 3. Measure or synthesize music. beats.py → beats.json.
 4. Write docs/shotlist.md on the beat grid. Show it and wait for OK.
 5. Build index.html with window.seek(t) using lib/motion.js springs. Follow motion-studio/CLAUDE.md.
-6. Contact sheet (review.sh) → critique → fix. 3 rounds minimum.
+6. Contact sheet (stills.mjs before rendering, review.sh after) → critique → fix. 3 rounds minimum.
 7. node render.mjs → sound → mix to -14 LUFS → out/final.mp4, all formats
    (`--w 1080 --h 1080` for 1:1, `--w 1920 --h 1080` for 16:9).
 8. Deliver final.mp4, contact.png, poster.png. Say what you'd improve next.
