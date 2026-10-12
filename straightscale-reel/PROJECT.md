@@ -1,7 +1,7 @@
 # PROJECT – StraightScale reel "Patchwork Marketing"
 Client: StraightScale (business growth partner, Tirana). Commercial use.
 Platform: Instagram + Facebook Reels, organic · 9:16 1080×1920 · 30 fps
-Length: ~50 s (to confirm) · Intensity: 3–4 (educational, premium, clear)
+Length: ~50 s (approved) · Intensity: 3–4 (educational, premium, clear)
 Language: Albanian VO + Albanian captions (informal "ti"), English check lines in plan only
 Goal: teach "when everyone says 'cilësi', customers compare only price" → CTA "Shkruaj ANALIZA në komente"
 Audience: service-business owners in Albania, 35–60
@@ -16,7 +16,7 @@ Rules: no founder name/face; no invented numbers/reviews/clients/deadlines; no p
 Data: ~1,800 active ads use "cilësi" (Meta Ad Library, 11 Oct 2026). Proof: €15K→€55K/mo consulting; €30K→€100K/mo courses; €0→€140K/mo new consulting.
 
 ## Approvals
-- (pending) VO script v1 — plan/script.md
+- 2026-10-12 19:14 UTC · VO script v1 APPROVED (hook A, ~50 s, default patchwork/gold-thread look, logo redrawn in code) — plan/script.md
 
 ## Open questions
 - Length ~50 s OK? · Visual vibe (default: premium charcoal/marble + gold "patchwork → one thread") · Real logo file?
