@@ -604,9 +604,9 @@ canvas/HyperFrames engines; the painted segment is cut in.
   - `paper`, `grain`, `brushWipe`, `iris` and `flash` all read W/H. `sheets.js` is laid out for
     landscape (sheets only).
   - Stage vertically: Clawd lower-middle at u ≈ 28–40 (it's wide, so in 1080 px use a closer size than
-    in 16:9), keep clear of the reel UI zones (top ~220 px, bottom ~420 px), and stack set pieces
-    vertically.
-  - (Not tested here; it follows directly from the code.)
+    in 16:9), keep clear of the platform UI zones in `motion-studio/CLAUDE.md` (top 250 px, bottom
+    400 px, right 140 px), and stack set pieces vertically.
+  - **Tested here** (section 8): u = 44 reads as a medium close-up on 1080 px wide.
 - **Text and claims:** the kit's no-text rule stays for the painted layer. Headlines, prices and CTAs go
   on top in our type layer, timed with the reads (the painted act leaves room for the copy, then the
   copy lands, one read at a time).
@@ -628,7 +628,8 @@ canvas/HyperFrames engines; the painted segment is cut in.
      work: strips show every frame of a take.
    - Use the same scoring loop from `motion-studio/CLAUDE.md`.
 4. **Render:**
-   - `--frames --workers=N` then `--encode` (resumable).
+   - `--frames --workers=N` then `--encode --chrome=...` (resumable). Here, plan ~5 s/frame low-fill
+     and ~45 s/frame full-fill; see section 8.
    - Output 24 fps 1080p (or 1080x1920 after the format change).
 5. **Composite into the reel:**
    - Bring the MP4 in as a full-frame segment or cutaway.
@@ -692,7 +693,8 @@ node gpu_probe.mjs /opt/pw-browsers/chromium-1194/chrome-linux/chrome
 CH=/opt/pw-browsers/chromium-1194/chrome-linux/chrome
 node render.mjs --chrome=$CH --soft-gl --loop=emotions --sheet=1 --cols=1 --w=1920 --out=out/emotions.jpg   # model sheet
 node render.mjs --chrome=$CH --soft-gl --sheet=1.0,2.6,4.4,7.5 --cols=2 --w=960 --out=out/demo_sheet.jpg    # contact sheet
-node render.mjs --chrome=$CH --soft-gl --frames --range=0:3 --workers=2 && node render.mjs --encode --out=out/video.mp4
+node render.mjs --chrome=$CH --soft-gl --frames --range=0:1 --workers=2 && node render.mjs --chrome=$CH --encode --out=out/video.mp4   # parallel frames, then encode
+node render.mjs --chrome=$CH --soft-gl --clip --range=0:4 --out=out/clip.mp4                                  # straight to MP4 (one worker)
 ```
 
 **Measured timings.**
@@ -713,7 +715,7 @@ node render.mjs --chrome=$CH --soft-gl --frames --range=0:3 --workers=2 && node 
 | same frames with **fills turned into flat washes** (test override, below) | 3x t=2.6 = 38 s wall, **65 CPU-s** total, almost all of it startup |
 | **demo 0–4 s MP4 without fills** (`--clip --range=0:4`, 96 frames) | **4.9–5.7 s/frame**, 487 s wall, 1,447 CPU-s (~15 CPU-s/frame). Correct 1920x1080 24 fps H.264 |
 | **9:16 brand test** (1080x1920, blue brand Clawd u=44 with its own fills, wash-only background) | 3 frames in 64 s wall including startup (~10 s/frame), 199 CPU-s |
-| PARALLEL_PLACEHOLDER | |
+| **demo 0–1 s MP4 with full fills**, `--frames --range=0:1 --workers=2` + `--encode` | 24 frames in 1,016 s wall = **42 s/frame effective**, 3,385 CPU-s (~140 CPU-s/frame). Two workers barely beat one: every page shares one SwiftShader GPU process on 4 CPUs |
 
 **What the fills cost:**
 
@@ -731,7 +733,8 @@ node render.mjs --chrome=$CH --soft-gl --frames --range=0:3 --workers=2 && node 
    - (a) a **low-fill design**: Clawd's own ~5 fills plus 1–3 large background fills, no
      fill-per-element; or
    - (b) the full-fill look rendered on a GPU machine.
-3. Use `--frames --workers=N` (resumable) rather than `--clip` for long renders.
+3. Use `--frames` for long renders because it's resumable. Extra `--workers` barely help on this
+   4-CPU box (one shared SwiftShader GPU process); they pay off on a GPU machine.
 
 **The no-fill preview override** (load it after `timeline.js`, remove it for the final):
 
@@ -766,7 +769,7 @@ node render.mjs --chrome=$CH --soft-gl --frames --range=0:3 --workers=2 && node 
 The result: thinking -> surprised (take, `!`) -> excited (spark), with the party hat, all in brand blue
 with mood tints still mixing in.
 
-**Test artefacts** (scratchpad, not kept in the repo): `cab-test/out/{emotions.jpg, demo_sheet_fill.jpg, bench_fill.jpg}`,
+**Test artefacts** (scratchpad, not kept in the repo): `cab-test/out/{emotions.jpg, demo_sheet_fill.jpg, bench_fill.jpg, demo_fill_0-1s.mp4, strip_fill_0-1s.jpg}`,
 `cab-nofill/out/{demo_sheet_nofill.jpg, demo_nofill_0-4s.mp4, contact_0-4s.jpg}`,
 `cab-916/out/brand916_sheet.jpg`.
 
@@ -784,6 +787,13 @@ with mood tints still mixing in.
   late). Benchmark with `--clip` or with wall totals.
 - **The 30 s navigation timeout** and the **Google Fonts link** (section 8): patch both in every
   project copy.
+- **`--encode` also needs `--chrome=`** (or `CHROME_PATH`). render.mjs looks Chrome up before it checks
+  the mode, so a plain `node render.mjs --encode` exits with "Chrome not found".
+- **`--encode` reads `out/frames/f%05d.jpg` from frame 0.** A `--frames --range` that doesn't start at 0
+  won't encode as is (use `--clip --range` for a mid-film excerpt).
+- **Large watercolour fills flicker.** In the full-fill render, the big violet sky fill changed density
+  visibly between boil drawings (12/s). On large background areas it reads as flicker, not boil. Keep
+  big fills at low `fillOp`/`bleed`, or check a strip before committing.
 - **Pure functions only:**
   - no `Math.random()`, no counters, no state between frames;
   - `hash()` for fixed randomness, `jit()`/`random()` for boil;

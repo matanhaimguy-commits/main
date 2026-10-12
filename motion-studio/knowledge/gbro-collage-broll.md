@@ -489,8 +489,8 @@ so the look, text-leaks and composition are all luck.
   - A brush or paper wipe made of a giant cardstock sheet sliding over also works.
 - **Text:** gbro forbids text inside the art. That's right: our captions and kinetic type sit on top in
   the negative space the still prompt reserves.
-- **Safe zones:** keep the subject in the middle 70% (gbro's rule), clear of IG/FB reel UI at the top
-  (~220 px of 1920) and bottom (~420 px).
+- **Safe zones:** keep the subject in the middle 70% (gbro's rule) and clear of the platform UI zones in
+  `motion-studio/CLAUDE.md` (top 250 px, bottom 400 px, right 140 px of a 1080x1920 frame).
 - **Sound:**
   - A soft paper slide on each entry, a crisp "tick" or cardboard tap on each snap, and a gentle rustle
     under the build. Synthesise them in `score.py` and place them on the snap times.
