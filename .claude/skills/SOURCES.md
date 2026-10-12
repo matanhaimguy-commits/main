@@ -14,3 +14,8 @@ Local changes:
 - onetake: GIF/MP4 previews of the example films removed; noncommercial warning added to the description.
 - gbro-collage-broll: README demo GIFs removed.
 - claude-animation-base: SKILL.md written for this repo; the kit itself is unchanged.
+
+## Complete reference copies
+The skill folders above are working copies. The five repos are also kept complete and unmodified
+(every example, preview video, style, block and model sheet) in `references/<name>/`, pinned to the
+commits listed here. They are gitignored; `bash references/fetch.sh` downloads them in any new session.
