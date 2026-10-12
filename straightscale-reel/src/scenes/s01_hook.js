@@ -1,82 +1,47 @@
 // S1 · Hook (0.00–3.00) "Të shkruajnë 'Sa kushton?'... dhe zhduken?"
-import { C, SANS, W, text, rr, ep, popIn, prog, E, shadow, noShadow, charcoalBg, rng, lerp } from "../lib.js";
+// Giant typing bubble → bursts into a ransom note → letters peel off and fly away on "zhduken".
+import { C, SERIF, SANS, W, H, text, rr, clamp, lerp, rng, measure } from "../lib.js";
+import { spring, track, paperBg, ransomWord, ransomWidth, tape } from "../fx.js";
 
+const L1 = "SA", L2 = "KUSHTON?";
 export default {
   id: "s01_hook", start: 0, end: 3.0,
   draw(ctx, t) {
-    charcoalBg(ctx);
-    const enter = ep(t, 0, 0.45, E.outQuart);
-    const px = 540, pw = 560, ph = 1000, top = 250 + (1 - enter) * 90;
-    const gone = ep(t, 2.08, 2.6); // customer disappears
-    ctx.save(); ctx.globalAlpha = enter;
-    // phone body
-    shadow(ctx, 60, 30, "rgba(0,0,0,0.55)");
-    ctx.fillStyle = "#111"; rr(ctx, px - pw / 2, top, pw, ph, 70); ctx.fill(); noShadow(ctx);
-    ctx.strokeStyle = "#3a3632"; ctx.lineWidth = 3; rr(ctx, px - pw / 2, top, pw, ph, 70); ctx.stroke();
-    const sx = px - pw / 2 + 16, sy = top + 16, sw = pw - 32, sh = ph - 32;
-    ctx.save(); rr(ctx, sx, sy, sw, sh, 56); ctx.clip();
-    ctx.fillStyle = C.ivory; ctx.fillRect(sx, sy, sw, sh);
-    // header
-    ctx.fillStyle = "#EFEAE0"; ctx.fillRect(sx, sy, sw, 150);
-    ctx.fillStyle = "#1a1a1a"; rr(ctx, px - 70, sy + 14, 140, 30, 15); ctx.fill(); // notch
-    const avA = 1 - gone * 0.75;
-    ctx.globalAlpha = enter * avA;
-    ctx.fillStyle = C.stone; ctx.beginPath(); ctx.arc(sx + 70, sy + 100, 30, 0, Math.PI * 2); ctx.fill();
-    text(ctx, "K", sx + 70, sy + 112, { size: 32, weight: 800, color: C.ivory, align: "center" });
-    ctx.globalAlpha = enter;
-    text(ctx, "Klient i ri", sx + 120, sy + 96, { size: 30, weight: 700, color: C.ink, alpha: avA });
-    const online = gone < 0.5;
-    ctx.fillStyle = online ? "#3BA55C" : "#9a948a";
-    ctx.beginPath(); ctx.arc(sx + 128, sy + 122, 7, 0, Math.PI * 2); ctx.fill();
-    text(ctx, online ? "online" : "offline", sx + 142, sy + 131, { size: 24, weight: 500, color: "#7d776d" });
-    // customer bubble "Sa kushton?"
-    const b = popIn(t, 0.88, 0.32);
-    if (t > 0.86) {
-      ctx.save();
-      const bx = sx + 34, by = sy + 260;
-      ctx.translate(bx, by + 50); ctx.scale(b, b); ctx.translate(-bx, -(by + 50));
-      ctx.globalAlpha = enter * (1 - gone * 0.6);
-      shadow(ctx, 16, 6, "rgba(0,0,0,0.12)");
-      ctx.fillStyle = C.marble; rr(ctx, bx, by, 330, 104, 34); ctx.fill(); noShadow(ctx);
-      ctx.beginPath(); ctx.moveTo(bx + 10, by + 104); ctx.lineTo(bx - 8, by + 118); ctx.lineTo(bx + 34, by + 96); ctx.fill();
-      text(ctx, "Sa kushton?", bx + 30, by + 66, { size: 44, weight: 700, color: C.ink });
-      text(ctx, "09:41", bx + 330 - 16, by + 132, { size: 20, weight: 500, color: "#9a948a", align: "right" });
-      ctx.restore();
-      // notification ring
-      const ring = prog(t, 0.9, 1.5);
-      if (ring > 0 && ring < 1) {
-        ctx.strokeStyle = `rgba(212,175,55,${0.7 * (1 - ring)})`; ctx.lineWidth = 6;
-        ctx.beginPath(); ctx.arc(bx + 165, by + 52, 80 + ring * 140, 0, Math.PI * 2); ctx.stroke();
-      }
-    }
-    // owner reply (right) + typing dots
-    if (t > 1.3 && t < 1.62) {
-      ctx.fillStyle = C.charcoal; rr(ctx, sx + sw - 160, sy + 430, 120, 64, 32); ctx.fill();
+    paperBg(ctx, "#ECE4D3", 3);
+    // camera: slow push, small kick on the burst
+    const cam = track(t, [[0, 1.0], [0.88, 1.035], [2.08, 1.06]], 120, 22);
+    ctx.translate(W / 2, 880); ctx.scale(cam, cam); ctx.translate(-W / 2, -880);
+
+    // 1) typing bubble (0 → 0.9), cropped off the left edge
+    const bub = spring(t + 0.6, 200, 20) * (1 - spring(t - 0.84, 320, 30));
+    if (bub > 0.01) {
+      ctx.save(); ctx.translate(430, 860); ctx.scale(bub, bub);
+      ctx.fillStyle = C.charcoal; rr(ctx, -560, -230, 1000, 460, 230); ctx.fill();
+      ctx.beginPath(); ctx.moveTo(-430, 170); ctx.lineTo(-560, 300); ctx.lineTo(-300, 210); ctx.fill();
       for (let i = 0; i < 3; i++) {
-        const a = 0.4 + 0.6 * Math.abs(Math.sin((t * 8) + i));
-        ctx.fillStyle = `rgba(248,246,239,${a})`; ctx.beginPath(); ctx.arc(sx + sw - 128 + i * 28, sy + 462, 7, 0, Math.PI * 2); ctx.fill();
+        const b = Math.sin(t * 9 - i * 0.9);
+        ctx.fillStyle = C.ivory; ctx.globalAlpha = 0.55 + 0.45 * Math.max(0, b);
+        ctx.beginPath(); ctx.arc(-200 + i * 200, -Math.max(0, b) * 34, 62, 0, Math.PI * 2); ctx.fill();
       }
-    }
-    if (t >= 1.62) {
-      const r = popIn(t, 1.62, 0.3);
-      const bw = 400, bx = sx + sw - 34 - bw, by = sy + 420;
-      ctx.save(); ctx.translate(bx + bw, by + 60); ctx.scale(r, r); ctx.translate(-(bx + bw), -(by + 60));
-      ctx.fillStyle = C.charcoal; rr(ctx, bx, by, bw, 132, 34); ctx.fill();
-      text(ctx, "Përshëndetje! Çmimi", bx + 28, by + 56, { size: 32, weight: 600, color: C.ivory });
-      text(ctx, "varet nga...", bx + 28, by + 100, { size: 32, weight: 600, color: C.ivory });
       ctx.restore();
-      if (t > 2.15) text(ctx, "Shikuar ✓✓", bx + bw - 6, by + 172, { size: 22, weight: 600, color: "#4F8FD9", align: "right", alpha: ep(t, 2.15, 2.4) });
     }
-    // customer leaves: dust particles from avatar
-    if (gone > 0 && gone < 1) {
-      const r = rng(3);
-      for (let i = 0; i < 26; i++) {
-        const a = r() * Math.PI * 2, d = 20 + gone * (60 + r() * 120);
-        ctx.fillStyle = `rgba(142,134,123,${(1 - gone) * 0.9})`;
-        ctx.beginPath(); ctx.arc(sx + 70 + Math.cos(a) * d, sy + 100 + Math.sin(a) * d - gone * 40, 3 + r() * 4, 0, Math.PI * 2); ctx.fill();
-      }
-    }
-    ctx.restore(); // clip
-    ctx.restore();
+
+    // 2) ransom note lands letter by letter on the spoken words
+    const s1 = 300, s2 = Math.min(220, (980 / ransomWidth(ctx, L2, 220, 11)) * 220);
+    const land1 = (i) => 0.86 + i * 0.07, land2 = (i) => 1.02 + i * 0.075;
+    // 3) "zhduken": each letter peels and flies out, accelerating, spinning
+    const fly = (seed, n) => (i) => {
+      const p = clamp((t - (2.06 + i * 0.035)) / 0.55); if (p <= 0) return null;
+      const r = rng(seed + i * 13), e = p * p;
+      const ang = -Math.PI / 2 + (r() - 0.5) * 2.4;
+      return { dx: Math.cos(ang) * 1500 * e, dy: Math.sin(ang) * 1700 * e - 120 * p, rot: (r() - 0.5) * 6 * e };
+    };
+    ransomWord(ctx, L1, W / 2, 700, s1, 5, t, land1, fly(100, L1.length));
+    ransomWord(ctx, L2, W / 2, 990, s2, 11, t, land2, fly(200, L2.length));
+
+    // a strip of tape left behind + "Shikuar ✓✓" (seen, then nothing)
+    const seen = spring(t - 2.45, 220, 24);
+    if (t > 2.1) tape(ctx, W / 2, 860, 260, 58, -0.06, 4, 0.7 * clamp((t - 2.1) * 4));
+    if (seen > 0.01) text(ctx, "Shikuar ✓✓", W / 2, 1000 + (1 - seen) * 30, { size: 46, weight: 700, color: "#8a8378", align: "center", alpha: clamp(seen) });
   },
 };

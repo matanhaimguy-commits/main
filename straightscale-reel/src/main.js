@@ -1,6 +1,7 @@
 // Entry: loads fonts + timing, exposes window.drawFrame(t) (pure function of t).
 import { W, H, C, SANS, text, measure, rr, prog, E, clamp } from "./lib.js";
 import { scenes } from "./scenes/index.js";
+import { captionStrip, spring } from "./fx.js";
 
 const q = new URLSearchParams(location.search);
 const SCALE = parseFloat(q.get("scale") || "1");
@@ -15,7 +16,7 @@ export const DURATION = 47.6;
 window.DURATION = DURATION;
 
 // Caption hidden where the same words are already big on screen.
-const NO_CAPTION = [[28.2, 31.15], [42.66, 99]];
+const NO_CAPTION = [[3.0, 4.7], [9.55, 13.62], [28.2, 31.15], [31.1, 35.05], [37.0, 42.66], [42.66, 99]];
 
 function buildGroups(words) {
   const g = []; let cur = [];
@@ -32,16 +33,21 @@ function drawCaptions(t) {
   if (NO_CAPTION.some(([a, b]) => t >= a && t < b)) return;
   const grp = GROUPS.find((g) => t >= g[0].s - 0.08 && t < g[g.length - 1].e + 0.18);
   if (!grp) return;
-  const size = 54, gap = 16, y = 1355;
+  let size = 54, gap = 16; const y = 1355;
   const parts = grp.map((w) => clean(w.w));
-  const widths = parts.map((p) => measure(ctx, p, { size, weight: 800 }));
-  const total = widths.reduce((a, b) => a + b, 0) + gap * (parts.length - 1);
-  const k = E.outCubic(prog(t, grp[0].s - 0.08, grp[0].s + 0.12));
+  let widths = parts.map((p) => measure(ctx, p, { size, weight: 800 }));
+  let total = widths.reduce((a, b) => a + b, 0) + gap * (parts.length - 1);
+  if (total > 780) { const f = 780 / total; size *= f; gap *= f; widths = widths.map((w) => w * f); total = 780; }
+  const CX = 500;
+  // strip snaps open from its left edge (spring, no fade)
+  const k = clamp(spring(t - (grp[0].s - 0.1), 420, 30), 0, 1.1);
+  if (k < 0.01) return;
   ctx.save();
-  ctx.globalAlpha = k;
-  ctx.fillStyle = "rgba(20,20,20,0.82)";
-  rr(ctx, W / 2 - total / 2 - 30, y - 62, total + 60, 88, 22); ctx.fill();
-  let x = W / 2 - total / 2;
+  ctx.save(); ctx.translate(CX - total / 2 - 26, 0); ctx.scale(k, 1); ctx.translate(-(CX - total / 2 - 26), 0);
+  captionStrip(ctx, CX - total / 2 - 26, y - 60, total + 52, 84);
+  ctx.restore();
+  if (k < 0.6) { ctx.restore(); return; }
+  let x = CX - total / 2;
   grp.forEach((w, i) => {
     const on = t >= w.s - 0.04;
     const active = t >= w.s - 0.04 && t < w.e + 0.05;
