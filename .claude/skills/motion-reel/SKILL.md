@@ -108,6 +108,11 @@ approval gate before the expensive part.
 | Collage B-roll for an abstract line | **Collage method** (`knowledge/gbro-collage-broll.md` §4) | Route C (code-only halftone collage) is free and on-brand; Route B (generated pieces animated in code) needs approved spend |
 | Photoreal imagery, product 3D, footage plates | Client footage first; else ElevenLabs/Higgs image, video or 3D generation **only with approved spend** | Composite inside HyperFrames or the canvas engine; log prompts and terms in CREDITS.md |
 
+HyperFrames lives in `<project>/film/` (`hyperframes init film --non-interactive --resolution portrait`, then
+vendor GSAP as `setup.sh` prints). `init` writes its own CLAUDE.md/AGENTS.md there: use them as framework notes,
+but this workflow and the house rules lead, and never run `hyperframes skills update` (it overwrites our pinned,
+edited skill copies).
+
 Specialty engines render their segment (MP4, or transparent WebM/PNG sequence) and it is placed on the
 HyperFrames master timeline, or the whole film stays in one engine when the look is one style.
 Building rules for every engine: deterministic pure function of time (no `Math.random`, timers or CSS
