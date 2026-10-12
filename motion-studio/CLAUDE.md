@@ -26,5 +26,7 @@
 ## Studio tools
 - lib/motion.js: closed-form spring() and track(). Use these instead of easing curves.
 - beats.py: `python3 beats.py audio/track.wav > beats.json`.
+- stills.mjs: `node stills.mjs --from 0.25 --step 0.5 --dur 20` contact sheet straight from index.html, no render needed.
 - review.sh: `./review.sh [out/final.mp4] [4.1]` writes contact, strip and phone sheets to out/.
+- render.mjs `--from 12 --dur 3` re-renders one segment; run 2-3 segments in parallel for long films and concat them.
 - API keys live in .env (e.g. ELEVENLABS_API_KEY). Never paste keys into prompts.

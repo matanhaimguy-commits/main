@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="sq">
+<head>
+<meta charset="utf-8">
+<title>StraightScale: Marketing copë-copë</title>
+<style>
+@font-face { font-family: "Playfair Display"; font-weight: 700; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-700-normal.woff2); }
+@font-face { font-family: "Playfair Display"; font-weight: 900; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-900-normal.woff2); }
+@font-face { font-family: "Playfair Display"; font-weight: 700; font-style: italic; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-700-italic.woff2); }
+@font-face { font-family: "Playfair Display"; font-weight: 900; font-style: italic; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-900-italic.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 500; src: url(assets/fonts/Montserrat/montserrat-latin-500-normal.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 600; src: url(assets/fonts/Montserrat/montserrat-latin-600-normal.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 700; src: url(assets/fonts/Montserrat/montserrat-latin-700-normal.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 800; src: url(assets/fonts/Montserrat/montserrat-latin-800-normal.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 900; src: url(assets/fonts/Montserrat/montserrat-latin-900-normal.woff2); }
+html, body { margin: 0; background: #1F1F1F; }
+canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script type="module">
+import { spring, track, clamp } from '../../lib/motion.js';
+
+const cv = document.getElementById('c');
+const ctx = cv.getContext('2d');
+const W = 1080, H = 1920, X0 = 96, MAXW = 888;
+const C = {
+  gold: '#D4AF37', crimson: '#B31217', ivory: '#F8F6EF', char: '#1F1F1F', marble: '#EDE4D6',
+  char2: '#292929', char3: '#363636', paper: '#FFFDF8', grey: '#8A857C',
+};
+const PF = (w, s, it = false) => `${it ? 'italic ' : ''}${w} ${s}px "Playfair Display"`;
+const MS = (w, s) => `${w} ${s}px Montserrat`;
+
+// ---------- springs ----------
+const TYPE = [190, 27], UI = [260, 24], POP = [320, 23], HEAVY = [70, 16];
+const sp = (t, t0, [k, d] = TYPE) => spring(t - t0, k, d);
+const mix = (a, b, p) => a + (b - a) * p;
+
+// ---------- seeded noise ----------
+function rng(seed) {
+  let s = seed >>> 0;
+  return () => { s = (s + 0x6D2B79F5) >>> 0; let x = s; x = Math.imul(x ^ (x >>> 15), x | 1); x ^= x + Math.imul(x ^ (x >>> 7), x | 61); return ((x ^ (x >>> 14)) >>> 0) / 4294967296; };
+}
+
+function makeGrain() {
+  const g = document.createElement('canvas'); g.width = g.height = 256;
+  const gx = g.getContext('2d'), img = gx.createImageData(256, 256), r = rng(11);
+  for (let i = 0; i < img.data.length; i += 4) { const v = r() * 255; img.data[i] = img.data[i + 1] = img.data[i + 2] = v; img.data[i + 3] = 255; }
+  gx.putImageData(img, 0, 0);
+  return g;
+}
+
+function makeMarble() {
+  const m = document.createElement('canvas'); m.width = W; m.height = H;
+  const mx = m.getContext('2d'), img = mx.createImageData(W, H), r = rng(5);
+  const G = 64, grid = new Float32Array((G + 1) * (G + 1)).map(() => r());
+  const vn = (x, y) => {
+    const xi = Math.floor(x) % G, yi = Math.floor(y) % G, xf = x - Math.floor(x), yf = y - Math.floor(y);
+    const a = grid[yi * (G + 1) + xi], b = grid[yi * (G + 1) + xi + 1], c = grid[(yi + 1) * (G + 1) + xi], d = grid[(yi + 1) * (G + 1) + xi + 1];
+    const u = xf * xf * (3 - 2 * xf), v = yf * yf * (3 - 2 * yf);
+    return a + (b - a) * u + (c - a) * v + (a - b - c + d) * u * v;
+  };
+  const base = [0xF8, 0xF6, 0xEF], vein = [0xE2, 0xD6, 0xC3];
+  for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+    const nx = x / 260, ny = y / 260;
+    const f = vn(nx, ny) * 0.5 + vn(nx * 2, ny * 2) * 0.25 + vn(nx * 4, ny * 4) * 0.125;
+    const v = Math.abs(Math.sin((x * 0.0021 + y * 0.0034 + f * 3.2) * Math.PI));
+    const k = Math.pow(1 - v, 22) * 0.45 + f * 0.10;
+    const i = (y * W + x) * 4;
+    for (let c = 0; c < 3; c++) img.data[i + c] = base[c] + (vein[c] - base[c]) * k;
+    img.data[i + 3] = 255;
+  }
+  mx.putImageData(img, 0, 0);
+  return m;
+}
+
+let GRAIN, MARBLE;
+
+function grain(t, alpha) {
+  const r = rng(Math.floor(t * 24) + 1);
+  ctx.save(); ctx.globalAlpha = alpha; ctx.globalCompositeOperation = 'overlay';
+  const ox = -Math.floor(r() * 256), oy = -Math.floor(r() * 256);
+  for (let y = oy; y < H; y += 256) for (let x = ox; x < W; x += 256) ctx.drawImage(GRAIN, x, y);
+  ctx.restore();
+}
+
+function bgDark(t) { ctx.fillStyle = C.char; ctx.fillRect(0, 0, W, H); grain(t, 0.07); }
+function bgLight(t) { ctx.drawImage(MARBLE, 0, 0); grain(t, 0.05); }
+
+// ---------- text ----------
+function setFont(f, ls = 0) { ctx.font = f; ctx.letterSpacing = ls + 'px'; }
+function measure(s, f, ls = 0) { setFont(f, ls); return ctx.measureText(s).width; }
+
+function wrap(s, f, maxW = MAXW) {
+  const words = s.split(' '), lines = [];
+  let cur = '';
+  for (const w of words) {
+    const next = cur ? cur + ' ' + w : w;
+    if (cur && measure(next, f) > maxW) { lines.push(cur); cur = w; } else cur = next;
+  }
+  if (cur) lines.push(cur);
+  return lines;
+}
+
+// A line of segments [{s, f, c, ls}], revealed by rising out of a mask.
+// tin: starts rising in; tout: starts rising out. size sets the mask box.
+function riseLine(t, segs, x, y, size, tin, tout = null, { align = 'left', k = TYPE } = {}) {
+  const pin = sp(t, tin, k), pout = tout == null ? 0 : sp(t, tout, k);
+  if (pin <= 0.001 || pout >= 0.999) return null;
+  const widths = segs.map((g) => measure(g.s, g.f, g.ls || 0));
+  const total = widths.reduce((a, b) => a + b, 0);
+  let cx = align === 'center' ? x - total / 2 : align === 'right' ? x - total : x;
+  const box = size * 1.45;
+  ctx.save();
+  ctx.beginPath(); ctx.rect(0, y - size * 1.08, W, box); ctx.clip();
+  const dy = (1 - pin) * box - pout * box;
+  const xs = [];
+  segs.forEach((g, i) => {
+    setFont(g.f, g.ls || 0); ctx.fillStyle = g.c; ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'left';
+    ctx.fillText(g.s, cx, y + dy);
+    xs.push([cx, cx + widths[i]]);
+    cx += widths[i];
+  });
+  ctx.restore();
+  return xs;
+}
+
+const one = (s, f, c, ls = 0) => [{ s, f, c, ls }];
+
+// Multi-line paragraph, each line staggered.
+function riseBlock(t, text, f, c, x, y, size, lh, tin, tout, stagger = 0.08, maxW = MAXW) {
+  const lines = Array.isArray(text) ? text : wrap(text, f, maxW);
+  lines.forEach((ln, i) => riseLine(t, one(ln, f, c), x, y + i * lh, size, tin + i * stagger, tout == null ? null : tout + i * 0.04));
+  return lines.length;
+}
+
+// ---------- shapes ----------
+function rrect(x, y, w, h, r) {
+  ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath();
+}
+
+function withXf(cx, cy, s, rot, fn) {
+  ctx.save(); ctx.translate(cx, cy); ctx.rotate(rot); ctx.scale(s, s); fn(); ctx.restore();
+}
+
+function star(cx, cy, r, fill) {
+  ctx.beginPath();
+  for (let i = 0; i < 10; i++) {
+    const a = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? r * 0.45 : r;
+    ctx.lineTo(cx + Math.cos(a) * rr, cy + Math.sin(a) * rr);
+  }
+  ctx.closePath(); ctx.fillStyle = fill; ctx.fill();
+}
+
+function person(cx, cy, r, bg, fg) {
+  ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.fillStyle = bg; ctx.fill();
+  ctx.save(); ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.clip();
+  ctx.fillStyle = fg;
+  ctx.beginPath(); ctx.arc(cx, cy - r * 0.18, r * 0.36, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.ellipse(cx, cy + r * 0.78, r * 0.68, r * 0.55, 0, 0, Math.PI * 2); ctx.fill();
+  ctx.restore();
+}
+
+function arrow(x1, y, x2, color, wgt = 6) {
+  ctx.strokeStyle = color; ctx.lineWidth = wgt; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.beginPath(); ctx.moveTo(x1, y); ctx.lineTo(x2, y); ctx.moveTo(x2 - 16, y - 14); ctx.lineTo(x2, y); ctx.lineTo(x2 - 16, y + 14); ctx.stroke();
+}
+
+function cursor(x, y, s) {
+  withXf(x, y, s, 0, () => {
+    ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0, 64); ctx.lineTo(16, 49); ctx.lineTo(28, 76); ctx.lineTo(40, 70); ctx.lineTo(28, 44); ctx.lineTo(48, 44); ctx.closePath();
+    ctx.fillStyle = C.ivory; ctx.fill(); ctx.lineWidth = 4; ctx.strokeStyle = C.char; ctx.stroke();
+  });
+}
+
+// Logo, redrawn from the brief: red rounded square, white S, small gold square top right.
+function logoMark(x, y, s) {
+  rrect(x, y, s, s, s * 0.22); ctx.fillStyle = C.crimson; ctx.fill();
+  setFont(MS(900, Math.round(s * 0.78))); ctx.fillStyle = '#FFFFFF'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText('S', x + s * 0.47, y + s * 0.54);
+  ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+  ctx.fillStyle = C.gold; ctx.fillRect(x + s * 0.70, y + s * 0.10, s * 0.19, s * 0.19);
+}
+
+function strike(x1, x2, y, p, color, thick = 20) {
+  if (p <= 0) return;
+  ctx.fillStyle = color; ctx.fillRect(x1 - 8, y - thick / 2, (x2 - x1 + 16) * clamp(p, 0, 1.05), thick);
+}
+
+function chip(x, y, label, bg, fg, size = 30) {
+  setFont(MS(800, size), size * 0.12); const w = ctx.measureText(label).width + size * 1.2;
+  rrect(x, y, w, size * 1.7, size * 0.3); ctx.fillStyle = bg; ctx.fill();
+  ctx.fillStyle = fg; ctx.textBaseline = 'middle'; ctx.fillText(label, x + size * 0.6, y + size * 0.88); ctx.textBaseline = 'alphabetic';
+  return w;
+}
+
+// ================= SCENES =================
+
+// S1 0.0-3.5: "Sa kushton?" x3 ... dhe zhduken.
+function s1(t) {
+  const rows = [[X0 - 20, 560, -0.22], [X0 + 90, 860, 0.5], [X0 + 10, 1160, 1.0]];
+  rows.forEach(([x, y, tin], i) => {
+    const p = sp(t, tin, POP);
+    if (p <= 0.001) return;
+    const ft = Math.max(0, t - (1.85 + i * 0.07)), fall = 5200 * ft * ft;
+    const yy = y + (1 - p) * 60 + fall, rot = ft * (i % 2 ? 0.9 : -0.8);
+    withXf(x + 60, yy, mix(0.6, 1, p) * 1.3, rot, () => {
+      person(0, 0, 48, C.char3, '#5A5650');
+      setFont(MS(700, 66)); const tw = ctx.measureText('Sa kushton?').width;
+      rrect(80, -62, tw + 92, 124, 44); ctx.fillStyle = C.ivory; ctx.fill();
+      ctx.beginPath(); ctx.moveTo(84, 22); ctx.lineTo(62, 50); ctx.lineTo(112, 34); ctx.fill();
+      ctx.fillStyle = C.char; ctx.textBaseline = 'middle'; ctx.fillText('Sa kushton?', 126, 2); ctx.textBaseline = 'alphabetic';
+      const seen = sp(t, 1.5 + i * 0.05, UI);
+      if (seen > 0.01) {
+        ctx.save(); ctx.translate(96 + tw, 98); ctx.scale(seen, seen);
+        ctx.strokeStyle = C.gold; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+        for (const o of [0, 16]) { ctx.beginPath(); ctx.moveTo(-34 + o, 0); ctx.lineTo(-24 + o, 10); ctx.lineTo(-6 + o, -10); ctx.stroke(); }
+        setFont(MS(600, 30)); ctx.fillStyle = C.marble; ctx.fillText('Parë', 18, 10);
+        ctx.restore();
+      }
+    });
+  });
+  riseLine(t, one('...dhe', PF(700, 150, true), C.ivory), X0, 860, 150, 2.28, 3.3);
+  riseLine(t, one('zhduken.', PF(900, 190, true), C.gold), X0, 1060, 190, 2.36, 3.34);
+}
+
+// S2 3.5-6.0: Problemi nuk është çmimi.
+function s2(t) {
+  riseLine(t, one('Problemi', PF(900, 168), C.ivory), X0, 760, 168, 3.5, 5.78);
+  riseLine(t, one('nuk është', PF(700, 168, true), C.ivory), X0, 950, 168, 3.58, 5.82);
+  const xs = riseLine(t, one('çmimi.', PF(900, 210), C.gold), X0, 1180, 210, 3.66, 5.86);
+  if (xs && t < 5.86) strike(xs[0][0], xs[0][1] - 40, 1112, sp(t, 4.5, UI), C.crimson, 26);
+}
+
+// S3 6.0-11.5: ad wall + 1.800
+const STAMPS = ['CILËSI', 'ÇMIMET MË\nTË MIRA', 'CILËSI', 'CILËSI', 'CILËSI\nE GARANTUAR', 'ÇMIMET MË\nTË MIRA'];
+function adCard(x, y, w, h, i, stampP) {
+  rrect(x, y, w, h, 22); ctx.fillStyle = C.char2; ctx.fill();
+  rrect(x + 18, y + 18, w - 36, h * 0.5, 14); ctx.fillStyle = C.char3; ctx.fill();
+  ctx.fillStyle = '#444';
+  ctx.fillRect(x + 18, y + h * 0.5 + 40, w * 0.7, 14); ctx.fillRect(x + 18, y + h * 0.5 + 66, w * 0.45, 14);
+  rrect(x + 18, y + h - 62, w - 36, 44, 12); ctx.fillStyle = '#3E3E3E'; ctx.fill();
+  if (stampP > 0.001) {
+    const lines = STAMPS[i % STAMPS.length].split('\n');
+    withXf(x + w / 2, y + h * 0.27, mix(1.9, 1, stampP), -0.08, () => {
+      const fs = lines.length > 1 ? 34 : 46;
+      setFont(MS(900, fs), 2);
+      const bw = Math.max(...lines.map((l) => ctx.measureText(l).width)) + 34, bh = lines.length * fs * 1.12 + 22;
+      rrect(-bw / 2, -bh / 2, bw, bh, 8); ctx.fillStyle = C.crimson; ctx.fill();
+      ctx.fillStyle = C.ivory; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      lines.forEach((l, j) => ctx.fillText(l, 0, (j - (lines.length - 1) / 2) * fs * 1.12 + 2));
+      ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic';
+    });
+  }
+}
+function s3(t) {
+  // the wall: 9 x 15 cards, the first 3 x 3 visible before the pull-back
+  const cw = 270, ch = 330, gap = 39;
+  const pull = sp(t, 8.0, HEAVY);
+  const scale = mix(1, 0.34, pull);
+  const leave = sp(t, 11.3, TYPE);
+  ctx.save();
+  ctx.translate(W / 2, mix(1010, 980, pull) - leave * 1900); ctx.scale(scale, scale);
+  const cols = 9, rows = 15, ox = -(cols * cw + (cols - 1) * gap) / 2, oy = -(3 * ch + 2 * gap) / 2 - 6 * (ch + gap);
+  for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
+    const center = c >= 3 && c < 6 && r >= 6 && r < 9;
+    const ri = r - 6;
+    const tin = center ? 6.0 + (ri * 3 + (c - 3)) * 0.045 : 8.0 + ((r * 7 + c * 3) % 11) * 0.02;
+    const p = sp(t, tin, UI);
+    if (p <= 0.001) continue;
+    const tstamp = center ? 6.5 + ri * 0.5 : 8.0 + ((r * 5 + c * 2) % 7) * 0.05;
+    const x = ox + c * (cw + gap), y = oy + r * (ch + gap);
+    withXf(x + cw / 2, y + ch / 2 + (1 - p) * 120, mix(0.85, 1, p), 0, () => adCard(-cw / 2, -ch / 2, cw, ch, r * cols + c, sp(t, tstamp, POP)));
+  }
+  ctx.restore();
+
+  // headline
+  riseLine(t, one('Ti flet njësoj', PF(900, 124), C.ivory), X0, 330, 124, 6.0, 7.82);
+  riseLine(t, one('si të gjithë.', PF(700, 124, true), C.gold), X0, 470, 124, 6.08, 7.86);
+
+  // counter over the dimmed wall
+  const dim = sp(t, 8.35, TYPE) * (1 - leave);
+  if (dim > 0.001) {
+    ctx.fillStyle = `rgba(31,31,31,${0.82 * dim})`; ctx.fillRect(0, 0, W, H);
+    const v = Math.round(1800 * sp(t, 8.6, [40, 13]) / 10) * 10;
+    const num = v >= 1000 ? Math.floor(v / 1000) + '.' + String(v % 1000).padStart(3, '0') : String(v);
+    riseLine(t, one('RRETH', MS(800, 44), C.marble, 10), X0, 560, 44, 8.45, 11.05);
+    riseLine(t, one(num, PF(900, 330), C.gold), X0 - 10, 860, 330, 8.5, 11.22);
+    riseLine(t, one('reklama aktive në Shqipëri', PF(700, 76), C.ivory), X0, 1010, 76, 8.9, 11.25);
+    riseLine(t, [{ s: 'thonë ', f: PF(700, 76), c: C.ivory }, { s: '“cilësi”.', f: PF(900, 76, true), c: C.gold }], X0, 1110, 76, 9.0, 11.28);
+    riseLine(t, one('Burimi: Meta Ad Library, 11.10.2026', MS(600, 34), C.marble), X0, 1210, 34, 9.3, 11.3);
+  }
+}
+
+// S4 11.5-15.0: identical cards, only the price differs
+function s4(t) {
+  riseLine(t, one('Kur të gjithë thonë', PF(700, 104), C.ivory), X0, 330, 104, 11.5, 14.75);
+  riseLine(t, one('të njëjtën gjë,', PF(700, 104, true), C.ivory), X0, 455, 104, 11.58, 14.78);
+  const tags = ['€€€', '€€', '€'];
+  const cw = 268, ch = 380, gap = 42, x0 = (W - (3 * cw + 2 * gap)) / 2, y0 = 610;
+  const click = 13.5;
+  const out = sp(t, 14.8, TYPE);
+  tags.forEach((tag, i) => {
+    const p = sp(t, 11.65 + i * 0.1, UI);
+    if (p <= 0.001) return;
+    const chosen = i === 2, pick = sp(t, click, POP);
+    const lift = chosen ? -40 * pick : 30 * pick;
+    const x = x0 + i * (cw + gap) + (1 - p) * 700 - out * 1300, y = y0 + lift;
+    ctx.save(); ctx.globalAlpha = chosen ? 1 : 1 - 0.55 * pick;
+    adCard(x, y, cw, ch, 0, 1);
+    // price tag hanging under the card
+    ctx.strokeStyle = C.marble; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x + cw / 2, y + ch); ctx.lineTo(x + cw / 2, y + ch + 40); ctx.stroke();
+    rrect(x + cw / 2 - 90, y + ch + 40, 180, 96, 18); ctx.fillStyle = chosen && pick > 0.5 ? C.gold : C.marble; ctx.fill();
+    setFont(MS(900, 52)); ctx.fillStyle = C.char; ctx.textAlign = 'center'; ctx.fillText(tag, x + cw / 2, y + ch + 108); ctx.textAlign = 'left';
+    ctx.restore();
+    if (chosen && pick > 0.01) { rrect(x - 8, y - 8, cw + 16, ch + 16, 28); ctx.strokeStyle = C.gold; ctx.lineWidth = 6 * pick; ctx.stroke(); }
+  });
+  // cursor glides to the cheapest card and clicks it
+  if (t > 12.2 && out < 0.99) {
+    const tx = x0 + 2 * (cw + gap) + cw / 2 + 20, ty = y0 + ch + 70;
+    const cx = track(t, [[0, 1150], [12.3, tx - 360], [12.9, tx]], 120, 22) - out * 1300;
+    const cy = track(t, [[0, 1700], [12.3, ty + 160], [12.9, ty]], 120, 22);
+    const press = clamp((t - click) / 0.06, 0, 1) * (1 - clamp((t - click - 0.06) / 0.1, 0, 1));
+    cursor(cx, cy, 1.25 - 0.18 * press);
+  }
+  riseLine(t, one('klienti krahason', PF(700, 104), C.ivory), X0, 1330, 104, 13.62, 14.82);
+  riseLine(t, one('vetëm çmimin.', PF(900, 124, true), C.gold), X0, 1475, 124, 13.7, 14.86);
+}
+
+// S5 15.0-20.0: patchwork marketing
+const PATCHES = [
+  { k: 'FAQJA', v: 'një person', bg: C.marble, fg: C.char, lab: C.crimson, rot: -0.07, x: 96, y: 640 },
+  { k: 'REKLAMAT', v: 'një agjenci', bg: C.crimson, fg: C.ivory, lab: C.ivory, rot: 0.05, x: 556, y: 690 },
+  { k: 'INSTAGRAMI', v: 'nipi', bg: C.char3, fg: C.ivory, lab: C.gold, rot: 0.045, x: 120, y: 1050 },
+  { k: 'TELEFONI', v: 'kush është afër', bg: C.gold, fg: C.char, lab: C.char, rot: -0.055, x: 540, y: 1010 },
+];
+function patch(pt, w, h, value, stitchColor, stitchP = 1) {
+  rrect(0, 0, w, h, 14); ctx.fillStyle = pt.bg; ctx.fill();
+  if (stitchP > 0) {
+    ctx.save(); ctx.setLineDash([18, 14]); ctx.lineWidth = 4; ctx.strokeStyle = stitchColor;
+    rrect(14, 14, w - 28, h - 28, 8); ctx.stroke(); ctx.restore();
+  }
+  setFont(MS(800, 34), 5); ctx.fillStyle = pt.lab; ctx.fillText(pt.k, 44, 92);
+  const lines = wrap(value, PF(700, 62, true), w - 88);
+  setFont(PF(700, 62, true)); ctx.fillStyle = pt.fg;
+  lines.forEach((l, i) => ctx.fillText(l, 44, 178 + i * 70));
+}
+function s5(t) {
+  riseLine(t, one('Kjo quhet marketing', PF(700, 92), C.ivory), X0, 330, 92, 15.0, 17.9);
+  riseLine(t, one('copë-copë.', PF(900, 150, true), C.gold), X0, 480, 150, 15.08, 17.94);
+  riseLine(t, one('Askush s’i pyeti', PF(700, 112), C.ivory), X0, 330, 112, 18.05);
+  riseLine(t, one('klientët.', PF(900, 112, true), C.gold), X0, 460, 112, 18.13);
+  const tear = sp(t, 18.5, [80, 14]);
+  PATCHES.forEach((pt, i) => {
+    const tin = 16.0 + i * 0.5, p = sp(t, tin - 0.08, POP);
+    if (p <= 0.001) return;
+    const dx = (i % 2 ? 1 : -1) * 70 * tear, dy = (i < 2 ? -1 : 1) * 60 * tear;
+    withXf(pt.x + 212 + dx, pt.y + 165 + dy, mix(1.35, 1, p), pt.rot * (1 + 1.6 * tear) + (1 - p) * 0.25, () => {
+      ctx.translate(-212, -165); patch(pt, 424, 330, pt.v, pt.bg === C.char3 ? '#5A5650' : 'rgba(31,31,31,0.35)');
+    });
+  });
+}
+
+// S6 20.0-24.0: the turn, step 1
+const PROMISE = ['Instalim brenda', '10 ditëve.', 'Data në kontratë.'];
+function stepHead(t, n, tin, tout) {
+  riseLine(t, one(String(n), PF(900, 230), C.crimson), X0 - 8, 520, 230, tin, tout);
+}
+function reviewCard(x, y, w, h, hlT, t, seed) {
+  ctx.fillStyle = 'rgba(31,31,31,0.07)'; rrect(x + 6, y + 10, w, h, 24); ctx.fill();
+  rrect(x, y, w, h, 24); ctx.fillStyle = C.paper; ctx.fill();
+  person(x + 70, y + 70, 40, C.marble, '#CFC3AF');
+  for (let s = 0; s < 5; s++) star(x + 140 + s * 40, y + 58, 16, s < 4 + (seed % 2) ? C.gold : C.marble);
+  const r = rng(seed);
+  const bars = [0.82, 0.64, 0.74].map((m) => m * (0.85 + r() * 0.15));
+  bars.forEach((b, i) => {
+    const by = y + 110 + i * 34, bw = (w - 160) * b;
+    if (i === 1 && hlT != null) {
+      const hp = sp(t, hlT, UI);
+      if (hp > 0.001) { ctx.fillStyle = 'rgba(212,175,55,0.55)'; ctx.fillRect(x + 112, by - 8, (bw + 16) * hp, 30); }
+    }
+    ctx.fillStyle = '#D9CDB9'; rrect(x + 120, by, bw, 14, 7); ctx.fill();
+  });
+}
+function s6(t) {
+  riseLine(t, one('JA ÇFARË BËN:', MS(800, 44), C.crimson, 8), X0, 290, 44, 20.0, 23.75);
+  stepHead(t, 1, 20.05, 23.78);
+  riseLine(t, one('Lexo çfarë', PF(700, 112), C.char), X0, 680, 112, 20.12, 23.8);
+  riseLine(t, one('shkruajnë klientët.', PF(900, 112, true), C.char), X0, 810, 112, 20.2, 23.83);
+  riseLine(t, one('Në komente dhe vlerësime,', MS(600, 48), C.char), X0, 920, 48, 20.7, 23.86);
+  riseLine(t, one('për ty dhe për konkurrentët.', MS(600, 48), C.char), X0, 985, 48, 20.76, 23.88);
+  const scroll = track(t, [[0, 0], [21.0, -40], [22.0, -110], [23.0, -180]], 90, 19);
+  const out = sp(t, 23.85, TYPE);
+  [[1080, 21.5, 3], [1300, 22.5, 8], [1520, null, 13]].forEach(([y, hl, seed], i) => {
+    const p = sp(t, 20.5 + i * 0.12, UI);
+    if (p <= 0.001) return;
+    reviewCard(X0 + (1 - p) * 900 - out * 1100, y + scroll + 60, MAXW, 190, hl, t, seed);
+  });
+}
+
+// S7 24.0-30.0: step 2, a promise nobody else makes
+function s7(t) {
+  stepHead(t, 2, 24.0, 25.6);
+  riseLine(t, one('Ktheje në', PF(700, 112), C.char), X0, 680, 112, 24.1, 25.62);
+  riseLine(t, one('një premtim që', PF(700, 112), C.char), X0, 810, 112, 24.18, 25.65);
+  riseLine(t, one('s’e bën askush.', PF(900, 112, true), C.crimson), X0, 940, 112, 24.26, 25.68);
+  // phase B
+  riseLine(t, [{ s: '2  ', f: MS(900, 44), c: C.crimson }, { s: 'NJË PREMTIM QË S’E BËN ASKUSH', f: MS(800, 40), c: C.char, ls: 3 }], X0, 300, 44, 25.75, 29.78);
+  riseLine(t, one('Jo', MS(800, 64), C.char), X0, 560, 64, 25.8, 29.8);
+  const xs = riseLine(t, one('“cilësi”,', PF(900, 190, true), C.char), X0, 760, 190, 25.85, 29.82);
+  if (xs && t < 29.82) strike(xs[0][0], xs[0][1] - 30, 700, sp(t, 26.0, UI), C.crimson, 24);
+  riseLine(t, one('por:', MS(800, 64), C.char), X0, 900, 64, 26.6, 29.84);
+  const p = sp(t, 27.0, POP), out = sp(t, 29.8, TYPE);
+  if (p > 0.001 && out < 0.999) {
+    withXf(W / 2, 1210 + (1 - p) * 160 - out * 1500, mix(0.88, 1, p), 0, () => {
+      const w = MAXW, h = 430;
+      rrect(-w / 2, -h / 2, w, h, 28); ctx.fillStyle = C.char; ctx.fill();
+      ctx.fillStyle = C.gold; ctx.fillRect(-w / 2, -h / 2 + 40, 12, h - 80);
+      chip(-w / 2 + 56, -h / 2 + 40, 'SHEMBULL', C.gold, C.char, 28);
+      setFont(PF(700, 82, true)); ctx.fillStyle = C.ivory;
+      PROMISE.forEach((l, i) => ctx.fillText((i === 0 ? '“' : '') + l + (i === 2 ? '”' : ''), -w / 2 + 56, -h / 2 + 200 + i * 92));
+    });
+  }
+}
+
+// S8 30.0-34.0: step 3, say it everywhere
+const SLOTS = [[X0, 840], [X0 + 454, 840], [X0, 1180], [X0 + 454, 1180]];
+const EVERY = ['REKLAMAT', 'FAQJA', 'INSTAGRAMI', 'TELEFONI'];
+function s8(t) {
+  stepHead(t, 3, 30.0, 33.78);
+  riseLine(t, one('Thuaje kudo.', PF(900, 140), C.char), X0, 720, 140, 30.1, 33.8);
+  const out = sp(t, 33.8, TYPE);
+  EVERY.forEach((k, i) => {
+    const p = sp(t, 30.05 + i * 0.06, [150, 21]), src = PATCHES[i];
+    if (p <= 0.001) return;
+    const [sx, sy] = [src.x + 212, src.y + 165 + 500];
+    const [dx, dy] = [SLOTS[i][0] + 210, SLOTS[i][1] + 155];
+    withXf(mix(sx, dx, p) - out * 1300, mix(sy, dy, p), 1, src.rot * (1 - p) * 3, () => {
+      ctx.translate(-210, -155);
+      const pt = { k, bg: C.char, fg: C.ivory, lab: C.gold };
+      rrect(0, 0, 420, 310, 14); ctx.fillStyle = pt.bg; ctx.fill();
+      setFont(MS(800, 30), 5); ctx.fillStyle = C.gold; ctx.fillText(k, 40, 76);
+      setFont(PF(700, 46, true)); ctx.fillStyle = C.ivory;
+      ['“Instalim brenda', '10 ditëve. Data', 'në kontratë.”'].forEach((l, j) => ctx.fillText(l, 40, 150 + j * 54));
+    });
+  });
+  // gold stitches along the seams, drawn one by one
+  const seams = [
+    [[X0 + 432, 860], [X0 + 432, 1470]], [[X0 + 20, 1165], [X0 + 868, 1165]],
+    [[X0, 828], [X0 + 874, 828]], [[X0, 1502], [X0 + 874, 1502]],
+  ];
+  seams.forEach(([[ax, ay], [bx, by]], i) => {
+    const p = sp(t, 31.0 + i * 0.5, UI) * (1 - out);
+    if (p <= 0.001) return;
+    ctx.save(); ctx.setLineDash([22, 16]); ctx.lineWidth = 7; ctx.strokeStyle = C.gold; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(mix(ax, bx, p), mix(ay, by, p)); ctx.stroke(); ctx.restore();
+  });
+}
+
+// S9 34.0-38.0: the payoff
+function s9(t) {
+  riseLine(t, one('Klienti zgjedh', PF(900, 128), C.char), X0, 700, 128, 34.05, 37.8);
+  riseLine(t, one('atë që', PF(700, 128, true), C.char), X0, 850, 128, 34.15, 37.82);
+  riseLine(t, one('e kupton.', PF(900, 128), C.char), X0, 1000, 128, 34.25, 37.84);
+  const xs = riseLine(t, one('Jo më të lirin.', PF(700, 128, true), C.crimson), X0, 1220, 128, 36.0, 37.86);
+  // the cheapest tag from earlier swings in, then drops
+  const p = sp(t, 34.6, POP), drop = sp(t, 36.05, [60, 10]);
+  if (p > 0.001 && drop < 0.999) {
+    withXf(820, 1420 - (1 - p) * 700 + drop * 900, 1, Math.sin((t - 34.6) * 5) * 0.12 * Math.exp(-(t - 34.6) * 1.6) + drop * 0.6, () => {
+      ctx.strokeStyle = C.char; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(0, -90); ctx.lineTo(0, -40); ctx.stroke();
+      rrect(-90, -40, 180, 110, 18); ctx.fillStyle = C.marble; ctx.fill(); ctx.strokeStyle = C.char; ctx.lineWidth = 3; ctx.stroke();
+      setFont(MS(900, 60)); ctx.fillStyle = C.char; ctx.textAlign = 'center'; ctx.fillText('€', 0, 38); ctx.textAlign = 'left';
+    });
+  }
+}
+
+// S10 38.0-42.5: proof
+const PROOF = [
+  ['Firmë konsulence', 15, 55, 39.0], ['Biznes kursesh', 30, 100, 39.5], ['Konsulencë e re', 0, 140, 40.0],
+];
+function s10(t) {
+  const lp = sp(t, 38.0, POP), out = sp(t, 42.25, TYPE);
+  if (lp > 0.001 && out < 0.999) withXf(X0 + 66, 340 - out * 1500, mix(0.4, 1, lp), (1 - lp) * -0.4, () => logoMark(-66, -66, 132));
+  riseLine(t, one('Këtë bëjmë ne', PF(700, 72), C.char), X0 + 172, 330, 72, 38.1, 42.25);
+  riseLine(t, one('te StraightScale.', PF(900, 72, true), C.char), X0 + 172, 412, 72, 38.18, 42.28);
+  riseLine(t, one('EKIPI YNË RRITI:', MS(800, 40), C.crimson, 8), X0, 590, 40, 38.4, 42.3);
+  PROOF.forEach(([label, a, b, tg], i) => {
+    const y = 720 + i * 270, tin = 38.5 + i * 0.12, tout = 42.32 + i * 0.04;
+    riseLine(t, one(label, MS(700, 44), C.char), X0, y, 44, tin, tout);
+    const g = sp(t, tg, [110, 20]);
+    const v = Math.round(mix(a, b, clamp(g, 0, 1)));
+    riseLine(t, [{ s: `€${a}K`, f: MS(700, 48), c: C.grey }, { s: '      ', f: MS(700, 48), c: C.char }, { s: `€${v}K`, f: MS(800, 96), c: C.char }, { s: ' /muaj', f: MS(600, 40), c: C.char }], X0, y + 118, 104, tin + 0.05, tout);
+    const ap = sp(t, tin + 0.05) * (1 - sp(t, tout));
+    if (ap > 0.01) { setFont(MS(700, 48)); const ax = X0 + ctx.measureText(`€${a}K`).width + 16; arrow(ax, y + 100 + (1 - ap) * 60, ax + 64, C.crimson, 6); }
+    const bp = sp(t, tin + 0.1, UI) * (1 - sp(t, tout, TYPE));
+    if (bp > 0.001) {
+      const by = y + 162;
+      rrect(X0, by, MAXW * bp, 20, 10); ctx.fillStyle = C.marble; ctx.fill();
+      const w = MAXW * mix(a, b, clamp(g, 0, 1.02)) / 140 * bp;
+      if (w > 2) { rrect(X0, by, w, 20, 10); ctx.fillStyle = C.crimson; ctx.fill(); }
+    }
+  });
+}
+
+// S11a 42.5-46.0: the offer
+function s11a(t) {
+  riseLine(t, [{ s: 'Analizë ', f: PF(900, 140), c: C.ivory }, { s: 'falas,', f: PF(900, 140, true), c: C.gold }], X0, 560, 140, 42.6, 45.8);
+  riseLine(t, one('45 minuta.', PF(700, 140), C.ivory), X0, 720, 140, 42.7, 45.82);
+  const items = [['Në zyrën tonë në Tiranë', 43.0], ['ose te biznesi yt.', 43.0], ['Pa detyrim.', 43.5], ['Të tregojmë edhe reklamat', 44.0], ['e konkurrentëve të tu.', 44.0]];
+  items.forEach(([s, tin], i) => {
+    const y = 900 + i * 92 + (i >= 2 ? 40 : 0) + (i >= 3 ? 40 : 0);
+    const first = i === 0 || i === 2 || i === 3;
+    riseLine(t, one(s, MS(600, 52), C.ivory), X0 + 56, y, 52, tin + (first ? 0 : 0.08), 45.84 + i * 0.02);
+    if (first) {
+      const p = sp(t, tin, POP) * (1 - sp(t, 45.84 + i * 0.02));
+      if (p > 0.01) withXf(X0 + 14, y - 18, p, 0, () => { ctx.fillStyle = C.gold; ctx.fillRect(-14, -14, 28, 28); });
+    }
+  });
+}
+
+// S11b 46.0-50.0: CTA + logo lockup
+function s11b(t) {
+  riseLine(t, one('Shkruaj', PF(900, 132), C.char), X0, 420, 132, 46.05);
+  const typed = clamp(Math.floor((t - 46.5) / 0.125) + 1, 0, 7);
+  riseLine(t, one('ANALIZA', MS(900, 168), C.crimson, 6), X0 - 6, 610, 168, 46.15);
+  riseLine(t, one('në komente.', PF(700, 132, true), C.char), X0, 770, 132, 46.25);
+  // the comment field
+  const fp = sp(t, 46.2, UI);
+  if (fp > 0.001) {
+    const y = 870 + (1 - fp) * 120;
+    ctx.fillStyle = 'rgba(31,31,31,0.08)'; rrect(X0 + 4, y + 8, MAXW, 120, 60); ctx.fill();
+    rrect(X0, y, MAXW, 120, 60); ctx.fillStyle = '#FFFFFF'; ctx.fill(); ctx.strokeStyle = '#D9CDB9'; ctx.lineWidth = 3; ctx.stroke();
+    person(X0 + 62, y + 60, 36, C.marble, '#CFC3AF');
+    const sent = sp(t, 47.5, POP);
+    setFont(MS(700, 50), 3);
+    if (typed === 0) { ctx.fillStyle = '#A9A194'; setFont(MS(500, 42)); ctx.fillText('Shto një koment...', X0 + 124, y + 75); }
+    else {
+      const txt = 'ANALIZA'.slice(0, typed);
+      ctx.save(); ctx.beginPath(); ctx.rect(X0 + 110, y, MAXW - 240, 120); ctx.clip();
+      ctx.fillStyle = C.char; ctx.fillText(txt, X0 + 124, y + 78 - sent * 120);
+      ctx.restore();
+      const cw = ctx.measureText(txt).width;
+      if (sent < 0.05 && Math.floor(t * 3) % 2 === 0) { ctx.fillStyle = C.crimson; ctx.fillRect(X0 + 128 + cw, y + 32, 4, 56); }
+    }
+    const press = 1 - 0.15 * clamp((t - 47.45) / 0.05, 0, 1) * (1 - clamp((t - 47.5) / 0.12, 0, 1));
+    withXf(X0 + MAXW - 64, y + 60, press, 0, () => {
+      ctx.beginPath(); ctx.arc(0, 0, 44, 0, Math.PI * 2); ctx.fillStyle = typed > 0 ? C.crimson : C.marble; ctx.fill();
+      ctx.fillStyle = '#FFFFFF'; ctx.beginPath(); ctx.moveTo(-18, -18); ctx.lineTo(22, 0); ctx.lineTo(-18, 18); ctx.lineTo(-10, 0); ctx.closePath(); ctx.fill();
+    });
+  }
+  // the reply promise
+  const dm = sp(t, 47.75, POP);
+  if (dm > 0.001) withXf(X0 + 30, 1135, dm, 0, () => {
+    ctx.fillStyle = C.crimson; ctx.beginPath(); ctx.moveTo(-30, -6); ctx.lineTo(30, -28); ctx.lineTo(12, 28); ctx.lineTo(2, 6); ctx.closePath(); ctx.fill();
+  });
+  riseLine(t, one('Të shkruajmë në privat.', MS(700, 52), C.char), X0 + 84, 1155, 52, 47.75);
+  // lockup
+  const lp = sp(t, 48.0, POP);
+  if (lp > 0.001) {
+    withXf(X0 + 60, 1340, mix(0.5, 1, lp), (1 - lp) * -0.5, () => logoMark(-60, -60, 120));
+  }
+  riseLine(t, one('StraightScale', MS(800, 70), C.char, -1), X0 + 150, 1366, 70, 48.1);
+}
+
+// ================= COMPOSITION =================
+const SCENES = [
+  [0, 3.5, s1], [3.5, 6.0, s2], [6.0, 11.6, s3], [11.5, 15.05, s4], [15.0, 20.0, s5],
+  [20.0, 24.0, s6], [24.0, 30.0, s7], [30.0, 34.0, s8], [34.0, 38.0, s9], [38.0, 42.5, s10],
+  [42.5, 46.0, s11a], [46.0, 50.5, s11b],
+];
+const run = (t, from, to) => SCENES.forEach(([a, b, fn]) => { if (a >= from && a < to && t >= a - 0.3 && t < b + 0.3) fn(t); });
+
+// Transition regions: the gold-thread wipe at 20.0, charcoal rising at 42.5, ivory dropping at 46.0.
+function threadWipe(t) {
+  const p = sp(t, 19.9, [150, 24]);
+  const half = p * 1500;
+  ctx.translate(W / 2, H / 2); ctx.rotate(-0.21);
+  return { half, path: () => { ctx.beginPath(); ctx.rect(-1600, -half, 3200, half * 2); } };
+}
+
+function seek(t) {
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  if (t < 19.88) { bgDark(t); run(t, 0, 20); return; }
+  if (t < 20.9) {
+    bgDark(t); run(t, 15, 20);
+    ctx.save(); const { half, path } = threadWipe(t); path(); ctx.clip();
+    ctx.rotate(0.21); ctx.translate(-W / 2, -H / 2); bgLight(t); run(t, 20, 21);
+    ctx.restore();
+    ctx.save(); const w2 = threadWipe(t); ctx.fillStyle = C.gold;
+    ctx.fillRect(-1600, -w2.half - 5, 3200, 10); ctx.fillRect(-1600, w2.half - 5, 3200, 10);
+    ctx.restore();
+    return;
+  }
+  if (t < 42.42) { bgLight(t); run(t, 20, 42.5); return; }
+  if (t < 45.92) {
+    const p = sp(t, 42.42, [110, 21]);
+    bgLight(t); run(t, 38, 42.5);
+    const top = H * (1 - p);
+    ctx.save(); ctx.beginPath(); ctx.rect(0, top, W, H); ctx.clip(); bgDark(t); run(t, 42.5, 46); ctx.restore();
+    if (p < 0.995) { ctx.fillStyle = C.gold; ctx.fillRect(0, top - 5, W, 10); }
+    return;
+  }
+  const p = sp(t, 45.92, [110, 21]);
+  bgDark(t); run(t, 42.5, 46);
+  const bot = H * p;
+  ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, bot); ctx.clip(); bgLight(t); run(t, 46, 51); ctx.restore();
+  if (p < 0.995) { ctx.fillStyle = C.gold; ctx.fillRect(0, bot - 5, W, 10); }
+}
+
+const faces = ['700 10px "Playfair Display"', '900 10px "Playfair Display"', 'italic 700 10px "Playfair Display"', 'italic 900 10px "Playfair Display"',
+  '500 10px Montserrat', '600 10px Montserrat', '700 10px Montserrat', '800 10px Montserrat', '900 10px Montserrat'];
+await Promise.all(faces.map((f) => document.fonts.load(f, 'ëçË€')));
+GRAIN = makeGrain();
+MARBLE = makeMarble();
+window.seek = seek;
+seek(0);
+</script>
+</body>
+</html>
