@@ -44,6 +44,8 @@ def env(n, a=0.005, d=0.2, s=0.0, r=0.05, hold=None):
 
 def place(buf, x, t, gain=1.0):
     i = int(round(t * SR))
+    if i < 0:  # starts before the film: keep only the audible tail
+        x, i = x[-i:], 0
     if i >= len(buf):
         return
     x = x[: len(buf) - i]
@@ -122,52 +124,60 @@ def impact(n=int(1.6 * SR)):
 
 
 # ---------- arrangement ----------
+# Timeline follows the voiceover: bar lines at 1.5 + 2k so the turn ("Ja çfarë bën", 17.44 s) lands on a downbeat.
 music = np.zeros(N)
 DM, BB, F, C = ([62, 65, 69], 38), ([58, 62, 65], 34), ([60, 65, 69], 41), ([60, 64, 67], 36)
-problem = [DM, BB, F, C]   # minor colour for the problem (0-20 s)
-fix = [F, C, DM, BB]       # same notes, but centred on F major for the fix (20-50 s)
+problem = [DM, BB, F, C]   # minor colour for the problem
+fix = [F, C, DM, BB]       # same notes, centred on F major for the fix
 bar = 4 * BEAT  # 4/4: one bar = 2 s
+OFF, TURN, END = 1.5, 17.5, 47.5
 
-for b in range(25):
-    t0 = b * bar
-    prog = problem if t0 < 20 else fix
+
+def drums_on(tb):
+    # hook without kick; thin out before the turn; drop out under the brand line, back in for the proof
+    return 3.5 <= tb < 15.5 or TURN <= tb < 35.5 or 37.5 <= tb < END
+
+
+for b in range(-1, 24):
+    t0 = OFF + b * bar
+    if t0 >= END:
+        break
+    prog = problem if t0 < TURN else fix
     notes, root = prog[b % 4]
-    cutoff = 700 if t0 < 4 else 1300 if t0 < 20 else 2600
-    place(music, pad_chord(notes, int(bar * SR) + int(0.2 * SR), cutoff), t0, 0.32 if t0 < 20 else 0.36)
+    cutoff = 700 if t0 < 3.5 else 1300 if t0 < TURN else 2600
+    place(music, pad_chord(notes, int(bar * SR) + int(0.2 * SR), cutoff), t0, 0.32 if t0 < TURN else 0.36)
 
     for s in range(4):  # beats
         tb = t0 + s * BEAT
-        drums_on = 4 <= tb < 19.0 or 20 <= tb < 34 or 36 <= tb < 48
-        if drums_on:
+        if drums_on(tb):
             place(music, kick(), tb, 0.9)
             place(music, hat(open_=True), tb + BEAT / 2, 0.12)
-            if s in (1, 3) and tb >= 6:
+            if s in (1, 3) and tb >= 5.5:
                 place(music, clap(), tb, 0.5)
-        if tb < 4 or 19 <= tb < 20:  # hook and pre-turn: ticking 16ths, no kick
-            for q in range(4):
-                place(music, hat(), tb + q * BEAT / 4, 0.10 if q % 2 else 0.16)
-        elif drums_on:
             for q in (1, 3):
                 place(music, hat(), tb + q * BEAT / 4, 0.07)
+        elif tb < 3.5 or 15.5 <= tb < TURN:  # ticking 16ths, no kick
+            for q in range(4):
+                place(music, hat(), tb + q * BEAT / 4, 0.10 if q % 2 else 0.16)
         # bass: eighth notes on the root, octave jump on the "and" of 4
-        if tb < 48 and not (34 <= tb < 36):
+        if tb < END and not (35.5 <= tb < 37.5):
             for e in range(2):
                 m = root + (12 if (s == 3 and e == 1) else 0)
                 place(music, bass_note(m, int(BEAT / 2 * SR * 0.9)), tb + e * BEAT / 2, 0.42)
 
-    if t0 >= 20 and t0 < 48:  # arpeggio once the fix starts
+    if TURN <= t0 < END:  # arpeggio once the fix starts
         arp = [notes[0] + 12, notes[1] + 12, notes[2] + 12, notes[1] + 12]
         for e in range(8):
             place(music, pluck(arp[e % 4]), t0 + e * BEAT / 2, 0.16 if e % 2 == 0 else 0.10)
 
 place(music, impact(), 0.0, 0.55)
-place(music, riser(int(1.9 * SR)), 18.1, 0.35)
-place(music, impact(), 20.0, 0.7)
-place(music, impact(), 36.0, 0.55)
+place(music, riser(int(1.9 * SR)), TURN - 1.9, 0.35)
+place(music, impact(), TURN, 0.7)
+place(music, impact(), 37.5, 0.55)
 # final bar: one sustained F chord and a last hit under the logo
-place(music, pad_chord([53, 60, 65, 69], int(2.2 * SR), 2200), 48.0, 0.45)
-place(music, impact(), 48.0, 0.5)
-place(music, bass_note(29, int(1.9 * SR)), 48.0, 0.5)
+place(music, pad_chord([53, 60, 65, 69], int(2.6 * SR), 2200), END, 0.45)
+place(music, impact(), END, 0.5)
+place(music, bass_note(29, int(2.4 * SR)), END, 0.5)
 
 
 # ---------- sound effects (cue list mirrors docs/shotlist.md) ----------
@@ -232,28 +242,25 @@ def ping():
 
 sfx = np.zeros(N)
 cues = [
-    (0.0, pop(820), .5), (0.5, pop(980), .5), (1.0, pop(1150), .5),
-    (1.5, tick(), .5), (1.55, tick(), .4), (1.6, tick(), .4),
-    (1.85, whoosh(0.5, 2000, 300), .5), (2.3, thump(), .5),
-    (3.5, thump(), .8), (4.5, swish(), .45),
-    (6.0, whoosh(), .4),
-    (6.5, stamp(), .6), (7.0, stamp(), .6), (7.5, stamp(), .6), (8.0, stamp(), .7),
-    (10.0, thump(), .6),
-    (11.5, whoosh(), .4), (13.5, click(), .7),
-    (15.0, thump(), .7), (16.0, stamp(), .6), (16.5, stamp(), .6), (17.0, stamp(), .6), (17.5, stamp(), .6),
-    (18.5, whoosh(0.6, 200, 1500), .45),
-    (20.0, whoosh(0.7, 300, 6000), .5),
-    (21.5, swish(), .35), (22.5, swish(), .35),
-    (24.0, whoosh(), .35), (26.0, swish(), .5), (27.0, pop(700), .5),
-    (30.0, whoosh(), .35), (31.0, tick(), .6), (31.5, tick(), .6), (32.0, tick(), .6), (32.5, tick(), .6),
-    (34.0, whoosh(0.5, 4000, 400), .35),
-    (38.0, pop(600), .6), (39.0, swish(), .3), (39.5, swish(), .3), (40.0, swish(), .3),
-    (42.5, whoosh(), .4),
-    (46.0, whoosh(), .35),
+    (0.0, pop(820), .5), (0.42, pop(980), .5), (0.88, pop(1150), .5),
+    (1.35, tick(), .5), (1.4, tick(), .4), (1.45, tick(), .4),
+    (1.75, whoosh(0.5, 2000, 300), .5), (2.1, thump(), .5),
+    (2.98, thump(), .8), (3.95, swish(), .45),
+    (4.85, whoosh(), .4),
+    (7.15, stamp(), .6), (7.55, stamp(), .6), (8.0, stamp(), .6),
+    (8.7, whoosh(0.6, 300, 3000), .45), (10.75, thump(), .6),
+    (13.45, whoosh(), .4), (16.5, click(), .7),
+    (17.3, whoosh(0.7, 300, 6000), .5),
+    (19.5, swish(), .35), (21.7, swish(), .35),
+    (22.55, whoosh(), .35), (27.05, swish(), .5), (28.15, pop(700), .5),
+    (31.1, whoosh(), .35), (32.6, stamp(), .5), (33.48, stamp(), .5), (34.2, stamp(), .5),
+    (35.05, pop(600), .6), (36.55, pop(760), .4), (37.3, swish(), .3), (37.7, swish(), .3), (38.1, swish(), .3),
+    (39.22, whoosh(), .4),
+    (44.92, whoosh(), .35),
 ]
-for i in range(7):  # A-N-A-L-I-Z-A typed on 16ths from 46.5
-    cues.append((46.5 + i * BEAT / 4, key(), .55))
-cues += [(47.5, pop(1100), .6), (48.0, ping(), .35)]
+for i in range(7):  # A-N-A-L-I-Z-A typed on 16ths from 45.8
+    cues.append((45.8 + i * BEAT / 4, key(), .55))
+cues += [(46.8, pop(1100), .6), (47.2, ping(), .35), (47.5, pop(600), .5)]
 for t, x, g in cues:
     place(sfx, x, t, g)
 

@@ -198,13 +198,16 @@ function chip(x, y, label, bg, fg, size = 30) {
 
 // ================= SCENES =================
 
-// S1 0.0-3.5: "Sa kushton?" x3 ... dhe zhduken.
+// Timeline follows the voiceover (audio/vo.wav): word times from straightscale-reel/plan/beats.json,
+// with a 2.5 s musical pause cut in after "StraightScale." (36.75 s) for the proof figures.
+
+// S1 0.0-2.95: "Të shkruajnë 'Sa kushton?'... dhe zhduken?"
 function s1(t) {
-  const rows = [[X0 - 20, 560, -0.22], [X0 + 90, 860, 0.5], [X0 + 10, 1160, 1.0]];
+  const rows = [[X0 - 20, 560, -0.22], [X0 + 90, 860, 0.42], [X0 + 10, 1160, 0.88]];
   rows.forEach(([x, y, tin], i) => {
     const p = sp(t, tin, POP);
     if (p <= 0.001) return;
-    const ft = Math.max(0, t - (1.85 + i * 0.07)), fall = 5200 * ft * ft;
+    const ft = Math.max(0, t - (1.75 + i * 0.07)), fall = 5200 * ft * ft;
     const yy = y + (1 - p) * 60 + fall, rot = ft * (i % 2 ? 0.9 : -0.8);
     withXf(x + 60, yy, mix(0.6, 1, p) * 1.3, rot, () => {
       person(0, 0, 48, C.char3, '#5A5650');
@@ -212,7 +215,7 @@ function s1(t) {
       rrect(80, -62, tw + 92, 124, 44); ctx.fillStyle = C.ivory; ctx.fill();
       ctx.beginPath(); ctx.moveTo(84, 22); ctx.lineTo(62, 50); ctx.lineTo(112, 34); ctx.fill();
       ctx.fillStyle = C.char; ctx.textBaseline = 'middle'; ctx.fillText('Sa kushton?', 126, 2); ctx.textBaseline = 'alphabetic';
-      const seen = sp(t, 1.5 + i * 0.05, UI);
+      const seen = sp(t, 1.35 + i * 0.05, UI);
       if (seen > 0.01) {
         ctx.save(); ctx.translate(96 + tw, 98); ctx.scale(seen, seen);
         ctx.strokeStyle = C.gold; ctx.lineWidth = 5; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
@@ -222,19 +225,19 @@ function s1(t) {
       }
     });
   });
-  riseLine(t, one('...dhe', PF(700, 150, true), C.ivory), X0, 860, 150, 2.28, 3.3);
-  riseLine(t, one('zhduken.', PF(900, 190, true), C.gold), X0, 1060, 190, 2.36, 3.34);
+  riseLine(t, one('...dhe', PF(700, 150, true), C.ivory), X0, 860, 150, 2.1, 2.84);
+  riseLine(t, one('zhduken?', PF(900, 190, true), C.gold), X0, 1060, 190, 2.16, 2.88);
 }
 
-// S2 3.5-6.0: Problemi nuk është çmimi.
+// S2 2.95-4.75: "Problemi nuk është çmimi."
 function s2(t) {
-  riseLine(t, one('Problemi', PF(900, 168), C.ivory), X0, 760, 168, 3.5, 5.78);
-  riseLine(t, one('nuk është', PF(700, 168, true), C.ivory), X0, 950, 168, 3.58, 5.82);
-  const xs = riseLine(t, one('çmimi.', PF(900, 210), C.gold), X0, 1180, 210, 3.66, 5.86);
-  if (xs && t < 5.86) strike(xs[0][0], xs[0][1] - 40, 1112, sp(t, 4.5, UI), C.crimson, 26);
+  riseLine(t, one('Problemi', PF(900, 168), C.ivory), X0, 760, 168, 2.98, 4.6);
+  riseLine(t, one('nuk është', PF(700, 168, true), C.ivory), X0, 950, 168, 3.06, 4.63);
+  const xs = riseLine(t, one('çmimi.', PF(900, 210), C.gold), X0, 1180, 210, 3.14, 4.66);
+  if (xs && t < 4.66) strike(xs[0][0], xs[0][1] - 40, 1112, sp(t, 3.95, UI), C.crimson, 26);
 }
 
-// S3 6.0-11.5: ad wall + 1.800
+// S3 4.75-13.5: "...flet njësoj si të gjithë: 'cilësi', 'çmimet më të mira'. Rreth 1.800 reklama..."
 const STAMPS = ['CILËSI', 'ÇMIMET MË\nTË MIRA', 'CILËSI', 'CILËSI', 'CILËSI\nE GARANTUAR', 'ÇMIMET MË\nTË MIRA'];
 function adCard(x, y, w, h, i, stampP) {
   rrect(x, y, w, h, 22); ctx.fillStyle = C.char2; ctx.fill();
@@ -258,113 +261,82 @@ function adCard(x, y, w, h, i, stampP) {
 function s3(t) {
   // the wall: 9 x 15 cards, the first 3 x 3 visible before the pull-back
   const cw = 270, ch = 330, gap = 39;
-  const pull = sp(t, 8.0, HEAVY);
+  const pull = sp(t, 8.7, HEAVY);
   const scale = mix(1, 0.34, pull);
-  const leave = sp(t, 11.3, TYPE);
+  const leave = sp(t, 13.35, TYPE);
   ctx.save();
   ctx.translate(W / 2, mix(1010, 980, pull) - leave * 1900); ctx.scale(scale, scale);
   const cols = 9, rows = 15, ox = -(cols * cw + (cols - 1) * gap) / 2, oy = -(3 * ch + 2 * gap) / 2 - 6 * (ch + gap);
+  const rowStamp = [7.15, 7.55, 8.0]; // on "cilësi" (7.2) and "çmimet më të mira" (8.05)
   for (let r = 0; r < rows; r++) for (let c = 0; c < cols; c++) {
     const center = c >= 3 && c < 6 && r >= 6 && r < 9;
     const ri = r - 6;
-    const tin = center ? 6.0 + (ri * 3 + (c - 3)) * 0.045 : 8.0 + ((r * 7 + c * 3) % 11) * 0.02;
+    const tin = center ? 4.95 + (ri * 3 + (c - 3)) * 0.06 : 8.7 + ((r * 7 + c * 3) % 11) * 0.02;
     const p = sp(t, tin, UI);
     if (p <= 0.001) continue;
-    const tstamp = center ? 6.5 + ri * 0.5 : 8.0 + ((r * 5 + c * 2) % 7) * 0.05;
+    const tstamp = center ? rowStamp[ri] : 8.7 + ((r * 5 + c * 2) % 7) * 0.05;
     const x = ox + c * (cw + gap), y = oy + r * (ch + gap);
     withXf(x + cw / 2, y + ch / 2 + (1 - p) * 120, mix(0.85, 1, p), 0, () => adCard(-cw / 2, -ch / 2, cw, ch, r * cols + c, sp(t, tstamp, POP)));
   }
   ctx.restore();
 
-  // headline
-  riseLine(t, one('Ti flet njësoj', PF(900, 124), C.ivory), X0, 330, 124, 6.0, 7.82);
-  riseLine(t, one('si të gjithë.', PF(700, 124, true), C.gold), X0, 470, 124, 6.08, 7.86);
+  riseLine(t, one('Ti flet njësoj', PF(900, 124), C.ivory), X0, 330, 124, 4.85, 8.5);
+  riseLine(t, one('si të gjithë.', PF(700, 124, true), C.gold), X0, 470, 124, 5.95, 8.54);
 
   // counter over the dimmed wall
-  const dim = sp(t, 8.35, TYPE) * (1 - leave);
+  const dim = sp(t, 9.05, TYPE) * (1 - leave);
   if (dim > 0.001) {
     ctx.fillStyle = `rgba(31,31,31,${0.82 * dim})`; ctx.fillRect(0, 0, W, H);
-    const v = Math.round(1800 * sp(t, 8.6, [40, 13]) / 10) * 10;
+    const v = Math.round(1800 * sp(t, 9.6, [40, 13]) / 10) * 10;
     const num = v >= 1000 ? Math.floor(v / 1000) + '.' + String(v % 1000).padStart(3, '0') : String(v);
-    riseLine(t, one('RRETH', MS(800, 44), C.marble, 10), X0, 560, 44, 8.45, 11.05);
-    riseLine(t, one(num, PF(900, 330), C.gold), X0 - 10, 860, 330, 8.5, 11.22);
-    riseLine(t, one('reklama aktive në Shqipëri', PF(700, 76), C.ivory), X0, 1010, 76, 8.9, 11.25);
-    riseLine(t, [{ s: 'thonë ', f: PF(700, 76), c: C.ivory }, { s: '“cilësi”.', f: PF(900, 76, true), c: C.gold }], X0, 1110, 76, 9.0, 11.28);
-    riseLine(t, one('Burimi: Meta Ad Library, 11.10.2026', MS(600, 34), C.marble), X0, 1210, 34, 9.3, 11.3);
+    riseLine(t, one('RRETH', MS(800, 44), C.marble, 10), X0, 560, 44, 9.5, 13.1);
+    riseLine(t, one(num, PF(900, 330), C.gold), X0 - 10, 860, 330, 9.55, 13.25);
+    riseLine(t, one('reklama aktive në Shqipëri', PF(700, 76), C.ivory), X0, 1010, 76, 10.75, 13.28);
+    riseLine(t, [{ s: 'thonë ', f: PF(700, 76), c: C.ivory }, { s: '“cilësi”.', f: PF(900, 76, true), c: C.gold }], X0, 1110, 76, 12.1, 13.3);
+    riseLine(t, one('Burimi: Meta Ad Library, 11.10.2026', MS(600, 34), C.marble), X0, 1210, 34, 11.3, 13.32);
   }
 }
 
-// S4 11.5-15.0: identical cards, only the price differs
+// S4 13.5-17.3: "Kur të gjithë thonë të njëjtën gjë, klienti krahason vetëm çmimin."
 function s4(t) {
-  riseLine(t, one('Kur të gjithë thonë', PF(700, 104), C.ivory), X0, 330, 104, 11.5, 14.75);
-  riseLine(t, one('të njëjtën gjë,', PF(700, 104, true), C.ivory), X0, 455, 104, 11.58, 14.78);
+  riseLine(t, one('Kur të gjithë thonë', PF(700, 104), C.ivory), X0, 330, 104, 13.55, 17.05);
+  riseLine(t, one('të njëjtën gjë,', PF(700, 104, true), C.ivory), X0, 455, 104, 14.4, 17.08);
   const tags = ['€€€', '€€', '€'];
   const cw = 268, ch = 380, gap = 42, x0 = (W - (3 * cw + 2 * gap)) / 2, y0 = 610;
-  const click = 13.5;
-  const out = sp(t, 14.8, TYPE);
+  const click = 16.5;
+  const out = sp(t, 17.1, TYPE);
   tags.forEach((tag, i) => {
-    const p = sp(t, 11.65 + i * 0.1, UI);
+    const p = sp(t, 13.7 + i * 0.1, UI);
     if (p <= 0.001) return;
     const chosen = i === 2, pick = sp(t, click, POP);
     const lift = chosen ? -40 * pick : 30 * pick;
     const x = x0 + i * (cw + gap) + (1 - p) * 700 - out * 1300, y = y0 + lift;
     ctx.save(); ctx.globalAlpha = chosen ? 1 : 1 - 0.55 * pick;
     adCard(x, y, cw, ch, 0, 1);
-    // price tag hanging under the card
     ctx.strokeStyle = C.marble; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(x + cw / 2, y + ch); ctx.lineTo(x + cw / 2, y + ch + 40); ctx.stroke();
     rrect(x + cw / 2 - 90, y + ch + 40, 180, 96, 18); ctx.fillStyle = chosen && pick > 0.5 ? C.gold : C.marble; ctx.fill();
     setFont(MS(900, 52)); ctx.fillStyle = C.char; ctx.textAlign = 'center'; ctx.fillText(tag, x + cw / 2, y + ch + 108); ctx.textAlign = 'left';
     ctx.restore();
     if (chosen && pick > 0.01) { rrect(x - 8, y - 8, cw + 16, ch + 16, 28); ctx.strokeStyle = C.gold; ctx.lineWidth = 6 * pick; ctx.stroke(); }
   });
-  // cursor glides to the cheapest card and clicks it
-  if (t > 12.2 && out < 0.99) {
+  // cursor drifts over the cards, then clicks the cheapest on "çmimin"
+  if (t > 14.3 && out < 0.99) {
     const tx = x0 + 2 * (cw + gap) + cw / 2 + 20, ty = y0 + ch + 70;
-    const cx = track(t, [[0, 1150], [12.3, tx - 360], [12.9, tx]], 120, 22) - out * 1300;
-    const cy = track(t, [[0, 1700], [12.3, ty + 160], [12.9, ty]], 120, 22);
+    const cx = track(t, [[0, 1150], [14.4, x0 + cw / 2], [15.3, x0 + cw + gap + cw / 2], [16.0, tx]], 120, 22) - out * 1300;
+    const cy = track(t, [[0, 1700], [14.4, ty + 20], [16.0, ty]], 120, 22);
     const press = clamp((t - click) / 0.06, 0, 1) * (1 - clamp((t - click - 0.06) / 0.1, 0, 1));
     cursor(cx, cy, 1.25 - 0.18 * press);
   }
-  riseLine(t, one('klienti krahason', PF(700, 104), C.ivory), X0, 1330, 104, 13.62, 14.82);
-  riseLine(t, one('vetëm çmimin.', PF(900, 124, true), C.gold), X0, 1475, 124, 13.7, 14.86);
+  riseLine(t, one('klienti krahason', PF(700, 104), C.ivory), X0, 1330, 104, 15.3, 17.1);
+  riseLine(t, one('vetëm çmimin.', PF(900, 124, true), C.gold), X0, 1475, 124, 16.2, 17.13);
 }
 
-// S5 15.0-20.0: patchwork marketing
+// S6 17.3-22.55: "Ja çfarë bën. Lexo komentet dhe vlerësimet e klientëve, për ty dhe për konkurrentët."
 const PATCHES = [
-  { k: 'FAQJA', v: 'një person', bg: C.marble, fg: C.char, lab: C.crimson, rot: -0.07, x: 96, y: 640 },
-  { k: 'REKLAMAT', v: 'një agjenci', bg: C.crimson, fg: C.ivory, lab: C.ivory, rot: 0.05, x: 556, y: 690 },
-  { k: 'INSTAGRAMI', v: 'nipi', bg: C.char3, fg: C.ivory, lab: C.gold, rot: 0.045, x: 120, y: 1050 },
-  { k: 'TELEFONI', v: 'kush është afër', bg: C.gold, fg: C.char, lab: C.char, rot: -0.055, x: 540, y: 1010 },
+  { k: 'REKLAMAT', bg: C.crimson, lab: C.ivory, fg: C.ivory, rot: 0.05, x: 556, y: 690 },
+  { k: 'FAQJA', bg: C.marble, lab: C.crimson, fg: C.char, rot: -0.07, x: 96, y: 640 },
+  { k: 'TELEFONI', bg: C.gold, lab: C.char, fg: C.char, rot: -0.055, x: 540, y: 1010 },
 ];
-function patch(pt, w, h, value, stitchColor, stitchP = 1) {
-  rrect(0, 0, w, h, 14); ctx.fillStyle = pt.bg; ctx.fill();
-  if (stitchP > 0) {
-    ctx.save(); ctx.setLineDash([18, 14]); ctx.lineWidth = 4; ctx.strokeStyle = stitchColor;
-    rrect(14, 14, w - 28, h - 28, 8); ctx.stroke(); ctx.restore();
-  }
-  setFont(MS(800, 34), 5); ctx.fillStyle = pt.lab; ctx.fillText(pt.k, 44, 92);
-  const lines = wrap(value, PF(700, 62, true), w - 88);
-  setFont(PF(700, 62, true)); ctx.fillStyle = pt.fg;
-  lines.forEach((l, i) => ctx.fillText(l, 44, 178 + i * 70));
-}
-function s5(t) {
-  riseLine(t, one('Kjo quhet marketing', PF(700, 92), C.ivory), X0, 330, 92, 15.0, 17.9);
-  riseLine(t, one('copë-copë.', PF(900, 150, true), C.gold), X0, 480, 150, 15.08, 17.94);
-  riseLine(t, one('Askush s’i pyeti', PF(700, 112), C.ivory), X0, 330, 112, 18.05);
-  riseLine(t, one('klientët.', PF(900, 112, true), C.gold), X0, 460, 112, 18.13);
-  const tear = sp(t, 18.5, [80, 14]);
-  PATCHES.forEach((pt, i) => {
-    const tin = 16.0 + i * 0.5, p = sp(t, tin - 0.08, POP);
-    if (p <= 0.001) return;
-    const dx = (i % 2 ? 1 : -1) * 70 * tear, dy = (i < 2 ? -1 : 1) * 60 * tear;
-    withXf(pt.x + 212 + dx, pt.y + 165 + dy, mix(1.35, 1, p), pt.rot * (1 + 1.6 * tear) + (1 - p) * 0.25, () => {
-      ctx.translate(-212, -165); patch(pt, 424, 330, pt.v, pt.bg === C.char3 ? '#5A5650' : 'rgba(31,31,31,0.35)');
-    });
-  });
-}
-
-// S6 20.0-24.0: the turn, step 1
-const PROMISE = ['Instalim brenda', '10 ditëve.', 'Data në kontratë.'];
 function stepHead(t, n, tin, tout) {
   riseLine(t, one(String(n), PF(900, 230), C.crimson), X0 - 8, 520, 230, tin, tout);
 }
@@ -385,34 +357,38 @@ function reviewCard(x, y, w, h, hlT, t, seed) {
   });
 }
 function s6(t) {
-  riseLine(t, one('JA ÇFARË BËN:', MS(800, 44), C.crimson, 8), X0, 290, 44, 20.0, 23.75);
-  stepHead(t, 1, 20.05, 23.78);
-  riseLine(t, one('Lexo çfarë', PF(700, 112), C.char), X0, 680, 112, 20.12, 23.8);
-  riseLine(t, one('shkruajnë klientët.', PF(900, 112, true), C.char), X0, 810, 112, 20.2, 23.83);
-  riseLine(t, one('Në komente dhe vlerësime,', MS(600, 48), C.char), X0, 920, 48, 20.7, 23.86);
-  riseLine(t, one('për ty dhe për konkurrentët.', MS(600, 48), C.char), X0, 985, 48, 20.76, 23.88);
-  const scroll = track(t, [[0, 0], [21.0, -40], [22.0, -110], [23.0, -180]], 90, 19);
-  const out = sp(t, 23.85, TYPE);
-  [[1080, 21.5, 3], [1300, 22.5, 8], [1520, null, 13]].forEach(([y, hl, seed], i) => {
-    const p = sp(t, 20.5 + i * 0.12, UI);
+  riseLine(t, one('Ja çfarë', PF(900, 170), C.char), X0, 860, 170, 17.38, 18.25);
+  riseLine(t, one('bën.', PF(900, 170, true), C.crimson), X0, 1050, 170, 17.55, 18.28);
+  stepHead(t, 1, 18.42, 22.35);
+  riseLine(t, one('Lexo komentet', PF(700, 112), C.char), X0, 680, 112, 18.55, 22.37);
+  riseLine(t, one('dhe vlerësimet', PF(900, 112, true), C.char), X0, 810, 112, 19.35, 22.4);
+  riseLine(t, one('e klientëve, për ty', MS(600, 50), C.char), X0, 920, 50, 20.05, 22.42);
+  riseLine(t, one('dhe për konkurrentët.', MS(700, 50), C.crimson), X0, 990, 50, 21.3, 22.45);
+  const scroll = track(t, [[0, 0], [19.2, -40], [20.6, -110], [22.0, -180]], 90, 19);
+  const out = sp(t, 22.4, TYPE);
+  [[1080, 19.5, 3], [1300, 21.7, 8], [1520, null, 13]].forEach(([y, hl, seed], i) => {
+    const p = sp(t, 18.8 + i * 0.12, UI);
     if (p <= 0.001) return;
     reviewCard(X0 + (1 - p) * 900 - out * 1100, y + scroll + 60, MAXW, 190, hl, t, seed);
   });
 }
 
-// S7 24.0-30.0: step 2, a promise nobody else makes
+// S7 22.55-31.1: "Gjej çfarë duan vërtet dhe ktheje në një premtim që s'e bën askush. Jo 'cilësi', por: ..."
+const PROMISE = ['“Instalim për', '10 ditë, me datë', 'në kontratë.”'];
 function s7(t) {
-  stepHead(t, 2, 24.0, 25.6);
-  riseLine(t, one('Ktheje në', PF(700, 112), C.char), X0, 680, 112, 24.1, 25.62);
-  riseLine(t, one('një premtim që', PF(700, 112), C.char), X0, 810, 112, 24.18, 25.65);
-  riseLine(t, one('s’e bën askush.', PF(900, 112, true), C.crimson), X0, 940, 112, 24.26, 25.68);
+  stepHead(t, 2, 22.6, 26.35);
+  riseLine(t, one('Gjej çfarë duan', PF(700, 100), C.char), X0, 680, 100, 22.68, 26.37);
+  riseLine(t, one('vërtet,', PF(900, 100, true), C.char), X0, 800, 100, 23.42, 26.4);
+  riseLine(t, one('ktheje në një', PF(700, 100), C.char), X0, 950, 100, 24.2, 26.42);
+  riseLine(t, one('premtim që', PF(700, 100), C.char), X0, 1070, 100, 24.75, 26.44);
+  riseLine(t, one('s’e bën askush.', PF(900, 100, true), C.crimson), X0, 1190, 100, 25.3, 26.46);
   // phase B
-  riseLine(t, [{ s: '2  ', f: MS(900, 44), c: C.crimson }, { s: 'NJË PREMTIM QË S’E BËN ASKUSH', f: MS(800, 40), c: C.char, ls: 3 }], X0, 300, 44, 25.75, 29.78);
-  riseLine(t, one('Jo', MS(800, 64), C.char), X0, 560, 64, 25.8, 29.8);
-  const xs = riseLine(t, one('“cilësi”,', PF(900, 190, true), C.char), X0, 760, 190, 25.85, 29.82);
-  if (xs && t < 29.82) strike(xs[0][0], xs[0][1] - 30, 700, sp(t, 26.0, UI), C.crimson, 24);
-  riseLine(t, one('por:', MS(800, 64), C.char), X0, 900, 64, 26.6, 29.84);
-  const p = sp(t, 27.0, POP), out = sp(t, 29.8, TYPE);
+  riseLine(t, [{ s: '2  ', f: MS(900, 44), c: C.crimson }, { s: 'NJË PREMTIM QË S’E BËN ASKUSH', f: MS(800, 40), c: C.char, ls: 3 }], X0, 300, 44, 26.5, 30.95);
+  riseLine(t, one('Jo', MS(800, 64), C.char), X0, 560, 64, 26.6, 30.97);
+  const xs = riseLine(t, one('“cilësi”,', PF(900, 190, true), C.char), X0, 760, 190, 26.7, 30.99);
+  if (xs && t < 30.99) strike(xs[0][0], xs[0][1] - 30, 700, sp(t, 27.05, UI), C.crimson, 24);
+  riseLine(t, one('por:', MS(800, 64), C.char), X0, 900, 64, 27.6, 31.01);
+  const p = sp(t, 28.15, POP), out = sp(t, 30.97, TYPE);
   if (p > 0.001 && out < 0.999) {
     withXf(W / 2, 1210 + (1 - p) * 160 - out * 1500, mix(0.88, 1, p), 0, () => {
       const w = MAXW, h = 430;
@@ -420,120 +396,108 @@ function s7(t) {
       ctx.fillStyle = C.gold; ctx.fillRect(-w / 2, -h / 2 + 40, 12, h - 80);
       chip(-w / 2 + 56, -h / 2 + 40, 'SHEMBULL', C.gold, C.char, 28);
       setFont(PF(700, 82, true)); ctx.fillStyle = C.ivory;
-      PROMISE.forEach((l, i) => ctx.fillText((i === 0 ? '“' : '') + l + (i === 2 ? '”' : ''), -w / 2 + 56, -h / 2 + 200 + i * 92));
+      PROMISE.forEach((l, i) => ctx.fillText(l, -w / 2 + 56, -h / 2 + 200 + i * 92));
     });
   }
 }
 
-// S8 30.0-34.0: step 3, say it everywhere
-const SLOTS = [[X0, 840], [X0 + 454, 840], [X0, 1180], [X0 + 454, 1180]];
-const EVERY = ['REKLAMAT', 'FAQJA', 'INSTAGRAMI', 'TELEFONI'];
+// S8 31.1-35.0: "Pastaj thuaje kudo: në reklama, në faqe, në telefon."
+// Mismatched patches fly in and become one stitched set carrying the same promise.
+function lerpHex(a, b, p) {
+  const pa = [1, 3, 5].map((i) => parseInt(a.slice(i, i + 2), 16)), pb = [1, 3, 5].map((i) => parseInt(b.slice(i, i + 2), 16));
+  return `rgb(${pa.map((v, i) => Math.round(mix(v, pb[i], clamp(p, 0, 1)))).join(',')})`;
+}
 function s8(t) {
-  stepHead(t, 3, 30.0, 33.78);
-  riseLine(t, one('Thuaje kudo.', PF(900, 140), C.char), X0, 720, 140, 30.1, 33.8);
-  const out = sp(t, 33.8, TYPE);
-  EVERY.forEach((k, i) => {
-    const p = sp(t, 30.05 + i * 0.06, [150, 21]), src = PATCHES[i];
+  stepHead(t, 3, 31.15, 34.85);
+  riseLine(t, one('Thuaje kudo:', PF(900, 140), C.char), X0, 720, 140, 31.45, 34.88);
+  const out = sp(t, 34.88, TYPE);
+  const lands = [32.6, 33.48, 34.2]; // "reklama", "faqe", "telefon"
+  PATCHES.forEach((pt, i) => {
+    const p = sp(t, lands[i] - 0.2, [170, 22]);
     if (p <= 0.001) return;
-    const [sx, sy] = [src.x + 212, src.y + 165 + 500];
-    const [dx, dy] = [SLOTS[i][0] + 210, SLOTS[i][1] + 155];
-    withXf(mix(sx, dx, p) - out * 1300, mix(sy, dy, p), 1, src.rot * (1 - p) * 3, () => {
-      ctx.translate(-210, -155);
-      const pt = { k, bg: C.char, fg: C.ivory, lab: C.gold };
-      rrect(0, 0, 420, 310, 14); ctx.fillStyle = pt.bg; ctx.fill();
-      setFont(MS(800, 30), 5); ctx.fillStyle = C.gold; ctx.fillText(k, 40, 76);
-      setFont(PF(700, 46, true)); ctx.fillStyle = C.ivory;
-      ['“Instalim brenda', '10 ditëve. Data', 'në kontratë.”'].forEach((l, j) => ctx.fillText(l, 40, 150 + j * 54));
+    const unify = sp(t, lands[i] + 0.08, UI);
+    const [sx, sy] = [pt.x + 212, pt.y + 165 + 900];
+    const [dx, dy] = [W / 2, 900 + i * 215];
+    withXf(mix(sx, dx, p) - out * 1300, mix(sy, dy, p), 1, pt.rot * 3 * (1 - unify), () => {
+      const w = MAXW, h = 195;
+      ctx.translate(-w / 2, -h / 2);
+      rrect(0, 0, w, h, 16); ctx.fillStyle = lerpHex(pt.bg, C.char, unify); ctx.fill();
+      const done = unify > 0.5;
+      setFont(MS(800, 30), 5); ctx.fillStyle = done ? C.gold : pt.lab; ctx.fillText(pt.k, 40, 58);
+      setFont(PF(700, 46, true)); ctx.fillStyle = done ? C.ivory : pt.fg;
+      ctx.fillText('“Instalim për 10 ditë,', 40, 114); ctx.fillText('me datë në kontratë.”', 40, 166);
     });
-  });
-  // gold stitches along the seams, drawn one by one
-  const seams = [
-    [[X0 + 432, 860], [X0 + 432, 1470]], [[X0 + 20, 1165], [X0 + 868, 1165]],
-    [[X0, 828], [X0 + 874, 828]], [[X0, 1502], [X0 + 874, 1502]],
-  ];
-  seams.forEach(([[ax, ay], [bx, by]], i) => {
-    const p = sp(t, 31.0 + i * 0.5, UI) * (1 - out);
-    if (p <= 0.001) return;
-    ctx.save(); ctx.setLineDash([22, 16]); ctx.lineWidth = 7; ctx.strokeStyle = C.gold; ctx.lineCap = 'round';
-    ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(mix(ax, bx, p), mix(ay, by, p)); ctx.stroke(); ctx.restore();
-  });
-}
-
-// S9 34.0-38.0: the payoff
-function s9(t) {
-  riseLine(t, one('Klienti zgjedh', PF(900, 128), C.char), X0, 700, 128, 34.05, 37.8);
-  riseLine(t, one('atë që', PF(700, 128, true), C.char), X0, 850, 128, 34.15, 37.82);
-  riseLine(t, one('e kupton.', PF(900, 128), C.char), X0, 1000, 128, 34.25, 37.84);
-  const xs = riseLine(t, one('Jo më të lirin.', PF(700, 128, true), C.crimson), X0, 1220, 128, 36.0, 37.86);
-  // the cheapest tag from earlier swings in, then drops
-  const p = sp(t, 34.6, POP), drop = sp(t, 36.05, [60, 10]);
-  if (p > 0.001 && drop < 0.999) {
-    withXf(820, 1420 - (1 - p) * 700 + drop * 900, 1, Math.sin((t - 34.6) * 5) * 0.12 * Math.exp(-(t - 34.6) * 1.6) + drop * 0.6, () => {
-      ctx.strokeStyle = C.char; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(0, -90); ctx.lineTo(0, -40); ctx.stroke();
-      rrect(-90, -40, 180, 110, 18); ctx.fillStyle = C.marble; ctx.fill(); ctx.strokeStyle = C.char; ctx.lineWidth = 3; ctx.stroke();
-      setFont(MS(900, 60)); ctx.fillStyle = C.char; ctx.textAlign = 'center'; ctx.fillText('€', 0, 38); ctx.textAlign = 'left';
-    });
-  }
-}
-
-// S10 38.0-42.5: proof
-const PROOF = [
-  ['Firmë konsulence', 15, 55, 39.0], ['Biznes kursesh', 30, 100, 39.5], ['Konsulencë e re', 0, 140, 40.0],
-];
-function s10(t) {
-  const lp = sp(t, 38.0, POP), out = sp(t, 42.25, TYPE);
-  if (lp > 0.001 && out < 0.999) withXf(X0 + 66, 340 - out * 1500, mix(0.4, 1, lp), (1 - lp) * -0.4, () => logoMark(-66, -66, 132));
-  riseLine(t, one('Këtë bëjmë ne', PF(700, 72), C.char), X0 + 172, 330, 72, 38.1, 42.25);
-  riseLine(t, one('te StraightScale.', PF(900, 72, true), C.char), X0 + 172, 412, 72, 38.18, 42.28);
-  riseLine(t, one('EKIPI YNË RRITI:', MS(800, 40), C.crimson, 8), X0, 590, 40, 38.4, 42.3);
-  PROOF.forEach(([label, a, b, tg], i) => {
-    const y = 720 + i * 270, tin = 38.5 + i * 0.12, tout = 42.32 + i * 0.04;
-    riseLine(t, one(label, MS(700, 44), C.char), X0, y, 44, tin, tout);
-    const g = sp(t, tg, [110, 20]);
-    const v = Math.round(mix(a, b, clamp(g, 0, 1)));
-    riseLine(t, [{ s: `€${a}K`, f: MS(700, 48), c: C.grey }, { s: '      ', f: MS(700, 48), c: C.char }, { s: `€${v}K`, f: MS(800, 96), c: C.char }, { s: ' /muaj', f: MS(600, 40), c: C.char }], X0, y + 118, 104, tin + 0.05, tout);
-    const ap = sp(t, tin + 0.05) * (1 - sp(t, tout));
-    if (ap > 0.01) { setFont(MS(700, 48)); const ax = X0 + ctx.measureText(`€${a}K`).width + 16; arrow(ax, y + 100 + (1 - ap) * 60, ax + 64, C.crimson, 6); }
-    const bp = sp(t, tin + 0.1, UI) * (1 - sp(t, tout, TYPE));
-    if (bp > 0.001) {
-      const by = y + 162;
-      rrect(X0, by, MAXW * bp, 20, 10); ctx.fillStyle = C.marble; ctx.fill();
-      const w = MAXW * mix(a, b, clamp(g, 0, 1.02)) / 140 * bp;
-      if (w > 2) { rrect(X0, by, w, 20, 10); ctx.fillStyle = C.crimson; ctx.fill(); }
+    // gold stitch under each landed row
+    const sp2 = sp(t, lands[i] + 0.25, UI) * (1 - out);
+    if (sp2 > 0.001) {
+      const yy = 900 + i * 215 + 107;
+      ctx.save(); ctx.setLineDash([22, 16]); ctx.lineWidth = 7; ctx.strokeStyle = C.gold; ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(X0, yy); ctx.lineTo(X0 + MAXW * sp2, yy); ctx.stroke(); ctx.restore();
     }
   });
 }
 
-// S11a 42.5-46.0: the offer
+// S10 35.0-39.3: "Këtë bëjmë ne te StraightScale." + the proof, during the musical pause
+const PROOF = [
+  ['Firmë konsulence', 15, 55, 37.3], ['Biznes kursesh', 30, 100, 37.7], ['Konsulencë e re', 0, 140, 38.1],
+];
+function s10(t) {
+  // the brand line, big, while it is spoken
+  const lp = sp(t, 35.05, POP), lout = sp(t, 36.45, TYPE);
+  if (lp > 0.001 && lout < 0.999) withXf(X0 + 110, 610 - lout * 1600, mix(0.4, 1, lp), (1 - lp) * -0.4, () => logoMark(-110, -110, 220));
+  riseLine(t, one('Këtë bëjmë ne', PF(700, 118), C.char), X0, 960, 118, 35.12, 36.45);
+  riseLine(t, one('te StraightScale.', PF(900, 118, true), C.char), X0, 1100, 118, 35.85, 36.48);
+  // the proof, during the musical pause
+  const out = sp(t, 39.15, TYPE);
+  const hp = sp(t, 36.55, POP);
+  if (hp > 0.001 && out < 0.999) withXf(X0 + 40, 330 - out * 1500, mix(0.4, 1, hp), 0, () => logoMark(-40, -40, 80));
+  riseLine(t, one('EKIPI YNË RRITI:', MS(800, 44), C.crimson, 8), X0 + 110, 346, 44, 36.6, 39.15);
+  PROOF.forEach(([label, a, b, tg], i) => {
+    const y = 560 + i * 300, tin = 36.75 + i * 0.15, tout = 39.15;
+    riseLine(t, one(label, MS(700, 48), C.char), X0, y, 48, tin, tout);
+    const g = sp(t, tg, [110, 20]);
+    const v = Math.round(mix(a, b, clamp(g, 0, 1)));
+    const xs = riseLine(t, [{ s: `€${a}K`, f: MS(700, 52), c: C.grey }, { s: '      ', f: MS(700, 52), c: C.char }, { s: `€${v}K`, f: MS(800, 110), c: C.char }, { s: ' /muaj', f: MS(600, 44), c: C.char }], X0, y + 130, 116, tin + 0.05, tout);
+    if (xs && t < tout && sp(t, tin + 0.05) > 0.9) { const ax = xs[0][1] + 16; arrow(ax, y + 110, ax + 64, C.crimson, 6); }
+    const bp = sp(t, tin + 0.1, UI) * (1 - sp(t, tout, TYPE));
+    if (bp > 0.001) {
+      const by = y + 178;
+      rrect(X0, by, MAXW * bp, 22, 11); ctx.fillStyle = C.marble; ctx.fill();
+      const w = MAXW * mix(a, b, clamp(g, 0, 1.02)) / 140 * bp;
+      if (w > 2) { rrect(X0, by, w, 22, 11); ctx.fillStyle = C.crimson; ctx.fill(); }
+    }
+  });
+}
+
+// S11a 39.3-44.95: "Analizë falas, dyzet e pesë minuta, pa detyrim. Të tregojmë edhe reklamat e konkurrentëve."
 function s11a(t) {
-  riseLine(t, [{ s: 'Analizë ', f: PF(900, 140), c: C.ivory }, { s: 'falas,', f: PF(900, 140, true), c: C.gold }], X0, 560, 140, 42.6, 45.8);
-  riseLine(t, one('45 minuta.', PF(700, 140), C.ivory), X0, 720, 140, 42.7, 45.82);
-  const items = [['Në zyrën tonë në Tiranë', 43.0], ['ose te biznesi yt.', 43.0], ['Pa detyrim.', 43.5], ['Të tregojmë edhe reklamat', 44.0], ['e konkurrentëve të tu.', 44.0]];
-  items.forEach(([s, tin], i) => {
-    const y = 900 + i * 92 + (i >= 2 ? 40 : 0) + (i >= 3 ? 40 : 0);
-    const first = i === 0 || i === 2 || i === 3;
-    riseLine(t, one(s, MS(600, 52), C.ivory), X0 + 56, y, 52, tin + (first ? 0 : 0.08), 45.84 + i * 0.02);
+  riseLine(t, [{ s: 'Analizë ', f: PF(900, 140), c: C.ivory }, { s: 'falas,', f: PF(900, 140, true), c: C.gold }], X0, 560, 140, 39.55, 44.8);
+  riseLine(t, one('45 minuta.', PF(700, 140), C.ivory), X0, 720, 140, 40.6, 44.82);
+  const items = [['Pa detyrim.', 41.85, true], ['Në zyrën tonë në Tiranë', 42.3, true], ['ose te biznesi yt.', 42.38, false],
+    ['Të tregojmë edhe reklamat', 42.9, true], ['e konkurrentëve.', 43.6, false]];
+  items.forEach(([s, tin, first], i) => {
+    const y = 900 + i * 92 + (i >= 1 ? 40 : 0) + (i >= 3 ? 40 : 0);
+    riseLine(t, one(s, MS(600, 52), C.ivory), X0 + 56, y, 52, tin, 44.84 + i * 0.02);
     if (first) {
-      const p = sp(t, tin, POP) * (1 - sp(t, 45.84 + i * 0.02));
+      const p = sp(t, tin, POP) * (1 - sp(t, 44.84 + i * 0.02));
       if (p > 0.01) withXf(X0 + 14, y - 18, p, 0, () => { ctx.fillStyle = C.gold; ctx.fillRect(-14, -14, 28, 28); });
     }
   });
 }
 
-// S11b 46.0-50.0: CTA + logo lockup
+// S11b 44.95-50.0: "Shkruaj ANALIZA në komente. Të shkruajmë në privat." + logo lockup
 function s11b(t) {
-  riseLine(t, one('Shkruaj', PF(900, 132), C.char), X0, 420, 132, 46.05);
-  const typed = clamp(Math.floor((t - 46.5) / 0.125) + 1, 0, 7);
-  riseLine(t, one('ANALIZA', MS(900, 168), C.crimson, 6), X0 - 6, 610, 168, 46.15);
+  riseLine(t, one('Shkruaj', PF(900, 132), C.char), X0, 420, 132, 45.15);
+  const T0 = 45.8, typed = clamp(Math.floor((t - T0) / 0.125) + 1, 0, 7), SEND = 46.8;
+  riseLine(t, one('ANALIZA', MS(900, 168), C.crimson, 6), X0 - 6, 610, 168, 45.72);
   riseLine(t, one('në komente.', PF(700, 132, true), C.char), X0, 770, 132, 46.25);
-  // the comment field
-  const fp = sp(t, 46.2, UI);
+  const fp = sp(t, 45.3, UI);
   if (fp > 0.001) {
     const y = 870 + (1 - fp) * 120;
     ctx.fillStyle = 'rgba(31,31,31,0.08)'; rrect(X0 + 4, y + 8, MAXW, 120, 60); ctx.fill();
     rrect(X0, y, MAXW, 120, 60); ctx.fillStyle = '#FFFFFF'; ctx.fill(); ctx.strokeStyle = '#D9CDB9'; ctx.lineWidth = 3; ctx.stroke();
     person(X0 + 62, y + 60, 36, C.marble, '#CFC3AF');
-    const sent = sp(t, 47.5, POP);
+    const sent = sp(t, SEND, POP);
     setFont(MS(700, 50), 3);
     if (typed === 0) { ctx.fillStyle = '#A9A194'; setFont(MS(500, 42)); ctx.fillText('Shto një koment...', X0 + 124, y + 75); }
     else {
@@ -544,37 +508,33 @@ function s11b(t) {
       const cw = ctx.measureText(txt).width;
       if (sent < 0.05 && Math.floor(t * 3) % 2 === 0) { ctx.fillStyle = C.crimson; ctx.fillRect(X0 + 128 + cw, y + 32, 4, 56); }
     }
-    const press = 1 - 0.15 * clamp((t - 47.45) / 0.05, 0, 1) * (1 - clamp((t - 47.5) / 0.12, 0, 1));
+    const press = 1 - 0.15 * clamp((t - (SEND - 0.05)) / 0.05, 0, 1) * (1 - clamp((t - SEND) / 0.12, 0, 1));
     withXf(X0 + MAXW - 64, y + 60, press, 0, () => {
       ctx.beginPath(); ctx.arc(0, 0, 44, 0, Math.PI * 2); ctx.fillStyle = typed > 0 ? C.crimson : C.marble; ctx.fill();
       ctx.fillStyle = '#FFFFFF'; ctx.beginPath(); ctx.moveTo(-18, -18); ctx.lineTo(22, 0); ctx.lineTo(-18, 18); ctx.lineTo(-10, 0); ctx.closePath(); ctx.fill();
     });
   }
-  // the reply promise
-  const dm = sp(t, 47.75, POP);
+  const dm = sp(t, 47.2, POP);
   if (dm > 0.001) withXf(X0 + 30, 1135, dm, 0, () => {
     ctx.fillStyle = C.crimson; ctx.beginPath(); ctx.moveTo(-30, -6); ctx.lineTo(30, -28); ctx.lineTo(12, 28); ctx.lineTo(2, 6); ctx.closePath(); ctx.fill();
   });
-  riseLine(t, one('Të shkruajmë në privat.', MS(700, 52), C.char), X0 + 84, 1155, 52, 47.75);
-  // lockup
-  const lp = sp(t, 48.0, POP);
-  if (lp > 0.001) {
-    withXf(X0 + 60, 1340, mix(0.5, 1, lp), (1 - lp) * -0.5, () => logoMark(-60, -60, 120));
-  }
-  riseLine(t, one('StraightScale', MS(800, 70), C.char, -1), X0 + 150, 1366, 70, 48.1);
+  riseLine(t, one('Të shkruajmë në privat.', MS(700, 52), C.char), X0 + 84, 1155, 52, 47.2);
+  const lp = sp(t, 47.5, POP);
+  if (lp > 0.001) withXf(X0 + 60, 1340, mix(0.5, 1, lp), (1 - lp) * -0.5, () => logoMark(-60, -60, 120));
+  riseLine(t, one('StraightScale', MS(800, 70), C.char, -1), X0 + 150, 1366, 70, 47.6);
 }
 
 // ================= COMPOSITION =================
 const SCENES = [
-  [0, 3.5, s1], [3.5, 6.0, s2], [6.0, 11.6, s3], [11.5, 15.05, s4], [15.0, 20.0, s5],
-  [20.0, 24.0, s6], [24.0, 30.0, s7], [30.0, 34.0, s8], [34.0, 38.0, s9], [38.0, 42.5, s10],
-  [42.5, 46.0, s11a], [46.0, 50.5, s11b],
+  [0, 2.95, s1], [2.95, 4.75, s2], [4.75, 13.5, s3], [13.5, 17.3, s4], [17.3, 22.55, s6],
+  [22.55, 31.1, s7], [31.1, 35.0, s8], [35.0, 39.3, s10], [39.3, 44.95, s11a], [44.95, 50.5, s11b],
 ];
 const run = (t, from, to) => SCENES.forEach(([a, b, fn]) => { if (a >= from && a < to && t >= a - 0.3 && t < b + 0.3) fn(t); });
 
-// Transition regions: the gold-thread wipe at 20.0, charcoal rising at 42.5, ivory dropping at 46.0.
+// Transitions: the gold-thread wipe on "Ja çfarë bën", charcoal rising for the offer, ivory dropping for the CTA.
+const WIPE = 17.3, UP = 39.22, DOWN = 44.92;
 function threadWipe(t) {
-  const p = sp(t, 19.9, [150, 24]);
+  const p = sp(t, WIPE, [150, 24]);
   const half = p * 1500;
   ctx.translate(W / 2, H / 2); ctx.rotate(-0.21);
   return { half, path: () => { ctx.beginPath(); ctx.rect(-1600, -half, 3200, half * 2); } };
@@ -582,30 +542,30 @@ function threadWipe(t) {
 
 function seek(t) {
   ctx.setTransform(1, 0, 0, 1, 0, 0);
-  if (t < 19.88) { bgDark(t); run(t, 0, 20); return; }
-  if (t < 20.9) {
-    bgDark(t); run(t, 15, 20);
-    ctx.save(); const { half, path } = threadWipe(t); path(); ctx.clip();
-    ctx.rotate(0.21); ctx.translate(-W / 2, -H / 2); bgLight(t); run(t, 20, 21);
+  if (t < WIPE) { bgDark(t); run(t, 0, 17.3); return; }
+  if (t < WIPE + 1.0) {
+    bgDark(t); run(t, 13.5, 17.3);
+    ctx.save(); const { path } = threadWipe(t); path(); ctx.clip();
+    ctx.rotate(0.21); ctx.translate(-W / 2, -H / 2); bgLight(t); run(t, 17.3, 17.4);
     ctx.restore();
     ctx.save(); const w2 = threadWipe(t); ctx.fillStyle = C.gold;
     ctx.fillRect(-1600, -w2.half - 5, 3200, 10); ctx.fillRect(-1600, w2.half - 5, 3200, 10);
     ctx.restore();
     return;
   }
-  if (t < 42.42) { bgLight(t); run(t, 20, 42.5); return; }
-  if (t < 45.92) {
-    const p = sp(t, 42.42, [110, 21]);
-    bgLight(t); run(t, 38, 42.5);
+  if (t < UP) { bgLight(t); run(t, 17.3, 39.3); return; }
+  if (t < DOWN) {
+    const p = sp(t, UP, [110, 21]);
+    bgLight(t); run(t, 35, 39.3);
     const top = H * (1 - p);
-    ctx.save(); ctx.beginPath(); ctx.rect(0, top, W, H); ctx.clip(); bgDark(t); run(t, 42.5, 46); ctx.restore();
+    ctx.save(); ctx.beginPath(); ctx.rect(0, top, W, H); ctx.clip(); bgDark(t); run(t, 39.3, 44.95); ctx.restore();
     if (p < 0.995) { ctx.fillStyle = C.gold; ctx.fillRect(0, top - 5, W, 10); }
     return;
   }
-  const p = sp(t, 45.92, [110, 21]);
-  bgDark(t); run(t, 42.5, 46);
+  const p = sp(t, DOWN, [110, 21]);
+  bgDark(t); run(t, 39.3, 44.95);
   const bot = H * p;
-  ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, bot); ctx.clip(); bgLight(t); run(t, 46, 51); ctx.restore();
+  ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, bot); ctx.clip(); bgLight(t); run(t, 44.95, 51); ctx.restore();
   if (p < 0.995) { ctx.fillStyle = C.gold; ctx.fillRect(0, bot - 5, W, 10); }
 }
 

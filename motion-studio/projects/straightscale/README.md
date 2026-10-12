@@ -1,11 +1,13 @@
 # StraightScale reel: "Marketing copë-copë"
 
 50 s, 1080x1920, 60 fps motion graphics reel for Instagram / Facebook (organic).
-Everything is made in code: visuals in `index.html`, music and sound effects in `audio/score.py`.
+Visuals are code (`index.html`), music and sound effects are code (`audio/score.py`), and the Albanian voiceover is the
+approved ElevenLabs take from `straightscale-reel` (`audio/vo_v1.mp3`, with a 2.5 s pause cut in for the proof figures).
 Shot list with Albanian lines and English checks: `docs/shotlist.md`.
 
 ## Deliverables (`deliver/`)
-- `straightscale_reel_9x16.mp4`: final video with sound, -14 LUFS
+- `straightscale_reel_9x16_vo.mp4`: final video with voiceover, music and sound effects, -14 LUFS
+- `straightscale_reel_9x16.mp4`: earlier text-only version (no voice), from commit fac7889
 - `contact.png`: 2 frames per second, the whole film
 - `poster.png`: cover frame (the 1.800 "cilësi" moment)
 
@@ -16,7 +18,7 @@ python3 audio/score.py                      # music.wav + sfx.wav
 python3 ../../beats.py audio/music.wav > beats.json
 node ../../stills.mjs --from 0.3 --step 0.5 --dur 50 --cols 10 --scale 0.2   # review sheet
 node ../../render.mjs --fps 60 --sub 4 --dur 50                              # out/silent.mp4
-./finish.sh                                 # mix, master to -14 LUFS, mux, write deliver/
+./finish.sh                                 # voice track, duck + mix, master to -14 LUFS, mux, write deliver/
 ```
 
 ## Notes
