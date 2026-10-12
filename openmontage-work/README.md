@@ -15,5 +15,5 @@ and is git-ignored. This folder keeps what cannot be re-downloaded.
 5. Copy `projects/why-the-sky-is-blue` into `OpenMontage/projects/`.
 
 ## Status of "Why Is the Sky Blue?" (animated-explainer pipeline)
-research, proposal, script approved -> voice + music generated (ElevenLabs) -> **storyboard awaiting approval** -> render next.
+research, proposal, script approved -> voice + music generated (ElevenLabs) -> storyboard approved -> **final video rendered: renders/final.mp4** (publish stage not run).
 Audio in public/ is saved as mp3; convert to narration.wav / music.wav (ffmpeg -i x.mp3 x.wav) before rendering.

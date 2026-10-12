@@ -1,0 +1,21 @@
+{
+  "version": "1.0",
+  "outputs": [
+    {
+      "path": "/home/user/main/OpenMontage/projects/why-the-sky-is-blue/renders/final.mp4",
+      "format": "mp4",
+      "resolution": "1920x1080",
+      "duration_seconds": 46.55
+    }
+  ],
+  "render_time_seconds": 102,
+  "warnings": [],
+  "verification_notes": [
+    "final_review pass",
+    "ffprobe: h264 30fps with audio",
+    "no stock components (atelier check)"
+  ],
+  "render_grammar": "explainer-teacher",
+  "decision_log_ref": "decision_log.json",
+  "final_review_ref": "artifacts/final_review.json"
+}

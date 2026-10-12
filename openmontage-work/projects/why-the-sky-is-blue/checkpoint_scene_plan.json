@@ -3,11 +3,11 @@
   "project_id": "why-the-sky-is-blue",
   "pipeline_type": "animated-explainer",
   "stage": "scene_plan",
-  "status": "awaiting_human",
-  "timestamp": "2026-10-12T15:16:04.720229+00:00",
+  "status": "completed",
+  "timestamp": "2026-10-12T15:39:48.655185+00:00",
   "checkpoint_policy": "guided",
   "human_approval_required": true,
-  "human_approved": false,
+  "human_approved": true,
   "artifacts": {
     "scene_plan": {
       "version": "1.0",
@@ -309,18 +309,7 @@
       }
     }
   },
-  "review": {
-    "summary": "8 scenes, 0-46.5s, no gaps; types: animation x4, diagram x2, text_card x1 (+hero); no 3 consecutive same type; distinct subjects"
-  },
-  "cost_snapshot": {
-    "spent_usd_estimate": 1.8,
-    "breakdown": {
-      "elevenlabs_tts_4_takes": 0.55,
-      "elevenlabs_music_4_takes": 1.2,
-      "elevenlabs_scribe": 0.05
-    }
-  },
   "metadata": {
-    "note": "Storyboard gate (user policy): scene_plan reviewed together with per-scene stills."
+    "user_feedback": "User approved the storyboard ('Go')."
   }
 }

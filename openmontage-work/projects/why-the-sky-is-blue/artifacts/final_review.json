@@ -1,0 +1,79 @@
+{
+  "version": "1.0",
+  "output_path": "/home/user/main/OpenMontage/projects/why-the-sky-is-blue/renders/final.mp4",
+  "status": "pass",
+  "checks": {
+    "technical_probe": {
+      "valid_container": true,
+      "duration_seconds": 46.55,
+      "resolution": "1920x1080",
+      "fps": 30.0,
+      "has_audio": true,
+      "codec": "h264",
+      "file_size_bytes": 10378440,
+      "issues": []
+    },
+    "visual_spotcheck": {
+      "frames_sampled": 4,
+      "frame_paths": [
+        "/home/user/main/OpenMontage/projects/why-the-sky-is-blue/renders/.final_review_frames/review_frame_0.png",
+        "/home/user/main/OpenMontage/projects/why-the-sky-is-blue/renders/.final_review_frames/review_frame_1.png",
+        "/home/user/main/OpenMontage/projects/why-the-sky-is-blue/renders/.final_review_frames/review_frame_2.png",
+        "/home/user/main/OpenMontage/projects/why-the-sky-is-blue/renders/.final_review_frames/review_frame_3.png"
+      ],
+      "black_frames_detected": false,
+      "broken_overlays": false,
+      "missing_assets": false,
+      "unreadable_text": false,
+      "issues": []
+    },
+    "audio_spotcheck": {
+      "narration_present": true,
+      "music_present": true,
+      "unexpected_silence": false,
+      "clipping_detected": false,
+      "mix_intelligible": true,
+      "issues": []
+    },
+    "promise_preservation": {
+      "delivery_promise_honored": true,
+      "silent_downgrade_detected": false,
+      "runtime_swap_detected": false,
+      "issues": [],
+      "renderer_family_used": "explainer-teacher",
+      "render_runtime_used": "remotion",
+      "runtime_swap_check": "ok \u2014 proposal and edit agree (proposal_packet.production_plan.render_runtime)"
+    },
+    "subtitle_check": {
+      "subtitles_expected": true,
+      "subtitles_present": true,
+      "issues": [],
+      "notes": "Captions are drawn inside the atelier composition from ElevenLabs Scribe word timings (scenes 1-7); verified on contact sheet"
+    },
+    "transcript_comparison": {
+      "transcript_matches_script": false,
+      "word_accuracy": null,
+      "script_word_count": 0,
+      "transcript_word_count": 0,
+      "spurious_punctuation_words": [],
+      "issues": [
+        "Automated comparison skipped (no local transcriber); ElevenLabs Scribe transcript of the source take matched the approved script word-for-word (119 words)"
+      ]
+    },
+    "atelier": {
+      "stock_reuse_detected": false,
+      "offending_imports": [],
+      "art_direction_declared": true,
+      "art_direction": "projects/why-the-sky-is-blue/art-direction.md",
+      "issues": []
+    }
+  },
+  "issues_found": [
+    "Duration 46.55s vs 45s target (+3.4%, within \u00b15%): 1.2s closing hold on the title"
+  ],
+  "recommended_action": "present_to_user",
+  "metadata": {
+    "agent_visual_review": "16-frame contact sheet reviewed: all 8 scenes present in order, captions synced, no clipping/cropping",
+    "loudness": "-16.1 LUFS integrated, LRA 3.2"
+  }
+}

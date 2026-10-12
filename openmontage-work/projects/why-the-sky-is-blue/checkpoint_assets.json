@@ -1,0 +1,144 @@
+{
+  "version": "1.0",
+  "project_id": "why-the-sky-is-blue",
+  "pipeline_type": "animated-explainer",
+  "stage": "assets",
+  "status": "completed",
+  "timestamp": "2026-10-12T15:40:06.215972+00:00",
+  "checkpoint_policy": "guided",
+  "human_approval_required": true,
+  "human_approved": true,
+  "artifacts": {
+    "asset_manifest": {
+      "version": "1.0",
+      "assets": [
+        {
+          "id": "narration",
+          "type": "narration",
+          "path": "public/narration.wav",
+          "source_tool": "elevenlabs_mcp",
+          "provider": "elevenlabs",
+          "model": "eleven_v4",
+          "scene_id": "all",
+          "duration_seconds": 45.26,
+          "cost_usd": 0.55,
+          "format": "wav",
+          "generation_summary": "Voice Abby (IKuPqyuiEnnZFcU4OVzH); 4 takes, take 1 (gen Zmubg2ZugmurddrUZW5c) chosen; atempo 1.08, loudnorm -16 LUFS",
+          "voice_performance": {
+            "delivery_cues_applied": true,
+            "provider_text_used": true,
+            "provider_settings": {
+              "tags": [
+                "curious",
+                "warmly",
+                "mischievously",
+                "softly",
+                "slowly",
+                "pause"
+              ],
+              "tempo": 1.08
+            },
+            "sample_approved": true,
+            "sample_path": "assets/audio/preview_voice_plus_music.mp3",
+            "review_notes": "User approved with storyboard"
+          }
+        },
+        {
+          "id": "music",
+          "type": "music",
+          "path": "public/music.wav",
+          "source_tool": "elevenlabs_mcp",
+          "provider": "elevenlabs",
+          "model": "eleven_music_v2_5",
+          "scene_id": "all",
+          "duration_seconds": 46.5,
+          "cost_usd": 1.2,
+          "format": "wav",
+          "generation_summary": "4 takes; take 2 (gen 3x6Dl2hTxYJAEjN1KX7D) chosen, offset 2.5s, fades; Scribe found no vocals; mixed at 0.16"
+        },
+        {
+          "id": "anim_sc1",
+          "type": "animation",
+          "path": "Composition.tsx",
+          "source_tool": "remotion_atelier",
+          "scene_id": "sc1",
+          "cost_usd": 0.0,
+          "generation_summary": "Hand-authored SVG scene; review still snapshots/sc1.png"
+        },
+        {
+          "id": "anim_sc2",
+          "type": "animation",
+          "path": "Composition.tsx",
+          "source_tool": "remotion_atelier",
+          "scene_id": "sc2",
+          "cost_usd": 0.0,
+          "generation_summary": "Hand-authored SVG scene; review still snapshots/sc2.png"
+        },
+        {
+          "id": "anim_sc3",
+          "type": "animation",
+          "path": "Composition.tsx",
+          "source_tool": "remotion_atelier",
+          "scene_id": "sc3",
+          "cost_usd": 0.0,
+          "generation_summary": "Hand-authored SVG scene; review still snapshots/sc3.png"
+        },
+        {
+          "id": "anim_sc4",
+          "type": "animation",
+          "path": "Composition.tsx",
+          "source_tool": "remotion_atelier",
+          "scene_id": "sc4",
+          "cost_usd": 0.0,
+          "generation_summary": "Hand-authored SVG scene; review still snapshots/sc4.png"
+        },
+        {
+          "id": "anim_sc5",
+          "type": "animation",
+          "path": "Composition.tsx",
+          "source_tool": "remotion_atelier",
+          "scene_id": "sc5",
+          "cost_usd": 0.0,
+          "generation_summary": "Hand-authored SVG scene; review still snapshots/sc5.png"
+        },
+        {
+          "id": "anim_sc6",
+          "type": "animation",
+          "path": "Composition.tsx",
+          "source_tool": "remotion_atelier",
+          "scene_id": "sc6",
+          "cost_usd": 0.0,
+          "generation_summary": "Hand-authored SVG scene; review still snapshots/sc6.png"
+        },
+        {
+          "id": "anim_sc7",
+          "type": "animation",
+          "path": "Composition.tsx",
+          "source_tool": "remotion_atelier",
+          "scene_id": "sc7",
+          "cost_usd": 0.0,
+          "generation_summary": "Hand-authored SVG scene; review still snapshots/sc7.png"
+        },
+        {
+          "id": "anim_sc8",
+          "type": "animation",
+          "path": "Composition.tsx",
+          "source_tool": "remotion_atelier",
+          "scene_id": "sc8",
+          "cost_usd": 0.0,
+          "generation_summary": "Hand-authored SVG scene; review still snapshots/sc8.png"
+        }
+      ],
+      "total_cost_usd": 1.8,
+      "metadata": {
+        "cost_note": "Plus ~0.05 USD ElevenLabs Scribe transcription"
+      }
+    }
+  },
+  "cost_snapshot": {
+    "spent_usd": 1.85
+  },
+  "metadata": {
+    "user_feedback": "Assets reviewed as part of the approved storyboard (stills + audio preview)."
+  }
+}

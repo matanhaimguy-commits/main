@@ -1,0 +1,70 @@
+{
+  "version": "1.0",
+  "render_runtime": "remotion",
+  "composition_mode": "atelier",
+  "renderer_family": "explainer-teacher",
+  "cuts": [
+    {
+      "id": "sc1",
+      "source": "Composition.tsx#sc1",
+      "in_seconds": 0,
+      "out_seconds": 5.45
+    },
+    {
+      "id": "sc2",
+      "source": "Composition.tsx#sc2",
+      "in_seconds": 5.45,
+      "out_seconds": 11.55
+    },
+    {
+      "id": "sc3",
+      "source": "Composition.tsx#sc3",
+      "in_seconds": 11.55,
+      "out_seconds": 16.45
+    },
+    {
+      "id": "sc4",
+      "source": "Composition.tsx#sc4",
+      "in_seconds": 16.45,
+      "out_seconds": 21.6
+    },
+    {
+      "id": "sc5",
+      "source": "Composition.tsx#sc5",
+      "in_seconds": 21.6,
+      "out_seconds": 26.8
+    },
+    {
+      "id": "sc6",
+      "source": "Composition.tsx#sc6",
+      "in_seconds": 26.8,
+      "out_seconds": 34.15
+    },
+    {
+      "id": "sc7",
+      "source": "Composition.tsx#sc7",
+      "in_seconds": 34.15,
+      "out_seconds": 40.85
+    },
+    {
+      "id": "sc8",
+      "source": "Composition.tsx#sc8",
+      "in_seconds": 40.85,
+      "out_seconds": 46.5
+    }
+  ],
+  "bespoke": {
+    "entry": "projects/why-the-sky-is-blue/index.tsx",
+    "composition_id": "SkyBlue",
+    "props_path": "/home/user/main/OpenMontage/projects/why-the-sky-is-blue/artifacts/props.json",
+    "public_dir": "/home/user/main/OpenMontage/projects/why-the-sky-is-blue/public",
+    "art_direction": "projects/why-the-sky-is-blue/art-direction.md",
+    "crf": 18,
+    "concurrency": 4
+  },
+  "metadata": {
+    "total_duration_seconds": 46.5,
+    "audio": "narration + music mixed inside composition (music 0.16, swell after narration)",
+    "subtitles": "burned in from narration_words.json, hidden after 40.85s"
+  }
+}
