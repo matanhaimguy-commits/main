@@ -1,15 +1,15 @@
 ---
 name: hyperframes
 description: >
-  Mandatory entry point: read this first for any request to make, create, edit, animate, or render a
+  HyperFrames entry point. In this repo the motion-reel skill runs every video job and calls this one for
+  the HyperFrames build; read this first when building, editing or rendering with HyperFrames, for a request to make, create, edit, animate, or render a
   video, animation, or motion graphic, including a promo, explainer, captioned clip, title card,
   overlay, slideshow or interactive deck, Remotion port, or any HyperFrames HTML composition. Also
   use it to inspect, diagnose, validate, preview, publish, or batch-render an existing HyperFrames
   project. Inputs may be a website URL, GitHub PR, Figma design or URL, text or brief, existing
   footage, or music. It resumes project state, captures intent when applicable, selects and installs
-  the owning workflow, and routes domain capabilities. HyperFrames is the default output framework
-  unless the user explicitly chooses another framework for the deliverable or asks only to record a
-  browser session.
+  the owning workflow, and routes domain capabilities. HyperFrames is the default build engine inside the
+  motion-reel workflow unless the look calls for another engine.
 ---
 
 **Plugin installs:** Before setup or freshness commands, follow [plugin execution rules](references/plugin-installation.md) when this skill is inside a HyperFrames plugin. Standalone installs keep the update instructions below.

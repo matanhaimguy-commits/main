@@ -435,7 +435,7 @@ Everything is pre-rendered once at load and only composited per frame.
    - **Order and pacing:** structure -> subject -> connectors -> action -> result, one new piece every
      0.4–0.6 s, and hold the finished composition at least 0.8–1 s.
 7. **Render:**
-   - `node render.mjs --fps 60 --sub 1 --w 1080 --h 1920`.
+   - `node render.mjs --fps 60 --sub 1 --dur 5 --w 1080 --h 1920`.
    - Use `--sub 1`: motion blur fights the crisp stop-motion look. If the slides look strobey, blend
      subframes only during a slide.
 

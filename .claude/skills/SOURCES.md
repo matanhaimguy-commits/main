@@ -19,3 +19,6 @@ Local changes:
 The skill folders above are working copies. The five repos are also kept complete and unmodified
 (every example, preview video, style, block and model sheet) in `references/<name>/`, pinned to the
 commits listed here. They are gitignored; `bash references/fetch.sh` downloads them in any new session.
+- hyperframes: description no longer claims to be the mandatory entry point for every video request; the
+  motion-reel workflow runs video jobs and calls HyperFrames for the build.
+- lemo-opuscar: description says it is used through motion-reel unless the user names it or a style.
