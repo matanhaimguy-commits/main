@@ -1,22 +1,55 @@
-# Storyboard / shot list – StraightScale reel v1 (47.6 s · 9:16 · 30 fps)
-Timing locked to plan/beats.json (ElevenLabs take 4). Captions: Albanian, bottom band (y≈1355), active word gold;
-hidden in S9 promise typing and S13 CTA (same words are on screen). Safe area respected (top 220 / bottom 420 px clear).
+# Storyboard / shot list – StraightScale reel v2 (47.6 s · 9:16 · 30 fps)
+v1 (centred UI cards on flat backgrounds) was rejected: "boring, same design structures". v1 is in git history.
+Visual sheet: plan/storyboard_v2.jpg (real frames from the rough cut renders/previews/roughcut_v2.mp4).
 
-| # | Time | VO (Albanian) | Visual | Motion / transition | SFX | On-screen text |
-|---|---|---|---|---|---|---|
-| S1 | 0.00–3.00 | Të shkruajnë "Sa kushton?"... dhe zhduken? | Charcoal. Phone chat: customer bubble "Sa kushton?", owner types a reply, customer goes offline | Phone rises in; bubble pops on "Sa" (0.88) with gold ping ring; on "zhduken" (2.08) avatar dissolves to dust, "Shikuar ✓✓" | message ping, soft typing, dust whoosh | Sa kushton? · Përshëndetje! Çmimi varet nga... |
-| S2 | 3.00–4.70 | Problemi nuk është çmimi. | Marble. A big price tag swings in; crimson strike through the word ÇMIMI | hard cut; tag swings (pendulum ease); strike on "çmimi" (3.88) | paper swish, marker strike | ÇMIMI (struck) |
-| S3 | 4.70–9.55 | Problemi është që flet njësoj si të gjithë: "cilësi", "çmimet më të mira". | PATCHWORK: 4 mismatched fabric patches (website/ads/Instagram/phone) with who-made-it labels, loosely stitched | patches fly in from 4 sides, wobbly stitches draw; crimson stamps slam on "cilësi" (7.2) and "çmimet më të mira" (8.05), screen shake | 4 whooshes, 2 stamp thuds | Marketing copë-copë · Faqja: një freelancer · Reklamat: një agjenci · Instagrami: nipi · Telefoni: kush është afër · CILËSI · ÇMIMET MË TË MIRA |
-| S4 | 9.55–13.60 | Rreth 1800 reklama aktive në Shqipëri thonë "cilësi". | Wall of tiny identical ad cards filling the screen, each with "cilësi"; big counter | grid fills row by row while counter rolls 0→~1.800 (lands on "tetëqind" 10.44); camera slowly pulls back; all cards flash "cilësi" on 12.64 | ticking counter, soft riser | ~1.800 · reklama aktive · "cilësi" · Burimi: Meta Ad Library, 11.10.2026 |
-| S5 | 13.60–17.40 | Kur të gjithë thonë të njëjtën gjë, klienti krahason vetëm çmimin. | Three identical business cards side by side ("cilësi"), each gets a discount sticker -10% / -20% / -30%; a cursor picks the cheapest | cards slide in; stickers peel on; cursor click on "çmimin" (16.56); other two dim | sticker peels, click | VETËM ÇMIMIN |
-| S6 | 17.40–18.50 | Ja çfarë bën. | Charcoal beat: a gold needle and thread zips diagonally across the screen | whip transition along the thread | thread zip | (none) |
-| S7 | 18.50–22.65 | Lexo komentet dhe vlerësimet e klientëve, për ty dhe për konkurrentët. | Two columns of abstract review cards (stars + grey text bars, no fake readable reviews) labelled TI / KONKURRENTËT; a gold highlighter scans phrases | columns scroll upward; "TI" label on "ty" (20.96), "KONKURRENTËT" on "konkurrentët" (21.68) | soft scroll, highlighter squeaks | Lexo · TI · KONKURRENTËT |
-| S8 | 22.65–26.60 | Gjej çfarë duan vërtet dhe ktheje në një premtim që s'e bën askush. | The gold highlights lift off and fly together into one glowing ivory card marked "1 PREMTIM" | particles converge on "premtim" (24.8); card settles with gold glow; small grey "askush tjetër" cards fade on "askush" | magnetic swoosh, chime | 1 PREMTIM |
-| S9 | 26.60–31.10 | Jo "cilësi", por: "Instalim për dhjetë ditë, me datë në kontratë." | Marble. "cilësi" in grey gets a crimson strike; promise card types in word by word; contract with DATA stamp | strike on "cilësi" (27.0); card rises (27.75); words appear on their spoken time; stamp on "kontratë" (30.55) | marker strike, typewriter ticks, stamp | "cilësi" (struck) · SHEMBULL · Një premtim i qartë · Instalim për 10 ditë, me datë në kontratë. · KONTRATË · DATA ✓ |
-| S10 | 31.10–35.05 | Pastaj thuaje kudo: në reklama, në faqe, në telefon. | The patchwork returns, but a gold thread stitches it straight: ad / website / phone patches now in brand colours, all showing the same promise | gold thread sews across; patches straighten and re-colour one by one on "reklama" (32.64), "faqe" (33.52), "telefon" (34.24) | 3 stitch pops, rising pad | Reklama · Faqja · Telefoni · (promise line on each) |
-| S11 | 35.05–37.05 | Këtë bëjmë ne te StraightScale. | Logo reveal (red square, white S, gold square) + wordmark; three proof cards fan in | logo builds on "StraightScale" (35.92); proof cards stagger in with counter roll | logo hit, 3 soft pops | €15K → €55K / muaj · €30K → €100K / muaj · €0 → €140K / muaj |
-| S12 | 37.05–42.66 | Analizë falas, dyzet e pesë minuta, pa detyrim. Të tregojmë edhe reklamat e konkurrentëve. | Proof cards shrink to a top row; offer card centre; on "reklamat e konkurrentëve" a folder opens and competitor ad cards peek out | offer chips tick in on "falas", "45 minuta", "pa detyrim"; folder opens on 40.48 | 3 ticks, folder swish | ANALIZË FALAS · 45 minuta · Pa detyrim · Në zyrë në Tiranë ose te biznesi yt · Reklamat e konkurrentëve |
-| S13 | 42.66–47.60 | Shkruaj ANALIZA në komente. Të shkruajmë në privat. | Comment sheet: "ANALIZA" typed and posted, heart; DM notification from StraightScale | letters drop in; typing synced (43.3–43.8); post + heart; DM card on "Të shkruajmë" (44.72); hold to 47.6 | typing, send whoosh, like pop, DM ping, final soft hit | Shkruaj ANALIZA në komente · Të shkruajmë në privat |
+**Idea.** Patchwork marketing looks like a ransom note glued together from scraps; everyone writes "cilësi".
+StraightScale is one straight gold line that cuts through it. After the cut (S6) everything sits on that line
+(same height, y = 894 px, in every shot): the lesson, the promise, the logo, the offer.
 
-Music: soft modern corporate/ambient bed (ElevenLabs), ducked ~14 dB under VO, small lift at S6 and S11. Mix target −14 LUFS, −1.5 dBTP.
-Proof labels (S11) to confirm wording: "firmë konsulence", "biznes kursesh", "biznes i ri konsulence".
+- **World 1 (S1–S5), the problem:** paper textures, torn scraps, tape, label-maker strips, ransom letters cut from
+  6 styles of the two brand fonts, marker strikes, rubber stamps, camera shakes and zooms.
+- **World 2 (S6–S13), the line:** marble, one gold line, straight edges, aligned. Words rise out of the line or
+  drop from it. S13 returns to dark paper for the CTA, with the line under NË KOMENTE.
+- Motion: closed-form springs everywhere, no fade-ins, no glow, no particles. Something new every 1–3 s.
+- Captions: Albanian, bottom band (y≈1355), active word gold. Hidden where the same words are big on screen
+  (S2, S4, S9 promise, S10, S11 end + S12, S13).
+
+| # | Time | VO (Albanian / English) | Visual | SFX (after approval) |
+|---|---|---|---|---|
+| S1 | 0.00–3.00 | Të shkruajnë "Sa kushton?"... dhe zhduken? / They text you "How much?"... and disappear? | Typing bubble from frame 1 (cropped left). "SA KUSHTON?" lands letter by letter as a ransom note (0.86–1.6). On "zhduken" (2.08) the letters fly off. "Shikuar ✓✓" (Seen) left behind. | typing dots, paper slaps per letter, whoosh-out |
+| S2 | 3.00–4.70 | Problemi nuk është çmimi. / The problem isn't the price. | Hard cut to crimson paper. PROBLEMI / NUK ËSHTË snap in on their syllables; giant ÇMIMI wider than the frame, pans; black marker strike (4.06). | low hit, marker scratch |
+| S3 | 4.70–9.55 | Problemi është që flet njësoj si të gjithë: "cilësi", "çmimet më të mira". / ...you sound like everyone: "quality", "best prices". | Patchwork collage: 4 torn scraps taped (site, ad, Instagram, phone) with label-maker strips naming who made each. On "cilësi" (7.2) every scrap spells CILËSI in different cut-out letters. Stamp ÇMIMET MË TË MIRA (8.05) + shake. | 4 paper whooshes, tape rips, label-maker clicks, stamp thud |
+| S4 | 9.55–13.60 | Rreth një mijë e tetëqind reklama aktive në Shqipëri thonë "cilësi". / About 1,800 active ads in Albania say "quality". | Droste pull-back: the board is one of 1,800 identical boards (36×50 wall). Charcoal slab: odometer 1 → 1.000 → 1.800 (rolls on "tetëqind"), REKLAMA AKTIVE NË SHQIPËRI, source line. On "cilësi" (12.62) a red CILËSI sticker ripples across every board. | zoom-out whoosh, slab slam, odometer ticks, sticker ripple |
+| S5 | 13.60–17.40 | Kur të gjithë thonë të njëjtën gjë, klienti krahason vetëm çmimin. / When everyone says the same thing, the customer only compares price. | Dive back into one board. "të njëjtën" (14.46): every scrap re-slaps the identical word. "klienti krahason" (15.3): black marker redacts everything. "vetëm" (16.26): red € stickers (no amounts) slap on; camera pushes on "çmimin". | zoom-in, 4 slaps, marker swipes, sticker pops |
+| S6 | 17.40–18.50 | Ja çfarë bën. / Here's what you do. | One gold line slices the collage diagonally (17.44); both halves fall away to marble; the line swings level at y=894 and stays. | sharp slice, paper falling, settle tone |
+| S7 | 18.50–22.65 | Lexo komentet dhe vlerësimet e klientëve, për ty dhe për konkurrentët. / Read customers' comments and reviews, about you and your competitors. | "Lexo" (huge Playfair italic) rises out of the line. Two receipt tapes of abstract reviews (stars + bars, no invented quotes) scroll; the key phrase in each is highlighted gold as it passes. Tabs TI (20.94) / KONKURRENTËT (21.66). | soft scroll bed, highlighter squeaks, tab clicks |
+| S8 | 22.65–26.60 | Gjej çfarë duan vërtet dhe ktheje në një premtim që s'e bën askush. / Find what they really want and turn it into a promise nobody makes. | Highlights fly into one point and compress into a gold square on the line (the logo's square), pop on "vërtet". Slow push. "një premtim" drops out of the line (24.6). On "askush" (25.22) pull back: everyone else's lines are crooked and grey. | magnetic swoosh, small chime, scribble texture |
+| S9 | 26.60–31.10 | Jo "cilësi", por: "Instalim për dhjetë ditë, me datë në kontratë." / Not "quality", but: "Installed in 10 days, date in the contract." | CILËSI ransom word, crimson strike (27.0), letters drop. Promise lands word by word on the line. Stamp SHEMBULL (example). | strike, letters falling, soft type drops, stamp |
+| S10 | 31.10–35.05 | Pastaj thuaje kudo: në reklama, në faqe, në telefon. / Then say it everywhere: in ads, on your website, on the phone. | Frame-in-frame: S9 was a phone screen (an ad). Pull back along the line to a website and a phone call, same promise, same line. Labels NË REKLAMA / NË FAQE / NË TELEFON on their words; final pull-out shows all three aligned. | 3 camera whooshes, label clicks |
+| S11 | 35.05–37.60 | Këtë bëjmë ne te StraightScale. / This is what we do at StraightScale. | Screens drop. Logo built on the line: red square rises, S cut, gold square drops in (35.58), wordmark on "StraightScale". Lockup moves up; before/after chart of the brief's 3 results: €15K→€55K, €30K→€100K, €0→€140K /muaj. | logo hit, 3 line draws |
+| S12 | 37.60–42.66 | Analizë falas, dyzet e pesë minuta, pa detyrim. Të tregojmë edhe reklamat e konkurrentëve. / Free analysis, 45 minutes, no obligation. We'll also show you your competitors' ads. | "Analizë falas." rises out of the line. Crimson clock fills 45 of 60 min (count 0→45). PA DETYRIM, office in Tirana or your business. Headline sinks; competitors' ads slide out of the clock's empty quarter; label REKLAMAT E KONKURRENTËVE. | clock tick sweep, word snaps, paper slides |
+| S13 | 42.66–47.60 | Shkruaj ANALIZA në komente. Të shkruajmë në privat. / Comment ANALIZA. We'll message you privately. | Dark paper. "Shkruaj"; giant comment field types ANALIZA (43.28–43.76) and sends; NË KOMENTE + gold line; StraightScale DM card with badge. Hold 3 s. | typing, send whoosh, DM ping, final soft hit |
+
+## On-screen Albanian text (needs a native-speaker check)
+| Albanian | English |
+|---|---|
+| SA KUSHTON? · Shikuar ✓✓ | How much? · Seen |
+| PROBLEMI NUK ËSHTË ÇMIMI | The problem isn't the price |
+| FAQJA: NJË FREELANCER · REKLAMAT: NJË AGJENCI · INSTAGRAMI: NIPI · TELEFONI: KUSH ËSHTË AFËR | Website: a freelancer · Ads: an agency · Instagram: the nephew · Phone: whoever's nearby |
+| Sponsorizuar · CILËSI · ÇMIMET MË TË MIRA | Sponsored · quality · the best prices |
+| RRETH 1.800 · REKLAMA AKTIVE NË SHQIPËRI · Burimi: Meta Ad Library, 11.10.2026 · THONË | About 1,800 · active ads in Albania · Source · they say |
+| Lexo · TI · KONKURRENTËT | Read · you · competitors |
+| një premtim | a promise |
+| Instalim për 10 ditë, me datë në kontratë. · SHEMBULL | Installed in 10 days, date in the contract. · Example |
+| Thuaje kudo. · NË REKLAMA · NË FAQE · NË TELEFON | Say it everywhere. · in ads · on the website · on the phone |
+| Biznesi yt · Na shkruaj · faqja jote · Na kontakto · Telefonatë · Klient i ri | Your business · Write to us · your website · Contact us · Phone call · New customer |
+| Të ardhurat mujore të klientëve · PARA · PAS · /muaj · firmë konsulence · biznes kursesh · biznes i ri konsulence | Clients' monthly revenue · before · after · per month · consulting firm · courses business · new consulting business |
+| Analizë falas. · MIN · PA DETYRIM · Në zyrën tonë në Tiranë ose te biznesi yt. | Free analysis. · min · no obligation · At our office in Tirana or at your business. |
+| REKLAMAT E KONKURRENTËVE | Competitors' ads |
+| Shkruaj · ANALIZA · NË KOMENTE · Shto një koment… · Të shkruajmë në privat | Write · ANALIZA · in the comments · Add a comment… · We'll message you privately |
+
+## Rules check
+No founder, no person on camera · numbers only from the brief (≈1,800, 11.10.2026, 10 days example, 45 min, 3 results;
+"1.000" is only the odometer passing through) · € stickers carry no amounts, no prices anywhere · no em dashes ·
+no hype words · no "1 hour" line · nothing about chasing leads · gold text never on ivory/marble (gold only as the line,
+highlighter, square, and as the active caption word on a charcoal strip) · no crimson text on charcoal.
