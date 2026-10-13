@@ -64,3 +64,22 @@ Sheets: `deliver/v1/contact_sheet.png`, `out/strip.png` (stopwatch at 2.0), `out
 Frame count 2220 = 37.0 s x 60. Encode: render segments were x264 CRF 16 (250 MB, grain-heavy on ivory); the master is
 re-encoded at CRF 21 (41 MB, SSIM within 0.02 of CRF 20 on the test segment), the viewing copy at CRF 23 (21 MB;
 only the faint grain is smoothed). Known and told: no human listen yet; native Albanian check; voice-driven low-mid WARN.
+
+## Round 4 · 2026-10-13 · English cut (`deliver/v1_en/straightscale_reel03_en_9x16.mp4`)
+Sheets: `out/en_a.png`, `out/en_b.png` (styleframes), `deliver/v1_en/contact_sheet.png`, `out/strip.png` (5.6)
+Refactor proof: the Albanian page renders the same pixels at 100/100 sampled times and the same score/effects
+samples after the language switch was added.
+
+| Axis | Score /10 | Evidence |
+|---|---|---|
+| Hook in the first 2 s | 8 | "Attention" focus pull + brackets + "costs." by 0.7 s |
+| Readability at phone size | 9 | safezone ok on the English page; "The businesses" auto-fitted from 140 to 108 px |
+| Motion quality | 9 | as the Albanian final |
+| Continuity | 9 | seams at 12.1/24.2 show no spike |
+| Variety and pacing | 8 | final: 10% still, CV 0.92, spread 14.6x; "Your client" beat is short (0.7 s) because the English line is faster |
+| Composition | 8 | as the Albanian final |
+| Brand accuracy | 9 | |
+| Sound | 8 | -14.0 LUFS, -1.4 dBTP after AAC (limit -1.0), music 14.4 dB under the voice; nobody has listened yet |
+| Message with the sound off | 8 | |
+
+Frame count 2177 = 36.28 s x 60. Known and told: no human listen; native English check of tone; keyword kept as ANALIZA.

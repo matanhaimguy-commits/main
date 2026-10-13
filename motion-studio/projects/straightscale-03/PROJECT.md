@@ -23,7 +23,7 @@ One file that says what this job is, where it stands, and what was decided. Upda
 
 ## Status
 Stage: delivered (v1)
-Current version: v1 (`deliver/v1/`)
+Current version: v1 Albanian (`deliver/v1/`), v1 English (`deliver/v1_en/`)
 Next step: the user's listen and a native Albanian check, then revisions into v2
 Blockers / open questions: native Albanian check; nobody has listened.
 
@@ -49,5 +49,5 @@ Blockers / open questions: native Albanian check; nobody has listened.
 - 2026-10-13 · beat sheet (treatment §5), canvas-engine build, styleframes round 0 · 6 fixes
 - 2026-10-13 · score + foley (audio/score.py), word-timed ducking, master -14.0 LUFS / -1.5 dBTP · ok
 - 2026-10-13 · review rounds 1-2 (docs/review_log.md) · stopwatch hand fixed; final render 60 fps x 4 subframes
-- 2026-10-13 · English cut: script, 4 takes (take 2, 33.84 s, Scribe exact), page and score moved to named cues (Albanian proven unchanged), English styleframes, safezone ok, seekcheck PASS, mix -14.0 LUFS · rendering
+- 2026-10-13 · English cut: script, 4 takes (take 2, 33.84 s, Scribe exact), page and score moved to named cues (Albanian proven unchanged), English styleframes, safezone ok, seekcheck PASS, mix -14.0 LUFS · delivered deliver/v1_en (2177 frames, seams clean, -14.0 LUFS / -1.4 dBTP after AAC, review round 4)
 - 2026-10-13 · final: 2220 frames, seams clean, -14.0 LUFS / -1.5 dBTP after AAC, round 3 · delivered v1 (master CRF 21, viewing copy CRF 23)
