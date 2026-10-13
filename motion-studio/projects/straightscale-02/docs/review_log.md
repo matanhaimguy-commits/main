@@ -72,3 +72,22 @@ Three worst problems and the fix for each:
    mean error 0.1 of a level, max 3 levels, measured on 3 frames).
 3. Open (logged, not fixed): low-mid WARN in audio_qa comes from the voice itself (same flags on the voice alone);
    a gentle voice EQ (-3 dB at 230 Hz) already reduced it from 12 to 10 flagged seconds.
+
+## Round 3 · 2026-10-13 · final (60 fps x 4 subframes, `deliver/v1/straightscale_reel02_9x16.mp4`)
+Sheets: `deliver/v1/contact_sheet.png`, `out/strip.png` (ride at 5.4), `out/phone.png`
+
+| Axis | Score /10 | Evidence (timestamps) |
+|---|---|---|
+| Hook in the first 2 s | 8 | tokens racing from frame 0, "Çdo muaj fillon nga zero?" by 1.0 s |
+| Readability at phone size | 9 | safezone ok; shadowed lines hold over the moving mark |
+| Motion quality | 9 | ride strip: subframe blur on the walls and token, no strobing |
+| Continuity | 9 | one camera move from 0 to 29.8 s; segments joined without a visible seam (frame diffs 0.76-1.16 at 14.0/28.0, same as neighbours) |
+| Variety and pacing | 8 | pacing.py on the final: 23% still, CV 0.82, spread 14.7x, no frozen stretch |
+| Composition | 8 | every beat has one focal point; end section is type on charcoal under the lockup (by design) |
+| Brand accuracy | 9 | real symbol and lockup files, measured colours, brief fonts |
+| Sound | 8 | -14.0 LUFS, -1.5 dBTP after AAC, music 15.8 dB under the voice; nobody has listened yet |
+| Message with the sound off | 8 | leak vs loop reads without words; captions file supplied |
+
+Automatic checks: frame count 2460 = 41.0 s x 60; seekcheck PASS; pacing PASS (5/5); safezone ok;
+audio_qa PASS except the voice-driven low-mid WARN (logged in round 2).
+Known and told to the user: no human listen yet; Albanian copy and voice need a native check; low-mid WARN.

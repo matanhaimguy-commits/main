@@ -31,9 +31,9 @@ One file that says what this job is, where it stands, and what was decided. Upda
 - Paid generation: ElevenLabs voice only (implicitly approved: the user asked for a voice). No paid images, video or music.
 
 ## Status
-Stage: render and deliver (stage 11-12)
-Current version: v1 (rendering)
-Next step: deliver/v1, then the user's listen and a native Albanian check
+Stage: delivered (stage 12)
+Current version: v1 (`deliver/v1/`)
+Next step: the user's listen and a native Albanian check, then revisions into v2
 Blockers / open questions: native Albanian check of script, on-screen text and VO (as for reel 01); nobody has listened yet.
 
 ## Decisions (newest first)
@@ -62,3 +62,4 @@ Blockers / open questions: native Albanian check of script, on-screen text and V
 - 2026-10-13 · beat sheet (treatment §5), mark traced, styleframes round 0 · fixed 6 issues
 - 2026-10-13 · score + foley (audio/score.py), word-timed ducking (audio/mix.py), master -14.0 LUFS / -1.5 dBTP · ok
 - 2026-10-13 · review rounds 1-2 on 15 fps drafts (docs/review_log.md) · fixed 4 issues; final render 60 fps x 4 subframes
+- 2026-10-13 · final: 2460 frames, seams clean, -14.0 LUFS / -1.5 dBTP after AAC, review round 3 · delivered v1
