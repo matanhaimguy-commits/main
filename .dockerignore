@@ -1,0 +1,9 @@
+# Only the agent goes into the Docker build; the video projects stay out (they are hundreds of MB).
+*
+!social-agent
+!social-agent/**
+social-agent/node_modules
+social-agent/dist
+social-agent/test
+social-agent/.env
+social-agent/.env.*

@@ -1,0 +1,52 @@
+# Our own business. Lines with TODO must be filled in before it can go live
+# (the audit blocks live sending while any TODO is left). Tell Claude the details and it
+# will fill them in, or edit this file directly.
+slug: our-business
+name: TODO our business name
+enabled: true
+live: false            # switch to true for real sending (LIVE_SENDING must also be true on the server)
+testers: []            # e.g. ["@our_test_account"]: only these get messages while testing
+timezone: Asia/Jerusalem
+
+# The Facebook Page and Instagram account are connected at /admin/connect.
+
+profile:
+  about: |
+    TODO: who we are and what we do. For example: a studio that creates carousels, motion
+    graphics and videos for brands and runs their Instagram/Facebook automations.
+  offers: |
+    TODO: each service, what is included, and the price (or "price on a call").
+  audience: |
+    TODO: who our ideal client is.
+  goal: TODO the one next step every conversation should lead to, e.g. book a free call
+  qualifying_questions:
+    - TODO e.g. What does your business sell, and where?
+    - TODO e.g. Are you posting content / running ads today?
+  faq: []
+  voice: |
+    Friendly and to the point, like the founder answering their own DMs. Hebrew is informal.
+    At most one emoji per message.
+  never:
+    - Promise results, discounts or deadlines that are not written in this file.
+
+links: []
+#  - id: book_call
+#    title: Book a call          # button text, max 20 characters
+#    url: https://...            # full URL, never a shortener
+#    when: They are a fit and want to talk, or ask how to start.
+
+ai:
+  dm_replies: true
+  comment_replies: false
+  comment_dms: false
+
+# Comment-to-DM funnels (the content system will add these automatically later).
+# Example, pinned to one post or reel ID:
+funnels: []
+#  - id: first-test
+#    posts: ["POST_OR_REEL_ID"]
+#    keywords: ["guide", "מדריך"]
+#    public_replies: ["Sent you a DM 🙌"]
+#    opener: { text: "Here it is 👇 Tap and it's yours.", button: Send it to me }
+#    deliver: { text: "Enjoy 🎁", link: book_call, button: Open it }
+#    after: "Questions? Just reply here 🙂"
