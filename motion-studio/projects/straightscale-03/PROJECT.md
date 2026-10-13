@@ -22,9 +22,9 @@ One file that says what this job is, where it stands, and what was decided. Upda
   "45 minuta" (offer, brief). Nothing else numeric except the decorative stopwatch and countdown (no claims).
 
 ## Status
-Stage: render and deliver
-Current version: v1 (rendering)
-Next step: deliver/v1, the user's listen, native Albanian check
+Stage: delivered (v1)
+Current version: v1 (`deliver/v1/`)
+Next step: the user's listen and a native Albanian check, then revisions into v2
 Blockers / open questions: native Albanian check; nobody has listened.
 
 ## Decisions (newest first)
@@ -47,3 +47,4 @@ Blockers / open questions: native Albanian check; nobody has listened.
 - 2026-10-13 · beat sheet (treatment §5), canvas-engine build, styleframes round 0 · 6 fixes
 - 2026-10-13 · score + foley (audio/score.py), word-timed ducking, master -14.0 LUFS / -1.5 dBTP · ok
 - 2026-10-13 · review rounds 1-2 (docs/review_log.md) · stopwatch hand fixed; final render 60 fps x 4 subframes
+- 2026-10-13 · final: 2220 frames, seams clean, -14.0 LUFS / -1.5 dBTP after AAC, round 3 · delivered v1 (master CRF 21, viewing copy CRF 23)
