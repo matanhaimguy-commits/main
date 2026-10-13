@@ -133,6 +133,7 @@ Each round in `docs/review_log.md`: phone-size contact sheet (one frame per beat
 moment and transition, the scored rubric (hook, readability, motion, continuity, pacing, composition, brand,
 sound, message with sound off), automatic checks, then fix the three worst problems. Automatic checks:
 `tools/seekcheck.mjs` · `tools/pacing.py` on the draft (compare with the references) · `tools/audio_qa.py` ·
+`tools/safezone.mjs` (canvas engine) ·
 HyperFrames `check --caption-zone` · Lemo `readcheck.mjs` for reading time. Gate list:
 `knowledge/onetake-principles.md` §8. Ship only when every axis is 8+ and every automatic check passes, or the
 remaining issue is written in the review log and told to the user.

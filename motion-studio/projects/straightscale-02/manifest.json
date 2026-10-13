@@ -1,0 +1,11 @@
+[
+  {"path": "assets/brand/logo-full.png", "type": "logo", "source": "user's Google Drive: 'StraightScale logo on transparent background-1.png' (id 1mW9PnT-bPdUfDe3teNWfl9Qk1gHogI3D)", "retrieved": "2026-10-13", "license": "client-owned", "used_in": "end card"},
+  {"path": "assets/brand/wordmark-white.png", "type": "logo", "source": "user's Google Drive: 'StraightScale white wordmark on transparency-2.png' (id 1sMGlWHvmqcYsEr3rn93TVGMK33Jw2_Iv)", "retrieved": "2026-10-13", "license": "client-owned", "used_in": "dark frames"},
+  {"path": "assets/brand/symbol.png", "type": "logo", "source": "user's Google Drive: 'StraightScale symbol on transparent background-3.png' (id 185TCnFWeACnaqVLr0uFmLHvItCVZVBxz)", "retrieved": "2026-10-13", "license": "client-owned", "used_in": "the S-path world and the final reveal"},
+  {"path": "assets/fonts/PlayfairDisplay/", "type": "font", "source": "@fontsource/playfair-display (npm)", "license": "SIL OFL 1.1", "license_file": "assets/fonts/PlayfairDisplay/LICENSE.txt", "used_in": "headlines"},
+  {"path": "assets/fonts/Montserrat/", "type": "font", "source": "@fontsource/montserrat (npm)", "license": "SIL OFL 1.1", "license_file": "assets/fonts/Montserrat/LICENSE.txt", "used_in": "body, labels, figures"},
+  {"path": "assets/brand/symbol-trace.svg", "type": "logo trace", "source": "traced from assets/brand/symbol.png with motion-studio/tools/vectorize_mark.py (IoU red 0.9992, gold 1.0)", "license": "client-owned", "used_in": "zoomed-in mark (S > 1); hands over to symbol.png at 27.6 s"},
+  {"path": "assets/brand/mark.js", "type": "data", "source": "generated from symbol-trace.svg and s_path.json", "license": "client-owned", "used_in": "index.html"},
+  {"path": "audio/vo.wav", "type": "voice", "source": "ElevenLabs eleven_v4, generation j6iIdUg5GOd17L2NoXoG (take 4 of 4), 3.0 s pause inserted at 30.86 s", "license": "ElevenLabs terms (client account)", "used_in": "voice track"},
+  {"path": "audio/music.wav", "type": "music", "source": "audio/score.py with the Lemo-Opuscar sampler: VSCO 2 CE + VCSL samples", "license": "CC0 1.0 samples; score original", "used_in": "music track"}
+]

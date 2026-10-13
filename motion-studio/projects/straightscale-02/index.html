@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="sq">
+<head>
+<meta charset="utf-8">
+<title>StraightScale: Klientët që kthehen</title>
+<style>
+@font-face { font-family: "Playfair Display"; font-weight: 700; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-700-normal.woff2); }
+@font-face { font-family: "Playfair Display"; font-weight: 900; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-900-normal.woff2); }
+@font-face { font-family: "Playfair Display"; font-weight: 700; font-style: italic; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-700-italic.woff2); }
+@font-face { font-family: "Playfair Display"; font-weight: 900; font-style: italic; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-900-italic.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 500; src: url(assets/fonts/Montserrat/montserrat-latin-500-normal.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 600; src: url(assets/fonts/Montserrat/montserrat-latin-600-normal.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 700; src: url(assets/fonts/Montserrat/montserrat-latin-700-normal.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 800; src: url(assets/fonts/Montserrat/montserrat-latin-800-normal.woff2); }
+html, body { margin: 0; background: #1F1F1F; }
+canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script type="module">
+// StraightScale reel 02 "Klientët që kthehen". Clock: audio/vo.wav (see audio/words.json, docs/treatment.md §5).
+// World units = pixels of assets/brand/symbol.png. The S channel of the real mark is the client's path.
+import { spring, clamp } from '../../lib/motion.js';
+import { RED, GOLD, SPATH, LOCKUP } from './assets/brand/mark.js';
+
+const cv = document.getElementById('c');
+const ctx = cv.getContext('2d');
+const W = 1080, H = 1920, X0 = 96, MAXW = 844;
+const C = {
+  red: '#BE0F18', redHi: '#D7343B', redLo: '#8C0911', gold: '#DD9A10', goldHi: '#F8D06A', goldLo: '#A06C04',
+  line: '#D4AF37', ivory: '#F8F6EF', char: '#1F1F1F', grey: '#5F5A53', greyHi: '#857F75', greyLo: '#403C37',
+  mute: '#B9B2A5', card: '#F8F6EF',
+};
+const PF = (w, s, it = false) => `${it ? 'italic ' : ''}${w} ${s}px "Playfair Display"`;
+const MS = (w, s) => `${w} ${s}px Montserrat`;
+
+// ---------- springs and helpers ----------
+const TYPE = [190, 27], UI = [260, 24], POP = [320, 23], SOFT = [90, 19];
+const sp = (t, t0, [k, d] = TYPE) => spring(t - t0, k, d);
+const mix = (a, b, p) => a + (b - a) * p;
+const smooth = (x) => { x = clamp(x); return x * x * x * (x * (x * 6 - 15) + 10); };
+const lerpHex = (a, b, p) => {
+  const pa = [1, 3, 5].map((i) => parseInt(a.slice(i, i + 2), 16)), pb = [1, 3, 5].map((i) => parseInt(b.slice(i, i + 2), 16));
+  return `rgb(${pa.map((v, i) => Math.round(v + (pb[i] - v) * p)).join(',')})`;
+};
+
+function rng(seed) {
+  let s = seed >>> 0;
+  return () => { s = (s + 0x6D2B79F5) >>> 0; let x = s; x = Math.imul(x ^ (x >>> 15), x | 1); x ^= x + Math.imul(x ^ (x >>> 7), x | 61); return ((x ^ (x >>> 14)) >>> 0) / 4294967296; };
+}
+
+// ---------- paths: the S (entrance under the gold block -> exit slit at the left) and the return loop ----------
+function poly(pts) {
+  const L = [0];
+  for (let i = 1; i < pts.length; i++) L.push(L[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]));
+  return { pts, L, len: L[L.length - 1] };
+}
+function at(P, d) {
+  d = clamp(d, 0, P.len);
+  let lo = 0, hi = P.L.length - 1;
+  while (hi - lo > 1) { const m = (lo + hi) >> 1; if (P.L[m] <= d) lo = m; else hi = m; }
+  const a = P.pts[lo], b = P.pts[hi], f = (d - P.L[lo]) / ((P.L[hi] - P.L[lo]) || 1);
+  return [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f];
+}
+const arcPts = (cx, cy, r, a0, a1, n = 28) => Array.from({ length: n + 1 }, (_, i) => {
+  const a = a0 + (a1 - a0) * i / n; return [cx + r * Math.cos(a), cy + r * Math.sin(a)];
+});
+const SP = poly(SPATH);
+const EX = SPATH[SPATH.length - 1], EN = SPATH[0];
+const LX = 140, LB = 1150, RX = 1150;
+const LOOP = poly([
+  [EX[0], EX[1]],
+  ...arcPts(LX + 60, EX[1] + 60, 60, -Math.PI / 2, -Math.PI),
+  ...arcPts(LX + 110, LB - 110, 110, Math.PI, Math.PI / 2),
+  ...arcPts(RX - 110, LB - 110, 110, Math.PI / 2, 0),
+  ...arcPts(RX - 60, EN[1] + 60, 60, 0, -Math.PI / 2),
+  [EN[0], EN[1]],
+]);
+const CYC = SP.len + LOOP.len;
+// u: distance along the cycle; u < 0 approaches the entrance from outside on the right
+function onCycle(u) {
+  if (u < 0) return [EN[0] - u, EN[1]];
+  u %= CYC;
+  return u <= SP.len ? at(SP, u) : at(LOOP, u - SP.len);
+}
+// tokens that leave and never come back: straight on from the exit into the dark
+const EXDIR = (() => { const a = SPATH[SPATH.length - 4]; const d = Math.hypot(EX[0] - a[0], EX[1] - a[1]); return [(EX[0] - a[0]) / d, (EX[1] - a[1]) / d]; })();
+function lost(u) {
+  if (u <= SP.len) return onCycle(u);
+  const k = u - SP.len; return [EX[0] + EXDIR[0] * k, EX[1] + EXDIR[1] * k];
+}
+
+// ---------- timeline (seconds on audio/vo.wav) ----------
+const CARD = { x: X0, y: 1185, w: 760, h: 330 };
+const T = {
+  pay: 1.95, ride: 4.2, exit: 6.5, turn: 7.08, dial: 10.3, dent: 13.04, six: 13.92, paru: 15.12, weeks: 16.0,
+  msg: 17.12, cardIn: 17.5, thread: 17.95, live: 18.75, review: 19.56, star: 20.08, starLand: 21.2, friend: 22.2, mik: 23.3,
+  loop: 24.4, home: 26.4, alone: 26.48, png: 27.6, sys: 27.88, brand: 29.76, proof: 30.9, offer: 33.95, cta: 37.5, end: 41.0,
+};
+const HOOK = [-0.05, 0.22, 0.47, 0.7, 0.95], HOOK_U = 560, HOOK_V = 650; // centre crossings, then the band is empty for "zero?"
+const RIDE_EXP = 1.25, V_C = 1100, D_REST = 230;
+const vExit = RIDE_EXP * (SP.len - 140) / (T.exit - T.ride);
+const kRest = vExit / D_REST;
+const LOOP_GO = T.home - 0.5 - (LOOP.len - D_REST - 0.25 * V_C) / V_C; // accelerate 0.5 s, then cruise into the door at T.home
+
+// the rider: arrives through the entrance, rides the S, is thrown out, waits in the dark, returns along the loop
+function riderU(t) {
+  if (t < 3.3) return -700 * (3.3 - t);
+  if (t < T.ride) return 140 * (1 - Math.exp(-5 * (t - 3.3)));
+  if (t < T.exit) return 140 + (SP.len - 140) * Math.pow((t - T.ride) / (T.exit - T.ride), RIDE_EXP);
+  if (t < LOOP_GO) return SP.len + D_REST * (1 - Math.exp(-kRest * (t - T.exit)));
+  const s = t - LOOP_GO, base = SP.len + D_REST * (1 - Math.exp(-kRest * (LOOP_GO - T.exit)));
+  if (s < 0.5) return base + 0.5 * V_C * s * s / 0.5;
+  return base + 0.25 * V_C + V_C * (s - 0.5);
+}
+const riderPos = (t) => onCycle(riderU(t));
+const friendOff = [-260, 1230];
+function friendPos(t) {
+  const target = onCycle(riderU(t) - 62);
+  const p = sp(t, T.mik, SOFT);
+  return [mix(friendOff[0], target[0], p), mix(friendOff[1], target[1], p)];
+}
+
+// ---------- camera: a target per beat, then a symmetric moving average so every move is smooth ----------
+function camTarget(t) {
+  if (t < T.pay) return [mix(705, 640, t / T.pay), 307, 3.4];
+  if (t < 3.75) return [930, 330, 2.7];
+  if (t < 7.0) {
+    const p = riderPos(Math.min(t, T.exit + 0.6)), s = t < T.ride ? 2.7 : mix(2.7, 2.25, smooth((t - T.ride) / 1.2));
+    return [p[0], p[1] - 230 / s, s];
+  }
+  if (t < LOOP_GO) {
+    // the client waits outside; the camera re-frames it on each beat (screen x, screen y, scale)
+    const keys = [[7.0, 360, 1120, 2.6], [T.dial, 380, 1130, 3.0], [T.msg, 380, 900, 2.8], [T.review, 380, 1060, 2.6]];
+    let [sx, sy, S] = keys[0].slice(1);
+    for (const [k0, kx, ky, ks] of keys.slice(1)) {
+      const q = smooth((t - k0) / 0.9);
+      sx = mix(sx, kx, q); sy = mix(sy, ky, q); S = Math.exp(mix(Math.log(S), Math.log(ks), q));
+    }
+    const p = riderPos(t);
+    return [p[0] - (sx - W / 2) / S, p[1] - (sy - H / 2) / S, S];
+  }
+  // pull back to the whole mark plus its loop, then shrink into the lockup
+  const full = [645, 666, 0.92];
+  const pb = smooth((t - LOOP_GO) / 2.4);
+  const r = riderPos(t);
+  let cam = [mix(r[0], full[0], pb), mix(r[1] - 150, full[1], pb), Math.exp(mix(Math.log(2.6), Math.log(full[2]), pb))];
+  // shrink into the lockup: interpolate where the mark's centre sits on screen, not the camera centre
+  const lk = lockupCam();
+  const q = smooth((t - 28.75) / 0.75);
+  const A = [646, 657], onS = (c) => [(A[0] - c[0]) * c[2] + W / 2, (A[1] - c[1]) * c[2] + H / 2];
+  const p0 = onS(cam), p1 = onS(lk), S = Math.exp(mix(Math.log(cam[2]), Math.log(lk[2]), q));
+  return [A[0] - (mix(p0[0], p1[0], q) - W / 2) / S, A[1] - (mix(p0[1], p1[1], q) - H / 2) / S, S];
+}
+const CAM_WIN = 0.5, CAM_N = 15;
+function camera(t) {
+  let cx = 0, cy = 0, ls = 0, wsum = 0;
+  for (let i = 0; i < CAM_N; i++) {
+    const f = i / (CAM_N - 1) - 0.5, w = 1 - Math.abs(f) * 1.6;
+    const [x, y, s] = camTarget(Math.max(0, t + f * CAM_WIN));
+    cx += x * w; cy += y * w; ls += Math.log(s) * w; wsum += w;
+  }
+  return { cx: cx / wsum, cy: cy / wsum, S: Math.exp(ls / wsum) };
+}
+const toScreen = (cam, [x, y]) => [(x - cam.cx) * cam.S + W / 2, (y - cam.cy) * cam.S + H / 2];
+const worldXf = (cam) => ctx.setTransform(cam.S, 0, 0, cam.S, W / 2 - cam.cx * cam.S, H / 2 - cam.cy * cam.S);
+
+// end lockup: wordmark-white.png placed so its content spans the text column; the camera lands the mark on it
+const LK_SCALE = MAXW / (LOCKUP.content[2] - LOCKUP.content[0]);
+const LK_X = X0 - LOCKUP.content[0] * LK_SCALE;
+const LK_YC = 880 - (LOCKUP.red[1] + LOCKUP.red[3]) / 2 * LK_SCALE;  // centred while "StraightScale" is said
+const LK_YH = 300 - LOCKUP.red[1] * LK_SCALE;                        // header for the proof, offer and CTA
+const LK_UP = 30.85;
+function lockupCam() {
+  // red square of the mark: world (208,231)-(1085,1084); in the lockup file: LOCKUP.red
+  const S = (LOCKUP.red[2] - LOCKUP.red[0]) * LK_SCALE / (1085 - 208);
+  const sx = LK_X + LOCKUP.red[0] * LK_SCALE, sy = LK_YC + LOCKUP.red[1] * LK_SCALE;
+  return [208 - (sx - W / 2) / S, 231 - (sy - H / 2) / S, S];
+}
+
+// ---------- drawing: the world ----------
+let PRED, PGOLD, SYMBOL, LOCKIMG, GRAIN, VIGNETTE;
+
+function bevelFill(path, base, hi, lo, d) {
+  ctx.save();
+  ctx.clip(path);
+  ctx.fillStyle = hi; ctx.fill(path);
+  ctx.translate(d, d); ctx.clip(path); ctx.translate(-d, -d);
+  ctx.fillStyle = lo; ctx.fill(path);
+  ctx.translate(-d, -d); ctx.clip(path); ctx.translate(d, d);
+  ctx.fillStyle = base; ctx.fill(path);
+  ctx.restore();
+}
+
+function drawMark(cam, t) {
+  const png = clamp((t - T.png) / 0.35);       // hand over to the real file once the camera is at native size
+  worldXf(cam);
+  if (png < 1) {
+    const bev = clamp((cam.S - 1.0) / 0.8);    // bevel only while zoomed in
+    ctx.save();
+    ctx.shadowColor = 'rgba(0,0,0,0.55)';
+    ctx.shadowBlur = 16 * cam.S * bev; ctx.shadowOffsetX = 5 * cam.S * bev; ctx.shadowOffsetY = 8 * cam.S * bev;
+    ctx.fillStyle = C.red; ctx.fill(PRED); ctx.fillStyle = C.gold; ctx.fill(PGOLD);
+    ctx.restore();
+    if (bev > 0.01) {
+      bevelFill(PRED, C.red, lerpHex(C.red, C.redHi, bev), lerpHex(C.red, C.redLo, bev), 2.2);
+      bevelFill(PGOLD, C.gold, lerpHex(C.gold, C.goldHi, bev), lerpHex(C.gold, C.goldLo, bev), 2.2);
+    }
+  }
+  if (png > 0) { ctx.save(); ctx.globalAlpha = png; ctx.drawImage(SYMBOL, 0, 0, 1254, 1254); ctx.restore(); }
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+}
+
+// the client: a gold disc with a hard highlight; grey when the client has gone cold
+function token(cam, p, { r = 22, cold = 0, star = 0, alpha = 1, scale = 1 } = {}) {
+  const [x, y] = toScreen(cam, p), R = r * cam.S * scale;
+  if (R < 0.6 || alpha <= 0.01 || x < -R * 3 || x > W + R * 3 || y < -R * 3 || y > H + R * 3) return;
+  ctx.save(); ctx.globalAlpha = alpha;
+  const sh = ctx.createRadialGradient(x + R * 0.25, y + R * 0.4, R * 0.2, x + R * 0.25, y + R * 0.4, R * 1.35);
+  sh.addColorStop(0, 'rgba(0,0,0,0.5)'); sh.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = sh; ctx.beginPath(); ctx.arc(x + R * 0.25, y + R * 0.4, R * 1.35, 0, Math.PI * 2); ctx.fill();
+  ctx.fillStyle = lerpHex(C.goldLo, C.greyLo, cold); ctx.beginPath(); ctx.arc(x, y, R, 0, Math.PI * 2); ctx.fill();
+  ctx.fillStyle = lerpHex(C.gold, C.grey, cold); ctx.beginPath(); ctx.arc(x - R * 0.07, y - R * 0.07, R * 0.9, 0, Math.PI * 2); ctx.fill();
+  ctx.fillStyle = lerpHex(C.goldHi, C.greyHi, cold);
+  ctx.beginPath(); ctx.ellipse(x - R * 0.36, y - R * 0.4, R * 0.3, R * 0.16, -0.7, 0, Math.PI * 2); ctx.fill();
+  if (star > 0) { ctx.fillStyle = C.ivory; starPath(x - R * 0.04, y + R * 0.02, R * 0.5 * star); ctx.fill(); }
+  ctx.restore();
+}
+function starPath(x, y, r, rot = -Math.PI / 2) {
+  ctx.beginPath();
+  for (let i = 0; i < 10; i++) { const a = rot + i * Math.PI / 5, rr = i % 2 ? r * 0.45 : r; ctx.lineTo(x + rr * Math.cos(a), y + rr * Math.sin(a)); }
+  ctx.closePath();
+}
+
+// gold line drawn along a path from d0 to d1 (world), constant screen width
+function strokeAlong(cam, P, d0, d1, width, color = C.line) {
+  if (d1 <= d0) return;
+  worldXf(cam);
+  ctx.beginPath();
+  const n = Math.max(2, Math.ceil((d1 - d0) / 6));
+  for (let i = 0; i <= n; i++) { const p = at(P, d0 + (d1 - d0) * i / n); i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); }
+  ctx.lineWidth = width / cam.S; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = color; ctx.stroke();
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+}
+
+// ---------- text (masked rise, as in reel 01) ----------
+function setFont(f, ls = 0) { ctx.font = f; ctx.letterSpacing = ls + 'px'; }
+function measure(s, f, ls = 0) { setFont(f, ls); return ctx.measureText(s).width; }
+function riseLine(t, segs, x, y, size, tin, tout = null, { align = 'left', k = TYPE, shade = false } = {}) {
+  const pin = sp(t, tin, k), pout = tout == null ? 0 : sp(t, tout, k);
+  if (pin <= 0.001 || pout >= 0.999) return null;
+  const widths = segs.map((g) => measure(g.s, g.f, g.ls || 0));
+  const total = widths.reduce((a, b) => a + b, 0);
+  let cx = align === 'center' ? x - total / 2 : align === 'right' ? x - total : x;
+  const box = size * 1.45;
+  ctx.save();
+  ctx.beginPath(); ctx.rect(0, y - size * 1.08, W, box); ctx.clip();
+  const dy = (1 - pin) * box - pout * box;
+  // lines that pass over the moving mark get a soft dark drop shadow (never a light glow)
+  if (shade) { ctx.shadowColor = 'rgba(12,10,10,0.6)'; ctx.shadowBlur = size * 0.28; ctx.shadowOffsetY = size * 0.05; }
+  segs.forEach((g, i) => {
+    setFont(g.f, g.ls || 0); ctx.fillStyle = g.c; ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'left';
+    ctx.fillText(g.s, cx, y + dy);
+    cx += widths[i];
+  });
+  ctx.restore();
+  window.__boxes && window.__boxes.push({ x: align === 'center' ? x - total / 2 : align === 'right' ? x - total : x, y: y - size * 0.8, w: total, h: size, text: segs.map((g) => g.s).join('') });
+  return total;
+}
+const one = (s, f, c, ls = 0) => [{ s, f, c, ls }];
+
+// ---------- the beats ----------
+function worldBeats(t, cam) {
+  // 1 hook: tokens race through the top band and leave it empty
+  if (t < T.pay + 0.3) HOOK.forEach((tc) => token(cam, lost(HOOK_U + HOOK_V * (t - tc))));
+  // 2 new tokens pour in through the entrance
+  if (t > 1.6 && t < 7.0) [2.25, 2.78].forEach((t0) => {
+    const u = 760 * (t - t0);
+    token(cam, lost(u), { alpha: 1 - clamp((u - SP.len) / 160) });
+  });
+  // the rider
+  const ru = riderU(t);
+  const cold = smooth((t - T.exit) / 0.8) * (1 - sp(t, T.live, SOFT));
+  const starP = smooth((t - T.starLand) / 0.25);
+  const rp = riderPos(t);
+  // 10 the return line: drawn just ahead of the returning pair
+  if (t > LOOP_GO - 0.2) {
+    const head = clamp(ru - SP.len + 70, 0, LOOP.len);
+    const fade = 1 - smooth((t - (T.brand - 1.1)) / 0.5);
+    if (fade > 0) { ctx.save(); ctx.globalAlpha = fade; strokeAlong(cam, LOOP, 0, t > T.home ? LOOP.len : head, mix(4, 9, clamp((cam.S - 0.9) / 1.7))); ctx.restore(); }
+  }
+  // 7 the recall message: the card is sent, a gold thread carries it to the cold client
+  if (t > T.thread && t < T.review + 0.6) {
+    const p = smooth((t - T.thread) / (T.live - T.thread)), q = smooth((t - (T.live + 0.15)) / 0.45);
+    const [bx, by] = toScreen(cam, rp), R = (58 + 12) * cam.S;
+    const a = [CARD.x + 120, CARD.y], b = [bx, by + R];
+    const c1 = [a[0] - 40, mix(a[1], b[1], 0.55)];
+    ctx.beginPath();
+    for (let i = 0; i <= 40; i++) {
+      const s = q + (p - q) * i / 40, u = 1 - s;
+      const x = u * u * a[0] + 2 * u * s * c1[0] + s * s * b[0], y = u * u * a[1] + 2 * u * s * c1[1] + s * s * b[1];
+      i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+    }
+    ctx.lineWidth = 6; ctx.lineCap = 'round'; ctx.strokeStyle = C.line; if (p > q) ctx.stroke();
+  }
+  // 5-7 the dial: the time until this client is due back
+  dial(t, cam, rp);
+  // 9 the friend
+  const fade = 1 - smooth((t - (T.brand - 0.9)) / 0.5);
+  if (t > T.mik - 0.1) token(cam, friendPos(t), { alpha: fade });
+  token(cam, rp, { cold, star: starP, alpha: t < T.ride ? 1 : fade });
+  // 8 the review star: draws above the client, then lands on it
+  if (t > T.star && t < T.starLand + 0.3) {
+    const [x, y] = toScreen(cam, rp), R = 22 * cam.S;
+    const draw = smooth((t - T.star) / 0.45), land = smooth((t - (T.starLand - 0.35)) / 0.35);
+    const sy = mix(y - R * 3.2, y, land), sr = mix(R * 1.25, R * 0.5, land);
+    ctx.save(); ctx.globalAlpha = 1 - smooth((t - T.starLand) / 0.15);
+    starPath(x, sy, sr); ctx.lineWidth = 7; ctx.strokeStyle = C.line; ctx.lineJoin = 'round';
+    ctx.setLineDash([sr * 7.6 * draw, 9999]); ctx.stroke(); ctx.setLineDash([]);
+    if (draw >= 1) { ctx.fillStyle = C.line; ctx.globalAlpha *= smooth((t - T.star - 0.45) / 0.25); ctx.fill(); }
+    ctx.restore();
+  }
+}
+
+function dial(t, cam, rp) {
+  if (t < T.dial || t > T.review + 0.6) return;
+  const [x, y] = toScreen(cam, rp), R = 58 * cam.S;
+  const out = smooth((t - (T.live + 0.35)) / 0.5);
+  const ring = smooth((t - T.dial) / 0.6) * (1 - out);
+  if (ring <= 0) return;
+  ctx.save();
+  ctx.translate(x, y); ctx.scale(mix(1, 0.4, out), mix(1, 0.4, out));
+  ctx.globalAlpha = 1 - out;
+  ctx.lineWidth = 4; ctx.strokeStyle = C.line;
+  ctx.beginPath(); ctx.arc(0, 0, R, -Math.PI / 2, -Math.PI / 2 + ring * Math.PI * 2); ctx.stroke();
+  for (let i = 0; i < 12; i++) {
+    const p = smooth((t - T.dial - 0.25 - i * 0.03) / 0.25) * (1 - out);
+    if (p <= 0) continue;
+    const a = -Math.PI / 2 + i * Math.PI / 6, r0 = R + 10, r1 = R + 10 + (i % 3 ? 14 : 26) * p;
+    ctx.beginPath(); ctx.moveTo(r0 * Math.cos(a), r0 * Math.sin(a)); ctx.lineTo(r1 * Math.cos(a), r1 * Math.sin(a)); ctx.stroke();
+  }
+  // the sweep: six months, then a few weeks; both stop just before the time is up
+  const s1 = 0.9 * sp(t, T.six, SOFT) * (1 - sp(t, T.paru, UI));
+  const s2 = 0.9 * sp(t, T.weeks, [150, 22]);
+  const sweep = Math.max(s1, s2);
+  if (sweep > 0.002) {
+    ctx.lineWidth = 16; ctx.lineCap = 'butt'; ctx.strokeStyle = C.gold;
+    ctx.beginPath(); ctx.arc(0, 0, R - 18, -Math.PI / 2, -Math.PI / 2 + sweep * Math.PI * 2); ctx.stroke();
+  }
+  ctx.restore();
+}
+
+function textBeats(t, cam) {
+  const I = C.ivory;
+  // 1
+  riseLine(t, one('Çdo muaj', PF(900, 150), I), X0, 430, 150, 0.0, 1.85);
+  riseLine(t, [{ s: 'fillon nga ', f: PF(900, 112), c: I }, { s: 'zero?', f: PF(900, 112, true), c: C.gold }], X0, 590, 112, 0.7, 1.9);
+  // 2
+  riseLine(t, one('Paguan reklama', PF(900, 108), I), X0, 430, 108, 2.0, 4.05, { shade: true });
+  riseLine(t, [{ s: 'për klientë ', f: PF(700, 96, true), c: C.gold }, { s: 'të rinj,', f: PF(700, 96, true), c: C.gold }], X0, 570, 96, 3.05, 4.1);
+  // 3
+  riseLine(t, one('ata që erdhën një herë', MS(700, 52), I), X0, 380, 52, 4.55, 6.95, { shade: true });
+  riseLine(t, one('nuk kthehen', PF(900, 140), I), X0, 545, 140, 5.8, 6.98, { shade: true });
+  riseLine(t, one('më.', PF(900, 140, true), I), X0, 690, 140, 6.38, 7.0, { shade: true });
+  // 4 (the rest)
+  riseLine(t, one('Klienti më i lehtë', PF(900, 104), I), X0, 400, 104, 7.25, 10.15);
+  riseLine(t, [{ s: 'është ai që ', f: PF(700, 96, true), c: I }, { s: 'të njeh.', f: PF(700, 96, true), c: I }], X0, 530, 96, 8.5, 10.2);
+  // 5
+  riseLine(t, one('KOHA E KTHIMIT', MS(800, 44), C.gold, 5), X0, 350, 44, 10.4, 12.75);
+  riseLine(t, one('Çdo shërbim', PF(900, 112), I), X0, 480, 112, 10.5, 12.8);
+  riseLine(t, one('ka kohën e vet.', PF(700, 96, true), I), X0, 600, 96, 11.4, 12.85);
+  // 6
+  riseLine(t, one('TE DENTISTI', MS(800, 44), C.gold, 5), X0, 350, 44, T.dent, 15.0);
+  riseLine(t, one('6 muaj', PF(900, 150), I), X0, 520, 150, T.six - 0.05, 15.05);
+  riseLine(t, one('TE PARUKIERI', MS(800, 44), C.gold, 5), X0, 350, 44, T.paru, 17.0);
+  riseLine(t, one('4-6 javë', PF(900, 150), I), X0, 520, 150, T.weeks - 0.05, 17.02);
+  // 7
+  riseLine(t, one('Dërgoji mesazh', PF(900, 112), I), X0, 400, 112, T.msg, 19.4);
+  riseLine(t, one('pak para asaj kohe.', PF(700, 92, true), I), X0, 525, 92, 18.1, 19.45);
+  card(t, cam);
+  // 8
+  riseLine(t, one('Kërkoji një vlerësim', PF(900, 88), I), X0, 400, 88, 19.62, 22.05);
+  riseLine(t, one('kur është më i kënaqur.', PF(700, 76, true), I), X0, 510, 76, 20.7, 22.1);
+  // 9
+  riseLine(t, one('Jepi një arsye', PF(900, 112), I), X0, 400, 112, 22.3, 24.35);
+  riseLine(t, one('të sjellë një mik.', PF(700, 96, true), I), X0, 525, 96, 23.2, 24.4);
+  // 10
+  riseLine(t, one('Kështu klienti', PF(900, 112), I), X0, 400, 112, 24.55, 26.36, { shade: true });
+  riseLine(t, one('kthehet.', PF(900, 112, true), I), X0, 525, 112, 25.5, 26.4, { shade: true });
+  riseLine(t, one('Dhe nuk vjen', PF(900, 112), I), X0, 400, 112, 26.42, 27.75, { shade: true });
+  riseLine(t, one('vetëm.', PF(900, 112, true), I), X0, 525, 112, 26.95, 27.78, { shade: true });
+  // 11
+  riseLine(t, one('Këtë sistem', PF(900, 112), I), X0, 400, 112, 27.95, 29.62);
+  riseLine(t, one('e ndërtojmë ne.', PF(700, 96, true), C.gold), X0, 525, 96, 28.6, 29.66);
+}
+
+function card(t, cam) {
+  const pin = sp(t, T.cardIn, UI), pout = sp(t, 19.4, UI);
+  if (pin <= 0.001 || pout >= 0.999) return;
+  const { x, y, w, h } = CARD;
+  ctx.save();
+  ctx.translate(x, y + (1 - pin) * 60);
+  ctx.globalAlpha = clamp(pin * 1.4);
+  ctx.beginPath(); ctx.rect(-20, -20, w + 40, (h + 40) * (1 - pout)); ctx.clip();
+  ctx.beginPath(); ctx.roundRect(0, 0, w * mix(0.6, 1, pin), h, 26); ctx.fillStyle = C.card; ctx.fill();
+  ctx.beginPath(); ctx.rect(0, 0, w * mix(0.6, 1, pin), h); ctx.clip();
+  setFont(MS(800, 30), 4); ctx.fillStyle = '#8A8478'; ctx.fillText('SHEMBULL MESAZHI', 40, 62);
+  setFont(MS(600, 46)); ctx.fillStyle = C.char;
+  ['Kanë kaluar 6 muaj', 'nga kontrolli i fundit.', 'T\'ju ruaj një orar?'].forEach((ln, i) => ctx.fillText(ln, 40, 138 + i * 62));
+  ctx.restore();
+}
+
+// ---------- end: lockup, proof, offer, CTA ----------
+function endBeats(t, cam) {
+  // the white lockup takes over from the mark; the wordmark wipes in from the symbol
+  const sw = LOCKUP.text[0] - 30;
+  if (t >= T.brand) {
+    const wipe = sp(t, T.brand, [120, 22]);
+    const LK_Y = mix(LK_YC, LK_YH, sp(t, LK_UP, [140, 24]));
+    ctx.save();
+    ctx.beginPath(); ctx.rect(LK_X, 0, sw * LK_SCALE, H); ctx.clip();
+    ctx.drawImage(LOCKIMG, LK_X, LK_Y, LOCKUP.w * LK_SCALE, LOCKUP.h * LK_SCALE);
+    ctx.restore();
+    ctx.save();
+    const x0 = LK_X + sw * LK_SCALE, x1 = x0 + (LOCKUP.content[2] - sw + 10) * LK_SCALE * wipe;
+    ctx.beginPath(); ctx.rect(x0, 0, x1 - x0, H); ctx.clip();
+    ctx.drawImage(LOCKIMG, LK_X + (1 - wipe) * -60, LK_Y, LOCKUP.w * LK_SCALE, LOCKUP.h * LK_SCALE);
+    ctx.restore();
+  }
+  // proof (music only)
+  riseLine(t, one('EKIPI YNË RRITI:', MS(800, 44), C.gold, 5), X0, 700, 44, T.proof, T.offer - 0.1);
+  [['Firmë konsulence', '€15K', '€55K', 31.1], ['Biznes kursesh', '€30K', '€100K', 31.55], ['Konsulencë e re', '€0', '€140K', 32.0]].forEach(([lab, a, b, t0], i) => {
+    const y = 860 + i * 225;
+    riseLine(t, one(lab, MS(600, 46), C.mute), X0 + 70, y, 46, t0, T.offer - 0.05 + i * 0.04);
+    const wA = measure(a + '  ', MS(800, 84));
+    riseLine(t, [{ s: a + '  ', f: MS(800, 84), c: C.mute }], X0, y + 110, 92, t0 + 0.08, T.offer + i * 0.04);
+    const arr = smooth((t - t0 - 0.2) / 0.3) * (1 - sp(t, T.offer + i * 0.04));
+    if (arr > 0.01) {
+      ctx.save(); ctx.strokeStyle = C.gold; ctx.lineWidth = 7; ctx.lineCap = 'round';
+      const ax = X0 + wA, ay = y + 78;
+      ctx.beginPath(); ctx.moveTo(ax, ay); ctx.lineTo(ax + 80 * arr, ay); ctx.stroke();
+      if (arr > 0.6) { ctx.beginPath(); ctx.moveTo(ax + 80 * arr - 20, ay - 18); ctx.lineTo(ax + 80 * arr, ay); ctx.lineTo(ax + 80 * arr - 20, ay + 18); ctx.stroke(); }
+      ctx.restore();
+    }
+    riseLine(t, [{ s: b, f: MS(800, 84), c: C.ivory }, { s: '/muaj', f: MS(600, 44), c: C.mute }], X0 + wA + 120, y + 110, 92, t0 + 0.35, T.offer + 0.02 + i * 0.04);
+    const bp = sp(t, t0, POP) * (1 - sp(t, T.offer + i * 0.04, UI));
+    if (bp > 0.01) {
+      const bx = X0 + 22, by = y - 16;
+      ctx.save(); ctx.translate(bx, by); ctx.scale(bp, bp);
+      ctx.fillStyle = C.goldLo; ctx.beginPath(); ctx.arc(0, 0, 22, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = C.gold; ctx.beginPath(); ctx.arc(-1.5, -1.5, 20, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = C.goldHi; ctx.beginPath(); ctx.ellipse(-8, -9, 6.6, 3.5, -0.7, 0, Math.PI * 2); ctx.fill();
+      ctx.restore();
+    }
+  });
+  // offer
+  riseLine(t, [{ s: 'Analizë ', f: PF(900, 130), c: C.ivory }, { s: 'falas', f: PF(900, 130, true), c: C.gold }], X0, 850, 130, 33.98, T.cta);
+  riseLine(t, one('45 minuta', MS(800, 104), C.ivory), X0, 1020, 104, 35.2, T.cta + 0.04);
+  riseLine(t, one('Pa detyrim.', MS(700, 52), C.ivory), X0, 1170, 52, 36.5, T.cta + 0.08);
+  riseLine(t, one('Në zyrën tonë në Tiranë', MS(500, 48), C.mute), X0, 1250, 48, 36.62, T.cta + 0.1);
+  riseLine(t, one('ose te biznesi yt.', MS(500, 48), C.mute), X0, 1316, 48, 36.7, T.cta + 0.12);
+  // 45 minutes is three quarters of the dial from beat 5
+  const dIn = sp(t, 35.2, POP), dOut = sp(t, T.cta + 0.04, UI);
+  if (dIn > 0.001 && dOut < 0.999) {
+    const cx = X0 + measure('45 minuta', MS(800, 104)) + 120, cy = 1020 - 38, R = 62;
+    ctx.save(); ctx.translate(cx, cy + dOut * -80); ctx.scale(dIn, dIn); ctx.globalAlpha = 1 - dOut;
+    ctx.strokeStyle = C.line; ctx.lineWidth = 4;
+    ctx.beginPath(); ctx.arc(0, 0, R, 0, Math.PI * 2); ctx.stroke();
+    ctx.lineWidth = 14; ctx.strokeStyle = C.gold;
+    ctx.beginPath(); ctx.arc(0, 0, R - 15, -Math.PI / 2, -Math.PI / 2 + 0.75 * Math.PI * 2 * sp(t, 35.62, SOFT)); ctx.stroke();
+    ctx.fillStyle = C.goldLo; ctx.beginPath(); ctx.arc(0, 0, 24, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = C.gold; ctx.beginPath(); ctx.arc(-1.6, -1.6, 21.6, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = C.goldHi; ctx.beginPath(); ctx.ellipse(-8.6, -9.6, 7.2, 3.8, -0.7, 0, Math.PI * 2); ctx.fill();
+    ctx.restore();
+  }
+  // CTA
+  riseLine(t, one('Shkruaj', PF(700, 110, true), C.ivory), X0, 850, 110, 37.56);
+  const fp = sp(t, 38.1, UI);
+  if (fp > 0.001) {
+    const x = X0, y = 920, w = MAXW, h = 170;
+    ctx.save();
+    ctx.strokeStyle = C.line; ctx.lineWidth = 5;
+    ctx.beginPath(); ctx.roundRect(x, y, w * fp, h, 85); ctx.stroke();
+    const typed = Math.floor(clamp((t - 38.2) / 0.5) * 7);
+    if (typed > 0) { setFont(MS(800, 100), 6); ctx.fillStyle = C.ivory; ctx.fillText('ANALIZA'.slice(0, typed), x + 60, y + 122); }
+    ctx.restore();
+  }
+  riseLine(t, one('në komente.', PF(700, 110, true), C.ivory), X0, 1220, 110, 38.85);
+  // the last client rolls in and stops at the end of the field: the ending
+  const rp = sp(t, 39.6, [70, 15]);
+  if (rp > 0.001) {
+    const x = mix(-60, X0 + MAXW - 85, rp), y = 1005;
+    ctx.save(); ctx.translate(x, y); ctx.rotate(rp * 6);
+    ctx.fillStyle = C.goldLo; ctx.beginPath(); ctx.arc(0, 0, 40, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = C.gold; ctx.beginPath(); ctx.arc(-3, -3, 36, 0, Math.PI * 2); ctx.fill();
+    ctx.rotate(-rp * 6);
+    ctx.fillStyle = C.goldHi; ctx.beginPath(); ctx.ellipse(-14, -16, 12, 6.4, -0.7, 0, Math.PI * 2); ctx.fill();
+    ctx.restore();
+  }
+}
+
+// ---------- texture ----------
+function makeGrain() {
+  const g = document.createElement('canvas'); g.width = g.height = 256;
+  const gx = g.getContext('2d'), img = gx.createImageData(256, 256), r = rng(11);
+  for (let i = 0; i < img.data.length; i += 4) { const v = r() * 255; img.data[i] = img.data[i + 1] = img.data[i + 2] = v; img.data[i + 3] = 255; }
+  gx.putImageData(img, 0, 0);
+  return g;
+}
+function makeVignette() {
+  const v = document.createElement('canvas'); v.width = W; v.height = H;
+  const vx = v.getContext('2d'), g = vx.createRadialGradient(W / 2, H * 0.48, H * 0.25, W / 2, H * 0.48, H * 0.75);
+  g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,0.45)');
+  vx.fillStyle = g; vx.fillRect(0, 0, W, H);
+  return v;
+}
+function grain(t, alpha) {
+  const r = rng(Math.floor(t * 24) + 1);
+  ctx.save(); ctx.globalAlpha = alpha; ctx.globalCompositeOperation = 'overlay';
+  const ox = -Math.floor(r() * 256), oy = -Math.floor(r() * 256);
+  for (let y = oy; y < H; y += 256) for (let x = ox; x < W; x += 256) ctx.drawImage(GRAIN, x, y);
+  ctx.restore();
+}
+
+// ---------- sound events (read by audio/score.py through tools; never retyped) ----------
+window.EVENTS = [
+  ...HOOK.filter((tc) => tc > 0).map((tc) => ({ t: tc, kind: 'whoosh' })),
+  ...[2.25, 2.78, 3.3].map((t0) => ({ t: t0, kind: 'enter' })),
+  { t: T.ride, kind: 'ride' }, { t: T.exit, kind: 'exit' }, { t: T.dial + 0.6, kind: 'ring' },
+  { t: T.six, kind: 'sweep' }, { t: T.weeks, kind: 'sweep' }, { t: T.cardIn, kind: 'message' }, { t: T.live, kind: 'live' },
+  { t: T.starLand, kind: 'star' }, { t: T.mik + 0.35, kind: 'friend' }, { t: T.home, kind: 'home' },
+  { t: T.brand, kind: 'brand' }, { t: 31.1, kind: 'row' }, { t: 31.55, kind: 'row' }, { t: 32.0, kind: 'row' },
+  ...Array.from({ length: 7 }, (_, i) => ({ t: 38.2 + (i + 1) * 0.5 / 7 - 0.035, kind: 'key' })),
+  { t: 39.6 + 0.55, kind: 'land' },
+];
+
+function seek(t) {
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.fillStyle = C.char; ctx.fillRect(0, 0, W, H);
+  const cam = camera(t);
+  if (t < T.brand) { drawMark(cam, t); worldBeats(t, cam); }
+  ctx.drawImage(VIGNETTE, 0, 0);
+  grain(t, 0.06);
+  textBeats(t, cam);
+  endBeats(t, cam);
+}
+
+const faces = ['700 10px "Playfair Display"', '900 10px "Playfair Display"', 'italic 700 10px "Playfair Display"', 'italic 900 10px "Playfair Display"',
+  '500 10px Montserrat', '600 10px Montserrat', '700 10px Montserrat', '800 10px Montserrat'];
+await Promise.all(faces.map((f) => document.fonts.load(f, 'ëçË€')));
+const load = (src) => new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = no; i.src = src; });
+[SYMBOL, LOCKIMG] = await Promise.all([load('assets/brand/symbol.png'), load('assets/brand/wordmark-white.png')]);
+PRED = new Path2D(RED); PGOLD = new Path2D(GOLD);
+GRAIN = makeGrain(); VIGNETTE = makeVignette();
+window.DURATION = T.end;
+window.seek = seek;
+seek(0);
+</script>
+</body>
+</html>

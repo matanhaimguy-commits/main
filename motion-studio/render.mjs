@@ -26,18 +26,15 @@ if (inPage) {
     const c = document.getElementById('c');
     const out = document.createElement('canvas'); out.width = c.width; out.height = c.height;
     const ox = out.getContext('2d');
+    // Running mean on the canvas itself: subframe k is drawn over the mean of the first k with alpha 1/(k+1).
+    // No per-subframe readback or JS pixel loop (about 2x faster than summing getImageData; within 1-2 levels).
     window.__frame = (times) => {
-      const x = c.getContext('2d');
-      let acc = null;
-      for (const t of times) {
+      times.forEach((t, k) => {
         window.seek(t);
-        const d = x.getImageData(0, 0, c.width, c.height).data;
-        if (!acc) acc = new Float32Array(d.length);
-        for (let i = 0; i < d.length; i++) acc[i] += d[i];
-      }
-      const img = ox.createImageData(c.width, c.height), n = times.length;
-      for (let i = 0; i < acc.length; i++) img.data[i] = acc[i] / n + 0.5;
-      ox.putImageData(img, 0, 0);
+        ox.globalAlpha = 1 / (k + 1);
+        ox.drawImage(c, 0, 0);
+      });
+      ox.globalAlpha = 1;
       return out.toDataURL('image/png');
     };
   });

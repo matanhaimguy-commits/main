@@ -1,0 +1,24 @@
+== references/onetake/cases/one-dot-15s/one-dot.mp4  15.0 s  still 9%  quiet 43%  beats 2  transitions 1 at [11.42]
+  PASS  rests: 9% still, longest quiet run 2.0 s (want >= 25% or a >= 1 s rest)
+  PASS  longest quiet run 2.0 s (only a detail moving; over 5 s risks the scroll)
+  PASS  frozen stretches over 3 s (nothing moves at all): none
+  PASS  beat rhythm variety: CV 0.74 (want >= 0.25; equal spacing reads as a slideshow)
+  PASS  beat lengths spread 7.6x (want >= 4x between shortest and longest)
+== references/onetake/cases/clearing-15s/clearing.mp4  15.0 s  still 21%  quiet 30%  beats 6  transitions 2 at [2.75, 9.08]
+  PASS  rests: 21% still, longest quiet run 1.92 s (want >= 25% or a >= 1 s rest)
+  PASS  longest quiet run 1.92 s (only a detail moving; over 5 s risks the scroll)
+  PASS  frozen stretches over 3 s (nothing moves at all): none
+  PASS  beat rhythm variety: CV 0.61 (want >= 0.25; equal spacing reads as a slideshow)
+  PASS  beat lengths spread 8.7x (want >= 4x between shortest and longest)
+== references/onetake/cases/knockon-15s/knockon.mp4  15.0 s  still 3%  quiet 24%  beats 6  transitions 0 at []
+  PASS  rests: 3% still, longest quiet run 1.42 s (want >= 25% or a >= 1 s rest)
+  PASS  longest quiet run 1.42 s (only a detail moving; over 5 s risks the scroll)
+  PASS  frozen stretches over 3 s (nothing moves at all): none
+  PASS  beat rhythm variety: CV 0.68 (want >= 0.25; equal spacing reads as a slideshow)
+  PASS  beat lengths spread 12.4x (want >= 4x between shortest and longest)
+== motion-studio/projects/straightscale/deliver/straightscale_reel_9x16_vo.mp4  50.0 s  still 21%  quiet 48%  beats 30  transitions 3 at [8.83, 17.33, 31.08]
+  PASS  rests: 21% still, longest quiet run 2.25 s (want >= 25% or a >= 1 s rest)
+  PASS  longest quiet run 2.25 s (only a detail moving; over 5 s risks the scroll)
+  PASS  frozen stretches over 3 s (nothing moves at all): none
+  PASS  beat rhythm variety: CV 0.83 (want >= 0.25; equal spacing reads as a slideshow)
+  PASS  beat lengths spread 13.6x (want >= 4x between shortest and longest)

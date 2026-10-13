@@ -59,5 +59,10 @@ These rules apply to every engine (HyperFrames, the canvas engine, Lemo-Opuscar,
 - beats.py: `python3 beats.py audio/track.wav > beats.json`.
 - tools/pacing.py, tools/audio_qa.py, tools/seekcheck.mjs: automatic review checks.
 - tools/lemo_fonts.py: fetch the fonts a Lemo-Opuscar demo expects.
+- tools/vectorize_mark.py: trace a flat-colour logo PNG into SVG paths (reports IoU per colour) so the real mark
+  stays sharp in macro shots; hand over to the PNG at native size.
+- tools/safezone.mjs: seeks a canvas-engine page every 0.1 s and flags text outside the safe zones or under 44 px
+  (the page's text helper pushes boxes into `window.__boxes`, see projects/straightscale-02/index.html).
+- tools/events.mjs: dumps the page's `window.EVENTS` (sound cue times) to JSON for the score and foley.
 - templates/project/: the folder every new job starts from.
 - API keys live in .env (e.g. ELEVENLABS_API_KEY). Never paste keys into prompts.
