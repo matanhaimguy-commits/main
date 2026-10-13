@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="sq">
+<head>
+<meta charset="utf-8">
+<title>StraightScale: Qartësia</title>
+<style>
+@font-face { font-family: "Playfair Display"; font-weight: 700; font-style: italic; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-700-italic.woff2); }
+@font-face { font-family: "Playfair Display"; font-weight: 900; font-style: italic; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-900-italic.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 500; src: url(assets/fonts/Montserrat/montserrat-latin-500-normal.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 600; src: url(assets/fonts/Montserrat/montserrat-latin-600-normal.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 700; src: url(assets/fonts/Montserrat/montserrat-latin-700-normal.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 800; src: url(assets/fonts/Montserrat/montserrat-latin-800-normal.woff2); }
+html, body { margin: 0; background: #F8F6EF; }
+canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script type="module">
+// StraightScale reel 03 "Qartësia": the grammar of a minimal kinetic-type reel (white field, one accent, focus pulls,
+// a new prop every beat), rebuilt for StraightScale on ivory with crimson. Clock: audio/vo.wav; cues read from its
+// word timings (audio/words.js), so nothing is retyped. Treatment: docs/treatment.md.
+import { spring, clamp } from '../../lib/motion.js';
+import WORDS from './audio/words.js';
+
+const cv = document.getElementById('c');
+const ctx = cv.getContext('2d');
+const W = 1080, H = 1920, CX = 518, X0 = 96, MAXW = 844;
+const C = {
+  ivory: '#F8F6EF', marble: '#EDE4D6', char: '#1F1F1F', crimson: '#B31217', red: '#BE0F18', gold: '#DD9A10',
+  grey: '#8F887C', faint: '#B9B1A3', mute: '#6E685F',
+};
+const PF = (w, s) => `italic ${w} ${s}px "Playfair Display"`;
+const MS = (w, s) => `${w} ${s}px Montserrat`;
+
+// ---------- springs and helpers ----------
+const TYPE = [190, 27], UI = [260, 24], POP = [320, 20], SOFT = [90, 19], SNAP = [420, 30];
+const sp = (t, t0, [k, d] = TYPE) => spring(t - t0, k, d);
+const mix = (a, b, p) => a + (b - a) * p;
+const smooth = (x) => { x = clamp(x); return x * x * x * (x * (x * 6 - 15) + 10); };
+function rng(seed) {
+  let s = seed >>> 0;
+  return () => { s = (s + 0x6D2B79F5) >>> 0; let x = s; x = Math.imul(x ^ (x >>> 15), x | 1); x ^= x + Math.imul(x ^ (x >>> 7), x | 61); return ((x ^ (x >>> 14)) >>> 0) / 4294967296; };
+}
+
+// word cue: start (or end) of spoken word i
+const S = (i) => WORDS.words[i].s, E = (i) => WORDS.words[i].e;
+const VO_END = WORDS.words[WORDS.words.length - 1].e;
+const T_END = 37.0;
+
+// ---------- text ----------
+function setFont(f, ls = 0) { ctx.font = f; ctx.letterSpacing = ls + 'px'; }
+function measure(s, f, ls = 0) { setFont(f, ls); return ctx.measureText(s).width; }
+function box(x, y, w, size, text, fine = false) {
+  window.__boxes && window.__boxes.push({ x, y: y - size * 0.78, w, h: size, text, fine });
+}
+
+// A focus pull: the line comes out of blur and a slight scale, leaves the same way.
+function focus(t, segs, x, y, size, tin, tout = null, { align = 'center', k = TYPE, blur = 26, from = 1.12, to = 0.94, alpha = 1 } = {}) {
+  const pin = sp(t, tin, k), pout = tout == null ? 0 : sp(t, tout, k);
+  if (pin <= 0.002 || pout >= 0.998) return null;
+  const widths = segs.map((g) => measure(g.s, g.f, g.ls || 0));
+  const total = widths.reduce((a, b) => a + b, 0);
+  const b = Math.max(0, (1 - pin) * blur + pout * blur);
+  const sc = mix(from, 1, pin) * mix(1, to, pout);
+  ctx.save();
+  ctx.translate(x, y); ctx.scale(sc, sc);
+  ctx.globalAlpha = alpha * clamp(pin * 1.6) * (1 - pout);
+  if (b > 0.4) ctx.filter = `blur(${b.toFixed(1)}px)`;
+  let cx = align === 'center' ? -total / 2 : align === 'right' ? -total : 0;
+  const x0 = cx;
+  segs.forEach((g, i) => {
+    setFont(g.f, g.ls || 0); ctx.fillStyle = g.c; ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'left';
+    ctx.fillText(g.s, cx, 0); cx += widths[i];
+  });
+  ctx.restore();
+  box(x + x0, y, total, size, segs.map((g) => g.s).join(''));
+  return { x: x + x0, w: total };
+}
+const one = (s, f, c, ls = 0) => [{ s, f, c, ls }];
+
+// Fine print: texture only, never carries meaning (exempt from the 44 px rule, flagged as fine in the check).
+function fine(t, lines, x, y, tin, tout, size = 28) {
+  const p = sp(t, tin, UI) * (1 - sp(t, tout, UI));
+  if (p <= 0.01) return;
+  ctx.save(); ctx.globalAlpha = p; setFont(MS(500, size)); ctx.fillStyle = C.grey; ctx.textAlign = 'center';
+  lines.forEach((l, i) => { ctx.fillText(l, x, y + i * size * 1.3); box(x - measure(l, MS(500, size)) / 2, y + i * size * 1.3, measure(l, MS(500, size)), size, l, true); });
+  ctx.restore();
+}
+
+// ---------- the signature device: crimson focus brackets ----------
+function brackets(t, cx, cy, w, h, tin, tout, { arm = 46, lw = 6, color = C.crimson } = {}) {
+  const pin = sp(t, tin, SNAP), pout = tout == null ? 0 : sp(t, tout, UI);
+  if (pin <= 0.002 || pout >= 0.998) return;
+  const g = mix(1.5, 1, pin) * mix(1, 1.25, pout);
+  const hw = w / 2 * g, hh = h / 2 * g;
+  ctx.save(); ctx.globalAlpha = clamp(pin * 2) * (1 - pout);
+  ctx.strokeStyle = color; ctx.lineWidth = lw; ctx.lineCap = 'square';
+  for (const [sx, sy] of [[-1, -1], [1, -1], [1, 1], [-1, 1]]) {
+    const x = cx + sx * hw, y = cy + sy * hh;
+    ctx.beginPath(); ctx.moveTo(x, y - sy * arm); ctx.lineTo(x, y); ctx.lineTo(x - sx * arm, y); ctx.stroke();
+  }
+  ctx.restore();
+}
+
+// ---------- background: ivory with slow out-of-focus marble discs and crimson rings ----------
+let BOKEH = [], GRAIN;
+function makeBokeh() {
+  const r = rng(7), out = [];
+  for (let i = 0; i < 8; i++) {
+    const R = 120 + r() * 260, ring = i % 2 === 0, c = document.createElement('canvas');
+    const pad = 80; c.width = c.height = Math.ceil(2 * R + 2 * pad);
+    const g = c.getContext('2d'); g.filter = `blur(${22 + r() * 26}px)`;
+    if (ring) { g.strokeStyle = C.crimson; g.lineWidth = 18 + r() * 22; g.beginPath(); g.arc(c.width / 2, c.height / 2, R, 0, Math.PI * 2); g.stroke(); }
+    else { g.fillStyle = C.marble; g.beginPath(); g.arc(c.width / 2, c.height / 2, R, 0, Math.PI * 2); g.fill(); }
+    out.push({ c, x: r() * W, y: r() * H, a: ring ? 0.07 + r() * 0.05 : 0.28 + r() * 0.2, vx: (r() - 0.5) * 18, vy: (r() - 0.5) * 22, ph: r() * 6.28 });
+  }
+  return out;
+}
+function makeGrain() {
+  const g = document.createElement('canvas'); g.width = g.height = 256;
+  const gx = g.getContext('2d'), img = gx.createImageData(256, 256), r = rng(11);
+  for (let i = 0; i < img.data.length; i += 4) { const v = r() * 255; img.data[i] = img.data[i + 1] = img.data[i + 2] = v; img.data[i + 3] = 255; }
+  gx.putImageData(img, 0, 0);
+  return g;
+}
+function background(t) {
+  ctx.fillStyle = C.ivory; ctx.fillRect(0, 0, W, H);
+  for (const b of BOKEH) {
+    const x = b.x + b.vx * t + Math.sin(t * 0.3 + b.ph) * 40, y = b.y + b.vy * t + Math.cos(t * 0.25 + b.ph) * 50;
+    ctx.globalAlpha = b.a; ctx.drawImage(b.c, x - b.c.width / 2, y - b.c.height / 2);
+  }
+  ctx.globalAlpha = 1;
+}
+function grain(t, alpha) {
+  const r = rng(Math.floor(t * 24) + 1);
+  ctx.save(); ctx.globalAlpha = alpha; ctx.globalCompositeOperation = 'multiply';
+  const ox = -Math.floor(r() * 256), oy = -Math.floor(r() * 256);
+  for (let y = oy; y < H; y += 256) for (let x = ox; x < W; x += 256) ctx.drawImage(GRAIN, x, y);
+  ctx.restore();
+}
+
+// ---------- props ----------
+function euro(t, x, y, t0, i) {
+  const p = clamp((t - t0) / 1.1);
+  if (p <= 0 || p >= 1) return;
+  ctx.save(); ctx.globalAlpha = Math.sin(p * Math.PI) * 0.9; setFont(MS(700, 34 + (i % 2) * 10)); ctx.fillStyle = C.crimson;
+  ctx.textAlign = 'center'; ctx.fillText('€', x + Math.sin(p * 5 + i) * 14, y - p * 150); ctx.restore();
+}
+
+// stopwatch: pivot low-left, a long charcoal hand sweeping a crimson dial edge
+function stopwatch(t, t0, t1) {
+  const pin = sp(t, t0, UI), pout = sp(t, t1, UI);
+  if (pin <= 0.002 || pout >= 0.998) return;
+  const px = 150, py = 1470, R = 1160;
+  ctx.save();
+  ctx.globalAlpha = clamp(pin * 1.5) * (1 - pout);
+  ctx.translate(px, py); ctx.scale(mix(1.25, 1, pin), mix(1.25, 1, pin)); ctx.translate(-px, -py);
+  if (pout > 0.01) ctx.filter = `blur(${(pout * 20).toFixed(1)}px)`;
+  // dial edge + ticks
+  ctx.strokeStyle = C.crimson; ctx.lineWidth = 7;
+  ctx.beginPath(); ctx.arc(px, py, R, -Math.PI * 0.98, -Math.PI * 0.12); ctx.stroke();
+  for (let i = 0; i <= 60; i++) {
+    const a = -Math.PI + i * Math.PI / 60; if (a < -Math.PI * 0.98 || a > -Math.PI * 0.12) continue;
+    const long = i % 5 === 0, r0 = R - (long ? 70 : 34), r1 = R - 12;
+    ctx.strokeStyle = long ? C.char : C.faint; ctx.lineWidth = long ? 6 : 3;
+    ctx.beginPath(); ctx.moveTo(px + r0 * Math.cos(a), py + r0 * Math.sin(a)); ctx.lineTo(px + r1 * Math.cos(a), py + r1 * Math.sin(a)); ctx.stroke();
+  }
+  for (const a of [-0.8, -0.55, -0.3].map((f) => f * Math.PI)) { // small dots on the edge
+    ctx.fillStyle = C.ivory; ctx.strokeStyle = C.char; ctx.lineWidth = 4;
+    ctx.beginPath(); ctx.arc(px + R * Math.cos(a), py + R * Math.sin(a), 12, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+  }
+  // the hand: sweeps fast, then ticks once per word
+  const sweep = sp(t, t0 + 0.05, [60, 13]);
+  const ticks = [S(3), S(4)].reduce((acc, ti) => acc + 0.03 * sp(t, ti, SNAP), 0);
+  const a = mix(-Math.PI * 0.95, -Math.PI * 0.46, sweep) + ticks * Math.PI;   // stays left of the type
+  ctx.translate(px, py); ctx.rotate(a + Math.PI / 2);
+  ctx.fillStyle = C.char;
+  ctx.beginPath(); ctx.moveTo(-9, 60); ctx.lineTo(9, 60); ctx.lineTo(4, -R + 150); ctx.lineTo(0, -R + 40); ctx.lineTo(-4, -R + 150); ctx.closePath(); ctx.fill();
+  ctx.beginPath(); ctx.moveTo(0, -R + 470); ctx.lineTo(26, -R + 540); ctx.lineTo(0, -R + 610); ctx.lineTo(-26, -R + 540); ctx.closePath();
+  ctx.lineWidth = 6; ctx.strokeStyle = C.char; ctx.fillStyle = C.ivory; ctx.fill(); ctx.stroke();
+  ctx.fillStyle = C.crimson; ctx.beginPath(); ctx.arc(0, 0, 30, 0, Math.PI * 2); ctx.fill();
+  ctx.fillStyle = C.char; ctx.beginPath(); ctx.arc(0, 0, 13, 0, Math.PI * 2); ctx.fill();
+  ctx.restore();
+}
+
+// a person pictogram (head and shoulders)
+function figure(x, y, s, color) {
+  ctx.fillStyle = color;
+  ctx.beginPath(); ctx.arc(x, y - 44 * s, 30 * s, 0, Math.PI * 2); ctx.fill();
+  ctx.beginPath(); ctx.moveTo(x - 58 * s, y + 46 * s); ctx.bezierCurveTo(x - 58 * s, y - 14 * s, x - 34 * s, y - 2 * s, x, y - 2 * s);
+  ctx.bezierCurveTo(x + 34 * s, y - 2 * s, x + 58 * s, y - 14 * s, x + 58 * s, y + 46 * s); ctx.closePath(); ctx.fill();
+}
+function audience(t, t0, t1) {
+  const out = sp(t, t1, UI);
+  if (t < t0 - 0.05 || out >= 0.998) return;
+  const xs = [-350, -185, 0, 185, 350], ss = [0.95, 1.15, 1.5, 1.15, 0.95], y = 1010;
+  xs.forEach((dx, i) => {
+    const p = sp(t, t0 + Math.abs(i - 2) * 0.07, POP);
+    if (p <= 0.002) return;
+    ctx.save(); ctx.globalAlpha = clamp(p * 2) * (1 - out);
+    if (out > 0.01) ctx.filter = `blur(${(out * 18).toFixed(1)}px)`;
+    ctx.translate(CX + dx * mix(0.6, 1, p), y); ctx.scale(p, p);
+    figure(0, 0, ss[i], i === 2 ? C.char : C.crimson);
+    ctx.restore();
+  });
+  brackets(t, CX, y - 18, 270, 280, S(6), t1);
+}
+
+// confusion: three outlined question marks and drifting blurred buzzwords
+const BUZZ = ['cilësi', 'profesionalizëm', 'më të mirët', 'zgjidhje', 'eksperiencë', 'inovacion', 'garanci', 'shërbim'];
+function confusion(t, t0, t1) {
+  const pin = sp(t, t0, UI), pout = sp(t, t1, UI);
+  if (pin <= 0.002 || pout >= 0.998) return;
+  ctx.save(); ctx.globalAlpha = clamp(pin * 1.4) * (1 - pout);
+  if (pout > 0.01) ctx.filter = `blur(${(pout * 22).toFixed(1)}px)`;
+  setFont(PF(900, 430)); ctx.textAlign = 'center'; ctx.strokeStyle = C.crimson; ctx.lineWidth = 5;
+  [-280, 0, 280].forEach((dx, i) => {
+    const p = sp(t, t0 + i * 0.12, POP), wob = Math.sin(t * 2.2 + i * 1.7) * 0.06;
+    ctx.save(); ctx.translate(CX + dx, 1160); ctx.rotate(wob); ctx.scale(p, p); ctx.globalAlpha *= 0.28; ctx.strokeText('?', 0, 0); ctx.restore();
+  });
+  ctx.restore();
+  const r = rng(23);
+  BUZZ.forEach((w, i) => {
+    const t0i = t0 + 0.15 + i * 0.16, p = sp(t, t0i, SOFT);
+    if (p <= 0.002 || pout >= 0.998) return;
+    const x = 140 + r() * 760, y0 = 560 + r() * 940, depth = 0.5 + r() * 0.8, side = x < CX ? -1 : 1;
+    if (Math.abs(y0 - 900) < 120) return; // keep the line clear
+    ctx.save(); ctx.globalAlpha = clamp(p * 1.3) * (1 - pout) * 0.75;
+    ctx.filter = `blur(${(3 + depth * 7 + pout * 14).toFixed(1)}px)`;
+    setFont(MS(600, Math.round(34 + depth * 26))); ctx.fillStyle = C.mute; ctx.textAlign = 'center';
+    ctx.fillText(w, x + side * (t - t0i) * 26 * depth, y0 - (t - t0i) * 18 * depth);
+    ctx.restore();
+  });
+}
+
+// one-second ring around "1"
+function oneSecond(t, t0, t1) {
+  const pin = sp(t, t0, POP), pout = sp(t, t1, UI);
+  if (pin <= 0.002 || pout >= 0.998) return;
+  const x = CX, y = 940, R = 190;
+  ctx.save(); ctx.globalAlpha = clamp(pin * 2) * (1 - pout);
+  ctx.translate(x, y); ctx.scale(mix(0.7, 1, pin) * mix(1, 0.4, pout), mix(0.7, 1, pin) * mix(1, 0.4, pout));
+  ctx.strokeStyle = '#E2DACB'; ctx.lineWidth = 22; ctx.beginPath(); ctx.arc(0, 0, R, 0, Math.PI * 2); ctx.stroke();
+  const f = clamp((t - t0) / (E(18) - t0));
+  ctx.strokeStyle = C.crimson; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.arc(0, 0, R, -Math.PI / 2, -Math.PI / 2 + Math.max(0.001, f) * Math.PI * 2); ctx.stroke();
+  setFont(MS(800, 200)); ctx.fillStyle = C.char; ctx.textAlign = 'center'; ctx.fillText('1', 0, 70);
+  ctx.restore();
+  box(x - 60, y + 70, 120, 200, '1');
+}
+
+// hexagons for the three losses
+function hexPath(r) { ctx.beginPath(); for (let i = 0; i < 6; i++) { const a = Math.PI / 6 + i * Math.PI / 3; ctx.lineTo(r * Math.cos(a), r * Math.sin(a)); } ctx.closePath(); }
+function icon(kind, s) {
+  ctx.strokeStyle = C.ivory; ctx.fillStyle = C.ivory; ctx.lineWidth = 7; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  if (kind === 'people') {
+    for (const dx of [-30, 30]) { ctx.beginPath(); ctx.arc(dx * s, -22 * s, 15 * s, 0, Math.PI * 2); ctx.stroke(); ctx.beginPath(); ctx.arc(dx * s, 34 * s, 30 * s, Math.PI * 1.08, Math.PI * 1.92); ctx.stroke(); }
+    ctx.beginPath(); ctx.moveTo(-46 * s, 54 * s); ctx.lineTo(46 * s, -40 * s); ctx.stroke();           // struck through
+  } else if (kind === 'gauge') {
+    ctx.beginPath(); ctx.arc(0, 18 * s, 50 * s, Math.PI * 1.05, Math.PI * 1.95); ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(0, 18 * s); ctx.lineTo(-34 * s, -6 * s); ctx.stroke();                  // needle down at low
+    ctx.beginPath(); ctx.arc(0, 18 * s, 7 * s, 0, Math.PI * 2); ctx.fill();
+  } else {
+    ctx.beginPath(); ctx.rect(-34 * s, -46 * s, 54 * s, 92 * s); ctx.stroke();                          // a door left open
+    ctx.beginPath(); ctx.moveTo(20 * s, -46 * s); ctx.lineTo(46 * s, -32 * s); ctx.lineTo(46 * s, 58 * s); ctx.lineTo(20 * s, 46 * s); ctx.stroke();
+    ctx.beginPath(); ctx.arc(-18 * s, 4 * s, 5 * s, 0, Math.PI * 2); ctx.fill();
+  }
+}
+function losses(t, t1) {
+  const out = sp(t, t1, UI);
+  if (t < S(20) - 0.1 || out >= 0.998) return;
+  const H3 = [
+    { x: CX - 165, y: 900, t: S(20), k: 'people', label: 'Humbet klientë', lx: X0, ly: 640, align: 'left' },
+    { x: CX + 165, y: 900, t: S(22), k: 'gauge', label: 'Humbet ritëm', lx: 940, ly: 640, align: 'right' },
+    { x: CX, y: 1185, t: S(25), k: 'door', label: 'Humbet mundësi', lx: CX, ly: 1480, align: 'center' },
+  ];
+  ctx.save(); if (out > 0.01) ctx.filter = `blur(${(out * 20).toFixed(1)}px)`; ctx.globalAlpha = 1 - out;
+  for (const h of H3) {
+    const p = sp(t, h.t, POP); if (p <= 0.002) continue;
+    // callout line drawn from the hexagon to the label
+    const lp = smooth((t - h.t - 0.1) / 0.35);
+    const lw = measure(h.label, MS(600, 46));
+    const ex = h.align === 'left' ? h.lx + lw * 0.5 : h.align === 'right' ? h.lx - lw * 0.5 : h.lx;
+    const ey = h.align === 'center' ? h.ly - 62 : h.ly + 24;
+    const sx = h.x, sy = h.align === 'center' ? h.y + 150 : h.y - 150;
+    const mx = h.align === 'center' ? sx : ex, my = h.align === 'center' ? (sy + ey) / 2 : sy - 60;
+    ctx.strokeStyle = C.char; ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.moveTo(sx, sy);
+    const segs = [[mx, my], [ex, ey]]; let px = sx, py = sy;
+    const L1 = Math.hypot(mx - sx, my - sy), L2 = Math.hypot(ex - mx, ey - my), L = (L1 + L2) * lp;
+    if (L <= L1) ctx.lineTo(sx + (mx - sx) * L / L1, sy + (my - sy) * L / L1); else { ctx.lineTo(mx, my); ctx.lineTo(mx + (ex - mx) * (L - L1) / L2, my + (ey - my) * (L - L1) / L2); }
+    if (lp > 0) ctx.stroke();
+    ctx.save(); ctx.translate(h.x, h.y); ctx.scale(p, p);
+    ctx.fillStyle = 'rgba(31,31,31,0.12)'; ctx.save(); ctx.translate(8, 14); hexPath(150); ctx.fill(); ctx.restore();
+    ctx.fillStyle = C.crimson; hexPath(150); ctx.fill();
+    ctx.strokeStyle = C.char; ctx.lineWidth = 5;
+    for (const sx of [-1, 1]) { const x = sx * 150 * 1.1 * Math.cos(Math.PI / 6); ctx.beginPath(); ctx.moveTo(x, -38); ctx.lineTo(x, 38); ctx.stroke(); }
+    icon(h.k, 1.15);
+    ctx.restore();
+    focus(t, one(h.label, MS(600, 46), C.char), h.align === 'left' ? h.lx + lw / 2 : h.align === 'right' ? h.lx - lw / 2 : h.lx, h.ly, 46, h.t + 0.2, null, { blur: 14, from: 1.04 });
+  }
+  ctx.restore();
+}
+
+// the noise: "cilësi" multiplying across the frame around the number (pre-blurred sprites, one layer blur on exit)
+let NOISE = null, NOISE_LAYER = null;
+function makeNoise() {
+  const r = rng(91), N = 46, out = [];
+  for (let i = 0; i < N; i++) {
+    const size = Math.round(30 + r() * 64), depth = r();
+    let x = 70 + r() * 940, y = 300 + r() * 1300;
+    if (y > 600 && y < 1320) y = r() < 0.5 ? 560 - r() * 260 : 1380 + r() * 180; // keep the band of the number clear
+    const f = MS(depth > 0.7 ? 700 : 500, size), blur = depth < 0.35 ? 5 : 0;
+    const c = document.createElement('canvas'), g = c.getContext('2d');
+    g.font = f; const w = Math.ceil(g.measureText('cilësi').width);
+    c.width = w + 40; c.height = Math.ceil(size * 1.6) + 40;
+    const g2 = c.getContext('2d'); g2.font = f; g2.fillStyle = depth > 0.85 ? C.mute : C.faint; g2.textAlign = 'center';
+    if (blur) g2.filter = `blur(${blur}px)`;
+    g2.fillText('cilësi', c.width / 2, 20 + size * 1.15);
+    out.push({ c, x, y, i, a: mix(0.25, 0.7, depth), oy: 20 + size * 1.15 });
+  }
+  NOISE_LAYER = document.createElement('canvas'); NOISE_LAYER.width = W; NOISE_LAYER.height = H;
+  return out;
+}
+function noise(t, t0, t1) {
+  const out = sp(t, t1, SOFT);
+  if (t < t0 || out >= 0.998) return;
+  const N = NOISE.length, g = out > 0.01 ? NOISE_LAYER.getContext('2d') : ctx;
+  if (g !== ctx) { g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, W, H); }
+  for (const n of NOISE) {
+    const ti = t0 + (n.i / N) * (S(35) - t0 + 0.2), p = sp(t, ti, POP); if (p <= 0.002) continue;
+    g.save(); g.globalAlpha = clamp(p * 2) * n.a;
+    g.translate(n.x + out * (n.x - CX) * 0.6, n.y + out * (n.y - 960) * 0.6); g.scale(p, p);
+    g.drawImage(n.c, -n.c.width / 2, -n.oy);
+    g.restore();
+  }
+  if (g !== ctx) { ctx.save(); ctx.globalAlpha = 1 - out; ctx.filter = `blur(${(out * 24).toFixed(1)}px)`; ctx.drawImage(NOISE_LAYER, 0, 0); ctx.restore(); }
+}
+
+// pills
+const PILLS = [
+  { s: 'Flasin më qartë.', t: S(44), fill: true }, { s: 'Më saktë.', t: S(47), fill: false }, { s: 'Me qëllim.', t: S(49), fill: false },
+  { s: 'Heqin pengesat.', t: S(51), fill: true }, { s: 'Shpejtojnë vendimin.', t: S(53), fill: false }, { s: 'E bëjnë zgjedhjen të lehtë.', t: S(55), fill: true },
+];
+const PILL_F = MS(600, 46), PILL_H = 104, PILL_PAD = 40, PILL_GAP = 22;
+let PILL_POS = null;
+function layoutPills() {
+  const rows = []; let row = [], w = 0;
+  for (const p of PILLS) {
+    const pw = measure(p.s, PILL_F) + PILL_PAD * 2;
+    if (row.length && w + PILL_GAP + pw > MAXW) { rows.push({ row, w }); row = []; w = 0; }
+    row.push({ ...p, pw }); w += (row.length > 1 ? PILL_GAP : 0) + pw;
+  }
+  rows.push({ row, w });
+  const top = 960 - (rows.length * (PILL_H + PILL_GAP)) / 2 + PILL_H / 2;
+  const pos = [];
+  rows.forEach(({ row, w }, ri) => { let x = CX - w / 2; for (const p of row) { pos.push({ ...p, x, y: top + ri * (PILL_H + PILL_GAP) }); x += p.pw + PILL_GAP; } });
+  return pos;
+}
+function pills(t, t1) {
+  const out = sp(t, t1, UI);
+  if (t < S(44) - 0.1 || out >= 0.998) return;
+  for (const [i, p] of PILL_POS.entries()) {
+    const k = sp(t, p.t, [240, 21]); if (k <= 0.002) continue;
+    const dx = (1 - k) * (i % 2 ? 140 : -140);
+    const blur = (1 - clamp(k)) * 16 + out * 22;
+    ctx.save(); ctx.globalAlpha = clamp(k * 1.8) * (1 - out);
+    if (blur > 0.4) ctx.filter = `blur(${blur.toFixed(1)}px)`;
+    ctx.translate(p.x + dx, p.y + out * (p.y - 960) * 0.3);
+    ctx.beginPath(); ctx.roundRect(0, -PILL_H / 2, p.pw, PILL_H, PILL_H / 2);
+    if (p.fill) { ctx.fillStyle = C.crimson; ctx.fill(); } else { ctx.lineWidth = 4; ctx.strokeStyle = C.char; ctx.fillStyle = C.ivory; ctx.fill(); ctx.stroke(); }
+    setFont(PILL_F); ctx.fillStyle = p.fill ? C.ivory : C.char; ctx.textAlign = 'left'; ctx.fillText(p.s, PILL_PAD, 16);
+    ctx.restore();
+    if (out < 0.5) box(p.x + PILL_PAD, p.y + 16, p.pw - PILL_PAD * 2, 46, p.s);
+  }
+}
+
+// typewriter driven by the word timings: each word's letters appear while it is spoken
+function typed(t, i0, i1) {
+  let s = '';
+  for (let i = i0; i <= i1; i++) {
+    const w = WORDS.words[i].w.replace(/"/g, ''), f = clamp((t - S(i)) / Math.max(0.12, (E(i) - S(i)) * 0.8));
+    if (f <= 0) break;
+    s += (s ? ' ' : '') + w.slice(0, Math.ceil(f * w.length));
+  }
+  return s;
+}
+
+// hand-drawn ellipse around a word
+function ellipse(t, cx, cy, rx, ry, t0, t1) {
+  const p = smooth((t - t0) / 0.5), out = t1 == null ? 0 : sp(t, t1, UI);
+  if (p <= 0 || out >= 0.998) return;
+  ctx.save(); ctx.globalAlpha = 1 - out; ctx.strokeStyle = C.crimson; ctx.lineWidth = 9; ctx.lineCap = 'round';
+  ctx.beginPath();
+  const n = 80, a0 = -2.2, span = Math.PI * 2.18 * p;
+  for (let i = 0; i <= n; i++) {
+    const a = a0 + span * i / n, wob = 1 + Math.sin(a * 3 + 1) * 0.025;
+    const x = cx + rx * wob * Math.cos(a), y = cy + ry * wob * Math.sin(a) + (a - a0) * 3;
+    i ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+  }
+  ctx.stroke(); ctx.restore();
+}
+
+// 45 minutes = three quarters of a ring
+function minutesRing(t, x, y, t0, t1) {
+  const pin = sp(t, t0, POP), pout = sp(t, t1, UI);
+  if (pin <= 0.002 || pout >= 0.998) return;
+  ctx.save(); ctx.globalAlpha = clamp(pin * 2) * (1 - pout); ctx.translate(x, y); ctx.scale(pin, pin);
+  ctx.strokeStyle = '#E2DACB'; ctx.lineWidth = 16; ctx.beginPath(); ctx.arc(0, 0, 62, 0, Math.PI * 2); ctx.stroke();
+  ctx.strokeStyle = C.crimson; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.arc(0, 0, 62, -Math.PI / 2, -Math.PI / 2 + 0.75 * Math.PI * 2 * sp(t, t0 + 0.15, SOFT)); ctx.stroke();
+  ctx.restore();
+}
+
+// ---------- beats ----------
+function beats(t) {
+  const I = C.char;
+  // 1 · Vëmendja kushton.
+  const b1out = S(2) - 0.05;
+  focus(t, one('Vëmendja', MS(700, 150), I), CX, 930, 150, 0.0, b1out, { blur: 40, from: 1.18, k: [150, 24] });
+  brackets(t, CX, 880, 780, 250, 0.32, b1out);
+  focus(t, one('kushton.', PF(700, 132), C.crimson), CX, 1110, 132, S(1), b1out, { blur: 22 });
+  [0, 1, 2, 3].forEach((i) => euro(t, CX - 200 + i * 130, 1000, S(1) + 0.1 + i * 0.12, i));
+  // 2 · Sepse çdo sekondë
+  const b2out = S(5) - 0.08;
+  stopwatch(t, S(2) - 0.08, b2out);
+  focus(t, one('Sepse', MS(600, 64), I), 640, 1180, 64, S(2), b2out, { blur: 18 });
+  focus(t, one('çdo sekondë', PF(700, 104), C.crimson), 640, 1300, 104, S(3), b2out, { blur: 20 });
+  fine(t, ['çdo sekondë që klienti yt', 'harxhon duke u munduar', 'të kuptojë çfarë ofron'], 640, 1370, S(4), b2out);
+  // 3 · që klienti yt harxhon
+  const b3out = S(9) - 0.08;
+  focus(t, one('Klienti yt', MS(700, 96), I), CX, 700, 96, S(6), b3out, { blur: 20 });
+  audience(t, S(5), b3out);
+  fine(t, ['harxhon sekonda duke vendosur', 'nëse ia vlen të të dëgjojë'], CX, 1250, S(8), b3out);
+  // 4 · duke u munduar të kuptojë çfarë ofron,
+  const b4out = S(16) - 0.1;
+  confusion(t, S(9), b4out);
+  focus(t, one('duke u munduar', MS(600, 70), I), CX, 870, 70, S(9), b4out, { blur: 18 });
+  focus(t, one('të kuptojë', MS(800, 104), I), CX, 990, 104, S(12), b4out, { blur: 18 });
+  focus(t, one('çfarë ofron?', PF(700, 96), C.crimson), CX, 1110, 96, S(14), b4out, { blur: 18 });
+  // 5 · është një sekondë
+  const b5out = S(19) + 0.05;
+  oneSecond(t, S(16), b5out);
+  focus(t, one('është një', MS(600, 60), C.mute), CX, 680, 60, S(16), b5out, { blur: 14 });
+  focus(t, one('sekondë', PF(700, 104), C.crimson), CX, 1270, 104, S(18), b5out, { blur: 16 });
+  // 6 · ku humbet klientë, humbet ritëm, dhe humbet mundësi.
+  losses(t, S(27) - 0.12);
+  // 7 · Rreth 1.800 reklama aktive thonë "cilësi".
+  const b7out = S(36) - 0.06;
+  noise(t, S(28), b7out);
+  focus(t, one('Rreth', MS(600, 60), C.mute), CX, 740, 60, S(27), b7out, { blur: 14 });
+  focus(t, one('1.800', MS(800, 230), C.crimson, -4), CX, 950, 230, S(28), b7out, { blur: 28, from: 1.25 });
+  focus(t, one('reklama aktive thonë', MS(600, 58), I), CX, 1060, 58, S(32), b7out, { blur: 14 });
+  focus(t, one('«cilësi»', PF(900, 132), I), CX, 1200, 132, S(35), b7out, { blur: 20 });
+  fine(t, ['Meta Ad Library, 11 tetor 2026'], CX, 1268, S(32) + 0.2, b7out, 30);
+  // 8 · Bizneset që fitojnë nuk janë më të zhurmshme.
+  focus(t, one('Bizneset', MS(700, 140), I), CX, 960, 140, S(36), S(37) - 0.04, { blur: 30 });
+  focus(t, one('që fitojnë', MS(700, 140), C.crimson), CX, 960, 140, S(37), S(39) - 0.04, { blur: 30 });
+  focus(t, one('nuk janë', MS(600, 72), C.mute), CX, 820, 72, S(39), S(44) - 0.1, { blur: 20 });
+  focus(t, one('më të zhurmshme.', PF(700, 100), I), CX, 980, 100, S(41), S(44) - 0.1, { blur: 24 });
+  // 9-10 · pills
+  pills(t, S(60) - 0.12);
+  // 11 · Sepse qartësia nuk është stoli. Është strategji.
+  const b11out = S(67) - 0.1;
+  const line = typed(t, 60, 64), lineUp = sp(t, S(65) - 0.05, TYPE);
+  if (line && sp(t, b11out, UI) < 0.998) {
+    const f = MS(600, 52), w = measure('Sepse qartësia nuk është stoli.', f), o = sp(t, b11out, UI);
+    ctx.save(); ctx.globalAlpha = 1 - o; if (o > 0.01) ctx.filter = `blur(${(o * 20).toFixed(1)}px)`;
+    setFont(f); ctx.fillStyle = lerpGrey(lineUp); ctx.textAlign = 'left';
+    const y = mix(960, 820, lineUp);
+    ctx.fillText(line, CX - w / 2, y);
+    if (lineUp < 0.05 && Math.floor(t * 3) % 2 === 0) { const cw = measure(line, f); ctx.fillStyle = C.crimson; ctx.fillRect(CX - w / 2 + cw + 6, y - 42, 5, 52); }
+    ctx.restore();
+    box(CX - w / 2, y, w, 52, 'Sepse qartësia nuk është stoli.');
+  }
+  focus(t, one('Është strategji.', MS(800, 100), I), CX, 1010, 100, S(65), b11out, { blur: 26 });
+  ellipse(t, CX, 975, 450, 110, S(66) + 0.1, b11out);
+  // 12 · CTA
+  const b12out = VO_END + 0.08;
+  focus(t, one('Analizë falas', PF(700, 120), C.crimson), CX, 760, 120, S(67), b12out, { blur: 24 });
+  const mw = measure('45 minuta', MS(800, 96));
+  focus(t, one('45 minuta', MS(800, 96), I), CX - 60, 900, 96, S(69), b12out, { blur: 18 });
+  minutesRing(t, CX - 60 + mw / 2 + 90, 868, S(69) + 0.1, b12out);
+  focus(t, one('Shkruaj', MS(600, 64), I), CX, 1060, 64, S(73), b12out, { blur: 14 });
+  const fp = sp(t, S(73) + 0.1, UI), fo = sp(t, b12out, UI);
+  if (fp > 0.002 && fo < 0.998) {
+    const w = 640, h = 130, x = CX - w / 2, y = 1110;
+    ctx.save(); ctx.globalAlpha = clamp(fp * 2) * (1 - fo); if (fo > 0.01) ctx.filter = `blur(${(fo * 20).toFixed(1)}px)`;
+    ctx.strokeStyle = C.crimson; ctx.lineWidth = 5; ctx.beginPath(); ctx.roundRect(x + w / 2 * (1 - fp), y, w * fp, h, h / 2); ctx.stroke();
+    const n = Math.floor(clamp((t - S(74)) / (E(74) - S(74))) * 7);
+    setFont(MS(800, 76), 6); ctx.fillStyle = C.char; ctx.textAlign = 'center';
+    if (n > 0) ctx.fillText('ANALIZA'.slice(0, n), CX, y + 92);
+    ctx.restore();
+    if (n === 7) box(CX - 200, y + 92, 400, 76, 'ANALIZA');
+  }
+  focus(t, one('në komente.', PF(700, 96), I), CX, 1360, 96, S(75), b12out, { blur: 16 });
+  // 13 · logo sting
+  const lp = sp(t, VO_END + 0.1, [150, 24]);
+  if (lp > 0.002) {
+    const LW = 760, sc = LW / (1975 - 90), lw = 2067 * sc, lh = 761 * sc;
+    const x = CX - (90 + 1885 / 2) * sc, y = 950 - (182 + 401 / 2) * sc;
+    const b = (1 - lp) * 30;
+    ctx.save(); ctx.globalAlpha = clamp(lp * 1.6); if (b > 0.4) ctx.filter = `blur(${b.toFixed(1)}px)`;
+    ctx.translate(CX, 950); ctx.scale(mix(1.15, 1, lp), mix(1.15, 1, lp)); ctx.translate(-CX, -950);
+    ctx.drawImage(LOGO, x, y, lw, lh);
+    ctx.restore();
+    brackets(t, CX, 950, LW + 90, 401 * sc + 110, VO_END + 0.45, null);
+  }
+}
+const lerpGrey = (p) => { const a = [0x1F, 0x1F, 0x1F], b = [0xA8, 0xA1, 0x95]; return `rgb(${a.map((v, i) => Math.round(v + (b[i] - v) * p)).join(',')})`; };
+
+// ---------- sound events (exported by tools/events.mjs) ----------
+window.EVENTS = [
+  { t: 0.0, kind: 'focus' }, { t: 0.32, kind: 'bracket' }, { t: S(1), kind: 'accent' },
+  { t: S(2) - 0.08, kind: 'whoosh' }, { t: S(3), kind: 'tick' }, { t: S(4), kind: 'tick' },
+  { t: S(5), kind: 'pop' }, { t: S(6), kind: 'bracket' }, { t: S(9), kind: 'whoosh' },
+  { t: S(16), kind: 'pop' }, { t: E(18), kind: 'ding' },
+  ...[20, 22, 25].map((i) => ({ t: S(i), kind: 'hex' })),
+  { t: S(28), kind: 'crowd' }, { t: S(35), kind: 'accent' }, { t: S(36) - 0.06, kind: 'hush' },
+  ...[36, 37, 39, 41].map((i) => ({ t: S(i), kind: 'focus' })),
+  ...PILLS.map((p) => ({ t: p.t, kind: 'pill' })),
+  ...Array.from({ length: 12 }, (_, i) => ({ t: S(60) + i * (E(64) - S(60)) / 12, kind: 'key' })),
+  { t: S(66) + 0.1, kind: 'marker' }, { t: S(65), kind: 'resolve' },
+  { t: S(67), kind: 'whoosh' }, { t: S(69) + 0.1, kind: 'pop' },
+  ...Array.from({ length: 7 }, (_, i) => ({ t: S(74) + (i + 1) * (E(74) - S(74)) / 7 - 0.03, kind: 'key' })),
+  { t: VO_END + 0.1, kind: 'sting' }, { t: VO_END + 0.45, kind: 'bracket' },
+];
+
+// gentle camera: a slow push per beat so even holds breathe
+const CUTS = [0, S(2), S(5), S(9), S(16), S(19), S(27), S(36), S(44), S(60), S(67), VO_END, T_END];
+function seek(t) {
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.filter = 'none';
+  background(t);
+  let k = 0; while (k < CUTS.length - 2 && t >= CUTS[k + 1]) k++;
+  const z = 1 + 0.035 * smooth((t - CUTS[k]) / Math.max(1, CUTS[k + 1] - CUTS[k]));
+  ctx.save(); ctx.translate(CX, 960); ctx.scale(z, z); ctx.translate(-CX, -960);
+  beats(t);
+  ctx.restore();
+  grain(t, 0.05);
+}
+
+const faces = ['italic 700 10px "Playfair Display"', 'italic 900 10px "Playfair Display"',
+  '500 10px Montserrat', '600 10px Montserrat', '700 10px Montserrat', '800 10px Montserrat'];
+await Promise.all(faces.map((f) => document.fonts.load(f, 'ëçË€«»')));
+const load = (src) => new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = no; i.src = src; });
+const LOGO = await load('assets/brand/logo-full.png');
+BOKEH = makeBokeh(); GRAIN = makeGrain(); PILL_POS = layoutPills(); NOISE = makeNoise();
+window.DURATION = T_END;
+window.seek = seek;
+seek(0);
+</script>
+</body>
+</html>

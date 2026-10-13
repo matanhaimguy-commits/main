@@ -1,0 +1,9 @@
+audio/*.wav
+audio/loudnorm.json
+audio/takes/
+out/
+# third-party reference frames (study only; re-fetch with Apify, see PROJECT.md log)
+docs/refs/frames/
+docs/refs/detail/
+docs/refs/*.png
+docs/refs/*.mp4
