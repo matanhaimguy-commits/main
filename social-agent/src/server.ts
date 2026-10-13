@@ -96,7 +96,7 @@ export function createApp(deps: Deps, hooks: { onEvent?: () => void } = {}): Hon
     ),
   );
 
-  app.get('/', (c) => c.text('ok'));
+  app.get('/', (c) => c.redirect('/admin/setup'));
   app.route('/admin', adminRoutes(deps));
   return app;
 }

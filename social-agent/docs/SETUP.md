@@ -30,9 +30,9 @@ so you can watch it work safely first.
 
 1. Go to **railway.com**, sign in with GitHub, and choose **New Project → Deploy from GitHub repo →**
    `matanhaimguy-commits/main`.
-2. Open the new service → **Settings**:
-   - **Source → Branch:** `claude/ig-fb-chatbot-automation-zk8w44` (or `main`, once it is merged).
-   - **Source → Root Directory:** `social-agent`.
+2. Nothing to change in the service's Settings: it builds from the `main` branch, and the
+   repository's root `Dockerfile` builds the `social-agent/` folder. Leave **Root Directory**
+   empty. Setting it to `social-agent` also works.
 3. In the project, click **+ New → Database → PostgreSQL**.
 4. Open the service → **Variables** and add:
    | Name | Value |
@@ -44,6 +44,9 @@ so you can watch it work safely first.
    `https://social-agent-production.up.railway.app`.
 6. Open `https://<your-address>/admin/setup` and log in with user `admin` and your password. The first
    step should be green.
+   - If the address instead says **"Social Agent is running, but not set up yet"**, something is
+     missing, usually the database or `ADMIN_PASSWORD`. That page says exactly which variable to add.
+     Railway redeploys after you save it.
 
 ## Part 2: Create the Meta app
 

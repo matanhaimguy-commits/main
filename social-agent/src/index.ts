@@ -4,22 +4,52 @@ import { serve } from '@hono/node-server';
 import { createClaudeAi } from './ai/agent.js';
 import { createAlerter } from './alerts.js';
 import { configuredPublicUrl, loadEnv, requireEnv } from './config/env.js';
-import { loadRegistry, PROJECT_ROOT } from './config/load.js';
-import { connect, migrate } from './db/index.js';
+import { ConfigError, loadRegistry, PROJECT_ROOT, type Registry } from './config/load.js';
+import { connect, migrate, type Sql } from './db/index.js';
 import { createDeps } from './engine/deps.js';
 import { log } from './log.js';
 import { createApp } from './server.js';
+import { PROBLEMS, startSetupMode, type SetupProblem } from './setup-mode.js';
 import { startWorker } from './worker.js';
 
 // Local development reads .env; hosted deployments set real environment variables.
 const envFile = path.join(PROJECT_ROOT, '.env');
 if (existsSync(envFile)) process.loadEnvFile(envFile);
 
+/** Connects and migrates, retrying while a freshly created database is still starting. */
+async function openDatabase(url: string): Promise<{ sql: Sql } | { error: string }> {
+  let error = '';
+  for (let attempt = 1; attempt <= 6; attempt++) {
+    const sql = connect(url);
+    try {
+      await migrate(sql, (m) => log.info(m));
+      return { sql };
+    } catch (err) {
+      error = (err as Error).message;
+      log.warn('database not reachable yet', { attempt, error });
+      await sql.end({ timeout: 1 }).catch(() => {});
+      await new Promise((r) => setTimeout(r, 5_000));
+    }
+  }
+  return { error };
+}
+
 async function main() {
   const env = loadEnv();
-  const registry = loadRegistry(env.BUSINESSES_DIR);
-  const sql = connect(requireEnv(env, 'DATABASE_URL'));
-  await migrate(sql, (m) => log.info(m));
+  const problems: SetupProblem[] = [];
+  let registry: Registry | undefined;
+  try {
+    registry = loadRegistry(env.BUSINESSES_DIR);
+  } catch (err) {
+    problems.push(PROBLEMS.badConfig(err instanceof ConfigError ? err.problems.join('; ') : (err as Error).message));
+  }
+  if (!env.DATABASE_URL) problems.push(PROBLEMS.noDatabase);
+  if (!env.ADMIN_PASSWORD) problems.push(PROBLEMS.noPassword);
+  if (problems.length || !registry || !env.DATABASE_URL) return startSetupMode(env, problems);
+
+  const db = await openDatabase(requireEnv(env, 'DATABASE_URL'));
+  if ('error' in db) return startSetupMode(env, [PROBLEMS.dbUnreachable(db.error)]);
+  const sql = db.sql;
 
   const deps = await createDeps({
     sql,
