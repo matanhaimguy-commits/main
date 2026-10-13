@@ -13,14 +13,24 @@ Meta charges nothing per message, so there is no per-contact bill, and the conta
 - **AI comment handling (optional).** For comments no funnel owns, it gives a short public answer to
   questions and a private reply to buying intent. It can also hide spam.
 - **Multi-business.** One deployment serves you and your clients. Each business is one YAML file in
-  `businesses/` with its own Page, Instagram account, token, knowledge, links and funnels.
+  `businesses/` with its own knowledge, links and funnels. Its Page and Instagram account are
+  connected with a button in `/admin/connect`.
 - **Human takeover.** When anyone replies from the Meta inbox, the AI steps back in that thread.
   The `/admin` dashboard shows leads, conversations, the comment ledger and the send ledger, with
   pause / resume / stage controls.
 - **Alerts** go to Telegram or Slack/Discord: hot leads, handoffs, a funnel that sends but nothing
   lands, token problems, a spam block, a lost webhook subscription.
 
-Setup, from zero to live: **[docs/SETUP.md](docs/SETUP.md)**.
+Setup, from zero to live, all in the browser: **[docs/SETUP.md](docs/SETUP.md)**.
+
+## The admin pages (`/admin`, user `admin` + `ADMIN_PASSWORD`)
+
+| Page | What it's for |
+|---|---|
+| **Setup** | Green/red checklist of every setup step, with the exact URLs and tokens to paste into Meta. |
+| **Connect** | "Connect Facebook & Instagram" button. You log in with Facebook and pick the Page. The token is stored encrypted, and the Page and app webhooks are subscribed for you. |
+| **Test the bot** | Chat with the AI as a customer, and simulate a comment to see which funnel fires and exactly what gets sent. Nothing goes to Meta. |
+| **Overview / Leads / Comments / Sends** | Results, every lead and conversation (pause / resume the AI, set a stage), every comment with the reason it did or didn't fire, and the send ledger. |
 
 ## How it works
 
@@ -70,8 +80,7 @@ npm run cli -- help           # all commands
 npm run cli -- preview <business> <funnel>          # exactly what people receive
 npm run cli -- match <business> instagram <post> "text"   # would this comment fire, and why
 npm run cli -- chat <business>                       # talk to the AI agent locally before going live
-npm run cli -- meta:pages <user-token>               # page IDs, Instagram IDs, Page tokens
-npm run cli -- meta:subscribe <business>             # activate webhooks on the Page
+npm run cli -- meta:subscribe <business>             # activate webhooks on the Page (the Connect page does this too)
 npm run cli -- meta:check <business>                 # token, permissions, subscription
 npm run cli -- meta:posts <business>                 # post IDs to pin funnels to
 npm run cli -- verify-endpoint https://.../webhook   # prove the endpoint accepts/rejects correctly

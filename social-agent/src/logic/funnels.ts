@@ -75,3 +75,20 @@ export function decodePayload(payload: string | undefined): FunnelPayload | unde
   if (step !== 'deliver' && step !== 'gate') return undefined;
   return { funnelId: parts[1]!, step };
 }
+
+/** Plain-language explanation of each skip reason, for the admin pages. */
+export const REASON_TEXT: Record<string, string> = {
+  own_comment: 'written by the business account itself (skipped so the bot never DMs itself)',
+  is_reply: 'a reply inside a comment thread (only top-level comments trigger funnels)',
+  no_text: 'no text (emoji or sticker only)',
+  not_new: 'an edit, not a new comment',
+  outside_reply_window: 'older than 7 days, past Meta’s private-reply window',
+  no_funnel_for_post: 'no funnel is pinned to this post',
+  keyword_not_matched: 'a funnel is pinned to this post, but the comment doesn’t contain its keyword',
+  funnel_paused: 'the matching funnel is paused',
+  not_a_tester: 'the business is in testers-only mode and this person isn’t on the list',
+  business_disabled: 'the business is disabled',
+  ai_error: 'the AI could not be reached',
+};
+
+export const explainReason = (reason: string | null | undefined) => (reason ? (REASON_TEXT[reason] ?? reason) : '');

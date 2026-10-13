@@ -2,13 +2,16 @@ import { Hono } from 'hono';
 import { basicAuth } from 'hono/basic-auth';
 import { csrf } from 'hono/csrf';
 import { getContact, pauseAi, recentMessages, resumeAi, STAGES, updateLead, type Contact, type Stage } from './db/repo.js';
+import { mountConnect } from './connect.js';
 import type { Deps } from './engine/deps.js';
 import { html, page, type Raw } from './html.js';
+import { mountSetup } from './setup.js';
+import { explainReason } from './logic/funnels.js';
 
 const nav = (title: string, body: Raw) =>
   page(
     title,
-    html`<header><b>Social Agent</b><a href="/admin">Overview</a><a href="/admin/leads">Leads</a><a href="/admin/comments">Comments</a><a href="/admin/sends">Sends</a></header><main><h1>${title}</h1>${body}</main>`,
+    html`<header><b>Social Agent</b><a href="/admin/setup">Setup</a><a href="/admin/connect">Connect</a><a href="/admin/test">Test the bot</a><a href="/admin">Overview</a><a href="/admin/leads">Leads</a><a href="/admin/comments">Comments</a><a href="/admin/sends">Sends</a></header><main><h1>${title}</h1>${body}</main>`,
   );
 
 const who = (c: Pick<Contact, 'name' | 'username' | 'external_id'>) => c.name ?? (c.username ? `@${c.username}` : c.external_id);
@@ -23,6 +26,8 @@ export function adminRoutes(deps: Deps): Hono {
   app.use('*', basicAuth({ username: 'admin', password }));
   app.use('*', csrf());
   const sql = deps.sql;
+  mountSetup(app, deps, nav);
+  mountConnect(app, deps, nav);
 
   app.get('/', async (c) => {
     const cards: Raw[] = [];
@@ -70,7 +75,14 @@ export function adminRoutes(deps: Deps): Hono {
         <p><a href="/admin/leads?b=${b.slug}">Leads</a> · <a href="/admin/comments?b=${b.slug}">Comments</a> · <a href="/admin/sends?b=${b.slug}">Sends</a></p>
       </section>`);
     }
-    return c.html(nav('Overview', html`${cards.length ? cards : html`<p>No businesses configured. Add a file to businesses/.</p>`}`));
+    const notReady = deps.registry.businesses.length === 0 || deps.registry.businesses.some((b) => !b.meta.page_id);
+    return c.html(
+      nav(
+        'Overview',
+        html`${notReady ? html`<p class="card">Not fully set up yet. <a href="/admin/setup">Open Setup</a> to see what's left.</p>` : ''}
+        ${cards.length ? cards : html`<p>No businesses configured. Add a file to businesses/.</p>`}`,
+      ),
+    );
   });
 
   app.get('/leads', async (c) => {
@@ -164,7 +176,7 @@ export function adminRoutes(deps: Deps): Hono {
           (r) => html`<tr><td>${r.received_at}</td><td>${r.business}<div class="meta">${r.platform} · post ${r.post_id}</div></td>
           <td>${r.contact_id ? html`<a href="/admin/contacts/${r.contact_id}">${r.author_name ?? r.author_id}</a>` : r.author_name ?? r.author_id}</td>
           <td>${r.text}</td>
-          <td><span class="pill">${r.outcome}</span> ${r.funnel_id ?? ''} ${r.skip_reason ? html`<div class="meta">${r.skip_reason}</div>` : ''}${r.ai_intent ? html`<div class="meta">AI: ${r.ai_intent}</div>` : ''}</td></tr>`,
+          <td><span class="pill">${r.outcome}</span> ${r.funnel_id ?? ''} ${r.skip_reason ? html`<div class="meta">${explainReason(r.skip_reason)}</div>` : ''}${r.ai_intent ? html`<div class="meta">AI: ${r.ai_intent}</div>` : ''}</td></tr>`,
         )}</table></div>`,
       ),
     );

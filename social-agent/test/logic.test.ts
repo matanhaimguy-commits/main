@@ -158,7 +158,7 @@ describe('payloads and messages', () => {
 });
 
 describe('audit', () => {
-  const env = { PAGE_TOKEN_ACME: 'token' };
+  const env = { hasToken: true };
 
   it('passes the fixture', () => {
     const issues = auditBusiness(makeBusiness(), env);
@@ -191,7 +191,8 @@ describe('audit', () => {
   });
 
   it('flags a missing token as an error only for live businesses', () => {
-    expect(blocksLive(auditBusiness(makeBusiness(), {}))).toBe(true);
-    expect(blocksLive(auditBusiness(makeBusiness({ live: false }), {}))).toBe(false);
+    expect(blocksLive(auditBusiness(makeBusiness(), { hasToken: false }))).toBe(true);
+    expect(blocksLive(auditBusiness(makeBusiness({ live: false }), { hasToken: false }))).toBe(false);
+    expect(blocksLive(auditBusiness(makeBusiness({ meta: {} }), { hasToken: false }))).toBe(true);
   });
 });

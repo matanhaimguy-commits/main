@@ -3,7 +3,7 @@ import { loadEnv } from '../src/config/env.js';
 import { buildRegistry } from '../src/config/load.js';
 import type { Business } from '../src/config/schema.js';
 import { connect, migrate, type Sql } from '../src/db/index.js';
-import type { Deps } from '../src/engine/deps.js';
+import { createDeps, type Deps } from '../src/engine/deps.js';
 import { silentLog } from '../src/log.js';
 import { MetaApiError, MetaNetworkError, type MetaApi } from '../src/meta/client.js';
 import { APP_SECRET, IG_ID, PAGE_ID, VERIFY_TOKEN } from './fixtures.js';
@@ -31,7 +31,7 @@ export async function freshDb(): Promise<Sql> {
 }
 
 export async function truncate(sql: Sql) {
-  await sql.unsafe(`TRUNCATE webhook_events, contacts, comments, sends, messages, links, taps, ai_runs, alerts, business_state
+  await sql.unsafe(`TRUNCATE webhook_events, contacts, comments, sends, messages, links, taps, ai_runs, alerts, business_state, meta_connections, app_state
     RESTART IDENTITY CASCADE`);
 }
 
@@ -42,6 +42,7 @@ export interface Call {
 
 export class FakeMeta implements MetaApi {
   calls: Call[] = [];
+  tokens: string[] = [];
   /** Queue of errors to throw on the next sendMessage calls. */
   failNext: Error[] = [];
   follows = new Map<string, boolean>();
@@ -68,8 +69,12 @@ export class FakeMeta implements MetaApi {
     this.calls.push({ method: 'getUserProfile', args: [userId, fields] });
     return { ...(this.profiles.get(userId) ?? {}), is_user_follow_business: this.follows.get(userId) ?? false };
   }
-  async get(path: string) {
-    this.calls.push({ method: 'get', args: [path] });
+  /** Pages returned by me/accounts during the connect flow. */
+  pages: { id: string; name: string; access_token?: string; instagram_business_account?: { id: string; username?: string } }[] = [];
+  async get(path: string, params?: Record<string, string>) {
+    this.calls.push({ method: 'get', args: [path, params] });
+    if (path === 'oauth/access_token') return { access_token: params?.code ? 'SHORT_USER_TOKEN' : 'LONG_USER_TOKEN' } as any;
+    if (path === 'me/accounts') return { data: this.pages } as any;
     return { data: [{ id: APP_ID }] } as any;
   }
   async post(path: string, body?: Record<string, unknown>) {
@@ -119,7 +124,7 @@ export interface Harness {
   live: Set<string>;
 }
 
-export function makeHarness(sql: Sql, businesses: Business[]): Harness {
+export async function makeHarness(sql: Sql, businesses: Business[], extraEnv: Record<string, string> = {}): Promise<Harness> {
   const meta = new FakeMeta();
   const ai = new FakeAi();
   const alerts: string[] = [];
@@ -130,8 +135,9 @@ export function makeHarness(sql: Sql, businesses: Business[]): Harness {
     META_VERIFY_TOKEN: VERIFY_TOKEN,
     ADMIN_PASSWORD: 'pw',
     LIVE_SENDING: 'true',
+    ...extraEnv,
   });
-  const deps: Deps = {
+  const base = await createDeps({
     sql,
     env,
     registry: buildRegistry(businesses),
@@ -140,11 +146,15 @@ export function makeHarness(sql: Sql, businesses: Business[]): Harness {
       alerts.push(a.text);
     },
     ai,
-    metaFor: () => meta,
-    isLive: (b) => live.has(b.slug),
-    now: () => new Date(),
+    graph: (token) => {
+      meta.tokens.push(token);
+      return meta;
+    },
+    processEnv: { PAGE_TOKEN_ACME: 'env-page-token' },
     sleep: async () => {},
-  };
+  });
+  // Tests flip a business to dry run by removing it from `live`.
+  const deps: Deps = { ...base, isLive: (b) => live.has(b.slug) && base.isLive(b) };
   return { deps, meta, ai, alerts, live };
 }
 

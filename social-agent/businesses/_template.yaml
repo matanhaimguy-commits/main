@@ -18,10 +18,11 @@ testers: []
 
 timezone: Asia/Jerusalem
 
-meta:
-  page_id: "TODO"            # numeric Facebook Page ID (npm run cli -- meta:pages <token>)
-  instagram_id: "TODO"       # numeric Instagram professional account ID linked to that Page
-  page_token_env: PAGE_TOKEN_MY_BUSINESS   # NAME of the env var holding the Page token. Never the token.
+# Facebook Page + Instagram: connect them in the browser at /admin/connect and pick this
+# business there. Nothing to fill in here. (Advanced: page_id / instagram_id / page_token_env
+# pin IDs or read the token from an env var instead.)
+# meta:
+#   page_id: "123456789012345"
 
 # ── What the AI knows. It sells only what is written here and never invents prices. ──
 profile:

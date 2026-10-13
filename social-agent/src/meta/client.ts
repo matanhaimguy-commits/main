@@ -106,7 +106,7 @@ export function createMetaClient(opts: MetaClientOptions): MetaApi {
       res = await doFetch(url, {
         method,
         headers: {
-          Authorization: `Bearer ${opts.accessToken}`,
+          ...(opts.accessToken ? { Authorization: `Bearer ${opts.accessToken}` } : {}),
           ...(body ? { 'Content-Type': 'application/json' } : {}),
         },
         body,

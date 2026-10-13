@@ -81,7 +81,7 @@ export async function checkSubscriptions(deps: Deps): Promise<void> {
   const appId = deps.env.META_APP_ID;
   if (!appId) return;
   for (const b of deps.registry.businesses) {
-    if (!b.enabled || !deps.isLive(b)) continue;
+    if (!b.enabled || !deps.isLive(b) || !b.meta.page_id) continue;
     const api = deps.metaFor(b);
     if (!api) continue;
     try {
@@ -90,7 +90,7 @@ export async function checkSubscriptions(deps: Deps): Promise<void> {
       if (!ours) {
         await deps.alert({
           key: `unsubscribed:${b.slug}`,
-          text: `🚨 ${b.name}: our app is no longer subscribed to the Page's webhooks, so nothing is arriving. Run: npm run cli -- meta:subscribe ${b.slug}`,
+          text: `🚨 ${b.name}: our app is no longer subscribed to the Page's webhooks, so nothing is arriving. Open /admin/connect and press "Subscribe again" for this Page.`,
           cooldownMinutes: 6 * 60,
         });
       }

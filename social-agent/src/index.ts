@@ -3,10 +3,10 @@ import path from 'node:path';
 import { serve } from '@hono/node-server';
 import { createClaudeAi } from './ai/agent.js';
 import { createAlerter } from './alerts.js';
-import { loadEnv, requireEnv } from './config/env.js';
+import { configuredPublicUrl, loadEnv, requireEnv } from './config/env.js';
 import { loadRegistry, PROJECT_ROOT } from './config/load.js';
 import { connect, migrate } from './db/index.js';
-import { liveStatus, metaClientFactory, type Deps } from './engine/deps.js';
+import { createDeps } from './engine/deps.js';
 import { log } from './log.js';
 import { createApp } from './server.js';
 import { startWorker } from './worker.js';
@@ -21,29 +21,25 @@ async function main() {
   const sql = connect(requireEnv(env, 'DATABASE_URL'));
   await migrate(sql, (m) => log.info(m));
 
-  const status = new Map(registry.businesses.map((b) => [b.slug, liveStatus(b, env)]));
-  for (const b of registry.businesses) {
-    const s = status.get(b.slug)!;
-    log.info('business', { slug: b.slug, live: s.live, reason: s.reason, testers: b.testers.length, funnels: b.funnels.length });
-    for (const issue of s.issues) log[issue.level === 'error' ? 'error' : 'warn']('audit', { ...issue });
-  }
-  for (const key of ['META_APP_SECRET', 'META_VERIFY_TOKEN', 'META_APP_ID'] as const) {
-    if (!env[key]) log.warn(`${key} is not set`);
-  }
-  if (!env.ANTHROPIC_API_KEY) log.warn('ANTHROPIC_API_KEY is not set: AI replies are off, funnels still run');
-
-  const deps: Deps = {
+  const deps = await createDeps({
     sql,
     env,
     registry,
     log,
     alert: createAlerter(env, sql, log),
     ai: env.ANTHROPIC_API_KEY ? createClaudeAi({ model: env.CLAUDE_MODEL, apiKey: env.ANTHROPIC_API_KEY }) : undefined,
-    metaFor: metaClientFactory(env),
-    isLive: (b) => status.get(b.slug)?.live ?? false,
-    now: () => new Date(),
-    sleep: (ms) => new Promise((r) => setTimeout(r, ms)),
-  };
+  });
+
+  for (const b of registry.businesses) {
+    const s = deps.liveStatus(b);
+    log.info('business', { slug: b.slug, live: s.live, reason: s.reason, page: b.meta.page_id ?? null, testers: b.testers.length, funnels: b.funnels.length });
+    for (const issue of s.issues) log[issue.level === 'error' ? 'error' : 'warn']('audit', { ...issue });
+  }
+  for (const key of ['META_APP_ID', 'META_APP_SECRET', 'ADMIN_PASSWORD'] as const) {
+    if (!env[key]) log.warn(`${key} is not set`);
+  }
+  if (!env.ANTHROPIC_API_KEY) log.warn('ANTHROPIC_API_KEY is not set: AI replies are off, funnels still run');
+  log.info('setup page', { url: `${configuredPublicUrl(env) ?? `http://localhost:${env.PORT}`}/admin/setup` });
 
   const worker = env.RUN_WORKER ? startWorker(deps) : undefined;
   const app = createApp(deps, { onEvent: () => worker?.nudge() });

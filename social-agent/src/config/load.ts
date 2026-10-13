@@ -45,33 +45,75 @@ export function loadBusinesses(dir: string = DEFAULT_BUSINESSES_DIR): Business[]
   return businesses;
 }
 
+/** The parts of a connected Page (from /admin/connect) the registry needs. */
+export interface ConnectedPage {
+  page_id: string;
+  instagram_id: string | null;
+  business: string | null;
+}
+
 export interface Registry {
   readonly businesses: readonly Business[];
   bySlug(slug: string): Business | undefined;
   /** Finds the business that owns a Page ID (facebook) or Instagram account ID (instagram). */
   byAccount(platform: Platform, accountId: string): Business | undefined;
+  /** Re-applies connected Pages, e.g. right after someone connects one. */
+  refresh(pages: ConnectedPage[]): void;
 }
 
-export function buildRegistry(businesses: Business[]): Registry {
-  const problems: string[] = [];
-  const slugs = new Map<string, Business>();
-  const accounts = new Map<string, Business>();
-  for (const b of businesses) {
-    if (slugs.has(b.slug)) problems.push(`duplicate business slug "${b.slug}"`);
-    slugs.set(b.slug, b);
-    const keys = [`facebook:${b.meta.page_id}`];
-    if (b.meta.instagram_id) keys.push(`instagram:${b.meta.instagram_id}`);
-    for (const key of keys) {
-      const owner = accounts.get(key);
-      if (owner) problems.push(`${key} is claimed by both "${owner.slug}" and "${b.slug}"`);
-      accounts.set(key, b);
-    }
-  }
-  if (problems.length) throw new ConfigError(problems);
+/**
+ * IDs written in a business file win. Otherwise the business gets the Page that was
+ * assigned to it in /admin/connect (and that Page's linked Instagram account).
+ */
+export function withConnectedPage(b: Business, pages: ConnectedPage[], claimedByFiles: Set<string>): Business {
+  const filePage = b.meta.page_id;
+  const page = filePage
+    ? pages.find((p) => p.page_id === filePage)
+    : pages.find((p) => p.business === b.slug && !claimedByFiles.has(p.page_id));
+  if (!page) return b;
   return {
-    businesses,
+    ...b,
+    meta: { ...b.meta, page_id: page.page_id, instagram_id: b.meta.instagram_id ?? page.instagram_id ?? undefined },
+  };
+}
+
+export function buildRegistry(base: Business[], pages: ConnectedPage[] = []): Registry {
+  let businesses: Business[] = [];
+  let slugs = new Map<string, Business>();
+  let accounts = new Map<string, Business>();
+
+  const apply = (connected: ConnectedPage[]) => {
+    const claimedByFiles = new Set(base.map((b) => b.meta.page_id).filter((id): id is string => !!id));
+    const effective = base.map((b) => withConnectedPage(b, connected, claimedByFiles));
+    const problems: string[] = [];
+    const nextSlugs = new Map<string, Business>();
+    const nextAccounts = new Map<string, Business>();
+    for (const b of effective) {
+      if (nextSlugs.has(b.slug)) problems.push(`duplicate business slug "${b.slug}"`);
+      nextSlugs.set(b.slug, b);
+      const keys: string[] = [];
+      if (b.meta.page_id) keys.push(`facebook:${b.meta.page_id}`);
+      if (b.meta.instagram_id) keys.push(`instagram:${b.meta.instagram_id}`);
+      for (const key of keys) {
+        const owner = nextAccounts.get(key);
+        if (owner) problems.push(`${key} is claimed by both "${owner.slug}" and "${b.slug}"`);
+        nextAccounts.set(key, b);
+      }
+    }
+    if (problems.length) throw new ConfigError(problems);
+    businesses = effective;
+    slugs = nextSlugs;
+    accounts = nextAccounts;
+  };
+  apply(pages);
+
+  return {
+    get businesses() {
+      return businesses;
+    },
     bySlug: (slug) => slugs.get(slug),
     byAccount: (platform, accountId) => accounts.get(`${platform}:${accountId}`),
+    refresh: apply,
   };
 }
 

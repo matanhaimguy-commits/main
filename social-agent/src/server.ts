@@ -1,6 +1,8 @@
 import { Hono } from 'hono';
 import { adminRoutes } from './admin.js';
 import { insertWebhookEvent, recordClick } from './db/repo.js';
+import { verifyToken } from './config/env.js';
+import { setState } from './db/connections.js';
 import type { Deps } from './engine/deps.js';
 import { html, page } from './html.js';
 import { verifyHandshake, verifySignature } from './meta/webhook.js';
@@ -10,13 +12,15 @@ export function createApp(deps: Deps, hooks: { onEvent?: () => void } = {}): Hon
   const { env, log } = deps;
 
   // Meta calls this once when you register the callback URL. Deploy before registering.
-  app.get('/webhook', (c) => {
-    if (!env.META_VERIFY_TOKEN) return c.text('META_VERIFY_TOKEN is not set', 503);
-    const challenge = verifyHandshake(c.req.query(), env.META_VERIFY_TOKEN);
+  app.get('/webhook', async (c) => {
+    const token = verifyToken(env);
+    if (!token) return c.text('META_APP_SECRET is not set', 503);
+    const challenge = verifyHandshake(c.req.query(), token);
     if (challenge === undefined) {
       log.warn('webhook verification rejected');
       return c.text('Forbidden', 403);
     }
+    await setState(deps.sql, 'webhook_verified_at', new Date()).catch(() => {});
     return c.text(challenge);
   });
 
@@ -42,6 +46,7 @@ export function createApp(deps: Deps, hooks: { onEvent?: () => void } = {}): Hon
       log.error('could not store webhook event', { err });
       return c.text('Storage error', 500);
     }
+    await setState(deps.sql, 'last_event_at', { object: body.object }).catch(() => {});
     hooks.onEvent?.();
     return c.text('EVENT_RECEIVED');
   });

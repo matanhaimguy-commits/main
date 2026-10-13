@@ -48,7 +48,7 @@ describe.skipIf(!hasDb)('engine (Postgres)', () => {
   });
   beforeEach(async () => {
     await truncate(sql);
-    h = makeHarness(sql, [business()]);
+    h = await makeHarness(sql, [business()]);
   });
 
   describe('comment funnels', () => {
@@ -80,7 +80,7 @@ describe.skipIf(!hasDb)('engine (Postgres)', () => {
     });
 
     it('every skipped comment gets a row with the reason', async () => {
-      h = makeHarness(sql, [business({ funnels: [{ ...makeBusiness().funnels[0], id: 'paused', status: 'paused', posts: [`${PAGE_ID}_POST_B`] }, makeBusiness().funnels[0]] })]);
+      h = await makeHarness(sql, [business({ funnels: [{ ...makeBusiness().funnels[0], id: 'paused', status: 'paused', posts: [`${PAGE_ID}_POST_B`] }, makeBusiness().funnels[0]] })]);
       await deliver(fbComment({ id: 'C1', text: 'guide', post: `${PAGE_ID}_POST_Z` }));
       await deliver(fbComment({ id: 'C2', text: 'nice post', post: `${PAGE_ID}_POST_A` }));
       await deliver(fbComment({ id: 'C3', text: 'guide', from: PAGE_ID }));
@@ -136,7 +136,7 @@ describe.skipIf(!hasDb)('engine (Postgres)', () => {
     });
 
     it('while testers are set, only testers are messaged', async () => {
-      h = makeHarness(sql, [business({ testers: ['@my_test_account'] })]);
+      h = await makeHarness(sql, [business({ testers: ['@my_test_account'] })]);
       await deliver(igComment({ id: 'IGC6', text: 'guide', username: 'stranger' }));
       await deliver(igComment({ id: 'IGC7', text: 'guide', username: 'my_test_account', from: 'IG_TESTER' }));
       expect(await one(sql`SELECT skip_reason FROM comments WHERE comment_id = 'IGC6'`)).toMatchObject({ skip_reason: 'not_a_tester' });
@@ -164,7 +164,7 @@ describe.skipIf(!hasDb)('engine (Postgres)', () => {
 
     it('follow gate: asks non-followers to follow, delivers after they do', async () => {
       const base = makeBusiness().funnels[0]!;
-      h = makeHarness(sql, [
+      h = await makeHarness(sql, [
         business({
           funnels: [{ ...base, follow_gate: { text: 'Follow us first, then tap below', button: 'I followed ✅' } }],
         }),
@@ -236,7 +236,7 @@ describe.skipIf(!hasDb)('engine (Postgres)', () => {
 
     it('a story reply with a keyword runs the story funnel instead of the AI', async () => {
       const base = makeBusiness().funnels[0]!;
-      h = makeHarness(sql, [business({ funnels: [{ ...base, id: 'story', trigger: 'story_reply', posts: [] }] })]);
+      h = await makeHarness(sql, [business({ funnels: [{ ...base, id: 'story', trigger: 'story_reply', posts: [] }] })]);
       await deliver(igMessaging([igText('U9', 'm1', 'guide', { reply_to: { story: { id: 'S1', url: 'https://x' } } })]));
       expect(h.ai.replies).toHaveLength(0);
       expect(h.meta.sends()[0].message.attachment.payload.buttons[0].payload).toBe('F|story|deliver');
@@ -260,7 +260,7 @@ describe.skipIf(!hasDb)('engine (Postgres)', () => {
     });
 
     it('comments no funnel owns can get an AI private reply and public reply', async () => {
-      h = makeHarness(sql, [business({ ai: { reply_delay_seconds: 0, comment_replies: true, comment_dms: true } })]);
+      h = await makeHarness(sql, [business({ ai: { reply_delay_seconds: 0, comment_replies: true, comment_dms: true } })]);
       await deliver(igComment({ id: 'IGC9', text: 'how much is it?', media: 'OTHER_MEDIA' }));
       const comment = await one(sql`SELECT * FROM comments`);
       expect(comment).toMatchObject({ outcome: 'ai', ai_intent: 'pricing', skip_reason: 'no_funnel_for_post' });

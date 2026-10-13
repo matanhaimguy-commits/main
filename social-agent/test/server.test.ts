@@ -23,7 +23,7 @@ describe.skipIf(!hasDb)('HTTP endpoints', () => {
   });
   beforeEach(async () => {
     await truncate(sql);
-    h = makeHarness(sql, [makeBusiness()]);
+    h = await makeHarness(sql, [makeBusiness()]);
     nudged = 0;
     app = createApp(h.deps, { onEvent: () => nudged++ });
   });

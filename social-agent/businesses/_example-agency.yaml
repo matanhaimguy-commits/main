@@ -6,10 +6,7 @@ live: false
 testers: ["@northlight_test"]
 timezone: Asia/Jerusalem
 
-meta:
-  page_id: "102938475610293"
-  instagram_id: "17841401234567890"
-  page_token_env: PAGE_TOKEN_EXAMPLE_AGENCY
+# The Page and Instagram account are connected at /admin/connect (no IDs or tokens here).
 
 profile:
   about: |

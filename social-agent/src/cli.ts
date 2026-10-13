@@ -7,13 +7,16 @@ import { ConfigError, loadRegistry, PROJECT_ROOT, type Registry } from './config
 import type { Business, Platform } from './config/schema.js';
 import { connect, migrate } from './db/index.js';
 import type { Contact, LeadUpdate, MessageRow } from './db/repo.js';
-import { liveStatus } from './engine/deps.js';
+import { createDeps, liveStatus, type Deps } from './engine/deps.js';
+import { silentLog } from './log.js';
 import { openerMessage, resolveLink } from './engine/funnel.js';
 import { screenComment } from './logic/comments.js';
 import { selectCommentFunnel, selectMessageFunnel } from './logic/funnels.js';
 import { createMetaClient, MetaApiError } from './meta/client.js';
 import { describeMessage, toMetaMessage } from './meta/messages.js';
 import { sign } from './meta/webhook.js';
+import { PAGE_FIELDS, subscribePage } from './meta/subscriptions.js';
+import { decryptToken, listConnections } from './db/connections.js';
 
 const envFile = path.join(PROJECT_ROOT, '.env');
 if (existsSync(envFile)) process.loadEnvFile(envFile);
@@ -50,9 +53,41 @@ function business(reg: Registry, slug: string | undefined): Business {
   return reg.bySlug(slug!) ?? fail(`No business "${slug}". Configured: ${reg.businesses.map((b) => b.slug).join(', ')}`);
 }
 
-function metaFor(env: Env, b: Business) {
-  const token = process.env[b.meta.page_token_env] ?? fail(`Set ${b.meta.page_token_env} (this Page's access token) in .env`);
-  return createMetaClient({ accessToken: token, version: env.META_GRAPH_VERSION });
+/**
+ * Business files plus, when the database is reachable, the Pages connected through
+ * /admin/connect (and their stored tokens).
+ */
+async function runtime(env: Env): Promise<{ registry: Registry; deps?: Deps; close: () => Promise<void> }> {
+  const registry = loadRegistry(env.BUSINESSES_DIR);
+  if (!env.DATABASE_URL) return { registry, close: async () => {} };
+  const sql = connect(env.DATABASE_URL, { max: 1 });
+  try {
+    const deps = await createDeps({ sql, env, registry, log: silentLog, alert: async () => {}, ai: undefined });
+    return { registry, deps, close: () => sql.end() };
+  } catch (err) {
+    await sql.end({ timeout: 1 });
+    out(`(database not reachable, using business files and env tokens only: ${(err as Error).message})`);
+    return { registry, close: async () => {} };
+  }
+}
+
+function metaFor(env: Env, rt: { deps?: Deps }, b: Business) {
+  const viaConnect = rt.deps?.metaFor(b);
+  if (viaConnect) return viaConnect;
+  const token = b.meta.page_token_env ? process.env[b.meta.page_token_env] : undefined;
+  if (!token) fail(`No token for ${b.slug}. Connect its Page in /admin/connect (with DATABASE_URL set here), or set page_token_env.`);
+  return createMetaClient({ accessToken: token!, version: env.META_GRAPH_VERSION });
+}
+
+async function pageToken(rt: { deps?: Deps }, b: Business): Promise<string> {
+  if (b.meta.page_token_env && process.env[b.meta.page_token_env]) return process.env[b.meta.page_token_env]!;
+  const conn = rt.deps ? (await listConnections(rt.deps.sql)).find((c) => c.page_id === b.meta.page_id) : undefined;
+  const token = conn && rt.deps?.env.META_APP_SECRET ? decryptToken(conn.token_enc, rt.deps.env.META_APP_SECRET) : undefined;
+  return token ?? fail('No token for this Page.');
+}
+
+function pageId(b: Business): string {
+  return b.meta.page_id ?? fail(`${b.slug} is not connected to a Facebook Page yet (open /admin/connect).`);
 }
 
 async function main() {
@@ -71,11 +106,14 @@ async function main() {
     }
 
     case 'audit': {
-      const r = reg();
+      const rt = await runtime(env);
+      const r = rt.registry;
+      await rt.close();
       if (r.businesses.length === 0) return out('No business configs in businesses/ (files starting with _ are templates).');
       let errors = 0;
       for (const b of r.businesses) {
-        const s = liveStatus(b, env);
+        const hasEnvToken = !!(b.meta.page_token_env && process.env[b.meta.page_token_env]);
+        const s = rt.deps?.liveStatus(b) ?? liveStatus(b, env, hasEnvToken);
         out(`\n${b.slug} (${b.name}): ${s.live ? 'LIVE' : `dry run: ${s.reason}`}${b.testers.length ? `, testers only: ${b.testers.join(', ')}` : ''}`);
         if (s.issues.length === 0) out('  ✓ no issues');
         for (const i of s.issues) {
@@ -193,8 +231,9 @@ async function main() {
         'me/accounts',
         { fields: 'id,name,access_token,instagram_business_account{id,username}', limit: '100' },
       );
+      out('Easier: use the "Connect Facebook & Instagram" button in /admin/connect, which stores these for you.');
       out('Page tokens made from a long-lived user token do not expire (until a password change or a removed role).');
-      out('Put each token in .env (and your host) under the page_token_env name from its business file. Never commit it.\n');
+      out('To use one from an env var instead, set page_token_env in the business file. Never commit a token.\n');
       for (const p of pages.data) {
         out(`Page: ${p.name}`);
         out(`  page_id:      ${p.id}`);
@@ -205,8 +244,10 @@ async function main() {
     }
 
     case 'meta:check': {
-      const b = business(reg(), args[0]);
-      const api = metaFor(env, b);
+      const rt = await runtime(env);
+      const b = business(rt.registry, args[0]);
+      const api = metaFor(env, rt, b);
+      const page = pageId(b);
       const check = async (label: string, fn: () => Promise<string>) => {
         try {
           out(`✓ ${label}: ${await fn()}`);
@@ -215,7 +256,7 @@ async function main() {
         }
       };
       await check('Page token', async () => {
-        const p = await api.get<{ id: string; name: string; instagram_business_account?: { id: string; username?: string } }>(b.meta.page_id, {
+        const p = await api.get<{ id: string; name: string; instagram_business_account?: { id: string; username?: string } }>(page, {
           fields: 'id,name,instagram_business_account{id,username}',
         });
         const ig = p.instagram_business_account;
@@ -224,7 +265,7 @@ async function main() {
       });
       if (env.META_APP_ID && env.META_APP_SECRET) {
         await check('Token permissions', async () => {
-          const token = process.env[b.meta.page_token_env]!;
+          const token = await pageToken(rt, b);
           const dbg = await createMetaClient({ accessToken: `${env.META_APP_ID}|${env.META_APP_SECRET}`, version: env.META_GRAPH_VERSION }).get<{
             data: { is_valid: boolean; scopes?: string[]; expires_at?: number };
           }>('debug_token', { input_token: token });
@@ -235,27 +276,30 @@ async function main() {
         });
       }
       await check('Webhook subscription on the Page', async () => {
-        const res = await api.get<{ data: { id: string; name?: string; subscribed_fields?: string[] }[] }>(`${b.meta.page_id}/subscribed_apps`);
+        const res = await api.get<{ data: { id: string; name?: string; subscribed_fields?: string[] }[] }>(`${page}/subscribed_apps`);
         const ours = env.META_APP_ID ? res.data.find((a) => a.id === env.META_APP_ID) : res.data[0];
         if (!ours) throw new Error(`our app is not subscribed. Run: npm run cli -- meta:subscribe ${b.slug}`);
         return `fields: ${ours.subscribed_fields?.join(', ') ?? '?'}`;
       });
+      await rt.close();
       return;
     }
 
     case 'meta:subscribe': {
-      const b = business(reg(), args[0]);
-      const api = metaFor(env, b);
-      const fields = ['feed', 'messages', 'messaging_postbacks', 'message_deliveries', 'message_reads', 'message_echoes'];
-      const res = await api.post(`${b.meta.page_id}/subscribed_apps?subscribed_fields=${fields.join(',')}`);
-      out(`Page subscribed (${fields.join(', ')}): ${JSON.stringify(res)}`);
+      const rt = await runtime(env);
+      const b = business(rt.registry, args[0]);
+      const res = await subscribePage(metaFor(env, rt, b), pageId(b));
+      await rt.close();
+      out(`Page subscribed (${PAGE_FIELDS.join(', ')}): ${JSON.stringify(res)}`);
       out('Instagram fields (comments, messages, messaging_postbacks, messaging_seen) are set on the app: App Dashboard → Webhooks → Instagram.');
       return;
     }
 
     case 'meta:posts': {
-      const b = business(reg(), args[0]);
-      const api = metaFor(env, b);
+      const rt = await runtime(env);
+      const b = business(rt.registry, args[0]);
+      const api = metaFor(env, rt, b);
+      await rt.close();
       const which = args[1] ?? (b.meta.instagram_id ? 'instagram' : 'facebook');
       if (which === 'instagram') {
         if (!b.meta.instagram_id) fail('meta.instagram_id is not set for this business');
@@ -265,7 +309,7 @@ async function main() {
         );
         for (const m of res.data) out(`${m.id}  ${m.timestamp.slice(0, 10)}  ${m.media_product_type ?? ''}  ${(m.caption ?? '').replace(/\s+/g, ' ').slice(0, 60)}\n    ${m.permalink ?? ''}`);
       } else {
-        const res = await api.get<{ data: { id: string; message?: string; created_time: string; permalink_url?: string }[] }>(`${b.meta.page_id}/posts`, {
+        const res = await api.get<{ data: { id: string; message?: string; created_time: string; permalink_url?: string }[] }>(`${pageId(b)}/posts`, {
           fields: 'id,message,created_time,permalink_url',
           limit: '25',
         });

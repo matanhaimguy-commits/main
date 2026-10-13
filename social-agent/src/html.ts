@@ -42,7 +42,12 @@ a{color:var(--accent)}.muted{color:var(--muted)}
 .msgs{display:flex;flex-direction:column;gap:8px}.msg{max-width:80%;padding:8px 12px;border-radius:12px;white-space:pre-wrap;word-break:break-word}
 .in{align-self:flex-start;background:var(--card);border:1px solid var(--line)}.out{align-self:flex-end;background:var(--bubble)}
 .meta{font-size:11px;color:var(--muted);margin-top:2px}
-form.inline{display:inline}button,select{font:inherit;padding:6px 10px;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--ink);cursor:pointer}
+form.inline{display:inline}button,select,input{font:inherit;padding:6px 10px;border-radius:6px;border:1px solid var(--line);background:var(--card);color:var(--ink)}button{cursor:pointer}button:disabled{opacity:.5;cursor:not-allowed}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.row input{flex:1;min-width:140px}
+a.button{display:inline-block;padding:10px 16px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+code{font:13px ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:1px 5px;word-break:break-all}
+.step{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}.step:last-child{border-bottom:0}.step .mark{width:18px;flex:none;font-weight:700}
+table.kv td{border:0;padding:4px 8px 4px 0}.ok{color:var(--good)}
 `;
 
 export function page(title: string, body: Raw): string {

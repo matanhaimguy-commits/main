@@ -72,7 +72,7 @@ function shortenerIn(text: string): string | undefined {
  * Safety audit. Errors block live sending for that business; warnings are printed.
  * Run it after every config change, not only at setup.
  */
-export function auditBusiness(b: Business, env: Record<string, string | undefined> = {}): Issue[] {
+export function auditBusiness(b: Business, ctx: { hasToken: boolean }): Issue[] {
   const issues: Issue[] = [];
   const add = (level: Issue['level'], message: string, where?: string) =>
     issues.push({ level, business: b.slug, where, message });
@@ -80,9 +80,17 @@ export function auditBusiness(b: Business, env: Record<string, string | undefine
   for (const [field, value] of [['page_id', b.meta.page_id], ['instagram_id', b.meta.instagram_id]] as const) {
     if (value !== undefined && !/^\d+$/.test(value)) add('error', `meta.${field} must be the numeric ID, got "${value}"`);
   }
-  if (!env[b.meta.page_token_env]) {
-    add(b.live ? 'error' : 'warn', `env var ${b.meta.page_token_env} (this Page's access token) is not set`);
+  if (!b.meta.page_id) {
+    add(b.live ? 'error' : 'warn', 'not connected to a Facebook Page yet: open /admin/connect');
+  } else if (!ctx.hasToken) {
+    add(
+      b.live ? 'error' : 'warn',
+      b.meta.page_token_env
+        ? `env var ${b.meta.page_token_env} (this Page's access token) is not set`
+        : 'no access token for this Page: connect it again in /admin/connect',
+    );
   }
+  if (b.meta.page_id && !b.meta.instagram_id) add('warn', 'no Instagram account linked to this Page; Instagram is off');
   for (const path of hasPlaceholders(b)) add('error', `placeholder text still in config`, path);
   if (b.live && b.testers.length === 0) add('warn', 'live for everyone (no testers list). Make sure a stranger test passed first.');
   if (b.ai.enabled && b.profile.about.trim().length < 40) {

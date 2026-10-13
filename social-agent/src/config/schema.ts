@@ -70,12 +70,16 @@ export const BusinessSchema = z.object({
   // messages. Use it to test with a second account before opening to the public.
   testers: z.array(z.coerce.string()).default([]),
   timezone: z.string().default('UTC'),
-  meta: z.object({
-    page_id: z.coerce.string().min(1),
-    instagram_id: z.coerce.string().min(1).optional(),
-    // Name of the env var that holds this Page's access token. Never the token itself.
-    page_token_env: z.string().regex(/^[A-Z][A-Z0-9_]*$/),
-  }),
+  // Usually filled in by the "Connect Facebook & Instagram" button in /admin/connect.
+  // Set these only to pin IDs or to use a token from an env var instead.
+  meta: z
+    .object({
+      page_id: z.coerce.string().min(1).optional(),
+      instagram_id: z.coerce.string().min(1).optional(),
+      // Name of an env var that holds this Page's access token. Never the token itself.
+      page_token_env: z.string().regex(/^[A-Z][A-Z0-9_]*$/).optional(),
+    })
+    .prefault({}),
   profile: z.object({
     about: z.string().min(1),
     offers: z.string().min(1),

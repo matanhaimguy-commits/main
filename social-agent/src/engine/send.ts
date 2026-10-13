@@ -61,9 +61,9 @@ export async function performSend(
     await completeSend(sql, sendId, { status: 'skipped', errorMessage: reason });
     return { status: 'blocked', sendId, reason };
   }
-  const api = deps.metaFor(b);
+  const api = b.meta.page_id ? deps.metaFor(b) : undefined;
   if (!api) {
-    const error = `no access token in ${b.meta.page_token_env}`;
+    const error = b.meta.page_id ? 'no access token for this Page (connect it in /admin/connect)' : 'no Facebook Page connected';
     await completeSend(sql, sendId, { status: 'failed', errorMessage: error });
     await deps.alert({ key: `token-missing:${b.slug}`, text: `⚠️ ${b.name}: ${error}. Nothing can be sent.` });
     return { status: 'failed', sendId, category: 'token', error };
@@ -166,7 +166,7 @@ export async function sendDm(deps: Deps, b: Business, contact: Contact, original
       recipientId: contact.external_id,
       request: payload,
     },
-    (api) => api.sendMessage({ pageId: b.meta.page_id, recipient: { id: contact.external_id }, message: payload }),
+    (api) => api.sendMessage({ pageId: b.meta.page_id!, recipient: { id: contact.external_id }, message: payload }),
   );
   if (delivered(outcome)) {
     const mid = outcome.status === 'sent' && outcome.messageId ? outcome.messageId : `dry:${outcome.sendId}`;
@@ -210,7 +210,7 @@ export async function sendPrivateReply(
       commentId: comment.commentId,
       request: payload,
     },
-    (api) => api.sendMessage({ pageId: b.meta.page_id, recipient: { comment_id: comment.commentId }, message: payload }),
+    (api) => api.sendMessage({ pageId: b.meta.page_id!, recipient: { comment_id: comment.commentId }, message: payload }),
   );
   if (!delivered(outcome)) return { outcome };
 
