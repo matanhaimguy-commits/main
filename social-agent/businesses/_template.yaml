@@ -1,0 +1,105 @@
+# ────────────────────────────────────────────────────────────────────────────
+# One file per business (you, each client). Copy this file to businesses/<slug>.yaml
+# Files starting with "_" are ignored. After every change run:  npm run audit
+# ────────────────────────────────────────────────────────────────────────────
+
+slug: my-business            # lowercase, used in URLs and the database
+name: My Business            # how the bot names the business
+enabled: true
+
+# Real messages go out only when BOTH this is true AND the LIVE_SENDING env var is true,
+# and the audit has no errors. Until then everything runs as a dry run (logged, not sent).
+live: false
+
+# While this list has entries, ONLY these Instagram usernames / user IDs get automated
+# messages. Test with a second account that has no connection to your Meta app, then empty it.
+testers: []
+#  - "@my_second_account"
+
+timezone: Asia/Jerusalem
+
+meta:
+  page_id: "TODO"            # numeric Facebook Page ID (npm run cli -- meta:pages <token>)
+  instagram_id: "TODO"       # numeric Instagram professional account ID linked to that Page
+  page_token_env: PAGE_TOKEN_MY_BUSINESS   # NAME of the env var holding the Page token. Never the token.
+
+# ── What the AI knows. It sells only what is written here and never invents prices. ──
+profile:
+  about: |
+    TODO: Who you are, what you do, for whom, where. 3-6 sentences.
+  offers: |
+    TODO: Each product/service, what is included, and the price (or "price on a call").
+  audience: |
+    TODO: Who your ideal customer is.
+  goal: TODO e.g. "Book a free 20-minute strategy call" or "Get them to order on the site"
+  qualifying_questions:
+    - TODO e.g. "What do you sell, and where?"
+    - TODO e.g. "Roughly what monthly budget do you have in mind?"
+  faq:
+    - q: TODO a question people really ask
+      a: TODO the real answer
+  policies: |
+    TODO: refunds, delivery times, guarantees, anything the AI must state exactly.
+  voice: |
+    Warm, direct, a little playful. Short sentences. One emoji at most.
+    In Hebrew: informal, like a friend who knows the business (את/אתה as fits).
+  never:
+    - Promise results, discounts or deadlines that are not written in this file.
+    - Talk about competitors.
+
+# ── Links: the ONLY URLs the bot may send (as buttons). Full URLs, never shorteners. ──
+links:
+  - id: book_call
+    title: Book a call            # button text, max 20 characters
+    url: https://TODO.example.com/your-booking-page
+    when: The person is a fit and wants to talk or asks how to start.
+
+# ── AI behaviour ──
+ai:
+  enabled: true
+  dm_replies: true               # answer DMs and move them toward the goal
+  comment_replies: false         # public answers to questions no funnel owns
+  comment_dms: false             # private reply to buying-intent comments no funnel owns
+  hide_spam: false
+  effort: medium                 # low = faster/cheaper, high = more careful
+  reply_delay_seconds: 8         # wait for a burst of messages, answer once
+  max_replies_per_contact_per_day: 40
+  max_public_replies_per_day: 100
+  pause_hours_after_human: 12    # when you reply yourself from the inbox, the AI steps back
+  followup:
+    enabled: true                # one gentle nudge when a warm lead goes quiet
+    after_hours: 4               # always inside Meta's 24h window
+
+comments:
+  include_replies: false         # ignore replies inside comment threads
+
+track_clicks: false              # count link clicks via PUBLIC_URL/r/... (needs PUBLIC_URL)
+
+# ── Comment-to-DM funnels ──
+# Copy rules (from what works):
+#   1. The first DM gives, it doesn't ask. "Here it is, tap to get it", not "prove you're not a bot".
+#   2. If you ask for a follow, give permission to leave: "and if it doesn't help, unfollow, no hard feelings".
+#   3. The last message opens a conversation: "Stuck or have a question? Just reply here."
+funnels:
+  - id: guide-reel-1
+    status: active               # paused = this funnel stops. It never falls through to another.
+    trigger: comment             # comment | story_reply | dm_keyword
+    platforms: [instagram, facebook]
+    posts: ["TODO_POST_ID"]      # pin to posts (npm run cli -- meta:posts <slug>). Required.
+    keywords: ["guide", "מדריך"]
+    match: word                  # exact | word (recommended, handles Hebrew prefixes) | contains (risky)
+    public_replies:
+      - "Sent you a DM 🙌"
+      - "שלחתי לך הודעה 🙌"
+    opener:
+      text: "Here's the guide you asked for 👇 Tap the button and it's yours."
+      button: Send it to me      # tap = a real button that shows even in Message Requests
+      mode: tap                  # tap: link comes after the tap (opens the conversation). link: button IS the link.
+    # follow_gate:               # Instagram only. Costs one extra tap, even for existing followers.
+    #   text: "One thing first: follow us, then tap below. And if it doesn't help, unfollow, no hard feelings 🙂"
+    #   button: I followed ✅
+    deliver:
+      text: "Here it is 🎁"
+      link: book_call            # a link id from `links`, or a full https URL
+      button: Open the guide
+    after: "Stuck, or have a question about your own account? Just reply here 🙂"

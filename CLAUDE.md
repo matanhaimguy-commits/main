@@ -6,5 +6,8 @@
   `motion-studio/projects/<client>-<piece>/`.
 - `references/` holds five complete reference repos (HyperFrames, onetake, gbro-collage-broll,
   claude-animation-base, lemo-opuscar), gitignored and downloaded by `bash references/fetch.sh`.
+- **Instagram / Facebook automation** (comment-to-DM funnels, AI sales DMs, for us and clients): `social-agent/`.
+  Read `social-agent/README.md` and `social-agent/docs/SETUP.md`. One YAML per business in
+  `social-agent/businesses/`; run `npm run audit` there after every config change. Never commit tokens.
 - Other folders: `Mark AI/` (product research), `openmontage-work/` and `straightscale-reel/` (earlier video
   experiments, see `motion-studio/knowledge/our-pipeline.md`).
