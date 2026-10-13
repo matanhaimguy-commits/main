@@ -1,0 +1,88 @@
+# A filled-in example (fictional). Copy it to <slug>.yaml and replace everything.
+slug: example-agency
+name: Northlight Ads
+enabled: true
+live: false
+testers: ["@northlight_test"]
+timezone: Asia/Jerusalem
+
+# The Page and Instagram account are connected at /admin/connect (no IDs or tokens here).
+
+profile:
+  about: |
+    Northlight Ads is a two-person paid social studio in Tel Aviv. We plan, shoot and run
+    Meta and TikTok ads for e-commerce brands selling 50k-1M ILS a month, in Israel and Europe.
+    We have managed over 12M ILS in ad spend since 2021.
+  offers: |
+    - Ads management: from 4,500 ILS a month + 10% of spend above 50k ILS. 3-month minimum.
+      Includes strategy, campaign setup, weekly optimisation and a monthly report call.
+    - Creative pack: 8 short UGC-style videos a month, 3,800 ILS.
+    - Free 20-minute strategy call: we look at your current ads together and say what we'd change.
+  audience: |
+    Founders of e-commerce brands already selling online who want to scale paid social, and
+    brands whose ads stopped working after a good period.
+  goal: Book the free 20-minute strategy call.
+  qualifying_questions:
+    - What do you sell, and on which site?
+    - Are you running ads now? Roughly what monthly spend?
+    - What's the main thing you want to change in the next 3 months?
+  faq:
+    - q: Do you work with brands outside Israel?
+      a: Yes, about half our clients sell in Europe. We work in Hebrew and English.
+    - q: Do you guarantee results?
+      a: No one honest can guarantee ad results. We commit to a clear plan, weekly work and full transparency.
+    - q: Do you do organic content?
+      a: Only ad creative. For organic we can recommend people we trust.
+  policies: |
+    Monthly billing, cancel with 30 days notice after the 3-month minimum.
+  voice: |
+    Friendly and to the point, like a founder answering their own DMs. Hebrew is informal.
+    No hype words. At most one emoji per message.
+  never:
+    - Promise ROAS numbers, sales numbers or timelines.
+    - Offer discounts.
+
+links:
+  - id: book_call
+    title: Book a free call
+    url: https://cal.com/northlight/strategy
+    when: They sell online, want help with ads, or ask about price or how to start.
+  - id: scaling_guide
+    title: Open the guide
+    url: https://northlightads.co/guides/scaling-checklist.pdf
+    when: They asked for the scaling checklist.
+
+ai:
+  comment_replies: true
+  comment_dms: true
+
+funnels:
+  - id: checklist-reel
+    trigger: comment
+    platforms: [instagram, facebook]
+    posts: ["17912345678901234", "102938475610293_998877665544"]
+    keywords: ["checklist", "צ'קליסט", "רשימה"]
+    match: word
+    public_replies: ["Sent you a DM 🙌", "שלחנו לך הודעה 🙌"]
+    opener:
+      text: "Here's the scaling checklist 👇 Tap and it's yours."
+      button: Send it to me
+    deliver:
+      text: "Here it is. Start with section 2, that's where most brands lose money 🎯"
+      link: scaling_guide
+      button: Open the guide
+    after: "Want us to look at your ads with you? Tell me what you sell and I'll point you to the right next step."
+
+  - id: story-checklist
+    trigger: story_reply
+    platforms: [instagram]
+    keywords: ["checklist"]
+    match: exact
+    opener:
+      text: "Here's the checklist from the story 👇"
+      button: Send it to me
+    deliver:
+      text: "Here it is 🎯"
+      link: scaling_guide
+      button: Open the guide
+    after: "Questions about your own account? Just reply here."

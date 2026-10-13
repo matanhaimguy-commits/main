@@ -1,0 +1,35 @@
+{
+  "name": "social-agent",
+  "version": "0.1.0",
+  "description": "Instagram + Facebook comment-to-DM funnels and an AI sales agent on the official Meta API",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "cli": "tsx src/cli.ts",
+    "migrate": "tsx src/cli.ts migrate",
+    "audit": "tsx src/cli.ts audit"
+  },
+  "license": "UNLICENSED",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.133.0",
+    "@hono/node-server": "^2.1.5",
+    "hono": "^4.13.13",
+    "postgres": "^3.4.9",
+    "yaml": "^2.9.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.4"
+  },
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  }
+}
