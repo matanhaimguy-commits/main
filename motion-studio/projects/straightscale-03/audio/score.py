@@ -1,7 +1,8 @@
 # Score and effects for StraightScale reel 03 "Qartësia", from real CC0 instrument samples (VSCO 2 CE, VCSL) via the
 # Lemo-Opuscar sampler, plus procedural foley. Run with the sampler's venv:
-#   ~/lemo/.venv/bin/python audio/score.py   ->  audio/music.wav, audio/sfx.wav (48 kHz stereo)
-# Cues come from audio/events.json (exported from the film by tools/events.mjs) and audio/words.json, never retyped.
+#   ~/lemo/.venv/bin/python audio/score.py        ->  audio/music.wav, audio/sfx.wav (Albanian cut)
+#   ~/lemo/.venv/bin/python audio/score.py en     ->  audio/en/music.wav, audio/en/sfx.wav (English cut)
+# Cues come from <dir>/events.json (exported from the film by tools/events.mjs, with named section cues), never retyped.
 # Harmony follows the argument: A minor while attention leaks and the market gets noisy, a planned silence on
 # "nuk janë më të zhurmshme", C major once clarity arrives, resolving on "strategji".
 import json, os, sys
@@ -11,14 +12,14 @@ sys.path.insert(0, os.path.expanduser('~/lemo/core/audio'))
 import sampler as S, sfx as X
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+if len(sys.argv) > 1: HERE = os.path.join(HERE, sys.argv[1])   # language subfolder, e.g. en
 EV = json.load(open(os.path.join(HERE, 'events.json')))
-WD = json.load(open(os.path.join(HERE, 'words.json')))['words']
+CU = EV['cues']
 DUR = EV['duration']
 SR = X.SR
 N = int(DUR * SR)
 times = lambda kind: [e['t'] for e in EV['events'] if e['kind'] == kind]
 first = lambda kind: times(kind)[0]
-ws = lambda i: WD[i]['s']
 B = 0.5            # one beat at 120 BPM; sections restart their grid at spoken cues
 music, fx = np.zeros((N, 2), np.float32), np.zeros((N, 2), np.float32)
 ev = []            # sampler events (t, inst, pitch, dur, vel, pan)
@@ -73,37 +74,37 @@ ev += [(times('bracket')[0], 'glockenspiel', 'E7', 0.8, 0.3, 0.3),
        (times('accent')[0], 'contrabass_pizz', 'A1', 1.0, 0.7, 0.0), (times('accent')[0], 'marimba', 'E5', 0.6, 0.5, 0.2)]
 
 # ---- 2-6 the leak: an A minor pulse from the stopwatch on; low pops for the three losses ----
-section([(ws(2), ws(5), 'Am'), (ws(5), ws(9), 'F'), (ws(9), ws(16), 'C'), (ws(16), ws(19), 'G'),
-         (ws(19), ws(22), 'Am'), (ws(22), ws(25), 'F'), (ws(25), ws(27), 'G')], motif_vel=0.24)
+section([(CU['b2'], CU['b3'], 'Am'), (CU['b3'], CU['b4'], 'F'), (CU['b4'], CU['b5'], 'C'), (CU['b5'], CU['b6'], 'G'),
+         (CU['b6'], CU['hex2'], 'Am'), (CU['hex2'], CU['hex3'], 'F'), (CU['hex3'], CU['b7'], 'G')], motif_vel=0.24)
 for t in times('hex'):
     ev += [(t, 'timpani', 'A2', 1.0, 0.45, 0.0), (t, 'marimba', 'A3', 0.6, 0.5, -0.2)]
 ev.append((first('ding'), 'glockenspiel', 'A6', 1.2, 0.4, 0.2))
 
 # ---- 7 the noise: tension, sixteenths on the strings, the crowd thickens ----
-t0, t1 = ws(27), first('hush')
-section([(t0, ws(32), 'Dm'), (ws(32), t1, 'E')], motif_vel=0.3, bass_vel=0.6)
-pulse('violins_spic', ['E5', 'E5', 'F5', 'E5'], ws(28), t1, B / 4, 0.3, 0.3)
-pulse('violas_pizz', ['B3', 'G#3'], ws(32), t1, B / 4, 0.28, -0.3)
-swell('violins_trem', 'G#4', ws(32), t1 - ws(32), 0.1, 0.55, -0.2)
+t0, t1 = CU['b7'], first('hush')
+section([(t0, CU['ads'], 'Dm'), (CU['ads'], t1, 'E')], motif_vel=0.3, bass_vel=0.6)
+pulse('violins_spic', ['E5', 'E5', 'F5', 'E5'], CU['num'], t1, B / 4, 0.3, 0.3)
+pulse('violas_pizz', ['B3', 'G#3'], CU['ads'], t1, B / 4, 0.28, -0.3)
+swell('violins_trem', 'G#4', CU['ads'], t1 - CU['ads'], 0.1, 0.55, -0.2)
 
 # ---- 8 "nuk janë më të zhurmshme": the planned silence; one low note and air ----
 hush = first('hush')
 ev.append((hush + 0.05, 'upright', 'A2', 2.6, 0.35, 0.0))
-swell('vibraphone_bowed', 'E4', ws(39), ws(44) - ws(39), 0.05, 0.25, 0.1)
+swell('vibraphone_bowed', 'E4', CU['b8c'], CU['pills'][0] - CU['b8c'], 0.05, 0.25, 0.1)
 
 # ---- 9-10 the pills: C major, bright and light; a harp note climbs with every pill ----
-section([(ws(44), ws(47), 'C'), (ws(47), ws(51), 'G'), (ws(51), ws(53), 'Am'), (ws(53), ws(55), 'F'), (ws(55), ws(60), 'G')],
+section([(CU['pills'][0], CU['pills'][1], 'C'), (CU['pills'][1], CU['pills'][3], 'G'), (CU['pills'][3], CU['pills'][4], 'Am'), (CU['pills'][4], CU['pills'][5], 'F'), (CU['pills'][5], CU['b11'], 'G')],
         motif_vel=0.34, bass_vel=0.58, pad_vel=0.2)
 for t, p in zip(times('pill'), ['C5', 'E5', 'G5', 'C6', 'E6', 'G6']):
     ev.append((t, 'harp', p, 1.2, 0.55, 0.25))
-for t in np.arange(ws(44) + B, ws(60), 2 * B):
+for t in np.arange(CU['pills'][0] + B, CU['b11'], 2 * B):
     ev.append((float(t), 'tambourine', None, 0.4, 0.14, 0.35))
 
 # ---- 11 the payoff: strings rise under the typing, the resolve lands on "strategji" ----
 res = first('resolve')
-section([(ws(60), res, 'F')], motif=False, bass_vel=0.45, pad_vel=0.18)
-swell('violins', 'G4', ws(60), res - ws(60), 0.08, 0.5, 0.25)
-swell('violas', 'D4', ws(60), res - ws(60), 0.08, 0.45, -0.25)
+section([(CU['b11'], res, 'F')], motif=False, bass_vel=0.45, pad_vel=0.18)
+swell('violins', 'G4', CU['b11'], res - CU['b11'], 0.08, 0.5, 0.25)
+swell('violas', 'D4', CU['b11'], res - CU['b11'], 0.08, 0.45, -0.25)
 for p, inst, v in [('C2', 'contrabass', 0.6), ('C3', 'cellos', 0.55), ('G3', 'violas', 0.5), ('E4', 'violins', 0.45), ('C5', 'violins', 0.4)]:
     swell(inst, p, res, 3.2, v, 0.06, 0.0)
 for i, p in enumerate(['C4', 'E4', 'G4', 'C5', 'E5', 'G5', 'C6']):
@@ -111,7 +112,7 @@ for i, p in enumerate(['C4', 'E4', 'G4', 'C5', 'E5', 'G5', 'C6']):
 ev += [(res, 'timpani', 'C3', 1.5, 0.5, 0.0), (res, 'glockenspiel', 'C7', 1.2, 0.35, 0.3)]
 
 # ---- 12 the offer: light and quiet under the voice ----
-section([(ws(67), ws(69), 'F'), (ws(69), ws(73), 'G'), (ws(73), first('sting'), 'C')], motif_vel=0.22, bass_vel=0.45, pad_vel=0.18)
+section([(CU['b12'], CU['mins'], 'F'), (CU['mins'], CU['cta'], 'G'), (CU['cta'], first('sting'), 'C')], motif_vel=0.22, bass_vel=0.45, pad_vel=0.18)
 ev.append((times('pop')[-1], 'glockenspiel', 'E6', 0.8, 0.3, 0.3))
 
 # ---- 13 sting: three notes up, the final chord, a clean tail ----

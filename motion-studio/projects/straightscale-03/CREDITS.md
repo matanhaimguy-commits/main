@@ -20,6 +20,7 @@
 ## Voice
 - ElevenLabs eleven_v4, the account's voice "StraightScale - Strategist (male, 45)", generation
   w42idzsMjUdaW63XL6eg (take 1 of 4, flow zjE7Y8jCk3cAUhX5iqM5). Timing: ElevenLabs Scribe.
+- English cut: same voice and model, generation zbe71gF8NqeyI1YP3syr (take 2 of 4, same flow).
 
 ## Images, footage, generated media
 - None. Everything on screen is drawn in code or is the client's logo file.

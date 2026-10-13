@@ -10,7 +10,8 @@ const W = 1080, H = 1920, TOP = num('top', 250), BOT = H - num('bottom', 400), R
 const browser = await chromium.launch({ args: ['--allow-file-access-from-files'] });
 const page = await browser.newPage({ viewport: { width: W, height: H } });
 page.on('pageerror', (e) => console.log('PAGEERROR', e.message));
-await page.goto('file://' + dir + '/index.html');
+// --page index.html?lang=en checks a variant of the same page (default index.html)
+await page.goto('file://' + dir + '/' + (process.argv.includes('--page') ? process.argv[process.argv.indexOf('--page') + 1] : 'index.html'));
 await page.waitForFunction(() => typeof window.seek === 'function');
 const dur = num('dur', await page.evaluate(() => window.DURATION || 15)), step = num('step', 0.1);
 const issues = new Map();

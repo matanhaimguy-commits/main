@@ -21,7 +21,6 @@ canvas { display: block; }
 // a new prop every beat), rebuilt for StraightScale on ivory with crimson. Clock: audio/vo.wav; cues read from its
 // word timings (audio/words.js), so nothing is retyped. Treatment: docs/treatment.md.
 import { spring, clamp } from '../../lib/motion.js';
-import WORDS from './audio/words.js';
 
 const cv = document.getElementById('c');
 const ctx = cv.getContext('2d');
@@ -43,10 +42,45 @@ function rng(seed) {
   return () => { s = (s + 0x6D2B79F5) >>> 0; let x = s; x = Math.imul(x ^ (x >>> 15), x | 1); x ^= x + Math.imul(x ^ (x >>> 7), x | 61); return ((x ^ (x >>> 14)) >>> 0) / 4294967296; };
 }
 
-// word cue: start (or end) of spoken word i
+// language: index.html (Albanian, default) or index.html?lang=en. Each language has its own voice and word timings;
+// every cue below is a spoken word of that voice, so the picture follows whichever voice is playing.
+const LANG = new URLSearchParams(location.search).get('lang') === 'en' ? 'en' : 'sq';
+const WORDS = (await import(LANG === 'en' ? './audio/en/words.js' : './audio/words.js')).default;
 const S = (i) => WORDS.words[i].s, E = (i) => WORDS.words[i].e;
 const VO_END = WORDS.words[WORDS.words.length - 1].e;
-const T_END = 37.0;
+const T_END = VO_END + 2.36;                     // logo sting after the last word (sq: 37.0 s)
+const K = {
+  sq: { b1b: 1, b2: 2, b2b: 3, b2fine: 4, ticks: [3, 4], b3: 5, b3label: 6, b3fine: 8, b4: 9, b4b: 12, b4c: 14,
+        b5: 16, b5b: 18, ringEnd: 18, hex: [20, 22, 25], b7: 27, num: 28, ads: 32, quote: 35,
+        b8: [36, 37, 39, 41], pills: [44, 47, 49, 51, 53, 55], b11: 60, typed: [60, 64], payoff: 65, ellipse: 66,
+        b12: 67, mins: 69, cta: 73, kw: 74, b12c: 75 },
+  en: { b1b: 1, b2: 2, b2b: 3, b2fine: 3, ticks: [3, 4], b3: 5, b3label: 5, b3fine: 6, b4: 7, b4b: 9, b4c: 10,
+        b5: 13, b5b: 15, ringEnd: 15, hex: [17, 19, 22], b7: 24, num: 27, ads: 29, quote: 37,
+        b8: [38, 40, 42, 43], pills: [45, 48, 49, 51, 55, 59], b11: 64, typed: [64, 67], payoff: 68, ellipse: 69,
+        b12: 70, mins: 72, cta: 74, kw: 75, b12c: 76 },
+}[LANG];
+const TXT = {
+  sq: { b1: ['Vëmendja', 'kushton.'], b2: ['Sepse', 'çdo sekondë'], b2fine: ['çdo sekondë që klienti yt', 'harxhon duke u munduar', 'të kuptojë çfarë ofron'],
+        b3: 'Klienti yt', b3fine: ['harxhon sekonda duke vendosur', 'nëse ia vlen të të dëgjojë'],
+        b4: ['duke u munduar', 'të kuptojë', 'çfarë ofron?'],
+        buzz: ['cilësi', 'profesionalizëm', 'më të mirët', 'zgjidhje', 'eksperiencë', 'inovacion', 'garanci', 'shërbim'],
+        b5: ['është një', 'sekondë'], hex: ['Humbet klientë', 'Humbet ritëm', 'Humbet mundësi'],
+        b7: ['Rreth', '1.800', 'reklama aktive thonë', '«cilësi»'], b7fine: ['Meta Ad Library, 11 tetor 2026'],
+        b8: ['Bizneset', 'që fitojnë', 'nuk janë', 'më të zhurmshme.'],
+        pills: ['Flasin më qartë.', 'Më saktë.', 'Me qëllim.', 'Heqin pengesat.', 'Shpejtojnë vendimin.', 'E bëjnë zgjedhjen të lehtë.'],
+        b11: ['Sepse qartësia nuk është stoli.', 'Është strategji.'],
+        b12: ['Analizë falas', '45 minuta', 'Shkruaj', 'ANALIZA', 'në komente.'] },
+  en: { b1: ['Attention', 'costs.'], b2: ['Every', 'second'], b2fine: ['every second a client spends', 'trying to decode', 'what you sell'],
+        b3: 'Your client', b3fine: ['spends seconds deciding', 'whether you are worth it'],
+        b4: ['trying to', 'decode', 'what you sell?'],
+        buzz: ['quality', 'professional', 'the best', 'solutions', 'experience', 'innovation', 'guaranteed', 'service'],
+        b5: ['is one', 'second'], hex: ['Lost clients', 'Lost pace', 'Lost deals'],
+        b7: ['Right now', '1,800', 'active ads in Albanian', '«quality»'], b7fine: ['Meta Ad Library, 11 Oct 2026', 'ads that use the word «cilësi»'],
+        b8: ['The businesses', 'that win', "aren't", 'the loudest.'],
+        pills: ['They speak plainly.', 'Precisely.', 'With purpose.', 'They clear the path.', 'They shorten the decision.', 'Choosing them is easy.'],
+        b11: ["Because clarity isn't decoration.", "It's strategy."],
+        b12: ['Free analysis', '45 minutes', 'Comment', 'ANALIZA', 'below.'] },
+}[LANG];
 
 // ---------- text ----------
 function setFont(f, ls = 0) { ctx.font = f; ctx.letterSpacing = ls + 'px'; }
@@ -78,6 +112,16 @@ function focus(t, segs, x, y, size, tin, tout = null, { align = 'center', k = TY
   return { x: x + x0, w: total };
 }
 const one = (s, f, c, ls = 0) => [{ s, f, c, ls }];
+// Largest size up to `size` at which the line fits the text column (only ever shrinks a line that would not fit).
+function fitSize(text, mk, size, maxW = MAXW, ls = 0) {
+  const w = measure(text, mk(size), ls);
+  return w <= maxW ? size : Math.floor(size * maxW / w);
+}
+// A focus-pull line, auto-fitted: mk(size) -> font string.
+function L(t, text, mk, size, color, x, y, tin, tout, opts = {}) {
+  const z = fitSize(text, mk, size, opts.maxW || MAXW, opts.ls || 0);
+  return focus(t, one(text, mk(z), color, opts.ls || 0), x, y, z, tin, tout, opts);
+}
 
 // Fine print: texture only, never carries meaning (exempt from the 44 px rule, flagged as fine in the check).
 function fine(t, lines, x, y, tin, tout, size = 28) {
@@ -172,7 +216,7 @@ function stopwatch(t, t0, t1) {
   }
   // the hand: sweeps fast, then ticks once per word
   const sweep = sp(t, t0 + 0.05, [60, 13]);
-  const ticks = [S(3), S(4)].reduce((acc, ti) => acc + 0.03 * sp(t, ti, SNAP), 0);
+  const ticks = K.ticks.map(S).reduce((acc, ti) => acc + 0.03 * sp(t, ti, SNAP), 0);
   const a = mix(-Math.PI * 0.95, -Math.PI * 0.46, sweep) + ticks * Math.PI;   // stays left of the type
   ctx.translate(px, py); ctx.rotate(a + Math.PI / 2);
   ctx.fillStyle = C.char;
@@ -204,11 +248,11 @@ function audience(t, t0, t1) {
     figure(0, 0, ss[i], i === 2 ? C.char : C.crimson);
     ctx.restore();
   });
-  brackets(t, CX, y - 18, 270, 280, S(6), t1);
+  brackets(t, CX, y - 18, 270, 280, S(K.b3label), t1);
 }
 
 // confusion: three outlined question marks and drifting blurred buzzwords
-const BUZZ = ['cilësi', 'profesionalizëm', 'më të mirët', 'zgjidhje', 'eksperiencë', 'inovacion', 'garanci', 'shërbim'];
+const BUZZ = TXT.buzz;
 function confusion(t, t0, t1) {
   const pin = sp(t, t0, UI), pout = sp(t, t1, UI);
   if (pin <= 0.002 || pout >= 0.998) return;
@@ -242,7 +286,7 @@ function oneSecond(t, t0, t1) {
   ctx.save(); ctx.globalAlpha = clamp(pin * 2) * (1 - pout);
   ctx.translate(x, y); ctx.scale(mix(0.7, 1, pin) * mix(1, 0.4, pout), mix(0.7, 1, pin) * mix(1, 0.4, pout));
   ctx.strokeStyle = '#E2DACB'; ctx.lineWidth = 22; ctx.beginPath(); ctx.arc(0, 0, R, 0, Math.PI * 2); ctx.stroke();
-  const f = clamp((t - t0) / (E(18) - t0));
+  const f = clamp((t - t0) / (E(K.ringEnd) - t0));
   ctx.strokeStyle = C.crimson; ctx.lineCap = 'round';
   ctx.beginPath(); ctx.arc(0, 0, R, -Math.PI / 2, -Math.PI / 2 + Math.max(0.001, f) * Math.PI * 2); ctx.stroke();
   setFont(MS(800, 200)); ctx.fillStyle = C.char; ctx.textAlign = 'center'; ctx.fillText('1', 0, 70);
@@ -269,11 +313,11 @@ function icon(kind, s) {
 }
 function losses(t, t1) {
   const out = sp(t, t1, UI);
-  if (t < S(20) - 0.1 || out >= 0.998) return;
+  if (t < S(K.hex[0]) - 0.1 || out >= 0.998) return;
   const H3 = [
-    { x: CX - 165, y: 900, t: S(20), k: 'people', label: 'Humbet klientë', lx: X0, ly: 640, align: 'left' },
-    { x: CX + 165, y: 900, t: S(22), k: 'gauge', label: 'Humbet ritëm', lx: 940, ly: 640, align: 'right' },
-    { x: CX, y: 1185, t: S(25), k: 'door', label: 'Humbet mundësi', lx: CX, ly: 1480, align: 'center' },
+    { x: CX - 165, y: 900, t: S(K.hex[0]), k: 'people', label: TXT.hex[0], lx: X0, ly: 640, align: 'left' },
+    { x: CX + 165, y: 900, t: S(K.hex[1]), k: 'gauge', label: TXT.hex[1], lx: 940, ly: 640, align: 'right' },
+    { x: CX, y: 1185, t: S(K.hex[2]), k: 'door', label: TXT.hex[2], lx: CX, ly: 1480, align: 'center' },
   ];
   ctx.save(); if (out > 0.01) ctx.filter = `blur(${(out * 20).toFixed(1)}px)`; ctx.globalAlpha = 1 - out;
   for (const h of H3) {
@@ -329,7 +373,7 @@ function noise(t, t0, t1) {
   const N = NOISE.length, g = out > 0.01 ? NOISE_LAYER.getContext('2d') : ctx;
   if (g !== ctx) { g.setTransform(1, 0, 0, 1, 0, 0); g.clearRect(0, 0, W, H); }
   for (const n of NOISE) {
-    const ti = t0 + (n.i / N) * (S(35) - t0 + 0.2), p = sp(t, ti, POP); if (p <= 0.002) continue;
+    const ti = t0 + (n.i / N) * (S(K.quote) - t0 + 0.2), p = sp(t, ti, POP); if (p <= 0.002) continue;
     g.save(); g.globalAlpha = clamp(p * 2) * n.a;
     g.translate(n.x + out * (n.x - CX) * 0.6, n.y + out * (n.y - 960) * 0.6); g.scale(p, p);
     g.drawImage(n.c, -n.c.width / 2, -n.oy);
@@ -339,10 +383,7 @@ function noise(t, t0, t1) {
 }
 
 // pills
-const PILLS = [
-  { s: 'Flasin më qartë.', t: S(44), fill: true }, { s: 'Më saktë.', t: S(47), fill: false }, { s: 'Me qëllim.', t: S(49), fill: false },
-  { s: 'Heqin pengesat.', t: S(51), fill: true }, { s: 'Shpejtojnë vendimin.', t: S(53), fill: false }, { s: 'E bëjnë zgjedhjen të lehtë.', t: S(55), fill: true },
-];
+const PILLS = TXT.pills.map((s, i) => ({ s, t: S(K.pills[i]), fill: [true, false, false, true, false, true][i] }));
 const PILL_F = MS(600, 46), PILL_H = 104, PILL_PAD = 40, PILL_GAP = 22;
 let PILL_POS = null;
 function layoutPills() {
@@ -360,7 +401,7 @@ function layoutPills() {
 }
 function pills(t, t1) {
   const out = sp(t, t1, UI);
-  if (t < S(44) - 0.1 || out >= 0.998) return;
+  if (t < S(K.pills[0]) - 0.1 || out >= 0.998) return;
   for (const [i, p] of PILL_POS.entries()) {
     const k = sp(t, p.t, [240, 21]); if (k <= 0.002) continue;
     const dx = (1 - k) * (i % 2 ? 140 : -140);
@@ -416,85 +457,85 @@ function minutesRing(t, x, y, t0, t1) {
 // ---------- beats ----------
 function beats(t) {
   const I = C.char;
-  // 1 · Vëmendja kushton.
-  const b1out = S(2) - 0.05;
-  focus(t, one('Vëmendja', MS(700, 150), I), CX, 930, 150, 0.0, b1out, { blur: 40, from: 1.18, k: [150, 24] });
+  // 1 · Vëmendja kushton. / Attention costs.
+  const b1out = S(K.b2) - 0.05;
+  L(t, TXT.b1[0], (z) => MS(700, z), 150, I, CX, 930, 0.0, b1out, { blur: 40, from: 1.18, k: [150, 24] });
   brackets(t, CX, 880, 780, 250, 0.32, b1out);
-  focus(t, one('kushton.', PF(700, 132), C.crimson), CX, 1110, 132, S(1), b1out, { blur: 22 });
-  [0, 1, 2, 3].forEach((i) => euro(t, CX - 200 + i * 130, 1000, S(1) + 0.1 + i * 0.12, i));
-  // 2 · Sepse çdo sekondë
-  const b2out = S(5) - 0.08;
-  stopwatch(t, S(2) - 0.08, b2out);
-  focus(t, one('Sepse', MS(600, 64), I), 640, 1180, 64, S(2), b2out, { blur: 18 });
-  focus(t, one('çdo sekondë', PF(700, 104), C.crimson), 640, 1300, 104, S(3), b2out, { blur: 20 });
-  fine(t, ['çdo sekondë që klienti yt', 'harxhon duke u munduar', 'të kuptojë çfarë ofron'], 640, 1370, S(4), b2out);
-  // 3 · që klienti yt harxhon
-  const b3out = S(9) - 0.08;
-  focus(t, one('Klienti yt', MS(700, 96), I), CX, 700, 96, S(6), b3out, { blur: 20 });
-  audience(t, S(5), b3out);
-  fine(t, ['harxhon sekonda duke vendosur', 'nëse ia vlen të të dëgjojë'], CX, 1250, S(8), b3out);
-  // 4 · duke u munduar të kuptojë çfarë ofron,
-  const b4out = S(16) - 0.1;
-  confusion(t, S(9), b4out);
-  focus(t, one('duke u munduar', MS(600, 70), I), CX, 870, 70, S(9), b4out, { blur: 18 });
-  focus(t, one('të kuptojë', MS(800, 104), I), CX, 990, 104, S(12), b4out, { blur: 18 });
-  focus(t, one('çfarë ofron?', PF(700, 96), C.crimson), CX, 1110, 96, S(14), b4out, { blur: 18 });
-  // 5 · është një sekondë
-  const b5out = S(19) + 0.05;
-  oneSecond(t, S(16), b5out);
-  focus(t, one('është një', MS(600, 60), C.mute), CX, 680, 60, S(16), b5out, { blur: 14 });
-  focus(t, one('sekondë', PF(700, 104), C.crimson), CX, 1270, 104, S(18), b5out, { blur: 16 });
-  // 6 · ku humbet klientë, humbet ritëm, dhe humbet mundësi.
-  losses(t, S(27) - 0.12);
-  // 7 · Rreth 1.800 reklama aktive thonë "cilësi".
-  const b7out = S(36) - 0.06;
-  noise(t, S(28), b7out);
-  focus(t, one('Rreth', MS(600, 60), C.mute), CX, 740, 60, S(27), b7out, { blur: 14 });
-  focus(t, one('1.800', MS(800, 230), C.crimson, -4), CX, 950, 230, S(28), b7out, { blur: 28, from: 1.25 });
-  focus(t, one('reklama aktive thonë', MS(600, 58), I), CX, 1060, 58, S(32), b7out, { blur: 14 });
-  focus(t, one('«cilësi»', PF(900, 132), I), CX, 1200, 132, S(35), b7out, { blur: 20 });
-  fine(t, ['Meta Ad Library, 11 tetor 2026'], CX, 1268, S(32) + 0.2, b7out, 30);
-  // 8 · Bizneset që fitojnë nuk janë më të zhurmshme.
-  focus(t, one('Bizneset', MS(700, 140), I), CX, 960, 140, S(36), S(37) - 0.04, { blur: 30 });
-  focus(t, one('që fitojnë', MS(700, 140), C.crimson), CX, 960, 140, S(37), S(39) - 0.04, { blur: 30 });
-  focus(t, one('nuk janë', MS(600, 72), C.mute), CX, 820, 72, S(39), S(44) - 0.1, { blur: 20 });
-  focus(t, one('më të zhurmshme.', PF(700, 100), I), CX, 980, 100, S(41), S(44) - 0.1, { blur: 24 });
+  L(t, TXT.b1[1], (z) => PF(700, z), 132, C.crimson, CX, 1110, S(K.b1b), b1out, { blur: 22 });
+  [0, 1, 2, 3].forEach((i) => euro(t, CX - 200 + i * 130, 1000, S(K.b1b) + 0.1 + i * 0.12, i));
+  // 2 · Sepse çdo sekondë / Every second
+  const b2out = S(K.b3) - 0.08;
+  stopwatch(t, S(K.b2) - 0.08, b2out);
+  L(t, TXT.b2[0], (z) => MS(600, z), 64, I, 640, 1180, S(K.b2), b2out, { blur: 18, maxW: 580 });
+  L(t, TXT.b2[1], (z) => PF(700, z), 104, C.crimson, 640, 1300, S(K.b2b), b2out, { blur: 20, maxW: 580 });
+  fine(t, TXT.b2fine, 640, 1370, S(K.b2fine), b2out);
+  // 3 · që klienti yt harxhon / a client spends
+  const b3out = S(K.b4) - 0.08;
+  L(t, TXT.b3, (z) => MS(700, z), 96, I, CX, 700, S(K.b3label), b3out, { blur: 20 });
+  audience(t, S(K.b3), b3out);
+  fine(t, TXT.b3fine, CX, 1250, S(K.b3fine), b3out);
+  // 4 · duke u munduar të kuptojë çfarë ofron, / trying to decode what you sell
+  const b4out = S(K.b5) - 0.1;
+  confusion(t, S(K.b4), b4out);
+  L(t, TXT.b4[0], (z) => MS(600, z), 70, I, CX, 870, S(K.b4), b4out, { blur: 18 });
+  L(t, TXT.b4[1], (z) => MS(800, z), 104, I, CX, 990, S(K.b4b), b4out, { blur: 18 });
+  L(t, TXT.b4[2], (z) => PF(700, z), 96, C.crimson, CX, 1110, S(K.b4c), b4out, { blur: 18 });
+  // 5 · është një sekondë / is one second
+  const b5out = S(K.hex[0] - 1) + 0.05;
+  oneSecond(t, S(K.b5), b5out);
+  L(t, TXT.b5[0], (z) => MS(600, z), 60, C.mute, CX, 680, S(K.b5), b5out, { blur: 14 });
+  L(t, TXT.b5[1], (z) => PF(700, z), 104, C.crimson, CX, 1270, S(K.b5b), b5out, { blur: 16 });
+  // 6 · the three losses
+  losses(t, S(K.b7) - 0.12);
+  // 7 · ~1.800 active ads say "cilësi"
+  const b7out = S(K.b8[0]) - 0.06;
+  noise(t, S(K.num), b7out);
+  L(t, TXT.b7[0], (z) => MS(600, z), 60, C.mute, CX, 740, S(K.b7), b7out, { blur: 14 });
+  L(t, TXT.b7[1], (z) => MS(800, z), 230, C.crimson, CX, 950, S(K.num), b7out, { blur: 28, from: 1.25, ls: -4 });
+  L(t, TXT.b7[2], (z) => MS(600, z), 58, I, CX, 1060, S(K.ads), b7out, { blur: 14 });
+  L(t, TXT.b7[3], (z) => PF(900, z), 132, I, CX, 1200, S(K.quote), b7out, { blur: 20 });
+  fine(t, TXT.b7fine, CX, 1268, S(K.ads) + 0.2, b7out, 30);
+  // 8 · the winners aren't louder (one phrase at a time)
+  L(t, TXT.b8[0], (z) => MS(700, z), 140, I, CX, 960, S(K.b8[0]), S(K.b8[1]) - 0.04, { blur: 30 });
+  L(t, TXT.b8[1], (z) => MS(700, z), 140, C.crimson, CX, 960, S(K.b8[1]), S(K.b8[2]) - 0.04, { blur: 30 });
+  L(t, TXT.b8[2], (z) => MS(600, z), 72, C.mute, CX, 820, S(K.b8[2]), S(K.pills[0]) - 0.1, { blur: 20 });
+  L(t, TXT.b8[3], (z) => PF(700, z), 100, I, CX, 980, S(K.b8[3]), S(K.pills[0]) - 0.1, { blur: 24 });
   // 9-10 · pills
-  pills(t, S(60) - 0.12);
-  // 11 · Sepse qartësia nuk është stoli. Është strategji.
-  const b11out = S(67) - 0.1;
-  const line = typed(t, 60, 64), lineUp = sp(t, S(65) - 0.05, TYPE);
+  pills(t, S(K.b11) - 0.12);
+  // 11 · the payoff, typed, then circled
+  const b11out = S(K.b12) - 0.1;
+  const line = typed(t, K.typed[0], K.typed[1]), lineUp = sp(t, S(K.payoff) - 0.05, TYPE);
   if (line && sp(t, b11out, UI) < 0.998) {
-    const f = MS(600, 52), w = measure('Sepse qartësia nuk është stoli.', f), o = sp(t, b11out, UI);
+    const fz = fitSize(TXT.b11[0], (z) => MS(600, z), 52), f = MS(600, fz), w = measure(TXT.b11[0], f), o = sp(t, b11out, UI);
     ctx.save(); ctx.globalAlpha = 1 - o; if (o > 0.01) ctx.filter = `blur(${(o * 20).toFixed(1)}px)`;
     setFont(f); ctx.fillStyle = lerpGrey(lineUp); ctx.textAlign = 'left';
     const y = mix(960, 820, lineUp);
     ctx.fillText(line, CX - w / 2, y);
-    if (lineUp < 0.05 && Math.floor(t * 3) % 2 === 0) { const cw = measure(line, f); ctx.fillStyle = C.crimson; ctx.fillRect(CX - w / 2 + cw + 6, y - 42, 5, 52); }
+    if (lineUp < 0.05 && Math.floor(t * 3) % 2 === 0) { const cw = measure(line, f); ctx.fillStyle = C.crimson; ctx.fillRect(CX - w / 2 + cw + 6, y - Math.round(fz * 0.8), 5, fz); }
     ctx.restore();
-    box(CX - w / 2, y, w, 52, 'Sepse qartësia nuk është stoli.');
+    box(CX - w / 2, y, w, fz, TXT.b11[0]);
   }
-  focus(t, one('Është strategji.', MS(800, 100), I), CX, 1010, 100, S(65), b11out, { blur: 26 });
-  ellipse(t, CX, 975, 450, 110, S(66) + 0.1, b11out);
+  L(t, TXT.b11[1], (z) => MS(800, z), 100, I, CX, 1010, S(K.payoff), b11out, { blur: 26 });
+  ellipse(t, CX, 975, 450, 110, S(K.ellipse) + 0.1, b11out);
   // 12 · CTA
   const b12out = VO_END + 0.08;
-  focus(t, one('Analizë falas', PF(700, 120), C.crimson), CX, 760, 120, S(67), b12out, { blur: 24 });
-  const mw = measure('45 minuta', MS(800, 96));
-  focus(t, one('45 minuta', MS(800, 96), I), CX - 60, 900, 96, S(69), b12out, { blur: 18 });
-  minutesRing(t, CX - 60 + mw / 2 + 90, 868, S(69) + 0.1, b12out);
-  focus(t, one('Shkruaj', MS(600, 64), I), CX, 1060, 64, S(73), b12out, { blur: 14 });
-  const fp = sp(t, S(73) + 0.1, UI), fo = sp(t, b12out, UI);
+  L(t, TXT.b12[0], (z) => PF(700, z), 120, C.crimson, CX, 760, S(K.b12), b12out, { blur: 24 });
+  const mw = measure(TXT.b12[1], MS(800, 96));
+  L(t, TXT.b12[1], (z) => MS(800, z), 96, I, CX - 60, 900, S(K.mins), b12out, { blur: 18 });
+  minutesRing(t, CX - 60 + mw / 2 + 90, 868, S(K.mins) + 0.1, b12out);
+  L(t, TXT.b12[2], (z) => MS(600, z), 64, I, CX, 1060, S(K.cta), b12out, { blur: 14 });
+  const fp = sp(t, S(K.cta) + 0.1, UI), fo = sp(t, b12out, UI);
   if (fp > 0.002 && fo < 0.998) {
-    const w = 640, h = 130, x = CX - w / 2, y = 1110;
+    const w = 640, h = 130, x = CX - w / 2, y = 1110, kw = TXT.b12[3];
     ctx.save(); ctx.globalAlpha = clamp(fp * 2) * (1 - fo); if (fo > 0.01) ctx.filter = `blur(${(fo * 20).toFixed(1)}px)`;
     ctx.strokeStyle = C.crimson; ctx.lineWidth = 5; ctx.beginPath(); ctx.roundRect(x + w / 2 * (1 - fp), y, w * fp, h, h / 2); ctx.stroke();
-    const n = Math.floor(clamp((t - S(74)) / (E(74) - S(74))) * 7);
+    const n = Math.floor(clamp((t - S(K.kw)) / (E(K.kw) - S(K.kw))) * kw.length);
     setFont(MS(800, 76), 6); ctx.fillStyle = C.char; ctx.textAlign = 'center';
-    if (n > 0) ctx.fillText('ANALIZA'.slice(0, n), CX, y + 92);
+    if (n > 0) ctx.fillText(kw.slice(0, n), CX, y + 92);
     ctx.restore();
-    if (n === 7) box(CX - 200, y + 92, 400, 76, 'ANALIZA');
+    if (n === kw.length) box(CX - 200, y + 92, 400, 76, kw);
   }
-  focus(t, one('në komente.', PF(700, 96), I), CX, 1360, 96, S(75), b12out, { blur: 16 });
+  L(t, TXT.b12[4], (z) => PF(700, z), 96, I, CX, 1360, S(K.b12c), b12out, { blur: 16 });
   // 13 · logo sting
   const lp = sp(t, VO_END + 0.1, [150, 24]);
   if (lp > 0.002) {
@@ -512,23 +553,29 @@ const lerpGrey = (p) => { const a = [0x1F, 0x1F, 0x1F], b = [0xA8, 0xA1, 0x95]; 
 
 // ---------- sound events (exported by tools/events.mjs) ----------
 window.EVENTS = [
-  { t: 0.0, kind: 'focus' }, { t: 0.32, kind: 'bracket' }, { t: S(1), kind: 'accent' },
-  { t: S(2) - 0.08, kind: 'whoosh' }, { t: S(3), kind: 'tick' }, { t: S(4), kind: 'tick' },
-  { t: S(5), kind: 'pop' }, { t: S(6), kind: 'bracket' }, { t: S(9), kind: 'whoosh' },
-  { t: S(16), kind: 'pop' }, { t: E(18), kind: 'ding' },
-  ...[20, 22, 25].map((i) => ({ t: S(i), kind: 'hex' })),
-  { t: S(28), kind: 'crowd' }, { t: S(35), kind: 'accent' }, { t: S(36) - 0.06, kind: 'hush' },
-  ...[36, 37, 39, 41].map((i) => ({ t: S(i), kind: 'focus' })),
+  { t: 0.0, kind: 'focus' }, { t: 0.32, kind: 'bracket' }, { t: S(K.b1b), kind: 'accent' },
+  { t: S(K.b2) - 0.08, kind: 'whoosh' }, ...K.ticks.map((i) => ({ t: S(i), kind: 'tick' })),
+  { t: S(K.b3), kind: 'pop' }, { t: S(K.b3label), kind: 'bracket' }, { t: S(K.b4), kind: 'whoosh' },
+  { t: S(K.b5), kind: 'pop' }, { t: E(K.ringEnd), kind: 'ding' },
+  ...K.hex.map((i) => ({ t: S(i), kind: 'hex' })),
+  { t: S(K.num), kind: 'crowd' }, { t: S(K.quote), kind: 'accent' }, { t: S(K.b8[0]) - 0.06, kind: 'hush' },
+  ...K.b8.map((i) => ({ t: S(i), kind: 'focus' })),
   ...PILLS.map((p) => ({ t: p.t, kind: 'pill' })),
-  ...Array.from({ length: 12 }, (_, i) => ({ t: S(60) + i * (E(64) - S(60)) / 12, kind: 'key' })),
-  { t: S(66) + 0.1, kind: 'marker' }, { t: S(65), kind: 'resolve' },
-  { t: S(67), kind: 'whoosh' }, { t: S(69) + 0.1, kind: 'pop' },
-  ...Array.from({ length: 7 }, (_, i) => ({ t: S(74) + (i + 1) * (E(74) - S(74)) / 7 - 0.03, kind: 'key' })),
+  ...Array.from({ length: 12 }, (_, i) => ({ t: S(K.typed[0]) + i * (E(K.typed[1]) - S(K.typed[0])) / 12, kind: 'key' })),
+  { t: S(K.ellipse) + 0.1, kind: 'marker' }, { t: S(K.payoff), kind: 'resolve' },
+  { t: S(K.b12), kind: 'whoosh' }, { t: S(K.mins) + 0.1, kind: 'pop' },
+  ...Array.from({ length: 7 }, (_, i) => ({ t: S(K.kw) + (i + 1) * (E(K.kw) - S(K.kw)) / 7 - 0.03, kind: 'key' })),
   { t: VO_END + 0.1, kind: 'sting' }, { t: VO_END + 0.45, kind: 'bracket' },
 ];
+// named section cues for the score (audio/score.py), exported with the events
+window.CUES = {
+  b2: S(K.b2), b3: S(K.b3), b4: S(K.b4), b5: S(K.b5), b6: S(K.hex[0] - 1), hex2: S(K.hex[1]), hex3: S(K.hex[2]),
+  b7: S(K.b7), num: S(K.num), ads: S(K.ads), b8c: S(K.b8[2]), pills: K.pills.map(S), b11: S(K.b11),
+  b12: S(K.b12), mins: S(K.mins), cta: S(K.cta), vo_end: VO_END, end: T_END,
+};
 
 // gentle camera: a slow push per beat so even holds breathe
-const CUTS = [0, S(2), S(5), S(9), S(16), S(19), S(27), S(36), S(44), S(60), S(67), VO_END, T_END];
+const CUTS = [0, S(K.b2), S(K.b3), S(K.b4), S(K.b5), S(K.hex[0] - 1), S(K.b7), S(K.b8[0]), S(K.pills[0]), S(K.b11), S(K.b12), VO_END, T_END];
 function seek(t) {
   ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.filter = 'none';
@@ -547,6 +594,7 @@ await Promise.all(faces.map((f) => document.fonts.load(f, 'ëçË€«»')));
 const load = (src) => new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = no; i.src = src; });
 const LOGO = await load('assets/brand/logo-full.png');
 BOKEH = makeBokeh(); GRAIN = makeGrain(); PILL_POS = layoutPills(); NOISE = makeNoise();
+document.documentElement.lang = LANG; document.title = LANG === 'en' ? 'StraightScale: Clarity' : 'StraightScale: Qartësia';
 window.DURATION = T_END;
 window.seek = seek;
 seek(0);

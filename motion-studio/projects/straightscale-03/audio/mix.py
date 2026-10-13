@@ -1,9 +1,11 @@
 # Mix: voice on top, music ducked from the voice's own word timings (audio/words.json), effects.
-# python3 audio/mix.py  (after audio/score.py and the EQ step in finish.sh) -> audio/mix_raw.wav
+# python3 audio/mix.py [en]  (after audio/score.py and the EQ step in finish.sh) -> audio/[en/]mix_raw.wav
 import json, os
 import numpy as np, soundfile as sf
 
+import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
+if len(sys.argv) > 1: HERE = os.path.join(HERE, sys.argv[1])   # language subfolder, e.g. en
 SR, DUCK_DB, PAD_IN, PAD_OUT, BRIDGE, RAMP = 48000, -13.0, 0.12, 0.3, 0.7, 0.18
 rd = lambda n: sf.read(os.path.join(HERE, n), dtype='float32', always_2d=True)[0]
 vo, mu, fx = rd('vo_st.wav'), rd('music_eq.wav'), rd('sfx.wav')

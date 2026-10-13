@@ -13,7 +13,8 @@ const browser = await chromium.launch({ args: ['--allow-file-access-from-files']
 const page = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: 1 });
 const errors = [];
 page.on('pageerror', (e) => errors.push(String(e)));
-await page.goto('file://' + process.cwd() + '/index.html');
+// --page index.html?lang=en renders a variant of the same page (default index.html)
+await page.goto('file://' + process.cwd() + '/' + (process.argv.includes('--page') ? process.argv[process.argv.indexOf('--page') + 1] : 'index.html'));
 await page.waitForFunction(() => typeof window.seek === 'function');
 await page.evaluate(() => document.fonts.ready);
 

@@ -30,6 +30,8 @@ Blockers / open questions: native Albanian check; nobody has listened.
 ## Decisions (newest first)
 | Date | Decision | Options considered | Why | Who |
 |---|---|---|---|---|
+| 2026-10-13 | English cut ("Make it in English"): same film source with a language switch (index.html?lang=en), own English script, same voice (take 2 of 4), English score timed to the English voice | a separate English project; translating the reference's English text | one source keeps both cuts in step; the Albanian frames and audio were proven unchanged (100/100 frame hashes, bit-identical music and effects) | user request; Claude |
+| 2026-10-13 | Keep the comment keyword ANALIZA in the English cut | an English keyword (e.g. ANALYSIS) | it is the brief's keyword and the one used across reels 01-03; changing it needs a new voice line | Claude (ask the user) |
 | 2026-10-13 | Engine: canvas engine (focus pulls with canvas blur, subframe motion blur on the stopwatch and pills) | HyperFrames | the look is blur and fast props; render.mjs gives 4-subframe motion blur | Claude |
 | 2026-10-13 | Voice take 1 of 4 | takes 2-4 (35.2-35.4 s) | tightest pacing, closest to the reference's punch; transcript exact | Claude |
 | 2026-10-13 | Adapt the reference's structure beat for beat, on ivory with one crimson accent | invert to charcoal; reel-02 S-path world | the user asked for the same concept and similar visuals; ivory + crimson is the brand's light system and keeps the reference's white, airy feel | Claude |
@@ -47,4 +49,5 @@ Blockers / open questions: native Albanian check; nobody has listened.
 - 2026-10-13 · beat sheet (treatment §5), canvas-engine build, styleframes round 0 · 6 fixes
 - 2026-10-13 · score + foley (audio/score.py), word-timed ducking, master -14.0 LUFS / -1.5 dBTP · ok
 - 2026-10-13 · review rounds 1-2 (docs/review_log.md) · stopwatch hand fixed; final render 60 fps x 4 subframes
+- 2026-10-13 · English cut: script, 4 takes (take 2, 33.84 s, Scribe exact), page and score moved to named cues (Albanian proven unchanged), English styleframes, safezone ok, seekcheck PASS, mix -14.0 LUFS · rendering
 - 2026-10-13 · final: 2220 frames, seams clean, -14.0 LUFS / -1.5 dBTP after AAC, round 3 · delivered v1 (master CRF 21, viewing copy CRF 23)

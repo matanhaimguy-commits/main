@@ -1,4 +1,4 @@
-// node render.mjs --fps 60 --dur 15 --sub 4 [--from 0] [--w 1080 --h 1920] [--out out/silent.mp4]
+// node render.mjs --fps 60 --dur 15 --sub 4 [--from 0] [--w 1080 --h 1920] [--out out/silent.mp4] [--page index.html?lang=en]
 // --from renders a segment starting at that time, e.g. to re-render one shot or split a long film across processes.
 import { chromium } from 'playwright';
 import { spawn } from 'node:child_process';
@@ -14,7 +14,8 @@ mkdirSync('out', { recursive: true });
 // file:// pages may import lib/motion.js as an ES module; Chromium blocks that without this flag
 const browser = await chromium.launch({ args: ['--allow-file-access-from-files'] });
 const page = await browser.newPage({ viewport: { width: W, height: H }, deviceScaleFactor: 1 });
-await page.goto('file://' + process.cwd() + '/index.html');
+// --page index.html?lang=en renders a variant of the same page (default index.html)
+await page.goto('file://' + process.cwd() + '/' + (process.argv.includes('--page') ? process.argv[process.argv.indexOf('--page') + 1] : 'index.html'));
 await page.waitForFunction(() => typeof window.seek === 'function');
 await page.evaluate(() => document.fonts.ready);
 

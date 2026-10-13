@@ -68,6 +68,20 @@ The user asked for this concept, so the three-concept round is a choice of treat
 Alt hook: "Sa sekonda të jep klienti para se të largohet?" (How many seconds does a client give you before
 leaving?) Facts: 1.800 ads (brief: Meta Ad Library, 11 Oct 2026), 45 minutes (offer). Native check needed.
 
+## 4b. Script, English cut (v1_en, requested by the user 13 Oct 2026)
+Our own English wording of the same beats (not the reference's text). Same film source: `index.html?lang=en`.
+| # | Voice | On screen |
+|---|---|---|
+| 1 | Attention costs. | "Attention" / "costs." |
+| 2-6 | Every second a client spends trying to decode what you sell is one second of lost clients, lost pace, and lost deals. | stopwatch "Every second"; "Your client"; "trying to / decode / what you sell?"; ring "is one / 1 / second"; hexagons "Lost clients / Lost pace / Lost deals" |
+| 7 | Right now, about eighteen hundred active ads in Albanian promise the same word: quality. | "Right now / 1,800 / active ads in Albanian / «quality»", fine print "Meta Ad Library, 11 Oct 2026 · ads that use the word «cilësi»"; the crowd stays "cilësi" (the word the ads use) |
+| 8 | The businesses that win aren't the loudest. | "The businesses" / "that win" / "aren't the loudest." |
+| 9-10 | They speak plainly. Precisely. With purpose. They clear the path. They shorten the decision. They make choosing them easy. | six pills |
+| 11 | Because clarity isn't decoration. It's strategy. | typed line; "It's strategy." circled |
+| 12 | Free analysis, forty-five minutes. Comment ANALIZA below. | "Free analysis / 45 minutes / Comment / ANALIZA / below." |
+Keyword kept as ANALIZA (the brief's comment keyword, same as reels 01-03); switching it to an English word means a
+new voice line.
+
 ## 5. Beat sheet
 Clock: `audio/vo.wav` (take 1, 34.56 s), word times in `audio/words.json`; the page reads them (`audio/words.js`), so
 every cue is tied to a spoken word, not retyped. Film length 37.0 s (voice + 2.4 s logo sting).
