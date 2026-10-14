@@ -1,3 +1,4 @@
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link, useRouter } from "@tanstack/react-router";
 import {
   Activity,
@@ -13,7 +14,7 @@ import {
 } from "lucide-react";
 import type { ReactNode } from "react";
 import { Toaster } from "@/components/ui/sonner";
-import { logoutFn } from "@/lib/api/session.functions";
+import { getSession, logoutFn } from "@/lib/api/session.functions";
 import { cn } from "@/lib/utils";
 
 const NAV: { to: string; label: string; icon: LucideIcon }[] = [
@@ -29,8 +30,13 @@ const NAV: { to: string; label: string; icon: LucideIcon }[] = [
 
 export function Shell({ title, description, actions, children }: { title: string; description?: ReactNode; actions?: ReactNode; children: ReactNode }) {
   const router = useRouter();
+  const queryClient = useQueryClient();
+  const session = useQuery({ queryKey: ["session"], queryFn: () => getSession(), staleTime: 60_000 });
+  const reviewer = session.data?.role === "reviewer";
+  const nav = reviewer ? NAV.filter((item) => item.to !== "/settings") : NAV;
   const logout = async () => {
     await logoutFn();
+    queryClient.clear();
     await router.navigate({ to: "/login" });
   };
   return (
@@ -41,7 +47,7 @@ export function Shell({ title, description, actions, children }: { title: string
           <div className="text-xs text-muted-foreground">Instagram &amp; Facebook DMs</div>
         </div>
         <nav className="flex-1 space-y-0.5 px-3">
-          {NAV.map((item) => (
+          {nav.map((item) => (
             <Link
               key={item.to}
               to={item.to}
@@ -63,7 +69,7 @@ export function Shell({ title, description, actions, children }: { title: string
       </aside>
 
       <div className="sticky top-0 z-10 flex gap-1 overflow-x-auto border-b bg-background px-3 py-2 md:hidden">
-        {NAV.map((item) => (
+        {nav.map((item) => (
           <Link
             key={item.to}
             to={item.to}
@@ -79,6 +85,12 @@ export function Shell({ title, description, actions, children }: { title: string
 
       <main className="md:pl-56">
         <div className="mx-auto max-w-6xl px-4 py-6 md:px-8 md:py-8">
+          {reviewer && (
+            <div className="mb-5 rounded-xl border border-sky-200 bg-sky-50 p-3 text-sm text-sky-900">
+              Reviewer access: you can look at every page, connect a Facebook Page under Connect, and talk to the bot under Test the bot. Changing
+              settings, businesses and sending is reserved for the owner.
+            </div>
+          )}
           <div className="mb-6 flex flex-wrap items-start justify-between gap-3">
             <div>
               <h1 className="text-2xl font-semibold tracking-tight">{title}</h1>

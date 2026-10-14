@@ -85,7 +85,7 @@ function OverviewPage() {
                   <CopyField label="App settings → Basic → User data deletion URL" value={o.urls.dataDeletion} />
                   <CopyField label="Facebook Login → Settings → Valid OAuth Redirect URIs" value={o.urls.callback} />
                   <CopyField label="Webhooks → Callback URL" value={o.urls.webhook} />
-                  <CopyField label="Webhooks → Verify token" value={o.verifyToken ?? "(add the App Secret first)"} />
+                  <CopyField label="Webhooks → Verify token" value={o.verifyToken ?? (o.metaApp.hasSecret ? "(shown to the owner only)" : "(add the App Secret first)")} />
                 </div>
               </Step>
               <Step state={o.connections.length ? "done" : "todo"} title="3. Connect Facebook & Instagram">

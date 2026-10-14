@@ -9,7 +9,7 @@ import { openerMessage, resolveLink } from "@/agent/engine/funnel";
 import { screenComment } from "@/agent/logic/comments";
 import { explainReason, selectCommentFunnel, selectMessageFunnel } from "@/agent/logic/funnels";
 import { describeMessage } from "@/agent/meta/messages";
-import { asAdmin } from "@/server/admin.server";
+import { asMember } from "@/server/admin.server";
 import { recordServerError } from "@/server/error-log.server";
 import { createRuntimeDeps } from "@/server/runtime.server";
 
@@ -45,7 +45,7 @@ function withTimeLimit<T>(work: Promise<T>, ms: number): Promise<T> {
 export const testChatFn = createServerFn({ method: "POST" })
   .validator(z.object({ slug: z.string(), state: ChatState, text: z.string().min(1).max(1000) }))
   .handler(async ({ data }) =>
-    asAdmin(async (sql): Promise<{ state: TestChatState; error: string | null }> => {
+    asMember(async (sql): Promise<{ state: TestChatState; error: string | null }> => {
       try {
         return await testChat(sql, data);
       } catch (err) {
@@ -146,7 +146,7 @@ export const simulateCommentFn = createServerFn({ method: "POST" })
     z.object({ slug: z.string(), platform: z.enum(["instagram", "facebook"]), postId: z.string().max(100).optional(), text: z.string().max(2000) }),
   )
   .handler(async ({ data }) =>
-    asAdmin(async (sql): Promise<CommentSimulation> => {
+    asMember(async (sql): Promise<CommentSimulation> => {
       const { deps } = await createRuntimeDeps(sql);
       const b = deps.registry.bySlug(data.slug);
       if (!b) return { fires: false, summary: "This business has a problem in its details.", publicReplies: [], steps: [], notes: [] };

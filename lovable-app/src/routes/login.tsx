@@ -1,3 +1,4 @@
+import { useQueryClient } from "@tanstack/react-query";
 import { createFileRoute, redirect, useRouter } from "@tanstack/react-router";
 import { useState, type FormEvent } from "react";
 import { Button } from "@/components/ui/button";
@@ -26,6 +27,7 @@ function LoginPage() {
   const [busy, setBusy] = useState(false);
   const firstRun = session.db.ok && !session.hasPassword;
 
+  const queryClient = useQueryClient();
   const submit = async (e: FormEvent) => {
     e.preventDefault();
     setError(null);
@@ -34,6 +36,8 @@ function LoginPage() {
     try {
       const res = firstRun ? await createPasswordFn({ data: { password } }) : await loginFn({ data: { password } });
       if (!res.ok) return setError(res.error ?? "Could not log in.");
+      // Owner and reviewer see different things: drop anything cached from another login.
+      queryClient.clear();
       await router.navigate({ to: "/" });
     } catch (err) {
       setError(errorText(err));

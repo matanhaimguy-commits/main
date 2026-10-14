@@ -2,7 +2,7 @@ import { createServerFn } from "@tanstack/react-start";
 import { z } from "zod/v4";
 import { pauseAi, resumeAi, STAGES, type Contact } from "@/agent/db/repo";
 import { explainReason } from "@/agent/logic/funnels";
-import { asAdmin } from "@/server/admin.server";
+import { asAdmin, asMember } from "@/server/admin.server";
 
 const Stage = z.enum(STAGES as [string, ...string[]]);
 
@@ -33,7 +33,7 @@ export const listContactsFn = createServerFn({ method: "GET" })
     }),
   )
   .handler(async ({ data }) =>
-    asAdmin(async (sql) => {
+    asMember(async (sql) => {
       const like = data.search ? `%${data.search.replace(/[%_\\]/g, (m) => `\\${m}`)}%` : null;
       const rows = await sql<ContactListItem[]>`
         SELECT c.id, c.business, c.platform, c.username, c.name, c.stage, c.source, c.interest, c.opted_out,
@@ -77,7 +77,7 @@ export interface ConversationMessage {
 export const getConversationFn = createServerFn({ method: "GET" })
   .validator(z.object({ id: z.number().int() }))
   .handler(async ({ data }) =>
-    asAdmin(async (sql) => {
+    asMember(async (sql) => {
       const [contact] = await sql<Contact[]>`SELECT * FROM contacts WHERE id = ${data.id}`;
       if (!contact) return null;
       const messages = await sql<ConversationMessage[]>`
@@ -149,7 +149,7 @@ export interface CommentItem {
 export const listCommentsFn = createServerFn({ method: "GET" })
   .validator(z.object({ business: z.string().optional(), outcome: z.string().optional(), limit: z.number().int().min(1).max(500).optional() }))
   .handler(async ({ data }) =>
-    asAdmin(async (sql) => {
+    asMember(async (sql) => {
       const rows = await sql<Omit<CommentItem, "explanation">[]>`
         SELECT id, business, platform, comment_id, post_id, author_name, text, received_at, outcome, skip_reason, funnel_id, ai_intent, contact_id
         FROM comments
@@ -172,7 +172,7 @@ export interface SendItem extends SendRow {
 export const listSendsFn = createServerFn({ method: "GET" })
   .validator(z.object({ business: z.string().optional(), status: z.string().optional(), limit: z.number().int().min(1).max(500).optional() }))
   .handler(async ({ data }) =>
-    asAdmin(async (sql) => {
+    asMember(async (sql) => {
       const rows = await sql<SendItem[]>`
         SELECT s.id, s.business, s.platform, s.kind, s.step, s.funnel_id, s.status, s.error_code, s.error_message,
                s.created_at, s.sent_at, s.delivered_at, s.read_at, s.contact_id, c.username,
@@ -190,7 +190,7 @@ export const listSendsFn = createServerFn({ method: "GET" })
 export const statsFn = createServerFn({ method: "GET" })
   .validator(z.object({ business: z.string().optional() }))
   .handler(async ({ data }) =>
-    asAdmin(async (sql) => {
+    asMember(async (sql) => {
       const b = data.business ?? null;
       const [row] = await sql<
         { comments: number; funnel_comments: number; dms_sent: number; dry_runs: number; taps: number; clicks: number; ai_replies: number; new_contacts: number; hot: number; failed: number }[]

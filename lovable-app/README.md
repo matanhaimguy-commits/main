@@ -35,6 +35,8 @@ Lovable and rebuilds the app, so changes cost no Lovable credits.
 - **Real sending** is off until it is switched on in Settings *and* the business is set to Live
   with no blocking problems. Until then everything is a dry run, recorded on the Activity page.
 - **Login:** one dashboard password, created on the first visit (or set with an `ADMIN_PASSWORD` secret).
+- **Reviewer login:** Settings → Reviewer access makes a second password for Meta's App Review. It can view
+  everything, connect a Page and use Test the bot, but cannot change settings, businesses or sending.
 
 ## Changing the database
 

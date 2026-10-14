@@ -9,9 +9,14 @@ import { runtimeVars, serverKey } from "./db.server";
  * One admin password protects the dashboard. It is created on first visit (stored as a
  * PBKDF2 hash) unless an ADMIN_PASSWORD secret is set in Lovable Cloud, which then wins.
  * The session is an HMAC-signed cookie; changing the password signs everyone out.
+ *
+ * The admin can also create a reviewer password (for Meta's App Review). A reviewer session
+ * can look at everything, connect a Page and test the bot, but not change settings, keys,
+ * businesses or sending. Replacing or removing the reviewer password signs reviewers out.
  */
 const COOKIE = "sa_session";
 const SESSION_DAYS = 30;
+const REVIEWER_SESSION_DAYS = 7;
 const ITERATIONS = 100_000;
 const MIN_LENGTH = 8;
 
@@ -21,10 +26,19 @@ interface StoredPassword {
   iterations: number;
 }
 
+export type Role = "admin" | "reviewer";
+
 export class UnauthenticatedError extends Error {
   constructor() {
     super("UNAUTHENTICATED");
     this.name = "UnauthenticatedError";
+  }
+}
+
+export class ReviewerReadOnlyError extends Error {
+  constructor() {
+    super("Reviewer access can look and test, but only the owner can change this.");
+    this.name = "ReviewerReadOnlyError";
   }
 }
 
@@ -44,6 +58,10 @@ async function storedPassword(sql: Sql): Promise<StoredPassword | undefined> {
   return (await getState<StoredPassword>(sql, "admin_password"))?.value;
 }
 
+async function storedReviewerPassword(sql: Sql): Promise<(StoredPassword & { created_at: string }) | undefined> {
+  return (await getState<StoredPassword & { created_at: string }>(sql, "reviewer_password"))?.value;
+}
+
 export async function passwordState(sql: Sql): Promise<{ exists: boolean; fromSecret: boolean }> {
   if (envPassword()) return { exists: true, fromSecret: true };
   return { exists: !!(await storedPassword(sql)), fromSecret: false };
@@ -55,52 +73,73 @@ function equal(a: string, b: string): boolean {
   return x.length === y.length && timingSafeEqual(x, y);
 }
 
+async function hashMatches(password: string, stored: StoredPassword | undefined): Promise<boolean> {
+  return !!stored && equal(await pbkdf2(password, stored.salt, stored.iterations), stored.hash);
+}
+
 async function passwordMatches(sql: Sql, password: string): Promise<boolean> {
   const fromEnv = envPassword();
   if (fromEnv) return equal(createHmac("sha256", "pw").update(password).digest("hex"), createHmac("sha256", "pw").update(fromEnv).digest("hex"));
-  const stored = await storedPassword(sql);
-  if (!stored) return false;
-  return equal(await pbkdf2(password, stored.salt, stored.iterations), stored.hash);
+  return hashMatches(password, await storedPassword(sql));
 }
 
 /** Part of the signing key, so a new password invalidates old sessions. */
-async function passwordEpoch(sql: Sql): Promise<string> {
+async function passwordEpoch(sql: Sql, role: Role): Promise<string> {
+  if (role === "reviewer") return `reviewer:${(await storedReviewerPassword(sql))?.hash.slice(0, 16) ?? "none"}`;
   const fromEnv = envPassword();
   if (fromEnv) return createHmac("sha256", "epoch").update(fromEnv).digest("hex").slice(0, 16);
   return (await storedPassword(sql))?.hash.slice(0, 16) ?? "none";
 }
 
-async function sign(sql: Sql, payload: string): Promise<string> {
-  return createHmac("sha256", `session:${serverKey()}:${await passwordEpoch(sql)}`).update(payload).digest("base64url");
+async function sign(sql: Sql, payload: string, role: Role): Promise<string> {
+  return createHmac("sha256", `session:${serverKey()}:${await passwordEpoch(sql, role)}`).update(payload).digest("base64url");
 }
 
-async function issueSession(sql: Sql, secure: boolean) {
-  const payload = Buffer.from(JSON.stringify({ exp: Date.now() + SESSION_DAYS * 86_400_000 })).toString("base64url");
-  setCookie(COOKIE, `${payload}.${await sign(sql, payload)}`, {
+async function issueSession(sql: Sql, secure: boolean, role: Role = "admin") {
+  const days = role === "reviewer" ? REVIEWER_SESSION_DAYS : SESSION_DAYS;
+  const payload = Buffer.from(JSON.stringify({ exp: Date.now() + days * 86_400_000, role })).toString("base64url");
+  setCookie(COOKIE, `${payload}.${await sign(sql, payload, role)}`, {
     httpOnly: true,
     secure,
     sameSite: "lax",
     path: "/",
-    maxAge: SESSION_DAYS * 86_400,
+    maxAge: days * 86_400,
   });
 }
 
-export async function isLoggedIn(sql: Sql): Promise<boolean> {
+/** Who this browser is logged in as, or null. Sessions from before roles existed are admin. */
+export async function sessionRole(sql: Sql): Promise<Role | null> {
   const raw = getCookie(COOKIE);
-  if (!raw) return false;
+  if (!raw) return null;
   const [payload, sig] = raw.split(".");
-  if (!payload || !sig) return false;
-  if (!equal(sig, await sign(sql, payload))) return false;
+  if (!payload || !sig) return null;
+  let claims: { exp?: unknown; role?: unknown };
   try {
-    const { exp } = JSON.parse(Buffer.from(payload, "base64url").toString("utf8")) as { exp: number };
-    return typeof exp === "number" && exp > Date.now();
+    claims = JSON.parse(Buffer.from(payload, "base64url").toString("utf8")) as typeof claims;
   } catch {
-    return false;
+    return null;
   }
+  const role: Role = claims.role === "reviewer" ? "reviewer" : "admin";
+  if (!equal(sig, await sign(sql, payload, role))) return null;
+  return typeof claims.exp === "number" && claims.exp > Date.now() ? role : null;
 }
 
+export async function isLoggedIn(sql: Sql): Promise<boolean> {
+  return (await sessionRole(sql)) !== null;
+}
+
+/** Owner only. */
 export async function requireAdmin(sql: Sql): Promise<void> {
-  if (!(await isLoggedIn(sql))) throw new UnauthenticatedError();
+  const role = await sessionRole(sql);
+  if (!role) throw new UnauthenticatedError();
+  if (role !== "admin") throw new ReviewerReadOnlyError();
+}
+
+/** Owner or reviewer. */
+export async function requireMember(sql: Sql): Promise<Role> {
+  const role = await sessionRole(sql);
+  if (!role) throw new UnauthenticatedError();
+  return role;
 }
 
 // A simple brake on guessing: 10 failed logins in 15 minutes locks logins for 15 minutes.
@@ -117,12 +156,17 @@ async function recordFailure(sql: Sql) {
 
 export async function login(sql: Sql, password: string, secure: boolean): Promise<{ ok: boolean; error?: string }> {
   if (await tooManyFailures(sql)) return { ok: false, error: "Too many wrong passwords. Try again in 15 minutes." };
-  if (!(await passwordMatches(sql, password))) {
+  const role: Role | null = (await passwordMatches(sql, password))
+    ? "admin"
+    : (await hashMatches(password, await storedReviewerPassword(sql)))
+      ? "reviewer"
+      : null;
+  if (!role) {
     await recordFailure(sql);
     return { ok: false, error: "Wrong password." };
   }
   await setState(sql, "login_failures", { count: 0, since: Date.now() });
-  await issueSession(sql, secure);
+  await issueSession(sql, secure, role);
   return { ok: true };
 }
 
@@ -157,6 +201,34 @@ export async function changePassword(
   await storePassword(sql, next);
   await issueSession(sql, secure);
   return { ok: true };
+}
+
+// ---- reviewer password ------------------------------------------------------------------
+
+const REVIEWER_ALPHABET = "abcdefghjkmnpqrstuvwxyz23456789";
+
+/** A fresh reviewer password, returned once to show the owner. Replaces any earlier one. */
+export async function createReviewerPassword(sql: Sql): Promise<string> {
+  const bytes = randomBytes(15);
+  const chars = Array.from(bytes, (b) => REVIEWER_ALPHABET[b % REVIEWER_ALPHABET.length]).join("");
+  const password = `${chars.slice(0, 5)}-${chars.slice(5, 10)}-${chars.slice(10, 15)}`;
+  const salt = randomBytes(16).toString("base64url");
+  await setState(sql, "reviewer_password", {
+    salt,
+    hash: await pbkdf2(password, salt, ITERATIONS),
+    iterations: ITERATIONS,
+    created_at: new Date().toISOString(),
+  });
+  return password;
+}
+
+export async function removeReviewerPassword(sql: Sql): Promise<void> {
+  await sql`DELETE FROM app_state WHERE key = 'reviewer_password'`;
+}
+
+export async function reviewerState(sql: Sql): Promise<{ exists: boolean; createdAt: string | null }> {
+  const stored = await storedReviewerPassword(sql);
+  return { exists: !!stored, createdAt: stored?.created_at ?? null };
 }
 
 // ---- short-lived signed values (OAuth state) ------------------------------------------------

@@ -5,7 +5,7 @@ import { assignConnection, decryptToken, deleteConnection, getState, listConnect
 import type { Sql } from "@/agent/db/sql";
 import { subscribeApp, subscribePage } from "@/agent/meta/subscriptions";
 import { createMetaClient } from "@/agent/meta/client";
-import { asAdmin, currentOrigin } from "@/server/admin.server";
+import { asAdmin, asMember, currentOrigin } from "@/server/admin.server";
 import { CALLBACK_PATH, describeMetaError, WEBHOOK_PATH } from "@/server/handlers.server";
 import { createRuntimeDeps } from "@/server/runtime.server";
 import {
@@ -16,7 +16,7 @@ import {
   settingsView,
   type SettingKey,
 } from "@/server/settings.server";
-import { passwordState } from "@/server/auth.server";
+import { passwordState, reviewerState } from "@/server/auth.server";
 
 const isPreview = (origin: string) => /\/\/(id-preview--|preview--)|localhost|127\.0\.0\.1|lovableproject\.com/.test(origin);
 
@@ -40,7 +40,7 @@ async function addresses(sql: Sql) {
 }
 
 export const getOverview = createServerFn({ method: "GET" }).handler(async () =>
-  asAdmin(async (sql) => {
+  asMember(async (sql, role) => {
     const a = await addresses(sql);
     const { deps, loaded } = await createRuntimeDeps(sql);
     const [connections, verified, lastEvent, lastTick, tickTarget, appWebhooks] = await Promise.all([
@@ -75,7 +75,7 @@ export const getOverview = createServerFn({ method: "GET" }).handler(async () =>
       base: a.base,
       preview: a.preview,
       urls: a.urls,
-      verifyToken: a.verifyToken,
+      verifyToken: role === "admin" ? a.verifyToken : null,
       metaApp: { id: a.env.META_APP_ID ?? null, hasSecret: !!a.env.META_APP_SECRET },
       webhookVerifiedAt: verified?.updated_at ?? null,
       appWebhooks: appWebhooks?.value?.results ?? null,
@@ -101,7 +101,7 @@ export const getOverview = createServerFn({ method: "GET" }).handler(async () =>
 // ---- settings -------------------------------------------------------------------------------------
 
 export const getSettings = createServerFn({ method: "GET" }).handler(async () =>
-  asAdmin(async (sql) => ({ ...(await settingsView(sql)), password: await passwordState(sql) })),
+  asAdmin(async (sql) => ({ ...(await settingsView(sql)), password: await passwordState(sql), reviewer: await reviewerState(sql) })),
 );
 
 export const saveSettingsFn = createServerFn({ method: "POST" })

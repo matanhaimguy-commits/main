@@ -1,7 +1,7 @@
 import "@tanstack/react-start/server-only";
 import { getRequest } from "@tanstack/react-start/server";
 import type { Sql } from "@/agent/db/sql";
-import { requireAdmin } from "./auth.server";
+import { requireAdmin, requireMember, type Role } from "./auth.server";
 import { getDb } from "./db.server";
 import { requestOrigin } from "./handlers.server";
 
@@ -10,6 +10,13 @@ export async function asAdmin<T>(fn: (sql: Sql) => Promise<T>): Promise<T> {
   const sql = getDb();
   await requireAdmin(sql);
   return fn(sql);
+}
+
+/** Runs a dashboard action for the owner or a reviewer (looking and testing, no changes). */
+export async function asMember<T>(fn: (sql: Sql, role: Role) => Promise<T>): Promise<T> {
+  const sql = getDb();
+  const role = await requireMember(sql);
+  return fn(sql, role);
 }
 
 export function currentOrigin(): string {

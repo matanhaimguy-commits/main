@@ -8,9 +8,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import { changePasswordFn } from "@/lib/api/session.functions";
+import { CopyField } from "@/components/app/copy-field";
+import { changePasswordFn, createReviewerPasswordFn, removeReviewerPasswordFn } from "@/lib/api/session.functions";
 import { getSettings, saveSettingsFn } from "@/lib/api/setup.functions";
-import { errorText } from "@/lib/format";
+import { errorText, timeAgo } from "@/lib/format";
 import { requireLogin } from "@/lib/session";
 
 export const Route = createFileRoute("/settings")({
@@ -147,6 +148,7 @@ function SettingsPage() {
           ))}
 
           <PasswordCard fromSecret={s.password.fromSecret} />
+          <ReviewerCard exists={s.reviewer.exists} createdAt={s.reviewer.createdAt} />
         </div>
       )}
     </Shell>
@@ -196,6 +198,63 @@ function PasswordCard({ fromSecret }: { fromSecret: boolean }) {
           </form>
         </CardContent>
       )}
+    </Card>
+  );
+}
+
+function ReviewerCard({ exists, createdAt }: { exists: boolean; createdAt: string | null }) {
+  const qc = useQueryClient();
+  const [password, setPassword] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
+  const run = async (fn: () => Promise<void>) => {
+    setBusy(true);
+    try {
+      await fn();
+      await qc.invalidateQueries({ queryKey: ["settings"] });
+    } catch (err) {
+      toast.error(errorText(err));
+    } finally {
+      setBusy(false);
+    }
+  };
+  const create = () =>
+    run(async () => {
+      if (exists && !window.confirm("Make a new reviewer password? The old one stops working.")) return;
+      setPassword((await createReviewerPasswordFn()).password);
+    });
+  const remove = () =>
+    run(async () => {
+      await removeReviewerPasswordFn();
+      setPassword(null);
+      toast.success("Reviewer access is off.");
+    });
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Reviewer access (Meta App Review)</CardTitle>
+        <CardDescription>
+          A second password for Meta's reviewers. With it they can look around, connect a Facebook Page and test the bot, but they cannot change
+          settings, keys, businesses or real sending.
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-3 text-sm">
+        {password && (
+          <div className="rounded-lg border border-emerald-300 bg-emerald-50 p-3">
+            <CopyField label="Reviewer password (shown only now: copy it into Meta's form)" value={password} />
+          </div>
+        )}
+        <p className="text-muted-foreground">{exists ? `On, created ${timeAgo(createdAt)}.` : "Off."}</p>
+        <div className="flex flex-wrap gap-2">
+          <Button onClick={create} disabled={busy}>
+            {exists ? "Make a new password" : "Create reviewer password"}
+          </Button>
+          {exists && (
+            <Button variant="outline" onClick={remove} disabled={busy}>
+              Turn off
+            </Button>
+          )}
+        </div>
+      </CardContent>
     </Card>
   );
 }

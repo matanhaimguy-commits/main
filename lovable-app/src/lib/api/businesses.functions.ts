@@ -4,14 +4,14 @@ import { businessToYaml, ConfigError, parseBusiness, yamlToRaw } from "@/agent/c
 import { starterBusiness } from "@/agent/config/starter";
 import { listConnections } from "@/agent/db/connections";
 import { auditBusiness, type Issue } from "@/agent/logic/audit";
-import { asAdmin } from "@/server/admin.server";
+import { asAdmin, asMember } from "@/server/admin.server";
 import { describeMetaError } from "@/server/handlers.server";
 import { createRuntimeDeps, loadBusinesses } from "@/server/runtime.server";
 
 const Slug = z.string().regex(/^[a-z0-9][a-z0-9_-]*$/, "Use lowercase letters, digits, - and _");
 
 export const listBusinessesFn = createServerFn({ method: "GET" }).handler(async () =>
-  asAdmin(async (sql) => {
+  asMember(async (sql) => {
     const { deps, loaded } = await createRuntimeDeps(sql);
     return {
       businesses: deps.registry.businesses.map((b) => {
@@ -49,7 +49,7 @@ export interface BusinessDetail {
 export const getBusinessFn = createServerFn({ method: "GET" })
   .validator(z.object({ slug: Slug }))
   .handler(async ({ data }) =>
-    asAdmin(async (sql): Promise<BusinessDetail | null> => {
+    asMember(async (sql): Promise<BusinessDetail | null> => {
       const { deps, loaded } = await createRuntimeDeps(sql);
       const row = loaded.rows.find((r) => r.slug === data.slug);
       if (!row) return null;
@@ -133,7 +133,7 @@ export interface RecentPost {
 export const recentPostsFn = createServerFn({ method: "GET" })
   .validator(z.object({ slug: Slug }))
   .handler(async ({ data }) =>
-    asAdmin(async (sql): Promise<{ posts: RecentPost[]; error: string | null }> => {
+    asMember(async (sql): Promise<{ posts: RecentPost[]; error: string | null }> => {
       const { deps } = await createRuntimeDeps(sql);
       const b = deps.registry.bySlug(data.slug);
       const api = b ? deps.metaFor(b) : undefined;
@@ -170,5 +170,5 @@ export const recentPostsFn = createServerFn({ method: "GET" })
   );
 
 export const businessSlugsFn = createServerFn({ method: "GET" }).handler(async () =>
-  asAdmin(async (sql) => (await loadBusinesses(sql)).rows.map((r) => ({ slug: r.slug, name: String(r.config["name"] ?? r.slug) }))),
+  asMember(async (sql) => (await loadBusinesses(sql)).rows.map((r) => ({ slug: r.slug, name: String(r.config["name"] ?? r.slug) }))),
 );
