@@ -101,6 +101,28 @@ describe('createClaudeAi.reply', () => {
     expect(last.content.map((c: any) => c.tool_use_id)).toEqual(['t1', 't2']);
   });
 
+  it('takes the reply from the same response as the tool calls: one model call per reply', async () => {
+    const { client, requests } = fakeClient([
+      message(
+        [
+          { type: 'thinking', thinking: '', signature: 's' },
+          { type: 'text', text: 'Shoe stores are our thing. Want the link to book a free call?' },
+          { type: 'tool_use', id: 't1', name: 'update_lead', input: { name: null, phone: null, email: null, interest: 'shoe store ads', budget: null, timeline: null, note: null, stage: 'engaged' } },
+          { type: 'tool_use', id: 't2', name: 'attach_link', input: { link_id: 'book_call' } },
+        ],
+        'tool_use',
+      ),
+    ]);
+    const res = await createClaudeAi({ model: 'claude-haiku-5-5', client }).reply({ business: b, contact, transcript: [row('in', 'I have a shoe store')], mode: 'reply', now: new Date() });
+    expect(requests).toHaveLength(1);
+    expect(res.text).toBe('Shoe stores are our thing. Want the link to book a free call?');
+    expect(res.linkId).toBe('book_call');
+    expect(res.lead).toMatchObject({ interest: 'shoe store ads', stage: 'engaged' });
+    // Claude Haiku 5.5 has no server-side fallback, so the request carries none.
+    expect(requests[0].fallbacks).toBeUndefined();
+    expect(requests[0].betas).toBeUndefined();
+  });
+
   it('a refusal sends nothing and hands off', async () => {
     const { client } = fakeClient([message([], 'refusal')]);
     const res = await createClaudeAi({ model: 'm', client }).reply({ business: b, contact, transcript: [row('in', 'x')], mode: 'reply', now: new Date() });

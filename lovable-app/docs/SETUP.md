@@ -115,8 +115,9 @@ Get a Telegram message for hot leads, handoffs and problems:
 - **Meta:** $0 per message.
 - **Lovable:** hosting and the database are part of your Lovable plan. The app runs a small job once a
   minute. Code changes are pushed through GitHub and use no Lovable credits.
-- **Claude:** with `claude-opus-5-5`, about 1–3 cents per AI reply. Test chats also use the AI. To
-  lower the cost, set Thinking effort to "low" on the business, or choose a cheaper model in Settings.
+- **Claude:** the default model is `claude-haiku-5-5`, well under 0.1 cent per AI reply (about $20 a
+  month for 30,000 replies). Keyword funnels use no AI at all. A stronger model can be set in
+  Settings → AI (`claude-sonnet-5-5` costs about 20 times more per reply).
 
 ## Troubleshooting
 

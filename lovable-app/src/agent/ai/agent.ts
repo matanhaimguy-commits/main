@@ -190,9 +190,11 @@ export interface ClaudeAiOptions {
   maxToolRounds?: number;
 }
 
-// Claude Opus 5.5's safety classifiers can decline a benign request; "default" re-runs a
-// declined request on Anthropic's recommended fallback model instead of failing.
+// Safety classifiers can decline a benign request; "default" re-runs a declined request on
+// Anthropic's recommended fallback model instead of failing. Only these models offer it
+// (Claude Haiku 5.5 has no server-side fallback), so other models get a plain request.
 const FALLBACK = { betas: ['server-side-fallback-2026-07-01'], fallbacks: 'default' as const };
+export const fallbackFor = (model: string) => (/^claude-(opus-5|fable-5|sonnet-5-5)/.test(model) ? FALLBACK : {});
 
 export function createClaudeAi(opts: ClaudeAiOptions): SalesAi {
   const client = opts.client ?? new Anthropic(opts.apiKey ? { apiKey: opts.apiKey } : {});
@@ -222,7 +224,7 @@ export function createClaudeAi(opts: ClaudeAiOptions): SalesAi {
 
       for (let round = 0; round < maxRounds; round++) {
         const res = await client.beta.messages.create({
-          ...FALLBACK,
+          ...fallbackFor(model),
           model,
           max_tokens: 16000,
           output_config: { effort: b.ai.effort },
@@ -243,23 +245,28 @@ export function createClaudeAi(opts: ClaudeAiOptions): SalesAi {
         }
 
         const toolUses = res.content.filter((c): c is Anthropic.Beta.BetaToolUseBlock => c.type === 'tool_use');
+        const text = res.content
+          .filter((c): c is Anthropic.Beta.BetaTextBlock => c.type === 'text')
+          .map((c) => c.text)
+          .join('\n')
+          .trim();
         if (res.stop_reason !== 'tool_use' || toolUses.length === 0) {
-          const text = res.content
-            .filter((c): c is Anthropic.Beta.BetaTextBlock => c.type === 'text')
-            .map((c) => c.text)
-            .join('\n')
-            .trim();
           if (mode === 'followup' && /^SKIP\.?$/i.test(text)) return result;
           result.text = text ? cleanReply(text, b) || null : null;
           return result;
         }
 
-        messages = [...messages, { role: 'assistant', content: res.content }];
         const results: Anthropic.Beta.BetaToolResultBlockParam[] = toolUses.map((use) => {
           const content = runTool(use, b, result);
           return { type: 'tool_result', tool_use_id: use.id, content: content.text, is_error: content.error };
         });
-        messages = [...messages, { role: 'user', content: results }];
+        // The tools only record things. When the reply came with the calls and every call
+        // worked, there is nothing to wait for: one model call per reply instead of two.
+        if (text && results.every((r) => !r.is_error)) {
+          result.text = cleanReply(text, b) || null;
+          return result;
+        }
+        messages = [...messages, { role: 'assistant', content: res.content }, { role: 'user', content: results }];
       }
       // Ran out of tool rounds without a final answer: let a person take it.
       result.handoff ??= { reason: 'The assistant could not finish a reply.', summary: 'Tool loop limit reached.', urgent: false };
@@ -270,7 +277,7 @@ export function createClaudeAi(opts: ClaudeAiOptions): SalesAi {
       const model = b.ai.model ?? opts.model;
       const usage = emptyUsage(model);
       const res = await client.beta.messages.parse({
-        ...FALLBACK,
+        ...fallbackFor(model),
         model,
         max_tokens: 8000,
         output_config: { effort: 'low', format: betaZodOutputFormat(CommentDecisionSchema) },

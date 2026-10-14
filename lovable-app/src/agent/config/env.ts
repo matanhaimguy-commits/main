@@ -28,7 +28,8 @@ const EnvSchema = z.object({
   // Only for apps that use Facebook Login for Business configurations.
   META_LOGIN_CONFIG_ID: text,
   ANTHROPIC_API_KEY: text,
-  CLAUDE_MODEL: z.string().default('claude-opus-5-5'),
+  // Claude Haiku 5.5: short sales DMs at high volume, about 20x cheaper per reply than Sonnet.
+  CLAUDE_MODEL: z.string().default('claude-haiku-5-5'),
   // Global kill switch. Nothing real is sent unless this is true.
   LIVE_SENDING: bool(false),
   ALERT_WEBHOOK_URL: text,
