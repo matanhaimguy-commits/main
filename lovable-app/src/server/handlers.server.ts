@@ -11,6 +11,7 @@ import { verifyHandshake, verifySignature } from "@/agent/meta/webhook";
 import { log } from "@/agent/log";
 import { isLoggedIn, readSigned, signValue } from "./auth.server";
 import { getDb, NoDatabaseError } from "./db.server";
+import { recordWebhookRejection, runRequestedDiagnostics } from "./diagnostics.server";
 import { createRuntimeDeps, runAfterResponse } from "./runtime.server";
 import { loadRuntimeEnv, rememberPublicOrigin, tickSecret } from "./settings.server";
 
@@ -66,8 +67,10 @@ export async function webhookPost(request: Request): Promise<Response> {
   const { env } = await loadRuntimeEnv(sql);
   if (!env.META_APP_SECRET) return text("The Meta App Secret is not set yet.", 503);
   const raw = new Uint8Array(await request.arrayBuffer());
-  if (!verifySignature(raw, request.headers.get("x-hub-signature-256") ?? undefined, env.META_APP_SECRET)) {
+  const signature = request.headers.get("x-hub-signature-256") ?? undefined;
+  if (!verifySignature(raw, signature, env.META_APP_SECRET)) {
     log.warn("webhook signature rejected");
+    await recordWebhookRejection(sql, "signature did not match the App Secret", !!signature).catch(() => {});
     return text("Invalid signature", 401);
   }
   let body: { object?: string };
@@ -114,6 +117,7 @@ export async function tickPost(request: Request): Promise<Response> {
     const { deps } = await createRuntimeDeps(sql);
     // The database scheduler gives up on the call after 30 s.
     await scheduledRun(deps, Date.now() + (inBackground ? 25_000 : 20_000));
+    await runRequestedDiagnostics(sql).catch((err) => log.error("meta diagnostics failed", { err }));
   });
   return json({ ok: true }, 202);
 }
