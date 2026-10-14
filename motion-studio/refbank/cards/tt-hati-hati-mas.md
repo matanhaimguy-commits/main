@@ -73,17 +73,14 @@ there are no edits, it is one 11 s take. No rests after the 1 s setup, with peak
 mid-wiggle, so a loop back to the calm opening feels like a reset.
 
 ## Look
-- Palette: beige and grey tiles (#88796e, #a6978b), dark box and shadows (#2c2220, #575245), the creature's
-  magenta (#802745 in shade) as the only saturated colour; green pillar and red train stripe secondary.
-- Type: none; graffiti tags are part of the set.
-- Light and camera: cold overhead fluorescent; glossy speculars separate the creature from the matte real world;
-  handheld phone at eye level.
+- Palette: beige and grey tiles (#88796e, #a6978b), dark box (#2c2220, #575245), the creature's magenta (#802745
+  in shade) as the only saturated colour.
+- Type: none. Light: cold fluorescent; glossy speculars separate the creature from the matte real world.
 
 ## Why it works
-- Pareidolia primes the viewer from frame one; payoff at 1 s.
-- Slapstick needs no language; constant escalation as eyeballs pile up.
-- Realism cues (train leaving, real ad, real platform) and an ongoing art character build a following.
-- 316 K saves; the mid-wiggle ending invites rewatch.
+- Pareidolia primes the viewer from frame one; payoff at 1 s; slapstick needs no language.
+- Constant escalation as eyeballs pile up; real train, ad and platform keep it believable.
+- An ongoing art character builds a following; 316 K saves; the mid-wiggle ending invites rewatch.
 
 ## Steal this (grammar) / Leave this (content)
 - Steal: give a real object in the client's space a face that is visible before anything moves; let one part

@@ -76,9 +76,8 @@ logo hold at 12 to 14 s, the only rest. It ends on the logo as the music ends, n
 ## Look
 - Palette: red room light and maroon wall (#6d333a, #29171f), monitor greys (#7e7e80), white type and paper
   (#dee0dc), team red (#d00f10) and teal as duotone accents.
-- Type: wide extended heavy sans in white caps inside the ad, distressed condensed numerals for the date; the
-  overlay caption is the platform's white-box style, about 40 px on a 1080 frame.
-- Texture and camera: glitch slices, light leaks, grain, paper texture; phone near-static at monitor height.
+- Type: wide heavy sans caps in the ad, distressed numerals for the date; caption in the platform's white-box
+  style. Phone near-static at monitor height.
 
 ## Why it works
 - A relatable creator identity plus a series number builds return viewers.
@@ -95,9 +94,8 @@ logo hold at 12 to 14 s, the only rest. It ends on the logo as the music ends, n
 ## Build it in our studio
 - Engine: HyperFrames for the promo (registry glitch, RGB-split and light-leak effects, GSAP type slams), then
   film the render on a real monitor, or deliver it full screen.
-- Plan: 1) script the 8-beat matchup with the client's real event (two acts, two teams, two products); 2) one
-  sub-composition per card, one duotone per side; 3) glitch transitions in the tease, hard cuts on the beat after;
-  4) ElevenLabs VO, music ducked under it; 5) for the agency channel, film the playback with a fixed caption.
+- Plan: 1) script the 8-beat matchup for the client's real event; 2) one sub-composition per card, a duotone per
+  side; 3) glitch transitions in the tease, hard cuts on the beat after; 4) ElevenLabs VO, music ducked under it.
 - Hard part: clean cut-outs of real people with a matching grade; use the client's photos, our background
   removal, and a shared duotone to hide mismatches.
 - Difficulty 3: all 2D in our stack; the work is cut-outs and timing to the VO.

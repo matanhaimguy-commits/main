@@ -62,17 +62,14 @@ Confirm and request), and it ends on the car in profile with the avatar on its w
 ## Signature device
 Logo-into-world zoom: the camera pushes into the brand's own wordmark until the letterforms, extruded in white
 with hard black shadows, become city blocks seen from above, with the product (a car) already driving between
-them. A chain of match cuts keeps the viewer inside the brand's world: car to blue map dot (same position and
-scale), map to phone screen (pull back and tilt), phone to floating UI cards in real flow order (search,
-destinations, ride option, confirm with countdown), and back to the car as hero. Strict black, white and greys,
-with the brand's one accent (the app's blue dot) appearing only when the product becomes the app. The creator's
-avatar bookends the spot as a signature.
+them. Match cuts keep the viewer inside the brand's world: car to blue map dot (same position and scale), map to
+phone screen, phone to floating UI cards in real flow order, and back to the car as hero. Strict black, white and
+greys; the brand's one accent (the blue dot) appears only when the product becomes the app.
 
 ## Pacing read
-10 cuts per 10 s and a change every 0.5 s (CV 0.0) mix real scene changes (every 1 to 1.5 s in the spot) with the
-handheld phone. Longest steady stretch 3.5 s (the car chase). No rests until the last 1.5 s, where the car settles;
-the busiest part is 9 to 14.5 s, a new card every half second. The 0.396 hook change is the squares and avatar.
-It ends on a near-still hero frame with the avatar, a sign-off rather than a loop.
+10 cuts per 10 s and a change every 0.5 s (CV 0.0) mix real scene changes (every 1 to 1.5 s) with the handheld
+phone. Longest steady stretch 3.5 s (the chase). No rests until the car settles in the last 1.5 s; the busiest part
+is 9 to 14.5 s, a new card every half second. It ends on a near-still hero frame, a sign-off rather than a loop.
 
 ## Look
 - Palette: near-black surround and app chrome (#070705, #3f3c37), white and light greys for city and UI
@@ -82,10 +79,8 @@ It ends on a near-still hero frame with the avatar, a sign-off rather than a loo
 
 ## Why it works
 - The "Day 3" caption builds a habit; the avatar makes it personal.
-- The logo-to-city dive is a real surprise at 3 s and keeps paying off as the car drives through.
-- Match cuts make it one continuous thought: brand, ride, app, car; the familiar UI drives recognition and "do my
-  brand next" comments.
-- 792 K likes on 4.9 M plays shows strong craft appreciation.
+- The logo-to-city dive is a real surprise at 3 s; match cuts make brand, ride, app and car one thought.
+- The familiar UI drives recognition and "do my brand next" comments; 792 K likes on 4.9 M plays.
 
 ## Steal this (grammar) / Leave this (content)
 - Steal: dive into the client's logo until it becomes their world; the product lives there; match cut the product
@@ -97,18 +92,16 @@ It ends on a near-still hero frame with the avatar, a sign-off rather than a loo
 - Engine: HyperFrames for the wordmark build, map and UI cards (real screenshots of the client's app, never
   invented screens); canvas for the dive (extruded letterforms with projection math, top-down camera, product
   sprite with a soft shadow).
-- Plan: 1) vectorise the real logo, extrude it, push from front view to top-down in 1 s; 2) product moves along the
-  street with `spring()` easing and renderer motion blur; 3) match cut to the UI symbol at the same screen
-  position; 4) pull back to a phone showing the real app, tilted with CSS 3D; 5) cards swapped every 0.5 s;
-  6) hero shot.
+- Plan: 1) vectorise and extrude the real logo, push to top-down in 1 s; 2) product drives with `spring()` easing;
+  3) match cut to the UI symbol at the same position; 4) pull back to a phone with the real app, CSS 3D tilt;
+  5) cards every 0.5 s; 6) hero shot.
 - Hard part: the dive must hand over from letters to city without a pop. Keep one extrusion and shading in both
   states and move the camera along one continuous curve.
 - Difficulty 3: all 2D or fake-3D in our stack; it needs careful matching at each cut.
 
 ## Business translations
-- SaaS scheduling tool: the logo letters become a week grid, a meeting block slides in, becomes the notification
-  dot, pull back to the real app flow.
-- Local courier or taxi firm: the wordmark becomes the town's streets, the van drives through, becomes the
-  tracking dot, then the real booking screens.
-- E-commerce shop: the logo becomes warehouse shelves, a parcel slides along, becomes the cart badge, then the real
-  checkout steps.
+- SaaS scheduling tool: the logo letters become a week grid, a meeting block slides in and becomes the
+  notification dot, then the real app flow.
+- Local taxi firm: the wordmark becomes the town's streets, the car becomes the tracking dot, then real booking
+  screens.
+- E-commerce shop: the logo becomes shelves, a parcel becomes the cart badge, then the real checkout.

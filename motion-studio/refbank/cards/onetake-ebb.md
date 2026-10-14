@@ -54,10 +54,10 @@ At 0.0-1.0 s "25:0" in an enormous high-contrast serif, cropped by the frame, wa
 | 9.7-11.8 | the week | pull back; 21 cards fly into a 7 x 3 grid that sinks column by column into the glow | a gap near 10 s, rising |
 | 11.8-15.0 | the name | serif name drops, a line rises, then 2.4 s dead still | last hit near 12 s, silent from 13.5 s |
 
-The case notes do not describe the sound and we cannot listen; integrated -23 LUFS with real silences suggests a sparse event score, not a music bed.
+Sound is undocumented and we cannot listen; -23 LUFS integrated with real silences suggests a sparse event score.
 
 ## Signature device
-Light as the transition. One warm radial field lives under every scene and stands for time. It rises inside the digits as a masked fill, floods the frame at the climax, then recedes as concentric rings: alternating cream, peach and orange bands, each a circular mask expanding on an ease-out from the colon, with the next scene visible inside the innermost ring. Rings replace wipes. Later the same glow is the horizon the card grid sinks into and the name rises from.
+Light as the transition. One warm radial field lives under every scene and stands for time. It rises inside the digits as a masked fill, floods the frame at the climax, then recedes as concentric rings: alternating cream, peach and orange bands, each a circular mask expanding on an ease-out from the colon, with the next scene visible inside the innermost ring. Rings replace wipes.
 
 ## Pacing read
 2 fps: 8.67 "cuts" per 10 s (punch, flood, whip and fly-in; no edits), big changes every 0.71 s, CV 0.93, 21 % quiet. Full rate: 27 % still, 33 % quiet, 10 beats, transitions at 5.0, 6.0, 7.83, 10.17 and 11.17 s, longest quiet run 3.33 s (the end), beat CV 0.61, spread 5.1x. Shape: frozen macro, slow build to the flood, a dense middle, a long true freeze on the name. Starts and ends on cream, so it could loop softly.
@@ -68,15 +68,14 @@ Warm paper (#faf0e9, #fcfbf6), peach (#f3c2a5, #f7dbc7), orange light (#ea9c6d).
 ## Why it works
 - The timer is a built-in countdown: the viewer waits for 00:00.
 - The flood is the payoff; the rings deliver a second one (the phone) without a cut.
-- Layered depth and soft focus signal a premium product.
-- A long freeze lets the name land.
+- Layered depth and soft focus signal a premium product; a long freeze lets the name land.
 
 ## Steal this (grammar) / Leave this (content)
 - Steal: one material under every scene that carries every transition; macro type into a pull-back; flood at the climax, rings to reveal; depth layers with focus falloff; end on a true freeze.
 - Leave: the fictional product, the numerals as set, the silk card art, the copy, the orange palette as a whole.
 
 ## Build it in our studio
-Engine: canvas (gradients, circular masks, per-layer blur, shutter blur on the whip). HyperFrames can do the UI with CSS masks, but stacked blur renders slowly in software.
+Engine: canvas (gradients, circular masks, per-layer blur, shutter blur on the whip); stacked blur is slow in HyperFrames.
 1. Macro digits with the light as a masked gradient inside the glyphs.
 2. Pull back to the client's real app UI.
 3. Flood the field to full frame on a punch.
@@ -87,6 +86,6 @@ Hard part: silk gradients and blur without banding; seeded noise-warped gradient
 9:16: easier than most, since the lock screen is the natural vertical hero. Stack the digits on two lines to fill the height, centre the rings in the middle band, and turn card rows into columns drifting vertically.
 
 ## Business translations
-- Yoga or wellness studio (health): a class timer in macro, light floods at zero and drains in rings onto the real booking screen, then the week's classes fly into a schedule.
-- Habit or meditation app (saas): session digits count down, flood at zero, rings open on the app's real "done" screen and streak grid.
-- Day spa (local-service): the appointment time in big serif type, light floods as the treatment starts, rings open onto the confirmation and the spa's name.
+- Yoga studio (health): a class timer in macro, light floods at zero and drains in rings onto the real booking screen.
+- Meditation app (saas): session digits count down, flood at zero, rings open on the app's real "done" screen.
+- Day spa (local-service): the appointment time in big serif type, light floods, rings open onto the confirmation and the spa's name.

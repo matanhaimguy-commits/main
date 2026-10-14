@@ -69,17 +69,15 @@ starts the official logo animation, so the end connects to the beginning. Hand-d
 brand red, black outlines only on the cartoon N.
 
 ## Pacing read
-0 cuts and a hook change of only 0.084: the camera never cuts and the change is confined to the tablet, so the
-frame-wide metric reads it as calm. Big changes every 1.33 s with CV 0.97 mean a very uneven rhythm: slow editing
-sections (1 to 5.5 s, 9 to 11.5 s) alternate with dense playback bursts (6 to 7.5 s, 12 to 19.5 s). The real peak
-is 15 to 19 s, a morph every half second. It ends on the first frame of the logo animation, a seamless loop.
+0 cuts and a hook change of only 0.084: no edits, and the change is confined to the tablet. Big changes every
+1.33 s with CV 0.97 mean an uneven rhythm: slow editing sections (1 to 5.5 s, 9 to 11.5 s) alternate with dense
+playback bursts; the peak is 15 to 19 s, a morph every half second. It ends on the logo's first frame, a seamless
+loop.
 
 ## Look
-- Palette: black desk and tablet (#101012, #17171a, #070709), cream canvas (#cdcbc6) in the first half, brand red
-  (averaged dark as #673030) as the only accent; popcorn yellow and white stripes only in the morph chain.
-- Type: the brand's own wordmark only; no captions.
-- Light and camera: soft top light, slight screen reflection; phone above the desk at about 30 degrees, tablet
-  filling the width.
+- Palette: black desk and tablet (#101012, #17171a, #070709), cream canvas (#cdcbc6), brand red (averaged dark as
+  #673030) as the only accent; popcorn yellow only in the morph chain.
+- Type: the brand's wordmark only. Camera: phone above the desk at about 30 degrees, tablet filling the width.
 
 ## Why it works
 - A famous logo is recognised in the first frame; "how is it made" curiosity pays off in playback.
@@ -95,9 +93,9 @@ is 15 to 19 s, a morph every half second. It ends on the first frame of the logo
 - Engine: `canvas` for the frame-by-frame logo animation (stepped 12 fps, outlines boiling slightly from seeded
   noise), then film our render playing on a real tablet with a hand in frame. HyperFrames can run the morph chain
   if the mark is clean SVG.
-- Plan: 1) real logo file (`tools/vectorize_mark.py` if needed); 2) storyboard 4 to 5 morph steps from the client's
-  trade; 3) animate with `spring()` for pops and squash; 4) film a real drawing app or our own editor for the
-  process pass (no faked UI) and the playback pass on a dark desk; 5) music with a clear beat.
+- Plan: 1) real logo file; 2) storyboard 4 to 5 morph steps from the client's trade; 3) animate with `spring()`
+  pops and squash; 4) film a real app or editor for the process pass (no faked UI) and the playback on a dark
+  desk; 5) music with a clear beat.
 - Hard part: the hand-drawn charm. Hold each drawing 2 frames at 24 fps, boil outlines every drawing, keep fills
   flat.
 - Difficulty 3: fully 2D and in our stack; the effort is drawing the morph steps.

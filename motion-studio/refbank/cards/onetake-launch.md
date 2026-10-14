@@ -55,16 +55,16 @@ At 0.0 s a pill-shaped bar with a chevron, a block cursor and a placeholder aski
 | 21.1-25.9 | gather | the three films line up above the bar | music |
 | 26.8-30.0 | stop and name | everything freezes on a silent beat; the next hit carries a cursor writing the name; dead still | silence, then the hit |
 
-Sound: a licensed 115 BPM instrumental spliced so a silent beat lands on the freeze (case notes). Our loudness read agrees: about -23 LUFS under the typing, -13 to -18 with music, dips near 16, 19 and 27 s.
+Sound: a licensed 115 BPM instrumental, spliced so a silent beat lands on the freeze (case notes); our loudness read shows dips near 16, 19 and 27 s.
 
 ## Signature device
 A recurring anchor that spawns every section. The prompt bar returns three times, each input shorter (a sentence, four words, one word), which accelerates the film. Each send is a container transform: the bar's rounded rectangle grows into the next frame (a window, an ad frame, a line that becomes a poster grid). Each mini-film has its own palette and motion language, held together by one paper desk and a camera that never cuts. At the end every section gathers over the anchor, and the anchor writes the name.
 
 ## Pacing read
-2 fps: 6.67 "cuts" per 10 s (blooms and whips, no edits), big changes every 0.71 s, CV 0.93, 3 % quiet. Full rate: 3 % still, 14 % quiet, 24 beats, 9 transitions (4.5 to 27.42 s), longest quiet run 1.58 s, beat CV 0.60, spread 7.6x. A dense showcase: rest comes only from the dead-still bar beats and the one freeze before the name, so the stillness target is relaxed. Ends still; no loop.
+2 fps: 6.67 "cuts" per 10 s (blooms and whips, no edits), big changes every 0.71 s, CV 0.93, 3 % quiet. Full rate: 3 % still, 14 % quiet, 24 beats, 9 transitions (4.5 to 27.42 s), longest quiet run 1.58 s, beat CV 0.60, spread 7.6x. Rest comes only from the still bar beats and the freeze before the name. Ends still; no loop.
 
 ## Look
-Cream paper desk (#ece1cf, #f9f3e8) with tan shadows (#af8d72). Film one in muted pastel event colours, film two plum (#472f48) with multicoloured comic type, film three navy (#202b44) with orange, yellow and pink poster blocks. Clean grotesk in the bar, the name drawn as one stroke. Macro on the bar, wide pulls, blur on every bloom.
+Cream paper desk (#ece1cf, #f9f3e8) with tan shadows (#af8d72). Film one in muted pastel event colours, film two plum (#472f48) with multicoloured comic type, film three navy (#202b44) with orange, yellow and pink poster blocks. Macro on the bar, wide pulls, blur on every bloom.
 
 ## Why it works
 - A structure learned after one cycle; cycles two and three are anticipation, and shorter, so the film speeds up.
@@ -76,13 +76,13 @@ Cream paper desk (#ece1cf, #f9f3e8) with tan shadows (#af8d72). Film one in mute
 - Leave: the three fictional products and their art, the noise-word layout, the poster, the music, the name's lettering.
 
 ## Build it in our studio
-Engine: HyperFrames (bar, typing and three mini-scenes as sub-compositions; GSAP container morphs). Canvas if one long camera move must cross all three.
+Engine: HyperFrames (bar, typing and three mini-scenes as sub-compositions; GSAP container morphs).
 1. Bar and typing; bloom into section A (a real client case).
 2. Travel to bar 2, bloom into B.
 3. Bar 3 compresses to a line, whip into C.
 4. Gather row and logo.
 5. A licensed or generated track with a breakdown and a drop; the freeze on a silent beat.
-Hard part: three mini-films means three designs; keep each to 3-4 s and use the client's real material. Difficulty 4.
+Hard part: three mini-films means three designs; keep each to 3-4 s.
 
 9:16: the bar at 85 % width in the middle band; blooms grow upward into portrait sections; the gather becomes a vertical stack. At 30 s it is long for a reel; aim for 18-22 s.
 

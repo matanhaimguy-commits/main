@@ -72,7 +72,7 @@ to...") so the difference lands as a single contrast. No intro, no outro, no cal
 
 ## Signature device
 A versus layout with a pointing host who flips sides. Fixed grid on white: two square photos in the top quarter
-(left item, right item, about 360 px each on 1080, small serif caps label above each), one centred serif
+(left item, right item, about 470 px each on 1080, small serif caps label above each), one centred serif
 caption block in the middle, the host cut-out in the bottom 45%. The host has three states only: point left,
 point right (the same image mirrored), and think (wing to chin). It points at whichever item the narrator is
 talking about, so the viewer's eye is steered between the photos without any arrows.

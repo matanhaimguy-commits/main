@@ -16,6 +16,7 @@ import numpy as np
 from PIL import Image, ImageDraw
 
 NOISE, QUIET, HARD, BIG = 10, 0.01, 0.4, 0.12   # per-pixel noise; quiet / hard-cut / big-change picture shares
+HIST = 0.3                                       # colour-histogram distance (0-1) a cut must also exceed
 W = 120                                          # analysis width
 
 
@@ -62,7 +63,18 @@ def analyse(d, step):
     hh = int(g.shape[1] * 0.94)
     ch = np.concatenate([[0.0], (np.abs(np.diff(g[:, :hh], axis=0)) > NOISE).mean(axis=(1, 2))])
     t = np.arange(len(ch)) * step
-    cuts = [round(float(t[i]), 2) for i in range(1, len(ch)) if ch[i] > HARD]
+    # a cut = most of the picture changes AND the colour distribution jumps (camera moves, morphs and full-frame
+    # patterns change pixels but keep their colours); detections within 0.6 s are one cut spanning two samples
+    q = (f[:, :hh] // 64).astype(int)
+    idx = q[..., 0] * 16 + q[..., 1] * 4 + q[..., 2]
+    H = np.stack([np.bincount(x.ravel(), minlength=64) / x.size for x in idx])
+    hd = np.concatenate([[0.0], 0.5 * np.abs(np.diff(H, axis=0)).sum(1)])
+    cuts = []
+    for i in range(1, len(ch)):
+        if ch[i] > HARD and hd[i] > HIST:
+            if not cuts or t[i] - cuts[-1] > 0.6:
+                cuts.append(round(float(t[i]), 2))
+    full_frame_changes = int(sum(ch[1:] > HARD))
     big = [round(float(t[i]), 2) for i in range(1, len(ch)) if ch[i] > BIG]
     shots = np.diff([0.0] + cuts + [float(t[-1] + step)])
     gaps = np.diff([0.0] + big + [float(t[-1] + step)])
@@ -71,7 +83,7 @@ def analyse(d, step):
     hsv = np.stack([np.asarray(Image.fromarray(x.astype(np.uint8)).convert('HSV'), np.float32) for x in f])
     m = {
         'frames': len(paths), 'step_s': step, 'sampled_s': round(float(len(paths) * step), 1),
-        'cuts': len(cuts), 'cut_times': cuts[:40],
+        'cuts': len(cuts), 'cut_times': cuts[:40], 'full_frame_changes': full_frame_changes,
         'cuts_per_10s': round(10 * len(cuts) / max(1e-6, len(paths) * step), 2),
         'mean_shot_s': round(float(shots.mean()), 2), 'longest_shot_s': round(float(shots.max()), 2),
         'big_changes': len(big), 'mean_s_between_big_changes': round(float(gaps.mean()), 2),
