@@ -35,90 +35,69 @@ pacing:                               # frames_metrics.py on a 1 fps sample
 ---
 
 ## The film in one line
-A 16:9, film-grain lyric edit of a slow R&B song where each line is staged inside a photographed object that
-acts out its meaning: "a crime" in ransom-note letters, "to be unsure?" on a detective's cork board, a word under
-a magnifying glass, "sustainable" next to dice, "unattainable..?" on an old phone screen, a road sign at the
-end, closing on the editor's glowing logo.
+A 16:9 film-grain lyric edit of a slow R&B song where each line is staged inside a photographed object that acts
+it out: "a crime" in ransom-note letters, "to be unsure?" on a detective's cork board, a word under a magnifying
+glass, "unattainable..?" on an old phone screen, a road sign at the end, closing on the editor's glowing logo.
 
 ## Why it stops the scroll (first 2 s)
-- 0.0 s: warm window-blind shadows across a wall, the song title and artist in small type in the light.
-- 1.0 s: near black, a single glint (a guitar or stage light) in the corner.
-- 2.0 s: a warm red, duotone portrait of the singer in a beanie with small text.
-- Mechanism: the song is recognisable from the first notes (sound hook) and the frames are cinematic from frame
-  one. Three very different images in 2 s (hook change 0.865) signal "edit" to people who follow this genre.
-  The frame is landscape inside a vertical feed, which reads as a film.
+- 0.0 s: warm window-blind shadows on a wall, song title and artist in small type in the light.
+- 1.0 s: near black, a single glint in the corner.
+- 2.0 s: a warm red duotone portrait of the singer in a beanie.
+- Mechanism: the song is recognisable at once and the frames are cinematic from frame one; three different
+  images in 2 s (hook change 0.865) signal "edit". The landscape frame reads as a film in a vertical feed.
 
 ## Beat map
 | t (s) | on screen | what moves | sound |
 |---|---|---|---|
-| 0-3 | wall shadows with title, black, singer portrait, black | hard cuts | intro, faint vocalisations |
-| 4-7 | spotlit stage, silhouette with guitar; small "is it", then "a crime" in cut-out ransom letters | words snap on letter by letter | first vocal line |
-| 8-9 | cork board with clippings; a white card in the centre, handwritten "to be" and marker caps "UNSURE." then "UNSURE?" | punctuation swaps on the beat | vocal |
-| 10-13 | wall clock on brick with window shadow; desk with pencil, sticky note, magnifying glass over a handwritten word; full moon | slow drifts, focus pulls | vocal |
-| 14-15 | white light flare, then "if" and "it's" in white on near black | flare wipe, words placed far apart | vocal |
-| 16-19 | white set: 3D dice and a playing card, "sustainable." with the first syllable in a heavier weight, small paragraph top left; dark domino vignette; black and white tracklist card | cuts on beats | vocal |
-| 20-27 | pink butterfly macro with "you're"; flower field; misty mountains with "mature", "divine"; two reaching hands with "you might" | words fade in on each praise word | chorus-like lift |
-| 28-31 | asphalt texture, a small framed photo of the hands, a tiny yellow subtitle line | small lights blink in the frame | vocal |
-| 32-35 | old candybar phone on asphalt, push in to its screen reading "Unattainable..?", then the screen clears | camera push | vocal |
-| 36-39 | grainy dark frame, "maybe we get married one day," builds word by word in grey | word-by-word reveal | sustained vocal |
-| 40-43 | asphalt road with a yellow lane line, extruded 3D letters of the editor's tag, a yellow diamond road sign (the "who knows" line per the scene description) | slight drift | last line |
-| 44-46 | black, glowing blue editor logo with a small signature | hold | music ends |
+| 0-3 | wall shadows with title, black, portrait, black | hard cuts | intro, faint vocalisations |
+| 4-7 | spotlit stage, silhouette with guitar; "is it", then "a crime" in cut-out ransom letters | letters snap on | first vocal line |
+| 8-9 | cork board with clippings; index card: "to be" handwritten, "UNSURE." then "UNSURE?" in marker | punctuation swaps on the beat | vocal |
+| 10-15 | wall clock with window shadow; magnifying glass over a handwritten word; full moon; light flare; "if" and "it's" far apart on black | drifts, focus pulls, flare wipe | vocal |
+| 16-19 | dice and a playing card on white with "sustainable." (first syllable heavier); domino vignette; tracklist card | cuts on beats | vocal |
+| 20-27 | butterfly macro with "you're"; misty mountains with "mature", "divine"; reaching hands with "you might" | words fade in on praise words | lift |
+| 28-35 | framed photo on asphalt; old candybar phone, push in to its screen: "Unattainable..?" | blinking lights, push | vocal |
+| 36-39 | grainy dark frame, "maybe we get married one day," word by word | word-by-word build | sustained vocal |
+| 40-46 | road with a yellow lane line, 3D letters of the editor's tag, a yellow diamond road sign (the title line per the scene description); glowing blue logo on black | drift, hold | last line, music ends |
 
 ## Signature device
-Lyrics as props. Each lyric phrase is not laid over a picture but written into an object or surface in the
-picture that dramatises it: the word "crime" as cut-out ransom letters (mixed serif and slab fonts on paper
-scraps, slightly rotated); "unsure" as marker on an index card pinned to an evidence board; a spoken word in
-handwriting under a magnifying glass; "unattainable" as pixel text on a phone's LCD; the title line on a road
-sign. Between the prop shots, quieter lines appear as small white words on dark grain, sometimes split far
-apart in the frame ("if" ... "it's"). The type changes style per shot to match the prop, but the grade stays
-constant: warm, low-key, heavy film grain and vignette. Most shots hold one slow camera drift or focus pull.
+Lyrics as props. Each phrase is written into an object that dramatises it rather than laid over a picture:
+"crime" as ransom letters (mixed fonts on paper scraps, slightly rotated); "unsure" in marker on a card pinned to
+an evidence board; a word in handwriting under a magnifying glass; "unattainable" as LCD pixel text on a phone;
+the title line on a road sign. Quieter lines sit between prop shots as small white words on dark grain, sometimes
+split far apart. Type style changes with each prop, but the grade never does: warm, low-key, heavy grain and
+vignette, one slow drift or focus pull per shot.
 
 ## Pacing read
-At a 1 fps sample, 5.96 cuts per 10 s and a big change every 1.27 s, but with an uneven rhythm (CV 0.6): fast
-cuts in the first 20 s, then longer holds (the asphalt frame 28-31 s, the phone 32-35 s, the word build 36-39 s,
-the road 40-43 s). Quiet share is 0.15 with rests up to 3 s, all in the second half where the song slows. The
-edit follows the vocal phrasing rather than the drum. It ends on a 3 s logo hold; no loop.
+At a 1 fps sample: 5.96 cuts per 10 s, a big change every 1.27 s, uneven (CV 0.6). Fast cuts for 20 s, then
+longer holds (asphalt frame, phone, word build, road) as the song slows; quiet share 0.15 with rests up to 3 s.
+The edit follows vocal phrasing, not the drum. Ends on a 3 s logo hold; no loop.
 
 ## Look
-- Palette: near black and warm browns (#050403, #282320, #4e4438), warm off-white highlights (#e7d9d0), tan
-  (#957f68); occasional pink and green from the butterfly and phone scenes.
-- Type: a different face per prop (ransom collage, handwriting and marker, thin plus heavy sans for
-  "sustainable", LCD pixel font), plus a plain white sans for the in-between words at about 40-60 px on a 1080
-  wide frame.
-- Texture: strong grain, vignette, soft halation; black and white or duotone for some stills.
-- Camera: slow pushes and drifts on still images, focus pulls, one light flare transition.
+Near black and warm browns (#050403, #282320, #4e4438), off-white highlights (#e7d9d0), tan (#957f68); pink and
+green only in the butterfly and phone scenes. A different face per prop (ransom collage, marker, thin plus heavy
+sans, LCD), plus a plain white sans at 40-60 px for in-between words. Strong grain, vignette, halation.
 
 ## Why it works
-Matching each lyric to an object turns listening into a guessing game ("what will the next line become?"), so
-viewers stay through a slow song. The props are everyday and nostalgic (old phone, cork board, dice), which
-invites saves and rewatches to catch details. The consistent grain and warm grade make 20 unrelated images feel
-like one film. 176k shares come from fans of the song sending it to someone, a relatable romantic theme.
+Matching each line to an object turns listening into a guessing game, which holds viewers through a slow song.
+Nostalgic props (old phone, cork board, dice) invite saves and rewatches. One grade makes 20 images feel like one
+film. 176k shares come from fans sending a romantic song to someone.
 
 ## Steal this (grammar) / Leave this (content)
-- Steal: one meaningful line per shot, written into a prop that acts it out; prop-specific type; quiet words on
-  dark grain between prop shots; one constant grade and grain for cohesion; a held word-by-word build before
-  the end.
-- Leave: the song, its lyrics, the artist's portraits and album art, the editor's tag and logo, their specific
-  images.
+- Steal: one line per shot written into a prop that acts it out; prop-specific type; quiet words on dark grain
+  between prop shots; one constant grade; a held word-by-word build before the end.
+- Leave: the song and lyrics, the artist's portraits and album art, the editor's tag and logo, their images.
 
 ## Build it in our studio
-Engine: HyperFrames with stills, plus collage for the ransom-letter style.
-1. Write the client's script or manifesto as 10-14 short lines; pick a prop for each line that relates to the
-   business (receipt, sticky note, shop sign, phone screen, coffee cup sleeve).
-2. Shoot the props with the client or generate the empty prop scenes with `gen-image` (paid, approval), leaving
-   space where the words go.
-3. Place type onto each prop in HyperFrames with a perspective transform (CSS 3D matrix) and a multiply blend so
-   it sits on the surface; animate letter by letter or word by word on the music or voice.
-4. Global grade: warm curve, grain overlay and vignette from the registry; slow push on every still.
-5. Music: generated or licensed slow track; cut on vocal phrases, not drums.
-- Hard part: making type look printed on the object (perspective, lighting, blur matching). Solve with a 4-point
-  perspective transform, a slight blur equal to the photo's softness, and multiply or overlay blending.
-- Difficulty 3; render about 16 s per second of film in HyperFrames.
+Engine: HyperFrames with stills; collage for ransom letters.
+1. Write the client's manifesto as 10-14 short lines; pick a prop per line from their world (receipt, sticky
+   note, shop sign, phone screen).
+2. Shoot the props with the client, or generate empty prop scenes with `gen-image` (paid, approval).
+3. Place type on each prop with a 4-point perspective transform, matching blur and a multiply blend; animate
+   letter by letter on the music or voice.
+4. Global warm grade, grain and vignette from the registry; slow push on every still; cut on vocal phrases.
+- Hard part: type that looks printed on the object. Difficulty 3.
 
 ## Business translations
-- Agency (personal brand): the founder's "why we started" manifesto, each line on a studio object (sketchbook,
-  invoice, whiteboard, phone).
-- Restaurant: the menu philosophy line by line on receipts, chalkboards, napkins and a neon sign, ending on the
-  real logo.
-- Events company: "who knows what tonight brings" teaser with each line on a ticket, wristband, door sign and
-  lit marquee.
+- Agency founder: the "why we started" manifesto, each line on a studio object (sketchbook, invoice, whiteboard).
+- Restaurant: the menu philosophy on receipts, chalkboards, napkins and a neon sign, ending on the real logo.
+- Events company: a teaser with each line on a ticket, wristband, door sign and lit marquee.

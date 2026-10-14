@@ -14,7 +14,7 @@ captured: 2026-10-14
 duration_s: 21
 category: lyric-mograph
 hook: [beautiful-first-frame, familiar-ip]
-devices: [lyric-sync-type, word-by-word, transformation-sequence, zoom-through-scale, cut-on-beat, seamless-loop]
+devices: [lyric-sync-type, literal-metaphor, word-by-word, transformation-sequence, zoom-through-scale, cut-on-beat, seamless-loop]
 energy: medium
 palette: [dark, pastel]
 palette_hex: ["#252420", "#282723", "#23221e", "#cfcbc1", "#807ca8"]

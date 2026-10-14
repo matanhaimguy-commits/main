@@ -14,7 +14,7 @@ captured: 2026-10-14
 duration_s: 57
 category: explainer-2d
 hook: [relatable-pov, bold-claim]
-devices: [stick-figure, word-by-word, voiceover-explainer, before-after, icon-system]
+devices: [stick-figure, literal-metaphor, word-by-word, voiceover-explainer, before-after]
 energy: calm
 palette: [dark, mono]
 palette_hex: ["#000100", "#000000", "#d5d6d2", "#0c0e0b", "#2d2e2c"]
@@ -55,18 +55,14 @@ Frames cover 0-55.5 s of the 57 s film.
 
 | t (s) | on screen | what moves | sound |
 |---|---|---|---|
-| 0.0-3.0 | black, ground line, wordmark; figure on a bed by a window | caption chunks swap; bed dims | VO: "The more you stay home, the less you want to leave." |
-| 4.5-6.0 | bent-over figure dragging, "Stay The Heavier Everything" | figure trudges | VO: "the heavier everything feels" |
-| 7.5-10.5 | figure in bed with a thought cloud; a dark spiky figure appears to the right | energy figure fades in | VO: "You think you're resting, but you're actually draining the life out of yourself." |
-| 12.0-15.0 | figure walking, hand on head, cloud above; a large grey outline of a head-clutching figure ghosts in | walk cycle, ghost fades | VO: "Your brain slows down, your thoughts get louder" |
-| 16.5-21.0 | figure slumped on a chair among papers; a spiral icon with a curled figure, then the spiral alone | spiral rotates | VO: "Psychology calls it mental rumination" |
-| 22.5-25.5 | figure among shadow faces ("Stuck"), next to a giant question mark ("Worried"), alone on a dotted line ("The Future And Tired") | pictograms swap per phrase | VO: past, future, present |
-| 27.0-31.5 | figure in a doorway held back by strings; shielding eyes from a bright window; holding a "Tired" sign with "Not" above | small gestures | VO: "Even a short walk feels too hard... not because you're lazy" |
-| 33.0-37.5 | figure kneeling with a red low-battery icon; a hamster wheel with a walking figure beside it | wheel turns | VO: "you're just mentally tired... that loop" |
-| 39.0-43.5 | figure walks out through an open door, light spilling on the floor, "Here's The Truth", "Outside To Feel" | walk through door | VO: the reversal line |
-| 45.0-49.5 | figure sits back in the open, green leaves blowing past | leaves drift | VO: "Step out, sit in the sun, hear the wind" |
-| 51.0-52.5 | figure sinking into a glowing hole, "Deeper The Trap Becomes" | sink | VO: warning |
-| 54.0-55.5 | figure walks away from a dark open door, "We Help You Break Free From" | walk | VO: "Follow us." CTA |
+| 0.0-6.0 | figure on a bed by a window, then bent over and trudging | bed dims, figure trudges | VO: "The more you stay home, the less you want to leave." |
+| 7.5-15.0 | figure in bed with a thought cloud, a dark spiky figure beside it; then walking, hand on head | fades, walk cycle | VO: "You think you're resting, but you're actually draining the life out of yourself." |
+| 16.5-25.5 | slumped on a chair among papers; a spiral icon; a giant question mark; alone on a dotted line | spiral rotates, props swap per phrase | VO: "Psychology calls it mental rumination" |
+| 27.0-31.5 | in a doorway held back by strings; holding a "Tired" sign under "Not" | small gestures | VO: "not because you're lazy" |
+| 33.0-37.5 | kneeling with a red low-battery icon beside a hamster wheel | wheel turns | VO: "you're just mentally tired" |
+| 39.0-43.5 | walks out through an open door, light spilling on the floor | walk through door | VO: the reversal line |
+| 45.0-52.5 | sits back as green leaves blow past; then sinks into a glowing hole | leaves drift, sink | VO: "Step out, sit in the sun", then the warning |
+| 54.0-55.5 | walks away from a dark open door, "We Help You Break Free From" | walk | VO: "Follow us." |
 
 ## Signature device
 One glowing pictogram per spoken phrase, on a fixed stage. The stage never changes: black field, a 1 px grey
@@ -79,19 +75,16 @@ chunk, stacked up to three lines, changing every 1-1.5 s in step with the voice.
 the red low battery and the green leaves.
 
 ## Pacing read
-The metrics show 0 cuts and a big change only every 9.5 s, because 90 percent of the frame is black and the
-pictograms are small. That undersells the real rhythm: captions change every 1-1.5 s and the illustration
-changes every 3-6 s. CV 1.27 shows uneven spacing of the bigger swaps, and quiet share 0.0 means something
-always changes. Hook change 0.093 confirms a deliberately calm opening; the voice carries the hook. Energy
-dips through the problem (dim greys, slumped poses) and lifts at 39 s with the door and light, then a short
-dark warning and a calm walk-off CTA. Not a loop.
+0 cuts and a big change only every 9.5 s, because 90 percent of the frame is black. The real rhythm: captions
+every 1-1.5 s, a new illustration every 3-6 s (CV 1.27, uneven), quiet share 0.0. Hook change 0.093: a calm
+opening where the voice carries the hook. Energy dips through the problem and lifts at 39 s with the door
+and light, then a short warning and a calm walk-off CTA. Not a loop.
 
 ## Look
-- Palette by role: black ground (#000100, #000000), white figure and type (#d5d6d2), mid grey (#2d2e2c) for
-  dimmed props and the ground line, red and green as rare emotional accents.
-- Type: bold condensed sans in title case, white, about 70-90 px on a 1080 frame, centred; small serif wordmark.
-- Texture: flat vector with a soft bloom on the active figure, light spill as a white trapezoid on the floor.
-- Camera: locked, no moves. Everything happens on the same stage.
+- Palette: black ground (#000100, #000000), white figure and type (#d5d6d2), grey (#2d2e2c) for dimmed props
+  and the ground line, red and green as rare accents.
+- Type: bold condensed sans, title case, about 70-90 px on 1080 wide, centred; small serif wordmark.
+- Texture: flat vector, soft bloom on the active figure. Camera: locked.
 
 ## Why it works
 - The script is a tight arc: relatable claim, agitation ("you think you're resting"), a named concept
@@ -109,14 +102,13 @@ dark warning and a calm walk-off CTA. Not a loop.
 - Leave: the ClearMind wordmark, their figure design, the mental-health script and its lines, their voice.
 
 ## Build it in our studio
-- Engine: `canvas` (pictograms drawn as strokes with a blur pass for the bloom), or `hyperframes` with SVG.
-- Scene plan: 1) write the VO script in the same arc and record or generate the voice; 2) get word timings;
-  3) build a library of 10-14 pictogram props in one stroke style and a figure rig with 6 poses; 4) place a
-  prop per phrase, dim the outgoing prop over 0.3 s, fade the new one in; 5) captions chunked from the word
-  timings; 6) end on the client's real logo and a follow or book line.
-- Hard part: drawing enough clear pictograms in one consistent style. Solve with a small set of reusable
-  primitives (door, window, battery, wheel, cloud) and pose-to-pose figure frames rather than full animation.
-- Difficulty 2. Render cost is low in canvas (simple scenes, 60 fps).
+- Engine: `canvas` (stroked pictograms with a blur pass for the bloom), or `hyperframes` with SVG.
+- Scene plan: 1) VO script in the same arc, recorded or generated; 2) word timings; 3) 10-14 props in one
+  stroke style and a figure with 6 poses; 4) one prop per phrase, outgoing prop dims over 0.3 s; 5) captions
+  from the timings; 6) end on the client's real logo and a follow or book line.
+- Hard part: many clear pictograms in one style. Reuse primitives (door, window, battery, wheel, cloud) and
+  pose-to-pose figure frames.
+- Difficulty 2, cheap to render.
 
 ## Business translations
 - Physiotherapy clinic: "The more you sit, the more it hurts to stand" with a figure stuck to a chair, ending

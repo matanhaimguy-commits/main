@@ -61,8 +61,7 @@ Frames cover the whole 59 s (40 frames at 1.5 s).
 | 27.0-36.0 | text box "STRENGTH / Some texts goes here to explain briefly" typed, cloned to each piece and renamed WEAKNESSES, OPPORTUNITIES, THREATS | typing, copy-paste | song |
 | 37.5-39.0 | Office icon library fills the screen | scroll through icon grid | song |
 | 40.5-45.0 | white icons placed: weightlifter, standing figure, group with arrow, devil face | icons dropped then spread to their pieces | song |
-| 46.5-52.5 | title typed above: "S.W.O.T ANALYSIS / FOR YOUR BUSINESS PRESENTATIONS" | text box resized, centred | song |
-| 54.0-55.5 | everything selected and nudged to centre | multi-selection handles | song |
+| 46.5-55.5 | title typed above: "S.W.O.T ANALYSIS / FOR YOUR BUSINESS PRESENTATIONS", then all nudged to centre | text box resized, multi-select | song |
 | 57.0-58.5 | finished slide inside a thick red border, white caps on red below: "YOUR IDEA IN THE COMMENT PLEASE" | hold | song ends |
 
 ## Signature device
@@ -76,12 +75,10 @@ seams), label, body line, icon, title. The cursor and selection handles stay vis
 being made, not revealed.
 
 ## Pacing read
-0.67 cuts per 10 s and a big change every 3.75 s: almost one continuous take, sped up. CV 1.19 means the rhythm
-is uneven: long stretches of small edits (typing, nudging) broken by a few large jumps (navy background at
-16.5 s, icon library at 37.5 s, the red end card at 57 s). Quiet share is 0.026, so something is always
-moving, but each change is small. The low hook change (0.162) shows the opening is calm: the hook is the
-promise, not motion. Energy peaks at the colour flip, then the film slowly fills in detail and ends on a static
-end card that holds for about 3 s. Not a loop.
+0.67 cuts per 10 s and a big change every 3.75 s: one sped-up take. CV 1.19: long stretches of small edits
+broken by a few large jumps (navy flip at 16.5 s, icon library at 37.5 s, red end card at 57 s). Quiet share
+0.026: always moving, in small steps. Hook change 0.162: the hook is the promise, not motion. Energy peaks at
+the colour flip, then detail fills in and a static end card holds about 3 s. Not a loop.
 
 ## Look
 - Palette by role: light UI greys (#e4e5e3, #cdcfce) as frame and early ground; navy (#25304e) as the slide
@@ -112,7 +109,7 @@ end card that holds for about 3 s. Not a loop.
   a held CTA card.
 - Hard part: making it read as hand-made rather than a slick reveal. Keep a cursor, selection boxes drawn in
   brand line weight and slight "nudge" overshoots via `spring()`.
-- Difficulty 2. About 30-45 s of HyperFrames render at ~16 s per second.
+- Difficulty 2. A 30-45 s cut renders in about 8-12 min in HyperFrames (~16 s per second).
 
 ## Business translations
 - Consultancy or agency: their own 4-step method assembled as interlocking pieces, ending "Which step do you

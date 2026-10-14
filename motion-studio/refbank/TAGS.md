@@ -30,7 +30,7 @@ wait-for-it · guess-challenge · mid-action-start · contrast-split · direct-a
 brand-name-drop · series-hook · price-or-value-question · familiar-ip · beautiful-first-frame · text-headline
 
 ## devices (list every one the film leans on; the first is the signature device)
-Camera and space: one-take-camera · zoom-through-scale · pull-back-reveal · orbit · dolly-follow · pov-camera ·
+Camera and space: one-take-camera · rack-focus · screen-in-frame · zoom-through-scale · pull-back-reveal · orbit · dolly-follow · pov-camera ·
 top-down-plan · x-ray-cutaway · exploded-view · map-zoom
 Transitions: match-cut · morph · shape-wipe · mask-reveal · whip-pan · glitch-cut · object-carries-camera ·
 cut-on-beat · reverse-play · seamless-loop
@@ -43,7 +43,7 @@ cursor-demo · split-screen · grid-mosaic · halftone-collage · paper-cutout �
 Simulation and material: cloth-sim · softbody · liquid-sim · rigid-body-drop · particles · marble-run ·
 beat-sync-hits · cutting-slicing · inflate-deflate · giant-product · product-in-world · fooh-composite ·
 glass-refraction · clay-plasticine · lego-bricks · minecraft-voxel
-Character: character-host · lip-sync · reaction-shot · pose-to-pose-comedy · creature-reveal
+Character: character-host · lip-sync · reaction-shot · pose-to-pose-comedy · creature-reveal · literal-metaphor
 Sound: asmr-foley · whoosh-transitions · bass-drop · silence-before-hit · voiceover-explainer · trending-audio
 
 ## energy (one)
@@ -53,7 +53,7 @@ calm · medium · high · frantic
 dark · light · saturated · pastel · mono · neon · natural · brand-colour
 
 ## sound (one or more)
-music-beat · voiceover · asmr-foley · trending-audio · sfx-heavy · silence-moments
+music-beat · voiceover · asmr-foley · trending-audio · sfx-heavy · silence-moments · diegetic-audio · dialogue
 
 ## engine (our build route; one or more, first is preferred)
 hyperframes · canvas · lemo:<style> (e.g. lemo:watercolor) · cab (Claude Animation Base) · collage ·

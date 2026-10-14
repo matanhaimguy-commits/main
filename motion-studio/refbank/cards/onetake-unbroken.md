@@ -40,7 +40,7 @@ On black, a thin rule splits the frame and an ivory brush starts the same circle
 Craft reference, not a social post: a 16:9 film for a fictional notification-holding Mac app from the onetake repo. Study only (PolyForm Noncommercial): ideas in our words, no code, text, pixels or sound reused.
 
 ## Why it stops the scroll (first 2 s)
-At 0.0-0.5 s black with faint vertical brush texture as a rule begins to draw down the middle; at 1.0 s tiny labels top each half (the same time range; notifications on versus held); at 1.5-2.0 s two brush tips touch down in step. Mechanism: a contrast split, the same action under two conditions, so the viewer waits to see which side wins. Very quiet open (hook change 0.01); the premise is clear only by about 3 s, when the first ping breaks the left stroke.
+At 0.0-0.5 s black with faint vertical brush texture as a rule begins to draw down the middle; at 1.0 s tiny labels top each half; at 1.5-2.0 s two brush tips touch down in step. Mechanism: a contrast split, the same action under two conditions, so the viewer waits to see which side wins. Very quiet open (hook change 0.01); the premise is clear only by about 3 s, when the first ping breaks the left stroke.
 
 ## Beat map
 | t (s) | on screen | what moves | sound (our loudness read) |
@@ -54,7 +54,7 @@ At 0.0-0.5 s black with faint vertical brush texture as a rule begins to draw do
 | 9.7-11.2 | the name | pull back about 6.7x; the circle is the o; letters rise around it | rise, then near silence |
 | 11.6-15.0 | tagline | a short imperative line; a red seal stamps | loud hit near 12 s, fade |
 
-The case notes do not describe the sound; the column is our loudness read only (integrated -16 LUFS, a steady layer through the hour, a silence just before the tagline hit).
+Sound undocumented; the column is our loudness read only.
 
 ## Signature device
 Before and after on a split screen with one shared clock. Both halves run the same timeline; only the left receives interruptions. Each interruption is a chip popping beside the stroke, a small shake on the left half only, and the brush lifting and resuming slightly behind, so strokes get shorter as pings quicken. The brush is procedural: dozens of fine bristle lines along the path with seeded dry-brush gaps, ivory on black. The finished circle is the o of the logo; a pull-back from 1x to about 0.15x turns the hero object into a letter.
@@ -63,7 +63,7 @@ Before and after on a split screen with one shared clock. Both halves run the sa
 2 fps: 0 cuts, big changes every 5.0 s, CV 0.67, 24 % quiet. Full rate: 24 % still, 61 % quiet (the highest in the set), 3 beats, no transitions, longest quiet run 2.17 s, beat CV 0.87, spread 17.3x (the widest). The case notes warn that stillness metrics over-read on dark grounds. Shape: one long build (the hour), one held breath, one reveal. Restraint looks premium but is slow for a feed. No loop.
 
 ## Look
-Ink-black ground (#0e0f13 to #191920) with faint vertical streaks, bone-white brush (#9c9891 in its shadows), small dark chips with a cold blue dot, one vermilion seal. Thin monospace labels (too small for a phone), a light rounded grotesk wordmark. Still camera through the hour, then a world-space pull-back.
+Ink-black ground (#0e0f13 to #191920) with faint vertical streaks, bone-white brush (#9c9891 in its shadows), small dark chips with a cold blue dot, one vermilion seal. Thin monospace labels (too small for a phone), a light rounded grotesk wordmark.
 
 ## Why it works
 - Almost everyone knows the interrupted-work feeling: high relatability, a "this is me" share.
@@ -75,14 +75,14 @@ Ink-black ground (#0e0f13 to #191920) with faint vertical streaks, bone-white br
 - Leave: the ensō, the brush look as designed, the copy, the fictional app, the seal.
 
 ## Build it in our studio
-Engine: canvas (seeded bristle strokes, path-length reveal, per-half shake). A Lemo-Opuscar ink style could supply the painterly layer if the brand suits it.
+Engine: canvas (seeded bristle strokes, path-length reveal, per-half shake).
 1. Split, labels, one shared path for both halves.
 2. An interruption schedule that quickens, each event breaking the left stroke; counter.
 3. Hold, drop the left half.
 4. Pull back into the logo word and tagline.
 Hard part: brushwork that looks hand-made at 60 fps (thin bristles with pressure and dry gaps along the path, all seeded). Zero assets.
 
-9:16: split top and bottom instead of left and right; each half a band of about 1080 x 650 inside the safe zone; circles at about 45 % of width; labels at 44 px or more; logo lands in the middle band. Relevance 5: before and after is the most transferable business message there is.
+9:16: split top and bottom instead of left and right; each half a band of about 1080 x 650 inside the safe zone; circles at about 45 % of width; labels at 44 px or more; logo lands in the middle band. Relevance 5: before and after transfers to almost any business.
 
 ## Business translations
 - Bookkeeping firm (finance): the same month drawn as a line twice; the top keeps stopping for missing receipts, the bottom runs clean and becomes a letter of the firm's name.

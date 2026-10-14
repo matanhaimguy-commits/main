@@ -35,59 +35,55 @@ pacing:
 ---
 
 ## The film in one line
-The frame opens inside one amber phosphor pixel and pulls back through a typed terminal prompt and a wall of streaming agent output, a thin window border draws itself around the text, the title bar lands and flips everything from amber dark mode to a light theme in one frame, the camera dives into two blocky pixel eyes in the title bar that blink and glance down, follows their gaze to the input where a message is typed, then pulls out to a small window with seven tool names lined up beneath it and the product name.
+The frame opens inside one amber phosphor pixel and pulls back through a typed terminal prompt and streaming agent output, a window border draws itself around the text, the title bar lands and flips everything from amber dark mode to a light theme in one frame, the camera dives into two blinking pixel eyes in the title bar, follows their gaze to the input where a message is typed, then pulls out to a small window with seven tool names lined up beneath it and the product name.
 
-Craft reference, not a social post: a 16:9 launch film for Pith, a real desktop app that wraps a command-line coding agent, from the onetake repo. Study only (PolyForm Noncommercial): ideas in our words, no code, text, pixels, font or sound reused.
+Craft reference, not a social post: a 16:9 launch film for Pith, a real desktop app for a coding agent, from the onetake repo. Study only (PolyForm Noncommercial): ideas in our words, no code, text, pixels, font or sound reused.
 
 ## Why it stops the scroll (first 2 s)
-At 0.0-1.0 s the frame is a few enormous amber cells with dark gaps, an abstract plaid, dead still, with one blink near 1.1 s; at 1.5 s the pull-back begins; at 2.0 s the cells resolve into giant pixel letters of a typed command. Mechanism: scale shock, an abstract frame that becomes legible inside two seconds. The strongest measured open in the onetake set (hook change 0.393).
+At 0.0-1.0 s the frame is a few enormous amber cells with dark gaps, an abstract plaid, dead still, with one blink near 1.1 s; by 2.0 s the pull-back has begun and the cells resolve into giant pixel letters of a typed command. Mechanism: scale shock, an abstract frame that becomes legible inside two seconds. The strongest measured open in the onetake set (hook change 0.393).
 
 ## Beat map
 | t (s) | on screen | what moves | sound |
 |---|---|---|---|
 | 0.0-1.55 | one lit pixel at about 440x | dead still, one blink | phosphor hum, coil whine |
 | 1.55-3.3 | the caret | pull back to about 9x; a prompt types in amber | dry key clicks |
-| 3.3-7.55 | the wall, the frame | pull back to about 1.35x; output streams up; a 1 px border draws itself around it | hum, ticks |
-| 7.55-7.77 | the clamp, the flip | title bar drops and lands; amber on black becomes ink on light in one frame | hum cut; first note in the silence after |
-| 7.8-10.3 | the desk | held; detail lines fold, a sidebar slides out, a hard shadow drops | notes, then silence |
-| 10.3-12.1 | the eyes | push to about 44x into two pixel eyes; dead still; they blink, pupils snap aside | silence, lid ticks, a snap with a sub |
-| 12.1-15.0 | the gaze | camera follows the gaze to the input; pointer clicks, types, sends | keys |
-| 15.0-18.4 | answer, out | message lifts into the timeline; pull out to about 0.5x | ticks |
-| 17.2-21.5 | seven tools, name | seven row squares fly out and line up, each naming itself; the name drops in lavender | rising ticks, last notes |
+| 3.3-7.55 | the wall, the frame | pull back to about 1.35x; output streams up; a 1 px border draws itself | hum, ticks |
+| 7.55-7.77 | clamp and flip | title bar drops; amber on black becomes ink on light in one frame | hum cut; first note in the silence |
+| 7.8-10.3 | the desk | held; detail lines fold, a sidebar slides out | notes, then silence |
+| 10.3-12.1 | the eyes | push to about 44x into two pixel eyes; dead still; they blink, pupils snap aside | silence, lid ticks, a snap |
+| 12.1-15.0 | the gaze | camera follows the gaze to the input; a message is typed and sent | keys |
+| 15.0-21.5 | answer, tools, name | pull out to about 0.5x; seven row squares fly out and line up, each naming itself; the name drops in lavender | ticks, last notes |
 
 Sound per the case notes: no music until the window exists; rests are scored.
 
 ## Signature device
-Carry by scale, pulling out. Everything that appears was already inside the previous frame: pixel, caret, prompt, output, window, desktop. The interior is a page drawn in its own units under one transform, so type stays crisp at 440x; unlit cells keep a faint residue so the deep camera has texture to slide over; a bloom fades as the zoom falls. The mid-film transition is the product's own feature (its light and dark themes), and the claim (the agent is seven tools) is built by moving seven objects already on screen, not by a caption.
+Carry by scale, pulling out. Everything that appears was already inside the previous frame: pixel, caret, prompt, output, window, desktop. The interior is a page drawn in its own units under one transform, so type stays crisp at 440x, and unlit cells keep a faint residue so the deep camera has texture. The mid-film transition is the product's own theme switch, and the claim (seven tools) is built from seven objects already on screen, not from a caption.
 
 ## Pacing read
-2 fps: 3.72 "cuts" per 10 s (the flip and the dives), big changes every 0.67 s, CV 0.82, 17 % quiet. Full rate: 15 % still, 29 % quiet, 15 beats, transitions at 1.17, 2.0, 7.83 and 12.58 s, longest quiet run 2.42 s, beat CV 0.63, spread 8.8x. Shape: frozen open, a long continuous pull-out, a one-frame flip as the hit, a scored rest, then the eye close-up as a second rest that doubles as the hand-off, and a slow lockup. No loop.
+2 fps: 3.72 "cuts" per 10 s (the flip and the dives), big changes every 0.67 s, CV 0.82, 17 % quiet. Full rate: 15 % still, 29 % quiet, 15 beats, transitions at 1.17, 2.0, 7.83 and 12.58 s, longest quiet run 2.42 s, beat CV 0.63, spread 8.8x. The eye close-up is a second rest that doubles as the hand-off. No loop.
 
 ## Look
-First third amber (#d1920b) on near-black (#18160b) with scanlines and pixel gaps; then a light grey desktop (#d3d4cf to #fefefd) with ink text, a hard 3 px window shadow and a lavender name. The product's own bitmap pixel font throughout. Shakes on the landing.
+First third amber (#d1920b) on near-black (#18160b) with scanlines and pixel gaps; then a light grey desktop (#d3d4cf to #fefefd), a hard window shadow and a lavender name. The product's own bitmap pixel font throughout.
 
 ## Why it works
-- Abstraction to recognition in two seconds.
-- A long pull-out keeps adding context, so curiosity holds without cuts.
-- The theme flip is a mid-film pattern interrupt; the blinking eyes add a character beat.
-- The seven-tools gather turns the claim into a picture.
+- Abstraction to recognition in two seconds; a long pull-out keeps adding context, so curiosity holds without cuts.
+- The theme flip is a mid-film pattern interrupt.
+- The blinking eyes add a character beat and a smile.
 
 ## Steal this (grammar) / Leave this (content)
 - Steal: open inside the smallest unit of the product (a pixel, cell or stitch) and pull out; a real product behaviour (a theme or mode switch) as the transition; a mascot close-up as the rest; build the claim from objects already on screen.
 - Leave: the terminal content, the eyes, the app UI, the pixel font, the name and colours.
 
 ## Build it in our studio
-Engine: canvas (deep zoom with crisp text needs our own transform and level of detail; DOM scaling to 440x in HyperFrames is unreliable).
+Engine: canvas (crisp text at 440x needs our own transforms).
 1. Page model of the client's real UI in its own units.
 2. A log-zoom spring anchored to a subject that travels (caret, mascot, input).
-3. Texture at depth (pixel grid, grain or fabric).
-4. A single-frame mode flip with an impact; a close-up on a real logo or mascot detail as the rest.
-5. Gather the real feature icons into a row, then the name.
-Hard part: zoom steps of several log units in under a second without the target drifting off frame; the notes needed a travelling anchor and a longer settle. Difficulty 4.
+3. A single-frame mode flip with an impact; a close-up on a real logo or mascot detail as the rest.
+4. Gather the real feature icons into a row, then the name.
+Hard part: zoom steps of several log units in under a second without the target drifting off frame; use a travelling anchor and a longer settle. Difficulty 4.
 
-9:16: the window becomes a phone screen, which is portrait anyway; end the pull-out with it at about 60 % of frame height; the feature row becomes a two-row grid; readable text at 36-40 px or more. Relevance is middling: it suits app and product clients, less so local services.
-
+9:16: the window becomes a phone screen, which is portrait anyway; end the pull-out with it at about 60 % of frame height; the feature row becomes a two-row grid; readable text at 36-40 px or more.
 ## Business translations
-- Any app with a dark mode (saas): start inside one pixel of the dark UI, pull out, and make the flip to light mode the film's single hit.
-- Online course platform (education): open inside one letter of a lesson, pull out to the course page, gather the real module icons into a row.
-- Print shop or textile brand (ecommerce): open inside one halftone dot or one stitch, pull out to the finished product and the logo.
+- App with a dark mode (saas): start inside one dark pixel, pull out, and make the flip to light mode the single hit.
+- Online course platform (education): open inside one letter of a lesson, pull out to the course page, gather the real module icons.
+- Print shop or textile brand (ecommerce): open inside one halftone dot or stitch, pull out to the finished product and the logo.

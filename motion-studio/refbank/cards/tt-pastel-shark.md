@@ -18,7 +18,7 @@ devices: [versus-compare, pose-to-pose-comedy, lip-sync, before-after, reaction-
 energy: calm
 palette: [pastel]
 palette_hex: ["#8b9c7b", "#241c19", "#605352", "#e5a07d", "#b3785d"]
-sound: [trending-audio, music-beat]
+sound: [trending-audio, dialogue, music-beat]
 voiceover: false
 text_on_screen: headline
 engine: [canvas, cab, gen-image]

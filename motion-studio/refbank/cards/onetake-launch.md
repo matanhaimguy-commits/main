@@ -64,7 +64,7 @@ A recurring anchor that spawns every section. The prompt bar returns three times
 2 fps: 6.67 "cuts" per 10 s (blooms and whips, no edits), big changes every 0.71 s, CV 0.93, 3 % quiet. Full rate: 3 % still, 14 % quiet, 24 beats, 9 transitions (4.5 to 27.42 s), longest quiet run 1.58 s, beat CV 0.60, spread 7.6x. Rest comes only from the still bar beats and the freeze before the name. Ends still; no loop.
 
 ## Look
-Cream paper desk (#ece1cf, #f9f3e8) with tan shadows (#af8d72). Film one in muted pastel event colours, film two plum (#472f48) with multicoloured comic type, film three navy (#202b44) with orange, yellow and pink poster blocks. Macro on the bar, wide pulls, blur on every bloom.
+Cream paper desk (#ece1cf, #f9f3e8) with tan shadows (#af8d72). Film one in muted pastel event colours, film two plum (#472f48) with multicoloured comic type, film three navy (#202b44) with orange, yellow and pink poster blocks.
 
 ## Why it works
 - A structure learned after one cycle; cycles two and three are anticipation, and shorter, so the film speeds up.

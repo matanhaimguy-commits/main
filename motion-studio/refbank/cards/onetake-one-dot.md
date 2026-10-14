@@ -73,7 +73,7 @@ Near-black ground (#07060b to #14131b), one violet accent (not in the measured t
 
 ## Steal this (grammar) / Leave this (content)
 - Steal: one element of the client's mark (a dot, bar, tick or circle) plays every role; a camera that leads it; a far lattice on a plain ground; landings on the beat; it snaps into the logo at the end.
-- Leave: violet on black, the command menu and labels, the code label, the sun card, the wordmark.
+- Leave: violet on black, the command menu, the sun card, the wordmark.
 
 ## Build it in our studio
 Engine: canvas (closed-form shape morphs, springs from lib/motion.js, subframe blur for the streak).
@@ -83,7 +83,7 @@ Engine: canvas (closed-form shape morphs, springs from lib/motion.js, subframe b
 4. Sound on the landings; logo landing.
 Hard part: topology changes (circle to path) without a pop; cut the ring at one point and map its arc length onto the curve. Zero assets.
 
-9:16: one object suits a tall frame; the menu is already vertical; keep the curve at 85 % width or turn it vertical; land the logo in the middle band. Relevance 5: any brand with a simple mark can use it.
+9:16: one object suits a tall frame; the menu is already vertical; land the logo in the middle band. Relevance 5: any brand with a simple mark can use it.
 
 ## Business translations
 - Payments app (finance): the dot in the logo becomes the cursor of a transfer field, a progress ring, a balance curve, then returns to the logo.

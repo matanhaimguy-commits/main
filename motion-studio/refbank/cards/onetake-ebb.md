@@ -63,7 +63,7 @@ Light as the transition. One warm radial field lives under every scene and stand
 2 fps: 8.67 "cuts" per 10 s (punch, flood, whip and fly-in; no edits), big changes every 0.71 s, CV 0.93, 21 % quiet. Full rate: 27 % still, 33 % quiet, 10 beats, transitions at 5.0, 6.0, 7.83, 10.17 and 11.17 s, longest quiet run 3.33 s (the end), beat CV 0.61, spread 5.1x. Shape: frozen macro, slow build to the flood, a dense middle, a long true freeze on the name. Starts and ends on cream, so it could loop softly.
 
 ## Look
-Warm paper (#faf0e9, #fcfbf6), peach (#f3c2a5, #f7dbc7), orange light (#ea9c6d). High-contrast Didone-style serif for numerals and name, small grotesk UI. Cards are marbled "silk" gradients in rose, ochre, plum and peach at three depths with focus falloff. Keyed camera with small handheld shake and parallax.
+Warm paper (#faf0e9, #fcfbf6), peach (#f3c2a5, #f7dbc7), orange light (#ea9c6d). High-contrast Didone-style serif for numerals and name, small grotesk UI. Cards are marbled "silk" gradients in rose, ochre, plum and peach at three depths with focus falloff.
 
 ## Why it works
 - The timer is a built-in countdown: the viewer waits for 00:00.

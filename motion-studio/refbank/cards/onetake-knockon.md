@@ -76,7 +76,7 @@ Warm off-white paper (#e5dfd9 to #f8f6f1), soft top-left light, one orange-red a
 - Leave: the keycap and arrow composition, the task words and copy, the fictional brand, the score.
 
 ## Build it in our studio
-Engine: canvas. Closed-form motion is easy (marble position per track segment, tile angles from staggered start times); shadows must be scaled by zoom by hand.
+Engine: canvas; all motion is closed-form, and shadows must be scaled by zoom by hand.
 1. Lay the course as a path in the client's icon shape.
 2. Marble kinematics per segment.
 3. Domino run with eased rotation and accelerating triggers.
