@@ -81,13 +81,13 @@ export function auditBusiness(b: Business, ctx: { hasToken: boolean }): Issue[] 
     if (value !== undefined && !/^\d+$/.test(value)) add('error', `meta.${field} must be the numeric ID, got "${value}"`);
   }
   if (!b.meta.page_id) {
-    add(b.live ? 'error' : 'warn', 'not connected to a Facebook Page yet: open /admin/connect');
+    add(b.live ? 'error' : 'warn', 'not connected to a Facebook Page yet: choose this business on the Connect page');
   } else if (!ctx.hasToken) {
     add(
       b.live ? 'error' : 'warn',
       b.meta.page_token_env
         ? `env var ${b.meta.page_token_env} (this Page's access token) is not set`
-        : 'no access token for this Page: connect it again in /admin/connect',
+        : 'no access token for this Page: connect it again on the Connect page',
     );
   }
   if (b.meta.page_id && !b.meta.instagram_id) add('warn', 'no Instagram account linked to this Page; Instagram is off');

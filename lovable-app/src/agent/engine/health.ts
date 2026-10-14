@@ -90,7 +90,7 @@ export async function checkSubscriptions(deps: Deps): Promise<void> {
       if (!ours) {
         await deps.alert({
           key: `unsubscribed:${b.slug}`,
-          text: `🚨 ${b.name}: our app is no longer subscribed to the Page's webhooks, so nothing is arriving. Open /admin/connect and press "Subscribe again" for this Page.`,
+          text: `🚨 ${b.name}: our app is no longer subscribed to the Page's webhooks, so nothing is arriving. Open the Connect page and press "Subscribe again" for this Page.`,
           cooldownMinutes: 6 * 60,
         });
       }

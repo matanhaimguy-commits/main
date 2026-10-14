@@ -10,33 +10,245 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ActivityRouteImport } from './routes/activity'
+import { Route as ConnectRouteImport } from './routes/connect'
+import { Route as DataDeletionRouteImport } from './routes/data-deletion'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as TestRouteImport } from './routes/test'
+import { Route as ApiTickRouteImport } from './routes/api/tick'
+import { Route as BusinessesIndexRouteImport } from './routes/businesses/index'
+import { Route as BusinessesSlugRouteImport } from './routes/businesses/$slug'
+import { Route as InboxIndexRouteImport } from './routes/inbox/index'
+import { Route as InboxIdRouteImport } from './routes/inbox/$id'
+import { Route as RTokenRouteImport } from './routes/r/$token'
+import { Route as ApiConnectCallbackRouteImport } from './routes/api/connect/callback'
+import { Route as ApiConnectStartRouteImport } from './routes/api/connect/start'
+import { Route as ApiMetaWebhookRouteImport } from './routes/api/meta/webhook'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ActivityRoute = ActivityRouteImport.update({
+  id: '/activity',
+  path: '/activity',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConnectRoute = ConnectRouteImport.update({
+  id: '/connect',
+  path: '/connect',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DataDeletionRoute = DataDeletionRouteImport.update({
+  id: '/data-deletion',
+  path: '/data-deletion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TestRoute = TestRouteImport.update({
+  id: '/test',
+  path: '/test',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiTickRoute = ApiTickRouteImport.update({
+  id: '/api/tick',
+  path: '/api/tick',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessesIndexRoute = BusinessesIndexRouteImport.update({
+  id: '/businesses/',
+  path: '/businesses/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessesSlugRoute = BusinessesSlugRouteImport.update({
+  id: '/businesses/$slug',
+  path: '/businesses/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InboxIndexRoute = InboxIndexRouteImport.update({
+  id: '/inbox/',
+  path: '/inbox/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InboxIdRoute = InboxIdRouteImport.update({
+  id: '/inbox/$id',
+  path: '/inbox/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RTokenRoute = RTokenRouteImport.update({
+  id: '/r/$token',
+  path: '/r/$token',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiConnectCallbackRoute = ApiConnectCallbackRouteImport.update({
+  id: '/api/connect/callback',
+  path: '/api/connect/callback',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiConnectStartRoute = ApiConnectStartRouteImport.update({
+  id: '/api/connect/start',
+  path: '/api/connect/start',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiMetaWebhookRoute = ApiMetaWebhookRouteImport.update({
+  id: '/api/meta/webhook',
+  path: '/api/meta/webhook',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/activity': typeof ActivityRoute
+  '/connect': typeof ConnectRoute
+  '/data-deletion': typeof DataDeletionRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/settings': typeof SettingsRoute
+  '/test': typeof TestRoute
+  '/api/tick': typeof ApiTickRoute
+  '/businesses/$slug': typeof BusinessesSlugRoute
+  '/inbox/$id': typeof InboxIdRoute
+  '/r/$token': typeof RTokenRoute
+  '/businesses/': typeof BusinessesIndexRoute
+  '/inbox/': typeof InboxIndexRoute
+  '/api/connect/callback': typeof ApiConnectCallbackRoute
+  '/api/connect/start': typeof ApiConnectStartRoute
+  '/api/meta/webhook': typeof ApiMetaWebhookRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/activity': typeof ActivityRoute
+  '/connect': typeof ConnectRoute
+  '/data-deletion': typeof DataDeletionRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/settings': typeof SettingsRoute
+  '/test': typeof TestRoute
+  '/api/tick': typeof ApiTickRoute
+  '/businesses/$slug': typeof BusinessesSlugRoute
+  '/inbox/$id': typeof InboxIdRoute
+  '/r/$token': typeof RTokenRoute
+  '/businesses': typeof BusinessesIndexRoute
+  '/inbox': typeof InboxIndexRoute
+  '/api/connect/callback': typeof ApiConnectCallbackRoute
+  '/api/connect/start': typeof ApiConnectStartRoute
+  '/api/meta/webhook': typeof ApiMetaWebhookRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/activity': typeof ActivityRoute
+  '/connect': typeof ConnectRoute
+  '/data-deletion': typeof DataDeletionRoute
+  '/login': typeof LoginRoute
+  '/privacy': typeof PrivacyRoute
+  '/settings': typeof SettingsRoute
+  '/test': typeof TestRoute
+  '/api/tick': typeof ApiTickRoute
+  '/businesses/$slug': typeof BusinessesSlugRoute
+  '/inbox/$id': typeof InboxIdRoute
+  '/r/$token': typeof RTokenRoute
+  '/businesses/': typeof BusinessesIndexRoute
+  '/inbox/': typeof InboxIndexRoute
+  '/api/connect/callback': typeof ApiConnectCallbackRoute
+  '/api/connect/start': typeof ApiConnectStartRoute
+  '/api/meta/webhook': typeof ApiMetaWebhookRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/activity'
+    | '/connect'
+    | '/data-deletion'
+    | '/login'
+    | '/privacy'
+    | '/settings'
+    | '/test'
+    | '/api/tick'
+    | '/businesses/$slug'
+    | '/inbox/$id'
+    | '/r/$token'
+    | '/businesses/'
+    | '/inbox/'
+    | '/api/connect/callback'
+    | '/api/connect/start'
+    | '/api/meta/webhook'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/activity'
+    | '/connect'
+    | '/data-deletion'
+    | '/login'
+    | '/privacy'
+    | '/settings'
+    | '/test'
+    | '/api/tick'
+    | '/businesses/$slug'
+    | '/inbox/$id'
+    | '/r/$token'
+    | '/businesses'
+    | '/inbox'
+    | '/api/connect/callback'
+    | '/api/connect/start'
+    | '/api/meta/webhook'
+  id:
+    | '__root__'
+    | '/'
+    | '/activity'
+    | '/connect'
+    | '/data-deletion'
+    | '/login'
+    | '/privacy'
+    | '/settings'
+    | '/test'
+    | '/api/tick'
+    | '/businesses/$slug'
+    | '/inbox/$id'
+    | '/r/$token'
+    | '/businesses/'
+    | '/inbox/'
+    | '/api/connect/callback'
+    | '/api/connect/start'
+    | '/api/meta/webhook'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ActivityRoute: typeof ActivityRoute
+  ConnectRoute: typeof ConnectRoute
+  DataDeletionRoute: typeof DataDeletionRoute
+  LoginRoute: typeof LoginRoute
+  PrivacyRoute: typeof PrivacyRoute
+  SettingsRoute: typeof SettingsRoute
+  TestRoute: typeof TestRoute
+  ApiTickRoute: typeof ApiTickRoute
+  BusinessesSlugRoute: typeof BusinessesSlugRoute
+  InboxIdRoute: typeof InboxIdRoute
+  RTokenRoute: typeof RTokenRoute
+  BusinessesIndexRoute: typeof BusinessesIndexRoute
+  InboxIndexRoute: typeof InboxIndexRoute
+  ApiConnectCallbackRoute: typeof ApiConnectCallbackRoute
+  ApiConnectStartRoute: typeof ApiConnectStartRoute
+  ApiMetaWebhookRoute: typeof ApiMetaWebhookRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +260,139 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/activity': {
+      id: '/activity'
+      path: '/activity'
+      fullPath: '/activity'
+      preLoaderRoute: typeof ActivityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/connect': {
+      id: '/connect'
+      path: '/connect'
+      fullPath: '/connect'
+      preLoaderRoute: typeof ConnectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/data-deletion': {
+      id: '/data-deletion'
+      path: '/data-deletion'
+      fullPath: '/data-deletion'
+      preLoaderRoute: typeof DataDeletionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/test': {
+      id: '/test'
+      path: '/test'
+      fullPath: '/test'
+      preLoaderRoute: typeof TestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/tick': {
+      id: '/api/tick'
+      path: '/api/tick'
+      fullPath: '/api/tick'
+      preLoaderRoute: typeof ApiTickRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/businesses/': {
+      id: '/businesses/'
+      path: '/businesses'
+      fullPath: '/businesses/'
+      preLoaderRoute: typeof BusinessesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/businesses/$slug': {
+      id: '/businesses/$slug'
+      path: '/businesses/$slug'
+      fullPath: '/businesses/$slug'
+      preLoaderRoute: typeof BusinessesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inbox/': {
+      id: '/inbox/'
+      path: '/inbox'
+      fullPath: '/inbox/'
+      preLoaderRoute: typeof InboxIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/inbox/$id': {
+      id: '/inbox/$id'
+      path: '/inbox/$id'
+      fullPath: '/inbox/$id'
+      preLoaderRoute: typeof InboxIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/r/$token': {
+      id: '/r/$token'
+      path: '/r/$token'
+      fullPath: '/r/$token'
+      preLoaderRoute: typeof RTokenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/connect/callback': {
+      id: '/api/connect/callback'
+      path: '/api/connect/callback'
+      fullPath: '/api/connect/callback'
+      preLoaderRoute: typeof ApiConnectCallbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/connect/start': {
+      id: '/api/connect/start'
+      path: '/api/connect/start'
+      fullPath: '/api/connect/start'
+      preLoaderRoute: typeof ApiConnectStartRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/meta/webhook': {
+      id: '/api/meta/webhook'
+      path: '/api/meta/webhook'
+      fullPath: '/api/meta/webhook'
+      preLoaderRoute: typeof ApiMetaWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ActivityRoute: ActivityRoute,
+  ConnectRoute: ConnectRoute,
+  DataDeletionRoute: DataDeletionRoute,
+  LoginRoute: LoginRoute,
+  PrivacyRoute: PrivacyRoute,
+  SettingsRoute: SettingsRoute,
+  TestRoute: TestRoute,
+  ApiTickRoute: ApiTickRoute,
+  BusinessesSlugRoute: BusinessesSlugRoute,
+  InboxIdRoute: InboxIdRoute,
+  RTokenRoute: RTokenRoute,
+  BusinessesIndexRoute: BusinessesIndexRoute,
+  InboxIndexRoute: InboxIndexRoute,
+  ApiConnectCallbackRoute: ApiConnectCallbackRoute,
+  ApiConnectStartRoute: ApiConnectStartRoute,
+  ApiMetaWebhookRoute: ApiMetaWebhookRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

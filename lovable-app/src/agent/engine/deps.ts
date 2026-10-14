@@ -25,7 +25,7 @@ export interface Deps {
   /** Whether real messages may be sent for this business (else: dry run, logged only). */
   isLive(business: Business): boolean;
   liveStatus(business: Business): LiveStatus;
-  /** Reloads connected Pages from the database (after /admin/connect changes). */
+  /** Reloads connected Pages from the database (after Connect page changes). */
   reloadConnections(): Promise<void>;
   now(): Date;
   sleep(ms: number): Promise<void>;

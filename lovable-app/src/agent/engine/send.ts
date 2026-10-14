@@ -63,7 +63,7 @@ export async function performSend(
   }
   const api = b.meta.page_id ? deps.metaFor(b) : undefined;
   if (!api) {
-    const error = b.meta.page_id ? 'no access token for this Page (connect it in /admin/connect)' : 'no Facebook Page connected';
+    const error = b.meta.page_id ? 'no access token for this Page (connect it again on the Connect page)' : 'no Facebook Page connected';
     await completeSend(sql, sendId, { status: 'failed', errorMessage: error });
     await deps.alert({ key: `token-missing:${b.slug}`, text: `⚠️ ${b.name}: ${error}. Nothing can be sent.` });
     return { status: 'failed', sendId, category: 'token', error };

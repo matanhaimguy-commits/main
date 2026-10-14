@@ -70,7 +70,7 @@ export const BusinessSchema = z.object({
   // messages. Use it to test with a second account before opening to the public.
   testers: z.array(z.coerce.string()).default([]),
   timezone: z.string().default('UTC'),
-  // Usually filled in by the "Connect Facebook & Instagram" button in /admin/connect.
+  // Usually filled in by the "Connect Facebook & Instagram" button on the Connect page.
   // Set these only to pin IDs or to use a token from an env var instead.
   meta: z
     .object({

@@ -17,22 +17,25 @@ export function parseBusiness(raw: unknown, source: string): Business {
   return result.data;
 }
 
-/** Parses a business written as YAML (the dashboard's editor and imported files). */
-export function parseBusinessYaml(text: string, source = 'business'): Business {
-  let raw: unknown;
+/** Reads YAML text as a plain object, with a readable error. */
+export function yamlToRaw(text: string, source = 'business'): unknown {
   try {
-    raw = YAML.parse(text);
+    return YAML.parse(text);
   } catch (err) {
     throw new ConfigError([`${source}: not valid YAML: ${(err as Error).message}`]);
   }
-  return parseBusiness(raw, source);
+}
+
+/** Parses a business written as YAML (the dashboard's editor and imported files). */
+export function parseBusinessYaml(text: string, source = 'business'): Business {
+  return parseBusiness(yamlToRaw(text, source), source);
 }
 
 export function businessToYaml(raw: unknown): string {
   return YAML.stringify(raw, { lineWidth: 0 });
 }
 
-/** The parts of a connected Page (from /admin/connect) the registry needs. */
+/** The parts of a connected Page (from the Connect page) the registry needs. */
 export interface ConnectedPage {
   page_id: string;
   instagram_id: string | null;
@@ -50,7 +53,7 @@ export interface Registry {
 
 /**
  * IDs written in a business file win. Otherwise the business gets the Page that was
- * assigned to it in /admin/connect (and that Page's linked Instagram account).
+ * assigned to it on the Connect page (and that Page's linked Instagram account).
  */
 export function withConnectedPage(b: Business, pages: ConnectedPage[], claimedByFiles: Set<string>): Business {
   const filePage = b.meta.page_id;

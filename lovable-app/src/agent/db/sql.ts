@@ -44,7 +44,8 @@ export class SqlError extends Error {
   }
 }
 
-export class Query<T extends readonly unknown[] = Row[]> implements PromiseLike<Result<T>> {
+export class Query<T extends readonly unknown[] = Row[]> implements Promise<Result<T>> {
+  readonly [Symbol.toStringTag] = 'Promise';
   private promise: Promise<Result<T>> | undefined;
 
   constructor(
@@ -90,6 +91,10 @@ export class Query<T extends readonly unknown[] = Row[]> implements PromiseLike<
 
   catch<B = never>(onrejected?: ((reason: unknown) => B | PromiseLike<B>) | null): Promise<Result<T> | B> {
     return this.run().catch(onrejected);
+  }
+
+  finally(onfinally?: (() => void) | null): Promise<Result<T>> {
+    return this.run().finally(onfinally);
   }
 }
 
