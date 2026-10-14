@@ -62,14 +62,19 @@ export async function createRuntimeDeps(sql: Sql = getDb()): Promise<{ deps: Dep
 
 /**
  * Runs `task` after the response when the host allows it (Cloudflare `waitUntil`),
- * otherwise before answering. Errors are logged, never thrown at the caller.
+ * otherwise before answering. `task` learns which, so it can keep the inline case short.
+ * Errors are logged, never thrown at the caller.
  */
-export async function runAfterResponse(request: Request, name: string, task: () => Promise<unknown>): Promise<void> {
-  const safe = task().then(
+export async function runAfterResponse(
+  request: Request,
+  name: string,
+  task: (inBackground: boolean) => Promise<unknown>,
+): Promise<void> {
+  const waitUntil = currentWaitUntil(request);
+  const safe = task(!!waitUntil).then(
     () => undefined,
     (err) => log.error(`${name} failed`, { err }),
   );
-  const waitUntil = currentWaitUntil(request);
   if (waitUntil) waitUntil(safe);
   else await safe;
 }

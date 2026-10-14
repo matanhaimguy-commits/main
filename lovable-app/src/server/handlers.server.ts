@@ -6,7 +6,7 @@ import { encryptToken, setState, upsertConnection } from "@/agent/db/connections
 import { insertWebhookEvent, recordClick } from "@/agent/db/repo";
 import { createMetaClient, MetaApiError } from "@/agent/meta/client";
 import { LOGIN_SCOPES } from "@/agent/meta/subscriptions";
-import { drain, scheduledRun } from "@/agent/engine/tick";
+import { drain, scheduledRun, tick } from "@/agent/engine/tick";
 import { verifyHandshake, verifySignature } from "@/agent/meta/webhook";
 import { log } from "@/agent/log";
 import { isLoggedIn, readSigned, signValue } from "./auth.server";
@@ -83,11 +83,17 @@ export async function webhookPost(request: Request): Promise<Response> {
     log.error("could not store webhook event", { err });
     return text("Storage error", 500);
   }
-  await runAfterResponse(request, "webhook processing", async () => {
+  await runAfterResponse(request, "webhook processing", async (inBackground) => {
     await setState(sql, "last_event_at", { object: body.object }).catch(() => {});
     const { deps } = await createRuntimeDeps(sql);
-    // Workers keep a request alive ~30 s after the response; stay well inside that.
-    await drain(deps, { waitUpToSeconds: 15, deadline: Date.now() + 25_000 });
+    if (inBackground) {
+      // Workers keep a request alive ~30 s after the response; stay well inside that.
+      await drain(deps, { waitUpToSeconds: 15, deadline: Date.now() + 25_000 });
+    } else {
+      // Meta is still waiting for the answer: handle the new event only. Debounced AI
+      // replies go out on the next scheduled tick (within a minute).
+      await tick(deps, { replies: 0 });
+    }
   });
   return text("EVENT_RECEIVED");
 }
@@ -104,9 +110,10 @@ function sameSecret(given: string | null, expected: string | undefined): boolean
 export async function tickPost(request: Request): Promise<Response> {
   const sql = getDb();
   if (!sameSecret(request.headers.get("x-agent-tick"), await tickSecret(sql))) return text("Forbidden", 403);
-  await runAfterResponse(request, "scheduled tick", async () => {
+  await runAfterResponse(request, "scheduled tick", async (inBackground) => {
     const { deps } = await createRuntimeDeps(sql);
-    await scheduledRun(deps, Date.now() + 25_000);
+    // The database scheduler gives up on the call after 30 s.
+    await scheduledRun(deps, Date.now() + (inBackground ? 25_000 : 20_000));
   });
   return json({ ok: true }, 202);
 }
