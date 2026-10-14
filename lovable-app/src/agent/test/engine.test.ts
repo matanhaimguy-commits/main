@@ -3,6 +3,7 @@ import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 import type { Sql } from '../db/sql';
 import { runFollowups } from '../engine/reply';
 import { checkDmAccess, checkQuietFunnels, checkStuckSends } from '../engine/health';
+import { LeadError, submitLead } from '../engine/leads';
 import { PAGE_INBOX_APP_ID } from '../engine/process';
 import { insertWebhookEvent } from '../db/repo';
 import { tick } from '../engine/tick';
@@ -304,6 +305,20 @@ describe.skipIf(!hasDb)('engine (Postgres)', () => {
       h.meta.refused.clear();
       expect((await checkDmAccess(h.deps)).acme).toMatchObject({ status: 'everyone', probe: 'stranger' });
       expect(h.alerts.some((a) => a.includes('passes every Instagram DM'))).toBe(true);
+    });
+
+    it('lead form: one contact per phone, qualified, notes kept, an alert each time, never queued for the AI', async () => {
+      const b = h.deps.registry.bySlug('acme')!;
+      const first = await submitLead(h.deps, b, { name: 'Ana', phone: '+355 69 123 4567', instagram: '@ana.k', need: 'More clients', source: 'analiza' });
+      const again = await submitLead(h.deps, b, { name: 'Ana Kola', phone: '+355691234567', need: 'Call after 5' });
+      expect(again.contactId).toBe(first.contactId);
+      expect(again.repeat).toBe(true);
+      const c = await one(sql`SELECT * FROM contacts WHERE id = ${first.contactId}`);
+      expect(c).toMatchObject({ platform: 'web', name: 'Ana Kola', phone: '+355691234567', username: 'ana.k', stage: 'qualified', source: 'form:analiza', needs_reply: false });
+      expect(c.notes).toBe('More clients\nCall after 5');
+      expect((await sql`SELECT * FROM messages WHERE contact_id = ${first.contactId}`).length).toBe(2);
+      expect(h.alerts.filter((a) => a.includes('lead from the form'))).toHaveLength(2);
+      await expect(submitLead(h.deps, b, { name: 'X', phone: '12' })).rejects.toThrow(LeadError);
     });
 
     it('marks sends stuck in pending as unknown without retrying', async () => {

@@ -125,6 +125,17 @@ export const BusinessSchema = z.object({
     })
     .prefault({}),
   track_clicks: z.boolean().default(false),
+  // The public lead form at /l/<slug>: works for everyone, whatever Meta lets the app receive.
+  lead_form: z
+    .object({
+      enabled: z.boolean().default(true),
+      language: z.enum(['en', 'sq', 'he']).default('en'),
+      title: z.string().max(80).optional(),
+      intro: z.string().max(400).optional(),
+      // Shown after sending (a link id from `links`, or a full URL), e.g. a booking page.
+      after_link: z.string().max(300).optional(),
+    })
+    .prefault({}),
   funnels: z.array(FunnelSchema).default([]),
 });
 

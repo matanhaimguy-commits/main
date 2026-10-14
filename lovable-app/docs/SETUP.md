@@ -81,18 +81,36 @@ send (Activity page), so you can watch it work safely first.
 
 ## Meta's review (for strangers)
 
-Meta only delivers messages from **people with a role on your app** (admins, developers, testers)
-until your app has **Advanced Access**. Anyone else gets error `200/2018028`. Instagram comment
-events also need Advanced Access.
+Until your app has **Advanced Access**, Meta delivers DMs, button taps and replies only from **people with a
+role on your app** (admins, developers, testers). For everyone else the message simply never reaches the app:
+no webhook, no trace in Meta's conversations API, and `200/2534048` ("no advanced access to
+instagram_manage_messages and the recipient has no role") when the app asks about that person. Comments and
+the first private reply still work for everyone. The dashboard checks this every hour (Overview, step 11) and
+alerts the moment Meta opens access.
 
-- Test with your tester account first. If strangers' messages don't arrive, go to **App Review →
-  Permissions and features** and request Advanced Access for:
-  - `pages_messaging`, `pages_manage_metadata`, `pages_read_engagement`, `pages_manage_engagement`
-  - `instagram_basic`, `instagram_manage_messages`, `instagram_manage_comments`
-  - `business_management`
-- Complete **Business Verification**.
-- Meta asks for a short screen recording: your tester account commenting, receiving the DM, tapping,
-  and getting an answer.
+"Live" mode and an approved review of *other* permissions do not change this. What to do:
+
+1. **Business Verification** of the business portfolio that owns the app (Business Settings → Security Center).
+2. **App Review → Permissions and features**: request **Advanced Access** for `instagram_manage_messages`
+   (and `pages_messaging` for Facebook Messenger). Each request needs: how the app uses the permission (an
+   automated assistant answers people who message the business and books appointments), a screen recording of
+   the full flow from a tester account (comment → private reply → DM → AI answer → the team taking over in the
+   Inbox), and the reviewer login (Settings → Reviewer access) with step-by-step test instructions.
+3. When the request shows **Advanced access** next to the permission, step 11 turns green on its own. Then
+   switch funnel openers back to "tap" so commenters start a conversation.
+
+## Lead form (works for everyone, today)
+
+Every business has a public form at `https://<your app>/l/<business slug>` (Business → `lead_form`: language
+`en`, `sq` or `he`, title, intro, and a link shown after sending). Submissions land in the **Inbox** as qualified
+leads (marked FORM), one per phone number, with an alert each time. The AI never messages them; a person calls.
+Use it wherever Meta's limits would lose people:
+
+- **Comment funnels:** point the funnel's link at the form (a link in `links` with the form's URL).
+- **DMs before Advanced Access:** Meta Business Suite → Inbox → Automations → **Instant reply** (Instagram and
+  Facebook), with the form link, so everyone who writes gets an answer. Turn it off after Advanced Access, or
+  people get two replies.
+- **Instagram bio** and stories: the same link with `?s=bio` / `?s=story` to see where leads came from.
 
 ## Alerts (optional, recommended)
 
@@ -127,7 +145,7 @@ Get a Telegram message for hot leads, handoffs and problems:
 | "Meta shared no Pages" after login | You didn't tick the Page in the Meta dialog, or you aren't an admin of it. Connect again. |
 | Nothing arrives at all | In order: is the Meta app Live? Is the Page subscribed (Connect)? Did "Register webhooks" succeed? Is "Allow access to messages" on in Instagram? |
 | Comments from your own account do nothing | By design. Test from a second account. |
-| `200/2018028` | The person has no role on the app. Add them as a Tester, or get Advanced Access. |
+| `200/2018028` or `200/2534048` | The person has no role on the app and the app has no Advanced Access. Add them as a Tester to test; for customers, App Review (above) and the lead form meanwhile. |
 | `100/2534025` on a private reply | The comment is older than 7 days, was deleted, or another tool already replied. |
 | `190` | The Page token stopped working (password change, role removed). Press Connect again. |
 | `368` | Meta flagged the messages as spam. Sending pauses for 24 hours automatically. Fix keywords and copy. |

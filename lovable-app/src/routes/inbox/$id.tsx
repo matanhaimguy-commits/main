@@ -64,7 +64,7 @@ function ConversationPage() {
       description={
         c && (
           <>
-            {c.platform === "instagram" ? "Instagram" : "Facebook"} · {c.business} · came from {c.source ?? "a DM"} · first seen {timeAgo(c.created_at)}
+            {c.platform === "instagram" ? "Instagram" : String(c.platform) === "web" ? "Lead form" : "Facebook"} · {c.business} · came from {c.source ?? "a DM"} · first seen {timeAgo(c.created_at)}
           </>
         )
       }

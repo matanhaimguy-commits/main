@@ -84,7 +84,7 @@ function InboxPage() {
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2">
                       <span className="truncate font-medium">{c.name ?? (c.username ? `@${c.username}` : "Unknown")}</span>
-                      <span className="text-xs text-muted-foreground">{c.platform === "instagram" ? "IG" : "FB"}</span>
+                      <span className="text-xs text-muted-foreground">{c.platform === "instagram" ? "IG" : c.platform === "web" ? "FORM" : "FB"}</span>
                     </div>
                     <div className="truncate text-sm text-muted-foreground" dir="auto">
                       {c.last_direction === "out" ? "You: " : ""}
