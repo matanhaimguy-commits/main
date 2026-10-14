@@ -5,6 +5,11 @@ project (TanStack Start on Cloudflare Workers, Lovable Cloud database). The code
 outside Lovable and pushed to the project's GitHub repository; every push to `main` syncs to
 Lovable and rebuilds the app, so changes cost no Lovable credits.
 
+- Lovable editor: https://lovable.dev/projects/239a3368-f157-4af9-9f3c-129789693927
+- Code: github.com/matanhaimguy-commits/agent-start-spark (synced with Lovable). A copy lives in
+  `lovable-app/` of matanhaimguy-commits/main.
+- Setup steps for a new person: [docs/SETUP.md](docs/SETUP.md).
+
 ## Where things are
 
 | Path | What |
