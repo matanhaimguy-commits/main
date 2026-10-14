@@ -30,6 +30,7 @@ interface PageReport {
   subscribedFields?: string[] | { error: string };
   token?: { valid: boolean; missingScopes: string[]; expiresAt: string | null } | { error: string };
   recentComments?: { when: string; username: string | null; text: string; post: string }[] | { error: string };
+  recentDms?: { when: string; from: string | null; text: string }[] | { error: string };
 }
 
 export interface WebhookRejections {
@@ -159,9 +160,39 @@ export async function runMetaDiagnostics(sql: Sql): Promise<MetaDiagnostics> {
         page.recentComments = { error: describeMetaError(err) };
         findings.push(`${c.page_name}: could not read Instagram comments: ${describeMetaError(err)}`);
       }
+
+      try {
+        const conv = await pageApi.get<{
+          data: { messages?: { data: { message?: string; created_time?: string; from?: { id?: string; username?: string } }[] } }[];
+        }>(`${c.page_id}/conversations`, { platform: "instagram", fields: "messages.limit(2){message,created_time,from}", limit: "5" });
+        const dms = conv.data
+          .flatMap((t) => t.messages?.data ?? [])
+          .map((m) => ({ when: m.created_time ?? "", from: m.from?.username ?? null, text: short(m.message, 60) }))
+          .sort((a, b) => b.when.localeCompare(a.when));
+        page.recentDms = dms.slice(0, 8);
+        const [dmEvents] = await sql<{ last: Date | null }[]>`
+          SELECT max(received_at) AS last FROM webhook_events WHERE object = 'instagram' AND payload::text LIKE '%"messaging"%'`;
+        const lastDmEvent = dmEvents?.last ? new Date(dmEvents.last).getTime() : 0;
+        const unseen = dms.filter((m) => m.from !== c.instagram_username && Date.parse(m.when) > lastDmEvent);
+        if (unseen.length) {
+          findings.push(
+            `${c.page_name}: Instagram has ${unseen.length} DM(s) to @${c.instagram_username} that never reached us (latest ${unseen[0]!.when} from @${unseen[0]!.from}). ` +
+              "Meta can read them but is not sending message webhooks.",
+          );
+        }
+      } catch (err) {
+        page.recentDms = { error: describeMetaError(err) };
+        findings.push(
+          `${c.page_name}: Meta refuses to show the Instagram DMs (${describeMetaError(err)}). On @${c.instagram_username}, turn on Settings → Messages and story replies → Message controls → Connected tools → Allow access to messages, then press Connect again.`,
+        );
+      }
     }
   }
   if (findings.length === 0) findings.push("Everything Meta reports looks right.");
+  return finish(sql, report);
+}
+
+async function finish(sql: Sql, report: MetaDiagnostics): Promise<MetaDiagnostics> {
   await setState(sql, "meta_diagnostics", report);
   return report;
 }
