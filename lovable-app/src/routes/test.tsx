@@ -72,6 +72,7 @@ function ChatCard({ slug }: { slug: string }) {
     setChat((c) => ({ ...c, msgs: [...c.msgs, { d: "in", t }] }));
     try {
       const res = await testChatFn({ data: { slug, state: chat, text: t } });
+      if (!Array.isArray(res?.state?.msgs)) throw new Error("The server sent an unexpected answer. Try again.");
       setChat(res.state);
       if (res.error) setError(res.error);
     } catch (err) {
@@ -146,7 +147,9 @@ function CommentCard({ slug }: { slug: string }) {
     setBusy(true);
     setError(null);
     try {
-      setResult(await simulateCommentFn({ data: { slug, platform, text, ...(postId.trim() ? { postId: postId.trim() } : {}) } }));
+      const res = await simulateCommentFn({ data: { slug, platform, text, ...(postId.trim() ? { postId: postId.trim() } : {}) } });
+      if (typeof res?.summary !== "string") throw new Error("The server sent an unexpected answer. Try again.");
+      setResult(res);
     } catch (err) {
       setError(errorText(err));
     } finally {

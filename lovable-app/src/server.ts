@@ -2,6 +2,7 @@ import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
+import { recordServerError } from "./server/error-log.server";
 import { pickWaitUntil, runWithRequestContext } from "./server/request-context";
 
 type ServerEntry = {
@@ -21,15 +22,14 @@ async function getServerEntry(): Promise<ServerEntry> {
 
 // h3 swallows in-handler throws into a normal 500 Response with body
 // {"unhandled":true,"message":"HTTPError"} — try/catch alone never fires for those.
-async function normalizeCatastrophicSsrResponse(response: Response): Promise<Response> {
-  if (response.status < 500) return response;
+async function normalizeCatastrophicSsrResponse(response: Response, captured: unknown): Promise<Response> {
   const contentType = response.headers.get("content-type") ?? "";
   if (!contentType.includes("application/json")) return response;
 
   const body = await response.clone().text();
   if (!isH3SwallowedErrorBody(body)) return response;
 
-  console.error(consumeLastCapturedError() ?? new Error(`h3 swallowed SSR error: ${body}`));
+  console.error(captured ?? new Error(`h3 swallowed SSR error: ${body}`));
   return new Response(renderErrorPage(), {
     status: 500,
     headers: { "content-type": "text/html; charset=utf-8" },
@@ -56,12 +56,21 @@ async function handle(request: Request, env: unknown, ctx: unknown): Promise<Res
   try {
     const handler = await getServerEntry();
     const response = await handler.fetch(request, env, ctx);
-    return await normalizeCatastrophicSsrResponse(response);
+    // Server-function errors arrive serialized and the page shows them; anything else is a crash.
+    if (response.status < 500 || response.headers.get("x-tss-serialized")) return response;
+    const captured = consumeLastCapturedError();
+    await recordServerError(describeRequest(request, response.status), captured ?? `status ${response.status}`);
+    return await normalizeCatastrophicSsrResponse(response, captured);
   } catch (error) {
     console.error(error);
+    await recordServerError(describeRequest(request, 500), error);
     return new Response(renderErrorPage(), {
       status: 500,
       headers: { "content-type": "text/html; charset=utf-8" },
     });
   }
+}
+
+function describeRequest(request: Request, status: number): string {
+  return `${request.method} ${new URL(request.url).pathname} → ${status}`;
 }
