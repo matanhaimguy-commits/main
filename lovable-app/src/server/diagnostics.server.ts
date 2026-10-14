@@ -31,6 +31,10 @@ interface PageReport {
   token?: { valid: boolean; missingScopes: string[]; expiresAt: string | null } | { error: string };
   recentComments?: { when: string; username: string | null; text: string; post: string }[] | { error: string };
   recentDms?: { when: string; from: string | null; text: string }[] | { error: string };
+  /** Every app installed on the Page: another DM tool here can take the messages. */
+  pageApps?: { id: string; name: string | null; fields: string[] }[] | { error: string };
+  /** Which app Meta hands the latest Instagram contact's DMs to (handover protocol). */
+  threadOwner?: { contact: string; ownerAppId: string | null; ours: boolean } | { error: string };
 }
 
 export interface WebhookRejections {
@@ -107,12 +111,45 @@ export async function runMetaDiagnostics(sql: Sql): Promise<MetaDiagnostics> {
     const pageApi = createMetaClient({ accessToken: token, version });
 
     try {
-      const res = await pageApi.get<{ data: { id: string; subscribed_fields?: string[] }[] }>(`${c.page_id}/subscribed_apps`);
+      const res = await pageApi.get<{ data: { id: string; name?: string; subscribed_fields?: string[] }[] }>(`${c.page_id}/subscribed_apps`);
       const ours = res.data.find((a) => a.id === env.META_APP_ID);
       page.subscribedFields = ours?.subscribed_fields ?? [];
+      page.pageApps = res.data.map((a) => ({ id: a.id, name: a.name ?? null, fields: a.subscribed_fields ?? [] }));
       if (!ours) findings.push(`${c.page_name}: the Page is not subscribed to the app. On Connect, press "Subscribe again".`);
+      const others = res.data.filter((a) => a.id !== env.META_APP_ID);
+      if (others.length) {
+        findings.push(
+          `${c.page_name}: other apps are installed on this Page too: ${others.map((a) => a.name ?? a.id).join(", ")}. If one of them is a DM tool (e.g. ManyChat), it can take the Instagram messages before us.`,
+        );
+      }
     } catch (err) {
       page.subscribedFields = { error: describeMetaError(err) };
+    }
+
+    const [contact] = await sql<{ external_id: string; username: string | null }[]>`
+      SELECT external_id, username FROM contacts WHERE business = ${c.business} AND platform = 'instagram' ORDER BY updated_at DESC LIMIT 1`;
+    if (contact) {
+      try {
+        const res = await pageApi.get<{ data: { thread_owner?: { app_id?: string } }[] }>(`${c.page_id}/thread_owner`, {
+          recipient: contact.external_id,
+          platform: "instagram",
+        });
+        const owner = res.data[0]?.thread_owner?.app_id ?? null;
+        page.threadOwner = { contact: contact.username ?? contact.external_id, ownerAppId: owner, ours: owner === env.META_APP_ID };
+        if (owner && owner !== env.META_APP_ID) {
+          findings.push(
+            `${c.page_name}: Meta hands @${contact.username}'s DMs to another app (${owner}), so we only get them on "standby". Make this app the main receiver, or disconnect the other tool.`,
+          );
+        }
+      } catch (err) {
+        page.threadOwner = { error: describeMetaError(err) };
+        if (err instanceof MetaApiError && err.subcode === 2534048) {
+          findings.push(
+            `${c.page_name}: Meta withholds @${contact.username}'s DMs, button taps and replies: the app has only standard access to instagram_manage_messages and this person has no role on the app. ` +
+              "Give the account a Tester role to test, and get advanced access through App Review for real customers.",
+          );
+        }
+      }
     }
 
     try {
