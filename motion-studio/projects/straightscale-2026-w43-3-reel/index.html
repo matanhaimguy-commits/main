@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="sq">
+<head>
+<meta charset="utf-8">
+<title>StraightScale: Fat apo sistem</title>
+<style>
+@font-face { font-family: "Playfair Display"; font-weight: 700; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-700-normal.woff2); }
+@font-face { font-family: "Playfair Display"; font-weight: 900; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-900-normal.woff2); }
+@font-face { font-family: "Playfair Display"; font-weight: 700; font-style: italic; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-700-italic.woff2); }
+@font-face { font-family: "Playfair Display"; font-weight: 900; font-style: italic; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-900-italic.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 600; src: url(assets/fonts/Montserrat/montserrat-latin-600-normal.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 700; src: url(assets/fonts/Montserrat/montserrat-latin-700-normal.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 800; src: url(assets/fonts/Montserrat/montserrat-latin-800-normal.woff2); }
+html, body { margin: 0; background: #1F1F1F; }
+canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script type="module">
+// StraightScale week 43 post 3 "Fat apo sistem". No voice: the clock is this table (docs/treatment.md §5).
+// Signature device: one red line with the gold client dot riding it. A viral spike, a flat silence, then a
+// staircase that climbs one step a month; the dot ends as the gold square of the real mark.
+import { spring, clamp } from '../../lib/motion.js';
+import { LOCKUP } from './assets/brand/mark.js';
+
+const cv = document.getElementById('c');
+const ctx = cv.getContext('2d');
+const W = 1080, H = 1920, X0 = 96, MAXW = 844;
+const C = {
+  red: '#BE0F18', redHi: '#E0414A', gold: '#DD9A10', goldHi: '#F8D06A', goldLo: '#A06C04', line: '#D4AF37',
+  ivory: '#F8F6EF', char: '#1F1F1F', grid: '#3A3631', mute: '#B9B2A5',
+};
+const PF = (w, s, it = false) => `${it ? 'italic ' : ''}${w} ${s}px "Playfair Display"`;
+const MS = (w, s) => `${w} ${s}px Montserrat`;
+
+// ---------- springs and helpers ----------
+const TYPE = [190, 27], UI = [260, 24], POP = [320, 23], SOFT = [90, 19];
+const sp = (t, t0, [k, d] = TYPE) => spring(t - t0, k, d);
+const mix = (a, b, p) => a + (b - a) * p;
+const smooth = (x) => { x = clamp(x); return x * x * x * (x * (x * 6 - 15) + 10); };
+function rng(seed) {
+  let s = seed >>> 0;
+  return () => { s = (s + 0x6D2B79F5) >>> 0; let x = s; x = Math.imul(x ^ (x >>> 15), x | 1); x ^= x + Math.imul(x ^ (x >>> 7), x | 61); return ((x ^ (x >>> 14)) >>> 0) / 4294967296; };
+}
+
+// ---------- the line (world px; baseline y = 0, up is negative) ----------
+const PEAK = -1500, STEP_W = 200, STEP_RISE = 140, STEPS = 12, ST0 = 1800, SLIDE_X = 1500;
+const PTS = [[-1400, 0], [600, 0], [640, PEAK], [690, 0], [712, 26], [736, 0], [ST0, 0]];
+const STEP_AT = []; // vertex index where each step's ramp begins and ends
+for (let i = 0; i < STEPS; i++) {
+  const x = ST0 + i * STEP_W, y = -i * STEP_RISE;
+  PTS.push([x + STEP_W - 50, y]); STEP_AT.push(PTS.length - 1);
+  PTS.push([x + STEP_W, y - STEP_RISE]);
+}
+PTS.push([ST0 + STEPS * STEP_W + 160, -STEPS * STEP_RISE]);
+const LEN = [0];
+for (let i = 1; i < PTS.length; i++) LEN.push(LEN[i - 1] + Math.hypot(PTS[i][0] - PTS[i - 1][0], PTS[i][1] - PTS[i - 1][1]));
+function at(d) {
+  d = clamp(d, 0, LEN[LEN.length - 1]);
+  let lo = 0, hi = LEN.length - 1;
+  while (hi - lo > 1) { const m = (lo + hi) >> 1; if (LEN[m] <= d) lo = m; else hi = m; }
+  const a = PTS[lo], b = PTS[hi], f = (d - LEN[lo]) / ((LEN[hi] - LEN[lo]) || 1);
+  return [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f];
+}
+const dAtX = (x) => { // arc length at a world x on the flat run before the spike
+  return LEN[0] + (x - PTS[0][0]);
+};
+
+// ---------- timeline (seconds) ----------
+const T = {
+  up: 0.55, top: 0.85, down: 1.5, flat: 1.72, hold: 2.3, slide: 2.9, sot: 2.75, neser: 3.75, stair: 4.95, klient: 4.95, sistem: 5.75,
+  parts: [6.75, 8.35, 9.95, 11.55, 13.15], fast: 14.75, pull: 14.6, fati: 15.15, sis2: 16.15, mark: 17.75,
+  reveal: 18.35, brand: 18.85, cta: 19.1, end: 24.0,
+};
+// when the head reaches each key vertex of the line
+// [time, arc length, ease]: 'out' slows into the key, 'in' speeds up into it
+const KEYS = [[0, dAtX(260)], [T.up, LEN[1]], [T.top, LEN[2], 'out'], [T.down, LEN[3], 'in'], [T.flat, LEN[5]], [T.hold, LEN[5] + 50, 'out'],
+  [T.slide, LEN[5] + (SLIDE_X - PTS[5][0]), 'out'], [T.stair, LEN[6]]];
+const RAMP_T = []; // time each step's ramp starts (sound and month labels)
+{ // steps 1-6 at 1.6 s each (the first one under "janë sistem"), steps 7-12 fast, as the camera pulls back
+  let t = T.stair;
+  for (let i = 0; i < STEPS; i++) {
+    const dur = i < 6 ? 1.6 : 0.3;
+    if (i === 6) t = T.fast;
+    KEYS.push([t + dur * 0.62, LEN[STEP_AT[i]]]); RAMP_T.push(t + dur * 0.62);
+    KEYS.push([t + dur * 0.86, LEN[STEP_AT[i] + 1]]);
+    t += dur;
+  }
+  KEYS.push([T.fast + 6 * 0.3 + 0.5, LEN[LEN.length - 1]]);
+}
+function headD(t) {
+  if (t <= KEYS[0][0]) return KEYS[0][1] + (t - KEYS[0][0]) * 140;
+  for (let i = 1; i < KEYS.length; i++) {
+    if (t <= KEYS[i][0]) {
+      const [t0, d0] = KEYS[i - 1], [t1, d1] = KEYS[i];
+      let f = (t - t0) / (t1 - t0);
+      if (KEYS[i][2] === 'out') f = 1 - (1 - f) * (1 - f); // the spike shoots up and slows near the top; the slide brakes
+      if (KEYS[i][2] === 'in') f = f * f;                  // the fall speeds up with gravity
+      return d0 + (d1 - d0) * f;
+    }
+  }
+  return KEYS[KEYS.length - 1][1];
+}
+const head = (t) => at(headD(t));
+
+// ---------- camera ----------
+const FULL = { cx: 2250, cy: -1500, S: 0.21 };
+function camTarget(t) {
+  const [hx, hy] = head(Math.min(t, T.mark));
+  const ax = mix(910, 690, smooth((t - 2.3) / 0.7)), ay = 1350;
+  let cx = hx - (ax - W / 2), cy = (t < T.flat ? 0 : hy) - (ay - H / 2), S = 1;
+  const p = smooth((t - T.pull) / 2.1);
+  cx = mix(cx, FULL.cx, p); cy = mix(cy, FULL.cy, p); S = Math.exp(mix(0, Math.log(FULL.S), p));
+  return [cx, cy, S];
+}
+const CAM_WIN = 0.5, CAM_N = 15;
+function camera(t) {
+  let cx = 0, cy = 0, ls = 0, wsum = 0;
+  for (let i = 0; i < CAM_N; i++) {
+    const f = i / (CAM_N - 1) - 0.5, w = 1 - Math.abs(f) * 1.6;
+    const [x, y, s] = camTarget(Math.max(0, t + f * CAM_WIN));
+    cx += x * w; cy += y * w; ls += Math.log(s) * w; wsum += w;
+  }
+  return { cx: cx / wsum, cy: cy / wsum, S: Math.exp(ls / wsum) };
+}
+const toScreen = (cam, [x, y]) => [(x - cam.cx) * cam.S + W / 2, (y - cam.cy) * cam.S + H / 2];
+
+// ---------- drawing the chart ----------
+function chart(t, cam, alpha) {
+  if (alpha <= 0.01) return;
+  ctx.save(); ctx.globalAlpha = alpha;
+  // baseline
+  const [bx0, by] = toScreen(cam, [-3000, 0]), [bx1] = toScreen(cam, [6000, 0]);
+  ctx.strokeStyle = C.grid; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(bx0, by); ctx.lineTo(bx1, by); ctx.stroke();
+  // the viral peak, marked once the camera pulls back
+  const pk = smooth((t - (T.pull + 1.2)) / 0.6);
+  if (pk > 0) {
+    const [px, py] = toScreen(cam, [640, PEAK]), [qx] = toScreen(cam, [ST0 + STEPS * STEP_W + 160, PEAK]);
+    ctx.save(); ctx.globalAlpha *= pk; ctx.setLineDash([14, 12]); ctx.strokeStyle = C.mute; ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(mix(px, qx, pk), py); ctx.stroke(); ctx.setLineDash([]);
+    label('MAJA VIRALE', px + 30, py - 24, C.mute, pk);
+    ctx.restore();
+  }
+  // month labels under each step (fade out as the camera pulls back)
+  const ml = 1 - smooth((t - T.pull) / 0.6);
+  const MONTHS = ['TET', 'NËN', 'DHJ', 'JAN', 'SHK', 'MAR', 'PRI', 'MAJ', 'QER', 'KOR', 'GUS', 'SHT'];
+  if (ml > 0) MONTHS.forEach((m, i) => {
+    const a = smooth((t - RAMP_T[i] + 0.9) / 0.35) * ml;
+    if (a <= 0) return;
+    const [x, y] = toScreen(cam, [ST0 + i * STEP_W + 20, -i * STEP_RISE + 78]);
+    label(m, x, y, C.mute, a);
+  });
+  // the line, drawn up to the head
+  const dh = headD(Math.min(t, T.mark));
+  ctx.beginPath();
+  let first = true;
+  for (let i = 0; i < PTS.length && LEN[i] < dh; i++) {
+    const [x, y] = toScreen(cam, PTS[i]);
+    if (first) { ctx.moveTo(x, y); first = false; } else ctx.lineTo(x, y);
+  }
+  const [hx, hy] = toScreen(cam, at(dh));
+  ctx.lineTo(hx, hy);
+  ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+  ctx.strokeStyle = C.red; ctx.lineWidth = 14; ctx.stroke();
+  ctx.strokeStyle = C.redHi; ctx.lineWidth = 4; ctx.stroke();
+  ctx.restore();
+}
+function label(s, x, y, c, a = 1) {
+  ctx.save(); ctx.globalAlpha *= a; ctx.font = MS(700, 44); ctx.letterSpacing = '5px';
+  ctx.fillStyle = c; ctx.textBaseline = 'alphabetic'; ctx.fillText(s, x, y); ctx.restore();
+}
+// the client: a gold disc with a hard highlight (as in reel 02)
+function dot(x, y, R = 22, alpha = 1, square = 0, size = 0) {
+  if (alpha <= 0.01) return;
+  ctx.save(); ctx.globalAlpha = alpha;
+  const r = mix(R, size / 2, square), rr = mix(R, size * 0.06, square);
+  ctx.fillStyle = 'rgba(0,0,0,0.45)'; ctx.beginPath(); ctx.roundRect(x - r + 5, y - r + 8, r * 2, r * 2, rr); ctx.fill();
+  ctx.fillStyle = C.goldLo; ctx.beginPath(); ctx.roundRect(x - r, y - r, r * 2, r * 2, rr); ctx.fill();
+  ctx.fillStyle = C.gold; ctx.beginPath(); ctx.roundRect(x - r * 0.95, y - r * 0.95, r * 1.86, r * 1.86, rr * 0.93); ctx.fill();
+  ctx.fillStyle = C.goldHi; ctx.globalAlpha = alpha * (1 - square);
+  ctx.beginPath(); ctx.ellipse(x - r * 0.36, y - r * 0.4, r * 0.3, r * 0.16, -0.7, 0, Math.PI * 2); ctx.fill();
+  ctx.restore();
+}
+
+// ---------- text (masked rise, as in reels 01-03) ----------
+function setFont(f, ls = 0) { ctx.font = f; ctx.letterSpacing = ls + 'px'; }
+function measure(s, f, ls = 0) { setFont(f, ls); return ctx.measureText(s).width; }
+function riseLine(t, segs, x, y, size, tin, tout = null, { k = TYPE, shade = true } = {}) {
+  const pin = sp(t, tin, k), pout = tout == null ? 0 : sp(t, tout, k);
+  if (pin <= 0.001 || pout >= 0.999) return null;
+  const widths = segs.map((g) => measure(g.s, g.f, g.ls || 0));
+  const total = widths.reduce((a, b) => a + b, 0);
+  let cx = x;
+  const box = size * 1.45;
+  ctx.save();
+  ctx.beginPath(); ctx.rect(0, y - size * 1.08, W, box); ctx.clip();
+  const dy = (1 - pin) * box - pout * box;
+  if (shade) { ctx.shadowColor = 'rgba(12,10,10,0.6)'; ctx.shadowBlur = size * 0.28; ctx.shadowOffsetY = size * 0.05; }
+  segs.forEach((g, i) => {
+    setFont(g.f, g.ls || 0); ctx.fillStyle = g.c; ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'left';
+    ctx.fillText(g.s, cx, y + dy);
+    cx += widths[i];
+  });
+  ctx.restore();
+  window.__boxes && window.__boxes.push({ x, y: y - size * 0.8, w: total, h: size, text: segs.map((g) => g.s).join('') });
+  return total;
+}
+const one = (s, f, c, ls = 0) => [{ s, f, c, ls }];
+
+const PARTS = [['Postime', 'me qëllim.'], ['Përgjigje', 'e shpejtë.'], ['Ndjekje', 'kur heshtin.'], ['Rezervim', 'i qartë.'], ['Kthim dhe', 'rekomandim.']];
+function textBeats(t) {
+  const I = C.ivory, G = C.gold;
+  // 1 hook
+  riseLine(t, one('Një video', PF(900, 140), I), X0, 470, 140, 0.0, 1.88);
+  riseLine(t, one('virale', PF(900, 140), I), X0, 620, 140, 0.18, 1.91);
+  riseLine(t, one('është fat.', PF(900, 140, true), G), X0, 780, 140, 0.95, 1.95);
+  // 2 the silence
+  riseLine(t, one('Sot të shohin', PF(900, 112), I), X0, 470, 112, T.sot, 4.75);
+  riseLine(t, one('të gjithë.', PF(900, 112, true), I), X0, 600, 112, T.sot + 0.35, 4.78);
+  riseLine(t, one('Nesër, heshtje.', PF(900, 112, true), G), X0, 780, 112, T.neser, 4.82);
+  // 3 the claim
+  riseLine(t, one('Klientët', PF(900, 132), I), X0, 450, 132, T.klient, 6.55);
+  riseLine(t, one('çdo muaj', PF(900, 132), I), X0, 595, 132, T.klient + 0.2, 6.58);
+  riseLine(t, one('janë sistem.', PF(900, 132, true), G), X0, 760, 132, T.sistem, 6.62);
+  // 4 the system, one part per step
+  PARTS.forEach(([a, b], i) => {
+    const t0 = T.parts[i], t1 = i < 4 ? T.parts[i + 1] - 0.2 : T.fast - 0.1;
+    riseLine(t, one(`SISTEMI · ${i + 1}`, MS(800, 44), G, 5), X0, 360, 44, t0 - 0.05, t1 + 0.02, { k: UI });
+    riseLine(t, one(a, PF(900, 120), I), X0, 520, 120, t0, t1 + 0.04);
+    riseLine(t, one(b, PF(900, 120, true), I), X0, 660, 120, t0 + 0.12, t1 + 0.06);
+  });
+  // 5 the pull-back
+  riseLine(t, one('Fati vjen', PF(900, 104), I), X0, 400, 104, T.fati, T.mark - 0.15);
+  riseLine(t, one('kur do ai.', PF(900, 104, true), I), X0, 520, 104, T.fati + 0.25, T.mark - 0.12);
+  riseLine(t, one('Sistemi,', PF(900, 104), G), X0, 670, 104, T.sis2, T.mark - 0.09);
+  riseLine(t, one('çdo muaj.', PF(900, 104, true), G), X0, 790, 104, T.sis2 + 0.25, T.mark - 0.06);
+}
+
+// ---------- the end: the dot becomes the gold square of the real mark ----------
+const LK_SCALE = MAXW / (LOCKUP.content[2] - LOCKUP.content[0]);
+const LK_X = X0 - LOCKUP.content[0] * LK_SCALE;
+const LK_Y = 300 - LOCKUP.red[1] * LK_SCALE;
+// the symbol inside the lockup file: red square box LOCKUP.red; the gold square is its top-right corner
+// (symbol.png: square 208-1085 x 231-1084, gold 875-1082 x 231-447)
+const SYM_K = (LOCKUP.red[2] - LOCKUP.red[0]) / (1085 - 208);
+const symToScreen = (sx, sy) => [LK_X + (LOCKUP.red[0] + (sx - 208) * SYM_K) * LK_SCALE, LK_Y + (LOCKUP.red[1] + (sy - 231) * SYM_K) * LK_SCALE];
+const GOLD_A = symToScreen(875, 231), GOLD_B = symToScreen(1082, 447);
+const GOLD_C = [(GOLD_A[0] + GOLD_B[0]) / 2, (GOLD_A[1] + GOLD_B[1]) / 2], GOLD_S = GOLD_B[0] - GOLD_A[0];
+const SYM_A = symToScreen(208, 231), SYM_B = symToScreen(1085, 1084);
+let LOCKIMG, GRAIN, VIGNETTE;
+
+function endBeats(t) {
+  if (t < T.mark) return;
+  const cam = camera(T.mark);
+  const from = toScreen(cam, head(T.mark));
+  const p = sp(t, T.mark, [110, 21]);
+  const sq = smooth((t - (T.reveal - 0.25)) / 0.3);
+  const rev = sp(t, T.reveal, UI);
+  // the symbol assembles from the gold square outwards (a clip anchored at its top-right corner)
+  if (rev > 0.001) {
+    const x1 = SYM_B[0] + 4, y0 = SYM_A[1] - 4;
+    const w = mix(GOLD_S, x1 - SYM_A[0] + 4, rev), h = mix(GOLD_S, SYM_B[1] - y0 + 4, rev);
+    ctx.save();
+    ctx.beginPath(); ctx.rect(x1 - w, y0, w, h); ctx.clip();
+    ctx.beginPath(); ctx.rect(0, 0, LK_X + (LOCKUP.text[0] - 30) * LK_SCALE, H); ctx.clip();
+    ctx.drawImage(LOCKIMG, LK_X, LK_Y, LOCKUP.w * LK_SCALE, LOCKUP.h * LK_SCALE);
+    ctx.restore();
+  }
+  // the dot travels to the gold square's place and squares off, then hands over to the real file
+  const x = mix(from[0], GOLD_C[0], p), y = mix(from[1], GOLD_C[1], p);
+  dot(x, y, 20, 1 - smooth((t - T.reveal) / 0.2), sq, GOLD_S);
+  // the wordmark wipes in from the symbol
+  if (t >= T.brand) {
+    const wipe = sp(t, T.brand, [120, 22]);
+    const sw = LOCKUP.text[0] - 30;
+    ctx.save();
+    const x0 = LK_X + sw * LK_SCALE, xe = x0 + (LOCKUP.content[2] - sw + 10) * LK_SCALE * wipe;
+    ctx.beginPath(); ctx.rect(x0, 0, xe - x0, H); ctx.clip();
+    ctx.drawImage(LOCKIMG, LK_X + (1 - wipe) * -60, LK_Y, LOCKUP.w * LK_SCALE, LOCKUP.h * LK_SCALE);
+    ctx.restore();
+  }
+  // CTA
+  riseLine(t, one('Shkruaj', PF(700, 110, true), C.ivory), X0, 850, 110, T.cta);
+  const fp = sp(t, T.cta + 0.5, UI);
+  if (fp > 0.001) {
+    const bx = X0, by = 920, bw = MAXW, bh = 170;
+    ctx.save();
+    ctx.strokeStyle = C.line; ctx.lineWidth = 5;
+    ctx.beginPath(); ctx.roundRect(bx, by, bw * fp, bh, 85); ctx.stroke();
+    const typed = Math.floor(clamp((t - (T.cta + 0.6)) / 0.5) * 7);
+    if (typed > 0) { setFont(MS(800, 100), 6); ctx.fillStyle = C.ivory; ctx.fillText('ANALIZA'.slice(0, typed), bx + 60, by + 122); }
+    ctx.restore();
+    window.__boxes && window.__boxes.push({ x: bx + 60, y: by + 40, w: 520, h: 100, text: 'ANALIZA' });
+  }
+  riseLine(t, one('në komente.', PF(700, 110, true), C.ivory), X0, 1220, 110, T.cta + 1.25);
+  riseLine(t, [{ s: 'Analizë falas, ', f: MS(700, 52), c: C.ivory }, { s: '45 minuta.', f: MS(700, 52), c: C.gold }], X0, 1340, 52, T.cta + 1.9);
+}
+
+// ---------- texture ----------
+function makeGrain() {
+  const g = document.createElement('canvas'); g.width = g.height = 256;
+  const gx = g.getContext('2d'), img = gx.createImageData(256, 256), r = rng(11);
+  for (let i = 0; i < img.data.length; i += 4) { const v = r() * 255; img.data[i] = img.data[i + 1] = img.data[i + 2] = v; img.data[i + 3] = 255; }
+  gx.putImageData(img, 0, 0);
+  return g;
+}
+function makeVignette() {
+  const v = document.createElement('canvas'); v.width = W; v.height = H;
+  const vx = v.getContext('2d'), g = vx.createRadialGradient(W / 2, H * 0.48, H * 0.25, W / 2, H * 0.48, H * 0.75);
+  g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,0.45)');
+  vx.fillStyle = g; vx.fillRect(0, 0, W, H);
+  return v;
+}
+function grain(t, alpha) {
+  const r = rng(Math.floor(t * 24) + 1);
+  ctx.save(); ctx.globalAlpha = alpha; ctx.globalCompositeOperation = 'overlay';
+  const ox = -Math.floor(r() * 256), oy = -Math.floor(r() * 256);
+  for (let y = oy; y < H; y += 256) for (let x = ox; x < W; x += 256) ctx.drawImage(GRAIN, x, y);
+  ctx.restore();
+}
+
+// ---------- sound events (read by audio/score.py through tools/events.mjs; never retyped) ----------
+window.EVENTS = [
+  { t: T.up, kind: 'rise' }, { t: T.top, kind: 'peak' }, { t: T.down + 0.05, kind: 'drop' },
+  ...RAMP_T.map((t, i) => ({ t, kind: i < 6 ? 'step' : 'stepfast' })),
+  ...T.parts.map((t) => ({ t, kind: 'part' })),
+  { t: T.pull, kind: 'pull' }, { t: T.mark, kind: 'travel' }, { t: T.reveal, kind: 'brand' },
+  ...Array.from({ length: 7 }, (_, i) => ({ t: T.cta + 0.6 + (i + 1) * 0.5 / 7 - 0.035, kind: 'key' })),
+];
+
+function seek(t) {
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.fillStyle = C.char; ctx.fillRect(0, 0, W, H);
+  const cam = camera(Math.min(t, T.mark + 0.25));
+  const fadeChart = 1 - smooth((t - T.mark) / 0.5);
+  chart(t, cam, fadeChart);
+  if (t < T.mark) { const [x, y] = toScreen(cam, head(t)); dot(x, y); }
+  ctx.drawImage(VIGNETTE, 0, 0);
+  grain(t, 0.06);
+  textBeats(t);
+  endBeats(t);
+}
+
+const faces = ['700 10px "Playfair Display"', '900 10px "Playfair Display"', 'italic 700 10px "Playfair Display"', 'italic 900 10px "Playfair Display"',
+  '600 10px Montserrat', '700 10px Montserrat', '800 10px Montserrat'];
+await Promise.all(faces.map((f) => document.fonts.load(f, 'ëçË')));
+const load = (src) => new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = no; i.src = src; });
+LOCKIMG = await load('assets/brand/wordmark-white.png');
+GRAIN = makeGrain(); VIGNETTE = makeVignette();
+window.DURATION = T.end;
+window.seek = seek;
+seek(0);
+</script>
+</body>
+</html>
