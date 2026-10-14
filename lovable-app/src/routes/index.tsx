@@ -73,7 +73,8 @@ function OverviewPage() {
                   <>App ID {o.metaApp.id}.</>
                 ) : (
                   <>
-                    Create the app at developers.facebook.com (see the guide), then paste its App ID and App Secret in{" "}
+                    Create the app at developers.facebook.com (follow the{" "}
+                    <Link to="/guide" className="underline">step-by-step guide</Link>), then paste its App ID and App Secret in{" "}
                     <Link to="/settings" className="underline">Settings</Link>.
                   </>
                 )}

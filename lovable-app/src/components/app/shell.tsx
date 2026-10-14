@@ -1,6 +1,7 @@
 import { Link, useRouter } from "@tanstack/react-router";
 import {
   Activity,
+  BookOpen,
   Bot,
   Building2,
   Gauge,
@@ -23,6 +24,7 @@ const NAV: { to: string; label: string; icon: LucideIcon }[] = [
   { to: "/test", label: "Test the bot", icon: Bot },
   { to: "/connect", label: "Connect", icon: PlugZap },
   { to: "/settings", label: "Settings", icon: Settings },
+  { to: "/guide", label: "Meta app guide", icon: BookOpen },
 ];
 
 export function Shell({ title, description, actions, children }: { title: string; description?: ReactNode; actions?: ReactNode; children: ReactNode }) {

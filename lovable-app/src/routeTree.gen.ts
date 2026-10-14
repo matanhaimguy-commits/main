@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ActivityRouteImport } from './routes/activity'
 import { Route as ConnectRouteImport } from './routes/connect'
 import { Route as DataDeletionRouteImport } from './routes/data-deletion'
+import { Route as GuideRouteImport } from './routes/guide'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as SettingsRouteImport } from './routes/settings'
@@ -45,6 +46,11 @@ const ConnectRoute = ConnectRouteImport.update({
 const DataDeletionRoute = DataDeletionRouteImport.update({
   id: '/data-deletion',
   path: '/data-deletion',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GuideRoute = GuideRouteImport.update({
+  id: '/guide',
+  path: '/guide',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -118,6 +124,7 @@ export interface FileRoutesByFullPath {
   '/activity': typeof ActivityRoute
   '/connect': typeof ConnectRoute
   '/data-deletion': typeof DataDeletionRoute
+  '/guide': typeof GuideRoute
   '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
   '/settings': typeof SettingsRoute
@@ -137,6 +144,7 @@ export interface FileRoutesByTo {
   '/activity': typeof ActivityRoute
   '/connect': typeof ConnectRoute
   '/data-deletion': typeof DataDeletionRoute
+  '/guide': typeof GuideRoute
   '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
   '/settings': typeof SettingsRoute
@@ -157,6 +165,7 @@ export interface FileRoutesById {
   '/activity': typeof ActivityRoute
   '/connect': typeof ConnectRoute
   '/data-deletion': typeof DataDeletionRoute
+  '/guide': typeof GuideRoute
   '/login': typeof LoginRoute
   '/privacy': typeof PrivacyRoute
   '/settings': typeof SettingsRoute
@@ -178,6 +187,7 @@ export interface FileRouteTypes {
     | '/activity'
     | '/connect'
     | '/data-deletion'
+    | '/guide'
     | '/login'
     | '/privacy'
     | '/settings'
@@ -197,6 +207,7 @@ export interface FileRouteTypes {
     | '/activity'
     | '/connect'
     | '/data-deletion'
+    | '/guide'
     | '/login'
     | '/privacy'
     | '/settings'
@@ -216,6 +227,7 @@ export interface FileRouteTypes {
     | '/activity'
     | '/connect'
     | '/data-deletion'
+    | '/guide'
     | '/login'
     | '/privacy'
     | '/settings'
@@ -236,6 +248,7 @@ export interface RootRouteChildren {
   ActivityRoute: typeof ActivityRoute
   ConnectRoute: typeof ConnectRoute
   DataDeletionRoute: typeof DataDeletionRoute
+  GuideRoute: typeof GuideRoute
   LoginRoute: typeof LoginRoute
   PrivacyRoute: typeof PrivacyRoute
   SettingsRoute: typeof SettingsRoute
@@ -279,6 +292,13 @@ declare module '@tanstack/react-router' {
       path: '/data-deletion'
       fullPath: '/data-deletion'
       preLoaderRoute: typeof DataDeletionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/guide': {
+      id: '/guide'
+      path: '/guide'
+      fullPath: '/guide'
+      preLoaderRoute: typeof GuideRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -380,6 +400,7 @@ const rootRouteChildren: RootRouteChildren = {
   ActivityRoute: ActivityRoute,
   ConnectRoute: ConnectRoute,
   DataDeletionRoute: DataDeletionRoute,
+  GuideRoute: GuideRoute,
   LoginRoute: LoginRoute,
   PrivacyRoute: PrivacyRoute,
   SettingsRoute: SettingsRoute,
