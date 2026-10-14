@@ -27,7 +27,7 @@ fit: [saas, education, b2b, agency]
 wow: 3
 relevance: 4
 pacing:
-  cuts_per_10s: 1.89
+  cuts_per_10s: 0.0
   mean_s_between_big_changes: 1.48
   change_rhythm_cv: 0.69
   quiet_share_2fps: 0.056
@@ -76,6 +76,8 @@ pop roughly every 2-3 s. Cuts are low (1.89 per 10 s) because the background nev
 in 0-2 s comes from the manual dragging, deliberately busy and wrong. CV 0.69: the steps section is steady, the
 gag at 30 s breaks the rhythm, and the ending slows to one uncut 2 s shot that loops back to the jerky
 opening, a clean before and after on rewatch.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 37.0 s sampled (0.0 per 10 s); 7 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: deep teal water (#123a3c, #3d6a87) as the ground, periwinkle and pale sky (#92a7d4,

@@ -76,6 +76,8 @@ because the character fills only about a quarter of a white frame, so each pose 
 motion being the typing caption. The film is mostly rests, and the voice carries the timing. It ends on the
 shortest beat and loops cleanly, which is why a 6 s piece gets watched several times.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 6.0 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette: near-white ground (#fefeff), soft dark grey line (#5f5c5a), pink blush on the cheeks, a pale
   yellow sandal and yellow action ticks as the only colour accents.

@@ -27,7 +27,7 @@ fit: [saas, agency, personal-brand, b2b]
 wow: 3
 relevance: 5
 pacing:
-  cuts_per_10s: 7.39
+  cuts_per_10s: 0.43
   mean_s_between_big_changes: 0.5
   change_rhythm_cv: 0.0
   quiet_share_2fps: 0.0
@@ -81,6 +81,8 @@ camera plus a UI state change every half second keeps the frame-difference high 
 two-part: a 2 s confession, then a 20 s demo built as a chain of micro-interactions at about one per second. It
 ends on the logo hold for about 2 s, and the persistent question caption sends viewers to the comments rather
 than into a loop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 1 cuts in 23.0 s sampled (0.43 per 10 s), at 2.5 s; 17 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: warm grey room (#766c59, #a9a9a2), near-black monitor and desk (#0e120b, #252e1d, #4a4d3c),

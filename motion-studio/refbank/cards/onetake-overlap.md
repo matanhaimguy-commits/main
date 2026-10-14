@@ -27,7 +27,7 @@ fit: [agency, b2b, saas, events]
 wow: 4
 relevance: 4
 pacing:
-  cuts_per_10s: 4.67
+  cuts_per_10s: 2.0
   mean_s_between_big_changes: 0.68
   change_rhythm_cv: 0.72
   quiet_share_2fps: 0.069
@@ -61,6 +61,8 @@ The message exists only in register. Two plates share one random dot grid and on
 
 ## Pacing read
 2 fps: 4.67 "cuts" per 10 s (slams and the snap), big changes every 0.68 s, CV 0.72, 7 % quiet. Full rate: 17 % still, 27 % quiet, 12 beats, transitions at 0.5, 9.08 and 12.83 s, longest quiet run 0.83 s (a rest WARN: nothing reaches 1 s), beat CV 0.67, spread 7.6x. The one planned rest (3.6-4.2 s) is short; energy peaks at the snap (6 s) and the name (12 s). No loop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 3 cuts in 15.0 s sampled (2.0 per 10 s), at 0.5, 9.0, 12.0 s; 7 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 Cream stock (#f1ebe0) on warm grey (#b1a99c, #bbbab0); fluorescent pink (#e9579f, sixth in the measured list) and riso blue (#3275a2) overprinting to violet. Heavy condensed grotesk for the big words, monospace small print, corner registration crosshairs, flat light.

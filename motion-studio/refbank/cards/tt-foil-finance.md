@@ -78,6 +78,8 @@ anticipation: will it go up again? The steps arrive at uneven intervals (2.5, 3.
 unevenness keeps the viewer guessing, and the last 4 s are flat, landing on today's date. No outro, no loop
 device; the ending resolves the question.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 13.0 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette by role: near-black blue-greys (#171f24, #242a2d, #0e0f0d) from the darkened photo, a warm dark olive
   (#1f1d14) from the grass, light grey axis labels (#a8acae), white type, light-blue line, with the red Swiss flag

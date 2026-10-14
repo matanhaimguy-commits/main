@@ -27,7 +27,7 @@ fit: [restaurant, local-service, real-estate, ecommerce]
 wow: 3
 relevance: 3
 pacing:
-  cuts_per_10s: 6.96
+  cuts_per_10s: 0.87
   mean_s_between_big_changes: 0.61
   change_rhythm_cv: 0.43
   quiet_share_2fps: 0.0
@@ -75,6 +75,8 @@ wipes across the lens and the bubble pops in. CV 0.43 means an even pulse; there
 energy peaks at the confrontation (3-5.5 s), then the cell scenes slow down into small comfort gestures (eat,
 belly pat, blanket) and the last 1.5 s is a near-hold on the laughing face, a soft ending that reads as "happily
 ever after" rather than a loop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 1 cuts in 11.5 s sampled (0.87 per 10 s), at 1.5 s; 8 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: cold blue-grey street and navy uniforms (#111218, #383231), warm beige cell walls and blanket

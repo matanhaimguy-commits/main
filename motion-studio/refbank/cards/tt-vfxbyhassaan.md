@@ -27,7 +27,7 @@ fit: [agency, local-service, real-estate, personal-brand]
 wow: 4
 relevance: 4
 pacing:
-  cuts_per_10s: 4.29
+  cuts_per_10s: 2.86
   mean_s_between_big_changes: 0.74
   change_rhythm_cv: 0.67
   quiet_share_2fps: 0.111
@@ -76,6 +76,8 @@ uneven rhythm: 2.5 s of raw footage, 3.5 s of rapid stage changes, then the long
 render. That long ending hold is the payoff and the only real rest. The very low hook change (0.096) means the
 first two seconds rely entirely on the headline. It ends on the still render, which makes viewers replay to
 compare it with the green-screen start.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 4 cuts in 14.0 s sampled (2.86 per 10 s), at 2.5, 4.5, 6.5, 8.5 s; 6 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: the final is deep forest darks (#1a1f0c, #342e16, #4b4938) with mossy mid greens (#627851,

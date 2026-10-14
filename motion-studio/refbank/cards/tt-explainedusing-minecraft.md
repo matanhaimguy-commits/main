@@ -27,7 +27,7 @@ fit: [finance, education, saas, b2b, real-estate]
 wow: 3
 relevance: 4
 pacing:                               # 1.5 s sampling, 48 frames cover 0-70.5 s of 76 s
-  cuts_per_10s: 6.39
+  cuts_per_10s: 5.28
   mean_s_between_big_changes: 1.5
   change_rhythm_cv: 0.0
   quiet_share_2fps: 0.0
@@ -84,6 +84,8 @@ word of caption at a time (white bold sans with a dark shadow, about 70 px on 10
 film. The 0.827 hook change is the cut from the finished estate to the aerial and then to the empty plain.
 CV 0.0 is the sampling step; within the steady cutting, energy peaks at the zombie threat (27 s), the plague
 (50 s) and the confrontation (55-60 s). It ends on the real-history bridge, not a loop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 38 cuts in 72.0 s sampled (5.28 per 10 s), at 1.5, 3.0, 4.5, 6.0, 7.5, 9.0, 10.5, 13.5, 15.0, 19.5, 21.0, 22.5 s; 46 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette: saturated grass greens (#569e37, #465d30), dirt and wood browns (#362b13, #91712e), pale sky

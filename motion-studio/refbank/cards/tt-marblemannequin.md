@@ -79,6 +79,8 @@ then a 2 s rest on the remaining block before the stack reappears. The reset at 
 stack comes back slightly to the right of where it started, so the loop is a soft jump rather than a perfect
 match, which the factory rhythm hides.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 9.0 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette by role: mustard yellow tiles (#d59921), pink material (#d2a29c with speckle, shadows #ac6c65),
   light blue platforms (#89a1d3) with deep blue logo and edges (#4d6eb3), orange stripes, black press with

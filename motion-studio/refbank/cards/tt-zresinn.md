@@ -27,7 +27,7 @@ fit: [ecommerce, events, personal-brand, restaurant]
 wow: 4
 relevance: 3
 pacing:
-  cuts_per_10s: 19.33
+  cuts_per_10s: 5.33
   mean_s_between_big_changes: 0.5
   change_rhythm_cv: 0.0
   quiet_share_2fps: 0.0
@@ -80,6 +80,8 @@ rate is probably faster than our 2 fps sampling can see. No rest anywhere (quiet
 0.845 is the highest kind: the frame changes almost completely every half second from the start. The structure is
 a 1.5 s intro, a 6.5 s chorus block, and the same block again. It ends on "DO me LIKE" and the loop cuts back to
 the tartan intro, which plays as a natural restart of the song phrase.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 8 cuts in 15.0 s sampled (5.33 per 10 s), at 1.0, 3.5, 4.5, 7.0, 8.5, 10.5, 11.5, 14.0 s; 29 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: charcoal and black grounds (#2c2b2c), navy tartan (#3b4a6b), paper white (#e2e2e0), warm greys

@@ -27,7 +27,7 @@ fit: [local-service, events, education, ecommerce]
 wow: 4
 relevance: 4
 pacing:
-  cuts_per_10s: 16.0
+  cuts_per_10s: 3.5
   mean_s_between_big_changes: 0.51
   change_rhythm_cv: 0.15
   quiet_share_2fps: 0.0
@@ -81,6 +81,8 @@ is regular and predictable, which suits a list format. The live-action bounce is
 cycle (about 1.5 s) and acts as the rest; energy peaks inside each world. No outro: the film stops while the
 fourth hero is still falling, and the first frame (him rising over a fading sparkle) works as the return from
 that world, so the loop closes.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 7 cuts in 20.0 s sampled (3.5 per 10 s), at 2.0, 4.5, 7.0, 9.5, 12.0, 15.0, 17.0 s; 32 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: live-action sky blue and yard tones (#3d528d, #718cd0, #725c32), world colours by portal

@@ -27,7 +27,7 @@ fit: [restaurant, ecommerce, events, agency]
 wow: 5
 relevance: 3
 pacing:
-  cuts_per_10s: 19.09
+  cuts_per_10s: 0.0
   mean_s_between_big_changes: 0.5
   change_rhythm_cv: 0.0
   quiet_share_2fps: 0.0
@@ -71,6 +71,8 @@ repeats every 3 to 4 s and the eyeball pile grows. Handheld phone walking in and
 there are no edits, it is one 11 s take. No rests after the 1 s setup, with peaks at 2.0 s (first slap and pop),
 3.5 to 4.0 s (tongue toward the lens) and 8.5 s (second pop). The growing eyeball pile is the escalation. It ends
 mid-wiggle, so a loop back to the calm opening feels like a reset.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 11.0 s sampled (0.0 per 10 s); 21 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette: beige and grey tiles (#88796e, #a6978b), dark box (#2c2220, #575245), the creature's magenta (#802745

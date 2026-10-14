@@ -27,7 +27,7 @@ fit: [saas, health, local-service, finance, real-estate]
 wow: 4
 relevance: 4
 pacing:
-  cuts_per_10s: 4.0
+  cuts_per_10s: 1.33
   mean_s_between_big_changes: 0.83
   change_rhythm_cv: 1.11
   quiet_share_2fps: 0.172
@@ -62,6 +62,8 @@ Nested zoom with no cuts. Three levels drawn in their own units: a 52 x 7 year g
 
 ## Pacing read
 2 fps: 4.0 "cuts" per 10 s, but these are the dives and the whip, not edits; big changes every 0.83 s, uneven (CV 1.11), 17 % quiet. Full rate: 21 % still, 30 % quiet, 6 beats, transitions at 2.75 and 9.08 s, longest quiet run 1.92 s, beat CV 0.61, spread 8.7x. Shape: fill, plunge, scan, held breath, deeper plunge, dead-still landing (the loudest moment), whip, ripple, 3 s still end. Holds are truly frozen (slow pushes failed their first render). No loop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 2 cuts in 15.0 s sampled (1.33 per 10 s), at 2.5, 9.5 s; 6 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 Electric blue ground (#2a3ad0 to #616cdc), white cells at partial opacity, one warm yellow accent (not in the measured top five) only for the slot, block and name. Grotesk labels, monospace times. Flat.

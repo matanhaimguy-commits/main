@@ -77,6 +77,8 @@ freeze, but the energy decays after each landing. The longest phase is the final
 also the payoff. The last 2.5 s are a held finished row: it ends satisfied rather than looping, with no line-clear
 or reset.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 13.0 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette by role: candy pink-magenta well (#b774b8, #b068ab), deep plum shadows (#561d28), teal-cyan piece
   (#2b8673 in shadow), periwinkle floor and reflections (#6c76a8), lime green, violet and tiger-brown pieces.

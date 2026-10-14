@@ -27,7 +27,7 @@ fit: [saas, finance, agency, b2b]
 wow: 3
 relevance: 3
 pacing:
-  cuts_per_10s: 1.25
+  cuts_per_10s: 0.0
   mean_s_between_big_changes: 0.89
   change_rhythm_cv: 0.74
   quiet_share_2fps: 0.0
@@ -77,6 +77,8 @@ broken by quick falls. The hook change (0.26) is moderate because the first seco
 cut. There are no quiet frames at 2 fps, yet the film feels calm because each action is single and readable.
 It ends on the opening frame, so the replay starts without a seam; viewers often watch several cycles before
 noticing it is a loop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 8.0 s sampled (0.0 per 10 s); 1 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: near-black brown void (#18120b, #271d14, #342a1f), the plinth in dark warm grey (#433625),

@@ -62,6 +62,8 @@ Before and after on a split screen with one shared clock. Both halves run the sa
 ## Pacing read
 2 fps: 0 cuts, big changes every 5.0 s, CV 0.67, 24 % quiet. Full rate: 24 % still, 61 % quiet (the highest in the set), 3 beats, no transitions, longest quiet run 2.17 s, beat CV 0.87, spread 17.3x (the widest). The case notes warn that stillness metrics over-read on dark grounds. Shape: one long build (the hour), one held breath, one reveal. Restraint looks premium but is slow for a feed. No loop.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 15.0 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 Ink-black ground (#0e0f13 to #191920) with faint vertical streaks, bone-white brush (#9c9891 in its shadows), small dark chips with a cold blue dot, one vermilion seal. Thin monospace labels (too small for a phone), a light rounded grotesk wordmark.
 

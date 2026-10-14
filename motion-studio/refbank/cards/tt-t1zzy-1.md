@@ -27,7 +27,7 @@ fit: [events, personal-brand, ecommerce]
 wow: 3
 relevance: 2
 pacing:                               # frames_metrics.py on a 1 fps sample (saturated: every sample is a cut)
-  cuts_per_10s: 9.69
+  cuts_per_10s: 5.94
   mean_s_between_big_changes: 1.0
   change_rhythm_cv: 0.0
   quiet_share_2fps: 0.0
@@ -70,6 +70,8 @@ At a 1 fps sample every sample is a new frame state (9.69 cuts per 10 s, CV 0.0,
 least one change per beat, with no rests. Energy is flat-out from the first frame; variation comes from colour
 and word size (lens-filling letters at 7 and 23 s versus small words deep in the tunnel). The ending switches mode
 to a bubble burst and a held avatar orb, a signature rather than a loop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 19 cuts in 32.0 s sampled (5.94 per 10 s), at 2.0, 3.0, 4.0, 7.0, 8.0, 9.0, 12.0, 13.0, 18.0, 19.0, 20.0, 21.0 s; 31 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 Near black (#0b0d17), violet (#271156), teal grey (#445f68), white, orchid (#9d59a6), mint (#52edb4), pink and red

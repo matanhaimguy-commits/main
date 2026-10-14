@@ -27,7 +27,7 @@ fit: [local-service, real-estate, events, restaurant]
 wow: 4
 relevance: 4
 pacing:
-  cuts_per_10s: 5.83
+  cuts_per_10s: 0.42
   mean_s_between_big_changes: 0.52
   change_rhythm_cv: 0.2
   quiet_share_2fps: 0.0
@@ -74,6 +74,8 @@ take, and the "cuts" are fast tilts into the sky. CV 0.2 means steady change. Th
 cutting to footage plus the outline. Structure: 9 s of absence and searching, then a 15 s payoff that mostly holds,
 refreshed by a new person entering the foreground every 3 to 4 s. It ends on the hold, so the loop returns to the
 headline card.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 1 cuts in 24.0 s sampled (0.42 per 10 s), at 0.5 s; 14 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette: overcast whites and greys (#e8e9ec, #d3d7dd, #c2c7cd) fill most of the frame, warm grey cobbles

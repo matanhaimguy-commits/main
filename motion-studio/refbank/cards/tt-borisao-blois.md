@@ -27,7 +27,7 @@ fit: [events, ecommerce, local-service, agency]
 wow: 4
 relevance: 2
 pacing:
-  cuts_per_10s: 3.33
+  cuts_per_10s: 0.0
   mean_s_between_big_changes: 0.55
   change_rhythm_cv: 0.26
   quiet_share_2fps: 0.0
@@ -76,6 +76,8 @@ show one real reframe at about 9.5-10 s when the phone swings from looking down 
 is two long takes: 9.5 s on the first beast, 8 s on the approach to the second. The hook change (0.243) is low:
 the hook is the image, not motion. No rest, no climax, no outro: it stops on an approach, which is a cliffhanger
 for the next post.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 18.0 s sampled (0.0 per 10 s); 6 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: ocean blues (#316fc1, #558fd0, #8fbde7), sky and glare whites (#dff1fb), window frame and

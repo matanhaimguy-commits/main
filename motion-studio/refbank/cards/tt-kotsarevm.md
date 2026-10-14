@@ -74,6 +74,8 @@ brand red, black outlines only on the cartoon N.
 playback bursts; the peak is 15 to 19 s, a morph every half second. It ends on the logo's first frame, a seamless
 loop.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 20.0 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette: black desk and tablet (#101012, #17171a, #070709), cream canvas (#cdcbc6), brand red (averaged dark as
   #673030) as the only accent; popcorn yellow only in the morph chain.

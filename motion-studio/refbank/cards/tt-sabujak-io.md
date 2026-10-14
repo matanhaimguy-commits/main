@@ -27,7 +27,7 @@ fit: [agency, personal-brand, local-service, real-estate]
 wow: 3
 relevance: 4
 pacing:
-  cuts_per_10s: 10.0
+  cuts_per_10s: 5.29
   mean_s_between_big_changes: 0.65
   change_rhythm_cv: 0.79
   quiet_share_2fps: 0.0
@@ -74,6 +74,8 @@ Each portfolio clip lasts 1 to 2 s, and the persistent caption keeps the joke re
 every 0.5 to 1 s. No rest at all (quiet share 0). Energy peaks right after the drop and stays high until the end,
 which stops on a glitching logo with no outro, so the loop jumps back to the calm selfie and the contrast
 replays.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 9 cuts in 17.0 s sampled (5.29 per 10 s), at 2.5, 6.0, 7.0, 8.0, 9.0, 10.0, 12.0, 13.5, 14.5 s; 17 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: warm skin and room tones in the setup (#7a4d4f, #d0b7af, #251a1b), then saturated graphic

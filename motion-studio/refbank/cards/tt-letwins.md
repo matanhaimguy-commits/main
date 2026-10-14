@@ -27,7 +27,7 @@ fit: [health, ecommerce, finance, real-estate]
 wow: 4
 relevance: 3
 pacing:
-  cuts_per_10s: 10.0
+  cuts_per_10s: 1.43
   mean_s_between_big_changes: 0.5
   change_rhythm_cv: 0.0
   quiet_share_2fps: 0.0
@@ -78,6 +78,8 @@ one real cut at 3.5 s. The rest of the "change" is the moving aerial plate and t
 resolution, so the numbers overstate the editing. The real shape is a 3.5 s slow build (sleep, roll, fall) then
 3.5 s of reaction. The hook change in the first 2 s (0.569) comes from plate motion, not cutting. It ends
 mid-conversation with no outro, which pushes a replay to see the fall again.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 1 cuts in 7.0 s sampled (1.43 per 10 s), at 3.5 s; 7 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: pink satin pyjamas (#d0b9cd, #a3959d) as the hero colour, black outfit (#313032) as the

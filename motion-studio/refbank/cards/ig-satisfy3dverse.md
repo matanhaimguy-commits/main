@@ -27,7 +27,7 @@ fit: [ecommerce, events, agency, any]
 wow: 4
 relevance: 3
 pacing:
-  cuts_per_10s: 2.93
+  cuts_per_10s: 0.16
   mean_s_between_big_changes: 1.54
   change_rhythm_cv: 0.15
   quiet_share_2fps: 0.0
@@ -84,6 +84,8 @@ are mostly fast camera moves past new set pieces rather than edits. Quiet share 
 change 0.425 is high, the film starts already moving. Energy stays flat-high for the whole minute; the only
 shape comes from the instrument family changing. The final frame matches the first (racks, pastel keys,
 handle), so it loops without a seam.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 1 cuts in 61.5 s sampled (0.16 per 10 s), at 21.0 s; 18 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette: pale warm greys for the wall (#d3d2ce, #cbcac6, #bfbdba), chrome wire, small saturated accents per

@@ -27,7 +27,7 @@ fit: [saas, personal-brand, events, agency]
 wow: 3
 relevance: 3
 pacing:                               # frames_metrics.py on a 1 fps sample
-  cuts_per_10s: 4.88
+  cuts_per_10s: 3.26
   mean_s_between_big_changes: 1.48
   change_rhythm_cv: 1.09
   quiet_share_2fps: 0.19
@@ -71,6 +71,8 @@ At a 1 fps sample: 4.88 cuts per 10 s, a big change every 1.48 s, the most uneve
 an 8 s near-silent intro (longest quiet 7 s, quiet share 0.19), one cut per beat in the middle, then a slow 5 s
 line build. The middle repeats almost exactly (9-19 and 25-35 s), making the song structure visible. Black first
 and last frames give a quiet loop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 14 cuts in 43.0 s sampled (3.26 per 10 s), at 9.0, 10.0, 11.0, 16.0, 17.0, 18.0, 19.0, 23.0, 25.0, 26.0, 30.0, 34.0 s; 21 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 Black, white (#f6f5f7) and greys (#262427, #5d5d61, #acabb0), with message blue and title green as accents. Heavy

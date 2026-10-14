@@ -74,6 +74,8 @@ product area falls under the hard-cut threshold. In reality there is a swap roug
 every 1.17 s on average when a tall cup becomes a low bowl; CV 0.47 reflects similar versus different shapes. No
 rests: the rhythm is constant from 1 s to the end, and with no outro it loops straight back.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 7.0 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette: dark navy wall (#101a27), near-black shadow (#07070b), warm wood table (#ccb3a1), brown curtain
   (#3b2720), brand violet (#413e62) on the sign; the products give the colour pops.

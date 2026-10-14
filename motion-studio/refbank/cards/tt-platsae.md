@@ -27,7 +27,7 @@ fit: [events, personal-brand, ecommerce, agency]
 wow: 4
 relevance: 2
 pacing:                               # frames_metrics.py on a 1 fps sample (saturated: every sample is a cut)
-  cuts_per_10s: 9.64
+  cuts_per_10s: 8.21
   mean_s_between_big_changes: 1.0
   change_rhythm_cv: 0.0
   quiet_share_2fps: 0.0
@@ -72,6 +72,8 @@ At a 1 fps sample every sample is a cut (9.64 per 10 s, CV 0.0): the metric is s
 least one word or world per beat. No rests (quiet share 0). Rhythm varies only by scale: small words and flat
 lines (2, 20, 26-27 s) against giant slammed chorus words (14-25 s). It ends on a bloom with no logo and does not
 loop cleanly.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 23 cuts in 28.0 s sampled (8.21 per 10 s), at 3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0 s; 27 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 Violet-black space (#1d1526, #594388), hot purple (#bd5dd8), red (#b11e37), white highlights (#ece7ed), with lime,

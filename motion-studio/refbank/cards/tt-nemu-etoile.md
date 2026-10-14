@@ -82,6 +82,8 @@ no rests at all. The cut metrics read 0 and the hook change 0.02 because the act
 of the 9:16 frame (letterbox); by eye there are about eight scene changes in 18 s. The only breath is the white
 flash at 14.5 s before the green finale. It ends abruptly on the music, which pushes a rewatch.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 18.0 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette by role: black letterbox (#000100) and navy opening (#181a22); scene fields in electric blue,
   magenta (#983ed7 range), yellow (#d8cc93 as measured with the cream silhouettes) and mint green (#36b58f);

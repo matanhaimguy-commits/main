@@ -27,7 +27,7 @@ fit: [ecommerce, events, agency, personal-brand]
 wow: 4
 relevance: 3
 pacing:
-  cuts_per_10s: 9.62
+  cuts_per_10s: 0.0
   mean_s_between_big_changes: 1.0
   change_rhythm_cv: 0.0
   quiet_share_2fps: 0.0
@@ -74,6 +74,8 @@ static take, and the shaggy mass changes most pixels every second. The real stru
 the 2 s reverse engulf (hook change 0.667), a long steady bounce section, one big flapping break at 12-16 s,
 then the bounce again. It ends inside the costume, so the jump back to the opening (woman uncovered) restarts
 the transformation; viewers rewatch the first 2 s to work out what happened.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 26.0 s sampled (0.0 per 10 s); 25 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: warm beige carpet and walls (#a89a84, #877d6b) as the room; the costume in layered greys

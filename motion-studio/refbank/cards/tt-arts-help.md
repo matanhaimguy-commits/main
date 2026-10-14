@@ -27,7 +27,7 @@ fit: [local-service, ecommerce, real-estate, health]
 wow: 4
 relevance: 4
 pacing:
-  cuts_per_10s: 17.14
+  cuts_per_10s: 1.43
   mean_s_between_big_changes: 0.5
   change_rhythm_cv: 0.0
   quiet_share_2fps: 0.0
@@ -72,6 +72,8 @@ confirmed on the pull-back. Handheld phone at macro distance, widening only at t
 frame; there are no edits, it is one 7 s take. The real rhythm is three draw-grow cycles of about 1.5, 1.5 and 2 s,
 then a 2 s pull-back and hold on the finished face, the only rest. The 0.558 hook change is the hand and marker
 dominating the frame. It ends on the still smiley; a loop restarts on the nib touching down.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 1 cuts in 7.0 s sampled (1.43 per 10 s), at 1.0 s; 12 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette: signal yellow paint (#bca706, #dfce32) fills half the frame, grass greens (#57571a, #6c824b) as hero,

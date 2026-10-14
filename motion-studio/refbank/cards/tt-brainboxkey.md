@@ -79,6 +79,8 @@ change 0.28 is moderate because the opening frame is calm and the first hits are
 monotonically as the arena closes; the end is the arena collapsing to a dot under a "send this" line, which
 loops cleanly to the calm open circle.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 61.5 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette: black ground (#000000, #171618), one fully saturated ring colour at a time (#5921d2 violet,
   #e65b44 red-orange, #38f862 green and others), trails in two-tone gradients.

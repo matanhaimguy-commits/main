@@ -80,6 +80,8 @@ broken by a few large jumps (navy flip at 16.5 s, icon library at 37.5 s, red en
 0.026: always moving, in small steps. Hook change 0.162: the hook is the promise, not motion. Energy peaks at
 the colour flip, then detail fills in and a static end card holds about 3 s. Not a loop.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 4 cuts in 60.0 s sampled (0.67 per 10 s), at 16.5, 37.5, 40.5, 57.0 s; 4 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette by role: light UI greys (#e4e5e3, #cdcfce) as frame and early ground; navy (#25304e) as the slide
   ground after the flip; crimson (#db4332), amber, green, cyan (#338cc2) as the four quadrant colours; white for

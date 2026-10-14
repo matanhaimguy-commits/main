@@ -77,6 +77,8 @@ difference never crosses the cut threshold (hook change 0.024). In reality the m
 classic sting structure: tension (spinner), release (merge), play (bounce), resolution (logo). It ends on the
 hold, so the loop restarts from black, which reads as a natural reset.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 8.0 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette by role: black background (#000000), white for the starting dots, one brand green (#38ea68 measured
   on the icon) for every shape after the merge.

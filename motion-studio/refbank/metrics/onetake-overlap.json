@@ -2,18 +2,15 @@
  "frames": 30,
  "step_s": 0.5,
  "sampled_s": 15.0,
- "cuts": 7,
+ "cuts": 3,
  "cut_times": [
   0.5,
   9.0,
-  9.5,
-  12.0,
-  12.5,
-  13.0,
-  14.0
+  12.0
  ],
- "cuts_per_10s": 4.67,
- "mean_shot_s": 1.88,
+ "full_frame_changes": 7,
+ "cuts_per_10s": 2.0,
+ "mean_shot_s": 3.75,
  "longest_shot_s": 8.5,
  "big_changes": 21,
  "mean_s_between_big_changes": 0.68,

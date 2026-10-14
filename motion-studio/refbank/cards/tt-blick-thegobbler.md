@@ -75,6 +75,8 @@ longer holds on the bow and the hug. The hook change (0.185) is low because the 
 the caption and the flags, not motion. There is no rest and no outro. The film ends on the collision and loops
 straight back into the bow, so a viewer sees the joke two or three times before scrolling.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 5.0 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette by role: grey stone building and plaza (#c4c1c6, #a29ba4, #6e6a80) as a neutral stage, blue sky
   (#569ed0) at the top, the characters' orange-yellow heads (#d9945e) as the only warm colour, flag reds as

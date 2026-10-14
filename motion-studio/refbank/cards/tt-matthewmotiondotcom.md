@@ -27,7 +27,7 @@ fit: [events, restaurant, agency, personal-brand]
 wow: 3
 relevance: 4
 pacing:
-  cuts_per_10s: 4.29
+  cuts_per_10s: 0.0
   mean_s_between_big_changes: 0.58
   change_rhythm_cv: 0.4
   quiet_share_2fps: 0.0
@@ -72,6 +72,8 @@ a two-colour duotone (each team's colour) for the glitch and ball sections.
 is only about 40% of the frame and the room and caption never change. CV 0.4: steady, with holds on type cards.
 The 0.344 hook change reflects a dark first second. Energy peaks at 5 to 7 s (team cards, VS) and settles into the
 logo hold at 12 to 14 s, the only rest. It ends on the logo as the music ends, not a loop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 14.0 s sampled (0.0 per 10 s); 6 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette: red room light and maroon wall (#6d333a, #29171f), monitor greys (#7e7e80), white type and paper

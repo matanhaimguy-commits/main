@@ -77,6 +77,8 @@ descend (0.5 s), carve (1.5 s, the steady part), lift and slide (1.0 s). Hook ch
 first second is mostly the tool lowering. The film has no ending at all: two identical cycles and a seamless
 loop, which turns a 6 s post into a long watch.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 6.0 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette by role: lilac foam floor (#ae7cfb, #a160f8), deep violet shadows and walls (#7501f5, #8722f1),
   mid violet (#9142f5), white-pink neon strips, magenta tool collar, silver rods.

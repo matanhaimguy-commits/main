@@ -27,7 +27,7 @@ fit: [ecommerce, events, real-estate, restaurant]
 wow: 3
 relevance: 4
 pacing:
-  cuts_per_10s: 3.85
+  cuts_per_10s: 0.0
   mean_s_between_big_changes: 0.57
   change_rhythm_cv: 0.4
   quiet_share_2fps: 0.0
@@ -69,6 +69,8 @@ gimbal walk arcs about 90 degrees around the big bird for parallax, then holds.
 may be one cut near 4.5 s, but the frames read as one walk. Longest steady stretch 8.5 s. CV 0.4: busy first 4 s,
 then calm. The 0.647 hook change is mostly the swing. No true still rest, but the last 8 s are slow and composed,
 ending on a postcard frame that loops softly to the opening.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 13.0 s sampled (0.0 per 10 s); 5 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette: spring sky (#a3c9e0, #74b9de), lake teal and slate (#62808d), pale stone and townhouses (#cedbdf,

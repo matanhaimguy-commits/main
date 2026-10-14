@@ -78,6 +78,8 @@ change every few seconds, only the top panel moves, captions do the work. After 
 is low (0.115), the longest still stretch is 1 s. It ends on the finished bar with a small camera drift and no
 logo or end card, so a replay jumps back to the tutorial panel.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 1 cuts in 13.5 s sampled (0.74 per 10 s), at 7.0 s; 1 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette by role: Blender charcoal (#2e2d2c) and black letterbox bars (#010101) frame everything; the render is
   warm off-white (#d5d3cf, #efe8dd) with product colours as the only saturation: nougat cream, caramel orange,

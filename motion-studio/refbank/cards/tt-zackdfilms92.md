@@ -27,7 +27,7 @@ fit: [health, education, finance, saas, personal-brand]
 wow: 4
 relevance: 4
 pacing:
-  cuts_per_10s: 7.06
+  cuts_per_10s: 4.12
   mean_s_between_big_changes: 1.06
   change_rhythm_cv: 0.33
   quiet_share_2fps: 0.0
@@ -77,6 +77,8 @@ phrase. The CV of 0.33 is the lowest in this batch, a steady machine-gun rhythm 
 change 0.84. The densest moments are the multiverse grid (12-15 s) and the glitch transitions; the brain beat
 slows slightly into close-ups. It ends mid-gesture on the same man and butterfly it opened with, so the loop
 back to the mailbox feels like deja vu itself (the match is close, not confirmed as a frame-exact loop).
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 14 cuts in 34.0 s sampled (4.12 per 10 s), at 1.0, 2.0, 3.0, 8.0, 9.0, 10.0, 11.0, 12.0, 17.0, 18.0, 21.0, 22.0 s; 24 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: bright sky blue (#80c7f2) as the dominant ground, lawn olive (#767f4a), the hero's pink

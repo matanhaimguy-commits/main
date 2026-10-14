@@ -80,6 +80,8 @@ every 1-1.5 s, a new illustration every 3-6 s (CV 1.27, uneven), quiet share 0.0
 opening where the voice carries the hook. Energy dips through the problem and lifts at 39 s with the door
 and light, then a short warning and a calm walk-off CTA. Not a loop.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 57.0 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette: black ground (#000100, #000000), white figure and type (#d5d6d2), grey (#2d2e2c) for dimmed props
   and the ground line, red and green as rare accents.

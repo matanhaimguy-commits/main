@@ -27,7 +27,7 @@ fit: [restaurant, local-service, events, personal-brand]
 wow: 2
 relevance: 3
 pacing:                               # 1.5 s sampling, 48 frames = first 72 s of 76 s
-  cuts_per_10s: 3.61
+  cuts_per_10s: 1.11
   mean_s_between_big_changes: 1.5
   change_rhythm_cv: 0.0
   quiet_share_2fps: 0.0
@@ -78,6 +78,8 @@ only breaks are three exposure dips to near black (10.5, 39 and 49.5 s), which l
 and act like a tonal reset. Energy is flat-high from the start and carried by the face and the voice, not the
 edit. The film ends on the most absurd claim (the restaurant closing tomorrow) rather than a payoff shot; no
 loop device is visible.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 8 cuts in 72.0 s sampled (1.11 per 10 s), at 10.5, 12.0, 19.5, 21.0, 39.0, 40.5, 49.5, 51.0 s; 26 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: warm wood and wall browns (#655645, #251e18) behind, skin pink (#c18675) as the focal colour,

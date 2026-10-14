@@ -83,6 +83,8 @@ accent. Hook change in 0-2 s is 0.354 because the meme gives way to the dashboar
 sections are long (8 s each), L gets only 4 s and ends on the reflowed layout with no outro, so the loop
 restarts quickly.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 3 cuts in 32.0 s sampled (0.94 per 10 s), at 2.0, 7.0, 8.0 s; 3 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette by role: pale mint page (#ecf1eb, #f6faf4) as ground, charcoal UI text (#59595f), grey frames
   (#cbcecb); "before" state in rainbow chart colours, "after" state in one navy plus grey; green and red only

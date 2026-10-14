@@ -80,6 +80,8 @@ The round length stays at about 6.2 s, so the beat never changes; escalation com
 result. Peak interest is at 66-77% where the tube first turns into a sheet. The film ends mid-action at 100%
 with shreds in the air, which makes the loop back to the calm 0% frame feel like a reset.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 63.0 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette: monochrome lavender family (#a18dd5, #8476ba, #9288f2, #665e8c, #beb4f5), gold trims and ball tips
   as the only warm accent, chrome rings as highlights, deep blue-violet where the tube sheet is thickest.

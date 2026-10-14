@@ -27,7 +27,7 @@ fit: [agency, saas, events, personal-brand, education]
 wow: 4
 relevance: 4
 pacing:
-  cuts_per_10s: 12.0
+  cuts_per_10s: 6.0
   mean_s_between_big_changes: 0.56
   change_rhythm_cv: 0.28
   quiet_share_2fps: 0.0
@@ -80,6 +80,8 @@ sit behind or above the ball and swap on the syllable. A clock dial of tick mark
 frames at all. The fastest stretch is 2.0 to 4.5 s (a new colour world every half second). The square-frame
 section (5 to 7 s) holds the set for about 2 s and lets the words change over it, which works as the breath. It
 ends mid-phrase on "IS" over the pillars, so the loop feels like the song continuing.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 6 cuts in 10.0 s sampled (6.0 per 10 s), at 0.5, 1.5, 3.0, 4.0, 5.0, 7.5 s; 12 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: near-black (#221f1e) and pale grey (#c3ded9 as measured) as the two neutral grounds;

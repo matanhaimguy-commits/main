@@ -27,7 +27,7 @@ fit: [agency, personal-brand, events, ecommerce]
 wow: 4
 relevance: 3
 pacing:                               # frames_metrics.py on a 1 fps sample
-  cuts_per_10s: 5.96
+  cuts_per_10s: 2.77
   mean_s_between_big_changes: 1.27
   change_rhythm_cv: 0.6
   quiet_share_2fps: 0.152
@@ -71,6 +71,8 @@ vignette, one slow drift or focus pull per shot.
 At a 1 fps sample: 5.96 cuts per 10 s, a big change every 1.27 s, uneven (CV 0.6). Fast cuts for 20 s, then
 longer holds (asphalt frame, phone, word build, road) as the song slows; quiet share 0.15 with rests up to 3 s.
 The edit follows vocal phrasing, not the drum. Ends on a 3 s logo hold; no loop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 13 cuts in 47.0 s sampled (2.77 per 10 s), at 1.0, 8.0, 10.0, 12.0, 13.0, 15.0, 16.0, 18.0, 20.0, 22.0, 24.0, 27.0 s; 28 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 Near black and warm browns (#050403, #282320, #4e4438), off-white highlights (#e7d9d0), tan (#957f68); pink and

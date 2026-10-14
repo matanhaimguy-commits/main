@@ -27,7 +27,7 @@ fit: [agency, education, personal-brand, saas]
 wow: 3
 relevance: 4
 pacing:
-  cuts_per_10s: 6.13
+  cuts_per_10s: 3.55
   mean_s_between_big_changes: 1.24
   change_rhythm_cv: 0.52
   quiet_share_2fps: 0.033
@@ -78,6 +78,8 @@ reward: the viewer has seen every section once in close-up and only sees them to
 from the white page turning crimson and the keyboard opening. The only hold is the final presentation frame
 (the last 2 s are near identical), so the film ends on a rest and the loop starts again on a blank page, a
 clean before and after.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 11 cuts in 31.0 s sampled (3.55 per 10 s), at 1.0, 8.0, 9.0, 12.0, 13.0, 14.0, 17.0, 18.0, 25.0, 27.0, 29.0 s; 19 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: app chrome near black (#1d1c1e); poster ground crimson (#7f0611); blush and cream accents

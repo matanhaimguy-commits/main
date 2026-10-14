@@ -85,6 +85,8 @@ Hook change in 0-2 s is tiny (0.048): the first frame has to work as a still. En
 count of open hands, peaking on the final frame where all eight are open. It ends on that full state and the
 loop restarts on the blank bag, which invites a second watch to check one's own type.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 30.0 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette by role: saturated sky blue ground with a soft vertical gradient (#3ea3d2, #2788c5), warm toon skin
   (#ce9970), blood and bag in deep maroon (#57343b), muted grey-blue shadows (#5d7e96).

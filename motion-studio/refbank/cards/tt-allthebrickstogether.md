@@ -27,7 +27,7 @@ fit: [ecommerce, real-estate, agency, events]
 wow: 4
 relevance: 4
 pacing:
-  cuts_per_10s: 9.25
+  cuts_per_10s: 0.25
   mean_s_between_big_changes: 1.03
   change_rhythm_cv: 0.15
   quiet_share_2fps: 0.0
@@ -76,6 +76,8 @@ the constant crane and dense flying pieces change every frame by a lot, which th
 The very low CV (0.15) and zero quiet share confirm a perfectly even flow with no rests; tension comes from the
 height of the build, not from rhythm changes. The only stop is the final 3 s top-down hold with the title and
 flag drop, a clear end that does not loop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 1 cuts in 40.0 s sampled (0.25 per 10 s), at 20.0 s; 37 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: warm wood browns of the table and floor (#786452, #564b43, #3e2923) as ground, tower grey

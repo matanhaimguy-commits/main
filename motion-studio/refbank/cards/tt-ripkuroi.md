@@ -27,7 +27,7 @@ fit: [local-service, ecommerce, events, restaurant, agency]
 wow: 3
 relevance: 4
 pacing:                               # frames_metrics.py on a 1 fps sample
-  cuts_per_10s: 8.4
+  cuts_per_10s: 5.2
   mean_s_between_big_changes: 1.04
   change_rhythm_cv: 0.19
   quiet_share_2fps: 0.042
@@ -71,6 +71,8 @@ At a 1 fps sample: 8.4 cuts per 10 s, a change every 1.04 s, very regular (CV 0.
 constant tempo. Almost no rests (quiet share 0.04); white frames at 0, 2, 11 and 23-24 s act as breaths. The
 second pass repeats the first with new angles, so viewers anticipate each pun. White-to-white ending loops
 seamlessly.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 13 cuts in 25.0 s sampled (5.2 per 10 s), at 3.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 15.0, 19.0, 20.0, 22.0 s; 21 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 Icy white, black, washed royal blue (#555b83), pale blue-grey (#9aa1b3). Condensed black italic caps at 120-160 px,

@@ -27,7 +27,7 @@ fit: [events, agency, personal-brand, restaurant]
 wow: 4
 relevance: 3
 pacing:                               # 1.5 s sampling, 40 frames cover 0-58.5 s of 60 s
-  cuts_per_10s: 6.33
+  cuts_per_10s: 2.67
   mean_s_between_big_changes: 1.5
   change_rhythm_cv: 0.0
   quiet_share_2fps: 0.0
@@ -79,6 +79,8 @@ The 0.737 hook change comes from black to full type within 1.5 s. The CV of 0.0 
 step; the real rhythm follows the syllables, with frame-filling single words on the stressed hits (19.5-27 s)
 and slower orbit moves on the hook line (42-46 s). It ends on the most memorable visual pun and static,
 no loop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 16 cuts in 60.0 s sampled (2.67 per 10 s), at 1.5, 6.0, 12.0, 15.0, 16.5, 18.0, 19.5, 21.0, 22.5, 27.0, 28.5, 34.5 s; 38 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: near-black ground (#060706), teal shadows and mids (#1b2b23, #354c3d), olive grey

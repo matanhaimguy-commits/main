@@ -27,7 +27,7 @@ fit: [real-estate, restaurant, events, personal-brand, local-service]
 wow: 4
 relevance: 4
 pacing:                               # frames_metrics.py on a 1 fps sample (saturated: nearly every sample is a cut)
-  cuts_per_10s: 8.12
+  cuts_per_10s: 6.56
   mean_s_between_big_changes: 1.0
   change_rhythm_cv: 0.0
   quiet_share_2fps: 0.0
@@ -71,6 +71,8 @@ At a 1 fps sample nearly every sample is a new shot (8.12 cuts per 10 s, CV 0.0,
 at a beat or faster, with no rests. Rhythm changes by type size, not speed: giant words on strong beats, script
 lines and the "Beautiful" landscape (20-21 s) give a longer read. It ends on a held push on the lonely armchair,
 the source film's saddest image; no loop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 21 cuts in 32.0 s sampled (6.56 per 10 s), at 3.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 13.0, 14.0, 15.0, 17.0 s; 26 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 Warm film browns (#211811, #4f403d, #85624d), sky blue (#7b9ecd), off-white type (#e8eaeb), tan (#bca27e), teal and

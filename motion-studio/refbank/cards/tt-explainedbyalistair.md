@@ -27,7 +27,7 @@ fit: [education, local-service, health, finance, restaurant, real-estate, saas]
 wow: 3
 relevance: 5
 pacing:                               # 1.5 s sampling, 48 frames cover 0-70.5 s of 74 s
-  cuts_per_10s: 0.14
+  cuts_per_10s: 0.0
   mean_s_between_big_changes: 4.5
   change_rhythm_cv: 0.5
   quiet_share_2fps: 0.319
@@ -82,6 +82,8 @@ talking about, so the viewer's eye is steered between the photos without any arr
 photo swaps and pose flips; 32% of samples are quiet, because only the caption changes. The hook change of 0.279
 is the second photo arriving. Rhythm is a 14-20 s cycle per pair, with a reliable mini-peak at each "What's the
 difference?". It ends mid-template with no button, so the viewer flows into the next episode.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 72.0 s sampled (0.0 per 10 s); 1 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette: near-white page (#fdfefc, #e1e5de), owl browns and greys (#8a8772, #444432, #bfbbae), photo colour

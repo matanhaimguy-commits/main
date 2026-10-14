@@ -78,6 +78,8 @@ motion, not from editing. The real rhythm is set by the voice: a worry, a relief
 peak at about 38-45 s (creeper in the ravine, alarmed face) and a gentle surprise at the end (the house above).
 It ends on a question to the viewer, not a loop.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 66.0 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette by role: black bands (#000000) top and bottom; Minecraft stone greys and browns (#35322e,
   #4b4541, #6c6762) in the middle; small accents of water blue, lava red and the white chicken.

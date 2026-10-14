@@ -27,7 +27,7 @@ fit: [agency, saas, events, restaurant]
 wow: 4
 relevance: 4
 pacing:
-  cuts_per_10s: 6.67
+  cuts_per_10s: 2.0
   mean_s_between_big_changes: 0.71
   change_rhythm_cv: 0.93
   quiet_share_2fps: 0.034
@@ -62,6 +62,8 @@ A recurring anchor that spawns every section. The prompt bar returns three times
 
 ## Pacing read
 2 fps: 6.67 "cuts" per 10 s (blooms and whips, no edits), big changes every 0.71 s, CV 0.93, 3 % quiet. Full rate: 3 % still, 14 % quiet, 24 beats, 9 transitions (4.5 to 27.42 s), longest quiet run 1.58 s, beat CV 0.60, spread 7.6x. Rest comes only from the still bar beats and the freeze before the name. Ends still; no loop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 6 cuts in 30.0 s sampled (2.0 per 10 s), at 12.0, 16.0, 17.0, 19.0, 20.5, 27.5 s; 20 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 Cream paper desk (#ece1cf, #f9f3e8) with tan shadows (#af8d72). Film one in muted pastel event colours, film two plum (#472f48) with multicoloured comic type, film three navy (#202b44) with orange, yellow and pink poster blocks.

@@ -79,6 +79,8 @@ setup (0 to 3.5 s, she leaves), discovery (4 to 6.5 s, he looks and pokes), stru
 drag) and surrender (11 to 13 s). The peak is the lift and flop at 7 to 8 s. It ends on the slump with no button,
 which sends viewers back to the start to watch the arm again.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 13.0 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette by role: light warm greys of the sofa and wall (#c6c1bc, #b2aca8, #dcdddd), black clothing (#151517),
   the stone arm in mid greys with black flecks (#5e5959), skin and hair warm (#95857c).

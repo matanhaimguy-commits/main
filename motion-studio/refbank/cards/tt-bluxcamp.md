@@ -27,7 +27,7 @@ fit: [saas, b2b, ecommerce, agency]
 wow: 4
 relevance: 3
 pacing:
-  cuts_per_10s: 1.05
+  cuts_per_10s: 0.53
   mean_s_between_big_changes: 1.46
   change_rhythm_cv: 0.66
   quiet_share_2fps: 0.054
@@ -82,6 +82,8 @@ other resets read as big changes because the sheet sits in the same place). Quie
 keeps settling until each reset. The rounds get very slightly longer (the 1 M round holds 1.5 s before dropping),
 and the final round is all hold: 2 s of nothing, then the grey-out at 17 s and the dialog at 18 s. The film ends
 on the dialog, so the loop restarts at 16 k and many viewers watch again to compare the drapes.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 1 cuts in 19.0 s sampled (0.53 per 10 s), at 17.0 s; 2 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: warm dark charcoal backdrop (#2d2924, #272520, #35332e), off-white matte cloth (#abaca7,

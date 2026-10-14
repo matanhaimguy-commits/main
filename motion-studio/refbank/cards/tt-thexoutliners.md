@@ -27,7 +27,7 @@ fit: [education, finance, agency, personal-brand]
 wow: 3
 relevance: 4
 pacing:                               # 1.5 s sampling, 41 frames cover the full 61 s
-  cuts_per_10s: 5.37
+  cuts_per_10s: 2.11
   mean_s_between_big_changes: 1.5
   change_rhythm_cv: 0.0
   quiet_share_2fps: 0.0
@@ -76,6 +76,8 @@ Captions are 1-3 words, bold caps, yellow with a dark outline, centred at about 
 sampling step, not the film. The hook change of 0.561 is the push plus captions changing in the first 2 s.
 The only long holds are the jump (45-52.5 s) and the forest ending (54-61 s, about 7 s on one wide), which
 act as the rest after the climax. It ends on an open question, which loops back to the opening claim.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 13 cuts in 61.5 s sampled (2.11 per 10 s), at 16.5, 18.0, 19.5, 21.0, 25.5, 28.5, 30.0, 31.5, 37.5, 39.0, 40.5, 43.5 s; 33 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette: cool cabin greys and blue-grey void (#4c545b, #888883, #c6ccce), dark olive and near-black

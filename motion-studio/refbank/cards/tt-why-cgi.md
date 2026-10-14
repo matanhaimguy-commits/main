@@ -27,7 +27,7 @@ fit: [ecommerce, events, agency]
 wow: 5
 relevance: 4
 pacing:
-  cuts_per_10s: 12.86
+  cuts_per_10s: 0.0
   mean_s_between_big_changes: 0.5
   change_rhythm_cv: 0.0
   quiet_share_2fps: 0.0
@@ -71,6 +71,8 @@ first second, balconies full of composited spectators as social proof.
 and a moving figure; in reality it is one take with no cuts. The real rhythm is 2.5 s of setup where only the
 camera breathes, then a regular 1.5 s bounce cycle. The 0.494 hook change is the camera leaving the shoulder. It
 ends mid-bounce, so the loop restarts on a calm wide and viewers rewatch the first drop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 7.0 s sampled (0.0 per 10 s); 9 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette: mall greys (#605f58, #7b7974, #9f9b96) as ground, baby pink product (#c8b3bb) as hero, hot brand pink

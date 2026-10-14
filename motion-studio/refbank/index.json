@@ -1,6 +1,6 @@
 {
  "built": "2026-10-14",
- "count": 89,
+ "count": 92,
  "cards": [
   {
    "id": "tt-smile-bam",
@@ -1430,10 +1430,10 @@
    ],
    "devices": [
     "stick-figure",
+    "literal-metaphor",
     "word-by-word",
     "voiceover-explainer",
-    "before-after",
-    "icon-system"
+    "before-after"
    ],
    "energy": "calm",
    "palette": [
@@ -1606,6 +1606,72 @@
     "hook_change_0_2s": 0.22
    },
    "file": "cards/tt-valor-humano3.md"
+  },
+  {
+   "id": "tt-thebioswitch",
+   "title": "Why smart people procrastinate, told as one neon x-ray picture and one spoken word on screen per beat",
+   "summary": "A neon-blue man sits beside a ticking orange clock as a voice asks why smart people leave work to the last minute.",
+   "url": "https://www.tiktok.com/@thebioswitch/video/7692842421704576269",
+   "platform": "tiktok",
+   "creator": "thebioswitch",
+   "plays": 5600000,
+   "likes": 556300,
+   "shares": 123700,
+   "followers": 18400,
+   "posted": "2026-10-04",
+   "duration_s": 62,
+   "category": "explainer-2d",
+   "hook": [
+    "question",
+    "relatable-pov"
+   ],
+   "devices": [
+    "literal-metaphor",
+    "word-by-word",
+    "voiceover-explainer",
+    "x-ray-cutaway",
+    "big-number"
+   ],
+   "energy": "high",
+   "palette": [
+    "dark",
+    "neon"
+   ],
+   "palette_hex": [
+    "#0a0510",
+    "#0c1745",
+    "#1678e4",
+    "#163b90",
+    "#921f14"
+   ],
+   "sound": [
+    "voiceover"
+   ],
+   "voiceover": true,
+   "text_on_screen": "captions",
+   "engine": [
+    "hyperframes",
+    "canvas",
+    "gen-image"
+   ],
+   "difficulty": 3,
+   "fit": [
+    "health",
+    "education",
+    "personal-brand",
+    "saas",
+    "finance"
+   ],
+   "wow": 3,
+   "relevance": 5,
+   "pacing": {
+    "cuts_per_10s": 4.76,
+    "mean_s_between_big_changes": 1.5,
+    "change_rhythm_cv": 0.0,
+    "quiet_share_2fps": 0.0,
+    "hook_change_0_2s": 0.579
+   },
+   "file": "cards/tt-thebioswitch.md"
   },
   {
    "id": "tt-explainedusing-minecraft",
@@ -1927,6 +1993,72 @@
     "hook_change_0_2s": 0.561
    },
    "file": "cards/tt-thexoutliners.md"
+  },
+  {
+   "id": "tt-spectrazeeua5",
+   "title": "A second-person build-along that grows a friend's simple grave into the First Qin Emperor's mausoleum, one layer per sentence",
+   "summary": "A game-engine man drops dead on a grassy plain and gets a coffin and a small grave mound. Then \"you\" keep building",
+   "url": "https://www.tiktok.com/@spectrazeeua5/video/7598762958621117751",
+   "platform": "tiktok",
+   "creator": "spectrazeeua5",
+   "plays": 8800000,
+   "likes": 1100000,
+   "shares": 160300,
+   "followers": 111500,
+   "posted": "2026-01-24",
+   "duration_s": 128,
+   "category": "explainer-3d",
+   "hook": [
+    "direct-address",
+    "pattern-interrupt"
+   ],
+   "devices": [
+    "assembly-build",
+    "escalation-ladder",
+    "voiceover-explainer",
+    "word-by-word",
+    "top-down-plan"
+   ],
+   "energy": "medium",
+   "palette": [
+    "natural",
+    "dark"
+   ],
+   "palette_hex": [
+    "#726c3a",
+    "#101715",
+    "#978d6b",
+    "#3b4027",
+    "#a9acb2"
+   ],
+   "sound": [
+    "voiceover"
+   ],
+   "voiceover": true,
+   "text_on_screen": "captions",
+   "engine": [
+    "canvas",
+    "hyperframes",
+    "gen-video"
+   ],
+   "difficulty": 3,
+   "fit": [
+    "real-estate",
+    "local-service",
+    "restaurant",
+    "education",
+    "b2b"
+   ],
+   "wow": 3,
+   "relevance": 4,
+   "pacing": {
+    "cuts_per_10s": 1.11,
+    "mean_s_between_big_changes": 1.5,
+    "change_rhythm_cv": 0.0,
+    "quiet_share_2fps": 0.0,
+    "hook_change_0_2s": 0.722
+   },
+   "file": "cards/tt-spectrazeeua5.md"
   },
   {
    "id": "tt-zackdfilms92",
@@ -2532,6 +2664,7 @@
    ],
    "devices": [
     "lyric-sync-type",
+    "literal-metaphor",
     "word-by-word",
     "transformation-sequence",
     "zoom-through-scale",
@@ -4006,6 +4139,69 @@
    "file": "cards/tt-lights-are-off.md"
   },
   {
+   "id": "tt-vaporama-vision",
+   "title": "A swimmer's-eye float through an endless tiled poolroom, past a black drop-off and eye graffiti, toward a playground it never reaches",
+   "summary": "A camera floats at water level through a vast white-tiled pool hall lit by thousands of tiny lights, along the line",
+   "url": "https://www.tiktok.com/@vaporama_vision/video/7433431479041985825",
+   "platform": "tiktok",
+   "creator": "vaporama_vision",
+   "plays": 95400000,
+   "likes": 6800000,
+   "shares": 826600,
+   "followers": 985600,
+   "posted": "2024-11-04",
+   "duration_s": 60,
+   "category": "spectacle-world",
+   "hook": [
+    "beautiful-first-frame",
+    "scale-shock"
+   ],
+   "devices": [
+    "pov-camera",
+    "liquid-sim",
+    "escalation-ladder"
+   ],
+   "energy": "calm",
+   "palette": [
+    "mono",
+    "pastel"
+   ],
+   "palette_hex": [
+    "#627f90",
+    "#8499a9",
+    "#4b6575",
+    "#2f4451",
+    "#b8c5cf"
+   ],
+   "sound": [
+    "diegetic-audio"
+   ],
+   "voiceover": false,
+   "text_on_screen": "none",
+   "engine": [
+    "hyperframes",
+    "gen-video",
+    "canvas"
+   ],
+   "difficulty": 4,
+   "fit": [
+    "local-service",
+    "real-estate",
+    "events",
+    "agency"
+   ],
+   "wow": 5,
+   "relevance": 2,
+   "pacing": {
+    "cuts_per_10s": 1.0,
+    "mean_s_between_big_changes": 1.5,
+    "change_rhythm_cv": 0.0,
+    "quiet_share_2fps": 0.0,
+    "hook_change_0_2s": 0.692
+   },
+   "file": "cards/tt-vaporama-vision.md"
+  },
+  {
    "id": "tt-anyma",
    "title": "A giant tree-woman on a black LED wall seems to stand in the night sky and reach for the crowd",
    "summary": "Filmed from inside a festival crowd, a towering CGI woman with branches for hair, shown on a huge LED wall",
@@ -4232,6 +4428,7 @@
    ],
    "sound": [
     "trending-audio",
+    "dialogue",
     "music-beat"
    ],
    "voiceover": false,

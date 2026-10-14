@@ -27,7 +27,7 @@ fit: [saas, b2b, agency, personal-brand]
 wow: 3
 relevance: 3
 pacing:
-  cuts_per_10s: 10.0
+  cuts_per_10s: 1.11
   mean_s_between_big_changes: 0.69
   change_rhythm_cv: 0.78
   quiet_share_2fps: 0.0
@@ -74,6 +74,8 @@ reframe with the passer-by, his POV) plus a whip and a handheld push, which the 
 0.78 shows the uneven rhythm: a long still opening (0 to 3.5 s near frozen, hook change 0.116), a small bump at
 3.5 s, then a burst from 5.5 s. There is no true rest because the push into the screen keeps moving. It ends
 mid-typing with no outro, so it loops back to her blank stare, which reads as her reaction to the code.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 1 cuts in 9.0 s sampled (1.11 per 10 s), at 5.5 s; 9 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: warm café browns and terracotta (#60321f, #9d6144, #c78870) behind her, grey laptop

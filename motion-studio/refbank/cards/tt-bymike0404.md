@@ -27,7 +27,7 @@ fit: [saas, local-service, ecommerce, agency]
 wow: 4
 relevance: 5
 pacing:
-  cuts_per_10s: 10.0
+  cuts_per_10s: 1.76
   mean_s_between_big_changes: 0.5
   change_rhythm_cv: 0.0
   quiet_share_2fps: 0.0
@@ -70,6 +70,8 @@ greys; the brand's one accent (the blue dot) appears only when the product becom
 10 cuts per 10 s and a change every 0.5 s (CV 0.0) mix real scene changes (every 1 to 1.5 s) with the handheld
 phone. Longest steady stretch 3.5 s (the chase). No rests until the car settles in the last 1.5 s; the busiest part
 is 9 to 14.5 s, a new card every half second. It ends on a near-still hero frame, a sign-off rather than a loop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 3 cuts in 17.0 s sampled (1.76 per 10 s), at 2.0, 3.0, 9.5 s; 17 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette: near-black surround and app chrome (#070705, #3f3c37), white and light greys for city and UI

@@ -27,7 +27,7 @@ fit: [ecommerce, events, personal-brand, agency]
 wow: 4
 relevance: 3
 pacing:
-  cuts_per_10s: 7.78
+  cuts_per_10s: 0.0
   mean_s_between_big_changes: 0.75
   change_rhythm_cv: 1.11
   quiet_share_2fps: 0.0
@@ -76,6 +76,8 @@ changes a lot between samples; CV 1.11 shows how lopsided it is: one burst of ch
 and after. The hook change of 0.502 comes from the dimple and the ring wave at 1 to 2 s. Quiet share is 0 because
 highlights keep moving, but the last 5 s are visually a hold on the final shape. It ends on that hold, which
 loops cleanly into the flat panel and invites a rewatch to see the collapse again.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 9.0 s sampled (0.0 per 10 s); 7 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: one hue only, pink, from highlight (#dea9b7) through body (#d27994, #ca5f81) to shadow in the

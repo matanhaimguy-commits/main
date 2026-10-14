@@ -62,6 +62,8 @@ Identity morph. One object never leaves; every new interface state is that objec
 ## Pacing read
 2 fps: 1.33 cuts per 10 s, big changes every 3.0 s, CV 1.21, 24 % quiet. Full rate: 9 % still, 43 % quiet, only 2 beats detected, one transition at 11.42 s, longest quiet run 2.0 s, beat CV 0.74, spread 7.6x. The meters underread a small dot on black; the felt rhythm is a morph every 1-2 s on 120 BPM landings. Ends on a slow push and a wink. No loop.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 2 cuts in 15.0 s sampled (1.33 per 10 s), at 10.0, 11.5 s; 2 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 Near-black ground (#07060b to #14131b), one violet accent (not in the measured top five), a cream card (#f0e9da) with a yellow sun at the result. White grotesk text, bold wordmark, faint dot grid, shutter smear on the streak.
 

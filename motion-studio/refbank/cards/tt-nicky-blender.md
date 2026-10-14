@@ -27,7 +27,7 @@ fit: [ecommerce, agency, personal-brand, health]
 wow: 4
 relevance: 4
 pacing:                               # frames_metrics.py on a 1 fps sample
-  cuts_per_10s: 8.57
+  cuts_per_10s: 3.14
   mean_s_between_big_changes: 1.06
   change_rhythm_cv: 0.32
   quiet_share_2fps: 0.0
@@ -73,6 +73,8 @@ At a 1 fps sample: 8.57 cuts per 10 s, a big change every 1.06 s, low spread (CV
 reads as constant cutting. The rhythm does not change at the reveal; only image quality and colour do, which is
 why it lands. Peak at 18-20 s (first render, wordmark, shell opening). It ends on the compact opening with no end
 card, which invites a replay.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 11 cuts in 35.0 s sampled (3.14 per 10 s), at 7.0, 8.0, 9.0, 10.0, 12.0, 14.0, 16.0, 17.0, 18.0, 22.0, 23.0 s; 30 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 Act 1: Blender grey UI (#484844), grey-white clay (#aeb6b8, #cfd4d3). Act 2: cream and blush (#f2e8e0, #e7c0ae),

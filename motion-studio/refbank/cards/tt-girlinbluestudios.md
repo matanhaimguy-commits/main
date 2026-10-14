@@ -27,7 +27,7 @@ fit: [agency, personal-brand, ecommerce, b2b]
 wow: 2
 relevance: 4
 pacing:                               # frames_metrics.py on a 1 fps sample
-  cuts_per_10s: 2.13
+  cuts_per_10s: 1.49
   mean_s_between_big_changes: 3.62
   change_rhythm_cv: 0.48
   quiet_share_2fps: 0.0
@@ -72,6 +72,8 @@ At a 1 fps sample: 2.13 cuts per 10 s, a big change every 3.62 s, moderate sprea
 each new idea, not on a beat; 4-7 s holds are normal because the voice carries time. Quiet share 0 since the host
 always moves. Slight lift in the middle (campaign images every 4 s), slower UGC images near the end, then the
 question. No loop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 7 cuts in 47.0 s sampled (1.49 per 10 s), at 3.0, 15.0, 19.0, 27.0, 31.0, 36.0, 43.0 s; 10 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 Earth browns and beige (#6c5340, #3d2d23, #947860, #af9d86) against off-white (#ebebe7); colour only in the late

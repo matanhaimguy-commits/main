@@ -27,7 +27,7 @@ fit: [restaurant, saas, local-service, ecommerce, agency]
 wow: 3
 relevance: 5
 pacing:                               # frames_metrics.py on a 1 fps sample
-  cuts_per_10s: 3.71
+  cuts_per_10s: 3.43
   mean_s_between_big_changes: 1.3
   change_rhythm_cv: 0.35
   quiet_share_2fps: 0.029
@@ -70,6 +70,8 @@ At a 1 fps sample: 3.71 cuts per 10 s (the wipes), a big change every 1.3 s, eve
 rests (quiet share 0.03). Shots last up to 7 s because cards and rides are continuous moves. Each station takes
 4-5 s (arrive, build, depart), a cadence learned by the second stop, with the dots as a visible countdown. Last
 frame equals the first, so it loops.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 12 cuts in 35.0 s sampled (3.43 per 10 s), at 6.0, 9.0, 10.0, 14.0, 15.0, 17.0, 18.0, 21.0, 23.0, 25.0, 26.0, 28.0 s; 13 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 Brand white (#fcfdfa), yellow (#e6b80b), dark green (#0b5125), bright green (#109d39), bread tan (#c7a661); card

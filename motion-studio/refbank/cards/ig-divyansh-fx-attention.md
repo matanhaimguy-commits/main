@@ -64,6 +64,8 @@ One literal prop per spoken phrase, joined by focus pulls. Each beat is a single
 ## Pacing read
 2 fps frames: no cuts (every transition is a blur), big changes every 1.09 s, CV 0.98, 8.5 % quiet. Our 2 fps proxy through the full-rate checker: 20 beats in 24 s, beat CV 0.70, spread 6.0x (its still share is meaningless at 2 fps). A new picture about every 1.2 s, locked to the voice; the pill cloud (14-21 s) grows rather than changes, a rest that still moves. No loop.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 24.0 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 White (#fefefe) with pale green tints (#edfbeb, #f9fdf9); one saturated green (#27a317) for accents, hexagons, pills, brackets and the ellipse; black for neutral type and the stopwatch hand. Medium-weight grotesk plus a serif italic.
 

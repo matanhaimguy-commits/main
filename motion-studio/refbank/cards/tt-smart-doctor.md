@@ -27,7 +27,7 @@ fit: [health, education, ecommerce, b2b]
 wow: 4
 relevance: 4
 pacing:
-  cuts_per_10s: 5.33
+  cuts_per_10s: 0.0
   mean_s_between_big_changes: 0.5
   change_rhythm_cv: 0.0
   quiet_share_2fps: 0.0
@@ -78,6 +78,8 @@ moving. The 5.33 "cuts" per 10 s are not edits; the object fills most of the fra
 macro push-in at 11.5-13.5 s cross the hard-cut threshold. Read by eye it is one take in four phases: turn (2 s),
 valve hold (6 s, the longest and calmest phase, with motion only inside the valves), orbit (3 s), macro skim and
 return (3 s). Energy peaks at the macro push-in, then resolves into the loop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 15.0 s sampled (0.0 per 10 s); 8 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: pure black ground (#000003) with a faint blue perspective dot grid; muscle in dusty pinks and

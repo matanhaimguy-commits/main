@@ -27,7 +27,7 @@ fit: [ecommerce, local-service, restaurant, real-estate]
 wow: 3
 relevance: 4
 pacing:
-  cuts_per_10s: 18.89
+  cuts_per_10s: 1.67
   mean_s_between_big_changes: 0.5
   change_rhythm_cv: 0.0
   quiet_share_2fps: 0.0
@@ -76,6 +76,8 @@ the demo half is cut at a steady rate, probably on the beat of the hip-hop track
 There is no rest anywhere (quiet share 0). The hook change of 0.572 comes from the woman walking into the static
 wide and the push in. The rhythm has two gears: 4.5 s of slow staged setup, then 13 s of fast close-ups. It ends
 on a stocked shelf, the "product in its home" shot, without a logo or call to action, only the corner watermark.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 3 cuts in 18.0 s sampled (1.67 per 10 s), at 5.0, 9.5, 17.5 s; 34 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: cool grey warehouse and carpet (#5c5852, #868178, #acaea6), black clothing as a neutral

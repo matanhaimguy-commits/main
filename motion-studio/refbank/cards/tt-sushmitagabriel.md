@@ -27,7 +27,7 @@ fit: [ecommerce, agency, personal-brand]
 wow: 3
 relevance: 4
 pacing:                               # 1.5 s sampling, full 49 s covered
-  cuts_per_10s: 5.25
+  cuts_per_10s: 4.04
   mean_s_between_big_changes: 1.5
   change_rhythm_cv: 0.0
   quiet_share_2fps: 0.0
@@ -77,6 +77,8 @@ texture macros (one beat as a three-panel vertical split), product in hand, appl
 black beat at 24 s that splits the film in half. The 0.908 hook change is the hard cut from the hero frame to
 the BTS room. Energy rises in the second half because shots get tighter and more textural, not faster. The
 end matches the start, so it loops cleanly.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 20 cuts in 49.5 s sampled (4.04 per 10 s), at 1.5, 3.0, 7.5, 9.0, 13.5, 15.0, 18.0, 19.5, 22.5, 24.0, 28.5, 31.5 s; 26 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: beige paper sweep and warm walls (#d9d0bc, #ad9d82) for the BTS and the bright product half,

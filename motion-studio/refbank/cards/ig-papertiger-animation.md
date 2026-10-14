@@ -27,7 +27,7 @@ fit: [local-service, health, ecommerce, agency]
 wow: 3
 relevance: 5
 pacing:
-  cuts_per_10s: 10.97
+  cuts_per_10s: 0.65
   mean_s_between_big_changes: 0.6
   change_rhythm_cv: 0.47
   quiet_share_2fps: 0.0
@@ -76,6 +76,8 @@ Fast: 10.97 cuts per 10 s, mean shot 0.86 s, a change every 0.6 s with CV 0.47 (
 quiet samples. The only longer holds are the appraisal shot (1.5-3.0 s) and the mirror reveal (10-11 s), both
 about 1.5-2 s, and both are where the story turns. Energy peaks in the tool macro burst (4-7 s). It ends on the
 dog's happy pose, not a logo, which reads as a punchline rather than an ad sign-off.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 1 cuts in 15.5 s sampled (0.65 per 10 s), at 7.5 s; 17 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: deep warm browns of wood and leather (#170f09, #38291e, #5b4636), amber lamp light

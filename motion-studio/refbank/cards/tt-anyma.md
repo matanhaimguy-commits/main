@@ -27,7 +27,7 @@ fit: [events, agency, personal-brand]
 wow: 5
 relevance: 2
 pacing:
-  cuts_per_10s: 6.13
+  cuts_per_10s: 0.97
   mean_s_between_big_changes: 1.0
   change_rhythm_cv: 0.0
   quiet_share_2fps: 0.0
@@ -77,6 +77,8 @@ change at an even, relentless rate. Hook change is moderate (0.281): the first 3
 the scale register before anything moves. Energy peaks at 17-19 s with the hands thrust at the camera. The
 film ends with the arms crossing again at 30-31 s, close to the opening pose, so the loop restarts almost
 invisibly.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 3 cuts in 31.0 s sampled (0.97 per 10 s), at 9.0, 16.0, 17.0 s; 19 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: near-black night (#0c0c12, #0e101e) for at least half the frame; deep blue haze (#161833,

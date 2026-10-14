@@ -27,7 +27,7 @@ fit: [saas, b2b, finance, local-service, agency]
 wow: 2
 relevance: 4
 pacing:
-  cuts_per_10s: 2.0
+  cuts_per_10s: 1.33
   mean_s_between_big_changes: 1.67
   change_rhythm_cv: 0.65
   quiet_share_2fps: 0.172
@@ -60,6 +60,8 @@ Container morph. Each element's rounded rectangle animates position, width, heig
 
 ## Pacing read
 2 fps: 2.0 cuts per 10 s (only the staccato end), big changes every 1.67 s, CV 0.65, 17 % quiet. Full rate: 19 % still, 55 % quiet, 8 beats, one transition at 12.33 s, longest quiet run 1.5 s, beat CV 0.37 (the lowest in the onetake set), spread 4.4x (just over the 4x floor). Even through the UI section; the burst at 12 s is the only contrast. No loop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 2 cuts in 15.0 s sampled (1.33 per 10 s), at 10.0, 12.5 s; 3 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 Off-white (#f6f4f0), near-black (#0a0a0a), one violet accent (#5d4cdc) for key words and chips, pale yellow (#e8d495) for the result card and sun, green ticks. Small grotesk UI, serif wordmark, soft card shadows.

@@ -27,7 +27,7 @@ fit: [ecommerce, local-service, b2b, real-estate]
 wow: 3
 relevance: 5
 pacing:
-  cuts_per_10s: 17.69
+  cuts_per_10s: 0.77
   mean_s_between_big_changes: 0.5
   change_rhythm_cv: 0.0
   quiet_share_2fps: 0.0
@@ -68,6 +68,8 @@ landed hero frame doubles as the ad, held for the last 4.5 s.
 it reads as one take with a possible hidden cut at the landing (8.0 to 8.5 s). Structure: 8 s of rising tension
 (tilt, descent, rotation reveal), an instant payoff, then a 4.5 s hold where the cover is readable, the only rest.
 The 0.701 hook change is the tilt starting. It ends on the hold with no sting and does not loop cleanly.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 1 cuts in 13.0 s sampled (0.77 per 10 s), at 8.0 s; 23 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette: sky whites and blues (#dce4eb, #9cb0ca), tarmac greys (#787b81, #4c4c4e), brand red (#861f2c in shade)

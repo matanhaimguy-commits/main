@@ -27,7 +27,7 @@ fit: [health, education, finance, local-service, saas]
 wow: 3
 relevance: 4
 pacing:
-  cuts_per_10s: 1.96
+  cuts_per_10s: 1.09
   mean_s_between_big_changes: 1.35
   change_rhythm_cv: 0.43
   quiet_share_2fps: 0.133
@@ -78,6 +78,8 @@ music. Cuts are counted at only 1.96 per 10 s because most changes are pictures 
 ground. Quiet share 0.133: the rests are the opening grid (3 s), the doubled frames on "GRIPPING" and "Pain is
 Unforgettable", and the final 2 s hold on the tiny bone, which ends the film quietly instead of with a call to
 action. Hook change 0.22: the first 3 s are a still title card.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 5 cuts in 46.0 s sampled (1.09 per 10 s), at 3.0, 28.0, 37.0, 38.0, 39.0 s; 9 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: white page (#fdfefa) everywhere; bone beige (#dbc1ab) and dark brown (#352924, #948070) for

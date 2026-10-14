@@ -27,7 +27,7 @@ fit: [finance, saas, restaurant, b2b]
 wow: 4
 relevance: 3
 pacing:
-  cuts_per_10s: 4.17
+  cuts_per_10s: 1.67
   mean_s_between_big_changes: 1.0
   change_rhythm_cv: 1.24
   quiet_share_2fps: 0.0
@@ -78,6 +78,8 @@ opening and a busy ending. A big change every 1.0 s on average hides that the mi
 the point: the long hold builds dread. Energy peaks at 9.5-10 s with the jaw and the snap, then drops to a dark
 POV that slowly brightens as the lure rises. The first frame shares the fins and the dark of the last, so the
 replay reads as a continuation.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 2 cuts in 12.0 s sampled (1.67 per 10 s), at 1.0, 10.0 s; 5 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: deep blues by depth (#114285 mid water, #0d2e69 and #081b3b deep), cyan light from the

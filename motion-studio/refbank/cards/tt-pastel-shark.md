@@ -76,6 +76,8 @@ the old character's pose snaps at about 2.5, 6.0 and 7.0 s, each a small hit aga
 character fills the rests with low-amplitude acting. It ends on a held blink with music still running, which
 makes the loop feel natural.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 9.0 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette by role: muted sage green field (#8b9c7b) as the only background, dark hair and clothing (#241c19,
   #605352), warm skin tones (#e5a07d, #b3785d), magenta hair streak as the 2025 accent, white labels.

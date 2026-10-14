@@ -27,7 +27,7 @@ fit: [ecommerce, events, agency]
 wow: 5
 relevance: 3
 pacing:
-  cuts_per_10s: 11.37
+  cuts_per_10s: 0.78
   mean_s_between_big_changes: 0.52
   change_rhythm_cv: 0.19
   quiet_share_2fps: 0.0
@@ -62,6 +62,8 @@ Product as pixel. Each unit is one pixel of a target image and the falling front
 
 ## Pacing read
 2 fps: 11.37 "cuts" per 10 s (the camera never stops; no edits), big changes every 0.52 s, very even (CV 0.19), 0 % quiet. Full rate: 1 % still, 2 % quiet, longest quiet run 0.25 s (the only rest WARN in the onetake set), 12 beats, transitions at 4.0, 8.33, 12.17, 14.67, 17.33 and 22.67 s, beat CV 0.63, spread 6.8x. Continuous-motion genre: freezes on beats looked staged and were removed. Ends on a hard stop; no loop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 2 cuts in 25.5 s sampled (0.78 per 10 s), at 8.5, 15.0 s; 29 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 Light grey seamless studio (#e9e9e7, #d1d2d2), near-black fronts (#131317), titanium-blue backs (#2f4968, #6b809e), screens in blue, cream and black. No type. Shallow depth of field at the macro, shutter motion blur throughout.

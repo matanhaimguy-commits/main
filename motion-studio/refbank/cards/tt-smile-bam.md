@@ -27,7 +27,7 @@ fit: [health, local-service, ecommerce]
 wow: 4
 relevance: 4
 pacing:
-  cuts_per_10s: 1.53
+  cuts_per_10s: 0.28
   mean_s_between_big_changes: 4.0
   change_rhythm_cv: 1.05
   quiet_share_2fps: 0.0
@@ -78,6 +78,8 @@ about 18 s) broken by short cutaways. Quiet share 0.0 says something always move
 steady. The hook is almost static (0.025): this format hooks on the picture and sound, not motion. Energy is
 flat and calm by design; the payoffs are the nail sheet lifting (about 15 s), the ring coming off (about
 60 s) and the clean polished foot at the end. Not a loop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 2 cuts in 72.0 s sampled (0.28 per 10 s), at 18.0, 25.5 s; 11 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: skin reds and pinks (#c48b79, #684643) as the subject, cream glove (#d1cbbc), steel greys

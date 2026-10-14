@@ -78,6 +78,8 @@ frames, and a few 3 s holds on weighty lines ("Ego answers se bada ho jata hai..
 dete hain"). Quiet share 0.021: something is almost always appearing. The arc is chronological (start, strain,
 silence, drift, lesson) and it ends on a comment ask that is cut off mid-line. Not a loop.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 72.0 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette: near-black ground (#040404, #000100), white text, yellow keywords (measured as #b6ad72 and
   #5c552e in the small, compressed frames; on screen it reads as a warm saturated yellow).

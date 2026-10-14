@@ -63,6 +63,8 @@ The rhythm contour, built from contrast rather than any one effect. Shot lengths
 ## Pacing read
 2 fps: 0.67 cuts per 10 s, big changes every 2.14 s, CV 1.11, 17 % quiet. Full rate: 19 % still, 59 % quiet, 7 beats, transitions at 8.92 and 14.33 s, longest quiet run 1.67 s, beat CV 1.11, spread 10.9x. Mostly small motion in a still frame, two peaks (the page fly-through at 7-9 s, the word burst at 13.3-14.3 s), then a black end. No loop.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 1 cuts in 15.0 s sampled (0.67 per 10 s), at 14.5 s; 1 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 Off-white ground (#f7f7f5), near-black type (#0b0b0c), one red accent word, small green and blue accents in the cards, a teal page (#99bebb) in the fly-through. Grotesk body, light high-contrast serif wordmark, monospace checklist. Elements about a fifth of frame width; soft shadows.
 

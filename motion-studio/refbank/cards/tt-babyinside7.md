@@ -79,6 +79,8 @@ letterbox, which damps the change score. Big changes every 1.61 s with CV 0.32 s
 The hook change of 0.255 is low: this is a calm open that relies on content, not motion. Rhythm is a strict
 8 s grid; energy peaks at Day 2 (contractions) and Day 7 (sparks). It ends on a wide reveal, no loop.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 64.5 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette: black frame (#000000), flesh pinks from deep (#632c33, #86505d) to mid (#ae7787) and pale lilac
   pink (#d4a6bc) highlights; blood red and electric yellow as accents.

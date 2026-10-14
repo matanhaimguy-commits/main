@@ -77,6 +77,8 @@ feels calm because the image moves slowly while only the word flips. Energy peak
 (3.5-6 s) and again at the leaf bursts (16.5 and 18.5 s). It ends mid-pose on the heart with "YOU", so a replay
 lands straight back on the moon and "SAY" without a seam.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 21.0 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette by role: near-black warm charcoal paper (#252420, #23221e) as the whole background, cream moon and word
   colour (#cfcbc1), lavender and violet hero accents (#807ca8), small pops of teal, coral and mustard planets.

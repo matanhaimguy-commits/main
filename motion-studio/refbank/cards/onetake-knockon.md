@@ -62,6 +62,8 @@ Causal carry seen from above. Every beat is physically caused by the previous on
 ## Pacing read
 2 fps: 0 cuts (one world, one camera), big changes every 1.67 s, CV 1.12, only 3 % quiet because the camera keeps drifting. Full rate: 3 % still but 24 % quiet, 6 beats, no transitions, longest quiet run 1.42 s, beat CV 0.68, spread 12.4x. The rests are scored rather than frozen: the silent teeter and the long hang of the notification. The last key tap rhymes with the first.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 15.0 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 Warm off-white paper (#e5dfd9 to #f8f6f1), soft top-left light, one orange-red accent (marble, track, bell), green for toggle and check, white cards, neutral grotesk (task labels too small for a phone).
 

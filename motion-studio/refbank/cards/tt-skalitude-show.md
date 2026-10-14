@@ -27,7 +27,7 @@ fit: [agency, events, health, ecommerce, b2b]
 wow: 4
 relevance: 4
 pacing:
-  cuts_per_10s: 17.65
+  cuts_per_10s: 0.59
   mean_s_between_big_changes: 0.55
   change_rhythm_cv: 0.48
   quiet_share_2fps: 0.03
@@ -81,6 +81,8 @@ phase, then words resolving at about 4, 8 and 11.5 s (every 3.5-4 s), each legib
 hook change (0.178) is the near-empty opening. Energy peaks on the third, largest "Friends?", and the ending
 inverts and thins the pattern so it fades with the song. Not a loop, but the brief legibility windows drive
 rewatches to read the words.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 1 cuts in 17.0 s sampled (0.59 per 10 s), at 2.0 s; 30 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: paper white (#f7f8f7) and ink black (#0d0e0d) only; the greys (#d3d4d2, #3d3e3d, #a5a6a5)

@@ -27,7 +27,7 @@ fit: [personal-brand, events, local-service, health]
 wow: 3
 relevance: 3
 pacing:
-  cuts_per_10s: 18.0
+  cuts_per_10s: 6.0
   mean_s_between_big_changes: 0.5
   change_rhythm_cv: 0.0
   quiet_share_2fps: 0.0
@@ -74,6 +74,8 @@ The 2 fps detector saturates: 18 cuts per 10 s, a big change every 0.5 s, CV 0.0
 sample differs from the last. Reading the frames, there are about seven shots in 5 s, with one held shot of about
 1.5 s (1.5-2.5 s) where the colour drains instead of cutting. A hook change of 0.698 is very high: the whip into
 the close-up is the biggest jump in the film. It never ends; the last beat is the transition back to the start.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 3 cuts in 5.0 s sampled (6.0 per 10 s), at 0.5, 3.0, 4.5 s; 9 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: crushed teal-black shadows (#0f1417, #1d242a, #323940) dominate, skin and kit pulled toward

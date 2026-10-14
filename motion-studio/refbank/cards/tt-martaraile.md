@@ -27,7 +27,7 @@ fit: [ecommerce, restaurant, real-estate, local-service]
 wow: 3
 relevance: 5
 pacing:
-  cuts_per_10s: 5.26
+  cuts_per_10s: 1.58
   mean_s_between_big_changes: 0.83
   change_rhythm_cv: 0.94
   quiet_share_2fps: 0.108
@@ -75,6 +75,8 @@ the first 7 s, then slow screen-recording time in the editor (quiet share 0.108,
 chroma panel is adjusted), then a 5 s continuous result shot. The hook change is low (0.246) because the opening
 is a held wide with one moving hand. Energy peaks at the reveal of the result, which is the longest single shot,
 and it ends mid-slide with no outro, so it loops back to step 1.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 3 cuts in 19.0 s sampled (1.58 per 10 s), at 6.5, 8.5, 14.0 s; 10 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 - Palette by role: warm off-white room and chair (#aea79e, #c4c5c4), dark editor UI (#121211, #2a2622), brown

@@ -27,7 +27,7 @@ fit: [ecommerce, saas, b2b, events]
 wow: 3
 relevance: 5
 pacing:                               # frames_metrics.py on a 1 fps sample
-  cuts_per_10s: 3.46
+  cuts_per_10s: 1.92
   mean_s_between_big_changes: 1.44
   change_rhythm_cv: 0.53
   quiet_share_2fps: 0.04
@@ -72,6 +72,8 @@ At a 1 fps sample: 3.46 cuts per 10 s, a big change every 1.44 s, uneven (CV 0.5
 a 6 s hold where only the screen changes, a 4 s end card that changes only through light. Quiet share 0.04. The
 lights-out at 20 s is a late second hook that carries viewers through the call to action. Ends on a wordmark
 hold; no loop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 5 cuts in 26.0 s sampled (1.92 per 10 s), at 5.0, 6.0, 8.0, 16.0, 20.0 s; 9 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 Warm grey seamless (#c3c4c0, #e3e4e2), product white and grey, one orange accent (keys, cable, switch, pill);

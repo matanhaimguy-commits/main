@@ -27,7 +27,7 @@ fit: [saas, b2b, education, ecommerce]
 wow: 4
 relevance: 3
 pacing:
-  cuts_per_10s: 3.72
+  cuts_per_10s: 1.4
   mean_s_between_big_changes: 0.67
   change_rhythm_cv: 0.82
   quiet_share_2fps: 0.167
@@ -61,6 +61,8 @@ Carry by scale, pulling out. Everything that appears was already inside the prev
 
 ## Pacing read
 2 fps: 3.72 "cuts" per 10 s (the flip and the dives), big changes every 0.67 s, CV 0.82, 17 % quiet. Full rate: 15 % still, 29 % quiet, 15 beats, transitions at 1.17, 2.0, 7.83 and 12.58 s, longest quiet run 2.42 s, beat CV 0.63, spread 8.8x. The eye close-up is a second rest that doubles as the hand-off. No loop.
+
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 3 cuts in 21.5 s sampled (1.4 per 10 s), at 1.0, 2.0, 8.0 s; 8 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
 
 ## Look
 First third amber (#d1920b) on near-black (#18160b) with scanlines and pixel gaps; then a light grey desktop (#d3d4cf to #fefefd), a hard window shadow and a lavender name. The product's own bitmap pixel font throughout.

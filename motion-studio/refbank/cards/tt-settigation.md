@@ -79,6 +79,8 @@ digit, fan, gather, deck, status, chip. No rest longer than about 1 s. It is 5 s
 enough to the start that the platform loop plays it again immediately, which is how short UI clips rack up
 plays.
 
+Re-measured with colour-gated cut detection (a cut needs the colour distribution to jump, so camera moves, morphs and full-frame patterns no longer count): 0 cuts in 5.0 s sampled (0.0 per 10 s); 0 samples where most of the picture changed. Where an earlier figure in this section differs, this one is current.
+
 ## Look
 - Palette by role: near-black page and panels (#05090a, #080d0f, #0d1115, #13171c), slate card borders
   (#2b3239), one blue accent for "DECK" and filled tiles, green only for the final chip.
