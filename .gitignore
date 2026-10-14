@@ -1,3 +1,6 @@
 OpenMontage/
 # the five reference repos are downloaded by references/fetch.sh, not committed
 references/*/
+
+# Growth Engine secrets
+growth-engine/.env

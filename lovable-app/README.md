@@ -20,6 +20,8 @@ Lovable and rebuilds the app, so changes cost no Lovable credits.
 | `src/routes/api/` | Endpoints Meta and the scheduler call: `/api/meta/webhook`, `/api/tick`, `/api/connect/start`, `/api/connect/callback`. |
 | `src/routes/` | The dashboard: overview, inbox, businesses, activity, test the bot, connect, settings, and the public `/privacy` and `/data-deletion` pages. |
 | `src/lib/api/` | Server functions the dashboard calls. |
+| `src/server/content*.server.ts`, `src/routes/api/content/` | Growth Engine hub: the content calendar, media uploads, keyword funnels and post results the studio uses (`/api/content/*`, studio token from Settings). |
+| `src/routes/content.tsx` | The Content page: review, approve, schedule and mark posts as posted. |
 | `supabase/migrations/` | The database schema. Safe to re-run. |
 
 ## How it runs

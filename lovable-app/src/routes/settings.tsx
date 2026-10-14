@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { CopyField } from "@/components/app/copy-field";
+import { createStudioTokenFn, studioTokenStateFn } from "@/lib/api/content.functions";
 import { changePasswordFn, createReviewerPasswordFn, removeReviewerPasswordFn } from "@/lib/api/session.functions";
 import { getSettings, saveSettingsFn } from "@/lib/api/setup.functions";
 import { errorText, timeAgo } from "@/lib/format";
@@ -149,6 +150,7 @@ function SettingsPage() {
 
           <PasswordCard fromSecret={s.password.fromSecret} />
           <ReviewerCard exists={s.reviewer.exists} createdAt={s.reviewer.createdAt} />
+          <StudioTokenCard />
         </div>
       )}
     </Shell>
@@ -254,6 +256,47 @@ function ReviewerCard({ exists, createdAt }: { exists: boolean; createdAt: strin
             </Button>
           )}
         </div>
+      </CardContent>
+    </Card>
+  );
+}
+
+function StudioTokenCard() {
+  const qc = useQueryClient();
+  const state = useQuery({ queryKey: ["studio-token"], queryFn: () => studioTokenStateFn() });
+  const [token, setToken] = useState<string | null>(null);
+  const [busy, setBusy] = useState(false);
+  const create = async () => {
+    if (state.data?.exists && !window.confirm("Make a new studio token? The studio stops working until it has the new one.")) return;
+    setBusy(true);
+    try {
+      setToken((await createStudioTokenFn()).token);
+      await qc.invalidateQueries({ queryKey: ["studio-token"] });
+    } catch (err) {
+      toast.error(errorText(err));
+    } finally {
+      setBusy(false);
+    }
+  };
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Studio token (Growth Engine)</CardTitle>
+        <CardDescription>
+          Lets the content studio send drafts, media and keyword funnels to this app. Put it in the cloud environment's secrets as
+          HUB_TOKEN, never in a chat.
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-3 text-sm">
+        {token && (
+          <div className="rounded-lg border border-emerald-300 bg-emerald-50 p-3">
+            <CopyField label="Studio token (shown only now)" value={token} />
+          </div>
+        )}
+        <p className="text-muted-foreground">{state.data?.exists ? `Set, created ${timeAgo(state.data.createdAt)}.` : "Not set."}</p>
+        <Button onClick={create} disabled={busy}>
+          {state.data?.exists ? "Make a new token" : "Create studio token"}
+        </Button>
       </CardContent>
     </Card>
   );
