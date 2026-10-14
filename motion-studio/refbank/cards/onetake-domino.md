@@ -55,7 +55,7 @@ At 0.0-1.5 s a macro of a phone's back and camera bump on a pale grey sweep, orb
 | 13.7-21.4 | 100 x 100 field | chase, a circular front through 10,000 phones, a climbing reveal; the face winks | loudest stretch |
 | 22.3-25.6 | the survivor | dive to the last upright phone; it winks, the screen goes black | sound cut dead, two lone hits |
 
-Sound: cut to a licensed 140 BPM instrumental that is not shipped; the file carries foley and the film's own notes (case notes plus our loudness read: a steady -17 to -19 LUFS swarm, about -12 at the peak).
+Sound: cut to a licensed 140 BPM instrumental that is not shipped; the file carries foley and the film's own notes (case notes).
 
 ## Signature device
 Product as pixel. Each unit is one pixel of a target image and the falling front is the scan that writes it. A resolution ladder (1, 3 x 3, 10 x 10, 32 x 32, 100 x 100) is the escalation. Each phone's fall time is its path distance divided by the front speed (a pure function of time), its angle easing in slowly and finishing fast like a real domino. Screens take the image colour at their grid position and light on the beat. The camera changes language per stage: orbit, crane, first-person ride, pull-back, climb, dive.

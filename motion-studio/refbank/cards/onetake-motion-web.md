@@ -70,14 +70,13 @@ Off-white ground (#f7f7f5), near-black type (#0b0b0c), one red accent word, smal
 - For designers and developers the claim sets up a reversal and the demo proves it.
 - The visible hand gives cause and effect; varied durations give the film a contour.
 - The burst after a hold gives the ending a punch.
-- As a feed reel it would underperform: tiny type and a calm open.
 
 ## Steal this (grammar) / Leave this (content)
 - Steal: duration contrast as a target (longest beat at least 4x the shortest); a hand visible whenever UI reacts; a hold before the burst; a one-word staccato close; vary how shots exit.
-- Leave: the claim and words, the wordmark, the third-party site footage (we never ship others' pixels), the micro cards, and above all the beat order, which was punished when reused.
+- Leave: the claim and words, the wordmark, the third-party site footage, the micro cards, and above all the beat order, which was punished when reused.
 
 ## Build it in our studio
-Engine: HyperFrames (DOM type, cards and pointer on one paused GSAP timeline; registry typing and cursor effects). Canvas is fine too.
+Engine: HyperFrames (DOM type, cards and pointer on one paused GSAP timeline; registry typing and cursor effects).
 1. Claim word by word, then the logo.
 2. Prompt card, pointer, send; checklist ticks.
 3. The client's own real pages in perspective.

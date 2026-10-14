@@ -40,7 +40,7 @@ On near-black, a single violet dot pops in, stretches into a text cursor, splits
 Craft reference, not a social post: a 16:9 launch film for the onetake skill (shown under its earlier name). Study only (PolyForm Noncommercial): ideas in our words, no code, text, pixels or sound reused.
 
 ## Why it stops the scroll (first 2 s)
-At 0.0 s a dark ground with a faint lighter centre, nothing else; at 0.5 s a violet dot pops in on a spring; at 1.0 s it glides left and stretches into a caret; at 1.5-2.0 s it types a slash, then splits into four bullet dots with labels. Mechanism: a minimal pattern interrupt; with one object on screen the eye locks onto it and asks what it will become. Weak in a feed: the first half second is empty (hook change 0.012, and the meter underreads a small dot on black).
+At 0.0 s a dark ground with a faint lighter centre, nothing else; at 0.5 s a violet dot pops in on a spring; at 1.0 s it glides left and stretches into a caret; at 1.5-2.0 s it types a slash, then splits into four bullet dots with labels. Mechanism: a minimal pattern interrupt; with one object on screen the eye locks onto it and asks what it will become. Weak in a feed: the first half second is empty (hook change 0.012).
 
 ## Beat map
 | t (s) | on screen | what moves | sound |
@@ -49,21 +49,21 @@ At 0.0 s a dark ground with a faint lighter centre, nothing else; at 0.5 s a vio
 | 1.75-3.35 | menu | dot splits into four bullets; one pulses, three fall away | ticks |
 | 3.5-5.0 | request | caret types a sentence; a still beat | key clicks |
 | 5.0-6.0 | send | the dot swallows the sentence; camera whips home with it | whoosh; music enters on the 6.0 downbeat |
-| 6.0-8.0 | ring, curve | dot hollows into a ring that fills, then unrolls into a spring curve | a rising tone; a tone that follows the curve |
+| 6.0-8.0 | ring, curve | dot hollows into a ring that fills, then unrolls into a spring curve | rising tones |
 | 8.0-10.0 | ball | a bead runs the curve, drops, bounces twice | gated silent on the hang, then bounce hits |
 | 10.0-11.25 | result | the second bounce opens a cream card where the dot is the sun | loudest hit |
 | 11.25-15.0 | name | card folds into the sun, sun into the dot; letters rise; it lands on the i and winks | landing hit, held chord, quiet end |
 
-Sound per the case notes: foley and tuned percussion with synthesis, landings on a 120 BPM grid.
+Sound per the case notes; landings on a 120 BPM grid.
 
 ## Signature device
-Identity morph. One object never leaves; every new interface state is that object changing shape: circle to caret (width shrinks, height grows), caret to four circles, back to caret, back to circle (swallow), circle to ring (fill becomes stroke), ring to curve (cut at one point and unroll its length into a path), curve to ball, ball to sun, sun to the dot of a letter. The camera leads the subject by 0.1-0.2 s with springs on position and on log zoom (about 1.3x to 2.4x), over a dim far dot lattice that gives it something to slide past. A fixed-camera version was praised but asked for tracking; the operator camera got it accepted.
+Identity morph. One object never leaves; every new interface state is that object changing shape: circle to caret (width shrinks, height grows), caret to four circles, back to caret, back to circle (swallow), circle to ring (fill becomes stroke), ring to curve (cut at one point and unroll its length into a path), curve to ball, ball to sun, sun to the dot of a letter. The camera leads the subject by 0.1-0.2 s with springs on position and log zoom, over a dim far dot lattice that gives it something to slide past (a fixed-camera version was rejected for lacking tracking).
 
 ## Pacing read
-2 fps: 1.33 cuts per 10 s, big changes every 3.0 s, CV 1.21, 24 % quiet. Full rate: 9 % still, 43 % quiet, only 2 beats detected, one transition at 11.42 s, longest quiet run 2.0 s, beat CV 0.74, spread 7.6x. The meters see a slow film with one burst (10-12 s) because the moving thing is small; the felt rhythm is the 120 BPM landings and a morph every 1-2 s. Ends on a slow push and a wink. No loop.
+2 fps: 1.33 cuts per 10 s, big changes every 3.0 s, CV 1.21, 24 % quiet. Full rate: 9 % still, 43 % quiet, only 2 beats detected, one transition at 11.42 s, longest quiet run 2.0 s, beat CV 0.74, spread 7.6x. The meters underread a small dot on black; the felt rhythm is a morph every 1-2 s on 120 BPM landings. Ends on a slow push and a wink. No loop.
 
 ## Look
-Near-black ground (#07060b to #14131b), one violet accent (not in the measured top five), a cream card (#f0e9da) with a yellow sun at the result. White grotesk typed text, a bold wordmark about an eighth of frame height, a faint 1.4 px dot grid. Shutter smear when the dot streaks.
+Near-black ground (#07060b to #14131b), one violet accent (not in the measured top five), a cream card (#f0e9da) with a yellow sun at the result. White grotesk text, bold wordmark, faint dot grid, shutter smear on the streak.
 
 ## Why it works
 - One subject means zero orientation cost.
@@ -76,7 +76,7 @@ Near-black ground (#07060b to #14131b), one violet accent (not in the measured t
 - Leave: violet on black, the command menu and labels, the code label, the sun card, the wordmark.
 
 ## Build it in our studio
-Engine: canvas (closed-form shape morphs, springs from lib/motion.js, subframe blur for the streak). HyperFrames with SVG morphing is the alternative.
+Engine: canvas (closed-form shape morphs, springs from lib/motion.js, subframe blur for the streak).
 1. List six to eight states the element passes through, each a real product moment.
 2. Define each as a parametric shape (radius; rect size and corner; ring stroke; path).
 3. Camera rig that leads the element; far lattice.
