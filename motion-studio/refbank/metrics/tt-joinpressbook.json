@@ -1,0 +1,78 @@
+{
+ "frames": 18,
+ "step_s": 0.5,
+ "sampled_s": 9.0,
+ "cuts": 9,
+ "cut_times": [
+  3.5,
+  5.0,
+  5.5,
+  6.0,
+  6.5,
+  7.0,
+  7.5,
+  8.0,
+  8.5
+ ],
+ "cuts_per_10s": 10.0,
+ "mean_shot_s": 0.9,
+ "longest_shot_s": 3.5,
+ "big_changes": 12,
+ "mean_s_between_big_changes": 0.69,
+ "change_rhythm_cv": 0.78,
+ "change_rhythm_spread": 5.0,
+ "quiet_share_2fps": 0.0,
+ "longest_quiet_s": 0.0,
+ "mean_change": 0.452,
+ "hook_change_0_2s": 0.116,
+ "energy_curve": [
+  0.0,
+  0.11,
+  0.16,
+  0.1,
+  0.1,
+  0.1,
+  0.04,
+  0.64,
+  0.24,
+  0.27,
+  0.62,
+  0.86,
+  0.89,
+  0.79,
+  0.76,
+  0.88,
+  0.64,
+  0.47
+ ],
+ "luma_mean": 0.41,
+ "luma_contrast": 0.21,
+ "saturation_mean": 0.45,
+ "palette": [
+  [
+   "#60321f",
+   0.327
+  ],
+  [
+   "#c78870",
+   0.196
+  ],
+  [
+   "#757477",
+   0.146
+  ],
+  [
+   "#9d6144",
+   0.135
+  ],
+  [
+   "#d2ccc1",
+   0.104
+  ],
+  [
+   "#241612",
+   0.092
+  ]
+ ],
+ "id": "tt-joinpressbook"
+}

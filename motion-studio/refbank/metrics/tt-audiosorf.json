@@ -1,0 +1,83 @@
+{
+ "frames": 20,
+ "step_s": 0.5,
+ "sampled_s": 10.0,
+ "cuts": 12,
+ "cut_times": [
+  0.5,
+  1.0,
+  1.5,
+  2.0,
+  3.0,
+  3.5,
+  4.0,
+  4.5,
+  5.0,
+  5.5,
+  7.5,
+  8.0
+ ],
+ "cuts_per_10s": 12.0,
+ "mean_shot_s": 0.77,
+ "longest_shot_s": 2.0,
+ "big_changes": 17,
+ "mean_s_between_big_changes": 0.56,
+ "change_rhythm_cv": 0.28,
+ "change_rhythm_spread": 2.0,
+ "quiet_share_2fps": 0.0,
+ "longest_quiet_s": 0.0,
+ "mean_change": 0.65,
+ "hook_change_0_2s": 0.909,
+ "energy_curve": [
+  0.0,
+  0.96,
+  0.83,
+  0.94,
+  0.91,
+  0.1,
+  0.86,
+  0.9,
+  0.96,
+  0.97,
+  1.0,
+  0.46,
+  0.28,
+  0.24,
+  0.23,
+  0.99,
+  0.96,
+  0.11,
+  0.33,
+  0.33
+ ],
+ "luma_mean": 0.34,
+ "luma_contrast": 0.29,
+ "saturation_mean": 0.31,
+ "palette": [
+  [
+   "#221f1e",
+   0.481
+  ],
+  [
+   "#c3ded9",
+   0.206
+  ],
+  [
+   "#1d13d8",
+   0.103
+  ],
+  [
+   "#d60d14",
+   0.087
+  ],
+  [
+   "#9e886b",
+   0.076
+  ],
+  [
+   "#0b0c0b",
+   0.047
+  ]
+ ],
+ "id": "tt-audiosorf"
+}

@@ -64,14 +64,13 @@ over to talk to her.
 | 5.5-7.0 | friend leans down, gestures and talks to her; ends mid-exchange | hand gestures, small head moves | music, speech (AI segment; words not available) |
 
 ## Signature device
-A top-down match cut that changes only the ground. The camera is locked directly overhead (a ceiling or boom
-mount), framing the bed so its long edge runs vertically about one third in from the left. In the dream half,
-everything left of the bed edge is replaced by a looking-down plate of a tall building: railings and facade
-lines converge toward streets at the bottom left, so the brain reads the frame as a side view with gravity
-pulling left. The sleeper's slide off the mattress (about 1 s) is staged so she falls toward that plate. At the
-exact moment her body would leave the bed, cut to the same lock-off with the real floor: wooden boards, white
-wall, a power socket. Composition, lens and bed position are identical across the cut, so the only new
-information is "it was only the floor", and her landing pose (hunched, knees up) sells the shock.
+A top-down match cut that changes only the ground. The camera is locked directly overhead, framing the bed so
+its long edge runs vertically about one third in from the left. In the dream half, everything left of the bed
+edge is a looking-down plate of a tall building: railings and facade lines converge toward streets far below,
+so the brain reads the frame as a side view with gravity pulling left. Her slide off the mattress (about 1 s)
+goes toward that plate. At the moment her body would leave the bed, cut to the same lock-off with the real
+floor: wooden boards, white wall, a power socket. Composition and lens are identical across the cut, so the only
+new information is "it was only the floor", and her landing pose (hunched, knees up) sells the shock.
 
 ## Pacing read
 The metrics read 10 cuts per 10 s, a big change every 0.5 s with CV 0.0 and no quiet frames, but the frames show
@@ -103,15 +102,14 @@ mid-conversation with no outro, which pushes a replay to see the fall again.
 - Leave: the creators, their pyjamas and bedroom, the city plate, their audio.
 
 ## Build it in our studio
-- Engine: client or studio `footage` for the two overhead takes, the drop plate via `gen-video` (paid,
-  approval) or licensed stock, comp and grade in ffmpeg; `canvas` for a fully illustrated version where the
-  floor becomes a drawn abyss.
-- Scene plan: 1) rig a phone on a ceiling mount over a bed or desk; 2) take A: actor sleeps, rolls and slides
-  off toward the left edge onto a soft mat; 3) take B, same lock-off, actor already on the floor; 4) matte the
-  floor area in take A (static camera, so one hand-drawn mask plus a person cutout for the fall frames) and lay
-  the drop plate under it; 5) hard cut A to B on the frame where the body clears the mattress.
-- Hard part: keeping the actor in front of the plate during the fall. Use the media-use background removal per
-  frame for the body over a static mask; motion blur hides edge errors.
+- Engine: `footage` for the two overhead takes, the drop plate via `gen-video` (paid, approval) or licensed
+  stock, comp in ffmpeg; `canvas` for an illustrated version where the floor becomes a drawn abyss.
+- Scene plan: 1) phone on a ceiling mount over a bed or desk; 2) take A: actor sleeps, rolls and slides off the
+  left edge onto a soft mat; 3) take B, same lock-off, actor already on the floor; 4) one static mask over the
+  floor in take A, the drop plate under it, a person cutout for the fall frames; 5) hard cut A to B as the body
+  clears the mattress.
+- Hard part: the actor over the plate during the fall. Per-frame background removal (media-use) plus motion
+  blur hides edge errors.
 - Difficulty 3: no 3D, but it needs a shoot and a plate.
 
 ## Business translations

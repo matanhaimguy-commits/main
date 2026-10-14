@@ -1,0 +1,70 @@
+{
+ "frames": 10,
+ "step_s": 0.5,
+ "sampled_s": 5.0,
+ "cuts": 9,
+ "cut_times": [
+  0.5,
+  1.0,
+  1.5,
+  2.0,
+  2.5,
+  3.0,
+  3.5,
+  4.0,
+  4.5
+ ],
+ "cuts_per_10s": 18.0,
+ "mean_shot_s": 0.5,
+ "longest_shot_s": 0.5,
+ "big_changes": 9,
+ "mean_s_between_big_changes": 0.5,
+ "change_rhythm_cv": 0.0,
+ "change_rhythm_spread": 1.0,
+ "quiet_share_2fps": 0.0,
+ "longest_quiet_s": 0.0,
+ "mean_change": 0.758,
+ "hook_change_0_2s": 0.698,
+ "energy_curve": [
+  0.0,
+  0.97,
+  0.68,
+  0.61,
+  0.53,
+  0.52,
+  0.9,
+  0.88,
+  0.85,
+  0.89
+ ],
+ "luma_mean": 0.27,
+ "luma_contrast": 0.22,
+ "saturation_mean": 0.28,
+ "palette": [
+  [
+   "#0f1417",
+   0.266
+  ],
+  [
+   "#1d242a",
+   0.225
+  ],
+  [
+   "#323940",
+   0.181
+  ],
+  [
+   "#565455",
+   0.128
+  ],
+  [
+   "#cac7b9",
+   0.117
+  ],
+  [
+   "#828078",
+   0.083
+  ]
+ ],
+ "id": "tt-crannyjr-utd"
+}

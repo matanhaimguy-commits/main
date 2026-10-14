@@ -1,0 +1,79 @@
+{
+ "frames": 27,
+ "step_s": 0.5,
+ "sampled_s": 13.5,
+ "cuts": 1,
+ "cut_times": [
+  7.0
+ ],
+ "cuts_per_10s": 0.74,
+ "mean_shot_s": 6.75,
+ "longest_shot_s": 7.0,
+ "big_changes": 9,
+ "mean_s_between_big_changes": 1.35,
+ "change_rhythm_cv": 1.42,
+ "change_rhythm_spread": 14.0,
+ "quiet_share_2fps": 0.115,
+ "longest_quiet_s": 1.0,
+ "mean_change": 0.122,
+ "hook_change_0_2s": 0.046,
+ "energy_curve": [
+  0.0,
+  0.04,
+  0.1,
+  0.03,
+  0.01,
+  0.0,
+  0.1,
+  0.01,
+  0.05,
+  0.06,
+  0.05,
+  0.03,
+  0.05,
+  0.03,
+  0.98,
+  0.1,
+  0.12,
+  0.1,
+  0.12,
+  0.18,
+  0.22,
+  0.16,
+  0.13,
+  0.13,
+  0.15,
+  0.14,
+  0.1
+ ],
+ "luma_mean": 0.33,
+ "luma_contrast": 0.32,
+ "saturation_mean": 0.09,
+ "palette": [
+  [
+   "#2e2d2c",
+   0.432
+  ],
+  [
+   "#010101",
+   0.238
+  ],
+  [
+   "#d5d3cf",
+   0.114
+  ],
+  [
+   "#efe8dd",
+   0.092
+  ],
+  [
+   "#897966",
+   0.085
+  ],
+  [
+   "#c6bdb1",
+   0.038
+  ]
+ ],
+ "id": "ig-viscous-realm"
+}
