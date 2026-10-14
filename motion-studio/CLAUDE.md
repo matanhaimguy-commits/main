@@ -65,4 +65,8 @@ These rules apply to every engine (HyperFrames, the canvas engine, Lemo-Opuscar,
   (the page's text helper pushes boxes into `window.__boxes`, see projects/straightscale-02/index.html).
 - tools/events.mjs: dumps the page's `window.EVENTS` (sound cue times) to JSON for the score and foley.
 - templates/project/: the folder every new job starts from.
+- refbank/: the reference bank (viral reels as breakdown cards + per-client usage ledger). `refbank/tools/refbank.py
+  pick --client X` for fresh references, `check` before a concept, `log` after delivery. Never repeat a client's
+  previous category, a signature device from its last 3 films, or a reference it already used.
+- HANDOFF.md: everything this studio knows, written for the session building the automated reel machine.
 - API keys live in .env (e.g. ELEVENLABS_API_KEY). Never paste keys into prompts.

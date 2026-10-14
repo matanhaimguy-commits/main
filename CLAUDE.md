@@ -4,6 +4,9 @@
   `motion-reel` skill. It is the A-to-Z workflow; it starts with `bash motion-studio/setup.sh` and reads
   `motion-studio/knowledge/README.md`. House rules: `motion-studio/CLAUDE.md`. Client projects live in
   `motion-studio/projects/<client>-<piece>/`.
+- **Reference bank** of proven viral reels with breakdown cards and a per-client usage ledger (so films never
+  repeat): `motion-studio/refbank/` (`refbank/tools/refbank.py pick|search|check|log`).
+- **Building an automated reel machine** on top of this: read `motion-studio/HANDOFF.md` first.
 - `references/` holds five complete reference repos (HyperFrames, onetake, gbro-collage-broll,
   claude-animation-base, lemo-opuscar), gitignored and downloaded by `bash references/fetch.sh`.
 - **Instagram / Facebook automation** (comment-to-DM funnels, AI sales DMs, for us and clients): `social-agent/`.

@@ -1,0 +1,82 @@
+{
+ "frames": 30,
+ "step_s": 0.5,
+ "sampled_s": 15.0,
+ "cuts": 1,
+ "cut_times": [
+  14.5
+ ],
+ "cuts_per_10s": 0.67,
+ "mean_shot_s": 7.5,
+ "longest_shot_s": 14.5,
+ "big_changes": 6,
+ "mean_s_between_big_changes": 2.14,
+ "change_rhythm_cv": 1.11,
+ "change_rhythm_spread": 14.0,
+ "quiet_share_2fps": 0.172,
+ "longest_quiet_s": 1.0,
+ "mean_change": 0.106,
+ "hook_change_0_2s": 0.019,
+ "energy_curve": [
+  0.0,
+  0.02,
+  0.01,
+  0.03,
+  0.02,
+  0.01,
+  0.06,
+  0.03,
+  0.01,
+  0.0,
+  0.07,
+  0.03,
+  0.01,
+  0.01,
+  0.18,
+  0.09,
+  0.33,
+  0.03,
+  0.33,
+  0.13,
+  0.27,
+  0.02,
+  0.04,
+  0.04,
+  0.1,
+  0.05,
+  0.07,
+  0.07,
+  0.01,
+  1.0
+ ],
+ "luma_mean": 0.93,
+ "luma_contrast": 0.17,
+ "saturation_mean": 0.01,
+ "palette": [
+  [
+   "#f7f7f5",
+   0.797
+  ],
+  [
+   "#fefefe",
+   0.083
+  ],
+  [
+   "#e2dedb",
+   0.041
+  ],
+  [
+   "#0b0b0c",
+   0.034
+  ],
+  [
+   "#99bebb",
+   0.023
+  ],
+  [
+   "#f9f9f7",
+   0.023
+  ]
+ ],
+ "id": "onetake-motion-web"
+}
