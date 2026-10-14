@@ -40,78 +40,71 @@ click the item on the table jumps to the next menu item (smoothie, granola cup, 
 the beat, cycling round and round.
 
 ## Why it stops the scroll (first 2 s)
-- 0.0 s: dark navy wall, purple "BÄR BAR" sign top centre, a light wooden round table, a red smoothie in a
-  branded cup at left, a hand with a TV remote entering from the right, already aimed at the cup.
-- 0.5 s: same frame, the smoothie still there; the remote is the question: what will it do?
-- 1.0 s: click, the smoothie is replaced by a granola yogurt cup in exactly the same spot.
-- 1.5 s: click, a pink branded bowl. 2.0 s: an orange smoothie.
-- Mechanism: an everyday gesture (zapping channels) applied to a real object, so the product "changes channel".
-  The idea is clear in one second and then repeats at speed. The music is a well-known synth-pop track
-  ("Smalltown Boy"), which carries recognition on its own.
+- 0.0 s: dark navy wall, purple "BÄR BAR" sign top centre, a light wooden round table, a red smoothie in a branded
+  cup at left, a hand with a TV remote from the right, already aimed at the cup.
+- 0.5 s: same frame; the remote is the question.
+- 1.0 s: click, the smoothie becomes a granola cup in exactly the same spot.
+- 1.5-2.0 s: a pink branded bowl, then an orange smoothie.
+- Mechanism: an everyday gesture (zapping channels) applied to a real object, clear in one second, then repeated
+  at speed. The track is a well-known synth-pop song ("Smalltown Boy"), which carries recognition on its own.
 
 ## Beat map
 | t (s) | on screen | what moves | sound |
 |---|---|---|---|
-| 0.0-0.5 | red smoothie in branded cup, remote aimed | hand holds still | trending synth-pop track starts |
+| 0.0-0.5 | red smoothie, remote aimed | hand still | synth-pop track starts |
 | 1.0 | granola cup | swap on click | beat |
 | 1.5 | pink bowl with toppings | swap | beat |
 | 2.0 | orange smoothie | swap | beat |
-| 2.5 | green bowl with fruit on top | swap | beat |
+| 2.5 | green bowl with fruit | swap | beat |
 | 3.0 | small juice shot | swap; smallest item, a size joke | beat |
 | 3.5 | wrapped baguette sandwich lying flat | swap | beat |
-| 4.0-6.0 | red smoothie, granola, bowl, orange smoothie, green bowl again | the cycle restarts | music continues; AI says the clicks speed up near the end |
-| 6.0-7.0 | green bowl | hold to end, loops back to the red smoothie | music continues |
+| 4.0-6.0 | the cycle restarts: red smoothie, granola, bowl, orange, green | swaps continue | AI says clicks speed up near the end |
+| 6.0-7.0 | green bowl | hold to end, loops to the red smoothie | music continues |
 
 ## Signature device
-Remote-control swap cut. Camera locked on a tripod at table height, 50 mm-ish framing, the product placed on one
-marked spot at the left third of the table, a hand with a remote in the right third, the brand sign top centre.
-Shoot one clean plate per product without moving anything else, then cut between them on every beat of the
-music (about every 0.5 s), so the only thing that changes is the product. The hand stays in frame the whole
-time (shot once and kept as a constant layer, or held still in every take), which makes the remote read as the
+Remote-control swap cut. Camera locked on a tripod at table height, the product on one marked spot in the left
+third, a hand with a remote in the right third, the brand sign top centre. One clean plate per product with
+nothing else moved, cut on every beat (about every 0.5 s), so only the product changes. The hand stays in frame
+the whole time (held still in every take, or shot once as a constant layer), which makes the remote read as the
 cause. Seven products, cycled twice; the ending lands mid-cycle so the loop is invisible.
 
 ## Pacing read
-The metric reads 0 cuts and a hook change of only 0.098 because the frame is about 90% identical and only the
-product area changes, which falls under the hard-cut threshold. In reality there is a swap roughly every 0.5 s
-(one per beat at our sampling rate), with big changes every 1.17 s on average when a tall cup becomes a low bowl.
-CV 0.47 reflects that some swaps are similar in shape (cup to cup) and some are not. There are no rests: the
-rhythm is constant from 1 s to the end, and the ending has no outro, so it loops straight back to the start.
+The metric reads 0 cuts and a hook change of only 0.098 because about 90% of the frame never changes and the
+product area falls under the hard-cut threshold. In reality there is a swap roughly every 0.5 s, with big changes
+every 1.17 s on average when a tall cup becomes a low bowl; CV 0.47 reflects similar versus different shapes. No
+rests: the rhythm is constant from 1 s to the end, and with no outro it loops straight back.
 
 ## Look
-- Palette by role: dark navy wall (#101a27) and near-black shadows (#07070b), warm wood table (#ccb3a1) with a
-  brown-wood curtain behind (#3b2720), brand violet (#413e62) on the sign; the products give the colour pops
-  (red, orange, green, pink).
-- Type: none as overlay. The brand appears on the sign and on every cup.
-- Texture and light: one soft key from the left, hard shadow on the table to the right, moody low-key cafe look.
-- Camera: locked off, eye level with the table edge, no movement at all.
+- Palette: dark navy wall (#101a27), near-black shadow (#07070b), warm wood table (#ccb3a1), brown curtain
+  (#3b2720), brand violet (#413e62) on the sign; the products give the colour pops.
+- Type: none as overlay; the brand is on the sign and every cup.
+- Light and camera: one soft key from the left, hard shadow to the right, low-key cafe mood; locked off at the
+  table edge.
 
 ## Why it works
-- One-second concept: the viewer gets the joke instantly and stays to see the whole menu.
-- Fast swaps on the beat feel satisfying and leave no dead time.
-- It works as a complete menu tour in 7 s; viewers rewatch to see each item.
-- High saves (62 K) and shares (38 K) from a 2.2 K follower account: other creators and small businesses saved it
-  as a template idea ("creative ways to make commercials").
-- The loop has no end card, so the views stack.
+- One-second concept; the viewer stays to see the whole menu.
+- Swaps on the beat feel satisfying and leave no dead time; a full menu tour in 7 s invites rewatch.
+- 62 K saves and 38 K shares from a 2.2 K follower account: creators and small businesses saved it as a template
+  ("creative ways to make commercials").
+- No end card, so views stack on the loop.
 
 ## Steal this (grammar) / Leave this (content)
-- Steal: locked-off product stage, one marked spot, a cause-object (remote, tap of a finger, a bell, a click of a
-  pen) held in frame, a swap on every beat, the full range cycled, ending mid-cycle for the loop.
-- Leave: BÄR BAR, their cups, menu and sign, the remote gag exactly as framed, and the "Smalltown Boy" track
-  (use licensed or generated music with a clear 4/4 beat).
+- Steal: a locked-off product stage, one marked spot, a cause-object held in frame (remote, finger tap, bell, pen
+  click), a swap on every beat, the full range cycled, ending mid-cycle.
+- Leave: BÄR BAR, their cups, menu and sign, the remote gag framed exactly like this, and "Smalltown Boy" (use
+  licensed or generated music with a clear 4/4 beat).
 
 ## Build it in our studio
-- Engine: `footage` (the client shoots 7 to 10 locked-off plates on a phone tripod, one per product) edited in
-  HyperFrames; or HyperFrames with real product cut-out photos over one plate.
-- Scene plan: 1) get the music first and run `beats.py` for the beat grid; 2) build a HyperFrames timeline
-  where each beat shows the next product layer; 3) keep the hand-and-remote layer constant on top; 4) optional
-  tiny 2-frame scale pop (1.00 to 1.03) on each product to sell the click; 5) a soft click SFX on each swap
-  under the music.
-- Hard part: consistency between plates (lighting, position, shadow). Mark the spot with tape, lock exposure and
-  white balance, and shoot all items in one session; for cut-outs, draw a matching contact shadow.
+- Engine: client footage (7 to 10 locked-off phone plates, one per product) edited in HyperFrames, or HyperFrames
+  with real product cut-out photos over one plate.
+- Plan: 1) music first, `beats.py` for the beat grid; 2) one product layer per beat; 3) hand-and-remote layer
+  constant on top; 4) optional 2-frame scale pop (1.00 to 1.03) per swap; 5) a soft click under the music.
+- Hard part: consistency between plates. Tape the spot, lock exposure and white balance, shoot all items in one
+  session; for cut-outs, draw a matching contact shadow.
 - Difficulty 2: simple to build; the quality lives in the shoot.
 
 ## Business translations
 - Restaurant or cafe: the full menu zapped on a table with a remote, ending on the new seasonal item.
-- E-commerce skincare brand: a finger tap on a bathroom shelf swaps through the whole product range.
-- Local hair salon: a hand clicks a pen at a mirror and the client's reflection jumps through each style on
-  offer, one per beat (with real clients who agreed to it).
+- Skincare e-commerce: a finger tap on a bathroom shelf swaps through the whole range.
+- Hair salon: a pen click at a mirror jumps the reflection through each style on offer, one per beat, with real
+  clients who agreed to it.

@@ -35,93 +35,80 @@ pacing:
 ---
 
 ## The film in one line
-A phone films an editing app on a monitor playing a self-made Uber spot: squares form the creator's winking
-avatar, the Uber wordmark builds, the camera dives into its letters which become a black and white city, a white
-car drives through it, turns into the blue location dot on a map, the map becomes the phone app (Where to?,
-destinations, UberX, Confirm and request), and it ends on the car in profile with the avatar back on its window.
+A phone films an editing app playing a self-made Uber spot: squares form the creator's winking avatar, the Uber
+wordmark builds, the camera dives into its letters which become a black and white city, a white car drives
+through, turns into the blue location dot on a map, the map becomes the phone app (Where to?, destinations, UberX,
+Confirm and request), and it ends on the car in profile with the avatar on its window.
 
 ## Why it stops the scroll (first 2 s)
-- 0.0 s: a monitor filmed at an angle, the editing app with timeline visible; a white square comp with one small
-  grey square in the middle; caption in the lower third: "Day 3 of making commercials for brands".
-- 0.5 s: three black squares in a row: something is assembling.
-- 1.0 s: black frame, a white line-drawn cartoon face (the creator's avatar).
-- 1.5 s: the face winks.
-- 2.0 s: "Ube" in the Uber wordmark on white, the last letter still forming.
-- Mechanism: the "Day N" series caption promises a new brand every day and a visible craft process; a known
-  brand name lands at 2 s.
+- 0.0-0.5 s: a monitor filmed at an angle, editing app and timeline visible, squares assembling on a white comp;
+  caption "Day 3 of making commercials for brands" in the lower third.
+- 1.0-1.5 s: the creator's line-drawn avatar winks on black.
+- 2.0 s: "Ube" in the Uber wordmark, the last letter still forming.
+- Mechanism: the "Day N" caption promises a new brand daily and visible craft; a known brand lands at 2 s.
 
 ## Beat map
 | t (s) | on screen (inside the monitor) | what moves | sound |
 |---|---|---|---|
-| 0.0-0.5 | white square, one grey square, then three black squares | squares pop in | energetic music |
-| 1.0-1.5 | creator's avatar face on black, winks | face draws on, wink | music |
+| 0.0-1.5 | squares assemble into the creator's winking avatar | pop in, wink | energetic music |
 | 2.0-2.5 | Uber wordmark builds on white | letters complete | music hit |
-| 3.0 | macro inside the "b": extruded 3D letters with deep shadows | camera dives into the letters | whoosh (not confirmed) |
-| 3.5-4.0 | top-down: the letters are now white buildings, a white car on the street between them | dive becomes a top-down city | music |
-| 4.5-7.0 | car drives between black truck-like boxes along the white street, camera follows from above then three-quarter | chase move | music |
-| 7.5-8.5 | side view, car crossing frame with motion blur | lateral pan | music |
-| 9.0 | big blue dot on white with soft shadows | the car becomes the dot | music |
-| 9.5-10.5 | pull back: the dot at a crossroads on a map, small cars around it | map zoom out | music |
-| 11.0-11.5 | the map is the screen of a phone tilted in 3D, "Where to?" search bar floating above it | phone rotates in | music |
-| 12.0-13.0 | floating cards: three destinations, then "UberX ... USD 3.99 / Choose UberX" | cards slide and stack | music |
-| 13.5-14.5 | black button grows into a pill "Confirm and request (0:02)", counts to 0:01 | button morph, countdown | music |
-| 15.0-16.5 | the white car rolls in and stops in profile on white with blue glow below; the avatar face appears on its window | car settles, sign-off | music ends |
+| 3.0-4.0 | dive into the extruded "b"; letters become white buildings from above, a car between them | push in to top-down | music |
+| 4.5-8.5 | car drives between black boxes, then crosses frame side-on | chase, lateral pan | music |
+| 9.0-10.5 | the car becomes a blue dot; pull back to a map crossroads | match cut, zoom out | music |
+| 11.0-13.0 | the map is a tilted phone: "Where to?", destinations, "UberX ... USD 3.99" | cards slide and stack | music |
+| 13.5-14.5 | button grows into "Confirm and request (0:02)" and counts down | morph | music |
+| 15.0-16.5 | car stops in profile on a blue glow; avatar on its window | settle, sign-off | music ends |
 
 ## Signature device
 Logo-into-world zoom: the camera pushes into the brand's own wordmark until the letterforms, extruded in white
-with hard black shadows, become city blocks seen from above, and the product (a car) is already driving between
-them. It is followed by a chain of match cuts that keep the viewer inside the brand's world: car to blue map dot
-(same screen position, same scale), map to phone screen (pull back and tilt), phone to floating UI cards (real
-flow order: search, destinations, ride option, confirm with countdown), and back to the car as the hero shot.
-Palette is strictly black, white and greys with the brand's one accent (the app's blue dot) appearing only when
-the product becomes the app. The creator's avatar bookends the spot as a signature.
+with hard black shadows, become city blocks seen from above, with the product (a car) already driving between
+them. A chain of match cuts keeps the viewer inside the brand's world: car to blue map dot (same position and
+scale), map to phone screen (pull back and tilt), phone to floating UI cards in real flow order (search,
+destinations, ride option, confirm with countdown), and back to the car as hero. Strict black, white and greys,
+with the brand's one accent (the app's blue dot) appearing only when the product becomes the app. The creator's
+avatar bookends the spot as a signature.
 
 ## Pacing read
-10 cuts per 10 s and a change every 0.5 s with CV 0.0 combine real scene changes (about every 1 to 1.5 s in the
-spot) with the handheld phone filming the monitor. The longest steady stretch is 3.5 s (the car chase). There
-are no rests until the last 1.5 s, where the car settles in profile; the busiest part is 9 to 14.5 s, the map and
-UI sequence, where every half second brings a new card. It ends on a near-still hero frame with the avatar, a
-clear sign-off rather than a loop.
+10 cuts per 10 s and a change every 0.5 s (CV 0.0) mix real scene changes (every 1 to 1.5 s in the spot) with the
+handheld phone. Longest steady stretch 3.5 s (the car chase). No rests until the last 1.5 s, where the car settles;
+the busiest part is 9 to 14.5 s, a new card every half second. The 0.396 hook change is the squares and avatar.
+It ends on a near-still hero frame with the avatar, a sign-off rather than a loop.
 
 ## Look
-- Palette by role: near-black surround and app chrome (#070705, #3f3c37), white and light greys for the city
-  and UI (#bfbfc6, #a2a1a7, #797c84), one saturated accent: the app's blue location dot and the blue glow under
-  the car.
-- Type: the brand's own wordmark and its real app type (system sans in the cards). The overlay caption is the
-  platform's default white text with a dark outline, about 40 px on a 1080 frame, two lines, lower third.
-- Texture and light: clean studio white, soft ambient occlusion, hard top light on the extruded letters.
-- Camera: phone filming a monitor at an angle, close enough that the comp fills most of the frame.
+- Palette: near-black surround and app chrome (#070705, #3f3c37), white and light greys for city and UI
+  (#bfbfc6, #a2a1a7, #797c84), one saturated accent: the app's blue dot and the blue glow under the car.
+- Type: the brand's wordmark and real app type; the caption is the platform's white text, about 40 px on 1080.
+- Light and camera: studio white, hard top light on the letters; phone filming the monitor close, at an angle.
 
 ## Why it works
-- Series caption ("Day 3") builds a habit and a reason to follow; the creator's avatar makes it personal.
-- The logo-to-city dive is a genuine surprise at 3 s and keeps paying off as the car drives through it.
-- Match cuts make it feel like one continuous thought: brand, ride, app, car.
-- The UI section is instantly familiar to anyone who uses the app, which drives recognition and comments ("do
-  my brand next").
-- High like ratio (792 K likes on 4.9 M plays) suggests strong craft appreciation.
+- The "Day 3" caption builds a habit; the avatar makes it personal.
+- The logo-to-city dive is a real surprise at 3 s and keeps paying off as the car drives through.
+- Match cuts make it one continuous thought: brand, ride, app, car; the familiar UI drives recognition and "do my
+  brand next" comments.
+- 792 K likes on 4.9 M plays shows strong craft appreciation.
 
 ## Steal this (grammar) / Leave this (content)
-- Steal: dive into the client's logo until it becomes their world; let the product live in that world; match
-  cut the product into its UI symbol (dot, icon, cursor); pull back into the device; walk the real flow as
-  floating cards in order; end on the product hero with a small signature.
-- Leave: Uber's wordmark, app screens, prices and addresses; the creator's avatar; their music.
+- Steal: dive into the client's logo until it becomes their world; the product lives there; match cut the product
+  into its UI symbol (dot, icon, cursor); pull back into the device; walk the real flow as floating cards; end on
+  the product hero with a small signature.
+- Leave: Uber's wordmark, screens, prices and addresses; the creator's avatar; their music.
 
 ## Build it in our studio
-- Engine: HyperFrames for the wordmark build, the map and the UI cards (GSAP, real screenshots of the client's
-  app, never invented screens); canvas for the logo-to-city dive (extruded letterforms with projection math,
-  top-down camera, the product as a sprite with a soft shadow).
-- Scene plan: 1) vectorise the real logo and extrude it in canvas, camera pushes from front view to top-down in
-  1 s; 2) product moves along the street with `spring()` easing and a 2-frame motion blur; 3) match cut the
-  product to the UI symbol at the same screen position; 4) pull back to a phone frame showing the real app,
-  tilt with CSS 3D in HyperFrames; 5) cards from real screenshots, stacked and swapped every 0.5 s; 6) hero shot.
-- Hard part: the dive must hand over from letter shapes to city without a pop. Keep the same extrusion and
-  shading in both states and switch the camera from perspective to top-down along one continuous curve.
-- Difficulty 3: everything is 2D or fake-3D in our stack; it needs careful matching at each match cut.
+- Engine: HyperFrames for the wordmark build, map and UI cards (real screenshots of the client's app, never
+  invented screens); canvas for the dive (extruded letterforms with projection math, top-down camera, product
+  sprite with a soft shadow).
+- Plan: 1) vectorise the real logo, extrude it, push from front view to top-down in 1 s; 2) product moves along the
+  street with `spring()` easing and renderer motion blur; 3) match cut to the UI symbol at the same screen
+  position; 4) pull back to a phone showing the real app, tilted with CSS 3D; 5) cards swapped every 0.5 s;
+  6) hero shot.
+- Hard part: the dive must hand over from letters to city without a pop. Keep one extrusion and shading in both
+  states and move the camera along one continuous curve.
+- Difficulty 3: all 2D or fake-3D in our stack; it needs careful matching at each cut.
 
 ## Business translations
-- SaaS scheduling tool: dive into the logo, the letters become a week calendar grid, a meeting block slides
-  into place, becomes the app's notification dot, pull back to the real app flow.
+- SaaS scheduling tool: the logo letters become a week grid, a meeting block slides in, becomes the notification
+  dot, pull back to the real app flow.
 - Local courier or taxi firm: the wordmark becomes the town's streets, the van drives through, becomes the
   tracking dot, then the real booking screens.
-- E-commerce shop: the logo becomes warehouse shelves, a parcel slides along, becomes the cart badge, then the
-  real checkout steps.
+- E-commerce shop: the logo becomes warehouse shelves, a parcel slides along, becomes the cart badge, then the real
+  checkout steps.

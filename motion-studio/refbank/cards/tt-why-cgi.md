@@ -39,87 +39,71 @@ A spectator films from a mall balcony as a woman drops from a pink diving platfo
 giant pink bra lying in the atrium and bounces back up two storeys, again and again, like it is a trampoline.
 
 ## Why it stops the scroll (first 2 s)
-- 0.0 s: over-the-shoulder of a girl in a green cap at a glass balustrade. Below her, filling the lower half of
-  the frame, a pink bra roughly 15 m across lies flat on the atrium floor, with a hot pink "SKIMS" block in
-  puffy 3D letters behind it. A tiny figure stands on a pink platform on the third floor, top right.
-- 0.5 s: the camera drifts past the girl's shoulder; she starts to leave frame.
-- 1.0 s: clean wide. Balconies on every level are lined with onlookers looking down. The figure is still on the
-  platform: the viewer now knows someone is about to jump.
-- 2.0 s: same wide, small handheld drift. Nothing has happened yet; tension sits on the platform.
-- Mechanism: an impossible object at believable scale in a real public space, filmed like a phone clip by a
-  bystander, plus a visible "someone is about to do something" setup. No text, no voice. The caption carries
-  the line: "The softest landing".
+- 0.0 s: over the shoulder of a girl in a green cap at a glass rail. Below, a pink bra about 15 m across lies on
+  the atrium floor with a hot pink puffy "SKIMS" block behind it; a tiny figure stands on a pink platform on the
+  third floor.
+- 0.5 s: the camera drifts past her shoulder.
+- 1.0-2.0 s: clean wide, balconies lined with onlookers, the figure still waiting on the platform.
+- Mechanism: an impossible object at believable scale in a real public space, filmed like a bystander's phone
+  clip, plus a visible "someone is about to jump" setup. No text or voice; the caption says "The softest landing".
 
 ## Beat map
 | t (s) | on screen | what moves | sound |
 |---|---|---|---|
-| 0.0-0.5 | spectator's shoulder and cap in the left foreground, giant bra and SKIMS block below | handheld push past the shoulder | mall ambience (not described in detail) |
-| 1.0-2.0 | clean wide of the atrium, crowds on three balcony levels, figure on the pink platform | slight handheld sway only | ambience, crowd murmur |
-| 2.5 | the woman has dropped and slides into the right cup near its strap | first contact, cup takes her weight | laughing and screaming (AI segment) |
-| 3.0-3.5 | she rebounds to third-floor height, flipping upside down beside the platform | big vertical arc, body rotates | screams |
-| 4.0-4.5 | she falls past the SKIMS block and lands in the left cup | descent, landing | screams, laughter |
-| 5.0-5.5 | second rebound, hair flying, up to second-floor rail height | vertical arc | laughter |
-| 6.0-6.5 | she lands in the right cup arms out, then pops upright again | third bounce begins | laughter; clip ends mid-bounce |
+| 0.0-0.5 | stranger's shoulder, giant bra, SKIMS block | handheld push past the shoulder | mall ambience |
+| 1.0-2.0 | wide atrium, crowds on three levels, figure on platform | slight sway | crowd murmur |
+| 2.5 | she has dropped into the right cup | first contact | laughing and screaming (AI segment) |
+| 3.0-3.5 | rebound to third-floor height, flipping | big vertical arc | screams |
+| 4.0-4.5 | falls past the SKIMS block into the left cup | landing | laughter |
+| 5.0-5.5 | second rebound to the second-floor rail | arc | laughter |
+| 6.0-6.5 | lands in the right cup arms out, pops up again | third bounce | clip ends mid-bounce |
 
 ## Signature device
-Product benefit turned into physics, on a giant product, in a real crowded space. The product (a bra, the
-brand's soft fabric) is scaled to about 15 m and laid flat like a double trampoline in a multi-storey atrium. A
-human body is the scale bar. The stunt proves the brand claim (soft) without a word: she drops roughly three
-storeys and the cups throw her back up about two storeys, on a bounce cycle of about 1.5 s, alternating between
-left and right cup. A branded pink diving platform on the third floor sets up the jump before anything moves.
-The camera is a bystander's phone: 9:16, eye level from the first balcony, handheld drift, no zoom, no cuts,
-and a real stranger's shoulder in frame for the first second. Balconies full of spectators are composited in as
-social proof.
+Product benefit turned into physics on a giant product in a real crowded space. The product (soft fabric) is
+scaled to about 15 m and laid flat like a double trampoline in a multi-storey atrium; a human body is the scale
+bar. She drops about three storeys and the cups throw her back up about two, on a bounce cycle of roughly 1.5 s,
+alternating left and right cup. A branded pink diving platform sets up the jump before anything moves. Camera: a
+bystander's phone, 9:16, one floor up, handheld drift, no zoom, no cuts, a stranger's shoulder in frame for the
+first second, balconies full of composited spectators as social proof.
 
 ## Pacing read
-The numbers say 12.86 cuts per 10 s and a big change every 0.5 s, with zero quiet share and a CV of 0.0. That
-is the low-resolution handheld wobble and a small moving figure tripping the threshold; in reality this is one
-continuous take with no cuts. The real rhythm is: 2.5 s of setup and stillness (only the camera breathes), then
-a regular bounce cycle of about 1.5 s for the last 4.5 s. The hook change of 0.494 in the first 2 s comes from
-the camera moving off the foreground shoulder. It ends mid-bounce with no resolution, so the loop restarts on a
-calm wide and the viewer rewatches to see the first drop again.
+12.86 cuts per 10 s and a big change every 0.5 s (CV 0.0, no quiet frames) are the low-resolution handheld wobble
+and a moving figure; in reality it is one take with no cuts. The real rhythm is 2.5 s of setup where only the
+camera breathes, then a regular 1.5 s bounce cycle. The 0.494 hook change is the camera leaving the shoulder. It
+ends mid-bounce, so the loop restarts on a calm wide and viewers rewatch the first drop.
 
 ## Look
-- Palette by role: mall concrete and greys (#605f58, #7b7974, #9f9b96) as neutral ground, product baby pink
-  (#c8b3bb) as the hero, hot brand pink (#d567a3) on the logo block and platform. Warm downlights, a gold ceiling
-  ring, white balustrades.
-- Type: none as graphics. The only brand word is the puffy 3D "SKIMS" lettering built into the set.
-- Texture and light: matte, slightly satin vinyl on the product, soft overhead mall light matched to the plate,
-  soft contact shadows under the cups.
-- Camera: phone, handheld, one floor up, slightly high angle, wide lens.
+- Palette: mall greys (#605f58, #7b7974, #9f9b96) as ground, baby pink product (#c8b3bb) as hero, hot brand pink
+  (#d567a3) on the logo block and platform; warm downlights and a gold ceiling ring.
+- Type: none as graphics; the only brand word is the puffy 3D lettering built into the set.
+- Material and light: satin vinyl product, soft overhead light matched to the plate, soft contact shadows.
 
 ## Why it works
-- Open loop at 0 to 2 s: a person on a platform above a giant soft object. Viewers wait for the jump.
-- Payoff at 2.5 s, then repetition with escalation in height, so there is no dead time after the reveal.
-- "Is this real?" ambiguity: bystander framing, a stranger's shoulder, real crowds. That drives comments and
-  shares (1.8 M shares, 44 x the comment count).
-- Relatability of a dare: everyone wants to jump into it.
-- Ends mid-bounce, so the loop is invisible and the 7 s length invites several rewatches.
+- Open loop at 0 to 2 s (a person waiting above a giant soft object), payoff at 2.5 s, then repetition with
+  height, so there is no dead time after the reveal.
+- "Is this real?" ambiguity from bystander framing drives comments and shares (1.8 M shares).
+- Everyone wants to try the jump; the mid-bounce ending hides the loop.
 
 ## Steal this (grammar) / Leave this (content)
-- Steal: product benefit dramatised as one physical stunt on a giant version of the product; human for scale;
-  a visible setup (platform, person waiting) before the action; bystander phone camera with a foreground
-  shoulder; crowds on balconies as proof; ending mid-action for the loop.
-- Leave: the SKIMS brand, the bra shape and pink livery, the mall, the person, the caption line.
+- Steal: one product claim dramatised as one stunt on a giant version of the product; human for scale; a visible
+  setup before the action; bystander phone camera with a foreground shoulder; crowds as proof; end mid-action.
+- Leave: SKIMS, the bra shape and pink livery, the mall, the person, the caption line.
 
 ## Build it in our studio
-- Engine: `gen-video` (paid, needs approval) for a photoreal version, or client footage of their space plus
-  generated plates. Our own stack can only do a stylised 2D re-imagining in `canvas`.
-- Scene plan (photoreal): 1) shoot or source a handheld plate of the client's real venue from a balcony or high
-  angle, 3 s of stillness; 2) generate a still of the giant product in that plate (`gen-image`) and approve it;
-  3) image-to-video with a short motion prompt: figure drops from a platform, bounces twice; 4) grade and add
-  diegetic crowd ambience, a scream and soft bounce thuds.
-- Scene plan (stylised, canvas): flat illustrated atrium in fake-3D projection, product as a deformable rim
-  mesh whose surface dips with a closed-form spring on each landing, figure as a simple silhouette on parabolic
-  arcs, seeded handheld camera noise.
-- Hard part: contact. The surface must dip and rebound in sync with the body, or the illusion dies. In canvas,
-  drive the dip depth from the landing velocity and let `spring()` settle it over 0.4 s.
-- Difficulty 4: photoreal needs paid generation and several retries for believable physics.
+- Engine: `gen-video` (paid, approval) for photoreal, with client footage of their venue as the plate; or a
+  stylised `canvas` version.
+- Photoreal plan: 1) handheld plate of the client's venue from a balcony, 3 s of stillness; 2) `gen-image` still of
+  the giant product in that plate, approved first; 3) image-to-video: figure drops from a platform, bounces twice;
+  4) diegetic ambience, a scream, soft bounce thuds.
+- Canvas plan: illustrated atrium in fake-3D, product rim as a mesh whose surface dips on landing with a
+  closed-form `spring()`, figure as a silhouette on parabolic arcs, seeded handheld noise.
+- Hard part: contact. The surface must dip and rebound in sync with the body; drive dip depth from landing
+  speed and let the spring settle over 0.4 s.
+- Difficulty 4: photoreal needs paid generation and retries for believable physics.
 
 ## Business translations
-- Mattress or bedding e-commerce: a giant pillow on a station concourse, a commuter falls backwards from a
-  mezzanine and bounces back up to the rail.
-- Running shoe or sportswear shop: a giant midsole on a town square used as a trampoline to show cushioning,
-  filmed by a passer-by.
-- Furniture retailer: a giant sofa cushion in their own car park, a staff member drops onto it from a scissor
-  lift during opening week.
+- Mattress or bedding e-commerce: a giant pillow on a station concourse; a commuter falls back from the mezzanine
+  and bounces up to the rail.
+- Running shoe shop: a giant midsole on a town square used as a trampoline to show cushioning, filmed by a
+  passer-by.
+- Furniture retailer: a giant sofa cushion in their own car park; a staff member drops onto it from a scissor lift.
