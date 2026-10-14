@@ -89,7 +89,8 @@ of being pasted into the conversation.
   - 81 were picked for business-relevant grammar across six areas: CGI and brand ads, product, logo and UI
     motion, kinetic type, explainers, satisfying simulations, and story or wow hooks.
   - Added: 11 onetake craft films and the divyansh.fx_ reel behind StraightScale reel 03.
-  - Apify spend was about $20.
+  - Apify spend was about $24. That covers sourcing about 2,500 candidates, scene descriptions, transcripts, and
+    frames for 81 reels with a few re-runs.
   - **Not captured, for the next refresh:**
     - the_archive_27, `https://www.instagram.com/p/Ddvyte1sNI9/`, 1.0M plays. A math race: 2ⁿ against the
       product of primes, with the lead changing hands. Instagram returned HTTP 500 on every frame download.

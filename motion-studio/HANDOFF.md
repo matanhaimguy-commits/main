@@ -534,7 +534,8 @@ blocked too. Everything goes through the **Apify MCP connector**, which works.
    - Frames are third-party media: keep them out of git (`refbank/frames/` is ignored).
    - Study the grammar and never ship their pixels, words, characters or music.
 
-**Cost**: about $0.10-0.15 per reference, all in. The first bank of about 80 cost about $20 in Apify.
+**Cost**: about $0.10-0.25 per reference for capture. The first bank, 81 reels sourced from about 2,500
+candidates, cost about $24 in Apify all in.
 
 **Weekly refresh job** (good for the machine):
 1. Run the two hashtag scrapes.
