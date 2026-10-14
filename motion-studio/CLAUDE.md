@@ -21,7 +21,9 @@ These rules apply to every engine (HyperFrames, the canvas engine, Lemo-Opuscar,
   whole idea.
 - One display font, one UI font, from the client's brand. One accent colour unless the brief says otherwise.
 - One signature device per film, present throughout.
-- Every 2 to 4 seconds something new must happen on screen, and real rests (≥ 1 s) are planned, not accidental.
+- Every 2 to 4 seconds at the latest something new must happen on screen, and real rests (≥ 1 s) are planned, not
+  accidental. For hook-driven social reels aim faster: the 81 viral reels in `refbank/` change something big every
+  0.5-1.5 s (median), mostly inside continuous shots, with rests as short freezes on a payoff.
 - Keep text and logos out of the platform UI on 9:16: top 250 px, bottom 400 px, right 140 px.
 - Text sizes for phones: body never under 44 px on a 1080-wide frame; check every beat at 360 px wide.
 - Search the HyperFrames registry and the Lemo-Opuscar styles before hand-building any named effect or look.

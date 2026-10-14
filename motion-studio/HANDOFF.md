@@ -35,7 +35,7 @@ map and open the files it points to. If it can't, this file is written to stand 
 | QA tools | All used on the deliveries | `motion-studio/tools/` |
 | Voice chain | ElevenLabs voice → word timings → film and mix clock | see §8 |
 | Score and mix chain | Real-instrument sampler score, effects from the film's own event times, word-timed ducking, two-pass loudnorm | `projects/straightscale-03/audio/`, `finish.sh` |
-| Reference bank | 90+ breakdown cards of viral reels, tag vocabulary, picker, usage ledger | `motion-studio/refbank/` |
+| Reference bank | 93 breakdown cards (82 viral reels, median 8.1M plays, plus 11 craft films), tag vocabulary, device catalogue, picker, usage ledger | `motion-studio/refbank/` |
 | Knowledge base | 7 guides plus 5 complete reference repos | `motion-studio/knowledge/`; repos via `bash references/fetch.sh` |
 | Project template | Brief, brand, treatment, review log, manifest, credits | `motion-studio/templates/project/` |
 
@@ -207,6 +207,9 @@ approval: unattended                  # unattended | guided (pause at concepts, 
 - Flurries (≥ 3 big changes within 1.5 s) never on a fixed interval.
 - Never the same exit twice in a row (spring away, blur away, hard cut).
 - Reel 03 measured about 20 visual beats in 24 s, a new picture about every 1.2 s, beat CV 0.70.
+- **The viral bank agrees (§7.3).** Across 81 viral reels, something big changes every 0.5-1.5 s (median), mostly
+  inside continuous shots rather than through cuts. So treat "every 2-4 s" as the longest allowed gap, not the
+  target.
 - The viral bank's medians by category are in §7.3.
 
 ### 5.3 The review rubric (each round, logged in `docs/review_log.md`)
@@ -387,7 +390,63 @@ The hook must be visual too, because it has to work muted: motion within 0.5 s, 
   which cards show it, how to build it in our engines, and business uses.
 - `refbank/ledger.json` is the per-client usage memory, already seeded with reels 01-03.
 
-<!-- REFBANK-STATS -->
+**What's in it** (14 Oct 2026):
+- **93 cards in total.** 82 are viral social reels: 75 from TikTok and 7 from Instagram (including the reel behind
+  reel 03). The other 11 are award-level onetake craft films (study only).
+- **Reach.** Every social reel except one has 1M+ plays; 38 have 10M+. The median is 8.1M plays.
+- **Categories** (17): lyric-mograph 12, ui-saas 12, story-comedy 7, vfx-edit 7, brand-ad 6, cgi-fooh 6,
+  explainer-2d 6, product-motion 6, satisfying-sim 6, data-infographic 5–6, explainer-3d 5, beat-sync 3,
+  kinetic-type 3, logo-reveal 3, spectacle-world 3, asmr-care 1, brand-identity 1.
+- **Usefulness.** 60 cards score relevance 4-5 for client marketing, and 48 of those are buildable at difficulty
+  3 or less in our stack.
+- **Build routes:**
+
+  | Engine | Cards |
+  |---|---|
+  | canvas | 42 |
+  | HyperFrames | 22 |
+  | client footage | 19 |
+  | paid gen-video | 8 |
+
+- **Business fit** (cards can fit several):
+
+  | Fit | Cards |
+  |---|---|
+  | agency | 51 |
+  | e-commerce | 46 |
+  | personal brand | 38 |
+  | SaaS | 37 |
+  | local service | 35 |
+  | events | 32 |
+  | B2B | 27 |
+  | health | 25 |
+  | education | 24 |
+  | restaurant | 24 |
+  | finance | 21 |
+  | real estate | 19 |
+
+**Start here.** These have relevance 5 and are easy to build:
+- **tt-foil-finance:** a step chart driven by a ticking date.
+- **tt-explainedbyalistair:** "This is A. This is B. What's the difference?", looped.
+- **tt-hellobossfilms:** a TV remote swaps the product on the table on every beat.
+- **tt-greenscreencut:** a branching tube shows who can receive what.
+- **tt-chartosaur:** one dashboard fixed letter by letter through an acronym.
+- **tt-clearmindtalks:** one glowing pictogram per spoken phrase.
+- **ig-divyansh-fx-attention:** focus pulls, one prop per phrase (StraightScale reel 03).
+- **tt-rafaellfreitaas:** three dots squash-and-stretch into the logo.
+- **tt-maxmill-ae:** one morphing pill that runs a whole UI story.
+- **tt-martaraile:** a green-screen phone as an x-ray window.
+- **tt-bymike0404:** the camera dives into the wordmark, which becomes a city, then the app.
+- **tt-madebyoddly:** the logo's arrow becomes a train riding the order steps.
+- **onetake-knockon:** a chain reaction whose track is the product icon.
+- **onetake-one-dot:** one dot plays every role.
+
+**Highest wow:**
+- **tt-thequinettos:** a numb arm becomes a stone arm (136M).
+- **tt-why-cgi:** a giant bra as a mall trampoline (98M).
+- **tt-blick-thegobbler:** bow vs hug (140M).
+- **tt-arts-help:** a marker that draws grass (76M).
+- **tt-brknsergio:** trampoline portals into other worlds (46M).
 
 ### 7.2 Using it
 ```bash
@@ -407,7 +466,37 @@ How a job uses the bank:
 4. In stage 13, `log` the finished film.
 
 ### 7.3 What the bank says about pacing by category
-<!-- REFBANK-PACING -->
+Medians over the 81 social reels, measured from frames sampled at 2 fps or slower:
+
+| Category | n | median plays | cuts / 10 s | s between big changes | hook energy 0-2 s |
+|---|---|---|---|---|---|
+| lyric-mograph | 12 | 6.1M | 5.3 | 1.00 | 0.71 |
+| story-comedy | 7 | 13.2M | 0.0 | 1.50 | 0.24 |
+| vfx-edit | 7 | 45.7M | 1.4 | 0.51 | 0.47 |
+| cgi-fooh | 6 | 69.7M | 0.0 | 0.51 | 0.64 |
+| brand-ad | 6 | 2.3M | 0.9 | 0.62 | 0.34 |
+| satisfying-sim | 6 | 8.4M | 0.0 | 1.18 | 0.10 |
+| explainer-2d / -3d | 10 | 8-23M | 1.1 | 1.50 | 0.28 / 0.56 |
+| data-infographic | 5 | 4.7M | 0.7 | 3.75 | 0.16 |
+| product-motion | 5 | 12.5M | 1.9 | 1.35 | 0.17 |
+
+How to read the columns:
+- **Cuts** need a jump in the colour distribution, so camera moves and morphs don't count.
+- **Big change** means at least 12% of the picture changes within half a second.
+- **Hook energy** is the share of the picture changing in the first 2 s.
+
+What this means for the machine:
+1. **Viral reels change something big about every 0.5-1.5 s.** That is faster than our older "something new
+   every 2-4 s" rule; treat 2-4 s as the *maximum* gap, not the target.
+   - Most of them use few or no hard cuts. Change comes from motion inside one continuous shot or camera move.
+   - That is the one-take, carry-a-survivor doctrine of §6.2, seen from the data side.
+2. **Hook energy splits two ways:**
+   - **Spectacle formats open in heavy motion** (0.5-0.7): CGI, VFX, lyric edits.
+   - **Explainers, data and product films open calmer** (0.1-0.3), with a clear question or a clean first image.
+   - Pick the style of hook that matches the format; don't force a frantic open on a data film.
+3. **True stillness is rare in viral social reels.** Quiet share at 2 fps is about 0.
+   - onetake's "about 25% still" is a craft target for brand and product films. In a hook-driven reel, a rest is a
+     short freeze on a payoff word or number (0.5-1.5 s), placed after the hook and before the CTA.
 
 ### 7.4 Adding references: the capture recipe (blocked hosts included)
 Instagram, fbcdn and TikTok video hosts **cannot be reached** from these cloud containers, and `api.apify.com` is
