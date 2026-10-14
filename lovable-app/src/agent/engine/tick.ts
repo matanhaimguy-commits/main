@@ -1,7 +1,7 @@
 import { getState, setState } from '../db/connections';
 import { claimDueReplies, claimWebhookEvents, finishWebhookEvent, retryWebhookEvent, type WebhookEventRow } from '../db/repo';
 import type { Deps } from './deps';
-import { checkSubscriptions, runHealthChecks } from './health';
+import { checkDmAccess, checkSubscriptions, runHealthChecks } from './health';
 import { processPayload } from './process';
 import { runFollowups, runReply } from './reply';
 
@@ -63,6 +63,7 @@ const PERIODIC = {
   followups: 60_000,
   health: 10 * 60_000,
   subscriptions: 60 * 60_000,
+  dm_access: 60 * 60_000,
 } as const;
 
 /** The scheduled run (every minute): queued work, then follow-ups and checks when due. */
@@ -80,6 +81,7 @@ export async function scheduledRun(deps: Deps, deadline: number): Promise<{ hand
     followups: () => runFollowups(deps),
     health: () => runHealthChecks(deps),
     subscriptions: () => checkSubscriptions(deps),
+    dm_access: () => checkDmAccess(deps),
   };
   for (const name of Object.keys(PERIODIC) as (keyof typeof PERIODIC)[]) {
     // A little slack so a job due "every minute" runs on every one-minute tick.

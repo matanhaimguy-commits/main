@@ -85,8 +85,11 @@ export class FakeMeta implements MetaApi {
   }
   /** Pages returned by me/accounts during the connect flow. */
   pages: { id: string; name: string; access_token?: string; instagram_business_account?: { id: string; username?: string } }[] = [];
+  /** People Meta refuses to talk about (no Advanced Access and no role on the app). */
+  refused = new Set<string>();
   async get(path: string, params?: Record<string, string>) {
     this.calls.push({ method: 'get', args: [path, params] });
+    if (path.endsWith('/thread_owner') && this.refused.has(params?.recipient ?? '')) throw apiError(200, 2534048);
     if (path === 'oauth/access_token') return { access_token: params?.code ? 'SHORT_USER_TOKEN' : 'LONG_USER_TOKEN' } as any;
     if (path === 'me/accounts') return { data: this.pages } as any;
     return { data: [{ id: APP_ID }] } as any;

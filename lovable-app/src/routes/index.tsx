@@ -26,6 +26,50 @@ const STAT_LABELS: [key: string, label: string][] = [
   ["failed", "Failed sends"],
 ];
 
+type OverviewBusiness = Awaited<ReturnType<typeof getOverview>>["businesses"][number];
+
+/** Whether Meta lets customers' DMs through, from the hourly check in the background worker. */
+function DmAccessStep({ businesses }: { businesses: OverviewBusiness[] }) {
+  const withIg = businesses.filter((b) => b.instagramId);
+  if (withIg.length === 0) return null;
+  const blocked = withIg.filter((b) => b.dmAccess?.status === "roles_only");
+  const open = withIg.every((b) => b.dmAccess?.status === "everyone");
+  if (blocked.length) {
+    const b = blocked[0]!;
+    return (
+      <Step state="warn" title="11. Customers' DMs (Meta App Review)">
+        Meta passes Instagram DMs, button taps and replies <b>only from people with a role on the app</b> (checked{" "}
+        {b.dmAccess ? timeAgo(b.dmAccess.checkedAt) : ""}
+        {b.dmAccess?.probe ? ` with @${b.dmAccess.probe}` : ""}). Comments still get an automatic private reply
+        {b.linkOpeners ? " with your link" : ""}, but customers who write a DM are not answered yet.
+        <ul className="mt-1 list-disc pl-5">
+          <li>
+            Meta App Dashboard → App Review → Permissions and features: <b>instagram_manage_messages</b> must show <b>Advanced access</b> (App Review
+            approved, Business Verification done). "Live" mode alone is not enough.
+          </li>
+          <li>
+            Until then: Meta Business Suite → Inbox → Automations → <b>Instant reply</b> for Instagram and Facebook, with your booking link, so everyone
+            who writes gets an answer. Turn it off once this step turns green.
+          </li>
+          <li>Keep funnel openers in "link" mode until then, so commenters get the link without having to tap.</li>
+        </ul>
+      </Step>
+    );
+  }
+  if (open) {
+    return (
+      <Step state="done" title="11. Customers' DMs (Meta App Review)">
+        Meta passes every customer's DMs to the app (checked {timeAgo(withIg[0]!.dmAccess!.checkedAt)}).
+      </Step>
+    );
+  }
+  return (
+    <Step state="info" title="11. Customers' DMs (Meta App Review)">
+      Checked every hour. Not known yet: it needs one comment or DM from someone with no role on the app.
+    </Step>
+  );
+}
+
 function OverviewPage() {
   const overview = useQuery({ queryKey: ["overview"], queryFn: () => getOverview() });
   const stats = useQuery({ queryKey: ["stats"], queryFn: () => statsFn({ data: {} }) });
@@ -160,6 +204,7 @@ function OverviewPage() {
                   </>
                 )}
               </Step>
+              <DmAccessStep businesses={o.businesses} />
               <Step state={o.alerts ? "done" : "info"} title="Alerts (optional)">
                 {o.alerts ? "Configured." : "Add a Telegram bot in Settings to hear about hot leads and problems."}
               </Step>
@@ -197,6 +242,10 @@ function OverviewPage() {
                     <div>
                       {b.funnels} funnel(s) · {b.testers.length ? `testers only: ${b.testers.join(", ")}` : "answers everyone"}
                     </div>
+                    {b.dmAccess?.status === "roles_only" && (
+                      <div className="text-amber-700">Instagram DMs: Meta passes only people with a role on the app (App Review pending).</div>
+                    )}
+                    {b.dmAccess?.status === "everyone" && <div>Instagram DMs: open to everyone.</div>}
                     {errors.length > 0 && (
                       <div className="pt-1 text-rose-700">
                         {errors.length} problem(s) block real sending: {errors[0]!.message}

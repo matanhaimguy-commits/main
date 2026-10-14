@@ -1,3 +1,5 @@
+import { getState, setState } from '../db/connections';
+import { MetaApiError } from '../meta/client';
 import type { Deps } from './deps';
 
 /**
@@ -98,6 +100,93 @@ export async function checkSubscriptions(deps: Deps): Promise<void> {
       deps.log.warn('subscription check failed', { business: b.slug, err });
     }
   }
+}
+
+/** Meta's answer when the app lacks Advanced Access and the person has no role on the app. */
+export const NO_ADVANCED_ACCESS = 2534048;
+
+export type DmAccess = 'everyone' | 'roles_only' | 'unknown';
+
+export interface DmAccessState {
+  status: DmAccess;
+  checkedAt: string;
+  /** Since when the status has been what it is. */
+  since: string;
+  /** The account Meta was asked about. */
+  probe: string | null;
+  /** Someone Meta refused, asked about first next time: if they go through, access opened. */
+  refusedId?: string;
+}
+
+/**
+ * Until App Review grants Advanced Access to instagram_manage_messages, Meta passes Instagram
+ * DMs, button taps and replies only from people with a role on the app. Comments and private
+ * replies still reach everyone, so nothing looks broken while strangers' DMs go unanswered.
+ * Every hour, ask Meta about real customers, keep the answer for the dashboard, and alert
+ * the moment it changes.
+ */
+export async function checkDmAccess(deps: Deps): Promise<Record<string, DmAccessState>> {
+  const prev = (await getState<Record<string, DmAccessState>>(deps.sql, 'dm_access'))?.value ?? {};
+  const next: Record<string, DmAccessState> = {};
+  const now = deps.now().toISOString();
+  for (const b of deps.registry.businesses) {
+    if (!b.enabled || !b.meta.page_id || !b.meta.instagram_id) continue;
+    const api = deps.metaFor(b);
+    if (!api) continue;
+    const before = prev[b.slug];
+    const people = await deps.sql<{ external_id: string; username: string | null }[]>`
+      SELECT external_id, username FROM contacts
+      WHERE business = ${b.slug} AND platform = 'instagram'
+      ORDER BY (external_id = ${before?.refusedId ?? ''}) DESC, updated_at DESC
+      LIMIT 3`;
+    let status: DmAccess = 'unknown';
+    let probe: string | null = null;
+    let refusedId: string | undefined;
+    for (const p of people) {
+      try {
+        await api.get(`${b.meta.page_id}/thread_owner`, { recipient: p.external_id, platform: 'instagram' });
+        if (p.external_id === before?.refusedId) {
+          status = 'everyone';
+          probe = p.username ?? p.external_id;
+          break;
+        }
+      } catch (err) {
+        if (err instanceof MetaApiError && err.subcode === NO_ADVANCED_ACCESS) {
+          status = 'roles_only';
+          probe = p.username ?? p.external_id;
+          refusedId = p.external_id;
+          break;
+        }
+        deps.log.warn('dm access check failed', { business: b.slug, err });
+      }
+    }
+    // Everyone asked about has a role: no new information, keep what we knew.
+    if (status === 'unknown' && before && before.status !== 'unknown') {
+      next[b.slug] = { ...before, checkedAt: now };
+      continue;
+    }
+    next[b.slug] = { status, checkedAt: now, since: before?.status === status ? before.since : now, probe, refusedId };
+
+    if (status === 'everyone' && before?.status === 'roles_only') {
+      await deps.alert({
+        key: `dm-access-open:${b.slug}`,
+        text:
+          `✅ ${b.name}: Meta now passes every Instagram DM to the app (Advanced Access is on), so the AI answers everyone who writes. ` +
+          'If you set an Instant reply in Meta Business Suite as a stopgap, turn it off now, and switch funnel openers back to "tap" so commenters start a conversation.',
+        cooldownMinutes: 7 * 24 * 60,
+      });
+    } else if (status === 'roles_only') {
+      await deps.alert({
+        key: `dm-access-roles:${b.slug}`,
+        text:
+          `⚠️ ${b.name}: Meta only passes Instagram DMs from people with a role on the app (no Advanced Access to instagram_manage_messages yet). ` +
+          'Comment funnels in link mode still reach everyone; DMs from customers are not answered until App Review approves it.',
+        cooldownMinutes: 24 * 60,
+      });
+    }
+  }
+  await setState(deps.sql, 'dm_access', next);
+  return next;
 }
 
 export async function runHealthChecks(deps: Deps): Promise<void> {

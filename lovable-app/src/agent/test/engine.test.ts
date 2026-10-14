@@ -2,7 +2,7 @@
 import { afterAll, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 import type { Sql } from '../db/sql';
 import { runFollowups } from '../engine/reply';
-import { checkQuietFunnels, checkStuckSends } from '../engine/health';
+import { checkDmAccess, checkQuietFunnels, checkStuckSends } from '../engine/health';
 import { PAGE_INBOX_APP_ID } from '../engine/process';
 import { insertWebhookEvent } from '../db/repo';
 import { tick } from '../engine/tick';
@@ -286,6 +286,24 @@ describe.skipIf(!hasDb)('engine (Postgres)', () => {
       expect(h.alerts.some((a) => a.includes('not one was read'))).toBe(true);
       await sql`INSERT INTO taps (business, funnel_id, payload) VALUES ('acme', 'guide-reel', 'x')`;
       expect(await checkQuietFunnels(h.deps)).toEqual([]);
+    });
+
+    it('records whether Meta passes DMs from people without a role, and alerts when it opens', async () => {
+      await sql`INSERT INTO contacts (business, platform, external_id, username) VALUES ('acme', 'instagram', 'TESTER', 'tester')`;
+      expect((await checkDmAccess(h.deps)).acme).toMatchObject({ status: 'unknown' });
+
+      await sql`INSERT INTO contacts (business, platform, external_id, username, updated_at)
+        VALUES ('acme', 'instagram', 'STRANGER', 'stranger', now() + interval '1 minute')`;
+      h.meta.refused.add('STRANGER');
+      expect((await checkDmAccess(h.deps)).acme).toMatchObject({ status: 'roles_only', probe: 'stranger', refusedId: 'STRANGER' });
+      expect(h.alerts.some((a) => a.includes('only passes Instagram DMs'))).toBe(true);
+
+      // The tester writes again: they have a role, so they prove nothing. The stranger is asked first.
+      await sql`UPDATE contacts SET updated_at = now() + interval '1 hour' WHERE external_id = 'TESTER'`;
+      expect((await checkDmAccess(h.deps)).acme).toMatchObject({ status: 'roles_only' });
+      h.meta.refused.clear();
+      expect((await checkDmAccess(h.deps)).acme).toMatchObject({ status: 'everyone', probe: 'stranger' });
+      expect(h.alerts.some((a) => a.includes('passes every Instagram DM'))).toBe(true);
     });
 
     it('marks sends stuck in pending as unknown without retrying', async () => {

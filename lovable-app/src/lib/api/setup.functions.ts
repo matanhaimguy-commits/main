@@ -3,6 +3,7 @@ import { z } from "zod/v4";
 import { verifyToken } from "@/agent/config/env";
 import { assignConnection, decryptToken, deleteConnection, getState, listConnections, markSubscribed, setState } from "@/agent/db/connections";
 import type { Sql } from "@/agent/db/sql";
+import type { DmAccessState } from "@/agent/engine/health";
 import { subscribeApp, subscribePage } from "@/agent/meta/subscriptions";
 import { createMetaClient } from "@/agent/meta/client";
 import { asAdmin, asMember, currentOrigin } from "@/server/admin.server";
@@ -43,13 +44,14 @@ export const getOverview = createServerFn({ method: "GET" }).handler(async () =>
   asMember(async (sql, role) => {
     const a = await addresses(sql);
     const { deps, loaded } = await createRuntimeDeps(sql);
-    const [connections, verified, lastEvent, lastTick, tickTarget, appWebhooks] = await Promise.all([
+    const [connections, verified, lastEvent, lastTick, tickTarget, appWebhooks, dmAccess] = await Promise.all([
       listConnections(sql),
       getState(sql, "webhook_verified_at"),
       getState(sql, "last_event_at"),
       getState<{ at: string; handled: number }>(sql, "last_tick_at"),
       getState<{ url: string }>(sql, "tick_target"),
       getState<{ results: { object: string; ok: boolean; error?: string }[] }>(sql, "app_webhooks"),
+      getState<Record<string, DmAccessState>>(sql, "dm_access"),
     ]);
     const businesses = deps.registry.businesses.map((b) => {
       const st = deps.liveStatus(b);
@@ -69,6 +71,11 @@ export const getOverview = createServerFn({ method: "GET" }).handler(async () =>
         funnels: b.funnels.length,
         enabled: b.enabled,
         businessLive: b.live,
+        dmAccess: (() => {
+          const d = dmAccess?.value?.[b.slug];
+          return d ? { status: d.status, checkedAt: d.checkedAt, since: d.since, probe: d.probe } : null;
+        })(),
+        linkOpeners: b.funnels.filter((f) => f.opener.mode === "link").length,
       };
     });
     return {
