@@ -40,59 +40,52 @@ On near-black, a single violet dot pops in, stretches into a text cursor, splits
 Craft reference, not a social post: a 16:9 launch film for the onetake skill (shown under its earlier name). Study only (PolyForm Noncommercial): ideas in our words, no code, text, pixels or sound reused.
 
 ## Why it stops the scroll (first 2 s)
-- 0.0 s: a dark ground with a faint lighter centre, nothing else.
-- 0.5 s: a violet dot pops in at centre on a spring.
-- 1.0 s: it glides left and stretches into a thin caret.
-- 1.5-2.0 s: it types a slash, then splits into four bullet dots with labels.
-Mechanism: a minimal pattern interrupt; with only one object on screen the eye locks onto it and keeps asking what it will become. Weak in a feed: the first half second is empty (hook change 0.012, and the meter underreads a small dot on black).
+At 0.0 s a dark ground with a faint lighter centre, nothing else; at 0.5 s a violet dot pops in on a spring; at 1.0 s it glides left and stretches into a caret; at 1.5-2.0 s it types a slash, then splits into four bullet dots with labels. Mechanism: a minimal pattern interrupt; with one object on screen the eye locks onto it and asks what it will become. Weak in a feed: the first half second is empty (hook change 0.012, and the meter underreads a small dot on black).
 
 ## Beat map
 | t (s) | on screen | what moves | sound |
 |---|---|---|---|
-| 0.5 | the dot | spring pop | pop |
-| 1.0-1.5 | caret | glides, stretches, types a slash | key tick |
-| 1.75-3.35 | menu | dot splits into four bullets with labels; one pulses, three fall away; its label flies into the line | ticks |
-| 3.5-5.0 | request types | caret types a sentence; a still beat | key clicks |
-| 5.0-6.0 | send | the dot swallows the sentence, letters stream into it; camera whips home with it | whoosh; music enters on the 6.0 downbeat |
-| 6.0-7.25 | loading | dot hollows into a ring that fills | a rising tone into the ring closing |
-| 7.25-8.0 | curve | the ring unrolls into a spring response curve with a small code label | a tone whose pitch follows the curve |
-| 8.0-10.0 | ball | a bead runs the curve, drops, bounces twice | everything gated silent on the hang, then bounce hits |
+| 0.5-1.5 | dot, caret | spring pop; glides and stretches; types a slash | pop, key tick |
+| 1.75-3.35 | menu | dot splits into four bullets; one pulses, three fall away | ticks |
+| 3.5-5.0 | request | caret types a sentence; a still beat | key clicks |
+| 5.0-6.0 | send | the dot swallows the sentence; camera whips home with it | whoosh; music enters on the 6.0 downbeat |
+| 6.0-8.0 | ring, curve | dot hollows into a ring that fills, then unrolls into a spring curve | a rising tone; a tone that follows the curve |
+| 8.0-10.0 | ball | a bead runs the curve, drops, bounces twice | gated silent on the hang, then bounce hits |
 | 10.0-11.25 | result | the second bounce opens a cream card where the dot is the sun | loudest hit |
-| 11.25-15.0 | name | card folds into the sun, sun into the dot; letters rise; the dot lands on the i and winks | landing hit, held chord, quiet end |
+| 11.25-15.0 | name | card folds into the sun, sun into the dot; letters rise; it lands on the i and winks | landing hit, held chord, quiet end |
 
-Sound column from the case notes: recorded foley and tuned percussion with synthesis, landings on a 120 BPM grid.
+Sound per the case notes: foley and tuned percussion with synthesis, landings on a 120 BPM grid.
 
 ## Signature device
-Identity morph. One object never leaves the screen; every new interface state is that object changing shape: circle to caret (width shrinks, height grows), caret to four circles (split), back to caret, back to circle (swallow), circle to ring (fill becomes stroke), ring to curve (cut the ring at one point and unroll its length into a path), curve to ball, ball to sun, sun to the dot of a letter. The camera is an operator that leads the subject by 0.1-0.2 s with springs on position and on log zoom (about 1.3x to 2.4x). A dim far dot lattice behind it gives the camera something to slide over on a plain ground. The notes say a fixed-camera version was praised but asked for tracking; adding the operator camera got it accepted.
+Identity morph. One object never leaves; every new interface state is that object changing shape: circle to caret (width shrinks, height grows), caret to four circles, back to caret, back to circle (swallow), circle to ring (fill becomes stroke), ring to curve (cut at one point and unroll its length into a path), curve to ball, ball to sun, sun to the dot of a letter. The camera leads the subject by 0.1-0.2 s with springs on position and on log zoom (about 1.3x to 2.4x), over a dim far dot lattice that gives it something to slide past. A fixed-camera version was praised but asked for tracking; the operator camera got it accepted.
 
 ## Pacing read
-2 fps proxy: 1.33 cuts per 10 s, big changes every 3.0 s, CV 1.21, 24 % quiet. Full-rate checker: 9 % still, 43 % quiet, only 2 beats detected, one transition at 11.42 s, longest quiet run 2.0 s, beat CV 0.74, spread 7.6x. The meters see a slow film with one burst (10-12 s) because the moving thing is small; the felt rhythm is the 120 BPM landings and a morph every 1-2 s. It ends on a slow push on the name and a wink. No loop.
+2 fps: 1.33 cuts per 10 s, big changes every 3.0 s, CV 1.21, 24 % quiet. Full rate: 9 % still, 43 % quiet, only 2 beats detected, one transition at 11.42 s, longest quiet run 2.0 s, beat CV 0.74, spread 7.6x. The meters see a slow film with one burst (10-12 s) because the moving thing is small; the felt rhythm is the 120 BPM landings and a morph every 1-2 s. Ends on a slow push and a wink. No loop.
 
 ## Look
-Near-black ground (#07060b to #14131b) with a soft lighter centre; one violet accent for dot, ring and curve (not in the measured top five); a cream card (#f0e9da) with a yellow sun for the result. White grotesk for typed text, a bold wordmark about an eighth of frame height. A faint dot grid at about 1.4 px. Shutter smear when the dot streaks across.
+Near-black ground (#07060b to #14131b), one violet accent (not in the measured top five), a cream card (#f0e9da) with a yellow sun at the result. White grotesk typed text, a bold wordmark about an eighth of frame height, a faint 1.4 px dot grid. Shutter smear when the dot streaks.
 
 ## Why it works
 - One subject means zero orientation cost.
 - Each morph is a small surprise, so "what will it become" renews every 1-2 s.
-- The ending ties the object you followed to the logo, so the brand is remembered as that object.
+- The ending ties the object you followed to the logo.
 - Rewatch trigger: spotting how each shape came from the dot.
 
 ## Steal this (grammar) / Leave this (content)
-- Steal: take one element of the client's mark (a dot, bar, tick or circle) and let it play every role; a camera that leads the subject; a far lattice on a plain ground; landings on the beat; end with the element snapping into the logo.
+- Steal: one element of the client's mark (a dot, bar, tick or circle) plays every role; a camera that leads it; a far lattice on a plain ground; landings on the beat; it snaps into the logo at the end.
 - Leave: violet on black, the command menu and labels, the code label, the sun card, the wordmark.
 
 ## Build it in our studio
-Engine: canvas (shape morphs as closed-form interpolations, springs from lib/motion.js, subframe blur for the streak). HyperFrames with SVG morphing is the alternative.
+Engine: canvas (closed-form shape morphs, springs from lib/motion.js, subframe blur for the streak). HyperFrames with SVG morphing is the alternative.
 1. List six to eight states the element passes through, each a real product moment.
-2. Define each state as a parametric shape (radius; rect width, height and corner; ring stroke; path).
+2. Define each as a parametric shape (radius; rect size and corner; ring stroke; path).
 3. Camera rig that leads the element; far lattice.
-4. Sound placed on the landings.
-5. Logo landing.
-Hard part: changes of topology (circle to path) without a visible pop; cut the ring at one point and map its arc length onto the curve. Zero assets, no paid steps.
+4. Sound on the landings; logo landing.
+Hard part: topology changes (circle to path) without a pop; cut the ring at one point and map its arc length onto the curve. Zero assets.
 
-9:16: one object suits a tall frame; the menu is already a vertical list; keep the curve at 85 % width or turn it vertical; land the logo in the middle band. Relevance is high because any brand with a simple mark can use it.
+9:16: one object suits a tall frame; the menu is already vertical; keep the curve at 85 % width or turn it vertical; land the logo in the middle band. Relevance 5: any brand with a simple mark can use it.
 
 ## Business translations
-- Banking or payments app (finance): the dot in the logo becomes the cursor of a transfer field, a progress ring, a balance curve, then returns to the logo.
+- Payments app (finance): the dot in the logo becomes the cursor of a transfer field, a progress ring, a balance curve, then returns to the logo.
 - Dental or physio clinic (health): the dot of the clinic's mark becomes a booking cursor, a check mark, and lands back in the mark.
-- Coach or consultant (personal-brand): the dot of their initial becomes the cursor typing their headline, a programme progress ring, and the full stop of their tagline.
+- Coach or consultant (personal-brand): the dot of their initial types their headline, fills a programme progress ring, and ends as the full stop of their tagline.
