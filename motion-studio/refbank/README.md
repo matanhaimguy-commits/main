@@ -20,7 +20,18 @@ already used, so every new film starts from a strong reference and never looks l
 - **What a card is not:** a licence. Third-party reels are for study only. We take structure, timing, devices and
   sound logic, and never their pixels, words, characters, music or marks.
 
-<!-- STATS -->
+**What's in it** (14 Oct 2026):
+- **92 cards in total.**
+  - 81 viral social reels: 75 from TikTok and 6 from Instagram. The median is 8.1M plays and 38 have 10M+.
+  - 11 onetake craft films (study only).
+- **17 categories**, listed in `TAGS.md`.
+- **Usefulness:** 60 cards score relevance 4-5 for client marketing, and 48 of those are buildable at difficulty 3
+  or less in our stack.
+- **Picking a reference:** `devices.md` sorts the bank by signature device and by business message.
+- **Overview:** `python3 tools/refbank.py stats`.
+
+**Pacing (measured):** viral reels change something big every 0.5-1.5 s (median by category), mostly inside
+continuous shots rather than through cuts. Medians by category are in `../HANDOFF.md` §7.3.
 
 ## Files
 | Path | What |
@@ -79,3 +90,8 @@ of being pasted into the conversation.
     motion, kinetic type, explainers, satisfying simulations, and story or wow hooks.
   - Added: 11 onetake craft films and the divyansh.fx_ reel behind StraightScale reel 03.
   - Apify spend was about $20.
+  - **Not captured, for the next refresh:**
+    - the_archive_27, `https://www.instagram.com/p/Ddvyte1sNI9/`, 1.0M plays. A math race: 2ⁿ against the
+      product of primes, with the lead changing hands. Instagram returned HTTP 500 on every frame download.
+  - **Re-captured with a higher download cap** (40 MB instead of 6 MB): spectrazeeua5, thebioswitch and
+    vaporama_vision. The 6 MB cap silently skipped long videos.

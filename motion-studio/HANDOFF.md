@@ -35,7 +35,7 @@ map and open the files it points to. If it can't, this file is written to stand 
 | QA tools | All used on the deliveries | `motion-studio/tools/` |
 | Voice chain | ElevenLabs voice → word timings → film and mix clock | see §8 |
 | Score and mix chain | Real-instrument sampler score, effects from the film's own event times, word-timed ducking, two-pass loudnorm | `projects/straightscale-03/audio/`, `finish.sh` |
-| Reference bank | 93 breakdown cards (82 viral reels, median 8.1M plays, plus 11 craft films), tag vocabulary, device catalogue, picker, usage ledger | `motion-studio/refbank/` |
+| Reference bank | 92 breakdown cards (81 viral reels, median 8.1M plays, plus 11 craft films), tag vocabulary, device catalogue, picker, usage ledger | `motion-studio/refbank/` |
 | Knowledge base | 7 guides plus 5 complete reference repos | `motion-studio/knowledge/`; repos via `bash references/fetch.sh` |
 | Project template | Brief, brand, treatment, review log, manifest, credits | `motion-studio/templates/project/` |
 
@@ -391,11 +391,11 @@ The hook must be visual too, because it has to work muted: motion within 0.5 s, 
 - `refbank/ledger.json` is the per-client usage memory, already seeded with reels 01-03.
 
 **What's in it** (14 Oct 2026):
-- **93 cards in total.** 82 are viral social reels: 75 from TikTok and 7 from Instagram (including the reel behind
+- **92 cards in total.** 81 are viral social reels: 75 from TikTok and 6 from Instagram (including the reel behind
   reel 03). The other 11 are award-level onetake craft films (study only).
 - **Reach.** Every social reel except one has 1M+ plays; 38 have 10M+. The median is 8.1M plays.
 - **Categories** (17): lyric-mograph 12, ui-saas 12, story-comedy 7, vfx-edit 7, brand-ad 6, cgi-fooh 6,
-  explainer-2d 6, product-motion 6, satisfying-sim 6, data-infographic 5–6, explainer-3d 5, beat-sync 3,
+  explainer-2d 6, product-motion 6, satisfying-sim 6, data-infographic 5, explainer-3d 5, beat-sync 3,
   kinetic-type 3, logo-reveal 3, spectacle-world 3, asmr-care 1, brand-identity 1.
 - **Usefulness.** 60 cards score relevance 4-5 for client marketing, and 48 of those are buildable at difficulty
   3 or less in our stack.
@@ -520,7 +520,8 @@ blocked too. Everything goes through the **Apify MCP connector**, which works.
      Transcripts land as `transcription-*.txt` records in the run's key-value store.
    - For Instagram, `apify/instagram-reel-scraper` takes `{username:[<reel url>], includeTranscript:true}`.
 4. **Frames.** `seemuapps/video-frame-extractor` accepts TikTok, Instagram, YouTube and MP4 URLs, up to 100 per run.
-   - Input: `{videoUrls:[...], mode:"interval", intervalSeconds:0.5, maxWidth:200, maxFramesPerVideo:48, proxyMode:"auto", maxDownloadMbPerVideo:6}`.
+   - Input: `{videoUrls:[...], mode:"interval", intervalSeconds:0.5, maxWidth:200, maxFramesPerVideo:48, proxyMode:"auto", maxDownloadMbPerVideo:40}`.
+   - Keep the download cap at 40 MB or more. At 6 MB, videos longer than about 60 s were skipped without an error.
    - Price: $0.01 per video plus $0.002 per frame. It handles about one video per minute.
    - Frames land in the run's key-value store as `v<N>-<videoId>-frame-0001.jpg`. Read each one with
      `ReadMcpResourceTool`; each read saves a file to disk (frames are 3-8 KB).

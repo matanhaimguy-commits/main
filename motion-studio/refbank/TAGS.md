@@ -43,7 +43,7 @@ cursor-demo · split-screen · grid-mosaic · halftone-collage · paper-cutout �
 Simulation and material: cloth-sim · softbody · liquid-sim · rigid-body-drop · particles · marble-run ·
 beat-sync-hits · cutting-slicing · inflate-deflate · giant-product · product-in-world · fooh-composite ·
 glass-refraction · clay-plasticine · lego-bricks · minecraft-voxel
-Character: character-host · lip-sync · reaction-shot · pose-to-pose-comedy · creature-reveal · literal-metaphor
+Character: character-host · lip-sync · reaction-shot · pose-to-pose-comedy · creature-reveal · literal-metaphor · thought-bubble
 Sound: asmr-foley · whoosh-transitions · bass-drop · silence-before-hit · voiceover-explainer · trending-audio
 
 ## energy (one)
