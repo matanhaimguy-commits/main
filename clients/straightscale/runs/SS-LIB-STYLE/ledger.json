@@ -1,0 +1,124 @@
+{
+  "post_id": "SS-LIB-STYLE",
+  "slug": "straightscale",
+  "format": "carousel_mistakes",
+  "family": "library",
+  "card": null,
+  "created": "2026-10-15T20:51:52+00:00",
+  "steps": {},
+  "run_gates": {
+    "G-HUMAN-LOOK": [
+      {
+        "at": "2026-10-15T21:58:35+00:00",
+        "status": "PASS",
+        "by": "Matan",
+        "note": "Matan approved this look on 15 Oct 2026 by asking to publish the carousel it comes from ('upload the carousel today'); STYLE-TOP@v1 is a pixel crop of that cover; style-bible.md unchanged"
+      }
+    ]
+  },
+  "specs": {
+    "SHEET-STYLE": {
+      "sha256": "906e1875702b8e5f83c55736357910cda17c90e1c0b442393dec883253a438ec",
+      "lint": "PASS",
+      "lint_at": "2026-10-15T20:51:52+00:00",
+      "lint_issues": [
+        {
+          "level": "warn",
+          "code": "P6",
+          "msg": "text '7 gjëra që po të kushtojnë klientë çdo javë' is over 6 words on one surface: split or simplify"
+        }
+      ]
+    },
+    "SHEET-STYLE-TOP": {
+      "sha256": "8afa33fce23f825ab1ed12cdb8986600a262bcc68d01d9a48166d3eaf156d25a",
+      "lint": "PASS",
+      "lint_at": "2026-10-15T21:10:41+00:00",
+      "lint_issues": [
+        {
+          "level": "warn",
+          "code": "P6",
+          "msg": "text '7 gjëra që po të kushtojnë klientë çdo javë' is over 6 words on one surface: split or simplify"
+        }
+      ]
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "STYLE",
+      "version": 1,
+      "type": "style_ref",
+      "shots": [
+        "SHEET-STYLE"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-15T20:51:52+00:00",
+      "prompt_sha256": null,
+      "prompt_file": null,
+      "prompt_history": [],
+      "medias": [],
+      "ids": [
+        "90dad300-d86a-4173-acc2-5af7cba412a3"
+      ],
+      "files": [
+        "clients/straightscale/runs/SS-LIB-STYLE/assets/STYLE.v1.jpg"
+      ],
+      "gates": {
+        "G-VIS-SHEET": [
+          {
+            "at": "2026-10-15T20:58:59+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/STYLE.v1.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 2,
+              "minor": 1
+            },
+            "hero": true
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "STYLE-TOP",
+      "version": 1,
+      "type": "style_ref",
+      "shots": [
+        "SHEET-STYLE-TOP"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-15T21:10:41+00:00",
+      "prompt_sha256": null,
+      "prompt_file": null,
+      "prompt_history": [],
+      "medias": [],
+      "ids": [
+        "e6bc8781-70fa-4450-aa10-989160b20a2e"
+      ],
+      "files": [
+        "clients/straightscale/runs/SS-LIB-STYLE/assets/STYLE-TOP.v1.png"
+      ],
+      "gates": {
+        "G-VIS-SHEET": [
+          {
+            "at": "2026-10-15T21:58:35+00:00",
+            "status": "PASS",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/STYLE-TOP.v1.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 0,
+              "minor": 0
+            },
+            "hero": true
+          }
+        ]
+      }
+    }
+  ],
+  "queue": []
+}

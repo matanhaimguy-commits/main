@@ -25,7 +25,7 @@ properties:
   post_id: {type: string, pattern: "^[A-Z]{2,5}-(\\d{4}-\\d{2}-W\\d-\\d{2}|LIB-[A-Z0-9-]+|TEST-[A-Z0-9-]+)$"}
   format:
     enum: [realistic_photo, ugc, talking_head, podcast, animation_3d, claymation, crochet, animation_2d, stop_motion,
-      song, drama, motion, carousel_slide, static, character_sheet, prop_sheet, set_sheet, storyboard_panel]
+      song, drama, motion, carousel_slide, static, character_sheet, prop_sheet, set_sheet, storyboard_panel, style_reference]
   script_lines:
     description: "Line ids from the Script Lab line table (L14) or slide copy ids (S3). Empty only for sheets."
     type: array

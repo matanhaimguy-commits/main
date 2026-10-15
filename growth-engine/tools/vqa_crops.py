@@ -127,9 +127,13 @@ def cmd_image(args) -> dict:
     w, h = im.size
     files, must = [], []
 
+    ext = getattr(args, "ext", "png")
+
     def save(img, name, required=True):
+        if ext != "png":
+            name = name.rsplit(".", 1)[0] + "." + ext
         p = out / name
-        img.save(p)
+        img.save(p, quality=88) if ext == "jpg" else img.save(p)
         files.append(name)
         if required:
             must.append(name)
@@ -160,12 +164,12 @@ def cmd_image(args) -> dict:
             name = f"region_{s.get('shot_id', 'shot')}_{rg['name']}.png"
             p = save(up2(im.crop(box)), name)
             if args.ocr and rg.get("kind") == "text":
-                ocr_out[name] = ocr(p, args.ocr)
+                ocr_out[p.name] = ocr(p, args.ocr)
     thumb = im.copy()
     thumb.thumbnail((200, 200 * h // w))
     save(thumb, "thumb_200.png", required=hero)
     if args.ocr and not ocr_out:
-        ocr_out["full.png"] = ocr(out / "full.png", args.ocr)
+        ocr_out[files[0]] = ocr(out / files[0], args.ocr)
     man = {"kind": "image", "source": str(args.file), "size": [w, h], "hero": hero, "files": files, "must_open": must,
            "panels": len(panels), "ocr": ocr_out or None,
            "ocr_note": "OCR is a second opinion only; read every letter yourself (diacritics)" if args.ocr else None}
@@ -322,6 +326,8 @@ def main(argv=None) -> int:
         p.add_argument("--run"); p.add_argument("--asset"); p.add_argument("--out"); p.add_argument("--hero", action="store_true")
 
     p = sub.add_parser("image"); p.add_argument("file"); where(p); p.add_argument("--spec", nargs="*")
+    p.add_argument("--ext", choices=["png", "jpg"], default="png",
+                   help="jpg keeps 4 crops under the sandbox's 512 KiB image_paths limit")
     p.add_argument("--panels"); p.add_argument("--ocr", help="tesseract language, e.g. sqi+eng")
     for name in ("frames", "motion", "final"):
         p = sub.add_parser(name); p.add_argument("video"); where(p)

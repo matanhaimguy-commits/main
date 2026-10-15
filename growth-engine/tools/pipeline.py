@@ -905,7 +905,11 @@ def _model_checks(req: dict, a: dict, led: dict) -> list[str]:
                 why.append(f"aspect_ratio {p.get('aspect_ratio')} differs from the Shot Spec ({aspects.pop()})")
     elif kind == "video":
         if tool_service == "elevenlabs":
-            return [f"video via ElevenLabs ({model}) is outside the standards (hub G1): H3 only, or G-EXCEPTION"]
+            fb = std["elevenlabs"].get("video_fallback", {}).get(model)
+            if fb and gate_ok(a["gates"].get(fb)):
+                return []
+            return [f"video via ElevenLabs ({model}) is outside the standards (hub G1): H3 only"
+                    + (f"; {model} is a fallback that needs {fb} on {aref(a)}" if fb else ", or G-EXCEPTION")]
         m = std["video"].get(model)
         if not m:
             return [f"video model {model} is banned by the standards (hub G1/G2); a drama exception needs G-EXCEPTION "

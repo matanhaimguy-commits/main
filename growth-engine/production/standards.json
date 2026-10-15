@@ -212,7 +212,10 @@
       ],
       "image": [],
       "video": [],
-      "note": "ElevenLabs image and video models are not on the list: images come from Higgsfield (G7), video from H3 (G1). A drama exception (X5 and up) needs G-EXCEPTION on the asset."
+      "note": "ElevenLabs image and video models are not on the list: images come from Higgsfield (G7), video from H3 (G1). A drama exception (X5 and up) needs G-EXCEPTION on the asset.",
+      "video_fallback": {
+        "sync-lipsync-v3": "G-FALLBACK"
+      }
     },
     "higgs_audio": {
       "allowed": [],
@@ -509,5 +512,178 @@
       "mode": "required",
       "what": "A model outside the standards for one asset (drama exceptions X5 and up)."
     }
+  },
+  "clips": {
+    "min_s": 5,
+    "max_s": 15,
+    "duration_rule_interim": "slice <= 14 s; duration = ceil(slice) + 1, within 5..15 (re-test R2)",
+    "words_per_15s_monologue": [
+      30,
+      35
+    ],
+    "words_per_clip_dialogue": 20,
+    "shots_per_take": [
+      2,
+      3
+    ],
+    "shots_per_take_max": 4,
+    "takes_hook_and_talking": 2,
+    "max_attempts": 3
+  },
+  "audio": {
+    "pace_words_per_s_default": 2.5,
+    "storyteller_syllables_per_s": [
+      4.3,
+      5.5
+    ],
+    "pitch_range_semitones_min": 7,
+    "takes_per_beat": 4,
+    "max_speed_up": 1.05,
+    "pause_sd_min_s": 0.1,
+    "long_pause_s": 0.45,
+    "cap_pauses": false,
+    "animation_gap_codes_min_s": {
+      "S": 0.15,
+      "B": 0.4,
+      "H": 0.8
+    },
+    "turn_gap_s": [
+      0.08,
+      0.3
+    ],
+    "overlap_s": [
+      0.1,
+      0.2
+    ],
+    "bed_under_voice_db": [
+      14,
+      18
+    ],
+    "loudness_lufs": -14,
+    "loudness_tolerance": 1,
+    "true_peak_dbtp_max": -1.0
+  },
+  "picture": {
+    "fps": 30,
+    "fps_drama_optional": 24,
+    "export": "H.264 High 1080x1920, AAC 48 kHz",
+    "change_every_s": [
+      2,
+      4.5
+    ],
+    "change_every_s_song": [
+      1.5,
+      3.5
+    ],
+    "change_every_s_ugc_broll": [
+      1.5,
+      3
+    ],
+    "first_5s_change_every_s": [
+      1,
+      1.5
+    ],
+    "end_card_s": [
+      2.5,
+      3
+    ]
+  },
+  "text": {
+    "hook_words": [
+      4,
+      10
+    ],
+    "hook_label_words_max": 6,
+    "caption_words": [
+      1,
+      4
+    ],
+    "super_words": [
+      2,
+      6
+    ],
+    "contrast_min": 4.5,
+    "reels_safe_zone": {
+      "top": 0.14,
+      "bottom": 0.35,
+      "right_lower_half": 0.21
+    },
+    "feed_margin": 0.04,
+    "thumbnail_test_px": 200,
+    "em_dashes": false
+  },
+  "placements": {
+    "reel": [
+      1080,
+      1920
+    ],
+    "feed": [
+      1080,
+      1350
+    ],
+    "carousel": [
+      1080,
+      1350
+    ],
+    "carousel_slides": [
+      7,
+      12
+    ]
+  },
+  "ai_label": {
+    "photoreal_ai_person": true,
+    "ai_voice_as_person": true,
+    "stylized_animation": "on until decision D1",
+    "burned_in_tag": false
+  },
+  "lengths": {
+    "O15": [
+      10,
+      20
+    ],
+    "O30": [
+      20,
+      35
+    ],
+    "O60": [
+      45,
+      75
+    ],
+    "O90": [
+      75,
+      100
+    ],
+    "podcast_C45": {
+      "s": [
+        35,
+        45
+      ],
+      "turns": [
+        8,
+        12
+      ],
+      "words": [
+        80,
+        110
+      ]
+    },
+    "story_min_s": 45,
+    "max_s": 180
+  },
+  "credits": {
+    "h3_per_s": 2,
+    "kling_per_5s": 10,
+    "gpt_image_2_5_2k_medium": 1,
+    "still_range": [
+      1,
+      6.5
+    ],
+    "elevenlabs_vo_beat_4_takes": 177
+  },
+  "open": {
+    "R1": "stylized image model side-by-side",
+    "R2": "H3 duration rule re-test",
+    "D1": "AI label policy",
+    "D9": "drama model routing"
   }
 }

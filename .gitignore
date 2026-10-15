@@ -14,3 +14,7 @@ growth-engine/production/logs/
 # Python bytecode
 __pycache__/
 *.pyc
+
+# review packets are regenerable (vqa_crops.py); the reports in qa/*.json are kept
+clients/*/runs/*/qa/crops/
+clients/*/runs/*/qa/frames/

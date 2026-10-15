@@ -29,11 +29,19 @@ clients/<slug>/
 | 2 Research | 3-month outliers with the 4 checks, adjacent niches, format rules, idea bank | `research/<date>/outliers.csv`, `research/format-rules.md` | research-scout | `organic.py outliers <dataset.json>` |
 | 3 Map | belief focus, pillars, series, mix by stage, calendar, live keywords | `content-map.json`, `content-map.md` | content-strategist, organic-director | director approval |
 | 4 Cards | one Post Card per slot (job, belief, pillar, series, avatar, demand phrase, format, hypothesis, target) | `cards/<yyyy-mm>-W<n>/*.yaml` | content-strategist | `organic.py card-check`, `week-check`, `route` |
-| 5 Make | idea gate, hooks and scripts (organic adapters), carousels, reels | `content/<key>/` | idea-agent, hook-agent, script-agent, carousel-agent, video-producer | `growth-engine/GATES.md` |
+| 5 Make | idea gate, hooks and scripts (organic adapters), carousels, reels; one run per post | `content/<key>/`, `runs/<post_id>/` | idea-agent, hook-agent, script-agent, carousel-agent, video-producer, visual-planner, prompt/visual/take reviewers | `growth-engine/GATES.md`, `pipeline.py status`, the generation hook |
 | 6 Ship | caption, keyword, stories, hub draft | hub `content_items` | distribution-agent, conversion-agent | Matan approves |
 | 7 Learn | scorecard, flags, diagnosis, learnings, budget | `analytics/posts.csv`, `ledger.csv`, `analytics/learnings.md` | analyst, organic-director | `organic.py score`, `ledger` |
 
-Adapters for the paid-ad skills: `growth-engine/adapters/` (hook-lab, script-lab, carousel-machine). Format costs, the
+**Production layer (since 15 Oct 2026; how every asset is made and checked):** `growth-engine/production/README.md`.
+Every post is a run (`growth-engine/tools/pipeline.py init`) through the 16 steps of `AI-VIDEO-PIPELINE.md`; every
+number comes from `STANDARDS.md`; every picture has a Shot Spec, a fresh prompt review and a fresh visual or take review
+(`VISUAL-QA.md`; agents visual-planner, prompt-reviewer, visual-reviewer, take-reviewer); the PreToolUse hook blocks any
+Higgsfield or ElevenLabs generation whose gates haven't passed. Story formats (POV day in the buyer's life, the
+problem as a villain, two days, song, podcast, drama; claymation, crochet, 3D, 2D): `production/STORY-FORMATS.md`.
+
+Adapters for the paid-ad skills: `growth-engine/adapters/` (hook-lab, script-lab, carousel-machine, animation, drama,
+song, podcast, UGC and talking head). Format costs, the
 belief→job table and mixes: `growth-engine/config/organic.json`. Weekly mix for a 7-post account: 3 reels, 3 carousels,
 1 image (images only for a strong question or a real review quote). New accounts: reach 50%, trust 35%, convert 15%.
 

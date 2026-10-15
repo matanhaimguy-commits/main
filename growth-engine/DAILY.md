@@ -18,6 +18,11 @@ Repo `matanhaimguy-commits/main`, branch `claude/ig-fb-chatbot-automation-zk8w44
   URL is `https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/<media_id>.<ext>`.
 - Voice and music: the ElevenLabs connector.
 - Never print or store tokens; never print `app_state` rows `settings` or `tick_target`.
+- **The generation gate** (`.claude/hooks/generation_gate.py`, VISUAL-QA.md section 9) blocks every Higgsfield and
+  ElevenLabs generation whose prompt, Shot Spec, references and budget haven't passed their gates. A session rooted
+  above the repo runs `bash growth-engine/production/install-gate.sh` first, then proves it: `generate_image` with the
+  prompt `GATE-SELFTEST` must come back blocked ("the production gate is live"). If it generates instead, stop and say
+  so: never produce without the gate.
 
 ## 1. What is missing
 ```sql
@@ -49,29 +54,61 @@ say why they failed in the summary (do not re-approve them).
 Run the gates in `growth-engine/GATES.md` and the adapters in `growth-engine/adapters/`. Facts only from `brain.json` / `brand-kit.md` (never invent numbers, results, clients, reviews or prices; never "we answer within
 1 hour", never "we chase the client's leads"; no em dashes, no hype words). Albanian, informal "ti", plain words.
 
+**Every post runs through the production pipeline** (`growth-engine/production/README.md`; commands are
+`python3 growth-engine/tools/pipeline.py ...`, run from the repo root):
+1. `init straightscale <post_id> --format <format> --card <card path>`; record the early gates as they pass
+   (`gate ... G-BRIEF`, `G-IDEA`, `G-HOOK`, `G-SCRIPT --score N`; the spine pick as `G-HUMAN-SPINE --by "claude (delegated)"`
+   with the reason) and close steps with `step ... <n> --status done`.
+2. The visual-planner agent writes one Shot Spec per slide or shot in `runs/<post_id>/shots/`; `spec-check` must pass;
+   a fresh prompt-reviewer (spec mode) reviews each spec; record its JSON with `record`.
+3. Per image or clip: `asset ... <ID> --type slide|cover|static|start_frame|video_clip --shots ...`, write the prompt to a
+   file, `prompt ... --file F --media <ref id>:<role> ...` (the style reference is `90dad300-d86a-4173-acc2-5af7cba412a3`,
+   registered as `STYLE@v1` in `runs/SS-LIB-STYLE`), a fresh prompt-reviewer checks it, `record` the report.
+   Voice and music: `asset ... VO --type voice` / `--type music` and `prompt ... --file` with the exact text.
+4. `budget straightscale <post_id> --planned <credits> --balance <Higgsfield balance right now>`.
+5. Generate with exactly the registered prompt and references (the gate checks the hash and the order). Then
+   `media ... <ID>@v<n> --id <job or media id> --file <local file>`.
+6. `python3 growth-engine/tools/vqa_crops.py image <file> --run straightscale/<post_id> --asset <ID>@v<n>` (video:
+   `frames`), a fresh visual-reviewer (or take-reviewer) opens every crop and writes its JSON; `record` it. A FAIL goes
+   to the fix route in VISUAL-QA 5.5 as a new version (`asset` again). Carousels end with a G-SET review of the whole set.
+7. `status` must show no open gates before step 14 (the hub draft). `queue --write` lists what waits for Matan.
+The reviewers are fresh agents every time (agent files in `.claude/agents/`; if a type isn't registered in the session,
+run a general-purpose agent told to read and follow that file). They get only the packet, never the producer's reasoning.
+
 **Single image / carousel:** Higgsfield `gpt_image_2_5`, `aspect_ratio: "4:5"`, `resolution: "2k"`,
-`quality: "medium"` (1 credit each), `medias: [{value: "90dad300-d86a-4173-acc2-5af7cba412a3", role: "image_references"}]`
-(the cover of the 15 Oct carousel, for the look). Prompt pattern (see `clients/straightscale/style-bible.md`):
+`quality: "medium"` (1 credit each), `medias: [{value: "e6bc8781-70fa-4450-aa10-989160b20a2e", role: "image_references"}]`
+(`STYLE-TOP@v1` in `runs/SS-LIB-STYLE`: the top of the 15 Oct cover, for the type and the light; the old full cover
+`90dad300` failed its review on 15 Oct: a model-drawn logo and blurred side bands, so it is no longer a reference).
+**The model never draws the logo** (brand-kit: real files only): the prompt leaves the bottom-left corner calm and
+empty, and after the review the real logo goes on with
+`python3 growth-engine/tools/brand_overlay.py <in> <out> --client straightscale` (it refuses a busy or bright corner).
+Prompt pattern (see `clients/straightscale/style-bible.md`):
 > Instagram post, portrait 4:5. Match the look, type and layout of the reference image exactly: same photorealistic
 > cinematic film still, 35mm, shallow depth of field, Tirana at night, warm tungsten light, deep shadows, fine film
 > grain; deep red #BE0F18 is the only saturated colour. SCENE: ... a smartphone in a deep red case ... TEXT, in the
 > calm dark upper area, left-aligned: small spaced capitals label '...' at top left [carousels: small gold #DD9A10
 > counter 'n/N' at top right]. Headline in heavy bold geometric sans, off-white #F8F6EF: '...' with '...' inside a
 > solid #BE0F18 highlight rectangle. [Smaller off-white line: '...'] Spell exactly, letter by letter: (every word with
-> ë or ç, spelled out). Bottom left strip: red rounded-square logo with a white S and a tiny gold square at its
-> top-right corner, next to the wordmark 'StraightScale' in white. [Carousels, slides 1 to N-1: bottom right a small
-> #BE0F18 round button with a white arrow.] No other text, no numbers on screens or paper, no other logos.
+> ë or ç, spelled out). Bottom-left corner (the lowest 9% of the height, the left 40% of the width): calm, dark,
+> empty background with nothing in it: no logo, no letters, no objects (a logo is added later). [Carousels, slides 1 to
+> N-1: bottom right a small #BE0F18 round button with a white arrow.] No logos anywhere, no other text, no numbers on
+> screens or paper. Full-bleed photograph edge to edge: no borders, no side bars, no blurred margins.
 
-QA: read every letter at full size (crop the headline area to 2x). Stray dots or specks next to letters happen; paint
-them out with the local background colour (see `content/2026-w43-1b-carousel/qa.md`), or regenerate. Export
+QA: the visual-reviewer reads every letter at full size from the crop packet (step 6 above). Stray dots or specks next
+to letters happen; the fix route is an edit pass (a new version, re-reviewed) or a local paint-out with the background
+colour logged in `qa.md` (see `content/2026-w43-1b-carousel/qa.md`), then a fresh review of the fixed file. Export
 `convert in.png -resize 1080x1350! -strip -quality 90 out.jpg`.
 
 **Reel (quote, 12-15 s):** follow `clients/straightscale/content/2026-w42-6-reel/script.md`: a 9:16 still, a MiniMax H3
 2K keyframe clip (`start_image` = an uploaded 1080x1920 JPEG, `declined_preset_id: "24bae836-2c4a-48e0-89b6-49fcc0b21612"`,
 2 credits a second), an ElevenLabs `eleven_v4` voice (voice `8oGKUMljR779HzpZBiE4`, 4 takes, check each with Whisper,
-keep the cleanest), burned captions and the end card with the real wordmark (`/home/user/ss/ov/logos.js`, `WM`),
-music ducked under the voice, -14 LUFS / -1.5 dBTP. Longer narrated reels follow the motion-reel skill and are made in
-a normal session, not in the daily run.
+keep the cleanest), burned captions and the end card with the real wordmark (`clients/straightscale/brand/wordmark-white.png`),
+music ducked under the voice, -14 LUFS / -1 dBTP (STANDARDS.md). In the pipeline it is the `keyframe_reel` family: the
+still is a `start_frame` (hero, zero defects), the clip a single-shot `video_clip` in keyframe mode (`start_image`, no
+storyboard because nothing talks and there is one shot), the voice a `voice` asset after G-SCRIPT, the bed a `music`
+asset; the take-reviewer checks the clip and the final cut (G-TAKE, G-FINAL). Story reels, animation, drama, song and
+podcast pieces follow `growth-engine/production/STORY-FORMATS.md` and are made in a normal session, not in the daily
+run; the daily run only places them when their run shows step 13 done.
 
 Budget: the month's cap in `brain.json` (StraightScale 1,300 Higgsfield credits); check with `organic.py ledger <slug>` and
 the Higgsfield balance before every batch, keep a 25% retake buffer, log every piece with `organic.py ledger-add`.

@@ -1,6 +1,8 @@
 # Pre-publish gates and the Director review
 
-Every post passes all gates before it reaches Matan's Approve (ORGANIC-OS 7.5). The agent that owns a gate writes
+Every post passes all gates before it reaches Matan's Approve (ORGANIC-OS 7.5). The production gates per asset (Shot
+Specs, prompt and visual reviews, takes, the final cut) live in the post's run ledger and are enforced by the
+generation hook: `growth-engine/production/README.md`, `VISUAL-QA.md`, `STANDARDS.md`. The agent that owns a gate writes
 `pass` or `fail` into the Post Card's `gates:` map with one line of evidence in `notes`. A post with any `fail` does not
 go into the hub. Automatic checks: `python3 growth-engine/tools/organic.py card-check <slug> <cards>` and
 `week-check`. Nothing is published or messaged without human approval.
@@ -12,7 +14,7 @@ go into the hub. Automatic checks: `python3 growth-engine/tools/organic.py card-
 | `hook` | A or A+ on the 3-channel stack; 4 S's; none of the 4 mistakes; 10 hooks written | Hook Agent | |
 | `script` | value per second; lock-in zone; loops; payoff; facts-feelings-fun; 30 to 60 s for reach | Script Agent | length check |
 | `sound_off` | understandable with no audio (captions, text, visuals) | Producer | |
-| `visual` | safe zones (top 14%, bottom 20%; reels: top 250 px, bottom 400 px, right 140 px), no watermarks or borders, readable at phone size, motion in the first second; every letter read at full size | Producer | 4:5 or 9:16 sizes |
+| `visual` | every asset's ledger gates PASS (`pipeline.py status`: G-SPEC, G-PROMPT, G-VIS/G-TAKE by fresh reviewers, G-SET or G-FINAL); safe zones per STANDARDS.md (reels: top 14%, bottom 35%, right 21% of the lower half); no watermarks or borders; readable at phone size; motion in the first second | Producer + fresh reviewers | the generation gate, `pipeline.py` |
 | `originality` | not a repost; structure borrowed, content ours; AI people labeled per D1 and never presented as real clients | Director | |
 | `truth` | every number and claim in the brain or proof bank; no guarantees; sector rules | Director | proof ids, B6 rule |
 | `conversion` | CTA fits the job; keyword has a live flow and a real resource | Conversion Agent | card-check |
@@ -23,6 +25,7 @@ go into the hub. Automatic checks: `python3 growth-engine/tools/organic.py card-
 ## Director batch review (before the batch goes to Matan)
 
 For each post, answer in one line each; any "no" sends the post back with the fix:
+0. Does `pipeline.py status` show every gate of the run passed (no open FAIL, no PENDING owner checkpoint)?
 1. Will the right buyer stop scrolling, and will the wrong one scroll past?
 2. What belief does this move, and is it one step from where they are?
 3. Would a business owner send this to a partner?
