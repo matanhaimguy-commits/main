@@ -96,7 +96,13 @@ Every piece in `clients/<slug>/content/<key>/`.
   `motion-studio/projects/<slug>-<key>/`; copy the final 9:16 MP4 (H.264, AAC, under 100 MB, 3-90 s) as
   `reel.mp4` and a cover frame as `cover.jpg`. Voiceover and AI music only within the brand-kit budget.
 - **Carousel:** carousel-machine with the plan's brief, the brand kit and the locked style bible. Slides as
-  `slide-01.jpg`… (1080x1440, under 8 MB each), `alt-text.txt`.
+  `slide-01.jpg`… (1080x1350 JPEG, 4:5, under 8 MB each: Instagram's publishing API refuses anything taller,
+  so never 1080x1440), `alt-text.txt`.
+  carousel-machine still says 3:4 and 1080x1440: inside this engine its export step makes 1080x1350 instead.
+  Generate at 4:5 when the model offers it; a slide already made at 3:4 is scaled to 1013x1350 and centred on a
+  blurred, darkened copy of itself (`convert in.png \( +clone -resize 1080x1350^ -gravity center -extent 1080x1350
+  -blur 0x30 -brightness-contrast -20x0 \) +swap ... -composite`), so no text is cropped. The hub refuses images
+  outside 4:5 to 1.91:1, and so does Instagram.
 - **Single image:** one carousel-machine cover-style design, `image.jpg`.
 - **Caption** (`caption.txt`): hook line, value, the one ask, 3-5 relevant hashtags, under 2,200 characters.
   Optional `first-comment.txt`.

@@ -121,6 +121,14 @@ export async function upsertItem(sql: Sql, input: ItemInput): Promise<ContentIte
   if ((input.kind === "image" || input.kind === "reel") && input.media.length > 1) {
     throw new ContentError(`A ${input.kind} has exactly one media file.`);
   }
+  // Instagram's publishing API takes feed images from 4:5 (portrait) to 1.91:1 (landscape) only.
+  if (input.kind === "image" || input.kind === "carousel") {
+    const off = input.media.findIndex((m) => m.type === "image" && m.width && m.height && (m.width / m.height < 0.8 - 0.005 || m.width / m.height > 1.91 + 0.005));
+    if (off >= 0) {
+      const m = input.media[off]!;
+      throw new ContentError(`File ${off + 1} is ${m.width}x${m.height}; Instagram only publishes images from 4:5 to 1.91:1. Use 1080x1350 for portrait.`);
+    }
+  }
   if (input.external_key) {
     const [existing] = await sql<{ id: number; status: ContentItem["status"] }[]>`
       SELECT id, status FROM content_items WHERE business = ${input.business} AND external_key = ${input.external_key}`;
