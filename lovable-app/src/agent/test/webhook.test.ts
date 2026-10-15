@@ -2,6 +2,7 @@
 import { describe, expect, it } from 'vitest';
 import { parseWebhook, sign, verifyHandshake, verifySignature } from '../meta/webhook';
 import { categorize } from '../meta/client';
+import { describeInbound } from '../engine/process';
 import { clampText, fitsLimit } from '../meta/messages';
 import { APP_SECRET, IG_ID, PAGE_ID, VERIFY_TOKEN } from './fixtures';
 
@@ -122,6 +123,33 @@ describe('parseWebhook', () => {
     expect(events[3]).toMatchObject({ payload: 'F|guide|deliver', mid: 'p1' });
     expect(events[4]).toMatchObject({ mids: ['m3'] });
     expect(events[5]).toMatchObject({ standby: true, mid: 'm4' });
+  });
+
+  it('reads a Facebook like sticker as one 👍, not a photo', () => {
+    const like = { sticker_id: 369239263222822, url: 'https://cdn/like.png' };
+    const [ev] = parseWebhook({
+      object: 'page',
+      entry: [
+        {
+          id: PAGE_ID,
+          time: 1_760_000_000_000,
+          messaging: [
+            {
+              sender: { id: 'U1' },
+              recipient: { id: PAGE_ID },
+              timestamp: 1_760_000_000_000,
+              message: { mid: 'm1', sticker_id: 369239263222822, attachments: [{ type: 'image', payload: like }, { type: 'sticker', payload: like }] },
+            },
+          ],
+        },
+      ],
+    });
+    expect(ev).toMatchObject({ type: 'message', attachments: [{ type: 'sticker', stickerId: '369239263222822' }] });
+    if (ev?.type !== 'message') throw new Error('expected a message');
+    expect(describeInbound(ev)).toBe('👍');
+    expect(describeInbound({ text: 'Pershendetje', attachments: [{ type: 'sticker', stickerId: '1' }] })).toBe('[Sent a sticker] Pershendetje');
+    expect(describeInbound({ attachments: [{ type: 'like_heart' }] })).toBe('❤️');
+    expect(describeInbound({ attachments: [{ type: 'image', url: 'https://cdn/p.jpg' }] })).toBe('[Sent a photo]');
   });
 
   it('parses Facebook delivery and read watermarks', () => {

@@ -36,6 +36,34 @@ export interface CommentEvent {
   mediaProductType?: string; // FEED | REELS | AD | STORY ...
 }
 
+/** A DM attachment. Stickers carry their id; Meta's "like" thumbs-up is a sticker. */
+export interface Attachment {
+  type: string;
+  url?: string;
+  stickerId?: string;
+}
+
+/**
+ * Facebook sends one sticker (including the thumbs-up "like") as two attachments, an "image" and a
+ * "sticker", both with the same payload.sticker_id. Keep one sticker per id, so a like never reads as
+ * a photo.
+ */
+export function parseAttachments(raw: Json[]): Attachment[] {
+  const out: Attachment[] = [];
+  const stickers = new Set<string>();
+  for (const a of raw) {
+    const stickerId = str(a.payload?.sticker_id);
+    if (stickerId) {
+      if (stickers.has(stickerId)) continue;
+      stickers.add(stickerId);
+      out.push({ type: 'sticker', url: str(a.payload?.url), stickerId });
+      continue;
+    }
+    out.push({ type: String(a.type ?? 'unknown'), url: str(a.payload?.url) });
+  }
+  return out;
+}
+
 export interface MessageEvent {
   type: 'message';
   platform: Platform;
@@ -45,7 +73,7 @@ export interface MessageEvent {
   mid: string;
   text?: string;
   quickReplyPayload?: string;
-  attachments: { type: string; url?: string }[];
+  attachments: Attachment[];
   storyReply?: { id?: string; url?: string };
   isEcho: boolean;
   appId?: string;
@@ -170,10 +198,7 @@ export function parseWebhook(body: Json, now: Date = new Date()): MetaEvent[] {
           mid,
           text: str(msg.text),
           quickReplyPayload: str(msg.quick_reply?.payload),
-          attachments: ((msg.attachments ?? []) as Json[]).map((a) => ({
-            type: String(a.type ?? 'unknown'),
-            url: str(a.payload?.url),
-          })),
+          attachments: parseAttachments((msg.attachments ?? []) as Json[]),
           storyReply: story ? { id: str(story.id), url: str(story.url) } : undefined,
           isEcho: msg.is_echo === true,
           appId: str(msg.app_id),

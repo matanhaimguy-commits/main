@@ -178,11 +178,16 @@ async function runCommentAi(deps: Deps, b: Business, ev: CommentEvent, existing?
 
 // ---- messages ----------------------------------------------------------------
 
-function describeInbound(ev: MessageEvent): string {
+/** Messenger's thumbs-up "like" stickers (small, medium, large). */
+const LIKE_STICKERS = new Set(['369239263222822', '369239343222814', '369239383222810']);
+
+export function describeInbound(ev: Pick<MessageEvent, 'text' | 'attachments' | 'storyReply'>): string {
   const parts: string[] = [];
   if (ev.storyReply) parts.push('[Replied to our story]');
   for (const a of ev.attachments) {
-    if (a.type === 'story_mention') parts.push('[Mentioned us in their story]');
+    if (a.type === 'sticker') parts.push(a.stickerId && LIKE_STICKERS.has(a.stickerId) ? '👍' : '[Sent a sticker]');
+    else if (a.type === 'like_heart') parts.push('❤️');
+    else if (a.type === 'story_mention') parts.push('[Mentioned us in their story]');
     else if (a.type === 'ig_reel' || a.type === 'reel') parts.push('[Shared a reel]');
     else if (a.type === 'ig_post' || a.type === 'share') parts.push('[Shared a post]');
     else parts.push(`[Sent ${a.type === 'image' ? 'a photo' : a.type === 'audio' ? 'a voice message' : a.type === 'video' ? 'a video' : `an attachment (${a.type})`}]`);
