@@ -1,0 +1,90 @@
+{
+ "frames": 25,
+ "step_s": 1.0,
+ "sampled_s": 25.0,
+ "cuts": 13,
+ "cut_times": [
+  3.0,
+  7.0,
+  8.0,
+  9.0,
+  10.0,
+  11.0,
+  12.0,
+  13.0,
+  15.0,
+  19.0,
+  20.0,
+  22.0,
+  23.0
+ ],
+ "full_frame_changes": 21,
+ "cuts_per_10s": 5.2,
+ "mean_shot_s": 1.79,
+ "longest_shot_s": 4.0,
+ "big_changes": 23,
+ "mean_s_between_big_changes": 1.04,
+ "change_rhythm_cv": 0.19,
+ "change_rhythm_spread": 2.0,
+ "quiet_share_2fps": 0.042,
+ "longest_quiet_s": 1.0,
+ "mean_change": 0.728,
+ "hook_change_0_2s": 0.131,
+ "energy_curve": [
+  0.0,
+  0.13,
+  0.13,
+  0.85,
+  0.73,
+  0.66,
+  0.72,
+  0.84,
+  0.75,
+  0.72,
+  0.87,
+  0.99,
+  0.95,
+  0.93,
+  0.74,
+  0.89,
+  0.71,
+  0.85,
+  0.72,
+  0.8,
+  0.98,
+  0.53,
+  0.95,
+  0.99,
+  0.01
+ ],
+ "luma_mean": 0.59,
+ "luma_contrast": 0.37,
+ "saturation_mean": 0.16,
+ "palette": [
+  [
+   "#e8f6f8",
+   0.422
+  ],
+  [
+   "#0d0e10",
+   0.2
+  ],
+  [
+   "#2b2c39",
+   0.12
+  ],
+  [
+   "#555b83",
+   0.103
+  ],
+  [
+   "#9aa1b3",
+   0.099
+  ],
+  [
+   "#c9d3db",
+   0.057
+  ]
+ ],
+ "id": "tt-ripkuroi"
+}

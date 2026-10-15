@@ -1,0 +1,85 @@
+{
+ "frames": 30,
+ "step_s": 0.5,
+ "sampled_s": 15.0,
+ "cuts": 3,
+ "cut_times": [
+  0.5,
+  9.0,
+  12.0
+ ],
+ "full_frame_changes": 7,
+ "cuts_per_10s": 2.0,
+ "mean_shot_s": 3.75,
+ "longest_shot_s": 8.5,
+ "big_changes": 21,
+ "mean_s_between_big_changes": 0.68,
+ "change_rhythm_cv": 0.72,
+ "change_rhythm_spread": 5.0,
+ "quiet_share_2fps": 0.069,
+ "longest_quiet_s": 0.5,
+ "mean_change": 0.281,
+ "hook_change_0_2s": 0.288,
+ "energy_curve": [
+  0.0,
+  0.77,
+  0.01,
+  0.11,
+  0.26,
+  0.31,
+  0.24,
+  0.12,
+  0.0,
+  0.07,
+  0.02,
+  0.13,
+  0.18,
+  0.09,
+  0.05,
+  0.14,
+  0.21,
+  0.18,
+  0.67,
+  0.76,
+  0.2,
+  0.32,
+  0.22,
+  0.21,
+  0.58,
+  0.47,
+  0.58,
+  0.38,
+  0.59,
+  0.31
+ ],
+ "luma_mean": 0.78,
+ "luma_contrast": 0.14,
+ "saturation_mean": 0.15,
+ "palette": [
+  [
+   "#f1ebe0",
+   0.445
+  ],
+  [
+   "#b1a99c",
+   0.3
+  ],
+  [
+   "#bbbab0",
+   0.129
+  ],
+  [
+   "#e5b5c5",
+   0.054
+  ],
+  [
+   "#3275a2",
+   0.045
+  ],
+  [
+   "#e9579f",
+   0.028
+  ]
+ ],
+ "id": "onetake-overlap"
+}

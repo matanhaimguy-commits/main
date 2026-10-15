@@ -52,7 +52,14 @@ Write the answers and every default you chose into `PROJECT.md`.
 - Write `brand.md` from what was captured (colour roles, type system for 1080x1920, safe zones, voice).
 
 ## Stage 3 · References and art direction
-- Collect 3-6 references (client favourites, the best ads in the category, award-level motion). Measure each:
+- **Start from the reference bank** (`motion-studio/refbank/README.md`): proven viral reels already broken down
+  into hook, beat map, signature device, pacing numbers, build route and business translations.
+  `python3 motion-studio/refbank/tools/refbank.py pick --client <client> --fit <business type> --n 6` lists fresh
+  references this client hasn't used, skipping its recent signature devices; `search` browses by category, tag,
+  engine or difficulty. Open 2-3 cards and copy their "steal / leave" into `docs/treatment.md` §1.
+- Add the client's own favourites (capture recipe in `motion-studio/HANDOFF.md` §7.4; write a card for any
+  reference worth keeping).
+- Collect 3-6 references in total (client favourites, the bank, the best ads in the category, award-level motion). Measure each:
   `python3 motion-studio/tools/pacing.py ref.mp4` (rest share, quiet runs, transitions, beat rhythm, energy
   map) plus palette hexes and type sizes from frames. Write what to take (the grammar) and what to leave (the
   content). Method: `knowledge/onetake-principles.md` §3.
@@ -70,7 +77,10 @@ versions of one layout. For each: the picture in one line, the first 2 s, what s
 the message is physically in the image, style and engine, risk and render cost (`docs/treatment.md` §2;
 doctrine in `knowledge/onetake-principles.md` P3 and `references/hyperframes/skills/product-launch-video`
 pitch round). Pick the strongest (autopilot) or present them (guided). Never reuse the previous client's
-concept, palette or camera language.
+concept, palette or camera language. Before committing to a concept, run
+`python3 motion-studio/refbank/tools/refbank.py check --client <client> --category <cat> --devices <signature>,<others>`:
+it fails if the film repeats a used reference, the previous film's category, a signature device from the client's
+last 3 films, or shares more than one device with the last film. Change the concept until it passes.
 
 ## Stage 5 · Script and voice
 - Script in the client's language with an English check line under each line when the user can't read it.
@@ -150,6 +160,10 @@ layouts sharing scenes, never a crop), cutdowns if asked, a viewing copy under 3
 SRT captions, contact sheet, `CREDITS.md`, a short changelog. Send files with SendUserFile, commit and push,
 and say plainly what was checked, what wasn't (e.g. nobody has listened yet, native-speaker check pending)
 and what you would improve next. Offer the two unused concepts as alternatives.
+Before reporting done, log the film in the bank's ledger so the client's next film is different:
+`python3 motion-studio/refbank/tools/refbank.py log --client <client> --project <client>-<piece> --refs <ids>
+--category <cat> --devices <signature>,<others> --hook <hook> --palette <light|dark|...> --camera "<camera language>"
+--engine <engine> --concept "<one line>" --language <codes>`, then commit `refbank/ledger.json` with the delivery.
 
 ## Stage 13 · Revisions
 Feedback goes into `PROJECT.md` (decision table), changes are made in the source, and the next version

@@ -21,7 +21,9 @@ These rules apply to every engine (HyperFrames, the canvas engine, Lemo-Opuscar,
   whole idea.
 - One display font, one UI font, from the client's brand. One accent colour unless the brief says otherwise.
 - One signature device per film, present throughout.
-- Every 2 to 4 seconds something new must happen on screen, and real rests (≥ 1 s) are planned, not accidental.
+- Every 2 to 4 seconds at the latest something new must happen on screen, and real rests (≥ 1 s) are planned, not
+  accidental. For hook-driven social reels aim faster: the 81 viral reels in `refbank/` change something big every
+  0.5-1.5 s (median), mostly inside continuous shots, with rests as short freezes on a payoff.
 - Keep text and logos out of the platform UI on 9:16: top 250 px, bottom 400 px, right 140 px.
 - Text sizes for phones: body never under 44 px on a 1080-wide frame; check every beat at 360 px wide.
 - Search the HyperFrames registry and the Lemo-Opuscar styles before hand-building any named effect or look.
@@ -65,4 +67,8 @@ These rules apply to every engine (HyperFrames, the canvas engine, Lemo-Opuscar,
   (the page's text helper pushes boxes into `window.__boxes`, see projects/straightscale-02/index.html).
 - tools/events.mjs: dumps the page's `window.EVENTS` (sound cue times) to JSON for the score and foley.
 - templates/project/: the folder every new job starts from.
+- refbank/: the reference bank (viral reels as breakdown cards + per-client usage ledger). `refbank/tools/refbank.py
+  pick --client X` for fresh references, `check` before a concept, `log` after delivery. Never repeat a client's
+  previous category, a signature device from its last 3 films, or a reference it already used.
+- HANDOFF.md: everything this studio knows, written for the session building the automated reel machine.
 - API keys live in .env (e.g. ELEVENLABS_API_KEY). Never paste keys into prompts.

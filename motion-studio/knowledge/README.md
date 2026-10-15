@@ -16,6 +16,9 @@ in a new session); every path inside a guide points into them.
 | [`claude-animation-base.md`](claude-animation-base.md) | Hand-painted character animation: the 7 rules, the full engine API, the catalogue (5 views, 31 emotions, 18 emotes, hats, dances, transitions, camera, light, paper), client mascot adaptation, tested 9:16 renders and speeds | Any character, mascot, host or reaction moment |
 | [`gbro-collage-broll.md`](gbro-collage-broll.md) | Editorial halftone paper-collage B-roll: finding the visual metaphor, art direction, prompts, QA, and four ways to make it here without Codex or Gemini | Abstract lines that need a visual metaphor; collage inserts |
 
+Proven viral references, already broken down (hook, beat map, signature device, pacing numbers, build route,
+business translations), are in the reference bank: `motion-studio/refbank/README.md`.
+
 ## Where to find it
 
 | I need... | Look at |

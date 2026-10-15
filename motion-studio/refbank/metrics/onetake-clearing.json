@@ -1,0 +1,80 @@
+{
+ "frames": 30,
+ "step_s": 0.5,
+ "sampled_s": 15.0,
+ "cuts": 2,
+ "cut_times": [
+  2.5,
+  9.5
+ ],
+ "full_frame_changes": 6,
+ "cuts_per_10s": 1.33,
+ "mean_shot_s": 5.0,
+ "longest_shot_s": 7.0,
+ "big_changes": 17,
+ "mean_s_between_big_changes": 0.83,
+ "change_rhythm_cv": 1.11,
+ "change_rhythm_spread": 9.0,
+ "quiet_share_2fps": 0.172,
+ "longest_quiet_s": 2.0,
+ "mean_change": 0.234,
+ "hook_change_0_2s": 0.096,
+ "energy_curve": [
+  0.0,
+  0.08,
+  0.12,
+  0.05,
+  0.13,
+  0.47,
+  0.64,
+  0.72,
+  0.31,
+  0.36,
+  0.22,
+  0.19,
+  0.33,
+  0.39,
+  0.31,
+  0.21,
+  0.03,
+  0.0,
+  0.61,
+  0.75,
+  0.45,
+  0.19,
+  0.11,
+  0.05,
+  0.03,
+  0.02,
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "luma_mean": 0.47,
+ "luma_contrast": 0.1,
+ "saturation_mean": 0.69,
+ "palette": [
+  [
+   "#616cdc",
+   0.289
+  ],
+  [
+   "#2a3ad0",
+   0.268
+  ],
+  [
+   "#3646db",
+   0.188
+  ],
+  [
+   "#2231c1",
+   0.184
+  ],
+  [
+   "#8d94e0",
+   0.061
+  ]
+ ],
+ "id": "onetake-clearing"
+}

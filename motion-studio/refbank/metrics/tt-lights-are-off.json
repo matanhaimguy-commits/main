@@ -1,0 +1,78 @@
+{
+ "frames": 24,
+ "step_s": 0.5,
+ "sampled_s": 12.0,
+ "cuts": 2,
+ "cut_times": [
+  1.0,
+  10.0
+ ],
+ "full_frame_changes": 5,
+ "cuts_per_10s": 1.67,
+ "mean_shot_s": 4.0,
+ "longest_shot_s": 9.0,
+ "big_changes": 11,
+ "mean_s_between_big_changes": 1.0,
+ "change_rhythm_cv": 1.24,
+ "change_rhythm_spread": 10.0,
+ "quiet_share_2fps": 0.0,
+ "longest_quiet_s": 0.0,
+ "mean_change": 0.29,
+ "hook_change_0_2s": 0.543,
+ "energy_curve": [
+  0.0,
+  0.35,
+  0.88,
+  0.85,
+  0.09,
+  0.29,
+  0.31,
+  0.07,
+  0.06,
+  0.08,
+  0.05,
+  0.07,
+  0.06,
+  0.05,
+  0.08,
+  0.08,
+  0.21,
+  0.05,
+  0.1,
+  0.25,
+  0.96,
+  0.93,
+  0.29,
+  0.5
+ ],
+ "luma_mean": 0.32,
+ "luma_contrast": 0.18,
+ "saturation_mean": 0.84,
+ "palette": [
+  [
+   "#114285",
+   0.268
+  ],
+  [
+   "#0d2e69",
+   0.197
+  ],
+  [
+   "#3fc5d2",
+   0.178
+  ],
+  [
+   "#081b3b",
+   0.167
+  ],
+  [
+   "#1b83b8",
+   0.157
+  ],
+  [
+   "#050f14",
+   0.033
+  ]
+ ],
+ "id": "tt-lights-are-off"
+}

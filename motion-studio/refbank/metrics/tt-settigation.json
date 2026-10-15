@@ -1,0 +1,57 @@
+{
+ "frames": 10,
+ "step_s": 0.5,
+ "sampled_s": 5.0,
+ "cuts": 0,
+ "cut_times": [],
+ "full_frame_changes": 0,
+ "cuts_per_10s": 0.0,
+ "mean_shot_s": 5.0,
+ "longest_shot_s": 5.0,
+ "big_changes": 0,
+ "mean_s_between_big_changes": 5.0,
+ "change_rhythm_cv": 0.0,
+ "change_rhythm_spread": 1.0,
+ "quiet_share_2fps": 0.333,
+ "longest_quiet_s": 1.0,
+ "mean_change": 0.012,
+ "hook_change_0_2s": 0.009,
+ "energy_curve": [
+  0.0,
+  0.0,
+  0.01,
+  0.01,
+  0.01,
+  0.02,
+  0.01,
+  0.01,
+  0.01,
+  0.02
+ ],
+ "luma_mean": 0.08,
+ "luma_contrast": 0.06,
+ "saturation_mean": 0.38,
+ "palette": [
+  [
+   "#0d1115",
+   0.32
+  ],
+  [
+   "#13171c",
+   0.258
+  ],
+  [
+   "#05090a",
+   0.197
+  ],
+  [
+   "#080d0f",
+   0.156
+  ],
+  [
+   "#2b3239",
+   0.053
+  ]
+ ],
+ "id": "tt-settigation"
+}

@@ -1,0 +1,80 @@
+{
+ "frames": 30,
+ "step_s": 0.5,
+ "sampled_s": 15.0,
+ "cuts": 2,
+ "cut_times": [
+  10.0,
+  11.5
+ ],
+ "full_frame_changes": 2,
+ "cuts_per_10s": 1.33,
+ "mean_shot_s": 5.0,
+ "longest_shot_s": 10.0,
+ "big_changes": 4,
+ "mean_s_between_big_changes": 3.0,
+ "change_rhythm_cv": 1.21,
+ "change_rhythm_spread": 20.0,
+ "quiet_share_2fps": 0.241,
+ "longest_quiet_s": 1.5,
+ "mean_change": 0.074,
+ "hook_change_0_2s": 0.012,
+ "energy_curve": [
+  0.0,
+  0.0,
+  0.01,
+  0.01,
+  0.03,
+  0.06,
+  0.05,
+  0.04,
+  0.05,
+  0.05,
+  0.05,
+  0.05,
+  0.0,
+  0.01,
+  0.03,
+  0.04,
+  0.05,
+  0.04,
+  0.01,
+  0.0,
+  0.5,
+  0.15,
+  0.08,
+  0.44,
+  0.16,
+  0.07,
+  0.06,
+  0.07,
+  0.04,
+  0.0
+ ],
+ "luma_mean": 0.1,
+ "luma_contrast": 0.18,
+ "saturation_mean": 0.33,
+ "palette": [
+  [
+   "#0d0c12",
+   0.404
+  ],
+  [
+   "#09080d",
+   0.346
+  ],
+  [
+   "#14131b",
+   0.143
+  ],
+  [
+   "#07060b",
+   0.045
+  ],
+  [
+   "#f0e9da",
+   0.044
+  ]
+ ],
+ "id": "onetake-one-dot"
+}

@@ -1,0 +1,77 @@
+{
+ "frames": 30,
+ "step_s": 0.5,
+ "sampled_s": 15.0,
+ "cuts": 0,
+ "cut_times": [],
+ "full_frame_changes": 0,
+ "cuts_per_10s": 0.0,
+ "mean_shot_s": 15.0,
+ "longest_shot_s": 15.0,
+ "big_changes": 2,
+ "mean_s_between_big_changes": 5.0,
+ "change_rhythm_cv": 0.67,
+ "change_rhythm_spread": 17.0,
+ "quiet_share_2fps": 0.241,
+ "longest_quiet_s": 2.5,
+ "mean_change": 0.04,
+ "hook_change_0_2s": 0.01,
+ "energy_curve": [
+  0.0,
+  0.0,
+  0.0,
+  0.01,
+  0.02,
+  0.01,
+  0.02,
+  0.03,
+  0.02,
+  0.03,
+  0.05,
+  0.05,
+  0.04,
+  0.05,
+  0.04,
+  0.04,
+  0.02,
+  0.25,
+  0.18,
+  0.04,
+  0.1,
+  0.08,
+  0.05,
+  0.03,
+  0.01,
+  0.0,
+  0.0,
+  0.0,
+  0.0,
+  0.0
+ ],
+ "luma_mean": 0.1,
+ "luma_contrast": 0.09,
+ "saturation_mean": 0.23,
+ "palette": [
+  [
+   "#131419",
+   0.44
+  ],
+  [
+   "#101115",
+   0.213
+  ],
+  [
+   "#191920",
+   0.167
+  ],
+  [
+   "#0e0f13",
+   0.131
+  ],
+  [
+   "#9c9891",
+   0.034
+  ]
+ ],
+ "id": "onetake-unbroken"
+}

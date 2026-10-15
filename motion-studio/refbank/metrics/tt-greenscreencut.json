@@ -1,0 +1,81 @@
+{
+ "frames": 30,
+ "step_s": 1.0,
+ "sampled_s": 30.0,
+ "cuts": 0,
+ "cut_times": [],
+ "full_frame_changes": 0,
+ "cuts_per_10s": 0.0,
+ "mean_shot_s": 30.0,
+ "longest_shot_s": 30.0,
+ "big_changes": 3,
+ "mean_s_between_big_changes": 7.5,
+ "change_rhythm_cv": 1.13,
+ "change_rhythm_spread": 22.0,
+ "quiet_share_2fps": 0.276,
+ "longest_quiet_s": 1.0,
+ "mean_change": 0.059,
+ "hook_change_0_2s": 0.048,
+ "energy_curve": [
+  0.0,
+  0.08,
+  0.02,
+  0.0,
+  0.05,
+  0.07,
+  0.0,
+  0.03,
+  0.07,
+  0.04,
+  0.0,
+  0.1,
+  0.12,
+  0.06,
+  0.0,
+  0.11,
+  0.07,
+  0.0,
+  0.03,
+  0.08,
+  0.09,
+  0.0,
+  0.13,
+  0.15,
+  0.06,
+  0.0,
+  0.12,
+  0.2,
+  0.0,
+  0.04
+ ],
+ "luma_mean": 0.54,
+ "luma_contrast": 0.11,
+ "saturation_mean": 0.63,
+ "palette": [
+  [
+   "#3ea3d2",
+   0.42
+  ],
+  [
+   "#2788c5",
+   0.28
+  ],
+  [
+   "#ce9970",
+   0.128
+  ],
+  [
+   "#5d7e96",
+   0.076
+  ],
+  [
+   "#57343b",
+   0.053
+  ],
+  [
+   "#cac6c1",
+   0.042
+  ]
+ ],
+ "id": "tt-greenscreencut"
+}
