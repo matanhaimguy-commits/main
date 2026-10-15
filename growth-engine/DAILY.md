@@ -1,7 +1,9 @@
 # Daily run: one post a day per client
 
-Since 15 Oct 2026 StraightScale posts every day. A scheduled cloud session ("StraightScale daily content",
-every morning 06:49 Europe/Tirane) runs this file. It keeps the hub **4 days ahead**: every day from today to
+Since 15 Oct 2026 StraightScale posts every day. A scheduled task ("StraightScale daily content",
+`trig_01V1gzqwB9WdoBpTF1zyZVrZ`, every morning 06:49 Europe/Tirane) wakes the studio session that holds the
+Lovable, Higgsfield and ElevenLabs connectors and runs this file. (A task that starts a fresh session gets no
+connectors, so it cannot do this job.) It keeps the hub **4 days ahead**: every day from today to
 today+3 has exactly one post for the client, as a draft with its time. A person approves on the Content page; the
 hub's publisher posts approved items at their time (Auto-publish is on for StraightScale) and alerts about drafts due
 within 24 hours.
