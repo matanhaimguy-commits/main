@@ -1,0 +1,590 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Client Brain",
+ "type": "object",
+ "required": [
+  "client",
+  "updated",
+  "business_model",
+  "offer",
+  "avatars",
+  "awareness",
+  "mechanism",
+  "belief_ladder",
+  "contrarian_vault",
+  "proof_bank",
+  "lead_magnets",
+  "voice",
+  "visual",
+  "market",
+  "constraints",
+  "baseline",
+  "package"
+ ],
+ "properties": {
+  "client": {
+   "type": "string"
+  },
+  "updated": {
+   "type": "string"
+  },
+  "refresh_due": {
+   "type": "string"
+  },
+  "business_model": {
+   "type": "object",
+   "required": [
+    "sells",
+    "sales_process",
+    "capacity"
+   ],
+   "properties": {
+    "sells": {
+     "type": "string"
+    },
+    "price_notes": {
+     "type": "string"
+    },
+    "margin": {
+     "type": "string"
+    },
+    "capacity": {
+     "type": "string"
+    },
+    "sales_process": {
+     "type": "string"
+    }
+   }
+  },
+  "offer": {
+   "type": "object",
+   "required": [
+    "main_offer",
+    "next_step"
+   ],
+   "properties": {
+    "main_offer": {
+     "type": "string"
+    },
+    "next_step": {
+     "type": "string"
+    },
+    "keyword": {
+     "type": "string"
+    },
+    "delivers": {
+     "type": "string"
+    }
+   }
+  },
+  "avatars": {
+   "type": "array",
+   "minItems": 1,
+   "maxItems": 3,
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "name",
+     "role",
+     "situation",
+     "words",
+     "fears",
+     "desires"
+    ],
+    "properties": {
+     "id": {
+      "type": "string",
+      "pattern": "^AV-\\d{2}$"
+     },
+     "name": {
+      "type": "string"
+     },
+     "role": {
+      "type": "string"
+     },
+     "situation": {
+      "type": "string"
+     },
+     "keeps_up": {
+      "type": "string"
+     },
+     "words": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "tried": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "false_beliefs": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "desires": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "fears": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "identity": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "demand_map_file": {
+   "type": "string"
+  },
+  "awareness": {
+   "type": "object",
+   "required": [
+    "stage",
+    "sophistication"
+   ],
+   "properties": {
+    "stage": {
+     "type": "string"
+    },
+    "sophistication": {
+     "type": "string"
+    },
+    "notes": {
+     "type": "string"
+    }
+   }
+  },
+  "mechanism": {
+   "type": "object",
+   "required": [
+    "ump",
+    "ums",
+    "steps"
+   ],
+   "properties": {
+    "ump": {
+     "type": "string"
+    },
+    "ums": {
+     "type": "string"
+    },
+    "steps": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "big_idea": {
+     "type": "string"
+    },
+    "contrast_line": {
+     "type": "string"
+    }
+   }
+  },
+  "belief_ladder": {
+   "type": "array",
+   "minItems": 8,
+   "maxItems": 8,
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "statement",
+     "state"
+    ],
+    "properties": {
+     "id": {
+      "enum": [
+       "B1",
+       "B2",
+       "B3",
+       "B4",
+       "B5",
+       "B6",
+       "B7",
+       "B8"
+      ]
+     },
+     "statement": {
+      "type": "string"
+     },
+     "state": {
+      "enum": [
+       "held",
+       "not_held",
+       "unknown"
+      ]
+     }
+    }
+   }
+  },
+  "contrarian_vault": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "position",
+     "source"
+    ],
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "position": {
+      "type": "string"
+     },
+     "source": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "proof_bank": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "type",
+     "text",
+     "source",
+     "permission"
+    ],
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "type": {
+      "type": "string"
+     },
+     "text": {
+      "type": "string"
+     },
+     "source": {
+      "type": "string"
+     },
+     "permission": {
+      "enum": [
+       "yes",
+       "no",
+       "pending",
+       "internal_only"
+      ]
+     },
+     "date": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "lead_magnets": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "keyword",
+     "resource",
+     "live"
+    ],
+    "properties": {
+     "keyword": {
+      "type": "string"
+     },
+     "resource": {
+      "type": "string"
+     },
+     "delivers": {
+      "type": "string"
+     },
+     "live": {
+      "type": "boolean"
+     },
+     "funnel_id": {
+      "type": [
+       "string",
+       "null"
+      ]
+     }
+    }
+   }
+  },
+  "voice": {
+   "type": "object",
+   "required": [
+    "adjectives",
+    "language",
+    "register",
+    "banned"
+   ],
+   "properties": {
+    "adjectives": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "samples": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "banned": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "language": {
+     "type": "string"
+    },
+    "register": {
+     "type": "string"
+    }
+   }
+  },
+  "visual": {
+   "type": "object",
+   "required": [
+    "colors",
+    "fonts",
+    "logo_files",
+    "face"
+   ],
+   "properties": {
+    "colors": {
+     "type": "object"
+    },
+    "fonts": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "logo_files": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "face": {
+     "enum": [
+      "real_person",
+      "ai_character",
+      "faceless",
+      "mixed"
+     ]
+    },
+    "ai_label": {
+     "type": "string"
+    },
+    "real_footage": {
+     "type": "boolean"
+    },
+    "set": {
+     "type": "string"
+    },
+    "recurring_object": {
+     "type": "string"
+    },
+    "style_bible": {
+     "type": "string"
+    }
+   }
+  },
+  "market": {
+   "type": "object",
+   "required": [
+    "language",
+    "country"
+   ],
+   "properties": {
+    "language": {
+     "type": "string"
+    },
+    "country": {
+     "type": "string"
+    },
+    "city": {
+     "type": "string"
+    },
+    "timezone": {
+     "type": "string"
+    },
+    "events": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "constraints": {
+   "type": "object",
+   "required": [
+    "cannot_say"
+   ],
+   "properties": {
+    "cannot_say": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "will_not_show": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "approver": {
+     "type": "string"
+    },
+    "turnaround_hours": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    }
+   }
+  },
+  "baseline": {
+   "type": "object",
+   "properties": {
+    "followers": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "reach_30d": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "median_views": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "saves": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "sends": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "dms": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "client_sources": {
+     "type": "string"
+    },
+    "as_of": {
+     "type": [
+      "string",
+      "null"
+     ]
+    }
+   }
+  },
+  "package": {
+   "type": "object",
+   "required": [
+    "posts_per_week",
+    "account_stage",
+    "monthly_credit_cap"
+   ],
+   "properties": {
+    "posts_per_week": {
+     "type": "integer"
+    },
+    "videos_per_month": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "carousels_per_month": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "stories": {
+     "type": "boolean"
+    },
+    "platforms": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "monthly_credit_cap": {
+     "type": "integer"
+    },
+    "account_stage": {
+     "enum": [
+      "new",
+      "growing",
+      "mature"
+     ]
+    }
+   }
+  },
+  "decisions_open": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "question"
+    ],
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "question": {
+      "type": "string"
+     },
+     "options": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "recommendation": {
+      "type": "string"
+     },
+     "interim": {
+      "type": "string"
+     }
+    }
+   }
+  }
+ }
+}

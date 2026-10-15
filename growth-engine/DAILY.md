@@ -30,18 +30,23 @@ from content_items where business = 'straightscale'
 Every day in that window without a row gets one post. Also list `status = 'failed'` items from the last 2 days and
 say why they failed in the summary (do not re-approve them).
 
-## 2. What to make
-1. The week's plan: `clients/<slug>/plans/<ISO week>.json` (+ `.md`). Use the post planned for that day. A day marked
-   "daily run" or a week without a plan: choose it yourself from `research/<latest>/` (`pattern.txt`, `ideas.json`,
-   `picks.json`), the brand kit and `results-log.md`, and write it into the plan files.
-2. Mix per week: 2 reels, 2 carousels, 3 single images. No two days in a row with the same format. Asks rotate:
-   comment ANALIZA (live funnel `analiza`), a comment question, save, send. At most 2 ANALIZA posts a week.
-3. Times: 19:30 Europe/Tirane, Sundays 18:00.
-4. Monday run: refresh the research (growth-engine skill, step 1, Apify connector) and log last week's results (step
-   2) into `results-log.md`. Friday run: write next week's plan.
+## 2. What to make (Organic Growth OS: `growth-engine/ORGANIC-OS.md`)
+1. `python3 growth-engine/tools/organic.py brain-check <slug>`: stop on blocking errors and report them.
+2. The Post Card for the day: `clients/<slug>/cards/<yyyy-mm>-W<n>/` (week of the month by Monday). A day without a
+   card: write one as the content-strategist agent would, from `content-map.json` (calendar template, pillars,
+   series, belief focus), the idea bank / latest research, and `analytics/learnings.md`. Pick its format with
+   `organic.py route <slug> <card> --prev-family <yesterday's family>`.
+3. `organic.py card-check` on the card and `week-check` on its week must pass (warnings: fix or explain in the card).
+   Week rules: 3 reels, 3 carousels, 1 image; no format or job two days in a row; 1+ contrarian and 1+ B7 post; a
+   conversion CTA at least every 5 posts; mix near the stage target (new: reach 50, trust 35, convert 15).
+4. Keyword CTAs only for keywords live in the brain (today: ANALIZA). No B8 "what happens in the analysis" post until
+   decision D3; no B6 post without permitted proof or The Build; no behind-the-scenes formats without real footage.
+5. Times: 19:30 Europe/Tirane, Sundays 18:00.
+6. Monday run: research refresh (research-scout: 3-month window, `organic.py outliers`) and the Director memo
+   (`organic.py score`, `growth-engine/GATES.md`). Friday run: next week's cards; the Director batch review.
 
 ## 3. Make it
-Facts only from `brand-kit.md` (never invent numbers, results, clients, reviews or prices; never "we answer within
+Run the gates in `growth-engine/GATES.md` and the adapters in `growth-engine/adapters/`. Facts only from `brain.json` / `brand-kit.md` (never invent numbers, results, clients, reviews or prices; never "we answer within
 1 hour", never "we chase the client's leads"; no em dashes, no hype words). Albanian, informal "ti", plain words.
 
 **Single image / carousel:** Higgsfield `gpt_image_2_5`, `aspect_ratio: "4:5"`, `resolution: "2k"`,
@@ -68,8 +73,10 @@ keep the cleanest), burned captions and the end card with the real wordmark (`/h
 music ducked under the voice, -14 LUFS / -1.5 dBTP. Longer narrated reels follow the motion-reel skill and are made in
 a normal session, not in the daily run.
 
-Budget per run: up to 60 Higgsfield credits and 1,000 ElevenLabs credits. If a day needs more, make a single image for
-it instead and say so.
+Budget: the month's cap in `brain.json` (StraightScale 1,300 Higgsfield credits); check with `organic.py ledger <slug>` and
+the Higgsfield balance before every batch, keep a 25% retake buffer, log every piece with `organic.py ledger-add`.
+Tier A (song, animation) only with `angle_proven` or the month's wildcard. If the budget can't cover the card's
+format, re-route to tier C and say so.
 
 ## 4. Ship
 Insert one row per post (the hub refuses images outside 4:5 to 1.91:1; the SQL path skips that check, so keep 4:5):

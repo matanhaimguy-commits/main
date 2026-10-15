@@ -1,0 +1,315 @@
+{
+ "client": "straightscale",
+ "updated": "2026-10-15",
+ "refresh_due": "2027-01-15",
+ "sources": [
+  "brand-kit.md (hub profile)",
+  "growth-engine/ORGANIC-OS.md v1 section 12 (owner-supplied, from project docs 20-UMP-UMS-FINAL, 19-CORE-OFFER, 14-BRAND, HOOK-LIBRARY-B2B-AL)",
+  "research/2026-10-14"
+ ],
+ "business_model": {
+  "sells": "The StraightScale Client Engine: Foundation (diagnosis, research, offer, brand strategy, 12-month plan), Build (brand identity, Google profile, conversion website, CRM and tracking, instant-answer and follow-up automations, rebooking, reviews and referrals, AI chatbot, AI sales trainer), Grow (filmed video content, social media, ad creatives, Meta ads, monthly scoreboard). Packages Silver, Gold, Diamond.",
+  "price_notes": "Internal only, never in content: a Diamond package is EUR 3,490 (OS v1 7.7); organic video Gold 8 / Diamond 16 a month (project docs still say Silver 4 / Gold 8 / Diamond 12, DP-11 open).",
+  "margin": "unknown",
+  "capacity": "unknown: how many new clients a month StraightScale can onboard",
+  "sales_process": "Comment ANALIZA -> DM (hub funnel analiza) -> free 45-minute analysis at the office in Tirana or at the client's business, no obligation -> proposal. OS v1 8.5 proposes an application with a EUR 50 deposit: not decided (see decisions)."
+ },
+ "offer": {
+  "main_offer": "Free 45-minute business analysis, at our office in Tirana or at the client's business, no obligation",
+  "next_step": "Comment ANALIZA on a post; the DM bot sends the booking step",
+  "keyword": "ANALIZA",
+  "delivers": "unknown: what the analysis covers and what the person keeps even if they don't buy is not written down (OS 13.5). Known: 45 minutes, office in Tirana or at the business, no obligation."
+ },
+ "avatars": [
+  {
+   "id": "AV-01",
+   "name": "The owner who pays for enquiries and loses them",
+   "role": "Owner of an established Albanian business with 5+ staff and EUR 300+ per customer where the sale needs a conversation: clinics, developers, kitchens and furniture, windows and renovation, solar, private schools, car importers (OS 12; the brand kit also lists salons, gyms, consultants, law and accounting firms)",
+   "situation": "Busy, works in the business every day; gets clients from referrals and Instagram but not predictably; pays several suppliers for marketing that does not connect.",
+   "keeps_up": "The phone goes quiet; enquiries come in and nobody answers in time.",
+   "words": [
+    "na shkruajnë po nuk blejnë",
+    "telefoni nuk bie",
+    "mesazhet mbeten pa përgjigje kur jam në punë",
+    "klientët nuk kthehen",
+    "paratë e reklamave zhduken"
+   ],
+   "tried": [
+    "more ads",
+    "boosting posts",
+    "a freelancer or a social media agency (pieces, not a system)"
+   ],
+   "false_beliefs": [
+    "I need more followers or more ads",
+    "they compare me on price because my price is too high"
+   ],
+   "desires": [
+    "clients every month, not by luck",
+    "a system that works while they work"
+   ],
+   "fears": [
+    "the phone goes quiet",
+    "money spent on ads disappears",
+    "clients don't come back"
+   ],
+   "identity": "a serious business owner who built something real and wants it to grow predictably",
+   "note": "Words are from the brand kit's documented worries, written in Albanian by us: confirm with real buyer words (demand map gap)."
+  }
+ ],
+ "demand_map_file": "research/demand-map.csv",
+ "awareness": {
+  "stage": "unknown: 07-AWARENESS-SOPHISTICATION.md is not in this repo",
+  "sophistication": "unknown",
+  "notes": "14 Oct research: locally, posts about the owner beat business tips; two competitors use the keyword ANALIZA."
+ },
+ "mechanism": {
+  "ump": "Patchwork Marketing: paying several suppliers for pieces that do not work together",
+  "ums": "The Only Choice System",
+  "steps": [
+   "Find",
+   "Own",
+   "Attract",
+   "Convert",
+   "Close"
+  ],
+  "big_idea": "You don't need more marketing. You need marketing that works together.",
+  "contrast_line": "Agencies sell you pieces. We build the whole system, starting with your buyers."
+ },
+ "belief_ladder": [
+  {
+   "id": "B1",
+   "statement": "Your ads aren't failing. Your enquiries are dying after the click.",
+   "state": "unknown"
+  },
+  {
+   "id": "B2",
+   "statement": "It isn't your fault: the real cause is Patchwork Marketing, pieces that don't work together.",
+   "state": "unknown"
+  },
+  {
+   "id": "B3",
+   "statement": "It can be solved: a few numbers show exactly where the leak is.",
+   "state": "unknown"
+  },
+  {
+   "id": "B4",
+   "statement": "The Only Choice System (Find, Own, Attract, Convert, Close) is how it gets solved.",
+   "state": "unknown"
+  },
+  {
+   "id": "B5",
+   "statement": "A system beats hiring a marketer or another agency for pieces.",
+   "state": "unknown"
+  },
+  {
+   "id": "B6",
+   "statement": "It works for a business like mine (needs proof: The Build until then).",
+   "state": "not_held"
+  },
+  {
+   "id": "B7",
+   "statement": "I trust and like the StraightScale people.",
+   "state": "unknown"
+  },
+  {
+   "id": "B8",
+   "statement": "The free analysis is easy, safe and worth doing now.",
+   "state": "unknown"
+  }
+ ],
+ "contrarian_vault": [
+  {
+   "id": "C1",
+   "position": "You don't need more marketing. You need marketing that works together.",
+   "source": "OS 12 big idea"
+  },
+  {
+   "id": "C2",
+   "position": "Agencies sell you pieces. We build the whole system, starting with your buyers.",
+   "source": "OS 12 contrast line"
+  },
+  {
+   "id": "C3",
+   "position": "Your ads aren't failing. Your enquiries are dying after the click.",
+   "source": "OS 6.1 B1"
+  },
+  {
+   "id": "C4",
+   "position": "You don't have a marketing problem. You have a 'nobody calls back in time' problem.",
+   "source": "OS 12 belief path"
+  },
+  {
+   "id": "C5",
+   "position": "A viral video is luck. Clients every month are a system.",
+   "source": "brand kit ('we build them a system') + research/2026-10-14"
+  }
+ ],
+ "proof_bank": [
+  {
+   "id": "IP-01",
+   "type": "internal ad result",
+   "text": "Best paid ad format so far: a StraightScale strategist at a whiteboard with one real prop; all 4 paid winners used it, about ILS 19 per lead.",
+   "source": "HOOK-LIBRARY-B2B-AL (OS 7.7)",
+   "permission": "internal_only",
+   "date": "2026-10"
+  }
+ ],
+ "lead_magnets": [
+  {
+   "keyword": "ANALIZA",
+   "resource": "free 45-minute analysis",
+   "delivers": "unknown: contents not written down (OS 13.5). Known: 45 minutes, office in Tirana or at the business, no obligation.",
+   "live": true,
+   "funnel_id": "analiza"
+  },
+  {
+   "keyword": "PATCHWORK",
+   "resource": "Patchwork Test: 10 questions that show where the business leaks enquiries (OS 12)",
+   "delivers": "unknown: not built yet",
+   "live": false,
+   "funnel_id": null
+  },
+  {
+   "keyword": "HARTA",
+   "resource": "unknown: people comment it, no resource exists",
+   "delivers": "unknown",
+   "live": false,
+   "funnel_id": null
+  }
+ ],
+ "voice": {
+  "adjectives": [
+   "direct",
+   "calm",
+   "practical"
+  ],
+  "samples": [],
+  "banned": [
+   "hype words",
+   "em dashes",
+   "prices or discounts",
+   "guarantees",
+   "we answer within 1 hour",
+   "we chase your leads",
+   "invented numbers, clients or reviews"
+  ],
+  "language": "sq",
+  "register": "ti (current posts; brand doc 14 says ju: decision D2)",
+  "emoji": "at most one"
+ },
+ "visual": {
+  "colors": {
+   "mark_red": "#BE0F18",
+   "accent": "#B31217",
+   "gold": "#DD9A10",
+   "ivory": "#F8F6EF",
+   "marble": "#EDE4D6",
+   "charcoal": "#1F1F1F"
+  },
+  "fonts": [
+   "Playfair Display (display)",
+   "Montserrat (body, labels)"
+  ],
+  "logo_files": [
+   "motion-studio/projects/straightscale-03/assets/brand/logo-full.png",
+   "motion-studio/projects/straightscale-03/assets/brand/wordmark-white.png",
+   "motion-studio/projects/straightscale-03/assets/brand/symbol.png"
+  ],
+  "face": "ai_character",
+  "ai_label": "unknown: decision D1 (OS 13.1)",
+  "real_footage": false,
+  "set": "Tirana after dark; the strategist at a whiteboard (paid winner)",
+  "recurring_object": "a smartphone in a deep red case that changes state with the story",
+  "style_bible": "style-bible.md"
+ },
+ "market": {
+  "language": "sq",
+  "country": "Albania (also Kosovo, North Macedonia)",
+  "city": "Tirana",
+  "timezone": "Europe/Tirane",
+  "events": []
+ },
+ "constraints": {
+  "cannot_say": [
+   "prices or discounts",
+   "invented numbers, results, client names, reviews",
+   "deadlines, guarantees or promised results",
+   "we answer within 1 hour",
+   "we chase the client's leads (we build them a system)",
+   "hype words",
+   "em dashes"
+  ],
+  "will_not_show": [
+   "real local businesses mocked by name without permission"
+  ],
+  "approver": "Matan (hub Content page)",
+  "turnaround_hours": null
+ },
+ "baseline": {
+  "followers": null,
+  "reach_30d": null,
+  "median_views": null,
+  "saves": null,
+  "sends": null,
+  "dms": null,
+  "client_sources": "unknown",
+  "as_of": null
+ },
+ "package": {
+  "posts_per_week": 7,
+  "videos_per_month": 12,
+  "carousels_per_month": 12,
+  "stories": true,
+  "platforms": [
+   "instagram",
+   "facebook (cross-post, not built)"
+  ],
+  "monthly_credit_cap": 1300,
+  "account_stage": "new"
+ },
+ "decisions_open": [
+  {
+   "id": "D1",
+   "question": "Label the AI characters (strategist, owners) as AI, and add real human content (team, office, Matan's voice) every week?",
+   "recommendation": "Yes to both (OS 13.1).",
+   "interim": "AI people are only shown from behind or as clearly staged scenes; no AI person is presented as a real client."
+  },
+  {
+   "id": "D2",
+   "question": "Register: informal 'ti' (all posts so far) or formal 'ju' (brand doc 14)?",
+   "recommendation": "Pick one for the account and keep it.",
+   "interim": "ti, to stay consistent with what is already posted."
+  },
+  {
+   "id": "D3",
+   "question": "What exactly does the ANALIZA analysis include, and what does the person keep even if they don't buy?",
+   "recommendation": "Write it down; it unlocks B8 posts (offer explainer).",
+   "interim": "No B8 'what happens in the analysis' posts until written."
+  },
+  {
+   "id": "D4",
+   "question": "Free analysis 'no obligation' (brand kit) vs an application with a EUR 50 deposit (OS 8.5)?",
+   "recommendation": "Decide before the DM flow changes."
+  },
+  {
+   "id": "D5",
+   "question": "Film the first 3 clients from day one (with permission) for proof and The Build series?",
+   "recommendation": "Yes (OS 13.6)."
+  },
+  {
+   "id": "D6",
+   "question": "Insights access for the Learn loop: add the instagram_manage_insights permission to the Meta login configuration and reconnect?",
+   "recommendation": "Yes (OS 13.10); without it posts.csv can't be filled automatically."
+  },
+  {
+   "id": "D7",
+   "question": "Owner ramble: a 15-20 minute voice note (what annoys you in the industry, what clients always ask, what everyone gets wrong)?",
+   "recommendation": "Fills the contrarian vault, voice samples and story bank."
+  },
+  {
+   "id": "D8",
+   "question": "Package scope for clients: carousels and stories have no unit in any package (OS 13.4).",
+   "recommendation": "Define before selling organic content to clients."
+  }
+ ]
+}

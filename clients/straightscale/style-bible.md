@@ -6,8 +6,8 @@ From carousel-machine's StraightScale preset, aligned with the motion brand (sam
   through the cover's window. Same light and colour grade on every slide.
 - **Thread:** a smartphone in a deep red case (#BE0F18), recurring on every slide, changing state with the story
   (silent, unread messages piling up, ringing, a booked calendar).
-- **Palette:** scene tone near-black (#1F1F1F), type ivory (#F8F6EF), accent deep red (#BE0F18) as solid highlight
-  rectangles behind key words, small gold (#DD9A10) only for the counter.
+- **Palette:** scene tone near-black (#1F1F1F), type ivory (#F8F6EF), accent crimson (#B31217, Organic OS 7.3; the logo keeps
+  #BE0F18) as solid highlight rectangles behind key words, small gold (#DD9A10) only for the counter.
 - **Type:** heavy bold geometric sans in ivory, left-aligned in the calm dark area; key words in solid red highlight
   rectangles. Spell ë and ç out letter by letter in every prompt.
 - **Frame:** slide counter top right (gold), small logo strip bottom left (red rounded square with a white S and a tiny

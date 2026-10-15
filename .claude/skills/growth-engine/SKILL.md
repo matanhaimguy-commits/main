@@ -20,6 +20,23 @@ clients/<slug>/
   templates/<name>/   winners saved as reusable skeletons (story map, hook pattern, prompts, composition)
 ```
 
+## The Organic Growth OS (since 15 Oct 2026; it decides what to make, for whom, why)
+`growth-engine/ORGANIC-OS.md` is the spec; where it and the steps below disagree, the OS wins. The chain:
+
+| Layer | What | Files | Agent (`.claude/agents/`) | Check |
+|---|---|---|---|---|
+| 1 Brain | offer, avatars, demand map, mechanism, beliefs, vault, proof, voice, look, package | `brain.json`, `brain.md`, `research/demand-map.csv` | brain-builder | `organic.py brain-check <slug> --write` (blocking errors stop production) |
+| 2 Research | 3-month outliers with the 4 checks, adjacent niches, format rules, idea bank | `research/<date>/outliers.csv`, `research/format-rules.md` | research-scout | `organic.py outliers <dataset.json>` |
+| 3 Map | belief focus, pillars, series, mix by stage, calendar, live keywords | `content-map.json`, `content-map.md` | content-strategist, organic-director | director approval |
+| 4 Cards | one Post Card per slot (job, belief, pillar, series, avatar, demand phrase, format, hypothesis, target) | `cards/<yyyy-mm>-W<n>/*.yaml` | content-strategist | `organic.py card-check`, `week-check`, `route` |
+| 5 Make | idea gate, hooks and scripts (organic adapters), carousels, reels | `content/<key>/` | idea-agent, hook-agent, script-agent, carousel-agent, video-producer | `growth-engine/GATES.md` |
+| 6 Ship | caption, keyword, stories, hub draft | hub `content_items` | distribution-agent, conversion-agent | Matan approves |
+| 7 Learn | scorecard, flags, diagnosis, learnings, budget | `analytics/posts.csv`, `ledger.csv`, `analytics/learnings.md` | analyst, organic-director | `organic.py score`, `ledger` |
+
+Adapters for the paid-ad skills: `growth-engine/adapters/` (hook-lab, script-lab, carousel-machine). Format costs, the
+belief→job table and mixes: `growth-engine/config/organic.json`. Weekly mix for a 7-post account: 3 reels, 3 carousels,
+1 image (images only for a strong question or a real review quote). New accounts: reach 50%, trust 35%, convert 15%.
+
 ## Modes
 - **weekly** (default): steps 1-7 for one client, the whole week in one session.
 - **onboard**: step 0 for a new client, then a first weekly run.
@@ -53,6 +70,8 @@ hub publishes, and only what a person approved.
    needs one.
 
 ## Step 1 · Research (weekly)
+OS upgrade: base set = the last 3 months scored on views with the 4 outlier checks (`organic.py outliers`), plus the
+weekly refresh; add the adjacent-niche accounts from `competitors.md`; likes-only breakout is a fallback for carousels.
 ig-competitor-research, run directory `clients/<slug>/research/<YYYY-MM-DD>/`, creator line = the client's
 one-line positioning, language = the client's posting language.
 - **Scrape.** If this session has `APIFY_TOKEN` and can reach api.apify.com, run the skill's `scrape.py` as is.
@@ -77,8 +96,8 @@ client's baseline 2x becomes `templates/<name>/` (carousel-machine step 12; for 
 composition with its variables).
 
 ## Step 3 · Plan the week
-Default mix, 5 posts: 2 reels, 2 carousels, 1 single image; for a daily client, 7 posts: 2 reels, 2 carousels,
-3 single images (adjust from results: more of what wins). Each post:
+Superseded by the OS: plan from the Content Map and write Post Cards (layer 4 above). Default mix for 7 posts: 3 reels,
+3 carousels, 1 image; 5 posts: 2 reels, 2 carousels, 1 image (adjust from results: more of what wins). Each post:
 one goal (reach, trust, leads, saves), one belief to move, one ask. Rotate the asks across the week
 (keyword, save, send, book) so the account is not only asking for comments. Write `plans/<week>.md` (readable,
 with the reasoning and the research picks each post is based on) and `plans/<week>.json`:

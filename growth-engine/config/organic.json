@@ -1,0 +1,494 @@
+{
+ "_doc": "Defaults from ORGANIC-OS.md (sections 6.1, 6.2, 6.6, 7.4, 7.7). Edit here, not in code. Credits are Higgsfield credits per finished piece incl. ~25% retakes.",
+ "beliefs": {
+  "B1": {
+   "label": "This problem is real, and it is costing me.",
+   "jobs": [
+    "reach"
+   ],
+   "awareness": [
+    "unaware",
+    "problem_aware"
+   ]
+  },
+  "B2": {
+   "label": "It isn't my fault. The real cause is X.",
+   "jobs": [
+    "reach",
+    "trust"
+   ],
+   "awareness": [
+    "problem_aware"
+   ]
+  },
+  "B3": {
+   "label": "This can actually be solved.",
+   "jobs": [
+    "trust",
+    "reach"
+   ],
+   "awareness": [
+    "problem_aware"
+   ]
+  },
+  "B4": {
+   "label": "This method is how it gets solved.",
+   "jobs": [
+    "trust"
+   ],
+   "awareness": [
+    "solution_aware"
+   ]
+  },
+  "B5": {
+   "label": "It's better than the alternatives I know.",
+   "jobs": [
+    "trust",
+    "convert"
+   ],
+   "awareness": [
+    "solution_aware"
+   ]
+  },
+  "B6": {
+   "label": "It works for a business like mine.",
+   "jobs": [
+    "convert"
+   ],
+   "awareness": [
+    "product_aware"
+   ]
+  },
+  "B7": {
+   "label": "I trust and like these people.",
+   "jobs": [
+    "trust",
+    "reach"
+   ],
+   "awareness": [
+    "unaware",
+    "problem_aware",
+    "solution_aware",
+    "product_aware",
+    "most_aware"
+   ]
+  },
+  "B8": {
+   "label": "The next step is easy, safe and worth doing now.",
+   "jobs": [
+    "convert"
+   ],
+   "awareness": [
+    "most_aware",
+    "product_aware"
+   ]
+  }
+ },
+ "jobs": {
+  "reach": {
+   "ctas": [
+    "follow",
+    "save",
+    "send",
+    "comment",
+    "keyword"
+   ],
+   "metric": "sends_per_reach",
+   "also": [
+    "follows_per_1k_reach",
+    "skip_rate",
+    "avg_watch_s"
+   ]
+  },
+  "trust": {
+   "ctas": [
+    "keyword",
+    "save",
+    "comment",
+    "follow",
+    "send"
+   ],
+   "metric": "saves_per_reach",
+   "also": [
+    "profile_visits",
+    "keyword_comments",
+    "avg_watch_s"
+   ]
+  },
+  "convert": {
+   "ctas": [
+    "keyword",
+    "dm",
+    "book"
+   ],
+   "metric": "qualified_dms",
+   "also": [
+    "dms",
+    "booked",
+    "link_clicks"
+   ]
+  }
+ },
+ "conversion_ctas": [
+  "keyword",
+  "dm",
+  "book"
+ ],
+ "stage_mix": {
+  "new": {
+   "reach": 0.5,
+   "trust": 0.35,
+   "convert": 0.15,
+   "hard_offer_per_month": 1
+  },
+  "growing": {
+   "reach": 0.4,
+   "trust": 0.4,
+   "convert": 0.2,
+   "hard_offer_share": 0.03
+  },
+  "mature": {
+   "reach": 0.35,
+   "trust": 0.4,
+   "convert": 0.25,
+   "hard_offer_share": 0.03
+  }
+ },
+ "week_rules": {
+  "max_images": 1,
+  "max_same_job_in_a_row": 1,
+  "min_contrarian": 1,
+  "min_human_b7": 1,
+  "conversion_cta_every": 5,
+  "mix_tolerance": 0.2
+ },
+ "formats": {
+  "image_question": {
+   "family": "image",
+   "tier": "C",
+   "credits": [
+    1,
+    15
+   ],
+   "jobs": [
+    "trust",
+    "reach"
+   ],
+   "beliefs": [
+    "B1",
+    "B3",
+    "B7"
+   ],
+   "skill": "carousel-machine (1 slide)",
+   "note": "Weakest format: only a strong self-check question, a real review quote or an announcement."
+  },
+  "image_review_quote": {
+   "family": "image",
+   "tier": "C",
+   "credits": [
+    1,
+    15
+   ],
+   "jobs": [
+    "trust",
+    "convert"
+   ],
+   "beliefs": [
+    "B6",
+    "B7"
+   ],
+   "needs_proof": true,
+   "skill": "carousel-machine (1 slide)"
+  },
+  "carousel_framework": {
+   "family": "carousel",
+   "tier": "C",
+   "credits": [
+    7,
+    90
+   ],
+   "jobs": [
+    "trust"
+   ],
+   "beliefs": [
+    "B3",
+    "B4"
+   ],
+   "skill": "carousel-machine"
+  },
+  "carousel_self_check": {
+   "family": "carousel",
+   "tier": "C",
+   "credits": [
+    7,
+    90
+   ],
+   "jobs": [
+    "trust",
+    "reach",
+    "convert"
+   ],
+   "beliefs": [
+    "B1",
+    "B3"
+   ],
+   "skill": "carousel-machine"
+  },
+  "carousel_mistakes": {
+   "family": "carousel",
+   "tier": "C",
+   "credits": [
+    7,
+    90
+   ],
+   "jobs": [
+    "reach"
+   ],
+   "beliefs": [
+    "B1",
+    "B2"
+   ],
+   "skill": "carousel-machine"
+  },
+  "carousel_teardown": {
+   "family": "carousel",
+   "tier": "C",
+   "credits": [
+    7,
+    90
+   ],
+   "jobs": [
+    "trust"
+   ],
+   "beliefs": [
+    "B2",
+    "B3"
+   ],
+   "skill": "carousel-machine"
+  },
+  "carousel_comparison": {
+   "family": "carousel",
+   "tier": "C",
+   "credits": [
+    7,
+    90
+   ],
+   "jobs": [
+    "trust",
+    "convert"
+   ],
+   "beliefs": [
+    "B5"
+   ],
+   "skill": "carousel-machine"
+  },
+  "carousel_bts": {
+   "family": "carousel",
+   "tier": "C",
+   "credits": [
+    0,
+    30
+   ],
+   "jobs": [
+    "trust"
+   ],
+   "beliefs": [
+    "B7"
+   ],
+   "needs_real_human": true,
+   "skill": "carousel-machine with real photos"
+  },
+  "reel_motion": {
+   "family": "reel",
+   "tier": "C",
+   "credits": [
+    0,
+    30
+   ],
+   "jobs": [
+    "trust",
+    "reach",
+    "convert"
+   ],
+   "beliefs": [
+    "B2",
+    "B3",
+    "B4",
+    "B5"
+   ],
+   "skill": "motion-reel (HyperFrames)",
+   "note": "Always voiced (owner rule, 15 Oct 2026)."
+  },
+  "reel_quote_broll": {
+   "family": "reel",
+   "tier": "C",
+   "credits": [
+    25,
+    40
+   ],
+   "jobs": [
+    "reach"
+   ],
+   "beliefs": [
+    "B1",
+    "B7"
+   ],
+   "skill": "content/2026-w42-6-reel/script.md recipe",
+   "note": "One H3 shot + voice + captions; measured 25 credits on 15 Oct 2026."
+  },
+  "reel_strategist_prop": {
+   "family": "reel",
+   "tier": "B",
+   "credits": [
+    80,
+    110
+   ],
+   "jobs": [
+    "trust",
+    "convert",
+    "reach"
+   ],
+   "beliefs": [
+    "B1",
+    "B2",
+    "B4",
+    "B6",
+    "B8"
+   ],
+   "skill": "hook-lab + script-lab (organic) + H3",
+   "note": "Proven paid winner format; rotate props and sets."
+  },
+  "reel_ugc_pov": {
+   "family": "reel",
+   "tier": "B",
+   "credits": [
+    100,
+    150
+   ],
+   "jobs": [
+    "reach",
+    "trust"
+   ],
+   "beliefs": [
+    "B1",
+    "B3",
+    "B5"
+   ],
+   "skill": "ads-machine (organic CTA) + H3",
+   "note": "Never present an AI person as a real customer."
+  },
+  "reel_podcast": {
+   "family": "reel",
+   "tier": "B",
+   "credits": [
+    120,
+    170
+   ],
+   "jobs": [
+    "trust",
+    "convert"
+   ],
+   "beliefs": [
+    "B3",
+    "B4",
+    "B5",
+    "B8"
+   ],
+   "skill": "readymerce-podcast-ads (organic CTA)",
+   "note": "Needs a real disagreement."
+  },
+  "reel_story_narrated": {
+   "family": "reel",
+   "tier": "B",
+   "credits": [
+    120,
+    200
+   ],
+   "jobs": [
+    "reach",
+    "trust",
+    "convert"
+   ],
+   "beliefs": [
+    "B1",
+    "B2",
+    "B8"
+   ],
+   "skill": "hook-lab + script-lab (organic) + H3 + ElevenLabs",
+   "note": "Like the 60 s w43 reel."
+  },
+  "reel_animation": {
+   "family": "reel",
+   "tier": "A",
+   "credits": [
+    150,
+    300
+   ],
+   "jobs": [
+    "reach"
+   ],
+   "beliefs": [
+    "B1",
+    "B2"
+   ],
+   "skill": "readymerce-animation-ads (organic CTA)"
+  },
+  "reel_song": {
+   "family": "reel",
+   "tier": "A",
+   "credits": [
+    190,
+    300
+   ],
+   "jobs": [
+    "reach"
+   ],
+   "beliefs": [
+    "B1",
+    "B7"
+   ],
+   "skill": "readymerce-song-ads (organic CTA)",
+   "note": "Judge on sends and follows, not DMs."
+  },
+  "reel_bts_real": {
+   "family": "reel",
+   "tier": "C",
+   "credits": [
+    0,
+    10
+   ],
+   "jobs": [
+    "trust"
+   ],
+   "beliefs": [
+    "B7"
+   ],
+   "needs_real_human": true,
+   "skill": "real footage edit (talking-head-recut / embedded-captions)"
+  },
+  "carousel_opinion": {
+   "family": "carousel",
+   "tier": "C",
+   "credits": [
+    7,
+    90
+   ],
+   "jobs": [
+    "trust",
+    "reach"
+   ],
+   "beliefs": [
+    "B7",
+    "B1",
+    "B2"
+   ],
+   "skill": "carousel-machine",
+   "note": "Values and contrarian positions from the contrarian vault only."
+  }
+ },
+ "templates": {
+  "candidate_x": 2.0,
+  "template_x": 3.0
+ },
+ "premium_assets_required": 6
+}

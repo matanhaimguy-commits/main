@@ -1,0 +1,48 @@
+# JSON Schema (draft 2020-12) for a Post Card (ORGANIC-OS.md 7.1), written in YAML.
+# Validate with: python3 growth-engine/tools/organic.py card-check <card.yaml>
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Post Card
+type: object
+additionalProperties: false
+required: [post_id, client, account_language, pillar, series, job, belief, avatar, awareness, demand_phrase,
+  idea_source, source_ref, narrow_product, format, format_tier, angle_proven, credit_budget, hook_type, emotion,
+  cta_type, hypothesis, success_metric, target, status, slot]
+properties:
+  post_id: {type: string, pattern: "^[A-Z]{2,5}-\\d{4}-\\d{2}-W\\d-\\d{2}$"}
+  client: {type: string}
+  account_language: {type: string, minLength: 2, maxLength: 5}
+  slot: {type: string, description: "Local date and time it goes out, YYYY-MM-DD HH:MM (client timezone)", pattern: "^\\d{4}-\\d{2}-\\d{2} \\d{2}:\\d{2}$"}
+  pillar: {type: string}
+  series: {type: [string, "null"]}
+  episode: {type: [integer, "null"], minimum: 1}
+  job: {enum: [reach, trust, convert]}
+  belief: {enum: [B1, B2, B3, B4, B5, B6, B7, B8]}
+  avatar: {type: string}
+  awareness: {enum: [unaware, problem_aware, solution_aware, product_aware, most_aware]}
+  demand_phrase: {type: string, minLength: 3}
+  idea_source: {enum: [outlier, demand_map, contrarian_vault, owner_story, sales_call, reactive, brain]}
+  source_ref: {type: string}
+  narrow_product: {type: string, minLength: 10}
+  format: {type: string}
+  format_tier: {enum: [A, B, C]}
+  angle_proven: {type: boolean}
+  wildcard: {type: boolean, description: "The one untested premium piece allowed per month"}
+  credit_budget: {type: integer, minimum: 0}
+  length_target_s: {type: [integer, "null"], minimum: 5, maximum: 180}
+  slides: {type: [integer, "null"], minimum: 2, maximum: 20}
+  hook_type: {enum: [contrarian, hidden_cause, mistake, never_ever, case_study, comparison, tier_list, question, list, personal_story, teaching, myth, self_check, quote]}
+  emotion: {enum: [surprise, fear, hope, anger, relief, curiosity, pride, humor]}
+  tone: {enum: [agreeable, contrarian], default: agreeable}
+  cta_type: {enum: [follow, save, send, comment, keyword, dm, book]}
+  cta_keyword: {type: [string, "null"]}
+  lead_magnet: {type: [string, "null"]}
+  hard_offer: {type: boolean, default: false}
+  proof_used: {type: array, items: {type: string}}
+  hypothesis: {type: string, minLength: 10}
+  success_metric: {enum: [sends_per_reach, saves_per_reach, follows_per_1k_reach, skip_rate, avg_watch_s, profile_visits, keyword_comments, dms, qualified_dms, booked, comments_per_reach]}
+  target: {type: string}
+  status: {enum: [planned, scripted, produced, approved, scheduled, live, scored, killed]}
+  hub_item_id: {type: [integer, "null"]}
+  content_dir: {type: [string, "null"]}
+  gates: {type: object, description: "gate name -> pass | fail | n/a, filled by the agents", additionalProperties: {enum: [pass, fail, "n/a", pending]}}
+  notes: {type: [string, "null"]}
