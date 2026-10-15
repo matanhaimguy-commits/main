@@ -69,6 +69,9 @@ export const BusinessSchema = z.object({
   // While non-empty, only these Instagram usernames / user IDs get automated
   // messages. Use it to test with a second account before opening to the public.
   testers: z.array(z.coerce.string()).default([]),
+  // Approved Content items with a time go out on Instagram by themselves at that time.
+  // Needs instagram_content_publish on the Page connection. Off by default.
+  auto_publish: z.boolean().default(false),
   timezone: z.string().default('UTC'),
   // Usually filled in by the "Connect Facebook & Instagram" button on the Connect page.
   // Set these only to pin IDs or to use a token from an env var instead.

@@ -316,6 +316,12 @@ function BusinessPage() {
                         checked={!!cfg["live"]}
                         onChange={(v) => set(["live"], v)}
                       />
+                      <SwitchField
+                        label="Auto-publish"
+                        hint="Approved posts on the Content page go out on Instagram by themselves at their time. Needs instagram_content_publish in the Facebook Login configuration (press Connect again after adding it)."
+                        checked={!!cfg["auto_publish"]}
+                        onChange={(v) => set(["auto_publish"], v)}
+                      />
                       <CommaField
                         label="Testers only"
                         hint="While this has names, only these Instagram usernames (or user IDs) get messages. Empty = everyone."

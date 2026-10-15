@@ -94,6 +94,8 @@ export interface ContentItem {
   notes: string | null;
   source: Record<string, unknown>;
   metrics: Record<string, unknown>;
+  /** The publisher's progress between runs (container ids, retries). */
+  publish?: Record<string, unknown>;
   created_at: Date;
   updated_at: Date;
 }
@@ -164,7 +166,7 @@ export type ItemAction =
   | { action: "posted"; permalink?: string }
   | { action: "delete" };
 
-/** What people do on the Content page. Publishing itself is the publisher's job (phase 2). */
+/** What people do on the Content page. Publishing itself is the publisher's job (src/agent/engine/publish.ts). */
 export async function applyItemAction(sql: Sql, id: number, a: ItemAction): Promise<ContentItem | null> {
   const [item] = await sql<ContentItem[]>`SELECT * FROM content_items WHERE id = ${id}`;
   if (!item) throw new ContentError("This item no longer exists.", 404);
@@ -180,7 +182,8 @@ export async function applyItemAction(sql: Sql, id: number, a: ItemAction): Prom
   switch (a.action) {
     case "approve":
       rows = await sql<ContentItem[]>`
-        UPDATE content_items SET status = CASE WHEN scheduled_at IS NULL THEN 'approved' ELSE 'scheduled' END, error = NULL, updated_at = now()
+        UPDATE content_items SET status = CASE WHEN scheduled_at IS NULL THEN 'approved' ELSE 'scheduled' END, error = NULL,
+          publish = '{}'::jsonb, updated_at = now()
         WHERE id = ${id} RETURNING *`;
       break;
     case "reject":

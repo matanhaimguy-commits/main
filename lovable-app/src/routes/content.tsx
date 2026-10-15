@@ -55,7 +55,7 @@ function ContentPage() {
   return (
     <Shell
       title="Content"
-      description="Posts the studio made for each business. Check them, approve, set a time, and post. Every post's keyword is answered by the DM bot."
+      description="Posts the studio made for each business. Check them, approve and set a time: with Auto-publish on (Businesses → AI & rules) they go out on Instagram by themselves. Every post's keyword is answered by the DM bot."
     >
       <div className="mb-4 flex flex-wrap items-center gap-2">
         {VIEWS.map((x) => (

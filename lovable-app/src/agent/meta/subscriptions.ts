@@ -15,6 +15,7 @@ export const LOGIN_SCOPES = [
   'instagram_basic',
   'instagram_manage_messages',
   'instagram_manage_comments',
+  'instagram_content_publish',
   'business_management',
 ];
 
