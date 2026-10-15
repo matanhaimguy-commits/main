@@ -36,6 +36,8 @@ export type Step =
 
 /** Instagram usually needs a few minutes for a reel; give up after this. */
 export const PROCESSING_LIMIT_MS = 45 * 60_000;
+/** Carousel files turned into Instagram containers per scheduled run. */
+export const CHILDREN_PER_RUN = 2;
 /** Temporary errors (network, rate limits) are retried this many times, 5, 10, 15... minutes apart. */
 export const MAX_RETRIES = 5;
 
@@ -97,12 +99,17 @@ export async function advance(api: MetaApi, igId: string, item: PublishItem, pre
   if (!state.container) {
     if (item.kind === 'carousel') {
       if (item.media.length < 2 || item.media.length > 10) return { kind: 'failed', error: 'A carousel needs 2 to 10 media files.', state };
-      if (!state.children) {
-        const children: string[] = [];
-        for (const m of item.media) children.push((await api.post<{ id: string }>(`${igId}/media`, childParams(m))).id);
+      // Instagram downloads each file while it creates the child, seconds apiece, so a few per run: a run
+      // that outlasts the scheduler's time limit is cut off and loses the children it made.
+      const children = [...(state.children ?? [])];
+      if (children.length < item.media.length) {
+        for (const m of item.media.slice(children.length, children.length + CHILDREN_PER_RUN)) {
+          children.push((await api.post<{ id: string }>(`${igId}/media`, childParams(m))).id);
+        }
         state.children = children;
+        if (children.length < item.media.length) return waitOrTimeout(state, now);
       }
-      for (const child of state.children) {
+      for (const child of children) {
         const s = await containerStatus(api, child);
         if (s.code === 'ERROR' || s.code === 'EXPIRED') {
           return { kind: 'failed', error: `Instagram could not process a carousel file: ${s.detail ?? s.code}.`, state };
@@ -110,7 +117,7 @@ export async function advance(api: MetaApi, igId: string, item: PublishItem, pre
         if (s.code !== 'FINISHED') return waitOrTimeout(state, now);
       }
       state.container = (
-        await api.post<{ id: string }>(`${igId}/media`, { media_type: 'CAROUSEL', children: state.children.join(','), caption: item.caption })
+        await api.post<{ id: string }>(`${igId}/media`, { media_type: 'CAROUSEL', children: children.join(','), caption: item.caption })
       ).id;
     } else {
       const params = containerParams(item);
@@ -235,6 +242,35 @@ async function finish(deps: Deps, b: Business, row: DueRow, step: Step, api?: Me
     }
   }
   await deps.alert({ key: `published:${row.id}`, text: `📣 ${b.name}: posted ${label} on Instagram.${step.permalink ? ` ${step.permalink}` : ''}` });
+}
+
+/**
+ * A post with a time that is still a draft never goes out, and nothing else would say so. With
+ * Auto-publish on, remind about drafts due within the next day (at most every 12 hours each).
+ */
+export async function remindApprovals(deps: Deps): Promise<number> {
+  const on = deps.registry.businesses.filter((b) => b.enabled && b.auto_publish);
+  if (!on.length) return 0;
+  const rows = await deps.sql<{ id: number; business: string; title: string | null; scheduled_at: Date }[]>`
+    SELECT id, business, title, scheduled_at FROM content_items
+    WHERE business IN ${deps.sql(on.map((b) => b.slug))} AND status = 'draft'
+      AND scheduled_at > now() AND scheduled_at <= now() + interval '24 hours'
+    ORDER BY scheduled_at`;
+  for (const r of rows) {
+    const b = on.find((x) => x.slug === r.business) as Business;
+    let when: string;
+    try {
+      when = new Date(r.scheduled_at).toLocaleString('en-GB', { timeZone: b.timezone, weekday: 'short', hour: '2-digit', minute: '2-digit' });
+    } catch {
+      when = new Date(r.scheduled_at).toISOString().slice(0, 16).replace('T', ' ') + ' UTC';
+    }
+    await deps.alert({
+      key: `approve:${r.id}`,
+      cooldownMinutes: 12 * 60,
+      text: `🕒 ${b.name}: ${r.title ? `"${r.title}"` : `post #${r.id}`} is set for ${when} but is still a draft. Approve it on the Content page, or it will not go out.`,
+    });
+  }
+  return rows.length;
 }
 
 export interface PublishAccess {

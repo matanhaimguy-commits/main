@@ -12,5 +12,6 @@ From carousel-machine's StraightScale preset, aligned with the motion brand (sam
   rectangles. Spell ë and ç out letter by letter in every prompt.
 - **Frame:** slide counter top right (gold), small logo strip bottom left (red rounded square with a white S and a tiny
   gold square at its top-right corner, next to the wordmark "StraightScale"), swipe arrow bottom right on slides 1 to N-1.
-- **Format:** 1080x1440 (3:4), GPT Image 2.5 via Higgsfield, cover at medium quality, body at low.
+- **Format:** 1080x1350 (4:5, the tallest the Instagram publishing API accepts), GPT Image 2.5 via Higgsfield at aspect 4:5,
+  2k, medium quality (1 credit each). The live 7-slide carousel of 15 Oct was made at 3:4 and re-fitted to 4:5.
 - **Banned:** flat text-on-colour templates, stock-photo smiles, other brands' logos, invented UI with fake numbers.

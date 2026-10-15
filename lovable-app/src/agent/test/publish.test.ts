@@ -1,6 +1,6 @@
 // @vitest-environment node
 import { describe, expect, it } from 'vitest';
-import { advance, PERMISSION_HELP, PROCESSING_LIMIT_MS, type PublishItem } from '../engine/publish';
+import { advance, CHILDREN_PER_RUN, PERMISSION_HELP, PROCESSING_LIMIT_MS, type PublishItem } from '../engine/publish';
 import { MetaApiError, type MetaApi } from '../meta/client';
 
 const IG = 'IG1';
@@ -78,11 +78,16 @@ describe('publisher', () => {
 
     const c = new Graph();
     const carousel: PublishItem = { ...reel, kind: 'carousel', media: [1, 2, 3].map((i) => ({ url: `https://cdn/${i}.jpg`, type: 'image' as const })) };
-    const done = await advance(api(c), IG, carousel, {}, NOW);
+    // A few children per run, so one run never outlasts the scheduler's time limit.
+    const first = await advance(api(c), IG, carousel, {}, NOW);
+    expect(first).toMatchObject({ kind: 'wait', state: { children: ['C1', 'C2'] } });
+    expect(c.posts()).toHaveLength(CHILDREN_PER_RUN);
+    const done = await advance(api(c), IG, carousel, first.state, new Date(NOW.getTime() + 60_000));
     expect(done.kind).toBe('published');
     const bodies = c.posts().map((p) => p.body);
     expect(bodies.slice(0, 3)).toEqual([1, 2, 3].map((i) => ({ image_url: `https://cdn/${i}.jpg`, is_carousel_item: true })));
     expect(bodies[3]).toEqual({ media_type: 'CAROUSEL', children: 'C1,C2,C3', caption: reel.caption });
+    expect(bodies).toHaveLength(5);
   });
 
   it('fails clearly on wrong media, processing errors and endless processing', async () => {
@@ -115,7 +120,7 @@ import { fileURLToPath } from 'node:url';
 import postgres from 'postgres';
 import { afterAll, beforeAll, beforeEach } from 'vitest';
 import type { Sql } from '../db/sql';
-import { checkPublishAccess, runPublisher } from '../engine/publish';
+import { checkPublishAccess, remindApprovals, runPublisher } from '../engine/publish';
 import { IG_ID, makeBusiness } from './fixtures';
 import { dbAvailable, freshDb, makeHarness, TEST_DB, truncate, type Harness } from './harness';
 
@@ -213,6 +218,19 @@ describe.skipIf(!hasDb)('publisher (Postgres)', () => {
     await runPublisher(h.deps);
     expect(await item('due')).toMatchObject({ status: 'failed', error: PERMISSION_HELP });
     expect(h.alerts.at(-1)).toContain('could not post');
+  });
+
+  it('reminds about drafts that are due within a day, and only those', async () => {
+    await setup(true);
+    await addItem({ key: 'soon', status: 'draft', minutesFromNow: 120 });
+    await addItem({ key: 'next-week', status: 'draft', minutesFromNow: 3 * 24 * 60 });
+    await addItem({ key: 'approved', status: 'scheduled', minutesFromNow: 120 });
+    await addItem({ key: 'missed', status: 'draft', minutesFromNow: -30 });
+    expect(await remindApprovals(h.deps)).toBe(1);
+    expect(h.alerts.at(-1)).toMatch(/"Reel" is set for .+ but is still a draft/);
+
+    await setup(false);
+    expect(await remindApprovals(h.deps)).toBe(0);
   });
 
   it('checks the publishing permission every hour and alerts only when Auto-publish needs it', async () => {

@@ -23,6 +23,8 @@ clients/<slug>/
 ## Modes
 - **weekly** (default): steps 1-7 for one client, the whole week in one session.
 - **onboard**: step 0 for a new client, then a first weekly run.
+- **daily**: keep the hub 4 days ahead with one post a day, by `growth-engine/DAILY.md` (StraightScale since 15 Oct
+  2026; a scheduled cloud session runs it every morning).
 - **single**: one piece on demand ("a reel about X for <client>"): steps 4-6 for that item.
 
 Work in autopilot: decide, log the decision in the plan file, keep going. Stop only for paid generation
@@ -75,7 +77,8 @@ client's baseline 2x becomes `templates/<name>/` (carousel-machine step 12; for 
 composition with its variables).
 
 ## Step 3 · Plan the week
-Default mix, 5 posts: 2 reels, 2 carousels, 1 single image (adjust from results: more of what wins). Each post:
+Default mix, 5 posts: 2 reels, 2 carousels, 1 single image; for a daily client, 7 posts: 2 reels, 2 carousels,
+3 single images (adjust from results: more of what wins). Each post:
 one goal (reach, trust, leads, saves), one belief to move, one ask. Rotate the asks across the week
 (keyword, save, send, book) so the account is not only asking for comments. Write `plans/<week>.md` (readable,
 with the reasoning and the research picks each post is based on) and `plans/<week>.json`:
