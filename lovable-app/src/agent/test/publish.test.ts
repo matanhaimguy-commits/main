@@ -115,7 +115,7 @@ import { fileURLToPath } from 'node:url';
 import postgres from 'postgres';
 import { afterAll, beforeAll, beforeEach } from 'vitest';
 import type { Sql } from '../db/sql';
-import { runPublisher } from '../engine/publish';
+import { checkPublishAccess, runPublisher } from '../engine/publish';
 import { IG_ID, makeBusiness } from './fixtures';
 import { dbAvailable, freshDb, makeHarness, TEST_DB, truncate, type Harness } from './harness';
 
@@ -213,5 +213,19 @@ describe.skipIf(!hasDb)('publisher (Postgres)', () => {
     await runPublisher(h.deps);
     expect(await item('due')).toMatchObject({ status: 'failed', error: PERMISSION_HELP });
     expect(h.alerts.at(-1)).toContain('could not post');
+  });
+
+  it('checks the publishing permission every hour and alerts only when Auto-publish needs it', async () => {
+    await setup(true);
+    h.meta.get = async (path: string) => {
+      if (path.endsWith('/content_publishing_limit')) return { data: [{ quota_usage: 2 }] } as any;
+      return {} as any;
+    };
+    expect((await checkPublishAccess(h.deps)).acme).toMatchObject({ ok: true, used: 2 });
+    h.meta.get = async () => {
+      throw new MetaApiError('(#10) Application does not have permission for this action', 403, 10);
+    };
+    expect((await checkPublishAccess(h.deps)).acme).toMatchObject({ ok: false, error: PERMISSION_HELP });
+    expect(h.alerts.at(-1)).toContain('Auto-publish is on');
   });
 });

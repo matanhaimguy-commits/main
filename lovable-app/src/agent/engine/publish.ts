@@ -1,5 +1,6 @@
 import type { Business } from '../config/schema';
 import { MetaApiError, MetaNetworkError, type MetaApi } from '../meta/client';
+import { getState, setState } from '../db/connections';
 import type { Deps } from './deps';
 
 /**
@@ -234,4 +235,40 @@ async function finish(deps: Deps, b: Business, row: DueRow, step: Step, api?: Me
     }
   }
   await deps.alert({ key: `published:${row.id}`, text: `📣 ${b.name}: posted ${label} on Instagram.${step.permalink ? ` ${step.permalink}` : ''}` });
+}
+
+export interface PublishAccess {
+  ok: boolean;
+  checkedAt: string;
+  /** Posts published through the API in the last 24 hours (Instagram allows 100). */
+  used?: number;
+  error?: string;
+}
+
+/**
+ * Hourly: asks Instagram for each connected account's publishing quota. The call needs
+ * instagram_content_publish, so it shows whether the permission is really granted before a post
+ * is due, and it is the "successful test API call" Meta requires before Advanced Access can be
+ * requested. Alerts only for businesses with Auto-publish on.
+ */
+export async function checkPublishAccess(deps: Deps): Promise<Record<string, PublishAccess>> {
+  const prev = (await getState<Record<string, PublishAccess>>(deps.sql, 'publish_access'))?.value ?? {};
+  const next: Record<string, PublishAccess> = {};
+  const checkedAt = deps.now().toISOString();
+  for (const b of deps.registry.businesses) {
+    if (!b.enabled || !b.meta.instagram_id) continue;
+    const api = deps.metaFor(b);
+    if (!api) continue;
+    try {
+      const r = await api.get<{ data?: { quota_usage?: number }[] }>(`${b.meta.instagram_id}/content_publishing_limit`, { fields: 'quota_usage' });
+      next[b.slug] = { ok: true, checkedAt, used: r.data?.[0]?.quota_usage ?? 0 };
+    } catch (err) {
+      next[b.slug] = { ok: false, checkedAt, error: describe(err) };
+      if (b.auto_publish && prev[b.slug]?.ok !== false) {
+        await deps.alert({ key: `publish-access:${b.slug}`, text: `⚠️ ${b.name}: Auto-publish is on, but ${describe(err)}`, cooldownMinutes: 24 * 60 });
+      }
+    }
+  }
+  await setState(deps.sql, 'publish_access', next);
+  return next;
 }
