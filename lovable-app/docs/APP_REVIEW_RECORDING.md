@@ -66,3 +66,57 @@ Put the reviewer password in the submission's notes field, never in this file.
 - `instagram_manage_comments`, `pages_read_engagement`: comment a funnel keyword (e.g. `ANALIZA`) on a
   StraightScale post from the tester; show the private reply arriving in the tester's message requests and the
   comment in the dashboard's Activity page.
+
+## instagram_basic
+
+**What the app reads with it, and where (code):**
+- The Page's linked Instagram Business account, `instagram_business_account{id,username}` on `me/accounts`, when the
+  owner connects (`src/server/handlers.server.ts`). The id routes Instagram webhooks to the right business; the
+  @username is shown on Connect, Overview and the business page.
+- The business's own recent media, `<ig-id>/media` with `id,caption,media_product_type,timestamp,permalink`
+  (`src/lib/api/businesses.functions.ts`): the "Pick from recent posts" list in the funnel editor.
+- The same list to match a published post's permalink to its media id (`src/server/content.server.ts`), and the
+  latest few posts in the Overview's connection check (`src/server/diagnostics.server.ts`).
+
+**Description for the form** (paste as is):
+
+> Social Agent is an assistant that answers comments and direct messages for small businesses on Instagram and
+> Facebook. A business owner logs in, connects their Facebook Page and its linked Instagram Business account with
+> Facebook Login for Business, and the app replies to people on the business's behalf.
+>
+> We use instagram_basic only to read the connected business account's own basic information and its own posts:
+>
+> 1. Account ID and username. When the owner connects, the app reads the Page's linked Instagram Business account
+>    (id and username). The ID is how the app knows which business an incoming Instagram comment or message
+>    belongs to, and the @username is shown on the Connect, Overview and Business pages so the owner can confirm
+>    the right account is linked.
+> 2. The business's own recent posts (id, caption, type, date, permalink). When the owner sets up a comment keyword
+>    (for example "comment ANALIZA for a free analysis"), "Pick from recent posts" lists their latest posts so they
+>    can attach the keyword to the exact post or reel by its caption and date, instead of copying IDs. The post's
+>    media ID is then used to match incoming comments to that keyword. When the owner marks a scheduled post as
+>    published, the app matches its link to its media ID the same way.
+> 3. Connection check. The Overview page reads the account's latest few posts to confirm that comments are
+>    reaching the app.
+>
+> Without instagram_basic the app cannot tell which Instagram account belongs to a Page, cannot route comments
+> and messages to the right business, and cannot let the owner choose a post for a keyword.
+>
+> We only read the business's own account and its own posts. We do not use this permission to read other people's
+> profiles or media, for analytics, advertising or profiling, and we never sell or share the data. We store only
+> the account ID, the username and the IDs of the posts the owner attaches to keywords. The business can
+> disconnect at any time and request deletion at https://matan-social-agent.lovable.app/data-deletion.
+
+**Recording (about 1 minute; captions in quotes):**
+1. Log in, then **Connect → "Connect Facebook & Instagram"**. In Facebook's dialog choose the StraightScale Page and
+   its Instagram account, continue. Back in the app the Page row shows **Instagram @straightscale_**.
+   "The app reads the connected Instagram Business account's ID and username (instagram_basic)."
+2. **Overview:** the business card shows **Instagram: @straightscale_**.
+   "The owner can see which Instagram account is connected."
+3. **Businesses → StraightScale → Funnels → Add a funnel → "Pick from recent posts".** The dialog lists the
+   account's own recent posts with caption and date. Pick one so it fills in, then press Cancel (or save it if you
+   want the funnel).
+   "The app lists the business's own recent posts (instagram_basic) so the owner can attach a comment keyword to
+   one."
+
+Tip: one 3-minute video can cover every permission (connect → recent posts → DM and AI answer → takeover). Upload
+the same file to each permission, with a caption naming the permission at the moment it is used.
