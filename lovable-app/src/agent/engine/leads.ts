@@ -12,6 +12,8 @@ export interface LeadInput {
   phone: string;
   instagram?: string;
   need?: string;
+  /** "How did you hear about us?": software misses DMs and word of mouth, so we ask (Organic OS 9.2). */
+  heard?: string;
   source?: string;
 }
 
@@ -28,6 +30,8 @@ export async function submitLead(deps: Pick<Deps, 'sql' | 'alert'>, b: Business,
   if (!name) throw new LeadError('name');
   const ig = input.instagram?.trim().replace(/^@/, '').slice(0, 40) || null;
   const need = input.need?.trim().slice(0, 600) || null;
+  const heard = input.heard?.trim().slice(0, 200) || null;
+  const notes = [need, heard ? `Heard about us: ${heard}` : null].filter(Boolean).join('\n') || null;
   const source = `form${input.source ? `:${input.source.replace(/[^\w-]/g, '').slice(0, 40)}` : ''}`;
 
   const [recent] = await deps.sql<{ n: number }[]>`
@@ -37,7 +41,7 @@ export async function submitLead(deps: Pick<Deps, 'sql' | 'alert'>, b: Business,
 
   const [row] = await deps.sql<{ id: number; repeat: boolean }[]>`
     INSERT INTO contacts (business, platform, external_id, name, phone, username, source, stage, notes, last_inbound_at)
-    VALUES (${b.slug}, 'web', ${`tel:${digits}`}, ${name}, ${phone}, ${ig}, ${source}, 'qualified', ${need}, now())
+    VALUES (${b.slug}, 'web', ${`tel:${digits}`}, ${name}, ${phone}, ${ig}, ${source}, 'qualified', ${notes}, now())
     ON CONFLICT (business, platform, external_id) DO UPDATE SET
       name = EXCLUDED.name,
       username = COALESCE(EXCLUDED.username, contacts.username),
@@ -47,12 +51,12 @@ export async function submitLead(deps: Pick<Deps, 'sql' | 'alert'>, b: Business,
                    ELSE contacts.notes || E'\n' || EXCLUDED.notes END,
       last_inbound_at = now(), updated_at = now()
     RETURNING id, (xmax <> 0) AS repeat`;
-  const text = [`Formulari: ${name}, ${phone}`, ig ? `Instagram @${ig}` : null, need].filter(Boolean).join('\n');
+  const text = [`Formulari: ${name}, ${phone}`, ig ? `Instagram @${ig}` : null, need, heard ? `Na gjeti nga: ${heard}` : null].filter(Boolean).join('\n');
   await deps.sql`INSERT INTO messages (contact_id, direction, source, text, payload)
-    VALUES (${row!.id}, 'in', 'user', ${text}, ${deps.sql.json({ form: { name, phone, instagram: ig, need, source } })})`;
+    VALUES (${row!.id}, 'in', 'user', ${text}, ${deps.sql.json({ form: { name, phone, instagram: ig, need, heard, source } })})`;
   await deps.alert({
     key: `lead:${row!.id}:${Date.now()}`,
-    text: `📝 ${b.name}: ${row!.repeat ? 'returning' : 'new'} lead from the form: ${name}, ${phone}${ig ? `, @${ig}` : ''}${need ? `\n“${need}”` : ''}`,
+    text: `📝 ${b.name}: ${row!.repeat ? 'returning' : 'new'} lead from the form: ${name}, ${phone}${ig ? `, @${ig}` : ''}${need ? `\n“${need}”` : ''}${heard ? `\nHeard about us: ${heard}` : ''}`,
     cooldownMinutes: 0,
   });
   return { contactId: row!.id, repeat: row!.repeat };

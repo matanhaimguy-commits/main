@@ -24,6 +24,8 @@ const T = {
     instagram: "Instagram (optional)",
     need: "What do you need?",
     needHint: "e.g. more clients for my clinic",
+    heard: "How did you hear about us?",
+    heardHint: "e.g. an Instagram post, a friend, Google",
     send: "Send",
     sending: "Sending…",
     consent: "By sending, you agree that we contact you about your request.",
@@ -44,6 +46,8 @@ const T = {
     instagram: "Instagram (nuk është e detyrueshme)",
     need: "Çfarë të duhet?",
     needHint: "P.sh. më shumë klientë për klinikën time",
+    heard: "Si na gjete?",
+    heardHint: "P.sh. një postim në Instagram, një mik, Google",
     send: "Dërgo",
     sending: "Po dërgohet…",
     consent: "Duke dërguar, pranon që të të kontaktojmë për kërkesën tënde.",
@@ -64,6 +68,8 @@ const T = {
     instagram: "אינסטגרם (לא חובה)",
     need: "במה נוכל לעזור?",
     needHint: "למשל: יותר לקוחות לקליניקה שלי",
+    heard: "איך שמעתם עלינו?",
+    heardHint: "למשל: פוסט באינסטגרם, חבר, גוגל",
     send: "שליחה",
     sending: "שולח…",
     consent: "בשליחה אתם מסכימים שניצור איתכם קשר בנוגע לפנייה.",
@@ -82,7 +88,7 @@ function LeadFormPage() {
   const info = Route.useLoaderData();
   const { slug } = Route.useParams();
   const { s } = Route.useSearch();
-  const [f, setF] = useState({ name: "", phone: "", instagram: "", need: "", website: "" });
+  const [f, setF] = useState({ name: "", phone: "", instagram: "", need: "", heard: "", website: "" });
   const [state, setState] = useState<"idle" | "sending" | "done">("idle");
   const [error, setError] = useState<string | null>(null);
   const t = T[info?.language ?? "en"];
@@ -144,6 +150,10 @@ function LeadFormPage() {
             <div className="space-y-1.5">
               <Label htmlFor="need">{t.need}</Label>
               <Textarea id="need" rows={3} maxLength={600} placeholder={t.needHint} {...field("need")} />
+            </div>
+            <div className="space-y-1.5">
+              <Label htmlFor="heard">{t.heard}</Label>
+              <Input id="heard" required maxLength={200} placeholder={t.heardHint} {...field("heard")} />
             </div>
             {/* Bots fill every field; people never see this one. */}
             <input type="text" tabIndex={-1} autoComplete="off" aria-hidden className="hidden" {...field("website")} />

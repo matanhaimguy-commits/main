@@ -31,6 +31,7 @@ export const submitLeadFn = createServerFn({ method: "POST" })
       phone: z.string().max(40),
       instagram: z.string().max(60).optional(),
       need: z.string().max(1000).optional(),
+      heard: z.string().max(300).optional(),
       source: z.string().max(60).optional(),
       website: z.string().max(200).optional(),
     }),

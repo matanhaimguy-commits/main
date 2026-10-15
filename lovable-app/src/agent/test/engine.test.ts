@@ -317,7 +317,14 @@ describe.skipIf(!hasDb)('engine (Postgres)', () => {
       expect(c).toMatchObject({ platform: 'web', name: 'Ana Kola', phone: '+355691234567', username: 'ana.k', stage: 'qualified', source: 'form:analiza', needs_reply: false });
       expect(c.notes).toBe('More clients\nCall after 5');
       expect((await sql`SELECT * FROM messages WHERE contact_id = ${first.contactId}`).length).toBe(2);
-      expect(h.alerts.filter((a) => a.includes('lead from the form'))).toHaveLength(2);
+      // "How did you hear about us?" is kept with the lead, the message and the alert.
+      const third = await submitLead(h.deps, b, { name: 'Ana Kola', phone: '+355691234567', heard: 'Instagram post about replies' });
+      const m = await one(sql`SELECT * FROM messages WHERE contact_id = ${third.contactId} ORDER BY id DESC LIMIT 1`);
+      expect(m.payload.form.heard).toBe('Instagram post about replies');
+      expect(m.text).toContain('Na gjeti nga: Instagram post about replies');
+      expect((await one(sql`SELECT notes FROM contacts WHERE id = ${third.contactId}`)).notes).toContain('Heard about us: Instagram post about replies');
+      expect(h.alerts.at(-1)).toContain('Heard about us: Instagram post about replies');
+      expect(h.alerts.filter((a) => a.includes('lead from the form'))).toHaveLength(3);
       await expect(submitLead(h.deps, b, { name: 'X', phone: '12' })).rejects.toThrow(LeadError);
     });
 
