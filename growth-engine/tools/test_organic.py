@@ -101,6 +101,25 @@ class CardTest(unittest.TestCase):
     def test_real_footage_formats_need_real_people(self):
         self.assertIn("format", codes(self.check(job="trust", belief="B7", format="carousel_bts", cta_type="follow"), o.ERROR))
 
+    def test_story_template_and_style_must_fit_the_format(self):
+        c = card(format="reel_animation_short", format_tier="B", credit_budget=90, story_template="pov_day",
+                 animation_style="claymation", job="reach", belief="B1")
+        self.assertEqual(codes(o.card_check(c, BRAIN, MAP, DEMAND), o.ERROR), [])
+        bad = dict(c, story_template="podcast_disagreement", animation_style="anime")
+        self.assertEqual(codes(o.card_check(bad, BRAIN, MAP, DEMAND), o.ERROR).count("story"), 1)
+        self.assertIn("style", codes(o.card_check(bad, BRAIN, MAP, DEMAND), o.ERROR))
+        self.assertIn("style", codes(o.card_check(dict(c, animation_style=None), BRAIN, MAP, DEMAND), o.ERROR))
+
+    def test_story_card_routes_only_to_story_formats(self):
+        r = o.route(card(story_template="pov_day", job="reach", belief="B1"), BRAIN, MAP)
+        fmts = [x["format"] for x in r]
+        self.assertTrue(fmts)
+        for f in fmts:
+            self.assertIn("pov_day", o.CONFIG["formats"][f]["story_templates"])
+        self.assertNotIn("reel_drama_pov", fmts)  # tier A needs a proven angle or the wildcard
+        r = o.route(card(story_template="pov_day", job="reach", belief="B1", animation_style="crochet", wildcard=True), BRAIN, MAP)
+        self.assertEqual({x["format"] for x in r}, {"reel_animation", "reel_animation_short"})
+
     def test_off_map_demand_phrase_kills_the_idea(self):
         self.assertIn("demand", codes(self.check(demand_phrase="off topic"), o.ERROR))
         self.assertIn("demand", codes(self.check(demand_phrase="something new"), o.WARN))

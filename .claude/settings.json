@@ -1,0 +1,18 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "mcp__Higgs__(generate_image|generate_image_batch|generate_video|generate_video_batch|generate_audio|generate_audio_batch|execute_preset|outpaint_image|motion_control|ads_studio_generate|shorts_studio_create|ai_influencer_generate)|mcp__ElevenLabs__creative_(generate_speech|generate_image|edit_image|generate_video|generate_in_flow|run_flow_nodes)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/generation_gate.py\"",
+            "timeout": 30,
+            "onFailure": "block",
+            "statusMessage": "Checking the production gates"
+          }
+        ]
+      }
+    ]
+  }
+}

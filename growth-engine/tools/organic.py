@@ -231,6 +231,28 @@ def card_check(card: dict, brain: dict, cmap: dict, demand: list[dict]) -> list[
                 issues.append(issue(WARN, "length", f"reach reels work best at 30 to 60 s (card: {n} s)"))
         if fmt["family"] == "carousel" and card.get("slides") and not 7 <= card["slides"] <= 12:
             issues.append(issue(WARN, "slides", f"carousels: 7 to 12 slides (card: {card['slides']})"))
+    if fmt is not None:
+        st, style = card.get("story_template"), card.get("animation_style")
+        if st:
+            if st not in CONFIG["story_templates"] or st.startswith("_"):
+                issues.append(issue(ERROR, "story", f"unknown story_template {st!r}; see config/organic.json story_templates"))
+            elif st not in fmt.get("story_templates", []):
+                issues.append(issue(ERROR, "story", f"{card['format']} doesn't render {st} (it renders: {', '.join(fmt.get('story_templates', [])) or 'no story templates'})"))
+            else:
+                t = CONFIG["story_templates"][st]
+                if card["belief"] not in t["beliefs"]:
+                    issues.append(issue(WARN, "story", f"{st} usually carries {'/'.join(t['beliefs'])}, card says {card['belief']}"))
+                if t.get("needs_real_or_labelled") and brain["visual"].get("face") == "ai_character" and not brain["visual"].get("real_footage"):
+                    issues.append(issue(WARN, "truth", f"{st} is first person: with an AI character it needs the AI label (decision D1) and no invented results"))
+        elif fmt.get("story_templates") and fmt["tier"] in ("A", "B") and card["format"] not in ("reel_podcast",):
+            issues.append(issue(WARN, "story", f"{card['format']} is a story format: name a story_template (STORY-FORMATS.md)"))
+        if fmt.get("styles"):
+            if not style:
+                issues.append(issue(ERROR, "style", f"{card['format']} needs an animation_style ({', '.join(fmt['styles'])})"))
+            elif style not in fmt["styles"]:
+                issues.append(issue(ERROR, "style", f"animation_style {style!r} is not one of {', '.join(fmt['styles'])}"))
+        elif style:
+            issues.append(issue(WARN, "style", f"{card['format']} is not animated; animation_style is ignored"))
     if card["format_tier"] == "A" and not (card["angle_proven"] or card.get("wildcard")):
         issues.append(issue(ERROR, "spend", "tier A needs a proven angle (beat the median in a cheaper format) or the month's wildcard"))
 
@@ -288,6 +310,12 @@ def week_check(cards: list[dict], brain: dict, cmap: dict | None = None) -> tupl
         if run >= rules["conversion_cta_every"]:
             issues.append(issue(WARN, "cta", f"{run} posts in a row without a conversion CTA (keyword, DM, book) by {c['slot'][:10]}"))
             run = 0
+    tier_a = [c for c in cards if CONFIG["formats"].get(c["format"], {}).get("tier") == "A"]
+    if len(tier_a) > rules.get("max_tier_a_per_week", 99):
+        issues.append(issue(WARN, "spend", f"{len(tier_a)} tier A pieces this week; {rules['max_tier_a_per_week']} at most (the rest of the budget feeds the daily posts)"))
+    stories = [c for c in cards if c.get("story_template")]
+    if len(cards) >= 5 and len(stories) < rules.get("story_reels_per_week", 0):
+        issues.append(issue(WARN, "story", "no story reel this week: plan one (STORY-FORMATS.md, POV day in the buyer's life)"))
     stage = brain["package"]["account_stage"]
     target = CONFIG["stage_mix"][stage]
     jobs = {j: sum(1 for c in cards if c["job"] == j) / len(cards) for j in ("reach", "trust", "convert")} if cards else {}
@@ -364,6 +392,15 @@ def route(card: dict, brain: dict, cmap: dict, prev_family: str | None = None, s
             score += 2; why.append("carousels earn saves")
         if card["job"] == "convert" and fid in ("reel_strategist_prop", "reel_podcast", "carousel_comparison"):
             score += 2; why.append("proven convert format")
+        st = card.get("story_template")
+        if st:
+            if st not in f.get("story_templates", []):
+                continue
+            score += 2; why.append(f"renders the {st} story")
+            if f["tier"] == "B" and not (card.get("angle_proven") or card.get("wildcard")):
+                score += 1; why.append("story lab: test the angle at tier B before a tier A piece")
+        if card.get("animation_style") and card["animation_style"] not in f.get("styles", []):
+            continue
         if f["tier"] == "C":
             score += 0.5; why.append("cheap: test the angle first")
         if f["family"] == "image":

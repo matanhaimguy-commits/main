@@ -44,5 +44,9 @@ properties:
   status: {enum: [planned, scripted, produced, approved, scheduled, live, scored, killed]}
   hub_item_id: {type: [integer, "null"]}
   content_dir: {type: [string, "null"]}
+  story_template: {type: [string, "null"], description: "Narrative shape from config/organic.json story_templates (STORY-FORMATS.md)"}
+  animation_style: {type: [string, "null"], description: "Locked look from config/organic.json animation_styles (animated formats only)"}
+  series_character: {type: [string, "null"], description: "Recurring character id (CH-...) from the client's LIB run look bible"}
+  run: {type: [string, "null"], description: "Production run folder: clients/<slug>/runs/<post_id>/ (growth-engine/tools/pipeline.py)"}
   gates: {type: object, description: "gate name -> pass | fail | n/a, filled by the agents", additionalProperties: {enum: [pass, fail, "n/a", pending]}}
   notes: {type: [string, "null"]}

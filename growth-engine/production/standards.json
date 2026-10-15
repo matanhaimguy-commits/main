@@ -1,0 +1,513 @@
+{
+  "_doc": "Production standards: the one numbers file every production skill, reviewer and the generation gate read. Prose and reasons: STANDARDS.md (same folder). Change a number here and in STANDARDS.md together, with a dated line in STANDARDS.md's changelog.",
+  "version": "1.0 (15 Oct 2026)",
+  "humans": [
+    "Matan"
+  ],
+  "gate_policy": {
+    "budget_fresh_hours": 24,
+    "retake_buffer": 0.25,
+    "max_image_attempts": 3,
+    "max_video_attempts": 3,
+    "max_prompt_loops": 2,
+    "script_release_score": 85,
+    "visual_pass": {
+      "hero": {
+        "critical": 0,
+        "major": 0,
+        "minor": 0
+      },
+      "other": {
+        "critical": 0,
+        "major": 0,
+        "minor": 2
+      }
+    },
+    "take_pass": {
+      "critical": 0,
+      "major": 0
+    }
+  },
+  "asset_types": {
+    "character_sheet": {
+      "kind": "image",
+      "prompt_gate": "G-PROMPT-IMG",
+      "visual_gate": "G-VIS-SHEET",
+      "hero": true,
+      "look": true
+    },
+    "prop_sheet": {
+      "kind": "image",
+      "prompt_gate": "G-PROMPT-IMG",
+      "visual_gate": "G-VIS-SHEET",
+      "hero": true,
+      "look": true
+    },
+    "set_sheet": {
+      "kind": "image",
+      "prompt_gate": "G-PROMPT-IMG",
+      "visual_gate": "G-VIS-SHEET",
+      "hero": true,
+      "look": true
+    },
+    "style_ref": {
+      "kind": "image",
+      "prompt_gate": "G-PROMPT-IMG",
+      "visual_gate": "G-VIS-SHEET",
+      "hero": true,
+      "look": true
+    },
+    "storyboard": {
+      "kind": "image",
+      "prompt_gate": "G-PROMPT-IMG",
+      "visual_gate": "G-VIS-BOARD",
+      "hero": false
+    },
+    "start_frame": {
+      "kind": "image",
+      "prompt_gate": "G-PROMPT-IMG",
+      "visual_gate": "G-VIS",
+      "hero": true
+    },
+    "still": {
+      "kind": "image",
+      "prompt_gate": "G-PROMPT-IMG",
+      "visual_gate": "G-VIS",
+      "hero": false
+    },
+    "slide": {
+      "kind": "image",
+      "prompt_gate": "G-PROMPT-IMG",
+      "visual_gate": "G-VIS-SLIDE",
+      "hero": false
+    },
+    "cover": {
+      "kind": "image",
+      "prompt_gate": "G-PROMPT-IMG",
+      "visual_gate": "G-VIS-SLIDE",
+      "hero": true
+    },
+    "static": {
+      "kind": "image",
+      "prompt_gate": "G-PROMPT-IMG",
+      "visual_gate": "G-VIS",
+      "hero": true
+    },
+    "video_clip": {
+      "kind": "video",
+      "prompt_gate": "G-PROMPT-VID",
+      "visual_gate": "G-TAKE"
+    },
+    "motion_render": {
+      "kind": "code",
+      "visual_gate": "G-MOTION-FRAMES"
+    },
+    "voice": {
+      "kind": "audio",
+      "audio_gate": "G-AUDIO"
+    },
+    "audio_slice": {
+      "kind": "audio",
+      "audio_gate": "G-AUDIO"
+    },
+    "song": {
+      "kind": "audio",
+      "audio_gate": "G-AUDIO"
+    },
+    "music": {
+      "kind": "audio",
+      "audio_gate": "G-AUDIO"
+    },
+    "sfx": {
+      "kind": "audio",
+      "audio_gate": "G-AUDIO"
+    },
+    "final": {
+      "kind": "final",
+      "visual_gate": "G-FINAL"
+    },
+    "test": {
+      "kind": "test"
+    }
+  },
+  "models": {
+    "image": {
+      "gpt_image_2_5": {
+        "use": [
+          "slide",
+          "cover",
+          "static",
+          "still",
+          "start_frame",
+          "style_ref",
+          "storyboard",
+          "character_sheet",
+          "prop_sheet",
+          "set_sheet"
+        ],
+        "note": "Carousels, statics, stylized sheets and storyboards. Faces of realistic people: gpt_image_2 instead (2.5 looked plastic, Oct 2026)."
+      },
+      "gpt_image_2": {
+        "use": [
+          "character_sheet",
+          "still",
+          "start_frame",
+          "storyboard",
+          "prop_sheet",
+          "set_sheet"
+        ],
+        "params": {
+          "quality": "high",
+          "resolution": "2k"
+        },
+        "media_role": "image",
+        "note": "Realistic people, always with a reference photo (hub G7)."
+      },
+      "nano_banana_2": {
+        "use": [
+          "character_sheet",
+          "prop_sheet",
+          "set_sheet",
+          "storyboard",
+          "still",
+          "start_frame"
+        ],
+        "media_role": "image_references",
+        "note": "Stylized sheets and storyboards (animation, song). Pending the side-by-side test against gpt_image_2_5 (STANDARDS.md R1)."
+      },
+      "nano_banana_pro": {
+        "use": [
+          "storyboard"
+        ],
+        "media_role": "image_references",
+        "note": "Multi-panel storyboards with text-free panels, if the side-by-side picks it."
+      }
+    },
+    "video": {
+      "minimax_h3": {
+        "resolution": "2K",
+        "aspect_ratio": "9:16",
+        "declined_preset_id": "24bae836-2c4a-48e0-89b6-49fcc0b21612",
+        "min_s": 5,
+        "max_s": 15,
+        "credits_per_s": 2
+      },
+      "kling3_0": {
+        "needs_gate": "G-FALLBACK",
+        "declined_preset_id": "24bae836-2c4a-48e0-89b6-49fcc0b21612",
+        "credits_per_5s": 10,
+        "note": "Silent start-to-end transformation only, after an H3 keyframe take failed the frame check (hub G2)."
+      }
+    },
+    "elevenlabs": {
+      "tts": [
+        "eleven_v4",
+        "eleven_v3"
+      ],
+      "music": [
+        "eleven_music_v2_5"
+      ],
+      "sfx": [
+        "eleven_text_to_sound_v2"
+      ],
+      "image": [],
+      "video": [],
+      "note": "ElevenLabs image and video models are not on the list: images come from Higgsfield (G7), video from H3 (G1). A drama exception (X5 and up) needs G-EXCEPTION on the asset."
+    },
+    "higgs_audio": {
+      "allowed": [],
+      "note": "Higgsfield speech is retired for our content (hub G8): voices, music and SFX come from ElevenLabs."
+    }
+  },
+  "gated_tools": {
+    "mcp__Higgs__generate_image": {
+      "service": "higgs",
+      "kind": "image"
+    },
+    "mcp__Higgs__generate_image_batch": {
+      "service": "higgs",
+      "kind": "image",
+      "batch": true
+    },
+    "mcp__Higgs__generate_video": {
+      "service": "higgs",
+      "kind": "video"
+    },
+    "mcp__Higgs__generate_video_batch": {
+      "service": "higgs",
+      "kind": "video",
+      "batch": true
+    },
+    "mcp__Higgs__generate_audio": {
+      "service": "higgs",
+      "kind": "audio"
+    },
+    "mcp__Higgs__generate_audio_batch": {
+      "service": "higgs",
+      "kind": "audio",
+      "batch": true
+    },
+    "mcp__Higgs__execute_preset": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__outpaint_image": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__motion_control": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__ads_studio_generate": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__shorts_studio_create": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__ai_influencer_generate": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__ElevenLabs__creative_generate_speech": {
+      "service": "elevenlabs",
+      "kind": "tts"
+    },
+    "mcp__ElevenLabs__creative_generate_image": {
+      "service": "elevenlabs",
+      "kind": "image"
+    },
+    "mcp__ElevenLabs__creative_edit_image": {
+      "service": "elevenlabs",
+      "kind": "image"
+    },
+    "mcp__ElevenLabs__creative_generate_video": {
+      "service": "elevenlabs",
+      "kind": "video"
+    },
+    "mcp__ElevenLabs__creative_generate_in_flow": {
+      "service": "elevenlabs",
+      "kind": "by_node_type"
+    },
+    "mcp__ElevenLabs__creative_run_flow_nodes": {
+      "service": "elevenlabs",
+      "kind": "nodes"
+    }
+  },
+  "families": {
+    "_doc": "Which pipeline steps (AI-VIDEO-PIPELINE.md section 1) apply to which production family. Formats in config/organic.json name their family in 'production'.",
+    "still": {
+      "na_steps": [
+        4,
+        5,
+        8,
+        12
+      ],
+      "note": "Single images and carousels: step 3 is the slide copy, step 10 the slide generation, step 11 G-VIS-SLIDE, step 13 G-SET."
+    },
+    "motion": {
+      "na_steps": [],
+      "note": "Code-rendered reels (HyperFrames): step 8 = preview frames, step 10 = render, step 11 = G-MOTION-FRAMES."
+    },
+    "keyframe_reel": {
+      "na_steps": [
+        8
+      ],
+      "note": "Tier C quote reel: one silent H3 keyframe shot from a passed start frame, voice and captions in the edit. No storyboard: one shot, no mouth."
+    },
+    "ai_video": {
+      "na_steps": [],
+      "note": "Talking head, UGC, narrated story, animation, song, podcast, drama: every step."
+    },
+    "real": {
+      "na_steps": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "note": "Real footage (the owner films): no look bible, storyboard, credits or generation; steps 11 to 13 still check the takes, words and final cut."
+    }
+  },
+  "steps": [
+    {
+      "n": 0,
+      "name": "Foundation and brief",
+      "gates": [
+        "G-BRIEF"
+      ]
+    },
+    {
+      "n": 1,
+      "name": "Idea, angle and THE PICTURE",
+      "gates": [
+        "G-IDEA"
+      ]
+    },
+    {
+      "n": 2,
+      "name": "Hook",
+      "gates": [
+        "G-HOOK"
+      ]
+    },
+    {
+      "n": 3,
+      "name": "Script",
+      "gates": [
+        "G-SCRIPT",
+        "G-HUMAN-SPINE"
+      ]
+    },
+    {
+      "n": 4,
+      "name": "Audio",
+      "gates": [
+        "G-AUDIO-MASTER",
+        "G-HUMAN-VOICE"
+      ]
+    },
+    {
+      "n": 5,
+      "name": "Audio analysis and timeline",
+      "gates": [
+        "G-TIMELINE"
+      ]
+    },
+    {
+      "n": 6,
+      "name": "Visual plan and Shot Specs",
+      "gates": [
+        "G-PLAN",
+        "G-SPEC"
+      ]
+    },
+    {
+      "n": 7,
+      "name": "Look bible: characters, settings, props",
+      "gates": [
+        "G-HUMAN-LOOK"
+      ]
+    },
+    {
+      "n": 8,
+      "name": "Storyboards",
+      "gates": [
+        "G-CONTINUITY",
+        "G-HUMAN-HOOKBOARD"
+      ]
+    },
+    {
+      "n": 9,
+      "name": "Budget preflight",
+      "gates": [
+        "G-BUDGET"
+      ]
+    },
+    {
+      "n": 10,
+      "name": "Generation",
+      "gates": []
+    },
+    {
+      "n": 11,
+      "name": "Per-take QA",
+      "gates": [
+        "G-ASSETS"
+      ]
+    },
+    {
+      "n": 12,
+      "name": "Edit",
+      "gates": []
+    },
+    {
+      "n": 13,
+      "name": "Final QA",
+      "gates": [
+        "G-FINAL",
+        "G-DIRECTOR"
+      ]
+    },
+    {
+      "n": 14,
+      "name": "Package and approval",
+      "gates": [
+        "G-HUMAN-FINAL"
+      ]
+    },
+    {
+      "n": 15,
+      "name": "Learn",
+      "gates": [
+        "G-LEARN"
+      ]
+    }
+  ],
+  "step_gate_by_family": {
+    "still": {
+      "3": [
+        "G-SCRIPT"
+      ],
+      "13": [
+        "G-SET",
+        "G-DIRECTOR"
+      ]
+    },
+    "keyframe_reel": {
+      "3": [
+        "G-SCRIPT"
+      ],
+      "4": [
+        "G-AUDIO-MASTER"
+      ],
+      "7": []
+    },
+    "motion": {
+      "7": [],
+      "8": [
+        "G-HUMAN-HOOKBOARD"
+      ]
+    }
+  },
+  "human_checkpoints": {
+    "G-HUMAN-SPINE": {
+      "mode": "delegable",
+      "what": "Pick the script spine and the master hook stack (Script Lab 12C). The owner said to run without stopping, so Claude picks, says which and why, and it shows in the queue as FYI."
+    },
+    "G-HUMAN-VOICE": {
+      "mode": "per_voice",
+      "what": "Listen once when a voice is cast for a client or series (audition and 15 s pilot). Later pieces with the locked voice pass on the measured take checks."
+    },
+    "G-HUMAN-LOOK": {
+      "mode": "per_series",
+      "what": "Approve the look bible (style, character, set and prop sheets) once per client or series; recorded on the client's LIB run."
+    },
+    "G-HUMAN-HOOKBOARD": {
+      "mode": "required",
+      "what": "Hook storyboards always go to the owner (VISUAL-QA 6)."
+    },
+    "G-HUMAN-ESCALATE": {
+      "mode": "required",
+      "what": "An asset that failed 3 attempts, or a prompt that failed 2 loops."
+    },
+    "G-HUMAN-FINAL": {
+      "mode": "required",
+      "what": "Approval on the hub's Content page; nothing posts without it."
+    },
+    "G-HUMAN-TEST": {
+      "mode": "required",
+      "what": "A test generation outside a post (a model re-test), with its reason."
+    },
+    "G-FALLBACK": {
+      "mode": "director",
+      "what": "Kling 3.0 fallback for one shot after an H3 frame-check fail."
+    },
+    "G-EXCEPTION": {
+      "mode": "required",
+      "what": "A model outside the standards for one asset (drama exceptions X5 and up)."
+    }
+  }
+}

@@ -1,0 +1,176 @@
+# JSON Schema (draft 2020-12) for a Shot Spec (VISUAL-QA.md section 2), written in YAML.
+# One file per shot, slide, static, sheet or motion scene: clients/<slug>/runs/<post_id>/shots/<shot_id>.spec.yaml
+# Lint (the G-SPEC pre-check): python3 growth-engine/tools/pipeline.py spec-check <slug> <post_id> [shot_id ...]
+# The rules a schema can't express (contact points, no blanket "no text" over a story prop, regions inside the
+# frame, ...) are in pipeline.py spec_lint(). A Prompt Reviewer (spec mode) then records G-SPEC for the spec's hash.
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Shot Spec
+type: object
+additionalProperties: false
+required: [shot_id, post_id, format, script_lines, line_text, story_purpose, must_read_in_1s, subjects, hands, props,
+  text_in_image, action_physics, setting, camera, continuity, style, must_not, hero]
+$defs:
+  nonempty: {type: string, minLength: 3}
+  box:
+    description: "[x0, y0, x1, y1] as fractions of the image (0 to 1), top-left origin"
+    type: array
+    items: {type: number, minimum: 0, maximum: 1}
+    minItems: 4
+    maxItems: 4
+properties:
+  shot_id:
+    type: string
+    description: "Unique in the post. Video: <tier>-SEQnn-SHn (S90-SEQ03-SH2). Slides: SLnn. Statics: IMGnn. Sheets: SHEET-<ref id>. Motion scenes: SCnn. Storyboard panels use the shot ids they show."
+    pattern: "^[A-Z0-9][A-Z0-9-]{1,40}$"
+  post_id: {type: string, pattern: "^[A-Z]{2,5}-(\\d{4}-\\d{2}-W\\d-\\d{2}|LIB-[A-Z0-9-]+|TEST-[A-Z0-9-]+)$"}
+  format:
+    enum: [realistic_photo, ugc, talking_head, podcast, animation_3d, claymation, crochet, animation_2d, stop_motion,
+      song, drama, motion, carousel_slide, static, character_sheet, prop_sheet, set_sheet, storyboard_panel]
+  script_lines:
+    description: "Line ids from the Script Lab line table (L14) or slide copy ids (S3). Empty only for sheets."
+    type: array
+    items: {type: string}
+  line_text: {type: string, description: "Exact spoken, sung or slide words over this shot ('' only for sheets)"}
+  story_purpose: {$ref: "#/$defs/nonempty"}
+  must_read_in_1s: {type: string, minLength: 5, description: "What a sound-off stranger must understand in one look"}
+  subjects:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required: [id, state, pose, expression]
+      properties:
+        id: {type: string, description: "CH-<NAME> for characters, PR-<NAME> when the prop is the subject"}
+        ref: {type: [string, "null"], description: "Locked sheet file or ledger asset (CH-MIRA@v2)"}
+        state: {$ref: "#/$defs/nonempty"}
+        pose: {$ref: "#/$defs/nonempty"}
+        expression: {type: string}
+        eyeline: {type: string}
+        instances: {type: integer, minimum: 1, maximum: 1, default: 1, description: "FL-11: one instance per character"}
+  hands:
+    description: "One entry per person whose hands are visible, or the string 'none visible'"
+    oneOf:
+      - const: none visible
+      - type: array
+        minItems: 1
+        items:
+          type: object
+          additionalProperties: false
+          required: [who, left, right, contact, count_check]
+          properties:
+            who: {type: string}
+            left: {type: string, minLength: 3}
+            right: {type: string, minLength: 3}
+            contact: {type: string, minLength: 3}
+            must_not_cover: {type: string}
+            count_check: {type: string, minLength: 3}
+  props:
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required: [id, story_critical, state]
+      properties:
+        id: {type: string, pattern: "^PR-[A-Z0-9-]+$"}
+        story_critical: {type: boolean}
+        ref: {type: [string, "null"], description: "Prop sheet (required when story_critical, except on the prop sheet itself)"}
+        state: {$ref: "#/$defs/nonempty"}
+        content: {type: string, description: "Concrete content: materials, layout, seal, colours, exact short text. Never empty for a story-critical prop (4.4)"}
+        size_in_frame: {type: string}
+        held_by: {type: [string, "null"]}
+  text_in_image:
+    oneOf:
+      - const: none
+      - type: array
+        minItems: 1
+        items:
+          type: object
+          additionalProperties: false
+          required: [string, surface, must_be_exact, occlusion]
+          properties:
+            string: {type: string, minLength: 1}
+            surface: {$ref: "#/$defs/nonempty"}
+            position: {type: string}
+            case: {enum: [upper, lower, as_written, title]}
+            must_be_exact: {type: boolean}
+            occlusion: {$ref: "#/$defs/nonempty"}
+  action_physics:
+    description: "Actions as contact points (4.1, rule 1). Empty only when static is true."
+    type: array
+    items: {type: string, minLength: 12}
+  static: {type: boolean, default: false, description: "No action in the shot (a pose, a slide, a sheet)"}
+  setting:
+    type: object
+    additionalProperties: false
+    required: [details, background_rule]
+    properties:
+      ref: {type: [string, "null"]}
+      details: {$ref: "#/$defs/nonempty"}
+      background_rule: {$ref: "#/$defs/nonempty"}
+      background_action: {type: string, description: "Realistic scenes: 2 or 3 named people doing named actions (FL-09)"}
+  camera:
+    type: object
+    additionalProperties: false
+    required: [framing, angle, aspect, safe_zones]
+    properties:
+      framing: {$ref: "#/$defs/nonempty"}
+      angle: {type: string}
+      lens: {type: string}
+      movement: {type: string}
+      aspect: {enum: ["9:16", "4:5", "3:4", "1:1", "16:9"]}
+      safe_zones: {$ref: "#/$defs/nonempty"}
+  timing:
+    type: object
+    additionalProperties: false
+    properties:
+      start_s: {type: number, minimum: 0}
+      end_s: {type: number, minimum: 0}
+      words: {type: string, description: "The words this shot is timed to"}
+      sequence: {type: string, description: "SEQnn: shots sharing one audio slice and one storyboard"}
+      mode: {enum: [H3-REF, H3-KEY, KLING, STILL, REAL, CARD, CODE]}
+      link: {enum: [CHAIN, CUT]}
+  continuity:
+    type: object
+    additionalProperties: false
+    required: [previous_shot]
+    properties:
+      previous_shot: {type: [string, "null"]}
+      carry_over: {type: array, items: {type: string}}
+  regions:
+    description: "Approximate boxes for the critical crops: every hand, story prop, text surface and face (5.1)"
+    type: array
+    items:
+      type: object
+      additionalProperties: false
+      required: [name, box]
+      properties:
+        name: {type: string, pattern: "^[a-z0-9_-]+$"}
+        kind: {enum: [hand, prop, text, face, action, other]}
+        box: {$ref: "#/$defs/box"}
+        panel: {type: integer, minimum: 1, description: "Storyboards: which panel the box is in (box is relative to that panel)"}
+  style: {$ref: "#/$defs/nonempty"}
+  must_not:
+    type: array
+    minItems: 1
+    items: {type: string, minLength: 3}
+  hero: {type: boolean, description: "Frame 1, storyboard image 1, thumbnails, carousel covers, sheets: zero tolerance"}
+  motion:
+    description: "format: motion only: the code-rendered scene plan (7.2)"
+    type: object
+    additionalProperties: false
+    properties:
+      elements:
+        type: array
+        items:
+          type: object
+          additionalProperties: false
+          required: [id, text, position, enter_on_word]
+          properties:
+            id: {type: string}
+            text: {type: string}
+            position: {type: string}
+            enter_on_word: {type: string}
+            exit_s: {type: number}
+      brand_colours: {type: array, items: {type: string, pattern: "^#[0-9A-Fa-f]{6}$"}}
+      fonts: {type: array, items: {type: string}}
+  notes: {type: string}

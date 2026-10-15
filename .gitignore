@@ -7,3 +7,10 @@ growth-engine/.env
 
 # scratch renders and review sheets
 motion-studio/projects/*/out/
+
+# generation-gate decisions that matched no run (per-run decisions live in runs/<post>/calls.jsonl)
+growth-engine/production/logs/
+
+# Python bytecode
+__pycache__/
+*.pyc
