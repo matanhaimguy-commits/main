@@ -172,6 +172,7 @@ export type ItemAction =
   | { action: "draft" }
   | { action: "schedule"; at: string | null }
   | { action: "posted"; permalink?: string }
+  | { action: "post_now" }
   | { action: "delete" };
 
 /** What people do on the Content page. Publishing itself is the publisher's job (src/agent/engine/publish.ts). */
@@ -210,8 +211,20 @@ export async function applyItemAction(sql: Sql, id: number, a: ItemAction): Prom
         WHERE id = ${id} RETURNING *`;
       break;
     }
+    case "post_now": {
+      // Approve and post at the next publisher run (about a minute).
+      rows = await sql<ContentItem[]>`
+        UPDATE content_items SET status = 'scheduled', scheduled_at = now(), error = NULL, publish = '{}'::jsonb, updated_at = now()
+        WHERE id = ${id} RETURNING *`;
+      break;
+    }
     case "posted": {
+      // Only records a post someone made by hand on Instagram; it never posts anything. The link is required so a
+      // post can't be marked as live by mistake.
       const permalink = a.permalink?.trim() || null;
+      if (!permalink || !/^https?:\/\/(www\.)?instagram\.com\//i.test(permalink)) {
+        throw new ContentError("Paste the post's Instagram link. This only records a post you made yourself; it does not post anything.");
+      }
       const mediaId = permalink ? await findMediaId(sql, item.business, permalink).catch(() => null) : null;
       rows = await sql<ContentItem[]>`
         UPDATE content_items SET status = 'published', published_at = coalesce(published_at, now()),

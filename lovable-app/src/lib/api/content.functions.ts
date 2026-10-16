@@ -66,6 +66,7 @@ const Action = z.discriminatedUnion("action", [
   z.object({ action: z.literal("draft") }),
   z.object({ action: z.literal("schedule"), at: z.string().max(40).nullable() }),
   z.object({ action: z.literal("posted"), permalink: z.string().max(500).optional() }),
+  z.object({ action: z.literal("post_now") }),
   z.object({ action: z.literal("delete") }),
 ]);
 

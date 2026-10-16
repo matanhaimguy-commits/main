@@ -225,10 +225,13 @@ function ItemCard({ item, canEdit }: { item: ContentRow; canEdit: boolean }) {
                 Set time
               </Button>
             </div>
+            <p className="text-xs text-muted-foreground">
+              Approve with a time and it posts by itself at that time. Post now sends it within a few minutes.
+            </p>
             <div className="flex flex-wrap gap-2">
               {(item.status === "draft" || item.status === "failed") && (
                 <>
-                  <Button size="sm" disabled={busy} onClick={() => act({ action: "approve" }, "Approved.")}>
+                  <Button size="sm" disabled={busy} onClick={() => act({ action: "approve" }, when ? "Approved. It posts at the set time." : "Approved. Set a time so it posts.")}>
                     Approve
                   </Button>
                   <Button size="sm" variant="outline" disabled={busy} onClick={() => act({ action: "reject" }, "Rejected.")}>
@@ -242,8 +245,17 @@ function ItemCard({ item, canEdit }: { item: ContentRow; canEdit: boolean }) {
                 </Button>
               )}
               {item.status !== "rejected" && (
-                <Button size="sm" variant="outline" disabled={busy} onClick={() => setPostedOpen(!postedOpen)}>
-                  I posted it
+                <Button
+                  size="sm"
+                  disabled={busy}
+                  onClick={() => window.confirm("Post this on Instagram now?") && act({ action: "post_now" }, "Posting now. It goes live within a few minutes.")}
+                >
+                  Post now
+                </Button>
+              )}
+              {item.status !== "rejected" && (
+                <Button size="sm" variant="ghost" disabled={busy} onClick={() => setPostedOpen(!postedOpen)}>
+                  Already posted by hand?
                 </Button>
               )}
               {item.status === "rejected" && (
@@ -261,12 +273,12 @@ function ItemCard({ item, canEdit }: { item: ContentRow; canEdit: boolean }) {
               <div className="flex flex-wrap items-center gap-2">
                 <Input
                   className="h-8 flex-1"
-                  placeholder="Link to the post on Instagram (optional)"
+                  placeholder="Instagram link of the post you made yourself (required)"
                   value={permalink}
                   onChange={(e) => setPermalink(e.target.value)}
                 />
-                <Button size="sm" disabled={busy} onClick={() => act({ action: "posted", permalink }, "Marked as posted.")}>
-                  Save
+                <Button size="sm" variant="outline" disabled={busy || !permalink.trim()} onClick={() => act({ action: "posted", permalink }, "Marked as posted by hand.")}>
+                  Mark as posted
                 </Button>
               </div>
             )}
