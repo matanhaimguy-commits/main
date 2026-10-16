@@ -1,0 +1,22 @@
+# IMG-W42-5 v3: local edits on v2 (VISUAL-QA 5.5, paint-out / local edit)
+
+- Base: v2 `/home/user/drafts/fixed/dd845791.jpg` (sandbox). Original model output: `/home/user/drafts/dd845791-e322-4bc7-a53d-11c66de474db.jpg`.
+- Output: `/home/user/drafts/fixed/dd845791_v3.jpg` (1080x1350, JPEG q93, 4:4:4 chroma so the ivory-on-crimson edges stay clean), md5 `3d8b9fd4d0aa70016a937eed95c87543`.
+- Hosted: media_id `2ba4683a-6feb-49bb-aba2-4557cc6995d2`, https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/2ba4683a-6feb-49bb-aba2-4557cc6995d2.jpg
+- Script: `v3_edit.py` in this folder. It is the exact code that was run, md5 `0e20591edaa8955b521f99d1e912a763`, same as the sandbox copy. No image generation was used; everything was done with code (PIL, numpy, OpenCV, scipy).
+- Real logo: pixels where its alpha is above 0 are still v2's pixels, so the logo has not moved and has not changed. The 291x54 logo at (100,1219) differs from v2 only by JPEG re-encode noise (mean 2.0).
+- On-image text: the kicker "PËR PRONARËT E BIZNESEVE" and the headline letters were not edited. Only the crimson share of the box pixels changed.
+
+## Fixes
+
+| # | Issue | Pixel box (x0,y0,x1,y1) | What was done |
+|---|-------|--------------------------|---------------|
+| 1 | V23 erased beads and a flat fill around the logo | change area (96,1194)-(391,1299). Two beads at (156,1200) and (165,1211). Drawn mark masked as (98,1235)-(157,1296) plus the gold square (146,1234)-(163,1249). Drawn wordmark letters were in (187,1256)-(385,1284) and masked with a 2 px dilation of their anti-aliased edges. | v2's inpaint mask was rebuilt exactly (fixlogo2.py reproduced, max diff 0). Its "gold" test had also caught the two bead highlights. Inside the mask, where the original pixel is not drawn logo and logo alpha is 0, the original pixels were restored (1,835 px): beads, edge highlight line, grain. Drawn-logo pixels with alpha 0 (6,155 px) got a Poisson fill. Its boundary is the restored original. Its texture is copied from the untouched counter: the mark area from offset (-92,-2) (dark front face) and the wordmark area from (+36,+40) (the same counter edge further along). Both offsets came from a ring-SSD search. |
+| 2 | V21 box went from #A31217 to #901013 | box (85,343)-(663,427), working area (82,340)-(668,431) | Each pixel was split into ivory, old crimson (local field) and dark-exterior shares. Only the crimson share was swapped for #B31217. Pure box pixels are now exactly #B31217: measured #B31217 at x 90, 200, 330, 450, 560 and 640 after JPEG. Letter interiors and their anti-alias blend ratio are unchanged, so no red fringe. |
+| 3 | V11 pseudo-letters | shelf box A (0,682,41,758), box B (47,682,81,758), box C (102,680,142,745); yellow pack label (14,443,67,481); red pack face (0,487,35,547); red pack white label (0,551,30,597); dark pack face (36,488,68,597); lower box label (35,612,66,672); door blue sticker (1054,372,1080,453), red sticker (1053,458,1080,565), dark sticker (1055,566,1080,622), white label (1055,625,1080,658) | For each face: a masked blur at sigma 4 that ignores glyph strokes, giving the label colour field. A 30% ghost of a sigma 2.5 blur leaves a soft smudge of print. Grain was added at the face's own measured fine-noise std (0.9-3.0). The blend is feathered 1.5 px and inset 2 px, so box edges, the gap line at x 42-46, the pack folds and the door-frame line at x 1048-1051 are kept. |
+
+## Checks done
+- Fix 1. I compared 3x and 5x crops of original, v2 and v3, with and without contrast boost (gain 2.6). The bead string now runs unbroken along the counter edge from the top down to the "S", and the edge continues under "Str". In the boosted crops, no drawn letter and no drawn red or gold square comes back. Mean row brightness under the wordmark (y 1280-1295) matches v2 and the original (24.5-26). No halo shows at the logo edges at 5x.
+- Fix 2. I looked at 2x and 7x crops of the corners and of "k" and "s". The box is flat, the letter edges are clean, and the "s" that sticks out past the box edge is unchanged.
+- Fix 3. I compared 2-4x crops of v2 and v3 with a gain of 1.5-2 and a 10 px grid. No letter-like shapes remain, and there are no visible patch edges or blur islands.
+- Whole image. I looked at a side-by-side downscale of v2 and v3, plus a diff map. The edited areas are the logo corner, the headline box, the left shelf and packs, and the right door stickers. All other differences are JPEG re-encode noise: re-encoding v2 alone gives 2,134 px above 6 levels.
