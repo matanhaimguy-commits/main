@@ -120,5 +120,60 @@
       }
     }
   ],
-  "queue": []
+  "queue": [
+    {
+      "id": "G-HUMAN-TEST:R1",
+      "checkpoint": "G-HUMAN-TEST",
+      "asset": "R1",
+      "status": "PENDING",
+      "note": "R1 (STANDARDS 14): stylized model side-by-side (Nano Banana 2 vs GPT Image 2.5), one character sheet and one 3-panel storyboard, about 10 credits. Needed before the first animation (claymation, crochet, 3D, 2D) story reel.",
+      "files": [],
+      "asked_at": "2026-10-16T10:47:34+00:00"
+    },
+    {
+      "id": "G-EXCEPTION:D9",
+      "checkpoint": "G-EXCEPTION",
+      "asset": "D9",
+      "status": "PENDING",
+      "note": "D9: drama model routing. Today every drama shot uses H3 (silent shots in keyframe mode). Say if you want the drama skill's other models (Kling 3.0, Seedance, Veo and others) allowed for organic drama; until then they stay off.",
+      "files": [],
+      "asked_at": "2026-10-16T10:47:34+00:00"
+    },
+    {
+      "id": "G-HUMAN-VOICE:VOICE-8oGKUMljR779HzpZBiE4",
+      "checkpoint": "G-HUMAN-VOICE",
+      "asset": "VOICE-8oGKUMljR779HzpZBiE4",
+      "status": "PENDING",
+      "note": "The narrator voice 8oGKUMljR779HzpZBiE4 (Strategist, male 45) has no recorded listen yet. Before the next voiced reel: listen to a 15 s pilot and say yes or no. Albanian pace band is measured on this audition (STANDARDS D-l).",
+      "files": [],
+      "asked_at": "2026-10-16T10:47:34+00:00"
+    },
+    {
+      "id": "G-HUMAN-FINAL:CAROUSEL-BUDGET",
+      "checkpoint": "G-HUMAN-FINAL",
+      "asset": "CAROUSEL-BUDGET",
+      "status": "PENDING",
+      "note": "Carousel budget: with 3 concept frames per carousel (Hook Lab carousel mode), a carousel costs about 13 credits, 3 a week about 39, over the brand kit's 30 a week line. Raise the weekly line to about 40, or make fewer carousels a week?",
+      "files": [],
+      "asked_at": "2026-10-16T10:47:35+00:00"
+    },
+    {
+      "id": "G-HUMAN-TEST:R2",
+      "checkpoint": "G-HUMAN-TEST",
+      "asset": "R2",
+      "status": "PENDING",
+      "note": "R2 (STANDARDS 14): H3 duration re-test before the first talking-head or story reel. One 5 s and one 14 s talking slice, duration = slice vs slice + 1 s, about 80 Higgsfield credits. Reply yes and the next session runs it.",
+      "files": [],
+      "asked_at": "2026-10-16T10:47:50+00:00"
+    },
+    {
+      "id": "G-HUMAN-FINAL:LIVE-CAROUSEL-LOGO",
+      "checkpoint": "G-HUMAN-FINAL",
+      "asset": "LIVE-CAROUSEL-LOGO",
+      "status": "PENDING",
+      "note": "The drafts for Fri 16, Sun 18, Mon 19 (carousel) and Tue 20 had a logo the image model drew itself; it was replaced with the real logo file (fix_drawn_logo.py) and re-reviewed before the hub drafts were switched. The carousel live since 15 Oct still shows a model-drawn logo in its corner and cannot be edited after posting. Decide: leave it, or archive it and re-post the fixed version.",
+      "files": [],
+      "asked_at": "2026-10-16T10:47:50+00:00"
+    }
+  ]
 }
