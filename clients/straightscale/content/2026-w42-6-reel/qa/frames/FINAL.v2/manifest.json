@@ -1,0 +1,20 @@
+{"kind": "final", "asset": "FINAL.v2", "post": "2026-w42-6-reel",
+ "source": "https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/95e869ad-5a7d-41d0-9b20-ad7656ac9013.mp4",
+ "source_sha256": "c8235747b6900f638448dc2e0082c6eb292808e776bb8d1b11559a94ee46b87a",
+ "cover": "https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/4064ef86-b16f-469b-ba4e-463254db966e.jpg",
+ "cover_sha256": "6f97c205aa6cae39829185ad9e9b006f00f8786e0769b1995398ee1e458ec7eb",
+ "probe": {"video": "h264 High 1080x1920 yuv420p 30 fps, 408 frames, 13.600 s (24 to 30 fps conform by frame repeat: every 5th frame duplicated)", "audio": "aac LC 48 kHz mono, 13.572 s", "cover": "jpeg 1080x1920"},
+ "duration": 13.6,
+ "scene_cuts_0.3": [0.667, 7.1], "scene_cuts_0.1_extra": [10.9],
+ "tool": "growth-engine/tools/vqa_crops.py final final.mp4 --out frames (sha256 aaee3a6f... sent by heredoc, checksum matched)",
+ "frames": ["f_0000.00.png", "f_0000.67.png", "f_0001.50.png", "f_0003.00.png", "f_0004.50.png", "f_0006.00.png", "f_0007.10.png", "f_0007.50.png", "f_0009.00.png", "f_0010.50.png", "f_0012.00.png", "f_0013.50.png"],
+ "contact_sheets": ["contact_1.jpg"],
+ "must_open": ["contact_1.jpg", "f_0000.00.png", "f_0013.50.png"],
+ "must_open_note": "the two PNGs are 2.75 MB and 1.27 MB (over the 512 KiB image_paths limit); they were opened as same-size 1080x1920 JPEG copies full/f_0000.00_full.jpg and full/f_0013.50_full.jpg",
+ "extra_files": {
+   "view/": "540x960 JPEG copies of every packet frame, plus t_0.60.jpg and cover.jpg",
+   "full/": "1080x1920 JPEG copies of the first and last frame",
+   "crops/": "c_0000_top.jpg (hook super), c_0300_cap.jpg, c_0450_cap.jpg, c_1050_cap.jpg (caption band, 1:1)",
+   "cards/": "bands_all.jpg (every caption card, 1:1 band strips), head_all.jpg (hook super vs head 0.70/1.00/2.00/2.60 s), face_a.jpg, face_b.jpg (2x head crops 1.00/2.30/3.00 s), wordmark_3x.jpg, endtext.jpg, z_cans_4.5.jpg, z_kiosk_9.0.jpg, z_pillar_3.0.jpg, z_right_9.0.jpg"
+ },
+ "sandbox_dir": "/home/user/qa/w42-6-reel.v2-review"}
