@@ -1,0 +1,760 @@
+{
+ "skill": "motion-video-director (+ claymation style skill)",
+ "version": "Unversioned. Neither frontmatter has a version field. Both synced files are dated 13 Oct 12:57. motion-video-director/SKILL.md is 508 lines and claymation/SKILL.md is 136 lines. Each skill folder holds only SKILL.md.",
+ "purpose": "motion-video-director is a local, code-drawn motion-graphics and video-editing director. It renders Canvas/SVG/Three.js/p5.brush/GSAP frames in headless Chrome, encodes them with ffmpeg, and uses faster-whisper, Demucs and cutout models. Its flow is kickoff, preflight, reference intake, then an ElevenLabs VO script that the USER pastes into elevenlabs.io before returning the MP3. After that come storyboard, style board, assets (Freesound/Pixabay/Unsplash/Lottie/Playwright hunting), contact-sheet preview loop, final render and a 15-item QA. It generates no AI images or video, uses no credits, and never calls Hook Lab or Script Lab. claymation is a pure visual-style skill for AI image and video prompts. It offers four locked sub-style blocks, a physicality block, a 12fps stop-motion motion guard and start/end-frame clay transitions. Its image default is Nano Banana 2 and its transition default is Seedance 1.5 Pro. readymerce-animation-ads Phase 8a loads it (\"use its blocks word for word\"), and it is meant for voiceover + B-roll.",
+ "phases": [
+  {
+   "step": "MVD-0a",
+   "name": "Kickoff message (first reply)",
+   "does": "Read the whole SKILL.md, then send a plain-language explanation of the process, the user's tasks and only the questions still open. Picked from 9 (format, length, vibe, VO yes/no, audience+CTA, brand, personal vs commercial, deadline). Skipped when PROGRESS.md exists: the agent resumes from its 'Next step'.",
+   "gate": "About 150-250 words plus 3-6 numbered questions, sent once per new project (lines 53, 73). Golden rule (8): 'before your first reply, read this whole SKILL.md from top to bottom'.",
+   "human_checkpoint": "User answers the questions and names the project folder.",
+   "tools_models": "none"
+  },
+  {
+   "step": "MVD-0",
+   "name": "Preflight + project scaffold",
+   "does": "Checks Node ≥18, Python ≥3.10, Playwright+Chromium, ffmpeg/ffprobe, three/gsap/p5/p5.brush, faster-whisper, cutout models, Demucs and the MCPs (LottieFiles, Freesound, Pixabay/Unsplash, Firecrawl, Playwright). Outputs a Tool|Status|Version|Action table. Copies the helper scripts, creates .env with create_env.sh, then builds the folder tree, PROJECT.md, PROGRESS.md, LOG.md and manifest.json.",
+   "gate": "'Do not start work until every item is resolved or explicitly skipped' (line 18). Key status is reported as names only, never values.",
+   "human_checkpoint": "Per-❌ install/skip decisions; user pastes keys into .env and says 'saved'.",
+   "tools_models": "scripts/preflight.sh, scripts/create_env.sh, scripts/normalize_env.py and scripts/preview.mjs are all referenced. None ships with the skill (see other_issues)."
+  },
+  {
+   "step": "MVD-2.0",
+   "name": "References + story intake (+ §13 reference analysis)",
+   "does": "Collects references, story, audience, platform, length, tone, CTA, brand assets and must-haves. For each reference: ffprobe, 4 fps contact sheets, 10 fps strips around cuts, a spectrogram/transient list and word timestamps, optional Demucs stems. Writes a breakdown and turns it into a recipe.",
+   "gate": "'Don't continue until you have at least the story and length' (line 239). 'Analyze max 15 s per reference' (line 433).",
+   "human_checkpoint": "User confirms the recipe derived from the references (line 437).",
+   "tools_models": "ffprobe, ffmpeg scene select gt(scene,0.3), faster-whisper, Demucs htdemucs, scripts/analyze_ref.sh (missing)"
+  },
+  {
+   "step": "MVD-2.1",
+   "name": "Brief",
+   "does": "Goal, audience, platform & aspect, length, brand, CTA, references, video type → intensity level (§4, 1 restrained to 5 hyper).",
+   "gate": "Aspect from the set 9:16 1080×1920 / 16:9 1920×1080 / 1:1 (line 240). Ask only what's missing.",
+   "human_checkpoint": "none explicit",
+   "tools_models": "none"
+  },
+  {
+   "step": "MVD-2.2",
+   "name": "VO script for ElevenLabs",
+   "does": "AV two-column script plus one paste-ready ElevenLabs block (model, voice, settings, export), on-screen keywords list, pronunciation notes, and a variant B hook and CTA.",
+   "gate": "Word budget by length (15 s 30-38 words ... 90 s 200-220), at 2.3-2.6 words/s with ≈1.5 s end hold. Hook ≤3 s and ≤8 words. Sentences ≤14 words. Tags max 1 per 1-2 lines. CAPS on 1 word per section.",
+   "human_checkpoint": "**Approve script** (bold gate, line 241). Then the user generates 2-3 takes on elevenlabs.io and returns the MP3 to assets/vo/. 'Steps 3+ (and any scene code) start only after the MP3 arrives.'",
+   "tools_models": "Eleven v4 (or v3); Multilingual v2 for long reads/PVCs; user-operated web UI, no API call"
+  },
+  {
+   "step": "MVD-2.3",
+   "name": "Storyboard / shot list",
+   "does": "Per shot: time, VO line, visual, motion, transition, SFX and on-screen text. A beat sheet in seconds, written to plan/storyboard.md and plan/shotlist.md (text, not images).",
+   "gate": "Director rules: one idea per shot, on-screen text ≤6-8 words, reading time ≈0.3 s/word + 0.5 s, reels cut every 0.5-2 s.",
+   "human_checkpoint": "none explicit (folded into Approve plan)",
+   "tools_models": "none"
+  },
+  {
+   "step": "MVD-2.4",
+   "name": "Style board + font research",
+   "does": "Palette (hex + roles). Font research → shortlist of 2-3 per role → download from official pages with the licence saved. Type specimen, plus 3-4 still frames rendered from code into plan/styleboard.png.",
+   "gate": "Max 2-3 families (§12), max 2 typefaces + 1 script accent (line 319). Font licence must be verified.",
+   "human_checkpoint": "**Approve plan** (bold gate, line 243)",
+   "tools_models": "Playwright MCP / Firecrawl for fonts; code-rendered stills (no image model)"
+  },
+  {
+   "step": "MVD-2.5",
+   "name": "Assets + VO intake",
+   "does": "VO intake: ffprobe, volumedetect/ebur128 clipping/loudness check, faster-whisper word timestamps, transcript diff vs the approved script, beats.json locked to the real audio. Then stock, Lottie, SFX and Playwright hunting (§16), cutout mattes, and manifest entries.",
+   "gate": "Transcript diff clean or a regenerated line requested. Playwright downloads ≤ ~30 per session. Reference-only assets never go into the final without user OK.",
+   "human_checkpoint": "User regenerates bad lines (vo_lineNN_fix.mp3). User approves the asset contact sheet before anything is used in a final render (§16 step 7).",
+   "tools_models": "ffprobe, ffmpeg ebur128, faster-whisper, Freesound/Pixabay/Unsplash REST or MCP, LottieFiles MCP, Playwright MCP, RVM/rembg/SAM2-tiny"
+  },
+  {
+   "step": "MVD-2b/2.6",
+   "name": "Fast preview loop + preview",
+   "does": "After every change, node scripts/preview.mjs <from> <to> renders every frame of the range and tiles it into a timestamped contact sheet. --mp4 gives a low-res clip with mixed audio. Before the final, sheets cover the whole video in 10 s chunks.",
+   "gate": "Defaults 8 fps, 0.25 scale, 6 columns. One loop under ~20 s. Checks framing/safe area, overlaps, legibility, easing gaps, pops/flicker and continuity.",
+   "human_checkpoint": "**Approve preview** (bold gate, line 245). Golden rule (3): explicit approval before rendering any video.",
+   "tools_models": "scripts/preview.mjs (not shipped), src/render.js CLI contract --from --to --fps --scale --out [--jpg]"
+  },
+  {
+   "step": "MVD-2.7",
+   "name": "Final render + delivery",
+   "does": "Full-res deterministic render piped to ffmpeg, then sound mix, loudness and the §15 QA. Output is versioned in renders/final with a render log in renders/logs. Vertical versions are native re-layouts.",
+   "gate": "ffmpeg -r 30 libx264 yuv420p crf 18. -14 LUFS / TP ≤ -1.5 dBTP (two-pass loudnorm, LRA 11). H.264 yuv420p, AAC 48 kHz, faststart. All 15 QA boxes ticked.",
+   "human_checkpoint": "Delivery; cleanup offer (move cache to trash)",
+   "tools_models": "headless Chrome via Playwright, ffmpeg loudnorm"
+  },
+  {
+   "step": "MVD-15",
+   "name": "QA checklist (15 items)",
+   "does": "1) plan and preview approved; 2) hook ≤3 s, CTA ≥2 s; 3) VO is the final MP3 and the transcript diff is clean; 4) captions correct, in safe zones, contrast ≥4.5:1; 5) SFX ±1 frame, VO intelligible, -14 LUFS/-1.5 dBTP; 6) no halos/flicker/dropped frames, ffprobe duration/fps/res correct; 7) H.264 yuv420p AAC 48 kHz faststart; 8) contact sheets over the full duration; 9) manifest licences complete, LOG updated, new version; 10) font licences saved and credited; 11) render log saved and linked, docs current; 12) no API keys anywhere; 13) other aspect versions are native re-layouts; 14) PROGRESS.md Phase: DONE; 15) offer cleanup.",
+   "gate": "All 15 items checked (lines 472-486).",
+   "human_checkpoint": "none beyond the earlier approvals",
+   "tools_models": "ffprobe, contact sheets"
+  },
+  {
+   "step": "CLAY-1",
+   "name": "Pick one sub-style",
+   "does": "The user picks 1 = Goofy, 2 = Clean simple, 3 = Stop-motion puppet or 4 = Premium studio plasticine, or describes a custom lane built from the clay fundamentals.",
+   "gate": "One sub-style per video. Its locked style block opens every image and video prompt verbatim.",
+   "human_checkpoint": "User picks the style by number (line 39-41)",
+   "tools_models": "reference image hosted at f.starpop.org"
+  },
+  {
+   "step": "CLAY-2",
+   "name": "Start frames / references (image prompts)",
+   "does": "Style block first, then the scene with clay woven into every object, an explicit palette, the camera inside the world at a named angle and the hero product ref attached. Physicality block last.",
+   "gate": "No 'smooth/polished/glossy'. Visible making-marks, real cast shadows, no set edges or workbench.",
+   "human_checkpoint": "none stated",
+   "tools_models": "Nano Banana 2 default; GPT Image 2 fallback; Seedream 4.5 for very creative briefs; reroll on Nano Banana 2 before rewriting"
+  },
+  {
+   "step": "CLAY-3",
+   "name": "Clip prompts (motion)",
+   "does": "Every clip prompt carries the motion guard (12fps stepped stop-motion, no motion blur, Non CGI, Non cartoon, animation starts at first frame). One motion action per clip.",
+   "gate": "One gesture, one camera move per in-scene beat.",
+   "human_checkpoint": "none stated",
+   "tools_models": "no in-scene video model named"
+  },
+  {
+   "step": "CLAY-4",
+   "name": "Clay transitions (start/end frame pairs)",
+   "does": "Builds frame A and frame B around one shared anchor (same refs, end frame referenced from the start frame), with one physical action as the bridge. Camera-bridge or world-bridge (melt, knead, roll-into-ball, coil build-up, smear wipe, hand-of-god, carrier blob). End frame is chained to the next start frame.",
+   "gate": "Same anchor at similar position and scale. Bridge is one action, 'two or three storyboard drawings'. Nothing silently disappears. Transition prompt = bridge + motion guard only.",
+   "human_checkpoint": "none stated",
+   "tools_models": "Seedance 1.5 Pro default for start/end transition clips; refers to a 'first-last-frame' skill that does not exist"
+  }
+ ],
+ "numbers": [
+  {
+   "key": "mvd.aspect_resolution",
+   "value": "9:16 1080×1920 / 16:9 1920×1080 / 1:1",
+   "quote": "platform & aspect (9:16 1080×1920 / 16:9 1920×1080 / 1:1)",
+   "line": 240
+  },
+  {
+   "key": "mvd.length_tiers_offered",
+   "value": "15 s, 30 s, 60 s examples",
+   "quote": "How long should it be? (e.g. 15 s, 30 s, 60 s)",
+   "line": 78
+  },
+  {
+   "key": "mvd.pace_band",
+   "value": "2.3-2.6 words/s; 1.5 s end hold for logo/CTA",
+   "quote": "**Length → word budget** (natural VO ≈ 2.3–2.6 words/s; leave ≈ 1.5 s at the end for logo/CTA hold):",
+   "line": 342
+  },
+  {
+   "key": "mvd.word_budget_15s",
+   "value": "30-38 words, 4-6 lines",
+   "quote": "| 15 s | 30–38 | 4–6 |",
+   "line": 345
+  },
+  {
+   "key": "mvd.word_budget_30s",
+   "value": "65-75 words, 8-12 lines",
+   "quote": "| 30 s | 65–75 | 8–12 |",
+   "line": 346
+  },
+  {
+   "key": "mvd.word_budget_45s",
+   "value": "100-110 words, 12-16 lines",
+   "quote": "| 45 s | 100–110 | 12–16 |",
+   "line": 347
+  },
+  {
+   "key": "mvd.word_budget_60s",
+   "value": "135-150 words, 16-22 lines",
+   "quote": "| 60 s | 135–150 | 16–22 |",
+   "line": 348
+  },
+  {
+   "key": "mvd.word_budget_90s",
+   "value": "200-220 words, 24-32 lines",
+   "quote": "| 90 s | 200–220 | 24–32 |",
+   "line": 349
+  },
+  {
+   "key": "mvd.word_estimate_format",
+   "value": "state words and seconds at 2.45 w/s",
+   "quote": "Count the words in the paste block (tags excluded) and state the estimate: `≈ 142 words ≈ 58 s at 2.45 w/s`.",
+   "line": 350
+  },
+  {
+   "key": "mvd.hook_rule",
+   "value": "hook in first line, ≤3 s, ≤8 words; CTA last line word-for-word on screen",
+   "quote": "Hook in the first line (≤ 3 s, ≤ 8 words). CTA = last line, word-for-word what appears on screen.",
+   "line": 354
+  },
+  {
+   "key": "mvd.hook_devices",
+   "value": "bold claim, pattern interrupt, question, result-first, visual surprise; no logo intro",
+   "quote": "**Hook devices:** bold claim, pattern interrupt, question, result-first, visual surprise in frame 1. No logo intro.",
+   "line": 267
+  },
+  {
+   "key": "mvd.structure",
+   "value": "Hook (0-3 s) → Problem → Solution → Proof → CTA",
+   "quote": "**Structure:** Hook (0–3 s) → Problem → Solution → Proof → CTA.",
+   "line": 266
+  },
+  {
+   "key": "mvd.sentence_length",
+   "value": "≤14 words per sentence, one idea per line",
+   "quote": "One idea per line; short sentences (≤ 14 words).",
+   "line": 353
+  },
+  {
+   "key": "mvd.pause_marks",
+   "value": "line break = breath; … = hesitation; — = short beat; empty line = longer pause",
+   "quote": "Line breaks = natural breath pauses; `…` = hesitation; `—` = short beat. Empty line = longer pause between sections.",
+   "line": 353
+  },
+  {
+   "key": "mvd.pause_rules_v3_v4",
+   "value": "no SSML break on v3/v4; em dash = short pause; <break> ≤3 s only on older models",
+   "quote": "**v3/v4: no SSML `<break>`**. Use punctuation: `…` hesitation, `—` short pause, line breaks, short sentences. `<break time=\"1.0s\"/>` only on older models (≤3 s, sparingly).",
+   "line": 333
+  },
+  {
+   "key": "mvd.pause_rules_v2",
+   "value": "Multilingual v2/Turbo/Flash: no audio tags; <break time=0.6s> sparingly",
+   "quote": "Multilingual v2 / Turbo / Flash → no audio tags (they get read aloud); use `<break time=\"0.6s\"/>` sparingly instead.",
+   "line": 358
+  },
+  {
+   "key": "mvd.voice_model",
+   "value": "Eleven v4 (or v3); Multilingual v2 for long reads/PVCs",
+   "quote": "Model: **Eleven v4** (or v3) for expressive VO; Multilingual v2 for stable long reads/PVCs where needed.",
+   "line": 332
+  },
+  {
+   "key": "mvd.voice_model_template",
+   "value": "template lists Eleven v3 (or v4), the reverse order of line 332",
+   "quote": "Model: Eleven v3 (or v4)      Voice: <library voice name or description, e.g. \"deep, calm male narrator, documentary, American\">",
+   "line": 365
+  },
+  {
+   "key": "mvd.voice_settings",
+   "value": "Stability 40-50 %, Similarity 75 %, Style 0-20 %, Speed 1.0, Speaker boost on",
+   "quote": "Settings: Stability 40–50 % (Natural) · Similarity 75 % · Style 0–20 % · Speed 1.0 · Speaker boost on",
+   "line": 366
+  },
+  {
+   "key": "mvd.voice_export",
+   "value": "MP3 44.1 kHz 192 kbps",
+   "quote": "Export: MP3 44.1 kHz 192 kbps (mp3_44100_192) · one file for the whole script (or one per section if marked)",
+   "line": 367
+  },
+  {
+   "key": "mvd.voice_takes",
+   "value": "2-3 takes, user generates by hand on elevenlabs.io",
+   "quote": "open elevenlabs.io → Text to Speech → choose the model and voice → set the settings → paste the block → Generate 2–3 takes → download the best as MP3 → send it to you / put it in `assets/vo/vo_v1.mp3`.",
+   "line": 384
+  },
+  {
+   "key": "mvd.voice_tags",
+   "value": "max 1 tag per 1-2 lines; CAPS on 1 word per section",
+   "quote": "Tags: max 1 per 1–2 lines, only where the emotion changes; match the voice's character. CAPS on 1 word per section max.",
+   "line": 356
+  },
+  {
+   "key": "mvd.max_speedup",
+   "value": "no numeric cap; adjust speed instead of rewriting",
+   "quote": "Generate per scene/paragraph (easier retakes, layering), keep same voice + settings; adjust `speed` instead of rewriting; remove any spoken stage directions in post.",
+   "line": 337
+  },
+  {
+   "key": "mvd.frame_rate",
+   "value": "30 fps (ffmpeg pipe rate in the default pipeline)",
+   "quote": "pipe PNG/JPEG frames into `ffmpeg -f image2pipe -r 30 -i - -c:v libx264 -pix_fmt yuv420p -crf 18` → mux audio.",
+   "line": 248
+  },
+  {
+   "key": "mvd.frame_rate_render_example",
+   "value": "--fps 30 --scale 1",
+   "quote": "node src/render.js --from 0 --to 56 --fps 30 --scale 1 --out renders/final 2>&1 | tee renders/logs/<name>_v3.log",
+   "line": 232
+  },
+  {
+   "key": "mvd.render_cli_contract",
+   "value": "--from --to --fps --scale --out [--jpg]",
+   "quote": "`src/render.js` must accept `--from <s> --to <s> --fps <n> --scale <0–1> --out <dir> [--jpg]` and render only that range at that size.",
+   "line": 250
+  },
+  {
+   "key": "mvd.delivery_codec",
+   "value": "H.264 yuv420p, AAC 48 kHz, faststart",
+   "quote": "H.264 yuv420p, AAC 48 kHz, faststart (`-movflags +faststart`)",
+   "line": 478
+  },
+  {
+   "key": "mvd.loudness",
+   "value": "-14 LUFS integrated, true peak ≤ -1.5 dBTP, LRA 11, two-pass",
+   "quote": "**Loudness:** −14 LUFS integrated for social/YouTube, true peak ≤ −1.5 dBTP (`ffmpeg -af loudnorm=I=-14:TP=-1.5:LRA=11`, two-pass). Sources: Freesound (prefer CC0, log attribution).",
+   "line": 328
+  },
+  {
+   "key": "mvd.loudness_qa",
+   "value": "-14 LUFS / -1.5 dBTP; SFX ±1 frame",
+   "quote": "SFX synced (±1 frame), VO intelligible over music, −14 LUFS / −1.5 dBTP",
+   "line": 476
+  },
+  {
+   "key": "mvd.music_level",
+   "value": "VO 10-15 dB above music, sidechain duck",
+   "quote": "**Mix:** VO 10–15 dB above music; duck music under VO (sidechain); high-pass SFX that clutter VO; music edits on bar lines.",
+   "line": 327
+  },
+  {
+   "key": "mvd.sfx_source",
+   "value": "Freesound, CC0 first, MCP or REST",
+   "quote": "| MCP | **Freesound** (SFX, prefer CC0) | list tools | a Freesound MCP (e.g. sandraschi/sfx-mcp) + `FREESOUND_API_KEY`; no MCP → use the REST API directly (§0c) |",
+   "line": 35
+  },
+  {
+   "key": "mvd.sfx_download",
+   "value": "preview-hq-mp3; limits ≈60 req/min, 2000/day",
+   "quote": "→ download `previews[\"preview-hq-mp3\"]` (good enough for SFX). Original WAV/FLAC needs OAuth2 (`FREESOUND_CLIENT_ID` + secret, user authorises once in the browser). Prefer CC0; for CC-BY log `username` + `url` for credits. Limit ≈ 60 req/min, 2000/day.",
+   "line": 154
+  },
+  {
+   "key": "mvd.sfx_sync",
+   "value": "transient on visual peak frame ±1 frame",
+   "quote": "Match SFX length to motion duration; sync the transient to the visual peak frame (±1 frame).",
+   "line": 324
+  },
+  {
+   "key": "mvd.sfx_density",
+   "value": "sparse at intensity 1-2, almost every beat at 5",
+   "quote": "Don't SFX everything at intensity 1–2; at intensity 5, almost every beat gets one, with varied samples (avoid repetition fatigue).",
+   "line": 326
+  },
+  {
+   "key": "mvd.safe_zones_9x16",
+   "value": "top ≈220 px, bottom ≈420 px (≈22% of 1920), right ≈140 px clear; captions at 60-70 % height",
+   "quote": "**Safe zones (9:16):** keep text/faces out of top ≈ 220 px and bottom ≈ 420 px, and right ≈ 140 px (platform UI). Captions around 60–70 % height.",
+   "line": 318
+  },
+  {
+   "key": "mvd.caption_words",
+   "value": "on-screen text ≤6-8 words; reading time ≈0.3 s/word + 0.5 s",
+   "quote": "**One idea per shot**; on-screen text ≤ 6–8 words; leave reading time (≈ 0.3 s/word + 0.5 s).",
+   "line": 269
+  },
+  {
+   "key": "mvd.caption_contrast",
+   "value": "≥4.5:1 (≥3:1 large text)",
+   "quote": "**Contrast:** text ≥ 4.5:1 (WCAG AA; ≥ 3:1 for large text); check value contrast in grayscale.",
+   "line": 314
+  },
+  {
+   "key": "mvd.caption_keyword_scale",
+   "value": "keyword 2-4× filler size; ≤1 keyword per caption group",
+   "quote": "Keyword = 2–4× filler size; ≤1 keyword per caption group; keyword gets the accent color/gradient/glow.",
+   "line": 398
+  },
+  {
+   "key": "mvd.typefaces",
+   "value": "max 2 typefaces + 1 script accent",
+   "quote": "Max 2 typefaces (+1 script accent).",
+   "line": 319
+  },
+  {
+   "key": "mvd.cta_duration",
+   "value": "CTA on screen ≥2 s, shown + spoken",
+   "quote": "**CTA:** one clear action, shown + spoken, on screen ≥ 2 s.",
+   "line": 273
+  },
+  {
+   "key": "mvd.picture_change_cadence",
+   "value": "reels cut every 0.5-2 s; explainers 2-5 s per idea",
+   "quote": "**Pacing:** reels cut every 0.5–2 s; explainers 2–5 s per idea; vary rhythm (fast–fast–hold). Cut on beats/consonants.",
+   "line": 270
+  },
+  {
+   "key": "mvd.static_frame_limit_intensity5",
+   "value": "avoid static frames >1.5 s at intensity 5",
+   "quote": "| Editing showcase / reel / hook / personal brand | 🔥 5 – hyper | flashes, 3D text, rings, glitches, whips, punch zooms, SFX on every beat | dead air, static frames >1.5 s |",
+   "line": 279
+  },
+  {
+   "key": "mvd.intensity_b2b",
+   "value": "Corporate/B2B = intensity 1 restrained",
+   "quote": "| Corporate / B2B / finance / health | 1 – restrained | lower thirds, fades, slow push-ins, generous whitespace | glitch, neon, hard flashes |",
+   "line": 283
+  },
+  {
+   "key": "mvd.3d_cadence",
+   "value": "max 1 big 3D beat per 5-10 s at intensity ≤3",
+   "quote": "Default to crisp 2D; **switch to 3D for hero moments** (reveal, product, stat, logo, transition) — max 1 big 3D beat per 5–10 s at intensity ≤3.",
+   "line": 388
+  },
+  {
+   "key": "mvd.recipe_D_cut_rate",
+   "value": "cut every beat ~0.31 s (96 BPM eighths)",
+   "quote": "then **a cut/shuffle every beat (~0.31 s ≈ 96 BPM eighths)**",
+   "line": 465
+  },
+  {
+   "key": "mvd.easing_timing",
+   "value": "entrances 200-500 ms; stagger 40-80 ms; overshoot 5-10 %",
+   "quote": "Entrances 200–500 ms, exits faster than entrances.",
+   "line": 306
+  },
+  {
+   "key": "mvd.punch_zoom",
+   "value": "105-120 %",
+   "quote": "Punch zoom (105–120 % on emphasis)",
+   "line": 300
+  },
+  {
+   "key": "mvd.preview_frame_sampling",
+   "value": "every frame at 8 fps, 0.25 scale, 6 columns",
+   "quote": "After editing a scene, run `node scripts/preview.mjs <from> <to>` (defaults: 8 fps, 0.25 scale, 6 columns).",
+   "line": 255
+  },
+  {
+   "key": "mvd.preview_loop_target",
+   "value": "one loop under ~20 s",
+   "quote": "Target: one loop in under ~20 s.",
+   "line": 260
+  },
+  {
+   "key": "mvd.full_video_sheet_check",
+   "value": "whole video in 10 s chunks before final",
+   "quote": "Before the final render, run sheets over the whole video (e.g. in 10 s chunks) and fix everything found.",
+   "line": 259
+  },
+  {
+   "key": "mvd.reference_analysis_sampling",
+   "value": "max 15 s per reference; 4 fps sheets; 10 fps strips at cuts; scene>0.3",
+   "quote": "`ffprobe` (size, fps, duration); frames at 4 fps → timestamped contact sheets; 10 fps strips around cuts (`select='gt(scene,0.3)'`); full-res stills of key frames.",
+   "line": 434
+  },
+  {
+   "key": "mvd.transcript_check",
+   "value": "faster-whisper word timestamps, diff vs approved script",
+   "quote": "transcribe with word timestamps (faster-whisper) → diff the transcript against the approved script and report missing/changed words or bad pronunciations (ask for a regenerated line if needed) → lock `beats.json` timings to the real audio.",
+   "line": 244
+  },
+  {
+   "key": "mvd.vo_intake_loudness_check",
+   "value": "ffprobe + volumedetect + ebur128",
+   "quote": "`ffprobe` (duration, sample rate) + check clipping/loudness (`ffmpeg -af volumedetect`, `ebur128`)",
+   "line": 244
+  },
+  {
+   "key": "mvd.human_gates",
+   "value": "Approve script (+ user returns MP3), Approve plan, Approve preview; explicit approval before rendering any video. Gates are bold, not numbered",
+   "quote": "## 2. Workflow (gates in **bold** need user approval)",
+   "line": 237
+  },
+  {
+   "key": "mvd.image_stills",
+   "value": "no image model; 3-4 still frames rendered from code",
+   "quote": "**Style board** – palette (hex + roles), fonts (research → shortlist → download first, §12 Font research & sourcing, saved in `plan/fonts.md`), 3–4 still frames rendered from code. → **Approve plan.**",
+   "line": 243
+  },
+  {
+   "key": "mvd.storyboard_layout",
+   "value": "text shot list per shot (time, VO line, visual, motion, transition, SFX, text)",
+   "quote": "**Storyboard / shot list** – per shot: time, VO line, visual, motion, transition, SFX, text on screen. Beat sheet with seconds.",
+   "line": 242
+  },
+  {
+   "key": "mvd.asset_sheet_layout",
+   "value": "4 columns, 400×400 tiles",
+   "quote": "build a contact sheet (`magick montage assets/images/new_*.jpg -tile 4x -geometry 400x400+8+8 renders/previews/assets_<topic>.jpg`) and present it with source links; the user approves before anything is used in a final render.",
+   "line": 504
+  },
+  {
+   "key": "mvd.download_cap",
+   "value": "≤ ~30 downloads per session",
+   "quote": "go slowly (no bulk scraping, ≤ ~30 downloads per session unless asked)",
+   "line": 507
+  },
+  {
+   "key": "mvd.kickoff_length",
+   "value": "~150-250 words + 3-6 questions",
+   "quote": "Short — aim for ~150–250 words plus the questions.",
+   "line": 53
+  },
+  {
+   "key": "mvd.api_costs",
+   "value": "free tiers; Pixabay ≈100 req/min",
+   "quote": "**Get the keys (all have free tiers):**",
+   "line": 124
+  },
+  {
+   "key": "clay.image_model",
+   "value": "Nano Banana 2 default; GPT Image 2 fallback; Seedream 4.5 option",
+   "quote": "Clay images default to **Nano Banana 2**: from testing, its clay outputs are notably more creative and truer to the style than GPT Image 2's, which came out flatter and less suited to claymation - GPT Image 2 remains a viable option to test when a look isn't landing. Seedream 4.5 can also be a great model for very creative output and is worth trying on demanding briefs.",
+   "line": 29
+  },
+  {
+   "key": "clay.retake_rule",
+   "value": "reroll on Nano Banana 2 before rewriting the prompt (no numeric cap)",
+   "quote": "When a result misses, reroll on Nano Banana 2 before rewriting the prompt: variance, not the prompt, is usually the cause once a lane's block is locked.",
+   "line": 29
+  },
+  {
+   "key": "clay.video_model_transitions",
+   "value": "Seedance 1.5 Pro for start/end transition clips",
+   "quote": "Default model for start/end transition clips: Seedance 1.5 Pro (start/end support, cheap, fast).",
+   "line": 115
+  },
+  {
+   "key": "clay.motion_cadence",
+   "value": "12fps stepped stop-motion, no motion blur",
+   "quote": "Handmade stop-motion claymation throughout — matte plasticine, visible fingerprints and tool marks, slightly stuttery 12fps stop-motion cadence, no motion blur. Non CGI. Non cartoon. Animation must start at the first frame.",
+   "line": 86
+  },
+  {
+   "key": "clay.actions_per_clip",
+   "value": "one motion action per clip; one gesture, one camera move",
+   "quote": "One motion action per clip - stacked actions multiply drift. In-scene beats stay simple: one gesture, one camera move.",
+   "line": 89
+  },
+  {
+   "key": "clay.substyles",
+   "value": "4 sub-styles, one per video, block verbatim",
+   "quote": "1 = Goofy claymation · 2 = Clean simple clay · 3 = Stop-motion puppet · 4 = Premium studio plasticine",
+   "line": 41
+  },
+  {
+   "key": "clay.transition_bridge",
+   "value": "one action, 2-3 storyboard drawings",
+   "quote": "The bridge is one physical action, stated in one short sentence - something you could picture as two or three storyboard drawings",
+   "line": 106
+  }
+ ],
+ "claims": [
+  {
+   "claim": 9,
+   "verdict": "TRUE",
+   "quote": "**Loudness:** −14 LUFS integrated for social/YouTube, true peak ≤ −1.5 dBTP (`ffmpeg -af loudnorm=I=-14:TP=-1.5:LRA=11`, two-pass).",
+   "line": 328,
+   "note": "The motion part of claim 9 is confirmed: motion-video-director uses -14 LUFS. QA line 476 repeats '−14 LUFS / −1.5 dBTP'. claymation has no loudness rule. As a cross-check, readymerce-animation-ads line 297 says 'Loudness is normalized to about -16 LUFS, peaks under -1.5 dB', so motion (-14) vs animation (-16) really differ. Drama, podcast and song values were not checked here."
+  },
+  {
+   "claim": 10,
+   "verdict": "PARTIAL",
+   "quote": "pipe PNG/JPEG frames into `ffmpeg -f image2pipe -r 30 -i - -c:v libx264 -pix_fmt yuv420p -crf 18` → mux audio.",
+   "line": 248,
+   "note": "Motion renders at 30 fps (line 248 '-r 30', example line 232 '--fps 30'), but only inside command examples. There is no stated delivery rule, and QA line 477 only says '`ffprobe` duration/fps/resolution correct' with no number. Previews run at 8 fps (line 255) and 'half-fps' (line 245). claymation adds a third number: a '12fps stop-motion cadence' (lines 21, 86). That is an in-clip look, not the container rate, but a dropped-frame check (QA line 477) could misread it. Drama's 24 fps was not checked here."
+  },
+  {
+   "claim": 13,
+   "verdict": "TRUE",
+   "quote": "**Hook devices:** bold claim, pattern interrupt, question, result-first, visual surprise in frame 1. No logo intro.",
+   "line": 267,
+   "note": "Result-first hooks are a listed hook device. The skill never mentions Hook Lab or Script Lab (grep finds no hits), so its hook rules stand alone."
+  },
+  {
+   "claim": 13,
+   "verdict": "TRUE",
+   "quote": "**Length → word budget** (natural VO ≈ 2.3–2.6 words/s; leave ≈ 1.5 s at the end for logo/CTA hold):",
+   "line": 342,
+   "note": "Own word budget table at lines 345-349: 15 s 30-38, 30 s 65-75, 45 s 100-110, 60 s 135-150, 90 s 200-220. It budgets per video, not per clip. The 15 s top value (38) exceeds its own formula: (15-1.5)×2.6 = 35."
+  },
+  {
+   "claim": 13,
+   "verdict": "TRUE",
+   "quote": "Line breaks = natural breath pauses; `…` = hesitation; `—` = short beat. Empty line = longer pause between sections.",
+   "line": 353,
+   "note": "Em dashes are used as pause marks here and at line 333 ('`—` short pause'). The example lines 338 and 375 also use em dashes in the paste block."
+  },
+  {
+   "claim": 13,
+   "verdict": "TRUE",
+   "quote": "→ **Approve script.** → **The user generates the MP3 and sends it back** (`assets/vo/`). Steps 3+ (and any scene code) start only after the MP3 arrives.",
+   "line": 241,
+   "note": "The user makes the MP3 by hand on elevenlabs.io (line 384, 'Generate 2–3 takes'). Golden rule (9) at line 9 forbids building before the user's MP3 arrives. The frontmatter (line 3) says the same. No API or MCP generation path exists."
+  },
+  {
+   "claim": 13,
+   "verdict": "TRUE",
+   "quote": "Sources: Freesound (prefer CC0, log attribution).",
+   "line": 328,
+   "note": "Freesound is the only SFX source (lines 35, 91, 154, 328). No music source or model is named anywhere, even though an assets/music/ folder exists."
+  },
+  {
+   "claim": 13,
+   "verdict": "TRUE",
+   "quote": "Copy `scripts/preview.mjs`, `scripts/create_env.sh` and `scripts/normalize_env.py` into the project's `scripts/` folder; the render script must follow the CLI contract in §2.",
+   "line": 20,
+   "note": "The skill folder holds only SKILL.md. A full-filesystem find returns nothing for preflight.sh (line 16), create_env.sh (lines 21, 133), normalize_env.py (line 149), analyze_ref.sh (line 433), fetch_pixabay.mjs or fetch_freesound.mjs (line 157). preview.mjs and render.js exist only as project-built copies at /home/user/main/straightscale-reel/scripts/preview.mjs and /home/user/main/straightscale-reel/src/render.js. That project's LOG.md line 11 says an agent wrote them on 2026-10-12, so they do not ship with the skill."
+  },
+  {
+   "claim": 1,
+   "verdict": "PARTIAL",
+   "quote": "Clay images default to **Nano Banana 2**: from testing, its clay outputs are notably more creative and truer to the style than GPT Image 2's, which came out flatter and less suited to claymation",
+   "line": 29,
+   "note": "claymation (the style skill that animation-ads loads) supports the animation side of claim 1: Nano Banana 2 is the default for clay images and GPT Image 2 is weaker for clay. It adds Seedream 4.5 as a third option. It says nothing about GPT Image 2.5, podcast, hub G7 or carousel. motion-video-director uses no image model; its stills are 'rendered from code' (line 243)."
+  },
+  {
+   "claim": 7,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "Default model for start/end transition clips: Seedance 1.5 Pro (start/end support, cheap, fast).",
+   "line": 115,
+   "note": "Drama routing is not covered here. This is a further unlisted conflict with the hub: claymation makes Seedance 1.5 Pro its default for transitions. Hub G1 (readymerce-ads-machine line 85) says 'Never FLUX 3, Seedance, Veo, Sora, Grok, Gemini/Omni, Wan or Hailuo, for any clip', and G2 (line 97) says 'Kling 3.0 is the fallback, never Seedance', and G1 names claymation explicitly. So the standing exceptions X1 to X4 are not the only off-hub model routes."
+  },
+  {
+   "claim": 5,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "One motion action per clip - stacked actions multiply drift. In-scene beats stay simple: one gesture, one camera move.",
+   "line": 89,
+   "note": "Shots per H3 take are not defined here. claymation adds a fourth constraint ('one motion action per clip'), which clashes with the hub prompt card's '2 to 4 shots per clip' (readymerce-ads-machine G1 item 4) whenever clay runs on H3."
+  },
+  {
+   "claim": 11,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "**Safe zones (9:16):** keep text/faces out of top ≈ 220 px and bottom ≈ 420 px, and right ≈ 140 px (platform UI). Captions around 60–70 % height.",
+   "line": 318,
+   "note": "This is a third safe-zone rule set. Bottom 420 px of 1920 is about 22%, close to the hub's 'bottom 20%', but it also clears the top (220 px) and right (140 px). Captions at 60-70% height (about 30-40% above the bottom) sit close to drama's 35-40%."
+  },
+  {
+   "claim": 8,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "**v3/v4: no SSML `<break>`**. Use punctuation: `…` hesitation, `—` short pause, line breaks, short sentences. `<break time=\"1.0s\"/>` only on older models (≤3 s, sparingly).",
+   "line": 333,
+   "note": "Motion has no pause-capping step, since it never edits the VO's pauses. It caps written SSML breaks at ≤3 s on older models only. The G8 vs vo_build2.py claim is not testable here."
+  },
+  {
+   "claim": 17,
+   "verdict": "TRUE",
+   "quote": "| `strategy-scripts`, `daily-video-factory`, `ad-video-factory`, `ugc-video-script-and-storyboard-designer` | Before any script is saved or produced | GRADE, then FIX on a fail |",
+   "line": 42,
+   "note": "Checked in readymerce-script-lab/SKILL.md, caller table lines 35-42. Its rows are animation-ads, song-ads, podcast-ads, ads-machine, hook-lab and strategy-scripts/daily-video-factory/ad-video-factory/ugc. readymerce-drama-ads and motion-video-director are absent, and motion-video-director never calls Script Lab either. The line number refers to the Script Lab file, not this skill."
+  }
+ ],
+ "story_structures": [
+  {
+   "code": "MVD-HPSPC",
+   "name": "Director spine: Hook → Problem → Solution → Proof → CTA (line 266)",
+   "shape": "Hook 0-3 s (bold claim / pattern interrupt / question / result-first / visual surprise; no logo intro) → Problem → Solution (features as outcomes) → Proof (real UI, numbers, testimonials, before/after) → CTA (one action, shown + spoken, ≥2 s)",
+   "organic_fit": "This works as the POV buyer story for an Albanian marketing agency. The hook is the owner's pain moment (≤8 words, e.g. a post with 3 likes). Problem is a day of posting with no leads. Solution is the agency's mechanism revealed as the turn. Proof is real dashboards and client post screenshots floating in as cards ('Simplify UI ... rather than invent it'). The CTA becomes 'comment PLAN' / save / follow instead of buy or link. Drop the offer and price, and keep the logo only as a ~1.5 s end hold."
+  },
+  {
+   "code": "MVD-A",
+   "name": "Premium talking-head caption reel (recipe A)",
+   "shape": "Subject walks toward camera; new location every ~3 s with hard cuts on sentence starts → 1-3 word captions around the subject (thin filler + gradient keyword) → counter roll 38→48→50 with photo cards popping in an arc → social-post screenshot as tilted 3D proof plane → pill buttons growing on spoken words → before/after cards → frame-blend ghost whip between takes",
+   "organic_fit": "Agency founder teaching one lesson ('2 things every Tirana business gets wrong on Instagram'). The counter roll shows real client growth, pills name the two things, and post screenshots are the proof. It needs real founder footage. Intensity 3-4. CTA is 'follow for part 2' or 'comment 2THINGS' for the DM funnel. No price."
+  },
+  {
+   "code": "MVD-B",
+   "name": "Cinematic storyteller documentary edit (recipe B)",
+   "shape": "1-2 s per visual idea, every sentence a new world, 1-frame black cuts: dim talking head → halftone paper + selection-box word → word-by-word build → torn-paper window to footage → 3D words in the room → dream collage with marker words → 3D picture frame 'At 17' → grunge paper 'OBSESSED' → RGB glitch → hyperspace tunnel chrome word → B&W archival → whip back to A-roll",
+   "organic_fit": "Founder origin story, or a client transformation told as a mini-documentary. Strong for saves and shares and for building affinity. Its intensity 5 clashes with the skill's own 'Corporate / B2B ... 1 – restrained' row, so an agency would run a toned-down version. The organic CTA is 'save this' or 'follow to see the next chapter'."
+  },
+  {
+   "code": "MVD-C",
+   "name": "SaaS product launch, Slack-style (recipe C)",
+   "shape": "Calm canvas + scramble-decoded tagline → brand orbs condense into app icons in a dock → motion-blur tilt → macro push into dock → cursor hover/click → product UI windows fly out as 3D cards → 3D monitor flattens to line art, push-through → problem line 'Your team lives in too many tools' → giant 'Zero' → 'Zero Alignment' → word swap 'Zero Momentum' → logo overshoot, tracking collapse",
+   "organic_fit": "Mechanism reveal for a service: scattered tools and freelancers condense into one content system. The 'Zero Alignment → Zero Momentum' word swap is the pain beat, and the logo arrives late with no offer. The CTA is 'comment SYSTEM and I'll send the checklist' (keyword funnel)."
+  },
+  {
+   "code": "MVD-D",
+   "name": "Brand-agency kinetic promo, Frontify concept (recipe D)",
+   "shape": "Music only, no VO: 'Your' with orange echo → 'Your Branding is' builds → 'Messy' over dimmed grid of work → card snake along a bezier arc → outline logo draw-on → wordmark over photo → card stack shuffles every beat (~0.31 s) → explodes into 4×2 grid → zoom into a label → search-bar typing → click 'Search' → invert → reveal 'Explore Templates'",
+   "organic_fit": "The closest native fit for a marketing agency: 'Your marketing is Messy' → a snake of the client's random posts → a grid that becomes an organized content calendar → reveal of the agency's system. Being music-only, it works muted and across languages. On-screen text stays ≤6-8 words, and the end card says 'Save this' or 'Comment GRID'."
+  },
+  {
+   "code": "MVD-VO-EX",
+   "name": "Mystery-reveal VO pattern (§10a example)",
+   "shape": "Provocative claim ('Nobody drew this.') → negation ('Not one line… not one frame.') → question ('So where did it come from?') → reveal → CTA line",
+   "organic_fit": "A curiosity loop for organic reels: 'Nobody on this team wrote this post.' → how the system works → 'Follow to see how'. The example's em dashes and 'link below' CTA need replacing for organic and house-style rules."
+  },
+  {
+   "code": "MVD-EDU",
+   "name": "Educational / tutorial treatment (§4 intensity 3)",
+   "shape": "Highlights, arrows, step counters, diagrams, calm music; avoid effects that cover content",
+   "organic_fit": "A '3 steps' how-to reel for saves, e.g. '3 things to fix on your Instagram bio'. Step counters drive retention, and the CTA is 'save for later' or 'send to your partner'."
+  },
+  {
+   "code": "CLAY-WB",
+   "name": "Clay world-bridge chain (carrier element / hand-of-god / build-up reveal)",
+   "shape": "Start frame A with a shared anchor → one physical action bridge (melt into a plasticine pool, knead and reshape, roll into a ball and unfold, coils assemble the object, clay smear wipe, a real hand re-sculpts one object into another, a recurring clay blob flows scene to scene) → end frame B; end frame chained into the next start frame",
+   "organic_fit": "A POV day in the life of an Albanian shop owner as a clay puppet (sub-style 3, 'story-driven'), with her phone as the anchor and a carrier blob linking scenes: the morning post flops, DMs go unanswered, she tries to boost alone. The revelation of the mechanism is a hand-of-god beat where real hands re-sculpt the chaos into an organized content plan (a coil build-up reveal). The end frame says 'Follow for episode 2' or 'Comment CLAY'. Since there is no product, the anchor is the phone or the content calendar, not a hero product ref."
+  },
+  {
+   "code": "CLAY-CB",
+   "name": "Clay camera-bridge reveal",
+   "shape": "Anchor fixed; camera push-in from mid shot to macro on the anchor, or pull-back reveal into a new scene",
+   "organic_fit": "Reveal beats: pull back from one lonely clay 'like' heart to a full clay crowd of customers, or push in on the phone screen to enter the next scene. These are cheap transitions inside an organic story."
+  },
+  {
+   "code": "CLAY-STYLES",
+   "name": "Four clay sub-styles as series treatments",
+   "shape": "1 Goofy (comedic, high-energy hooks) / 2 Clean simple (calm explainers) / 3 Stop-motion puppet (story-driven, cinematic) / 4 Premium plasticine (sophisticated default); one per video, block verbatim",
+   "organic_fit": "Lock one sub-style per recurring series so the feed is recognisable: puppet for the POV buyer saga, goofy for meme-style hook posts, premium for brand-safe agency explainers. Character identity is held through hero references across episodes."
+  },
+  {
+   "code": "CLAY-SHOTS",
+   "name": "Clay shot vocabulary",
+   "shape": "Macro texture close-up · worm's-eye miniature · tilt-shift tabletop · fingerprint insert · clay-frame POV (through a sculpted mirror/window/arch) · googly-eye ECU · hand-of-god cameo",
+   "organic_fit": "Clay-frame POV carries the 'buyer's eyes' framing, and the hand-of-god cameo is a ready metaphor for 'the agency steps in'. A worm's-eye miniature can make the problem feel giant in the pain section."
+  }
+ ],
+ "organic_adaptation": [
+  "CTA: replace the ad close with an organic action. The template example ends '[warmly] Start yours today — link below.' (line 375), and kickoff Q6 offers 'follow, buy, visit a link…' (line 81). Use follow / save / send / comment KEYWORD instead, tied to the hub keyword funnel. Keep the rules 'shown + spoken, on screen ≥ 2 s' (line 273) and 'CTA = last line, word-for-word what appears on screen' (line 354). IG reels have no clickable caption links, so 'link below' must go.",
+  "No offer or price: §3's Proof step can stay (real UI, numbers, testimonials), but nothing in the spine should carry price, guarantee or discount. Claymation's 'The product stays accurate. Attach the hero product reference' becomes 'the anchor object is the client's phone/calendar/dashboard' for a service brand.",
+  "Hook rules: put the skill under the shared Hook Lab with a B2B/services profile instead of its own device list ('result-first' etc., line 267). Keep the hard numbers (≤3 s, ≤8 words, no logo intro). Add organic hook types (POV, 'day in the life', curiosity) with no 'result-first' health-style claims.",
+  "Word budgets: replace the per-video table (lines 345-349) with the shared standards file's tiers and the per-clip budget used by H3 work. Keep 2.3-2.6 w/s only as a sanity check. Albanian VO pace may differ and should be measured, not assumed.",
+  "Pause marks: remove em dashes as pause marks (lines 333, 353 and example lines 338/375). Use the standard pause method from the shared file (line breaks, periods, '…') and the hub's no-cap-on-human-pauses rule.",
+  "Voice: replace the manual 'user generates the MP3 on elevenlabs.io' step (lines 241, 384) with an automated ElevenLabs generation per hub G8 (the ElevenLabs MCP is available in this environment). Keep the transcript diff vs script (line 244) as an automatic gate. Name the actual model id: the skill only says 'Eleven v4 (or v3)' and the template says 'Eleven v3 (or v4)'. Albanian narration needs a voice and model that support Albanian and pronunciation notes for Albanian brand names.",
+  "SFX/music: replace Freesound-only SFX (line 328) with the standard SFX and music source and dB levels. Keep 'VO 10–15 dB above music' only if it matches the shared value. The skill names no music source at all.",
+  "Loudness and fps: set one value in the standards file. The skill says -14 LUFS / -1.5 dBTP (line 328) where animation-ads says -16 LUFS. Delivery is 30 fps (line 248). Clay's 12fps stepped cadence must be whitelisted so QA doesn't flag it as dropped frames.",
+  "Safe zones: reconcile §8's top 220 / bottom 420 / right 140 px and 'Captions around 60–70 % height' (line 318) with the shared caption rule.",
+  "AI label: neither skill has any disclosure rule. Add the shared AI-label rule for organic posts (needed most for photoreal or clay AI content), plus a QA item for it.",
+  "Intensity: the §4 table puts 'Corporate / B2B' at '1 – restrained' (line 283), but organic reels for an agency compete in the social feed. The standards file should set the B2B-services organic intensity explicitly, probably 3-4 for hooks and 2 for explainers.",
+  "Model routing: claymation's Seedance 1.5 Pro transition default (line 115) conflicts with hub G1/G2 (H3 at 2K only, Kling 3.0 fallback, never Seedance). The organic pipeline must route clay transitions through H3 keyframe mode or Kling, or record an explicit exception. The rule 'One motion action per clip' must also be reconciled with the hub's 2-4 shots per H3 prompt.",
+  "Metrics/learning: motion-video-director has no metrics loop. The organic version needs IG insights (3 s hold, average watch time, saves, shares/sends, follows, keyword comments) fed back through growth-engine/organic.py, not Meta-ads data.",
+  "Product reveal timing: for organic, reveal the mechanism after the POV pain beats, not in a 0-5 s product-named hook. Keep 'No logo intro' and the ≈1.5 s logo/CTA end hold (line 342).",
+  "Approval: map the skill's human gates (Approve script, Approve plan, Approve preview, asset approval) onto the hub draft approval ('nothing is posted without approval'). An automated machine cannot wait for chat approvals at each step.",
+  "Compliance: keep the licence rules (fonts verified, 'reference-only' assets never in final without OK, Unsplash download_location call). Add organic-specific checks: no unverifiable client results, real numbers only, and music licensed for IG organic use.",
+  "Length: kickoff offers 15/30/60 s and the table goes to 90 s. Organic tiers should come from ORGANIC-OS (e.g. 15-30 s hooks, 45-60 s stories), with word budgets set per tier in the shared file."
+ ],
+ "visual_qa_overlap": "What motion-video-director already does: (1) Contact sheets of every frame of a range at 8 fps / 0.25 scale / 6 columns with timestamps (preview.mjs, line 255). These are checked for framing/safe area, overlaps, legibility, easing gaps, pops/flicker and continuity across cuts, then repeated over the whole video in 10 s chunks before the final (line 259). (2) A style board with 3-4 code-rendered stills and a type specimen for approval, plus a font test still ('no fallback font, no missing glyphs', line 427). (3) An asset contact sheet (4 columns, 400×400) with source links that the user approves. (4) Reference analysis with 4 fps sheets and 10 fps strips at cuts (scene>0.3). (5) ffprobe checks of duration/fps/resolution, a VO transcript diff vs the script, and volumedetect/ebur128 loudness. Gaps: all of this is a self-check by the same agent that built the frames. It assumes deterministic code-rendered frames, where 'a preview frame is identical to the final frame' (line 250), so it has no method for AI takes: no prompt cards, no image storyboards or sheets, no character or identity drift check across takes, no frame-vs-storyboard comparison, no retake cap. The storyboard is text only (line 242). What claymation already does: locked style, character and physicality blocks, a motion guard and frame-pair design rules, plus a 'Known limitations & workarounds' table (CGI drift, character variance, dot eyes, hair, glass, transition cuts, texture melt) and 'reroll on Nano Banana 2 before rewriting'. It has no QA step and no pass criteria. A fresh-agent Prompt Reviewer would lint every prompt before generation: style block first and verbatim, physicality block last, motion guard in every clip including transitions, banned words smooth/polished/glossy (which would flag the skill's own Clean-lane block), one action per clip, palette and camera angle named, hero or anchor reference attached, and hub prompt-card order where H3 is used. A fresh-agent Visual Reviewer would check start/end frame pairs: identical anchor from the same refs, same camera family, nothing silently removed, clay materiality visible (fingerprints or tool marks, cast shadows, no set edges), irises present in the premium lane, character consistency against the hero ref, and safe zones. A Take Reviewer would sample frames from AI takes, compare them with the storyboard still, check drift, 12fps stepping (not dropped frames), texture melt and cut-instead-of-morph, check lip-sync and transcript where a mouth moves, and enforce a retake cap and credit log. Neither skill has these.",
+ "costs": [
+  {
+   "item": "API keys for Pixabay, Freesound, Unsplash, Firecrawl",
+   "credits": "No credit numbers. 'Get the keys (all have free tiers)' (line 124). Rate limits only: Pixabay ≈100 req/min (line 153), Freesound ≈60 req/min, 2000/day (line 154)."
+  },
+  {
+   "item": "ElevenLabs voice generation",
+   "credits": "Not stated. The user generates it on their own elevenlabs.io account (line 384)."
+  },
+  {
+   "item": "Seedance 1.5 Pro clay transition clips",
+   "credits": "Not stated. Described only as 'cheap, fast' (claymation line 115)."
+  },
+  {
+   "item": "Clay image generations (Nano Banana 2 / GPT Image 2 / Seedream 4.5)",
+   "credits": "Not stated. No per-image cost or budget preflight in claymation."
+  }
+ ],
+ "other_issues": [
+  "Missing helper scripts: the motion-video-director folder holds only SKILL.md, with no scripts/ directory. scripts/preflight.sh (line 16), scripts/create_env.sh (lines 20, 21, 133), scripts/normalize_env.py (lines 20, 149), scripts/analyze_ref.sh (line 433), and scripts/fetch_pixabay.mjs / fetch_freesound.mjs (line 157) exist nowhere on disk. scripts/preview.mjs (line 20) exists only as /home/user/main/straightscale-reel/scripts/preview.mjs, built by an agent for that project (straightscale-reel/LOG.md line 11). An automated agent following Preflight steps 2, 6 and 7 will fail on the copy and run commands.",
+  "That project-built preview.mjs calls render.js with flags outside the §2 contract ('--name', '--frames-only', '--stamp', '--audio'). The skill's contract (line 250) lists only --from --to --fps --scale --out [--jpg], so any re-implementation must invent the extra interface.",
+  "Ordering contradiction: golden rule (1) says 'run Preflight first' and §0 says 'run every time this skill loads'. Golden rule (8) says to 'send the kickoff message (§0a) before anything else', and §0a says 'send this before preflight results or any planning' and 'After sending it: run preflight (§0) in the background'.",
+  "Golden rule (8) makes the agent read all 508 lines before the first reply, which is costly for an automated pipeline that only needs one step.",
+  "Voice model naming is inconsistent: §10 line 332 'Eleven v4 (or v3)' vs delivery template line 365 'Eleven v3 (or v4)'. No API model id is given, because the flow is paste-into-web-UI.",
+  "The word budget table's 15 s upper bound (38 words) breaks its own formula. (15 − 1.5 s) × 2.6 w/s ≈ 35 words.",
+  "VO export is 'MP3 44.1 kHz' (line 367) but delivery is 'AAC 48 kHz' (line 478). A resample is implied but never stated.",
+  "Step 5 (line 244) repeats 'transcribe with word timestamps' twice: once at VO intake and again at the end of the same step.",
+  "No music source or model is named anywhere, though there is an assets/music/ folder and mix rules (line 327).",
+  "The skill names unverified community MCPs ('sandraschi/sfx-mcp', 'xcollantes/free-stock-images-mcp', lines 35-36) and Pinterest scraping with a logged-in browser profile (§16), both risky for an unattended agent.",
+  "No credits, budget preflight, AI label, compliance router, or Hook Lab / Script Lab hand-off. QA (15 items) never checks hook quality beyond timing.",
+  "Overlap with repo routing: /home/user/main/CLAUDE.md sends all video work to motion-reel, and growth-engine/production/STANDARDS.md line 170 marks motion-video-director '(retired for our work)'. Yet its description ('Use when the user asks to make, edit, animate, caption, voice, or sound-design a video') will still auto-trigger, and ORGANIC-OS.md lines 4 and 677 still list it as a skill the Social Agent uses.",
+  "claymation self-contradiction: rule 2 (line 17) and the limitations table (line 121) say 'never write \"smooth,\" \"polished,\" or \"glossy\"'. Yet the Clean simple clay style block (line 56) opens 'Polished claymation scene - everything sculpted from smooth matte modeling clay ... soft even surfaces', and its design language (line 54) says 'smooth-matte rounded forms'.",
+  "claymation motion guard says 'Non cartoon' (line 86), but lane 1 asks for 'huge round googly cartoon eyes' (lines 47, 50) and lane 2 for 'gently exaggerated cartoon proportions' (line 56).",
+  "The motion-guard swap ('refined sculpting marks' instead of fingerprints, line 89) is specified only for the premium lane. Line 16 says the clean lane also uses tool marks, not fingerprints, so the clean lane's motion guard still demands 'visible fingerprints'.",
+  "claymation references a 'first-last-frame' skill (line 126) that does not exist in the synced skills or the repo.",
+  "claymation's transition default 'Seedance 1.5 Pro' (line 115) violates hub G1 ('Never ... Seedance', readymerce-ads-machine line 85) and G2 ('Kling 3.0 is the fallback, never Seedance', line 97). G1 lists claymation by name as H3-only.",
+  "claymation's world-bridge transitions rely on melting and morphing (line 113, 'the scene melts into a swirled plasticine pool'). The animation-ads motion guard (Phase 8a item 3) demands 'no morphing, no melting'. The two must be split into an in-scene guard and a transition guard.",
+  "animation-ads Phase 8a says to use the style skill's blocks 'word for word'. Its own claymation example differs from claymation's premium block: comma instead of ' - ' after 'scene', and 'inside the miniature world' vs 'inside the miniature clay world'.",
+  "claymation gives no aspect ratio, resolution, clip length or fps for delivery (animation-ads adds 9:16 in its style block). Its sub-style comparison image is an external URL (https://f.starpop.org/skill-refs/claymation-styles-v1.webp), and it closes with a promotional note for Starpop.ai (lines 131-137) that an agent should ignore.",
+  "claymation's physicality block (line 79) has no 'no text, no letters, no logos, no watermarks' clause. animation-ads adds that in its closing line, so a run using only claymation can produce gibberish text in frames."
+ ]
+}

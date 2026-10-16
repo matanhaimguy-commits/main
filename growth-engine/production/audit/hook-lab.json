@@ -1,0 +1,695 @@
+{
+ "skill": "readymerce-hook-lab",
+ "version": "v1.1 (2026-10-04); the embedded hook card is still labelled v1",
+ "purpose": "Hook-only skill for paid Meta ads. It writes, grades (A+ to F) and rewrites the first 3 to 8 seconds of an ad as one stack of three hooks: visual (frame 1 to about 3 s), text (on-screen super) and spoken (from 0.0 s). Every stack must pass 9 gates and grade A or A+ on every channel. It researches ad-library winners against same-brand losers into a per-category Hook Library, generates format-matched and original stacks, checks concept frames, hands the master stack and 2 variants to Script Lab (test 12, the seam), and reads live Meta metrics (hook rate, hold rate, cost per purchase) after about 1,000 impressions. Statics are handled as image plus headline, and story ads as the first 1 to 3 sentences plus the image. There is no carousel mode. The rules and the evidence come from DTC health ads (body parts, swelling, the lymph category, RYZE/Everly). It sets no video, voice, audio, fps or resolution standards; the calling skill owns those.",
+ "phases": [
+  {
+   "step": "Mode routing (Section 0)",
+   "name": "Pick the mode",
+   "does": "Routes the request. Hook step inside ads-machine (C3 step 6b), animation (Phase 3b) or song (Phase 3b): H0 to H7, then H8. New ad alone: H0 to H7. Pasted hook: H5 then H6. Rewrite: H6. Research, or a missing or stale library: H1 and H2. Iteration on a live ad: H3 to H6 on the same body, then H8. Static: 2-channel stack (image + headline). Long story ad: the first 1 to 3 sentences + the image. Stack sent back by Script Lab test 12: H6, then H4, then back to Script Lab.",
+   "gate": "Library older than 60 days, or missing: run H1 and H2 first. No carousel, drama or podcast row.",
+   "human_checkpoint": "none",
+   "tools_models": "Skill tool"
+  },
+  {
+   "step": "H0",
+   "name": "Load and check",
+   "does": "Reads the Copy Laws (hub Part L and Appendix M in readymerce-script-lab) once per session and finds the category's Hook Library project doc (Lymphelle: doc 42).",
+   "gate": "Fresh means under 60 days old and covering this format, otherwise run H1 first.",
+   "human_checkpoint": "none",
+   "tools_models": "Skill tool (readymerce-script-lab, readymerce-ads-machine)"
+  },
+  {
+   "step": "H1",
+   "name": "Research winners vs losers",
+   "does": "Runs once per category and format, refreshed every 30 to 60 days. It analyses each source set alone and then compares them: (a) category competitors, (b) the format's swipe file (animation Appendix A, song Appendix S, hub B19), (c) adjacent-persona winners, (d) the brand's own live ads. For each ad it records the spoken hook, seconds to the problem, frames at 0, 1 and 3 s, the text hook, the headline and first line, days running, used_count, format and hook type. It then analyses winners against losers per channel and writes a cross-set synthesis. It states the limits: run time is not spend, posters are approximations.",
+   "gate": "Winner: running 30+ days, OR still running after 21+ days, OR top 10% by run time inside its brand; copies with used_count 3+ count as a vote. Loser: a same-brand video ad that stopped within 10 days. Aim for 15+ winners and 10+ losers per set. search_ads limit 10 or less.",
+   "human_checkpoint": "Never start brand spies or change anything in an account without the user.",
+   "tools_models": "GetHookd (get_user_profile first, free; get_ad, get_ad_hooks, get_top_hooks, get_ad_media free; search_ads billed per row), Meta Ad Library fallback, Higgsfield sandbox (mcp__Higgs__sandbox_exec) with ffmpeg frames at 0/1/2/3 s in a 180x320 WebP q40 strip as base64 under 19,000 chars, faster-whisper for transcripts"
+  },
+  {
+   "step": "H2",
+   "name": "Write or update the Hook Library",
+   "does": "Writes one project doc per category: coverage, ranked tables per set, winners vs losers per channel, custom principles (one rule + evidence ids + channel), the format library (3-line entries: label/days/spoken verbatim + mad-lib; text verbatim + formula; visual formula [what] + [where] + [action] + [persona cue]), do-not-use list, white space, open gaps, and the live results log.",
+   "gate": "Each custom principle carries evidence ids and a channel.",
+   "human_checkpoint": "Show the user any new custom principles before they are used to grade.",
+   "tools_models": "Project doc (not a repo file)"
+  },
+  {
+   "step": "H2b",
+   "name": "Inputs per ad",
+   "does": "Collects the avatar and persona cues, the angle and its awareness stamp, the format and treatment, the VOC word for the problem, workarounds, moments and failed fixes in the buyer's words, the brand's real facts and proof, and line two of the body (or the planned problem beat).",
+   "gate": "3+ workarounds and 3+ moments, plus the failed fixes, in their words.",
+   "human_checkpoint": "none",
+   "tools_models": "Brief card from the calling skill"
+  },
+  {
+   "step": "H3",
+   "name": "Generate",
+   "does": "List 2 (format-matched): runs every library format through the compatibility screen (structure with no fake number, tone, word substitution) and keeps up to 5 per source set, never padding. List 3 (original): 5 stacks written from the rubric, iterated until every channel grades A. Each stack is written whole: the visual as a storyboard spec (who does what to what, where, persona cues, what changes by 1 s and 3 s), the text as final copy, the spoken hook in the caller's line format, the seam line, the hook type and the source format. Concept frames: one still per finalist in the ad's style, with the text hook laid on top at phone size.",
+   "gate": "Any compatibility-screen fail cuts the format. On the concept frame, check the one-second read and the sound-off test on the picture, not on the description.",
+   "human_checkpoint": "none",
+   "tools_models": "Unnamed 'image model', about 2 credits per concept frame"
+  },
+  {
+   "step": "H4",
+   "name": "Grade",
+   "does": "Gates first: a stack that fails a gate is out or goes to H6. Then grades each channel on the 11 rubric principles plus the library's custom principles, in a clean table (# / Type / Visual / Text / Spoken / V / T / S / Stack). Reasons only when asked.",
+   "gate": "All 9 gates pass and every channel is A or A+ (A+ 10, A 9). An A- (8) goes back to H6. Keep the best 3 at A or A+: a master and 2 variants with at least 2 hook types.",
+   "human_checkpoint": "none (self-graded by the same agent that wrote the stacks)",
+   "tools_models": "none"
+  },
+  {
+   "step": "H5",
+   "name": "Grade mode (user's hook)",
+   "does": "Grades a user hook line by line and channel by channel against the gates and rubric, says exactly what works and what doesn't, and places it in the ranking next to the generated stacks.",
+   "gate": "Never inflate.",
+   "human_checkpoint": "none",
+   "tools_models": "none"
+  },
+  {
+   "step": "H6",
+   "name": "Rewrite mode",
+   "does": "Three rewrites, each by a different route: structure, value promise, specificity or proof. For a weak visual, one rewrite changes the hook type or the picture. Each rewrite is graded with a reason.",
+   "gate": "Re-grade to A or A+ via H4.",
+   "human_checkpoint": "none",
+   "tools_models": "none"
+  },
+  {
+   "step": "H7",
+   "name": "Hand-off to production",
+   "does": "The calling skill's script gate shows each spine with its stacks and concept frames. The master stack and 2 variants go to Script Lab with their seam lines (test 12 checks the seam, the payoff and bait; a stack that fails comes back for H6 or moves to another tier). Frame proof: the hook storyboard is made first and checked at phone size with the text, sound off. The hook sequence is rendered twice. The text hook is set exactly as approved from frame 1, and the first word lands at 0.0 s. Each variant runs as its own ad with its own first clip, super and first line.",
+   "gate": "The storyboard keeps the concept frame's subject, scale and persona cues. Of the 2 renders, keep the take whose frame 1 reads best. First word at 0.0 s.",
+   "human_checkpoint": "The user picks the spine and the master stack together. This is GATE 4 in readymerce-animation-ads and readymerce-song-ads; the hook storyboard gate is GATE 7 in animation and GATE 6 in song, per their changelogs. Hook Lab itself numbers no gates.",
+   "tools_models": "Skill tool (readymerce-script-lab); render via calling skill"
+  },
+  {
+   "step": "H8",
+   "name": "Test and learn (paid only)",
+   "does": "Reads each stack after about 1,000 impressions and diagnoses. Low hook rate: the visual or the text. A drop before 15 s: the spoken hook or the seam. Good hold with low link CTR: the body, the bridge or the offer. Every result is logged in the Hook Library (winners validated, losers to the do-not-use list).",
+   "gate": "Hook rate (3 s plays / impressions): floor 30% (under 25%, re-hook first), target 40%, stretch 50%. Hold rate (15 s plays / 3 s plays): floor 25%, target 35%. Cost per purchase at ad-set level decides.",
+   "human_checkpoint": "none",
+   "tools_models": "Meta ads data (impressions, 3 s and 15 s plays, link CTR, cost per purchase)"
+  }
+ ],
+ "numbers": [
+  {
+   "key": "hook_only_viewers_share",
+   "value": "about 80% of viewers see only the hook",
+   "quote": "About 80% of viewers only see the hook",
+   "line": 8
+  },
+  {
+   "key": "evidence_base_size",
+   "value": "37 animation winners, 9 song winners, 38 category and adjacent winners, 32 same-brand losers",
+   "quote": "backed by research on 37 animation winners, 9 song winners, 38 category and adjacent winners and 32 same-brand losers (Section 10)",
+   "line": 10
+  },
+  {
+   "key": "copy_rule_em_dashes",
+   "value": "no em dashes in any output",
+   "quote": "- Simple words, no em dashes, no hype words, no flattery.",
+   "line": 13
+  },
+  {
+   "key": "hook_library_freshness",
+   "value": "under 60 days old and covering this format",
+   "quote": "Fresh means under 60 days old and covering this format. If it's missing or stale, run H1 first.",
+   "line": 164
+  },
+  {
+   "key": "research_refresh_cadence",
+   "value": "every 30 to 60 days, once per category and format",
+   "quote": "### H1. Research (once per category and format; refresh every 30 to 60 days)",
+   "line": 166
+  },
+  {
+   "key": "visual_hook_window",
+   "value": "frame 1 to about 3 s",
+   "quote": "| **Visual** | Frame 1 to about 3 s | Everyone, sound on or off. Seen first |",
+   "line": 40
+  },
+  {
+   "key": "text_hook_window",
+   "value": "frame 1 to about 3 s",
+   "quote": "| **Text** | Words on screen from frame 1 to about 3 s (a super, a banner, the first caption words)",
+   "line": 41
+  },
+  {
+   "key": "spoken_hook_duration",
+   "value": "from 0.0 s, usually 1 to 3 sentences, 3 to 8 s",
+   "quote": "First word at 0.0 s, until the line where the ad turns from \"getting you to stay\" to \"delivering the content\" (usually 1 to 3 sentences, 3 to 8 s)",
+   "line": 42
+  },
+  {
+   "key": "grade_bar",
+   "value": "all 9 gates pass and every channel A or A+",
+   "quote": "A stack ships only when all 9 gates pass (Section 3) and every channel grades **A or A+** (Section 4). An A- has a weakness that can be named and fixed, so it goes back to H6.",
+   "line": 50
+  },
+  {
+   "key": "grade_scale",
+   "value": "A+ 10, A 9, A- 8, B+ 7; A- is rewritten",
+   "quote": "all 9 gates pass and every channel grades A or A+ (A+ 10, A 9, A- 8, B+ 7). An A- goes back for a rewrite.",
+   "line": 244
+  },
+  {
+   "key": "buyer_lock_time",
+   "value": "2 seconds, sound off",
+   "quote": "**Buyer lock:** the right person thinks \"that's me\" within 2 seconds, sound off.",
+   "line": 67
+  },
+  {
+   "key": "open_question_time",
+   "value": "10 s",
+   "quote": "**Open question at 10 s:** the viewer still needs an answer.",
+   "line": 72
+  },
+  {
+   "key": "no_product_window",
+   "value": "no product, brand, logo, ingredient, mechanism name, price or offer in the first 3 s",
+   "quote": "**No product, brand, logo, ingredient, mechanism name, price or offer** in the first 3 s.",
+   "line": 73
+  },
+  {
+   "key": "meta_policy_gate",
+   "value": "no side-by-side before/after, no 'your [condition]' or age label in text, never ashamed, never medical severity (no AI-label rule anywhere in the skill)",
+   "quote": "**Meta check:** no side-by-side before and after; no \"your [condition]\" and no age label in the text; the person on screen is annoyed or comic, never ashamed; never medical severity (wounds, bandages, gory swelling).",
+   "line": 75
+  },
+  {
+   "key": "visual_one_second_read",
+   "value": "readable alone in 1 second at phone size",
+   "quote": "One meaning, readable alone in 1 second at phone size",
+   "line": 82
+  },
+  {
+   "key": "spoken_first_words",
+   "value": "problem, cause or failed fix in the first 6 words",
+   "quote": "The problem, its cause or the failed fix in the first 6 words",
+   "line": 81
+  },
+  {
+   "key": "spoken_sentence1_length",
+   "value": "8 to 14 words (winners' median 12, losers' 18)",
+   "quote": "Sentence 1 is 8 to 14 words** (winners' median 12, losers' 18).",
+   "line": 113
+  },
+  {
+   "key": "text_hook_read_time",
+   "value": "under 1.5 s",
+   "quote": "Readable in under 1.5 s",
+   "line": 86
+  },
+  {
+   "key": "first_word_timing",
+   "value": "0.0 s, no intro music, greeting or logo sting",
+   "quote": "**First word at 0.0 s** (35 of 36 voiced animation winners). No intro music, no greeting, no logo sting.",
+   "line": 112
+  },
+  {
+   "key": "credibility_anchor_position",
+   "value": "lines 2 to 3",
+   "quote": "**A credibility anchor in lines 2 to 3** when a real one exists",
+   "line": 118
+  },
+  {
+   "key": "song_hook_timing",
+   "value": "first sung line by about 1 s, problem sung by about 3 s",
+   "quote": "**Songs:** the first sung line lands by about 1 s. Line 1 may be a person or a confession if it rhymes and carries a number; the problem itself is sung by about 3 s and is on screen from frame 1.",
+   "line": 121
+  },
+  {
+   "key": "caption_safe_zone",
+   "value": "text hook in top third; top 14% and bottom 20% clear; never over the frame-1 subject",
+   "quote": "in the top third, inside the safe zone (top 14% and bottom 20% clear), never covering the frame-1 subject",
+   "line": 124
+  },
+  {
+   "key": "text_hook_words",
+   "value": "4 to 10 words on one or two lines; 5 to 8 most common winning length",
+   "quote": "**4 to 10 words,** on one or two lines. 5 to 8 is the most common winning length.",
+   "line": 125
+  },
+  {
+   "key": "word_by_word_captions",
+   "value": "count as text hook only if key words readable by 2 s",
+   "quote": "**Word-by-word captions count as the text hook** only if the key words are readable by 2 s.",
+   "line": 127
+  },
+  {
+   "key": "super_lengths",
+   "value": "hook super 4 to 10 words; other supers 2 to 6 words",
+   "quote": "**One length rule for every Readymerce skill:** 4 to 10 words for the hook super; other supers stay 2 to 6 words.",
+   "line": 129
+  },
+  {
+   "key": "picture_change_inside_hook",
+   "value": "a cut inside 3 s goes from cause to sign or proof",
+   "quote": "**If you cut inside 3 s, cut from the cause to the sign or the proof** (the kidney, then the foamy toilet).",
+   "line": 106
+  },
+  {
+   "key": "symptom_list_antipattern",
+   "value": "a checklist of 4 or more symptoms is an anti-pattern",
+   "quote": "a checklist of 4 or more symptoms",
+   "line": 95
+  },
+  {
+   "key": "stacks_per_ad_types",
+   "value": "3 stacks per ad, at least 2 hook types",
+   "quote": "Every stack names its type. The 3 stacks per ad use at least 2 types.",
+   "line": 137
+  },
+  {
+   "key": "winner_loser_definition",
+   "value": "winners 30+ days, or still running after 21+ days, or top 10% run time; used_count 3+ = a vote; losers stopped within 10 days; 15+ winners and 10+ losers per set",
+   "quote": "**Winners:** running 30+ days, or still running after 21+ days, or in the top 10% by run time inside their brand; copies (used_count 3+) count as a vote. **Losers:** the same brand's video ads that stopped within 10 days.",
+   "line": 168
+  },
+  {
+   "key": "research_sample_size",
+   "value": "15+ winners and 10+ losers per set",
+   "quote": "Aim for 15+ winners and 10+ losers per set.",
+   "line": 168
+  },
+  {
+   "key": "research_tool_cost_limits",
+   "value": "get_user_profile free first; get_ad, get_ad_hooks, get_top_hooks, get_ad_media free; search_ads billed per row, limit 10 or less",
+   "quote": "call get_user_profile first (free). get_ad, get_ad_hooks, get_top_hooks and get_ad_media are free.",
+   "line": 170
+  },
+  {
+   "key": "search_ads_limit",
+   "value": "limit 10 or less, use fields argument",
+   "quote": "search_ads bills per row: use limit 10 or less and the fields argument.",
+   "line": 170
+  },
+  {
+   "key": "qa_frame_sampling_research",
+   "value": "frames at 0, 1, 2 and 3 s; strip about 180x320 per frame, WebP quality 40, base64 under 19,000 characters; sandbox wiped about 10 s after each call",
+   "quote": "cut frames at 0, 1, 2 and 3 s with ffmpeg, build one small strip per ad (about 180x320 per frame, WebP quality 40), print it as base64 under 19,000 characters",
+   "line": 171
+  },
+  {
+   "key": "sandbox_lifetime",
+   "value": "about 10 s after each call; download, cut and print in one command",
+   "quote": "The sandbox is wiped about 10 s after each call, so download, cut and print in one command.",
+   "line": 171
+  },
+  {
+   "key": "transcript_method",
+   "value": "faster-whisper in the Higgsfield sandbox",
+   "quote": "Faster-whisper in the sandbox transcribes ads that have no transcript.",
+   "line": 171
+  },
+  {
+   "key": "inputs_per_ad",
+   "value": "3+ workarounds, 3+ moments",
+   "quote": "3+ workarounds, 3+ moments and the failed fixes, in their words",
+   "line": 184
+  },
+  {
+   "key": "format_matched_cap",
+   "value": "up to 5 per source set",
+   "quote": "Keep up to 5 per source set. Never pad: say \"only N formats fit\".",
+   "line": 187
+  },
+  {
+   "key": "original_stacks_count",
+   "value": "5 original stacks",
+   "quote": "**List 3, original.** 5 stacks written from the rubric, not from any one creator.",
+   "line": 188
+  },
+  {
+   "key": "storyboard_spec_hook",
+   "value": "storyboard spec states what changes by 1 s and 3 s",
+   "quote": "the visual as a storyboard spec (who does what to what, where, the persona cues, what changes by 1 s and 3 s)",
+   "line": 189
+  },
+  {
+   "key": "image_model_concept_frames",
+   "value": "unnamed 'the image model', about 2 credits each, text hook laid on at phone size",
+   "quote": "one quick still each, in the ad's style (the image model, about 2 credits each), with the text hook laid on top at phone size",
+   "line": 190
+  },
+  {
+   "key": "stacks_kept",
+   "value": "best 3 at A or A+: master + 2 variants, at least 2 hook types",
+   "quote": "Keep the best 3 at A or A+: a master and 2 variants, with at least 2 hook types between them.",
+   "line": 198
+  },
+  {
+   "key": "rewrite_count",
+   "value": "3 rewrites, each a different route",
+   "quote": "Three rewrites, each by a different route: one fixes the structure, one reframes the value promise, one adds specificity or proof.",
+   "line": 204
+  },
+  {
+   "key": "human_checkpoint_pick",
+   "value": "user picks spine + master stack at the calling skill's script gate",
+   "quote": "The user picks the spine and the master stack together.",
+   "line": 211
+  },
+  {
+   "key": "frame_proof_storyboard",
+   "value": "hook storyboard first, phone size, text on, sound off; keeps concept frame's subject, scale, persona cues",
+   "quote": "**Frame proof:** the hook sequence's storyboard is made first and checked at phone size with the text hook on it, sound off. It must keep the concept frame's subject, scale and persona cues.",
+   "line": 213
+  },
+  {
+   "key": "retake_cap_hook_render",
+   "value": "hook sequence rendered twice; keep the take whose frame 1 reads best",
+   "quote": "**Render:** the hook sequence is rendered twice; keep the take whose frame 1 reads best.",
+   "line": 214
+  },
+  {
+   "key": "metrics_read_threshold_and_benchmarks",
+   "value": "about 1,000 impressions; hook rate median 23% feed / 30% Reels, 30 to 40% good, 40%+ elite, 45%+ rare; hold median 18% feed / 23% Reels, about 25% healthy",
+   "quote": "Read each stack after about 1,000 impressions. Third-party benchmarks: hook rate median about 23% in feed and 30% in Reels; 30 to 40% good; 40%+ elite; 45%+ rare. Hold rate median about 18% in feed and 23% in Reels; about 25% healthy.",
+   "line": 219
+  },
+  {
+   "key": "hook_rate_targets",
+   "value": "floor 30% (under 25% re-hook first), target 40%, stretch 50%",
+   "quote": "- **Hook rate** (3-second plays ÷ impressions): floor 30% (under 25%, re-hook first), target 40%, stretch 50%.",
+   "line": 221
+  },
+  {
+   "key": "hold_rate_targets",
+   "value": "floor 25%, target 35%",
+   "quote": "- **Hold rate** (15-second plays ÷ 3-second plays): floor 25%, target 35%.",
+   "line": 222
+  },
+  {
+   "key": "deciding_metric",
+   "value": "cost per purchase at ad-set level",
+   "quote": "Cost per purchase at ad-set level decides. A funny hook that pulls non-buyers can hit 50% and still lose money.",
+   "line": 226
+  },
+  {
+   "key": "evidence_problem_at_0s",
+   "value": "24 of 37 winners vs 2 of 12 losers",
+   "quote": "(24 of 37 animation winners vs 2 of 12 same-brand losers show the problem at 0 s.)",
+   "line": 100
+  },
+  {
+   "key": "evidence_picture_decides",
+   "value": "117 days vs 6 days, same words, different frame",
+   "quote": "The same spoken words ran 117 days over her swollen legs and 6 days over a smiling AI woman of about 70.",
+   "line": 108
+  },
+  {
+   "key": "evidence_persona_age",
+   "value": "peer woman about 40 to 58 in frame 1: 11 of 22 winners vs 4 of 18 losers",
+   "quote": "| A peer woman about 40 to 58 in frame 1 (category) | 11 of 22 | 4 of 18 |",
+   "line": 266
+  },
+  {
+   "key": "evidence_headline_and_dead_openers",
+   "value": "weight/fat and conspiracy/disgust/anger openers died in 2 to 3 days; 17 winners hold a 5 to 11 word headline",
+   "quote": "Also: calling the problem weight or fat died in 2 to 3 days in the category; conspiracy, disgust and anger openers died in 2 to 3 days; 17 animation winners hold a static 5 to 11 word headline.",
+   "line": 268
+  }
+ ],
+ "claims": [
+  {
+   "claim": 14,
+   "verdict": "TRUE",
+   "quote": "| A static ad | The 2-channel stack (image + headline): same gates, rubric and bar |",
+   "line": 30,
+   "note": "Hook Lab's modes table has rows for statics and long story ads only. There is no carousel mode. carousel-machine (SKILL.md lines 134-144) runs its own Step 5: 5 variations graded on four PASS/FAIL gates, with a cover of up to 12 words. That conflicts with Hook Lab's 4 to 10. It never loads readymerce-hook-lab, and grepping it for 'hook-lab', 'Hook Lab', 'cold read' and 'fresh agent' finds nothing. So carousels skip both the Hook Lab and a fresh-agent cold read."
+  },
+  {
+   "claim": 15,
+   "verdict": "TRUE",
+   "quote": "never medical severity (wounds, bandages, gory swelling).",
+   "line": 75,
+   "note": "Line 10 says it 'works for any product or service', but the rules are DTC health. Line 100: frame 1 is 'the body part already swollen'. Line 104: 'one real-looking body part'. Rubric rows 5 and 8 (lines 85 and 88) ask for a body part. Section 10's evidence is RYZE, Everly, Polar, Candy Claws and 22 lymph-category winners, and the example library is 'for Lymphelle: doc 42' (line 164). There is no B2B or services profile. HOOK-LIBRARY-B2B-AL is never mentioned in the skill and exists nowhere on disk. growth-engine/ORGANIC-OS.md line 676 points to it as the project file ugc-ads/HOOK-LIBRARY-B2B-AL.md. motion-studio/projects/straightscale-2026-w43-3-reel-v2/docs/hooks.md line 3 says 'no category Hook Library existed' for the Albania agency."
+  },
+  {
+   "claim": 16,
+   "verdict": "TRUE",
+   "quote": "Read each stack after about 1,000 impressions.",
+   "line": 219,
+   "note": "Every H8 metric is a paid-ad metric: impressions, 3-second and 15-second plays, link CTR, and 'Cost per purchase at ad-set level decides' (line 226). There is no organic metric: saves, sends, follows, keyword comments, skip rate, non-follower reach. Script Lab LEARN (readymerce-script-lab SKILL.md line 708) says 'Pull, read only, with the Facebook Ads connector: 3-second plays, ThruPlays... link CTR and cost per purchase.' The claim holds for both skills."
+  },
+  {
+   "claim": 11,
+   "verdict": "TRUE",
+   "quote": "inside the safe zone (top 14% and bottom 20% clear)",
+   "line": 124,
+   "note": "Hook Lab keeps the bottom 20% clear. readymerce-drama-ads 7.5 (line 398) says 'The top 14% and bottom 35 to 40% are UI. So is the right 21% of the width in the lower half'. Hook Lab says nothing about the right-side button column."
+  },
+  {
+   "claim": 13,
+   "verdict": "TRUE",
+   "quote": "the solved result in frame 1 with no problem",
+   "line": 95,
+   "note": "Hook Lab bans what motion-video-director does: a solved result in frame 1 (anti-pattern, line 95; also line 100 'Never ... the happy result') and em dashes (line 13). motion-video-director SKILL.md: line 267 'Hook devices: bold claim, pattern interrupt, question, result-first'; lines 333 and 353 use the em dash as a pause mark; line 342 has its own word budget ('natural VO ≈ 2.3–2.6 words/s'); line 63 has the user generate the MP3 on elevenlabs.io; the line 3 description lists Freesound. Lines 16, 20 and 187 reference scripts/preflight.sh, preview.mjs, create_env.sh and normalize_env.py, but the skill folder holds only SKILL.md."
+  },
+  {
+   "claim": 17,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "| The hook step inside readymerce-ads-machine (C3 step 6b), readymerce-animation-ads (Phase 3b) or readymerce-song-ads (Phase 3b) | H0 to H7, then H8 after launch |",
+   "line": 24,
+   "note": "The claim is about Script Lab, and it holds there. Its 'Who calls it' table (readymerce-script-lab SKILL.md lines 36-43) lists animation, song, podcast, ads-machine, hook-lab, strategy-scripts, daily-video-factory, ad-video-factory and ugc-video-script-and-storyboard-designer. It has no drama row and no motion skill. Hook Lab's own caller list has the same kind of gap: no drama row, even though readymerce-drama-ads line 10 says 'readymerce-hook-lab owns the hook stack', and no podcast or motion row."
+  },
+  {
+   "claim": 7,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "**Meta check:** no side-by-side before and after; no \"your [condition]\" and no age label in the text; the person on screen is annoyed or comic, never ashamed",
+   "line": 75,
+   "note": "The video-model routing and G1/G2 are not in Hook Lab. Related: drama's exceptions X3 (shame allowed after 3 s) and X7 (text hook optional, at most 6 words) relax Hook Lab gate 9 and the text channel (readymerce-drama-ads lines 121, 125, 387-392). Hook Lab doesn't know about them, so an agent running it on a drama ad would enforce rules that drama has relaxed."
+  },
+  {
+   "claim": 1,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "(the image model, about 2 credits each)",
+   "line": 190,
+   "note": "Hook Lab never names an image model for concept frames. It says only 'the image model', and the 2-credit figure depends on which model that is."
+  },
+  {
+   "claim": 2,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "**Render:** the hook sequence is rendered twice; keep the take whose frame 1 reads best.",
+   "line": 214,
+   "note": "No H3 duration rule. Rendering is left to the calling skill."
+  },
+  {
+   "claim": 3,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "",
+   "line": 0,
+   "note": "No minimum clip length in Hook Lab."
+  },
+  {
+   "claim": 4,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "Sentence 1 is 8 to 14 words",
+   "line": 113,
+   "note": "The only word count is sentence 1 of the spoken hook. There is no words-per-clip rule."
+  },
+  {
+   "claim": 5,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "",
+   "line": 0,
+   "note": "No shots-per-take rule. The only cut rule is line 106: a cut inside 3 s goes from cause to sign or proof."
+  },
+  {
+   "claim": 6,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "Songs still get a held super over the lyric captions (song skill 12.8).",
+   "line": 128,
+   "note": "Song production settings are not in Hook Lab. The song 12.8 reference resolves: readymerce-song-ads line 374. Song GATE 4 (song SKILL.md line 187) has the user generate each song in Suno, which supports the claim's 'Suno generated by the user' part."
+  },
+  {
+   "claim": 8,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "",
+   "line": 0,
+   "note": "No pause rules in Hook Lab."
+  },
+  {
+   "claim": 9,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "",
+   "line": 0,
+   "note": "No loudness rule."
+  },
+  {
+   "claim": 10,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "",
+   "line": 0,
+   "note": "No frame rate."
+  },
+  {
+   "claim": 12,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "",
+   "line": 0,
+   "note": "Hook Lab has no AI-label or disclosure rule either way."
+  },
+  {
+   "claim": 18,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "moved another to the C45; project doc 45",
+   "line": 212,
+   "note": "Hook Lab names the C45 tier but gives no seconds. The hub router (readymerce-ads-machine line 1708) reads '40 to 50s (C45)'."
+  }
+ ],
+ "story_structures": [
+  {
+   "code": "HL-STACK",
+   "name": "Three-channel hook stack + seam",
+   "shape": "Visual problem in frame 1 (moving, big) + text hook of 4 to 10 words in the top third from frame 1 to about 3 s + spoken line from 0.0 s naming the problem, cause or failed fix in the first 6 words (sentence 1 of 8 to 14 words) -> seam into line two -> an open question still live at 10 s",
+   "organic_fit": "The base for every organic reel. Albanian agency example: frame 1 is a shop owner's phone lighting up at night with an unanswered 'Sa kushton?' DM. The text: 'Why your DMs never turn into bookings'. The voice opens on the moment in her words. The body pays the question, and the close is an organic CTA (comment a keyword for the checklist, save, or send to a business-owner friend). No offer or price at any point, and the mechanism isn't named in the first 3 s."
+  },
+  {
+   "code": "HL-T1",
+   "name": "Character in place",
+   "shape": "The problem or organ speaks from where it lives -> names the sign in the buyer's words -> asks for help (the seam)",
+   "organic_fit": "The unanswered DM, the empty booking calendar or the dead 'Boost' button speaks as a character: 'I'm the DM you left on read at 22:47...'. It works well as a recurring animated series character. Swap the body-part rules for one real prop (a phone or a calendar) under the cartoon."
+  },
+  {
+   "code": "HL-T2",
+   "name": "Villain mockery",
+   "shape": "The problem mocks the failed fix -> one-word put-down -> cut to why the fix fails",
+   "organic_fit": "The algorithm or the 'post every day' myth mocks the owner: 'He thinks one more boosted post will fill the salon. Cute.' Strong for shares and comments. It must stay comic, never shaming the owner (gate 9 tone)."
+  },
+  {
+   "code": "HL-T3",
+   "name": "Stop doing X",
+   "shape": "A warning on the failed fix or habit -> the reason -> the better way",
+   "organic_fit": "'Never answer \"Sa kushton?\" with just a price.' This is the natural save-bait tip format. Close with 'save this' or 'comment REPLY for the script'."
+  },
+  {
+   "code": "HL-T4",
+   "name": "Hidden cause",
+   "shape": "'This is why...' + the problem -> the hidden cause shown as one picture -> the fix teased",
+   "organic_fit": "'This is why your followers never become customers.' It maps onto a POV day-in-the-life: the owner's pains through the day, then the reveal of the mechanism (the reply speed, the missing follow-up). Educational trust content with a follow CTA."
+  },
+  {
+   "code": "HL-T5",
+   "name": "Fear moment",
+   "shape": "A specific moment in their world -> the stakes -> the open question",
+   "organic_fit": "POV opener: 'It's Saturday, the salon is empty, and your last post got 12 likes...'. Use the client's real numbers only. Opens a day-in-the-life story that ends on the mechanism."
+  },
+  {
+   "code": "HL-T6",
+   "name": "What would happen if (crowded)",
+   "shape": "Habit + timeframe + a dare or an odd character",
+   "organic_fit": "'What would happen if you answered every DM within 5 minutes for 30 days?' Use it as a documented challenge series (follow for day N). It needs a fresh twist, since the skill marks it crowded."
+  },
+  {
+   "code": "HL-T7",
+   "name": "Named person + habit",
+   "shape": "A specific, countable person + their habits -> their problem",
+   "organic_fit": "'A bakery owner in Tirana posting every day and still getting zero orders from Instagram.' This is a case-study reel opener. The persona cues (apron, counter, Albanian shopfront) let the buyer self-select with the sound off."
+  },
+  {
+   "code": "HL-T8",
+   "name": "Confession",
+   "shape": "First person + a number + an edge",
+   "organic_fit": "The agency founder: 'I'll admit it, we lost clients because we answered too slowly.' The number must be real. Good for founder-led trust and follows."
+  },
+  {
+   "code": "HL-T9",
+   "name": "Workaround reveal",
+   "shape": "The thing they changed to live with the problem -> why it fails -> the real cause",
+   "organic_fit": "'She'd been answering DMs at midnight for two years.' This is the best fit for the POV day-in-the-life-of-the-buyer format: workarounds through the day, then the mechanism revealed. Close with 'send this to a business owner who does this'."
+  },
+  {
+   "code": "HL-T10",
+   "name": "Witness or overheard line",
+   "shape": "Someone else saw it -> the surprising detail -> the lesson",
+   "organic_fit": "'The busiest salon on our street wasn't the one with the best posts.' A story-driven organic opener that works with a local-street B-roll or an animation."
+  },
+  {
+   "code": "HL-T11",
+   "name": "Impossible scale / absurd literal cause",
+   "shape": "The cause shown as one impossible picture -> the plain claim",
+   "organic_fit": "A giant pile of unread DMs burying the shop counter: 'Most businesses lose customers in the inbox, not the feed.' An AI or animation visual hook built for the sound-off one-second read."
+  },
+  {
+   "code": "HL-T12",
+   "name": "Two futures",
+   "shape": "Two people, one difference -> what the difference is",
+   "organic_fit": "'The difference between a booked-out clinic and an empty one is one reply.' This is a split-story reel and also a natural carousel (cover = two futures, slide 2 pays it)."
+  },
+  {
+   "code": "HL-T13",
+   "name": "Misdirection",
+   "shape": "Set up one reading -> flip it",
+   "organic_fit": "'She's not bad at marketing. She's answering too late.' Good for the comments/debate angle and sends."
+  },
+  {
+   "code": "HL-T14",
+   "name": "Challenge",
+   "shape": "A test with a deadline",
+   "organic_fit": "'If you don't get one booking from a DM within 7 days doing this...' Organic version: a public 7-day challenge series with a keyword comment for the template. No guarantee or offer language."
+  },
+  {
+   "code": "HL-FMT",
+   "name": "Format library entry (mad-lib)",
+   "shape": "Label · days running · spoken verbatim + spoken mad-lib / text verbatim + text formula / visual formula [what] + [where on the body or scene] + [action] + [persona cue]",
+   "organic_fit": "The template for an organic B2B Hook Library. Store Albanian-language spoken and text formulas, and replace 'where on the body' with 'where in the business' (counter, inbox, calendar). Rank by organic breakout (views vs the creator's median) instead of ad run time."
+  }
+ ],
+ "organic_adaptation": [
+  "CTA and close: Hook Lab assumes the body ends on an offer, and H8 diagnoses 'the body, the bridge or the offer' through link CTR. Organic posts need an organic CTA ladder instead (follow, save, send to a friend, comment a keyword), with no price, offer or guarantee anywhere. Script Lab test 12 should check that the payoff is the value or next step the hook promised, not an offer.",
+  "Gate 7 (no product, brand, logo, mechanism name, price or offer in the first 3 s) stays, and extends: organic has no price or offer at any point. Product or service reveal timing becomes 'mechanism named after the open question is set', and the brand appears as the author, not the product.",
+  "Metrics: replace H8's Meta ad metrics (impressions, 3-second plays ÷ impressions, 15-second plays ÷ 3-second plays, link CTR, cost per purchase at ad-set level) with organic Instagram insights: skip rate and views (the hook), average watch time and the retention curve (the hold), and saves, sends, shares, follows, profile visits, keyword comments, DMs and leads per post, plus non-follower reach. Set organic floors from the account's own baseline. The 1,000-impression read point becomes a fixed window (for example 7 days, matching carousel-machine's results log).",
+  "Variants: H7 runs 'each variant ... as its own ad on the same body'. Organic can't A/B the same way. Test variants as separate posts, reposts or trial reels, and log the results per hook in the library.",
+  "Research H1: ad-library run time (30+ days winners, losers stopped within 10 days) and GetHookd are paid signals. For organic, define winners by breakout score (views or likes vs the creator's median, as ig-competitor-research does) from Apify scrapes of local and adjacent accounts, and use losers from the same creator.",
+  "Profile: swap the DTC-health visual rules (5a.1 'body part already swollen', 5a.5 'one real-looking body part', rubric rows 5 and 8) for a B2B/services profile. Use the owner or a customer in one real moment, one real prop (the phone with the unanswered DM, the booking calendar, the shop counter), and one countable fact from the client. Persona cues become an Albanian local business setting.",
+  "Gate 9 (the Meta check): 'your [condition]', age labels and before/after are Meta ad-policy rules. For organic, keep the tone rules (annoyed or comic, never ashamed; no medical severity) and keep the personal-attributes rule only if the post may be boosted later. Add Instagram community-guideline and AI-disclosure checks.",
+  "AI label: Hook Lab has no disclosure rule. Organic AI-generated realistic people or voices need Meta's AI label decision recorded per post; the shared standards file must set one rule.",
+  "Language: 'their words' and VOC become Albanian buyer phrases (for example 'Sa kushton?'). The text hook stays 4 to 10 words, so the carousel cover rule (up to 12 words) has to be reconciled. Add a native-speaker read, since Hook Lab is English-centric.",
+  "Length: the hook window (3 to 8 s spoken; buyer lock in 2 s; open question at 10 s) carries over unchanged. Body length follows the organic tier (reels 30 to 60 s per ORGANIC-OS), not the paid tiers (C45/S90).",
+  "Carousels: add a carousel mode. The cover is a 2-channel stack (image + headline), and slide 2 is the seam that pays the cover (carousel-machine already says 'Slide 1 and slide 2 are one unit').",
+  "Library and learning: the Hook Library is a claude.ai project doc (doc 42 style). Organic needs a repo file per client category, written back by an organic LEARN step, so winning formulas and the do-not-use list update from organic results.",
+  "Approval: nothing is posted without approval. The pick at the calling skill's gate (GATE 4) and 'the user decides' on fallback openings map to the hub draft approval. Concept-frame review should happen before any render credits are spent.",
+  "Copy rule 'Write at full selling strength. The brand's legal team decides what passes' doesn't fit organic client work with no legal team. The agent must self-check claims against the client's proof bank (gate 8 facts)."
+ ],
+ "visual_qa_overlap": "What Hook Lab already does:\n(1) H3.4 concept frames. One still per finalist stack in the ad's style, from an unnamed image model at about 2 credits each, with the text hook laid on top at phone size. The one-second read and the sound-off test are checked \"on the picture, not on the description\". Rule 5a.9 says \"the picture decides\".\n(2) Gates 1, 3 and 4 and rule 5a.6 are visual checks: buyer lock in 2 s with sound off, the problem in frame 1, visual plus text alone saying who and what, and frame 0 reading alone (one big centred subject, already moving, no blur, blank card, dark mood shot or slow fade).\n(3) Rubric visual column: clarity at phone size, one subject, no clutter, persona cues.\n(4) H7 frame proof. The hook storyboard is made first and checked at phone size with the text hook on, sound off, and must keep the concept frame's subject, scale and persona cues.\n(5) The hook sequence is rendered twice, keeping the take whose frame 1 reads best.\n(6) The text hook is placed in the top third with the top 14% and bottom 20% clear, never over the subject.\n(7) Research frames are true stills at 0, 1, 2 and 3 s via ffmpeg strips.\n\nWhat it lacks:\n- No prompt cards: the visual is a storyboard spec in prose, and no image or video prompt text is reviewed.\n- No named image model or quality setting.\n- No consistency or drift check between the concept frame, the storyboard and the render beyond 'keep subject, scale and persona cues'.\n- No check of AI artifacts (hands, faces, garbled text) or of the right-side UI column.\n- No frame sampling of the rendered hook beyond frame 1.\n- No transcript check that the first word lands at 0.0 s or that the text is set exactly as approved.\n- Grading is done by the same agent that wrote the stacks ('Grade honestly and never inflate' is the only safeguard). Script Lab has a fresh-agent cold read; Hook Lab has none.\n\nWhat a fresh-agent reviewer would replace or add:\n- Visual Reviewer: a blind grade of each concept frame and the hook storyboard at phone size, without the description. Checks the one-second read, buyer lock and gates 3, 4, 7 and 9 on the picture, a pixel check of the safe zones (top 14%, bottom 20%, plus the right-side UI), legibility of the text hook, and AI artifacts.\n- Prompt Reviewer: checks that each generation prompt carries the storyboard spec (subject, place, action, persona cue, what changes by 1 s and 3 s), keeps out brand, logo, product and price in the first 3 s and medical severity, and names the model and settings.\n- Take Reviewer: compares the 2 hook renders on frames sampled at 0, 1, 2 and 3 s against the approved concept frame for drift. Confirms from a transcript that the first word lands at 0.0 s and the problem is spoken within the first 6 words, and that the super matches the approved text exactly from frame 1 to about 3 s. Picks the take with the best frame 1.\n- An independent H4 grader with fixed rubric outputs, replacing self-grading.",
+ "costs": [
+  {
+   "item": "Concept frame per finalist stack (unnamed image model)",
+   "credits": "about 2 credits each"
+  },
+  {
+   "item": "GetHookd get_user_profile, get_ad, get_ad_hooks, get_top_hooks, get_ad_media",
+   "credits": "free"
+  },
+  {
+   "item": "GetHookd search_ads",
+   "credits": "billed per row (no figure given); use limit 10 or less"
+  },
+  {
+   "item": "Hook sequence render",
+   "credits": "rendered twice (cost set by the calling skill's video model; not stated here)"
+  }
+ ],
+ "other_issues": [
+  "The image model is unnamed: H3.4 says 'the image model, about 2 credits each', so an automated agent has to guess the model, the resolution and the quality, and the credit figure can't be checked.",
+  "GetHookd tools are not available in this environment. H1.4 depends on get_user_profile, get_ad, get_ad_hooks, get_top_hooks, get_ad_media and search_ads, but this session's deferred tool list has no GetHookd server and no GetHookd entry turned up in ~/.claude config. The stated fallback (Meta Ad Library) exists as mcp__Facebook_Ads__ads_library_search. The Higgsfield sandbox (mcp__Higgs__sandbox_exec) is available.",
+  "Missing project docs: 'for Lymphelle: doc 42' (line 164) and 'project doc 45' (line 212) are claude.ai project docs. No Hook Library file or Lymphelle doc exists anywhere on disk (find and grep came back empty). H0 will always send an agent to H1, and H8 'Log every result in the Hook Library' has no writable target.",
+  "HOOK-LIBRARY-B2B-AL is not referenced by Hook Lab and is not on disk. growth-engine/ORGANIC-OS.md line 676 and clients/straightscale/brain.json cite it as the project file ugc-ads/HOOK-LIBRARY-B2B-AL.md. The w43 StraightScale hooks.md says no category library existed.",
+  "Caller coverage gap: the modes table (line 24) and the hook card ('copied word for word into the three ad skills', line 238) cover only ads-machine, animation and song. Drama (readymerce-drama-ads line 10: 'readymerce-hook-lab owns the hook stack') and podcast use Hook Lab too. Drama relaxes gate 9 after 3 s (X3) and makes the text channel optional with at most 6 words (X7, 7.4), and Hook Lab doesn't mention either exception.",
+  "Hook card drift: card item 4 (line 245) lists 'no product, brand, ingredient, mechanism name, price or offer', dropping 'logo' from gate 7 (line 73). The card header says v1 while the skill is v1.1 (the changelog says the card is unchanged).",
+  "Freshness rule tension: H0 and the modes table say stale means older than 60 days, while H1 says 'refresh every 30 to 60 days'.",
+  "H3 numbering: it has 'List 2, format-matched' and 'List 3, original' but no List 1 (a leftover from the Hook Machine), which can confuse an agent.",
+  "Evidence count mismatch: Section 10 says 18 same-brand category losers (line 254), but the table row 'Her sign named in her words by about 5 s' counts '3 of 17' (line 265).",
+  "Cross-skill length conflicts: Hook Lab's text hook is 4 to 10 words, and line 129 calls that 'One length rule for every Readymerce skill'. carousel-machine's cover allows 'at most 12 words of headline', and drama X7 allows at most 6 words.",
+  "Cross-skill safe-zone conflict: Hook Lab keeps the bottom 20% clear, while drama 7.5 treats the bottom 35 to 40% and the right 21% of the lower half as UI. Hook Lab ignores the right-side button column.",
+  "No independent grader: H4 and H5 grading is done by the generating agent. Unlike Script Lab's fresh-agent cold read, there is no fresh-agent check of the hook.",
+  "H1.5 is fragile: the sandbox is wiped about 10 s after each call, so download, cut and base64 print (under 19,000 characters) must happen in one command. The agent then has to decode the base64 in the workspace before it can look at the frames.",
+  "Human decisions with no autonomous rule: 'Keep one fallback opening per ad; the user decides' (line 109) and 'Show the user any new custom principles before they are used to grade' (line 176). Only the calling skills (animation, song) say Claude picks when told to run without stopping.",
+  "Line 15 ('Write at full selling strength. The brand's legal team decides what passes.') hands compliance to a legal team that doesn't exist for small clients or for organic posts.",
+  "Paid-only learning loop: H8 needs impressions, 3 s and 15 s plays, link CTR and cost per purchase. None of these exist for organic posts, so the organic pipeline has no learning loop until an organic LEARN mode exists.",
+  "No AI-disclosure, fps, resolution, aspect, voice or loudness rules. That is fine for a hook-only skill, but the shared standards file has to supply them, because Hook Lab defers rendering to the caller ('the hook sequence is rendered twice')."
+ ]
+}

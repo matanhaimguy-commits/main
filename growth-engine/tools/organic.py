@@ -30,6 +30,8 @@ ROOT = GE.parent
 CONFIG = json.loads((GE / "config" / "organic.json").read_text())
 CARD_SCHEMA = yaml.safe_load((GE / "schemas" / "post-card.schema.yaml").read_text())
 BRAIN_SCHEMA = json.loads((GE / "schemas" / "brain.schema.json").read_text())
+STANDARDS = json.loads((GE / "production" / "standards.json").read_text())
+LENGTHS = STANDARDS["lengths"]  # STANDARDS.md section 8 is the single source for lengths
 
 ERROR, WARN = "error", "warn"
 
@@ -224,11 +226,7 @@ def card_check(card: dict, brain: dict, cmap: dict, demand: list[dict]) -> list[
         if fmt["family"] == "image":
             issues.append(issue(WARN, "format", "single images are the weakest format: only a strong self-check question, a real review quote or an announcement, 1 a week at most"))
         if fmt["family"] == "reel" and card.get("length_target_s"):
-            n = card["length_target_s"]
-            if n > 180:
-                issues.append(issue(ERROR, "length", "reels over 3 minutes are not recommended to non-followers"))
-            elif job == "reach" and not 10 <= n <= 60:
-                issues.append(issue(WARN, "length", f"reach reels work best at 30 to 60 s (card: {n} s)"))
+            issues += length_issues(card["format"], card["length_target_s"])
         if fmt["family"] == "carousel" and card.get("slides") and not 7 <= card["slides"] <= 12:
             issues.append(issue(WARN, "slides", f"carousels: 7 to 12 slides (card: {card['slides']})"))
     if fmt is not None:
@@ -236,14 +234,16 @@ def card_check(card: dict, brain: dict, cmap: dict, demand: list[dict]) -> list[
         if st:
             if st not in CONFIG["story_templates"] or st.startswith("_"):
                 issues.append(issue(ERROR, "story", f"unknown story_template {st!r}; see config/organic.json story_templates"))
-            elif st not in fmt.get("story_templates", []):
-                issues.append(issue(ERROR, "story", f"{card['format']} doesn't render {st} (it renders: {', '.join(fmt.get('story_templates', [])) or 'no story templates'})"))
             else:
                 t = CONFIG["story_templates"][st]
-                if card["belief"] not in t["beliefs"]:
+                if st not in fmt.get("story_templates", []):
+                    issues.append(issue(ERROR, "story", f"{card['format']} doesn't render {st} (it renders: {', '.join(fmt.get('story_templates', [])) or 'no story templates'})"))
+                elif card["belief"] not in t["beliefs"]:
                     issues.append(issue(WARN, "story", f"{st} usually carries {'/'.join(t['beliefs'])}, card says {card['belief']}"))
-                if t.get("needs_real_or_labelled") and brain["visual"].get("face") == "ai_character" and not brain["visual"].get("real_footage"):
-                    issues.append(issue(WARN, "truth", f"{st} is first person: with an AI character it needs the AI label (decision D1) and no invented results"))
+                vis = brain["visual"]
+                if t.get("needs_real_footage") and (vis.get("face") == "ai_character" or not vis.get("real_footage")):
+                    issues.append(issue(ERROR, "truth", f"{st} is someone's real story: it needs real footage of the real person, never an AI person "
+                                                        f"(STANDARDS 7; the brain has face {vis.get('face')}, real_footage {bool(vis.get('real_footage'))})"))
         elif fmt.get("story_templates") and fmt["tier"] in ("A", "B") and card["format"] not in ("reel_podcast",):
             issues.append(issue(WARN, "story", f"{card['format']} is a story format: name a story_template (STORY-FORMATS.md)"))
         if fmt.get("styles"):
@@ -256,9 +256,13 @@ def card_check(card: dict, brain: dict, cmap: dict, demand: list[dict]) -> list[
     if card["format_tier"] == "A" and not (card["angle_proven"] or card.get("wildcard")):
         issues.append(issue(ERROR, "spend", "tier A needs a proven angle (beat the median in a cheaper format) or the month's wildcard"))
 
-    if card["cta_type"] not in CONFIG["jobs"][job]["ctas"]:
-        issues.append(issue(ERROR, "cta", f"CTA {card['cta_type']} does not fit the {job} job ({', '.join(CONFIG['jobs'][job]['ctas'])})"))
-    if card["cta_type"] == "keyword":
+    cta, ctas = card["cta_type"], CONFIG["jobs"][job]["ctas"]
+    if cta not in ctas:
+        why = " ('book' is for convert posts only, said as the keyword or DM path, never a link)" if cta == "book" else ""
+        issues.append(issue(ERROR, "cta", f"CTA {cta} does not fit the {job} job ({', '.join(ctas)}){why}"))
+    if cta == "comment" and card.get("cta_keyword"):
+        issues.append(issue(WARN, "cta", f"a comment CTA is an answer to a question the post asks; a keyword ({card['cta_keyword']}) is cta_type keyword"))
+    if cta == "keyword" or (cta == "book" and card.get("cta_keyword")):
         kw = (card.get("cta_keyword") or "").upper()
         lm = next((m for m in brain.get("lead_magnets", []) if m["keyword"].upper() == kw), None)
         if not kw:
@@ -275,8 +279,25 @@ def card_check(card: dict, brain: dict, cmap: dict, demand: list[dict]) -> list[
     if card["belief"] == "B6" and not card.get("proof_used") and card.get("series") != "The Build":
         issues.append(issue(ERROR, "truth", "B6 needs proof from the proof bank, or the 'The Build' series (7.6)"))
     if card.get("hard_offer") and card["job"] != "convert":
-        issues.append(issue(WARN, "offer", "hard offer posts belong to the convert job"))
+        issues.append(issue(ERROR, "offer", "a hard offer post is a convert-job post (organic.json stage_mix note)"))
+    if card["belief"] == "B8" and unknown((brain.get("offer") or {}).get("delivers")):
+        issues.append(issue(WARN, "truth", "B8 while the brain's offer.delivers is not written: state only the offer facts the brain holds, "
+                                           "no post on what the offer includes until the owner writes it (brain decisions_open)"))
     return issues
+
+
+def length_issues(fmt: str, n: int) -> list[dict]:
+    """A reel's length against STANDARDS.md section 8 (standards.json lengths): the card's tier decides the check."""
+    if n > LENGTHS["max_s"]:
+        return [issue(ERROR, "length", f"{n} s is over {LENGTHS['max_s']} s, the longest reel until the owner confirms a longer limit (STANDARDS 8)")]
+    if fmt == "reel_podcast":
+        lo, hi = LENGTHS["podcast_C45"]["s"]
+        return [] if lo <= n <= hi else [issue(WARN, "length", f"podcast runs only at C45, {lo} to {hi} s (STANDARDS 8; card: {n} s)")]
+    tiers = {k: v for k, v in LENGTHS.items() if k.startswith("O") and isinstance(v, list)}
+    if any(lo <= n <= hi for lo, hi in tiers.values()):
+        return []
+    names = ", ".join(f"{k} {lo}-{hi}" for k, (lo, hi) in tiers.items())
+    return [issue(WARN, "length", f"{n} s fits no STANDARDS 8 tier ({names} s): pick the tier, the script gate checks against it")]
 
 
 # ---- week (6.2, 6.6) -------------------------------------------------------------------------------
@@ -308,7 +329,7 @@ def week_check(cards: list[dict], brain: dict, cmap: dict | None = None) -> tupl
     for c in cards:
         run = 0 if c["cta_type"] in CONFIG["conversion_ctas"] else run + 1
         if run >= rules["conversion_cta_every"]:
-            issues.append(issue(WARN, "cta", f"{run} posts in a row without a conversion CTA (keyword, DM, book) by {c['slot'][:10]}"))
+            issues.append(issue(WARN, "cta", f"{run} posts in a row without a conversion CTA ({', '.join(CONFIG['conversion_ctas'])}) by {c['slot'][:10]}"))
             run = 0
     tier_a = [c for c in cards if CONFIG["formats"].get(c["format"], {}).get("tier") == "A"]
     if len(tier_a) > rules.get("max_tier_a_per_week", 99):
@@ -323,20 +344,30 @@ def week_check(cards: list[dict], brain: dict, cmap: dict | None = None) -> tupl
         for j, share in jobs.items():
             if abs(share - target[j]) > rules["mix_tolerance"]:
                 issues.append(issue(WARN, "mix", f"{j} is {share:.0%} of the week; {stage} accounts aim for about {target[j]:.0%}"))
-    if stage == "new":
-        months: dict[str, int] = {}
-        for c in cards:
-            if c.get("hard_offer"):
-                months[c["slot"][:7]] = months.get(c["slot"][:7], 0) + 1
-        for m, n in months.items():
-            if n > target["hard_offer_per_month"]:
-                issues.append(issue(ERROR, "offer", f"{n} hard offer posts in {m}; new accounts: {target['hard_offer_per_month']} a month at most"))
+    cap = hard_offer_cap(target, brain)
+    months: dict[str, int] = {}
+    for c in cards:
+        if c.get("hard_offer"):
+            months[c["slot"][:7]] = months.get(c["slot"][:7], 0) + 1
+    for m, n in months.items():
+        if cap is not None and n > cap:
+            issues.append(issue(ERROR, "offer", f"{n} hard offer posts in {m}; {stage} accounts: {cap} a month at most (about 3% of output, ORGANIC-OS 6.2)"))
     if cmap and len(cards) >= 6:
         missing = {p["name"] for p in cmap.get("pillars", [])} - {c["pillar"] for c in cards}
         if missing:
             issues.append(issue(WARN, "pillars", f"no post this week for pillar(s): {', '.join(sorted(missing))}"))
     summary = {"posts": len(cards), "families": fam, "jobs": {k: round(v, 2) for k, v in jobs.items()}, "stage_target": {k: target[k] for k in ("reach", "trust", "convert")}}
     return issues, summary
+
+
+def hard_offer_cap(target: dict, brain: dict) -> int | None:
+    """Hard offer posts allowed a month: a fixed number for new accounts, else the share of the month's posts (at least 1)."""
+    if "hard_offer_per_month" in target:
+        return target["hard_offer_per_month"]
+    if "hard_offer_share" in target:
+        per_month = (brain.get("package") or {}).get("posts_per_week", 7) * 52 / 12
+        return max(1, round(target["hard_offer_share"] * per_month))
+    return None
 
 
 # ---- router and ledger (7.7) -----------------------------------------------------------------------

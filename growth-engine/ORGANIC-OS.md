@@ -9,6 +9,28 @@ This is the "why" behind every post. The Social Agent already knows how to make 
 > `growth-engine/tools/organic.py`, gates in `growth-engine/GATES.md`, skill adapters in `growth-engine/adapters/`,
 > agents in `.claude/agents/`, per-client files in `clients/<slug>/` (`brain.json`, `brain.md`, `content-map.json`,
 > `cards/`, `ledger.csv`, `analytics/`). Format costs and mix defaults live in `growth-engine/config/organic.json`.
+>
+> Production layer (how each post is made and checked; added 16 Oct 2026): `growth-engine/production/`, start with its
+> `README.md`. The owner's specs there are `AI-VIDEO-PIPELINE.md` (the 16 steps and their gates) and `VISUAL-QA.md`
+> (Shot Specs, fresh reviewers, fix routes; the patterns are in `failure-library.md`). `STANDARDS.md` plus
+> `standards.json` hold every production number. `STORY-FORMATS.md` holds the story reels. Tools:
+> `growth-engine/tools/pipeline.py` (runs, gate ledger, budget, human checkpoints), `vqa_crops.py` (review packets,
+> loudness) and `brand_overlay.py` (pastes the real logo file; models never draw it). The hook
+> `.claude/hooks/generation_gate.py` checks every Higgsfield and ElevenLabs generation before it runs. The reviewer
+> agents (visual-planner, prompt-reviewer, visual-reviewer, take-reviewer) are in `.claude/agents/`, and each production
+> skill has an organic adapter in `growth-engine/adapters/`.
+>
+> Where this document gives a production number, `STANDARDS.md` supersedes it (the text below stays as written):
+> carousel and image credits (7.7's 60 to 90 per carousel came from GPT Image 2 at 2k high: STANDARDS 10), image models
+> (STANDARDS 1), the safe zone (7.5's bottom 20%: STANDARDS 6), reel lengths (STANDARDS 8 is the single source; 30 to
+> 60 s is the default for a reach reel, the Post Card's tier decides, and nothing goes over 90 s until the owner confirms
+> a longer limit), budget timing (7.7 rule 8's hard gate is G-BUDGET: STANDARDS 10), and the AI label and how AI people
+> are shown (7.7 and 13.1: STANDARDS 7; D1 decides whether to extend it). motion-video-director (named at the top and in
+> section 15) is retired for our work: motion pieces use motion-reel (STANDARDS 12; the skill audit is in
+> `growth-engine/production/audit/`). Each client's open decisions (`decisions_open` in `clients/<slug>/brain.json`)
+> carry interim rules that limit some examples here: for StraightScale, no B8 "what happens in the analysis" post until
+> D3 is written. An example here that carries a count (such as "4 suppliers") is used only if `brain.json` holds that
+> number (law 8; STANDARDS 6).
 
 ---
 
@@ -145,7 +167,7 @@ Rank the client's existing posts by follows gained, then saves and sends per rea
 ### 5.3 Weekly scout
 Every week the Research Scout refreshes outliers from the tracked accounts and adds 5 to 10 new candidate ideas to the idea bank. Plan only 2 weeks of detailed topics ahead, because the market moves. (Eli Pampa)
 
-**Output of Layer 2:** `research/outliers.csv`, `research/format-rules.md`, `research/demand-map.csv`, idea bank entries.
+**Output of Layer 2:** `research/<date>/outliers.csv`, `research/format-rules.md`, `research/demand-map.csv`, idea bank entries.
 
 ---
 

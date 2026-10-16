@@ -1,6 +1,6 @@
 {
   "_doc": "Production standards: the one numbers file every production skill, reviewer and the generation gate read. Prose and reasons: STANDARDS.md (same folder). Change a number here and in STANDARDS.md together, with a dated line in STANDARDS.md's changelog.",
-  "version": "1.0 (15 Oct 2026)",
+  "version": "1.1 (16 Oct 2026)",
   "humans": [
     "Matan"
   ],
@@ -26,7 +26,15 @@
     "take_pass": {
       "critical": 0,
       "major": 0
-    }
+    },
+    "budget_scope": "A G-BUDGET PASS from the last 24 h before every gated generation (the first one at step 4 for voiced pieces, before step 7 on a LIB run). A video call also needs step 9 closed with a G-BUDGET recorded after the steps before it closed (the whole video re-priced).",
+    "image_ref_roles": [
+      "image_references",
+      "image"
+    ],
+    "edit_source_role": "edit_source",
+    "edit_pass": "An image asset's own previous version (same asset id, registered with an id, any gate status) may be the single image reference, registered with role edit_source and passed in the call as image_references (or image). The new version gets its own full review (VISUAL-QA 5.5 route 1).",
+    "prompt_loop_owner": "organic-director"
   },
   "asset_types": {
     "character_sheet": {
@@ -61,7 +69,8 @@
       "kind": "image",
       "prompt_gate": "G-PROMPT-IMG",
       "visual_gate": "G-VIS-BOARD",
-      "hero": false
+      "hero": true,
+      "note": "Every storyboard is image 1 in its H3 call, so every storyboard is hero (VISUAL-QA 5.3 'storyboard image 1'): zero defects."
     },
     "start_frame": {
       "kind": "image",
@@ -100,31 +109,39 @@
     },
     "motion_render": {
       "kind": "code",
-      "visual_gate": "G-MOTION-FRAMES"
+      "text_gate": "G-MOTION-TEXT",
+      "visual_gate": "G-MOTION-FRAMES",
+      "note": "G-MOTION-TEXT (fresh prompt-reviewer: the code's text constants against the spec and the released script, VISUAL-QA 7.2) on the same version before any render is reviewed at G-MOTION-FRAMES."
     },
     "voice": {
       "kind": "audio",
-      "audio_gate": "G-AUDIO"
+      "audio_gate": "G-AUDIO",
+      "note": "G-AUDIO: per audio asset, the take check (transcript against the script, take score) PASS. Needed before the asset is used as a reference and before step 11 (G-ASSETS) closes."
     },
     "audio_slice": {
       "kind": "audio",
-      "audio_gate": "G-AUDIO"
+      "audio_gate": "G-AUDIO",
+      "note": "G-AUDIO: per audio asset, the take check (transcript against the script, take score) PASS. Needed before the asset is used as a reference and before step 11 (G-ASSETS) closes."
     },
     "song": {
       "kind": "audio",
-      "audio_gate": "G-AUDIO"
+      "audio_gate": "G-AUDIO",
+      "note": "G-AUDIO: per audio asset, the take check (transcript against the script, take score) PASS. Needed before the asset is used as a reference and before step 11 (G-ASSETS) closes."
     },
     "music": {
       "kind": "audio",
-      "audio_gate": "G-AUDIO"
+      "audio_gate": "G-AUDIO",
+      "note": "G-AUDIO: per audio asset, the take check (transcript against the script, take score) PASS. Needed before the asset is used as a reference and before step 11 (G-ASSETS) closes."
     },
     "sfx": {
       "kind": "audio",
-      "audio_gate": "G-AUDIO"
+      "audio_gate": "G-AUDIO",
+      "note": "G-AUDIO: per audio asset, the take check (transcript against the script, take score) PASS. Needed before the asset is used as a reference and before step 11 (G-ASSETS) closes."
     },
     "final": {
       "kind": "final",
-      "visual_gate": "G-FINAL"
+      "visual_gate": "G-FINAL",
+      "note": "G-FINAL on the cut; also recorded as the run gate."
     },
     "test": {
       "kind": "test"
@@ -137,15 +154,30 @@
           "slide",
           "cover",
           "static",
-          "still",
-          "start_frame",
           "style_ref",
-          "storyboard",
-          "character_sheet",
-          "prop_sheet",
-          "set_sheet"
+          "still",
+          "start_frame"
         ],
-        "note": "Carousels, statics, stylized sheets and storyboards. Faces of realistic people: gpt_image_2 instead (2.5 looked plastic, Oct 2026)."
+        "params": {
+          "resolution": "2k"
+        },
+        "params_one_of": {
+          "quality": [
+            "medium",
+            "high"
+          ]
+        },
+        "params_if_given": {
+          "variant": [
+            "flare"
+          ]
+        },
+        "refuse_people_for": [
+          "still",
+          "start_frame"
+        ],
+        "media_role": "image_references",
+        "note": "Carousels, statics, the style reference, and stills or start frames with no person in the client's style. Pass aspect_ratio 4:5 for feed, resolution 2k, quality medium (high only to polish an approved cover), variant flare. Faces of realistic people in reels: gpt_image_2. Stylized sheets and storyboards only inside the R1 test (G-HUMAN-TEST)."
       },
       "gpt_image_2": {
         "use": [
@@ -160,8 +192,19 @@
           "quality": "high",
           "resolution": "2k"
         },
+        "min_image_refs": 1,
         "media_role": "image",
-        "note": "Realistic people, always with a reference photo (hub G7)."
+        "aspect_ratios": [
+          "1:1",
+          "4:3",
+          "3:4",
+          "16:9",
+          "21:9",
+          "9:16",
+          "3:2",
+          "2:3"
+        ],
+        "note": "Realistic people, always with a reference photo (hub G7). No 4:5 output: a feed slide with a photoreal person is made in gpt_image_2_5 with the person's approved gpt_image_2 still as a reference (STANDARDS 1). The 3:4 fallback for such a slide needs a G-EXCEPTION (model gpt_image_2) on the asset."
       },
       "nano_banana_2": {
         "use": [
@@ -172,15 +215,11 @@
           "still",
           "start_frame"
         ],
+        "params": {
+          "resolution": "2k"
+        },
         "media_role": "image_references",
-        "note": "Stylized sheets and storyboards (animation, song). Pending the side-by-side test against gpt_image_2_5 (STANDARDS.md R1)."
-      },
-      "nano_banana_pro": {
-        "use": [
-          "storyboard"
-        ],
-        "media_role": "image_references",
-        "note": "Multi-panel storyboards with text-free panels, if the side-by-side picks it."
+        "note": "Stylized sheets and storyboards (animation, song, clay, crochet). Pending the side-by-side test against gpt_image_2_5 (STANDARDS.md R1)."
       }
     },
     "video": {
@@ -212,15 +251,22 @@
       ],
       "image": [],
       "video": [],
-      "note": "ElevenLabs image and video models are not on the list: images come from Higgsfield (G7), video from H3 (G1). A drama exception (X5 and up) needs G-EXCEPTION on the asset.",
+      "note": "ElevenLabs image and video models are not on the list: images come from Higgsfield (G7), video from H3 (G1). A drama X5 model needs G-EXCEPTION on the asset.",
       "video_fallback": {
         "sync-lipsync-v3": "G-FALLBACK"
-      }
+      },
+      "song_notes": "Songs: eleven_music_v2_5 with the released lyrics as custom lyrics, run as a flow node; read creative_get_model_schema for the lyrics and length fields first; never repeat a call to retry."
     },
     "higgs_audio": {
       "allowed": [],
       "note": "Higgsfield speech is retired for our content (hub G8): voices, music and SFX come from ElevenLabs."
-    }
+    },
+    "image_people_spec_formats": [
+      "ugc",
+      "talking_head",
+      "podcast",
+      "drama"
+    ]
   },
   "gated_tools": {
     "mcp__Higgs__generate_image": {
@@ -312,13 +358,13 @@
     },
     "motion": {
       "na_steps": [],
-      "note": "Code-rendered reels (HyperFrames): step 8 = preview frames, step 10 = render, step 11 = G-MOTION-FRAMES."
+      "note": "Code-rendered reels (HyperFrames): step 8 = G-MOTION-TEXT on the code's text constants, then preview frames and the hook styleframe; step 10 = render; step 11 = G-MOTION-FRAMES."
     },
     "keyframe_reel": {
       "na_steps": [
         8
       ],
-      "note": "Tier C quote reel: one silent H3 keyframe shot from a passed start frame, voice and captions in the edit. No storyboard: one shot, no mouth."
+      "note": "Tier C quote reel: one silent H3 keyframe shot from a passed start frame, voice and captions in the edit. No storyboard: one shot, no mouth. Step 4 needs G-HUMAN-VOICE until the narrator's record exists (per voice)."
     },
     "ai_video": {
       "na_steps": [],
@@ -332,6 +378,13 @@
         10
       ],
       "note": "Real footage (the owner films): no look bible, storyboard, credits or generation; steps 11 to 13 still check the takes, words and final cut."
+    },
+    "song": {
+      "na_steps": [],
+      "formats": [
+        "reel_song"
+      ],
+      "note": "Song pieces (format reel_song): every step; step 4 adds G-HUMAN-SONG, the owner's listen to every song master before any picture. A format may also name this family in organic.json 'production'."
     }
   },
   "steps": [
@@ -464,14 +517,22 @@
         "G-SCRIPT"
       ],
       "4": [
-        "G-AUDIO-MASTER"
+        "G-AUDIO-MASTER",
+        "G-HUMAN-VOICE"
       ],
       "7": []
     },
     "motion": {
       "7": [],
       "8": [
+        "G-MOTION-TEXT",
         "G-HUMAN-HOOKBOARD"
+      ]
+    },
+    "song": {
+      "4": [
+        "G-AUDIO-MASTER",
+        "G-HUMAN-SONG"
       ]
     }
   },
@@ -482,7 +543,11 @@
     },
     "G-HUMAN-VOICE": {
       "mode": "per_voice",
-      "what": "Listen once when a voice is cast for a client or series (audition and 15 s pilot). Later pieces with the locked voice pass on the measured take checks."
+      "what": "Listen once when a voice is cast for a client or series (audition and 15 s pilot); later spoken pieces with the locked voice pass on the measured take checks. For a non-English voice the note records the pace band measured on the approved audition (STANDARDS 4)."
+    },
+    "G-HUMAN-SONG": {
+      "mode": "required",
+      "what": "The owner listens to every song master before any picture is made (per piece): words, brand and keyword pronunciation, a slow hook. Sung Albanian can't be fully measured by Whisper."
     },
     "G-HUMAN-LOOK": {
       "mode": "per_series",
@@ -490,15 +555,15 @@
     },
     "G-HUMAN-HOOKBOARD": {
       "mode": "required",
-      "what": "Hook storyboards always go to the owner (VISUAL-QA 6)."
+      "what": "Hook storyboards always go to the owner (VISUAL-QA 6). Drama: the animatic and the cost preflight ride with the hook board. Podcast: the line-1 speaker's start frame with the title bar. Motion: the hook styleframe (the first 2 s at phone size with the text hook)."
     },
     "G-HUMAN-ESCALATE": {
       "mode": "required",
-      "what": "An asset that failed 3 attempts, or a prompt that failed 2 loops."
+      "what": "An asset that failed 3 attempts (VISUAL-QA 5.5, 7.1): the best version and its report. Or a script (speech or lyrics) that failed 3 FIX loops with new readers (STANDARDS 9 G-SCRIPT): the best draft and its reports. A prompt that failed 2 review loops goes to the Organic Director first, who may send it here."
     },
     "G-HUMAN-FINAL": {
       "mode": "required",
-      "what": "Approval on the hub's Content page; nothing posts without it."
+      "what": "Approval on the hub's Content page; nothing posts without it. Every Albanian string (script, lyrics, supers, captions, slides, caption text) is marked for a native read in the hub notes."
     },
     "G-HUMAN-TEST": {
       "mode": "required",
@@ -510,24 +575,37 @@
     },
     "G-EXCEPTION": {
       "mode": "required",
-      "what": "A model outside the standards for one asset (drama exceptions X5 and up)."
+      "what": "A model outside the standards for one asset (drama exception X5 routing). X6 to X10 need no G-EXCEPTION."
     }
   },
   "clips": {
     "min_s": 5,
     "max_s": 15,
-    "duration_rule_interim": "slice <= 14 s; duration = ceil(slice) + 1, within 5..15 (re-test R2)",
+    "slice_s": [
+      4,
+      14
+    ],
+    "duration_plus_s": 1,
+    "duration_rule_interim": "slice 4 to 14 s; duration = ceil(slice) + 1, within 5..15; the +1 s comes on top of any tail already in the file (re-test R2)",
     "words_per_15s_monologue": [
       30,
       35
     ],
-    "words_per_clip_dialogue": 20,
+    "podcast_stem_words": [
+      27,
+      30
+    ],
+    "podcast_stem_words_note": "proposed, confirm on first run: (14 s minus about 2 s of beats and 1 s of tail) x 2.5 words/s; Script Lab's 30 to 35 is the ceiling",
+    "words_per_clip_drama": 20,
+    "words_per_line_lipsync_max": 10,
     "shots_per_take": [
-      2,
+      1,
       3
     ],
     "shots_per_take_max": 4,
+    "silent_keyframe_shots": 1,
     "takes_hook_and_talking": 2,
+    "takes_other_silent": 1,
     "max_attempts": 3
   },
   "audio": {
@@ -561,7 +639,76 @@
     ],
     "loudness_lufs": -14,
     "loudness_tolerance": 1,
-    "true_peak_dbtp_max": -1.0
+    "true_peak_dbtp_max": -1.0,
+    "storyteller_syllables_per_s_lang": "en",
+    "storyteller_band_other_languages": "measured on the approved audition, written in the voice's G-HUMAN-VOICE note",
+    "long_pauses_min_per_3_sentence_ends": 1,
+    "long_pauses_note": "proposed, confirm on first run",
+    "turn_gap_podcast_s": [
+      0.08,
+      0.2
+    ],
+    "turn_gap_drama_after_mechanism_s": [
+      0.08,
+      0.2
+    ],
+    "seam_gap_max_s": 0.35,
+    "line_loudness_spread_max_db": 2,
+    "bed_hook_tension_under_db_min": 20,
+    "duck_db": [
+      6,
+      12
+    ],
+    "duck_attack_ms": [
+      5,
+      20
+    ],
+    "duck_release_ms": [
+      250,
+      500
+    ],
+    "sfx_featured_under_dialogue_db": [
+      3,
+      6
+    ],
+    "sfx_touch_under_dialogue_db": [
+      10,
+      16
+    ],
+    "loudness_range_lu_max": 11,
+    "loudness_range_lu_drama": [
+      6,
+      11
+    ],
+    "short_term_max_lufs": -9,
+    "loudnorm_passes": 2,
+    "song_takes": [
+      2,
+      3
+    ],
+    "song_whisper_match_min": 0.88,
+    "song_whisper_match_note": "proposed floor (the low end of the 0.88 to 0.95 band seen in our runs), confirm on the first run",
+    "song_prompt_words_max": 25,
+    "lyrics_syllables_per_line": [
+      8,
+      14
+    ],
+    "lyrics_lines": {
+      "O60": [
+        23,
+        37
+      ],
+      "40_to_50_s": [
+        18,
+        27
+      ],
+      "O30": [
+        11,
+        19
+      ],
+      "O30_note": "proposed (scaled from the 40 to 50 s row), check on the first run"
+    },
+    "audio_tags_per_line_max": 1
   },
   "picture": {
     "fps": 30,
@@ -586,7 +733,57 @@
     "end_card_s": [
       2.5,
       3
-    ]
+    ],
+    "fps_motion": [
+      30,
+      60
+    ],
+    "fps_code_styles": 24,
+    "conform": "repeat frames (ffmpeg fps=30), never interpolate a dialogue shot",
+    "silent_speedup_max": 2.5,
+    "song_shot_s": [
+      1.5,
+      3.5
+    ],
+    "song_sequence_s": [
+      4,
+      10.5
+    ],
+    "hook_timing": {
+      "spoken_first_word_s": 0.1,
+      "song_voice_after_trim_s": 0.3,
+      "song_first_sung_word_s": 1,
+      "song_problem_sung_s": 3,
+      "drama_first_line_s": 1.5,
+      "drama_first_line_after_action_s": 4.0,
+      "drama_real_sound_s": 0.3,
+      "drama_story_event_s": 1.0,
+      "motion_hook_text_s": 0.3
+    },
+    "podcast_cut": {
+      "in_before_onset_s": 0.08,
+      "out_after_energy_s": [
+        0.12,
+        0.2
+      ],
+      "jcut_s": [
+        0.1,
+        0.2
+      ],
+      "reaction_s": [
+        0.8,
+        1.5
+      ],
+      "reaction_every_s_max": 10,
+      "punch_in_pct": [
+        112,
+        118
+      ],
+      "fade_ms": [
+        20,
+        80
+      ]
+    }
   },
   "text": {
     "hook_words": [
@@ -606,11 +803,68 @@
     "reels_safe_zone": {
       "top": 0.14,
       "bottom": 0.35,
-      "right_lower_half": 0.21
+      "right_lower_half": 0.21,
+      "sides": 0.06,
+      "px_1080x1920": {
+        "top": 269,
+        "bottom": 672,
+        "right_lower_half": 227,
+        "sides": 65
+      }
     },
     "feed_margin": 0.04,
     "thumbnail_test_px": 200,
-    "em_dashes": false
+    "em_dashes": false,
+    "caption_words_song_podcast": [
+      1,
+      3
+    ],
+    "caption_px": [
+      80,
+      100
+    ],
+    "caption_band_from_top": [
+      0.55,
+      0.62
+    ],
+    "caption_gap_max_s_podcast": 0.4,
+    "caption_tail_s_song": 0.3,
+    "faces_band_from_top": [
+      0.15,
+      0.55
+    ],
+    "eyes_from_top": [
+      0.3,
+      0.4
+    ],
+    "body_text_min_px": 44,
+    "check_width_px": 360,
+    "podcast_title_bar": {
+      "words": [
+        4,
+        8
+      ],
+      "lines_max": 2,
+      "px": [
+        44,
+        50
+      ]
+    },
+    "carousel": {
+      "cover_lines": [
+        2,
+        3
+      ],
+      "cover_line_chars": 12,
+      "slide_headline_words_max": 7,
+      "list_item_words_max": 5,
+      "short_lane_words": [
+        5,
+        15
+      ],
+      "dense_lane_words_max": 30,
+      "dense_lane_lines_max": 5
+    }
   },
   "placements": {
     "reel": [
@@ -628,13 +882,18 @@
     "carousel_slides": [
       7,
       12
-    ]
+    ],
+    "slide_file": "JPEG 1080x1350, under 8 MB each",
+    "reel_file": "MP4 H.264 + AAC, under 100 MB, 3 to 90 s",
+    "reel_file_max_s": 90
   },
   "ai_label": {
     "photoreal_ai_person": true,
     "ai_voice_as_person": true,
-    "stylized_animation": "on until decision D1",
-    "burned_in_tag": false
+    "voiced_motion_narrator": true,
+    "stylized_animation": "on per STANDARDS 7 (D1 decides whether to extend it)",
+    "burned_in_tag": false,
+    "ai_people_interim": "AI people are only shown from behind or as clearly staged scenes; no AI person is presented as a real client."
   },
   "lengths": {
     "O15": [
@@ -651,7 +910,7 @@
     ],
     "O90": [
       75,
-      100
+      90
     ],
     "podcast_C45": {
       "s": [
@@ -665,10 +924,17 @@
       "words": [
         80,
         110
-      ]
+      ],
+      "turn_words_max": 20,
+      "one_turn_words_max": 25,
+      "listener_every_s_max": 8,
+      "host_words_share_max": 0.6,
+      "payoff_words_max": 6
     },
     "story_min_s": 45,
-    "max_s": 180
+    "max_s": 90,
+    "max_s_if_owner_confirms": 180,
+    "_doc": "STANDARDS.md section 8 is the single source for lengths; other docs point there."
   },
   "credits": {
     "h3_per_s": 2,
@@ -678,12 +944,30 @@
       1,
       6.5
     ],
-    "elevenlabs_vo_beat_4_takes": 177
+    "elevenlabs_vo_beat_4_takes": 177,
+    "gpt_image_2_5_2k_high": 2.75,
+    "carousel_7_to_12_slides": [
+      16,
+      33
+    ]
   },
   "open": {
     "R1": "stylized image model side-by-side",
     "R2": "H3 duration rule re-test",
     "D1": "AI label policy",
-    "D9": "drama model routing"
+    "D9": "drama model routing",
+    "H1": "human listens reduced to G-HUMAN-VOICE per voice and G-HUMAN-SONG per song (owner may restore the four listens)"
+  },
+  "review_gates_extra": {
+    "G-MOTION-TEXT": {
+      "reviewer": "prompt-reviewer (fresh agent)",
+      "checks": [
+        "M1",
+        "M3",
+        "M4",
+        "M6"
+      ],
+      "what": "The code's text constants, layout positions, timing table and brand colours against the Shot Spec and the released script, before any render (VISUAL-QA 7.2)."
+    }
   }
 }

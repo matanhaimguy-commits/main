@@ -95,7 +95,7 @@ class Base(unittest.TestCase):
         return a
 
     def call(self, prompt, medias=None, **params):
-        p = {"model": "gpt_image_2_5", "prompt": prompt, "aspect_ratio": "4:5", "resolution": "2k",
+        p = {"model": "gpt_image_2_5", "prompt": prompt, "aspect_ratio": "4:5", "resolution": "2k", "quality": "medium",
              "medias": medias if medias is not None else [{"value": REF, "role": "image_references"}]}
         p.update(params)
         return P.check_call("mcp__Higgs__generate_image", {"params": p})
@@ -207,14 +207,14 @@ class Gate(Base):
         P.add_media(SLUG, post, "SLICE-SEQ01@v1", ids=["aud-1"])
         P.new_asset(SLUG, post, "SEQ01-video", "video_clip", ["S60-SEQ01-SH1"])
         medias = [{"value": "img-1", "role": "image_references"}, {"value": "aud-1", "role": "audio_references"}]
-        a = P.set_prompt(SLUG, post, "SEQ01-video", "Pixar-style 3D. <<<image_1>>> is Arta ...", medias)
+        a = P.set_prompt(SLUG, post, "SEQ01-video", "Family-film 3D. <<<image_1>>> is Arta ...", medias)
         ok, why = P.check_call("mcp__Higgs__generate_video", {"params": {
-            "model": "minimax_h3", "prompt": "Pixar-style 3D. <<<image_1>>> is Arta ...", "medias": medias,
+            "model": "minimax_h3", "prompt": "Family-film 3D. <<<image_1>>> is Arta ...", "medias": medias,
             "duration": 4, "aspect_ratio": "9:16"}})
         self.assertFalse(ok)
         text = " ".join(why)
         for needle in ("storyboard as image 1", "declined_preset_id", "resolution", "duration", "G-AUDIO",
-                       "G-PROMPT-VID"):
+                       "G-PROMPT-VID", "step 9"):
             self.assertIn(needle, text)
 
     def test_banned_video_model_is_blocked(self):
@@ -251,6 +251,165 @@ class Gate(Base):
         ok, why = P.check_call("mcp__Higgs__execute_preset", {"preset_id": "x"})
         self.assertFalse(ok)
         self.assertIn("G-HUMAN-TEST", why[0])
+
+
+class Rules2026(Base):
+    """D-a, D-b, D-k and the image model rules added on 16 Oct 2026."""
+
+    def reviewed_cover(self):
+        self.lib_with_style()
+        a = self.slide_run()
+        P.budget(SLUG, POST, planned=10, balance=500)
+        P.record_report(SLUG, POST, self.report(gate="G-PROMPT-IMG", asset_id="COVER", version=1,
+                                                prompt_sha256=a["prompt_sha256"], checks=self.checks("prompt")))
+        return a
+
+    def new_version(self, text, medias):
+        P.new_asset(SLUG, POST, "COVER", "cover", ["SL01"])
+        a = P.set_prompt(SLUG, POST, "COVER", text, medias)
+        P.record_report(SLUG, POST, self.report(gate="G-PROMPT-IMG", asset_id="COVER", version=a["version"],
+                                                prompt_sha256=a["prompt_sha256"], checks=self.checks("prompt")))
+        return a
+
+    def test_gpt_image_2_5_settings_are_checked(self):
+        self.reviewed_cover()
+        ok, why = self.call("Instagram post, portrait 4:5. TEXT: '3 GABIME' ...", quality="low", resolution="1k",
+                            variant="sunburst")
+        self.assertFalse(ok)
+        text = " ".join(why)
+        for needle in ("quality", "resolution", "variant"):
+            self.assertIn(needle, text)
+        self.assertTrue(self.call("Instagram post, portrait 4:5. TEXT: '3 GABIME' ...", variant="flare")[0])
+
+    def test_edit_pass_on_own_previous_version(self):
+        self.reviewed_cover()
+        self.assertTrue(self.call("Instagram post, portrait 4:5. TEXT: '3 GABIME' ...")[0])
+        P.add_media(SLUG, POST, "COVER@v1", ids=["cover-v1-job"])   # v1 failed its review: any gate status is fine
+        edit = "Keep this image exactly the same. Change only the text '3 GABIM' to '3 GABIME'."
+        self.new_version(edit, [{"value": "cover-v1-job", "role": "edit_source"}])
+        ok, why = self.call(edit, medias=[{"value": "cover-v1-job", "role": "image_references"}])
+        self.assertTrue(ok, why)
+
+    def test_edit_source_must_be_the_same_asset_and_alone(self):
+        self.reviewed_cover()
+        self.assertTrue(self.call("Instagram post, portrait 4:5. TEXT: '3 GABIME' ...")[0])
+        P.add_media(SLUG, POST, "COVER@v1", ids=["cover-v1-job"])
+        other = "Edit the style reference: change only the light."
+        self.new_version(other, [{"value": REF, "role": "edit_source"}])
+        ok, why = self.call(other, medias=[{"value": REF, "role": "image_references"}])
+        self.assertFalse(ok)
+        self.assertIn("previous version of the same asset", " ".join(why))
+        two = "Keep this image the same, change only the headline, match the reference."
+        self.new_version(two, [{"value": "cover-v1-job", "role": "edit_source"},
+                               {"value": REF, "role": "image_references"}])
+        ok, why = self.call(two, medias=[{"value": "cover-v1-job", "role": "image_references"},
+                                         {"value": REF, "role": "image_references"}])
+        self.assertFalse(ok)
+        self.assertIn("single image reference", " ".join(why))
+
+    def test_unreviewed_reference_names_the_edit_pass(self):
+        self.reviewed_cover()
+        P.add_media(SLUG, POST, "COVER@v1", ids=["cover-v1-job"])
+        txt = "Use the earlier cover as the reference."
+        self.new_version(txt, [{"value": "cover-v1-job", "role": "image_references"}])
+        ok, why = self.call(txt, medias=[{"value": "cover-v1-job", "role": "image_references"}])
+        self.assertFalse(ok)
+        self.assertIn("edit_source", " ".join(why))
+
+    def test_gpt_image_2_needs_reference_and_has_no_4_5(self):
+        P.init_run(SLUG, POST, "carousel_mistakes")
+        led = P.load_ledger(SLUG, POST)
+        a = {"type": "still", "shots": [], "gates": {}}
+        req = {"kind": "image", "model": "gpt_image_2", "medias": [],
+               "params": {"quality": "high", "resolution": "2k", "aspect_ratio": "4:5"}}
+        text = " ".join(P._model_checks(req, a, led))
+        self.assertIn("no 4:5 output", text)
+        self.assertIn("reference photo", text)
+
+    def test_realistic_people_not_on_gpt_image_2_5(self):
+        P.init_run(SLUG, POST, "carousel_mistakes")
+        s = copy.deepcopy(SLIDE)
+        s.update(shot_id="SH1", format="ugc", camera={**s["camera"], "aspect": "9:16"})
+        write(P.spec_path(SLUG, POST, "SH1"), s)
+        led = P.load_ledger(SLUG, POST)
+        a = {"type": "start_frame", "shots": ["SH1"], "gates": {}}
+        req = {"kind": "image", "model": "gpt_image_2_5", "medias": [],
+               "params": {"quality": "medium", "resolution": "2k", "aspect_ratio": "9:16"}}
+        self.assertIn("realistic people", " ".join(P._model_checks(req, a, led)))
+
+    def test_storyboards_are_hero(self):
+        self.assertTrue(P.STANDARDS["asset_types"]["storyboard"]["hero"])
+
+    def test_song_pictures_wait_for_the_owner_listen(self):
+        post = "AC-2026-10-W3-05"
+        led = P.init_run(SLUG, post, "reel_song")
+        self.assertEqual(led["family"], "song")
+        self.assertIn("G-HUMAN-SONG", P.step_gates(led, 4))
+        s = copy.deepcopy(SLIDE)
+        s.update(shot_id="SB1", post_id=post, format="animation_3d", camera={**s["camera"], "aspect": "9:16"})
+        write(P.spec_path(SLUG, post, "SB1"), s)
+        P.new_asset(SLUG, post, "SB-SEQ01", "storyboard", ["SB1"])
+        P.set_prompt(SLUG, post, "SB-SEQ01", "Storyboard, three 9:16 panels ...", [])
+        ok, why = P.check_call("mcp__Higgs__generate_image", {"params": {
+            "model": "nano_banana_2", "prompt": "Storyboard, three 9:16 panels ...", "resolution": "2k"}})
+        self.assertFalse(ok)
+        self.assertIn("G-HUMAN-SONG", " ".join(why))
+        with self.assertRaises(P.PipelineError):
+            P.record_gate(SLUG, post, "G-HUMAN-SONG", "PASS", "claude", note="sounds fine")
+        P.record_gate(SLUG, post, "G-HUMAN-SONG", "PASS", "Matan", note="listened to master v2, words clear")
+        ok, why = P.check_call("mcp__Higgs__generate_image", {"params": {
+            "model": "nano_banana_2", "prompt": "Storyboard, three 9:16 panels ...", "resolution": "2k"}})
+        self.assertNotIn("G-HUMAN-SONG", " ".join(why))
+
+    def test_quote_reel_step4_needs_the_voice_listen(self):
+        led = P.init_run(SLUG, POST, "reel_quote_broll")
+        self.assertEqual(P.step_gates(led, 4), ["G-AUDIO-MASTER", "G-HUMAN-VOICE"])
+        self.assertFalse(P.gate_state(led, "G-HUMAN-VOICE")[0])
+        P.init_run(SLUG, "AC-LIB-VOICE", "reel_quote_broll")
+        P.record_gate(SLUG, "AC-LIB-VOICE", "G-HUMAN-VOICE", "PASS", "Matan", note="narrator audition and pilot")
+        self.assertTrue(P.gate_state(P.load_ledger(SLUG, POST), "G-HUMAN-VOICE")[0])
+
+    def test_motion_render_needs_text_review_first(self):
+        post = "AC-2026-10-W3-06"
+        led = P.init_run(SLUG, post, "reel_motion")
+        self.assertIn("G-MOTION-TEXT", P.step_gates(led, 8))
+        P.new_asset(SLUG, post, "RENDER", "motion_render")
+        self.assertFalse(P.gate_state(P.load_ledger(SLUG, post), "G-MOTION-TEXT")[0])
+        frames = self.report(gate="G-MOTION-FRAMES", asset_id="RENDER", version=1, checks=self.checks("motion"),
+                             files_opened=["contact_01.png"])
+        st, notes = P.record_report(SLUG, post, frames)
+        self.assertEqual(st, "FAIL")
+        self.assertIn("G-MOTION-TEXT", " ".join(notes))
+        with self.assertRaises(P.PipelineError):
+            P.record_gate(SLUG, post, "G-MOTION-TEXT", "PASS", "claude")
+        st, _ = P.record_report(SLUG, post, self.report(gate="G-MOTION-TEXT", asset_id="RENDER", version=1,
+                                                        checks=self.checks("motion_text"),
+                                                        files_opened=["src/text.js", "shots/S01.spec.yaml"]))
+        self.assertEqual(st, "PASS")
+        self.assertTrue(P.gate_state(P.load_ledger(SLUG, post), "G-MOTION-TEXT")[0])
+        self.assertEqual(P.record_report(SLUG, post, frames)[0], "PASS")
+
+    def test_step9_budget_must_follow_the_earlier_steps(self):
+        led = P.init_run(SLUG, POST, "reel_story_narrated")
+        P.budget(SLUG, POST, planned=30, balance=500)       # the step 4 budget, before the voice
+        led = P.load_ledger(SLUG, POST)
+        b_at = led["run_gates"]["G-BUDGET"][-1]["at"]
+        later = (P.parse_ts(b_at) + P.dt.timedelta(hours=2)).isoformat()
+        for k in range(9):
+            led["steps"][str(k)].update(status="done", at=later)
+        self.assertFalse(P.budget_after_steps(led, 9)[0])
+        led["run_gates"]["G-BUDGET"].append({"at": later, "status": "PASS", "by": "pipeline.py budget"})
+        self.assertTrue(P.budget_after_steps(led, 9)[0])
+
+    def test_prompt_loops_go_to_the_director_not_the_owner(self):
+        self.lib_with_style()
+        a = self.slide_run()
+        for _ in range(2):
+            st, notes = P.record_report(SLUG, POST, self.report(gate="G-PROMPT-IMG", asset_id="COVER", version=1,
+                                                                status="FAIL", prompt_sha256=a["prompt_sha256"],
+                                                                checks=self.checks("prompt", {"P3": "major"})))
+        self.assertIn("Organic Director", " ".join(notes))
+        self.assertFalse([q for q in P.load_ledger(SLUG, POST)["queue"] if q["checkpoint"] == "G-HUMAN-ESCALATE"])
 
 
 class Records(Base):

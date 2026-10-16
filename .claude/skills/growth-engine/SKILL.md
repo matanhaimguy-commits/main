@@ -33,17 +33,22 @@ clients/<slug>/
 | 6 Ship | caption, keyword, stories, hub draft | hub `content_items` | distribution-agent, conversion-agent | Matan approves |
 | 7 Learn | scorecard, flags, diagnosis, learnings, budget | `analytics/posts.csv`, `ledger.csv`, `analytics/learnings.md` | analyst, organic-director | `organic.py score`, `ledger` |
 
-**Production layer (since 15 Oct 2026; how every asset is made and checked):** `growth-engine/production/README.md`.
-Every post is a run (`growth-engine/tools/pipeline.py init`) through the 16 steps of `AI-VIDEO-PIPELINE.md`; every
-number comes from `STANDARDS.md`; every picture has a Shot Spec, a fresh prompt review and a fresh visual or take review
-(`VISUAL-QA.md`; agents visual-planner, prompt-reviewer, visual-reviewer, take-reviewer); the PreToolUse hook blocks any
-Higgsfield or ElevenLabs generation whose gates haven't passed. Story formats (POV day in the buyer's life, the
-problem as a villain, two days, song, podcast, drama; claymation, crochet, 3D, 2D): `production/STORY-FORMATS.md`.
+**Production layer (since 15 Oct 2026; how every image, carousel and video is made and checked):**
+`growth-engine/production/`; read its `README.md` first. Every Higgsfield and ElevenLabs generation is gated by the
+PreToolUse hook `.claude/hooks/generation_gate.py`: it blocks any call whose gates haven't passed. Every post is a run
+(`growth-engine/tools/pipeline.py init`) through the 16 steps of `AI-VIDEO-PIPELINE.md`; every number comes from
+`STANDARDS.md` (machine values in `standards.json`); every picture has a Shot Spec, a fresh prompt review and a fresh
+visual or take review (`VISUAL-QA.md`, patterns in `failure-library.md`; agents visual-planner, prompt-reviewer,
+visual-reviewer, take-reviewer). Review packets: `growth-engine/tools/vqa_crops.py`; the real logo goes on with
+`growth-engine/tools/brand_overlay.py` (models never draw it). Story reels (POV day in the buyer's life, the problem as
+a villain, two days, song, podcast, drama; claymation, crochet, 3D, 2D): `production/STORY-FORMATS.md`. Budget timing:
+STANDARDS 10. Lengths: STANDARDS 8. AI label and AI people: STANDARDS 7 (D1 decides whether to extend it).
 
-Adapters for the paid-ad skills: `growth-engine/adapters/` (hook-lab, script-lab, carousel-machine, animation, drama,
-song, podcast, UGC and talking head). Format costs, the
-belief→job table and mixes: `growth-engine/config/organic.json`. Weekly mix for a 7-post account: 3 reels, 3 carousels,
-1 image (images only for a strong question or a real review quote). New accounts: reach 50%, trust 35%, convert 15%.
+Adapters for the production skills: `growth-engine/adapters/` (hook-lab, script-lab, carousel-machine, motion-reel,
+animation, drama, song, podcast, UGC and talking head). Format costs, the belief→job table and mixes:
+`growth-engine/config/organic.json` (credit prices: STANDARDS 10 wins). Weekly mix for a 7-post account: 3 reels, 3
+carousels, 1 image (images only for a strong question or a real review quote). New accounts: reach 50%, trust 35%,
+convert 15%.
 
 ## Modes
 - **weekly** (default): steps 1-7 for one client, the whole week in one session.
@@ -53,7 +58,8 @@ belief→job table and mixes: `growth-engine/config/organic.json`. Weekly mix fo
 - **single**: one piece on demand ("a reel about X for <client>"): steps 4-6 for that item.
 
 Work in autopilot: decide, log the decision in the plan file, keep going. Stop only for paid generation
-beyond the budget in `brand-kit.md`, or when something is truly blocked. Never post anything yourself: the
+beyond the budget (the monthly credit cap in `brain.json`, checked by `pipeline.py budget`, and the weekly studio
+budget in `brand-kit.md`), or when something is truly blocked. Never post anything yourself: the
 hub publishes, and only what a person approved.
 
 ## Access check (start of every session)
@@ -100,15 +106,19 @@ one-line positioning, language = the client's posting language.
 ## Step 2 · Learn (weekly)
 `hub.py results <slug> --days 14`. Append last week's published posts to `results-log.md` (date, format, hook,
 keyword, likes, comments, keyword comments, DMs sent, taps, new leads, hot/booked). A post that beats the
-client's baseline 2x becomes `templates/<name>/` (carousel-machine step 12; for reels the HyperFrames
-composition with its variables).
+client's baseline 2x is a template candidate; it becomes `templates/<name>/` at 3x with the 4 outlier checks, or
+when it produced booked analyses (OS 3.1 and 9.5; carousel-machine step 12; for reels the HyperFrames composition
+with its variables).
 
 ## Step 3 · Plan the week
 Superseded by the OS: plan from the Content Map and write Post Cards (layer 4 above). Default mix for 7 posts: 3 reels,
 3 carousels, 1 image; 5 posts: 2 reels, 2 carousels, 1 image (adjust from results: more of what wins). Each post:
-one goal (reach, trust, leads, saves), one belief to move, one ask. Rotate the asks across the week
-(keyword, save, send, book) so the account is not only asking for comments. Write `plans/<week>.md` (readable,
-with the reasoning and the research picks each post is based on) and `plans/<week>.json`:
+one job (reach, trust, convert), one belief to move, one ask. Rotate the asks across the week (follow, save, send,
+comment, keyword, dm, book; OS 6.2 and 7.3) so the account is not only asking for comments. A keyword only if it is
+live in `brain.json` (StraightScale: ANALIZA). `book` only on convert posts, said as the keyword/DM path ("comment
+ANALIZA; the booking button comes in the DM"): never a link, price, discount, guarantee or urgency.
+Write `plans/<week>.md` (readable, with the reasoning and the research picks each post is based on) and
+`plans/<week>.json`:
 
 ```json
 {"client": "straightscale", "week": "2026-W42", "timezone": "Europe/Tirane",
@@ -124,8 +134,11 @@ Every piece in `clients/<slug>/content/<key>/`.
 - **Reel:** motion-reel in autopilot. Reuse the client's templates first (fill the variables, render); build a
   new composition only for a new format, and save it as a template when it works. Project folder
   `motion-studio/projects/<slug>-<key>/`; copy the final 9:16 MP4 (H.264, AAC, under 100 MB, 3-90 s) as
-  `reel.mp4` and a cover frame as `cover.jpg`. Voiceover and AI music only within the brand-kit budget.
-- **Carousel:** carousel-machine with the plan's brief, the brand kit and the locked style bible. Slides as
+  `reel.mp4` and a cover frame as `cover.jpg` (delivery file rules: STANDARDS 3). Voiceover and AI music only within
+  the budget, and only after a G-BUDGET PASS (`pipeline.py budget`, STANDARDS 10).
+- **Carousel:** carousel-machine with the plan's brief, the brand kit and the locked style bible; model and settings per
+  STANDARDS 1. The model never draws the logo: the prompt leaves the bottom-left corner calm and empty, and after the
+  review `growth-engine/tools/brand_overlay.py <in> <out> --client <slug>` pastes the real file (FL-13). Slides as
   `slide-01.jpg`… (1080x1350 JPEG, 4:5, under 8 MB each: Instagram's publishing API refuses anything taller,
   so never 1080x1440), `alt-text.txt`.
   carousel-machine still says 3:4 and 1080x1440: inside this engine its export step makes 1080x1350 instead.
@@ -142,10 +155,14 @@ Every piece in `clients/<slug>/content/<key>/`.
   the keyword already exists (`hub.py client <slug>` lists them).
 
 ## Step 5 · QA (never skip)
-Reels: motion-reel stage 10 checks. Carousels: carousel-machine step 9 (every letter of every slide). All:
-facts only from the brand kit and hub profile; no invented numbers, clients or results; the keyword's
-resource exists; one ask. Write `qa.md`. Anything a person must check (native-language read of non-English
-copy, a claim, music licence) goes into the item's `notes`.
+The production gates first: fresh reviewers per asset and per final cut (`VISUAL-QA.md`), and `pipeline.py status`
+shows no open gates before the hub draft. Reels also get motion-reel stage 10 checks; carousels carousel-machine step 9
+(every letter of every slide). All: facts only from the brand kit, `brain.json` and the hub profile; no invented
+numbers, clients or results; no counts on screens, phones or in lines unless the number is in `brain.json`, and no
+real platform logos or names on screen (STANDARDS 6); an anecdote in the brand's voice only as a clearly framed POV
+("POV: ..."), never stated as fact; AI people only as STANDARDS 7 allows; the keyword's resource exists; one ask.
+Write `qa.md`. Anything a person must check (native-language read of non-English copy, a claim, music licence) goes
+into the item's `notes`, plus "AI label: on" when STANDARDS 7 applies.
 
 ## Step 6 · Ship to the hub
 `content/<key>/item.json` with local paths; `hub.py push` uploads the media and creates the draft:

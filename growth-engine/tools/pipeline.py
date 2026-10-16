@@ -12,6 +12,8 @@ ledger.json, shots/, prompts/, qa/, assets/, audio/, edit/, final/ and calls.jso
   pipeline.py asset <slug> <post_id> <asset_id> --type T [--shots A,B] [--depends X@v1,..] [--hero] [--hook] [--tool NAME]
                                                                       open the next version of an asset
   pipeline.py prompt <slug> <post_id> <asset>[@v] --file F [--media ID:role ...]   the exact prompt + reference order
+                                                                      (an edit pass: --media <previous version's id>:edit_source,
+                                                                      passed in the call as image_references or image)
   pipeline.py media <slug> <post_id> <asset>[@v] [--id ID ...] [--file PATH ...]   uploaded/generated ids and files
   pipeline.py record <slug> <post_id> <report.json>                   record a reviewer report (orchestrator only)
   pipeline.py gate <slug> <post_id> <GATE> --status PASS|FAIL --by WHO [--asset A@v] [--note T] [--score N] [--data JSON]
@@ -54,14 +56,19 @@ VIDEO_FORMATS = {"realistic_photo", "ugc", "talking_head", "podcast", "animation
                  "animation_2d", "stop_motion", "song", "drama", "motion", "storyboard_panel"}
 BLANKET_NO_TEXT = {"text", "no text", "any text", "no text anywhere", "no words", "no writing", "no letters"}
 REVIEW_GATES = {"G-SPEC", "G-PROMPT-IMG", "G-PROMPT-VID", "G-VIS", "G-VIS-SHEET", "G-VIS-BOARD", "G-VIS-SLIDE",
-                "G-CONTINUITY", "G-SET", "G-TAKE", "G-MOTION-FRAMES", "G-FINAL"}
+                "G-CONTINUITY", "G-SET", "G-TAKE", "G-MOTION-TEXT", "G-MOTION-FRAMES", "G-FINAL"}
 CHECK_IDS = {
     "prompt": [f"P{i}" for i in range(1, 13)],
     "visual": [f"V{i}" for i in range(1, 27)],
     "take": [f"T{i}" for i in range(1, 10)],
     "motion": [f"M{i}" for i in range(1, 8)],
+    "motion_text": STANDARDS["review_gates_extra"]["G-MOTION-TEXT"]["checks"],
     "final": [f"F{i}" for i in range(1, 9)],
 }
+IMAGE_ROLES = tuple(STANDARDS["gate_policy"]["image_ref_roles"])
+EDIT_SOURCE = STANDARDS["gate_policy"]["edit_source_role"]
+EDIT_PASS_HINT = (f"(an edit pass may use this asset's own previous version as the single image reference: register it "
+                  f"with role {EDIT_SOURCE}, VISUAL-QA 5.5 route 1)")
 
 
 def now() -> dt.datetime:
@@ -135,6 +142,9 @@ def family_for(fmt: str, post_id: str) -> str:
     f = ORGANIC["formats"].get(fmt)
     if not f:
         raise PipelineError(f"unknown format {fmt!r}: add it to growth-engine/config/organic.json formats")
+    for name, fam in STANDARDS["families"].items():
+        if isinstance(fam, dict) and fmt in fam.get("formats", []):
+            return name
     if f.get("production"):
         return f["production"]
     return {"image": "still", "carousel": "still"}.get(f["family"], "ai_video")
@@ -530,9 +540,9 @@ def record_report(slug: str, post_id: str, report: dict) -> tuple[str, list[str]
             loops = sum(1 for r in a["gates"][gate] if r["status"] == FAIL)
             failure_log(led, gate, aref(a), report.get("checks") or [])
             if loops >= pol["max_prompt_loops"]:
-                _queue_add(led, "G-HUMAN-ESCALATE", f"{aref(a)}: prompt failed {loops} review loops; the Director decides "
-                                                    f"(VISUAL-QA 4.3)", aref(a))
-                notes.append("escalated: prompt loop limit reached")
+                notes.append(f"prompt loop limit reached ({loops} of {pol['max_prompt_loops']}): the Organic Director decides "
+                             "(rewrite, simplify the shot, or send it to the owner as G-HUMAN-ESCALATE; VISUAL-QA 4.3, "
+                             "STANDARDS 9)")
         save_ledger(led)
         return status, notes
 
@@ -558,6 +568,21 @@ def record_report(slug: str, post_id: str, report: dict) -> tuple[str, list[str]
         save_ledger(led)
         return status, notes
 
+    if gate == "G-MOTION-TEXT":
+        if gate != info.get("text_gate"):
+            raise PipelineError(f"{aref(a)} is a {a['type']}: G-MOTION-TEXT reviews a motion_render's text constants")
+        miss = _require_checks(report, "motion_text")
+        if not report.get("files_opened"):
+            miss.append("report cites no files opened (the code's text constants, the spec, the released script)")
+        if miss or any(c.get("result") == FAIL for c in report.get("checks") or []):
+            status = FAIL
+        notes += miss
+        add_record(a["gates"], gate, {"status": status, "by": reviewer, "report": rel})
+        if status == FAIL:
+            failure_log(led, gate, aref(a), report.get("checks") or [])
+        save_ledger(led)
+        return status, notes
+
     if gate in ("G-TAKE", "G-MOTION-FRAMES", "G-FINAL"):
         kind = {"G-TAKE": "take", "G-MOTION-FRAMES": "motion", "G-FINAL": "final"}[gate]
         if gate != info.get("visual_gate"):
@@ -568,6 +593,9 @@ def record_report(slug: str, post_id: str, report: dict) -> tuple[str, list[str]
         cnt = _count(report.get("checks") or [])
         lim = pol["take_pass"]
         over = [f"{k} {cnt[k]} > {lim[k]}" for k in ("critical", "major") if cnt[k] > lim[k]]
+        if gate == "G-MOTION-FRAMES" and info.get("text_gate") and not gate_ok(a["gates"].get(info["text_gate"])):
+            miss.append(f"no {info['text_gate']} PASS on {aref(a)}: a fresh prompt-reviewer checks the code's text "
+                        "constants before any render (VISUAL-QA 7.2)")
         if miss or over or (gate == "G-TAKE" and report.get("retake_needed")):
             status = FAIL
         notes += miss + over
@@ -701,10 +729,30 @@ def gate_state(led: dict, gate: str) -> tuple[bool, str]:
             if g and info["kind"] != "final" and not gate_ok(a["gates"].get(g)):
                 bad.append(f"{aref(a)} {g}")
         return (not bad), ("open: " + ", ".join(bad[:6])) if bad else ""
+    if gate == "G-MOTION-TEXT":
+        renders = [max(versions(led, aid), key=lambda x: x["version"])
+                   for aid in sorted({a["asset_id"] for a in led["assets"] if type_info(a["type"]).get("text_gate") == gate})]
+        if not renders:
+            return False, "no motion_render asset registered for G-MOTION-TEXT (the code's text constants review)"
+        bad = [aref(a) for a in renders if not gate_ok(a["gates"].get(gate))]
+        return (not bad), ("G-MOTION-TEXT open: " + ", ".join(bad)) if bad else ""
     hc = STANDARDS["human_checkpoints"].get(gate, {})
     if hc.get("mode") in ("per_series", "per_voice"):
         return client_gate_ok(led, gate), f"{gate} not recorded for this run or the client's LIB run"
     return gate_ok(led["run_gates"].get(gate)), f"{gate} has no PASS"
+
+
+def budget_after_steps(led: dict, n: int) -> tuple[bool, str]:
+    """Step 9 re-prices the whole video: its G-BUDGET PASS must be newer than every earlier step's close (D-a)."""
+    b = latest(led["run_gates"].get("G-BUDGET"))
+    if not b or b["status"] not in OK_STATES:
+        return False, "G-BUDGET has no PASS"
+    closed = [parse_ts(st["at"]) for k, st in led["steps"].items()
+              if int(k) < n and st.get("status") == "done" and st.get("at")]
+    if closed and parse_ts(b["at"]) < max(closed):
+        return False, (f"the last G-BUDGET ({b['at']}) is older than step {n - 1}'s close: re-price the whole piece with "
+                       f"pipeline.py budget {led['slug']} {led['post_id']} --planned N --balance B")
+    return True, ""
 
 
 def close_step(slug, post_id, n: int, status: str, note: str = "") -> dict:
@@ -717,6 +765,10 @@ def close_step(slug, post_id, n: int, status: str, note: str = "") -> dict:
             ok, why = gate_state(led, g)
             if not ok:
                 raise PipelineError(f"step {n} can't close: {why}")
+            if g == "G-BUDGET":
+                ok, why = budget_after_steps(led, n)
+                if not ok:
+                    raise PipelineError(f"step {n} can't close: {why}")
         for m in range(n):
             if led["steps"][str(m)]["status"] in ("todo", "blocked"):
                 raise PipelineError(f"step {m} is still {led['steps'][str(m)]['status']}: the order is the point "
@@ -894,7 +946,33 @@ def _model_checks(req: dict, a: dict, led: dict) -> list[str]:
         if not m:
             why.append(f"image model {model} is not in standards.json models.image ({', '.join(std['image'])})")
         elif a["type"] not in m["use"]:
-            why.append(f"{model} is not the standard model for a {a['type']} (STANDARDS.md R1)")
+            why.append(f"{model} is not the standard model for a {a['type']} (STANDARDS.md 1; R1 for stylized sheets)")
+        if m:
+            for k, v in (m.get("params") or {}).items():
+                if p.get(k) != v:
+                    why.append(f"{model}: pass {k}: {v!r} (STANDARDS.md 1; the model default differs)")
+            for k, opts in (m.get("params_one_of") or {}).items():
+                if p.get(k) not in opts:
+                    why.append(f"{model}: pass {k} as one of {opts} (STANDARDS.md 1), not {p.get(k)!r}")
+            for k, opts in (m.get("params_if_given") or {}).items():
+                if k in p and p[k] not in opts:
+                    why.append(f"{model}: {k} must be one of {opts} (STANDARDS.md 1)")
+            if m.get("aspect_ratios") and p.get("aspect_ratio") is not None and p.get("aspect_ratio") not in m["aspect_ratios"]:
+                why.append(f"{model} has no {p.get('aspect_ratio')} output (STANDARDS.md 1: a 4:5 slide with a photoreal "
+                           "person is made in gpt_image_2_5 with the person's approved still as a reference)")
+            n_img = sum(1 for x in req.get("medias") or [] if x.get("role") in IMAGE_ROLES)
+            if n_img < m.get("min_image_refs", 0):
+                why.append(f"{model} always takes a reference photo (hub G7, STANDARDS.md 1)")
+            if a["type"] in (m.get("refuse_people_for") or []):
+                people = std.get("image_people_spec_formats") or []
+                fmts = set()
+                for s_ in a["shots"]:
+                    sp = spec_path(led["slug"], led["post_id"], s_)
+                    if sp.exists():
+                        fmts.add((yaml.safe_load(sp.read_text()) or {}).get("format"))
+                if fmts & set(people):
+                    why.append(f"{model} is not used for realistic people in a {a['type']} ({', '.join(sorted(fmts & set(people)))}): "
+                               "gpt_image_2 with a reference photo (STANDARDS.md 1, hub G7)")
         if a["type"] not in ("storyboard",) and not a["type"].endswith("_sheet") and a["type"] != "style_ref":
             aspects = set()
             for s in a["shots"]:
@@ -970,6 +1048,12 @@ def _check_request(req: dict) -> tuple[bool, list[str], dict | None, dict | None
     return ok, why, led, a
 
 
+def _role_match(registered: str, called: str) -> bool:
+    if registered == EDIT_SOURCE:
+        return called in IMAGE_ROLES
+    return registered == called
+
+
 def _check_asset(led: dict, a: dict, req: dict, prompt_sha: str | None):
     why = []
     info = type_info(a["type"])
@@ -982,6 +1066,12 @@ def _check_asset(led: dict, a: dict, req: dict, prompt_sha: str | None):
         why.append(f"no G-BUDGET PASS for {led['post_id']} (pipeline.py budget {led['slug']} {led['post_id']} --planned N --balance B)")
     elif now() - parse_ts(b["at"]) > dt.timedelta(hours=pol["budget_fresh_hours"]):
         why.append(f"G-BUDGET is older than {pol['budget_fresh_hours']} h: check the live balance again (credits are shared)")
+    st9 = led.get("steps", {}).get("9")
+    if info["kind"] == "video" and st9 and st9.get("status") != "done" and st9.get("status") != "na":
+        why.append(f"step 9 (budget preflight) is not closed for {led['post_id']}: re-price the whole video "
+                   f"(pipeline.py budget ...) and close step 9 before the first video call (STANDARDS 10)")
+    if led.get("family") == "song" and info["kind"] in ("image", "video") and not gate_ok(led["run_gates"].get("G-HUMAN-SONG")):
+        why.append(f"song {led['post_id']}: the owner listens to the song master before any picture (G-HUMAN-SONG)")
     if info["kind"] == "test":
         if not gate_ok(a["gates"].get("G-HUMAN-TEST")):
             why.append(f"test asset {aref(a)} needs G-HUMAN-TEST from the owner, with the reason")
@@ -1012,21 +1102,40 @@ def _check_asset(led: dict, a: dict, req: dict, prompt_sha: str | None):
     if pg and kind != "nodes" and not _gate_any_version(led, a, pg, prompt_sha256=prompt_sha):
         why.append(f"no {pg} PASS for this exact prompt on {a['asset_id']} (Prompt Reviewer, fresh agent)")
     call_m = req.get("medias") or []
-    if kind != "nodes" and [(m["value"], m["role"]) for m in call_m] != [(m["value"], m["role"]) for m in a["medias"]]:
-        why.append(f"references differ from the reviewed reference map: registered {[m['value'] for m in a['medias']]}, "
-                   f"call {[m['value'] for m in call_m]} (same files, same order, same roles: P2)")
+    reg_m = a["medias"]
+    if kind != "nodes" and (len(call_m) != len(reg_m) or not all(
+            c["value"] == r["value"] and _role_match(r["role"], c["role"]) for c, r in zip(call_m, reg_m))):
+        why.append(f"references differ from the reviewed reference map: registered {[m['value'] for m in reg_m]}, "
+                   f"call {[m['value'] for m in call_m]} (same files, same order, same roles: P2; a registered "
+                   f"{EDIT_SOURCE} goes in the call as {' or '.join(IMAGE_ROLES)})")
+    n_img = sum(1 for m in call_m if m["role"] in IMAGE_ROLES or m["role"] == EDIT_SOURCE)
     refs = []
-    for m in call_m:
+    for i, m in enumerate(call_m):
+        reg_role = reg_m[i]["role"] if i < len(reg_m) and reg_m[i]["value"] == m["value"] else m["role"]
         rl, ra = find_by_id(led["slug"], m["value"])
+        if reg_role == EDIT_SOURCE:
+            if not ra:
+                why.append(f"{EDIT_SOURCE} {m['value']} is not registered on a version of {a['asset_id']} "
+                           f"(pipeline.py media ... {a['asset_id']}@v<n> --id {m['value']})")
+            elif ra["asset_id"] != a["asset_id"] or rl["post_id"] != led["post_id"] or ra["version"] >= a["version"]:
+                why.append(f"{EDIT_SOURCE} {m['value']} is {aref(ra)}: an edit pass edits a previous version of the same "
+                           f"asset ({a['asset_id']} below v{a['version']}) in this run, nothing else")
+            elif info["kind"] != "image":
+                why.append(f"{EDIT_SOURCE} is for image edit passes; {aref(a)} is a {a['type']}")
+            elif n_img != 1:
+                why.append(f"an edit pass takes {aref(ra)} as the single image reference ({n_img} image references in "
+                           "the call): VISUAL-QA 5.5 route 1")
+            continue
         if not ra:
             why.append(f"reference {m['value']} ({m['role']}) is not a registered asset with a passed review "
-                       f"(pipeline.py media ... --id {m['value']})")
+                       f"(pipeline.py media ... --id {m['value']}) {EDIT_PASS_HINT}")
             continue
         refs.append((m, rl, ra))
         ri = type_info(ra["type"])
         g = ri.get("visual_gate") or ri.get("audio_gate")
         if g and not gate_ok(ra["gates"].get(g)):
-            why.append(f"reference {aref(ra)} has no {g} PASS")
+            why.append(f"reference {aref(ra)} has no {g} PASS"
+                       + (f" {EDIT_PASS_HINT}" if ra["asset_id"] == a["asset_id"] else ""))
         if ri.get("look") and not (gate_ok(rl["run_gates"].get("G-HUMAN-LOOK")) or client_gate_ok(rl, "G-HUMAN-LOOK")):
             why.append(f"reference {aref(ra)} is from a look bible the owner hasn't approved (G-HUMAN-LOOK)")
     if info["kind"] == "video":

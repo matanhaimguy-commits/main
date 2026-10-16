@@ -9,7 +9,7 @@ here or in the Higgsfield sandbox (send it with a heredoc).
   vqa_crops.py motion <video> (...)                 motion render: every 0.5 s + every cut's start, middle and end
   vqa_crops.py final <video> (...)                  final cut: every 1.5 s + every cut
   vqa_crops.py drift <clip> <slice> [--out report.json]   H3 lip-sync drift (hub G6): lag per 2 s window every 0.25 s
-  vqa_crops.py loudness <file>                     integrated LUFS and true peak (ffmpeg ebur128)
+  vqa_crops.py loudness <file>                     integrated LUFS, true peak, loudness range, short-term max, pass vs STANDARDS 4
 
 Every packet writes manifest.json with must_open: the files a reviewer has to open before its report counts
 (pipeline.py record checks the report's files_opened against it).
@@ -314,8 +314,28 @@ def cmd_loudness(args) -> dict:
     tail = r.stderr[r.stderr.rfind("Summary:"):]
     i = re.search(r"I:\s+(-?[0-9.]+) LUFS", tail)
     tp = re.search(r"Peak:\s+(-?[0-9.]+) dBFS", tail)
-    return {"file": args.file, "integrated_lufs": float(i.group(1)) if i else None,
-            "true_peak_dbtp": float(tp.group(1)) if tp else None}
+    lra = re.search(r"LRA:\s+(-?[0-9.]+) LU", tail)
+    st = [float(x) for x in re.findall(r"\bS:\s*(-?[0-9.]+)", r.stderr[: r.stderr.rfind("Summary:")])]
+    res = {"file": args.file, "integrated_lufs": float(i.group(1)) if i else None,
+           "true_peak_dbtp": float(tp.group(1)) if tp else None,
+           "loudness_range_lu": float(lra.group(1)) if lra else None,
+           "short_term_max_lufs": max(st) if st else None}
+    try:  # STANDARDS.md section 4 (standards.json audio)
+        std = json.loads((Path(__file__).resolve().parents[1] / "production" / "standards.json").read_text())["audio"]
+        checks = {}
+        if res["integrated_lufs"] is not None:
+            checks["integrated"] = abs(res["integrated_lufs"] - std["loudness_lufs"]) <= std["loudness_tolerance"]
+        if res["true_peak_dbtp"] is not None:
+            checks["true_peak"] = res["true_peak_dbtp"] <= std["true_peak_dbtp_max"]
+        if res["loudness_range_lu"] is not None:
+            checks["loudness_range"] = res["loudness_range_lu"] <= std["loudness_range_lu_max"]
+        if res["short_term_max_lufs"] is not None:
+            checks["short_term"] = res["short_term_max_lufs"] <= std["short_term_max_lufs"]
+        res["checks"] = checks
+        res["pass"] = bool(checks) and all(checks.values())
+    except (OSError, KeyError, ValueError):
+        res["pass"] = None
+    return res
 
 
 def main(argv=None) -> int:

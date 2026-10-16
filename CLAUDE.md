@@ -13,6 +13,10 @@
   use the `growth-engine` skill. Strategy spec (what to make, for whom, why): `growth-engine/ORGANIC-OS.md`, with its
   agents in `.claude/agents/` and checks in `growth-engine/tools/organic.py`. Plan: `growth-engine/PLAN.md`. One folder per client: `clients/<slug>/`. Finished posts
   go to the hub (the app's Content page) as drafts with `growth-engine/tools/hub.py`; nothing is posted without approval.
+- **Production layer** (how every image, carousel and video for those posts is made and checked):
+  `growth-engine/production/`; read its `README.md` first. Every Higgsfield and ElevenLabs generation is gated by the
+  hook `.claude/hooks/generation_gate.py` (runs and gates: `growth-engine/tools/pipeline.py`); every number comes from
+  `STANDARDS.md`; story reels follow `STORY-FORMATS.md`.
 - **Instagram / Facebook automation** (comment-to-DM funnels, AI sales DMs, for us and clients): the hosted app
   is `lovable-app/` (a Lovable project; read `lovable-app/README.md`). It is pushed to the Lovable project's own
   GitHub repo, which deploys it; businesses are edited in its dashboard. `social-agent/` is the original

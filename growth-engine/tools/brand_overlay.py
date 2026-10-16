@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
 """Paste a client's real logo file onto a generated image (models never draw logos: brand-kit "real files only").
 
-  brand_overlay.py <in> <out> --client <slug> [--logo wordmark-white] [--pos bottom-left] [--width 0.27]
-                   [--margin-x 0.065] [--margin-y 0.04] [--check-only]
+  brand_overlay.py <in> <out> (--client <slug> [--logo wordmark-white] | --logo-file PATH) [--pos bottom-left]
+                   [--width 0.27] [--margin-x 0.065] [--margin-y 0.04] [--check-only]
+
+In the Higgsfield sandbox (no repo there), fetch the logo from the URL in clients/<slug>/brand/brand.json and pass
+--logo-file; send this script with a heredoc (it is code, not file bytes).
 
 The logo files live in clients/<slug>/brand/. Before pasting, it checks the area the logo will cover: it must be calm
 (low detail) and give the logo enough contrast (4.5:1 for a white wordmark on its mean colour). A busy or bright area
@@ -46,7 +49,8 @@ def place(img_size, logo_size, pos, width, mx, my):
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("inp"); ap.add_argument("out")
-    ap.add_argument("--client", required=True)
+    ap.add_argument("--client")
+    ap.add_argument("--logo-file", help="a logo PNG path (sandbox use)")
     ap.add_argument("--logo", default="wordmark-white")
     ap.add_argument("--pos", default="bottom-left", choices=["bottom-left", "bottom-right", "top-left", "top-right"])
     ap.add_argument("--width", type=float, default=0.27, help="logo width as a share of the image width")
@@ -56,9 +60,14 @@ def main(argv=None) -> int:
     ap.add_argument("--check-only", action="store_true")
     a = ap.parse_args(argv)
 
-    logo_p = ROOT / "clients" / a.client / "brand" / f"{a.logo}.png"
+    if a.logo_file:
+        logo_p = Path(a.logo_file)
+    elif a.client:
+        logo_p = ROOT / "clients" / a.client / "brand" / f"{a.logo}.png"
+    else:
+        ap.error("give --client or --logo-file")
     if not logo_p.exists():
-        print(json.dumps({"ok": False, "error": f"no logo file {logo_p.relative_to(ROOT)}"}))
+        print(json.dumps({"ok": False, "error": f"no logo file {logo_p}"}))
         return 1
     img = Image.open(a.inp).convert("RGB")
     logo = Image.open(logo_p).convert("RGBA")
@@ -69,14 +78,14 @@ def main(argv=None) -> int:
     stat = ImageStat.Stat(area.convert("L"))
     mean_rgb = tuple(int(v) for v in ImageStat.Stat(area).mean)
     detail = stat.stddev[0]
-    light_logo = a.logo.endswith("white")
+    light_logo = a.logo.endswith("white") or "light" in logo_p.name or "white" in logo_p.name
     ratio = contrast((248, 246, 239) if light_logo else (31, 31, 31), mean_rgb)
     problems = []
     if detail > a.max_detail:
         problems.append(f"the area is busy (detail {detail:.1f} > {a.max_detail}): leave it calm and empty in the prompt")
     if ratio < 4.5:
         problems.append(f"contrast {ratio:.1f}:1 is under 4.5:1 for this logo on the area's mean colour {mean_rgb}")
-    rep = {"ok": not problems, "logo": str(logo_p.relative_to(ROOT)), "box": [x, y, x + lw, y + lh], "detail": round(detail, 1),
+    rep = {"ok": not problems, "logo": str(logo_p), "box": [x, y, x + lw, y + lh], "detail": round(detail, 1),
            "contrast": round(ratio, 2), "problems": problems}
     if problems or a.check_only:
         print(json.dumps(rep, indent=2))

@@ -1,5 +1,5 @@
 {
-  "_doc": "Defaults from ORGANIC-OS.md (sections 6.1, 6.2, 6.6, 7.4, 7.7). Edit here, not in code. Credits are Higgsfield credits per finished piece incl. ~25% retakes. Story layer (15 Oct 2026): story_templates, animation_styles and each format's production family (growth-engine/production/STANDARDS.md families) feed the router and the production pipeline (growth-engine/tools/pipeline.py).",
+  "_doc": "Defaults from ORGANIC-OS.md (sections 6.1, 6.2, 6.6, 7.4, 7.7). Edit here, not in code. Credits are Higgsfield credits per finished piece with the cast already built, incl. ~25% retakes, from each adapter's own math at growth-engine/production/STANDARDS.md section 10 prices (16 Oct 2026); a series' first episode adds the adapter's one-off cast cost, and lengths come from STANDARDS.md section 8. Story layer (15 Oct 2026): story_templates, animation_styles and each format's production family (growth-engine/production/STANDARDS.md families) feed the router and the production pipeline (growth-engine/tools/pipeline.py).",
   "beliefs": {
     "B1": {
       "label": "This problem is real, and it is costing me.",
@@ -134,7 +134,18 @@
     "dm",
     "book"
   ],
+  "cta_types": {
+    "_doc": "What each cta_type means (ORGANIC-OS 6.2, owner's spec). One organic ask per post that fits the card's job; never a link, price, discount, guarantee or urgency.",
+    "follow": "Follow for the series (part 2).",
+    "save": "Save it to use later.",
+    "send": "Send it to a business-owner friend or partner.",
+    "comment": "Comment an answer to a question the post asks (not a keyword; a keyword is cta_type keyword).",
+    "keyword": "Comment a keyword that is live in brain.json lead_magnets (StraightScale: ANALIZA).",
+    "dm": "Send us a DM.",
+    "book": "Convert job only. Said as the keyword or DM path, never a link, price, discount, guarantee or urgency (StraightScale brand kit 'One path': \"comment ANALIZA; the booking button comes in the DM\")."
+  },
   "stage_mix": {
+    "note": "A hard offer post is a convert-job post about the client's one free offer (brain.json offer.main_offer; StraightScale: the free analysis), with the same limits as every convert post: said as the keyword or DM path, never a link, price, discount, guarantee or urgency. About 3% of output (ORGANIC-OS 1 and 6.2): hard_offer_per_month caps new accounts, hard_offer_share sets the monthly cap for the others. It explains only facts the brain holds: no 'what happens in the analysis' (B8) post while offer.delivers is unknown (StraightScale decision D3).",
     "new": {
       "reach": 0.5,
       "trust": 0.35,
@@ -208,8 +219,8 @@
       "family": "carousel",
       "tier": "C",
       "credits": [
-        7,
-        90
+        16,
+        33
       ],
       "jobs": [
         "trust"
@@ -225,8 +236,8 @@
       "family": "carousel",
       "tier": "C",
       "credits": [
-        7,
-        90
+        16,
+        33
       ],
       "jobs": [
         "trust",
@@ -244,8 +255,8 @@
       "family": "carousel",
       "tier": "C",
       "credits": [
-        7,
-        90
+        16,
+        33
       ],
       "jobs": [
         "reach"
@@ -261,8 +272,8 @@
       "family": "carousel",
       "tier": "C",
       "credits": [
-        7,
-        90
+        16,
+        33
       ],
       "jobs": [
         "trust"
@@ -278,8 +289,8 @@
       "family": "carousel",
       "tier": "C",
       "credits": [
-        7,
-        90
+        16,
+        33
       ],
       "jobs": [
         "trust",
@@ -296,7 +307,7 @@
       "tier": "C",
       "credits": [
         0,
-        30
+        29
       ],
       "jobs": [
         "trust"
@@ -327,7 +338,7 @@
         "B5"
       ],
       "skill": "motion-reel (HyperFrames)",
-      "note": "Always voiced (owner rule, 15 Oct 2026).",
+      "note": "Always voiced (owner rule, 15 Oct 2026); the AI voice means the AI label is on (STANDARDS 7).",
       "production": "motion"
     },
     "reel_quote_broll": {
@@ -353,7 +364,7 @@
       "tier": "B",
       "credits": [
         80,
-        110
+        200
       ],
       "jobs": [
         "trust",
@@ -368,15 +379,15 @@
         "B8"
       ],
       "skill": "hook-lab + script-lab + H3 via growth-engine/adapters/ugc-talking-head-organic.md",
-      "note": "Proven paid winner format; rotate props and sets.",
+      "note": "Proven paid winner format; rotate the props. The strategist faces the camera only as a presenter in his clearly staged studio set (the whiteboard), AI label on, never as a client, owner or customer (STANDARDS 7). O30 or O60 (ugc-talking-head-organic.md 4).",
       "production": "ai_video"
     },
     "reel_ugc_pov": {
       "family": "reel",
       "tier": "B",
       "credits": [
-        100,
-        150
+        80,
+        200
       ],
       "jobs": [
         "reach",
@@ -388,11 +399,10 @@
         "B5"
       ],
       "skill": "readymerce-ads-machine (UGC) via growth-engine/adapters/ugc-talking-head-organic.md",
-      "note": "Never present an AI person as a real customer.",
+      "note": "A staged POV, never a real customer. Until D1 the AI owner is shown from behind, hands only, at a distance or as stylized animation; AI label on (STANDARDS 7). No confession: that needs real footage.",
       "production": "ai_video",
       "story_templates": [
         "pov_day",
-        "confession_pov",
         "two_days"
       ]
     },
@@ -400,8 +410,8 @@
       "family": "reel",
       "tier": "B",
       "credits": [
-        120,
-        170
+        220,
+        320
       ],
       "jobs": [
         "trust",
@@ -414,7 +424,7 @@
         "B8"
       ],
       "skill": "readymerce-podcast-ads via growth-engine/adapters/podcast-organic.md",
-      "note": "Needs a real disagreement.",
+      "note": "Needs a real disagreement. C45 only (STANDARDS 8). The hosts are staged presenters, never real owners; until D1 they are shown from behind, at a distance or as stylized animation (STANDARDS 7).",
       "production": "ai_video",
       "story_templates": [
         "podcast_disagreement"
@@ -424,8 +434,8 @@
       "family": "reel",
       "tier": "B",
       "credits": [
-        120,
-        200
+        210,
+        445
       ],
       "jobs": [
         "reach",
@@ -438,7 +448,7 @@
         "B8"
       ],
       "skill": "hook-lab + script-lab (organic) + H3 + ElevenLabs; story beats from growth-engine/production/STORY-FORMATS.md",
-      "note": "Like the 60 s w43 reel.",
+      "note": "Like the 60 s w43 reel. Credits: STORY-FORMATS.md 6.4 (O60 at 45 to 60 s).",
       "production": "ai_video",
       "story_templates": [
         "pov_day",
@@ -452,7 +462,7 @@
       "tier": "A",
       "credits": [
         150,
-        300
+        220
       ],
       "jobs": [
         "reach",
@@ -474,17 +484,17 @@
       "styles": [
         "claymation",
         "crochet",
-        "pixar_style_3d",
-        "disney_style_2d"
+        "family_film_3d",
+        "storybook_2d"
       ],
-      "note": "45 to 75 s story in one locked style; the look bible is built once per series and reused, so episode 2 on costs about a third less."
+      "note": "O60 story (STANDARDS 8) in one locked style; the look bible is built once per series and reused (the first episode adds about 15 credits for the sheets, animation-organic.md 4)."
     },
     "reel_song": {
       "family": "reel",
       "tier": "A",
       "credits": [
-        190,
-        300
+        140,
+        355
       ],
       "jobs": [
         "reach",
@@ -496,8 +506,8 @@
         "B7"
       ],
       "skill": "readymerce-song-ads via growth-engine/adapters/song-organic.md",
-      "note": "Judge on sends and follows, not DMs.",
-      "production": "ai_video",
+      "note": "Judge on sends and follows, not DMs. O30 standalone about 140 to 200, O60 about 250 to 355 (song-organic.md 4).",
+      "production": "song",
       "story_templates": [
         "song_day",
         "pov_day"
@@ -524,8 +534,8 @@
       "family": "carousel",
       "tier": "C",
       "credits": [
-        7,
-        90
+        16,
+        33
       ],
       "jobs": [
         "trust",
@@ -544,8 +554,8 @@
       "family": "reel",
       "tier": "A",
       "credits": [
-        170,
-        300
+        180,
+        495
       ],
       "jobs": [
         "reach",
@@ -561,18 +571,17 @@
       "story_templates": [
         "pov_day",
         "two_days",
-        "overheard",
-        "confession_pov"
+        "overheard"
       ],
       "skill": "readymerce-drama-ads via growth-engine/adapters/drama-organic.md",
-      "note": "A scene from the buyer's day with 2 to 4 characters, a conflict in the first line, the mechanism as the answer near the end. Realistic AI people: AI label per decision D1."
+      "note": "A scene from the buyer's day with 2 to 4 characters, a conflict in the first line, the mechanism as the answer near the end. O60 (STANDARDS 8). AI label on per STANDARDS 7 (D1 decides whether to extend it); characters who could pass as real owners are shown from behind, hands only, at a distance or as stylized animation until D1."
     },
     "reel_animation_short": {
       "family": "reel",
       "tier": "B",
       "credits": [
-        60,
-        110
+        70,
+        100
       ],
       "jobs": [
         "reach",
@@ -592,11 +601,11 @@
       "styles": [
         "claymation",
         "crochet",
-        "pixar_style_3d",
-        "disney_style_2d"
+        "family_film_3d",
+        "storybook_2d"
       ],
       "skill": "readymerce-animation-ads via growth-engine/adapters/animation-organic.md (short tier)",
-      "note": "The lab version: 20 to 35 s, one character, 2 sequences. Tests a story angle or a new series character before a full reel_animation."
+      "note": "The lab version: O30 (STANDARDS 8), one character, 2 sequences. Tests a story angle or a new series character before a full reel_animation; the first episode adds about 15 credits for the sheets."
     },
     "reel_talking_head_real": {
       "family": "reel",
@@ -628,7 +637,7 @@
   },
   "premium_assets_required": 6,
   "story_templates": {
-    "_doc": "Narrative shapes (STORY-FORMATS.md). A Post Card names one in story_template; the format renders it. Beats are the default order; Script Lab structure codes in parentheses.",
+    "_doc": "Narrative shapes (STORY-FORMATS.md). A Post Card names one in story_template; the format renders it. Beats are the default order; Script Lab structure codes in parentheses. AI people follow STANDARDS 7: until D1, AI owners are shown from behind, hands only, at a distance or as stylized animation. Anecdotes only as clearly framed POV dramatizations (\"POV: ...\"), never stated as fact; no counts unless the number is in brain.json.",
     "pov_day": {
       "name": "POV: a day in the buyer's life",
       "beliefs": [
@@ -689,7 +698,7 @@
         "ST3"
       ],
       "beats": [
-        "the villain (the unanswered DM, the dead boost button) speaks from where it lives",
+        "the villain (an unanswered message, an ad that brings nothing) speaks from where it lives (on the desk, in the inbox)",
         "it mocks the failed fix",
         "it brags about what it costs the owner",
         "the mechanism arrives and the villain loses",
@@ -731,12 +740,13 @@
         "ST4"
       ],
       "beats": [
-        "someone else noticed (the busiest shop on the street wasn't the one with the best posts)",
+        "a framed POV dramatization (\"POV: ...\"): someone else noticed, the overheard line",
         "the surprising detail",
         "the cause",
         "the lesson as the mechanism",
         "organic CTA"
-      ]
+      ],
+      "note": "Staged: the witness and the speakers are never a real business by name, and the scene is never told as something that happened. Until D1 the people are seen from behind or at a distance (STANDARDS 7)."
     },
     "confession_pov": {
       "name": "Owner confession",
@@ -750,14 +760,15 @@
       "script_lab": [
         "ST4"
       ],
-      "needs_real_or_labelled": true,
+      "needs_real_footage": true,
       "beats": [
         "first person, an edge: what I got wrong",
         "what it cost",
         "what I saw that changed it (the mechanism)",
         "what I do now",
         "organic CTA"
-      ]
+      ],
+      "note": "Someone's real story in his own words, with no result he can't show: real footage only (STANDARDS 7). card-check fails it while the brain's face is ai_character or real_footage is false. No AI-person format renders it."
     },
     "song_day": {
       "name": "Song of the buyer's day",
@@ -805,7 +816,7 @@
     }
   },
   "animation_styles": {
-    "_doc": "Locked style blocks for animated story formats. The style name is a look, never a studio's characters, logos or names on screen (VISUAL-QA V24). Image model per STANDARDS.md R1.",
+    "_doc": "Locked style blocks for animated story formats. The style name is a look, never a studio's characters, logos or names on screen or in a prompt (VISUAL-QA V24). Sheets and storyboards: Nano Banana 2 until re-test R1 (STANDARDS.md section 1).",
     "claymation": {
       "name": "Claymation (stop-motion clay)",
       "block": "Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture."
@@ -814,12 +825,12 @@
       "name": "Crochet / amigurumi",
       "block": "Crochet amigurumi look: characters and props knitted from soft yarn with visible stitches, safety-bead eyes, felt details, a cosy miniature yarn world, soft daylight, shallow depth of field."
     },
-    "pixar_style_3d": {
+    "family_film_3d": {
       "name": "3D family-film style",
       "block": "Polished 3D family-film animation look: expressive stylised characters with large eyes and soft subsurface skin, rounded shapes, warm cinematic lighting with soft bounce, rich but controlled colour, gentle depth of field.",
       "note": "Say \"3D family-film animation\"; never name or imitate a studio's characters."
     },
-    "disney_style_2d": {
+    "storybook_2d": {
       "name": "2D hand-drawn storybook style",
       "block": "Classic hand-drawn 2D animation look: clean ink lines, painted watercolour backgrounds, expressive squash-and-stretch poses, warm storybook palette, soft vignette.",
       "note": "Say \"hand-drawn 2D storybook animation\"; never name or imitate a studio's characters."

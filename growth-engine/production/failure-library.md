@@ -9,6 +9,9 @@ The patterns that keep breaking our pictures, each with its prevention (what the
   Director reads that log in the Monday memo: a failure that is not yet a pattern here becomes a new FL entry the
   same week (next number, dated, with where it was seen). A pattern seen 3 times despite its prevention gets a
   stronger prevention or a simpler default shot.
+- **Edit pass:** a fix route the gate allows as STANDARDS 1 "Edit pass" says: the asset's own previous version as the
+  single image reference (role `edit_source`) and a narrow instruction. It is a new version, counts as one attempt and
+  gets its own full review. Any other reference goes into a regenerate, not an edit pass.
 - **Format:** one entry per pattern, in this exact shape.
 
 ---
@@ -39,7 +42,7 @@ The patterns that keep breaking our pictures, each with its prevention (what the
 - Pattern: a story-critical prop (diploma, certificate, screen, frame, letter, sign) comes back blank because the prompt said "no text" or gave no content.
 - Prevention (prompt): a prop sheet for every story-critical prop, attached in every shot it appears; a content line (materials, layout, seal, colours, 1 to 3 exact words); targeted negatives ("no text on walls") never a blanket "no text". `pipeline.py spec-check` blocks a blanket "no text" next to a story prop.
 - Detection (review): V12, V13.
-- Fix route: edit pass with the prop sheet as reference; regenerate with the content line.
+- Fix route: edit pass with the content line as the instruction (the image's own previous version is the only reference); if the prop still reads wrong, regenerate with the content line and the prop sheet attached.
 
 ### FL-05 Empty background frames and screens
 - Seen: 15 Oct 2026, salon shots: two empty gold frames on the back wall.
@@ -97,11 +100,18 @@ The patterns that keep breaking our pictures, each with its prevention (what the
 - Detection (review): G-CONTINUITY across the boards; T2 across clips.
 - Fix route: regenerate the odd shot from the master references.
 
+### FL-13 Model-drawn logo
+- Seen: 15 Oct 2026, StraightScale: the style reference `STYLE@v1` (SS-LIB-STYLE, G-VIS-SHEET, V24 major: the mark and wordmark were redrawn, not the real file) and the carousel drafts whose prompts asked the model for the logo strip (the old full cover `90dad300` failed its review for it).
+- Pattern: a prompt that asks for the client's logo gets a lookalike: wrong shape, wrong red, wrong type. Image models can't copy a mark, and brand-kit.md says real files only.
+- Prevention (prompt): the prompt never asks for the logo. It leaves the bottom-left corner calm, dark and empty ("bottom-left corner calm, dark and empty: no logo, no text there"). After the review the real file is pasted with `growth-engine/tools/brand_overlay.py <in> <out> --client <slug>` (it refuses a busy or bright corner).
+- Detection (review): V24 on a 2x crop of the logo zone (a Shot Spec region on the bottom-left corner), compared with the real file in `clients/<slug>/brand/`.
+- Fix route: an edit pass (STANDARDS 1; the failed version as the single `edit_source` reference) that clears the bottom-left corner to the calm dark background; the result is a new version with its own review, then `brand_overlay.py` pastes the real file. If the corner can't be cleaned, regenerate with the corner left empty.
+
 ---
 
 ## How to add a pattern
 ```
-FL-13 <short name>
+FL-<next number> <short name>
 Seen: <date>, <client/post/asset>, <what happened>
 Pattern: <the general failure>
 Prevention (prompt): <the exact words or rule that prevents it>

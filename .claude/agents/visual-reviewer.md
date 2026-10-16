@@ -39,6 +39,15 @@ direction and geography hold, the story reads in order with the script lines und
 (one visual world, swipe bridges line up, the turn looks different, slide 2 works alone, no slide could swap with
 another). List the asset versions you covered in `covers`.
 
+**When the image is only on the Higgsfield CDN** (this container's network may block `d2ol7oe51mr4n9.cloudfront.net`):
+review it inside the Higgsfield sandbox. Load `mcp__Higgs__sandbox_exec` with ToolSearch. In one command: `curl -sf` the
+media URL into `/home/user/qa/<asset>.v<n>/`, write the Shot Spec there as JSON (a heredoc of the spec's content: text,
+not file bytes), write `growth-engine/tools/vqa_crops.py` there the same way, and run
+`python3 vqa_crops.py image src.jpg --out crops --spec spec.json --ext jpg`. Then open the crops with further
+`sandbox_exec` calls that pass `image_paths` (up to 4 files, 512 KiB in total, per call): the images come back to you
+natively. Print `crops/manifest.json` and save it to `clients/<slug>/runs/<post>/qa/crops/<asset>.v<n>/manifest.json`
+in the repo, so the orchestrator can check your `files_opened`. Never move image bytes as base64 text.
+
 **Write the report** to the path the packet names (default `clients/<slug>/runs/<post>/qa/<asset>.v<n>.review.json`):
 ```json
 {"gate": "G-VIS-SLIDE", "asset_id": "SL01", "version": 1, "reviewer": "visual-reviewer (fresh agent)",

@@ -9,8 +9,10 @@ gates, the A/A+ bar, the rubric, research) still applies. Source: ORGANIC-OS.md 
 2. **Kill the 4 mistakes:** delay (topic late), confusion (two readings, big words), irrelevance ("I/people" instead of
    "you/your"; nice-to-have pain), disinterest (no contrast between their belief A and our B). The card's `belief`
    says which A→B contrast to open.
-3. **Triple hook:** visual, text and spoken hook say the same thing. Text hook: at most 2 lines, a specific number or
-   power word, top third of the screen, about 3 s on screen. Carousels: the cover is the visual + text hook, and
+3. **Triple hook:** visual, text and spoken hook say the same thing. Text hook: 4 to 10 words (STANDARDS 6 and "Text
+   hook length" below) in 2 lines at most (a carousel cover 2 or 3 lines); a concrete noun, or the number of items the
+   post itself lists ("3 mistakes"), never a result or any other number that is not in brain.json; no hype words; top
+   third of the screen, frame 1 to about 3 s. Carousels: the cover is the visual + text hook, and
    **slide 2 must work alone as a hook** (Instagram may show slide 2 first).
 4. **10 hooks per post**, graded; ship only A or A+. Return the master stack plus 2 variants for trial reels.
 5. Rotate types across the week (the card's `hook_type`): contrarian, hidden cause, mistake / "never ever", case study,
@@ -26,22 +28,26 @@ gates, the A/A+ bar, the rubric, research) still applies. Source: ORGANIC-OS.md 
 Hook Lab's visual rules were tuned on health products ("the body part already swollen", "one real-looking body part",
 "never medical severity"). For service businesses, read them like this:
 - **Frame 1 is the problem where it lives in the business:** the phone with the unanswered "Sa kushton?", the empty
-  booking calendar, the shutter half down at 19:00, the boost button with 0 messages. Never a logo, a team photo or
-  the happy result.
-- **Persona cues:** an Albanian local business in frame (salon chair, clinic reception, shop counter, restaurant
-  pass), the owner's age and clothes.
+  booking calendar, the shutter half down at 19:00, the boost button pressed again while the inbox stays empty. Never a
+  logo, a team photo or the happy result. Screens show states, never counts, and no real platform's logo or name
+  ("the inbox", "the phone"; STANDARDS 6).
+- **Persona cues:** an Albanian business from the avatar in frame (AV-01: salon chair, clinic reception, kitchen
+  showroom, private-school front desk), the owner's age and clothes. Until D1 an AI owner is seen from behind, as
+  hands only, at a distance or as stylized animation (STANDARDS 7).
 - **Rubric rows 5 and 8:** "a real body part" becomes **one real prop** (the phone, the calendar, the counter) and
   "a credibility anchor" becomes **one countable fact from the brain** (never invented).
 - **Gate 9 for organic:** keep the tone rules (annoyed or comic, never ashamed), no guarantees, no invented results,
-  the AI label rule in `growth-engine/production/STANDARDS.md`. The Meta ad-policy checks ("your [condition]", no
+  the AI label per STANDARDS 7 (D1 decides whether to extend it). The Meta ad-policy checks ("your [condition]", no
   side-by-side before and after) apply when the post may be boosted later; apply them by default.
-- **Hook types with B2B shapes** (Hook Lab section 6): character in place (the unanswered DM speaks), villain mockery
-  (the boost button mocks the owner's fix; mock the fix, never the owner), stop doing X ("Never answer 'Sa kushton?'
-  with just a price"), hidden cause ("This is why your followers never become customers"), fear moment, named person +
-  habit (a bakery owner in Tirana posting every day, zero orders), confession (real numbers only), workaround reveal
-  ("She'd been answering DMs at midnight for two years"), witness ("The busiest salon on our street wasn't the one with
-  the best posts"), impossible scale (a pile of unread DMs burying the counter), two futures, misdirection, challenge
-  (a documented series, real tracked data only).
+- **Hook types with B2B shapes** (Hook Lab section 6). Anecdotes in the brand's voice are clearly framed POV
+  dramatizations ("POV: ..."), never stated as something that happened (STANDARDS 7): character in place (the
+  unanswered DM speaks), villain mockery (the boost button mocks the owner's fix; mock the fix, never the owner), stop
+  doing X ("Never answer 'Sa kushton?' with just a price"), hidden cause ("This is why your followers never become
+  customers"), fear moment, named person + habit ("POV: Arta runs a clinic in Tirana, posts every day, and the booking
+  calendar stays empty"), confession (only the real owner on real footage, with numbers from the brain; never an AI
+  person), workaround reveal ("POV: you're answering messages at midnight again"), witness ("POV: two clinics on one
+  street, and the busy one posts less"), impossible scale (a pile of unread messages burying the reception desk), two
+  futures, misdirection, challenge (a documented series, real tracked data only).
 
 ## Independent grading (G-HOOK)
 Hook Lab grades its own stacks. For organic posts the hook-agent's top 3 stacks then go to a **fresh agent** that gets
@@ -51,10 +57,19 @@ and grades each channel. G-HOOK passes when the master stack is A or A+ on every
 
 ## Concept frames are gated stills
 A concept frame is frame 1 of the hook shot, so the hook shot's Shot Spec (`H-01`) is written at step 2, not step 6,
-and the concept frame is a `still` asset that serves it (prompt review, crop review, as any still). The approved
-concept frame becomes the start of the hook storyboard.
+and the concept frame is a `still` asset that serves it (G-PROMPT-IMG before the call, G-VIS after, as any still).
+It is frame 1, so it is hero (zero defects, STANDARDS 3 and 9): register it with `--hero`
+(`pipeline.py asset <slug> <post_id> <ID> --type still --shots H-01 --hero`) or as a `start_frame`. The model follows
+STANDARDS 1 (a realistic person: GPT Image 2 with a reference photo; no person, in the client's style: GPT Image 2.5;
+stylized: Nano Banana 2). Its call is a generation, so it needs a G-BUDGET PASS from the last 24 h first
+(`pipeline.py budget`, STANDARDS 10). The approved concept frame becomes the start of the hook storyboard.
+Every finalist's concept frame passes G-VIS before the grader sees it, so a losing finalist's frame is already closed
+for G-ASSETS (step 11). A frame that fails 3 attempts goes to the owner (G-HUMAN-ESCALATE) like any asset; the owner
+may drop that stack and close the frame with a G-VIS OVERRIDE, note "dropped finalist, not used".
+Exceptions: a song run makes no picture before G-HUMAN-SONG, so the grader reads the H-01 Shot Spec and the concept
+frame is made after step 4 (`song-organic.md` 1); podcast follows `podcast-organic.md` 3.
 
-## Text hook length (one rule)
+## Text hook length (one rule, STANDARDS 6)
 4 to 10 words on the reel's text hook and on a carousel cover headline (carousel-machine's "up to 12 words" is
 overruled), plus an optional small label of 6 words or fewer. Drama keeps its own X7 rule (text hook optional, 6 words
 at most).
