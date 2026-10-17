@@ -1,0 +1,272 @@
+[
+ {
+  "id": "C2-V1",
+  "concept_id": "C2",
+  "vehicle": "V1",
+  "launch_status": "launch",
+  "persona": "AV1-store-died: first store(s) closed after one product / one batch (Q-O-0108, Q-F-9004); age [A] 25-45",
+  "lf8_root": "#3 Freedom from fear of losing again (secondary #6)",
+  "desire": "MD-04: \"try again\" (Q-B-0004) without having to \"literally lose all my money\" (Q-Y-0049)",
+  "angle": "AN-05: the first store didn't prove e-commerce can't work for him; it got one shot",
+  "angle_source": "AN-05 · Q-O-0108, Q-F-9004, Q-Y-0014, Q-F-0019, Q-Y-0027 · runner-up AN-06 (wave 2)",
+  "target_belief": "B-102.AV-01",
+  "offer": "T1 \"Start with the $500 Build\" ($500 one-time, PT-01; only live price). Refund only as conditioned (PT-15) or omitted. No T2/T3/bump/OTO/60-day/7-10 days/product count.",
+  "format": "A8a #6 Atypical Text (hook on the store dashboard)",
+  "lane": "clarity lane (A6) · LOCK-A MK-01 · NEW INFORMATION -> mechanism DESCRIBED",
+  "destination": "PDP https://readymerce.com (short LOCK-A congruence lander recommended, 01-preflight §3; 'one shot' not yet on the live page)",
+  "mechanism_match_words": "problem \"one shot\" · mechanism \"in stages; a budget you approve\" · promise \"in your name\"",
+  "awareness": "problem aware",
+  "sku": "main",
+  "aspect": "4:5",
+  "image_file": "images/C2-V1.png",
+  "prompt_file": "prompts/C2-V1.txt",
+  "qa": {
+   "status": "pending",
+   "notes": "awaiting render"
+  },
+  "headline": "~600 clicks. Still no sales. Then I closed the store.",
+  "hook": "~600 clicks. Still no sales. Then I closed the store.",
+  "subhead": "The product did not sell. It was also the only shot the store ever got.",
+  "body": "Readymerce builds your next store in your name and puts products live in stages. Each gets a small ad test on a budget you approve. What doesn't sell gets replaced.",
+  "proof": "“Most successful dropshippers test 5 to 10 products before finding one that scales profitably.” Product Lair, 2024 (P-104.AV-01)",
+  "cta_outcome": "A second shot",
+  "audience_cue": "The owner's own store dashboard carrying '~600 clicks. Still no sales. Then I closed the store.'",
+  "scenario": "His Sunday-night store dashboard (clicks climbing, sales flat on zero, the store closed) answered by a next store in his name, products live in stages on a budget he approves (Q-F-0019, Q-O-0108, Q-Y-0014)",
+  "tone": "plain-spoken, straight about limits, stays with you (13 VOICE-1); customer register from 07 voice card AV-01",
+  "medium": "designed clarity static, flat digital UI card + Paper panel; only photographic region = product element 9597a0b7-58a4-42f0-bdc9-1b2663b1ce17 (store on a laptop, screen unchanged); palette Pine/Ember (button only)/Ink/Paper",
+  "composition": "Top 55%: flat white analytics dashboard card with the three-line Ink headline and a label-free chart (one line climbing, one flat on zero); bottom 45% Paper panel: full-width Pine serif subhead, left column of three icon body lines, right column the laptop product on a wooden surface, proof quote under the body, Ember button bottom right",
+  "reading_path": "Dashboard headline top-left > Pine serif subhead across the middle > three icon body lines down the left column with the laptop beside them > proof quote and source > Ember CTA button bottom right",
+  "product_role": "product element 9597a0b7 (store open on a laptop, screen content unchanged) beside the body, sharp; V1 only",
+  "cta_candidates": [
+   "A second shot",
+   "Try again, smaller",
+   "Several fair tests"
+  ],
+  "hook_candidates": [
+   {
+    "text": "~600 clicks. Still no sales. Then I closed the store.",
+    "source": "Q-F-0019 + Q-O-0108",
+    "score": 14,
+    "status": "WINNER (used, unchanged)"
+   },
+   {
+    "text": "\"the product did not sell, so I had to close the store\"",
+    "source": "Q-O-0108",
+    "score": 12,
+    "status": "runner-up (wave 2)"
+   },
+   {
+    "text": "\"i got zero sales which means i lost 254 dollars\"",
+    "source": "Q-Y-0014",
+    "score": 13,
+    "status": "reserve for AN-06 wave 2"
+   },
+   {
+    "text": "Your first store didn't fail. It ran out of shots.",
+    "source": "NI-01 sample",
+    "score": 8,
+    "status": "cut (<11)"
+   },
+   {
+    "text": "It didn't sell one product. Not one product.",
+    "source": "Q-Y-0046",
+    "score": 10,
+    "status": "cut (No-Questions: 'it')"
+   }
+  ],
+  "word_count_on_image": 75,
+  "primary_text": "caption pool",
+  "status": "written",
+  "rationale": "Atypical Text puts his own headline on the surface he refreshed every Sunday night (Q-F-0019); the subhead agrees the product failed, then reframes it as the store's only shot (B-102.AV-01, LOCK-A M-1); the body names the staged, capped, replace-what-doesn't-sell mechanism in his name (PT-04, F-05, F-11); proof = BIG PROOF P-104; CTA pays off 'one shot'. 75 words; gates PASS 7/7 (Squint/Phone confirm at render).",
+  "hook_proposed": {
+   "text": "~600 clicks. Still no sales. Then I closed the store.",
+   "source": "Q-F-0019 + Q-O-0108",
+   "from": "work/09-hook-candidates.md (winner, /14 >=11)"
+  }
+ },
+ {
+  "id": "C2-V2",
+  "concept_id": "C2",
+  "vehicle": "V2",
+  "launch_status": "launch",
+  "persona": "AV1-store-died: first store(s) closed after one product / one batch (Q-O-0108, Q-F-9004); age [A] 25-45",
+  "lf8_root": "#3 Freedom from fear of losing again (secondary #6)",
+  "desire": "MD-04: \"try again\" (Q-B-0004) without having to \"literally lose all my money\" (Q-Y-0049)",
+  "angle": "AN-05: the first store didn't prove e-commerce can't work for him; it got one shot",
+  "angle_source": "AN-05 · Q-O-0108, Q-F-9004, Q-Y-0014, Q-F-0019, Q-Y-0027 · runner-up AN-06 (wave 2)",
+  "target_belief": "B-102.AV-01",
+  "offer": "T1 \"Start with the $500 Build\" ($500 one-time, PT-01; only live price). Refund only as conditioned (PT-15) or omitted. No T2/T3/bump/OTO/60-day/7-10 days/product count.",
+  "format": "N1 Notes-app list",
+  "lane": "clarity lane (A6) · LOCK-A MK-01 · NEW INFORMATION -> mechanism DESCRIBED",
+  "destination": "PDP https://readymerce.com (short LOCK-A congruence lander recommended, 01-preflight §3; 'one shot' not yet on the live page)",
+  "mechanism_match_words": "problem \"one shot\" · mechanism \"in stages; a budget you approve\" · promise \"in your name\"",
+  "awareness": "problem aware",
+  "sku": "main",
+  "aspect": "4:5",
+  "image_file": "images/C2-V2.png",
+  "prompt_file": "prompts/C2-V2.txt",
+  "qa": {
+   "status": "pending",
+   "notes": "awaiting render"
+  },
+  "headline": "Ive had 2 stores on Shopify both failed",
+  "hook": "Ive had 2 stores on Shopify both failed",
+  "subhead": "turns out neither store ever tested more than one product",
+  "body": "[crossed out] store 1: posture correctors. $50 ad sets. still no sales / new interests, same product / reviews, discounts, trust badges / the one week challenge / store 2: chess boards. 10 days of ads. still no orders · next time: - products go live in stages, not one - small ad test on each one, budget I approve - early review, replace what doesn't sell - store + payouts in MY name",
+  "proof": "(read somewhere: most successful dropshippers test 5 to 10 products before finding one) (P-104.AV-01 paraphrase in a private note)",
+  "cta_outcome": "A second shot",
+  "audience_cue": "Note title in his own typing: 'Ive had 2 stores on Shopify both failed'",
+  "scenario": "The late-night private notes-app list he typed the night he worked out why: every failed try crossed out (one product per store, new interests, trust badges, the one-week challenge), then a 'next time:' list and 'Goal: a second shot' (Q-F-9004, Q-Y-0028, Q-F-0019, Q-F-0024, Q-Y-0015, Q-F-0021)",
+  "tone": "plain-spoken, straight about limits, stays with you (13 VOICE-1); customer register from 07 voice card AV-01",
+  "medium": "flat generic notes-app screenshot (off-white page, black system sans, grey strikethroughs), organic native phone content; no brand, product, price or offer",
+  "composition": "Single-column phone note: bold title at top, one 'turns out' line, five struck-through lines, a 'next time:' label with four hyphen lines, one grey note line, a bold Goal line at the bottom; blank generic toolbar and status bar",
+  "reading_path": "Bold title > 'turns out' line > five crossed-out tries > 'next time:' list > grey 5-to-10 note > bold Goal line",
+  "product_role": "none: no product, brand, price or offer on the image",
+  "cta_candidates": [
+   "A second shot",
+   "Try again, smaller",
+   "Several fair tests"
+  ],
+  "hook_candidates": [
+   {
+    "text": "Ive had 2 stores on Shopify both failed",
+    "source": "Q-F-9004",
+    "score": 13,
+    "status": "WINNER (used, verbatim)"
+   },
+   {
+    "text": "store #1: one product. zero sales. lost 254 dollars",
+    "source": "Q-Y-0014",
+    "score": 13,
+    "status": "runner-up (list line 1)"
+   },
+   {
+    "text": "things i'd do different on store #3",
+    "source": "written",
+    "score": 10,
+    "status": "cut (<11)"
+   },
+   {
+    "text": "there's plenty of us losing, including myself",
+    "source": "Q-Y-0027",
+    "score": 7,
+    "status": "cut (No-Questions)"
+   },
+   {
+    "text": "stores i tried",
+    "source": "written",
+    "score": 5,
+    "status": "cut (vague)"
+   }
+  ],
+  "word_count_on_image": 98,
+  "primary_text": "caption pool",
+  "status": "written",
+  "rationale": "N1 lets the avatar's own verbatim confession title the note (Q-F-9004) and shows FS-01 > FS-101 > FS-102 > FS-03 crossed out in his words; the 'turns out' line installs B-101/B-102 and the 'next time' list is the LOCK-A mechanism in his voice; composite voice, never a review; Thumb-Stop PASS.",
+  "hook_proposed": {
+   "text": "Ive had 2 stores on Shopify both failed",
+   "source": "Q-F-9004",
+   "from": "work/09-hook-candidates.md (winner, /14 >=11)"
+  }
+ },
+ {
+  "id": "C2-V3",
+  "concept_id": "C2",
+  "vehicle": "V3",
+  "launch_status": "launch",
+  "persona": "AV1-store-died: first store(s) closed after one product / one batch (Q-O-0108, Q-F-9004); age [A] 25-45",
+  "lf8_root": "#3 Freedom from fear of losing again (secondary #6)",
+  "desire": "MD-04: \"try again\" (Q-B-0004) without having to \"literally lose all my money\" (Q-Y-0049)",
+  "angle": "AN-05: the first store didn't prove e-commerce can't work for him; it got one shot",
+  "angle_source": "AN-05 · Q-O-0108, Q-F-9004, Q-Y-0014, Q-F-0019, Q-Y-0027 · runner-up AN-06 (wave 2)",
+  "target_belief": "B-102.AV-01",
+  "offer": "T1 \"Start with the $500 Build\" ($500 one-time, PT-01; only live price). Refund only as conditioned (PT-15) or omitted. No T2/T3/bump/OTO/60-day/7-10 days/product count.",
+  "format": "N9 Direct Feed Post",
+  "lane": "story lane (A6) · LOCK-A MK-01 · NEW INFORMATION -> mechanism DESCRIBED",
+  "destination": "PDP https://readymerce.com (short LOCK-A congruence lander recommended, 01-preflight §3; 'one shot' not yet on the live page)",
+  "mechanism_match_words": "problem \"one shot\" · mechanism \"in stages; a budget you approve\" · promise \"in your name\"",
+  "awareness": "problem aware",
+  "sku": "main",
+  "aspect": "1:1",
+  "image_file": "images/C2-V3.png",
+  "prompt_file": "prompts/C2-V3.txt",
+  "qa": {
+   "status": "pending",
+   "notes": "awaiting render"
+  },
+  "headline": "If your store died after one product",
+  "hook": "$254 for my first store. About $750 for the second. It took one number I had never bothered to count to explain both of them.",
+  "subhead": "I didn't have two failed stores. I had two stores that each got one shot, and one guess misses a lot more often than it hits.",
+  "body": "Mechanism beat: an average store converts about 1.4% of visits (P-105, 'an average, not a promise'), so ~600 clicks should be about 8 orders; zero meant the product missed; every fix was aimed at the store, not the product; 'Most successful dropshippers test 5 to 10 products before finding one that scales profitably.' (P-104); the chance discovery (tire shop, 55.9%) leads to a store built in his name with products released in stages, controlled ad testing on a budget he approves, an early review and replacements (PT-04, F-05, F-11).",
+  "proof": "P-104.AV-01 quote (Product Lair practitioner guide) · P-105.AV-01 Littledata 1.4% average · PT-05/F-13 'What Is NOT Included' + 'We make no income guarantees' · PT-15 refund as conditioned · F-11 owner field and payouts in his name",
+  "cta_outcome": "A second shot",
+  "audience_cue": "Lowercase N9 post '$254 gone on my first store. $1,000 by the second. then i counted the products i'd actually tested. two.' + story H1",
+  "scenario": "Two stores closed after one product each; the Sunday-night refresh, the envelope math ($44 + $210 = $254, about $750, a little over $1,000), counting the products tested (2), the conversion average, a stranger in a tire shop, the staged-release store in his name and the first written review (rung 2)",
+  "tone": "confessional post-mortem, plain money figures, retrospective, relieved at the end (07 voice card AV-01; 13 VOICE-1)",
+  "medium": "flat text-first N9 Direct Feed Post card: white square, generic grey avatar placeholder, large lowercase black system sans text, blank reaction icons; no brand, product, price or offer",
+  "composition": "White square card: small grey avatar circle and a blank name bar top-left, four lines of large lowercase post text across the centre-left, three light-grey outline reaction icons along the bottom",
+  "reading_path": "Post text from '$254 gone on my first store.' down to 'two.'; reaction icons last",
+  "product_role": "none: no product, brand, price or offer on the image (V3 rule)",
+  "cta_candidates": [
+   "A second shot",
+   "Try again, smaller",
+   "Several fair tests"
+  ],
+  "hook_candidates": [
+   "$254 for my first store. About $750 for the second. It took one number I had never bothered to count to explain both of them.",
+   "Two stores, both closed, and I only ever told my family about the first one.",
+   "11:48pm on a Sunday, I posted my store's numbers in a forum and asked a room full of strangers what I was doing wrong.",
+   "My second store didn't close for the reason I told everyone. It took a woman in a tire shop waiting room to tell me the real one.",
+   "The night I closed my second store I felt relieved, and I hated myself for feeling relieved."
+  ],
+  "word_count_on_image": 19,
+  "primary_text": "$254 for my first store. About $750 for the second. It took one number I had never bothered to count to explain both of them.\n\nStore one ended at our kitchen table on a Sunday night. My wife was asleep, the laptop was open, and the dashboard said about 600 clicks in three weeks and zero orders. I kept hitting refresh like the zero was a glitch.\n\nForty-four dollars for the website. Two hundred and ten on ads. I added it up on the back of an envelope, $254, and wrote a zero next to it for the sales.\n\nThe next morning I told her the store had been \"a test.\" I didn't mention I'd already picked a name for the second one.\n\nThat envelope is still in our kitchen drawer. There are two more numbers on it now, one in blue pen and one in pencil, and the smallest one is the one that changed everything.\n\nWhy a store at all? I sell solar on commission. Some months are great. Some months the homeowners just aren't interested, and you feel it at the grocery store. I wanted something steadier that was mine. Just something that didn't depend on a stranger in a driveway saying yes.\n\nAnyway. Let me back up.\n\nStore one sold posture correctors. I found the product the way a lot of people do, from a video of a guy saying it was about to blow up. I built the store over two weekends, turned on a $50 ad set, and waited.\n\nClicks came in. Sales didn't.\n\nSo I did what the forums said. I posted my numbers, still no sales, about 600 clicks, and people answered fast. Your landing page. Your targeting. You need more traffic.\n\nI tried new interests. Same product, more clicks, still no sales.\n\nI installed everything. Reviews, discounts, an email pop-up, trust badges, a cleaner product page. No one had bought anything.\n\nI paid for one of those one-week store challenges. I failed the challenge too.\n\nAfter three weeks I stopped. The product did not sell, so I had to close the store. That's how I explained it to myself, and that's how I explained it to my brother.\n\nEleven months later I opened store two anyway and told myself I'd learned my lesson.\n\nStore two sold chess boards. Nicer theme, better photos. After ten days of ads, still no orders. People came. Nobody bought. Nobody even put one in a cart.\n\nAt 1am one night I typed \"I am growing tired of looking at all the traffic and no sales\" into a forum, then deleted it. Nobody was going to tell me anything new.\n\nWhen you do all that work just to find out people don't even want the thing you're selling, it's extremely discouraging. It makes you want to give up. So I did, faster than the first time. I had to stop or I was going to lose all my money.\n\nIt felt like pure loss. Money, time, energy, and honestly hope.\n\nFor months after that, if anyone brought up online stores, I'd say \"I tried dropshipping\" the way people say \"I tried running.\" The videos make it seem like easy money when it's really not, and I had decided I wasn't one of the people it works for. I definitely was not an expert.\n\nThen my wife cleaned out the kitchen drawer, held up the envelope, and asked, \"What's this?\"\n\nUnder the $254, in blue pen, was store two: theme, apps, plan fees, ads. About $750. A little over a thousand dollars total.\n\nThen I counted something I had never counted. How many products had those two stores actually tested? I wrote the answer under the money in pencil.\n\n2.\n\nOne product per store. A thousand dollars and the better part of two years, and my stores had tested two products.\n\nI looked up what a normal store converts at. A Shopify analytics company publishes the average, and it's about 1.4 percent. Of every hundred visits, a little over one turns into an order. So I ran my own numbers. About 600 clicks at an average store's rate is around eight orders. That's an average, not a promise. But it isn't zero.\n\nZero isn't what you get when a store is a little off. Zero is what you get when the people come, look at the one thing on the shelf, and don't want it. My traffic was fine. My trust badges were fine. The product missed, and the store never got a second one.\n\nThat's why nothing I tried moved. New interests brought more people to the same product. Reviews and badges polished the shelf around the same product. The challenge put a deadline on the same single guess. Every fix was aimed at the store. Not one of them changed what was on the shelf.\n\nA product-research guide I found that week said it plainly: \"Most successful dropshippers test 5 to 10 products before finding one that scales profitably.\"\n\nFive to ten. I had tested two, in two separate stores, and called myself a failure both times.\n\nI didn't have two failed stores. I had two stores that each got one shot, and one guess misses a lot more often than it hits.\n\nThat felt lighter and worse. Lighter because it wasn't me. Worse because I still couldn't do anything with it. I couldn't afford five to ten more rounds of what I'd been doing, one product at a time with ads running until the money ran out. That way had cost me a thousand dollars for two answers.\n\nSo the envelope went back in the drawer.\n\nA few weeks later, in a tire shop waiting room, I was doing commission math on the back of that same envelope because it was the only paper in my truck.\n\nThe woman in the next chair glanced over. \"Two fifty-four and a zero. Rough ratio.\"\n\nI laughed and told her the whole thing in ninety seconds. She'd bought stock for a small chain of gift shops most of her working life, and she asked one question.\n\n\"How many products did you put on the shelf?\"\n\n\"One,\" I said. \"Per store.\"\n\n\"We never stock one thing and wait,\" she said. \"We put a few new things out in small amounts, watch what moves, and send back what doesn't. Most of it doesn't. You don't close the shop because one item sat. You pull the item.\"\n\nThen the line I still repeat: \"You didn't run two stores. You ran one product twice.\"\n\nThat night I searched for what she described and found a page that said it almost word for word. A company called Readymerce builds the store in your name, then releases products in stages instead of one single drop, each with controlled ad testing on a budget you approve. An early performance review decides what stays. What doesn't sell gets replaced with new products, picked from search demand and competition data.\n\nMy first reaction wasn't \"finally.\" It was \"here we go.\" I've been burned many times, and a lot of these companies fake the reviews, so I skipped the testimonials and read the fine print.\n\nWhat got me was a section called \"What Is NOT Included\": product costs, platform fees, ad spend, and any income, sales or profitability guarantee. Every guru I'd paid made it seem like easy money. This was the first page that agreed with me that it isn't.\n\nOn the call I asked straight out: is it $500 and then it goes up to $5,000? It's $500 for the build, one time. The ad budget for the tests is mine, and I set it. Anything past the build, like how much ongoing help, gets quoted on that call.\n\nThe refund is seven days from payment, on the $500 fee only, and it ends when you accept delivery, buy any add-on, or ask for further work. Narrow, but written plainly. And the store and its payouts would be in my name either way.\n\nWhen it was ready, I logged in and checked the owner field first. My name.\n\nThe first products went live in stages, each with a test budget I'd approved before a dollar was spent. I knew the most any test could cost me before it started.\n\nThe first product didn't do much. Old me would have closed the store that night. Instead the early review came in writing: which product to keep testing, which to replace, and why, with the replacement already lined up. Someone was still on my store after it went live, reading the numbers I used to stare at alone at midnight.\n\nMy wife read it over my shoulder. She's watched me close two stores. \"So they're not giving up on it.\"\n\nNo. And neither am I.\n\nThe store is still open, in my name. The first stage is tested, the first written review is in my hands, and the team is still on it after launch day. For the first time in three tries, a product that didn't sell didn't mean the store was dead. Sunday nights I don't sit there hitting refresh anymore. And when someone brings up online stores, I don't say \"I tried.\" I say I have one.\n\nIt was never really the dollars. It was the number of shots. What I needed was a store in my name that gets more than one: products in stages, each with a small test on a budget I approve, and someone who reviews the results and replaces what doesn't sell.\n\nIt starts with the $500 Build. Ad spend, product costs and platform fees are extra, and they say so before you pay. No income promise, and I wouldn't trust one.\n\nI was afraid to ever try again. Eventually I did. If I'd stopped at store two, one product nobody wanted would have been the last word on me. Give the next one what mine never got. A second shot.\n\nP.S. The smallest number on that envelope is in pencil. 2. If I'd counted after store one, I'd have skipped store two.",
+  "status": "written",
+  "rationale": "Reformed failed-solution buyer tells the math moment (B4 #5) on S14 (result-first loop, costs, late-night numbers, P.S. regret) + S5 (cautionary twin stores, failed ladder, lived-expert chance meeting, fine-print check, log, money math); installs 9/9 beliefs; rung-2 result at full strength; refund only as conditioned; B16 20/20.",
+  "v3_image_type": "N9 Direct Feed Post",
+  "pov": "the reformed failed-solution buyer",
+  "story_concept": "#5 The math moment",
+  "swipe_models": [
+   "S5",
+   "S14"
+  ],
+  "story_words": "1,683 (python, clean copy with H1; target 900-1,700); chance discovery at 55.9%, brand first named at 66.2%",
+  "hook_variants_start": "work/09-hook-candidates.md §B5 (C2)",
+  "conviction_map": "work/08-concept-slate.md C2",
+  "story_hooks": [
+   {
+    "id": "H1",
+    "class": "The math moment",
+    "text": "$254 for my first store. About $750 for the second. It took one number I had never bothered to count to explain both of them.",
+    "trace": "Q-Y-0014 · Q-Y-0023"
+   },
+   {
+    "id": "H2",
+    "class": "Confession",
+    "text": "Two stores, both closed, and I only ever told my family about the first one.",
+    "trace": "Q-F-9004"
+   },
+   {
+    "id": "H3",
+    "class": "Specific-moment scene with a timestamp",
+    "text": "11:48pm on a Sunday, I posted my store's numbers in a forum and asked a room full of strangers what I was doing wrong.",
+    "trace": "Q-F-0019 · Q-F-0022"
+   },
+   {
+    "id": "H4",
+    "class": "Contrarian open loop",
+    "text": "My second store didn't close for the reason I told everyone. It took a woman in a tire shop waiting room to tell me the real one.",
+    "trace": "B-102.AV-01 · Q-O-0108"
+   },
+   {
+    "id": "H5",
+    "class": "Emotional contradiction",
+    "text": "The night I closed my second store I felt relieved, and I hated myself for feeling relieved.",
+    "trace": "Q-Y-0031 · Q-O-0108"
+   }
+  ],
+  "headline_meta": "If your store died after one product",
+  "description": "What I found when I counted products instead of dollars.",
+  "cta_button": "Shop Now"
+ }
+]

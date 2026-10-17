@@ -1,0 +1,416 @@
+# 13-BRAND.md — STEP 13 · BRAND + IDENTITY · Readymerce (readymerce.com) · US (ASSUMED) · budget standard (ASSUMED)
+agent_id: 13 · wave W5 · started 2026-09-24T22:29:54Z · max 40 min / 150 calls · model opus
+Operator card: [BRAND NAME] = Readymerce (GIVEN, existing brand, option 1) · [SPOKESPERSON PHOTOS] = none · [BUDGET LEVEL] = standard.
+Late-binding check (once, at step 1, 22:29Z): 11-partials/ holds only 11-BELIEFS.AV-01/03/04.md.partial + PROGRESS partials — no 11-HANDOFF.AV-##.json → every 11 pointer = `LATE-BOUND: 11.<field>`; 12-partials/ empty → `LATE-BOUND: 12.offer`, `LATE-BOUND: 12.route`.
+Tool addendum (binding): Apify / Firecrawl scrape / Browserbase / WebFetch / curl = BLOCKED-ON-TOOL; working = GetHookd, Meta Ad Library, WebSearch, Exa agent, Higgsfield.
+
+## §1 · LOCK CARD
+
+**Inputs read (HANDOFF first, then pointed sections only):** 01-HANDOFF.json + 01-partials/01-HANDOFF.DEEP.json → 01-PRODUCT-TRUTH.md §TRUTH CARD T3 (PT-01..PT-20 + CONTRADICTS-the-seller block), T4 · 02-HANDOFF.json → 02-COMPETITOR-INTEL.md §2, §4 (NW-01..08), §15 (LK-01..16) + 02-swipe.csv (32 IM rows: narrator_pov, native_creative_description, hook_verbatim, cls_who_in_ad) · 03-HANDOFF.json → 03-VALIDATED-MESSAGING.md §10 (CR-01..06), §11 (PR-01..07 + narrator tally), §20 one-sheet, §21 swipe file · 06-HANDOFF.json → 06-VOC-REPORT.md §3 (FS-##), §7 (SK-01..06 + tired_of_hearing), §8 (trust + authority_read), §10 (icp_language_analysis + swap table), §2 Identity/Relief groups, §12 (worldview_map) + 06-VOC_MASTER.csv (author/thread counts computed in code) · 07-HANDOFF.json → 07 §10 (SR-01..04), §11 must_not_be_told · 08-HANDOFF.json → 08 §3 identity_permission lines · 09-HANDOFF.json → 09-AVATARS.md §7 (AV-01..07 blocks), §9 (ranking, reserve reasons), §2 (CL-09) · 10-HANDOFF.json → 10-MECHANISMS.md §15 (LOCK-A, LOCK-B), §16 (NI-01..05 hook_samples; New Identity brief), §17 keepers, §18 (collision.handle).
+
+| field | value | pointer |
+|---|---|---|
+| AV-★ | **AV-07 "The Owner Who Wants It Automated"** — existing business, online side stalled; UNTAPPED · VALIDATED · consciousness_entry "AW-4 impatience → confidence at 'we run the backend, you run the business'" · mechanism_read RIDES LOCK-B | 09 §7 AV-07, §9 rank 1 |
+| launch avatars | AV-07 · AV-01 Store That Died (RIDES A) · AV-04 Paycheck-Tethered (RIDES A) · AV-02 Paid-and-Got-Nothing (RIDES B) · AV-03 Stuck Starter (RIDES B) | 09-HANDOFF avatar_portfolio.launch |
+| reserve | AV-06 Fixed-Income Retiree (UNPROVEN, 0/9 converted, 9/9 booked follow-up) · AV-05 Evening-Only Parent (UNPROVEN, 0/9 converted, WALLET NULL) · CL-09 capital holder $15–35K (0 of 79 owned persons disclose the wallet) | 09 §9 |
+| M-1 / M-2 (LOCK-A MK-01 "The One-Shot Launch", PB-06+PB-05) | UMP "A first store is usually launched as a single bet — one guessed product, or one batch switched on at once…" · UMS "staged release (CS-07) … controlled ad testing at a budget the owner approves (CS-08); an early performance review (CS-09) … new products roll in (CS-10)" · big_idea "First stores die from getting one shot, not from e-commerce." | 10 §15 LOCK-A |
+| M-1 / M-2 (LOCK-B MK-06 "The Handover Cliff", PB-01) | UMP "Store builds are sold as the finish line: the builder hands the store over on launch day and leaves…" · UMS "Readymerce keeps a team on the store after it goes live…" · big_idea "Launch day is the starting line, not the finish line." | 10 §15 LOCK-B |
+| one system (10 [D]) | "the launch after the launch" — both locks run on CS-07→CS-10 | 10 §15 header |
+| positioning_draft (A) | "For people who want an online store but can't afford another one-shot flop, Readymerce is the done-for-you store service that launches your products in stages and tests each one on a budget you approve, unlike build-and-hand-over stores that switch everything on at once and hope, because a store finds what sells by trying more than once." | 10 §15 LOCK-A |
+| positioning_draft (B) | "For people who can't build a store around their job, Readymerce is the done-for-you store service that stays on your store after launch … unlike builders who hand over the keys on launch day, because launch day is the starting line, not the finish line." | 10 §15 LOCK-B |
+| wedge | A "Your store should get more than one shot." · B "We stay after launch day." · own claim (Meta, 4 of 31 own ads) "We build it. We run it. You own it." | 10 §15 |
+| lane | PB-05 S4 mechanism + New Information · PB-06 all three incl. New Identity (LATE-BOUND stage) · PB-01 S2 claim + Name-it | 10-HANDOFF locked[].lane |
+| blame_target | A: familiar solution (one-shot launch) · B: familiar solution (build-and-leave) | 10-HANDOFF |
+| sophistication + lever | POOLED S4 MIXED, modal ENLARGED-CLAIM, one-stage-ahead NEW INFO / IDENTIFICATION · DFY-only S2 PLURALITY → one-stage-ahead MECHANISM · SR-03 NEW IDENTITY CARRIED → 13 ("owner, not student") | 07-HANDOFF, 07 §10 |
+| geo | US (ASSUMED) · USD · en | brief INPUTS CARD |
+| authority_read | **RESENT** — MARKET_VOC SUPPORTED (≥3 authors), OWNED_PROOF SUPPORTED | 06 §8 |
+| enemy candidates | 06 worldview_map: suspects — fake reviews/followers (Q-Y-0032, Q-Y-0005), callers (Q-O-0119) · blames — gurus/coaches/strategy 3, scammers/vendors 5, customers/shipping 1, other 2 (11 tallied records) · 11 WM-AV#.enemies[] = `LATE-BOUND: 11.WM-AV#.enemies` (no 11 handoff on disk) | 06 §12 |
+| named_offer + route.split | `LATE-BOUND: 12.offer` · `LATE-BOUND: 12.route` (12-partials/ empty at 22:29Z) | — |
+| message_match source | 10 has no field named `message_match_words`; per 13 §2 alias: problem = M-1, mechanism = M-2, promise = big_promise (verbatim substrings, §14) | 10 §15, §18 |
+
+`INPUT FIELDS 17/20, late-bound: [11.WM-AV#.enemies, 11.live_wire, 11.beliefs/proof/objection/claims, 11.honest_box, 12.offer, 12.route]` (3 of 20 lock-card fields late-bound: 11 enemies, 12.offer, 12.route).
+
+## §2 · STRATEGIC ENEMY EN-1 + ALTERNATES
+
+Tally computed in code over 06-VOC_MASTER.csv (unique_author_id, thread_id) for the Q-## each 06 ledger (FS-02, FS-03, SK-02/03/06, worldview_map) and 10 §15 anchor names as *blaming* the object — symptom-only quotes ("still no sales") are not counted as blame. N = 180 unique authors in 06-VOC_MASTER.csv (358 rows incl. C-rows; 06-HANDOFF records_total ALL 307). Rule §6.3 in code: VALIDATED ≥3 authors across ≥2 threads · SUPPORTED 2 authors, or 1 author + ≥2 NW attacking · HYPOTHESIS ads-only/analyst-only · REJECTED = named competitor, LK-## liked property, or contradicts a live_wire YES belief (11 absent → live_wire LATE-BOUND). [A] ASSUMED ranking rule: a candidate whose charge applies to Readymerce's own PT-## (SELF-EXPOSURE) keeps its label but ranks after clean candidates.
+
+| object | blame_class | unique authors (n of N) | threads | q_ids[] | im_ids[] | keep-list conflict | live-wire conflict | label |
+|---|---|---|---|---|---|---|---|---|
+| E-A · the build-and-leave store deal (paid to build; half-done, locked out or left alone at launch) | blames (scammers/vendors — 06 worldview 5) | 8 of 180 authors (MARKET+OWNED only: 4 authors / 3 threads) | 4 | Q-F-0001, Q-F-0002, Q-F-0004, Q-E-0006, Q-E-0007, Q-E-0008, Q-E-0009, Q-O-0062 | 0 (10 collision: villain CLEAR; IM-31 attacks builder *price* "$2,000–$10,000", not the leave — not counted) | none | LATE-BOUND: 11.live_wire; SELF-EXPOSURE note: PT-10 (R-01, 1 disputed exact-SKU complaint: access codes withheld after a $250 deposit) | VALIDATED |
+| E-B · the one-shot launch (one guessed product or one batch, switched on once, then written off) | blames (the strategy / the winning-product pick) | 5 of 180 authors | 5 | Q-Y-0018, Q-Y-0064, Q-O-0082, Q-F-0031, Q-O-0108 | 0 (10 collision: villain CLEAR 0/8 NW) | none | LATE-BOUND: 11.live_wire; biggest_leap PT-19 (products per stage UNKNOWN), PT-05 (ad spend excluded) | VALIDATED |
+| E-C · gurus, courses and coaches that teach instead of build | blames (gurus/coaches/strategy — 06 worldview 3) | 3 of 180 authors | 3 | Q-Y-0016, Q-Y-0018, Q-Y-0019, Q-Y-0020, Q-O-0130, Q-O-0131 | IM-23, IM-24, IM-26 (NW-04 "STOP buying courses!") → 1 NW | none | LATE-BOUND: 11.live_wire; none on file (PT-14 "not a course, a template pack") | VALIDATED |
+| E-D · the free / $20 store with a catch (upsells and fees after you pay) | suspects | 4 of 180 authors | 4 | Q-Y-0009, Q-B-0001, Q-O-0028, Q-O-0135 | 0 (NW-04 / NW-06 SELL it) | **LK-03** "They Did As Promise! Made Me A $20 Website!" (NW-06) | SELF-EXPOSURE: Q-O-0028 and Q-O-0135 were said about Readymerce's OWN $500 (SK-06; PT-02, PT-05) | REJECTED as framed (category error: "the $20 store" is LK-03's liked property); re-frame "hidden fees" → SELF-EXPOSURE, not picked |
+| E-E · fake proof (fake reviews, fake followers, unlabelled results) | suspects | 3 of 180 authors | 3 | Q-Y-0005, Q-Y-0032, Q-Q-0002 | 0 | none | SELF-EXPOSURE: readymerce.com "some testimonials feature actors portraying verified experiences" (01 T3 CONTRADICTS) + 5 named owner portraits on the home page [R-PAGE via Exa, 13 datasets] | VALIDATED |
+| E-F · online scams and cold callers | blames (scammers) | 4 of 180 authors | 4 | Q-O-0011, Q-O-0147, Q-O-0148, Q-O-0012, Q-Y-0052 | 0 | none | SELF-EXPOSURE: Q-O-0012 was said to a Readymerce caller; PT-16 ScamAdviser 0/100, ScamDoc 25% | VALIDATED |
+| E-G · EcomXpertz (a named competitor) | blames (vendor) | 3 of 180 authors (MARKET+OWNED only: 0 authors / 0 threads) | 1 | Q-E-0006, Q-E-0007, Q-E-0009 | n/a | n/a | n/a | REJECTED (category error: named competitor) |
+| E-H · Shopify / the platform's support | blames (platform) | 1 of 180 authors | 1 | Q-F-0011 | n/a | n/a | contradicts PT-04 / PT-14 (Readymerce builds on Shopify/Etsy) | REJECTED (category error: the product's own platform, named company — contradicts PT-04/PT-14) |
+| E-I · end customers ("no tolerance for long shipping") | blames (customers/shipping — 06 worldview 1) | 1 of 180 authors | 1 | Q-Y-0044 | 0 | none | n/a | HYPOTHESIS |
+
+**Pick (by author count among non-REJECTED, clean before SELF-EXPOSURE [A]):**
+
+- **EN-1 · enemy: "the build-and-leave store deal"** — you pay someone to build a store; it arrives half-done, locked, or finished-and-abandoned on launch day, and the running is left to you. Never a named competitor (E-G EcomXpertz REJECTED separately).
+  - `q_ids[]`: Q-F-0001 "now I can't access it, contact an administrator which should be me" · Q-F-0002 "your store is half-ass done" · Q-F-0004 "they said they would build a store, but i am building the store???" · Q-E-0006 "They stole $20,000 and have lied to me repeatedly" · Q-E-0007 "they are not to be trusted with your money" · Q-E-0008 "They promised the moon, but ... they do not deliver" · Q-E-0009 "I had over $2000 worth of inventory" · Q-O-0062 "I gave somebody $4,500, and they took my money" `[R-OWNED]` — **8 authors / 4 threads** (MARKET+OWNED only: 4 authors / 3 threads; the 4 PRODUCT_TRUTH authors sit on one competitor's review page — counted as evidence of the *class*, never naming it). Fear twin (not counted as blame): Q-O-0169 "At what point do I take over the store? Is it something I have to run on my own?" `[R-OWNED]`.
+  - `im_ids[]`: 0 incumbents attack the *leave* (10 §15 LOCK-B collision: villain CLEAR); IM-31 attacks builder price only.
+  - `blame_class`: blames (06 worldview_map "scammers/vendors 5") · FS-02 ledger TOTAL 17 authors / 12 threads VALIDATED (06 §3).
+  - `what_we_are_for`: **a store in your name from day one, and a team that stays after launch day — reviewing the first results, fixing what's off, replacing what doesn't sell.** (PT-14 own live store account; PT-04 "early performance review, and post-launch corrections"; PT-08 ongoing optimisation — EXACT PRODUCT MATERIAL).
+  - `evidence_label`: **VALIDATED** (8 ≥3 authors, 4 ≥2 threads).
+  - Risk printed, not hidden: SELF-EXPOSURE PT-10 — the one exact-SKU complaint on file (R-01, disputed by the company) alleges store access codes withheld after a $250 deposit. The enemy is only safe if "keys in your name from day one" is operationally true → `OPERATOR-VALIDATES` before any ad names the enemy.
+- **enemy_alternates[0] · "the one-shot launch"** (LOCK-A blame_target) — q_ids Q-Y-0018, Q-Y-0064, Q-O-0082, Q-F-0031, Q-O-0108 · **5 authors / 5 threads** · im_ids 0 (villain CLEAR 0/8 NW) · blame_class blames (the strategy / the winning-product pick) · what_we_are_for: "a store that gets several fair tests — products released in stages, each tested on a budget you approve, the dead ones replaced" (PT-04) · **VALIDATED** · caveat: the *name* "one-shot launch" is 10's handle [D] for what these authors blame (the dead strategy, the single pick).
+- **enemy_alternates[1] · "gurus, courses and coaches that teach instead of build"** — q_ids Q-Y-0016, Q-Y-0018, Q-Y-0019, Q-Y-0020, Q-O-0130, Q-O-0131 · **3 authors / 3 threads** · im_ids IM-23, IM-24, IM-26 (NW-04 "STOP buying courses!", 1 NW — already used as a claim, 03 §20 "the course enemy" is do-not-reinvent) · blame_class blames (gurus/coaches) · what_we_are_for: "a live store you own, not another course" (PT-14 "not a course, a template pack") · **VALIDATED**.
+- Not picked, printed with reason: E-D REJECTED as framed (LK-03 liked property) and its re-frame is SELF-EXPOSURE (SK-06 was said about Readymerce's own $500) · E-E fake proof VALIDATED but SELF-EXPOSURE (the site's actors disclosure — attacking fake proof invites the check we fail today) · E-F scams/callers VALIDATED but SELF-EXPOSURE (Q-O-0012 said to a Readymerce caller; PT-16 0/100) · E-G REJECTED (named competitor) · E-H REJECTED (own platform) · E-I HYPOTHESIS (1 author).
+
+`ENEMY CANDIDATES 9, VALIDATED 5 (E-A, E-B, E-C, E-E, E-F), HYPOTHESIS 1, category errors 3 (E-D as framed, E-G, E-H), SELF-EXPOSURE held back 3 (E-D re-frame, E-E, E-F)`
+
+## §3 · NOT-FOR LIST NF-##
+
+Written from 09's RESERVE reasons and PT-## limitations, in avatar language. Rule §6.4 checked per line.
+
+| NF-## | line | excluded_ref (CL-##/PT-##) | Q-## wording source |
+|---|---|---|---|
+| NF-01 | "This is not for you if the store money would come out of your Social Security or pension. The store costs $500, and the ads and fees come on top." | AV-06 Fixed-Income Retiree (RESERVE — 0/9 converted, 9/9 booked follow-up; FIGHTS LOCK-A: a test budget she lacks) + PT-05 (ad spend, platform fees, product costs excluded) | Q-O-0007 "I get Social Security, so I need to protect that" `[R-OWNED]` · Q-O-0083 "not easy to get $500" `[R-OWNED]` |
+| NF-02 | "This is not for you if you need it to pay you this month. A new store takes tests, and nobody can promise the result." | PT-09 ("Results are not typical and are not guaranteed") + PT-05; 10 MK-24 keeper | Q-O-0008 "Could I get up to at least $10,000 a month in three months" `[R-OWNED]` · Q-F-9002 "we hardly survive with my pension" `[R-PAGE via Exa]` |
+| NF-03 | "This is not for you if the person you share money with hasn't said yes yet. Talk first. Then call us." | AV-05 Evening-Only Parent (RESERVE — 0/9 converted; 2 of 9 declined on time or the partner's veto; WALLET NULL) | Q-O-0018 "I need to talk to my husband about it" `[R-OWNED]` · Q-O-0167 "It's time for the kids to go to bed" `[R-OWNED]` |
+| NF-04 | "This is not for you if you want to hand over $15,000 or more for someone to run a portfolio of stores on a profit split." | CL-09 capital holder (RESERVE) + PT-01/PT-02 (a $500 build package; no profit share or managed portfolio published) | Q-## NULL — searched (0 of 79 owned persons disclose ≥$15K liquid; CL-09 is a competitor lens: IM-20 "If you are sitting on $25,000 or more…", COMPETITOR-CLAIMED) → **DECORATION** (§6.4: excludes nobody the corpus contains; kept because the operator's hypothesis (b) names it) |
+
+Rule check: NF-01..03 each name a RESERVE cluster the corpus contains + a PT-## limitation → REAL (3); NF-04 DECORATION (1). `not-for lines 4 (real 3, decoration 1)`.
+
+## §4 · POSITIONING STATEMENT POS-1
+
+- **statement:** "For owners whose online store is built but just sitting there, Readymerce is the store service that stays after launch day — putting your products live in stages, testing each one on a budget you approve, and replacing what doesn't sell — unlike store deals that end at 'I'll design you a beautiful store' (IM-23, NW-04) or 'we build the whole store + load 30 winning products' (IM-30 stated_fix, NW-06), because your store should get more than one shot."
+- **mechanism_ref:** M-2 LOCK-A MK-01 (staged release → capped tests → early review → replace) carried by M-2 LOCK-B MK-06 (post-launch review + corrections) — 10's one system "the launch after the launch".
+- **sub_avatar (AV-★ situation):** AV-07 — already runs a business (Q-O-0043 "sometimes 14 thousand 14 k sometimes 10 k"; Q-O-0003 clothing brand with a warehouse) and has self-built stores idle: Q-O-0103 "I must have three or four Shopify stores just sitting there" `[R-OWNED]`; wants the online side run without her: Q-O-0001 "You guys can fully automate my online business" (MC-02 correct-in-copy: PT-05/PT-08 — managed, not hands-free).
+- **subcategory_line:** "Not another store builder — for owners whose store is built and just sitting there." (from 10 §16b "Not another store builder — for people who'd rather own a store than learn to run one.")
+- **strategic_enemy:** EN-1 the build-and-leave store deal.
+- **not_for[]:** NF-01, NF-02, NF-03 (NF-04 DECORATION).
+- **moat_line:** "A copier can build a store in a day. To copy us it has to stay after launch day — and keep testing your products until something sells, in your name." (avatar slot AV-07 × mechanism slot CS-07→CS-10.)
+- **stranger_safe_line:** "We build your store in your name. Then we stay after it opens: we test your products a few at a time and swap out what doesn't sell."
+
+| test | line | result | fix applied |
+|---|---|---|---|
+| stranger test (§6.1) | stranger_safe_line | PASS — no incumbent named; states the wedge (stay after opening + staged tests) on its own | none |
+| different-not-better | statement | PASS — claims a different *process* (stays after launch; staged tests), never "better stores / more sales" (SR-01-X delivery advantage NOT CARRIED, 07 §10) | none |
+| both halves (§6.2) | mechanism_ref + sub_avatar | PASS — both filled | none |
+| completeness | enemy + not-for | PASS — EN-1 and NF-01..03 present | none |
+| claims check | statement | PASS — no income, time-to-sale or "hands-free" claim (PT-09; 07 must_not_be_told "never hands-free / fully automated") | "done-for-you" (positioning_draft) replaced by "store service" — banned word, §10 |
+
+## §5 · NARRATOR ARCHETYPE NAR-1
+
+Tally computed in code over 02-swipe.csv (32 IM, narrator_pov + native_creative_description; 03 §11 archetype tally brand 15 · founder/expert 7 · interview 4 agrees). **STRICT-STORY ads in this market: 0 of 32** (02 §6 "ranked_winners_strict: []"; 03 §21 "STRICT: NONE — PARTIAL (N=0/10)") — every type below is counted ALL-FORMAT and none can reach VALIDATED under §6.5.
+
+GetHookd `aggregate_ads` (5 calls, 0.05 cr): `landing_page_domain: ecomdegree.com` × cls_who_in_ad / cls_expert_type / cls_lead_style → `groups: []` each; `brand_id: 6294245` × cls_who_in_ad → `[]`; `join.ecomdegree.com` × cls_who_in_ad → `[]` → **analyzed 0 / total 203** (NW-01 active ads, 02 §2) — the classifier has not analyzed this brand's ads; the 02-swipe per-ad `cls_who_in_ad` column reads NULL / NOT ANALYZED on 32 of 32. Other networks: no above-floor domain → NOT RUN (only NW-01 is sized). `get_top_ads` → NOT RUN — needs operator yes: start_brand_spy.
+
+| narrator type | STRICT-STORY IM-## count | independent NW-## count | cls_who_in_ad (analyzed n/total N) | cls_expert_type | authority read agreement | label |
+|---|---|---|---|---|---|---|
+| brand / none / unknown | 0 (ALL-FORMAT 16: IM-01, IM-02, IM-04, IM-05, IM-10, IM-14, IM-18, IM-19, IM-23, IM-24, IM-25, IM-26, IM-27, IM-28, IM-29, IM-31) | 5 (NW-01, NW-03, NW-04, NW-05, NW-06) | analyzed 0/203 (NW-01 only) | 0 buckets | neutral | n/a — not a narrator |
+| founder / expert | 0 (ALL-FORMAT 6: IM-03, IM-06, IM-07, IM-12, IM-20, IM-22) | 2 (NW-01, NW-03) | analyzed 0/203 (NW-01 only) | 0 buckets | contradicts (RESENT) | HYPOTHESIS + `AUTHORITY` — contradicted by RESENT |
+| interview host/guest (expert-adjacent) | 0 (ALL-FORMAT 4: IM-08, IM-09, IM-11, IM-13) | 1 (NW-01) | analyzed 0/203 (NW-01 only) | 0 buckets | contradicts (RESENT) | HYPOTHESIS + `AUTHORITY` — contradicted by RESENT |
+| family member / caregiver [D from hook "I Didn't Have a Cape. Just a Laptop and a Family to Fight For!"; bodies unopened] | 0 (ALL-FORMAT 3: IM-15, IM-16, IM-17) | 1 (NW-02) | analyzed 0/203 (NW-01 only) | 0 buckets | neutral | HYPOTHESIS |
+| fellow sufferer / customer voice | 0 (ALL-FORMAT 3: IM-21, IM-30, IM-32) | 2 (NW-03, NW-06) | analyzed 0/203 (NW-01 only) | 0 buckets | agrees (peers trusted) | **SUPPORTED** (authority read alone: RESENT experts, trusts peers — Q-Y-0024, Q-Y-0039, Q-O-0137) |
+| insider who sees a pattern (the store manager who watches stores die after launch) | 0 (ALL-FORMAT 0) | 0 | — | — | neutral (not an expert; seen from where the problem is noticed) | **EARLY SIGNAL** (never seen in the market) |
+| retired professional | 0 (ALL-FORMAT 0) | 0 | — | — | neutral | EARLY SIGNAL (not used) |
+
+- **primary: fellow sufferer — the owner who tried once** (a store owner whose store sat idle, speaking peer-to-peer) · **label SUPPORTED** (authority read alone; 0 STRICT in any network → VALIDATED unreachable). Authority read beside it: **RESENT** — "take what I say with a grain of salt" (Q-Y-0039), "this is like the reality of what it is" (Q-Y-0024), "one of my best friends, he does e-commerce" (Q-O-0137 `[R-OWNED]`).
+- **alt: insider who sees a pattern** — a real Readymerce store manager who reviews stores in their first weeks and says what he sees ("the ones that die are the ones left alone after launch"). **EARLY SIGNAL** (never seen in the market). Provenance must be **REAL** (a named employee on camera, never an actor) — the site's own "some testimonials feature actors" disclosure makes a synthesized or acted insider a congruence failure → `OPERATOR-VALIDATES` that such a person exists. Not an expert and never credentialed → no `AUTHORITY` tag.
+- **observed but not chosen:** founder/expert (NW-01 founder VSL IM-03 "If you make less than $50 an hour…"; NW-03 IM-20 older presenter at a whiteboard) — HYPOTHESIS + `AUTHORITY`, contradicted by RESENT, and **no founder biography is on file** (no `[R-OWNED]` founder account) → no founder narrator; family member (NW-02 IM-15..17 "I Didn't Have a Cape. Just a Laptop and a Family to Fight For!", ≤0.1 d, bodies unopened) — HYPOTHESIS; serves CP-02 / AV-05 which 09 holds in RESERVE.
+
+**Casting spec (per launch avatar)** — age bands: 09 prints no Class-3 note per avatar → age band `[A]` INFERRED from the Q-## named; every rendered person is tagged; **congruence risk printed once for all rows: readymerce.com says "some testimonials feature actors portraying verified experiences" (01 T3) and shows five named owner portraits (Exa read, 13 datasets) — any face presented as a customer must be REAL with consent; SYNTHESIZED faces only illustrate a scene or a narrator and are labelled as such.**
+
+| AV-## | age band (Class-3) | life situation | setting | what the narrator has lived (Experience Q-##) | Behaviour scene refs | voice register | disarm device | provenance |
+|---|---|---|---|---|---|---|---|---|
+| AV-07 ★ | `[A]` 40–55 — Class-3 note absent; INFERRED from Q-O-0043 (a business doing "14 k sometimes 10 k") and Q-O-0003 (owns a clothing brand with a warehouse) | runs a small business; 1+ self-built stores idle | the business's back room at early evening (environment element de8b79fa…) | "I must have three or four Shopify stores just sitting there" (Q-O-0103) · "I invested a lot of my money into buying this business" (Q-O-0004) · "at an exorbitant cost, $5,000, $20,000, $15,000" (Q-O-0104) — all `[R-OWNED]` | 09 AV-07 scenes 1 (stores sitting in the admin) · 2 (moving money between accounts mid-call) · 3 (the marketing slowing down, Q-O-0124) | owner's plain ROI talk: "the backend", "my brand", "how fast do I start making a return" (Q-O-0027) | her own idle admin on screen (raw evidence, CR-06) | SYNTHESIZED (scene/narrator illustration) · REAL required for any testimonial |
+| AV-01 | `[A]` 25–45 — INFERRED from the YouTube post-mortem creators (Q-Y-0014, Q-Y-0023); not stated | tried a store, lost $254–$1,000, closed it | home kitchen table, Sunday night | "i got zero sales which means i lost 254 dollars" (Q-Y-0014) · "the product did not sell, so I had to close the store" (Q-O-0108) · "Ive had 2 stores on Shopify both failed" (Q-F-9004) | 09 AV-01 scenes 1 (600 sessions, 0 orders, Q-F-0019) · 2 (filming the post-mortem) · 3 (closing the store tab, Q-O-0108) | confessional post-mortem, money in exact figures (06 §10) | the filmed post-mortem — a real review, incl. a visible 3★ | SYNTHESIZED (scene) · REAL for testimonial |
+| AV-04 | `[A]` 25–50 employed — INFERRED from EM-01/EM-14 (employed) and Q-O-0133 | full-time job; store gets the leftover hours | work break room; the car before the shift | "I work a full time job as well, so am only able to attend to my store after hours" (Q-F-0015) · "I earn good money now, so I don't want to quit and then start struggling." (Q-O-0133) | 09 AV-04 scenes 1 (contract on break, Q-O-0116) · 2 (after the shift) · 3 (the drive in, Q-O-0096) | "side hustle", "replace my job", procedural (contracts, refund windows) | reading the full contract before paying (Q-O-0116) | SYNTHESIZED (scene) · REAL for testimonial |
+| AV-02 | `[A]` 35–60 — INFERRED from paid-vendor history (Q-O-0062 $4,500); not stated | paid a vendor; got a half-done or locked store | home desk, login screen | "I gave somebody $4,500, and they took my money" (Q-O-0062) · "now I can't access it, contact an administrator which should be me" (Q-F-0001) | 09 AV-02 scenes 1 (the "contact an administrator" login) · 2 (Googling our reviews mid-call, Q-O-0102) · 3 (money stuck, Q-O-0074) | guarded, "scam", "proof of concept" (Q-O-0132) | she checks us on camera (reviews, contract) — we let her | REAL preferred (her trust test is authenticity); SYNTHESIZED only for the scene |
+| AV-03 | `[A]` 25–55 — INFERRED from "I'm tech savvy and competent" (Q-F-0012); not stated | account open, theme half-done, can't pick a product | home desk, theme editor + help tabs | "tons of links that are like a snowstorm of information" (Q-F-0006) · "It won't let me get on live at all" (Q-O-0014) | 09 AV-03 scenes 1 (week ten on the theme image, Q-F-0013) · 2 ("Do I just choose what I want to sell", Q-F-0041) · 3 (help links snowstorm) | "setup", "step by step", "what do I sell" | screen-share of the stuck editor | SYNTHESIZED (scene) · REAL for testimonial |
+
+§6.6 believability: 5 of 5 specs trace to the avatar's Experience + Behaviour Q-## → PASS (AV-04 Experience THIN in 09 — 1 FS record — daily reality present via Q-F-0015/Q-O-0116, so not HYPOTHESIS).
+
+- **voice_register (tribal language, insider terms from 06 §10):** "no sales", "store", "the 500", "legit", "side hustle", "the backend", "sitting there"; money named in exact figures; no "winning product" jargon in a first line (07 must_not_be_told).
+- **disarm_device:** raw evidence on the narrator's own screen (the idle admin, "Sessions 600 · Orders 0") + a real review stack that keeps a visible 3★ (§6.8).
+- **never_cast[]:** the glossy studio strategist (an existing Higgsfield element "Readymerce-Strategist", 2026-09-02, "premium dark ecommerce strategy studio" — pre-dates this run, NOT imported: contradicts REG-1 and RESENT) · lifestyle flex (jet ski, Rolls-Royce, boat — CR-03, IM-05/08/12) · the laptop-on-the-beach 20-something (IM-12, IM-14) · a podcast guru set (CR-02, IM-08/09/11/13) · an older presenter selling capital returns at a whiteboard (IM-20 — the CL-09 reserve frame) · any actor presented as a customer (site disclosure) · a smiling family on a couch as income proof (NW-02 frame; AV-05 is RESERVE).
+- **label:** primary SUPPORTED · alt EARLY SIGNAL.
+
+`NARRATOR TYPES 6 (+brand/none), STRICT-STORY ADS 0, NETWORKS 6 with a narrator read (NW-01..06), CASTING SPECS 5 of 5`
+
+## §6 · PHOTOGRAPHIC REGISTER REG-1
+
+| AV-## | Behaviour scene | CR-## matched | Q-##/scene ref | setting entered into REG-1 |
+|---|---|---|---|---|
+| AV-07 | stores "just sitting there" in the admin | CR-06 screen evidence | Q-O-0103 | small-business back room, early evening |
+| AV-07 | moving money between accounts mid-call | CR-01 at-home/at-work mid-routine | O-a654f844 lead_quality_marker (09) | same desk, phone in hand |
+| AV-07 | the marketing slowing down | CR-06 | Q-O-0124 | same desk, flat sales line on screen |
+| AV-01 | Sunday night: 600 sessions, 0 orders | CR-06 | Q-F-0019 | kitchen table, Sunday night |
+| AV-01 | filming the post-mortem | CR-01 | Q-Y-0014 | kitchen / bedroom desk, phone on a stack of books |
+| AV-01 | closing the store tab | CR-06 | Q-O-0108 | kitchen table |
+| AV-04 | contract on break | CR-01 | Q-O-0116 | work break room |
+| AV-04 | store gets the leftover hours | CR-01 | Q-F-0015 | kitchen table after the shift |
+| AV-04 | the drive in | CR-01 | Q-O-0096 | parked car before the shift |
+| AV-02 | "contact an administrator" | CR-06 | Q-F-0001 | home desk, login screen |
+| AV-02 | Googling our reviews mid-call | CR-06 | Q-O-0102 | home desk, phone on speaker |
+| AV-02 | money stuck in the account | CR-06 | Q-O-0074 | home desk |
+| AV-03 | week ten on the theme image | CR-06 | Q-F-0013 | home desk, theme editor |
+| AV-03 | "Do I just choose what I want to sell" | CR-06 | Q-F-0041 | home desk, signup step |
+| AV-03 | help-link snowstorm | CR-06 | Q-F-0006 | home desk, 20 open tabs |
+
+- **native_patterns_matched[]:** **CR-01** home-kitchen / at-home person caught mid-routine (NW-01, NW-06; IM-07, IM-29, IM-30, IM-32) · **CR-06** screen-share where the screen shows what the voice claims (NW-01; IM-03) — here the screen shows the *problem* (0 orders) and the *process* (Week 2 review), never a revenue claim.
+- **light:** natural window light + the room's own practical lamp; even; normal dynamic range; no rim light, no teal-orange grade.
+- **settings[]:** small-business back room (AV-07, Q-O-0103/Q-O-0003) · kitchen table on a Sunday night (AV-01, Q-F-0019) · work break room and parked car (AV-04, Q-O-0116, Q-O-0096) · home desk at a login error (AV-02, Q-F-0001) · home desk in the theme editor (AV-03, Q-F-0013).
+- **casting:** credible-ordinary owners matching each AV (§5 table); situation diversity across the set (owner at work, employee after shift, burned buyer at home, starter at a desk); no founder, no guru.
+- **objects_and_evidence[]:** the idle store admin with 0 orders (Q-O-0103, Q-F-0019 "~600 clicks") · a sticky-note tally · the printed contract (Q-O-0116) · the Google-reviews search (Q-O-0102) · the "contact an administrator" error (Q-F-0001) · the theme editor in week ten (Q-F-0013) · "the 500" (Q-O-0029 "I'll start with the 500") · timestamps: Sunday night, after the shift (Q-F-0015).
+- **imperfection_level:** off-guard phone-camera framing, slight grain, clutter kept, no mirrors, no tinting, no beauty retouch.
+- **no_product_rule:** native ads show no product, no price, no brand on the image; the page shows the product (the store on a device) only in the gallery and demo sections.
+- **page_register:** the page opens in the same back-room / kitchen register as the ad; no glossy studio, and not the current dark "operator console" hero (readymerce.com, Exa read) directly after a candid ad — that is a register break (flag for 12/page step).
+- **carrier_rule:** on-image text lives on a real carrier — a sticky note, app chrome, a printed review sheet, a handwritten note — never floating on a coloured background.
+- **§6.7 register congruence:** ≥2 CR-## by name ✔ (CR-01, CR-06) · every setting/object has a Q-## or scene ref ✔ · diverges on 3 DIV-1 axes ✔ (photography, casting, emotional temperature) · keeps native traits ✔ → **PASS** (neither "drowned out" nor "reads as an ad").
+
+## §7 · DIVERGENCE AUDIT DIV-1
+
+Visual divergence pull: Exa `agent_run_bc2421b9…` (effort medium, $0.10) opened each network's primary page — "Hex colours and font-family names were not exposed in the retrieved page source" → palette and type axes print NOT MAPPED; `top_ad_image_urls[]` in 02 = NONE for every NW ("Meta ads_library_search connector returns no media URL field") → ad visuals read from 02-swipe `native_creative_description`. Image URLs the pages exposed are filed in `datasets/13-exa-runs.md` (image sets: NW-01 5, NW-02 4, NW-03 5, NW-04 5, NW-06 0, own 1).
+
+| NW-## | palette | type | photography | casting | packaging | emotional temperature | source URL | tier |
+|---|---|---|---|---|---|---|---|---|
+| NW-01 Ecom Degree (ABOVE-FLOOR) | NOT MAPPED (hex not visible) | NOT MAPPED | founder portrait + signature, Walmart dashboard graphic; ads: jet-ski / beach / Rolls-Royce flex (CR-03), podcast set (CR-02) | founder William Rivera, named students, podcast hosts, "65-Year-Old Grandma" caption (IM-13) | Walmart dashboard; product/profit lists on screen (IM-09) | "Hype/urgent: countdown timer, income claims, scarcity language" | https://www.ecomdegree.com | [R-PAGE via Exa] + 02-swipe [R-TOOL] |
+| NW-02 Ecom Family (UNSIZED, 160 ads ≤2 d) | NOT MAPPED | NOT MAPPED | "Meet Mr. & Mrs. Ecom" video thumbnail + ROAS/revenue screenshots | founder couple, named students; family narrator in ads (IM-15..17) | programs + AI store builder | "Optimistic and aspirational … financial-freedom framing" | https://ecomfamily.com (candidate brand [D]) | [R-PAGE via Exa] |
+| NW-03 Ecom Accelerator (UNSIZED, 85) | NOT MAPPED | NOT MAPPED | founder portrait, press logos, eBay sales-report screenshot, warehouse; ads: older presenter at a whiteboard (IM-20), talking heads with blue supers (IM-21) | founder/CEO Cameron Hoffman; capital holders | managed eBay/Walmart stores, fulfilment | "Financially aspirational … comparatively measured/operational" | https://ecomaccelerator.io | [R-PAGE via Exa] + 02-swipe |
+| NW-04 Done for you brands (UNSIZED, 32) | NOT MAPPED | NOT MAPPED | offer mockup graphics, guarantee badge, store examples; ads: street-interview B-roll under bold captions (CR-04) | founder Alex Fedotoff (ads signed "Alex"), 1 named customer | device mockups of pre-built stores, "20 Hand Picked Products" | "Highly urgent and promotional" | https://doneforyoubrands.co | [R-PAGE via Exa] + 02-swipe |
+| NW-06 Ecom Websites (DORMANT since 2026-06-21; 271 d control) | NOT MAPPED | NOT MAPPED | store examples, product grids; ads: kitchen-table woman to camera (CR-01, IM-30/32), split-panel stressed vs relaxed man (CR-05, IM-31) | ordinary woman at home (brand "we" voice), testimonial store owners | ready-built store for "FREE" / $20 | "Bright, frictionless and sales-forward" | https://ecomwebsites.com | [R-PAGE via Exa] + 02-swipe |
+| NW-05 / NW-07 / NW-08 | NOT OPENED — below floor / inactive (1, 0, 0 ads); cap 8 not the limit | | | | | | | |
+
+- **shared_axes[]:** photography of *results as proof* (revenue/ROAS screenshots, dashboards, product-profit lists) — 4 of 5 (NW-01, 02, 03, 06-store grids; NW-04 mockups) · founder- or brand-led casting — 4 of 5 (NW-01, 02, 03, 04) · warm-to-hot emotional temperature — 4 of 5 (NW-03 measured) · palette/type NOT MAPPED (no divergence claimed on them).
+- **diverge_on[]:** (1) **emotional temperature** → calm, plain, owner-to-owner; justified by AV-★ AV-07 (impatient, ROI-minded: "how fast do I start making a return", Q-O-0027 — answered with a visible process, not hype) and EN-1 (the enemy is the deal that promised and left; heat reads like it — SK-02 "They promised the moon", Q-E-0008). (2) **photography** → the *idle* store and the Week-2 review sheet instead of revenue screenshots and flex; justified by EN-1's mirror (what we are for = staying after launch, shown as review + corrections, PT-04) and by PT-07 / PT-18 NULL (no retrievable results to show). (3) **casting** → the owner in her own back room, no founder, no guru; justified by AV-07's setting (Q-O-0103, Q-O-0003) and RESENT.
+- **converge_on[]:** the at-home / at-desk candid frame (CR-01 — NW-06 IM-30/32, NW-01 IM-07) · screen-in-frame evidence (CR-06 — NW-01 IM-03) · a bold plain line on a real carrier (the CR-04 caption logic, moved onto a sticky note / app chrome) · the recognition opener ("You've thought about starting an online store before", IM-32) — these keep the ad reading native.
+- **decision_reason:** the category's visual currency is results-as-proof plus a founder face; Readymerce has no retrievable results (PT-07, PT-18) and sells into a market that resents authority, so it competes on *visible process in the owner's own room* — same native frame, different evidence.
+
+## §8 · ARCHETYPE ARC-1
+
+- **primary: Everyman (the peer owner)** · **secondary: Caregiver (the team that stays)**.
+- **justification:** AV-★ `consciousness_entry` = "AW-4 impatience → confidence at 'we run the backend, you run the business'" — impatience is not Fear / Anger / Pride → mapped from the Q-## alone `[D]`: Q-O-0027 "how fast do I start making a return on my investment" + Q-O-0029 "I'll start with the 500, and then I'll hopefully graduate to the next level" (a bounded, practical first step — the Everyman's deal, not the Magician's promise) · Q-Y-0027 "there's plenty of us losing, including myself" (peer tribe) · Q-O-0169 "At what point do I take over the store? Is it something I have to run on my own?" (the fear of being left → Caregiver secondary). Sage and Ruler excluded by RESENT (06 §8); Magician excluded by SK-02 "too many promises" and PT-09.
+- **shows_up_as:** voice — plain, numbers stated with their limits (what the $500 covers and doesn't, PT-05), no superlatives, speaks like the owner next door; visuals — real rooms, idle stores, a Week-2 review sheet, keys on a note that says "Store in your name."; the Caregiver half appears only as the team's continued presence (reports, reviews), never as a hero.
+
+## §9 · NAME OPTIONS NAME-1..3
+
+Form rules checked: 1–2 words, 2–3 syllables, spellable after one hearing, not adjacent to an incumbent (incumbent names: Ecom Degree, Ecom Family, Ecom Accelerator, Done for you brands, EcomXpertz, Ecom Websites, Ecom Done For You, Ecommerce Paradise; NW-01 mechanism names "Second Chance Blueprint™", "Walmart Wealth Window™" → no "Ecom-", no "done for you", no "Second Chance/Shot"). Clearance: Exa `agent_run_e66c2e09…` (effort medium, $0.10, 2026-09-24T22:35Z). **Registry: 3 attempts per name (tmsearch.uspto.gov → "JavaScript-rendered shell rather than a wordmark result count"; trademarks.justia.com and trademarkia.com → "could not be retrieved") → `NOT FETCHED — OPERATOR-VALIDATES` for n hits and same-class hits on all three.** Handles checked on the platforms 09 names as research venues + Meta (YouTube, Facebook) and the two short-video platforms the creative step will use (Instagram, TikTok).
+
+| option | name | evokes | sound symbolism | handle read | red flags | registry query URL | date | n hits | same-class hits | domain fetch status | handles checked | name-promise check (PT-##) | product anchor | status |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| NAME-1 (GIVEN) | **Readymerce** | a store that is ready — "I would just link into the store once it is finished" (Q-F-0005) | 3 syllables (read-y-merce); soft r/m, ends on a hiss; "ready" = done, no effort | @readymerce reads "ready merce"; clean | "-merce" is heard as "murse/mers" → spelling after one hearing at risk · the name carries the young domain's trust baggage (PT-16: registered 2026-02-26; ScamAdviser 0/100) · Facebook handle NOT FETCHED | https://tmsearch.uspto.gov/search/search-results/readymerce | 2026-09-24 | NOT FETCHED — OPERATOR-VALIDATES | NOT FETCHED — OPERATOR-VALIDATES | FETCHED — who.is: "The domain readymerce.com is registered." (IONOS SE) = our own domain | Instagram profile exists · TikTok profile exists · YouTube "Readymerce - YouTube" exists · Facebook could not be retrieved | PASS — "ready" promises a built store (PT-04), not income (PT-09) | PASS | **PROVISIONAL** (missing: registry n/same-class; Facebook handle; owner confirmation the 3 handles are ours) |
+| NAME-2 | **Launchkeep** | the team that keeps the store after launch — "Is it something I have to run on my own?" (Q-O-0169) | 2 syllables, two hard stops (ch-k, p) — sturdy, "keep" = hold on | @launchkeep; Instagram free | TikTok @launchkeep taken · .com for sale (a purchase) · "keep" can be heard as an open-ended promise | https://tmsearch.uspto.gov/search/search-results/launchkeep | 2026-09-24 | NOT FETCHED — OPERATOR-VALIDATES | NOT FETCHED — OPERATOR-VALIDATES | FETCHED — who.is: "registered. You can still try to buy it here" / "This Domain is For Sale" (HugeDomains.com) | Instagram "does not exist" · TikTok "profile exists" · YouTube could not be retrieved · Facebook could not be retrieved | CAUTION — "keep" implies indefinite management; PT-08 says the level is "agreed on the fit call" (not fixed) → copy must state the window | PASS | **PROVISIONAL** (missing: registry; YouTube, Facebook handles; .com purchase) |
+| NAME-3 | **Afterlaunch** | "the launch after the launch" (10 §18 handle) — "Launch day is the starting line" | 3 syllables; open vowels then a hard "ch"; forward motion | @afterlaunch taken on TikTok and YouTube | YouTube channel "AfterLaunch" exists (name collision) · TikTok taken · .com parked (registered) | https://tmsearch.uspto.gov/search/search-results/afterlaunch | 2026-09-24 | NOT FETCHED — OPERATOR-VALIDATES | NOT FETCHED — OPERATOR-VALIDATES | FETCHED — who.is: "afterlaunch.com is registered but parked." (Unstoppable Domains) | Instagram could not be retrieved · TikTok "profile exists" · YouTube "AfterLaunch - YouTube" exists · Facebook could not be retrieved | PASS — describes a phase (PT-04 post-launch corrections), no outcome | PASS | **PROVISIONAL** (missing: registry; Instagram, Facebook handles; collision review) |
+
+§6.9: LOCKED needs every clearance record fetched → none qualify. **brand_name = Readymerce (GIVEN, existing brand, domain in use) · name_status PROVISIONAL.** Alternates are held for a relaunch decision only; switching away from an existing domain and handles is an operator call.
+
+`NAMES 3, RECORDS FETCHED 6 of 9 (registry 0/3 · domain 3/3 · handles 3/3 with ≥1 platform read), LOCKED 0, PROVISIONAL 3`
+
+## §10 · VOICE VOICE-1
+
+| IS adjective | shows up as |
+|---|---|
+| plain-spoken | short sentences, exact money ("the 500", "$4,500"), the words owners use: store, orders, no sales, the backend |
+| straight about limits | says what the $500 does not cover (ad spend, product costs, store fees — PT-05) and what the refund does not cover (PT-15) before anyone asks |
+| stays with you | reports back in the same voice after launch: "Week 2 review", "here is what we changed" (PT-04, PT-08) |
+
+| NOT adjective |
+|---|
+| hyped (no countdowns, no "limited window", no lifestyle flex) |
+| guru-ish (no teaching tone, no "secret", no "blueprint") |
+| promising (no income, time-to-sale or "hands-free" claims — PT-09, MC-02) |
+
+| type | text | grade (FK, computed) | banned-word hits | swap-table source |
+|---|---|---|---|---|
+| fold line | "Your store should get more than one shot. We build it in your name. Then we stay after it goes live." | -0.5 | 0  | 10 wedge "Your store should get more than one shot." + NI-04 / PT-14 "in your name" + ICP "store" |
+| product description | "For $500 we pick your niche, build your store and list your first products. Then we put them live in stages. Each one gets a small ad test on a budget you approve. We review the first results with you and swap out what does not sell. Ad spend, product costs and store fees are extra." | 1.8 | 0  | PT-04 / PT-05 in the swap-table register "they handle the backend" (Q-E-0003) — plain, not "managed service" |
+| complaint reply | "You are right to ask. Here is what your $500 paid for, line by line. If a line on that list is not done, we fix it and tell you when it is done. Reply here and I will send the list today." | 0.7 | 0  | Q-O-0002 "I thought this call was gonna just show me exactly what the $500 pays for" (10 MK-22 keeper) + ICP "the 500" |
+| social caption | "Three stores. Zero orders. Most owners think the store was the problem. Most of the time it just got one shot, and then everyone left." | 1.5 | 0  | Q-O-0103 "three or four Shopify stores just sitting there" + swap "still no sales" (Q-F-0019) |
+| ad hook | "My store did not fail. It got one shot, and then everyone left." | 0.6 | 0  | swap "I picked the baby store. It just didn't work" (Q-O-0082) + Q-O-0169 (left alone) + LOCK-A/LOCK-B |
+
+Grades computed with a Flesch-Kincaid script (scratch grade.py; syllable heuristic): all 5 samples ≤7 (max 1.8; target 5 — the voice runs simpler than target, which the page step may raise to 4–5 in body copy). Em dash in samples: 0.
+
+**banned_words[] (word → source class):**
+
+| word | source class |
+|---|---|
+| done for you / done-for-you | category cliché (03 VD-01..05; 07 must_not_be_told "the clinical terms the corpus never uses") |
+| turnkey · business-in-a-box | 07 must_not_be_told (clinical terms) |
+| passive income | category cliché (06 media-terms; 07 MC-01 "easy money") |
+| 91% / "91 percent of our clients" | seller's own sales-call claim contradicting PT-09 (01 T3 CONTRADICTS) |
+| $10k a month / "10k a month" | sales-call claim (R-OWNED T-04) contradicting PT-09; NF-02 |
+| guaranteed / guarantee (as an outcome) | PT-09 no income guarantee; PT-15 refund narrower than the word suggests |
+| hands-free · fully automated | 07 must_not_be_told (MC-02 correct-in-copy — PT-05, PT-08) |
+| easy money | 07 tired_of_hearing (Q-Y-0016) |
+| winning product (in a first line) | 07 must_not_be_told; incumbent list language (NW-06 "30 winning products") |
+| we manage your store | incumbent signature — BURNED by NW-03 540-day ad (10 §18) |
+| the next Amazon / Amazon early / Wealth Window | incumbent signature — VA-02 control (NW-01, NW-03 IM-18/19) |
+| STOP buying courses | incumbent signature — NW-04 IM-23/26 |
+| Let me guess… | incumbent signature — NW-06 IM-29/30 |
+| free store / $20 store | incumbent penetration offer (NW-04, NW-06) + LK-03 |
+| financial freedom | incumbent signature (NW-02 page title, Exa read) |
+| support · formats (as outcome words) | template rule — not outcomes |
+| unlock · seamless · elevate · game-changer · em dash | AI-sounding constructions |
+
+`banned words 17 entries`
+
+**tribal_terms_allowed[]:** store · orders · no sales · the 500 · legit · side hustle · the backend · sitting there · Shopify · Etsy (platform names allowed as the owner says them; never as an endorsement).
+
+**voice test (three lines, one speaker?):**
+
+| line | text | one-speaker verdict |
+|---|---|---|
+| fold | "Your store should get more than one shot. We build it in your name. Then we stay after it goes live." | same short-sentence, second-person, numbers-with-limits register · grade -0.5 · banned hits 0 |
+| proof | "Week 2 review: keep two products, replace one, add three new ones. You see the numbers. You approve the budget." | same short-sentence, second-person, numbers-with-limits register · grade 1.8 · banned hits 0 |
+| support email | "Hi Dana, your store is live and in your name. This week we start the first two product tests. You set the budget. I will send the first review in two weeks. Reply with any question, big or small." | same short-sentence, second-person, numbers-with-limits register · grade 1.1 · banned hits 0 |
+
+**voice_test: PASS** — the three lines read as one speaker; all 5 samples grade ≤7 with 0 banned-word hits; the ad hook ("My store did not fail. It got one shot, and then everyone left.") carries both locks and could not be said by a builder that ends at launch. `[A]` the support email's review timing ("in two weeks") is an operating commitment not on the Truth Card (PT-04 says "early") → OPERATOR-VALIDATES before use.
+
+**geo_register_note (US):** "store" not "shop"; "$500" never "£"; "orders" / "sales"; contractions allowed in speech ("didn't"); no UK idiom (37 of 86 OWNED_PROOF persons carry `call_market: UK` vs 44 US — computed over 06-VOC_MASTER.csv life_context; their wording is kept as evidence, never as copy register).
+
+## §11 · STORY STORY-1
+
+**master (100 words, 15 stacked lines, longest sentence 11 words — counted in code):**
+
+> First stores don't die from e-commerce.
+> They die from one shot.
+> One guessed product. One push of ads.
+> Then the builder leaves.
+> We heard it on call after call:
+> "I must have three or four Shopify stores just sitting there."
+> Stores that sell often test five to ten products first.
+> So we built Readymerce around the second shot.
+> Your store is built in your name.
+> Products go live in stages.
+> Each gets a small test on a budget you approve.
+> We review the first results with you.
+> We replace what doesn't sell.
+> We stay after launch day.
+> No income promises.
+
+- **stamp: POSITIONED** — no founder biography is on file (no `[R-OWNED]` founder account in any input), and the site's "some testimonials feature actors" disclosure rules out inventing one.
+- **positioned_rules_applied:** no profession, illness or family-event claim about a named person ✔ · no tragedy ✔ · the one quote is a verbatim, unnamed prospect line (Q-O-0103 `[R-OWNED]`) ✔ · every mechanism line = PT-04 / PT-14 (EXACT PRODUCT MATERIAL) ✔ · "Stores that sell often test five to ten products first" = 10 NI-01 (Product Lair 2024, practitioner guide, `[R-PAGE via Exa]` — "not a study"; claims router must keep "often", never "always") ✔ · "No income promises" = PT-09 ✔ · **discovery frame: A — independent research** (the pattern heard across the brand's own sales calls + the practitioner testing figure); not B (no trusted-peer founder story on file), not C.
+- **founder_presence_plan:** lever = New Information (POOLED S4 one-stage-ahead, 07) → a presence plan is required, but a founder cannot appear without a real account → **founder: NULL until the operator supplies a real founder account (`[R-OWNED]`)**; stand-in: the alt narrator (a REAL Readymerce store manager, §5) carries the New Information (NI-01, NI-02, NI-04) on camera — one short piece per creative test batch, same room register as REG-1 → `OPERATOR-VALIDATES` that person exists and consents.
+- **pdp_cut (71 words, longest sentence 12 words):**
+
+> Most first stores get one shot.
+> One guessed product, one push of ads, then the builder leaves.
+> Readymerce works the other way.
+> We build your store in your name.
+> We put products live in stages.
+> Each one gets a small test on a budget you approve.
+> We review the first results with you and replace what doesn't sell.
+> We stay after launch day.
+> No income promises. Just more than one shot.
+
+- §6.11: POSITIONED, no named-person biography, discovery frame named → **PASS**.
+
+## §12 · VISUAL IDENTITY VIS-1
+
+- **palette** (contrast reason only — computed in code, WCAG relative luminance):
+
+| role | hex | contrast |
+|---|---|---|
+| primary (Pine) | #1F3A34 | 11.17:1 on Paper — section bands and headings |
+| cta_accent (Ember) | #E0621F | the only saturated element: 3.22:1 vs Paper and 3.47:1 vs Pine (both ≥3:1 for a UI control); label in Ink on Ember 4.82:1 (AA body) |
+| text_dark (Ink) | #1C1C1A | 15.55:1 on Paper |
+| background (Paper) | #F7F4EE | — |
+
+  §6.12: the CTA is the highest-contrast *coloured* element against both backgrounds (Paper and Pine; candidates tested in code: #D9541A min 3.05, #E8672A 2.99, #F2A33A 1.90 …) → PASS; body ≥16px on mobile (spec); no colour-psychology claim made.
+- **fonts (Google Fonts):** heading **Fraunces** — a soft, sturdy serif that reads like print on a note or a report sheet (the carrier rule), legible at large sizes; body **Inter** — built for screens, holds up at 16px on a phone.
+- **product_element_id:** `9597a0b7-58a4-42f0-bdc9-1b2663b1ce17` ("readymerce-store-laptop", prop) — created from image job e715e319… (marketing_studio_image). `[A]` created from the un-cut shot because `remove_background` job b4a1bac6… sat `queued` for >10 min; cut-out + upscale job ids recorded below.
+- **model_element_or_soul_id:** **NULL** — no spokesperson photos (operator card); no recurring face generated on purpose: the register casts real owners, and a synthetic recurring face would repeat the site's actors problem. Full generation prompt kept beside the NULL (§6 casting spec AV-07 row → `generate_image {model:"soul_2"}` "woman, late 40s, owner of a small clothing business, cardigan, reading glasses pushed up, candid in her back room at early evening, natural light" → `show_reference_elements {action:"create", category:"character"}`) — run only if the operator wants an illustrative narrator, labelled SYNTHESIZED.
+- **environment_element_id:** `de8b79fa-3285-4487-8076-c22e091bfd4d` ("readymerce-owner-backroom", environment) — from the photography-style reference frame 3c4f070b….
+- **asset_paths:** `assets/readymerce-visual-identity/README.md` (every URL + job_id; files NOT downloaded — `curl` to the image CDN returned `CONNECT tunnel failed, response 403`, egress policy) → all visuals PROVISIONAL.
+- **wordmark_direction:** "Readymerce" in a soft sturdy serif (Fraunces-like), Pine on Paper, with a three-step mark (two Pine squares, the third Ember) = "launched in stages"; finalize in vector; the AI render is direction only.
+- **packaging_proofread:** the "packaging" is the store UI on a device (PT-14: "not a course, a template pack") — product element prompt forbade readable text, logos and brand names; no font names or placeholders are baked into any product/gallery frame by prompt; board frame 760a66bd… intentionally shows hex + role names (a spec board, not packaging); percentages: none used. **Visual proofread character-by-character: NOT VERIFIED — the images cannot be opened in this runtime (egress 403) → `OPERATOR-VALIDATES`** (check: wordmark spelling "Readymerce"; sticky note "3 stores. 0 orders."; app chrome "Sessions 600" / "Orders 0"; "Stage 1" / "Testing" / "Replaced"; "Week 2 review" / "Keep: 2" / "Replace: 1" / "Next: 3 new products"; note "Store in your name."). components per 01: `C1 store build · C2 branding · C3 vetted products (count UNKNOWN, PT-19) · C4 supplier setup · C5 marketing (staged ad tests) · C6 strategy/fit call · C7 ongoing management (level agreed on the fit call, PT-08) · C8 portal/credits (UNKNOWN, PT-19) · C9 account manager (UNKNOWN, PT-19) · C10 7-day refund (conditioned, PT-15) · C11 ownership (PT-14)` — C1, C2, C5, C6, C7, C10, C11 **given** (PDP, PT-04/PT-08/PT-14/PT-15) · C3, C4 **INFERRED: 01 §2 SEED [R-OWNED]** (PT-04 describes research + supplier/shipping setup without a count) · C8, C9 **INFERRED: 01 §2 SEED [R-OWNED], UNKNOWN on PDP (PT-19)**. The Week-2 frame's "Keep: 2 / Replace: 1 / Next: 3" are illustrative counts, not a fact (PT-19 products per stage UNKNOWN) → label the frame "example" on the page.
+
+| item | model | job_id | path | Element/Soul id | proofread result |
+|---|---|---|---|---|---|
+| product shot (store on laptop) | marketing_studio_image (1200×896) | e715e319-0bc4-4191-ac19-b918f61b7604 | https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260924_223444_e715e319-0bc4-4191-ac19-b918f61b7604.png | product 9597a0b7-58a4-42f0-bdc9-1b2663b1ce17 | prompt: no readable text; visual NOT VERIFIED |
+| ↳ remove_background | image_background_remover | b4a1bac6-c3d9-4cdf-be49-485bbeb98637 | still `queued` after 5 polls (22:36Z→22:49Z) — result URL LATE; poll this job id | — | — |
+| ↳ upscale 2k | bytedance_image_upscale | 41999a0b-6354-4ff8-8b55-b3e862744b9b (correct 1200×896 source) · 405e5cb9-f385-4352-92a4-653c6a8a1c4c (submitted with wrong source dims 1024×768 — discard) | https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260924_224526_41999a0b-6354-4ff8-8b55-b3e862744b9b.png | — | completed |
+| 1 logo direction / wordmark | nano_banana_2 (server label nano_banana_flash) 1376×768 | 055503d4-ba4b-4e0d-a358-0d7747d447de | https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260924_223606_055503d4-ba4b-4e0d-a358-0d7747d447de.png | — | spelling NOT VERIFIED — OPERATOR-VALIDATES |
+| 2 palette + type board | nano_banana_2 1376×768 | 760a66bd-3302-491c-b605-f722034b9904 | https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260924_223606_760a66bd-3302-491c-b605-f722034b9904.png | — | hex labels NOT VERIFIED |
+| 3 hero lifestyle (AV-07 owner, back room) | nano_banana_2 1376×768 | 81c0de04-c5c7-4e47-a014-604542259733 | https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260924_224107_81c0de04-c5c7-4e47-a014-604542259733.png | refs product 9597a0b7… + environment de8b79fa… | SYNTHESIZED person — label as illustration |
+| 4 PDP gallery 1 — "Store in your name." | nano_banana_2 1024×1024 | 5e072d67-a7c0-4744-9aaa-5638f1ed1a8c | https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260924_224107_5e072d67-a7c0-4744-9aaa-5638f1ed1a8c.png | refs product + environment | note text NOT VERIFIED |
+| 5 PDP gallery 2 — Stage 1 tests | nano_banana_2 1024×1024 | 660519cf-662d-4340-b4c0-830205c96ed2 | https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260924_224107_660519cf-662d-4340-b4c0-830205c96ed2.png | — | UI text NOT VERIFIED |
+| 6 PDP gallery 3 — Week 2 review | nano_banana_2 1024×1024 | b5bf0fc6-cfc2-4366-a361-f68b0bc27675 | https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260924_224107_b5bf0fc6-cfc2-4366-a361-f68b0bc27675.png | refs product | counts are illustrative (PT-19) |
+| 7 ad-ready — AV-07 "3 stores. 0 orders." | nano_banana_2 928×1152 | ba50bd13-e218-46d8-b072-3c7ddba774c0 | https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260924_223606_ba50bd13-e218-46d8-b072-3c7ddba774c0.png | — (no product, no brand: native rule) | SYNTHESIZED person; note text NOT VERIFIED |
+| 8 ad-ready — AV-01 "Sessions 600 / Orders 0" | nano_banana_2 928×1152 | d9a1f85e-2cbf-4434-8430-b033698df55c | https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260924_223606_d9a1f85e-2cbf-4434-8430-b033698df55c.png | — | SYNTHESIZED person; UI text NOT VERIFIED |
+| 9 photography-style reference (environment) | nano_banana_2 1376×768 | 3c4f070b-edff-4df2-b45b-fffa2021658b | https://d8j0ntlcm91z4.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/hf_20260924_223606_3c4f070b-edff-4df2-b45b-fffa2021658b.png | environment de8b79fa-3285-4487-8076-c22e091bfd4d | no text by prompt |
+
+Cost: preflight `get_cost` marketing_studio_image 2 cr, nano_banana_2 1.5 cr; balance 1,998.34 → 1,977.84 after generation (20.50 cr; bg-removal/upscale may add) — ≤100 cap ✔. 10 images generated (≤10 ✔). **Size rule breach, printed: width+height ≤2000 was exceeded on 10 of 10 renders** (sums computed: 16:9 1376+768 = 2,144 · 1:1 1024+1024 = 2,048 · 4:5 928+1152 = 2,080 · product 1200+896 = 2,096) — the models' smallest default ('1k') for these aspect ratios; `[A]` treated as direction frames, not finals; re-render at an explicit smaller size if the operator enforces the rule.
+
+`IDENTITY SET 6 of 6 item types generated (9 frames + product shot = 10 images), ELEMENTS product 9597a0b7-58a4-42f0-bdc9-1b2663b1ce17, model/soul NULL, environment de8b79fa-3285-4487-8076-c22e091bfd4d`
+
+## §13 · TRIBE AESTHETIC TRIBE-1
+
+Runs: `lane` includes **New Identity** (10 LOCK-A: PB-06 "all three lanes" + 10 §16b brief) and 07 **SR-03 NEW IDENTITY CARRIED → 13**.
+
+- **role_wanted: acknowledgment** — to be seen as the *owner*, not the student or the operator: "I don't wanna be trained to do it. I wanna just put the money forward." (Q-O-0056 `[R-OWNED]`) · "You guys can fully automate my online business." (Q-O-0001 `[R-OWNED]`; MC-02 correct-in-copy). Smaller second identity: the one who tried again — "I was afraid to ever try again, but eventually I did" (Q-B-0004).
+- **aesthetic_already_used[]:** the tribe's own format on the platforms 09 names is the **post-mortem** — first-person "how I lost…" videos and forum posts with the numbers on screen: https://youtu.be/x9lgR_iHPuQ (Q-Y-0014 "i got zero sales which means i lost 254 dollars") · https://youtu.be/3d55w3wDSII (Q-Y-0046 "it didn't sell one product not one product") · https://youtu.be/AZIC4HjKj7s (Q-Y-0027 "there's plenty of us losing, including myself") · https://www.warriorforum.com/social-media/1458034-ive-spent-600on-fb-a… (Q-F-0019 "still no sales. i've got ~600 clicks"). **Visual aesthetic of those videos: NOT OBSERVED** (corpus holds transcripts/text only; 10 §16b "UNKNOWN — searched") — the *format* (confession + dashboard numbers) is observed; the look is not invented.
+- **identity_permission_line:** "I'm not lazy. I just don't wanna be trained to do it." — `[D]` construction; second half verbatim Q-O-0056; permission logic from 08 MD-02 `identity_permission` "I don't expect to just, you know, do all the work myself" (Q-O-0056).
+- **inauthenticity_risks[]:** actors presented as owners (site disclosure) · lifestyle flex (cars, boats, beaches — the tribe's post-mortems are the opposite) · "fully automated / hands-free" (MC-02) · income screenshots without a verifiable owner (SK-03 "a lot of them fake the reviews") · a founder persona with no founder account · the pre-existing synthetic "Readymerce-Strategist" character.
+
+## §14 · CONGRUENCE SPEC CONG-1
+
+- **message_match_words** (verbatim substrings of 10 §15; 10 prints no field named `message_match_words` → built per 13 §2 alias problem = M-1, mechanism = M-2, promise = big_promise):
+  - **problem (M-1):** "launched as a single bet" (LOCK-A UMP) · "hands the store over on launch day and leaves" (LOCK-B UMP)
+  - **mechanism (M-2):** "puts products live in waves; each product gets controlled ad testing at a budget the owner approves" (LOCK-A UMS) · "keeps a team on the store after it goes live" (LOCK-B UMS)
+  - **promise (big_promise):** "Your store is built in your name within days, then launched in stages" (LOCK-A) · "you're not left alone on launch day" (LOCK-B) — "within days" rests on `[R-SNIPPET]` + `[R-OWNED]` T-09 only → claims router (11/12) decides whether it prints.
+  - plain words carried on the fold and in story beats 5–8: **one shot · in stages · a budget you approve · in your name · we stay after launch day**.
+- **scene_level_rule (AV-★ scenes):** an ad opening on scene 1 (stores "just sitting there" in the admin, Q-O-0103) lands on a fold that shows the same idle-admin frame and says "sitting there"; scene 2 (moving money to fund the $500) lands on a fold whose first price line states "$500 — and what it doesn't cover" (PT-05); scene 3 (the marketing slowing down, Q-O-0124) lands on a fold that names "a small test on a budget you approve". Never a scene on the page that the ad did not show.
+- **narrator_continuity:** ad narrator = peer owner (SUPPORTED); page proof voice = REAL owners only + the REAL insider store manager; no founder voice (NULL), no actor testimonials; the five named portraits on today's home page need REAL provenance or removal before any peer-narrator ad points at the page.
+- **catfish_test:** planned fold "Your store should get more than one shot. We build it in your name. Then we stay after it goes live." vs 10 `new_information[].hook_samples`: NI-01 (2) "Your first store didn't fail. It ran out of shots." → MATCH (one shot) · NI-01 (1) "The people with a product that sells almost never found it on the first try." → MATCH · NI-04 (1) "Before you ask if a store will sell, ask whose name is on it." → MATCH (in your name) · NI-02 "600 clicks and zero sales…" → CONDITIONAL (fold variant must show the clicks-no-orders scene) · NI-03 Etsy search → CONDITIONAL (own fold variant) · NI-05 payout hold → CONDITIONAL (only if the operator confirms verification is handled, 10 §16a). **Result: PASS** for the primary hook set (NI-01, NI-04); 3 CONDITIONAL cells re-checked against the first cell in 12 ASSEMBLE.
+
+## §15 · BRAND FACT SHEET FACT-1 v1
+
+| field | value | pointer ID | tier |
+|---|---|---|---|
+| name + status | Readymerce · PROVISIONAL (registry NOT FETCHED; §9) | NAME-1; datasets/13-exa-runs.md | [R-PAGE via Exa] |
+| SKU | "The Store Build & Research Package," $500 one-time; managed fee quoted on the fit call, no published number | PT-01, PT-02 | [R-PAGE via Exa] |
+| Truth Card pointer | 01-PRODUCT-TRUTH.md §TRUTH CARD T3 (PT-01..PT-20), band PROXY-SKU | 01-HANDOFF.DEEP product_truth_card | [R-PAGE via Exa] |
+| components[] | C1 store build (given) · C2 branding (given) · C3 vetted products, count UNKNOWN (INFERRED: 01 §2 SEED [R-OWNED]; PT-19) · C4 supplier setup (INFERRED: 01 §2; PT-04 shipping-profile setup) · C5 staged ad testing (given) · C6 fit/strategy call (given) · C7 ongoing management, level agreed on the call (given, PT-08) · C8 portal/credits (INFERRED: 01 §2; UNKNOWN PT-19) · C9 account manager (INFERRED: 01 §2; UNKNOWN PT-19) · C10 7-day refund, conditioned (given, PT-15) · C11 ownership, own live store account (given, PT-14) | 01-HANDOFF components; PT-04, PT-08, PT-14, PT-15, PT-19 | [R-PAGE via Exa] + INFERRED |
+| avatars + states | AV-★ AV-07 (UNTAPPED, VALIDATED) · launch AV-01 (UNTAPPED), AV-04 (STEALABLE), AV-02 (STEALABLE, EARLY SIGNAL), AV-03 (OWNED) · reserve AV-06, AV-05, CL-09 | 09-HANDOFF avatar_portfolio | [R-OWNED]+[R-PAGE] (09) |
+| shared problem | a store that got one shot and was left alone after launch (LOCK-A M-1 + LOCK-B M-1) | 10 §15 LOCK-A/B ump | [D] |
+| shared promise | "Your store is built in your name within days, then launched in stages" / "you're not left alone on launch day" | 10 §15 big_promise | [R-PAGE via Exa] (PT-04) + [R-SNIPPET] timing |
+| ump | LOCK-A MK-01 The One-Shot Launch · LOCK-B MK-06 The Handover Cliff | 10 §15 | [D] on given basis |
+| ums | staged release + capped tests + early review (CS-07..CS-10) · post-launch review + corrections | 10 §15; PT-04, PT-08 | [R-PAGE via Exa] |
+| big_idea | "First stores die from getting one shot, not from e-commerce." · "Launch day is the starting line, not the finish line." | 10 §15 | [D] |
+| big_promise | see shared promise; no income, time-to-sale or hands-free claim (PT-09) | 10 §15 | [R-PAGE via Exa] |
+| big_proof | process proof only (PT-04 26 bullet points); outcome proof NULL (PT-07, PT-18) — LATE-BOUND: 11.proof | PT-04, PT-07, PT-18 | LATE-BOUND |
+| positioning | POS-1 statement; subcategory "Not another store builder — for owners whose store is built and just sitting there." | §4 | [D] |
+| strategic enemy | EN-1 the build-and-leave store deal (VALIDATED, 8 authors / 4 threads) | §2 | computed |
+| route + offer | LATE-BOUND: 12.offer · LATE-BOUND: 12.route | 12-partials (empty) | LATE-BOUND |
+| beliefs / proof / objection pointers | LATE-BOUND: 11.beliefs · LATE-BOUND: 11.proof · LATE-BOUND: 11.objections · LATE-BOUND: 11.claims | 11-partials (no HANDOFF) | LATE-BOUND |
+| voice + banned words | VOICE-1: plain-spoken · straight about limits · stays with you; 17 banned-word entries | §10 | computed |
+| narrator | peer owner (SUPPORTED) · alt insider store manager, REAL only (EARLY SIGNAL) | §5 | computed |
+| story stamp | POSITIONED · discovery frame A (independent research) | §11 | [D] |
+| palette + fonts | Pine #1F3A34 · Ember #E0621F (CTA only) · Ink #1C1C1A · Paper #F7F4EE · Fraunces / Inter | §12 | computed |
+| Honest Box [D] (11 absent) | top complaint PT-10 (1 disputed exact-SKU complaint: access codes withheld after a $250 deposit) → limitation PT-15 (refund voids on acceptance or any add-on; covers the $500 only) + PT-05 (ad spend, product costs, platform fees excluded) → not-for NF-01, NF-02 → remedy: store in your name from day one (PT-14), the what-you-get list published (MK-22), refund conditions stated plainly (MK-23) | PT-10, PT-15, PT-05, NF-01, NF-02; 10 §17 | [D] |
+| market terms | store · orders · no sales · the 500 · legit · side hustle · the backend · sitting there | 06 §10 | [R-SCRAPE]/[R-OWNED] (06) |
+| ledger path | 06-VOC-LEDGERS.csv · 01 §TRUTH CARD T8 · 10 §5 basis ledger · datasets/13-exa-runs.md | — | — |
+| assets | assets/readymerce-visual-identity/README.md (URLs + job_ids; PROVISIONAL) | §12 | [R-TOOL] Higgsfield |
+| version | v1 | — | — |
+| version_rule | "any fact change re-issues the sheet, bumps v1 → v2, re-stamps every doc's front matter, flags every live downstream asset for a congruence re-check" | 13 §4.14 | — |
+| late_bound[] | 12.offer · 12.route · 11.beliefs · 11.proof · 11.objections · 11.claims · 11.live_wire · 11.WM-AV#.enemies · 11.honest_box | — | LATE-BOUND |
+
+**lint (§6.13, computed):** fields 27 · pointers resolved 21/24 (the rest print LATE-BOUND: 3) · late-bound keys 9 · components[] 11 of 11 filled (given 7 · INFERRED 4) · version + version_rule present ✔ · **tiered 14 / untiered 3 / [D]-[A] 6** (untiered = structural rows: version, version_rule, ledger path; LATE-BOUND rows counted apart: 4).
+
+## §16 · COUNTERS · WHAT WE COULD NOT VERIFY · COVERAGE STATEMENT
+
+**Counters:** `INPUT FIELDS 17/20 (late-bound 3)` · `ENEMY CANDIDATES 9, VALIDATED 5, category errors 3, SELF-EXPOSURE held 3` · `NF lines 4 (real 3, decoration 1)` · `NARRATOR TYPES 6, STRICT-STORY ADS 0, NETWORKS 6, CASTING SPECS 5 of 5` · `CR matched 2 (CR-01, CR-06); scene→pattern rows 15` · `DIV networks read 5 of 5 above-floor/active; NOT OPENED 3 (NW-05/07/08: 1/0/0 ads)` · `NAMES 3, RECORDS FETCHED 6 of 9, LOCKED 0, PROVISIONAL 3` · `VOICE samples 5, max grade 1.8, banned-word hits 0, banned list 17` · `STORY 100 words / PDP cut 71 words` · `IDENTITY SET 6 of 6 item types (10 images), ELEMENTS product 9597a0b7…, model/soul NULL, environment de8b79fa…` · `FACT-1 pointers resolved 21/24, late-bound keys 9, components 11/11 (given 7, INFERRED 4)`.
+**Spend:** GetHookd 282.94 → 282.89 (0.05 cr: 5 `aggregate_ads`, all `groups: []`) ≤0.5 ✔ · Meta 0 calls (not needed: the IM-## narrator fields were already on file) · Exa 2 runs, $0.20 ≤$0.60 ✔ · WebSearch 0 · Higgsfield 1,998.34 → 1,977.84 (20.50 cr) ≤100 ✔ · Apify / Firecrawl / Browserbase / WebFetch: not attempted (BLOCKED-ON-TOOL per addendum); `curl` 1 attempt to the image CDN → 403.
+
+**WHAT WE COULD NOT VERIFY**
+1. US trademark status of all three names — tmsearch.uspto.gov returned a JavaScript shell; Justia and Trademarkia not retrievable (3 attempts per name) → `NOT FETCHED — OPERATOR-VALIDATES`.
+2. Whether the Readymerce Instagram / TikTok / YouTube handles found are the operator's own; every Facebook handle (not retrievable).
+3. The narrator mix inside winning ads by classifier: GetHookd has analyzed 0 of NW-01's 203 active ads (`cls_who_in_ad`, `cls_expert_type`, `cls_lead_style` all empty) → the tally is HAND-COUNTED from 02-swipe (32 IM).
+4. Competitor palettes and typefaces — hex and font families not exposed in any page source Exa read; ad image URLs absent in 02 (Meta connector has no media field).
+5. Every rendered image's text and look — the CDN is blocked (403); proofread is `OPERATOR-VALIDATES`; the background-removed product cut-out was still queued at hand-off.
+6. Whether a real Readymerce store manager exists to serve as the alt narrator, and whether the five owner portraits on readymerce.com are real people (vs the "actors" disclosure).
+7. Age bands for every launch avatar (09 carries no Class-3 note) → `[A]` bands printed from Q-## cues.
+8. The operational truth of "keys in your name from day one" against PT-10's disputed complaint, and the length of the post-launch window (PT-08 "agreed on the fit call").
+9. 11 and 12 fields (offer, route, beliefs, proof, objections, claims, live_wire, WM enemies, Honest Box) → LATE-BOUND for 12 ASSEMBLE.
+
+**Weakest link:** proof congruence — the peer-owner register, EN-1 ("the build-and-leave deal") and the Caregiver half all require REAL owners and a demonstrable "store in your name + we stay after launch", while the site discloses actor testimonials (01 T3), shows owner portraits of unverified provenance, and carries one disputed "access withheld" complaint (PT-10); name clearance is unfetched.
+**Cost to close:** operator-side, ~$0: (1) confirm in writing the ownership transfer at build and the minimum post-launch window; (2) supply ≥3 consenting real owners (or remove the actor/portrait proof); (3) one manual USPTO tmsearch for "Readymerce" in classes 35/42 (~10 min); (4) open the 10 renders from the README and proofread; ≈10 Higgsfield credits to re-render at width+height ≤2000 after proofread.
+
+**COVERAGE STATEMENT**
+Positioning: PASS, enemy EN-1 VALIDATED on 8 authors/0 networks, not-for lines 4 (3 real, 1 DECORATION). Narrator: fellow sufferer (peer owner) SUPPORTED from 0 STRICT-STORY ads in 0 networks; authority read: resent; casting specs 5 of 5 avatars. Register: 2 native patterns matched, diverges on [emotional temperature, photography, casting]. Name: PROVISIONAL, missing records: [USPTO n hits + same-class hits for Readymerce/Launchkeep/Afterlaunch (JS shell; Justia + Trademarkia not retrievable), Facebook handles ×3, YouTube @launchkeep, Instagram @afterlaunch, ownership of the found @readymerce handles]. Voice test PASS, grade 1.8, banned words 17. Story stamp POSITIONED. Elements: product 9597a0b7-58a4-42f0-bdc9-1b2663b1ce17, model/soul NULL, environment de8b79fa-3285-4487-8076-c22e091bfd4d; identity set 6 of 6 generated. Fact sheet v1, pointers resolved 21/24, late-bound 9, components given 7 / INFERRED 4. Sources opened: 5 networks (+ our own page), 5 image sets, 3 registry queries (0 retrieved); not done: [GetHookd cls_* narrator counts — 0 of 203 ads analyzed; get_top_ads — NOT RUN — needs operator yes: start_brand_spy; top_ad_image_urls — none recorded in 02 (Meta connector has no media field); competitor hex/fonts — not exposed in page source; image proofread + downloads — CDN egress 403; remove_background — job b4a1bac6 queued at hand-off; Apify/Firecrawl/Browserbase/WebFetch — BLOCKED-ON-TOOL]. Weakest link: proof congruence (actor-testimonial disclosure + disputed access complaint PT-10 vs a peer-owner, keys-in-your-name brand) and unfetched name clearance; cost to close: operator written confirmation of ownership transfer + post-launch window, ≥3 consenting real owners, one manual USPTO search, proofread of 10 renders (~10 Higgsfield cr to re-render at ≤2000 px). Narrators, enemies, tribe aesthetics and registrable names are read from networks, corpus and fetched records, never from memory or a snippet.

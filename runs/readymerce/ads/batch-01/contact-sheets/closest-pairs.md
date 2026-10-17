@@ -1,0 +1,15 @@
+# Closest pairs · batch-01 images (originality.md closest-pair audit)
+
+Scope: the 15 renders. C4-V3, C5-V1, C5-V2 and C5-V3 were not transported or QA'd. Their entries below are based on the prompt and have not been checked against the render.
+
+| # | Pair | Shared (layout / medium / meaning) | What differs | Risk / action |
+|---|---|---|---|---|
+| 1 | **C2-V3 vs C3-V3** | Same vehicle: N9 Direct Feed Post, 1:1, flat text-only card, small grey avatar placeholder, no replies, no product | Meaning: C2-V3 is the four-line money math of stores that died; C3-V3 is one overheard break-room sentence ending five years of "when i'm ready". Background is pure white vs light warm grey; C3-V3 carries curly quotes | **Highest.** The two are nearly the same as feed thumbnails. Don't put both in one ad set, or change one card's background or type size |
+| 2 | **C5-V2 vs C2-V3 / C3-V3** | Same N9 vehicle, 1:1, text-first lowercase post | C5-V2 adds a pale blue-grey card (#DDE3EA), scribbled-out names and four reply bubbles, so the layout reads as a thread | Medium. The replies block tells them apart. Confirm on full res once QA'd |
+| 3 | **C1-V3 vs C5-V3** | Same vehicle: N8 Story Snapshot, 4:5, candid desk still life, laptop, no text or people | C1-V3 has a worn wooden desk between clothing rails, a **closed** laptop and a face-down receipt with pencil lines (market seller's paper records). C5-V3 is a small-apartment desk at 9:40pm with an **open** laptop showing a blurred settings form and a tally-mark sticky note (stuck starter, week ten) | Medium. The laptop-on-desk framing is the same. Lighting and props keep them apart. Check the C5-V3 render |
+| 4 | **C4-V2 vs C4-V3 vs C5-V1** (meaning) | All three quote the same platform-docs proof line (transfer the store / ownership "when it's ready to go live") | Media differ: search bar with answer card (C4-V2), news-style article (C4-V3), post-it designed static with product (C5-V1). Layouts do not overlap | Meaning-level repeat. If they run together, rotate the proof line or give each a different second point |
+| 5 | **C1-V1 vs C5-V1** (V1 statics) | 1:1, Paper background, a paper prop, the same product laptop reference, Pine icon-led body lines, Ember button | Planner-grid IMV with market-crew hook (C1-V1) vs hand-lettered sticky note with tally marks (C5-V1). Different hook and angle | Medium-low. Same palette and product photo across all V1s (C1, C2, C3, C4, C5), with a distinct medium each: planner, dashboard chart, kitchen-table scene, us-vs-them split, post-it |
+| 6 | **C2-V2 vs C4-V2** | Flat light UI screenshots with a phone status bar, text-first, native V2 | Notes-app list with strike-throughs (C2-V2) vs search query plus answer card (C4-V2). Different meaning: dead stores list vs two checks before paying | Low |
+| 7 | **C1-V2 vs C5-V2** | Conversational multi-bubble layouts | Group chat, 4:5, with named avatars D/M (C1-V2) vs feed post with scribbled reply thread, 1:1 (C5-V2) | Low |
+
+No two renders share both the same layout and the same meaning. Pair 1 is the only near-duplicate in medium and layout, and its meanings differ.

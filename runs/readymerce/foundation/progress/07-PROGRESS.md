@@ -1,0 +1,17 @@
+# 07-PROGRESS (STEP 07 · MODE: FULL · agent_id 07 · wave W3)
+- 21:46Z start; read AGENT-BRIEF-COMMON (+ TOOL CARD ADDENDUM), OPERATING-RULES, STEP-07 whole
+- 21:50Z handoffs opened: 07-HANDOFF.SOPH.json, 06-HANDOFF.json, 03-HANDOFF.json, 01-HANDOFF.json, 01-HANDOFF.DEEP.json; pointed sections read (06 §3 §5 §7 §10 §12 §13 §13-OWNED §14 §17 §18-HARVEST; 03 §7 §13 §14 §15 §16; 01 §5 §6 §T3 §T6; 04 §3 speaker_mix + §6 ×3; 02-swipe.csv 32 rows)
+RESUME POINT: inputs loaded; next = tag audit + AC counts in code
+- 21:53Z §0 §1 §2 written (tag audit 44 changes; AC-PB## x7)
+RESUME POINT: §2 done; next = §3 LANG, §4 distribution, §5 paste + entry_gap_read, §6 verdict
+- 21:55Z §3 LANG, §4 [D] distribution + bias + PRIOR, §5 pasted + 5b entry_gap_read, §6 verdicts, §7/§8 pasted
+RESUME POINT: §8 SOPH pasted; next = 8b skepticism corroborators, §9 population_sophistication, §10 SR-##
+- 21:58Z 8b corroborators (2/3 agree pooled S4), §9 population_sophistication (reset lines CP-04/CP-07 ad-layer only; CP-02/CP-06 no reset), §10 SR-01..04 (+SR-01-X NOT CARRIED)
+RESUME POINT: §10 done; next = §11 stage ledger, §12 EM-##, §13 IS-##
+- 22:03Z §11 ledger, §12 EM-01..20, §13 IS-01..06, §14 copy_starting_point x7 + instruction + SOPH EK paste + merged EK-01..08 with ek_stamps
+RESUME POINT: §14 done; next = §15 soph_gap_check + lead_type_map, §16 snapshot, §17 lints, §18 coverage + HARVEST-10..
+- 22:06Z §15 gap check + lead map, §16 snapshot + entry_recommendation, §17 lints 5/5 PASS, §18 HARVEST-10..13 + COVERAGE STATEMENT written
+RESUME POINT: coverage written; next = rename .partial, copy 07-SOPH-20ADS.csv, write + validate 07-HANDOFF.json
+- 22:07Z renamed 07-AWARENESS-SOPHISTICATION.md; 07-SOPH-20ADS.csv copied (22 rows, byte-identical to the partial); 07-HANDOFF.json 2013 B, valid JSON
+- tool use: 0 GetHookd credits, 0 Meta, 0 Exa, 0 Apify in FULL (SOPH half pasted); code only
+RESUME POINT: DONE — all FULL outputs on disk; next owner = 06 RE-MINE (HARVEST-10..13), 08/09/10/12 read 07-HANDOFF.json
