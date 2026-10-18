@@ -21,7 +21,8 @@ ledger.json, shots/, prompts/, qa/, assets/, audio/, edit/, final/ and calls.jso
   pipeline.py ask <slug> <post_id> <CHECKPOINT> --note T [--asset A@v] [--files a,b]   queue a human checkpoint
   pipeline.py approve <slug> <post_id> <CHECKPOINT> --by NAME [--asset A@v] [--note T] [--reject]
   pipeline.py queue [--slug S] [--write]                              the daily human approval queue
-  pipeline.py check-call <tool_name> <tool_input.json|->              what the PreToolUse hook runs
+  pipeline.py check-call <tool_name> <tool_input.json|->              what the PreToolUse hook runs (atlas_generate:
+                                                                      what the atlas wrapper in tools/atlas/ runs)
 
 Only this tool changes gate status (VISUAL-QA 9.3): reviewers return JSON, the orchestrator records it here.
 Exit code 1 on a blocking problem.
@@ -844,6 +845,21 @@ def _params(x):
 
 def extract_requests(tool_name: str, ti: dict, spec: dict) -> list[dict]:
     reqs = []
+    if spec["service"] == "atlas":
+        # built by growth-engine/tools/atlas/atlas_gate.py from an `atlas generate <kind> MODEL ...` command line
+        if ti.get("kind") == "chat":
+            return [{"error": "atlas chat is a billable LLM call outside the production pipeline: the gate blocks it "
+                              "(prompts and scripts are written in the session)"}]
+        medias, p = ti.get("medias") or [], ti.get("params") or {}
+        if ti.get("kind") not in ("image", "video", "audio", "3d") or not isinstance(ti.get("model"), str) \
+                or not isinstance(ti.get("prompt") or "", str) or not isinstance(p, dict) or not isinstance(medias, list) \
+                or not all(isinstance(m, dict) and isinstance(m.get("value"), str) and isinstance(m.get("role"), str)
+                           for m in medias):
+            return [{"error": "atlas_generate input must be {kind, model, prompt, medias, params} "
+                              "(growth-engine/tools/atlas/atlas_gate.py builds it)"}]
+        return [{"kind": ti["kind"], "service": "atlas", "model": ti["model"], "prompt": ti.get("prompt") or "",
+                 "medias": [{"value": m.get("value"), "role": m.get("role")} for m in medias], "params": dict(p),
+                 "dry": False}]
     if spec["service"] == "higgs":
         items = (ti.get("requests") or []) if spec.get("batch") else [{"params": ti.get("params")}]
         for it in items:
@@ -928,10 +944,132 @@ def _gate_any_version(led, a, gate, **match) -> bool:
     return False
 
 
+def _spec_aspect(a: dict, led: dict, p: dict) -> list[str]:
+    if a["type"] in ("storyboard", "style_ref") or a["type"].endswith("_sheet"):
+        return []
+    aspects = set()
+    for s in a["shots"]:
+        sp = spec_path(led["slug"], led["post_id"], s)
+        if sp.exists():
+            aspects.add((yaml.safe_load(sp.read_text()) or {}).get("camera", {}).get("aspect"))
+    if len(aspects) == 1 and p.get("aspect_ratio") not in aspects:
+        return [f"aspect_ratio {p.get('aspect_ratio')} differs from the Shot Spec ({aspects.pop()})"]
+    return []
+
+
+ATLAS_ENTRY_KEYS = {"id", "kind", "use", "params", "params_one_of", "params_if_given", "min_s", "max_s", "text_fields",
+                    "note"}
+
+
+def _atlas_entry_problem(e) -> str | None:
+    if not isinstance(e, dict) or not isinstance(e.get("id"), str) or set(e) - ATLAS_ENTRY_KEYS:
+        return "each entry is an object {id, kind, use, params, params_one_of, params_if_given, min_s, max_s, text_fields}"
+    if e.get("kind") not in ("image", "video", "audio"):
+        return "kind is image, video or audio (no asset type makes 3D)"
+    for k in ("params", "params_one_of", "params_if_given"):
+        if not isinstance(e.get(k, {}), dict):
+            return f"{k} is an object"
+    if any(not isinstance(v, list) for k in ("params_one_of", "params_if_given") for v in (e.get(k) or {}).values()):
+        return "params_one_of and params_if_given map each key to a list of values"
+    for k in ("use", "text_fields"):
+        if not isinstance(e.get(k, []), list) or not all(isinstance(x, str) for x in e.get(k, [])):
+            return f"{k} is a list of names"
+    for k in ("min_s", "max_s"):
+        if k in e and (isinstance(e[k], bool) or not isinstance(e[k], (int, float))):
+            return f"{k} is a number of seconds"
+    if e["kind"] == "video" and not ("min_s" in e and "max_s" in e):
+        return "a video entry sets min_s and max_s (the clip length rules)"
+    return None
+
+
+def _atlas_entry(model, kind: str) -> tuple[dict | None, list[str]]:
+    """The owner's entry for an Atlas model (standards.json models.atlas.allowed). Only that list opens Atlas;
+    G-EXCEPTION does not (STANDARDS.md 1)."""
+    allowed = STANDARDS["models"]["atlas"]["allowed"]
+    for e in allowed:
+        bad = _atlas_entry_problem(e)
+        if bad:
+            return None, [f"growth-engine/production/standards.json models.atlas.allowed has an entry the gate can't read "
+                          f"({json.dumps(e)[:120]}): {bad} (growth-engine/tools/atlas/README.md)"]
+    if kind == "3d":
+        return None, ["Atlas 3d calls are blocked: no asset type in standards.json makes 3D"]
+    named = [e["id"] for e in allowed]
+    e = next((x for x in allowed if x["id"] == model), None)
+    if e is None:
+        return None, [f"Atlas model {model} is not on the owner's list: growth-engine/production/standards.json "
+                      f"models.atlas.allowed ({', '.join(named) if named else 'empty: no Atlas model is named yet'}). "
+                      "Only the owner adds a model there, by its exact id (STANDARDS.md 1)"]
+    if e["kind"] != kind:
+        return None, [f"Atlas model {model} is named for {e['kind']} calls, not {kind}"]
+    return e, []
+
+
+def _atlas_text(req: dict, e: dict) -> str:
+    """The text the Prompt Reviewer reviews for an Atlas call: the prompt, then each of the entry's text_fields the call
+    sets, as a `[field]` line and its text, in the entry's order (whitespace does not count: norm_prompt)."""
+    text = req.get("prompt") or ""
+    for k in e.get("text_fields") or []:
+        v = req["params"].get(k)
+        if isinstance(v, str):
+            text += f"\n\n[{k}]\n{v}"
+    return text
+
+
+def _strings(v):
+    if isinstance(v, str):
+        yield v
+    elif isinstance(v, (list, tuple)):
+        for x in v:
+            yield from _strings(x)
+    elif isinstance(v, dict):
+        for k, x in v.items():
+            yield str(k)
+            yield from _strings(x)
+
+
+def _atlas_checks(req: dict, a: dict, led: dict) -> list[str]:
+    """The owner's entry applied to the call, as models.image / models.video entries are for Higgsfield."""
+    e, model, p, why = req["atlas"], req.get("model"), req["params"], []
+    src = "standards.json models.atlas.allowed"
+    if e.get("use") and a["type"] not in e["use"]:
+        why.append(f"{model} is named for {', '.join(e['use'])}, not a {a['type']} ({src})")
+    for k, v in (e.get("params") or {}).items():
+        if p.get(k) != v:
+            why.append(f"{model}: pass {k}: {v!r} ({src})")
+    for k, opts in (e.get("params_one_of") or {}).items():
+        if p.get(k) not in opts:
+            why.append(f"{model}: pass {k} as one of {opts} ({src}), not {p.get(k)!r}")
+    for k, opts in (e.get("params_if_given") or {}).items():
+        if k in p and p[k] not in opts:
+            why.append(f"{model}: {k} must be one of {opts} ({src})")
+    if "min_s" in e or "max_s" in e:
+        d, lo, hi = p.get("duration"), e.get("min_s", 0), e.get("max_s", float("inf"))
+        if isinstance(d, bool) or not isinstance(d, (int, float)) or not lo <= d <= hi:
+            why.append(f"duration {d!r} outside {lo} to {hi} s ({src}; STANDARDS.md clip rules)")
+    texts = e.get("text_fields") or []
+    for k in texts:
+        if k in p and not isinstance(p[k], str):
+            why.append(f"{model}: {k} is a text field: pass it as text, reviewed with the prompt")
+    listed = set(e.get("params") or {}) | set(e.get("params_one_of") or {}) | set(e.get("params_if_given") or {}) \
+        | set(texts)
+    refs = {m["value"] for m in req.get("medias") or []}
+    for k, v in p.items():
+        loose = [s for s in _strings(v) if s not in refs]
+        if k not in listed and loose:
+            why.append(f"{model}: {k} carries text no review covers ({loose[0][:40]!r}): drop it, or the owner lists {k} "
+                       f"in the model's entry (params, params_one_of, params_if_given, or text_fields, which are reviewed "
+                       f"with the prompt) ({src})")
+    if req["kind"] in ("image", "video"):
+        why += _spec_aspect(a, led, p)
+    return why
+
+
 def _model_checks(req: dict, a: dict, led: dict) -> list[str]:
     why = []
     kind, model, p = req["kind"], req.get("model"), req["params"]
     std = STANDARDS["models"]
+    if req.get("service") == "atlas":
+        return _atlas_checks(req, a, led)
     exc = latest(a["gates"].get("G-EXCEPTION"))
     if exc and exc["status"] in OK_STATES and (exc.get("data") or {}).get("model") == model:
         return []
@@ -973,14 +1111,7 @@ def _model_checks(req: dict, a: dict, led: dict) -> list[str]:
                 if fmts & set(people):
                     why.append(f"{model} is not used for realistic people in a {a['type']} ({', '.join(sorted(fmts & set(people)))}): "
                                "gpt_image_2 with a reference photo (STANDARDS.md 1, hub G7)")
-        if a["type"] not in ("storyboard",) and not a["type"].endswith("_sheet") and a["type"] != "style_ref":
-            aspects = set()
-            for s in a["shots"]:
-                sp = spec_path(led["slug"], led["post_id"], s)
-                if sp.exists():
-                    aspects.add((yaml.safe_load(sp.read_text()) or {}).get("camera", {}).get("aspect"))
-            if len(aspects) == 1 and p.get("aspect_ratio") not in aspects:
-                why.append(f"aspect_ratio {p.get('aspect_ratio')} differs from the Shot Spec ({aspects.pop()})")
+        why += _spec_aspect(a, led, p)
     elif kind == "video":
         if tool_service == "elevenlabs":
             fb = std["elevenlabs"].get("video_fallback", {}).get(model)
@@ -1034,10 +1165,16 @@ def _check_request(req: dict) -> tuple[bool, list[str], dict | None, dict | None
             why += w
             led0, a0 = led, a
         return (not why), why, led0, a0
+    if norm_prompt(req.get("prompt")) == "GATE-SELFTEST":
+        return False, ["self-test: the production gate is live in this session"], None, None
+    if req.get("service") == "atlas":
+        # the owner's list first, so nobody registers prompts for a model that can't pass
+        e, why = _atlas_entry(req.get("model"), req["kind"])
+        if why:
+            return False, why, None, None
+        req["atlas"], req["prompt"] = e, _atlas_text(req, e)
     if not norm_prompt(req.get("prompt")):
         return False, ["no prompt: every generation carries the reviewed prompt card"], None, None
-    if norm_prompt(req["prompt"]) == "GATE-SELFTEST":
-        return False, ["self-test: the production gate is live in this session"], None, None
     sha = sha_text(req["prompt"])
     led, a = find_by_prompt(sha)
     if not a:
@@ -1092,7 +1229,9 @@ def _check_asset(led: dict, a: dict, req: dict, prompt_sha: str | None):
     if info["kind"] == "audio":
         if not gate_ok(led["run_gates"].get("G-SCRIPT")) and led["family"] != "library":
             why.append(f"no released script for {led['post_id']} (G-SCRIPT, 85+): words before sound")
-        return (not why), why, led, a
+        if req.get("service") != "atlas":
+            return (not why), why, led, a
+        # Atlas audio can take reference audio (a voice clone): the spec, prompt-gate and reference checks below run too
 
     for s in a["shots"]:
         ok, w = spec_current_ok(led, s)

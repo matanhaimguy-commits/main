@@ -27,6 +27,11 @@ client's notes before planning.
   above the repo runs `bash growth-engine/production/install-gate.sh` first, then proves it: `generate_image` with the
   prompt `GATE-SELFTEST` must come back blocked ("the production gate is live"). If it generates instead, stop and say
   so: never produce without the gate.
+- Atlas Cloud runs only through the gated `atlas` command (`growth-engine/tools/atlas/README.md`); if it is missing,
+  `bash growth-engine/tools/atlas/setup.sh`. Before any Atlas call, `[ "$(command -v atlas)" = /usr/local/bin/atlas ]`
+  or stop: another `atlas` first on PATH skips the gate. Never call the Atlas REST API or the real binary directly:
+  that skips the gate. The Atlas skills in `references/atlas-cloud-skills` are prompt-craft reference only: read them,
+  never run their scripts (their `atlas-rest` provider calls the API directly and the network secret pays for it).
 
 ## 1. What is missing
 ```sql

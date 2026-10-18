@@ -1,6 +1,6 @@
 {
   "_doc": "Production standards: the one numbers file every production skill, reviewer and the generation gate read. Prose and reasons: STANDARDS.md (same folder). Change a number here and in STANDARDS.md together, with a dated line in STANDARDS.md's changelog.",
-  "version": "1.1 (16 Oct 2026)",
+  "version": "1.2 (18 Oct 2026)",
   "humans": [
     "Matan"
   ],
@@ -261,6 +261,10 @@
       "allowed": [],
       "note": "Higgsfield speech is retired for our content (hub G8): voices, music and SFX come from ElevenLabs."
     },
+    "atlas": {
+      "_doc": "Atlas Cloud models (atlas generate image, video, audio) the owner has named for production. Only the owner adds an entry here. Each entry is an object: {id: exact model id, kind: image|video|audio, use: [asset types] (optional), params: {key: required value}, params_one_of: {key: [allowed values]}, params_if_given: {key: [allowed values]}, min_s and max_s (duration bounds; required for video), text_fields: [extra text fields such as negative_prompt or lyrics, reviewed with the prompt]}. The gate blocks any parameter carrying text that the entry does not list. Empty: the gate blocks every Atlas generation. 3d stays blocked (no asset type makes 3D). A family banned in STANDARDS.md 1 stays banned on Atlas unless the owner names that exact model here; G-EXCEPTION does not open Atlas. growth-engine/tools/atlas/README.md has an example.",
+      "allowed": []
+    },
     "image_people_spec_formats": [
       "ugc",
       "talking_head",
@@ -343,6 +347,10 @@
     "mcp__ElevenLabs__creative_run_flow_nodes": {
       "service": "elevenlabs",
       "kind": "nodes"
+    },
+    "atlas_generate": {
+      "service": "atlas",
+      "kind": "from_call"
     }
   },
   "families": {

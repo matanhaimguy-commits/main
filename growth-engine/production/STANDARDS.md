@@ -1,4 +1,4 @@
-# Production standards (v1.1, 16 Oct 2026)
+# Production standards (v1.2, 18 Oct 2026)
 
 **The one place every production number lives.** Every production skill, reviewer and the generation gate read it.
 Machine values are in `standards.json` (same folder); the gate (`growth-engine/tools/pipeline.py`) enforces the model
@@ -34,6 +34,7 @@ instead of restating the numbers.
 | Sound effects | ElevenLabs `eleven_text_to_sound_v2` | 4 takes, never under hook words | Hub G8. |
 | Higgsfield speech or audio (`seed_audio`, `text2speech_v2`) | none | | Retired for our content (hub G8: robotic). The gate blocks it. |
 | ElevenLabs image or video models | none | | Stills come from Higgsfield, video from H3. The gate blocks them without G-EXCEPTION. |
+| Atlas Cloud models (`atlas generate image`, `video`, `audio`) | none named yet | | The owner names each Atlas model in `standards.json` `models.atlas.allowed`: an entry with its exact id, kind, the parameters it must pass, the duration bounds (video) and any extra text fields, which are reviewed with the prompt. A parameter carrying text that the entry does not list blocks the call. While the list is empty the gate blocks every Atlas generation. A family banned above stays banned on Atlas unless the owner names that exact model; G-EXCEPTION does not open Atlas. `atlas generate 3d` and `atlas chat` are blocked. Atlas runs only through the gated `atlas` command (`growth-engine/tools/atlas/README.md`). |
 
 **Edit pass (VISUAL-QA 5.5 route 1).** The gate allows an image asset's **own previous version** (same asset id, same
 run, registered with its job id, any gate status) as the **single** image reference: register it with
@@ -335,3 +336,4 @@ fetched from a URL at run time and isn't in any skill folder.
 - 2026-10-16 v1.1, lengths: podcast only C45; O30 song short; O90 75 to 90 s and a 90 s outer limit; tier decides the script length check.
 - 2026-10-16 v1.1, gates: G-AUDIO and G-ASSETS explained; G-CONTINUITY, G-SET rows; new G-MOTION-TEXT and G-HUMAN-SONG; G-HUMAN-VOICE at the quote reel's step 4; prompt loops go to the Organic Director; G-FINAL adds sound-on, voice-alone and banned-model checks, and the drama film test; budget timing (step 9 re-prices before any video call).
 - 2026-10-16 v1.1, verifier fixes: the 3:4 photoreal-slide route needs G-EXCEPTION; a count of the post's own items is structure; O30 adds the drama short; a script after 3 FIX loops goes to G-HUMAN-ESCALATE; a dropped hook finalist's frame closes by the owner's G-VIS OVERRIDE; the carousel price adds the 3 concept frames (about 16 to 33).
+- 2026-10-18 v1.2, Atlas Cloud: the `atlas` CLI runs behind the gate (`growth-engine/tools/atlas/`); the Atlas allowlist is `standards.json` `models.atlas.allowed` (entries with id, kind, parameters, duration bounds and text fields), empty until the owner names a model, so every Atlas generation is blocked; `atlas generate 3d` and `atlas chat` are blocked.

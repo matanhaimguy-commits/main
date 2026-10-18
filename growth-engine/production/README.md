@@ -21,6 +21,7 @@ Tools and agents:
 | `growth-engine/tools/pipeline.py` | Runs (one folder per post), the gate ledger, spec lint, reviewer records, budget gate, human checkpoints, the queue, and `check-call` (the gate logic). |
 | `growth-engine/tools/vqa_crops.py` | Review packets: full image, 3x3 tiles at 2x, region crops, storyboard panels, 200 px thumbnail, frame contact sheets, H3 drift, loudness. |
 | `.claude/hooks/generation_gate.py` + `.claude/settings.json` | The PreToolUse hook: blocks Higgsfield and ElevenLabs generation unless the gates pass. Fails closed. |
+| `growth-engine/tools/atlas/` | Atlas Cloud behind the same gate: `setup.sh` installs the pinned CLI and the `atlas` wrapper, which sends every billable `atlas generate` call through `pipeline.py check-call atlas_generate` and blocks `atlas chat`. Models only from `standards.json` `models.atlas.allowed`, each entry with its parameters and text fields (empty today: every Atlas generation is blocked). Fails closed. |
 | `.claude/agents/visual-planner.md` | Writes the Shot Specs (step 6). |
 | `.claude/agents/prompt-reviewer.md` | Fresh reviewer: Shot Specs (G-SPEC), prompts (G-PROMPT-IMG, G-PROMPT-VID), P1 to P12, and a motion piece's code text before any render (G-MOTION-TEXT). |
 | `.claude/agents/visual-reviewer.md` | Fresh reviewer: stills, sheets, storyboards, slides (V1 to V26), continuity and carousel sets. |
