@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Download the five reference repos, complete and unmodified, at the exact commits we reviewed.
+# Download the reference repos, complete and unmodified, at the exact commits we reviewed.
 # Cloud containers are wiped between sessions, so run this at the start of any video job:
 #   bash references/fetch.sh          (skips repos that are already here)
 # The clones are gitignored: they are reference material, not part of this repo's history.
@@ -11,6 +11,7 @@ REFS=(
   "gbro-collage-broll     https://github.com/pyang5166/gbro-collage-broll    a1a4ee2e2abf7d44e460026b706d0c72c2cf8a91"
   "claude-animation-base  https://github.com/JohnHeibel/claudeanimationbase  0ac8bf2b31942376cb6b8c4074715595d512acd2"
   "lemo-opuscar           https://github.com/lemomo-ai/lemo-opuscar          227e00adfbbec1ef4b7065a4189c2e1c8be2fef4"
+  "atlas-cloud-skills     https://github.com/AtlasCloudAI/atlas-cloud-skills dff9d2dad37155dc67db7326bace5f297bc2f13a"
 )
 for row in "${REFS[@]}"; do
   read -r name url sha <<<"$row"
