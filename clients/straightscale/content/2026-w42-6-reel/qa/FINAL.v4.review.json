@@ -1,0 +1,192 @@
+{
+ "gate": "G-FINAL",
+ "asset_id": "FINAL",
+ "version": 4,
+ "post": "2026-w42-6-reel",
+ "reviewer": "take-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "status_note": "The cut passes: zero critical, zero major, and both v3 defects are fixed (cover shelf pseudo-text gone at 2x and 4x; music bed now 21.2 dB under the voice in the hook pause and 16.4 dB in the 4.86-5.68 s pause). The FAIL is the cover again: it is a hero asset (zero defects of any severity, VISUAL-QA 5.3, STANDARDS 9), and the soften mask left two new edit artefacts that show at 2x to 4x: a window post that is blurred above y 1755 and sharp below y 1770 (D1), and a band of un-blurred window pixels around the coat, with an orange-red packaging fleck under the hem and a bright rim on the coat edge (D2). Edit-only fix, 0 credits; the reel file adbf0ae8 needs no change.",
+ "reviewed": {
+  "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/adbf0ae8-3d29-47af-9f14-1b818e8bb609.mp4",
+  "video_media_id": "adbf0ae8-3d29-47af-9f14-1b818e8bb609",
+  "video_sha256": "bf55dfa320ebee187a8e775c57659ac70da84305dadc522aa051f9a12fe5cf65",
+  "cover": "https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/40bdf41f-dc70-49e8-bc51-04362a1c2362.jpg",
+  "cover_media_id": "40bdf41f-dc70-49e8-bc51-04362a1c2362",
+  "cover_sha256": "64d7587f2123a21ea2a46ab833e923c47e13dac90adc547997085cb3b74f6cf3",
+  "probe": "H.264 High 1080x1920 yuv420p 30 fps, 408 frames, 13.600 s, moov before mdat; AAC LC 48 kHz mono 188 kb/s, 13.572 s; cover JPEG 1080x1920 4:4:4 about q93",
+  "against": [
+   "clients/straightscale/content/2026-w42-6-reel/script.md",
+   "growth-engine/production/STANDARDS.md sections 4, 5, 6, 7 (and 9, 11)",
+   "growth-engine/production/VISUAL-QA.md 5.2-5.3 (cover as hero), 7.3; failure-library FL-10",
+   "clients/straightscale/content/2026-w42-6-reel/qa/FINAL.v3.review.json (each defect re-checked)",
+   "clients/straightscale/content/2026-w42-6-reel/qa/v4_edit.md (editor's claims, each verified below)",
+   "the v3 render (sha256 afcecb77...) and v3 cover (sha256 9531979c...) for an A/B; the editor's stems in /home/user/daily/reel/v4 (vo.mp3, music.mp3, mix_f.wav, n_f.wav) for the bed measurement; soften.py read for the mask geometry"
+  ],
+  "packet": "qa/frames/FINAL.v4/ (manifest.json, loudness.json, whisper_small_sq.json, whisper_medium_sq.json) and qa/crops/FINAL.v4/manifest.json (cover); sandbox /home/user/qa/w42-6-reel.v4-review/"
+ },
+ "editor_claims_verified": {
+  "uploads": "TRUE. HEAD on both CDN urls: HTTP/2 200, content-length 12669317 (video/mp4) and 553911 (image/jpeg), ETag equal to the local md5 (78f99da5..., 8ed97abb...); the downloaded bytes have the same md5 as the sandbox files.",
+  "mux": "TRUE. Video stream bit-identical to v3 (packet md5 bd9e0aa5... for both; decoded framemd5 of all 408 frames identical); AAC LC 48 kHz mono about 188 kb/s, 13.572 s; faststart in place; the reel's audio equals n_f.wav within -43.5 dB; voice at the same position as v3 (lag 0, correlation 0.983 over 0-10 s).",
+  "loudness": "TRUE. ebur128 -14.1 LUFS, LRA 4.5 LU, TP -1.9; loudnorm -14.74 LUFS, 5.50 LU, -1.88 dBTP; n_f.wav -14.75 / 5.40 / -1.93.",
+  "cover_numbers": "TRUE. Window (x 0-260, y 1040-1740) 11.9% darker; change confined to x 0-318, y 1019-1781; PSNR against v3 47.9 dB on y < 950 (headline) and 47.0 dB on x >= 345; 4:4:4 confirmed (v3 was 4:2:0).",
+  "cover_claims_not_borne_out": "'no sharp leftover window strip' is not true under the hem (D2); 'the bottom and right ramps fade out without a visible line' is true for a line, but the ramp crosses the window post, which goes from blurred to sharp (D1). Not listed among the two deviations: the v3 fix asked to keep the window frame sharp, and v4 blurs the frame strips and posts, which is what makes D1."
+ },
+ "files_opened": [
+  "frames/contact_1.jpg",
+  "full/f_0000.00_full.jpg (1080x1920 JPEG of must_open f_0000.00.png)",
+  "full/f_0013.50_full.jpg (1080x1920 JPEG of must_open f_0013.50.png)",
+  "crops/full.jpg",
+  "crops/tile_r1c1.jpg",
+  "crops/tile_r1c2.jpg",
+  "crops/tile_r1c3.jpg",
+  "crops/tile_r2c1.jpg",
+  "crops/tile_r2c2.jpg",
+  "crops/tile_r2c3.jpg",
+  "crops/tile_r3c1.jpg",
+  "crops/tile_r3c2.jpg",
+  "crops/tile_r3c3.jpg",
+  "crops/region_COVER_headline.jpg",
+  "crops/region_COVER_window.jpg",
+  "crops/region_COVER_hand_shutter.jpg",
+  "crops/region_COVER_coat_edge.jpg",
+  "crops/region_COVER_red_can.jpg",
+  "crops/region_COVER_phone.jpg",
+  "crops/thumb_200.jpg",
+  "coverchk/thumb200_v3_v4.jpg (200 px wide, v3 and v4)",
+  "coverchk/grid34_v3_v4.jpg (3:4 centre crop y 240-1680 at 200 and 360 px wide, v3 and v4)",
+  "coverchk/left_1x.jpg",
+  "coverchk/seam_bottom_3x.jpg",
+  "coverchk/mullion_4x.jpg",
+  "coverchk/hem_corner_3x.jpg",
+  "coverchk/hem_4x.jpg",
+  "coverchk/hand_top_3x.jpg",
+  "coverchk/sleeve_4x.jpg",
+  "coverchk/coat_edge_2x.jpg",
+  "coverchk/edges_a_4x.jpg",
+  "coverchk/edges_b_4x.jpg",
+  "coverchk/edges_c_4x.jpg"
+ ],
+ "checks": [
+  {
+   "id": "F1",
+   "result": "FAIL",
+   "severity": "minor (blocking only because the cover is a hero asset)",
+   "at_s": "cover; accepted minors in the cut 0.0-6.9, 4.5-6.9, 9.0-10.87",
+   "evidence": "CUT: the picture is the v3 picture to the frame (408 decoded frames identical by framemd5), so v3's frame-level results carry over; re-checked on the contact sheet (0.00, 0.67 cut, 1.50, 3.00, 4.50, 6.00, 7.10 cut, 7.50, 9.00, 10.50, 12.00, 13.50) and at full size at 0.00 and 13.50: no morphing, melting, flicker, extra limbs or duplicate people; hand on the shutter bar at 0.00; red phone in the left jacket pocket; two walkers at distance; end card clean. Known minors, unchanged and accepted: FL-10 pseudo-text on the shop packaging (0.0-6.9 s) and kiosk posters (9.0-10.87 s), only zoomed; the shutter about 70% down 4.5-6.9 s; three shots inside the one H3 clip (cuts 0.667 and 7.1 s). The v3 fix's optional mask on the cut was not applied, so frame 1 still shows sharp shelves while the cover shows them blurred; not counted. COVER (hero): v3 D1 is FIXED: at 2x (tile_r3c1, region_COVER_window) and 4x (region_COVER_red_can) no letter-like mark is left anywhere in the window; the red can is a soft red-brown blob. Headline 'Kjo javë e vështirë / është për tani, / jo përgjithmonë.' unchanged and spelled right (region_COVER_headline); hand on the shutter slat sharp (region_COVER_hand_shutter); phone and owner unchanged (PSNR 50-55 dB). At full size, at 200 px wide and in the 3:4 grid crop (y 240-1680, at 200 and 360 px) it reads well: headline in the top third of the crop, owner and clock tower clear; the window now reads as a warm defocused glow rather than shelves, and the shop-closing moment still reads from the shutter. But the edit left two artefacts, each visible at 2x to 4x: D1, the window post at x 184-198 is blurred down to y 1755 and sharp from y 1770 to the sill (Laplacian 0.5-1.5 above vs 9-17 below; v3 4-40 along its length), and its lit cap at y 1700-1715 is a glow above a sharp base (seam_bottom_3x, mullion_4x, visible in tile_r3c1); D2, the owner polygon (traced up to 8 px outside the hem, plus a 5x5 dilation) left original window pixels around the coat: a strip under the hem at x 258-292, y 1494-1504 holding an orange-red fleck of the shelf packaging (R-G up to 112, unchanged from v3; hem_4x, region_COVER_window), a 2-4 px bright rim on the coat's left edge (y 1470 x 258-261 at luma 157-186 against the blurred window at 138-149; region_COVER_coat_edge) and a stepped trace under the sleeve at x 260-292, y 1200-1209 (edges_b_4x). Two minor defects (V23), and a hero asset passes only with zero. Not counted: the physically odd depth of field (window glass blurred next to a sharp hand and shutter) reads at 1x as fogged or out-of-focus glass; it is the method the v3 report asked for."
+  },
+  {
+   "id": "F2",
+   "result": "PASS",
+   "severity": "",
+   "at_s": "0.0-13.6",
+   "evidence": "Picture and text identical to v3: the hook reads from frame 1 ('Kjo javë e vështirë' top super 0.0-3.0 s, then 'është për tani,' and 'jo përgjithmonë.' on red in the lower band); the owner pulls his shutter down at night, turns, looks down the wet street to the clock tower; every spoken word is on screen; the end card carries the send ask 10.9-13.6 s."
+  },
+  {
+   "id": "F3",
+   "result": "PASS",
+   "severity": "",
+   "at_s": "0.0-13.6",
+   "evidence": "All 408 frames are identical to v3 (framemd5) and the voice sits at the same position (lag 0 against v3), so v3's measured caption timing, positions and contrast hold unchanged. Spelling re-read on the contact sheet and full frames: 'Kjo javë e vështirë', 'është për tani,', 'jo përgjithmonë.', 'edhe të tjera.', 'Mbylle për sot,', 'pusho,', 'fillo nga një', 'gjë e vogël.', end card 'Dërgoja një pronari / që ka nevojë / ta dëgjojë sot.' with the wordmark, every ë right, no em dashes. Super box y 274-371 in the top third, lower cards y 1032-1155 (53.8-60.2%), inside the side and right margins."
+  },
+  {
+   "id": "F4",
+   "result": "PASS",
+   "severity": "",
+   "at_s": "0.00-10.08",
+   "evidence": "faster-whisper medium (sq) on the v4 mix: 'Kjo jave vështir është për tani, jok për gjithmon, ke kaluar edhe të tjera. Mbu le për sotë, pusho, dhe nesër filonga një djøje vogelj.' 25 of 26 scripted words in order, no extra words; the 'e' of 'javë e' merged into 'jave' as in v2 and v3 (Whisper limit on ë + e). small (sq) heard 'pusho' as a repeated 'për sotë' (medium finds 'pusho' at 7.06 s); spelling slips are Whisper's (STANDARDS 4). The voice is the same vo.mp3 take at gain 1.0000 in the editor's mix_f.wav. The native Albanian listen stays open (G-HUMAN-FINAL)."
+  },
+  {
+   "id": "F5",
+   "result": "PASS",
+   "severity": "",
+   "at_s": "0.0-13.6; bed 1.80-2.14, 4.86-5.68",
+   "evidence": "Loudness: ebur128 (peak=true) I -14.1 LUFS, TP -1.9 dBTP, LRA 4.5 LU (low -17.6, high -13.1), short-term max -12.8 LUFS; loudnorm input_i -14.74 LUFS, input_tp -1.88 dBTP, input_lra 5.50 LU. All four STANDARDS 4 numbers pass on both meters. v3 D2 FIXED: the bed was measured on exact stems (mix_f.wav = vo.mp3 at gain 1.0000 + bed; the final = +8.72 dB through the limiter; limiter gain reduction applied per 50 ms frame). Voice reference: median 50 ms RMS -12.6 dBFS over speech frames (stricter than v3's -9.4), -10.9 LUFS voice-only. Hook pause 1.80-2.14 s: bed -33.8 dBFS median, -28.4 max, 21.2 dB under the voice (22.8 LU K-weighted; 15.8 dB at its peak), rule 20 dB or more; v3 -26.4, v2 -32.0. Pause 4.86-5.68 s: -29.0 median, 16.4 dB under (17.3 LU), rule 14 to 18; v3 13.2. Pauses 2.96-3.54 s and 7.44-7.80 s: 23.1 and 26.9 dB under (dropped further, after the hook and on 'pusho'). Under the words the duck holds the bed 36.9 dB (hook) and 36.8 dB (body) under the voice at the median, 17 dB at the 5th percentile at word onsets. Music gain curve: x0.8 under the hook, x0.85 in the body, x2.4 from 10.2 s (after the last word, about 9.8 s), fade 13.1-13.6 s; end card short-term -13.8 to -18.2 LUFS. For the sound-on listen: the hook bed has no energy above 1 kHz but its dominant pitch steps between about 195 and 312 Hz every 0.2 to 0.6 s, so 'no melody under the hook' needs an ear; one 30 ms music note at -24 dBFS lands at 7.81 s just before 'dhe' as the duck closes."
+  },
+  {
+   "id": "F6",
+   "result": "PASS",
+   "severity": "",
+   "at_s": "0.00-0.10",
+   "evidence": "First word 'Kjo' at 0.00 s in both Whisper runs; 10 ms RMS -74.7 dBFS at 0.00 s, -41.8 at 0.04 s, -16.4 at 0.08 s, so speech starts within 0.1 s of frame 1; the hook super is on from frame 1 and the picture moves from frame 1."
+  },
+  {
+   "id": "F7",
+   "result": "PASS",
+   "severity": "",
+   "at_s": "0.0-13.6 (video and cover); packaging listed in edit_fixes",
+   "evidence": "Video and cover: no side-by-side before and after, no 'your [condition]', no burned-in AI tag, no link, price, discount or urgency; the AI owner is shown from behind or in lost profile, never as a client and with no result; one CTA (send). Realistic AI footage plus an ElevenLabs narrator means Instagram's AI label on and hub notes 'AI label: on' (STANDARDS 7). Packaging as found (not a FAIL of the cut): item.json has no notes field; hosted.json still points at the v1 reel (dc28c10d...) and v1 cover (9c2c812f...); script.md's Hosted line also still lists v1; qa.md's v4 row says 16 Oct and 'pending'."
+  },
+  {
+   "id": "F8",
+   "result": "N/A",
+   "severity": "",
+   "at_s": "",
+   "evidence": "Edit-only version (ffmpeg, PIL, numpy, OpenCV), 0 credits. The clip, still and voice were made on 15 Oct before the run ledger existed; no preflight or calls.jsonl to check."
+  }
+ ],
+ "defects": [
+  {
+   "id": "D1",
+   "check": "F1 (cover, hero; V23)",
+   "severity": "minor",
+   "blocking": true,
+   "at_s": "cover",
+   "fix": "edit (or an owner G-VIS OVERRIDE)",
+   "what": "Focus seam where the mask's bottom ramp (y 1750-1790) crosses the window post at x 184-198: blurred above y 1755, sharp from y 1770 to the sill, with its lit cap at y 1700-1715 turned into a glow over a sharp base; visible at 2x (tile_r3c1) and 3x-4x (seam_bottom_3x, mullion_4x)."
+  },
+  {
+   "id": "D2",
+   "check": "F1 (cover, hero; V23)",
+   "severity": "minor",
+   "blocking": true,
+   "at_s": "cover",
+   "fix": "edit (or an owner G-VIS OVERRIDE)",
+   "what": "The owner mask was traced up to 8 px outside the coat and dilated, so original window pixels survive around him: a strip under the hem (x 258-292, y 1494-1504) carrying an orange-red packaging fleck, a 2-4 px bright rim on the coat's left edge (y 1420-1495), and a stepped trace under the sleeve (x 260-292, y 1200-1209); visible at 2x (region_COVER_window, region_COVER_coat_edge) and 4x (hem_4x, edges_b_4x)."
+  },
+  {
+   "id": "D3",
+   "check": "F1",
+   "severity": "minor (known, accepted)",
+   "blocking": false,
+   "at_s": "0.0-6.9, 9.0-10.87",
+   "fix": "accept (or the same window soften on the cut)",
+   "what": "FL-10 pseudo-text on the in-video shop packaging (0.0-6.9 s, frame 1 included) and kiosk posters (9.0-10.87 s), visible only zoomed."
+  },
+  {
+   "id": "D4",
+   "check": "F1",
+   "severity": "minor (known, accepted)",
+   "blocking": false,
+   "at_s": "4.5-6.9",
+   "fix": "accept (only a retake fixes it)",
+   "what": "The shutter stops about 70% down with the lit window open below while he turns away on 'Mbylle për sot'."
+  },
+  {
+   "id": "D5",
+   "check": "F1 (STANDARDS 2)",
+   "severity": "minor (known, accepted)",
+   "blocking": false,
+   "at_s": "0.667, 7.1",
+   "fix": "accept",
+   "what": "Three shots inside the one silent H3 keyframe clip."
+  }
+ ],
+ "v3_defects_followup": [
+  {"v3_id": "D1", "what": "cover shelf pseudo-text (hero)", "now": "FIXED: no letter-like mark left at 2x or 4x; the window is 11.9% darker and soft. The soften pass introduced two new cover minors (D1, D2 above)."},
+  {"v3_id": "D2", "what": "music bed lifted in every pause by the whole-mix compressor", "now": "FIXED: remixed without the compressor; hook pause 21.2 dB under the voice (rule 20+), 4.86-5.68 s pause 16.4 dB (rule 14-18); loudness still passes on both meters."},
+  {"v3_id": "D3", "what": "FL-10 pseudo-text in the cut", "now": "UNCHANGED (picture copied from v3), accepted minor (D3)."},
+  {"v3_id": "D4", "what": "shutter about 70% down", "now": "UNCHANGED, accepted minor (D4)."},
+  {"v3_id": "D5", "what": "three shots in the one H3 clip", "now": "UNCHANGED, accepted minor (D5)."},
+  {"v3_id": "packaging", "what": "AI label note and stale v1 urls", "now": "STILL OPEN (edit_fixes)."}
+ ],
+ "edit_fixes": [
+  "D1 + D2 (blocking, cover only, 0 credits): re-run soften.py from the v3 cover (sha256 9531979c...) with two changes. (1) Keep the window frame sharp, as the v3 fix asked: add the vertical post at x 180-200 (y 1021-1830), the frame and base panel below the glass (about y 1690-1800 at x 0-230, following its diagonal) and the narrow frame strips between the window and the coat to the protected set, so only the glass content is blurred; or, if the frame stays blurred, move the bottom ramp below the sill line so no straight structure crosses it. (2) Retrace OWNER tight to the coat: the hem bottom at y 1494-1496 for x 258-292 (now 1500-1503), the coat's left edge 1 px inside the dark edge, the sleeve underside at x 260-292 smoothed; drop the 5x5 dilation to 3x3 or none and keep the 1.2 px soft edge, so no window pixel survives outside the coat. Save 1080x1920 JPEG 4:4:4 q93. Check at 2x and 4x along the whole coat edge (hand to hem), at the post and base, then at full size, 200 px wide and in the 3:4 grid crop. Alternative: the owner records a G-VIS OVERRIDE on the cover accepting the two minors.",
+  "Packaging (not a cut fail): before the hub push set item.json notes to 'AI label: on (realistic AI footage, ElevenLabs narrator)', point hosted.json media[0].url at the v4 reel (adbf0ae8-3d29-47af-9f14-1b818e8bb609) and cover_url at the cover that passes (not 40bdf41f until it does), update script.md's Hosted line and qa.md's v4 row, and switch on Instagram's AI label when posting.",
+  "Human pass (G-HUMAN-FINAL): the native Albanian listen and read, a sound-on listen on a phone that judges whether the hook bed (pitch steps between about 195 and 312 Hz) reads as melody, and the 30 ms music note at 7.81 s before 'dhe'.",
+  "D3, D4, D5: accept as minor.",
+  "After the cover fix: a new cover version and a fresh take-reviewer pass on the cover (vqa_crops.py image, 2x and 4x edge crops, 200 px, 3:4 crop). The reel adbf0ae8 passes F2 to F7 and needs no change."
+ ],
+ "retake_needed": false,
+ "retake_prompt_changes": []
+}

@@ -1,0 +1,7 @@
+{"kind": "image", "source": "cover.jpg (https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/40bdf41f-dc70-49e8-bc51-04362a1c2362.jpg, media_id 40bdf41f-dc70-49e8-bc51-04362a1c2362, md5 8ed97abb..., sha256 64d7587f...)", "size": [1080, 1920], "hero": true,
+ "spec": "spec.json (shot_id COVER, hero, regions headline, window, hand_shutter, coat_edge, red_can, phone)",
+ "files": ["full.jpg", "tile_r1c1.jpg", "tile_r1c2.jpg", "tile_r1c3.jpg", "tile_r2c1.jpg", "tile_r2c2.jpg", "tile_r2c3.jpg", "tile_r3c1.jpg", "tile_r3c2.jpg", "tile_r3c3.jpg", "region_COVER_headline.jpg", "region_COVER_window.jpg", "region_COVER_hand_shutter.jpg", "region_COVER_coat_edge.jpg", "region_COVER_red_can.jpg", "region_COVER_phone.jpg", "thumb_200.jpg"],
+ "must_open": ["full.jpg", "tile_r1c1.jpg", "tile_r1c2.jpg", "tile_r1c3.jpg", "tile_r2c1.jpg", "tile_r2c2.jpg", "tile_r2c3.jpg", "tile_r3c1.jpg", "tile_r3c2.jpg", "tile_r3c3.jpg", "region_COVER_headline.jpg", "region_COVER_window.jpg", "region_COVER_hand_shutter.jpg", "region_COVER_coat_edge.jpg", "region_COVER_red_can.jpg", "region_COVER_phone.jpg", "thumb_200.jpg"],
+ "panels": 0, "ocr": null, "ocr_note": null,
+ "tool": "growth-engine/tools/vqa_crops.py image cover.jpg --out crops --spec spec.json --ext jpg (md5 551f0124... = repo file)",
+ "sandbox_dir": "/home/user/qa/w42-6-reel.v4-review/crops"}
