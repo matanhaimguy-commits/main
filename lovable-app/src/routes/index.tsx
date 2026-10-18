@@ -88,6 +88,15 @@ function OverviewPage() {
             </div>
           )}
 
+          {o.businesses.some((b) => b.instagramId && b.dmAccess?.status === "roles_only") && (
+            <div className="rounded-xl border border-rose-300 bg-rose-50 p-4 text-sm text-rose-900">
+              <b>Customers' Instagram DMs are not reaching the bot.</b> Until Meta approves <b>instagram_manage_messages</b>{" "}
+              (Advanced access, through App Review), Meta passes Instagram DMs only from people with a role on the app. Answer
+              Instagram DMs yourself in the Instagram app until then. Facebook Messenger DMs and comment replies work. What to do: step
+              11 below.
+            </div>
+          )}
+
           {stats.data && (
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
               {STAT_LABELS.map(([key, label]) => (

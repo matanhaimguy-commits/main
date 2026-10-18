@@ -44,15 +44,19 @@ caption; add the captions in Loom, Clipchamp or iMovie, or narrate them in Engli
    "A person can take over at any time. The assistant stops answering in that conversation."
 9. **Optional, compliance:** in window B send `STOP`.
    "Customers can opt out at any time; the app stops messaging them."
-10. **Window A: press "Let the AI answer again"** to leave the conversation as you found it. End the recording.
+10. **Window A: press "Let the AI answer again"** to leave the conversation as you found it.
+11. **The API call itself.** Meta's list for this permission asks to see a send request made with the API: in the
+    Meta App Dashboard → Instagram → API Integration Helper (or Graph API Explorer), send a message to @matanguy_
+    with the Page token and show the response, then show it arriving in window B. Don't show the token in full.
+    "The app sends messages with the Instagram Messaging API (POST /{page-id}/messages)." End the recording.
 
 ## "How to test" text for the submission
 
 > 1. Log in at https://matan-social-agent.lovable.app with the reviewer password provided in the notes
 >    (read-only reviewer access).
 > 2. Overview and Connect show the connected Facebook Page and Instagram account.
-> 3. Send a direct message to the Instagram account @straightscale_ from an Instagram account that has a role on
->    the app. The app answers within a minute, on behalf of the business, using instagram_manage_messages.
+> 3. Send a direct message to the Instagram account @straightscale_ from your Instagram test account. The app
+>    answers within a minute, on behalf of the business, using instagram_manage_messages.
 > 4. The conversation appears in the Inbox. "Pause the AI here" stops automatic replies in that conversation; a
 >    reply from the business's own Instagram app does the same.
 > 5. Test the bot (left menu) lets you chat with the assistant without sending anything to Instagram.
