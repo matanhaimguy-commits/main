@@ -173,3 +173,4 @@ End with three lines: what was made (days, formats, hooks), what waits for appro
 line per asset version that failed its review: the version, the failed checks and the one change in the retake (an FYI
 for Matan, AI-VIDEO-PIPELINE step 11; retakes don't wait for him). If something blocked (a connector missing, a failed
 generation twice, credits low, a missing owner checkpoint), say exactly what.
+Then add the day's entry to `brain/Log/Log <yyyy-mm-dd>.md` and update `brain/Clients/<Client>/<Client> content log.md`.

@@ -1,5 +1,6 @@
 # Repo guide
 
+- **Shared memory (read first)**: `brain/` is an Obsidian vault shared by every session, the daily run and the owner's Obsidian. Start with `brain/00 Index.md`, then the client's note; at the end, add an entry to `brain/Log/` and update the client's content log and decisions. Client facts change only in `clients/<slug>/brain.json` (regenerate the note with `growth-engine/tools/brain_note.py`).
 - **Video work** (reels, launch videos, explainers, ads, motion graphics, B-roll, any client video): use the
   `motion-reel` skill. It is the A-to-Z workflow; it starts with `bash motion-studio/setup.sh` and reads
   `motion-studio/knowledge/README.md`. House rules: `motion-studio/CLAUDE.md`. Client projects live in
