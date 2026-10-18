@@ -1,0 +1,247 @@
+{
+ "gate": "G-VIS-SLIDE",
+ "asset_id": "SL03-W43-1b",
+ "version": 3,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "hero": false,
+ "reviewed_file": "sandbox /home/user/drafts/fixed/3cdfd95e_v3.jpg (1080x1350, JPEG q93, sampling 1x1,1x1,1x1, md5 63bf7465e8368b680e5d813477d0e502); CDN copy https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/e81f23be-52b9-498d-ab80-52e8ea6be90a.jpg downloaded in the sandbox and byte-identical (md5 match)",
+ "compared_with": "v1 original /home/user/drafts/3cdfd95e-3e25-416f-92db-f864a75bc004.jpg (model-drawn logo); real logo /home/user/brand/straightscale-logo-light.png",
+ "spec_used": "Task packet: slide text, alt-text.txt line, style-bible.md (house slide frame, Tirana at night, red-cased phone thread, crimson #B31217 boxes, gold counter, swipe arrow bottom right on slides 1-6, real logo bottom left), brand-kit.md (real logo files only, no invented numbers on screens or paper, no other organisations' logos or emblems, no em dashes). Spec JSON with regions written to the sandbox as spec.json.",
+ "crops_dir": "/home/user/qa/SL03-W43-1b.v3/crops (Higgsfield sandbox, vqa_crops.py image src.jpg --spec spec.json --ext jpg); extra views in /home/user/qa/w43v3rev and /home/user/qa/SET-W43-1b.v3",
+ "crops_manifest": "clients/straightscale/content/2026-w43-1b-carousel/qa/crops/SL03.v3/manifest.json",
+ "files_opened": [
+  "full.jpg",
+  "tile_r1c1.jpg",
+  "tile_r1c2.jpg",
+  "tile_r1c3.jpg",
+  "tile_r2c1.jpg",
+  "tile_r2c2.jpg",
+  "tile_r2c3.jpg",
+  "tile_r3c1.jpg",
+  "tile_r3c2.jpg",
+  "tile_r3c3.jpg",
+  "region_SL03_kicker.jpg",
+  "region_SL03_counter.jpg",
+  "region_SL03_arrow.jpg",
+  "region_SL03_logozone.jpg",
+  "region_SL03_headline.jpg",
+  "region_SL03_subline.jpg",
+  "region_SL03_phone.jpg",
+  "region_SL03_lamp_bell.jpg",
+  "thumb_200.jpg",
+  "../../w43v3rev/lz/SL03_lz.jpg",
+  "../../w43v3rev/z4/SL03_z4_0.jpg",
+  "../../w43v3rev/z4/SL03_z4_1.jpg",
+  "../../w43v3rev/z6/SL03_edge.jpg",
+  "../../SET-W43-1b.v3/set_logo_ref_vs_slides_3x.jpg",
+  "../../SET-W43-1b.v3/set_bottom_band_guides.jpg",
+  "../../w43v3rev/edges.jpg"
+ ],
+ "editor_claims_verified": {
+  "file_and_cdn_md5": "confirmed",
+  "logo_box": "confirmed [98,1233,393,1288], 295x55, fit error 2.5 levels, colours identical to the file",
+  "outside_zone_unchanged": "confirmed: 0 pixels differ from a plain q93 4:4:4 re-encode of v1 outside x0-568, y1112-1350; all differences lie inside x88-399, y1232-1303",
+  "arrow_vs_logo": "confirmed: arrow centre minus logo centre +1.2 px (editor +1.6; 0.5 px is the centre convention)",
+  "fill_quality": "no ghost, crescent, seam or speck found at 2x, 3.3x, 4x and boosted views"
+ },
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full, thumb_200.jpg",
+   "evidence": "'2 Sa kërkesa erdhën' reads at once over a red-cased phone whose screen fills with incoming message bubbles: 'number 2: how many requests came in'."
+  },
+  {
+   "id": "V2",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Matches alt text 3 ('Telefon me mesazhe mbi recepsion. Numri 2: Sa kërkesa erdhën.'): phone with messages on a reception counter with a desk lamp and a service bell (region_SL03_lamp_bell.jpg)."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone screen",
+   "evidence": "No invented number: the seven bubbles and the typing indicator are wordless grey shapes (region_SL03_phone.jpg). The only screen figure is the status-bar clock (about '8:41', some 6 px tall, illegible at phone size), which is ordinary phone UI, not a count, price or result. No em dash."
+  },
+  {
+   "id": "V4",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No people, hands or limbs in any tile."
+  },
+  {
+   "id": "V5",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No hands; still life."
+  },
+  {
+   "id": "V6",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No faces."
+  },
+  {
+   "id": "V7",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone, lamp, bell",
+   "evidence": "Phone lies flat with contact shadow and reflection; lamp stands on its weighted base on the counter; bell sits on the counter (tiles r2c2, r2c3, r3c2)."
+  },
+  {
+   "id": "V8",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone, lamp",
+   "evidence": "Phone: status bar (clock left, signal/wi-fi/battery right) at the far end, port and two grilles at the near edge, side buttons on the long edge; incoming bubbles have their tails at the lower left. Lamp: dome shade, bulb, stem, base."
+  },
+  {
+   "id": "V9",
+   "result": "PASS",
+   "severity": "",
+   "region": "kicker, headline, subline, counter",
+   "evidence": "Kicker (region_SL03_kicker.jpg): N-U-M-R-I / I / D-Y-T-Ë. Headline (region_SL03_headline.jpg): [2 in crimson box] S-a / k-ë-r-k-e-s-a // e-r-d-h-ë-n = 'Sa kërkesa erdhën' as specified ('Numri 2: Sa kërkesa erdhën.'). Subline (region_SL03_subline.jpg): M-e-s-a-z-h-e, / t-e-l-e-f-o-n-a-t-a, / f-o-r-m-u-l-a-r-ë: // ç-d-o / n-j-e-r-i / q-ë / p-y-e-t-i. Every ë has two dots, ç has its cedilla; punctuation comma, comma, colon, full stop. Counter '3/7'. No misspelling, no em dash."
+  },
+  {
+   "id": "V10",
+   "result": "PASS",
+   "severity": "",
+   "region": "text block",
+   "evidence": "Type on the calm dark wall; the lamp shade sits right of and below the subline with clear space; no letter on a prop."
+  },
+  {
+   "id": "V11",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No unwanted text: bubbles wordless, status bar ordinary UI, no signage in the window, nothing written on lamp or bell."
+  },
+  {
+   "id": "V12",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone screen",
+   "evidence": "The story prop has its content: seven incoming bubbles and a typing indicator (requests coming in), with no invented words."
+  },
+  {
+   "id": "V13",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone",
+   "evidence": "Deep red case, same thread prop as the set."
+  },
+  {
+   "id": "V14",
+   "result": "PASS",
+   "severity": "",
+   "region": "background",
+   "evidence": "Desk lamp and service bell support the reception setting; nothing unexplained."
+  },
+  {
+   "id": "V15",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No characters, so no character sheet applies."
+  },
+  {
+   "id": "V16",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone",
+   "evidence": "Phone face up with messages arriving: the thread changes state as the story needs."
+  },
+  {
+   "id": "V17",
+   "result": "PASS",
+   "severity": "",
+   "region": "window, table",
+   "evidence": "Same set as the rest of the carousel: varnished wooden table by the tall window, Tirana plaza at night with the clock tower in the right third, near-black wall behind the type (tile_r1c3.jpg, tile_r2c3.jpg)."
+  },
+  {
+   "id": "V18",
+   "result": "PASS",
+   "severity": "",
+   "region": "frame",
+   "evidence": "1080x1350 (4:5), JPEG q93 4:4:4. Kicker bbox [104, 63, 312, 80]; crimson box [97, 155, 186, 249]; counter '3/7' bbox [936, 52, 981, 77]; swipe arrow bbox [928, 1232, 988, 1291], centre y1261.7; real logo box [98,1233,393,1288] (295x55, bottom margin 62 px, inside the lowest-9% band); logo centre y1260.5, so arrow minus logo centre = +1.2 px. All key content inside the 4:5 frame and the 3:4 grid crop."
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200.jpg",
+   "evidence": "At 200 px wide the headline and crimson box read, and the props, red phone and clock tower are recognisable. Not a hero slide; checked anyway."
+  },
+  {
+   "id": "V20",
+   "result": "N/A",
+   "severity": "",
+   "region": "background",
+   "evidence": "Still life; the window background is alive enough for the format (street lamps, lit facades, wet plaza reflections, out-of-focus cars), the same on every slide."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Matches the style bible: Tirana at night through the window, warm tungsten grade, near-black wall, ivory type, crimson box median #AD0D15 (crimson family, target #B31217), crimson arrow #AA1016, gold only in the counter (#D6A041) and the real logo's gold square, red-cased phone."
+  },
+  {
+   "id": "V22",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Photoreal night interior: wood grain with specular beads, bokeh street lights, wet plaza, fine grain. No plastic or CG look."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "logo zone and full frame",
+   "evidence": "Logo zone (x88-399, y1232-1303 is the only area that differs from a plain q93 4:4:4 re-encode of the v1 original: 0 pixels differ outside x0-568, y1112-1350, checked pixel by pixel). v1's drawn logo sat at red square x102-155, y1242-1294; wordmark x185-389, y1255-1284. In the before/after at 2x (SL03_lz.jpg), the 4x plain and boosted zooms (SL03_z4_0.jpg, SL03_z4_1.jpg) and the 3.3x edge crop (SL03_edge.jpg) the wood grain and the beaded lit table edge run continuously past the logo: no ghost letters, no smooth or darker patch, no seam, no crescent, no stray speck beyond the wood's own flecks. The visible fill is the band under the new logo (y1288-1302); at 4x it continues the grain; fill/ring high-pass std ratio 0.95 with 6 px around the logo excluded."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "logo zone, props",
+   "evidence": "Logo is the real file. Template fit of /home/user/brand/straightscale-logo-light.png (alpha box 1501x279, resized to 295x55) gives best position (98,1233), box [98,1233,393,1288], mean abs error 2.5 levels over its opaque pixels; the opaque red measures RGB 194/8/23 and the gold 227/172/26 on the slide, identical to the file's own values; white 249/247/241. Edges crisp at 3x (set_logo_ref_vs_slides_3x.jpg), the S channel shows the wood through it as it should. No remnant of the model-drawn logo (plain white 'S' block, drawn wordmark, its red or gold) in region_SL03_logozone.jpg, the 4x zooms or the boosted views. No other organisation's logo, emblem or maker mark anywhere on the props."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No before and after, no \"your [condition]\", nothing that shames; neutral instruction copy."
+  },
+  {
+   "id": "V26",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No AI person in the frame. Photoreal AI scene: STANDARDS.md section 7 asks for Instagram's own AI label at posting (a posting setting); no burned-in tag, which is correct."
+  }
+ ],
+ "defects_summary": {
+  "critical": 0,
+  "major": 0,
+  "minor": 0,
+  "items": []
+ },
+ "fix": {
+  "route": "none",
+  "prompt_changes": [],
+  "optional_edits": []
+ },
+ "notes": [
+  "hosted.json still lists the v1 originals; point the hub at the v3 media_id e81f23be-52b9-498d-ab80-52e8ea6be90a (md5 63bf7465e8368b680e5d813477d0e502) before posting."
+ ]
+}
