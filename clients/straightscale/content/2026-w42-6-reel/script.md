@@ -16,8 +16,8 @@ The first H3 try failed (start frame passed as a job id); the retry used an uplo
 **Sound:** voice at 0.4 s; music = the unused take (music2) from the w43 reel's ElevenLabs session, side-chain ducked
 under the voice, faded; loudnorm: -15.2 LUFS, -1.5 dBTP.
 
-**Hosted:** reel https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/dc28c10d-b2a2-4ced-8f91-be34d8ddb1ed.mp4 ·
-cover https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/9c2c812f-dfdd-4ff8-aa62-90cf02da69ca.jpg
+**Hosted:** reel https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/adbf0ae8-3d29-47af-9f14-1b818e8bb609.mp4 (v4) ·
+cover https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/698cc70b-bfd2-46f1-aaa7-4eafbc7fcbb0.jpg (v5 cover)
 
 ## QA
 - [x] Contact sheet checked at phone size; captions inside the safe zone; no text on the face (no face shown).
