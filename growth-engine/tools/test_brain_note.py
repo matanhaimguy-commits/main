@@ -199,8 +199,8 @@ class TestNote(Base):
         p = self.root / "clients" / "acme-corp" / "brain.json"
         p.parent.mkdir(parents=True)
         p.write_text(json.dumps(BRAIN), encoding="utf-8")
-        self.assertEqual(bn.default_title(self.root, "acme-corp"), "ACME Corp")
-        self.assertEqual(bn.default_title(self.root, "new-client"), "New Client")
+        self.assertEqual(bn.default_title(self.root / "brain", "acme-corp"), "ACME Corp")
+        self.assertEqual(bn.default_title(self.root / "brain", "new-client"), "New Client")
         self.assertEqual(run("acme-corp", "--root", self.root)[0], 0)
         self.assertTrue((self.root / "brain" / "Clients" / "ACME Corp" / "ACME Corp.md").exists())
 
@@ -238,6 +238,16 @@ class TestCheck(Base):
         note = self.note.read_text(encoding="utf-8").replace("- **Client:** acme", "- **Client:** edited by hand")
         self.note.write_text(note, encoding="utf-8")
         self.assertEqual(self.gen("--check")[0], 1)
+
+
+class TestVault(Base):
+    def test_vault_writes_into_agency_os_folder(self):
+        vault = self.root / "vault"
+        code, out, _ = run("acme", "--title", "Acme", "--root", self.root, "--vault", vault)
+        self.assertEqual(code, 0)
+        self.assertTrue((vault / "Agency OS" / "Clients" / "Acme" / "Acme.md").exists())
+        self.assertFalse(self.note.exists())
+        self.assertIn("Agency OS/Clients/Acme/Acme.md", out)
 
 
 if __name__ == "__main__":

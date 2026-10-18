@@ -9,6 +9,10 @@ hub's publisher posts approved items at their time (Auto-publish is on for Strai
 within 24 hours.
 
 Repo `matanhaimguy-commits/main`, branch `claude/ig-fb-chatbot-automation-zk8w44` (commit and push there).
+Shared memory: the Obsidian vault repo `matanhaimguy-commits/brain` at `/home/user/brain`, folder `Agency OS/` (branch
+`main`). Pull it at the start (`git -C /home/user/brain pull --no-rebase`); if it is missing, attach it with
+`add_repo` (owner `matanhaimguy-commits`, repo `brain`) and clone it there. Read `Agency OS/00 Agency OS.md` and the
+client's notes before planning.
 
 ## 0. Access
 - Hub database: the Lovable connector, project `239a3368-f157-4af9-9f3c-129789693927`, `query_database`.
@@ -173,4 +177,6 @@ End with three lines: what was made (days, formats, hooks), what waits for appro
 line per asset version that failed its review: the version, the failed checks and the one change in the retake (an FYI
 for Matan, AI-VIDEO-PIPELINE step 11; retakes don't wait for him). If something blocked (a connector missing, a failed
 generation twice, credits low, a missing owner checkpoint), say exactly what.
-Then add the day's entry to `brain/Log/Log <yyyy-mm-dd>.md` and update `brain/Clients/<Client>/<Client> content log.md`.
+Then add the day's entry to `/home/user/brain/Agency OS/Log/Log <yyyy-mm-dd>.md`, update
+`Agency OS/Clients/<Client>/<Client> content log.md` (and its decisions note when a question moved), then commit and
+`git push origin main` in `/home/user/brain` (never force).

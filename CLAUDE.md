@@ -1,6 +1,12 @@
 # Repo guide
 
-- **Shared memory (read first)**: `brain/` is an Obsidian vault shared by every session, the daily run and the owner's Obsidian. Start with `brain/00 Index.md`, then the client's note; at the end, add an entry to `brain/Log/` and update the client's content log and decisions. Client facts change only in `clients/<slug>/brain.json` (regenerate the note with `growth-engine/tools/brain_note.py`).
+- **Shared memory (read first)**: the owner's Obsidian vault, repo `matanhaimguy-commits/brain`, cloned at
+  `/home/user/brain` (if missing: `add_repo` owner `matanhaimguy-commits` repo `brain`, then clone it there; it syncs
+  with Obsidian Git). Agency work lives in its `Agency OS/` folder: start with `Agency OS/00 Agency OS.md`, then the
+  client's note; at the end, add an entry to `Agency OS/Log/`, update the client's content log and decisions, commit
+  and push the vault (`main`, never force). Client facts change only in `clients/<slug>/brain.json` here (regenerate
+  the note with `growth-engine/tools/brain_note.py <slug>`). The rest of the vault (`HOME.md`) is the READYMERCE
+  brand-building system. Never put a token or key in a note.
 - **Video work** (reels, launch videos, explainers, ads, motion graphics, B-roll, any client video): use the
   `motion-reel` skill. It is the A-to-Z workflow; it starts with `bash motion-studio/setup.sh` and reads
   `motion-studio/knowledge/README.md`. House rules: `motion-studio/CLAUDE.md`. Client projects live in

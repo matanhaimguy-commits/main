@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """Keep a client's vault note in step with its machine brain.
 
-  python3 growth-engine/tools/brain_note.py <slug> [--title StraightScale] [--check] [--root PATH]
+  python3 growth-engine/tools/brain_note.py <slug> [--title StraightScale] [--check] [--vault PATH] [--root PATH]
 
 Reads clients/<slug>/brain.json and rewrites only the text between
 
   <!-- generated:start -->
   <!-- generated:end -->
 
-in brain/Clients/<Title>/<Title>.md (the "Profile (generated)" section). Everything outside the
+in <vault>/Agency OS/Clients/<Title>/<Title>.md (the "Profile (generated)" section). Everything outside the
 markers, including a "Notes from the owner" section, is left exactly as it is. If the note does not
 exist it is created with frontmatter, the markers and an empty "Notes from the owner" section. If the
 note exists without markers, the section is added before "## Notes from the owner" (or at the end).
@@ -16,10 +16,13 @@ note exists without markers, the section is added before "## Notes from the owne
 Never written to the note: any key whose name suggests a secret (token, key, password, secret,
 credential; "keyword" is fine), and any value that looks like a token or a phone number.
 
---title   the vault folder and note name; default: an existing brain/Clients/ folder matching the slug,
+--title   the vault folder and note name; default: an existing Clients/ folder matching the slug,
           else the slug in title case.
 --check   write nothing; exit 1 when the note is missing or out of date (for the daily run).
---root    repo root (default: this repo). Used by the tests.
+--vault   the Obsidian vault (repo matanhaimguy-commits/brain); default: $BRAIN_VAULT, else the clone next to this
+          repo (/home/user/brain in cloud sessions). The notes go in its "Agency OS/" folder.
+--root    repo root (default: this repo). Used by the tests; with --root and no --vault the notes go in
+          <root>/brain/.
 
 Exit codes: 0 written or already up to date, 1 out of date (--check), 2 error (no brain.json, bad
 JSON, broken markers, bad slug or title).
@@ -30,11 +33,13 @@ import argparse
 import datetime as dt
 import difflib
 import json
+import os
 import re
 import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
+VAULT_FOLDER = "Agency OS"
 START = "<!-- generated:start -->"
 END = "<!-- generated:end -->"
 HEADING = "## Profile (generated)"
@@ -280,9 +285,24 @@ def region(note: str | None) -> str:
     return note[note.index(START) + len(START): note.index(END)].strip("\n")
 
 
-def default_title(root: Path, slug: str) -> str:
+def notes_dir(vault: Path | None, root: Path | None) -> Path | None:
+    """The folder that holds Clients/: the vault's Agency OS/ folder, or <root>/brain for tests."""
+    if vault is not None:
+        return vault.resolve() / VAULT_FOLDER
+    if root is not None:
+        return root.resolve() / "brain"
+    env = os.environ.get("BRAIN_VAULT")
+    if env:
+        return Path(env).expanduser().resolve() / VAULT_FOLDER
+    sibling = ROOT.parent / "brain"
+    if (sibling / ".git").exists():
+        return sibling / VAULT_FOLDER
+    return None
+
+
+def default_title(notes: Path, slug: str) -> str:
     want = re.sub(r"[^a-z0-9]", "", slug.lower())
-    clients = root / "brain" / "Clients"
+    clients = notes / "Clients"
     if clients.is_dir():
         for d in sorted(clients.iterdir()):
             if d.is_dir() and re.sub(r"[^a-z0-9]", "", d.name.lower()) == want:
@@ -295,14 +315,20 @@ def main(argv: list[str] | None = None) -> int:
     ap.add_argument("slug")
     ap.add_argument("--title")
     ap.add_argument("--check", action="store_true", help="write nothing; exit 1 when the note is out of date")
-    ap.add_argument("--root", type=Path, default=ROOT)
+    ap.add_argument("--vault", type=Path, help="the Obsidian vault (default: $BRAIN_VAULT or the clone next to this repo)")
+    ap.add_argument("--root", type=Path, help="repo root (default: this repo)")
     args = ap.parse_args(argv)
 
     if not re.fullmatch(r"[a-z0-9][a-z0-9_-]*", args.slug):
         print(f"error: bad slug {args.slug!r} (lowercase letters, digits, - and _ only)", file=sys.stderr)
         return 2
-    root = args.root.resolve()
-    title = args.title or default_title(root, args.slug)
+    root = (args.root or ROOT).resolve()
+    notes = notes_dir(args.vault, args.root)
+    if notes is None:
+        print("error: vault not found; clone matanhaimguy-commits/brain next to this repo (/home/user/brain), "
+              "or pass --vault PATH or set BRAIN_VAULT", file=sys.stderr)
+        return 2
+    title = args.title or default_title(notes, args.slug)
     if not title.strip() or "/" in title or "\\" in title or title.strip(".") == "":
         print(f"error: bad title {title!r}", file=sys.stderr)
         return 2
@@ -321,8 +347,8 @@ def main(argv: list[str] | None = None) -> int:
         print(f"error: {src_rel} must hold a JSON object", file=sys.stderr)
         return 2
 
-    note_rel = f"brain/Clients/{title}/{title}.md"
-    note_path = root / note_rel
+    note_path = notes / "Clients" / title / f"{title}.md"
+    note_rel = f"{notes.name}/Clients/{title}/{title}.md"
     old = note_path.read_text(encoding="utf-8") if note_path.exists() else None
     generated, skipped = render_profile(brain, src_rel)
     try:
