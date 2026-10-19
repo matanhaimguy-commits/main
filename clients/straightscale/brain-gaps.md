@@ -1,6 +1,6 @@
 # straightscale · Client Brain gaps
 
-Checked 2026-10-15 by `organic.py brain-check`.
+Checked 2026-10-19 by `organic.py brain-check`.
 
 ## Blocking
 
@@ -10,7 +10,6 @@ None: production may run.
 
 | Field | Missing | How to get it |
 |---|---|---|
-| business_model.capacity | how many new clients a month the business can take | ask the owner |
 | demand_map | 10 usable buyer phrases (direct or bridge); 20 to 40 needed | comments and DMs in the hub inbox, sales calls, competitor comments, search suggestions |
 | awareness.stage | where most buyers are / how often they heard the claims | research + sales calls |
 | awareness.sophistication | where most buyers are / how often they heard the claims | research + sales calls |
