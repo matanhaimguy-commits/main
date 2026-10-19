@@ -97,6 +97,13 @@ figures). UKT says its water meets the standard. Use as context only; no health 
 | Reason to buy now | no price or offer on the site; "0 €" on a product; the 0% plan lives only in a Facebook post until 30 Oct | amber |
 | Ads | 1 active ad; the category runs about 6 | amber (open space) |
 
+## 6b · Capacity and hiring
+
+Matan's own competitor check (19 Oct 2026): competitors in water filtration struggle to recruit installers. More
+meetings need more installers, so the plan adds hiring ads (Meta lead ads to plumbers and installers, a short form, the
+same follow-up) in the same ad account; to confirm how it fits the package's ad scope. Ask how many more installs a week
+the team can take today.
+
 ## 7 · To confirm in the meeting
 
 Monthly sales before and now; average system price and the split under-sink vs whole-house; who answers 067 and 069
