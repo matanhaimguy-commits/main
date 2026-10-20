@@ -145,6 +145,96 @@
      "en",
      "sq"
     ]
+   },
+   {
+    "project": "straightscale-04",
+    "date": "2026-10-20",
+    "concept": "One message, all the way: a crimson ball runs a marble wall of client steps; Reply is missing, it falls into the dark; rebuilt, it runs the full lit path and loops",
+    "refs": [
+     "ig-satisfy3dverse"
+    ],
+    "category": "beat-sync",
+    "devices": [
+     "beat-sync-hits",
+     "marble-run",
+     "dolly-follow",
+     "seamless-loop",
+     "pull-back-reveal"
+    ],
+    "hook": [
+     "guess-challenge"
+    ],
+    "palette": [
+     "light"
+    ],
+    "palette_hex": [],
+    "camera": "follow-cam on the ball, dive into the hole, whip up, one pull-back to the whole map",
+    "engine": [
+     "canvas"
+    ],
+    "music": "",
+    "language": [
+     "en"
+    ]
+   },
+   {
+    "project": "straightscale-05",
+    "date": "2026-10-20",
+    "concept": "Three things, one system: three labelled dots spin like a loader, merge into a crimson ball that lands as the real StraightScale mark",
+    "refs": [
+     "tt-rafaellfreitaas"
+    ],
+    "category": "logo-reveal",
+    "devices": [
+     "morph",
+     "mask-reveal",
+     "word-by-word"
+    ],
+    "hook": [
+     "question"
+    ],
+    "palette": [
+     "dark"
+    ],
+    "palette_hex": [],
+    "camera": "locked frame; the ball's squash, flight and landing carry the motion",
+    "engine": [
+     "canvas"
+    ],
+    "music": "",
+    "language": [
+     "en"
+    ]
+   },
+   {
+    "project": "straightscale-06",
+    "date": "2026-10-20",
+    "concept": "The 108-hour week: a step chart climbs through the closed hours of one example week while a day-and-time counter ticks to 108",
+    "refs": [
+     "tt-foil-finance"
+    ],
+    "category": "data-infographic",
+    "devices": [
+     "chart-grow",
+     "counter-ticker",
+     "timeline-progression",
+     "big-number"
+    ],
+    "hook": [
+     "text-headline"
+    ],
+    "palette": [
+     "dark"
+    ],
+    "palette_hex": [],
+    "camera": "locked, no camera; chart folds onto its baseline",
+    "engine": [
+     "hyperframes"
+    ],
+    "music": "",
+    "language": [
+     "en"
+    ]
    }
   ]
  }
