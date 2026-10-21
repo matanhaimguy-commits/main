@@ -1,0 +1,158 @@
+{
+  "gate": "G-SPEC",
+  "shot_id": "WEB-HERO-D",
+  "spec_sha256": "267b7cbe1fe28f163b7d66c675703d0cd16a9fd0ff0fe42bce403bc29fe9e1d2",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "FAIL",
+  "files_opened": [
+    "growth-engine/production/standards.json",
+    "growth-engine/production/STANDARDS.md (sections 3, 6)",
+    "growth-engine/production/failure-library.md",
+    "growth-engine/production/VISUAL-QA.md (sections 2, 4)",
+    "clients/straightscale/runs/SS-LIB-WEB/shots/WEB-HERO-D.spec.yaml",
+    "clients/straightscale/runs/SS-LIB-WEB/shots/WEB-HERO-M.spec.yaml",
+    "clients/straightscale/runs/SS-LIB-WEB/shots/WEB-CUP.spec.yaml",
+    "clients/straightscale/runs/SS-LIB-WEB/shots/WEB-EXT.spec.yaml",
+    "clients/straightscale/runs/SS-LIB-WEB/ledger.json",
+    "clients/straightscale/runs/SS-LIB-STYLE/assets/STYLE-TOP.v1.png",
+    "clients/straightscale/runs/SS-LIB-STYLE/assets/STYLE.v1.jpg",
+    "clients/straightscale/runs/SS-LIB-STYLE/qa/STYLE.v1.review.json",
+    "clients/straightscale/runs/SS-LIB-STYLE/qa/STYLE-TOP.v1.review.json",
+    "clients/straightscale/style-bible.md",
+    "scrollcraft/builds/straightscale-site/BUILD-SPEC.md (sections 0, 1, act 1)"
+  ],
+  "packet_note": "No producer reasoning in the packet. The orchestrator's context line (empty wall, bare table and a separate cup layer are intentional) restates BUILD-SPEC act 1 and the spec's own story_purpose; checked against BUILD-SPEC, and none of the findings below object to the empty areas. The prompt file was not opened (spec mode).",
+  "checks": [
+    {
+      "id": "P1",
+      "result": "PASS",
+      "evidence": "Every block is present and every line is checkable, and the 1-second moment is a single idea: must_read_in_1s 'A red phone lies quiet on a café table in Tirana at night'. The phone has prop boxes ('phone' [0.52,0.66,0.74,0.86] and 'phone-screen' [0.54,0.68,0.72,0.84]). There are no hands, text or faces to box."
+    },
+    {
+      "id": "P2",
+      "result": "N/A",
+      "evidence": "Spec mode: no prompt and no upload order. The notes name one reference ('image 1 STYLE-TOP@v1 (look only; its baked text must not be copied)'). I opened it: the dark wall, the night window and the lit tower, with baked headline and '1/7'."
+    },
+    {
+      "id": "P3",
+      "result": "PASS",
+      "evidence": "'hands: none visible' plus must_not 'no hands or fingers'. No prop is held ('held_by: null')."
+    },
+    {
+      "id": "P4",
+      "result": "PASS",
+      "evidence": "Static, written as contact points: 'the case's back rim touches the wood along all four edges, no edge raised, a thin soft contact shadow hugging its outline'."
+    },
+    {
+      "id": "P5",
+      "result": "PASS",
+      "evidence": "PR-PHONE has a full content line: 'a thin raised red case lip runs evenly round the screen, then a very thin black bezel; the screen is one continuous pure black glass rectangle ... all four corners visible and crisp'. The screen is meant to be off because the HTML screen maps onto it (BUILD-SPEC act 1, Screen plane), so the targeted 'no screen content' negative does not empty a needed prop."
+    },
+    {
+      "id": "P6",
+      "result": "PASS",
+      "evidence": "'text_in_image: none', with surfaces named: 'no text, letters, numbers or signage on the wall, the window glass, the tower, the facades, the table or the phone (all words on this page are HTML)'."
+    },
+    {
+      "id": "P7",
+      "result": "PASS",
+      "evidence": "The window, clock faces, wall and phone screen all have a content rule: 'The opening is filled with the night square and the lit tower, never blank or black ... (the clock faces show hands only)'. The background rule bans 'lamps, sconces, art, frames, shelves, mirrors, posters, plants or chair backs'."
+    },
+    {
+      "id": "P8",
+      "result": "FAIL",
+      "evidence": "The tower is 'standing in the left part of the opening (about x 0.74 to 0.85 ...)', but the window is 'x 0.62 to 0.98', whose centre is x 0.80. The 0.74 to 0.85 box (region clock-tower [0.73,0.08,0.86,0.58]) is centred in the opening, not in its left part. The visual reviewer would get two criteria that cannot both pass."
+    },
+    {
+      "id": "P9",
+      "result": "PASS",
+      "evidence": "'previous_shot: null'. The carry_over ('the dark café wall, the night window with the lit clock tower, the warm tungsten grade'; 'a deep red #BE0F18 case, screen off') matches STYLE-TOP@v1 as opened, the style-bible thread and STYLE@v1. The downstream specs agree: WEB-CUP takes 'the warm tungsten key from upper right of WEB-HERO-D', and WEB-HERO-M uses the same PR-PHONE content line byte for byte."
+    },
+    {
+      "id": "P10",
+      "result": "N/A",
+      "evidence": "Spec mode: model rules are checked at G-PROMPT-IMG. Recorded for that gate: notes 'gpt_image_2_5, aspect_ratio 16:9, resolution 2k, quality medium, variant flare'."
+    },
+    {
+      "id": "P11",
+      "result": "FAIL",
+      "evidence": "Fields that will become prompt text name the area that must stay empty after the object it must not show: 'CUP SPOT: ... nothing on it ... the separate WEB-CUP layer is composited over it later'. The same 'cup spot' label is repeated in action_physics and safe_zones. A model can read 'the cup spot' as the place where the cup is, and the compositing remark as a request to draw the cup."
+    },
+    {
+      "id": "P12",
+      "result": "PASS",
+      "evidence": "FL-13: 'no StraightScale mark drawn in any corner (FL-13)'; the nav carries the real logo. FL-02: one structure line for the window ('a single rectangular opening in a thin dark frame with four straight inner edges, no mullions'). FL-05: background rule present. FL-10 and FL-11: no text, and 'no second phone'. STYLE@v1 V22 and V23: 'no crinkled or foil-like tabletop' and 'no borders, side bands, pillarbox strips'. FL-04: content line plus targeted negatives; on the missing prop sheet, see the Director note in suggested_spec_changes."
+    }
+  ],
+  "suggested_spec_changes": [
+    {
+      "check": "P8",
+      "required": true,
+      "field": "setting.details (WINDOW)",
+      "from": "standing in the left part of the opening (about x 0.74 to 0.85, inside the central 4:3 area)",
+      "to": "standing in the middle of the opening (about x 0.74 to 0.85, its axis near x 0.80, inside the central 4:3 area), with the lit square and facades on both sides of it",
+      "why": "This matches the box and the clock-tower region. It also matches WEB-EXT, which centres the tower and is what shows through the keyed opening. If the tower really should sit left, move the box and the region instead (for example x 0.66 to 0.77) and keep it inside x 0.125 to 0.875."
+    },
+    {
+      "check": "P11",
+      "required": true,
+      "field": "setting.details (CUP SPOT)",
+      "from": "CUP SPOT: the bottom-right of the table (x 0.80 to 1.00, y 0.70 to 1.00) is plain, bare, evenly lit wood running to the bottom and right edges, nothing on it, its grain unbroken; the separate WEB-CUP layer is composited over it later.",
+      "to": "BARE CORNER: the bottom-right of the table (x 0.80 to 1.00, y 0.70 to 1.00) is plain, bare, evenly lit wood running to the bottom and right edges, nothing on it, its grain unbroken.",
+      "why": "Remove the cup from the positive description of the area. The compositing fact is already in story_purpose and notes, which do not go into the prompt."
+    },
+    {
+      "check": "P11",
+      "required": true,
+      "field": "action_physics[1]",
+      "from": "(at least 6% of the frame width to its right before the cup spot begins at x 0.80)",
+      "to": "(at least 6% of the frame width of bare wood to its right before the bare corner begins at x 0.80)"
+    },
+    {
+      "check": "P11",
+      "required": true,
+      "field": "action_physics[2]",
+      "from": "the near foreground and the bottom-right corner (the cup spot, x 0.80 to 1.00, y 0.70 to 1.00) are bare wood",
+      "to": "the near foreground and the bare bottom-right corner (x 0.80 to 1.00, y 0.70 to 1.00) are bare wood"
+    },
+    {
+      "check": "P11",
+      "required": true,
+      "field": "camera.safe_zones",
+      "from": "Cup spot x 0.80 to 1.00, y 0.70 to 1.00: bare table only, reserved for the composited WEB-CUP layer.",
+      "to": "Bare corner x 0.80 to 1.00, y 0.70 to 1.00: bare table only.",
+      "why": "Move the reservation for the WEB-CUP layer to notes."
+    },
+    {
+      "check": "P11",
+      "required": true,
+      "field": "must_not[7]",
+      "from": "nothing in the cup spot (x 0.80 to 1.00, y 0.70 to 1.00): bare wood only",
+      "to": "nothing in the bare bottom-right corner (x 0.80 to 1.00, y 0.70 to 1.00): bare wood only",
+      "why": "Keep must_not[6] ('no cup of any kind (espresso cup, coffee cup, mug), no saucer ...') exactly as it is. It is the one place where a cup should be named, as a targeted negative. The region name 'cup-spot' can stay or become 'bare-corner', because regions are reviewer crops, not prompt text."
+    },
+    {
+      "check": "none",
+      "required": false,
+      "field": "camera.safe_zones and notes",
+      "from": "the HTML eyebrow, H1, subline and CTA sit there over a scrim",
+      "to": "the HTML H1, subline and CTA unit sit there over a scrim",
+      "why": "BUILD-SPEC v2 act 1: 'Hero copy is exactly: H1, subline, CTA unit. The hero eyebrow ... removed.' This does not change the picture. Make the same edit to the notes line 'the eyebrow, H1, subline, CTA and place line'."
+    },
+    {
+      "check": "none",
+      "required": false,
+      "field": "must_not[10]",
+      "from": "no other saturated colour: no red, pink, blue, green or neon light; the facades stay cream and ochre",
+      "to": "no saturated colour other than the phone case: no red, pink, blue, green or neon lights or signs; the facades stay cream and ochre",
+      "why": "Optional tightening so 'no red' cannot be read as applying to the red phone."
+    },
+    {
+      "check": "P12 (Director note, not counted as a FAIL)",
+      "required": false,
+      "field": "props[PR-PHONE].ref",
+      "note": "VISUAL-QA 4.4 step 1 and the FL-04 prevention ask for a prop sheet for every story-critical prop, attached wherever the prop appears. PR-PHONE has none. The ref string ('design source only, not attached') satisfies the lint without meeting the rule. I did not count this as a FAIL for three reasons: the spec documents why (STYLE@v1 failed G-VIS-SHEET); the phone's required state is screen off, so FL-04's 'comes back blank' pattern does not apply; and WEB-HERO-D and WEB-HERO-M use the same content line. Waiving the sheet, or making a PR-PHONE prop sheet first, is the Director's decision."
+    }
+  ]
+}

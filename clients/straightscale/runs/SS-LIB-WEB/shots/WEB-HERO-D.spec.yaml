@@ -1,0 +1,71 @@
+shot_id: WEB-HERO-D
+post_id: SS-LIB-WEB
+format: static
+script_lines: [A1-H1]
+line_text: "Grow your business. Without guessing what to do next. / Rritni biznesin tuaj. Pa hamendësime për hapat e ardhshëm."
+story_purpose: "Desktop master (16:9) of the act 1 hero of straightscale.com (BRIEF beat 1, Recognition): the establishing shot of the page's thread object, the red-case phone, waiting on a café table in Tirana at night, in the world of the brand's Instagram posts. The calm dark left 55% carries the HTML headline. The phone stays in the plate and receives an HTML lock-screen notification mapped with matrix3d to its four screen corners; the window glass is keyed to alpha by polygon so WEB-EXT shows through it. This master contains NO cup: the near parallax plane is the separately generated cup WEB-CUP, composited later over the plain bare table at the bottom-right (the cup spot), so the table there must stay empty wood (BUILD-SPEC act 1)."
+must_read_in_1s: "A red phone lies quiet on a café table in Tirana at night"
+subjects:
+  - id: PR-PHONE
+    ref: "STYLE@v1 (design source only, not attached: the phone on the published 15 Oct cover; that asset failed G-VIS-SHEET for its redrawn logo and side bands, so the phone is written out in words here)"
+    state: "screen off: black glass with one soft featureless warm sheen; deep red #BE0F18 matte silicone case; lying still"
+    pose: "flat on its back on the table, screen up, centre-right (x 0.52 to 0.74, y 0.66 to 0.86); long axis turned about 20 degrees from the table's far edge, its left end a little farther from the camera than its right end, so the whole screen reads as one clear four-cornered shape in perspective"
+    expression: ""
+hands: none visible
+props:
+  - id: PR-PHONE
+    story_critical: true
+    ref: "STYLE@v1 (design source only, not attached: failed G-VIS-SHEET for its logo and side bands; no PR-PHONE prop sheet exists)"
+    state: "lying flat, screen up, screen off, in the focus plane (the sharpest thing in the frame)"
+    content: "a modern smartphone in a matte deep red #BE0F18 silicone case: a thin raised red case lip runs evenly round the screen, then a very thin black bezel; the screen is one continuous pure black glass rectangle with evenly rounded corners, all four corners visible and crisp; it carries only one soft, featureless warm sheen across one corner from the window light (no reflected shapes); no notch content, no lock screen, no clock, no wallpaper, no icons, no notification, no glow; no logo or writing anywhere on the phone or the case"
+    size_in_frame: "about 22% of the frame width and 20% of its height (x 0.52 to 0.74, y 0.66 to 0.86), the whole phone inside the central 4:3 area"
+    held_by: null
+text_in_image: none
+action_physics:
+  - "the phone's back lies flat on the tabletop: the case's back rim touches the wood along all four edges, no edge raised, a thin soft contact shadow hugging its outline"
+  - "the phone is the only object touching the table: bare wood surrounds it on every side (at least 6% of the frame width to its right before the cup spot begins at x 0.80); nothing touches or overlaps the phone"
+  - "the tabletop runs unbroken from its far edge at y 0.63 down to the bottom frame edge across the full width: the near foreground and the bottom-right corner (the cup spot, x 0.80 to 1.00, y 0.70 to 1.00) are bare wood with the grain and the warm key light continuing evenly into the corner, no object, no cast shadow from anything off frame"
+static: true
+setting:
+  ref: "STYLE-TOP@v1"
+  details: "Inside a quiet café in central Tirana at night. TABLE: a dark walnut table runs across the full width of the lower third; its far edge is a straight level line at about y 0.63, a thin strip of dark wall between it and the window's bottom frame; its top fills the frame from there to the bottom edge, bare wood all the way down; real wood grain running left to right, satin finish with soft warm highlights from the window lights. CUP SPOT: the bottom-right of the table (x 0.80 to 1.00, y 0.70 to 1.00) is plain, bare, evenly lit wood running to the bottom and right edges, nothing on it, its grain unbroken; the separate WEB-CUP layer is composited over it later. HEADLINE-SAFE WALL: the left 55% above the table (x 0.00 to 0.55, y 0.00 to 0.60) is a plain matte near-black wall, completely empty and calm, falling off into shadow; the wall continues, equally plain, from x 0.55 to the window. WINDOW: one large plate-glass window on the right (x 0.62 to 0.98, y 0.04 to 0.60), a single rectangular opening in a thin dark frame with four straight inner edges, no mullions or bars crossing it, clear glass with no reflections, nothing in front of it. Through it the Tirana clock tower, a slender square stone tower floodlit warm amber with a small pointed roof, standing in the left part of the opening (about x 0.74 to 0.85, inside the central 4:3 area); its clock faces are softly glowing discs with hands only. Below it the square: warm street lamps and lit cream and ochre facades as soft bokeh, empty of people and cars. LIGHT: warm tungsten from out of frame above right falls on the table and the phone and reaches the bare bottom-right corner of the table; the window adds warm glow; the left wall stays near-black."
+  background_rule: "Nothing on the left wall or between it and the window: no lamps, sconces, art, frames, shelves, mirrors, posters, plants or chair backs. Nothing in front of the window opening (no phone, plant, lamp, object or table edge overlaps it), so its glass can be keyed by a four-point polygon. The opening is filled with the night square and the lit tower, never blank or black. No signs, shop names, lettering or readable numerals anywhere (the clock faces show hands only). No people, figures or silhouettes in the room, in the window view or reflected in the glass or the phone. No cup, saucer, glass or other object anywhere, on the table or in the near foreground; no other tables or chairs."
+camera:
+  framing: "wide establishing still of a window table: the empty dark wall upper left, the window upper right, the table across the lower third running to the bottom edge as bare wood, with the phone centre-right the only object on it; the near foreground and the bottom-right corner are plain table"
+  angle: "seated eye height, about 40 cm above the tabletop, tilted slightly down; the window frame and the tower stay vertical"
+  lens: "35mm film still, about f/2: focus on the phone; the nearest strip of table at the bottom edge slightly soft, the window view soft bokeh"
+  aspect: "16:9"
+  safe_zones: "Central 4:3 safe area x 0.125 to 0.875: the phone, its whole screen and the clock tower sit inside it (narrower desktop viewports crop the sides). Headline-safe x 0.00 to 0.55, y 0.00 to 0.60: plain dark wall, nothing in it (the HTML eyebrow, H1, subline and CTA sit there over a scrim). The phone at least 10% above the bottom edge. Cup spot x 0.80 to 1.00, y 0.70 to 1.00: bare table only, reserved for the composited WEB-CUP layer. No logo corner: the site's nav bar carries the real logo."
+continuity:
+  previous_shot: null
+  carry_over:
+    - "the look of STYLE-TOP@v1: the dark café wall, the night window with the lit clock tower, the warm tungsten grade and grain"
+    - "the thread phone of the carousels (style-bible.md): a smartphone in a deep red #BE0F18 case, screen off"
+    - "the warm tungsten key from upper right, the same key that lights WEB-CUP, so the composited cup matches the table"
+regions:
+  - {name: safe-4x3, kind: other, box: [0.125, 0.00, 0.875, 1.00]}
+  - {name: headline-safe, kind: other, box: [0.00, 0.00, 0.55, 0.60]}
+  - {name: window, kind: other, box: [0.62, 0.04, 0.98, 0.60]}
+  - {name: clock-tower, kind: other, box: [0.73, 0.08, 0.86, 0.58]}
+  - {name: phone, kind: prop, box: [0.52, 0.66, 0.74, 0.86]}
+  - {name: phone-screen, kind: prop, box: [0.54, 0.68, 0.72, 0.84]}
+  - {name: cup-spot, kind: other, box: [0.80, 0.70, 1.00, 1.00]}
+  - {name: table-edge, kind: other, box: [0.00, 0.60, 1.00, 0.66]}
+style: "photorealistic cinematic 35mm film still, shallow depth of field, fine film grain; Tirana after dark (style-bible.md): warm tungsten light, deep shadows, near-black scene tone around #1F1F1F; deep red #BE0F18 (the phone case) the only saturated colour besides the warm light; same light and grade as STYLE-TOP@v1 (owner-approved look, G-HUMAN-LOOK)"
+must_not:
+  - "no people, faces, figures, silhouettes or body parts anywhere, including the window view and any reflection in the phone glass or the window"
+  - "no hands or fingers"
+  - "no text, letters, numbers or signage on the wall, the window glass, the tower, the facades, the table or the phone (all words on this page are HTML)"
+  - "no readable numerals on the clock faces"
+  - "no logos or brand marks: none on the phone or case, and no StraightScale mark drawn in any corner (FL-13)"
+  - "no screen content on the phone: no lock screen, clock, wallpaper, icons, notification, UI or glow"
+  - "no cup of any kind (espresso cup, coffee cup, mug), no saucer, glass, spoon, plate, laptop, notebook, menu or any other object on the table, in the near foreground or at the bottom edge; no second phone"
+  - "nothing in the cup spot (x 0.80 to 1.00, y 0.70 to 1.00): bare wood only, no object, no blurred foreground shape, no cast shadow from anything off frame"
+  - "nothing on the left 55% of the wall: no lamp, sconce, art, frame, shelf, mirror, poster, plant or chair back"
+  - "no mullions, bars, cross frames, curtains, blinds, stickers or reflections on the window, and nothing in front of it"
+  - "no other saturated colour: no red, pink, blue, green or neon light; the facades stay cream and ochre"
+  - "the phone is never cut by a frame edge"
+  - "no crinkled or foil-like tabletop: real wood grain running in one direction (STYLE@v1 review, V22)"
+  - "no borders, side bands, pillarbox strips, seams or vignette frames (STYLE@v1 review, V23)"
+hero: true
+notes: "All words are HTML (BUILD-SPEC 0: no text baked into images): the eyebrow, H1, subline, CTA and place line over the headline-safe zone, and the lock-screen notification 'New message' / 'Mesazh i ri' on the HTML screen mapped to the four screen corners. line_text is the live owner H1, kept verbatim (the hero headline is a pending owner decision; it does not change this picture). The phone lies in landscape to the camera, as on the approved cover, so the build should lay the HTML notification along the phone's long axis so it reads left to right. Planes, each its own asset with its own review: plate = this image as generated (it has no cup, so no cup-removal edit pass and no table rebuild are needed; the phone stays); window glass keyed to alpha by a four-point polygon; far = WEB-EXT behind the opening; near = WEB-CUP (a separately generated cup on a seamless dark ground, background-removed and defocused in post), placed over the cup spot with its lower body cut by the bottom edge so no contact point shows. The plan change (cup as its own layer) makes the BUILD-SPEC act 1 Mid and Near rows ('master with the cup removed', 'cup alpha cutout') read as: plate = this master, near = WEB-CUP. Generation: gpt_image_2_5, aspect_ratio 16:9, resolution 2k, quality medium, variant flare; one reference: image 1 STYLE-TOP@v1 (look only; its baked text must not be copied). No set sheet exists for the café: STYLE-TOP@v1 is the setting reference. No PR-PHONE prop sheet exists: the only image of the phone, STYLE@v1, failed G-VIS-SHEET, so it is not attached."

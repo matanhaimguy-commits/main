@@ -1,0 +1,120 @@
+{
+  "gate": "G-SPEC",
+  "shot_id": "WEB-HERO-M",
+  "spec_sha256": "440a199fca9b7d7a601af8f27f4f8bf94891c5454ce8cc8c2687a8c539b5559d",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "FAIL",
+  "checks": [
+    {
+      "id": "P1",
+      "result": "PASS",
+      "evidence": "Every block is filled and boxed: subject and prop PR-PHONE, 'hands: none visible', 'text_in_image: none', 3 action_physics lines, setting with ref STYLE-TOP@v1, details and background_rule, camera with framing, angle, lens, aspect '9:16' and safe_zones, continuity, and regions for the phone, phone-screen, window, clock-tower, cup-spot and table-edge. must_read_in_1s is one moment: 'A red phone lies quiet on a café table in Tirana at night'. The empty wall, the bare table and the missing cup are intended by BUILD-SPEC Act 1 (plate plus a separate near cup plane), so they are not gaps."
+    },
+    {
+      "id": "P2",
+      "result": "N/A",
+      "evidence": "Spec mode: there is no prompt or upload order to judge. For the prompt stage, notes say 'one reference: image 1 STYLE-TOP@v1 (look only; its baked text must not be copied)'. I opened STYLE-TOP.v1.png: it is 16:9 with a baked Albanian headline, label and '1/7' counter, so that warning is needed."
+    },
+    {
+      "id": "P3",
+      "result": "PASS",
+      "evidence": "'hands: none visible' plus must_not 'no hands or fingers'. No hand is implied anywhere in the spec."
+    },
+    {
+      "id": "P4",
+      "result": "PASS",
+      "evidence": "The shot is static and the one physical relation is written as contact points: 'the case's back rim touches the wood along all four edges, no edge raised, a thin soft contact shadow hugging its outline'."
+    },
+    {
+      "id": "P5",
+      "result": "PASS",
+      "evidence": "The content line is full: 'a thin raised red case lip runs evenly round the screen, then a very thin black bezel; the screen is one continuous pure black glass rectangle with evenly rounded corners, all four corners visible and crisp'. The off screen is the content the spec asks for, because the HTML notification is mapped onto it (BUILD-SPEC Act 1, Screen row). The text negative names surfaces, so it is not a blanket 'no text', and lint passed for this hash."
+    },
+    {
+      "id": "P6",
+      "result": "PASS",
+      "evidence": "'text_in_image: none', and must_not names each surface: 'no text, letters, numbers or signage on the wall, the window glass, the tower, the facades, the table or the phone (all words on this page are HTML)'. No in-image string needs quotes, a position or an occlusion rule."
+    },
+    {
+      "id": "P7",
+      "result": "PASS",
+      "evidence": "Every trap has a rule. Window: 'The opening is filled with the night square and the lit tower, never blank or black'. Signs and clock: 'No signs, shop names, lettering or readable numerals anywhere (the clock faces show hands only)'. Wall: 'no lamps, sconces, art, frames, shelves, mirrors, posters, plants or chair backs'. The phone screen has its own content rule."
+    },
+    {
+      "id": "P8",
+      "result": "FAIL",
+      "evidence": "The lens line, '35mm film still, about f/2: focus on the phone', clashes with the content line, 'all four corners visible and crisp', and the state, 'in the focus plane'. In this portrait pose ('its top end pointing away toward the wall') the phone runs about 17 cm into depth. At f/2 the depth of field is only a few cm, so a model that renders shallow focus softens the two far screen corners, and the matrix3d mapping needs exactly those corners."
+    },
+    {
+      "id": "P9",
+      "result": "PASS",
+      "evidence": "The carry-over holds: 'the same café, wall, window, tower, table and phone as WEB-HERO-D, re-composed for portrait'. The content line, the light ('warm tungsten from out of frame above right'), the grade, the model and the single reference all match WEB-HERO-D, and there is still no cup. The one change, the phone moving from landscape to portrait, has its reason in notes: 'here the phone is in portrait to the camera, so the notification reads upright'."
+    },
+    {
+      "id": "P10",
+      "result": "N/A",
+      "evidence": "Spec mode. For the prompt stage, notes say 'gpt_image_2_5, aspect_ratio 9:16, resolution 2k, quality medium, variant flare', which matches standards.json for a static asset."
+    },
+    {
+      "id": "P11",
+      "result": "FAIL",
+      "evidence": "Four lines can be read two ways or cannot be checked. (1) camera.framing 'the phone large, turned toward the camera' (and story_purpose 'is turned toward the camera') can mean propped up with the screen facing the lens, against 'flat on its back' and 'no edge raised'. (2) 'CUP SPOT' / 'the cup spot' in setting.details, action_physics, safe_zones and must_not can mean a place where a cup stands or a coffee-ring stain, and it puts 'cup' into the lines a prompt is built from ('the separate WEB-CUP layer is composited over it later'). (3) 'small in the opening' and 'below it warm street lamps' do not fit the tower box 'y 0.14 to 0.42': the tower fills 82% of the opening's height (y 0.08 to 0.42) and reaches its bottom edge, so nothing fits below it. (4) 'tilted down a little more than WEB-HERO-D' compares to an image that does not exist yet and that the model never sees."
+    },
+    {
+      "id": "P12",
+      "result": "PASS",
+      "evidence": "Each relevant Failure Library entry has its prevention. FL-02: window structure 'a single rectangular opening in a thin dark frame with four straight inner edges, no mullions or bars crossing it', plus a structure line for the phone. FL-04: a content line and targeted negatives. FL-05: the window is filled. FL-10: plain wall and 'No signs'. FL-11: 'no second phone'. FL-12: same model and same single reference as WEB-HERO-D. FL-13: 'no StraightScale mark drawn in any corner (FL-13)'. FL-01, 03, 06, 07, 08 and 09 do not apply: no hands, people, text, video or action."
+    }
+  ],
+  "suggested_spec_changes": [
+    {
+      "check": "P8",
+      "field": "camera.lens",
+      "from": "35mm film still, about f/2: focus on the phone; the nearest strip of table at the bottom edge slightly soft, the window view soft bokeh",
+      "to": "35mm film still: the whole phone in sharp focus from its near end to its far end, all four screen corners crisp; behind it the wall and the window view fall off into soft bokeh; the nearest strip of table at the bottom edge slightly soft"
+    },
+    {
+      "check": "P8",
+      "field": "props[PR-PHONE].state",
+      "from": "lying flat, screen up, screen off, in the focus plane (the sharpest thing in the frame)",
+      "to": "lying flat, screen up, screen off, sharp from end to end (the sharpest thing in the frame)"
+    },
+    {
+      "check": "P8",
+      "field": "style",
+      "from": "photorealistic cinematic 35mm film still, shallow depth of field, fine film grain;",
+      "to": "photorealistic cinematic 35mm film still, shallow depth of field behind the phone (the whole phone sharp), fine film grain;"
+    },
+    {
+      "check": "P11",
+      "field": "camera.framing and story_purpose",
+      "from": "with the phone large, turned toward the camera and the only object on it (framing); the red-case phone below is turned toward the camera so its black screen is large enough (story_purpose)",
+      "to": "with the phone large, lying flat with its bottom end toward the camera (portrait to the camera), and the only object on it (framing); the red-case phone below lies flat with its bottom end toward the camera (portrait to the camera) so its black screen is large enough (story_purpose)"
+    },
+    {
+      "check": "P11",
+      "field": "setting.details (CUP SPOT sentence)",
+      "from": "CUP SPOT: the bottom-right of the table (x 0.74 to 1.00, y 0.80 to 1.00) is plain, bare, evenly lit wood running to the bottom and right edges, nothing on it, its grain unbroken; the separate WEB-CUP layer is composited over it later.",
+      "to": "BARE CORNER: the bottom-right of the table (x 0.74 to 1.00, y 0.80 to 1.00) is plain, bare, evenly lit wood running to the bottom and right edges, nothing on it, its grain unbroken, no ring, stain, mark or wet spot."
+    },
+    {
+      "check": "P11",
+      "field": "action_physics[1], action_physics[2], camera.safe_zones, must_not (cup spot line)",
+      "from": "'the cup spot, which begins at x 0.74' / '(the cup spot, x 0.74 to 1.00, y 0.80 to 1.00)' / 'Cup spot x 0.74 to 1.00, y 0.80 to 1.00: bare table only, reserved for the composited WEB-CUP layer.' / 'nothing in the cup spot (x 0.74 to 1.00, y 0.80 to 1.00): bare wood only, no object, no blurred foreground shape, no cast shadow from anything off frame'",
+      "to": "'the bare corner, which begins at x 0.74' / '(the bare corner, x 0.74 to 1.00, y 0.80 to 1.00)' / 'Bare corner x 0.74 to 1.00, y 0.80 to 1.00: bare table only.' / 'nothing in the bare bottom-right corner (x 0.74 to 1.00, y 0.80 to 1.00): bare wood only, no object, no ring, stain, mark or wet spot, no blurred foreground shape, no cast shadow from anything off frame'. Keep the 'no cup of any kind ...' must_not line as the reviewer's check. Keep the WEB-CUP explanation in story_purpose and notes, and add to notes: 'the image prompt never uses the words cup spot, WEB-CUP or composited'."
+    },
+    {
+      "check": "P11",
+      "field": "setting.details (WINDOW sentence, tower)",
+      "from": "Through it, small in the opening, the Tirana clock tower, a slender square stone tower floodlit warm amber with a small pointed roof (about x 0.68 to 0.80, y 0.14 to 0.42), its clock faces softly glowing discs with hands only; below it warm street lamps and lit cream and ochre facades as soft bokeh, empty of people and cars.",
+      "to": "Through it the Tirana clock tower, a slender square stone tower floodlit warm amber with a small pointed roof, about a third of the opening's width, its roof tip at about y 0.14 and its lower part running down behind the lit buildings to the window's bottom edge (about x 0.68 to 0.80, y 0.14 to 0.42), its clock faces softly glowing discs with hands only; around its foot and to both sides of its lower part, warm street lamps and lit cream and ochre facades as soft bokeh, empty of people and cars."
+    },
+    {
+      "check": "P11",
+      "field": "camera.angle",
+      "from": "seated, about 45 cm above the tabletop, tilted down a little more than WEB-HERO-D so the phone's screen reads large; the window frame and the tower stay vertical",
+      "to": "seated, about 45 cm above the tabletop, looking down at the phone at about 30 degrees below horizontal (the angle the phone box x 0.15 to 0.70, y 0.62 to 0.86 implies) so its screen reads large; the window frame and the tower stay vertical"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+shot_id: WEB-CUP
+post_id: SS-LIB-WEB
+format: static
+script_lines: [A1-H1]
+line_text: "Grow your business. Without guessing what to do next. / Rritni biznesin tuaj. Pa hamendësime për hapat e ardhshëm."
+story_purpose: "The near plane of the act 1 hero (BUILD-SPEC act 1, 'near'): a plain white espresso cup generated alone on a seamless dark ground, so it can be background-removed into an alpha cutout, defocused in post and composited over the bare-table cup spot at the bottom-right of both masters (WEB-HERO-D x 0.80 to 1.00, y 0.70 to 1.00; WEB-HERO-M x 0.74 to 1.00, y 0.80 to 1.00), its lower body cut by the frame's bottom edge so no contact point shows. It moves faster than the plate with scroll (drift down-right, scale 1 to 1.06) and gives the hero its nearest depth: a quiet espresso beside the waiting phone, an evening at a Tirana café table."
+must_read_in_1s: "A plain white espresso cup, alone, in warm light"
+subjects:
+  - id: PR-CUP
+    ref: null
+    state: "a plain white porcelain espresso cup, a little dark espresso inside with a faint crema ring, standing upright and still"
+    pose: "upright and straight, centred in the frame (its vertical axis at x 0.50), seen from slightly above (about 20 to 25 degrees down) so the rim is an open ellipse and the far part of the coffee surface shows; the handle points straight away from the camera and is hidden completely behind the cup body; the whole cup from rim to base spans about y 0.16 to 0.84 (about 68% of the frame height) and about x 0.11 to 0.89"
+    expression: ""
+hands: none visible
+props:
+  - id: PR-CUP
+    story_critical: false
+    ref: null
+    state: "upright, alone, in sharp focus from the near rim to the base; filled a little: the coffee surface about 1 cm below the rim"
+    content: "a plain white porcelain espresso cup, a classic thick-walled Italian demitasse about 6 cm wide and 6 cm tall: rounded body tapering to a small foot, smooth glossy glaze, plain white only (no pattern, no coloured or gold band, no logo, no writing); inside, a little dark brown-black espresso with a faint thin tan crema ring where the coffee meets the inner wall; the handle turned directly away and hidden; no saucer, no spoon, no steam"
+    size_in_frame: "about 68% of the frame height (y 0.16 to 0.84) and about 78% of its width (x 0.11 to 0.89); at least 10% clear background left and right, at least 14% above and below; never touches an edge"
+    held_by: null
+text_in_image: none
+action_physics:
+  - "the cup stands upright on nothing visible: the seamless ground continues under its foot with no surface, edge or horizon line, and no cast or contact shadow falls on the background; nothing touches the cup (its foot is hidden below the frame edge in the build)"
+  - "the espresso lies level inside the cup, its surface about 1 cm below the rim: the near half is hidden by the near wall, the far half and the faint crema ring along the far inner wall are visible over the near rim"
+static: true
+setting:
+  ref: "STYLE-TOP@v1 (light and grade only: it shows no cup and no table)"
+  details: "No place. BACKGROUND: one plain, seamless, matte near-black tone, #1A1716 (a very dark warm charcoal), fills the whole frame behind, around and below the cup, even from edge to edge; no texture, no pattern, no gradient, no vignette, no light pool, no table, no surface, no horizon line, no wall, no room, no window, no city. LIGHT: the same warm tungsten key as the masters, from out of frame upper right: a soft warm highlight runs down the right side of the cup body and a small soft highlight sits on the right part of the rim; a soft, low warm fill from the left keeps the left side of the cup a readable warm grey, never black. The porcelain reads warm ivory-white under tungsten, with no clipped pure-white areas; the glaze carries only soft featureless highlights, no reflected windows, lights or shapes."
+  background_rule: "Nothing but the one cup on the plain #1A1716 ground: no saucer, spoon, sugar, napkin, second cup, table, surface edge, horizon, wall, window, city, clock tower or any other scene; no shadow, reflection, gradient, vignette or light pool on the background; no text, signs, logos or numerals anywhere; no people, figures or reflections of a person or a camera in the glaze."
+camera:
+  framing: "isolated still of one espresso cup, centred, with clear plain background on every side (for clean background removal)"
+  angle: "the height of a person seated at a café table, slightly above the cup, looking down at about 20 to 25 degrees, matching the masters' seated eye height and the cup's near-foreground position at their bottom-right; the cup's vertical axis upright, not tilted"
+  lens: "50mm look, about f/8: the whole cup sharp from the near rim to the foot, crisp clean edges against the background (the defocus is added in post, not in this picture)"
+  aspect: "3:4"
+  safe_zones: "The whole cup outline inside x 0.10 to 0.90, y 0.14 to 0.86: at least 10% clear background on the left and right and at least 14% above and below; nothing touches or nears an edge, so the cutout has a clean margin all round. No logo corner and no text anywhere."
+continuity:
+  previous_shot: WEB-HERO-D
+  carry_over:
+    - "the warm tungsten key from upper right of WEB-HERO-D and WEB-HERO-M, so the composited cup matches the table it sits on"
+    - "the light, grade and fine film grain of STYLE-TOP@v1"
+    - "the plain white espresso cup of the earlier hero plan and of the 15 Oct cover (STYLE@v1, design source only, not attached), now without a saucer, its handle turned away"
+regions:
+  - {name: cup, kind: prop, box: [0.11, 0.16, 0.89, 0.84]}
+  - {name: cup-rim, kind: prop, box: [0.11, 0.16, 0.89, 0.36]}
+  - {name: espresso-crema, kind: prop, box: [0.17, 0.18, 0.83, 0.34]}
+  - {name: cup-right-highlight, kind: other, box: [0.62, 0.20, 0.89, 0.80]}
+  - {name: margin-top, kind: other, box: [0.00, 0.00, 1.00, 0.14]}
+  - {name: margin-bottom, kind: other, box: [0.00, 0.86, 1.00, 1.00]}
+  - {name: margin-left, kind: other, box: [0.00, 0.00, 0.10, 1.00]}
+  - {name: margin-right, kind: other, box: [0.90, 0.00, 1.00, 1.00]}
+style: "photorealistic cinematic 35mm film still, fine film grain; Tirana after dark (style-bible.md): warm tungsten light, deep shadows, near-black tones; here a single plain white cup on a seamless #1A1716 ground, the porcelain the only bright surface; no saturated colour at all; same light and grade as STYLE-TOP@v1 (owner-approved look, G-HUMAN-LOOK)"
+must_not:
+  - "no saucer, spoon, sugar, napkin, steam, second cup or any other object"
+  - "no visible handle: no part of it beside the cup or above the far rim"
+  - "no pattern, coloured band, gold rim, logo, text, letters or numbers on the cup"
+  - "no table, surface, edge, horizon line, wall, room, window, city, clock tower or any scene"
+  - "no shadow, reflection, gradient, vignette, light pool or texture on the background; one even #1A1716 tone"
+  - "no people, faces, figures, hands or fingers, and no reflection of a person, a camera or a window in the glaze"
+  - "no blur, haze, bokeh or motion blur on the cup: the whole cup sharp"
+  - "no chips, cracks, drips or stains on the cup; no coffee spilled on the outside"
+  - "the cup never cut by or touching a frame edge"
+  - "no red, pink, blue, green or neon light; no blue-white porcelain"
+  - "no borders, side bands, pillarbox strips, seams or vignette frames"
+hero: true
+notes: "No words in this layer; all copy is HTML. line_text is the live owner H1, kept verbatim, because this layer is part of the hero it sits in. Generation: gpt_image_2_5, aspect_ratio 3:4, resolution 2k, quality medium, variant flare; one reference: image 1 STYLE-TOP@v1 (Higgsfield job e6bc8781-70fa-4450-aa10-989160b20a2e), for light and grade only (it shows no cup; its wall, window, tower and baked text must not be copied). The prompt's STYLE block is byte-identical to the masters'; its 'shallow depth of field' has nothing to act on here because the ground is plain, and the prompt asks for the whole cup sharp because the defocus is added in post. Post, each step reviewed with the layer (not part of this generation): background removal to an alpha cutout (the near-black ground against the white porcelain gives a clean key; the hidden handle leaves no hole to key), a lens blur matched to the masters' near plane, then scale and placement over each master's cup spot with the lower body below the bottom edge (BUILD-SPEC act 1 near: cup at most 50 KB with alpha). Geometry: a 3:4 frame with the cup at about 68% of the frame height makes it about 78% of the width (a demitasse seen from about 20 degrees above is a little taller than wide), which leaves 10 to 11% clear on each side and 14 to 16% above and below. No PR-CUP prop sheet exists; the cup is not story-critical, so this spec's content line is its design."
