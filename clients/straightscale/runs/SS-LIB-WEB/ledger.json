@@ -437,6 +437,20 @@
             "report": "qa/WEB-CUP.v2.prompt.json",
             "prompt_sha256": "3f73eafe10ec75d6bc4a7dbc3aff11bc8e19dd799fecdec0f0cd37325cbe2c32"
           }
+        ],
+        "G-VIS": [
+          {
+            "at": "2026-10-21T17:38:41+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/WEB-CUP.v2.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 1,
+              "minor": 4
+            },
+            "hero": true
+          }
         ]
       }
     }
