@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "WEB-HERO-D",
+ "version": 1,
+ "prompt_sha256": "daf18c8a3aa2a281220bcc36023a8d650c4223379ec447a5fa1904ccb5227805",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Every spec element is in the prompt: PR-PHONE pose and box ('from 52% to 74% across and from 66% to 86% down ... lies flat on its back on the table, screen up'), hands none, all three action_physics lines (CONTACT, THE NEAR FOREGROUND), text none, TABLE / BARE CORNER / WALL / WINDOW / LIGHT, the background_rule, camera, carry-over, style and all 14 must_not lines. Card blocks run in order (STYLE, REFERENCE, SUBJECT, HANDS, CONTACT, TEXT, SETTING, CAMERA, CONTINUITY, DO NOT INCLUDE); block 6 sits inside SUBJECT because the phone is both the subject and the only prop, and its full content is there."
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'Image 1 is the approved look reference ... do not copy any of its text, letters, numbers, highlight box or text layout. Its window has dark vertical bars; this picture's window has none.' There is one attachment: image 1 is STYLE-TOP@v1 (job e6bc8781, G-VIS-SHEET PASS, role image_references). I opened it. Its baked label, headline, red box, subline, gold 1/7 counter and thick dark window bars are exactly what the line rules out. This is a still, so the storyboard-first rule does not apply."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'HANDS: no human hands, no fingers, no arms, no people anywhere in the picture.' This matches the spec's 'hands: none visible', and the word 'human' keeps it apart from the clock's 'two clock hands'."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'the back of the phone lies flat on the wood, touching it along all four edges, no edge raised, with a thin soft contact shadow hugging its outline' (spec action_physics 1). The still is static: contact points only, with no action noun."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Story-critical PR-PHONE has its full content: 'matte deep red #BE0F18 silicone case ... thin raised red case lip ... very thin black bezel ... one continuous pure black glass rectangle ... one soft, featureless warm sheen'. The spec designs the screen to be off (the HTML notification is mapped onto it later), so the no-text negatives empty nothing the spec wants."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "'TEXT: none. No text, letters or numbers anywhere in the picture: not on the wall, the window, the tower, the buildings, the table or the phone.' This matches text_in_image: none. The prompt has no quoted strings for the model to render."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "Every trap has a rule. Wall: 'no lamp, no sconce, no art, no picture frame, no shelf, no mirror, no poster, no plant, no chair'. Window: filled with the tower and the square, 'clear glass with no reflections'. Clock: 'softly glowing discs showing only the two clock hands, no readable numerals'. Square: 'no people, no cars, no signs'. Phone: 'Nothing on the screen'."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No two instructions force the model to break one. The positions agree: wall to 60% down, window from 4% to 60%, table edge at 63%, phone from 66% to 86%, bare corner from 80% across. 'No human hands' and 'two clock hands' are kept apart, and the case is the only red. Non-blocking: the 40-degree view of the phone with the upright tower is the spec's composite camera (passed at G-SPEC). '35mm lens look' (spec lens: '35mm film still') reads as a look cue, and 'as the only object in the picture' (spec: 'the only object on it') reads as the table. On any later edit, restore the spec wording ('35mm film look', 'only object on the table')."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot is null. All three carry_over items are present: the STYLE-TOP@v1 look ('Match its light, colour grade, film grain, the dark café wall, the night window and the lit Tirana clock tower'), the thread phone ('the brand's recurring red-case phone, screen off') and the shared key with WEB-CUP ('warm tungsten light from out of frame above right falls on the table and the phone')."
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Spec: 'gpt_image_2_5, aspect_ratio 16:9, resolution 2k, quality medium, variant flare; one reference: image 1 STYLE-TOP@v1'. This fits standards.json: gpt_image_2_5 is used for still and static; resolution 2k, quality medium and variant flare are allowed; media_role is image_references, and the ledger registers e6bc8781 as image_references with a job id, not a URL. The prompt's 'one horizontal 16:9 image' matches the spec aspect the gate checks (a website plate, not a feed or reel placement). There is no person, so refuse_people_for does not apply. declined_preset_id, duration, speakers and words per clip are video-only rules and do not apply."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "Two-way words are pinned down: 'no human hands' vs 'the two clock hands'; 'a slender square stone tower' vs 'the lit square' (the plaza, with 'street lamps' and 'no people, no cars'); each 'frame' is named (window frame, picture frame, edge of the frame); positions are 'measured from the top-left corner'. The prompt has no quoted phrases."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-02: the structure line is there ('a single rectangular opening in a thin dark frame with four straight inner edges; no mullions, bars or cross frames'). FL-04: the content line is there, and the targeted negatives fit the screen-off design. No PR-PHONE prop sheet exists; the spec records this, and STYLE@v1 failed review so it is rightly not attached. FL-05: there are wall, window and screen rules. FL-10: 'no signage or shop names'. FL-11: 'no ... extra phones'. FL-13: no logo is asked for, and 'none drawn in any corner'. The STYLE@v1 log fixes are carried: V22 'real wood, not crinkled foil' and V23 'no borders, side bands, seams or vignette frames'."
+  }
+ ],
+ "corrected_prompt": null
+}

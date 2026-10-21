@@ -1,0 +1,355 @@
+{
+ "gate": "G-VIS",
+ "asset_id": "WEB-HERO-D",
+ "version": 2,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "hero": true,
+ "files_opened": [
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/full.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/thumb.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/tile_00.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/tile_01.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/tile_02.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/tile_10.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/tile_11.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/tile_12.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/tile_20.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/tile_21.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/tile_22.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/reg_headline-safe.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/reg_window.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/reg_clock-tower.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/reg_phone.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/reg_phone-screen.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/reg_cup-spot.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/reg_table-edge.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/rev/clockfaces_4x.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/rev/tower_native.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/rev/boost_full.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/rev/wall_stretch.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/rev/window_stretch.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/rev/square_left_2x.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/rev/square_right_2x.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/rev/phone_left_3x.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/rev/phone_right_3x.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/rev/phone_topedge_2x.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/rev/phone_nearedge_2x.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/rev/case_marks_a_6x.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/rev/case_marks_b_6x.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/rev/case_buttons_5x.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/rev/screen_overlay.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/rev/corners_grid.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/rev/screen_boost.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/rev/leftend_stretch.jpg",
+  "sandbox:/home/user/vqa/WEB-HERO-D.v2/rev/sheen_stretch.jpg",
+  "clients/straightscale/runs/SS-LIB-WEB/shots/WEB-HERO-D.spec.yaml",
+  "clients/straightscale/style-bible.md",
+  "clients/straightscale/brand-kit.md",
+  "clients/straightscale/runs/SS-LIB-STYLE/assets/STYLE-TOP.v1.png",
+  "growth-engine/production/VISUAL-QA.md (sections 5, 6)",
+  "growth-engine/production/failure-library.md"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full.jpg; thumb.jpg",
+   "evidence": "The 1-second read is there: a deep red phone lying screen-up on a dark wood table, a night window upper right with the floodlit clock tower, an empty near-black wall upper left. It still reads at 200 px wide (thumb.jpg): the red phone and the lit tower are the two things the eye finds. Matches must_read_in_1s 'A red phone lies quiet on a café table in Tirana at night'."
+  },
+  {
+   "id": "V2",
+   "result": "PASS",
+   "severity": "",
+   "region": "full.jpg; reg_headline-safe.jpg",
+   "evidence": "As a background plate for H1 A1-H1 ('Grow your business. Without guessing what to do next.') it gives the calm recognition beat: the phone is silent (screen off), the left 55% is a plain dark wall ready for the HTML headline, subline and CTA. No action in the plate competes with the words."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "full.jpg; reg_window.jpg",
+   "evidence": "Nothing contradicts the spec or the brand kit: one phone, no cup, no people, no text, no numbers, no claims. The view is a night square with a floodlit square stone clock tower with a small pointed roof (the spec's Tirana tower description). The thread phone is the brand's deep red case phone (style-bible.md)."
+  },
+  {
+   "id": "V4",
+   "result": "N/A",
+   "severity": "",
+   "region": "all tiles",
+   "evidence": "No people, hands, arms or body parts anywhere (spec hands: none). Checked all 9 tiles and the window view at 2x (rev/square_left_2x.jpg, rev/square_right_2x.jpg): no figures or silhouettes."
+  },
+  {
+   "id": "V5",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No hands in the shot, as specified."
+  },
+  {
+   "id": "V6",
+   "result": "N/A",
+   "severity": "",
+   "region": "rev/square_left_2x.jpg, rev/square_right_2x.jpg, rev/screen_boost.jpg",
+   "evidence": "No faces anywhere, including the window view and the phone glass (screen boosted to the noise floor shows no reflected face or figure)."
+  },
+  {
+   "id": "V7",
+   "result": "PASS",
+   "severity": "",
+   "region": "tile_21.jpg; tile_22.jpg; rev/phone_nearedge_2x.jpg; rev/case_buttons_5x.jpg",
+   "evidence": "The phone lies flat on its back: the near side wall of the case sits on the wood along its whole length with a soft dark contact shadow hugging it (tile_21.jpg), both ends rest on the table (left end rev/case_buttons_5x.jpg, right end rev/phone_right_3x.jpg), no edge raised, no light gap. Shadow falls toward the camera and lower left, consistent with the warm key from upper right. Nothing touches or overlaps the phone."
+  },
+  {
+   "id": "V8",
+   "result": "PASS",
+   "severity": "",
+   "region": "tile_01.jpg; tile_02.jpg; tile_12.jpg; rev/window_stretch.jpg; rev/case_buttons_5x.jpg; rev/sheen_stretch.jpg",
+   "evidence": "Structures are correct. Window: one plate-glass opening, frame on left, right and bottom, no mullion, bar or cross frame crossing the glass, vertical edges vertical (inner left edge x 0.6148 to 0.6151 measured at 6 heights; inner right edge x 0.9808 to 0.9820). Table: one continuous top with a straight, level far edge (y 0.5990 to 0.6023 measured across 17 columns). Phone: volume button covers on the near long side near the left (top) end and the port plus speaker/mic slots on the right (bottom) end, which is where they belong on a real phone lying screen-up with its top to the left. Tower: square shaft, belfry stage, two clock faces, pointed roof, vertical."
+  },
+  {
+   "id": "V9",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "text_in_image: none. All words on this hero are HTML."
+  },
+  {
+   "id": "V10",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No text in the image, so no occlusion to judge."
+  },
+  {
+   "id": "V11",
+   "result": "PASS",
+   "severity": "",
+   "region": "rev/clockfaces_4x.jpg; reg_window.jpg; reg_phone.jpg; rev/case_marks_a_6x.jpg; rev/case_marks_b_6x.jpg; rev/wall_stretch.jpg",
+   "evidence": "No text, letters, numerals or signage anywhere. Clock faces at 4x (rev/clockfaces_4x.jpg) are soft glowing discs with a centre hub and faint hand smears, no numerals or ticks that read as numbers. Facades and the square (rev/square_left_2x.jpg, rev/square_right_2x.jpg): windows and lamps only, no shop signs. The case: the only marks are the port opening and short speaker/mic slots on the right end (rev/case_marks_a_6x.jpg, rev/case_marks_b_6x.jpg at 6x): openings, not letters. Left wall stretched to its full range (rev/wall_stretch.jpg): plaster texture only."
+  },
+  {
+   "id": "V12",
+   "result": "PASS",
+   "severity": "",
+   "region": "reg_phone.jpg; reg_phone-screen.jpg; rev/screen_boost.jpg; rev/leftend_stretch.jpg; rev/sheen_stretch.jpg",
+   "evidence": "PR-PHONE is present, the sharpest object in frame, and in the specified state (screen off). The screen is one continuous black glass shape inside a thin black bezel and an even red lip; inside the screen polygon the median luminance is 3/255 and 87% of pixels are under 20/255; the only light is one smooth featureless warm sheen toward the right-hand (far-right) corner (rev/sheen_stretch.jpg: a gradient, no reflected window, lamp or figure). No lock screen, clock, wallpaper, icons, notification, glow, notch, island or camera cut-out: the left (top) end of the glass stretched to its full range (rev/leftend_stretch.jpg) is uniform 1 to 2/255. The blank screen is the intended content (HTML notification mapped later)."
+  },
+  {
+   "id": "V13",
+   "result": "PASS",
+   "severity": "",
+   "region": "reg_phone.jpg; rev/case_buttons_5x.jpg; rev/phone_topedge_2x.jpg",
+   "evidence": "Matches the written prop (no prop sheet exists): modern smartphone, matte deep red silicone case (lit case pixels average RGB 169,39,30, shadow side 28,1,1: #BE0F18 under warm tungsten), thin raised red lip running evenly round the screen (thin on the far side from perspective), very thin black bezel, evenly rounded screen corners, no logo or writing on the phone or case."
+  },
+  {
+   "id": "V14",
+   "result": "PASS",
+   "severity": "",
+   "region": "all tiles; reg_cup-spot.jpg",
+   "evidence": "No unexplained props: no cup, saucer, glass, spoon, plate, laptop, notebook, menu, second phone, lamp, plant, chair or other table anywhere. The phone is the only object on the table."
+  },
+  {
+   "id": "V15",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No characters in this shot."
+  },
+  {
+   "id": "V16",
+   "result": "PASS",
+   "severity": "",
+   "region": "full.jpg; STYLE-TOP.v1.png",
+   "evidence": "previous_shot is null; the carry-overs hold: the STYLE-TOP look (dark café wall, night window with the lit clock tower, warm tungsten grade), the thread phone in a deep red case with the screen off, and the warm key from upper right (brightest wood at the bottom-right: bottom-right corner mean luminance about 85/255 against 19/255 at the bottom-left), which is the side WEB-CUP will be lit from."
+  },
+  {
+   "id": "V17",
+   "result": "PASS",
+   "severity": "",
+   "region": "full.jpg; tile_02.jpg; tile_12.jpg; reg_table-edge.jpg; rev/window_stretch.jpg",
+   "evidence": "Setting matches the spec's setting block (no set sheet; STYLE-TOP@v1 is the reference): walnut table across the full width to the bottom edge, plain near-black wall on the left, one large plate-glass window on the right with the floodlit tower centred in it and lit cream and ochre facades and street lamps below, empty of people and cars. Measured differences, none of which changes how the site uses the plate: (1) the glass runs off the top of the frame (no top frame member visible; glass y 0.000 to 0.562 instead of 0.04 to 0.60), so the key polygon's top side is the image's top edge; (2) the window's dark bottom rail (y 0.562 to 0.600) meets the table directly, with no separate strip of wall; (3) the table's far edge is at y 0.600 instead of about 0.63. The opening is still one clean four-sided shape for a four-point key: (0.615,0.000) (0.981,0.000) (0.981,0.562) (0.615,0.562), and no table edge or object overlaps it."
+  },
+  {
+   "id": "V18",
+   "result": "PASS",
+   "severity": "",
+   "region": "full.jpg; reg_headline-safe.jpg; reg_phone.jpg; reg_cup-spot.jpg; reg_clock-tower.jpg",
+   "evidence": "16:9, 2688x1520. Measured against the spec boxes: headline-safe (x 0-0.55, y 0-0.60) is entirely plain wall (the window's outer frame starts at x 0.582, the table at y 0.600). Phone case x 0.451 to 0.738, y 0.651 to 0.828 (spec x 0.52 to 0.74, y 0.66 to 0.86): about 29% of the frame width instead of about 22%, extended to the left, but it stays below the headline zone (top y 0.651, 0.05 below it), inside the central 4:3 area (x 0.125 to 0.875), 17% above the bottom edge (spec at least 10%), and 0.062 of the width clear of the bare corner (spec at least 0.06). Screen glass x 0.452 to 0.737, y 0.650 to 0.811 (spec box 0.54-0.72 x 0.68-0.84); the site maps to the measured corners (screen_corners), so the offset does not matter. Tower x 0.773 to 0.843, axis x 0.808 (spec about 0.74 to 0.85, axis near 0.80), finial at y about 0.02, inside the 4:3 area. Bare corner x 0.80-1.00, y 0.70-1.00: bare wood only."
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb.jpg",
+   "evidence": "At 200 px wide the red phone on the table and the lit tower in the window read at once; the dark left wall reads as calm empty space."
+  },
+  {
+   "id": "V20",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "A static hero plate whose spec requires an empty room and an empty square (no people, no cars); a living background is not wanted here."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full.jpg; STYLE-TOP.v1.png; rev/boost_full.jpg",
+   "evidence": "Same world, light and grade as STYLE-TOP@v1: warm tungsten, amber floodlit tower against a near-black navy sky (sky mean RGB 15,17,21), dark wall, fine grain, shallow depth of field. Colour scan outside the phone (all pixels with saturation over 0.6 and value over 0.3): every one is hue 12 to 40 degrees (warm amber, ochre and wood); zero red, pink, blue, green or magenta pixels. The deep red case is the only saturated non-warm colour, as the spec and style bible require. No StraightScale mark drawn anywhere (FL-13 respected; the site's nav carries the real logo)."
+  },
+  {
+   "id": "V22",
+   "result": "PASS",
+   "severity": "",
+   "region": "tile_20.jpg; tile_21.jpg; tile_22.jpg; reg_cup-spot.jpg",
+   "evidence": "Photoreal. The tabletop is real walnut grain running left to right with satin warm highlights, not crinkled or foil-like; the nearest strip at the bottom edge goes slightly soft as specified. The case reads as matte silicone with soft highlights; the glass has a believable bevel rim; the window view is soft bokeh."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "all tiles; rev/boost_full.jpg; rev/wall_stretch.jpg; rev/window_stretch.jpg",
+   "evidence": "No artefacts: no smears, seams, duplicated objects, warped lines or half-rendered areas. Edge scans show no borders, side bands, pillarbox strips or vignette frames (first and last 12 columns and rows match their neighbours: wall about 8/255, table about 19/255 at the left and about 71/255 at the right). The left wall lifted to its full range shows only plaster texture, no hidden shapes. The sky through the glass shows no reflections of the room, a lamp or a person."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "reg_phone.jpg; rev/case_marks_a_6x.jpg; rev/case_marks_b_6x.jpg",
+   "evidence": "No real brand logos or trademarked characters: the phone's back is hidden and the case and front carry no mark; no model-drawn StraightScale logo in any corner. No real people."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full.jpg",
+   "evidence": "No before and after, no 'your [condition]', nothing that shames."
+  },
+  {
+   "id": "V26",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No AI person in the image, so no disclosure rule applies."
+  }
+ ],
+ "fix": {
+  "route": "none",
+  "prompt_changes": []
+ },
+ "screen_corners": {
+  "method": "Measured on src.png (2688x1520) in the Higgsfield sandbox: red-case mask, screen = the non-red area inside the case hull (black glass plus its thin black bezel), straight lines fitted to the middle 60% of each of the four glass edges (residual 0.24 to 0.36 px), corners = the line intersections. The glass has rounded corners, so these are the virtual sharp corners for a rounded-rectangle HTML element mapped with matrix3d; the visible rounded tips sit 6 to 18 px inside them (screen_corners_rounded_tips). Labels follow the spec's reading direction: the screen's top edge is the far long edge, so the notification reads left to right along the phone's long axis. Overlay check: rev/screen_overlay.jpg and rev/corners_grid.jpg.",
+  "order": [
+   "top_left",
+   "top_right",
+   "bottom_right",
+   "bottom_left"
+  ],
+  "top_left": {
+   "x": 0.5336,
+   "y": 0.65,
+   "px": [
+    1434.3,
+    988.1
+   ],
+   "where": "far end of the left short edge (the topmost screen corner in the frame)"
+  },
+  "top_right": {
+   "x": 0.737,
+   "y": 0.7447,
+   "px": [
+    1981.0,
+    1131.9
+   ],
+   "where": "far end of the right short edge (the rightmost screen corner, under the warm sheen)"
+  },
+  "bottom_right": {
+   "x": 0.6595,
+   "y": 0.8106,
+   "px": [
+    1772.7,
+    1232.1
+   ],
+   "where": "near end of the right short edge (the lowest screen corner)"
+  },
+  "bottom_left": {
+   "x": 0.4517,
+   "y": 0.7009,
+   "px": [
+    1214.3,
+    1065.3
+   ],
+   "where": "near end of the left short edge (the leftmost screen corner)"
+  },
+  "screen_corners_rounded_tips": {
+   "top_left": [
+    0.5335,
+    0.6539
+   ],
+   "top_right": [
+    0.7303,
+    0.7454
+   ],
+   "bottom_right": [
+    0.6596,
+    0.8059
+   ],
+   "bottom_left": [
+    0.458,
+    0.7007
+   ]
+  },
+  "tolerance": "about +-2 px at 2688 wide (about +-0.001 of the frame); three threshold settings agreed within 2.5 px"
+ },
+ "measured_positions": {
+  "phone_case_bbox": [
+   0.451,
+   0.651,
+   0.738,
+   0.828
+  ],
+  "screen_glass_bbox": [
+   0.452,
+   0.65,
+   0.737,
+   0.811
+  ],
+  "window_glass_polygon": [
+   [
+    0.615,
+    0.0
+   ],
+   [
+    0.981,
+    0.0
+   ],
+   [
+    0.981,
+    0.562
+   ],
+   [
+    0.615,
+    0.562
+   ]
+  ],
+  "window_outer_frame_left_x": 0.582,
+  "window_bottom_rail_y": [
+   0.562,
+   0.6
+  ],
+  "table_far_edge_y": 0.6,
+  "clock_tower": {
+   "x": [
+    0.773,
+    0.843
+   ],
+   "axis_x": 0.808,
+   "finial_y": 0.02
+  },
+  "headline_safe_clear": true,
+  "bare_corner_clear": true
+ },
+ "notes": "Zero defects found. Deviations from the spec boxes are recorded in V17 and V18 with the reason each does not affect the site's use of the plate: the phone is larger and reaches further left (x 0.451 instead of 0.52) but stays out of the headline zone and the bare corner; the window glass runs off the top edge (no top frame member), so the glass key polygon uses the image's top edge (window_glass_polygon); the table's far edge is at y 0.600 and the window's bottom rail meets it directly. The case shows realistic port and speaker/mic openings on the right end and button covers on the near side: openings, not writing. Gates not recorded (orchestrator's job)."
+}

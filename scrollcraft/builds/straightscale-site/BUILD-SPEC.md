@@ -52,9 +52,9 @@ from dictionaries `src/content/i18n/<lang>.json` keyed by the exact English stri
 - Layer contract (assets in `src/assets/hero/`, both sets):
   | Plane | Asset | Motion (exit progress p, page scroll = 1x) | Rule |
   |---|---|---|---|
-  | Far | `exterior` (separate render of the view outside: clock tower, square lights; no frame, no glass), larger than the window opening by travel + 10% | lags 25% (translateY +0.25·scroll); pointer ±4px | only seen through the keyed window |
-  | Mid | `plate` = master with the cup removed and the table rebuilt; the window glass keyed to alpha by polygon. **The phone stays in the plate.** | lags 12%; pointer ±8px | carries the phone and the HTML screen (identical transform) |
-  | Screen | HTML phone screen inside the plate's coordinate space, mapped by `matrix3d` from the 4 measured screen corners (manifest) | exactly the plate's transform | real text, lock-screen notification |
+  | Far | `exterior` = the master's own window view (glass x 0.614 to 0.981, y 0 to 0.563), padded with sky above (16%) and a few px on the other sides. Changed 21 Oct: a separate WEB-EXT render failed G-SPEC five times on tower proportions, and the master's own view can never mismatch the plate | lags 18% (6svh more than the plate); pointer ±4px | only seen through the keyed window |
+  | Mid | `plate` = WEB-HERO-D@v2 as generated (it has no cup); the window glass keyed to alpha by polygon. **The phone stays in the plate.** | lags 12%; pointer ±8px | carries the phone and the HTML screen (identical transform) |
+  | Screen | HTML phone screen inside the plate's coordinate space: a clip-path polygon on the 4 measured screen corners, and the notification laid in the screen plane by a unitless affine `matrix()` from the screen's edge directions (manifest) | exactly the plate's transform | real text, lock-screen notification |
   | Near | `cup` alpha cutout, saucer and table contact cut off by the frame's bottom edge | 1x plus a slight extra drift down-right and scale 1 → 1.06 (passes the viewer); pointer ±18px | never shows a contact point |
   | Atmosphere | CSS: warm bloom at the window lights, faint haze | opacity 0.6 → 0.85 | never over the headline |
   | Copy | H1 (kinetic), subline, CTA unit (`#hero-cta`: Btn + place line as its caption) | 1x, no fade | on a sibling scrim (column on desktop, band on portrait) |

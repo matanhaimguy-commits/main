@@ -1,0 +1,72 @@
+{
+  "gate": "G-PROMPT-IMG",
+  "asset_id": "WEB-CUP",
+  "version": 2,
+  "prompt_sha256": "3f73eafe10ec75d6bc4a7dbc3aff11bc8e19dd799fecdec0f0cd37325cbe2c32",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "P1",
+      "result": "PASS",
+      "evidence": "Every spec element is in the prompt. Subject, state and pose: 'upright and straight, not tilted... rim is an open ellipse about 0.64 as tall as it is wide'. Prop content: 'classic thick-walled Italian demitasse about 6 cm wide and 6 cm tall'. Hands: 'HANDS: no hands, no fingers, no arms'. All 3 action_physics lines are in CONTACT and SUBJECT. Text: 'TEXT: none'. Background, LIGHT and background_rule are in SETTING. Camera: '50mm focal-length look at about f/8'. Size and margins: 'from 11% to 89% of the frame width... from 21% to 79% of the frame height'. Continuity and style are covered, the STYLE block being the spec style line word for word. All 11 card blocks are present. The props block is merged into SUBJECT, which is right because the subject and the only prop are the same PR-CUP."
+    },
+    {
+      "id": "P2",
+      "result": "PASS",
+      "evidence": "'Image 1 is the approved look reference. Use only its light and colour grade... Copy nothing else from it: not its wall, its window, the clock tower or the city, and none of its text, letters, numbers, highlight box or layout.' The ledger registers one media, e6bc8781 (STYLE-TOP@v1, G-VIS-SHEET PASS, role image_references), so the order matches. Having opened the image, I found that its dark wall, Albanian headline, red highlight box, 1/7 counter and night window with the clock tower are each excluded by name."
+    },
+    {
+      "id": "P3",
+      "result": "PASS",
+      "evidence": "'HANDS: no hands, no fingers, no arms, no people anywhere in the picture.' This matches spec 'hands: none visible', and no prop or text conflicts with it."
+    },
+    {
+      "id": "P4",
+      "result": "PASS",
+      "evidence": "The static physics is written as contact points, not nouns: 'Nothing touches the cup; its foot and the whole base are fully visible... no cast shadow and no contact shadow, not even under the foot'. Handle: 'a single closed loop joined to the upper body just below the rim and again at about mid-height... no gap at either joint'. Espresso: 'its surface about 1 cm below the rim: only the nearest quarter of the coffee is hidden by the near wall'. Level coffee follows from 'upright and straight, not tilted'."
+    },
+    {
+      "id": "P5",
+      "result": "PASS",
+      "evidence": "The spec has no story-critical prop ('story_critical: false'). The cup still gets the spec's full content line ('dark brown-black espresso... faint thin tan crema ring'). The no-text negative is scoped to 'on the cup or on the background', and the spec designs the cup to be plain, so the negative empties nothing."
+    },
+    {
+      "id": "P6",
+      "result": "PASS",
+      "evidence": "Spec 'text_in_image: none'. Prompt: 'TEXT: none. No text, letters or numbers anywhere in the picture, on the cup or on the background.' No string needs quoting, placing or an occlusion rule."
+    },
+    {
+      "id": "P7",
+      "result": "PASS",
+      "evidence": "The scene has no frames, screens, signs or books: 'one plain, flat, matte near-black colour, #1A1716... no wall, no room, no window, no city'. The reference's window, clock tower and baked text are excluded in REFERENCE. Glaze reflections are ruled: 'no sharp-edged, square, rectangular or window-shaped reflections anywhere'."
+    },
+    {
+      "id": "P8",
+      "result": "PASS",
+      "evidence": "No instructions conflict. The margins agree ('only about 11% clear background left and right and 21% above and below' vs 'at least 10%... at least 20%'). 'Centred' is defined for cup plus handle (x 0.11 to 0.89), with the body axis given separately at 41%. The geometry holds: an ellipse ratio of 0.64 is sin 40 degrees; a 6 cm body at 60% width puts a 1.8 cm handle at 18%; 1 cm depth at 40 degrees hides about 1.2 cm, roughly a quarter of the coffee. The fill ('about half as bright as the right side... never black') fits the spec's 'readable warm grey, never black'. 'Fine film grain' is explicitly allowed over the plain background."
+    },
+    {
+      "id": "P9",
+      "result": "PASS",
+      "evidence": "'CONTINUITY: the same warm light, colour grade and film grain as image 1, the brand's approved look, with the key light from the upper right.' The previous shot WEB-HERO-D says 'warm tungsten from out of frame above right' and looks down 'at about 40 degrees', which matches the prompt's 'looking down at about 40 degrees'. The spec's saucer-free, handle-right cup carry-over is in SUBJECT ('no saucer', 'handle on the right side')."
+    },
+    {
+      "id": "P10",
+      "result": "PASS",
+      "evidence": "The call settings agree with standards.json and the spec notes: gpt_image_2_5 for a still with no person (format static, outside refuse_people_for), resolution 2k, quality medium, variant flare, media role image_references by job id. The prompt states 'one vertical 3:4 image'. The STANDARDS 1 4:5 and 9:16 rule covers the feed and reel placements, and this website layer is neither, so 3:4 follows the spec. Duration, declined_preset_id, speaker and word rules are video only: N/A."
+    },
+    {
+      "id": "P11",
+      "result": "PASS",
+      "evidence": "No word a model could reasonably read two ways. 'Side-on' is pinned by 'with the plain background showing through its opening'. 'Seen from above' is pinned by 'looking down at about 40 degrees'. 'Surface' and 'edge' in the negatives come in a background list ('no table, floor, studio sweep, surface, edge, horizon line'). Note: the STYLE line's 'same light and grade as STYLE-TOP@v1' is an internal id the model can't resolve. It is kept because the spec requires its style line word for word, and REFERENCE and CONTINUITY already say 'image 1', so it does no harm."
+    },
+    {
+      "id": "P12",
+      "result": "PASS",
+      "evidence": "FL-02 structure has its prevention: 'One small classic ear-shaped handle... a single closed loop' plus 'one handle only... no second handle... no broken, open, doubled or melted loop' and 'no second cup'. FL-11 one instance: 'One plain white espresso cup... alone'. FL-04 and FL-05: no story prop or background frame is emptied. FL-13: no logo is requested ('no... logo... on the cup'), and the whole frame, bottom-left corner included, is plain dark. Text copying from the reference is blocked ('none of its text, letters, numbers, highlight box'). FL-01, 03, 06 to 10 and 12 need hands, actions, people or video and don't apply."
+    }
+  ],
+  "corrected_prompt": null
+}

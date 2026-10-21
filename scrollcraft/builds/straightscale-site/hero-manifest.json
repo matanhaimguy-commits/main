@@ -1,0 +1,19 @@
+{
+  "note": "Hero layers for straightscale.com act 1. Fractions are of the 16:9 desktop frame (WEB-HERO-D@v2, 2688x1520) unless marked portrait. Built in the Higgsfield sandbox by tools/hero_build.py (copy in the run folder notes); files hosted on the Higgsfield CDN (https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/<media_id>.webp).",
+  "sources": {"plate_master": "WEB-HERO-D@v2, Higgsfield job 4d145f42-1d3d-4526-b720-0a1559016d93", "cup": "WEB-CUP@v1, Higgsfield job dbfdd016-49cc-43b6-8de2-ef5dcd29e573"},
+  "files": {
+    "poster_desktop": {"media_id": "4d2144b1-07d5-4d1a-a398-3dc8fc583a68", "size": [2400, 1357], "bytes": 66896, "what": "plate + far + cup composited at rest"},
+    "plate": {"media_id": "900cdf3e-c62f-4d9e-8ea9-68a27892ba40", "size": [2400, 1357], "bytes": 50904, "what": "master with the window glass keyed to alpha (x 0.614 to 0.981, y 0 to 0.563, 1 px feather)"},
+    "far": {"media_id": "fdbf8ee4-ab35-412c-9ede-d4bee8c4452b", "size": [917, 910], "bytes": 21404, "box": [0.6064, -0.0901, 0.9885, 0.5803], "what": "the master's own window view, sky extended 16% above, 2% at the sides, 3% below"},
+    "cup": {"media_id": "a26a7469-f093-4f57-b598-cea9b32c97f2", "size": [440, 395], "bytes": 25930, "box": [0.8183, 0.7882, 1.0017, 1.0796], "what": "porcelain matte (coffee filled, handle loop kept open), exposure 0.9, Gaussian defocus 9 px at master scale"},
+    "poster_portrait": {"media_id": "16dee3bb-e9cc-447e-aa5f-f4eff5be960f", "size": [855, 1520], "bytes": 25012, "what": "9:16 crop of the desktop composite, x 0.436 to 0.7541 (interim until WEB-HERO-M is generated; its spec passed G-SPEC on 21 Oct)"},
+    "thumbs_480": ["f1be3130-65a4-4741-b6e5-889db62e3d75", "e53b5257-f0fd-4208-a0d5-85bacfc0c770", "28eafe70-8fe5-428a-b7a6-7b397b335d33", "9f796b5a-727d-4b88-bba6-ffd7be8808a4", "e3867fb6-33c2-4c65-985f-8e6034b12f94"]
+  },
+  "screen": {
+    "desktop_corners_tl_tr_br_bl": [[0.5336, 0.65], [0.737, 0.7447], [0.6595, 0.8106], [0.4517, 0.7009]],
+    "portrait_corners_tl_tr_br_bl": [[0.3068, 0.65], [0.9462, 0.7447], [0.7026, 0.8106], [0.0494, 0.7009]],
+    "measured_by": "fresh visual reviewer, line fits to the glass edges on the 2688x1520 source (+-2 px)",
+    "notification": {"desktop": [0.5408, 0.6676, 0.1682], "portrait": [0.3296, 0.6676, 0.5288], "transform": "matrix(0.9674, 0.2533, -0.9440, 0.3300, 0, 0)", "how": "affine map of the card's axes onto the screen's long edge (TL to TR) and short edge (TL to BL); origin 10% along the long edge and 16% along the short edge; width 80% of the long edge"}
+  },
+  "motion": {"far": "lags 18svh, pointer 4px", "mid": "lags 12svh, pointer 8px", "cup": "-6svh + 2cqw drift, scale to 1.06, pointer 18px", "focus": "scene left offset factor 0.52, top 0.6"}
+}

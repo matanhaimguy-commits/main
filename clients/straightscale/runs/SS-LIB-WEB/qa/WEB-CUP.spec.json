@@ -1,0 +1,35 @@
+{
+  "gate": "G-SPEC",
+  "shot_id": "WEB-CUP",
+  "spec_sha256": "e74fa467cc42ddc985c312bbfeefc7971008426d5a13e795b4fd873910e5113b",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "PASS",
+  "files_opened": [
+    "growth-engine/production/standards.json",
+    "growth-engine/production/STANDARDS.md (sections 1 to 6)",
+    "growth-engine/production/failure-library.md",
+    "growth-engine/production/VISUAL-QA.md (sections 2 to 4)",
+    "clients/straightscale/runs/SS-LIB-WEB/shots/WEB-CUP.spec.yaml",
+    "clients/straightscale/runs/SS-LIB-WEB/shots/WEB-HERO-D.spec.yaml (previous_shot, for P9)",
+    "clients/straightscale/runs/SS-LIB-WEB/shots/WEB-HERO-M.spec.yaml (the second master, for P9)",
+    "clients/straightscale/runs/SS-LIB-STYLE/assets/STYLE-TOP.v1.png (the one reference: G-VIS-SHEET PASS, job e6bc8781)",
+    "clients/straightscale/runs/SS-LIB-STYLE/assets/STYLE.v1.jpg (design source named in carry_over, not attached)",
+    "clients/straightscale/runs/SS-LIB-WEB/ledger.json (lint PASS for this sha256)"
+  ],
+  "checks": [
+    {"id": "P1", "result": "PASS", "evidence": "One clear moment: must_read_in_1s \"A plain white espresso cup, alone, in warm light\". All blocks are present: subject, hands (none), prop content, text (none), 3 action_physics lines, setting with background_rule, camera (framing, angle, lens, aspect 3:4, safe_zones), continuity, style and must_not. The cup, rim, espresso-crema and handle regions are boxed. The geometry agrees with itself: handle/body width 0.18/0.60 = 1.8/6 cm, rim ellipse 0.64 = sin 40 deg, rim box height 0.29 of the frame = 6 cm x sin 40 / 13.3 cm, and the crema box 0.18 to 0.64 = the 4.6 cm surface about the x 0.41 axis."},
+    {"id": "P2", "result": "N/A", "evidence": "Spec mode. For the prompt stage: notes \"one reference: image 1 STYLE-TOP@v1 ... for light and grade only\"."},
+    {"id": "P3", "result": "PASS", "evidence": "\"hands: none visible\", with must_not \"no people, faces, figures, hands or fingers\"."},
+    {"id": "P4", "result": "PASS", "evidence": "Written as contact points, not nouns: \"nothing touches the cup\"; \"the espresso lies level inside the cup, its surface about 1 cm below the rim\"; the handle is \"joined to the cup body at two points (just below the rim and at about mid-height), with no gap at either joint\"."},
+    {"id": "P5", "result": "PASS", "evidence": "The cup is not story-critical and its content line is full anyway: \"plain white only (no pattern, no coloured or gold band, no logo, no writing) ... dark brown-black espresso ... faint thin tan crema ring\". The fill is guarded by \"no low or empty-looking cup\". The no-text rules empty nothing that is meant to carry content."},
+    {"id": "P6", "result": "PASS", "evidence": "\"text_in_image: none\". background_rule \"no text, signs, logos or numerals anywhere\" also covers the reference's baked spaced label, headline, subline and gold \"1/7\" counter (seen in STYLE-TOP.v1.png)."},
+    {"id": "P7", "result": "PASS", "evidence": "There are no frames, screens, signs or books. \"Nothing but the one cup against the plain #1A1716 background\". The reference's scene is excluded: \"no table, floor, studio sweep, surface, edge, horizon line, wall, room, window, city, clock tower or any scene\". The crimson box is excluded by style \"no saturated colour at all\"."},
+    {"id": "P8", "result": "PASS", "evidence": "No line conflicts with another. Shallow depth of field is dropped and lens \"about f/8\" matches must_not \"no blur, haze, bokeh ... the whole cup sharp\". Grain against the even background is resolved: \"(a fine, uniform film grain over it is expected)\". The grade's \"deep shadows\" is held by the fill: \"the left side of the cup a readable warm grey, never black\". The outline x 0.11 to 0.89 and y 0.21 to 0.79 sits inside the safe box x 0.10 to 0.90 and y 0.20 to 0.80. The handle (right) and the key (upper right) agree with \"a soft warm highlight ... along the top of the handle\"."},
+    {"id": "P9", "result": "PASS", "evidence": "carry_over \"the warm tungsten key from upper right of WEB-HERO-D and WEB-HERO-M\" matches WEB-HERO-D \"warm tungsten from out of frame above right\" and WEB-HERO-D's own carry-over \"the same key that lights WEB-CUP\". The cup changes from STYLE@v1 are stated with reasons: \"now without a saucer, its handle on the right side\" (STYLE.v1.jpg shows the handle on the right, on a saucer). The angle of about 40 deg falls inside the masters' cup-spot range given in notes (37 to 42 deg)."},
+    {"id": "P10", "result": "N/A", "evidence": "Spec mode. For the prompt stage: notes \"gpt_image_2_5, aspect_ratio 3:4, resolution 2k, quality medium, variant flare\". The gate checks the call's aspect against this spec's \"aspect: 3:4\"."},
+    {"id": "P11", "result": "PASS", "evidence": "Words that could be read two ways are pinned. \"35mm film stock\" is kept apart from \"50mm focal-length look\". \"the cup's right side\" is fixed by \"handle x 0.71 to 0.89\". \"open ellipse\" is fixed by \"about 0.64 as tall as it is wide\". \"the brand's night grade\" is fixed by \"(light and colour only: no place or scene is shown)\". Non-blocking note for the prompt writer: describe the background only as the flat #1A1716 tone, and don't carry \"cutout\" or \"for clean background removal\" into the prompt, so the model doesn't draw a transparency checkerboard or a sticker outline (must_not \"no borders\" and \"no pattern\" already ban both)."},
+    {"id": "P12", "result": "PASS", "evidence": "FL-02: structure in one line, \"a single closed loop joined to the upper body just below the rim and again at about mid-height\", plus \"one handle only ... no broken, open, doubled or melted loop\". FL-11: \"no ... second cup\". FL-04: \"no low or empty-looking cup\". FL-10: \"no text, signs, logos or numerals anywhere\" on a plain background. FL-13: no logo is asked for, \"No logo corner and no text anywhere\". FL-12: same model and same single reference as both masters (gpt_image_2_5 + STYLE-TOP@v1). FL-01, 03, 06, 07, 08 and 09 don't apply: no hands, no action, no body, a still, no background people."}
+  ],
+  "suggested_spec_changes": []
+}

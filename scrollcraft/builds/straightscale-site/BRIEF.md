@@ -119,7 +119,7 @@ is appended after shipping.
 ## Score (device per beat)
 | # | Beat | Device family | Why this one |
 |---|---|---|---|
-| 1 | Recognition | parallax (natural flow, layered lag: far 25%, plate 12%, cup passes at 1x+) + kinetic H1 | Depth from planes is the hero baseline; the phone waking is the payoff |
+| 1 | Recognition | parallax (natural flow, layered lag: far 18%, plate 12%, cup passes at 1x+) + kinetic H1 | Depth from planes is the hero baseline; the phone waking is the payoff |
 | 2 | Orientation | flow + in | Silence before the peak; a ledger, not cards |
 | 3 | Unease→relief (peak) | pin + bespoke chat scrubber | The only pinned stage; scroll is time |
 | 4 | Clarity | reveal (each step block wipes in from the left, staggered) | A wipe is a change of state; centred, the one centred act |

@@ -3,13 +3,13 @@ post_id: SS-LIB-WEB
 format: static
 script_lines: [A1-H1]
 line_text: "Grow your business. Without guessing what to do next. / Rritni biznesin tuaj. Pa hamendësime për hapat e ardhshëm."
-story_purpose: "The far plane of the act 1 hero (BUILD-SPEC act 1, 'far'): the view outside the café window, alone, with no window and no interior. It sits behind the polygon-keyed window opening of both masters (WEB-HERO-D and WEB-HERO-M) and drifts slowly with scroll (scale +0.03, y -1%), so it is composed wider than any opening, centred on the tower, with generous margin on every side. It places the page in Tirana at night, the world of the brand's posts."
+story_purpose: "The far plane of the act 1 hero (BUILD-SPEC act 1, 'far'): the view outside the café window, alone, with no window and no interior. It sits behind the polygon-keyed window opening of both masters (WEB-HERO-D and WEB-HERO-M) and moves as BUILD-SPEC act 1's far plane (it lags 25% of scroll and moves ±4px with the pointer; hero.css: translateY p·25svh at scale 1.02, against the plate's 12svh), so it is composed wider and taller than any opening, by at least that travel plus 10%, centred on the tower, with generous margin on every side. It places the page in Tirana at night, the world of the brand's posts."
 must_read_in_1s: "The lit Tirana clock tower over the square at night"
 subjects:
   - id: SET-CLOCK-TOWER
     ref: "STYLE-TOP@v1"
     state: "the Tirana clock tower at night, floodlit warm amber, clock faces softly glowing"
-    pose: "standing upright in the horizontal centre of the frame (about x 0.44 to 0.56), its small pointed roof at about y 0.14, its base hidden behind the square's lamps and trees at about y 0.80; verticals perfectly vertical"
+    pose: "standing upright in the horizontal centre of the frame, its shaft about 0.12 of the frame wide (its left and right edges at about x 0.44 and 0.56), the tip of its small pointed roof at about y 0.24 and never above y 0.20 (it stays below the top 20% band), its base at about y 0.80; the lowest part of its plain shaft, from about y 0.72 down, hidden behind the soft bokeh of the square's lamps and dark tree tops (they stand taller than the camera, so they rise a little above the horizon); verticals perfectly vertical"
     expression: ""
 hands: none visible
 props: []
@@ -18,36 +18,39 @@ action_physics: []
 static: true
 setting:
   ref: "STYLE-TOP@v1"
-  details: "Central Tirana at night, seen from street level across the square. CENTRE: the clock tower, a slender square stone tower floodlit warm amber, topped by a small pointed roof; its clock faces are softly glowing discs with hands only. SKY: the upper part of the frame is a calm, near-black night sky (deep warm charcoal, no stars, no moon, no clouds lit by colour). LOWER THIRD: the square, with warm street lamps and lit cream and ochre facades of low buildings and a few dark trees, all as soft round bokeh discs and soft glowing shapes, wet-looking paving catching warm reflections. SIDES: the night scene continues to both edges with dimmer facades and scattered warm lights, so no part of the frame is empty, blank or flat; at least 20% of continuous scene on every side of the tower. The square is empty: no people, no cars."
-  background_rule: "No window frame, glass, reflections, curtains or any part of an interior anywhere. No signs, shop names, lettering, billboards or readable numerals (the clock faces show hands only). No people, figures, cars, buses or bicycles. No other landmark in front of the tower; nothing overlaps the tower."
+  details: "Central Tirana at night, seen from street level across the square. CENTRE: one clock tower, the only tower in the frame: a slender square stone shaft seen corner-on as in image 1 (two adjacent faces visible, the corner edge vertical), floodlit warm amber; one round clock face on each visible face, both at the same height near the top; above the clocks one storey of small arched openings, then a small pointed four-sided roof; the clock faces are softly glowing discs, each showing only two dark clock hands and no numerals. SKY: the upper part of the frame is a calm, near-black night sky with the faint cool blue-grey cast of image 1's sky (about #0A0E14 at the top edge; a dark sky tone, not a blue light), no stars, no moon, no clouds lit by colour, a soft natural gradient: darkest at the top edge, lifting a little toward the rooftops and around the floodlit tower with a faint warm haze of city glow, as in image 1; it is the only plain area in the frame and never a uniform flat fill. LOWER THIRD: the square, with warm street lamps and lit cream and ochre facades of low buildings and a few dark trees, all as soft round bokeh discs and soft glowing shapes, wet-looking paving catching warm reflections. SIDES: the night scene continues to both edges with dimmer facades and scattered warm lights, so no part of the frame below the sky is empty, blank or flat; at least 20% of continuous scene on every side of the tower. The square is empty: no people, no cars."
+  background_rule: "No café window frame, glass pane, glass reflections, curtains, sill or any part of an interior in the foreground (the lit windows of the facades across the square and the warm reflections on the paving are wanted). No signs, shop names, lettering, billboards or readable numerals (the clock faces show only their two clock hands). No people, figures, cars, buses or bicycles. No other landmark in front of the tower; nothing overlaps the tower's roof, arched storey, clock faces or shaft above y 0.70; only the square's soft lamp bokeh and dark tree tops cover the lowest part of its shaft and its base, from about y 0.72 down."
 camera:
   framing: "wide night view of the square, the tower centred with generous margin on all four sides; the square's lights across the lower third"
-  angle: "street level, about 1.2 m above the ground, looking slightly up at the tower; verticals kept vertical (no keystone lean)"
-  lens: "35mm film look, about f/2 focused nearer than the square: the whole scene slightly soft, the tower's shape, clock faces and pointed roof clearly recognizable, the street lamps and lit windows soft round bokeh"
+  angle: "street level, about 1.2 m above the ground, from across the square; camera level and shifted up, as in architectural photography, so the horizon sits low, at about y 0.80, level with the tower's hidden base; verticals kept vertical (no keystone lean)"
+  lens: "35mm film look, about f/2 focused nearer than the square: the whole scene slightly soft, the tower's shape, clock faces and pointed roof clearly recognizable, the street lamps and lit building windows soft round bokeh"
   aspect: "16:9"
-  safe_zones: "The tower and its brightest surroundings stay in the central 60% (x 0.20 to 0.80, y 0.10 to 0.85); the outer 20% on every side is continuous, dimmer night scene with no hard edge, frame or empty band, because the build scales and moves this plate behind window openings of different shapes."
+  safe_zones: "The tower, from its roof tip to its hidden base, stays inside the central 60% of width and height (x 0.20 to 0.80, y 0.20 to 0.80). The outer 20% band on every side is continuous night scene with nothing key in it (dark sky above; the square's paving, warm reflections and lamp bokeh below; dimmer facades and scattered warm lights at the sides), with no hard edge, frame or flat-filled strip (the dark sky above is the soft night-sky gradient, not an empty band), because the build scales and moves this plate behind window openings of different shapes."
 continuity:
   previous_shot: null
   carry_over:
     - "the tower, the square's lights and the grade of the window view in STYLE-TOP@v1"
     - "the same lens language and film grain as WEB-HERO-D and WEB-HERO-M"
 regions:
-  - {name: clock-tower, kind: other, box: [0.42, 0.10, 0.58, 0.82]}
+  - {name: clock-tower, kind: other, box: [0.42, 0.16, 0.58, 0.82]}
   - {name: sky, kind: other, box: [0.00, 0.00, 1.00, 0.30]}
   - {name: square-lights, kind: other, box: [0.00, 0.62, 1.00, 0.95]}
   - {name: margin-left, kind: other, box: [0.00, 0.00, 0.20, 1.00]}
   - {name: margin-right, kind: other, box: [0.80, 0.00, 1.00, 1.00]}
-style: "photorealistic cinematic 35mm film still, shallow depth of field, fine film grain; Tirana after dark (style-bible.md): warm tungsten and amber street light, deep shadows, near-black tones around #1F1F1F; no saturated colour at all (no phone in this plate); same light and grade as the window view of STYLE-TOP@v1 (owner-approved look, G-HUMAN-LOOK)"
+  - {name: margin-top, kind: other, box: [0.00, 0.00, 1.00, 0.20]}
+  - {name: margin-bottom, kind: other, box: [0.00, 0.80, 1.00, 1.00]}
+style: "photorealistic cinematic 35mm film still, shallow depth of field, fine film grain; Tirana after dark (style-bible.md): warm tungsten and amber street light, deep shadows, near-black tones around #1F1F1F; no saturated colour besides the warm amber and tungsten light (there is no phone in this plate); same light and grade as the window view of STYLE-TOP@v1 (owner-approved look, G-HUMAN-LOOK)"
 must_not:
-  - "no window frame, glass, reflections, curtains, sill or any part of an interior"
+  - "no café window frame, glass pane, glass reflections, curtains, sill or any part of an interior in the foreground"
   - "no people, faces, figures or silhouettes anywhere in the square"
   - "no cars, buses, bicycles or traffic light trails"
-  - "no text, letters, numbers, signage, shop names or billboards on any building"
+  - "no text, letters, numbers, signage, shop names or billboards anywhere, on any building or in the sky (image 1's gold '1/7' counter and headline are not copied)"
   - "no readable numerals on the clock faces"
   - "no logos or brand marks anywhere"
-  - "no red, pink, blue, green or neon light; the facades stay cream and ochre"
-  - "no tower cut by a frame edge or pushed off centre; nothing in front of the tower"
-  - "no blank, black or flat band along any edge; no borders, side bands, pillarbox strips, seams or vignette frames"
+  - "no red, pink, blue, green or neon light; the facades stay cream and ochre (image 1's salmon-lit facade at the lower left is not copied)"
+  - "no tower cut by a frame edge or pushed off centre; nothing in front of the tower's roof, arched storey, clock faces or shaft above y 0.70 (only lamp bokeh and tree tops over the lowest part of its shaft and its base, from about y 0.72 down)"
+  - "no second tower, spire, minaret or dome anywhere in the frame (image 1's dark spire with a red-lit tip, left of the tower, is not copied)"
+  - "no hard-edged strip or flat-filled band along any edge: no borders, side bands, letterbox or pillarbox strips, seams or vignette frames (the near-black sky along the top edge is the wanted soft gradient, not a band)"
   - "no stars, moon or coloured clouds"
 hero: true
-notes: "No words in this plate; all copy is HTML over the masters. line_text is the live owner H1, kept verbatim, because this plate is part of the hero it sits under. Generation: gpt_image_2_5, aspect_ratio 16:9, resolution 2k, quality medium, variant flare; one reference: image 1 STYLE-TOP@v1 (the tower, lights and grade only; its window frame, wall and baked text must not be copied). Not a set sheet: a background plate used as the far parallax layer."
+notes: "No words in this plate; all copy is HTML over the masters. line_text is the live owner H1, kept verbatim, because this plate is part of the hero it sits under. Generation: gpt_image_2_5, aspect_ratio 16:9, resolution 2k, quality medium, variant flare; one reference: image 1 STYLE-TOP@v1 (the tower, lights and grade only; its window frame, wall, baked text, second spire and salmon-lit facade must not be copied). Not a set sheet: a background plate used as the far parallax layer."
