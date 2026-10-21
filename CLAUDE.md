@@ -29,5 +29,10 @@
   is `lovable-app/` (a Lovable project; read `lovable-app/README.md`). It is pushed to the Lovable project's own
   GitHub repo, which deploys it; businesses are edited in its dashboard. `social-agent/` is the original
   Node/Railway version the engine was ported from. Never commit tokens.
+- **StraightScale website** (straightscale.com): its own repo `matanhaimguy-commits/straight-scale` (if missing:
+  `add_repo` it with push access and clone it to `/home/user/straight-scale`), synced with the Lovable project
+  "StraightScale Homepage". Read its `AGENTS.md` first; commits to `main` sync into Lovable, so never force-push,
+  rebase or amend there. The plan is `Agency OS/Projects/Website plan 2026-10.md` in the vault. Never publish without
+  the owner.
 - Other folders: `Mark AI/` (product research), `openmontage-work/` and `straightscale-reel/` (earlier video
   experiments, see `motion-studio/knowledge/our-pipeline.md`).
