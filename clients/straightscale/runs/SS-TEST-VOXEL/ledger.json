@@ -1,0 +1,67 @@
+{
+  "post_id": "SS-TEST-VOXEL",
+  "slug": "straightscale",
+  "format": "reel",
+  "family": "test",
+  "card": null,
+  "created": "2026-10-25T15:32:31+00:00",
+  "steps": {},
+  "run_gates": {
+    "G-BUDGET": [
+      {
+        "at": "2026-10-25T15:32:48+00:00",
+        "status": "PASS",
+        "by": "pipeline.py budget",
+        "data": {
+          "planned": 5.3,
+          "with_buffer": 6.6,
+          "balance": 1488.62,
+          "month_spent": 36.75,
+          "cap": 1300,
+          "el_planned": 0
+        },
+        "note": ""
+      }
+    ]
+  },
+  "specs": {},
+  "assets": [
+    {
+      "asset_id": "VO",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-25T15:32:31+00:00",
+      "prompt_sha256": "37d906639441207142a15f4c9213347a3f222cef1cb549a2cc9a126f5c6dac55",
+      "prompt_file": "prompts/VO.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-25T15:32:32+00:00",
+          "sha256": "37d906639441207142a15f4c9213347a3f222cef1cb549a2cc9a126f5c6dac55",
+          "file": "prompts/VO.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "fec916cb-321a-4a9c-acdf-7abb67ff46a8"
+      ],
+      "files": [],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-25T15:32:32+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Owner in chat 2026-10-25, after I offered to make a voxel or 3D reel next: 'just pick'. Second ai-video skill test (voxel style), English, not a StraightScale post; voice on Higgsfield as in the first test."
+          }
+        ]
+      },
+      "tool": "mcp__Higgs__generate_audio"
+    }
+  ],
+  "queue": []
+}
