@@ -74,3 +74,4 @@ Pick: 1 (spoken) with on-screen text "3 clients in March. / 0 in April." Line 2 
 | 26 Oct | On-screen hook text and CTA card replace captions for lines 1, 10 and 11; the advice tags replace "Post more." / "Prospect more." | one set of words on screen at a time |
 | 26 Oct | v1 delivered: deliver/v1/ (9:16 master, SRT, poster, contact sheet) | review rounds 1-3 in docs/review_log.md |
 
+| 26 Oct | v1 killed by Matan: generic advice (reply speed), off-offer; not posted. The English offer is now in the vault note "StraightScale EN offer" (Research, Offer, Organic, Funnel, Paid ads) | chat, 26 Oct |
