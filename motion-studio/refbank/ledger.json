@@ -235,6 +235,42 @@
     "language": [
      "en"
     ]
+   },
+   {
+    "project": "straightscale-en-01",
+    "date": "2026-10-26",
+    "concept": "The step after the reply: replies walk a path REPLY-CALL-SIGNED and fall through a gap after the reply; three steps lay three planks; people cross; comment PATH",
+    "refs": [
+     "tt-clearmindtalks"
+    ],
+    "category": "explainer-2d",
+    "devices": [
+     "literal-metaphor",
+     "stick-figure",
+     "counter-ticker",
+     "voiceover-explainer"
+    ],
+    "hook": [
+     "relatable-pov",
+     "contrast"
+    ],
+    "palette": [
+     "dark"
+    ],
+    "palette_hex": [
+     "#1F1F1F",
+     "#F8F6EF",
+     "#DD9A10",
+     "#BE0F18"
+    ],
+    "camera": "locked stage; one 1.06 push into the gap",
+    "engine": [
+     "canvas"
+    ],
+    "music": "original score, sampled CC0 instruments (upright, pizz, strings, marimba, harp), 96 BPM, C to Am to C, ducked under VO",
+    "language": [
+     "en"
+    ]
    }
   ]
  }
