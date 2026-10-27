@@ -215,3 +215,59 @@ Save this before your next quiet month.
 - Every reader: save yes, send no, follow no ("one reel and a bare handle").
 - Flag for the owner: every sound-off reader wanted to see April fill with clients at the end. The organic rules keep
   the payoff a process, never a result (song-organic.md 5; STANDARDS 7), until a proof file exists.
+
+## Loop 4 (FIX rewrite 3 of 3, after the loop 3 gate)
+Loop 3 gate (listen-only scores): O60 84/100, O30 85/100, no critical fail in either; the minor confusions and the
+believability doubts below are fixed here, so both go to new readers once more. The skill allows 3 rewrite loops after
+the first draft; this is the third.
+- "It"/"they" and who says "No" (minor, both tiers): the narrator answers ("They weren't."); "those posts" names the
+  subject.
+- "The same pieces, cut from one cloth" plus the fragment "the words her buyers use..." (decoded live): two full
+  sentences now ("They need one cloth to cut every piece from. That cloth is the words her buyers use for the problem.").
+- "So they kept running in her busiest weeks" read as set-and-forget, and as ads being the answer (a "where", against
+  line 1): the reason is now the proven posts kept in front of buyers ("so those posts kept finding buyers while she was
+  busy").
+- "Next April, nothing came loose" too neat: an honest dip she can see (lesson 23): "Next April was slower, but nothing
+  came loose."
+- The friend read as a device: the carrier gets her reason ("A friend who'd been there").
+- Sound-off (pictures): the cloth showed the viewer's own complaint, not her buyers' words; now it is woven from the
+  speech bubbles of the clay clients. Frame 1 pans from full March pockets to empty April pockets (no client falling,
+  which read as losing a client). One POSTS piece stands firm among drooping ones before the ADS piece is sewn to it; the
+  ADS piece is stitched firm and puffs speech bubbles outward (fluttering read as coming loose).
+
+- O60 sound-off (loop 3): nobody says what Maya sells, so "her buyers" floats: line 2 now names her a consultant.
+  Binning the ADS scrap read as "ads are the problem": all scraps are swept into a box. The friend's organizer is shown
+  full frame. The payoff shows an honest slower April: a few April pockets hold clients, fewer than March (the one
+  result picture; flagged for the owner against song-organic.md 5).
+
+### O60 v4: 151 words, about 60 s at 2.5 words/s (tier 45 to 75 s)
+```
+Lumpy months? It was never where your clients came from.
+Take Maya, a consultant: referrals filled her March, then April went quiet.
+Too busy in March to look for April.
+So she tried fixes: cold email, LinkedIn, a coach, some ads.
+Each one held a month, then came loose.
+A friend who'd been there asked: "Are your fixes connected?"
+They weren't. Each was a scrap, patched on alone.
+That's patchwork marketing: scraps that never hold each other up.
+Steady months don't need one more scrap.
+They need one cloth to cut every piece from.
+That cloth is the words her buyers use for the problem.
+Her offer came from those words, her posts from that offer,
+and ads went last, only on the posts that worked,
+so those posts kept finding buyers while she was busy.
+Next April was slower, but nothing came loose.
+Save this before your next quiet April.
+```
+
+### O30 v4: 86 words, about 34 s (tier 25 to 35 s)
+```
+Lumpy months? It was never where your clients came from.
+Posts, emails, a coach, some ads: each held a month, then came loose,
+because each was a scrap, patched on alone. That's patchwork marketing.
+You don't need one more scrap. You need one cloth: your buyers' words for the problem.
+Cut the offer from their words, the posts from the offer,
+and put ads last, only on posts that worked,
+so those posts keep finding buyers while you're busy.
+Save this before your next quiet month.
+```
