@@ -96,3 +96,21 @@ phone size. Characters-explain stacks stay below A on the visual (button eyes at
 | 2 | same as 1 | Referrals filled March. Nothing filled April. | same |
 | 3 | same planner; a hand sews a post-shaped patch into April, it slips at 0.7 s; an envelope patch, it slips at 1.6 s; both on the desk by 3 s | More posts. More emails. April still empty. | same |
 Variants 2 and 3 change only the visual and the text, so they reuse the master's sung opening (no extra song take).
+
+## G-HOOK round 3: third fresh grader (27 Oct): FAIL, every channel A-
+| Stack | Sound off past 2 s | V | T | S | Its note |
+|---|---|---|---|---|---|
+| 1 | yes | A- | A- | A- | faces and laptop read as business; "Clients all March" can misread as "clients all march"; the spec has April empty yet a patch drops from it; 12 sung words, the twist lands late |
+| 2 | yes | A- | A- | B+ | the sharpest "that's me"; promises no reason; "referrals" clashes with "the channel you picked" |
+| 3 | maybe | B+ | A- | A | a hand sewing in frame 1 reads as a crochet tutorial; the sung line pays off what the viewer just watched fail |
+Ranking: 2, 1, 3. Weakest thing left in 2: nothing promises a reason inside 1 to 2 s; the new patch arrives at 2.5 s.
+
+## Round 4 (H6 on the named fixes; sent to a fourth fresh grader)
+- One coherent spec: April has three empty holes and one patch hanging by a thread that snaps at 0.5 s; the new patch
+  comes in at 1.2 s (the open loop inside the decision window); a shirt-cuffed hand with a watch and a laptop showing a
+  calendar give the business read.
+- Text, master: "Referrals filled March. Nothing filled April. Why?" (round 2's best line plus the promise).
+- Sung line 1, all three stacks: "Lumpy months? It was never about the channel," (8 words, 12 syllables; the problem is
+  word 1, the twist by word 6; nothing that says she "picked" referrals).
+- Variant 2: text "March: clients. April: nothing. Why?" · Variant 3: frame 1 already holds the post patch hanging by
+  a thread (no sewing at 0 s), the envelope patch slips at 1.4 s; text "More posts. More emails. April still empty."
