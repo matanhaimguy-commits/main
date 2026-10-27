@@ -114,3 +114,17 @@ Ranking: 2, 1, 3. Weakest thing left in 2: nothing promises a reason inside 1 to
   word 1, the twist by word 6; nothing that says she "picked" referrals).
 - Variant 2: text "March: clients. April: nothing. Why?" · Variant 3: frame 1 already holds the post patch hanging by
   a thread (no sewing at 0 s), the envelope patch slips at 1.4 s; text "More posts. More emails. April still empty."
+
+## G-HOOK round 4: fourth fresh grader (27 Oct): master V A-, T A, S A
+| Stack | Sound off past 2 s | V | T | S | Its note |
+|---|---|---|---|---|---|
+| 1 | yes | A- | A | A | the snap at 0.5 s lands; the needle hand at 1.2 s splits the eye from the text and reads as a rescue (done-for-you) before the "why" |
+| 2 | yes | A- | A- | A | fastest read, but without "referrals" it loses the "that's me"; "April: nothing" can read as seasonal |
+| 3 | maybe | B | B+ | A | two small symbols and stitching are busy; "More posts. More emails." first reads like the advice she distrusts |
+
+## Round 5 (H6; sent to a fifth fresh grader)
+- Master: no hands in the first 3 s. The thread snaps at 0.5 s and the hole keeps fraying from 1.5 s, so the question
+  stays open; the hand moves into line 2, where her own fixes are sung.
+- Variant 2 text: "Clients one month. Nothing the next. Why?" (lumpy, not seasonal).
+- Variant 3: one large envelope patch, no hands, snaps at 0.5 s; text "More emails didn't fill April. Why?" (the problem
+  and the promise inside the first words, not the advice).
