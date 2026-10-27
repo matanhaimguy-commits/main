@@ -149,3 +149,76 @@ so those posts keep finding buyers while you're busy.            [12]
 [Spoken]
 Follow for part two: where to find your buyers' words.
 ```
+
+## Lyric cold reads, loop 2 (two new readers): PASS
+- Both retold every rung (problem, cause, chain, why, what to do); no scroll before the answer ("maybe" at the O60
+  recap line, after the payoff was set up); both would follow for part two; the O60 reader would also save.
+- Minor, fixed below without touching a rung: "no scrap holds the others up" mixed a building image into the fabric
+  ("no scrap is sewn to the next"); "the problem" read as the viewer's own lumpy months ("their problem"); O30 "cut it
+  all from" before "it" is named ("cut every piece from"); O60 payoff moved ahead of the turned chorus so the result never
+  waits behind a recap, with the spoken CTA over the chorus tail.
+- Kept on purpose: "buyers" (the released speech and EN 02 say buyers; the CTA promises the buyers' words); "Next April"
+  (it is a year on, and readers believed the honest dip).
+
+## FINAL lyrics (lyric gate passed, 27 Oct)
+### O60 (17 lines, about 150 words)
+```
+[Verse 1]
+Lumpy months? It was never where your clients came from,
+take Maya, a consultant: referrals filled her March,
+then April went quiet, she'd been too busy in March
+to look for April's clients while the work was coming in.
+So she tried some fixes: cold email, LinkedIn,
+a coach and then some ads, and each held a month, then came loose.
+
+[Spoken]
+A friend who'd had lumpy months too asked her: "Are your fixes connected?"
+
+[Pre-chorus]
+They weren't: just scraps, each one patched on alone,
+
+[Chorus]
+that's patchwork marketing: no scrap is sewn to the next.
+Steady months don't need one more scrap sewn on,
+just one cloth to cut every piece from.
+
+[Verse 2]
+That cloth is the words her buyers use for their problem:
+her offer came from those words, her posts came from that offer,
+and ads went last, only on the posts that worked,
+so those posts kept finding buyers while she was busy.
+
+[Outro]
+Next April wasn't as full as March, but nothing came loose.
+No more patchwork marketing, no scrap sewn on alone.
+
+[Spoken, over the last line's tail]
+Follow for part two: where to find your buyers' words.
+```
+
+### O30 (11 lines, about 100 words)
+```
+[Verse]
+Lumpy months? It was never where your clients came from,
+posts, emails, a coach, some ads: each held a month, then came loose,
+'cause each was a scrap, patched on alone.
+
+[Chorus]
+That's patchwork marketing: no scrap is sewn to the next.
+Not one more scrap: one cloth to cut every piece from,
+and that cloth is the words your buyers use for their problem.
+Make the offer from their words,
+then make the posts from the offer,
+then ads last, only on the posts that worked,
+so those posts keep finding buyers while you're busy.
+
+[Spoken]
+Follow for part two: where to find your buyers' words.
+```
+
+### Music prompt (same for both, one singer for the series)
+`Warm indie folk storytelling, fingerpicked acoustic guitar, soft brushed drums, warm female alto narrator, conversational, clear lead vocal, lyrics up front, 96 BPM`
+
+G-SCRIPT note (STANDARDS 9): speech released at O60 86/100 and O30 87/100 (Script Lab, loop 5); lyrics passed the lyric
+gate on loop 2. This piece runs as a motion-studio project, not a `growth-engine` post run, so there is no ledger entry
+to write until it gets a post card.
