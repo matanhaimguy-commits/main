@@ -22,6 +22,7 @@ Lovable and rebuilds the app, so changes cost no Lovable credits.
 | `src/lib/api/` | Server functions the dashboard calls. |
 | `src/server/content*.server.ts`, `src/routes/api/content/` | Growth Engine hub: the content calendar, media uploads, keyword funnels and post results the studio uses (`/api/content/*`, studio token from Settings). |
 | `src/routes/content.tsx` | The Content page: review, approve, schedule and mark posts as posted. |
+| `src/routes/studio/`, `src/components/studio/`, `src/server/studio/`, `src/routes/api/studio/` | The Studio page: every piece's production steps, gates, files and the owner's checkpoints (below). |
 | `supabase/migrations/` | The database schema. Safe to re-run. |
 
 ## How it runs
@@ -39,6 +40,32 @@ Lovable and rebuilds the app, so changes cost no Lovable credits.
 - **Login:** one dashboard password, created on the first visit (or set with an `ADMIN_PASSWORD` secret).
 - **Reviewer login:** Settings → Reviewer access makes a second password for Meta's App Review. It can view
   everything, connect a Page and use Test the bot, but cannot change settings, businesses or sending.
+
+## Studio page
+
+`/studio` follows every content piece through the studio's 16 production steps (the run ledger
+`clients/<slug>/runs/<post_id>/ledger.json` of `growth-engine/tools/pipeline.py`), so the owner sees progress
+on his phone instead of reading long chat messages. The list puts pieces waiting on the owner first; a piece
+opens to a timeline of its steps (done, now, next, blocked, not needed) with each gate's PASS/FAIL and score,
+notes, and files (docs rendered, audio players, images and video inline). Checkpoint questions sit on top as
+cards with options and a note; the owner's answer is stored as `answered` until the studio takes it in
+(`synced`). Reviewer logins see everything but cannot answer. The page only shows what the studio pushed.
+
+The studio talks to it with the same studio token as `/api/content/*` (`Authorization: Bearer <token>`),
+through `growth-engine/tools/hub.py studio-push | studio-ask | studio-answers | studio-synced`:
+
+| Endpoint | What |
+|---|---|
+| `POST /api/studio/runs` | Create or update a run (key: business + post_id) with its steps, ledger and, when given, its whole file list. |
+| `GET /api/studio/runs[?business=B&post_id=P]` | All runs, or one with its files and questions. |
+| `POST /api/studio/decisions` | Ask a checkpoint question (one per `key`; re-asking an open key updates it). |
+| `GET /api/studio/decisions?status=answered[&business=B]` | Answers the studio has not taken in yet. |
+| `POST /api/studio/synced` | `{"ids": [...]}`: the studio took these answers in. |
+
+Media are uploaded through `/api/content/upload` (the public `content` bucket); docs travel as inline markdown.
+Tables: `studio_runs`, `studio_files`, `studio_decisions` (migration `20261027090000_studio.sql`). The code is
+one job per file: `src/server/studio/` (schema, validation, one file per query, one per endpoint, re-exported by
+`index.server.ts`), `src/lib/api/studio/` (server functions), `src/components/studio/` (one component per file).
 
 ## Changing the database
 
