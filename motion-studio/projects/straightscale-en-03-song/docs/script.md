@@ -146,3 +146,72 @@ the cloth, POSTS from the offer, sewn edge to edge; B7 BOOK A CALL and ADS piece
 - CTA: all four readers would save, none would send ("send it to the founder whose March was full" read as a dig): the
   CTA is now save.
 - Score not computed past the critical fails. Loop 2 goes to four new readers.
+
+## Loop 3 (FIX after the loop 2 gate)
+Picture map v3 (sound-off fixes): a client = a small clay person sitting in a pocket of a wall organizer headed CLIENTS
+(one pocket per week); a fix = a scrap of clashing fabric with a big stitched label (EMAIL, LINKEDIN, COACH, ADS)
+sewn over an empty pocket; patchwork marketing = scraps on the floor and empty pockets, nothing joined; the cloth = one
+fabric printed large with three real buyer phrases ("SOME MONTHS NOTHING", "FEAST OR FAMINE", "SPORADIC", from
+VOC Q-R-0058, Q-R-0094, Q-R-0022; no names); the method = pieces cut from that cloth (OFFER, POSTS, ADS), each cut from
+the one before. Text and caption never overlap: the text hook alone 0 to 1.8 s, then the caption. The end card is one
+line plus the handle.
+
+### O60 v3: 139 words, about 56 s at 2.5 words/s (tier 45 to 75 s)
+```
+Lumpy months? It was never where your clients came from.
+Take Maya: referrals filled her March, then April went quiet.
+Too busy in March to look for April.
+So she tried fixes: cold email, LinkedIn, a coach, some ads.
+Each one held a month, then came loose.
+A friend with steady months asked: "Are your fixes connected?"
+No. Each was a scrap, patched on alone.
+That's patchwork marketing: scraps that never hold each other up.
+Steady months don't need one more scrap, just the same pieces, cut from one cloth:
+the words her buyers use for the problem.
+Her offer came from those words, her posts from that offer,
+and ads went last, only on the posts that worked,
+so they kept running in her busiest weeks.
+Next April, nothing came loose.
+Save this before your next quiet April.
+```
+| # | Line | Job | Picture (claymation) |
+|---|---|---|---|
+| 1 | Lumpy months? It was never where your clients came from. | Hook | CLIENTS wall organizer: MARCH pockets each hold a little clay client; APRIL pockets empty; a March client tips out and drops through an empty April pocket. Text hook alone 0 to 1.8 s, then the caption |
+| 2 | Take Maya: referrals filled her March, then April went quiet. | 1 Recognition | Maya at her laptop looks up at the empty April pockets |
+| 3 | Too busy in March to look for April. | 2 Stakes | Maya on calls, papers piled, a MARCH tag on her desk; the April pockets behind her untouched |
+| 4 | So she tried fixes: cold email, LinkedIn, a coach, some ads. | 3 Failed fixes | She sews labelled scraps (EMAIL, LINKEDIN, COACH, ADS) over the April pockets |
+| 5 | Each one held a month, then came loose. | 3 Release | One by one they peel off and drop to the floor |
+| 6 | A friend with steady months asked: "Are your fixes connected?" | Carrier + question | The friend on Maya's laptop screen; behind the friend, a full organizer in one even cloth |
+| 7 | No. Each was a scrap, patched on alone. | 4 Aha | Maya picks up two fallen scraps, holds them side by side: different fabrics, edges that don't meet |
+| 8 | That's patchwork marketing: scraps that never hold each other up. | 4 Named | Wide: scraps on the floor, empty pockets |
+| 9 | Steady months don't need one more scrap, just the same pieces, cut from one cloth: | 5 Hope + 6 | She drops the clashing ADS scrap in a bin and unrolls one cloth |
+| 10 | the words her buyers use for the problem. | 6 The cloth | Close: the print reads SOME MONTHS NOTHING · FEAST OR FAMINE · SPORADIC, big and legible |
+| 11 | Her offer came from those words, her posts from that offer, | 6 Chain | She cuts an OFFER piece from the cloth; from the OFFER piece she cuts POSTS pieces, same print |
+| 12 | and ads went last, only on the posts that worked, | 6 Last link | A new ADS piece in the same printed cloth, sewn onto the one POSTS piece that held |
+| 13 | so they kept running in her busiest weeks. | 6 Why, pays line 3 | Maya on a call again; behind her the ADS piece keeps fluttering on its own |
+| 14 | Next April, nothing came loose. | 8 Payoff, mirrors line 5 | An APRIL tag; the printed pieces hold; Maya tugs one, it holds |
+| 15 | Save this before your next quiet April. | CTA (save) | End card: the line plus @straightscale_ |
+
+### O30 v3: 78 words, about 31 s (tier 25 to 35 s)
+```
+Lumpy months? It was never where your clients came from.
+Posts, emails, a coach, some ads: each held a month, then came loose,
+because each was a scrap, patched on alone. That's patchwork marketing.
+Cut the same pieces from one cloth: your buyers' words for the problem.
+The offer from their words, the posts from the offer,
+and ads last, only on posts that worked, so they run while you're busy.
+Save this before your next quiet month.
+```
+
+### Gate report, loop 2: FIX (loop 3 of 3 follows)
+- Retell (4 readers): problem, cause and fix matched in all four; why it works heard in the O60 reads, inferred in the
+  O30 listen read; what to do: "write down the words my best clients used".
+- Confusions: O60 L13 "so the posts kept working in her busiest weeks" (core: the mechanism) asserted a cause nobody
+  saw, and "posts don't post themselves" read as untrue or as done-for-you; L4 against L15 (posts and ads were the
+  failed scraps, then the fix). Minor: "it"/"they" pronouns, the "joined to" riddle, "a page" unexplained.
+- Scroll points: none "no" in the listen reads; the O60 sound-off "leaning no" at B12 (after the master answer).
+- Pictures: patches meant clients and fixes; two texts overlapping at 0 to 1 s; scraps fell then reappeared; the
+  cloth's handwriting illegible; too many actions in one beat.
+- Every reader: save yes, send no, follow no ("one reel and a bare handle").
+- Flag for the owner: every sound-off reader wanted to see April fill with clients at the end. The organic rules keep
+  the payoff a process, never a result (song-organic.md 5; STANDARDS 7), until a proof file exists.
