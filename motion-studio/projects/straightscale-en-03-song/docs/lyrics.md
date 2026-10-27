@@ -63,12 +63,12 @@ Follow for part two: where to find your buyers' words.
 ```
 
 ## Music prompt (under 25 words; ElevenLabs Music or Suno)
-`Warm indie folk storytelling, fingerpicked acoustic guitar, soft brushed drums, warm female alto narrator, conversational, clear lead vocal, lyrics up front, 96 BPM` (23 words)
+`Warm indie folk storytelling, fingerpicked acoustic guitar, soft brushed drums, warm male baritone narrator, conversational, clear lead vocal, lyrics up front, 96 BPM` (23 words)
 - No instrumental intro: the voice comes in within 0.3 s and "Lumpy months" is sung by about 1 s (song-organic.md 4);
   trim any intro on a beat.
 - The spoken lines go over a held instrumental bar; if a take garbles them, the narrator voice speaks them in the edit
   (song-organic.md 6).
-- Singer: a warm female alto narrator (she tells Maya's story; she is not Maya). The owner can switch it; one singer per
+- Singer: a warm male baritone narrator (she tells Maya's story; she is not Maya). The owner can switch it; one singer per
   series, locked after the first song.
 
 ## Lyric gate (4f), Claude's pass before the fresh lyric reader
@@ -217,7 +217,7 @@ Follow for part two: where to find your buyers' words.
 ```
 
 ### Music prompt (same for both, one singer for the series)
-`Warm indie folk storytelling, fingerpicked acoustic guitar, soft brushed drums, warm female alto narrator, conversational, clear lead vocal, lyrics up front, 96 BPM`
+`Warm indie folk storytelling, fingerpicked acoustic guitar, soft brushed drums, warm male baritone narrator, conversational, clear lead vocal, lyrics up front, 96 BPM`
 
 G-SCRIPT note (STANDARDS 9): speech released at O60 86/100 and O30 87/100 (Script Lab, loop 5); lyrics passed the lyric
 gate on loop 2. This piece runs as a motion-studio project, not a `growth-engine` post run, so there is no ledger entry

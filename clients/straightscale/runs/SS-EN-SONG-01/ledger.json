@@ -144,6 +144,14 @@
         "by": "pipeline.py budget",
         "note": "Atlas only: suno/chirp-v6 at about $0.13 a call, 2 calls (O60, O30), 2 takes each; no Higgsfield credits planned for step 4"
       }
+    ],
+    "G-AUDIO-MASTER": [
+      {
+        "at": "2026-10-27T18:39:04+00:00",
+        "status": "PASS",
+        "by": "song take check",
+        "note": "Masters: SONG-O60@v1 take 2 (0.956, 59.6 s) and SONG-O30@v1 take 2 (0.896, 32.4 s), both over the 0.88 floor with the hook sung by about 1.5 s"
+      }
     ]
   },
   "specs": {},
@@ -172,7 +180,17 @@
         "8f0741beaf4346989948dbc2cecbd25d"
       ],
       "files": [],
-      "gates": {},
+      "gates": {
+        "G-AUDIO": [
+          {
+            "at": "2026-10-27T18:39:03+00:00",
+            "status": "PASS",
+            "by": "song take check (faster-whisper small.en)",
+            "note": "take 2 of 2: 59.6 s, lyric match 0.956 (floor 0.88), voice at 0.8 s, 'lumpy months' by 1.5 s, every line incl. the spoken question and CTA heard. Take 1: 82.8 s, over the O60 75 s ceiling, not used",
+            "score": 0.956
+          }
+        ]
+      },
       "tool": "atlas"
     },
     {
@@ -199,9 +217,29 @@
         "298342acc20f468497b7dd16efe3ef1a"
       ],
       "files": [],
-      "gates": {},
+      "gates": {
+        "G-AUDIO": [
+          {
+            "at": "2026-10-27T18:39:04+00:00",
+            "status": "PASS",
+            "by": "song take check (faster-whisper small.en)",
+            "note": "take 2 of 2: 32.4 s, lyric match 0.896, voice at 0.0 s, 'lumpy months' by 1.1 s; Whisper heard 'a lawn' for 'alone' and 'As last' for 'ads last' (diction for the owner's listen; captions carry the words). Take 1: 0.892, voice at 2.3 s (intro to trim)",
+            "score": 0.896
+          }
+        ]
+      },
       "tool": "atlas"
     }
   ],
-  "queue": []
+  "queue": [
+    {
+      "id": "G-HUMAN-SONG:",
+      "checkpoint": "G-HUMAN-SONG",
+      "asset": null,
+      "status": "PENDING",
+      "note": "Listen to both masters before any picture: O60 take 2 (59.6 s) and O30 take 2 (32.4 s), male baritone, Atlas suno/chirp-v6. Check words, the 'lumpy months' hook, 'patchwork marketing', the spoken question and CTA; Whisper heard 'a lawn' for 'alone' and 'As last' for 'ads last' in the O30",
+      "files": [],
+      "asked_at": "2026-10-27T18:39:30+00:00"
+    }
+  ]
 }
