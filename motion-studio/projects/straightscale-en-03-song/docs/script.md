@@ -1,4 +1,6 @@
-# Speech scripts: StraightScale EN song 01 "Maya's quilt" (Script Lab WRITE, loop 1)
+# Speech scripts: StraightScale EN song 01 "Maya's quilt" (Script Lab WRITE)
+
+Loop 1 is first; loop 2 (the current version) and the loop 1 gate report are at the bottom.
 
 Spine A (ST3 hidden cause on a named-person story), picked at GATE 4 on 27 Oct. Pack: `script-lab.md`. Hook: master
 stack from `hook-stacks.md` (text "Nothing filled April. Referrals filled March. Why?", sung line 1 below). Look:
@@ -66,3 +68,81 @@ Send this to a founder with lumpy months.
 | 6 | your buyers' own words, an offer nobody else has, posts that bring them weekly, | 6 Steps 1 to 3 | What order? | Then? | Quote-slip patch, star patch, post patches, each sewn edge to edge | 14 |
 | 7 | a page that books the calls, then ads, only on posts that worked. | 6 Steps 4 and 5 | Then? | | Door patch, then the megaphone sewn last onto the posts that held; the planner holds as one cloth | 13 |
 | 8 | Send this to a founder with lumpy months. | CTA (send), calls back "lumpy" | | | End card, @straightscale_ | 8 |
+
+## Loop 2 (FIX after the loop 1 gate): picture map rebuilt, mechanism rebuilt as a chain
+Picture map v2 (one meaning per object, test 8): a client = a fabric patch with a person, on a planner square · a fix
+= a mismatched scrap with a stitched label (EMAIL, LINKEDIN, COACH, ADS) sewn over an empty April square · patchwork
+marketing = scraps patched on alone, none joined · the method = one cloth printed with buyers' handwritten words; the
+offer, the posts, the page (stitched BOOK A CALL) and the ads are all cut from it and sewn edge to edge into one band
+under the rows · the payoff = April's squares filled from that band hold when tugged (no client faces counted).
+No stitched PATCHWORK MARKETING label (it read as a branded framework); the caption carries the name, lower case.
+
+### O60 v2: 149 words, about 60 s at 2.5 words/s (tier 45 to 75 s)
+```
+Lumpy months? It was never where your clients came from.
+Take Maya: referrals filled her March, then April went quiet.
+Too busy in March to look for April.
+So she tried fixes: cold email, LinkedIn, a coach, some ads.
+Each one held a month, then came loose.
+A friend with steady months asked: "What's each fix joined to?"
+Nothing. Each was a scrap, patched on alone.
+That's patchwork marketing: scraps that never hold each other up.
+Steady months don't need one more scrap.
+They need every piece cut from one cloth:
+the words her buyers use for the problem.
+She built her offer from those words, her posts from that offer,
+so the posts kept working in her busiest weeks.
+They led to a page that booked the calls,
+and ads went last, only on posts that worked.
+Next April, nothing came loose.
+Save this for your next quiet April.
+```
+| # | Line | Job | Picture (claymation) |
+|---|---|---|---|
+| 1 | Lumpy months? It was never where your clients came from. | Hook | CLIENTS planner: MARCH full of client patches, APRIL holes, the last April client patch snaps off. Text hook alone 0 to 1 s ("Nothing filled April. Referrals filled March. Why?"); the line 1 caption joins from 1 s |
+| 2 | Take Maya: referrals filled her March, then April went quiet. | 1 Recognition | Maya at her laptop looks up at the April row |
+| 3 | Too busy in March to look for April. | 2 Stakes | March: Maya buried in calls and papers, April untouched behind her |
+| 4 | So she tried fixes: cold email, LinkedIn, a coach, some ads. | 3 Failed fixes | She sews labelled scraps over April's holes: EMAIL, LINKEDIN, COACH, ADS, each a different clashing fabric |
+| 5 | Each one held a month, then came loose. | 3 Release | One by one the scraps peel off and fall; the floor collects them |
+| 6 | A friend with steady months asked: "What's each fix joined to?" | Carrier + the question | A friend at the door, her planner one even cloth, no scraps |
+| 7 | Nothing. Each was a scrap, patched on alone. | 4 Aha | Close: a fallen scrap held up, nothing attached to its edges; Maya's face changes |
+| 8 | That's patchwork marketing: scraps that never hold each other up. | 4 Named | Pull back: Maya's planner, clashing scraps with gaps between them |
+| 9 | Steady months don't need one more scrap. | 5 Hope | Maya drops the ADS scrap she was about to sew into a bin |
+| 10 | They need every piece cut from one cloth: | 6 Mechanism | She unrolls a cloth printed with handwritten words |
+| 11 | the words her buyers use for the problem. | 6 Step 1 | Close: the print is real-looking handwritten complaints (no names) |
+| 12 | She built her offer from those words, her posts from that offer, | 6 Steps 2 and 3 | She cuts an OFFER piece from the cloth, then POSTS pieces from the offer piece, same print, sewn edge to edge |
+| 13 | so the posts kept working in her busiest weeks. | 6 Pays line 3 | March again, Maya buried in calls; behind her the POSTS band stays stitched |
+| 14 | They led to a page that booked the calls, | 6 Step 4 | A BOOK A CALL piece, same cloth, sewn on the end of the band |
+| 15 | and ads went last, only on posts that worked. | 6 Step 5 | An ADS piece cut from the same cloth, sewn only onto the POSTS pieces that held |
+| 16 | Next April, nothing came loose. | 8 Payoff, mirrors line 5 | Next year's planner (a stitched new year tag, no digits); the April squares filled from the band; Maya tugs, it holds |
+| 17 | Save this for your next quiet April. | CTA (save) | End card: the line in large type, @straightscale_ |
+
+### O30 v2: 86 words, about 34 s (tier 25 to 35 s)
+```
+Lumpy months? It was never where your clients came from.
+More posts, more emails, a coach, some ads:
+each one held a month, then came loose,
+because each was a scrap, patched on alone. That's patchwork marketing.
+One more scrap won't hold. Cut every piece from one cloth:
+the words your buyers use for the problem. Build the offer from them, the posts from the offer,
+a page from the posts, and ads last, only on posts that worked.
+Save this for your next quiet month.
+```
+Pictures follow the O60 v2 map: B2 the labelled scraps sewn over April; B3 they peel off; B4 a fallen scrap, nothing on its
+edges, pull back to the clashing planner; B5 the next scrap dropped in a bin, the printed cloth unrolled; B6 OFFER cut from
+the cloth, POSTS from the offer, sewn edge to edge; B7 BOOK A CALL and ADS pieces, same cloth, the planner holds; B8 end card.
+
+### Gate report, loop 1 (both tiers): FIX
+- Cold reads (4 fresh readers: O60 listen-only, O60 sound-off, O30 listen-only, O30 sound-off). Retell: problem yes,
+  cause yes, fix partly (read as "fix your offer, post more"), why it works inferred, not heard; what to do unclear.
+- Major confusion on a core rung (critical fail 1): O60 L11 to L12 "she joined hers" then a new list (her fixes vanish);
+  O30 L6 "your buyers' own words" never explained (step one).
+- Contradiction (test 2/12): O60 L15 "the new patch held" against L10 "don't need one more patch".
+- Picture map (test 8): a patch meant a client, a tactic, a step and a client again; symbols (whistle, speech bubble,
+  star, door, one thread) unreadable at phone size.
+- Setups and payoffs (test 9): "Too busy in March" never paid.
+- Hook (test 12): "they" in line 1 took a beat (fixed to "your clients", a seam send-back, H6 note); frame 1 showed two
+  texts at once that seemed to disagree (the line 1 caption now joins at 1 s).
+- CTA: all four readers would save, none would send ("send it to the founder whose March was full" read as a dig): the
+  CTA is now save.
+- Score not computed past the critical fails. Loop 2 goes to four new readers.
