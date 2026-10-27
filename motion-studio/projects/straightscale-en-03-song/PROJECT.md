@@ -13,11 +13,11 @@ offer" (Research, Offer, Organic, Funnel, Paid ads). Docs: `docs/hook-stacks.md`
 - Lengths: O60 written at about 50 s, plus an O30 written on its own (STANDARDS 8).
 - Genre: indie folk storytelling, one narrator-singer.
 - Look: claymation (organic.json `animation_styles.claymation`), clay clients in the pockets of a CLIENTS wall organizer, fixes as labelled fabric scraps, the method as one cloth.
-- CTA: save ("Save this before your next quiet April."; send read as a dig in loop 1); proposed: follow for part two (EN 02).
+- CTA: follow for part two ("Follow for part two: where to find your buyers' words."; part two is EN 02).
 - Facts: none on screen or in the lyrics (proof files not collected); Maya is a composite in a stylized world.
 
 ## Status
-Stage: script, escalated to the owner after 3 rewrite loops (O30 86/100 release; O60 81/100)
+Stage: script, O60 loop 5 (owner-approved extra gate) running; O30 86/100 held
 Next: owner decisions in docs/script.md "Writer's recommendation" (O30 release, O60 fixes + one more gate, CTA follow
 to EN 02, the payoff picture); then lyrics, lyric gate, style prompt; the song route; G-HUMAN-SONG before any picture.
 Open: song route (ElevenLabs Music billing failed; Atlas Suno needs the owner to name the model in the gate; or the
@@ -27,6 +27,7 @@ frame after G-HUMAN-SONG · hook variants back to H6 before any trial reel.
 ## Decisions (newest first)
 | Date | Decision | Options considered | Why | Who |
 |---|---|---|---|---|
+| 27 Oct | Escalation after 3 rewrite loops: O30 (86) held until the O60 is settled; O60 gets the 4 line fixes and one more gate; CTA "Follow for part two: where to find your buyers' words." (part two = EN 02); the payoff shows a few clients in April, fewer than March (the one result image, approved over song-organic.md 5's process-only rule) | O30 release now; park or release the O60 as is; CTA save; payoff process only | owner pick; readers asked for the April payoff in every sound-off read and for a "how" reel before following | Matan |
 | 27 Oct | GATE 4: spine A "Maya's quilt" (ST3 hidden cause, named-person story) with its O30 short; opening text problem first "Nothing filled April. Referrals filled March. Why?"; look claymation | spine B "The patches sing"; text good month first; crochet, 3D office | owner pick; every hook grader read crochet as a craft video at half a second | Matan |
 | 27 Oct | G-HOOK not passed after 6 blind rounds (master V A-, T A- to A, S A- to A); taken to GATE 4 | more rounds | grader variance on text and sung; the visual's A- was the crochet style itself | Claude, owner informed |
 | 27 Oct | Patchwork in its DIY form (fixes she tried herself, each sewn on alone), not the agency form | vault form "ads, funnel, sales with different people"; MK-02 "nobody owns the sale" | AV-01 never hired those people (09-AVATARS §13); MK-02 is a reply/sales angle the offer sheet rules out | Claude, owner informed |

@@ -300,3 +300,45 @@ Proof is scored on the process shown (the proof bank is empty); CTA uses the org
    EN 02, already built). Replaces "Save this before your next quiet ...".
 4. The payoff picture: keep the honest slower April with a few clients (the one result image) or show the process only
    (song-organic.md 5). Readers asked for the clients four times out of four sound-off reads.
+
+## Loop 5 (owner-approved extra gate, 27 Oct)
+Owner decisions: the 4 O60 fixes and one more gate; CTA "Follow for part two: where to find your buyers' words." on both
+tiers; the payoff shows a few clients in April, fewer than March. The O30 line 4 is cut to keep the tier with the longer
+CTA (89 words would run 36 s).
+
+### O60 v5: 151 words, about 60 s
+```
+Lumpy months? It was never where your clients came from.
+Take Maya, a consultant: referrals filled her March, then April went quiet.
+Too busy in March to look for April.
+So she tried fixes: cold email, LinkedIn, a coach, some ads.
+Each one held a month, then came loose.
+A friend who'd had lumpy months too asked: "Are your fixes connected?"
+They weren't: each was a scrap, patched on alone. That's patchwork marketing.
+Steady months don't need one more scrap, just one cloth to cut every piece from.
+That cloth is the words her buyers use for the problem.
+Her offer came from those words, her posts from that offer,
+and ads went last, only on the posts that worked,
+so those posts kept finding buyers while she was busy.
+Next April wasn't as full as March, but nothing came loose.
+Follow for part two: where to find your buyers' words.
+```
+Pictures (loop 4 sound-off fixes): frame 1 starts on the empty APRIL pockets, then tilts up to the full MARCH pockets and
+Maya at her desk below (text hook 0 to 2.5 s, then the caption); the fix scraps are sewn onto the April row, clashing
+loud fabrics; the friend stands beside her own organizer, one calm cloth with thick seams and some clients in every
+month; the diagnosis is one beat (two scraps held apart, then the empty pockets); the new cloth is one calm colour,
+woven from the March clients' speech bubbles, nothing like the scraps; three POSTS pieces, two droop and one stays firm
+with bubbles gathering round it; the ADS piece is sewn firm and puffs bubbles out of the window where tiny clay figures
+look up; the April payoff shows a few clay clients, fewer than March, and the band holds when tugged.
+
+### O30 v5: 85 words, about 34 s
+```
+Lumpy months? It was never where your clients came from.
+Posts, emails, a coach, some ads: each held a month, then came loose,
+because each was a scrap, patched on alone. That's patchwork marketing.
+Not one more scrap: one cloth, your buyers' words for the problem.
+Cut the offer from their words, the posts from the offer,
+and put ads last, only on posts that worked,
+so those posts keep finding buyers while you're busy.
+Follow for part two: where to find your buyers' words.
+```
