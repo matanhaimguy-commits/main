@@ -1,4 +1,4 @@
-"""The 16 Oct decisions: CTA types, hard offers, B8, confession, styles, lengths, credits. Run: python3 -m unittest discover -s growth-engine/tools/organic_os -p 'test_*.py'"""
+"""The 16 Oct decisions: CTA types, hard offers, B8, confession, styles, lengths, credits. Run: python3 -m unittest discover -s growth-engine/tools/organic_os -t growth-engine/tools"""
 import copy
 import unittest
 

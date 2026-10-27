@@ -835,5 +835,13 @@
       "block": "Classic hand-drawn 2D animation look: clean ink lines, painted watercolour backgrounds, expressive squash-and-stretch poses, warm storybook palette, soft vignette.",
       "note": "Say \"hand-drawn 2D storybook animation\"; never name or imitate a studio's characters."
     }
+  },
+  "lead_magnet_checks": {
+    "_doc": "A keyword's resource must pass all five before `live: true` (ORGANIC-OS 8.5). The Conversion Agent records them in brain.json lead_magnets[].checks as true/false; card-check fails a keyword with any false and warns while any is unrecorded.",
+    "main_pain": "It answers the avatar's main pain from the demand map, in their words.",
+    "one_thing": "It is one specific thing with a name and a shape (a 10-question test, a 1-page checklist), not 'tips' or 'a guide'.",
+    "quick_win": "The person can use it within a day and sees something useful, even if they never buy.",
+    "leads_to_offer": "Using it shows why the main offer is the next step (it surfaces the problem the offer fixes).",
+    "low_friction": "Getting it takes the keyword and at most one question in the DM: no form, no email wall, no link before the button."
   }
 }

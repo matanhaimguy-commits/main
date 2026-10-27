@@ -1,4 +1,4 @@
-"""Outlier mining (the four checks). Run: python3 -m unittest discover -s growth-engine/tools/organic_os -p 'test_*.py'"""
+"""Outlier mining (the four checks). Run: python3 -m unittest discover -s growth-engine/tools/organic_os -t growth-engine/tools"""
 import datetime as dt
 import unittest
 

@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import jsonschema
 
+from .card_cta import cta_issues
 from .config import CARD_SCHEMA, CONFIG, LENGTHS
 from .issues import ERROR, WARN, has_errors, issue, unknown
 
@@ -89,21 +90,7 @@ def card_check(card: dict, brain: dict, cmap: dict, demand: list[dict]) -> list[
     if card["format_tier"] == "A" and not (card["angle_proven"] or card.get("wildcard")):
         issues.append(issue(ERROR, "spend", "tier A needs a proven angle (beat the median in a cheaper format) or the month's wildcard"))
 
-    cta, ctas = card["cta_type"], CONFIG["jobs"][job]["ctas"]
-    if cta not in ctas:
-        why = " ('book' is for convert posts only, said as the keyword or DM path, never a link)" if cta == "book" else ""
-        issues.append(issue(ERROR, "cta", f"CTA {cta} does not fit the {job} job ({', '.join(ctas)}){why}"))
-    if cta == "comment" and card.get("cta_keyword"):
-        issues.append(issue(WARN, "cta", f"a comment CTA is an answer to a question the post asks; a keyword ({card['cta_keyword']}) is cta_type keyword"))
-    if cta == "keyword" or (cta == "book" and card.get("cta_keyword")):
-        kw = (card.get("cta_keyword") or "").upper()
-        lm = next((m for m in brain.get("lead_magnets", []) if m["keyword"].upper() == kw), None)
-        if not kw:
-            issues.append(issue(ERROR, "conversion", "keyword CTA without a keyword"))
-        elif lm is None:
-            issues.append(issue(ERROR, "conversion", f"keyword {kw} has no lead magnet in the brain"))
-        elif not lm.get("live"):
-            issues.append(issue(ERROR, "conversion", f"keyword {kw} has no live flow and resource yet"))
+    issues += cta_issues(card, brain, job)
 
     permitted = {p["id"] for p in brain.get("proof_bank", []) if p.get("permission") == "yes"}
     for pid in card.get("proof_used") or []:

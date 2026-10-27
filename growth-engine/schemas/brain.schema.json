@@ -318,6 +318,32 @@
        "string",
        "null"
       ]
+     },
+     "checks": {
+      "type": "object",
+      "description": "The five lead-magnet checks (config organic.json lead_magnet_checks), true or false each.",
+      "properties": {
+       "main_pain": {
+        "type": "boolean"
+       },
+       "one_thing": {
+        "type": "boolean"
+       },
+       "quick_win": {
+        "type": "boolean"
+       },
+       "leads_to_offer": {
+        "type": "boolean"
+       },
+       "low_friction": {
+        "type": "boolean"
+       },
+       "checked": {
+        "type": "string",
+        "description": "date checked"
+       }
+      },
+      "additionalProperties": false
      }
     }
    }
@@ -583,6 +609,60 @@
      "interim": {
       "type": "string"
      }
+    }
+   }
+  },
+  "messaging": {
+   "type": "object",
+   "description": "One way to describe the business that the DM bot, the website and captions all reuse. Only status 'approved' wording is used in posts.",
+   "required": [
+    "status"
+   ],
+   "properties": {
+    "status": {
+     "type": "string",
+     "description": "draft | approved (by the owner, with the date)"
+    },
+    "language": {
+     "type": "string"
+    },
+    "one_liner": {
+     "type": "string",
+     "description": "what we do and for whom, one sentence"
+    },
+    "pitch": {
+     "type": "string",
+     "description": "about 75 words: problem, mechanism, first step"
+    },
+    "value_props": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "maxItems": 3
+    },
+    "boilerplate": {
+     "type": "string",
+     "description": "the 'about us' paragraph for bios, site and DMs"
+    },
+    "voice_is": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "voice_is_not": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "sources": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "description": "brain fields or approved docs each line comes from"
     }
    }
   }

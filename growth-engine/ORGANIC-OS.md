@@ -464,6 +464,8 @@ Month 1 leans on Tiers B and C to find winning angles. From month 2, winners are
 - **Links (up to 5):** application or booking, lead magnet, WhatsApp, website, case studies. UTM on every link.
 - Profile lead form button switched on (business profiles).
 - Check Account Status (recommendation eligibility) weekly.
+- Header test: from the photo, name, bio, link and first grid row alone, a stranger knows who it is for and why to follow.
+  Also check the category label and the first 9 grid posts. Monthly checklist: `.claude/agents/conversion-agent.md`.
 
 ### 8.2 Every post's caption
 - First line: keyword-rich restatement of the hook (search and Google indexing).
@@ -494,6 +496,19 @@ Templates to rotate (Devin Jatho, Eli Pampa):
 7. Hand off into the WhatsApp lead bot (`sales/02-WHATSAPP-LEAD-BOT.md`) for follow-up and booking.
 
 Policy: only message inside the 24-hour window opened by the user. No cold DMs, no DMs triggered by follows or likes.
+
+**Keyword CTAs and recommendations (checked 27 Oct 2026).** Instagram said in June 2024: "If we believe your content
+explicitly asks for engagement through shares, comments, tags, or other actions, then we won't recommend it. An
+example of this is asking people to comment with a specific word, number, or emoji." Three days later it clarified that
+tools like ManyChat are fine and "earnestly engaging with your audience in the comments and DMs to connect personally,
+generate leads, or drive conversions is not considered to be engagement bait"; what it penalises is eliciting
+interactions to "hack" reach. It affects recommendations to non-followers only. Sources: Instagram @creators reel
+https://www.instagram.com/reel/C7kEAtkPiwN/ as reported by Social Media Today, 2 Jun 2024
+(https://www.socialmediatoday.com/news/instagram-says-using-certain-ctas-can-impact-post-reach/717732/), and
+Instagram's clarification, 5 Jun 2024 (https://www.socialmediatoday.com/news/instagram-clarifies-advice-single-word-ctas-longer-reels/718151/).
+Rules for us: a keyword always delivers a real, named resource (the five lead-magnet checks), never "comment YES" or an
+emoji for reach; `card-check` warns on a keyword CTA on a reach post, whose job depends on non-followers. Whether reach
+posts keep keyword CTAs at all is decision 13.13.
 
 ### 8.6 The organic → paid loop (StraightScale's real edge)
 Most "social media agencies" stop at posting. We connect organic to paid:
@@ -647,6 +662,11 @@ Every agent has one job, clear inputs and outputs, and a gate it can block on. A
 10. **Data access.** Measurement needs Insights access (Meta Business partner access) and DM tool tags from day one. Without it, section 9 can't run.
 11. **Expectations.** Expect 30 to 50 on-topic posts before the algorithm learns who the account is for, and 10 to 30 posts to find the first 10x outlier (Kallaway). Sell organic as a 90-day build, with paid ads carrying early results.
 12. **Account health.** Check Account Status weekly; one violation pattern can switch off recommendations for the whole account.
+13. **Keyword CTAs on reach posts.** Instagram won't recommend posts it reads as asking for a specific word (8.5), and reach
+    posts live on recommendations to non-followers. Options: keep keywords on reach posts only when the resource is the
+    point of the post (today's rule, with a card-check warning); or move keywords to trust and convert posts and give
+    reach posts send, save or follow. Recommendation: the second, tested for 4 weeks on reach per post against the
+    current median before it becomes a rule.
 
 ---
 

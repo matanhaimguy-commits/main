@@ -1,4 +1,4 @@
-"""Post Card check. Run: python3 -m unittest discover -s growth-engine/tools/organic_os -p 'test_*.py'"""
+"""Post Card check. Run: python3 -m unittest discover -s growth-engine/tools/organic_os -t growth-engine/tools"""
 import unittest
 
 import organic_os as o

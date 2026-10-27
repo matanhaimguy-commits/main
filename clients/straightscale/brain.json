@@ -1,6 +1,6 @@
 {
  "client": "straightscale",
- "updated": "2026-10-19",
+ "updated": "2026-10-27",
  "refresh_due": "2027-01-15",
  "sources": [
   "brand-kit.md (hub profile)",
@@ -310,6 +310,45 @@
    "id": "D8",
    "question": "Package scope for clients: carousels and stories have no unit in any package (OS 13.4).",
    "recommendation": "Define before selling organic content to clients."
+  },
+  {
+   "id": "D9",
+   "question": "Approve the messaging block (one-liner, pitch, 3 value props, boilerplate) that the DM bot, the website and captions will all reuse, and its Albanian wording?",
+   "recommendation": "Approve or edit the English meaning, then have the Albanian version written and read by a native speaker.",
+   "interim": "Draft only; posts and the bot keep their current wording until it is approved."
   }
- ]
+ ],
+ "messaging": {
+  "status": "draft: owner to approve (D9)",
+  "language": "en for the meaning; the Albanian wording is written from it and needs a native read before use",
+  "one_liner": "You don't need more marketing. You need marketing that works together.",
+  "pitch": "Many businesses pay several suppliers for pieces that do not work together. We call that Patchwork Marketing. StraightScale builds the whole system instead, starting with your buyers: Find, Own, Attract, Convert, Close (The Only Choice System). The first step is a free 45-minute business analysis, at our office in Tirana or at your business, with no obligation.",
+  "value_props": [
+   "The whole system, not separate pieces",
+   "It starts with your buyers",
+   "A free 45-minute analysis first, with no obligation"
+  ],
+  "boilerplate": "StraightScale builds marketing that works together for established businesses: one system from finding buyers to closing the sale, instead of pieces from different suppliers. Start with a free 45-minute analysis in Tirana or at your business.",
+  "voice_is": [
+   "direct",
+   "calm",
+   "practical"
+  ],
+  "voice_is_not": [
+   "hype",
+   "pushy or urgent",
+   "promising results, prices or deadlines"
+  ],
+  "sources": [
+   "mechanism.big_idea",
+   "mechanism.contrast_line",
+   "mechanism.ump",
+   "mechanism.ums",
+   "mechanism.steps",
+   "offer.main_offer",
+   "voice.adjectives",
+   "constraints.cannot_say",
+   "avatars[AV-01].role (established business)"
+  ]
+ }
 }

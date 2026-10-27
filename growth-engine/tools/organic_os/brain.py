@@ -5,8 +5,10 @@ import datetime as dt
 
 import jsonschema
 
-from .config import BRAIN_SCHEMA
+from .config import BRAIN_SCHEMA, CONFIG
 from .issues import ERROR, issue, unknown
+
+LM_CHECKS = [k for k in CONFIG["lead_magnet_checks"] if not k.startswith("_")]
 
 
 def brain_check(brain: dict, demand: list[dict]) -> tuple[list[dict], list[dict]]:
@@ -56,6 +58,11 @@ def brain_check(brain: dict, demand: list[dict]) -> tuple[list[dict], list[dict]
             gap(f"lead_magnets[{lm.get('keyword')}].delivers", "exactly what the person gets, how long it takes", "owner; write it before more keyword CTAs")
         if not lm.get("live"):
             gap(f"lead_magnets[{lm.get('keyword')}]", "resource or keyword flow not live yet", "Conversion Agent builds it; no posts may use the keyword until then")
+        elif set(LM_CHECKS) - set(lm.get("checks") or {}):
+            gap(f"lead_magnets[{lm.get('keyword')}].checks", "the five lead-magnet checks are not recorded (8.5)", "Conversion Agent")
+    if (brain.get("messaging") or {}).get("status", "").split(" ")[0] != "approved":
+        gap("messaging", "one-liner, pitch, 3 value props and boilerplate the bot, site and captions reuse, approved",
+            "draft from the brain's mechanism and offer; owner approves")
     if len((brain.get("voice") or {}).get("samples") or []) < 3:
         gap("voice.samples", "3 to 5 real samples of how the owner talks", "owner ramble, past posts")
     if (get("voice.register") or "").split(" ")[0] not in ("ti", "ju"):
