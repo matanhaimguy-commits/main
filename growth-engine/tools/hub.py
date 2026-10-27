@@ -19,13 +19,44 @@ Item JSON: {"business", "external_key", "kind": reel|carousel|image|story, "titl
 "media": [{"url", "type": image|video}], "cover_url", "scheduled_at" (ISO with offset),
 "notes", "source": {...}}. Local file paths in media[].url (or "file": ...) are uploaded
 first, so a whole post can be pushed in one command.
+
+Studio (the app's Studio page: each piece's steps 0-15, gates, files and the owner's checkpoints):
+
+  hub.py studio-push <slug> <post_id> [--title T] [--files manifest.json] [--business B] [--summary S]
+                                                   read clients/<slug>/runs/<post_id>/ledger.json, build the
+                                                   steps and gates as pipeline.py status sees them, upload
+                                                   the manifest's files, create/update the run on the page
+  hub.py studio-ask <slug> <post_id> <decision.json> [--business B]   put a checkpoint question to the owner
+  hub.py studio-answers [--slug S]                 the owner's answers not yet taken in, as JSON
+  hub.py studio-synced <decision_id>               mark an answer as taken into the studio
+
+--business is the app's business slug when it differs from the client folder <slug>.
+Manifest JSON (paths relative to the manifest): {"title", "summary",
+"files": [{"step": 3, "label": "Speech script", "path": "docs/script.md"},
+          {"step": 4, "label": "Song master v1", "path": "audio/song.v1.mp3"},
+          {"label": "Look board", "url": "https://...", "kind": "image"}],
+"steps": {"3": {"note": "...", "gates": [{"gate": "G-SCRIPT", "label": "Script Lab loop 1", "status": "FAIL",
+          "score": 81, "by": "fresh cold reader", "at": "2026-10-27T10:00:00+00:00", "note": "..."}]}}}.
+Docs (.md, .txt) go inline; audio, images and video are uploaded, and re-used while their bytes are
+unchanged. "files" is the run's whole file list: a file left out is removed from the page. Manifest
+gates show before the ledger's records of that step (use them for loop history the ledger doesn't hold).
+Decision JSON: {"checkpoint": "G-HUMAN-SONG", "step": 4, "question": "...", "options": [{"label": "...",
+"description": "..."}], "multi": false, "context": "markdown" or "context_file": "path.md",
+"key": "G-HUMAN-SONG:SONG@v2" (optional; one question per key, the checkpoint by default)}.
+After the owner answers on the Studio page: studio-answers, record each answer in the run (pipeline.py
+approve/gate, --by the owner's name, as when they answer in chat), then studio-synced <id>.
 """
 import json, mimetypes, os, re, sys, urllib.error, urllib.request
 from pathlib import Path
 
+from studio import answers as studio_answers, ask as studio_ask, push as studio_push, synced as studio_synced
+
 ROOT = Path(__file__).resolve().parent.parent
 ENV_FILE = ROOT / ".env"
 HUB_URL = os.environ.get("HUB_URL", "https://matan-social-agent.lovable.app").rstrip("/")
+# The Studio page's commands, one module each in growth-engine/tools/studio/.
+STUDIO_COMMANDS = {"studio-push": studio_push, "studio-ask": studio_ask, "studio-answers": studio_answers,
+                   "studio-synced": studio_synced}
 
 
 def token() -> str:
@@ -40,9 +71,9 @@ def token() -> str:
     return t
 
 
-def call(method: str, path: str, body=None, timeout=120):
+def call(method: str, path: str, body=None, timeout=120, api="content", missing_ok=False):
     req = urllib.request.Request(
-        f"{HUB_URL}/api/content/{path}",
+        f"{HUB_URL}/api/{api}/{path}",
         method=method,
         data=json.dumps(body, ensure_ascii=False).encode() if body is not None else None,
         headers={"Authorization": f"Bearer {token()}", "Content-Type": "application/json", "User-Agent": "growth-engine-studio"},
@@ -51,6 +82,8 @@ def call(method: str, path: str, body=None, timeout=120):
         with urllib.request.urlopen(req, timeout=timeout) as r:
             return json.loads(r.read() or b"{}")
     except urllib.error.HTTPError as e:
+        if missing_ok and e.code == 404:
+            return None
         sys.exit(f"HUB_HTTP_{e.code}: {e.read()[:600].decode(errors='replace')}")
     except urllib.error.URLError as e:
         sys.exit(f"HUB_UNREACHABLE: {e.reason}. Allow {HUB_URL.split('//')[1]} in the cloud environment's network settings.")
@@ -98,8 +131,8 @@ def resolve_media(item: dict, base: Path) -> dict:
     return item
 
 
-def main():
-    a = sys.argv[1:]
+def main(argv=None):
+    a = sys.argv[1:] if argv is None else list(argv)
     if not a or a[0] in ("-h", "--help"):
         print(__doc__)
         return
@@ -150,6 +183,8 @@ def main():
         slug = rest[0]
         res = call("GET", f"results?business={slug}&days={opt('--days', '30')}")
         print(json.dumps(res["results"], ensure_ascii=False, indent=1))
+    elif cmd in STUDIO_COMMANDS:
+        STUDIO_COMMANDS[cmd].cli(rest, call=call, upload=upload, hub_url=HUB_URL)
     else:
         sys.exit(f"unknown command {cmd}; run hub.py --help")
 
