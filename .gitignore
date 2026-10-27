@@ -18,3 +18,7 @@ __pycache__/
 # review packets are regenerable (vqa_crops.py); the reports in qa/*.json are kept
 clients/*/runs/*/qa/crops/
 clients/*/runs/*/qa/frames/
+# song and audio takes: large files and media URLs with account hashes (kept in the session, sent to the owner directly)
+clients/*/runs/*/audio/takes/
+# agent worktrees (temporary copies of the repo)
+.claude/worktrees/

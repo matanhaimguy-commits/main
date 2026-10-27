@@ -263,7 +263,42 @@
     },
     "atlas": {
       "_doc": "Atlas Cloud models (atlas generate image, video, audio) the owner has named for production. Only the owner adds an entry here. Each entry is an object: {id: exact model id, kind: image|video|audio, use: [asset types] (optional), params: {key: required value}, params_one_of: {key: [allowed values]}, params_if_given: {key: [allowed values]}, min_s and max_s (duration bounds; required for video), text_fields: [extra text fields such as negative_prompt or lyrics, reviewed with the prompt]}. The gate blocks any parameter carrying text that the entry does not list. Empty: the gate blocks every Atlas generation. 3d stays blocked (no asset type makes 3D). A family banned in STANDARDS.md 1 stays banned on Atlas unless the owner names that exact model here; G-EXCEPTION does not open Atlas. growth-engine/tools/atlas/README.md has an example.",
-      "allowed": []
+      "allowed": [
+        {
+          "id": "suno/chirp-v6",
+          "kind": "audio",
+          "use": [
+            "song"
+          ],
+          "params": {
+            "custom": true,
+            "auto_lyrics": false,
+            "instrumental": false
+          },
+          "params_one_of": {
+            "vocal_gender": [
+              "Male",
+              "Female"
+            ]
+          },
+          "params_if_given": {
+            "variety": [
+              "off",
+              "normal",
+              "high",
+              "extra",
+              "max"
+            ]
+          },
+          "min_s": 20,
+          "max_s": 90,
+          "text_fields": [
+            "style",
+            "title",
+            "negative_tags"
+          ]
+        }
+      ]
     },
     "image_people_spec_formats": [
       "ugc",
