@@ -36,3 +36,7 @@
   the owner.
 - Other folders: `Mark AI/` (product research), `openmontage-work/` and `straightscale-reel/` (earlier video
   experiments, see `motion-studio/knowledge/our-pipeline.md`).
+- **Code structure (owner rule, 27 Oct 2026)**: never one large, long file. One small main file (a page, an entry point,
+  a CLI dispatcher) that only wires things together, and each function or component in its own file, so every part is
+  easy to control, edit and manage: one responsibility per file, short files, clear names, tests per module. When a
+  file you touch has grown long, split it as part of the change.
