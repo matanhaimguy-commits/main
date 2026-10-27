@@ -82,3 +82,70 @@ Follow for part two: where to find your buyers' words.
 | Hook timing | "Lumpy months" are words 1 to 2 | same |
 | Lines 8 to 14 syllables | yes (10 to 14) | yes (10 to 14) |
 | No offer, price, guarantee, urgency, number or result count | yes | yes |
+
+## Lyric cold reads, loop 1 (two fresh readers, flat): FIX
+- Both retold the full chain and would follow for part two; nobody scrolled before the answer.
+- O60: scroll ("no") at the repeated chorus, L16 to L18: dead time once the idea has landed, and "That's patchwork
+  marketing" sung right after her fix points at the fix. The chain L12 to L13 lost its verbs ("her offer from those
+  words, her posts from that offer"). "Never" in L1 can be missed (caption it; the singer leans on it).
+- O30: "scraps that never hold" contradicts "each held a month"; "one cloth, your buyers' words" loses its link sung (no
+  audible colon); "Cut the offer" first sounds like dropping the offer; L3 too many words in one breath.
+- Fixes (lyric lines only; speech unchanged in meaning): chorus "no scrap holds the others up"; O60 chorus 2 turned
+  ("No more patchwork marketing, no scrap sewn on alone:") straight into the payoff line, so the name is still sung
+  twice; verbs back in the chain; O30 "and that cloth is the words your buyers use for the problem", "Make the offer from
+  their words, then make the posts from the offer"; L3 split.
+
+## O60 lyrics v2 (17 lines, about 150 words; aim 50 to 60 s)
+```
+[Verse 1]
+Lumpy months? It was never where your clients came from,        [13]
+take Maya, a consultant: referrals filled her March,             [13]
+then April went quiet, she'd been too busy in March              [13]
+to look for April's clients while the work was coming in.        [14]
+So she tried some fixes: cold email, LinkedIn,                   [12]
+a coach and then some ads, and each held a month, then came loose. [14]
+
+[Spoken]
+A friend who'd had lumpy months too asked her: "Are your fixes connected?"
+
+[Pre-chorus]
+They weren't: just scraps, each one patched on alone,           [10]
+
+[Chorus]
+that's patchwork marketing: no scrap holds the others up.        [13]
+Steady months don't need one more scrap sewn on,                 [10]
+just one cloth to cut every piece from.                          [10]
+
+[Verse 2]
+That cloth is the words her buyers use for the problem:          [13]
+her offer came from those words, her posts came from that offer, [14]
+and ads went last, only on the posts that worked,                [11]
+so those posts kept finding buyers while she was busy.           [13]
+
+[Chorus, turned]
+No more patchwork marketing, no scrap sewn on alone:             [13]
+next April wasn't as full as March, but nothing came loose.      [14]
+
+[Spoken]
+Follow for part two: where to find your buyers' words.
+```
+
+## O30 lyrics v2 (11 lines, about 100 words; aim 30 to 35 s)
+```
+[Verse]
+Lumpy months? It was never where your clients came from,        [13]
+posts, emails, a coach, some ads: each held a month, then came loose, [14]
+'cause each was a scrap, patched on alone.                       [9]
+
+[Chorus]
+That's patchwork marketing: no scrap holds the others up.        [13]
+Not one more scrap: one cloth to cut it all from,                [11]
+and that cloth is the words your buyers use for the problem.     [14]
+Make the offer from their words,                                 [8]
+then make the posts from the offer,                              [9]
+then ads last, only on the posts that worked,                    [10]
+so those posts keep finding buyers while you're busy.            [12]
+
+[Spoken]
+Follow for part two: where to find your buyers' words.
+```
