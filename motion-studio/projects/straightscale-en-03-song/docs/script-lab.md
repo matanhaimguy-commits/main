@@ -123,8 +123,9 @@ end card) after everything. No proof, offer or guarantee rungs.
 ```
 SPINE A "Maya's quilt" | O60, about 50 s, about 125 words | story | ST3 hidden cause on a named-person story
 (narrator-singer, third person) | rung 1 to CTA | failed-solution journey, then discovery
-Hook: stack P, "Your lumpy months were never about the channel you picked," · seam: "take Maya: March was full,
-then April went quiet."
+Hook (master, G-HOOK round 6): the CLIENTS planner, March full, April's last patch snaps · text "Nothing filled
+April. Referrals filled March. Why?" · sung "Lumpy months? It was never where they came from," · seam: "take Maya:
+friends of friends filled her March, then April went still,"
 Master question: "Then why was March full and April empty?"
 Ladder: 1 Maya's March full, April quiet, her phone dark · 2 too busy in March to look for April; in April she waits
 on referrals · 3 she sewed on cold email, then LinkedIn, then a coach's ads: each held a month, then came loose ·
@@ -142,8 +143,9 @@ the aha without blame
 ```
 SPINE B "The patches sing" | O60, about 50 s | story | ST7 mistakes countdown on characters explain (roll-call),
 narrator for the turn | rung 3 to CTA | each fix confesses, escalating; the last one finds the cause
-Hook: stack S, "When a month goes quiet, I'm the referral she waits on," · seam: "and that's cold email beside me,
-sewn on in March, by April hanging by a thread."
+Hook: stack S, "When a month goes quiet, I'm the referral she waits on," (round 2: V B+, T A, S B: the button eyes read
+as a kids' video and "I" vs "she" is unclear; never reached A) · seam: "and that's cold email beside me, sewn on in
+March, by April hanging by a thread."
 Master question: "Why does every patch come loose?"
 Ladder: 1-2 the referral patch: she waits on me every slow month · 3 cold email: a burst in March, loose by April;
 LinkedIn: "I work, but I'm sporadic"; ads: "she sewed me on last" · 4 ads, the last one: "she sewed me onto nothing:
@@ -161,7 +163,8 @@ patches can read as a skit, and small labelled props must read at phone size
 ```
 SPINE C "Stop sewing on" | O30, about 28 s, about 70 words | short | ST6 myth buster as a problem rap,
 second person | rung 3 to CTA | the short tier of either spine (written on its own after the pick)
-Hook: stack R, "More posts, more emails, and April still came up empty," (or P)
+Hook: the master stack's visual and sung opening (shared with spine A, no extra song take); text "More posts. More
+emails. April still empty." as a trial variant
 Master question: "Then what fills April?"
 Ladder: 3 each fix sewn on alone, so it holds only while you push it · 4 one picture line: Patchwork Marketing · 6
 the order in one breath, ads last, only on what already worked · CTA send

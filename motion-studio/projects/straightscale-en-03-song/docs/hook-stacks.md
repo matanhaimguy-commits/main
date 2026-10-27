@@ -142,3 +142,24 @@ Ranking: 2, 1, 3. Weakest thing left in 2: nothing promises a reason inside 1 to
   as a client calendar at 1 s.
 - Variants, new types on the same visual and sung opening: verdict on the fixes "Every fix held a month. Then came
   loose. Why?"; workaround reveal "Quiet April. Back to waiting on referrals."
+
+## G-HOOK round 6: sixth fresh grader (27 Oct): master V A-, T A-, S A
+| Stack | Sound off past 2 s | V | T | S | Its note |
+|---|---|---|---|---|---|
+| 1 | yes | A- | A- | A | "never where they came from" pulls to line 2; the text opens on the good news, so the pain lands at about 1 s; crochet charm can read as craft for half a second |
+| 2 | maybe | A- | B | B+ | "fix" is abstract and brushes "fix your offer" |
+| 3 | maybe | A- | B+ | A- | "the waiting is the real feeling", but no promised reason |
+
+## Status after 6 rounds: G-HOOK not passed; taken to the owner at GATE 4
+Master stack across rounds 4 to 6 (the same stack, small fixes each round):
+| Round | V | T | S |
+|---|---|---|---|
+| 4 | A- (hand at 1.2 s) | A | A |
+| 5 | A- (crochet reads as craft) | A | A- (referrals aren't a "channel": fixed) |
+| 6 | A- (crochet reads as craft) | A- (opens on the good news) | A |
+The text and sung channels move between A- and A with each new grader (variance); every grader marks the visual A- for
+the same reason: at half a second, crochet reads as a craft video. That is the style, not the shot spec, so it is the
+owner's call (the look is decided once per series, G-HUMAN-LOOK). Text for the owner: "Referrals filled March. Nothing
+filled April. Why?" or the problem-first order "Nothing filled April. Referrals filled March. Why?" (round 6's fix).
+Variants are below A (best: "Quiet April. Back to waiting on referrals.", T B+); they are needed only for the trial
+reels after the main post and go back to H6 after the pick.
