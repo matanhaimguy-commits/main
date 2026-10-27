@@ -17,9 +17,9 @@ offer" (Research, Offer, Organic, Funnel, Paid ads). Docs: `docs/hook-stacks.md`
 - Facts: none on screen or in the lyrics (proof files not collected); Maya is a composite in a stylized world.
 
 ## Status
-Stage: script (Script Lab WRITE: speech at O60 and O30, then lyrics and the lyric gate)
-Next: release the speech at 85+, lyrics, lyric gate, style prompt; then the song route (owner decision) and
-G-HUMAN-SONG before any picture.
+Stage: script, escalated to the owner after 3 rewrite loops (O30 86/100 release; O60 81/100)
+Next: owner decisions in docs/script.md "Writer's recommendation" (O30 release, O60 fixes + one more gate, CTA follow
+to EN 02, the payoff picture); then lyrics, lyric gate, style prompt; the song route; G-HUMAN-SONG before any picture.
 Open: song route (ElevenLabs Music billing failed; Atlas Suno needs the owner to name the model in the gate; or the
 owner makes it in Suno by hand, the song skill's default) · the visual hook is re-graded on the claymation concept
 frame after G-HUMAN-SONG · hook variants back to H6 before any trial reel.

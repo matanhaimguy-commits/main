@@ -271,3 +271,32 @@ and put ads last, only on posts that worked,
 so those posts keep finding buyers while you're busy.
 Save this before your next quiet month.
 ```
+
+## Gate report, loop 4 (rewrite 3 of 3): O30 RELEASE, O60 ESCALATE to the owner
+| Tier | Comprehension /25 | Ladder /20 | Hook /10 | Mechanism /10 | Proof /10 | CTA /10 | Emotion /5 | Ear /5 | Length /5 | Total | Critical fails |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| O30 (86 words, 34 s) | 22 | 19 | 9 | 9 | 6 | 10 | 2 | 4 | 5 | **86** | none |
+| O60 (151 words, 60 s) | 19 | 18 | 9 | 9 | 5 | 9 | 3 | 4 | 5 | **81** | none |
+Proof is scored on the process shown (the proof bank is empty); CTA uses the organic re-weight (save fits a reach job).
+- Both tiers: every reader retold the problem, the cause, the chain (buyers' words, offer, posts, ads last on what
+  worked) and why it works; nobody scrolled ("maybe" at most). Every reader would save it; none would send or follow.
+- O60 remaining fails: L15 "Next April was slower" read as "the same or worse" than the first April (the payoff is the
+  most confusing line; not cleared, -3); the diagnosis runs three beats (the friend's question, "they weren't", the name)
+  with no new information, the sound-off scroll risk; "They need one cloth" points at the clients on screen; "a friend
+  who'd been there" (been where?).
+- Doubts every reader kept (not confusion): how do I get my buyers' words; "is this fix your offer, post more, run ads
+  in a new order"; "never where your clients came from" against a fix that ends in posts and ads; "posts keep finding
+  buyers while you're busy" sounds a little like autopilot; who is @straightscale_.
+- Follow: several readers said a second reel showing how to collect the buyers' words would earn the follow. EN 02
+  ("Your buyers already wrote your hooks": three places to find them) is that reel.
+
+### Writer's recommendation (to the owner)
+1. Release the O30 now (86, no critical fail) and write its lyrics; it carries the whole argument at the lowest cost.
+2. O60: four line fixes, then one more gate with new readers (the owner's call, the loops are spent):
+   L15 "Next April wasn't as full as March, but nothing came loose." · L7 + L8 merged into two beats ("They weren't:
+   each was a scrap, patched on alone. That's patchwork marketing.") · L10 "Steady months need one cloth to cut every
+   piece from." · L6 "A friend who'd had lumpy months too asked: ...".
+3. CTA: "Follow for part two: where to find your buyers' words." (follow is allowed when part 2 is planned; part 2 is
+   EN 02, already built). Replaces "Save this before your next quiet ...".
+4. The payoff picture: keep the honest slower April with a few clients (the one result image) or show the process only
+   (song-organic.md 5). Readers asked for the clients four times out of four sound-off reads.
