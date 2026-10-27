@@ -342,3 +342,29 @@ and put ads last, only on posts that worked,
 so those posts keep finding buyers while you're busy.
 Follow for part two: where to find your buyers' words.
 ```
+
+## Gate report, loop 5: RELEASE (both tiers)
+| Tier | Readers | Comprehension /25 | Ladder /20 | Hook /10 | Mechanism /10 | Proof /10 | CTA /10 | Emotion /5 | Ear /5 | Length /5 | Total |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| O60 v5 (151 words, 60 s) | listen, skeptic, sound-off | 21 | 18 | 9 | 9 | 6 | 10 | 4 | 4 | 5 | **86** |
+| O30 v5 (85 words, 34 s) | listen | 23 | 19 | 9 | 9 | 6 | 10 | 2 | 4 | 5 | **87** |
+- Retell: every rung matched by all four readers, worst reader included. No scroll point ("maybe" at most: O60 L8 and
+  L10, O30 L4). No critical fail. Minor confusions, each cleared within a line: "it" in L1; who asks in L6; "one
+  cloth" before the next line explains it; "clients" becoming "buyers".
+- The payoff fix landed: "Next April wasn't as full as March" became the most believed line ("it doesn't overpromise").
+- CTA: every reader would follow for part two (the first follows in 17 reads); none would send; saves dropped (the how-to
+  is in part two).
+- Doubts kept on purpose (not confusion): "is this fix your messaging, post, run ads in a new order"; where cold email
+  and LinkedIn go; ad cost and how long; no proof; the friend as the account in disguise (the skeptic: "no outright lie,
+  just incomplete on purpose").
+- Notes for the visual plan (sound-off): the friend's organizer must differ by one calm fabric, not by seams (a quilt has
+  seams too); the speech bubbles appear with the "cloth is the words" line, not before (they read as word of mouth);
+  the MARCH tag is too small; frame 1 text needs its full 2.5 s.
+
+## SCRIPT LAB RELEASE | StraightScale EN song 01 "Maya's quilt"
+- O60: structure ST3 hidden cause on a named-person story, narrator-singer | 151 words, about 60 s at 2.5 words/s |
+  gate 86/100, loop 5 (an owner-approved fourth rewrite after the escalation). Script: O60 v5 above.
+- O30: ST6 myth buster as a problem rap, second person | 85 words, about 34 s | gate 87/100, loop 5. Script: O30 v5.
+- Length ladder: O60 (story tier) and O30 (short tier) written; no O90.
+- Hooks sent back: none (the master stack's seam holds in both tiers); the hook variants stay with Hook Lab H6 for trial
+  reels.
