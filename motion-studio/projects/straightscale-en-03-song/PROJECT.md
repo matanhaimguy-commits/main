@@ -12,8 +12,8 @@ offer" (Research, Offer, Organic, Funnel, Paid ads). Docs: `docs/hook-stacks.md`
   its DIY form (every fix sewn on alone), named in the chorus only.
 - Lengths: O60 written at about 50 s, plus an O30 written on its own (STANDARDS 8).
 - Genre: indie folk storytelling, one narrator-singer.
-- Look: claymation (organic.json `animation_styles.claymation`), fabric patches on the planner.
-- CTA: send ("Send this to the founder whose March was full.").
+- Look: claymation (organic.json `animation_styles.claymation`), clay clients in the pockets of a CLIENTS wall organizer, fixes as labelled fabric scraps, the method as one cloth.
+- CTA: save ("Save this before your next quiet April."; send read as a dig in loop 1); proposed: follow for part two (EN 02).
 - Facts: none on screen or in the lyrics (proof files not collected); Maya is a composite in a stylized world.
 
 ## Status
