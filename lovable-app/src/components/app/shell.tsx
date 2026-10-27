@@ -11,6 +11,7 @@ import {
   LogOut,
   PlugZap,
   Settings,
+  Workflow,
   type LucideIcon,
 } from "lucide-react";
 import type { ReactNode } from "react";
@@ -23,6 +24,7 @@ const NAV: { to: string; label: string; icon: LucideIcon }[] = [
   { to: "/inbox", label: "Inbox", icon: Inbox },
   { to: "/businesses", label: "Businesses", icon: Building2 },
   { to: "/content", label: "Content", icon: Clapperboard },
+  { to: "/studio", label: "Studio", icon: Workflow },
   { to: "/activity", label: "Activity", icon: Activity },
   { to: "/test", label: "Test the bot", icon: Bot },
   { to: "/connect", label: "Connect", icon: PlugZap },

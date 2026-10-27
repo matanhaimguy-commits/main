@@ -26,6 +26,8 @@ import { Route as InboxIndexRouteImport } from './routes/inbox/index'
 import { Route as InboxIdRouteImport } from './routes/inbox/$id'
 import { Route as LSlugRouteImport } from './routes/l/$slug'
 import { Route as RTokenRouteImport } from './routes/r/$token'
+import { Route as StudioIndexRouteImport } from './routes/studio/index'
+import { Route as StudioIdRouteImport } from './routes/studio/$id'
 import { Route as ApiConnectCallbackRouteImport } from './routes/api/connect/callback'
 import { Route as ApiConnectStartRouteImport } from './routes/api/connect/start'
 import { Route as ApiContentClientsRouteImport } from './routes/api/content/clients'
@@ -34,6 +36,9 @@ import { Route as ApiContentItemsRouteImport } from './routes/api/content/items'
 import { Route as ApiContentResultsRouteImport } from './routes/api/content/results'
 import { Route as ApiContentUploadRouteImport } from './routes/api/content/upload'
 import { Route as ApiMetaWebhookRouteImport } from './routes/api/meta/webhook'
+import { Route as ApiStudioDecisionsRouteImport } from './routes/api/studio/decisions'
+import { Route as ApiStudioRunsRouteImport } from './routes/api/studio/runs'
+import { Route as ApiStudioSyncedRouteImport } from './routes/api/studio/synced'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -120,6 +125,16 @@ const RTokenRoute = RTokenRouteImport.update({
   path: '/r/$token',
   getParentRoute: () => rootRouteImport,
 } as any)
+const StudioIndexRoute = StudioIndexRouteImport.update({
+  id: '/studio/',
+  path: '/studio/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudioIdRoute = StudioIdRouteImport.update({
+  id: '/studio/$id',
+  path: '/studio/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiConnectCallbackRoute = ApiConnectCallbackRouteImport.update({
   id: '/api/connect/callback',
   path: '/api/connect/callback',
@@ -160,6 +175,21 @@ const ApiMetaWebhookRoute = ApiMetaWebhookRouteImport.update({
   path: '/api/meta/webhook',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiStudioDecisionsRoute = ApiStudioDecisionsRouteImport.update({
+  id: '/api/studio/decisions',
+  path: '/api/studio/decisions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStudioRunsRoute = ApiStudioRunsRouteImport.update({
+  id: '/api/studio/runs',
+  path: '/api/studio/runs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiStudioSyncedRoute = ApiStudioSyncedRouteImport.update({
+  id: '/api/studio/synced',
+  path: '/api/studio/synced',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -177,8 +207,10 @@ export interface FileRoutesByFullPath {
   '/inbox/$id': typeof InboxIdRoute
   '/l/$slug': typeof LSlugRoute
   '/r/$token': typeof RTokenRoute
+  '/studio/$id': typeof StudioIdRoute
   '/businesses/': typeof BusinessesIndexRoute
   '/inbox/': typeof InboxIndexRoute
+  '/studio/': typeof StudioIndexRoute
   '/api/connect/callback': typeof ApiConnectCallbackRoute
   '/api/connect/start': typeof ApiConnectStartRoute
   '/api/content/clients': typeof ApiContentClientsRoute
@@ -187,6 +219,9 @@ export interface FileRoutesByFullPath {
   '/api/content/results': typeof ApiContentResultsRoute
   '/api/content/upload': typeof ApiContentUploadRoute
   '/api/meta/webhook': typeof ApiMetaWebhookRoute
+  '/api/studio/decisions': typeof ApiStudioDecisionsRoute
+  '/api/studio/runs': typeof ApiStudioRunsRoute
+  '/api/studio/synced': typeof ApiStudioSyncedRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -204,8 +239,10 @@ export interface FileRoutesByTo {
   '/inbox/$id': typeof InboxIdRoute
   '/l/$slug': typeof LSlugRoute
   '/r/$token': typeof RTokenRoute
+  '/studio/$id': typeof StudioIdRoute
   '/businesses': typeof BusinessesIndexRoute
   '/inbox': typeof InboxIndexRoute
+  '/studio': typeof StudioIndexRoute
   '/api/connect/callback': typeof ApiConnectCallbackRoute
   '/api/connect/start': typeof ApiConnectStartRoute
   '/api/content/clients': typeof ApiContentClientsRoute
@@ -214,6 +251,9 @@ export interface FileRoutesByTo {
   '/api/content/results': typeof ApiContentResultsRoute
   '/api/content/upload': typeof ApiContentUploadRoute
   '/api/meta/webhook': typeof ApiMetaWebhookRoute
+  '/api/studio/decisions': typeof ApiStudioDecisionsRoute
+  '/api/studio/runs': typeof ApiStudioRunsRoute
+  '/api/studio/synced': typeof ApiStudioSyncedRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -232,8 +272,10 @@ export interface FileRoutesById {
   '/inbox/$id': typeof InboxIdRoute
   '/l/$slug': typeof LSlugRoute
   '/r/$token': typeof RTokenRoute
+  '/studio/$id': typeof StudioIdRoute
   '/businesses/': typeof BusinessesIndexRoute
   '/inbox/': typeof InboxIndexRoute
+  '/studio/': typeof StudioIndexRoute
   '/api/connect/callback': typeof ApiConnectCallbackRoute
   '/api/connect/start': typeof ApiConnectStartRoute
   '/api/content/clients': typeof ApiContentClientsRoute
@@ -242,6 +284,9 @@ export interface FileRoutesById {
   '/api/content/results': typeof ApiContentResultsRoute
   '/api/content/upload': typeof ApiContentUploadRoute
   '/api/meta/webhook': typeof ApiMetaWebhookRoute
+  '/api/studio/decisions': typeof ApiStudioDecisionsRoute
+  '/api/studio/runs': typeof ApiStudioRunsRoute
+  '/api/studio/synced': typeof ApiStudioSyncedRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -261,8 +306,10 @@ export interface FileRouteTypes {
     | '/inbox/$id'
     | '/l/$slug'
     | '/r/$token'
+    | '/studio/$id'
     | '/businesses/'
     | '/inbox/'
+    | '/studio/'
     | '/api/connect/callback'
     | '/api/connect/start'
     | '/api/content/clients'
@@ -271,6 +318,9 @@ export interface FileRouteTypes {
     | '/api/content/results'
     | '/api/content/upload'
     | '/api/meta/webhook'
+    | '/api/studio/decisions'
+    | '/api/studio/runs'
+    | '/api/studio/synced'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -288,8 +338,10 @@ export interface FileRouteTypes {
     | '/inbox/$id'
     | '/l/$slug'
     | '/r/$token'
+    | '/studio/$id'
     | '/businesses'
     | '/inbox'
+    | '/studio'
     | '/api/connect/callback'
     | '/api/connect/start'
     | '/api/content/clients'
@@ -298,6 +350,9 @@ export interface FileRouteTypes {
     | '/api/content/results'
     | '/api/content/upload'
     | '/api/meta/webhook'
+    | '/api/studio/decisions'
+    | '/api/studio/runs'
+    | '/api/studio/synced'
   id:
     | '__root__'
     | '/'
@@ -315,8 +370,10 @@ export interface FileRouteTypes {
     | '/inbox/$id'
     | '/l/$slug'
     | '/r/$token'
+    | '/studio/$id'
     | '/businesses/'
     | '/inbox/'
+    | '/studio/'
     | '/api/connect/callback'
     | '/api/connect/start'
     | '/api/content/clients'
@@ -325,6 +382,9 @@ export interface FileRouteTypes {
     | '/api/content/results'
     | '/api/content/upload'
     | '/api/meta/webhook'
+    | '/api/studio/decisions'
+    | '/api/studio/runs'
+    | '/api/studio/synced'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -343,8 +403,10 @@ export interface RootRouteChildren {
   InboxIdRoute: typeof InboxIdRoute
   LSlugRoute: typeof LSlugRoute
   RTokenRoute: typeof RTokenRoute
+  StudioIdRoute: typeof StudioIdRoute
   BusinessesIndexRoute: typeof BusinessesIndexRoute
   InboxIndexRoute: typeof InboxIndexRoute
+  StudioIndexRoute: typeof StudioIndexRoute
   ApiConnectCallbackRoute: typeof ApiConnectCallbackRoute
   ApiConnectStartRoute: typeof ApiConnectStartRoute
   ApiContentClientsRoute: typeof ApiContentClientsRoute
@@ -353,6 +415,9 @@ export interface RootRouteChildren {
   ApiContentResultsRoute: typeof ApiContentResultsRoute
   ApiContentUploadRoute: typeof ApiContentUploadRoute
   ApiMetaWebhookRoute: typeof ApiMetaWebhookRoute
+  ApiStudioDecisionsRoute: typeof ApiStudioDecisionsRoute
+  ApiStudioRunsRoute: typeof ApiStudioRunsRoute
+  ApiStudioSyncedRoute: typeof ApiStudioSyncedRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -476,6 +541,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RTokenRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/studio/': {
+      id: '/studio/'
+      path: '/studio'
+      fullPath: '/studio/'
+      preLoaderRoute: typeof StudioIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/studio/$id': {
+      id: '/studio/$id'
+      path: '/studio/$id'
+      fullPath: '/studio/$id'
+      preLoaderRoute: typeof StudioIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/connect/callback': {
       id: '/api/connect/callback'
       path: '/api/connect/callback'
@@ -532,6 +611,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiMetaWebhookRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/studio/decisions': {
+      id: '/api/studio/decisions'
+      path: '/api/studio/decisions'
+      fullPath: '/api/studio/decisions'
+      preLoaderRoute: typeof ApiStudioDecisionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/studio/runs': {
+      id: '/api/studio/runs'
+      path: '/api/studio/runs'
+      fullPath: '/api/studio/runs'
+      preLoaderRoute: typeof ApiStudioRunsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/studio/synced': {
+      id: '/api/studio/synced'
+      path: '/api/studio/synced'
+      fullPath: '/api/studio/synced'
+      preLoaderRoute: typeof ApiStudioSyncedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -551,8 +651,10 @@ const rootRouteChildren: RootRouteChildren = {
   InboxIdRoute: InboxIdRoute,
   LSlugRoute: LSlugRoute,
   RTokenRoute: RTokenRoute,
+  StudioIdRoute: StudioIdRoute,
   BusinessesIndexRoute: BusinessesIndexRoute,
   InboxIndexRoute: InboxIndexRoute,
+  StudioIndexRoute: StudioIndexRoute,
   ApiConnectCallbackRoute: ApiConnectCallbackRoute,
   ApiConnectStartRoute: ApiConnectStartRoute,
   ApiContentClientsRoute: ApiContentClientsRoute,
@@ -561,6 +663,9 @@ const rootRouteChildren: RootRouteChildren = {
   ApiContentResultsRoute: ApiContentResultsRoute,
   ApiContentUploadRoute: ApiContentUploadRoute,
   ApiMetaWebhookRoute: ApiMetaWebhookRoute,
+  ApiStudioDecisionsRoute: ApiStudioDecisionsRoute,
+  ApiStudioRunsRoute: ApiStudioRunsRoute,
+  ApiStudioSyncedRoute: ApiStudioSyncedRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
