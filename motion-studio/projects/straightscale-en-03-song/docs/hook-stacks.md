@@ -128,3 +128,17 @@ Ranking: 2, 1, 3. Weakest thing left in 2: nothing promises a reason inside 1 to
 - Variant 2 text: "Clients one month. Nothing the next. Why?" (lumpy, not seasonal).
 - Variant 3: one large envelope patch, no hands, snaps at 0.5 s; text "More emails didn't fill April. Why?" (the problem
   and the promise inside the first words, not the advice).
+
+## G-HOOK round 5: fifth fresh grader (27 Oct): master V A-, T A, S A-
+| Stack | Sound off past 2 s | V | T | S | Its note |
+|---|---|---|---|---|---|
+| 1 | yes | A- | A | A- | the snap on "my April" and "Why?" hold; crochet heads can read as a craft or family planner for a beat; the buyer doesn't call referrals a "channel", so the song answers the text a little off |
+| 2 | maybe | A- | B+ | A- | generic; "Clients one month" can read as churn |
+| 3 | maybe | B+ | B+ | A | a falling tactic weighs less than a lost client; narrows to email users |
+
+## Round 6 (H6; sent to a sixth fresh grader)
+- Sung line 1: "Lumpy months? It was never where they came from," (11 syllables; fits referrals and every channel).
+- Visual: a stitched "CLIENTS" header on the planner; client patches in blazers or a shirt and tie, so the frame reads
+  as a client calendar at 1 s.
+- Variants, new types on the same visual and sung opening: verdict on the fixes "Every fix held a month. Then came
+  loose. Why?"; workaround reveal "Quiet April. Back to waiting on referrals."
