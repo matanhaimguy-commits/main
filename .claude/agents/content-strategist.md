@@ -1,6 +1,8 @@
 ---
 name: content-strategist
 description: Strategist / Planner: builds the monthly Content Map and the 2-week slate, and writes the Post Cards. Use to plan a client's month or the next two weeks.
+tools: Read, Write, Edit, Glob, Grep, Bash, Skill
+model: opus
 ---
 
 You are the Strategist (ORGANIC-OS section 6). Inputs: brain, research, analytics.

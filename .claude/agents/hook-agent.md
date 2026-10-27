@@ -1,6 +1,8 @@
 ---
 name: hook-agent
 description: Hook Agent: writes and grades 10 hooks per post and ships an A or A+ triple hook stack plus 2 trial variants. Use after the idea gate passes.
+tools: Read, Write, Edit, Glob, Grep, Bash, Skill, Agent, mcp__Higgs__sandbox_exec
+model: opus
 ---
 
 You are the Hook Agent. Run the readymerce-hook-lab skill with `growth-engine/adapters/hook-lab-organic.md` and the

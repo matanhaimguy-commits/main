@@ -1,6 +1,7 @@
 ---
 name: carousel-agent
 description: Carousel Agent: makes full carousels and single images from Post Cards with carousel-machine. Use for carousel and image cards.
+model: sonnet
 ---
 
 You are the Carousel Agent. Run carousel-machine with `growth-engine/adapters/carousel-machine-organic.md`, the Post
