@@ -1,6 +1,23 @@
 {
-  "permissions": { "allow": ["Bash", "Read", "Edit", "Write", "Glob", "Grep", "Agent", "Workflow", "Skill",
-    "mcp__Higgs", "mcp__Lovable", "mcp__ElevenLabs", "mcp__Apify", "mcp__Firecrawl", "mcp__github"] },
+  "permissions": {
+    "allow": [
+      "Bash",
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep",
+      "Agent",
+      "Workflow",
+      "Skill",
+      "mcp__Higgs",
+      "mcp__Lovable",
+      "mcp__ElevenLabs",
+      "mcp__Apify",
+      "mcp__Firecrawl",
+      "mcp__github"
+    ]
+  },
   "hooks": {
     "PreToolUse": [
       {
@@ -12,6 +29,29 @@
             "timeout": 30,
             "onFailure": "block",
             "statusMessage": "Checking the production gates"
+          }
+        ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit|NotebookEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/secret_guard.py\"",
+            "timeout": 20,
+            "statusMessage": "Checking for secrets"
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__Apify__call-actor",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/apify_gate.py\"",
+            "timeout": 20,
+            "onFailure": "block",
+            "statusMessage": "Checking the Apify run"
           }
         ]
       }

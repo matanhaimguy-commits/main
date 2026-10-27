@@ -1,0 +1,41 @@
+{
+  "_doc": "Apify scrapers the session may run through mcp__Apify__call-actor, checked by .claude/hooks/apify_gate.py. input_keys come from each actor's input schema (fetch-actor-details, 27 Oct 2026): Apify silently ignores a misspelled key, so the gate refuses unknown keys. null = keys not checked yet. All of these bill per event, so callOptions.maxItems does nothing; every call must set callOptions.maxTotalChargeUsd at or under max_charge_usd. fixed: keys that must be sent with exactly this value; forbid: keys that must be absent, false or 0 (personal-data add-ons). Add or raise an actor only with the owner's OK.",
+  "actors": {
+    "apify/instagram-scraper": {
+      "id": "shu8hvrXbJbY3Eb9W",
+      "use": "outlier mining and competitor posts (ORGANIC-OS 5.1, growth-engine step 1)",
+      "input_keys": ["resultsType", "directUrls", "resultsLimit", "onlyPostsNewerThan", "search", "searchType", "searchLimit", "addParentData"],
+      "max_charge_usd": 10
+    },
+    "apify/instagram-reel-scraper": {
+      "id": "xMc5Ga1oCONPmWJIa",
+      "use": "one reel's details and transcript (refbank capture, motion-studio/HANDOFF.md 7.4)",
+      "input_keys": ["username", "resultsLimit", "onlyPostsNewerThan", "skipPinnedPosts", "skipTrialReels", "includeSharesCount", "includeTranscript", "includeDownloadedVideo"],
+      "max_charge_usd": 3
+    },
+    "apify/instagram-hashtag-scraper": {
+      "id": "reGe1ST3OBgYZSsZJ",
+      "use": "reels for a hashtag or keyword (refbank scouting)",
+      "input_keys": ["hashtags", "keywordSearch", "resultsType", "resultsLimit"],
+      "max_charge_usd": 3
+    },
+    "apify/facebook-posts-scraper": {
+      "id": "KoJrdxJCTtpon81KY",
+      "use": "a prospect's or competitor's Facebook page posts (pre-meeting audit)",
+      "input_keys": ["startUrls", "resultsLimit", "captionText", "onlyPostsNewerThan", "onlyPostsOlderThan"],
+      "max_charge_usd": 3
+    },
+    "compass/crawler-google-places": {
+      "id": "nwua9Gu5YrADL7ZDj",
+      "use": "a prospect's Google Maps listing and local competitors (pre-meeting audit)",
+      "input_keys": ["searchStringsArray", "locationQuery", "maxCrawledPlacesPerSearch", "language", "categoryFilterWords", "searchMatching", "placeMinimumStars", "website", "skipClosedPlaces", "scrapePlaceDetailPage", "scrapeTableReservationProvider", "scrapeOrderOnline", "includeWebResults", "scrapeDirectories", "maxQuestions", "scrapeContacts", "scrapeSocialMediaProfiles", "maximumLeadsEnrichmentRecords", "leadsEnrichmentDepartments", "verifyLeadsEnrichmentEmails", "maxReviews", "reviewsStartDate", "reviewsSort", "reviewsFilterString", "reviewsOrigin", "scrapeReviewsPersonalData", "maxImages", "scrapeImageAuthors", "enableCompetitorAnalysis", "maxCompetitorsToAnalyze", "countryCode", "city", "state", "county", "postalCode", "customGeolocation", "startUrls", "placeIds", "allPlacesNoSearchAction"],
+      "fixed": {"scrapeReviewsPersonalData": false},
+      "forbid": ["maximumLeadsEnrichmentRecords", "verifyLeadsEnrichmentEmails", "scrapeImageAuthors", "maxQuestions"],
+      "max_charge_usd": 3
+    },
+    "apify/facebook-ads-scraper": {"use": "Ad Library pages for competitor ads", "input_keys": null, "max_charge_usd": 3},
+    "clockworks/tiktok-scraper": {"use": "TikTok reference reels (refbank)", "input_keys": null, "max_charge_usd": 3},
+    "clockworks/tiktok-hashtag-scraper": {"use": "TikTok hashtag scouting (refbank)", "input_keys": null, "max_charge_usd": 3},
+    "seemuapps/video-frame-extractor": {"use": "frames from a public reference reel (refbank)", "input_keys": null, "max_charge_usd": 2}
+  }
+}
