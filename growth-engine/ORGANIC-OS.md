@@ -155,6 +155,9 @@ The Client Brain is one structured file per client (`clients/<slug>/brain.md` pl
    - Comments per 1,000 views above the account's own rate.
    - Likes and saves in proportion (no bot pattern).
    - Engagement 2% or more (filters paid boosts, Kallaway).
+   - Hidden likes (the scraper gives -1) are unknown, not zero: they stay out of the account's medians, the post can't
+     pass the likes check automatically, and `organic.py outliers` lists it for a check by hand when its views and
+     comments pass.
 4. **Log each outlier:** topic, hook (spoken, text, visual), format, story structure, length, CTA, awareness stage, belief it moves, emotion bucket.
 5. **Gold / Silver / Bronze compare** (Brendan Kane): for the strongest format found, take the top 10, middle 10 and bottom 10 of one account and list what the gold has that the bronze doesn't (first-second action, cut pace, props, caption style, sound). These become rules for our version.
 6. **Transposition** (Kallaway): take topics from inside the niche, but formats, hooks and visuals from other niches. "Keep the structure, change the example and the insight." Never word-for-word.
