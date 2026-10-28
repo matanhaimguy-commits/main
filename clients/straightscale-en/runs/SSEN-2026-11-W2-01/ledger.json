@@ -117,6 +117,12 @@
         "status": "FAIL",
         "by": "producer session (hooks-v6), 2 fresh sonnet graders",
         "note": "Main session, delegated by Matan, plan 28 Oct: one picture round for W9-02. Frame CF-W902@v2 (G-VIS FAIL, 3 minor, position). Best W902-v6a: V B+/B+, T B+/B, S A-/A. Replaced by bank W9-11. Grades: qa/hooks-v6/grades.md"
+      },
+      {
+        "at": "2026-10-28T20:01:39+00:00",
+        "status": "FAIL",
+        "by": "producer session (hooks-v6), fresh sonnet graders",
+        "note": "Main session, delegated by Matan, plan 28 Oct: replacement bank W9-09 out of rounds (3 of 3). Best: W909-R3b T B, S A-. W9-11 not run: its demand phrase Q-R-0146 is not in buyer-phrases-en.md, so its hooks fail the words check. Grades: qa/hooks-v6/grades.md"
       }
     ]
   },

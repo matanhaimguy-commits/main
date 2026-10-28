@@ -1,35 +1,21 @@
-{
-  "gate": "G-SPEC",
-  "shot_id": "H-01-W908",
-  "spec_sha256": "44a6364e3beeb231dae9da6031947b81c45c22bce2e22a02db66185a7c7dc357",
-  "reviewer": "prompt-reviewer (fresh agent)",
-  "independent": true,
-  "status": "FAIL",
-  "files_opened": [
-    "clients/straightscale-en/runs/SSEN-2026-11-W3-01/shots/H-01-W908.spec.yaml",
-    "clients/straightscale-en/runs/SSEN-2026-11-W3-01/qa/H-01-W908.spec.v2.json",
-    "growth-engine/production/failure-library.md",
-    "growth-engine/production/STANDARDS.md (section 6)"
-  ],
-  "checks": [
-    {"id": "P1", "result": "PASS", "evidence": "Every subject, hand, prop and the one action are present and boxed: 'six flat clay cards lying on the clay ground in a grid of 3 columns and 2 rows', 'a tiny clay person standing still on the top middle card'. text_in_image: none. Geometry adds up: 3 x 26% + 2 x 3% = 84%, x 8% to 92%; rows y 30-40 and 42-52; figure x 46-54, y 32-40 lies inside the top middle card (x 37-63, y 30-40)."},
-    {"id": "P2", "result": "N/A", "evidence": "Spec mode; no references ('ref: no sheet yet')."},
-    {"id": "P3", "result": "PASS", "evidence": "hands block complete: 'two mitten hands, no fingers, one at the end of each arm'; 'neither hand touches anything'; left/right given in frame terms ('on the right side of the frame'); region client-hands is kind hand. The spec-check finger-count warning is covered by the mitten-hand rule in notes. (Whether the hands are visible at all is a P11 issue.)"},
-    {"id": "P4", "result": "PASS", "evidence": "Static shot, contact stated: 'stands still in the centre of the top middle card, its weight on the card, its soft shadow falling on the card around it'; feet declared hidden so no foot contact is left to guess."},
-    {"id": "P5", "result": "PASS", "evidence": "PR-POSTS content filled: 'six identical flat cream #F3E9D8 clay slabs with rounded corners and a thin terracotta #C8553D clay rim ... one small heart red #D64545 clay heart pressed in its lower left corner; nothing else on them'. The 'no letters, words, digits or logos' negative does not empty them because their content is hearts. Advisory: the cards are the story prop, so story_critical true would be safer for later shots."},
-    {"id": "P6", "result": "PASS", "evidence": "'text_in_image: none'; must_not 'no letters, words, digits or logos anywhere'; hook is added in the edit over 'the top 30% ... plain empty ground'."},
-    {"id": "P7", "result": "PASS", "evidence": "'background_rule: no signs, frames, posters, screens or writing anywhere'; 'everywhere lower than 52% only plain ground'; must_not 'no workbench, table edge or room around the clay world'."},
-    {"id": "P8", "result": "PASS", "evidence": "v2 box mismatch is fixed: figure y 32-40 sits inside the card's y 30-40; regions client [0.46,0.32,0.54,0.40] match the pose; client-hands is wider on purpose. Right-21% rule: only the 2% sliver of the lower-right card (y 50-52, x>79) enters it and the spec rules it 'except the plain right edge of the lower right card'. Palette: jacket/trousers #2B2A33 = deep ink, in the style palette. No contradiction found."},
-    {"id": "P9", "result": "PASS", "evidence": "'previous_shot: null', 'carry_over: []'; 'first image of the character' and of the prop."},
-    {"id": "P10", "result": "N/A", "evidence": "Spec mode. Aspect '9:16' and hero still noted."},
-    {"id": "P11", "result": "FAIL", "evidence": "(a) Hands: the figure is 'seen from straight above' with 'both arms straight down at its sides', and the spec boxes a hand region and asks for a count of 'two mitten hands'. From straight above, arms hanging straight down lie under the shoulders and the hands are hidden, so a reviewer cannot check count_check, and a model may splay the arms to show them. The spec says feet are hidden but never says whether the hands show. (b) Head: 'round cream head with short charcoal clay hair' seen from straight above shows mostly hair; the spec does not say what shows (hair cap with cream at the ears?), so a model may paint a cream face-up disc and break 'no face visible'."},
-    {"id": "P12", "result": "PASS", "evidence": "FL-11: 'instances: 1' + 'no second figure' + weight-on-card physics line. FL-06: 'the top of the head and the shoulders visible, no face'. FL-01/FL-10: no text and 'no signs, frames, posters, screens or writing'. FL-02: card structure described ('one layer each', rim, corners). FL-13: the bottom area is plain ground, no logo requested. Advisory: ground is sage, not dark; if brand_overlay.py will paste a logo on this still, its bright-corner check may refuse the bottom-left corner."}
-  ],
-  "suggested_spec_changes": [
-    "P11 (a): in CH-CLIENT state, replace 'both arms straight down at its sides' with 'both arms hanging straight down at its sides, each arm a short rounded clay shape lying along the outer edge of its shoulder, so that from above each mitten hand shows as one small round clay bump just beyond the shoulder, one on the left side of the frame and one on the right'.",
-    "P11 (a): in hands, left: 'a tiny round clay mitten hand with no fingers, visible as a small round bump just outside the shoulder on the right side of the frame, hanging straight down at the side, touching nothing'; right: the same on the left side of the frame. Keep count_check 'two visible mitten hands, no fingers, one beyond each shoulder'.",
-    "P11 (b): in CH-CLIENT state, replace 'round cream head with short charcoal clay hair' with 'a round head seen from above: the top is covered by a cap of short charcoal clay hair, with only a thin rim of cream clay showing at the ears and neck; no face, no forehead, no eyes'.",
-    "Optional: set PR-POSTS story_critical to true (content is already filled) so later shots keep the same card.",
-    "Optional: confirm with the producer whether brand_overlay.py will be used on this still; if so, make the bottom-left corner pass its calm-corner check (a darker plain ground there) or skip the overlay for this concept frame."
-  ]
-}
+{"gate": "G-SPEC", "shot_id": "H-01-W908", "spec_sha256": "0ffbb75a4f8bf87f968e09ef51fa403e186b071836265a893ccc4db3efc1a2c2",
+ "reviewer": "prompt-reviewer (fresh agent)", "independent": true, "status": "FAIL",
+ "checks": [
+  {"id": "P1", "result": "PASS", "evidence": "must_read_in_1s: 'Six identical clay post cards; a tiny clay client stands on one.' maps to subjects PR-POSTS and CH-CLIENT, both with state, pose and box; one clear moment."},
+  {"id": "P2", "result": "N/A", "evidence": "spec mode; no references (text-to-image)"},
+  {"id": "P3", "result": "PASS", "evidence": "hands.count_check: 'two visible mitten hands, no fingers, one beyond each shoulder'; contact: 'neither hand touches anything'; region client-hands kind hand boxed."},
+  {"id": "P4", "result": "PASS", "evidence": "static: true; action_physics: 'its weight on the card, its soft shadow falling on the card around it' (contact point is the card surface)."},
+  {"id": "P5", "result": "PASS", "evidence": "props content: 'six identical flat cream #F3E9D8 clay slabs ... each with one small heart red #D64545 clay heart pressed in its lower left corner'; flagged story_critical false but content is filled and the only negative is targeted ('nothing else on them')."},
+  {"id": "P6", "result": "PASS", "evidence": "text_in_image: none; must_not: 'no letters, words, digits or logos anywhere'; the hook is added in the edit (notes). No text to occlude."},
+  {"id": "P7", "result": "PASS", "evidence": "background_rule: 'no signs, frames, posters, screens or writing anywhere'; details: 'from the top edge to 30% and everywhere lower than 52% only plain ground'."},
+  {"id": "P8", "result": "FAIL", "evidence": "CH-CLIENT pose says 'stands in the centre of the top middle card' but gives y 32% to 40%, while the card is y 30% to 40%: the figure sits 2% from the card top and flush with its bottom edge (its centre is y 36%, the card centre is y 35%, and the 8%-tall figure leaves no margin below). The same box repeats in regions client and client-hands. A model asked for the centre and a box touching the bottom edge may place the figure half off the card, which breaks the 'weight on the card' line."},
+  {"id": "P9", "result": "PASS", "evidence": "continuity: previous_shot null, carry_over []; first image of prop and character, stated in subjects.ref."},
+  {"id": "P10", "result": "N/A", "evidence": "spec mode"},
+  {"id": "P11", "result": "FAIL", "evidence": "The figure is seen from straight above with 'no face', yet its facing direction is never given. hands says 'left: ... on the right side of the frame', which is only true if the figure faces down the frame, and 'a thin rim of cream clay at the ears and neck' has no stated side. A model could face the figure up the frame, swapping left and right and putting the neck rim on the wrong side, and a reviewer cannot check the left and right claim."},
+  {"id": "P12", "result": "PASS", "evidence": "FL-06 prevented by naming visible parts ('the top of the head and the shoulders visible', 'no face'); FL-11 by 'instances: 1', 'no second figure' and 'its weight on the card'; FL-13 by 'no ... logos anywhere'; FL-04/05/10 by filled card content and the background rule. Other safe-zone arithmetic checks out: 3 x 26% + 2 x 3% = 84% (x 8% to 92%), 2 x 10% + 2% = 22% (y 30% to 52%), inside STANDARDS 6 (top 14%, bottom 35%, 6% sides, faces and key props 15% to 55%)."}
+ ],
+ "suggested_spec_changes": [
+  "P8: in subjects CH-CLIENT.pose change 'x 46% to 54%, y 32% to 40%' to 'x 46% to 54%, y 31% to 39%' (a 1% margin above and below on the 30% to 40% card, so the centre y 35% matches 'centre of the top middle card'). Make the same change in regions client box [0.46, 0.31, 0.54, 0.39] and client-hands box [0.44, 0.31, 0.56, 0.39].",
+  "P11: in subjects CH-CLIENT.state add after 'no face, no forehead, no eyes;': 'the figure faces the bottom of the frame, so the thin cream rim of the neck shows at the top edge of the head, and its left arm is on the right side of the frame and its right arm on the left side of the frame;'. Keep hands.left and hands.right as written (they then agree)."
+ ],
+ "notes": "Passes the spec-check finger-count warning: mitten hands with no fingers are stated with count_check, so no fix is needed. Product lens: the 2% sliver of the lower right card below y 50% inside the right 21% is declared and is plain card edge only; accepted."}

@@ -34,3 +34,13 @@ excuse; carry it into the text. No stack at A on both channels, so the second re
 Ranks B, C, A. Notes: name the channel in the text ("from your posts"); "ignores/skips your reader" is abstract
 marketer-speak; say it plainly ("never says who it's for"). No stack at A on both channels; second read not run.
 Result: FAIL.
+
+## Round 3, the idea's last (`docs/hooks-v6-W9-09-r3.json`), words only
+| Stack | Grader 5 V/T/S |
+|---|---|
+| A "Zero leads from your posts? Your first line is why." / "Your first line is about you. Your buyer scrolls right past." | n/a, B, B- |
+| B (A's text) / "Your first line never says who it's for. So nobody stops." | n/a, B, A- |
+| C "Zero leads from your posts? It's not the algorithm." / (B's spoken) | n/a, B-, A- |
+Ranks B, C, A. Notes: "zero leads" overshoots a lumpy owner ("few leads", "posting but no leads"); name the post
+type once; "not the algorithm" is familiar. No stack at A on both channels; second read not run. Result: FAIL.
+W9-09 is out of rounds (3 of 3).

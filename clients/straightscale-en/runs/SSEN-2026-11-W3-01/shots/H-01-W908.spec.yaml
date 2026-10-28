@@ -17,20 +17,22 @@ subjects:
 - id: CH-CLIENT
   ref: 'no sheet yet: first image of the character'
   state: 'a tiny clay person standing still on the top middle card, seen from straight above (the top of the head and the
-    shoulders visible, no face), both arms straight down at its sides; a mustard #DD9A10 jacket and charcoal #2B2A33 trousers,
-    round cream head with short charcoal clay hair, about 8% of the frame height and 8% of its width'
+    shoulders visible): a cap of short charcoal clay hair on top, with only a thin rim of cream clay at the ears and neck;
+    no face, no forehead, no eyes; a mustard #DD9A10 jacket and charcoal #2B2A33 trousers; the arms hang straight down along
+    the outer edge of each shoulder, so each mitten hand shows as one small round bump just beyond the shoulder, one on each
+    side of the frame; about 8% of the frame height and 8% of its width'
   pose: stands in the centre of the top middle card, x 46% to 54%, y 32% to 40%, both feet hidden under the body from this
     view
   expression: 'none visible: seen from straight above, no face'
   instances: 1
 hands:
 - who: CH-CLIENT, the tiny clay figure seen from straight above
-  left: a tiny round clay mitten hand with no fingers at the end of the arm on the right side of the frame, hanging straight
-    down at the side, touching nothing
-  right: a tiny round clay mitten hand with no fingers at the end of the arm on the left side of the frame, hanging straight
-    down at the side, touching nothing
+  left: a tiny round clay mitten hand with no fingers, visible as a small round bump just outside the shoulder on the right
+    side of the frame, touching nothing
+  right: a tiny round clay mitten hand with no fingers, visible as a small round bump just outside the shoulder on the left
+    side of the frame, touching nothing
   contact: neither hand touches anything
-  count_check: two mitten hands, no fingers, one at the end of each arm
+  count_check: two visible mitten hands, no fingers, one beyond each shoulder
 props:
 - id: PR-POSTS
   story_critical: false

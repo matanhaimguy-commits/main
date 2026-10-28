@@ -33,3 +33,14 @@ filler. No stack at A on both channels, so the second read was not run. Result: 
 | C (A's text) / "Sending twice as many won't fix it. Your first sentence will." | n/a, B+, A- |
 Ranks C, A, B. Notes: "Here's what's wrong" is a vague tease; put the payoff ("the first line of your email") in
 words; B reads as a generic template. No stack at A on both channels; second read not run. Result: FAIL.
+
+## Round 3, the idea's last (`docs/hooks-v6-W9-10-r3.json`), words only
+| Stack | Grader 4 V/T/S | Grader 5 V/T/S |
+|---|---|---|
+| A "You doubled your cold emails. Still no replies." / "It's not the volume. It's the first line of your email." | n/a, A-, A- | n/a, A-, B+ |
+| B "Doubled your cold emails? Fix the first line instead." / (A's spoken) | n/a, B, A- | n/a, B, B |
+| C "Still no replies? It's the first line, not the volume." / "You doubled your cold emails. The first line is the problem." | n/a, **A, A** | n/a, **A**, A- |
+Both rank C first. Grader 5's one note on C's voice: "blunt, like an accusation, and no payoff"; fix offered: "You
+doubled your cold emails. The first line is why nobody answers." Other notes: "volume" is marketer-speak; "it's" has a
+loose referent. Result: FAIL (spoken A- from one grader; visual never graded, no frame). W9-10 is out of rounds
+(3 of 3). Closest stack of the session: for the main session.

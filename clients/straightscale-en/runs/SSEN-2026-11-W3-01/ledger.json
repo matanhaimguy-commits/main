@@ -188,9 +188,9 @@
       ]
     },
     "H-01-W908": {
-      "sha256": "44a6364e3beeb231dae9da6031947b81c45c22bce2e22a02db66185a7c7dc357",
+      "sha256": "0ffbb75a4f8bf87f968e09ef51fa403e186b071836265a893ccc4db3efc1a2c2",
       "lint": "PASS",
-      "lint_at": "2026-10-28T19:59:02+00:00",
+      "lint_at": "2026-10-28T20:00:44+00:00",
       "lint_issues": [
         {
           "level": "warn",
@@ -210,6 +210,13 @@
           "at": "2026-10-28T19:59:02+00:00",
           "status": "FAIL",
           "sha256": "5fc0061589a7e20822daf068733295c4177151943363ba9a6d8cd67cb815212f",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-W908.spec.json"
+        },
+        {
+          "at": "2026-10-28T20:00:44+00:00",
+          "status": "FAIL",
+          "sha256": "44a6364e3beeb231dae9da6031947b81c45c22bce2e22a02db66185a7c7dc357",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/H-01-W908.spec.json"
         }
