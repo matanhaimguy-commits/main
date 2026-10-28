@@ -1,0 +1,84 @@
+{
+  "gate": "G-SPEC",
+  "shot_id": "H-01A",
+  "spec_sha256": "cc61aeeefdd6e70dc6aba3ab3d1252e526d7ee3254472b6dbbfc43b4b06632f5",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "FAIL",
+  "files_opened": [
+    "/home/user/main/clients/straightscale-en/runs/SSEN-2026-11-W3-01/shots/H-01A.spec.yaml",
+    "growth-engine/production/standards.json",
+    "growth-engine/production/failure-library.md",
+    "growth-engine/production/VISUAL-QA.md (sections 2, 4)"
+  ],
+  "checks": [
+    {
+      "id": "P1",
+      "result": "FAIL",
+      "evidence": "Regions box the calendar, both pages and the text-hook space, but the twelve client figures have eyes and faces and no face region exists: regions list only 'calendar', 'full-month', 'empty-month', 'text-hook-space'. Everything else is covered (subjects, hands 'none visible', props content, text 'none', action_physics, setting, camera)."
+    },
+    {
+      "id": "P2",
+      "result": "N/A",
+      "evidence": "Spec mode."
+    },
+    {
+      "id": "P3",
+      "result": "PASS",
+      "evidence": "hands: none visible (no hands, so no hand regions needed)."
+    },
+    {
+      "id": "P4",
+      "result": "PASS",
+      "evidence": "'the clay client figures stand on the left page's day squares as on a small shelf ledge sculpted along each row, their feet touching the ledge'; 'the right page carries nothing: no figure, no object, no mark'."
+    },
+    {
+      "id": "P5",
+      "result": "PASS",
+      "evidence": "PR-CALENDAR content is fully described (cream clay, stitched border, grid, seam, about twelve figures left, bare right). Note: story_critical is false although the calendar is the whole picture; should be true."
+    },
+    {
+      "id": "P6",
+      "result": "PASS",
+      "evidence": "text_in_image: none; content says '(no numbers, no month name)'; no story prop needs words, so the blanket no-text must_not does not empty anything."
+    },
+    {
+      "id": "P7",
+      "result": "PASS",
+      "evidence": "background_rule: 'nothing but the plain clay wall behind the subject'; 'No window, shelf, desk or other objects.' The calendar itself is filled, not an empty frame."
+    },
+    {
+      "id": "P8",
+      "result": "FAIL",
+      "evidence": "(a) safe_zones: 'subject between ... x 0.08 to 0.86' and 'nothing important in ... the right 13%' conflict with pose 'spanning x 0.08 to 0.92' and size 'about 84% of the frame width'. (b) content says figures stand 'on its day squares' while action_physics says they stand on 'a shelf ledge sculpted along each row' (the ledge is not in the prop content). (c) must_not 'no borders, frames, split screens' conflicts with the wanted 'stitched fabric border' and 'two month pages side by side'."
+    },
+    {
+      "id": "P9",
+      "result": "PASS",
+      "evidence": "previous_shot: null; carry_over: 'the series look: claymation in the song's cloth world (fabric and thread details on clay)'."
+    },
+    {
+      "id": "P10",
+      "result": "N/A",
+      "evidence": "Spec mode."
+    },
+    {
+      "id": "P11",
+      "result": "FAIL",
+      "evidence": "'about the height of a thumb' (whose thumb, relative to what; the figure size against a day square is not fixed); 'about twelve' figures with no row count, so the ledge layout is open; 'two of a calendar month page' is garbled; 'no borders, frames, split screens' can be read as removing the calendar's own border and its two-page spread."
+    },
+    {
+      "id": "P12",
+      "result": "PASS",
+      "evidence": "FL-02 structure covered ('a clay wall calendar open to two month pages side by side' + must_not 'no more than two calendar pages'); FL-05 no empty frames; FL-11 'their feet touching the ledge'; FL-13 no logo asked."
+    }
+  ],
+  "suggested_spec_changes": [
+    "props[PR-CALENDAR].story_critical: set true (the whole picture depends on it).",
+    "props[PR-CALENDAR].content: rewrite the garbled opening as 'a calendar spread of two month pages sculpted from flat cream clay ...'; replace 'standing on its day squares' with 'standing on a small clay ledge along the bottom of each row of day squares, their feet touching the ledge'; add the row count (for example 'in three rows of four') and the figure scale ('each about one day-square tall' instead of 'the height of a thumb').",
+    "camera.safe_zones: make it consistent with the 0.92 right edge, for example 'subject between y 0.30 and 0.80 and x 0.08 to 0.92; nothing important in the bottom 20%; the right 13% holds only the empty page's bare squares, no figures or detail'.",
+    "must_not: replace 'no borders, frames, split screens, set edges, workbench or the room around the miniature set' with 'no border or frame around the whole picture, no split-screen layout, no set edges, workbench or room around the miniature set (the calendar's own stitched fabric border and its two pages are wanted)'.",
+    "regions: add {name: figures, kind: face, box: [0.08, 0.34, 0.5, 0.8]} so the face crop (V6) has a box.",
+    "hero: true is consistent with asset CF-V1 (hero)."
+  ]
+}

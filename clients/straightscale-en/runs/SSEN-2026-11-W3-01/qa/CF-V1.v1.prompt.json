@@ -1,0 +1,81 @@
+{
+  "gate": "G-PROMPT-IMG",
+  "asset_id": "CF-V1",
+  "version": 1,
+  "prompt_sha256": "ccf2ec9d090d451bac2b7ee43bfa655c7e180c128ed270ece6cbd8075735a79b",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "FAIL",
+  "files_opened": [
+    "/home/user/main/clients/straightscale-en/runs/SSEN-2026-11-W3-01/prompts/CF-V1.v1.1.txt",
+    "/home/user/main/clients/straightscale-en/runs/SSEN-2026-11-W3-01/shots/H-01A.spec.yaml",
+    "/home/user/main/clients/straightscale-en/runs/SSEN-2026-11-W3-01/ledger.json",
+    "growth-engine/production/standards.json",
+    "growth-engine/production/failure-library.md",
+    "growth-engine/production/VISUAL-QA.md (sections 2, 4)"
+  ],
+  "integrity_note": "The sha256 of prompts/CF-V1.v1.1.txt on disk is d545645bce2774aab471dd6666884a10c749a5487e8d86696e45a99af84eabc9, not the registered ccf2ec9d090d451bac2b7ee43bfa655c7e180c128ed270ece6cbd8075735a79b (ledger.json asset CF-V1). This review is of the text on disk. The corrected prompt must be saved as a new prompt file and registered; this report does not cover the registered hash.",
+  "checks": [
+    {
+      "id": "P1",
+      "result": "FAIL",
+      "evidence": "Content coverage is complete (calendar, two pages, 'about twelve little clay client figures', 'Their feet touch the ledges', hands none, text none, wall, camera), but (a) the safe zone differs from the spec: prompt 'The main subject sits between 30% and 84% down. Nothing important in the bottom 16%' vs spec 'the bottom 20%' and subject y 0.30 to 0.80; (b) card blocks missing or out of order: no reference-map block and no continuity block (spec carry_over 'the series look' is only implied by STYLE), and SETTING comes before HANDS and TEXT instead of after them."
+    },
+    {
+      "id": "P2",
+      "result": "FAIL",
+      "evidence": "Zero attached images (correct for text-to-image) but the prompt has no reference-map line; the block is missing. Fix: 'no reference images are attached; everything comes from this text.'"
+    },
+    {
+      "id": "P3",
+      "result": "PASS",
+      "evidence": "'HANDS: no human hands, fingers or arms anywhere in the picture.'"
+    },
+    {
+      "id": "P4",
+      "result": "PASS",
+      "evidence": "'stand on its ledges ... Their feet touch the ledges.'; 'A small clay ledge runs along the bottom of each row of squares.'"
+    },
+    {
+      "id": "P5",
+      "result": "PASS",
+      "evidence": "Calendar content written in full: 'cream clay with a stitched fabric border and a stitched grid ... joined by a stitched seam'; the no-text line is scoped to 'no numbers' and 'no month name', so nothing is emptied."
+    },
+    {
+      "id": "P6",
+      "result": "PASS",
+      "evidence": "TEXT: none, with 'not on the calendar, the wall or any object' (spec text_in_image: none)."
+    },
+    {
+      "id": "P7",
+      "result": "PASS",
+      "evidence": "'No window, shelf, desk or other objects.' and the calendar is filled, not an empty frame."
+    },
+    {
+      "id": "P8",
+      "result": "FAIL",
+      "evidence": "DO NOT INCLUDE says 'no borders, frames, split screens' while the subject requires 'a stitched fabric border' and 'two month pages side by side'. Also 'spanning from 8% to 92% of the frame width' conflicts with 'Nothing important in ... the right 13%'."
+    },
+    {
+      "id": "P9",
+      "result": "PASS",
+      "evidence": "Spec previous_shot is null; the series look is carried in the STYLE block ('thread-wrapped hair, fabric details, wire accents')."
+    },
+    {
+      "id": "P10",
+      "result": "PASS",
+      "evidence": "Call openai/gpt-image-2/text-to-image, 1152x2048 (size_for_aspect 9:16), quality medium, 0 references, asset type still: all allowed in standards.json atlas.allowed. Prompt says 'one vertical 9:16 image'. No video rules apply. (Registered-hash mismatch: see integrity_note.)"
+    },
+    {
+      "id": "P11",
+      "result": "FAIL",
+      "evidence": "'no borders, frames, split screens' can be read as removing the calendar's own border and two-page spread (same wording as P8); other open wording ('about the height of a thumb', no row count) is inherited from the spec and left as is, to be fixed in the spec."
+    },
+    {
+      "id": "P12",
+      "result": "PASS",
+      "evidence": "FL-02 structure: 'one clay wall calendar ... two month pages' plus 'no more than two calendar pages'; FL-05: no empty frames; FL-10: 'not on the calendar, the wall or any object'; FL-11: 'Their feet touch the ledges'; FL-13: no logo requested."
+    }
+  ],
+  "corrected_prompt": "STYLE: Stop-motion clay puppet scene - clay characters detailed with tiny craft materials: thread-wrapped hair, fabric details, wire accents, on a fully sculpted clay set, cinematic stop-motion film lighting with gentle shadows, the scene filling the entire frame with the camera inside the puppet world. Palette: warm cream, terracotta and mustard clay with deep teal shadows, warm amber light; one bright subject against a calm, plain clay wall.\n\nFORMAT AND LAYOUT: one vertical 9:16 image (portrait, 9 wide by 16 tall). Positions are fractions of the frame from the top-left corner. The top 30% of the frame is only plain clay wall, empty, kept clear for words added later. The main subject sits between 30% and 80% down. Nothing important in the bottom 20% of the frame, and nothing but the empty page's bare squares in the right 13%.\n\nREFERENCE MAP: no reference images are attached; everything comes from this text.\n\nSUBJECT, THE WALL CALENDAR: one clay wall calendar hangs flat on the wall, facing the camera straight on, centred, spanning from 8% to 92% of the frame width and from 34% to 80% of the frame height. It is open to two month pages side by side, each sculpted from flat cream clay with a stitched fabric border and a stitched grid of empty day squares, joined by a stitched seam down the middle. A small clay ledge runs along the bottom of each row of squares.\nTHE LEFT PAGE (8% to 50% across) is full: about twelve little clay client figures, each about the height of a thumb, stand on its ledges, filling the page. They are simple adult business people in tiny fabric jackets and trousers, thread-wrapped hair, simple eyes with white sclera and dark pupils, mixed skin tones, standing and chatting, calm and pleased. Their feet touch the ledges.\nTHE RIGHT PAGE (50% to 92% across) is completely bare: empty stitched squares and empty ledges, nobody and nothing on it.\n\nHANDS: no human hands, fingers or arms anywhere in the picture.\n\nTEXT: none. No text, letters, numbers or words anywhere in the picture: not on the calendar, the wall or any object. The calendar's day squares are empty stitched squares with no numbers, and there is no month name.\n\nSETTING: one plain warm cream clay wall fills the background edge to edge, softly lit by warm amber light from the upper left, a gentle deep teal shadow at the bottom. No window, shelf, desk or other objects. Camera at eye level, facing the calendar straight on. Medium close-up.\n\nCAMERA: macro miniature-set look, about 50mm, shallow depth of field, the main subject sharp; the camera sits inside the miniature clay world.\n\nCONTINUITY: this is the first shot, no previous shot to match; carry over the series look: claymation in the song's cloth world (fabric and thread details on clay).\n\nDO NOT INCLUDE: no text, letters, numbers or words; no hearts, likes, thumbs-up, follower counts, notification badges, social media icons or logos; no real platform names, logos or app screens; no phone screens; no extra subjects beyond those named; no clutter in the top third; no smooth, glossy or CGI-looking surfaces; no motion blur; no border or frame around the whole picture, no split-screen layout, no set edges, workbench or the room around the miniature set (the calendar's own stitched fabric border and its two side-by-side pages are wanted); no figure, object or mark on the right page; no more than two calendar pages.\n\nEverything in frame is real modeling clay, photographed - visible fingerprints and tool marks, real cast shadows, soft studio lighting, the clay scene filling the entire frame.\n"
+}
