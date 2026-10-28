@@ -246,6 +246,35 @@
           "report": "qa/H-01-V9.spec.v6.json"
         }
       ]
+    },
+    "H-01-W910": {
+      "sha256": "f5d0ada43cc8eba8b9dfe92dbb99bd11024ecf12dba79c1dfdde9008a6c5cb3a",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T23:04:52+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T23:03:51+00:00",
+          "status": "FAIL",
+          "sha256": "dfc1a1dd9a4a007b3fcaec7816876612b849ea78f75db235eec467c520171eba",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-W910.spec.json"
+        },
+        {
+          "at": "2026-10-28T23:04:51+00:00",
+          "status": "FAIL",
+          "sha256": "c8da63b8462d344c84e4be1859c890656f169cc531d75d306f3573d32972e36f",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-W910.spec.json"
+        },
+        {
+          "at": "2026-10-28T23:05:58+00:00",
+          "status": "PASS",
+          "sha256": "f5d0ada43cc8eba8b9dfe92dbb99bd11024ecf12dba79c1dfdde9008a6c5cb3a",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-W910.spec.json"
+        }
+      ]
     }
   },
   "assets": [
@@ -725,6 +754,32 @@
           }
         ]
       }
+    },
+    {
+      "asset_id": "CF-W910",
+      "version": 1,
+      "type": "still",
+      "shots": [
+        "H-01-W910"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": true,
+      "created": "2026-10-28T23:06:07+00:00",
+      "prompt_sha256": "9311d172cba5e9fe94950e897884f716c044e9963bcfaff46d940155e3342884",
+      "prompt_file": "prompts/CF-W910.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T23:06:08+00:00",
+          "sha256": "9311d172cba5e9fe94950e897884f716c044e9963bcfaff46d940155e3342884",
+          "file": "prompts/CF-W910.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [],
+      "files": [],
+      "gates": {}
     }
   ],
   "queue": [

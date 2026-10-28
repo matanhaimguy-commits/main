@@ -1,0 +1,22 @@
+{"gate": "G-SPEC", "shot_id": "H-01-W910", "spec_sha256": "dfc1a1dd9a4a007b3fcaec7816876612b849ea78f75db235eec467c520171eba",
+ "reviewer": "prompt-reviewer (fresh agent)", "independent": true, "status": "FAIL",
+ "checks": [
+  {"id": "P1", "result": "FAIL", "evidence": "must_read_in_1s: 'A bin overflowing with paper planes' but the sheet (y 34% to 42%, x 30% to 70%) covers the heap (y 40% to 44%, x 28% to 72%) almost entirely, leaving about 2% of height of visible heap; the overflow cannot read in 1 s."},
+  {"id": "P2", "result": "N/A", "evidence": "spec mode"},
+  {"id": "P3", "result": "PASS", "evidence": "hands: none visible; must_not: 'no hands, no people, no faces'"},
+  {"id": "P4", "result": "FAIL", "evidence": "'an unfolded plane, lying open on top of the heap and tilted toward the camera': no contact points (which edge rests on which planes, which edge is raised, by how much); the sheet is 6% of height above the heap top it is said to rest on."},
+  {"id": "P5", "result": "PASS", "evidence": "PR-SHEET content: 'one unfolded warm cream #F3E9D8 clay sheet, crease lines still visible ... two lines of deep ink letters'; PR-BIN and PR-PLANES-FLYING also have content lines; no blanket 'no text'"},
+  {"id": "P6", "result": "PASS", "evidence": "'HOPE THIS FINDS' and 'YOU WELL': surface, position, case, must_be_exact, occlusion 'nothing covers any letter'; 5 words on one surface (6 or fewer)"},
+  {"id": "P7", "result": "PASS", "evidence": "background_rule: 'no signs, frames, posters, screens, desks or other objects; the only writing is the quoted text'"},
+  {"id": "P8", "result": "FAIL", "evidence": "(a) sheet 'resting on top of the heap at y 34% to 42%' vs heap 'above its rim (y 40% to 44%)': the sheet bottom sits inside the heap and the sheet is wider (40%) than the visible heap; (b) bin base at y 58% but STANDARDS 6: faces and key props sit 15% to 55% from the top and captions start about 55%, so the bin's bottom 3% sits in the caption band."},
+  {"id": "P9", "result": "PASS", "evidence": "continuity: previous_shot null, carry_over []; first image of the props, no sheet exists yet"},
+  {"id": "P10", "result": "N/A", "evidence": "spec mode"},
+  {"id": "P11", "result": "FAIL", "evidence": "setting: 'a plain sage clay floor meeting a plain warm cream clay wall; from the top edge down to 30% only plain wall, and lower than 60% only plain floor': the wall/floor line is not placed between y 30% and 60%, so the model may put it anywhere, including behind the sheet text; also the sheet's cream #F3E9D8 is the same colour as the wall, so the sheet edge may vanish."},
+  {"id": "P12", "result": "PASS", "evidence": "FL-04 filled props and targeted negatives; FL-05 background rule present; FL-02 structure: 'one round terracotta ... clay waste bin, plain, no face, no label'; FL-13 no logo asked ('no logo, brand, app or platform name anywhere')"}
+ ],
+ "suggested_spec_changes": [
+  "Geometry (P1, P8a): make the heap clearly visible below the sheet. Example: heap top y 38% to 44% (rises 6% above the rim, noses every way, a few planes spilling over the rim); sheet narrower, x 33% to 67%, y 33% to 41%, its bottom edge resting on the top planes of the heap and its top edge leaning back against the highest planes; make sure at least 3% of height of heap shows beside and below the sheet. Keep the text boxes inside the new sheet box.",
+  "Contact points (P4): add to action_physics: 'the sheet's lower edge rests on the wings of the top planes; its upper edge leans back, held up by two planes behind it; two planes lie over the rim and touch the outside of the bin; the two flying planes touch nothing, 3% of width clear of the sheet'. Move the flying-planes box so it does not touch the sheet box (now both meet at x 30%), e.g. x 12% to 28%.",
+  "Layout (P8b): bring the bin's base up to y 55% or below (bin y 41% to 55%, size about 44% width by 14% height with the heap) so no key prop enters the caption band from 55%; update props, regions (bin, sheet, sheet-text, flying-planes) and the key band 'y 32% to 55%' to match.",
+  "Setting (P11): place the wall/floor line, e.g. 'the wall meets the floor in a straight horizontal line at y 50%, behind the bin, nowhere else; the floor below it is sage'. Give the sheet a visible edge against the cream wall: ask for a soft contact shadow under and around the sheet and a deep ink #2B2A33 hairline-free shadow side, or move the wall line so the sheet is seen against the sage floor/white planes rather than the cream wall."
+ ]}

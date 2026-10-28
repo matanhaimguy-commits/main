@@ -1,0 +1,112 @@
+shot_id: H-01-W911
+post_id: SSEN-2026-11-W1-03
+format: claymation
+script_lines:
+- L1
+line_text: Nobody buys, so you cut the price? Fix the first line.
+story_purpose: 'Concept frame for the W9-11 hook stacks (Hook Lab v7, slot W1-03): her offer card is about to go in the
+  bin, and the one thing wrong with it is its first line, struck through in red.'
+must_read_in_1s: An offer card about to fall in a bin, its line WE DELIVER RESULTS struck out in red.
+subjects:
+- id: PR-CARD
+  ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
+    step 2); the prop sheet is cut from the approved frame at step 7'
+  state: leaning on the rim of the bin, about to tip in
+  pose: x 24% to 76%, y 31% to 44%
+  expression: ''
+  instances: 1
+hands: none visible
+props:
+- id: PR-CARD
+  story_critical: true
+  ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
+    step 2); the prop sheet is cut from the approved frame at step 7'
+  state: a thick flat clay card standing almost upright, its lower edge resting on the front rim of the bin, its top
+    edge leaning about 15 degrees away from the camera over the bin's opening, its written face toward the camera
+  content: 'one thick warm cream #F3E9D8 clay card with rounded corners and a thin deep ink #2B2A33 outline, at x 24% to 76%,
+    y 31% to 44%; on it a heading line OFFER in small deep ink capitals near the top, and below it one larger line WE
+    DELIVER RESULTS in deep ink capitals with one terracotta-red #C8553D clay strike, about one third of the letter height
+    thick (about 1.5% of the frame height), laid across its middle from end to end; nothing else on the card'
+  size_in_frame: 52% of the width, 13% of the height
+- id: PR-BIN
+  story_critical: true
+  ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
+    step 2); the prop sheet is cut from the approved frame at step 7'
+  state: standing upright on the clay floor, empty
+  content: 'one round sage #8FA98B clay waste bin with a single open top and one round rim, no lid, no handles, plain,
+    no face, no label, its rim at y 43%, its body at x 32% to 68%,
+    y 43% to 55%, its base resting on the floor at y 55%'
+  size_in_frame: 36% of the width, 12% of the height
+text_in_image:
+- string: OFFER
+  surface: 'the card, heading line, small deep ink #2B2A33 capitals, centred'
+  position: x 42% to 58%, y 32.5% to 35%
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+- string: WE DELIVER RESULTS
+  surface: 'the card, main line, deep ink #2B2A33 capitals, centred, with one terracotta-red clay strike about one third of
+    the letter height thick laid across the middle of the letters from the first letter to the last'
+  position: x 28% to 72%, y 36.5% to 41%
+  case: upper
+  must_be_exact: true
+  occlusion: the strike crosses the middle of every letter but leaves the top and bottom of each letter visible, so the
+    words still read
+action_physics:
+- The bin's base rests flat on the clay floor at y 55%.
+- The card's lower edge rests on the bin's front rim at y 43%; its top edge leans away from the camera over the open bin,
+  touching nothing else.
+- The strike lies flat on the card's surface across the main line.
+static: true
+setting:
+  ref: null
+  details: 'a plain warm grey-blue #9AA3AD clay wall from the top edge down to y 50%, meeting a plain darker sage #6F8A6B
+    clay floor in one straight horizontal line at y 50%; the floor runs from y 50% to the bottom edge'
+  background_rule: no signs, frames, posters, screens, desks or other objects; the only writing is the quoted text
+camera:
+  framing: 'the card and the bin centred in the key band y 31% to 55%; all x and y percentages are measured from the top-left
+    corner of the frame (y 0% is the top edge, y 100% the bottom edge)'
+  angle: front view at the height of the bin's rim, looking very slightly down
+  lens: macro, shallow depth of field; the card and its letters sharp
+  aspect: '9:16'
+  safe_zones: 'Layout (STANDARDS 6): the top 30% of the frame is plain wall (the text hook is set at 14% to 30% in the
+    edit); every key element sits between 31% and 55% of the frame height and inside 24% to 76% of the width; lower than
+    55% only plain floor (captions start at 55%).'
+continuity:
+  previous_shot: null
+  carry_over: []
+regions:
+- name: text-hook-zone
+  kind: other
+  box: [0.0, 0.0, 1.0, 0.3]
+- name: card
+  kind: prop
+  box: [0.24, 0.31, 0.76, 0.44]
+- name: heading
+  kind: text
+  box: [0.42, 0.325, 0.58, 0.35]
+- name: main-line
+  kind: text
+  box: [0.28, 0.365, 0.72, 0.41]
+- name: bin
+  kind: prop
+  box: [0.32, 0.43, 0.68, 0.55]
+style: 'Premium studio claymation scene - everything sculpted from matte plasticine with refined intentional craftsmanship:
+  subtle tool marks, controlled texture, soft rounded geometry, slight subsurface warmth, macro lens feel with shallow
+  depth of field, soft diffused studio lighting with a gentle rim glow, the scene filling the entire frame with the camera
+  inside the miniature clay world. Vertical 9:16 frame. Palette (every colour in this frame): warm cream #F3E9D8, terracotta
+  #C8553D, sage #8FA98B, darker sage #6F8A6B, grey-blue #9AA3AD, deep ink #2B2A33.'
+must_not:
+- no hands, no people, no faces, no eyes on any object
+- no logo, brand, app or platform name anywhere
+- no digits, prices or currency signs anywhere
+- no words other than OFFER and WE DELIVER RESULTS on the one card
+- nothing inside the bin
+- nothing in the top 30% except plain wall
+hero: true
+notes: 'Concept frame for Hook Lab v7 (slot W1-03, bank idea W9-11 replacing "Built or patched?", which is out of rounds).
+  The text hook is laid on top in the edit, not drawn by the model. "WE DELIVER RESULTS" is an example of an offer line in
+  the seller''s words, written by us, not a buyer quote. The card speaks later in the reel (reel_talking_object); frame 1
+  shows it without a face. Gate decision for hook frames (main session, delegated by Matan, plan 28 Oct): a G-VIS defect
+  that is only position or offset of up to 10% of the frame, with content, text and layout otherwise right, is fixed in
+  the edit (reframe on the canvas, extend the plain background) and does not fail the frame.'

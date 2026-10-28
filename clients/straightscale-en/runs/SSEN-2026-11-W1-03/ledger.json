@@ -81,7 +81,23 @@
       }
     ]
   },
-  "specs": {},
+  "specs": {
+    "H-01-W911": {
+      "sha256": "f5150ab64cfd08d7d302671ae51e50982683d11f82ce8a765eb10f5c4135de6a",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T23:05:59+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T23:05:59+00:00",
+          "status": "FAIL",
+          "sha256": "801019d958dbb7ce0e51eb61f46baf95622079a45286b9e40c3d06bec7dfe271",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-W911.spec.json"
+        }
+      ]
+    }
+  },
   "assets": [],
   "queue": []
 }
