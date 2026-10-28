@@ -4,6 +4,7 @@ from __future__ import annotations
 import jsonschema
 
 from .card_cta import cta_issues
+from .card_format import beat_issues
 from .config import CARD_SCHEMA, CONFIG, LENGTHS
 from .funnel import funnel_issues
 from .issues import ERROR, WARN, has_errors, issue, unknown
@@ -52,6 +53,7 @@ def card_check(card: dict, brain: dict, cmap: dict, demand: list[dict]) -> list[
         if card["belief"] not in fmt["beliefs"]:
             issues.append(issue(WARN, "format_belief", f"{card['format']} is not a usual format for {card['belief']}"))
         issues += budget_issues(card, fmt)
+        issues += beat_issues(card, cmap)
         if fmt.get("needs_real_human") and not brain["visual"].get("real_footage"):
             issues.append(issue(ERROR, "format", f"{card['format']} needs real photos or footage of real people; the brain has none yet"))
         if fmt.get("needs_proof") and not card.get("proof_used"):

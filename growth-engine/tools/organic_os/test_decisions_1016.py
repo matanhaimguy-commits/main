@@ -62,7 +62,7 @@ class Decisions1016Test(unittest.TestCase):
 
     def test_style_ids_name_no_studio(self):
         styles = set(o.CONFIG["animation_styles"]) - {"_doc"}
-        self.assertEqual(styles, {"claymation", "crochet", "family_film_3d", "storybook_2d"})
+        self.assertEqual(styles, {"claymation", "crochet", "family_film_3d", "storybook_2d", "skeleton_xray", "anime_2d"})
         c = card(format="reel_animation_short", format_tier="B", credit_budget=90, story_template="pov_day", job="reach", belief="B1")
         self.assertEqual(codes(o.card_check(dict(c, animation_style="family_film_3d"), BRAIN, MAP, DEMAND), o.ERROR), [])
         self.assertIn("style", codes(o.card_check(dict(c, animation_style="pixar_style_3d"), BRAIN, MAP, DEMAND), o.ERROR))

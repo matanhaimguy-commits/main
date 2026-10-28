@@ -12,7 +12,8 @@ class WeekTest(unittest.TestCase):
     def test_good_week(self):
         issues, summary = o.week_check(self.week(), BRAIN)
         self.assertEqual(codes(issues, o.ERROR), [])
-        self.assertEqual(summary["families"], {"reel": 3, "carousel": 3, "image": 1})
+        self.assertEqual(summary["families"], {"reel": 4, "carousel": 2, "image": 1})
+        self.assertEqual(summary["format_families"], {"quote_broll": 2, "carousel": 2, "presenter": 1, "static": 1, "ugc": 1})
 
     def test_same_format_two_days_in_a_row_fails(self):
         w = self.week()

@@ -25,9 +25,9 @@ source_ref: 'hook format HF-19 (AlexBerman, 90.0x, 10x+: identity question with 
   the film ref: two talking-explainer refs in a row break the refbank rule)'
 narrow_product: 'Built or patched? One test she can answer: did your last fix use anything the one before it learned? A scrap
   sewn on alone holds a month; a piece cut from the same cloth holds the next'
-format: reel_motion
-format_tier: C
-usd_budget: 1.2
+format: reel_talking_object
+format_tier: B
+usd_budget: 4.5
 length_target_s: 30
 hook_type: question
 emotion: surprise
@@ -40,5 +40,17 @@ notes: 'Spoken hook (draft): ''Is your marketing built, or patched? Here''s an e
   stops working > patched on alone vs cut from the same cloth > the one test: did your last fix use anything the one before
   it learned? (answerable at B2; director round 1) · trinity: clear and complete (one yes/no test), unique (blames the patch,
   not the channel), depictable (one scrap held against the quilt) · shock 6 · $5 yes · key visual: a hand holds one loose
-  scrap against the quilt, then the mask reveal onto what is under the patch · gate passed'
+  scrap against the quilt, then the mask reveal onto what is under the patch · gate passed Format (session F1 router, 28 Oct,
+  FORMATS.md): Built or patched is a hidden cause (mechanism): the newest patch on the quilt talks and admits it learned nothing
+  from the one before it. A talking object shows what a camera can''t (L19); claymation in the cloth world, mouth shots on
+  OmniHuman 2.0 (talking objects only). Ties reel_animation_short (6.0); the talking-object route is taken because the patch
+  speaks on camera. Hooks (main session, 28 Oct): the motion Hook Lab stopped; its best stacks are the starting stacks for
+  this format''s next Hook Lab, in motion-studio/projects/straightscale-en-07-built-or-patched/docs/hook-lab.md on branch
+  claude/hooks-v4-w1-03: R3A (HF-06) ''Clients one month, nothing the next?'' / ''Your fixes each worked a while. Here''s
+  why none stuck.'' (B+/A/A- and A-/A/A-; text A from both graders) and R3C (HF-04) "''Try a new channel.'' That''s not your
+  problem." / "It''s not the channel. Every fix you tried started from scratch." Graders read ''built or patched'' and ''fix''
+  as an agency quiz: drop both words from the hook stack.'
 target: 'first month, no insights yet (E13): sets the page''s baseline; template candidate at 2x the November median'
+load_bearing_beat: mechanism
+story_template: hidden_villain
+animation_style: claymation

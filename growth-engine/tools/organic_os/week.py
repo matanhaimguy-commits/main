@@ -5,6 +5,7 @@ from datetime import date
 
 from .config import CONFIG
 from .issues import ERROR, WARN, issue
+from .variety import counts, variety_issues
 
 
 def family(card: dict) -> str:
@@ -21,6 +22,7 @@ def week_check(cards: list[dict], brain: dict, cmap: dict | None = None) -> tupl
             issues.append(issue(ERROR, "rotation", f"{a['slot'][:10]} and {b['slot'][:10]} are both {family(a)}: no format two days in a row"))
         if a["job"] == b["job"]:
             issues.append(issue(WARN, "rotation", f"{a['slot'][:10]} and {b['slot'][:10]} are both {a['job']}: no two posts in a row from the same job"))
+    issues += variety_issues(cards)
     fam = {}
     for c in cards:
         fam[family(c)] = fam.get(family(c), 0) + 1
@@ -61,7 +63,7 @@ def week_check(cards: list[dict], brain: dict, cmap: dict | None = None) -> tupl
         missing = {p["name"] for p in cmap.get("pillars", [])} - {c["pillar"] for c in cards}
         if missing:
             issues.append(issue(WARN, "pillars", f"no post this week for pillar(s): {', '.join(sorted(missing))}"))
-    summary = {"posts": len(cards), "families": fam, "jobs": {k: round(v, 2) for k, v in jobs.items()}, "stage_target": {k: target[k] for k in ("reach", "trust", "convert")}}
+    summary = {"posts": len(cards), "families": fam, "format_families": counts(cards), "jobs": {k: round(v, 2) for k, v in jobs.items()}, "stage_target": {k: target[k] for k in ("reach", "trust", "convert")}}
     return issues, summary
 
 

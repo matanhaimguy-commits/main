@@ -236,7 +236,7 @@ Each account runs **2 to 4 named series**. A series is a fixed format and theme 
 | Format | Role | Share of output (default) | Skill |
 |---|---|---|---|
 | **Reels (30 to 60 s, under 3 min)** | Reach engine and trust | 45 to 60% | readymerce-hook-lab + readymerce-script-lab + video production |
-| **Motion graphic reels** | Explaining mechanisms, numbers, frameworks without a face; series identity | Inside the reel share | motion-reel (HyperFrames) |
+| **Motion graphic reels** | One option among many, never a default: only a list, data or a type-led idea (28 Oct 2026, `production/FORMATS.md`) | At most 1 post in 6 | motion-reel (HyperFrames) |
 | **Carousels (7 to 10 slides; the hub takes 10 files at most)** | Saves, depth, frameworks, checklists, teardowns | 30 to 45% | carousel-machine |
 | **Stories (daily, 3 to 7 frames)** | Selling to followers, DMs, proof, polls | Daily, not counted in posts | Story templates (section 8.4) |
 | **Single images** | Weakest format: only real review quotes, announcements, or a strong self-check question | 1 a week at most | carousel-machine (1 slide) |
@@ -301,6 +301,7 @@ source_ref: "@account/post 3.4x median"
 narrow_product: "Level 4 idea in one line"     # see 7.2
 format: reel_talking_character   # see 7.4 library
 format_tier: B                 # A song/animation | B talking head, UGC, podcast | C motion, carousel, image (7.7)
+load_bearing_beat: mechanism   # mechanism | proof | offer | list | data | type: the format is chosen by it (7.7, FORMATS.md)
 angle_proven: false            # true only if this angle beat the median in a cheaper format; Tier A needs true (or the monthly wildcard)
 usd_budget: 4.15              # the format's usd range (organic.json; STANDARDS 10), against the monthly USD cap
 length_target_s: 45
@@ -356,6 +357,10 @@ The Hook Lab and Script Lab were built for paid ads. For organic, run them with 
 - Use for mechanisms, numbers, frameworks and series intros. Same hook and script rules. Motion must change in the first second (stimulation step of Kallaway's dopamine ladder).
 
 ### 7.4 Format library (starting set, extend with outliers)
+These are content shapes (what the post says). The production formats that carry them (UGC, whiteboard presenter,
+podcast, drama, song, animation and the rest, with their skills, gates, Atlas routes and prices) are in
+`growth-engine/production/FORMATS.md`.
+
 | Format | Job | Best beliefs | Notes |
 |---|---|---|---|
 | Myth vs truth reel | Reach | B1, B2 | "X is a lie. Here's what works." |
@@ -429,6 +434,22 @@ The Hook Lab and Script Lab were built for paid ads. For organic, run them with 
 | **Motion graphic reel** | Trust | B4, B5 | Frameworks, numbers, comparisons, series intros | Cheapest per piece once templated; weak at emotion |
 | **Carousel** | Trust (saves) | B3, B4 | Checklists, steps, teardowns | Lowest reach for small accounts; best saves |
 
+**How a format is chosen (28 Oct 2026; the library is `growth-engine/production/FORMATS.md`).** Matan, 28 Oct: our
+slates kept landing on motion graphics because routing favoured the cheapest proven format. Now every Post Card names
+its **load-bearing beat** (ads-machine L19: mechanism, proof or offer, plus list, data or a type-led idea) and
+`organic.py route` ranks the formats that can take the card by:
+1. **L19 fit** to that beat: each format's six properties (a believable face, shows what a camera can't, controlled
+   order, sound, holds attention, reads as a person), weighted by what the beat needs (`organic.json` `beats`).
+2. **The funnel stage** of the card's job (reach TOF, trust MOF, convert BOF; each format's `funnel`).
+3. **Evidence:** formats that win with this client's buyers (`buyer_formats`), the proven convert formats, and the
+   story template the card names.
+4. **Variety** against the other planned cards: no format family more than twice in a week, at least 4 families in a
+   month (an unused family ranks up, a repeated one down), and `reel_motion` at most 1 post in 6, only for a list, data
+   or type-led beat. `week-check` fails a slate that breaks these.
+
+**Cost only filters** formats against the month's USD cap; it never ranks. The tiers and rule 1 below still decide when
+a tier A piece may run (a proven angle or the wildcard), not which format a beat needs.
+
 **The 8 spending rules**
 
 1. **Test cheap, scale expensive.** A new angle or hook first runs in a Tier C or B format. Only angles that beat the account median on their job metric get upgraded to a song, animation or podcast. Exception: 1 "wildcard" premium piece a month to test something new (Kallaway's chaos slot).
@@ -449,7 +470,8 @@ The Hook Lab and Script Lab were built for paid ads. For organic, run them with 
 | StraightScale own, about 12 reels | 4 | 6 (strategist with prop leads) | 2 | 1,200 to 1,400 |
 | Carousels (if in the package) | 60 to 90 credits each | | | |
 
-Month 1 leans on Tiers B and C to find winning angles. From month 2, winners are upgraded to Tier A.
+Month 1 leans on Tiers B and C to find winning angles. From month 2, winners are upgraded to Tier A. The motion share
+in this table is a ceiling, not a target: `reel_motion` is at most 1 post in 6 (FORMATS.md).
 
 **Track cost per result, by format, per client:**
 - Credits and production minutes per piece.
@@ -690,7 +712,7 @@ The chain stays. These are the upgrades, in order of impact:
 8. **Capture upgrade:** DM button step, one qualifying question, per-series keywords, human hand-off, engagement audiences and winner boosting (8.5, 8.6).
 9. **Learn upgrade:** follows, sends, saves, skip rate in the log; 3x + checks template rule; diagnosis ladder; "How did you hear about us?"; monthly revenue-by-series review (section 9).
 10. **Director agent** with the review questions in section 10, writing the weekly memo and updating rules from the learnings log.
-11. **Format router and budget ledger** (7.7): picks the format per Post Card from job, belief, buyer and proven angle; enforces the monthly USD cap (Atlas, STANDARDS.md 10) and the 6-asset rule for premium pieces; logs Atlas USD, minutes and cost per result per format.
+11. **Format router and budget ledger** (7.7, FORMATS.md): ranks formats per Post Card by L19 fit to its load-bearing beat, the funnel stage, evidence and variety (cost only filters); enforces the monthly USD cap (Atlas, STANDARDS.md 10) and the 6-asset rule for premium pieces; logs Atlas USD, minutes and cost per result per format.
 
 Never automate publishing or messaging customers without explicit human approval.
 

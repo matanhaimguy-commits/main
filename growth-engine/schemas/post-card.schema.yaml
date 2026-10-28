@@ -47,6 +47,7 @@ properties:
   status: {enum: [planned, scripted, produced, approved, scheduled, live, scored, killed]}
   hub_item_id: {type: [integer, "null"]}
   content_dir: {type: [string, "null"]}
+  load_bearing_beat: {enum: [mechanism, proof, offer, list, data, type, null], description: "The beat that does most of the selling (L19; FORMATS.md 1): the format is chosen by it; reel_motion only for list, data or type"}
   story_template: {type: [string, "null"], description: "Narrative shape from config/organic.json story_templates (STORY-FORMATS.md)"}
   animation_style: {type: [string, "null"], description: "Locked look from config/organic.json animation_styles (animated formats only)"}
   series_character: {type: [string, "null"], description: "Recurring character id (CH-...) from the client's LIB run look bible"}

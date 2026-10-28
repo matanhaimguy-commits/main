@@ -9,14 +9,19 @@ pending the organic-director review, then the main session.
   solved) and B4 (the order: Research, Offer, Organic, Funnel, Paid ads); two convert posts move B5 (one system in order
   beats one more agency, course or tool). No B6 (no proof file, E5), no B8 (what the free analysis covers is not
   written, E3), no B7 piece (no real footage and no host, E8 and E12).
-- **Mix for a new account:** 12 reels (EN 02 now holds Wed 4 Nov): 6 reach, 4 trust, 2 convert (50, 33, 17%); AV-01 only.
+- **Mix for a new account:** 12 reels (W1-02, the WORDS whiteboard, holds Wed 4 Nov): 6 reach, 4 trust, 2 convert (50, 33, 17%); AV-01 only.
+- **Formats (re-routed 28 Oct by session F1, `growth-engine/production/FORMATS.md`):** each card names its load-bearing
+  beat and takes the format that carries it: presenter 3, animation 3, podcast 2, song, narrated story, UGC POV and
+  motion 1 each (7 families; motion 1 of 12).
 - **Spine:** the series "how the pieces fit", one step per part, Funnel before Paid ads, between two soft series
   ("One sentence" for trust, "One more fix" for convert).
 
 ## Cadence and defaults
 3 reels a week, Mon, Wed, Fri, 12:00 America/New_York, from Mon 2 Nov (main session plan of 28 Oct). Owner defaults:
-AV-01 only, method unnamed, no prices, no proof numbers, no AI host, keyword CTAs only on trust and convert posts,
-Funnel before Paid ads.
+AV-01 only, method unnamed, no prices, no proof numbers, no AI host (E8: no HeyGen twin; the strategist faces the camera
+only as the presenter in his staged whiteboard set, AI label on; other AI people from behind, hands only, at a distance
+or stylized until D1, STANDARDS 7; the main session confirms), keyword CTAs only on trust and convert posts, Funnel
+before Paid ads. Blocked this month (`blocked_formats`): `reel_ugc_talking`, `reel_lived_authority` (face-on AI people).
 
 ## Pillars
 | Pillar | Scope | Covers |
@@ -32,32 +37,34 @@ The method's five steps are six topics with the broad pillar, so Funnel and Paid
 ## Series
 | Series | Kind | Format | Job, belief | CTA | Episodes this month |
 |---|---|---|---|---|---|
-| how the pieces fit | hard (parts) | the cloth world: song, narrated story, claymation shorts, motion | reach, B1 to B4 | follow for the next part; the last part asks for a save | parts 1, 3, 4, 5, 6 (part 2 is EN 02, W5 card) |
-| One sentence | soft | reel_motion | trust, B3 and B4 | save | 3 |
-| One more fix | soft | reel_motion | convert, B5 | DM (WORDS once live) | 2 |
+| how the pieces fit | hard (parts) | by beat: song, whiteboard, narrated story, claymation shorts (the cloth world), whiteboard | reach, B1 to B4 | follow for the next part; the last part asks for a save | parts 1 to 6 (part 2 is the WORDS whiteboard, W1-02) |
+| One sentence | soft | by beat: motion for the list (W2-02), whiteboard (W3-02) | trust, B3 and B4 | save | 2 |
+| One more fix | soft | podcast (two hosts disagree) | convert, B5 | DM (WORDS once live) | 2 |
 
 ## Calendar (12 reels)
 | Date (12:00 NY) | Card | Idea | Format | Job, belief | Hook format | CTA |
 |---|---|---|---|---|---|---|
 | Mon 2 Nov | W1-01 | EN 03 song "Maya's quilt", part one | reel_song (A, wildcard) | reach B1 | HF-06 (nearest) | follow |
-| Wed 4 Nov | W5-02 (EN 02) | EN 02 "your buyers already wrote your hooks", part two (Research) | reel_motion | trust B4 | brain C4 | follow (WORDS if live) |
-| Fri 6 Nov | W1-03 | built or patched: one scrap of cloth, two paths | reel_motion | reach B2 | HF-19 | send |
+| Wed 4 Nov | W1-02 | the WORDS Sheet: a buyer's sentence on the board, where it was found, the hook made from it; part two (Research) | reel_whiteboard | trust B4 | brain C4 | follow (WORDS if live) |
+| Fri 6 Nov | W1-03 | built or patched: the newest patch brags it learned nothing | reel_talking_object (claymation) | reach B2 | HF-19 | send |
 | Mon 9 Nov | W2-01 | EN 04 "decided before you quoted", part three (Offer) | reel_story_narrated | reach B2 | HF-04 | follow |
-| Wed 11 Nov | W2-02 | the order I'd build in with a full calendar | reel_motion | trust B4 | HF-20 | save |
-| Fri 13 Nov | W2-03 | before you pay for the next fix, ask what it leaves you if you stop paying | reel_motion | convert B5 | HF-21 | DM |
+| Wed 11 Nov | W2-02 | the order I'd build in with a full calendar | reel_motion (the month's one list) | trust B4 | HF-20 | save |
+| Fri 13 Nov | W2-03 | before you pay for the next fix, ask what it leaves you if you stop paying | reel_podcast | convert B5 | HF-21 | DM |
 | Mon 16 Nov | W3-01 | EN 05 the boosted post explains itself, part four (Organic) | reel_animation_short | reach B3 | HF-12 | follow |
-| Wed 18 Nov | W3-02 | three questions an offer answers before you are compared | reel_motion | trust B4 | HF-22 | save |
-| Fri 20 Nov | W3-03 | the week the third client signed is where the quiet month starts | reel_animation_short | reach B1 | HF-25 | send |
+| Wed 18 Nov | W3-02 | three questions an offer answers before you are compared | reel_whiteboard | trust B4 | HF-22 | save |
+| Fri 20 Nov | W3-03 | the week the third client signed is where the quiet month starts | reel_ugc_pov (hands only) | reach B1 | HF-25 | send |
 | Mon 23 Nov | W4-01 | EN 06 the page that changed the subject, part five (Funnel) | reel_animation_short | reach B2 | HF-05 | follow |
-| Wed 25 Nov | W4-02 | a buyer's list of everything she tried, answered piece by piece | reel_motion | convert B5 | HF-10 | DM |
-| Mon 30 Nov | W5-01 | a post vs an ad: two jobs, part six (Paid ads) | reel_motion | trust B4 | HF-03 | save |
+| Wed 25 Nov | W4-02 | a buyer's list of everything she tried, answered piece by piece | reel_podcast | convert B5 | HF-10 | DM |
+| Mon 30 Nov | W5-01 | a post vs an ad: two jobs, part six (Paid ads) | reel_whiteboard | trust B4 | HF-03 | save |
 
 Contrarian: W1-03, W2-01, W3-01, W4-01 (4 of 12, above the 20% guide; the series spines are contrarian by design). Hook formats are HF outliers, 10x+ first;
 HF-06 and HF-12 are under 10x and come from the owner-approved series pieces.
 
 ## Spend
-Tier C motion reels about $1 each, claymation shorts about $1.90, the narrated story about $4.60, the song's picture
-about $5.50 (the November wildcard): about $27 for the month. EN 06 was routed from `reel_animation` (tier A) to
+Re-routed 28 Oct (session F1): the song's picture about $5.50 (the November wildcard), the WORDS whiteboard and the
+talking object $4.50 each, the narrated story $4.60, two podcasts $4.50 each, two more whiteboards $4.00 each, the
+UGC POV $3.50, two claymation shorts $1.90 each, one motion reel $1.00: $44.40 for the month. Cost only filtered
+formats against the cap; it ranked nothing. EN 06 was routed from `reel_animation` (tier A) to
 `reel_animation_short` (tier B) on its O30 script, because the song already holds the month's wildcard. No monthly USD
 cap is in the brain (E9), so G-BUDGET blocks paid generation under this slug until it is set.
 
@@ -83,21 +90,25 @@ talking-explainer refs in a row. Log with `refbank.py log` only after delivery.
 | W9-01 | the one client who leaves takes the month with them | reel_animation_short | reach B1 | HF-06 |
 | W9-02 | referrals aren't the problem, when they come is | reel_motion | reach B2 | HF-16 |
 | W9-03 | stop adding the next tactic (villain: one more tactic) | reel_story_narrated | reach B2 | HF-26 |
-| W9-04 | "I just need more leads." Which ones? | reel_motion | trust B3 | HF-12 |
+| W9-04 | "I just need more leads." Which ones? | reel_whiteboard | trust B3 | HF-12 |
 | W9-05 | three places your buyers already wrote your next post | reel_motion | trust B4 | HF-22 |
 | W9-07 | five answers to "where did your last three clients come from?" (was Wed 4 Nov) | reel_motion | trust B3 | HF-24 |
-| W9-06 | a new tool vs a course vs one system: which still holds in the quiet month | reel_motion | convert B5 | HF-03 |
+| W9-06 | a new tool vs a course vs one system: which still holds in the quiet month | reel_podcast | convert B5 | HF-03 |
 
 ## Rules (director review rounds 1 and 2; main session decisions, 28 Oct)
 - **Series release rule:** a part ships only with its script released at 85 or more and an A or A+ hook. If it is not
   released 3 days before its slot, a bank reach card (W9-01, W9-02 or W9-03) takes the slot and the part moves back a
   week; for part six (Mon 30 Nov), W9-04, W9-05 or W9-07. Today EN 04, EN 05 and EN 06 sit at 76, 80 and 76.
 - **Song:** stays Mon 2 Nov only if released by Fri 30 Oct 12:00 New York; otherwise a bank reach card takes the slot.
-- **EN 02:** retagged trust B4, Wed 4 Nov, after the song; CTA follow, WORDS if live by then. Its "567" is a count of
-  our own research, not a client result, so it is not a proof number under E5 (main session).
+- **EN 02:** retired as motion graphics (session F1, 28 Oct; `cards/retired/`): its beat is a mechanism, which
+  `reel_motion` may not carry. W1-02 (`reel_whiteboard`) takes Wed 4 Nov and the WORDS lead magnet; CTA follow, WORDS
+  if live by then.
+- **Formats:** every card names its `load_bearing_beat`; `organic.py route` ranks by L19 fit, funnel stage and variety
+  (no family more than twice a week, at least 4 a month, motion at most 1 in 6 and only for a list, data or type);
+  `week-check` enforces the variety rules. Each card's notes say why its format fits.
 - **DMs:** E10 is closed (the DM bot answers in the English profile since 28 Oct, about 16:20 UTC): the convert
   posts' DM CTAs stay.
-- **Budget:** monthly cap $100 Atlas USD (S1 sets it in `brain.json`); the cards add up to about $27.
+- **Budget:** monthly cap $100 Atlas USD (`brain.json`); the cards add up to $44.40.
 - **Finale:** part six moved off Black Friday to Mon 30 Nov.
 - **Waivers for November:** two reach posts meet across weeks (Fri W1-03 then Mon W2-01, Fri W3-03 then Mon W4-01);
   the first posts carry no conversion CTA. Both follow from the fixed Monday series parts.
@@ -115,3 +126,8 @@ talking-explainer refs in a row. Log with `refbank.py log` only after delivery.
 warnings for the two cross-week reach pairs (waived), the run without a conversion CTA (waived) and no B7 post. The
 rotation rule compared neighbouring posts, not days, so Mon/Wed/Fri reels failed "no format two days in a row"; fixed
 in `organic_os/week.py` (compares calendar days) with a test.
+
+## Checks (28 Oct, session F1 re-route)
+`card-check` over W1 to W5, the bank and `cards/retired`: every card passes (the retired EN 02 still warns on its 42 s).
+`week-check` over W1 to W5 at once and per week: pass; format families presenter 3, animation 3, podcast 2, song,
+story, ugc and motion 1 each; the same warnings as before (cross-week reach pairs, the CTA run, no B7).
