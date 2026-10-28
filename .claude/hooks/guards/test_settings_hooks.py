@@ -24,7 +24,8 @@ class SettingsHooksTest(unittest.TestCase):
 
     def test_free_reads_are_not_matched(self):
         m = re.compile(entry("generation_gate.py")["matcher"])
-        for name in ("mcp__Higgs__balance", ID + "show_generations", ID + "creative_list_voices", ID + "jobs_wait"):
+        for name in ("mcp__Higgs__balance", ID + "show_generations", ID + "creative_list_voices", ID + "jobs_wait",
+                     ID + "list_avatar_looks", ID + "get_video", ID + "list_voices"):
             with self.subTest(name=name):
                 self.assertIsNone(m.fullmatch(name))
 

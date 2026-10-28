@@ -697,6 +697,130 @@
       "service": "elevenlabs",
       "kind": "other"
     },
+    "mcp__ElevenLabs__creative_transcribe_audio": {
+      "service": "elevenlabs",
+      "kind": "other"
+    },
+    "mcp__HeyGen__text_to_video": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__image_to_video": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__reference_to_video": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_video_agent": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__send_video_agent_message": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_video_from_avatar": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_video_from_cinematic_avatar": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_video_from_image": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_video_from_studio": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_video_batch": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__generate_from_template": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_video_translation": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_video_translation_batch": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_lipsync": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_lipsync_batch": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_ai_clipping": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_filler_word_removal": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_image_generation": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_digital_twin": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_photo_avatar": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_prompt_avatar": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_look_pack_looks": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_template_looks": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_speech": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_speech_without_player": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__convert_model_speech": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__clone_voice": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__design_voice": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_instant_audio_voice": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_model_audio_voice": {
+      "service": "heygen",
+      "kind": "other"
+    },
     "atlas_generate": {
       "service": "atlas",
       "kind": "from_call"
@@ -1330,7 +1454,8 @@
   "disabled_services": {
     "_doc": "Services the generation gate (.claude/hooks/generation_gate.py) refuses whatever the call, for every gated_tools entry with that service. Owner decides.",
     "higgs": "Matan, 28 Oct 2026: never Higgsfield; generation runs on Atlas (much cheaper) through the gated `atlas` command.",
-    "elevenlabs": "Matan, 28 Oct 2026: generation runs on Atlas only. Speech, music, sound effects and images come through the gated `atlas` command (elevenlabs/v3/text-to-speech on Atlas stays allowed); the ElevenLabs connector's creative_* generation tools are off."
+    "elevenlabs": "Matan, 28 Oct 2026: generation runs on Atlas only. Speech, music, sound effects and images come through the gated `atlas` command (elevenlabs/v3/text-to-speech on Atlas stays allowed); word timings run on Atlas xai/stt-v1. The ElevenLabs connector's creative_* generation and transcription tools are off.",
+    "heygen": "Matan, 28 Oct 2026: generation runs on Atlas only. HeyGen's paid tools (video, avatar, lip-sync, translation, image and speech generation, voice cloning) are off."
   },
   "atlas_prices": {
     "_doc": "Atlas Cloud prices in USD, read 28 Oct 2026 with `atlas models get <id> --json` (pricing), `atlas generate cost ...` (free estimates) and the account's billed costs (`atlas account costs`). STANDARDS.md 10 and its 28 Oct changelog line list every price. Per-piece budgets (config/organic.json formats[].usd) come from these and the format's atlas_units; G-BUDGET and the router count USD.",

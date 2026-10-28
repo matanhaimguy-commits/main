@@ -135,13 +135,26 @@ and the rest) stays banned on Atlas unless the owner names that exact model.
 ## The Bash guard (installed 28 Oct 2026)
 
 The wrapper guards the `atlas` command; `.claude/hooks/atlas_bash_guard.py` (a PreToolUse hook on Bash in
-`.claude/settings.json`, `onFailure: block`) guards the other routes. Rules: `.claude/hooks/guards/atlas_bash.py`,
-tests: `.claude/hooks/guards/test_atlas_bash.py`. It denies a command that mentions the real binary or the stored login
-(`atlas-cli`), the API host or the key (`atlascloud`, `cloud.ai`), the test-stub switch `ATLAS_REAL_BIN`, the Atlas
-skills' scripts (`atlas-cloud-skills`, `atlas-rest`) or `atlas-mcp`; the same match runs with quotes and `+` joins
-taken out, and on the script files the command runs (after an interpreter or `<`, or an executable file), except the
-gate's own code in `growth-engine/tools/` and `.claude/hooks/` and the wrapper `/usr/local/bin/atlas`. Input it can't
-read is denied. `atlas ...` and `/usr/local/bin/atlas ...` pass: the wrapper gates the billable commands itself.
+`.claude/settings.json`, `onFailure: block`) guards the other routes. It is a guardrail for cooperating sessions, not a
+sandbox: the real controls are that only the wrapper is documented and that the main session reviews every diff.
+Rules: `.claude/hooks/guards/atlas_bash.py` (what is denied), `atlas_text.py` (the forms of a text it reads) and
+`atlas_scripts.py` (the files a command runs, and the trusted list); tests: `test_atlas_bash.py`. It denies:
+- the real binary or its login (`atlas-cli`), the API host or key (`atlascloud`, `cloud.ai`), `ATLAS_REAL_BIN`, the
+  Atlas skills' scripts (`atlas-cloud-skills`, `atlas-rest`) and `atlas-mcp`, read as written, with quote and `+` joins
+  taken out, with the command's own shell variables and `$(echo …)` filled in, and printf escapes and base64 decoded;
+- `atlas` beside a network call or a code runner, outside the wrapper's own commands, git and the repo's Atlas files;
+- decoded text run as code (`base64 -d | sh`), a wildcard that matches the binary or the login, `find -exec` or
+  `xargs` near the install;
+- a file the command runs that names them: when an interpreter runs anywhere in the command, every file it names
+  (`cat x.py | python3`, `python3 < x.py`, `python -m mod`, `unittest discover -s DIR`, `cp a.py b.py && python3 b.py`),
+  plus any executable file named;
+- copying, linking or redirecting a trusted file.
 
-It is a text match: it also blocks harmless commands that mention those strings (search with the Grep tool instead),
-and a script that builds the host from pieces at run time still gets through.
+Trusted (may name Atlas): `atlas_gate.py`, `setup.sh`, `test_atlas_gate.py`, the guard's own `atlas_text.py`,
+`atlas_bash.py` and `test_atlas_bash.py`, `references/fetch.sh` (it clones the Atlas skills for reading) and the
+wrapper `/usr/local/bin/atlas`; the test keeps that list exact. Input it can't read is denied. `atlas ...` and
+`/usr/local/bin/atlas ...` pass: the wrapper gates the billable commands itself.
+
+Not closed by text matching: a program that builds the host at run time from pieces carrying no `atlas` (character
+codes, a file it reads, a variable exported by an earlier command), and code a program loads on its own. It also
+blocks harmless commands that mention those strings (search with the Grep tool instead).

@@ -2,7 +2,8 @@
 
 A cloud session can name a connector by an id (mcp__<id>__generate_image) instead of its name (mcp__Higgs__generate_image).
 canonical() maps such a call to the gated tool with the same ending, so the gates apply whatever the server is called.
-A server with a plain name (Figma, HeyGen) keeps its own name: only id-named servers are mapped.
+A server with a plain name keeps its own name (Figma's generate_image is not Higgsfield's), but the name is matched
+without case (mcp__heygen__create_speech is mcp__HeyGen__create_speech).
 """
 import re
 
@@ -12,6 +13,9 @@ NAMED_SERVER = re.compile(r"[A-Za-z][A-Za-z_]*")
 def canonical(tool: str, gated: dict) -> str:
     if tool in gated:
         return tool
+    same = [k for k in gated if k.lower() == tool.lower()]
+    if same:
+        return same[0]
     m = re.match(r"^mcp__(.+?)__(.+)$", tool)
     if not m or NAMED_SERVER.fullmatch(m.group(1)):
         return tool

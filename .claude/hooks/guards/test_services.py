@@ -20,9 +20,9 @@ def gate(tool: str, tool_input: dict | None = None) -> str:
 
 
 class ServicesTest(unittest.TestCase):
-    def test_every_higgsfield_and_elevenlabs_tool_is_off(self):
-        tools = [k for k in STANDARDS["gated_tools"] if k.startswith(("mcp__Higgs__", "mcp__ElevenLabs__"))]
-        self.assertGreaterEqual(len(tools), 40)
+    def test_every_higgsfield_elevenlabs_and_heygen_tool_is_off(self):
+        tools = [k for k in STANDARDS["gated_tools"] if k.startswith(("mcp__Higgs__", "mcp__ElevenLabs__", "mcp__HeyGen__"))]
+        self.assertGreaterEqual(len(tools), 70)
         for t in tools:
             with self.subTest(tool=t):
                 self.assertIn("Atlas", off_reason(t, STANDARDS))
@@ -37,14 +37,17 @@ class ServicesTest(unittest.TestCase):
     def test_the_hook_refuses_them_under_any_server_name(self):
         for tool in ("mcp__Higgs__upscale_video", ID + "upscale_video", ID + "sandbox_exec", ID + "generate_3d",
                      "mcp__ElevenLabs__creative_generate_speech", ID + "creative_generate_speech",
-                     ID + "creative_design_voice"):
+                     ID + "creative_design_voice", ID + "creative_transcribe_audio", ID + "text_to_video",
+                     ID + "create_video_from_avatar", ID + "create_speech", ID + "create_photo_avatar",
+                     ID + "create_lipsync", "mcp__heygen__create_video_agent"):
             with self.subTest(tool=tool):
                 self.assertIn("SERVICE OFF", gate(tool, {"prompt": "x"}))
 
     def test_atlas_stays_on(self):
         self.assertIsNone(off_reason("atlas_generate", STANDARDS))
         self.assertIsNone(off_reason("Bash", STANDARDS))
-        self.assertEqual(gate(ID + "balance"), "", "a free read is not gated")
+        for free in (ID + "balance", ID + "list_avatar_looks", ID + "get_video", ID + "creative_list_voices"):
+            self.assertEqual(gate(free), "", f"{free}: a free read is not gated")
 
 
 if __name__ == "__main__":
