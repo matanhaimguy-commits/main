@@ -59,8 +59,8 @@ def card_check(card: dict, brain: dict, cmap: dict, demand: list[dict]) -> list[
             issues.append(issue(WARN, "format", "single images are the weakest format: only a strong self-check question, a real review quote or an announcement, 1 a week at most"))
         if fmt["family"] == "reel" and card.get("length_target_s"):
             issues += length_issues(card["format"], card["length_target_s"])
-        if fmt["family"] == "carousel" and card.get("slides") and not 7 <= card["slides"] <= 12:
-            issues.append(issue(WARN, "slides", f"carousels: 7 to 12 slides (card: {card['slides']})"))
+        if fmt["family"] == "carousel" and card.get("slides") and not 7 <= card["slides"] <= 10:
+            issues.append(issue(WARN, "slides", f"carousels: 7 to 10 slides (the hub takes at most 10 files; card: {card['slides']})"))
     if fmt is not None:
         st, style = card.get("story_template"), card.get("animation_style")
         if st:

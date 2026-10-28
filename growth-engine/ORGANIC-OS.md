@@ -237,7 +237,7 @@ Each account runs **2 to 4 named series**. A series is a fixed format and theme 
 |---|---|---|---|
 | **Reels (30 to 60 s, under 3 min)** | Reach engine and trust | 45 to 60% | readymerce-hook-lab + readymerce-script-lab + video production |
 | **Motion graphic reels** | Explaining mechanisms, numbers, frameworks without a face; series identity | Inside the reel share | motion-reel (HyperFrames) |
-| **Carousels (7 to 12 slides)** | Saves, depth, frameworks, checklists, teardowns | 30 to 45% | carousel-machine |
+| **Carousels (7 to 10 slides; the hub takes 10 files at most)** | Saves, depth, frameworks, checklists, teardowns | 30 to 45% | carousel-machine |
 | **Stories (daily, 3 to 7 frames)** | Selling to followers, DMs, proof, polls | Daily, not counted in posts | Story templates (section 8.4) |
 | **Single images** | Weakest format: only real review quotes, announcements, or a strong self-check question | 1 a week at most | carousel-machine (1 slide) |
 
@@ -395,6 +395,10 @@ The Hook Lab and Script Lab were built for paid ads. For organic, run them with 
 - Tell the truth about being early when it matters. (Hormozi: "the truth sells the most")
 
 ### 7.7 Format economics: which video, when, why, how much
+
+> **History (Higgsfield credits).** Since 28 Oct 2026 budgets are Atlas USD: per-piece `config/organic.json`
+> `formats[].usd`, prices in STANDARDS.md 10, the month's `package.monthly_usd_cap` in `brain.json`. The credit figures
+> below are from before the move and stay for the older pieces; nothing budgets in them.
 
 **What each format really costs** (from our own October 2026 runs; 1 Higgsfield credit is about $0.05 on auto-refill top-ups and about $0.033 inside the Ultra plan; ElevenLabs costs are small next to Higgsfield; ranges are estimates and include about 25% retakes)
 
@@ -684,7 +688,7 @@ The chain stays. These are the upgrades, in order of impact:
 8. **Capture upgrade:** DM button step, one qualifying question, per-series keywords, human hand-off, engagement audiences and winner boosting (8.5, 8.6).
 9. **Learn upgrade:** follows, sends, saves, skip rate in the log; 3x + checks template rule; diagnosis ladder; "How did you hear about us?"; monthly revenue-by-series review (section 9).
 10. **Director agent** with the review questions in section 10, writing the weekly memo and updating rules from the learnings log.
-11. **Format router and budget ledger** (7.7): picks the format per Post Card from job, belief, buyer and proven angle; enforces the monthly credit cap and the 6-asset rule for premium pieces; logs credits, minutes and cost per result per format.
+11. **Format router and budget ledger** (7.7): picks the format per Post Card from job, belief, buyer and proven angle; enforces the monthly USD cap (Atlas, STANDARDS.md 10) and the 6-asset rule for premium pieces; logs Atlas USD, minutes and cost per result per format.
 
 Never automate publishing or messaging customers without explicit human approval.
 

@@ -176,11 +176,11 @@ Audio is made before any picture. Pick the route by format:
 - **On fail:** regenerate the panel.
 
 ### Step 9 · Budget preflight (hard gate G3)
-- **Does:** prices every planned clip.
-  - H3 at 2K = 2 credits per second.
-  - Kling fallback = 10 credits per 5 s.
-  - Stills = 1 to 3 credits on the cheaper models, 6.5 for GPT Image 2 at 2k high.
-  - Add 25 to 30% for retakes, then check the balance **right before submitting**, because credits are shared across sessions.
+- **Does:** prices every planned clip in Atlas USD (STANDARDS.md 10; history in credits there).
+  - H3 on Atlas at 768P = $0.024 per second asked for.
+  - Stills = $0.059 each (`openai/gpt-image-2` at medium, the dearest named size).
+  - Voices = $0.10 per 1,000 characters (`elevenlabs/v3/text-to-speech` on Atlas).
+  - Add 25 to 30% for retakes, then check the balance (`atlas account balance`) **right before submitting**, because the Atlas account is shared across sessions.
 - **Gate:** the balance covers the whole video plus retakes. For organic, also the client's monthly cap (Organic Growth OS 7.7).
 - **On fail:** agree the scope with you before spending anything.
 

@@ -45,6 +45,28 @@ class Entries(unittest.TestCase):
                 self.assertIsNotNone(R.entry_problem(bad))
 
 
+class Shapes(unittest.TestCase):
+    """size_for_aspect (gpt-image-2) and reference objects (H3 reference-to-video refers)."""
+
+    def test_size_for_aspect_is_checked(self):
+        base = {"id": "m/x", "kind": "image"}
+        self.assertIsNone(R.entry_problem({**base, "size_for_aspect": {"4:5": ["1024x1536"]}}))
+        for bad in ({"4:5": "1024x1536"}, ["4:5"], {"4:5": [1024]}):
+            self.assertIn("size_for_aspect maps", R.entry_problem({**base, "size_for_aspect": bad}))
+        self.assertIn("don't mix", R.entry_problem({**base, "size_for_aspect": {"4:5": ["1x1"]}, "aspect_from": "image"}))
+
+    def test_reference_objects_are_structure_not_text(self):
+        e = entry("minimax/h3-developer/reference-to-video")
+        req = {"model": e["id"], "medias": [{"value": FRAME, "role": "refers"}],
+               "params": {"resolution": "768P", "prompt_expansion": False, "ratio": "9:16"}}
+        for refers, loose in (([{"url": FRAME}], None), ([{"url": FRAME, "type": "image"}], None),
+                              ([{"url": "https://elsewhere/x.png"}], "url"), ([{"url": FRAME, "type": "a cat"}], "type"),
+                              ([{"url": FRAME, "caption": "a cat"}], "caption")):
+            with self.subTest(refers=refers):
+                why = R.param_checks({**req, "params": {**req["params"], "refers": refers}}, e)
+                self.assertEqual(why, []) if loose is None else self.assertIn("refers carries text", why[0])
+
+
 class OmniHuman(unittest.TestCase):
     def why(self, req, seconds=9.4, specs=(OBJECT_SPEC,), atype="video_clip"):
         return " | ".join(R.entry_checks(req, {"type": atype}, list(specs), lambda v: seconds if v == SLICE else None))

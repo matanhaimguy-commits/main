@@ -33,6 +33,32 @@ class BrainTest(unittest.TestCase):
         b["package"]["monthly_usd_cap"] = -5
         self.assertIn("schema", codes(o.brain_check(b, DEMAND)[0], o.ERROR))
 
+    def test_decided_questions_leave_the_owners_list(self):
+        b = copy.deepcopy(BRAIN)
+        b["decisions_open"] = [{"id": "E1", "question": "Name the method?", "interim": "unnamed"},
+                               {"id": "E4", "question": "Prices?", "decided": {"answer": "No prices.", "by": "Matan"}}]
+        b["hub"] = {"business": "acme"}
+        b["package"]["schedule"] = {"days": ["Mon", "Fri"], "time": "12:00", "timezone": "America/New_York"}
+        issues, gaps = o.brain_check(b, DEMAND)
+        self.assertEqual(codes(issues, o.ERROR), [])
+        report = o.brain_report("acme", b, issues, gaps)
+        owner, decided = report.split("## Decided")
+        self.assertIn("**E1** Name the method?", owner)
+        self.assertNotIn("E4", owner)
+        self.assertIn("**E4** No prices. (Matan)", decided)
+        for bad in ({"decided": {"answer": "x"}}, {"hub": {"business": ""}},
+                    {"schedule": {"days": ["Monday"], "time": "12:00", "timezone": "X"}},
+                    {"schedule": {"days": ["Mon"], "time": "25:00", "timezone": "X"}}):
+            c = copy.deepcopy(b)
+            if "decided" in bad:
+                c["decisions_open"][1]["decided"] = bad["decided"]
+            elif "hub" in bad:
+                c["hub"] = bad["hub"]
+            else:
+                c["package"]["schedule"] = bad["schedule"]
+            with self.subTest(bad=bad):
+                self.assertIn("schema", codes(o.brain_check(c, DEMAND)[0], o.ERROR))
+
 
 if __name__ == "__main__":
     unittest.main()

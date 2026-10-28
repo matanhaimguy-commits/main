@@ -61,6 +61,26 @@ class Dispatch(StudioCase):
         self.assertIn("decision #3 synced", out)
         self.assertNotIn(FAKE_TOKEN, out)
 
+    def test_a_client_folder_posts_as_its_brains_hub_business(self):
+        d = self.root / "clients" / "acme-en"
+        d.mkdir(parents=True)
+        (d / "brain.json").write_text(json.dumps({"hub": {"business": "acme"}}))
+        import studio.business as B
+        repo, B.REPO = B.REPO, self.root
+        try:
+            self.hub.replies[("GET", "results")] = {"results": []}
+            self.hub.replies[("POST", "items")] = lambda body: {"items": [{"id": 1, "status": "draft", "kind": "reel",
+                                                                           "business": body["items"][0]["business"]}]}
+            item = self.root / "item.json"
+            item.write_text(json.dumps({"business": "acme-en", "kind": "reel", "caption": "c", "media": []}))
+            self.run_cli("results", "acme-en")
+            self.run_cli("push", item)
+            self.run_cli("results", "acme-en", "--days", "7")
+        finally:
+            B.REPO = repo
+        self.assertEqual(self.hub.calls[0]["path"], "results?business=acme&days=30")
+        self.assertEqual(self.hub.calls[1]["body"]["items"][0]["business"], "acme")
+
     def test_help_lists_the_studio_commands(self):
         out = self.run_cli("--help")
         for cmd in ("studio-push", "studio-ask", "studio-answers", "studio-synced"):

@@ -40,7 +40,8 @@ Plus `series` and `series_character` (a CH- id from the series' LIB run) when th
 | `reel_strategist_prop` | B | 80-200 | trust, convert, reach | none listed | `ugc-talking-head-organic.md` (the strategist as a presenter in his staged studio set) |
 | `reel_talking_head_real` | C | 0-10 | trust, convert, reach | none listed; needs real footage | `ugc-talking-head-organic.md` |
 
-**Credits** are organic.json's ranges, which `route` and `card-check` read. They come from each adapter's computation
+**Credits** are organic.json's older Higgsfield ranges; since 28 Oct 2026 `route` and `card-check` budget in Atlas USD
+(organic.json `formats[].usd`, STANDARDS 10), and the credits column is history. They come from each adapter's computation
 at STANDARDS 10 prices (section 4 of each adapter; `reel_story_narrated` from section 6.4 here) and include about 25%
 retakes; the cast sheets of a new series are extra, once.
 
@@ -374,6 +375,10 @@ posted as slides: they are 9:16 panels on a board canvas with no text (STANDARDS
 Stories; **6** an ad version.
 
 ### 5.6 A worked month for StraightScale (cap 1,300 Higgsfield credits)
+> **History (Higgsfield credits).** Since 28 Oct 2026 budgets are Atlas USD: per-piece `config/organic.json`
+> `formats[].usd`, prices in STANDARDS.md 10, the month's `package.monthly_usd_cap` in `brain.json`. The credit figures
+> below are from before the move and stay for the older pieces; nothing budgets in them.
+
 Ranges are organic.json per-piece credits (they include about 25% retakes); the narrated POV is priced at 60 s from
 section 6.4 and the strategist at O30 (`ugc-talking-head-organic.md` 4). Reel 2 is Wednesday's slot and Reel 3
 Friday's (section 5.1). ElevenLabs credits are outside the cap.

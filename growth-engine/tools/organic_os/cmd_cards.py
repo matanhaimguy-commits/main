@@ -7,7 +7,7 @@ from pathlib import Path
 import yaml
 
 from .cards import card_check
-from .files import load_brain, load_cards, load_demand, load_map
+from .files import load_brain, load_cards, load_demand, load_map, need
 from .issues import has_errors
 from .router import ledger_rows, month_spend, route, route_issues, usd_cap
 from .show import print_issues
@@ -36,7 +36,7 @@ def week_check_cmd(a) -> int:
 
 def route_cmd(a) -> int:
     brain, cmap = load_brain(a.slug), load_map(a.slug)
-    card = yaml.safe_load(Path(a.card).read_text())
+    card = yaml.safe_load(need(Path(a.card), "no such card").read_text())
     month = card["slot"][:7]
     spent = month_spend(ledger_rows(a.slug), month)["usd"]
     opts = route(card, brain, cmap, a.prev_family, spent)

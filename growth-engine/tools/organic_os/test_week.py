@@ -19,6 +19,12 @@ class WeekTest(unittest.TestCase):
         w[1]["format"] = "reel_motion"
         self.assertIn("rotation", codes(o.week_check(w, BRAIN)[0], o.ERROR))
 
+    def test_same_format_with_a_day_between_passes(self):
+        w = [c for c in self.week() if c["format"].startswith("reel")]
+        for c, day in zip(w, ("2026-11-02", "2026-11-04", "2026-11-06")):
+            c["slot"] = f"{day} 12:00"
+        self.assertNotIn("rotation", codes(o.week_check(w, BRAIN)[0], o.ERROR))
+
     def test_missing_b7_and_contrarian_are_flagged(self):
         w = self.week()
         w[0]["hook_type"] = "myth"

@@ -58,8 +58,8 @@ Nothing is copied by hand between the two.
 2. **One batch per client per week.** A scheduled task starts a fresh cloud session every Monday per client:
    research → plan → produce the whole week → ship drafts. The hub publishes day by day.
 3. **Cheap where it can be.** DMs run on Claude Haiku 5.5 (well under a cent per reply). Research is the
-   only Apify cost (a few cents per run). Reels render on CPU for free. Carousels cost Higgsfield credits
-   (about 10-13 per carousel). Voiceover and AI music only on flagship pieces.
+   only Apify cost (a few cents per run). Reels render on CPU for free. Carousels cost Atlas USD
+   (about $1 to 2 a carousel, STANDARDS.md 10). Voiceover and AI music only on flagship pieces.
 4. **Measure leads, not likes.** Every post carries its own keyword, so the hub can count the comments, DMs,
    taps, leads and bookings each post produced.
 

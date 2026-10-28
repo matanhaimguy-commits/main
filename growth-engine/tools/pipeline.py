@@ -45,6 +45,8 @@ import yaml
 import atlas_calls
 import atlas_rules
 import budget_usd
+import call_aspect
+import gate_auth
 
 GE = Path(__file__).resolve().parents[1]
 PROD = GE / "production"
@@ -623,7 +625,7 @@ def record_report(slug: str, post_id: str, report: dict) -> tuple[str, list[str]
 
 
 def is_human(by: str) -> bool:
-    return by.strip() in STANDARDS["humans"]
+    return gate_auth.is_human(by, STANDARDS["humans"])
 
 
 def record_gate(slug, post_id, gate, status, by, asset=None, note=None, score=None, data=None, covers=None) -> dict:
@@ -632,16 +634,13 @@ def record_gate(slug, post_id, gate, status, by, asset=None, note=None, score=No
         raise PipelineError("status is PASS, FAIL or OVERRIDE")
     hc = STANDARDS["human_checkpoints"].get(gate)
     if hc:
-        if hc["mode"] == "delegable" and not is_human(by):
-            if not by.startswith("claude (delegated)"):
-                raise PipelineError(f"{gate} is the owner's call; Claude may take it only as 'claude (delegated)' with a --note")
-        elif hc["mode"] == "director" and not (is_human(by) or by.startswith("organic-director")):
-            raise PipelineError(f"{gate} is the Director's call (organic-director agent) or the owner's")
-        elif hc["mode"] not in ("delegable", "director") and not is_human(by):
-            raise PipelineError(f"{gate} is a human checkpoint: --by must be one of {STANDARDS['humans']} "
-                                f"(record what the owner said; never approve on their behalf)")
-        if not note:
-            raise PipelineError(f"{gate}: say what was decided and where (--note)")
+        why = gate_auth.checkpoint_problem(gate, hc, by, note, STANDARDS["humans"], ROOT)
+        if why:
+            raise PipelineError(why)
+    if gate == "G-BUDGET":
+        why = gate_auth.hand_budget_problem(status)
+        if why:
+            raise PipelineError(why)
     if gate in REVIEW_GATES and status != OVERRIDE:
         raise PipelineError(f"{gate} is a reviewer gate: record the fresh reviewer's JSON with pipeline.py record "
                             "(only the owner can OVERRIDE it, with a reason)")
@@ -665,11 +664,12 @@ def record_gate(slug, post_id, gate, status, by, asset=None, note=None, score=No
         add_record(a["gates"], gate, rec)
     else:
         add_record(led["run_gates"], gate, rec)
-    if hc and hc["mode"] == "delegable" and not is_human(by):
+    delegated = bool(hc) and gate_auth.is_delegated(hc, by, STANDARDS["humans"])
+    if delegated:
         _queue_add(led, gate, f"FYI (delegated): {note}", asset, kind="fyi")
     for q in led["queue"]:
         if q["checkpoint"] == gate and q["status"] == PENDING and (asset is None or q.get("asset") in (None, asset)):
-            if is_human(by):
+            if is_human(by) or delegated:
                 q.update({"status": "APPROVED" if status in OK_STATES else "REJECTED", "answered_at": stamp(), "by": by,
                           "answer": note})
     save_ledger(led)
@@ -728,19 +728,6 @@ def gate_state(led: dict, gate: str) -> tuple[bool, str]:
     return gate_ok(led["run_gates"].get(gate)), f"{gate} has no PASS"
 
 
-def budget_after_steps(led: dict, n: int) -> tuple[bool, str]:
-    """Step 9 re-prices the whole video: its G-BUDGET PASS must be newer than every earlier step's close (D-a)."""
-    b = latest(led["run_gates"].get("G-BUDGET"))
-    if not b or b["status"] not in OK_STATES:
-        return False, "G-BUDGET has no PASS"
-    closed = [parse_ts(st["at"]) for k, st in led["steps"].items()
-              if int(k) < n and st.get("status") == "done" and st.get("at")]
-    if closed and parse_ts(b["at"]) < max(closed):
-        return False, (f"the last G-BUDGET ({b['at']}) is older than step {n - 1}'s close: re-price the whole piece with "
-                       f"pipeline.py budget {led['slug']} {led['post_id']} --planned USD --balance USD")
-    return True, ""
-
-
 def close_step(slug, post_id, n: int, status: str, note: str = "") -> dict:
     led = load_ledger(slug, post_id)
     st = led["steps"].get(str(n))
@@ -752,7 +739,7 @@ def close_step(slug, post_id, n: int, status: str, note: str = "") -> dict:
             if not ok:
                 raise PipelineError(f"step {n} can't close: {why}")
             if g == "G-BUDGET":
-                ok, why = budget_after_steps(led, n)
+                ok, why = budget_usd.after_steps(sys.modules[__name__], led, n)
                 if not ok:
                     raise PipelineError(f"step {n} can't close: {why}")
         for m in range(n):
@@ -930,19 +917,6 @@ def _gate_any_version(led, a, gate, **match) -> bool:
     return False
 
 
-def _spec_aspect(a: dict, led: dict, p: dict) -> list[str]:
-    if a["type"] in ("storyboard", "style_ref") or a["type"].endswith("_sheet"):
-        return []
-    aspects = set()
-    for s in a["shots"]:
-        sp = spec_path(led["slug"], led["post_id"], s)
-        if sp.exists():
-            aspects.add((yaml.safe_load(sp.read_text()) or {}).get("camera", {}).get("aspect"))
-    if len(aspects) == 1 and p.get("aspect_ratio") not in aspects:
-        return [f"aspect_ratio {p.get('aspect_ratio')} differs from the Shot Spec ({aspects.pop()})"]
-    return []
-
-
 def _atlas_entry(model, kind: str) -> tuple[dict | None, list[str]]:
     """The owner's entry for an Atlas model (standards.json models.atlas.allowed; atlas_rules.py)."""
     return atlas_rules.find_entry(STANDARDS["models"]["atlas"]["allowed"], model, kind)
@@ -1003,7 +977,7 @@ def _model_checks(req: dict, a: dict, led: dict) -> list[str]:
                 if fmts & set(people):
                     why.append(f"{model} is not used for realistic people in a {a['type']} ({', '.join(sorted(fmts & set(people)))}): "
                                "gpt_image_2 with a reference photo (STANDARDS.md 1, hub G7)")
-        why += _spec_aspect(a, led, p)
+        why += call_aspect.spec_mismatch(sys.modules[__name__], a, led, p)
     elif kind == "video":
         if tool_service == "elevenlabs":
             fb = std["elevenlabs"].get("video_fallback", {}).get(model)
@@ -1093,7 +1067,7 @@ def _check_asset(led: dict, a: dict, req: dict, prompt_sha: str | None):
             "nodes": info["kind"]}.get(kind, kind)
     pol = STANDARDS["gate_policy"]
     b = latest(led["run_gates"].get("G-BUDGET"))
-    if not b or b["status"] not in OK_STATES:
+    if not gate_auth.budget_ok(b, OK_STATES):
         why.append(f"no G-BUDGET PASS for {led['post_id']} (pipeline.py budget {led['slug']} {led['post_id']} --planned USD --balance USD)")
     elif now() - parse_ts(b["at"]) > dt.timedelta(hours=pol["budget_fresh_hours"]):
         why.append(f"G-BUDGET is older than {pol['budget_fresh_hours']} h: check the live Atlas balance again (it is shared)")
@@ -1228,7 +1202,7 @@ def _check_other(tool_name: str, ti: dict) -> tuple[bool, list[str]]:
             if a["type"] == "test" and a.get("tool") == tool_name and gate_ok(a["gates"].get("G-HUMAN-TEST")) \
                     and not generated_before(led, a):
                 b = latest(led["run_gates"].get("G-BUDGET"))
-                if b and b["status"] in OK_STATES:
+                if gate_auth.budget_ok(b, OK_STATES):
                     with calls_log(led).open("a") as f:
                         f.write(json.dumps({"at": stamp(), "tool": tool_name, "asset": aref(a), "decision": "ALLOW",
                                             "dry": False}) + "\n")

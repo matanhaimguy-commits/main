@@ -1,7 +1,7 @@
 ---
 name: research-scout
 description: Research Scout: outlier mining (3-month window, the 4 checks), gold/silver/bronze compares, weekly scout, own-account audit. Use for a client's research pack or the weekly refresh.
-tools: Read, Write, Edit, Glob, Grep, Bash, Skill, WebFetch, WebSearch, mcp__Apify__call-actor, mcp__Apify__get-actor-run, mcp__Apify__get-dataset-items, mcp__Apify__fetch-actor-details, mcp__Higgs__sandbox_exec
+tools: Read, Write, Edit, Glob, Grep, Bash, Skill, WebFetch, WebSearch, mcp__Apify__call-actor, mcp__Apify__get-actor-run, mcp__Apify__get-dataset-items, mcp__Apify__fetch-actor-details
 model: sonnet
 ---
 

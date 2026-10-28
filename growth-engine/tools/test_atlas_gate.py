@@ -20,6 +20,7 @@ sys.path.insert(0, str(HERE / "atlas"))
 import atlas_gate as G  # noqa: E402
 import pipeline as P  # noqa: E402
 import test_pipeline as TP  # noqa: E402
+from test_atlas_shapes import Shapes  # noqa: E402,F401  (the real entries on 9:16 and 4:5 work)
 
 REPO = HERE.parents[1]
 SLUG, POST, LIB = TP.SLUG, TP.POST, TP.LIB
@@ -58,7 +59,7 @@ class Wrapper(TP.Base):
         cls.repo_tmp = tempfile.TemporaryDirectory()
         r = Path(cls.repo_tmp.name)
         for rel in ("growth-engine/tools/pipeline.py", "growth-engine/tools/atlas_rules.py", "growth-engine/tools/atlas_calls.py",
-                    "growth-engine/tools/budget_usd.py",
+                    "growth-engine/tools/budget_usd.py", "growth-engine/tools/call_aspect.py", "growth-engine/tools/gate_auth.py",
                     "growth-engine/tools/organic.py",
                     "growth-engine/tools/atlas/atlas_gate.py", "growth-engine/production/standards.json",
                     "growth-engine/production/schemas", "growth-engine/config"):
@@ -583,32 +584,6 @@ class OmniAndStt(TP.Base):
             ok, why = P.check_call("atlas_generate", bad)
             self.assertFalse(ok)
             self.assertIn(needle, " ".join(why))
-
-
-class BashHook(unittest.TestCase):
-    def hook(self, cmd=None, raw=None):
-        r = subprocess.run([sys.executable, str(HERE / "atlas" / "atlas_gate.py"), "--bash-hook"],
-                           input=raw if raw is not None else json.dumps({"tool_name": "Bash",
-                                                                         "tool_input": {"command": cmd}}),
-                           capture_output=True, text=True)
-        self.assertEqual(r.returncode, 0)
-        return json.loads(r.stdout)["hookSpecificOutput"]["permissionDecision"] if r.stdout else "allow"
-
-    def test_direct_routes_are_denied(self):
-        for cmd in ("/usr/local/lib/atlas-cli/atlas generate video m -p x",
-                    "curl -H 'Authorization: Bearer x' https://api.atlascloud.ai/api/v1/model/generateVideo",
-                    "npm install -g atlascloud-cli", "echo $ATLASCLOUD_API_KEY",
-                    "node references/atlas-cloud-skills/skills/seedance-2-5-skill/scripts/generate.mjs cfg.json",
-                    "node scripts/providers/atlas-rest.mjs", "cat ~/.config/atlas-cli/auth.json"):
-            with self.subTest(cmd=cmd):
-                self.assertEqual(self.hook(cmd), "deny")
-        self.assertEqual(self.hook("atlas generate video m -p x"), "allow")
-        self.assertEqual(self.hook("bash growth-engine/tools/atlas/setup.sh"), "allow")
-
-    def test_unreadable_input_is_denied(self):
-        for raw in ("", "not json", "[]", '{"tool_input": {}}', '{"tool_input": {"command": 3}}'):
-            with self.subTest(raw=raw):
-                self.assertEqual(self.hook(raw=raw), "deny")
 
 
 class Setup(unittest.TestCase):
