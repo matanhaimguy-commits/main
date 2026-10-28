@@ -18,20 +18,80 @@ Every scripted line is heard in order, the spoken question and the CTA included;
 with the step 4 faster-whisper check (0.956 / 0.896). Caption the sung words, and set these in bold so a misheard
 word can't change the meaning: **ALONE**, **ADS LAST** (O30) / **ADS WENT LAST** (O60), **THAT CLOTH**, **POSTS**.
 
-## What is NOT measured yet (G-TIMELINE open)
-- **Word timestamps.** Atlas CLI 0.1.38 returns only `text` for `xai/stt-v1` (`generate audio` and `generate get` alike,
-  diarize on or off): no word or segment times reach the session. Atlas gap.
-- **BPM, vocal stem, slices, voice-in time.** The masters live on `atlas-media.oss-us-west-1.aliyuncs.com`, which this
-  environment's network policy refuses (403 on CONNECT), so the files can't be loaded for faster-whisper, librosa or a
-  stem split. Known from step 4 (faster-whisper small.en, 27 Oct): O60 voice at 0.8 s, "lumpy months" by 1.5 s; O30
-  voice at 0.0 s, by 1.1 s.
+## Step 5 measured (28 Oct 2026, EN 03 production session 2): G-TIMELINE
+Masters downloaded to `masters/` (kept out of git, see `.gitignore`), then `growth-engine/tools/song_timeline.py`:
+- **Word timings** (`words.json`): forced alignment of the line table's words to each master with pocketsphinx (its
+  bundled en-us model). faster-whisper could not run here: its model host (huggingface.co) is refused by this
+  environment's network policy, so the words are placed, not recognised; the lyric match itself stays the STT one above
+  (0.951 / 0.910) and the step 4 faster-whisper check (0.956 / 0.896). Every lyric word aligned in order, both masters.
+- **Beat grid** (`timeline.json`): librosa beat_track (same method as `motion-studio/beats.py`).
+- **Vocal stem**: not made (Demucs weights sit on blocked hosts); not needed before step 10.
+- **Slices**: planned as times (whole lines, 5 to 15 s, cuts on a beat inside the gap between lines); the files are
+  cut at step 10 only for a shot that needs an audio reference, each with its own G-AUDIO.
 
-To close step 5: allow `atlas-media.oss-us-west-1.aliyuncs.com` in the environment's network settings (or a session
-that can reach it), then faster-whisper word timestamps aligned to the lyrics, librosa BPM (prompt: 96), the vocal stem,
-the line table with times and the slices (5 to 15 s, one per lip-sync sequence). Nothing in steps 6 and 7 needs the
-times: Shot Specs carry line ids, and the look bible stills are timeless. Storyboards (step 8) and clips need them.
+| Master | BPM (measured) | Length | Voice in | Lines | Slices |
+|---|---|---|---|---|---|
+| O60 | 97.0 | 59.57 s | 0.92 s | 18 | 6 |
+| O30 | 85.2 | 32.37 s | 0.36 s | 11 | 3 |
 
-## Line table (line ids for the Shot Specs; times to come)
+BPM note: the prompt asked 96; O60 measures 97, O30 85 (librosa can halve or misread a soft folk groove; cut on the
+`beats` list in `timeline.json`, not on a computed grid).
+
+### Line times (seconds)
+
+O60:
+| Line | Start | End | Length |
+|---|---|---|---|
+| O60-L01 | 0.92 | 3.59 | 2.67 |
+| O60-L02 | 3.59 | 6.09 | 2.5 |
+| O60-L03 | 6.09 | 8.55 | 2.46 |
+| O60-L04 | 8.55 | 10.8 | 2.25 |
+| O60-L05 | 10.8 | 13.55 | 2.75 |
+| O60-L06 | 13.55 | 16.33 | 2.78 |
+| O60-L07 | 17.26 | 20.79 | 3.53 |
+| O60-L08 | 21.5 | 23.47 | 1.97 |
+| O60-L09 | 23.87 | 29.18 | 5.31 |
+| O60-L10 | 29.18 | 32.12 | 2.94 |
+| O60-L11 | 32.12 | 34.53 | 2.41 |
+| O60-L12 | 34.74 | 37.25 | 2.51 |
+| O60-L13 | 37.25 | 39.75 | 2.5 |
+| O60-L14 | 39.75 | 42.08 | 2.33 |
+| O60-L15 | 42.08 | 44.74 | 2.66 |
+| O60-L16 | 45.02 | 49.52 | 4.5 |
+| O60-L17 | 49.52 | 54.01 | 4.49 |
+| O60-L18 | 55.14 | 58.66 | 3.52 |
+
+| Slice | Start | End | Length | Lines |
+|---|---|---|---|---|
+| O60-S01 | 0.0 | 8.55 | 8.55 | O60-L01 to O60-L03 |
+| O60-S02 | 8.55 | 21.34 | 12.79 | O60-L04 to O60-L07 |
+| O60-S03 | 21.34 | 32.12 | 10.78 | O60-L08 to O60-L10 |
+| O60-S04 | 32.12 | 42.08 | 9.96 | O60-L11 to O60-L14 |
+| O60-S05 | 42.08 | 54.37 | 12.29 | O60-L15 to O60-L17 |
+| O60-S06 | 54.37 | 59.57 | 5.2 | O60-L18 to O60-L18 |
+
+O30:
+| Line | Start | End | Length |
+|---|---|---|---|
+| O30-L01 | 0.36 | 3.22 | 2.86 |
+| O30-L02 | 3.22 | 6.94 | 3.72 |
+| O30-L03 | 6.94 | 9.32 | 2.38 |
+| O30-L04 | 10.48 | 13.67 | 3.19 |
+| O30-L05 | 13.67 | 16.68 | 3.01 |
+| O30-L06 | 16.68 | 19.43 | 2.75 |
+| O30-L07 | 19.43 | 20.74 | 1.31 |
+| O30-L08 | 20.74 | 22.24 | 1.5 |
+| O30-L09 | 22.24 | 25.12 | 2.88 |
+| O30-L10 | 25.12 | 27.87 | 2.75 |
+| O30-L11 | 29.02 | 32.37 | 3.35 |
+
+| Slice | Start | End | Length | Lines |
+|---|---|---|---|---|
+| O30-S01 | 0.0 | 9.69 | 9.69 | O30-L01 to O30-L03 |
+| O30-S02 | 9.69 | 19.43 | 9.74 | O30-L04 to O30-L06 |
+| O30-S03 | 19.43 | 32.37 | 12.94 | O30-L07 to O30-L11 |
+
+## Line table (line ids for the Shot Specs; times above)
 O60 (song order, FINAL lyrics):
 | Id | Section | Words |
 |---|---|---|
@@ -69,4 +129,3 @@ O30:
 | O30-L10 | Chorus | so those posts keep finding buyers while you're busy. |
 | O30-L11 | Spoken | Follow for part two: where to find your buyers' words. |
 
-Planning pace for step 6 (an estimate from the lengths, not a measurement): O60 about 3.3 s a line, O30 about 2.9 s.

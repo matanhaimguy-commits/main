@@ -20,5 +20,6 @@ clients/*/runs/*/qa/crops/
 clients/*/runs/*/qa/frames/
 # song and audio takes: large files and media URLs with account hashes (kept in the session, sent to the owner directly)
 clients/*/runs/*/audio/takes/
+clients/*/runs/*/audio/masters/
 # agent worktrees (temporary copies of the repo)
 .claude/worktrees/

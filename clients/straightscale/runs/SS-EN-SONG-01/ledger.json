@@ -32,9 +32,9 @@
       "at": "2026-10-28T17:24:52+00:00"
     },
     "5": {
-      "status": "blocked",
-      "note": "timeline needs word timings: allow atlas-media.oss-us-west-1.aliyuncs.com (or a session that reaches it); lyric match done (0.951 / 0.910)",
-      "at": "2026-10-28T17:33:29+00:00"
+      "status": "done",
+      "note": "words.json + timeline.json (song_timeline.py); slices planned as times",
+      "at": "2026-10-28T17:45:22+00:00"
     },
     "6": {
       "status": "todo",
@@ -169,6 +169,12 @@
         "status": "FAIL",
         "by": "EN 03 production session",
         "note": "Lyric match on Atlas xai/stt-v1: O60 0.951, O30 0.910, every line heard in order (audio/timeline.md). Open: no word timestamps (Atlas CLI 0.1.38 returns text only for xai/stt-v1) and the masters' host atlas-media.oss-us-west-1.aliyuncs.com is refused by this environment's network policy, so no BPM, stem, line times or slices yet"
+      },
+      {
+        "at": "2026-10-28T17:45:22+00:00",
+        "status": "PASS",
+        "by": "Claude (EN 03 production session 2)",
+        "note": "Word timings by pocketsphinx forced alignment of the final lyrics (faster-whisper model host blocked here): every word placed in order on both masters; O60 voice in 0.92 s, 18 lines, 6 slices; O30 voice in 0.36 s, 11 lines, 3 slices; BPM 97 / 85 (librosa). audio/words.json, audio/timeline.json, audio/timeline.md"
       }
     ]
   },

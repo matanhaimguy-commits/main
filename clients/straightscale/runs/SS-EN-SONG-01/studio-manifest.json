@@ -1,6 +1,6 @@
 {
  "title": "EN 03 \"Maya's quilt\" (song, claymation)",
- "summary": "Step 5 blocked: lyric match on Atlas STT passed (O60 0.951, O30 0.910); word timings need the Atlas media host, now allowed for new sessions. A fresh session continues with step 5, then the Shot Specs and the look bible.",
+ "summary": "Step 5 done (G-TIMELINE PASS): word timings by forced alignment, beat grid, line times and slices for O60 and O30. Next: step 6 Shot Specs, step 7 claymation look bible.",
  "files": [
   {
    "step": 4,
@@ -18,8 +18,18 @@
   },
   {
    "step": 5,
-   "label": "Audio timeline (lyric match, line table)",
+   "label": "Audio timeline (line times, slices, method)",
    "path": "audio/timeline.md"
+  },
+  {
+   "step": 5,
+   "label": "Word timings O60 + O30",
+   "path": "audio/words.json"
+  },
+  {
+   "step": 5,
+   "label": "Timeline data (BPM, beats, lines, slices)",
+   "path": "audio/timeline.json"
   }
  ]
 }
