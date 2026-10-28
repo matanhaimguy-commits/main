@@ -11,14 +11,16 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "growth-engine" / "tools"))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 
 def main() -> int:
     raw = sys.stdin.read()
     try:
         data = json.loads(raw or "{}")
-        tool = data.get("tool_name", "")
         import pipeline
+        from guards.tool_names import canonical
+        tool = canonical(data.get("tool_name", ""), pipeline.STANDARDS["gated_tools"])
         if tool not in pipeline.STANDARDS["gated_tools"]:
             return 0
         ok, reasons = pipeline.check_call(tool, data.get("tool_input") or {})
