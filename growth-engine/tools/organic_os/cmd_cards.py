@@ -9,7 +9,8 @@ import yaml
 from .cards import card_check
 from .files import load_brain, load_cards, load_demand, load_map, need
 from .issues import has_errors
-from .router import ledger_rows, month_spend, route, route_issues, usd_cap
+from .router import route
+from .spend import ledger_rows, month_spend, route_issues, usd_cap
 from .show import print_issues
 from .week import week_check
 
@@ -39,10 +40,11 @@ def route_cmd(a) -> int:
     card = yaml.safe_load(need(Path(a.card), "no such card").read_text())
     month = card["slot"][:7]
     spent = month_spend(ledger_rows(a.slug), month)["usd"]
-    opts = route(card, brain, cmap, a.prev_family, spent)
+    plan = [c for _, c in load_cards(a.plan)] if a.plan else []
+    opts = route(card, brain, cmap, a.prev_family, spent, plan)
     cap = usd_cap(brain)
     print(f"budget {month}: ${spent:.2f}" + (f" of ${cap:.2f} Atlas USD spent" if cap is not None else " spent"))
     print_issues("route", route_issues(brain))
     for o_ in opts[:3]:
-        print(f"- {o_['format']} (tier {o_['tier']}, ${o_['usd'][0]:.2f}-{o_['usd'][1]:.2f}): {o_['why']} · {o_['skill']}")
+        print(f"- {o_['format']} ({o_['format_family']}, tier {o_['tier']}, score {o_['score']}, ${o_['usd'][0]:.2f}-{o_['usd'][1]:.2f}): {o_['why']} · {o_['skill']}")
     return 0 if opts else 1

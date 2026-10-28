@@ -1,5 +1,5 @@
 {
-  "_doc": "Defaults from ORGANIC-OS.md (sections 6.1, 6.2, 6.6, 7.4, 7.7). Edit here, not in code. Budgets are Atlas USD (owner, 28 Oct 2026: generation runs on Atlas): each format's usd range is its atlas_units (images, H3 video seconds, OmniHuman seconds, voiced seconds, Suno songs per piece, before retakes) at growth-engine/production/standards.json atlas_prices plus 25% retakes (organic_os/usd.py; STANDARDS.md 10); the router and G-BUDGET count usd. The older credits field (Higgsfield credits per finished piece with the cast already built, incl. ~25% retakes, from each adapter's own math at growth-engine/production/STANDARDS.md section 10 prices (16 Oct 2026)) stays for the history in the ledger; a series' first episode adds the adapter's one-off cast cost, and lengths come from STANDARDS.md section 8. Story layer (15 Oct 2026): story_templates, animation_styles and each format's production family (growth-engine/production/STANDARDS.md families) feed the router and the production pipeline (growth-engine/tools/pipeline.py).",
+  "_doc": "Defaults from ORGANIC-OS.md (sections 6.1, 6.2, 6.6, 7.4, 7.7). Edit here, not in code. Budgets are Atlas USD (owner, 28 Oct 2026: generation runs on Atlas): each format's usd range is its atlas_units (images, H3 video seconds, OmniHuman seconds, voiced seconds, Suno songs per piece, before retakes) at growth-engine/production/standards.json atlas_prices plus 25% retakes (organic_os/usd.py; STANDARDS.md 10); the router and G-BUDGET count usd. The older credits field (Higgsfield credits per finished piece with the cast already built, incl. ~25% retakes, from each adapter's own math at growth-engine/production/STANDARDS.md section 10 prices (16 Oct 2026)) stays for the history in the ledger; a series' first episode adds the adapter's one-off cast cost, and lengths come from STANDARDS.md section 8. Story layer (15 Oct 2026): story_templates, animation_styles and each format's production family (growth-engine/production/STANDARDS.md families) feed the router and the production pipeline (growth-engine/tools/pipeline.py). Format families (28 Oct 2026, FORMATS.md): each format's format_family (the creative family the variety rules count), funnel (TOF, MOF, BOF) and l19 (the six L19 properties, 0 no, 1 partly, 2 yes) feed the router with beats.",
   "beliefs": {
     "B1": {
       "label": "This problem is real, and it is costing me.",
@@ -173,7 +173,11 @@
     "conversion_cta_every": 5,
     "mix_tolerance": 0.2,
     "max_tier_a_per_week": 1,
-    "story_reels_per_week": 1
+    "story_reels_per_week": 1,
+    "max_same_format_family_per_week": 2,
+    "min_format_families_per_month": 4,
+    "min_posts_for_month_family_rule": 6,
+    "motion_one_in": 6
   },
   "formats": {
     "image_question": {
@@ -204,7 +208,20 @@
       ],
       "skill": "carousel-machine (1 slide)",
       "note": "Weakest format: only a strong self-check question, a real review quote or an announcement.",
-      "production": "still"
+      "production": "still",
+      "format_family": "static",
+      "funnel": [
+        "TOF",
+        "MOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 0,
+        "order": 1,
+        "sound": 0,
+        "attention": 0,
+        "person": 1
+      }
     },
     "image_review_quote": {
       "family": "image",
@@ -233,7 +250,20 @@
       ],
       "needs_proof": true,
       "skill": "carousel-machine (1 slide)",
-      "production": "still"
+      "production": "still",
+      "format_family": "static",
+      "funnel": [
+        "MOF",
+        "BOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 0,
+        "order": 1,
+        "sound": 0,
+        "attention": 0,
+        "person": 2
+      }
     },
     "carousel_framework": {
       "family": "carousel",
@@ -260,7 +290,19 @@
         "B4"
       ],
       "skill": "carousel-machine",
-      "production": "still"
+      "production": "still",
+      "format_family": "carousel",
+      "funnel": [
+        "MOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 1,
+        "order": 2,
+        "sound": 0,
+        "attention": 2,
+        "person": 1
+      }
     },
     "carousel_self_check": {
       "family": "carousel",
@@ -289,7 +331,21 @@
         "B3"
       ],
       "skill": "carousel-machine",
-      "production": "still"
+      "production": "still",
+      "format_family": "carousel",
+      "funnel": [
+        "TOF",
+        "MOF",
+        "BOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 1,
+        "order": 2,
+        "sound": 0,
+        "attention": 2,
+        "person": 1
+      }
     },
     "carousel_mistakes": {
       "family": "carousel",
@@ -316,7 +372,19 @@
         "B2"
       ],
       "skill": "carousel-machine",
-      "production": "still"
+      "production": "still",
+      "format_family": "carousel",
+      "funnel": [
+        "TOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 1,
+        "order": 2,
+        "sound": 0,
+        "attention": 2,
+        "person": 1
+      }
     },
     "carousel_teardown": {
       "family": "carousel",
@@ -343,7 +411,19 @@
         "B3"
       ],
       "skill": "carousel-machine",
-      "production": "still"
+      "production": "still",
+      "format_family": "carousel",
+      "funnel": [
+        "MOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 1,
+        "order": 2,
+        "sound": 0,
+        "attention": 2,
+        "person": 1
+      }
     },
     "carousel_comparison": {
       "family": "carousel",
@@ -370,7 +450,20 @@
         "B5"
       ],
       "skill": "carousel-machine",
-      "production": "still"
+      "production": "still",
+      "format_family": "carousel",
+      "funnel": [
+        "MOF",
+        "BOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 1,
+        "order": 2,
+        "sound": 0,
+        "attention": 2,
+        "person": 1
+      }
     },
     "carousel_bts": {
       "family": "carousel",
@@ -397,7 +490,19 @@
       ],
       "needs_real_human": true,
       "skill": "carousel-machine with real photos",
-      "production": "real"
+      "production": "real",
+      "format_family": "carousel",
+      "funnel": [
+        "MOF"
+      ],
+      "l19": {
+        "face": 2,
+        "invisible": 0,
+        "order": 2,
+        "sound": 0,
+        "attention": 1,
+        "person": 2
+      }
     },
     "reel_motion": {
       "family": "reel",
@@ -432,8 +537,22 @@
         "B5"
       ],
       "skill": "motion-reel (HyperFrames)",
-      "note": "Always voiced (owner rule, 15 Oct 2026); the AI voice means the AI label is on (STANDARDS 7).",
-      "production": "motion"
+      "note": "Always voiced (owner rule, 15 Oct 2026); the AI voice means the AI label is on (STANDARDS 7). One option among many, never a default: at most 1 post in 6, and only when the load-bearing beat is a list, data or a type-led idea (FORMATS.md 1; router.py).",
+      "production": "motion",
+      "format_family": "motion",
+      "funnel": [
+        "TOF",
+        "MOF",
+        "BOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 1,
+        "order": 2,
+        "sound": 1,
+        "attention": 1,
+        "person": 0
+      }
     },
     "reel_quote_broll": {
       "family": "reel",
@@ -469,7 +588,19 @@
       ],
       "skill": "content/2026-w42-6-reel/script.md recipe",
       "note": "One H3 shot + voice + captions; measured 25 credits on 15 Oct 2026.",
-      "production": "keyframe_reel"
+      "production": "keyframe_reel",
+      "format_family": "quote_broll",
+      "funnel": [
+        "TOF"
+      ],
+      "l19": {
+        "face": 1,
+        "invisible": 0,
+        "order": 2,
+        "sound": 2,
+        "attention": 1,
+        "person": 1
+      }
     },
     "reel_strategist_prop": {
       "family": "reel",
@@ -510,7 +641,21 @@
       ],
       "skill": "hook-lab + script-lab + H3 via growth-engine/adapters/ugc-talking-head-organic.md",
       "note": "Proven paid winner format; rotate the props. The strategist faces the camera only as a presenter in his clearly staged studio set (the whiteboard), AI label on, never as a client, owner or customer (STANDARDS 7). O30 or O60 (ugc-talking-head-organic.md 4).",
-      "production": "ai_video"
+      "production": "ai_video",
+      "format_family": "presenter",
+      "funnel": [
+        "MOF",
+        "BOF",
+        "TOF"
+      ],
+      "l19": {
+        "face": 2,
+        "invisible": 1,
+        "order": 2,
+        "sound": 2,
+        "attention": 1,
+        "person": 1
+      }
     },
     "reel_ugc_pov": {
       "family": "reel",
@@ -552,7 +697,20 @@
       "story_templates": [
         "pov_day",
         "two_days"
-      ]
+      ],
+      "format_family": "ugc",
+      "funnel": [
+        "TOF",
+        "MOF"
+      ],
+      "l19": {
+        "face": 1,
+        "invisible": 0,
+        "order": 2,
+        "sound": 2,
+        "attention": 1,
+        "person": 2
+      }
     },
     "reel_podcast": {
       "family": "reel",
@@ -594,7 +752,20 @@
       "production": "ai_video",
       "story_templates": [
         "podcast_disagreement"
-      ]
+      ],
+      "format_family": "podcast",
+      "funnel": [
+        "MOF",
+        "BOF"
+      ],
+      "l19": {
+        "face": 2,
+        "invisible": 0,
+        "order": 2,
+        "sound": 2,
+        "attention": 2,
+        "person": 2
+      }
     },
     "reel_story_narrated": {
       "family": "reel",
@@ -639,7 +810,21 @@
         "two_days",
         "hidden_villain",
         "overheard"
-      ]
+      ],
+      "format_family": "story",
+      "funnel": [
+        "TOF",
+        "MOF",
+        "BOF"
+      ],
+      "l19": {
+        "face": 1,
+        "invisible": 1,
+        "order": 2,
+        "sound": 2,
+        "attention": 2,
+        "person": 2
+      }
     },
     "reel_animation": {
       "family": "reel",
@@ -687,9 +872,24 @@
         "claymation",
         "crochet",
         "family_film_3d",
-        "storybook_2d"
+        "storybook_2d",
+        "skeleton_xray",
+        "anime_2d"
       ],
-      "note": "O60 story (STANDARDS 8) in one locked style; the look bible is built once per series and reused (the first episode adds about 15 credits for the sheets, animation-organic.md 4)."
+      "note": "O60 story (STANDARDS 8) in one locked style; the look bible is built once per series and reused (the first episode adds about 15 credits for the sheets, animation-organic.md 4).",
+      "format_family": "animation",
+      "funnel": [
+        "TOF",
+        "MOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 2,
+        "order": 2,
+        "sound": 2,
+        "attention": 2,
+        "person": 2
+      }
     },
     "reel_song": {
       "family": "reel",
@@ -731,7 +931,20 @@
       "story_templates": [
         "song_day",
         "pov_day"
-      ]
+      ],
+      "format_family": "song",
+      "funnel": [
+        "TOF",
+        "MOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 2,
+        "order": 2,
+        "sound": 2,
+        "attention": 2,
+        "person": 1
+      }
     },
     "reel_bts_real": {
       "family": "reel",
@@ -758,7 +971,19 @@
       ],
       "needs_real_human": true,
       "skill": "real footage edit (talking-head-recut / embedded-captions)",
-      "production": "real"
+      "production": "real",
+      "format_family": "real",
+      "funnel": [
+        "MOF"
+      ],
+      "l19": {
+        "face": 2,
+        "invisible": 0,
+        "order": 1,
+        "sound": 1,
+        "attention": 1,
+        "person": 2
+      }
     },
     "carousel_opinion": {
       "family": "carousel",
@@ -788,7 +1013,20 @@
       ],
       "skill": "carousel-machine",
       "note": "Values and contrarian positions from the contrarian vault only.",
-      "production": "still"
+      "production": "still",
+      "format_family": "carousel",
+      "funnel": [
+        "TOF",
+        "MOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 0,
+        "order": 2,
+        "sound": 0,
+        "attention": 1,
+        "person": 2
+      }
     },
     "reel_drama_pov": {
       "family": "reel",
@@ -832,7 +1070,20 @@
         "overheard"
       ],
       "skill": "readymerce-drama-ads via growth-engine/adapters/drama-organic.md",
-      "note": "A scene from the buyer's day with 2 to 4 characters, a conflict in the first line, the mechanism as the answer near the end. O60 (STANDARDS 8). AI label on per STANDARDS 7 (D1 decides whether to extend it); characters who could pass as real owners are shown from behind, hands only, at a distance or as stylized animation until D1."
+      "note": "A scene from the buyer's day with 2 to 4 characters, a conflict in the first line, the mechanism as the answer near the end. O60 (STANDARDS 8). AI label on per STANDARDS 7 (D1 decides whether to extend it); characters who could pass as real owners are shown from behind, hands only, at a distance or as stylized animation until D1.",
+      "format_family": "drama",
+      "funnel": [
+        "TOF",
+        "MOF"
+      ],
+      "l19": {
+        "face": 1,
+        "invisible": 0,
+        "order": 2,
+        "sound": 2,
+        "attention": 2,
+        "person": 2
+      }
     },
     "reel_animation_short": {
       "family": "reel",
@@ -878,10 +1129,25 @@
         "claymation",
         "crochet",
         "family_film_3d",
-        "storybook_2d"
+        "storybook_2d",
+        "skeleton_xray",
+        "anime_2d"
       ],
       "skill": "readymerce-animation-ads via growth-engine/adapters/animation-organic.md (short tier)",
-      "note": "The lab version: O30 (STANDARDS 8), one character, 2 sequences. Tests a story angle or a new series character before a full reel_animation; the first episode adds about 15 credits for the sheets."
+      "note": "The lab version: O30 (STANDARDS 8), one character, 2 sequences. Tests a story angle or a new series character before a full reel_animation; the first episode adds about 15 credits for the sheets.",
+      "format_family": "animation",
+      "funnel": [
+        "TOF",
+        "MOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 2,
+        "order": 2,
+        "sound": 2,
+        "attention": 2,
+        "person": 2
+      }
     },
     "reel_talking_head_real": {
       "family": "reel",
@@ -914,7 +1180,293 @@
       "production": "real",
       "needs_real_human": true,
       "skill": "talking-head-recut + embedded-captions (owner films on a phone)",
-      "note": "The owner on camera, script from Script Lab (organic). The strongest trust format once the owner films."
+      "note": "The owner on camera, script from Script Lab (organic). The strongest trust format once the owner films.",
+      "format_family": "real",
+      "funnel": [
+        "MOF",
+        "BOF",
+        "TOF"
+      ],
+      "l19": {
+        "face": 2,
+        "invisible": 0,
+        "order": 2,
+        "sound": 2,
+        "attention": 1,
+        "person": 2
+      }
+    },
+    "reel_ugc_talking": {
+      "family": "reel",
+      "tier": "B",
+      "credits": null,
+      "atlas_units": {
+        "images": [
+          8,
+          20
+        ],
+        "video_s": [
+          28,
+          70
+        ],
+        "voice_s": [
+          20,
+          75
+        ]
+      },
+      "jobs": [
+        "reach",
+        "trust",
+        "convert"
+      ],
+      "beliefs": [
+        "B1",
+        "B2",
+        "B3",
+        "B5"
+      ],
+      "skill": "readymerce-podcast-ads section 13 (solo UGC) + hook-lab + script-lab via growth-engine/adapters/ugc-talking-head-organic.md",
+      "note": "One AI creator talks to the phone in 1 to 3 real settings from the buyer's day (FORMATS.md 2). A staged creator, never a real customer or owner; AI label on (STANDARDS 7). Until D1 a face-on creator needs the owner's yes per piece (FORMATS.md 5, decision F5).",
+      "production": "ai_video",
+      "story_templates": [
+        "pov_day",
+        "two_days"
+      ],
+      "format_family": "ugc",
+      "funnel": [
+        "TOF",
+        "MOF",
+        "BOF"
+      ],
+      "l19": {
+        "face": 2,
+        "invisible": 0,
+        "order": 2,
+        "sound": 2,
+        "attention": 1,
+        "person": 2
+      },
+      "usd": [
+        1.58,
+        4.15
+      ]
+    },
+    "reel_whiteboard": {
+      "family": "reel",
+      "tier": "B",
+      "credits": null,
+      "atlas_units": {
+        "images": [
+          10,
+          24
+        ],
+        "video_s": [
+          35,
+          80
+        ],
+        "voice_s": [
+          30,
+          75
+        ]
+      },
+      "jobs": [
+        "trust",
+        "convert",
+        "reach"
+      ],
+      "beliefs": [
+        "B2",
+        "B3",
+        "B4",
+        "B5"
+      ],
+      "skill": "hook-lab + script-lab + H3 presenter (growth-engine/adapters/ugc-talking-head-organic.md) with drawn board inserts (lemo-opuscar Whiteboard Explainer style or gpt-image-2 draw-in states)",
+      "note": "An H3 presenter at a whiteboard or chalkboard, cut with full-frame drawn board inserts that build the mechanism one stroke at a time (FORMATS.md 2). The presenter is a staged presenter in a clearly staged set, AI label on, never a client, owner or customer (STANDARDS 7).",
+      "production": "ai_video",
+      "format_family": "presenter",
+      "funnel": [
+        "MOF",
+        "BOF",
+        "TOF"
+      ],
+      "l19": {
+        "face": 2,
+        "invisible": 2,
+        "order": 2,
+        "sound": 2,
+        "attention": 1,
+        "person": 1
+      },
+      "usd": [
+        2.02,
+        4.74
+      ]
+    },
+    "reel_lived_authority": {
+      "family": "reel",
+      "tier": "B",
+      "credits": null,
+      "atlas_units": {
+        "images": [
+          8,
+          20
+        ],
+        "video_s": [
+          28,
+          70
+        ],
+        "voice_s": [
+          20,
+          75
+        ]
+      },
+      "jobs": [
+        "trust",
+        "reach"
+      ],
+      "beliefs": [
+        "B1",
+        "B2",
+        "B3",
+        "B7"
+      ],
+      "skill": "readymerce-ads-machine (lived-authority talking head, C7) + podcast-ads 13 via growth-engine/adapters/ugc-talking-head-organic.md",
+      "note": "A composite person whose job is the context (an agency account manager, a front-desk lead) talks from where she works. No credentials the brain doesn't hold; a staged person, AI label on (STANDARDS 7).",
+      "production": "ai_video",
+      "story_templates": [
+        "overheard",
+        "pov_day"
+      ],
+      "format_family": "presenter",
+      "funnel": [
+        "TOF",
+        "MOF"
+      ],
+      "l19": {
+        "face": 2,
+        "invisible": 0,
+        "order": 2,
+        "sound": 2,
+        "attention": 1,
+        "person": 2
+      },
+      "usd": [
+        1.58,
+        4.15
+      ]
+    },
+    "reel_skit": {
+      "family": "reel",
+      "tier": "B",
+      "credits": null,
+      "atlas_units": {
+        "images": [
+          8,
+          16
+        ],
+        "video_s": [
+          30,
+          60
+        ],
+        "voice_s": [
+          20,
+          35
+        ]
+      },
+      "jobs": [
+        "reach"
+      ],
+      "beliefs": [
+        "B1",
+        "B2"
+      ],
+      "skill": "readymerce-drama-ads (single scene, C45/O30 short) via growth-engine/adapters/drama-organic.md",
+      "note": "One scene, 2 characters, one overheard line that reframes the problem (C7 skit). O30. One lip-synced speaker per clip (X1); people who could pass as real owners from behind or at a distance until D1 (STANDARDS 7).",
+      "production": "ai_video",
+      "story_templates": [
+        "overheard",
+        "two_days"
+      ],
+      "format_family": "drama",
+      "funnel": [
+        "TOF"
+      ],
+      "l19": {
+        "face": 1,
+        "invisible": 0,
+        "order": 2,
+        "sound": 2,
+        "attention": 2,
+        "person": 2
+      },
+      "usd": [
+        1.64,
+        3.25
+      ]
+    },
+    "reel_talking_object": {
+      "family": "reel",
+      "tier": "B",
+      "credits": null,
+      "atlas_units": {
+        "images": [
+          6,
+          12
+        ],
+        "video_s": [
+          10,
+          30
+        ],
+        "omni_s": [
+          20,
+          35
+        ],
+        "voice_s": [
+          20,
+          35
+        ]
+      },
+      "jobs": [
+        "reach",
+        "trust"
+      ],
+      "beliefs": [
+        "B1",
+        "B2",
+        "B3"
+      ],
+      "skill": "readymerce-animation-ads F1/F2 (talking part, villain) via growth-engine/adapters/animation-organic.md; mouth clips on OmniHuman 2.0 (talking objects only, STANDARDS 1)",
+      "note": "An object from the business talks (the boosted post, the calendar, the unanswered DM). Mouth shots on OmniHuman 2.0 from the object's start frame and its voice slice; silent shots on H3 keyframe mode. O30.",
+      "production": "ai_video",
+      "story_templates": [
+        "object_speaks",
+        "hidden_villain"
+      ],
+      "styles": [
+        "claymation",
+        "crochet",
+        "family_film_3d",
+        "storybook_2d",
+        "skeleton_xray",
+        "anime_2d"
+      ],
+      "format_family": "animation",
+      "funnel": [
+        "TOF",
+        "MOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 2,
+        "order": 2,
+        "sound": 2,
+        "attention": 2,
+        "person": 2
+      },
+      "usd": [
+        3.14,
+        5.97
+      ]
     }
   },
   "templates": {
@@ -1120,6 +1672,16 @@
       "name": "2D hand-drawn storybook style",
       "block": "Classic hand-drawn 2D animation look: clean ink lines, painted watercolour backgrounds, expressive squash-and-stretch poses, warm storybook palette, soft vignette.",
       "note": "Say \"hand-drawn 2D storybook animation\"; never name or imitate a studio's characters."
+    },
+    "skeleton_xray": {
+      "name": "X-ray skeleton",
+      "block": "X-ray skeleton look: a friendly translucent skeleton character with soft glowing bones inside a faint glass body outline, everyday props and clothes on top, dark blue x-ray background with a soft cyan glow, gentle film grain.",
+      "note": "The A7 gym ad look (Albania, round 3). Comic, never medical; no gore."
+    },
+    "anime_2d": {
+      "name": "2D anime style",
+      "block": "Hand-drawn 2D anime look: clean expressive line art, cel shading with two tones, bright flat backgrounds with soft gradients, big readable expressions, speed lines only on a reveal.",
+      "note": "Say \"2D anime-style animation\"; never name or imitate a studio's or a show's characters."
     }
   },
   "lead_magnet_checks": {
@@ -1129,5 +1691,49 @@
     "quick_win": "The person can use it within a day and sees something useful, even if they never buy.",
     "leads_to_offer": "Using it shows why the main offer is the next step (it surfaces the problem the offer fixes).",
     "low_friction": "Getting it takes the keyword and at most one question in the DM: no form, no email wall, no link before the button."
+  },
+  "beats": {
+    "_doc": "The load-bearing beat (readymerce-ads-machine L19) a Post Card names in load_bearing_beat, and how much of each of the six L19 properties it needs (weights). A format's fit = sum(weight x the format's level 0 to 2) / (2 x sum of weights), scaled to 0 to 5 (organic_os/l19.py). mechanism, proof and offer are L19's three beats; list, data and type are the idea shapes only on-screen type carries well, the only beats reel_motion may take (motion_beats). Cost never ranks (FORMATS.md 1).",
+    "needs": {
+      "mechanism": {
+        "invisible": 3,
+        "order": 1,
+        "attention": 1,
+        "person": 1
+      },
+      "proof": {
+        "face": 3,
+        "person": 2,
+        "sound": 1
+      },
+      "offer": {
+        "order": 2,
+        "person": 2,
+        "face": 1,
+        "sound": 1
+      },
+      "list": {
+        "order": 3,
+        "attention": 1
+      },
+      "data": {
+        "invisible": 2,
+        "order": 2
+      },
+      "type": {
+        "order": 2,
+        "attention": 1
+      }
+    },
+    "motion_beats": [
+      "list",
+      "data",
+      "type"
+    ],
+    "funnel_by_job": {
+      "reach": "TOF",
+      "trust": "MOF",
+      "convert": "BOF"
+    }
   }
 }

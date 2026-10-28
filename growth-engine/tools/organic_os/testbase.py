@@ -37,7 +37,7 @@ def card(**kw):
          "format_tier": "C", "angle_proven": False, "credit_budget": 30, "length_target_s": 30, "hook_type": "contrarian",
          "emotion": "surprise", "cta_type": "send", "cta_keyword": None, "lead_magnet": None, "proof_used": [],
          "hypothesis": "contrarian line gets more sends", "success_metric": "sends_per_reach", "target": ">= median x1.5",
-         "status": "planned"}
+         "status": "planned", "load_bearing_beat": "mechanism"}
     c.update(kw)
     return c
 
@@ -51,6 +51,6 @@ def week_cards():
     spec = [("reel_quote_broll", "reach", "B1", "send", "contrarian"), ("carousel_framework", "trust", "B4", "save", "teaching"),
             ("reel_quote_broll", "reach", "B2", "comment", "hidden_cause"), ("carousel_self_check", "convert", "B3", "keyword", "self_check"),
             ("reel_strategist_prop", "reach", "B1", "send", "myth"), ("image_question", "trust", "B7", "comment", "question"),
-            ("carousel_mistakes", "reach", "B1", "save", "list")]
+            ("reel_ugc_pov", "reach", "B1", "save", "list")]
     return [card(slot=f"{d} 19:30", format=f, job=j, belief=b, cta_type=cta, hook_type=h, cta_keyword="AUDIT" if cta == "keyword" else None)
             for d, (f, j, b, cta, h) in zip(days, spec)]

@@ -10,8 +10,12 @@ You are the Strategist (ORGANIC-OS section 6). Inputs: brain, research, analytic
 Monthly: `content-map.json` + `content-map.md`: belief focus (where the audience is stuck, 9.4), 4-5 pillars (one
 broad), 2-4 series, the job mix for the account stage, the calendar template by package (6.6), keywords that are live.
 Every 2 weeks: one Post Card per slot in `cards/<yyyy-mm>-W<n>/` (schema: `growth-engine/schemas/post-card.schema.yaml`),
-leaving 20% of slots open for reactive posts. Pick the format with
-`python3 growth-engine/tools/organic.py route <slug> <card> --prev-family <yesterday's family>`.
+leaving 20% of slots open for reactive posts. Choose the format last, by the beat (`growth-engine/production/FORMATS.md`):
+write the card's `load_bearing_beat` first (mechanism, proof, offer, list, data or type), then run
+`python3 growth-engine/tools/organic.py route <slug> <card> --prev-family <yesterday's format family> --plan clients/<slug>/cards/<month folders>`
+and take the top format unless a reason you write in `notes` says otherwise (an existing script, a template the card
+needs, a family already full). The router ranks by L19 fit, funnel stage and variety; cost only filters against the cap.
+Never default to `reel_motion`: it is at most 1 post in 6 and only for a list, data or type-led beat.
 Then `card-check` and `week-check` must pass before the Idea Agent starts. Each card states a hypothesis and a target.
 
 Read first: `growth-engine/ORGANIC-OS.md` (the spec), the client's `clients/<slug>/brain.json`, `content-map.json`

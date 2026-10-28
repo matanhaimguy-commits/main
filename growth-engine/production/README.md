@@ -8,6 +8,7 @@ and video is made, and makes the checks impossible to skip.
 | `AI-VIDEO-PIPELINE.md` | The owner's spec: 16 steps (0 to 15) with gates, per-format table, house rules, the 18 inconsistencies (section 5). Verbatim. |
 | `VISUAL-QA.md` | The owner's spec: Shot Specs, gate map, prompt cards, the three fresh reviewers, storyboards, the Failure Library, enforcement. Verbatim. |
 | `STANDARDS.md` + `standards.json` | **The one numbers file.** Every model, duration, word budget, loudness, safe zone and pass rule, with the 18 issues resolved and the open re-tests. Prose in the .md, machine values in the .json (the gate reads it). |
+| `FORMATS.md` | **The format library.** Every format we can make (UGC, whiteboard presenter, podcast, drama, song, animation styles, talking object, carousel, static, motion as one option among many): the beat and funnel stage it carries, its L19 properties, the skill and gates, the Atlas route, the price, StraightScale's past pieces, and the model gaps as owner decisions. The router ranks by it. |
 | `STORY-FORMATS.md` | Story formats for organic posts: POV day in the buyer's life, two days, the problem as a villain, song, podcast, drama; animation styles; how they fit the weekly mix and the budget. |
 | `schemas/shot-spec.schema.yaml` | The Shot Spec schema (VISUAL-QA section 2). |
 | `failure-library.md` | FL-01 to FL-13 and how new patterns get added. `failure-log.csv` is the raw log every FAIL writes. |
