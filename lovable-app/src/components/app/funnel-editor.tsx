@@ -1,16 +1,16 @@
-import { useQuery } from "@tanstack/react-query";
 import { ChevronDown, ChevronRight, Trash2 } from "lucide-react";
 import { useState } from "react";
 import { Pill } from "@/components/app/shell";
-import { AreaField, CommaField, Field, LinesField, SelectField, setIn, SwitchField, TextField } from "@/components/app/fields";
+import { CommaField, Field, SelectField, setIn, TextField } from "@/components/app/fields";
+import { AfterFields } from "@/components/app/funnel/after-fields";
+import { CommentFields } from "@/components/app/funnel/comment-fields";
+import { DeliveryFields } from "@/components/app/funnel/delivery-fields";
+import { FollowGateFields } from "@/components/app/funnel/follow-gate-fields";
+import { OpenerFields } from "@/components/app/funnel/opener-fields";
+import type { AnyObj } from "@/components/app/funnel/types";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { recentPostsFn } from "@/lib/api/businesses.functions";
-import { dateTime } from "@/lib/format";
 
-type AnyObj = Record<string, any>;
-
+/** One funnel in the business editor: a header that opens into its sections (each in components/app/funnel/). */
 export function FunnelEditor({
   slug,
   funnel,
@@ -27,13 +27,10 @@ export function FunnelEditor({
   defaultOpen?: boolean;
 }) {
   const [open, setOpen] = useState(!!defaultOpen);
-  const [picking, setPicking] = useState(false);
   const set = (path: (string | number)[], value: unknown) => onChange(setIn(funnel, path, value));
   const trigger = funnel["trigger"] ?? "comment";
   const platforms: string[] = funnel["platforms"] ?? ["instagram", "facebook"];
-  const linkIds = links.map((l) => String(l["id"]));
-  const deliverLink = String(funnel["deliver"]?.["link"] ?? "");
-  const customLink = deliverLink !== "" && !linkIds.includes(deliverLink);
+  const sections = { funnel, set };
 
   return (
     <div className="rounded-xl border bg-background">
@@ -109,114 +106,11 @@ export function FunnelEditor({
             />
           </div>
 
-          {trigger === "comment" && (
-            <div className="space-y-3 rounded-lg bg-muted/40 p-3">
-              <div className="flex flex-wrap items-end gap-2">
-                <div className="min-w-64 flex-1">
-                  <CommaField
-                    label="Posts / reels this funnel is pinned to"
-                    hint="Post or media IDs. Pinning keeps old posts from triggering it."
-                    value={funnel["posts"]}
-                    onChange={(v) => set(["posts"], v)}
-                  />
-                </div>
-                <Button type="button" variant="outline" onClick={() => setPicking(true)} className="mb-5">
-                  Pick from recent posts
-                </Button>
-              </div>
-              <SwitchField
-                label="Every post (account-wide)"
-                hint="Catches the keyword on any post, including years-old ones. Pinned funnels win over this."
-                checked={!!funnel["all_posts"]}
-                onChange={(v) => set(["all_posts"], v)}
-              />
-              {funnel["all_posts"] && (
-                <SwitchField
-                  label="I understand old posts will trigger it too"
-                  checked={!!funnel["all_posts_acknowledged"]}
-                  onChange={(v) => set(["all_posts_acknowledged"], v)}
-                />
-              )}
-              <LinesField
-                label="Public replies under the comment (optional)"
-                hint="One per line; one is picked at random each time."
-                value={funnel["public_replies"]}
-                onChange={(v) => set(["public_replies"], v)}
-                rows={2}
-              />
-            </div>
-          )}
-
-          <div className="space-y-3">
-            <div className="text-sm font-semibold">1 · First message</div>
-            <AreaField label="Text" max={640} value={funnel["opener"]?.["text"]} onChange={(v) => set(["opener", "text"], v ?? "")} />
-            <div className="grid gap-4 sm:grid-cols-2">
-              <TextField label="Button" max={20} value={funnel["opener"]?.["button"]} onChange={(v) => set(["opener", "button"], v ?? "")} />
-              <SelectField
-                label="Button does"
-                value={funnel["opener"]?.["mode"] ?? "tap"}
-                options={[
-                  { value: "tap", label: "Tap to receive (recommended: opens the chat for the AI)" },
-                  { value: "link", label: "Opens the link directly" },
-                ]}
-                onChange={(v) => set(["opener", "mode"], v)}
-              />
-            </div>
-          </div>
-
-          <div className="space-y-3">
-            <SwitchField
-              label="Ask to follow first (Instagram)"
-              hint="Costs one extra tap. People who already follow skip it."
-              checked={!!funnel["follow_gate"]?.["enabled"] && !!funnel["follow_gate"]}
-              onChange={(v) =>
-                set(
-                  ["follow_gate"],
-                  v ? { enabled: true, text: funnel["follow_gate"]?.["text"] || "Follow us first, then tap again 👇", button: funnel["follow_gate"]?.["button"] || "I followed" } : undefined,
-                )
-              }
-            />
-            {funnel["follow_gate"]?.["enabled"] && (
-              <div className="grid gap-4 sm:grid-cols-[2fr_1fr]">
-                <AreaField label="Follow request text" max={640} rows={2} value={funnel["follow_gate"]?.["text"]} onChange={(v) => set(["follow_gate", "text"], v ?? "")} />
-                <TextField label="Button" max={20} value={funnel["follow_gate"]?.["button"]} onChange={(v) => set(["follow_gate", "button"], v ?? "")} />
-              </div>
-            )}
-          </div>
-
-          <div className="space-y-3">
-            <div className="text-sm font-semibold">2 · Delivery</div>
-            <AreaField label="Text" max={640} value={funnel["deliver"]?.["text"]} onChange={(v) => set(["deliver", "text"], v ?? "")} />
-            <div className="grid gap-4 sm:grid-cols-2">
-              <Field label="Link" hint={linkIds.length ? "One of the business's links, or a full address." : "Add links on the Links tab, or paste a full address."}>
-                <select
-                  className="h-9 w-full rounded-md border bg-background px-2 text-sm"
-                  value={customLink ? "__custom" : deliverLink}
-                  onChange={(e) => set(["deliver", "link"], e.target.value === "__custom" ? "https://" : e.target.value)}
-                >
-                  <option value="">— choose —</option>
-                  {links.map((l) => (
-                    <option key={l["id"]} value={l["id"]}>
-                      {l["title"]} ({l["id"]})
-                    </option>
-                  ))}
-                  <option value="__custom">A full address…</option>
-                </select>
-                {customLink && <Input className="mt-2" value={deliverLink} onChange={(e) => set(["deliver", "link"], e.target.value)} />}
-              </Field>
-              <TextField label="Button" max={20} value={funnel["deliver"]?.["button"]} onChange={(v) => set(["deliver", "button"], v ?? "")} />
-            </div>
-          </div>
-
-          <AreaField
-            label="3 · Last message (optional)"
-            hint="Open a conversation, e.g. a question about what they need. Only with the tap button."
-            max={1000}
-            rows={2}
-            optional
-            value={funnel["after"]}
-            onChange={(v) => set(["after"], v)}
-          />
+          {trigger === "comment" && <CommentFields slug={slug} {...sections} />}
+          <OpenerFields {...sections} />
+          <FollowGateFields {...sections} />
+          <DeliveryFields {...sections} links={links} />
+          <AfterFields {...sections} />
 
           <div className="flex justify-end">
             <Button type="button" variant="ghost" className="text-destructive" onClick={() => confirm("Delete this funnel?") && onRemove()}>
@@ -225,62 +119,6 @@ export function FunnelEditor({
           </div>
         </div>
       )}
-
-      <PostPicker
-        slug={slug}
-        open={picking}
-        onOpenChange={setPicking}
-        selected={funnel["posts"] ?? []}
-        onPick={(id) => set(["posts"], Array.from(new Set([...(funnel["posts"] ?? []), id])))}
-      />
     </div>
-  );
-}
-
-function PostPicker({
-  slug,
-  open,
-  onOpenChange,
-  selected,
-  onPick,
-}: {
-  slug: string;
-  open: boolean;
-  onOpenChange: (v: boolean) => void;
-  selected: string[];
-  onPick: (id: string) => void;
-}) {
-  const posts = useQuery({ queryKey: ["recent-posts", slug], queryFn: () => recentPostsFn({ data: { slug } }), enabled: open });
-  return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-h-[85vh] max-w-2xl overflow-y-auto">
-        <DialogHeader>
-          <DialogTitle>Recent posts</DialogTitle>
-          <DialogDescription>Pick the posts or reels this funnel should answer on.</DialogDescription>
-        </DialogHeader>
-        {posts.isLoading && <p className="text-sm text-muted-foreground">Loading from Meta…</p>}
-        {posts.data?.error && <p className="text-sm text-rose-700">{posts.data.error}</p>}
-        <div className="divide-y">
-          {(posts.data?.posts ?? []).map((p) => (
-            <div key={p.id} className="flex items-center gap-3 py-2.5">
-              <div className="min-w-0 flex-1">
-                <div className="truncate text-sm">{p.text || "(no caption)"}</div>
-                <div className="text-xs text-muted-foreground">
-                  {p.platform === "instagram" ? "Instagram" : "Facebook"} {p.kind && `· ${p.kind.toLowerCase()}`} · {dateTime(p.date)} ·{" "}
-                  {p.url && (
-                    <a href={p.url} target="_blank" rel="noreferrer" className="underline">
-                      open
-                    </a>
-                  )}
-                </div>
-              </div>
-              <Button size="sm" variant={selected.includes(p.id) ? "secondary" : "outline"} disabled={selected.includes(p.id)} onClick={() => onPick(p.id)}>
-                {selected.includes(p.id) ? "Added" : "Add"}
-              </Button>
-            </div>
-          ))}
-        </div>
-      </DialogContent>
-    </Dialog>
   );
 }
