@@ -71,7 +71,17 @@
       "note": ""
     }
   },
-  "run_gates": {},
+  "run_gates": {
+    "G-SCRIPT": [
+      {
+        "at": "2026-10-28T10:27:35+00:00",
+        "status": "FAIL",
+        "by": "script-agent",
+        "note": "first gate + 3 FIX loops; content/2026-w46-3-reel/script.md",
+        "score": 81.0
+      }
+    ]
+  },
   "specs": {},
   "assets": [],
   "queue": [

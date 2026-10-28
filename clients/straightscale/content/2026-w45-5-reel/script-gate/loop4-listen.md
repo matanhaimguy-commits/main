@@ -1,0 +1,30 @@
+# Listening once, on the couch, 10 pm
+
+| Line | What I think is going on now | The question I have now | Wait: who, what or when? | Still watching? |
+|---|---|---|---|---|
+| **L1** *Paguan sponsorizimin, njerëzit klikojnë, dhe pastaj asnjë mesazh. Ku shkuan?* | Someone is talking about my problem. I boost, and the money goes nowhere. "Paratë e reklamave zhduken." | Yes, where *do* they go? | **What** does "klikojnë" mean here? When I boost, I see views and likes. I don't know what a "click" is or where it goes. Also, my problem is a bit different. People *do* write to me. They just don't buy. | **Yes.** It hit in under 3 seconds and it works with no picture. The calm voice doesn't sound like a scammer. |
+| **L2** *Sponsorizo të njëjtin postim dy herë. Ndryshon vetëm ç'ndodh pas klikimit.* | He's telling me to boost the same post twice? | Why would I pay twice for the same post? What changes? | **What** is this, an order or an example? With only sound, the imperative "Sponsorizo" sounds like advice: pay more. There's no "imagjino" or "merr shembull". "Pas klikimit" again, and I still don't know what the click is. | **Maybe.** "Boost it twice" is exactly what every marketing guy says: keep paying. My guard goes up. I stay only because "only what happens after" makes me curious. |
+| **L3** *Herën e parë, postimi s'i fton të shkruajnë. Shohin dhe ikin.* | OK, now I get it. It was a comparison, two versions. The first post doesn't ask people to write. | So what does the second one do differently? | **Wait.** He just said only what happens *after the click* changes. Now the difference is *in the post itself*, whether it invites them to write. Those disagree. Is the problem the post or what comes after it? | **Maybe → yes.** "Shohin dhe ikin" is natural and true. My posts are photos of kitchens with a price and nothing else. That stings a bit. |
+| **L4** *Herën e dytë, i fton në bisedë. Ti përgjigjesh, i shkruan sërish, i lë takim.* | Second time, people are invited to chat, I answer, I follow up, I book them a meeting. | Is that it? Answer messages and book a meeting? I already answer messages. | **Who** invites them, the post or me? "i fton" has no subject and comes right after "postimi" in L3. Then suddenly "Ti". **How** do you invite into a chat, with a button or a sentence? Three actions in one breath, fast to catch. "i lë takim" sounds a little off to me. I'd say "lë takim me të" or "i caktoj takim". | **Yes.** "I shkruan sërish" is the part I *don't* do. When someone writes "sa kushton?" and disappears, I never write again. That's "na shkruajnë po nuk blejnë". This is the first moment it feels useful. |
+| **L5** *Sponsorizimi s'ka faj. Mungon rruga pas klikimit.* | The boost isn't the problem. The road after it is missing. | So who builds this "rruga"? How? | "Rruga pas klikimit" is a bit marketer-talk, but understandable. Third time I hear "klikim" without knowing what it is. And if the boost isn't to blame, then... I am? | **Yes.** It's a relief to hear "it's not that you wasted money on the wrong thing." I'm waiting for the how. |
+| **L6** *Paratë e reklamave të zhduken? Komento ANALIZA, takimin e lëmë në mesazh. Falas, dyzet e pesë minuta, pa detyrim.* | It's an offer. Comment a word, they message me, we do a free 45-minute meeting. | Who are you? Analysis of *what*: my page, my ads, my messages? | **Who** is "we" in "e lëmë"? No name, no company, never introduced. **What** is ANALIZA, a word I'm meant to type that nobody explained? **Where** is the meeting: in the chat, a call, in person? "Takimin e lëmë në mesazh" can sound like the meeting *happens* in messages. Also "Paratë e reklamave të zhduken?" heard aloud is ambiguous. The "të" can be "to you" or the subjunctive ("for the money to disappear?"). "Po të zhduken paratë e reklamave?" is clearer. | **Maybe.** I notice they're doing to me exactly what they said: invite to chat, then meeting. That's smart. But "falas, pa detyrim" is what everyone says before the sales pitch. 45 minutes is a lot for me. And commenting publicly that my ad money disappears, where my competitors and staff can see it? Not comfortable. |
+
+**Native-ear notes, collected:**
+- **L2:** The imperative "Sponsorizo..." sounds like an instruction, not a thought experiment.
+- **L4:** The subject of "i fton" is unclear. "I lë takim" is slightly unnatural.
+- **L6:** "Paratë e reklamave të zhduken?" has an ambiguous "të". "Takimin e lëmë në mesazh" could mean the meeting is by message.
+- **Throughout:** "klikim/klikojnë" is used three times, and a showroom owner doesn't think in clicks. I think in views, messages and calls.
+
+---
+
+**1. Retell (4 sentences)**
+You pay to boost a post, people see it, and then nobody writes. The boost isn't the problem: the post doesn't invite people to talk, and afterwards nobody follows up or books them for a meeting. You need to invite them into a conversation, answer, write to them again, and set a meeting. If your ad money is disappearing, comment ANALIZA and they'll message you to set up a free 45-minute meeting with no obligation.
+
+**2. The doubt still in my head**
+Who are these people, and what happens in those 45 minutes? I'm fairly sure the "analysis" ends with "you need us to run this for you, X euros a month." Same story as the freelancer.
+
+**3. Would I comment ANALIZA?**
+**No.** I don't know who "we" is. There's no name, no business like mine they've helped, and I'm not giving 45 minutes to a voice. (I might save it, though. "I shkruan sërish" stuck.)
+
+**4. The single most confusing moment**
+**L3**, because it contradicts L2. L2 says the post is the same and only what happens *after the click* changes. One line later, the difference is that the first *post* doesn't invite people to write. I lost track of whether my problem is my posts or what I do after.
