@@ -8,7 +8,10 @@ the reel's payoff. At most 3 grading rounds (the main session's limit). Formats:
 note on the v2 hooks: "base hooks on organic breakouts, not ads"). No concept frames were generated (no spend in this
 task): graders read frame 1 described in words, so every visual grade is on a description, not a picture.
 
-## Result: no stack reached the bar in 3 rounds. Best stack (round 2):
+## Final result after round 4 (the main session's targeted round on the graders' named fixes): bar not met
+Best stack now `EN06-R4b`: text "Likes, no bookings? Don't post more." · spoken "The problem isn't your posts. It's what happens after someone clicks." · frame 1: Claymation, one shot: a phone with a post covered in hearts stands next to a laptop showing a page headed BOOK A CALL with an empty calendar under it · `HF-05`, `Q-RN-0049`, code check PASS · grades (grader A / grader B): V A- / A-, T A / A, S A- / A. What still holds it under A on every channel: the visual's BOOK A CALL page and empty calendar are small on a phone (both graders); "clicks" a bit abstract without the picture (one). No loop after this round (the main session's instruction); the v2 master stays.
+
+## Result after 3 rounds: no stack reached the bar. Best stack (round 2):
 - **Text on screen:** Likes, no bookings? Don't post more.
 - **Spoken line 1:** Don't post more. Your website is why nobody books.
 - **Frame 1:** Claymation, one shot: a phone with a post covered in hearts stands next to a laptop showing a booking calendar with every day empty
@@ -49,3 +52,7 @@ EN06 (S1=R2b "Don't post more", S2=R2a "It's not your posts")
 EN06 (S1=R3b "Don't post more", S2=R3a "Posting more won't fix it")
  A: R3a V A- (small details), T A-, S A- (agency-pitch risk on "your website"); R3b A-/B+ (two readings)/A-.
  B: R3b V A-, T A-, S B+ (pitch smell); R3a A-/B+/B+. Fix: "The problem isn't your posts. It's what happens after someone clicks."
+### Round 4 (targeted: only the graders' named fixes, 2 new fresh blind graders)
+EN06 (S1=R4b "Don't post more" + "after someone clicks", S2=R4a "It's what happens after the click")
+ B: R4b V A- (two objects; small calendar), T A, S A; R4a A-/B+/B+ (repeats the voice, gives the answer away).
+ A: R4b V A- (BOOK A CALL and the calendar small on a phone), T A, S A- ("clicks" a bit abstract); R4a A-/B+/B+.

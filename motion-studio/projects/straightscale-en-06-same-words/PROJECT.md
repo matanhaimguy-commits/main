@@ -71,3 +71,4 @@ Funnel vs Paid ads
 - 28 Oct · Matan approved hooks v2 (master EN06-A) · script rewrite on it is next
 - 28 Oct · scripts v2 on hook EN06-A: Script Lab 4 loops per tier, 24 fresh cold readers, final O60 77, O30 76, escalated · `docs/script.md`, `docs/script-v2-loops.md`; v1 scripts moved to `docs/script-v1.md`
 - 28 Oct · Hook Lab v3 on Matan's A/A+ bar: 10 stacks, 3 blind rounds, 6 fresh graders; best stack recorded, bar not reached · `docs/hook-lab-v3.md`
+- 28 Oct · Hook Lab v3 round 4 (the graders' named fixes, 2 new graders): `EN06-R4b` V A- / A-, T A / A, S A- / A; the A/A+ bar not met, v2 master unchanged · `docs/hook-lab-v3.md`

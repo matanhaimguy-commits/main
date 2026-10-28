@@ -8,7 +8,10 @@ the reel's payoff. At most 3 grading rounds (the main session's limit). Formats:
 note on the v2 hooks: "base hooks on organic breakouts, not ads"). No concept frames were generated (no spend in this
 task): graders read frame 1 described in words, so every visual grade is on a description, not a picture.
 
-## Result: no stack reached the bar in 3 rounds. Best stack (round 3):
+## Final result after round 4 (the main session's targeted round on the graders' named fixes): bar not met
+Best stack now `EN05-R4`: text "Boosted a post and got nothing? Wrong post." · spoken "Boosted a post, got zero leads? You picked the wrong one." · frame 1: Claymation, one close shot: coins pour into a post on a phone and fall straight out of the bottom; under the post a big label reads 0 LEADS · `HF-12`, `Q-RN-0025, Q-RN-0024`, code check PASS · grades (grader A / grader B): V A- / A-, T B+ / A-, S A- / A. What still holds it under A on every channel: "Wrong post." and "got nothing" are vague on screen (suggested: "Boosted a post, got 0 leads? You boosted the wrong one."); boosting is a side pain for this buyer, not the lumpy months. No loop after this round (the main session's instruction); the v2 master stays.
+
+## Result after 3 rounds: no stack reached the bar. Best stack (round 3):
 - **Text on screen:** Boosted a post and got nothing? Wrong post.
 - **Spoken line 1:** Boosted a post, got zero leads? You picked the wrong one.
 - **Frame 1:** Claymation, one close shot: coins pour into a post on a phone and fall straight out of the bottom; the post shows zero hearts
@@ -47,3 +50,7 @@ EN05 (S1=R2b "Zero leads? Boosting won't fix it", S2=R2a "Boosted your post and 
 EN05 (S1=R3b "Wrong post.", S2=R3a "Here's why")
  A: R3b V B+ (zero hearts too small; hearts vs leads), T A-, S A- ("picked the wrong one" carries a little blame); R3a B+/B+/A-.
  B: R3b V A- (hearts, not leads), T A- ("Wrong post." clipped), S A; R3a A-/B+/A-. Fix both: the post shows "0 leads" / "0 DMs", not hearts.
+### Round 4 (targeted: only the graders' named fixes, 2 new fresh blind graders)
+EN05 (R4 only)
+ B: V A- (playful; coins need half a beat), T A- ("Wrong post." two meanings: say "You boosted the wrong post"), S A (mildly blaming).
+ A: V A- (the meaning rests on the 0 LEADS label), T B+ ("got nothing" vague; a side pain), S A- (slight blame).

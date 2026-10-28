@@ -8,7 +8,10 @@ the reel's payoff. At most 3 grading rounds (the main session's limit). Formats:
 note on the v2 hooks: "base hooks on organic breakouts, not ads"). No concept frames were generated (no spend in this
 task): graders read frame 1 described in words, so every visual grade is on a description, not a picture.
 
-## Result: no stack reached the bar in 3 rounds. Best stack (round 3):
+## Final result after round 4 (the main session's targeted round on the graders' named fixes): bar not met
+Best stack now `EN04-R4`: text "Lost a deal to someone cheaper? It wasn't your price." · spoken "Your price wasn't the reason. Here's what was." · frame 1: POV, hands only, a home-office desk: the phone fills the frame with one huge message bubble: "Thanks, but we're going with someone cheaper." The thumb freezes above the keyboard · `HF-04`, `Q-RN-0033`, code check PASS · grades (grader A / grader B): V A / A, T A- / A, S B+ / A-. What still holds it under A on every channel: the spoken line repeats the text; both graders want it to add stakes (one suggests "...and the discount made it worse"). No loop after this round (the main session's instruction); the v2 master stays.
+
+## Result after 3 rounds: no stack reached the bar. Best stack (round 3):
 - **Text on screen:** Lost a deal to someone cheaper? It wasn't your price.
 - **Spoken line 1:** Your price wasn't why they went cheaper. Here's what was.
 - **Frame 1:** POV, hands only, a home-office desk: the phone fills the frame with one huge message bubble: "Thanks, but we're going with someone cheaper." The thumb freezes above the keyboard
@@ -48,3 +51,7 @@ EN04 (S1=R2b "They went cheaper", S2=R2a "Lost a client to someone cheaper?")
 EN04 (S1=R3b, S2=R3a)
  B: R3b V A, T A, S B+ ("why they went cheaper" parsed once; suggests "Your price wasn't the reason. Here's what was."); R3a V A, T A-, S B (repeats the text).
  A: R3b V A- (phone screenshot a familiar look), T A-, S B+ ('went cheaper' second parse; same fix: 'Your price wasn't the reason. Here's what was.'); R3a A-/B+/A-.
+### Round 4 (targeted: only the graders' named fixes, 2 new fresh blind graders)
+EN04 (R4 only)
+ A: V A (bubble instant; phone POV a common look), T A- ("deal" not my word; no hint what kind of reason), S B+ (repeats the text; "Here's what was" template; add stakes, e.g. "and the discount made it worse").
+ B: V A (the thumb adds little), T A, S A- (repeats the text; "Here's what was" ends flat).

@@ -72,3 +72,4 @@ word; process-only payoff (no proof files); the series numbering ("the next part
 - 28 Oct · Matan approved hooks v2 (master EN05-B) · script rewrite on it is next
 - 28 Oct · script v2 on hook EN05-B: Script Lab 4 loops, 12 fresh cold readers, final 80/100 (best 82), escalated · `docs/script.md`, `docs/script-v2-loops.md`; v1 script moved to `docs/script-v1.md`
 - 28 Oct · Hook Lab v3 on Matan's A/A+ bar: 10 stacks, 3 blind rounds, 6 fresh graders; best stack recorded, bar not reached · `docs/hook-lab-v3.md`
+- 28 Oct · Hook Lab v3 round 4 (the graders' named fixes, 2 new graders): `EN05-R4` V A- / A-, T B+ / A-, S A- / A; the A/A+ bar not met, v2 master unchanged · `docs/hook-lab-v3.md`
