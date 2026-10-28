@@ -1,0 +1,50 @@
+client: straightscale
+account_language: sq
+episode: null
+series: null
+avatar: AV-01
+angle_proven: false
+proof_used: []
+lead_magnet: null
+cta_keyword: null
+length_target_s: 30
+slides: null
+tone: contrarian
+post_id: SS-2026-11-W1-03
+slot: 2026-11-04 19:30
+pillar: Close
+job: reach
+belief: B2
+awareness: problem_aware
+demand_phrase: klientët nuk kthehen
+idea_source: demand_map
+source_ref: research/demand-map.csv 'klientët nuk kthehen' (direct) + brain AV-01 fears ('clients don't come back')
+narrow_product: 'Clients who bought once don''t come back because nobody invites them back: the one invite-back message after
+  the work is done, shown as a client list going grey vs one that gets a message'
+format: reel_motion
+format_tier: C
+credit_budget: 10
+hook_type: hidden_cause
+emotion: surprise
+cta_type: send
+hypothesis: Moving the blame from the client to the missing invite gets sends from owners with repeat-purchase businesses
+success_metric: sends_per_reach
+target: '>= SS-2026-10-W3-03 sends per reach'
+notes: 'O30 compact hidden cause (ST3). Picture: a list of past clients that fades to grey one by one; one row gets a message
+  and stays lit. No counts on the list (rows, not numbers), no names. Draft lines: text hook "Klientët nuk ikin."; line 1
+  "Klientët nuk ikin. Thjesht askush nuk i fton të kthehen."; payoff is a process (one message after the work is done), never
+  a result; CTA "Dërgoja atij që merret me klientët e tu." Code-rendered (HyperFrames); budget covers one optional generated
+  still. Voiced (owner rule, learnings 15 Oct): narrator 8oGKUMljR779HzpZBiE4. BLOCKED until its G-HUMAN-VOICE record exists
+  (still PENDING in the 28 Oct queue, `pipeline.py queue`); the hook styleframe needs G-HUMAN-HOOKBOARD. No voiceless fallback
+  (text-only reels were rejected). AI label: on (AI voice, STANDARDS 7). Truth: no counts except the post''s own items; screens
+  show states, never a count or a platform name or logo; no answer-time or speed words; no price, guarantee or urgency; nobody
+  named or mocked. Albanian lines are drafts: native read needed (D2 register ti).'
+status: planned
+hub_item_id: null
+content_dir: null
+run: null
+gates:
+  map: pass
+  truth: pending
+  originality: pending
+  language: pending

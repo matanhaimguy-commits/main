@@ -1,0 +1,250 @@
+{
+ "client": "straightscale",
+ "week": "2026-W45",
+ "timezone": "Europe/Tirane",
+ "research": "research/2026-10-28 (14 Oct data re-scored; new scrape refused, unpaid Apify invoices) + research/2026-10-14 pattern and ideas + research/demand-map.csv",
+ "cards": "cards/2026-11-W1/",
+ "cadence": "daily",
+ "mix": {
+  "reels": 3,
+  "carousels": 3,
+  "images": 1
+ },
+ "credits_planned": 109,
+ "posts": [
+  {
+   "key": "2026-w45-1-reel",
+   "card": "SS-2026-11-W1-01",
+   "kind": "reel",
+   "day": "2026-11-02",
+   "time": "19:30",
+   "goal": "sends",
+   "job": "reach",
+   "belief": "B1",
+   "pillar": "Attract",
+   "series": null,
+   "episode": null,
+   "format": "reel_quote_broll",
+   "tier": "C",
+   "length_s": 15,
+   "slides": null,
+   "hook": "Telefoni që nuk bie nuk është muaj i keq. Është një sistem që mungon.",
+   "hook_note": "Albanian draft, native read needed",
+   "idea": "A quiet phone is not a bad month, it is a missing system: one line that moves the owner from blaming the season to looking at the system",
+   "based_on": [
+    "research/2026-10-14 #7 @hormozi one-line reframe \"This is for now, not forever\" (3.0x; 14 Oct pick 'one-line reframe', 2.4-4.4x); vault C1 meaning"
+   ],
+   "demand_phrase": "telefoni nuk bie",
+   "idea_source": "outlier",
+   "cta": {
+    "type": "send"
+   },
+   "credit_budget": 30,
+   "hypothesis": "A one-line reframe of the owner's own words (the phone goes quiet) gets more sends than the W3 C4 quote reel",
+   "target": ">= SS-2026-10-W3-07 sends per reach x1.2",
+   "status": "planned",
+   "blocked_by": "G-HUMAN-VOICE narrator 8oGKUMljR779HzpZBiE4 (pending 28 Oct)"
+  },
+  {
+   "key": "2026-w45-2-carousel",
+   "card": "SS-2026-11-W1-02",
+   "kind": "carousel",
+   "day": "2026-11-03",
+   "time": "19:30",
+   "goal": "saves",
+   "job": "trust",
+   "belief": "B4",
+   "pillar": "Find",
+   "series": "One Step",
+   "episode": 1,
+   "format": "carousel_framework",
+   "tier": "C",
+   "length_s": null,
+   "slides": 8,
+   "hook": "Pse të zgjodhën klientët e fundit?",
+   "hook_note": "Albanian draft, native read needed",
+   "idea": "Find, this week's one step: ask your last buyers one question (what almost made you choose someone else?) and copy their exact words into your next post and your reply message",
+   "based_on": [
+    "research/2026-10-14 #1 @eri.businesscoach numbered self-check (30.3x) as the device; OS 12 One Step series, Find step"
+   ],
+   "demand_phrase": "klientët vijnë nga rekomandimet, jo çdo muaj",
+   "idea_source": "outlier",
+   "cta": {
+    "type": "save"
+   },
+   "credit_budget": 18,
+   "hypothesis": "A one-step fix with the exact question to ask gets more saves than the W3 scoreboard carousel",
+   "target": ">= SS-2026-10-W3-01 saves per reach x1.5",
+   "status": "planned"
+  },
+  {
+   "key": "2026-w45-3-reel",
+   "card": "SS-2026-11-W1-03",
+   "kind": "reel",
+   "day": "2026-11-04",
+   "time": "19:30",
+   "goal": "sends",
+   "job": "reach",
+   "belief": "B2",
+   "pillar": "Close",
+   "series": null,
+   "episode": null,
+   "format": "reel_motion",
+   "tier": "C",
+   "length_s": 30,
+   "slides": null,
+   "hook": "Klientët nuk ikin. Thjesht askush nuk i fton të kthehen.",
+   "hook_note": "Albanian draft, native read needed",
+   "idea": "Clients who bought once don't come back because nobody invites them back: the one invite-back message after the work is done, shown as a client list going grey vs one that gets a message",
+   "based_on": [
+    "research/demand-map.csv 'klientët nuk kthehen' (direct) + brain AV-01 fears ('clients don't come back')"
+   ],
+   "demand_phrase": "klientët nuk kthehen",
+   "idea_source": "demand_map",
+   "cta": {
+    "type": "send"
+   },
+   "credit_budget": 10,
+   "hypothesis": "Moving the blame from the client to the missing invite gets sends from owners with repeat-purchase businesses",
+   "target": ">= SS-2026-10-W3-03 sends per reach",
+   "status": "planned",
+   "blocked_by": "G-HUMAN-VOICE narrator 8oGKUMljR779HzpZBiE4 (pending 28 Oct)"
+  },
+  {
+   "key": "2026-w45-4-carousel",
+   "card": "SS-2026-11-W1-04",
+   "kind": "carousel",
+   "day": "2026-11-05",
+   "time": "19:30",
+   "goal": "leads",
+   "job": "trust",
+   "belief": "B3",
+   "pillar": "Own",
+   "series": null,
+   "episode": null,
+   "format": "carousel_self_check",
+   "tier": "C",
+   "length_s": null,
+   "slides": 7,
+   "hook": "Hap profilin tënd si një i huaj. 5 pyetje.",
+   "hook_note": "Albanian draft, native read needed",
+   "idea": "Open your profile as a stranger: 5 yes/no questions that show whether a buyer has anything to compare except your price",
+   "based_on": [
+    "research/2026-10-14 #1 @eri.businesscoach numbered owner self-check (30.3x); OS 8.1 header test as the content"
+   ],
+   "demand_phrase": "na krahasojnë me çmimin",
+   "idea_source": "outlier",
+   "cta": {
+    "type": "keyword",
+    "keyword": "ANALIZA",
+    "resource": "free 45-minute analysis",
+    "funnel_id": "analiza"
+   },
+   "credit_budget": 16,
+   "hypothesis": "A self-check the owner can do in a minute gets ANALIZA comments from owners who fail it",
+   "target": ">= 3 ANALIZA comments",
+   "status": "planned"
+  },
+  {
+   "key": "2026-w45-5-reel",
+   "card": "SS-2026-11-W1-05",
+   "kind": "reel",
+   "day": "2026-11-06",
+   "time": "19:30",
+   "goal": "leads",
+   "job": "convert",
+   "belief": "B5",
+   "pillar": "Attract",
+   "series": null,
+   "episode": null,
+   "format": "reel_motion",
+   "tier": "C",
+   "length_s": 30,
+   "slides": null,
+   "hook": "Sponsorizon postimin. Po pastaj?",
+   "hook_note": "Albanian draft, native read needed",
+   "idea": "Boosting a post vs building the path after the click: the same euro followed side by side; the boost ends at views, the path has a reply, a second message and a booking step",
+   "based_on": [
+    "vault C1 + brain AV-01 tried ('boosting posts')"
+   ],
+   "demand_phrase": "paratë e reklamave zhduken",
+   "idea_source": "contrarian_vault",
+   "cta": {
+    "type": "keyword",
+    "keyword": "ANALIZA",
+    "resource": "free 45-minute analysis",
+    "funnel_id": "analiza"
+   },
+   "credit_budget": 10,
+   "hypothesis": "A side-by-side of one euro moves owners who already boost posts to ask for the analysis",
+   "target": ">= 1 qualified DM",
+   "status": "planned",
+   "blocked_by": "G-HUMAN-VOICE narrator 8oGKUMljR779HzpZBiE4 (pending 28 Oct)"
+  },
+  {
+   "key": "2026-w45-6-image",
+   "card": "SS-2026-11-W1-06",
+   "kind": "image",
+   "day": "2026-11-07",
+   "time": "19:30",
+   "goal": "comments",
+   "job": "reach",
+   "belief": "B1",
+   "pillar": "Convert",
+   "series": null,
+   "episode": null,
+   "format": "image_question",
+   "tier": "C",
+   "length_s": null,
+   "slides": null,
+   "hook": "Nëse nesër je i sëmurë, kush u përgjigjet klientëve të tu?",
+   "hook_note": "Albanian draft, native read needed",
+   "idea": "If you are ill tomorrow, who answers your clients? One owner-fear question that shows the business runs on one person's phone",
+   "based_on": [
+    "research/2026-10-14 #3 @eri.businesscoach owner-fear question image (7.8x, most comments of his week)"
+   ],
+   "demand_phrase": "mesazhet mbeten pa përgjigje kur jam në punë",
+   "idea_source": "outlier",
+   "cta": {
+    "type": "comment"
+   },
+   "credit_budget": 9,
+   "hypothesis": "An owner-fear question about being the only one on the phone gets more comments per reach than W2-02",
+   "target": ">= SS-2026-10-W2-02 comments per reach x1.5",
+   "status": "planned",
+   "reactive_swap_allowed": true
+  },
+  {
+   "key": "2026-w45-7-carousel",
+   "card": "SS-2026-11-W1-07",
+   "kind": "carousel",
+   "day": "2026-11-08",
+   "time": "18:00",
+   "goal": "follows",
+   "job": "trust",
+   "belief": "B7",
+   "pillar": "Convert",
+   "series": null,
+   "episode": null,
+   "format": "carousel_opinion",
+   "tier": "C",
+   "length_s": null,
+   "slides": 7,
+   "hook": "E ndërtove vetë. 5 gjëra që s'duhet t'i mbash më vetëm.",
+   "hook_note": "Albanian draft, native read needed",
+   "idea": "You built it yourself: 5 things an owner should stop carrying alone (every client in your head, every unanswered quote, which ad works, suppliers who don't talk, the guilt of a quiet month)",
+   "based_on": [
+    "research/2026-10-14 #1 and #6 @eri.businesscoach owner mindset carousels (30.3x, 3.8x): posts about the owner beat tips (pattern.txt)"
+   ],
+   "demand_phrase": "paguaj disa furnitorë dhe asgjë s'lidhet",
+   "idea_source": "outlier",
+   "cta": {
+    "type": "follow"
+   },
+   "credit_budget": 16,
+   "hypothesis": "An owner-identity carousel builds follows from owners who see themselves in it",
+   "target": ">= SS-2026-10-W3-06 follows per 1k reach",
+   "status": "planned"
+  }
+ ]
+}

@@ -1,0 +1,52 @@
+client: straightscale
+account_language: sq
+episode: null
+series: null
+avatar: AV-01
+angle_proven: false
+proof_used: []
+lead_magnet: null
+cta_keyword: null
+length_target_s: 30
+slides: null
+tone: contrarian
+post_id: SS-2026-11-W2-03
+slot: 2026-11-11 19:30
+pillar: Attract
+job: reach
+belief: B2
+awareness: problem_aware
+demand_phrase: telefoni nuk bie
+idea_source: contrarian_vault
+source_ref: vault C3 ('Your ads aren't failing. Your enquiries are dying after the click.')
+narrow_product: 'Before you switch off the ad that ''doesn''t work'', follow the messages it brought: were they answered,
+  followed up, given a next step? The ad did its job; the message had no owner'
+format: reel_motion
+format_tier: C
+credit_budget: 10
+hook_type: mistake
+emotion: surprise
+cta_type: send
+hypothesis: Stopping the owner at the moment he switches an ad off gets more sends than a general 'ads aren't the problem'
+  line
+success_metric: sends_per_reach
+target: '>= SS-2026-11-W1-03 sends per reach'
+notes: 'C3 in new words: the W3-03 closing line is not reused. Different from W2-04 (count unanswered messages before paying
+  for more ads): this is the switch-off decision. Picture: a hand on an off switch next to an ad card; the camera follows
+  a thread of messages from the ad into an inbox where they wait with no reply; the hand lets go. Draft: text hook "Mos e
+  fik reklamën ende."; line 1 "Para se ta fikësh reklamën që ''nuk punon'', ndiq mesazhet që solli."; payoff "Reklama bëri
+  punën e saj. Mesazhi mbeti pa zot."; CTA "Dërgoja atij që vendos për reklamat." Voiced (owner rule, learnings 15 Oct): narrator
+  8oGKUMljR779HzpZBiE4. BLOCKED until its G-HUMAN-VOICE record exists (still PENDING in the 28 Oct queue, `pipeline.py queue`);
+  the hook styleframe needs G-HUMAN-HOOKBOARD. No voiceless fallback (text-only reels were rejected). AI label: on (AI voice,
+  STANDARDS 7). Truth: no counts except the post''s own items; screens show states, never a count or a platform name or logo;
+  no answer-time or speed words; no price, guarantee or urgency; nobody named or mocked. Albanian lines are drafts: native
+  read needed (D2 register ti).'
+status: planned
+hub_item_id: null
+content_dir: null
+run: null
+gates:
+  map: pass
+  truth: pending
+  originality: pending
+  language: pending
