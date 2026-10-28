@@ -1,0 +1,31 @@
+{"gate": "G-SPEC", "shot_id": "H-01-V9", "spec_sha256": "7936a5c516444052e19e6885a08fa6a8b67da8f38095ec187db010ce8a310e6f",
+ "reviewer": "prompt-reviewer (fresh agent)", "independent": true, "status": "FAIL",
+ "checks": [
+  {"id": "P1", "result": "PASS", "evidence": "Every subject, prop and text is present: PR-SCREEN, PR-GLASS, text_in_image 'BOOK A CALL'; hands 'none visible'; must_read_in_1s is one moment: 'A magnifying glass on a BOOK A CALL page shows the calendar is empty.'"},
+  {"id": "P2", "result": "N/A", "evidence": "Spec mode. No references; text-to-image on openai/gpt-image-2."},
+  {"id": "P3", "result": "PASS", "evidence": "hands: 'none visible'; must_not: 'no people, no hands, no faces'."},
+  {"id": "P4", "result": "PASS", "evidence": "action_physics: 'the magnifying glass lies flat against the screen surface over the calendar, its rim and its horizontal handle touching the calendar squares; nothing touches the band or the letters.' Handle runs x 38% to 18% at y 46.75% with a contact shadow."},
+  {"id": "P5", "result": "PASS", "evidence": "PR-SCREEN content: 'cream band with BOOK A CALL in deep ink; on the sage field a calendar ... every square empty: no digits, no names, no marks' (targeted negative, not a blanket 'no text'). PR-GLASS has a full content line with colours and positions."},
+  {"id": "P6", "result": "PASS", "evidence": "string 'BOOK A CALL' (3 words), surface 'the cream band at the top of the screen, deep ink #2B2A33 letters, centred', position 'x 14% to 86%, y 31.5% to 36%', occlusion 'nothing covers any letter'. Region book-a-call box 0.14,0.315,0.86,0.36 matches. The band sits at 31.5% to 36%, so it is clear of the 14% to 30% hook overlay."},
+  {"id": "P7", "result": "PASS", "evidence": "background_rule: 'no signs, frames, posters or other screens; the only writing is the quoted text'; setting: 'from the top edge to 30% only plain cream clay; lower than 55% only the plain sage screen field'."},
+  {"id": "P8", "result": "FAIL", "evidence": "The calendar is '3 rows by 4 columns of big plain cream clay squares ... x 8% to 78%, y 39% to 54%'. On a 1080x1920 frame that box is 756 px wide by 288 px tall, so each cell pitch is about 189 x 96 px. The cells cannot be squares; the model must either draw a taller grid, break the box, or draw rectangles. The text and the box contradict each other."},
+  {"id": "P9", "result": "PASS", "evidence": "previous_shot: null; carry_over: [] (frame 1 of the reel, first image of the prop). Nothing to carry."},
+  {"id": "P10", "result": "N/A", "evidence": "Spec mode. Layout against STANDARDS 6 was checked and passes (see layout_check)."},
+  {"id": "P11", "result": "FAIL", "evidence": "'big plain cream clay squares' can be read as squares or as wide tiles (see P8), and the handle has a length (x 18% to 38%) but no thickness, although its region box is 2.5% of the height (about 48 px). Both leave the model to guess."},
+  {"id": "P12", "result": "PASS", "evidence": "FL-04 met by the content lines. FL-05 met by the background rule. FL-02 met: 'one magnifying glass: a round lens ... one straight terracotta handle'. FL-03 met by the contact points. FL-13 met: 'no logo, wordmark or real app name or app icon anywhere'."}
+ ],
+ "layout_check": {"standard": "STANDARDS.md section 6, reels safe zone",
+  "result": "PASS",
+  "notes": [
+   "Top 14% clear: top 30% is plain cream clay; the code-overlaid hook at 14% to 30% sits on plain surface, never over the subject.",
+   "Key props in the 15% to 55% band: text y 31.5% to 36%, calendar y 39% to 54%, lens y 40% to 53.5%, handle y 45.5% to 48%. All sit between 30% and 55%.",
+   "Bottom 35% clear: below 55% only the plain sage field; nothing key below 54%.",
+   "Right 21% of the lower half: calendar ends at x 78% and the lens at x 62% for everything lower than 50% of the height (limit 79%). The text is above 50% and ends at 86%, inside the 94% limit.",
+   "Side margins 6%: the text starts at 14%, the calendar at 8%, the handle at 18%.",
+   "Regions are boxed for text, calendar, lens and handle. The hand and face regions are not needed (no hands, no faces)."
+  ]},
+ "suggested_spec_changes": [
+  "PR-SCREEN.content: replace 'a calendar of 3 rows by 4 columns of big plain cream clay squares with sage gaps' with 'a calendar of 3 rows by 4 columns of wide rectangular cream clay tiles, each about 16% of the frame width by 4% of the frame height, with sage gaps about 1.5% wide and 1% tall'. This fits the 70% by 15% box (4 x 17.5% pitch, 3 x 5% pitch). Update the matching words in the lens line ('the empty cream squares under it' becomes 'the empty cream tiles under it') and in action_physics ('touching the calendar squares' becomes 'touching the calendar tiles').",
+  "PR-GLASS.content: add the handle thickness, e.g. 'the handle is a round clay bar about 2.5% of the frame height thick (about 48 px), same terracotta #C8553D as the rim', so the handle region box (y 45.5% to 48%) matches.",
+  "Optional, not a fail: a grid with no day numbers or headers may read as a tile wall. If the review of the frame says the calendar does not read, add one plain terracotta header strip over the grid (no letters), which keeps the digits rule."
+ ]}

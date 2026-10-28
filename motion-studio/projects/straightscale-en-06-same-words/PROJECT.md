@@ -43,6 +43,7 @@ Funnel vs Paid ads
 ## Decisions (newest first)
 | Date | Decision | Options considered | Why | Who |
 |---|---|---|---|---|
+| 28 Oct | **Hook Lab v4** (phase 2 session): 10 stacks (all pass `organic.py hooks`), fixed earlier stack EN06-V1 text "Likes, no bookings? Don't post more. Fix the page."; kept V1, V2, V8, V9; concept frames rebuilt as macro close-ups inside the STANDARDS 6 key band (30% to 55%). **Blocked:** the network policy refuses the Atlas output host, so the one generated frame (CF-V8) cannot be downloaded and nothing was graded (`docs/hook-lab-v4.md`) | grade on a description (not allowed: real-frame rule) | real-frame rule; STANDARDS 6 | Claude (session), main session to unblock |
 | 28 Oct | **Hook Lab v3** (Matan: "only A and A+ hooks, clarity above all"): 10 new stacks from organic breakouts (HF) in buyer words, code check, 3 rounds of 2 fresh blind graders; **no stack reached A/A+ on all channels from both graders**. Best: EN06-R2b: text "Likes, no bookings? Don't post more.", spoken "Don't post more. Your website is why nobody books." (round 2: V A- / A-, T A- / A, S A- / A-). Graders' named fix, not yet graded: spoken "The problem isn't your posts. It's what happens after someone clicks." (no web-agency smell). The v2 master is unchanged (`docs/hook-lab-v3.md`, `docs/hooks-v3.json`) | take the best stack; one more round on the named fix; keep the v2 master | Matan's bar; the main session's 3-round limit | Claude (proposal); Matan or the main session for him (pending) |
 | 28 Oct | **Escalated** (scripts v2): spine A rewritten on the master v2 hook EN06-A, spoken hook word for word, both tiers; Script Lab 4 loops each, 24 fresh cold readers; O60 critical fails in loops 1 to 3 (the one-page-for-many-posts line), final 77; O30 79, fail, 77, final 76; not released (under 85). Recommended: A, Matan answers "one page per offer?", the text hook matches the spoken hook, then one more loop | A: answer the page question + text hook = spoken hook + one loop; B: accept at 77 / 76; C: O60 only for now | Script Lab cap reached | Claude (escalation), Matan (pending) |
 | 28 Oct | Hooks v2 (master EN06-A) | Matan | "much better and stronger"; next time base hooks on organic breakouts, not ads |
@@ -61,6 +62,7 @@ Funnel vs Paid ads
 |---|---|---|---|
 
 ## Log
+- 28 Oct · Hook Lab v4: 10 stacks PASS code check, 3 concept frames through 6 review rounds; CF-V8 generated ($0.047) but its file is blocked by the network policy (atlas-media.oss-us-west-1.aliyuncs.com) · blocked · `docs/hook-lab-v4.md`
 - 28 Oct · folder made from `templates/project`; brief, template, format and reference set · ok
 - 28 Oct · Hook Lab: 10 stacks graded; G-HOOK 5 rounds, two fresh blind graders each (10 graders): not passed, best
   master recorded (`docs/hook-stacks.md`) · open

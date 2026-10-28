@@ -21,18 +21,19 @@ props:
   ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
     step 2); the prop sheet is cut from the approved frame at step 7'
   state: lit, the booking page
-  content: 'cream band with BOOK A CALL in deep ink; on the sage field a calendar of 2 rows by 4 columns of big
-    plain cream clay squares with sage gaps, x 8% to 78%, y 39% to 48%, every square empty: no digits, no names,
-    no marks'
+  content: 'cream band with BOOK A CALL in deep ink; on the sage field a calendar of 2 rows by 4 columns of wide
+    flat rounded cream clay tiles, each about twice as wide as tall, with sage gaps, x 8% to 78%, y 39% to 48%,
+    every tile empty: no digits, no names, no marks'
   size_in_frame: the full width, from 30% of the height to the bottom edge
 - id: PR-HEARTS
   story_critical: true
   ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
     step 2); the prop sheet is cut from the approved frame at step 7'
   state: a low pile lying on the screen
-  content: 'a low pile, one to two hearts high, of plump thumb-pressed clay hearts in heart red #D64545, each about
-    6% of the frame width, on the plain sage field under the calendar, x 8% to 60%, y 50% to 55%, touching only
-    the screen and each other, not touching the calendar'
+  content: 'a low row, one heart high with a few resting on top and never taller than 5% of the frame height, of
+    plump thumb-pressed clay hearts in heart red #D64545, each about 4.5% of the frame width, on the plain sage
+    field under the calendar, x 8% to 60%, y 50% to 55%, touching only the screen and each other, not touching the
+    calendar'
 text_in_image:
 - string: BOOK A CALL
   surface: 'the cream band at the top of the screen, deep ink #2B2A33 letters, centred'
@@ -43,7 +44,7 @@ text_in_image:
 action_physics:
 - The screen faces the camera square on; the hearts lie flat against the screen surface in one low pile under the
   calendar, each resting on the screen or on the heart under it; nothing touches the band, the letters or the calendar
-  squares.
+  tiles.
 static: true
 setting:
   ref: null
