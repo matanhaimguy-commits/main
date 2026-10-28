@@ -24,3 +24,13 @@ further round.
 | C "Your first line is why your posts get zero leads." / "Not the algorithm. Your first line talks about you, not them." | n/a, B+, A- |
 Ranks C, B, A. Notes: the metaphor delays the claim; "about you" reads two ways; "Not the algorithm" names her
 excuse; carry it into the text. No stack at A on both channels, so the second read was not run. Result: FAIL.
+
+## Round 2 (`docs/hooks-v6-W9-09-r2.json`), words only
+| Stack | Grader 4 V/T/S |
+|---|---|
+| A "Zero leads? It's not the algorithm. It's your first line." / "It's not the algorithm. Your first line ignores your reader." | n/a, B, B |
+| B "Zero leads from your posts? It's not the algorithm." / (A's spoken) | n/a, B+, B |
+| C "Zero leads? Your first line is the problem." / "Zero leads from your posts? Your first line skips your reader." | n/a, B, B+ |
+Ranks B, C, A. Notes: name the channel in the text ("from your posts"); "ignores/skips your reader" is abstract
+marketer-speak; say it plainly ("never says who it's for"). No stack at A on both channels; second read not run.
+Result: FAIL.
