@@ -24,12 +24,14 @@
   {
    "step": 5,
    "label": "Word timings O60 + O30",
-   "path": "audio/words.json"
+   "path": "audio/words.json",
+   "kind": "doc"
   },
   {
    "step": 5,
    "label": "Timeline data (BPM, beats, lines, slices)",
-   "path": "audio/timeline.json"
+   "path": "audio/timeline.json",
+   "kind": "doc"
   }
  ]
 }
