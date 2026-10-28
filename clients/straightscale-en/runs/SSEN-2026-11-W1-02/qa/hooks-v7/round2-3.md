@@ -46,3 +46,14 @@ fix and use the same words on screen and in the voice. Result: FAIL.
 Notes: "months of posting, few leads" is her exact situation (grader 9: "that's me"); "buyers' words come first" is
 abstract (first before what?); "Here's what you need instead" is an empty tease; say the concrete action ("exact
 words", "what buyers actually write"). Result: FAIL.
+
+## W9-04 round 3, the idea's last (`hooks-v7-W9-04-r3.json`), words only (graders 11 and 12)
+| Stack | Text / spoken | Grader 11 V/T/S | Grader 12 V/T/S |
+|---|---|---|---|
+| R3a | "Months of posting, few leads? Use buyers' exact words instead." / "Few leads after months of posting? Use your buyers' exact words." | n/a, B+, A- | n/a, B+, B+ |
+| R3b | "Months of posting, few leads? Post what buyers actually write." / "Months of posting, few leads? Post what your buyers actually write." | n/a, B, B | n/a, B, B |
+| R3c | "Months of posting, few leads? Use what your buyers write." / "Few leads after months of posting? Use what your buyers write." | n/a, B-, B+ | n/a, B-, B- |
+Notes: "exact words" is the clearest action; "instead" of what; one identical line on both channels (both graders
+offer "Months of posting, few leads? Use your buyers' exact words."); the struck MORE LEADS reads against the "few
+leads?" question. Result: FAIL. W9-04 is out of rounds (3 of 3). Next MOF trust idea in the bank: W9-07 (pillar
+Steady months, reel_motion, list); W9-05 repeats W1-02's own idea. The slot goes back to the main session.
