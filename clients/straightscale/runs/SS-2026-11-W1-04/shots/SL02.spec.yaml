@@ -1,0 +1,199 @@
+shot_id: SL02
+post_id: SS-2026-11-W1-04
+format: carousel_slide
+script_lines:
+- S2
+line_text: Të krahasojnë me çmimin kur s'shohin gjë tjetër.
+story_purpose: 'Pays the cover: with nothing else to see, price is the only thing left to compare.'
+must_read_in_1s: 'The phone shows a grid of identical work photos: nothing sets this business apart.'
+subjects:
+- id: PR-PHONE
+  ref: null
+  state: the red-case phone seated upright in a black phone stand on the desk, screen lit, facing the camera
+  pose: centre of the lower half, close to the camera
+  expression: ''
+  instances: 1
+hands: none visible
+props:
+- id: PR-PHONE
+  story_critical: false
+  ref: null
+  state: upright in the stand, screen lit
+  content: 'a modern smartphone in a deep red #BE0F18 case that shows as a rim around the black glass front, rounded
+    corners, no logo on the case or the glass'
+  size_in_frame: its box is 28% of the frame width and 48% of the frame height
+- id: PR-STAND
+  story_critical: false
+  ref: null
+  state: on the surface, holding the phone upright
+  content: a plain black matte angled phone stand with one groove, no logo; the phone's bottom edge sits in the
+    groove and its back leans against the stand's rear support
+- id: PR-PHONE-SCREEN
+  story_critical: true
+  ref: PS-PROFILE state GRID (prop sheet to build on SS-LIB-W45W46)
+  state: lit, grid only
+  content: a three-by-three grid of nine near-identical square photos of finished kitchens, all the same light oak
+    units and white worktops; the photos show no people, no letters and no digits; no message bubble, no names,
+    no status bar, no app logo
+- id: PR-ARROW
+  story_critical: false
+  ref: null
+  state: bottom right, inside the 4% margin
+  content: 'a small crimson #B31217 round button with a white arrow pointing right, flat graphic, nothing else on
+    it'
+  size_in_frame: about 8% of the frame width
+text_in_image:
+- string: Të krahasojnë
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 61%, y 6% to 12% of the frame, heavy bold
+    geometric sans, about 80 px at 1080 px wide, ivory
+  position: line 1 of 3 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: me çmimin
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 44%, y 13% to 20% of the frame, heavy
+    bold geometric sans, about 80 px at 1080 px wide, ivory
+  position: line 2 of 3 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: kur s'shohin gjë tjetër.
+  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 62%, y 22% to 26% of the frame, bold
+    geometric sans, about 44 px at 1080 px wide, ivory; the word ''tjetër.'' sits inside a solid crimson #B31217
+    highlight rectangle'
+  position: line 3 of 3 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: 2/8
+  surface: 'top right, small gold #DD9A10 slide counter'
+  position: top right corner, inside the 4% margin
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing overlaps the counter
+action_physics:
+- The phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support; nothing touches
+  it.
+static: false
+setting:
+  ref: null
+  details: 'A business owner''s dark wood desk at night: a warm tungsten desk lamp stands at the far left of the
+    desk, its warm glow reaching the left edge at 66% to 82% of the height; deep shadows; the lamp is one lamp with
+    one round shade on one stem and one round base; nothing else stands on the desk except the lamp and what the
+    props block lists. Camera about 10 degrees above the desk: the desk top spans from 70% of the frame height (its
+    far edge, measured from the top of the frame) down to the bottom; the wall behind it fills the upper 70%. A
+    small window at the left edge of the frame at 42% to 62% of the height, below the text wall, slightly out of
+    focus, the Tirana clock tower a small lit silhouette in it.'
+  background_rule: 'Nothing on the desk or the walls carries a word, a logo or a sign. The phone screen shows only
+    the photo grid. A phone with its screen off is plain black glass with a soft lamp reflection and nothing else.
+    The surface the props stand on is bare apart from the listed props. The clock tower is a small lit silhouette
+    with a plain clock face: no numerals, no letters; the window glass reflects no text; no shop signs on the street.'
+camera:
+  framing: close shot at the desk; the phone fills the lower middle (x 36% to 64%), the top 40% is a calm near-black
+    wall
+  angle: about 10 degrees above the desk surface, centred
+  lens: 35mm film still, shallow depth of field
+  aspect: '4:5'
+  safe_zones: text and arrow inside a 4% margin; top 40% a calm near-black zone with nothing in it except the text
+    block and the slide counter; bottom-left corner (lowest 9% of the height, left 40% of the width) calm, dark
+    and empty
+continuity:
+  previous_shot: SL01
+  carry_over:
+  - The phone leaves the hand and stands in a stand on the desk; the same photo grid, now without the bubble.
+  - Same desk and lamp.
+regions:
+- name: t01-head
+  kind: text
+  box:
+  - 0.06
+  - 0.06
+  - 0.619
+  - 0.128
+- name: t02-head
+  kind: text
+  box:
+  - 0.06
+  - 0.136
+  - 0.447
+  - 0.204
+- name: t03-sub
+  kind: text
+  box:
+  - 0.06
+  - 0.222
+  - 0.626
+  - 0.262
+- name: t03-highlight
+  kind: text
+  box:
+  - 0.461
+  - 0.222
+  - 0.626
+  - 0.262
+- name: counter
+  kind: text
+  box:
+  - 0.86
+  - 0.04
+  - 0.96
+  - 0.08
+- name: logo-zone
+  kind: other
+  box:
+  - 0.0
+  - 0.91
+  - 0.4
+  - 1.0
+- name: arrow
+  kind: other
+  box:
+  - 0.86
+  - 0.89
+  - 0.96
+  - 0.96
+- name: window
+  kind: other
+  box:
+  - 0.0
+  - 0.42
+  - 0.2
+  - 0.62
+- name: phone
+  kind: prop
+  box:
+  - 0.36
+  - 0.4
+  - 0.64
+  - 0.88
+- name: phone-screen
+  kind: prop
+  box:
+  - 0.39
+  - 0.44
+  - 0.61
+  - 0.78
+- name: stand
+  kind: prop
+  box:
+  - 0.38
+  - 0.8
+  - 0.62
+  - 0.88
+style: '"Tirana after dark": cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
+  the cover''s window. Same light and colour grade on every slide. Thread: a smartphone in a deep red case (#BE0F18),
+  recurring on every slide, changing state with the story (silent, unread messages piling up, ringing, a booked
+  calendar). Palette: scene tone near-black (#1F1F1F), type ivory (#F8F6EF), accent crimson #B31217 as solid highlight
+  rectangles behind key words and the swipe arrow button, small gold (#DD9A10) only for the counter. #B31217 is
+  the only saturated colour besides the gold counter and the phone case. Type: heavy bold geometric sans in ivory,
+  left-aligned in the calm dark area; key words in solid crimson #B31217 highlight rectangles. Spell ë and ç out
+  letter by letter in every prompt. Frame: slide counter top right (gold), swipe arrow bottom right on slides 1
+  to N-1. Bottom-left corner calm, dark and empty.'
+must_not:
+- no logo or wordmark drawn anywhere
+- no letters or objects in the bottom-left corner
+- no letters, words, digits or app names on any phone screen; screens hold only the shapes described in the props
+  block
+- no picture-frame borders, side bars or blurred margins around the whole image
+hero: false
+notes: 'Prop sheet PS-PROFILE (state: GRID) is attached as the last reference image.'

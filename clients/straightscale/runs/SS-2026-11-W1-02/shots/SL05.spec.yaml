@@ -1,0 +1,204 @@
+shot_id: SL05
+post_id: SS-2026-11-W1-02
+format: carousel_slide
+script_lines:
+- S5
+line_text: NJIH BLERËSIN E ke shkruar diku? Po apo jo? Një jo mjafton për të vazhduar.
+story_purpose: 'Third yes/no check: is the reason written anywhere? One no is enough to read on.'
+must_read_in_1s: 'A closed notebook and a pencil beside the quiet phone: nothing written down yet.'
+subjects:
+- id: PR-NOTEBOOK
+  ref: null
+  state: a closed black hardcover notebook lying on the sales desk with a pencil across its cover
+  pose: centre of the lower half
+  expression: ''
+  instances: 1
+hands: none visible
+props:
+- id: PR-NOTEBOOK
+  story_critical: false
+  ref: null
+  state: closed, pencil across the cover
+  content: a closed black hardcover notebook with a plain cover, no title, no label, and one plain unpainted natural-wood
+    pencil with no printing lying diagonally across it
+  size_in_frame: about 35% of the frame width
+- id: PR-PHONE
+  story_critical: false
+  ref: null
+  state: lying face up beside the notebook, screen off
+  content: 'a modern smartphone in a deep red #BE0F18 case that shows as a rim around the black glass front, rounded
+    corners, no logo on the case or the glass'
+  size_in_frame: its box is 16% of the frame width and 22% of the frame height (seen obliquely)
+- id: PR-ARROW
+  story_critical: false
+  ref: null
+  state: bottom right, inside the 4% margin
+  content: 'a small crimson #B31217 round button with a white arrow pointing right, flat graphic, nothing else on
+    it'
+  size_in_frame: about 8% of the frame width
+text_in_image:
+- string: NJIH BLERËSIN
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 46%, y 6% to 9% of the frame, capitals
+    with wide letter-spacing (normal word spaces, no gaps inside words), about 44 px at 1080 px wide, ivory
+  position: line 1 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: E ke shkruar
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 57%, y 11% to 18% of the frame, heavy
+    bold geometric sans, about 80 px at 1080 px wide, ivory
+  position: line 2 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: diku?
+  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 27%, y 18% to 25% of the frame, heavy
+    bold geometric sans, about 80 px at 1080 px wide, ivory; the word ''diku?'' sits inside a solid crimson #B31217
+    highlight rectangle'
+  position: line 3 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: Po apo jo?
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 29%, y 27% to 31% of the frame, bold geometric
+    sans, about 44 px at 1080 px wide, ivory
+  position: line 4 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: Një jo mjafton për të vazhduar.
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 79%, y 32% to 36% of the frame, bold geometric
+    sans, about 44 px at 1080 px wide, ivory
+  position: line 5 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: 5/8
+  surface: 'top right, small gold #DD9A10 slide counter'
+  position: top right corner, inside the 4% margin
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing overlaps the counter
+action_physics:
+- The notebook lies with its whole back flat on the sales desk and the pencil rests diagonally on its cover; the
+  phone lies flat beside it; nothing is touched by a hand.
+static: false
+setting:
+  ref: null
+  details: 'A small windows-and-doors shop at night: a long dark wood sales desk, warm tungsten lamps, deep shadows.
+    Camera about 30 degrees above the sales desk: the sales desk top spans from 52% of the frame height (its far
+    edge, measured from the top of the frame) down to the bottom; the wall behind it fills the upper 52%. The wall
+    behind is plain. No window and no clock tower are visible in this shot.'
+  background_rule: No signs, posters, calendars, screens or readable words anywhere except what the text block and
+    props block list. A phone with its screen off is plain black glass with a soft lamp reflection and nothing else.
+    The surface the props stand on is bare apart from the listed props.
+camera:
+  framing: medium close shot from above the sales desk; the notebook and the phone in the lower middle, the top
+    40% is a calm near-black wall
+  angle: about 30 degrees above the sales desk surface, centred
+  lens: 35mm film still, shallow depth of field
+  aspect: '4:5'
+  safe_zones: text and arrow inside a 4% margin; top 40% a calm near-black zone with nothing in it except the text
+    block and the slide counter; bottom-left corner (lowest 9% of the height, left 40% of the width) calm, dark
+    and empty
+continuity:
+  previous_shot: SL04
+  carry_over:
+  - The phone has left its stand and lies dark beside a new object, the notebook; the lit stand scene of slide 4
+    is gone; same desk and lamp.
+regions:
+- name: t01-label
+  kind: text
+  box:
+  - 0.06
+  - 0.06
+  - 0.469
+  - 0.094
+- name: t02-head
+  kind: text
+  box:
+  - 0.06
+  - 0.112
+  - 0.576
+  - 0.18
+- name: t03-head
+  kind: text
+  box:
+  - 0.06
+  - 0.188
+  - 0.275
+  - 0.256
+- name: t03-highlight
+  kind: text
+  box:
+  - 0.06
+  - 0.188
+  - 0.275
+  - 0.256
+- name: t04-sub
+  kind: text
+  box:
+  - 0.06
+  - 0.274
+  - 0.296
+  - 0.314
+- name: t05-sub
+  kind: text
+  box:
+  - 0.06
+  - 0.322
+  - 0.792
+  - 0.362
+- name: counter
+  kind: text
+  box:
+  - 0.86
+  - 0.04
+  - 0.96
+  - 0.08
+- name: logo-zone
+  kind: other
+  box:
+  - 0.0
+  - 0.91
+  - 0.4
+  - 1.0
+- name: arrow
+  kind: other
+  box:
+  - 0.86
+  - 0.89
+  - 0.96
+  - 0.96
+- name: notebook
+  kind: prop
+  box:
+  - 0.22
+  - 0.56
+  - 0.62
+  - 0.86
+- name: phone
+  kind: prop
+  box:
+  - 0.66
+  - 0.62
+  - 0.82
+  - 0.84
+style: '"Tirana after dark": cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
+  the cover''s window. Same light and colour grade on every slide. Thread: a smartphone in a deep red case (#BE0F18),
+  recurring on every slide, changing state with the story (silent, unread messages piling up, ringing, a booked
+  calendar). Palette: scene tone near-black (#1F1F1F), type ivory (#F8F6EF), accent crimson #B31217 as solid highlight
+  rectangles behind key words and the swipe arrow button, small gold (#DD9A10) only for the counter. #B31217 is
+  the only saturated colour besides the gold counter and the phone case. Type: heavy bold geometric sans in ivory,
+  left-aligned in the calm dark area; key words in solid crimson #B31217 highlight rectangles. Spell ë and ç out
+  letter by letter in every prompt. Frame: slide counter top right (gold), swipe arrow bottom right on slides 1
+  to N-1. Bottom-left corner calm, dark and empty.'
+must_not:
+- no logo or wordmark drawn anywhere
+- no letters or objects in the bottom-left corner
+- no letters, words, digits or app names on any phone screen; screens hold only the shapes described in the props
+  block
+- no picture-frame borders, side bars or blurred margins around the whole image
+- no window and no clock tower
+hero: false
+notes: The style line's clock tower belongs to window shots only; this shot has no window, so none is drawn.

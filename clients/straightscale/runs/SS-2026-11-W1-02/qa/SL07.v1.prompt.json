@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "SL07",
+ "version": 1,
+ "prompt_sha256": "a7567c8c8b02ad246ce6b07ed5c56b9d3e90700d57eb542bf7f39886178798bd",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "PR-PHONE (26%x40%), PR-STAND, PR-FRAME-SAMPLES, PR-ARROW, 5 text strings + counter, no hands, action, window and tower, camera, carry-over, 4 must_not present"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "Images 1 to 3 in upload order (style, approved cover, approved slide 2); no image 4"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"Hands: no hands and no people are visible in the frame.\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"The phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support; nothing touches it.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "No story-critical prop; stand and wall samples have content (\"one groove, no logo\"; \"two white and one charcoal, no labels, no price tags, no stickers\")"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"Ku shkojnë\", \"fjalët e tyre\", \"1. Në postimin e radhës.\", \"2. Në mesazhin e përgjigjes.\", \"Kopjoji ashtu siç i thanë.\", \"7/8\" with surface, x/y, size, colour; \"tyre\" in crimson box; shkojnë, fjalët, Në, radhës, përgjigjes, siç, thanë spelled; each 5 words or fewer; digits only inside listed strings"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "Window: \"no numerals, no letters; the window glass reflects no text; no shop signs on the street\"; samples labelled-free; screen-off rule"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Phone x 54% to 80% sits left of the window (x 80%+) and clear of the arrow; last text line ends y 35%, above the 40% line"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "\"The phone is upright now, in a stand, screen off; the wall with the frame samples and the window behind the desk are visible again because the camera is back at a medium distance\""
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Prompt opens \"Instagram carousel slide, portrait 4:5.\"; call settings gpt_image_2_5, 4:5, 2k, medium, flare match standards.json; image roles image_references; declined_preset_id is video-only (N/A)"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No two-way words; positions and sizes numeric"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-13 prevented: \"Bottom-left corner (the lowest 9% of the height, the left 40% of the width): calm, dark, empty background ... no logo, no letters, no objects (a logo is added later).\"; FL-01 text far from any hand/prop; no blanket 'no text' over a story prop"
+  }
+ ],
+ "corrected_prompt": null
+}

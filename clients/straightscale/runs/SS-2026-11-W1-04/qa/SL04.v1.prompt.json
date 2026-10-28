@@ -1,0 +1,72 @@
+{
+  "gate": "G-PROMPT-IMG",
+  "asset_id": "SL04",
+  "version": 1,
+  "prompt_sha256": "4455034e157b80b9ca102190d626581d350fb814985378bfee07345feee480cc",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "P1",
+      "result": "PASS",
+      "evidence": "Both phones ('PR-PHONE ... PR-PHONE-2: a second phone in a plain black case'), both stands, shared grid, PR-ARROW, 5 text strings, 'No third phone.' from must_not"
+    },
+    {
+      "id": "P2",
+      "result": "PASS",
+      "evidence": "'Image 2 is the approved cover ... Image 3 is the approved slide 2 ... Image 4 is the prop sheet PS-PROFILE: copy the phone screen state \"GRID\"'; matches upload order (STYLE-TOP, cover, slide 2, PENDING-PS-PROFILE-APPROVED)"
+    },
+    {
+      "id": "P3",
+      "result": "PASS",
+      "evidence": "'Hands: no hands and no people are visible in the frame.'"
+    },
+    {
+      "id": "P4",
+      "result": "PASS",
+      "evidence": "'The phone's bottom edge sits in the stand's groove ... The second phone sits in its own stand the same way.'"
+    },
+    {
+      "id": "P5",
+      "result": "PASS",
+      "evidence": "PR-PHONE-SCREEN: 'each screen shows the same three-by-three grid of nine near-identical square photos ... the right grid is an exact copy of the left'"
+    },
+    {
+      "id": "P6",
+      "result": "PASS",
+      "evidence": "\"PYETJA 2\" / \"Thua diçka që s'e\" / \"thotë konkurrenti?\" / \"Jo? Shkruaj çfarë bën ndryshe.\" / \"4/8\" with surface, position, size, colour; ë/ç words spelled (diçka, që, thotë, çfarë, bën); straight apostrophe stated"
+    },
+    {
+      "id": "P7",
+      "result": "PASS",
+      "evidence": "'Nothing on the desk or the walls carries a word, a logo or a sign.' plus 'the window glass reflects no text; no shop signs on the street'; window content given: 'the Tirana clock tower a small lit silhouette'; 'Both phone screens show only the photo grids.'"
+    },
+    {
+      "id": "P8",
+      "result": "PASS",
+      "evidence": "No conflict: red-case phone 'left' and black-case phone 'right' do not overlap; 'deep red phone case' is the one allowed saturated colour and the second case is plain black. No two instructions conflict: 'no hands and no people are visible in the frame' agrees with the stand holding the phone; top 40% calm wall agrees with phone box top at 40% or lower"
+    },
+    {
+      "id": "P9",
+      "result": "PASS",
+      "evidence": "'The red-case phone stays in its stand and is joined by a second phone in a second stand with the same grid; same desk and light.' equals spec carry_over; the screen change from SL03's header to the grid is the slide's story (two identical profiles)"
+    },
+    {
+      "id": "P10",
+      "result": "PASS",
+      "evidence": "Packet settings match STANDARDS 1: gpt_image_2_5, 4:5 ('Instagram carousel slide, portrait 4:5'), 2k, medium, flare, role image_references, count 1; counter 'N/8' within 7 to 12 slides; ë and ç spelled out; no em dashes; headline 7 words or fewer"
+    },
+    {
+      "id": "P11",
+      "result": "PASS",
+      "evidence": "Terms are concrete ('three-by-three grid of nine', 'one groove', 'message bubble with a small ivory tail'). Non-blocking note: the template line 'If this scene describes no window, no window and no clock tower is drawn.' has a false condition here because the Setting describes the window."
+    },
+    {
+      "id": "P12",
+      "result": "PASS",
+      "evidence": "FL-01 text is on the top wall (y 6-39%), nothing near it; FL-02 'one lamp with one round shade on one stem and one round base', stand 'with one groove'; FL-03 contact points; FL-04/05 every screen and the window have a content line; FL-10 'No other words, letters or numbers anywhere, including screens, signs, papers and labels'; FL-13 'Bottom-left corner ... calm, dark, empty ... no logo, no letters, no objects (a logo is added later)'; FL-11 'No third phone.'"
+    }
+  ],
+  "corrected_prompt": null
+}

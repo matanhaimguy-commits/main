@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "SL02",
+ "version": 1,
+ "prompt_sha256": "89a99a74174b4f10b16252ff0db2c73da140020765ecbca3682a0e58a1c2978b",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "PR-PHONE with 34%x34% box, PR-ARROW, 4 text strings, no hands, action, setting, camera, carry-over and all 5 must_not (\"No window and no clock tower.\") present"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "\"Image 1 is the style reference ... Image 2 is the approved cover: keep the same world, light, grade and type system, not its scene or text.\" matches upload order (image 2 = SL01 approved cover)"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"Hands: no hands and no people are visible in the frame.\" (spec hands: none visible)"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"The phone lies with its whole back flat on the sales desk, screen up and dark, with nothing touching it.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "No story-critical prop in spec; phone content given in full (\"deep red #BE0F18 case that shows as a rim around the black glass front\")"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"Pse ty,\" / \"e jo dikë më të lirë?\" / \"Pyeti ata.\" / \"2/8\" each with surface, x/y, size, colour; \"ata.\" in crimson box; \"nothing overlapping a letter\"; dikë, më, të, lirë spelled; all lines 5 words or fewer"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "\"A phone with its screen off is plain black glass with a soft lamp reflection and nothing else.\"; no window; \"No signs, posters, calendars, screens or readable words\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Style block's 'clock tower through the cover's window' is explicitly overridden: \"No window and no clock tower are visible in this shot.\" and Avoid \"No window and no clock tower.\""
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "Carry-over matches spec: \"the customer's hands and his phone are gone. The owner's red-case phone is where it lay on slide 1, screen still off\"; phone rotation about 15 degrees as in SL01"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Prompt opens \"Instagram carousel slide, portrait 4:5.\"; call settings gpt_image_2_5, 4:5, 2k, medium, flare match standards.json; image roles image_references; declined_preset_id is video-only (N/A)"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No two-way words; sizes and positions numeric"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-13 prevented: \"Bottom-left corner (the lowest 9% of the height, the left 40% of the width): calm, dark, empty background ... no logo, no letters, no objects (a logo is added later).\"; FL-01 text far from any hand/prop; no blanket 'no text' over a story prop"
+  }
+ ],
+ "corrected_prompt": null
+}

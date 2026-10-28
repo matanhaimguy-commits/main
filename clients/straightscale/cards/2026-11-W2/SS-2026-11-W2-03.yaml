@@ -1,0 +1,62 @@
+client: straightscale
+account_language: sq
+episode: null
+series: null
+avatar: AV-01
+angle_proven: false
+proof_used: []
+lead_magnet: null
+cta_keyword: null
+length_target_s: 30
+slides: null
+tone: contrarian
+post_id: SS-2026-11-W2-03
+slot: 2026-11-11 19:30
+pillar: Attract
+job: reach
+belief: B2
+awareness: problem_aware
+demand_phrase: telefoni nuk bie
+idea_source: contrarian_vault
+source_ref: vault C3 ('Your ads aren't failing. Your enquiries are dying after the click.')
+narrow_product: 'Before you switch off the ad that ''doesn''t work'', follow the messages it brought: were they answered,
+  followed up, given a next step? The ad did its job; the message had no owner'
+format: reel_motion
+format_tier: C
+credit_budget: 10
+hook_type: mistake
+emotion: surprise
+cta_type: send
+hypothesis: Stopping the owner at the moment he switches an ad off gets more sends than a general 'ads aren't the problem'
+  line
+success_metric: sends_per_reach
+target: '>= SS-2026-11-W1-03 sends per reach'
+notes: 'C3 in new words: the W3-03 closing line is not reused. Different from W2-04 (count unanswered messages before paying
+  for more ads): this is the switch-off decision. Picture: a hand on an off switch next to an ad card; the camera follows
+  a thread of messages from the ad into an inbox where they wait with no reply; the hand lets go. Draft: text hook "Mos e
+  fik reklamën ende."; line 1 "Para se ta fikësh reklamën që ''nuk punon'', ndiq mesazhet që solli."; payoff "Reklama bëri
+  punën e saj. Mesazhi mbeti pa zot."; CTA "Dërgoja atij që vendos për reklamat." Voiced (owner rule, learnings 15 Oct): narrator
+  8oGKUMljR779HzpZBiE4. BLOCKED until its G-HUMAN-VOICE record exists (still PENDING in the 28 Oct queue, `pipeline.py queue`);
+  the hook styleframe needs G-HUMAN-HOOKBOARD. No voiceless fallback (text-only reels were rejected). AI label: on (AI voice,
+  STANDARDS 7). Truth: no counts except the post''s own items; screens show states, never a count or a platform name or logo;
+  no answer-time or speed words; no price, guarantee or urgency; nobody named or mocked. Albanian lines are drafts: native
+  read needed (D2 register ti). IDEA GATE (Idea Agent, 28 Oct 2026, OS 7.2): PASS, narrow product kept. Drill-down: L1 Attract
+  > L2 ads that ''don''t work'' > L3 what happened to the messages they brought > L4 three checks before the switch-off (answered,
+  followed up, given a next step). Trinity: complete (three checks he can run before deciding), unique (stops him at the moment
+  of the decision, C3 in new words), depictable (a switch, a thread of messages). Shock 7/10: he believes the ad failed; we
+  show the messages waited with no owner. $5 test: yes, it can save the ad budget he was about to cut. Key visual 0-3 s: a
+  finger moving onto an off switch beside a mock ad card in the first second, freeze; text hook ''Mos e fik reklamën ende.''
+  Truth note for the Script Agent: make the payoff conditional (''Nëse mesazhet erdhën dhe pritën, reklama bëri punën e saj.''),
+  not a blanket claim that the ad worked. Native read needed. HOOK GATE (Hook Agent, 28 Oct 2026, hook-lab organic adapter): PASS. 10 stacks, 8 rounds, fresh graders (from round 6, a panel of 3, median per channel). Shipped master 3-T (hidden cause), self A / A / A, fresh median A / A / A. Visual: a stylized mock ad card with a wide ''REKLAMË'' band and a drawn shopfront (no brand, logo or numbers), an on/off toggle on the card, a finger moving onto it; three large message bubbles out of the card with red unread dots, no reply; the finger freezes at 1 s. Text (top third, 0 to 3 s): ''Reklama solli mesazhe. Kush iu përgjigj?''. Spoken from 0.0 s: ''Reklama "nuk punon"? Para se ta fikësh, shiko çfarë ndodhi me çdo mesazh.''. Seam: ''U përgjigj dikush? E ndoqi dikush kur heshti? Iu dha një hap tjetër?''; payoff stays conditional (''Nëse mesazhet erdhën dhe pritën, reklama bëri punën e saj.''). Trial variants: none reached A on every channel, none shipped (best: 3-U A / A / A-, 3-V A / A- / A-). The card''s draft text ''Mos e fik reklamën ende.'' graded B+ sound-off and is not the super. Still needs the H-01 concept frame, G-HUMAN-HOOKBOARD and G-HUMAN-VOICE. Native read needed. Detail: content/2026-w46-3-reel/hooks.md. SCRIPT GATE (Script Agent, 28 Oct 2026, script-lab organic adapter): FAIL, escalated to the owner (G-HUMAN-ESCALATE). ST6 myth buster, O30, 64 words, about 32 s at 2.3 words/s (pace unmeasured). Fresh graders (new claude -p processes each loop: listen-only cold read, sound-off read, script grader): 78, 78, 77 (1 critical fail: the picture put the gap between the ad and the phone), 81 with no critical fail after 3 FIX loops; the bar is 85. Gated L1 ''Reklama "nuk punon"? Para se ta fikësh, shiko çfarë ndodhi me çdo mesazh.'' L2 ''Mori përgjigje? U ndoq kur klienti heshti? Pati hap tjetër?'' L3 ''Sepse puna e reklamës është mesazhi. Aty i mbaron.'' L4 ''Por ti je me një klient tjetër, dhe mesazhi pret.'' L5 ''Nëse mesazhet erdhën dhe pritën, reklama bëri punën e saj. Atëherë problemi ishte pas reklamës.'' L6 ''Dërgoja shokut, para se ta fikë reklamën.'' Payoff stays conditional (all readers: neither works nor fails). Remaining: B2 not spoken, ear trips (''Pati hap tjetër?'', ''Aty i mbaron''), and the 3-T text hook states the messages as fact (sent back to the Hook Agent). Ungated v5 recommendation in the script file (grader estimate about 86, needs a fresh gate). G-HUMAN-VOICE for 8oGKUMljR779HzpZBiE4 still PENDING (not passed here); no voice or image generated; G-SCRIPT ledger record not written (outside this task). Native read needed on every line. Detail: content/2026-w46-3-reel/script.md.'
+status: planned
+hub_item_id: null
+content_dir: null
+run: null
+gates:
+  map: pass
+  idea: pass
+  hook: pass
+  script: fail
+  truth: pending
+  originality: pending
+  language: pending

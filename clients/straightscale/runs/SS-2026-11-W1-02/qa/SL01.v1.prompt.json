@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "SL01",
+ "version": 1,
+ "prompt_sha256": "b14deb8d37e106f64d218ea92f407978516e7ba9a32c6ec4fd45fdcae22117a5",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "All spec elements present: CH-CLIENT right hand only, PR-PHONE-2, PR-PHONE, PR-PHONE-SCREEN, PR-CARD, PR-CARD-READER, PR-ARROW, 5 text strings, setting, camera, all 4 must_not"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "Image 1 STYLE-TOP described (\"match its type, highlight box, counter, light and grade, not its text or scene\"; the file shows exactly those: white sans head, crimson box, gold 1/7, window and clock tower); \"Image 2 is the prop sheet PS-ULJE: copy the phone screen state ... exactly\" matches upload order (image 2 = PS-ULJE-APPROVED)"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"right hand holds a plain blank bank card flat ... between thumb and index finger 5 cm above the card reader's tap pad ... must not cover: the phone screen, the ULJE tag and the tap pad; five fingers\"; left hand not visible"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"right thumb and index finger pinch the short edge of the card, which has not touched the reader yet\"; \"Both phones lie with their whole backs flat on the sales desk\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-PHONE-SCREEN: \"a photo of a white window frame filling the top two thirds ... a solid crimson #B31217 tag holding the single word \"ULJE\" in ivory capitals\"; Avoid clause excepts the listed screen string"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "Each head line in quotes with surface, x/y position, size, colour; \"No hand, finger, lamp reflection or glare touches these words\"; \"Pse?\" inside crimson box; counter \"1/8\"; every line 3 to 4 words; Të, çmimin, prapë, erdhën spelled letter by letter"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "Window, clock face, card reader screen (\"dark blank screen\"), screen-off phone and desk all have content rules: \"No signs, posters, calendars, screens or readable words anywhere except ...\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No conflicting instructions found (phone 1 screen lit, phone 2 screen off; swipe-bridge band at y 70% to 84% does not touch the empty bottom-left zone y 91%+)"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "\"Carry-over: none, first slide.\" matches spec previous_shot null"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Prompt opens \"Instagram carousel slide, portrait 4:5.\"; call settings gpt_image_2_5, 4:5, 2k, medium, flare match standards.json; image roles image_references; declined_preset_id is video-only (N/A); cover round count 4 per adapter section 6"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "Positions given as fractions and rotations (\"left of centre of the lower half\", \"rotated about 10 degrees\"); no two-way words found"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-13 prevented: \"Bottom-left corner (the lowest 9% of the height, the left 40% of the width): calm, dark, empty background ... no logo, no letters, no objects (a logo is added later).\"; FL-01 text far from any hand/prop; no blanket 'no text' over a story prop"
+  }
+ ],
+ "corrected_prompt": null
+}
