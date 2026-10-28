@@ -71,7 +71,16 @@
       "note": ""
     }
   },
-  "run_gates": {},
+  "run_gates": {
+    "G-HOOK": [
+      {
+        "at": "2026-10-28T18:44:00+00:00",
+        "status": "FAIL",
+        "by": "producer session (hooks-v5)",
+        "note": "3 rounds, best A-/A- from both graders. qa/hooks-v5/grades.md"
+      }
+    ]
+  },
   "specs": {
     "H-01": {
       "sha256": "139e45a5313a184fd6da1d91f7c21043fa2214bdc250664dab81f4a9eb9013cb",

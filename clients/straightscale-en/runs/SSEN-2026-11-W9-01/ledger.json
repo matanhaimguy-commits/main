@@ -71,13 +71,31 @@
       "note": ""
     }
   },
-  "run_gates": {},
+  "run_gates": {
+    "G-HOOK": [
+      {
+        "at": "2026-10-28T18:44:00+00:00",
+        "status": "FAIL",
+        "by": "producer session (hooks-v5)",
+        "note": "3 rounds, best T A-/S A. qa/hooks-v5/grades.md"
+      }
+    ]
+  },
   "specs": {
     "H-01": {
       "sha256": "b48dfa1aa77a30e0e16f1dbdf0bbcd86733ecb19e14ff5a938abb5d9945dc444",
       "lint": "PASS",
       "lint_at": "2026-10-28T18:37:28+00:00",
-      "lint_issues": []
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T18:44:36+00:00",
+          "status": "FAIL",
+          "sha256": "b48dfa1aa77a30e0e16f1dbdf0bbcd86733ecb19e14ff5a938abb5d9945dc444",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01.spec.review.json"
+        }
+      ]
     }
   },
   "assets": [

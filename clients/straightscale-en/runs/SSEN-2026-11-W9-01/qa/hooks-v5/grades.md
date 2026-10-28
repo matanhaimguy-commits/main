@@ -17,3 +17,13 @@ the same tense; "Here's why" is a weak payoff. Result: FAIL.
 | C "One big client felt safe. Now next month is empty." / (A's spoken) | n/a, B, A- | n/a, A-, A- |
 Notes: "biggest" vs "best" differ; the question form hedges; put the same words in both channels; the text never says
 the client left. Result: FAIL. Round 3 (last): one sentence, same words on screen and in the voice.
+
+## Round 3, the idea's last (`hooks-v5-W9-01-r3.json`)
+| Stack | Grader 5 V/T/S |
+|---|---|
+| A "Your biggest client leaves. Next month: literally nothing." / "Lose your biggest client, and next month is nothing. Here's why." | n/a, B+, B+ |
+| B "One big client felt safe. Until they left." / (A's spoken) | n/a, C+, B+ |
+| C "Your biggest client leaves. Next month: nothing. Here's why." / (A's spoken) | n/a, A-, B+ |
+No stack at A from grader 5, so the round fails whatever a second grader says; the second read was not run. Notes:
+the spoken line should open with the text's words; one-client risk is half the persona's pain (the lumpy month is the
+rest). Result: FAIL. Idea out of rounds (3 of 3); the bank holds no other TOF reach idea for slot W3-01.
