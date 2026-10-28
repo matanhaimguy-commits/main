@@ -449,20 +449,36 @@
       "hero": true,
       "hook": true,
       "created": "2026-10-28T20:02:57+00:00",
-      "prompt_sha256": "e7b9d4a7c166b46f46e460b65dcceb6fb2af39c8bfb2c8453f2cc1e86949eef7",
-      "prompt_file": "prompts/CF-W908.v1.1.txt",
+      "prompt_sha256": "f9cc676f46dc361c0ca090f9dbef12bb02371cd3edd8673550f3d802a56ec2b8",
+      "prompt_file": "prompts/CF-W908.v1.2.txt",
       "prompt_history": [
         {
           "at": "2026-10-28T20:02:57+00:00",
           "sha256": "e7b9d4a7c166b46f46e460b65dcceb6fb2af39c8bfb2c8453f2cc1e86949eef7",
           "file": "prompts/CF-W908.v1.1.txt",
           "medias": []
+        },
+        {
+          "at": "2026-10-28T20:06:03+00:00",
+          "sha256": "f9cc676f46dc361c0ca090f9dbef12bb02371cd3edd8673550f3d802a56ec2b8",
+          "file": "prompts/CF-W908.v1.2.txt",
+          "medias": []
         }
       ],
       "medias": [],
       "ids": [],
       "files": [],
-      "gates": {}
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T20:06:03+00:00",
+            "status": "FAIL",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-W908.v1.prompt.json",
+            "prompt_sha256": "e7b9d4a7c166b46f46e460b65dcceb6fb2af39c8bfb2c8453f2cc1e86949eef7"
+          }
+        ]
+      }
     }
   ],
   "queue": []
