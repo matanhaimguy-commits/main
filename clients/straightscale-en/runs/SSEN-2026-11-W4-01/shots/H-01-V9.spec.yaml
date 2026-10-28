@@ -11,7 +11,7 @@ subjects:
   ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
     step 2); the prop sheet is cut from the approved frame at step 7'
   state: lit, the booking page
-  pose: fills the frame below 30%, edge to edge
+  pose: fills the frame from 30% of the height down, edge to edge
   expression: ''
   instances: 1
 hands: none visible
@@ -21,48 +21,45 @@ props:
   ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
     step 2); the prop sheet is cut from the approved frame at step 7'
   state: lit, the booking page
-  content: 'a macro close-up of a clay phone''s screen: the screen''s rounded top edge and a terracotta #C8553D
-    clay rim run across the frame at 30% of the height and the screen continues past the left, right and bottom
-    edges of the frame; the screen is matte clay, not glass, no reflections; a cream #F3E9D8 band across the top
-    of the screen from 31% to 40% of the height holds the words BOOK A CALL in heavy bold deep ink #2B2A33 capital
-    letters, centred; under the band, on a sage #8FA98B screen field, a calendar of 3 rows by 4 columns of big plain
-    cream clay squares with sage gaps, from 8% to 78% of the width and 42% to 64% of the height, every square empty:
-    no digits, no names, no marks; the sage field continues plain to the right of the calendar and below 64%'
-  size_in_frame: the full width, from 30% to the bottom edge
+  content: 'cream band with BOOK A CALL in deep ink; on the sage field a calendar of 3 rows by 4 columns of big
+    plain cream clay squares with sage gaps, x 8% to 78%, y 42% to 64%, every square empty: no digits, no names,
+    no marks'
+  size_in_frame: the full width, from 30% of the height to the bottom edge
 - id: PR-GLASS
   story_critical: true
   ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
     step 2); the prop sheet is cut from the approved frame at step 7'
-  state: lying on the screen
-  content: 'one magnifying glass: a round lens about 34% of the frame width, sculpted as a professional matte clay
-    imitation of clear glass, in a thick terracotta #C8553D clay rim, centred at 40% of the width and 53% of the
-    height over the calendar, through it two empty cream squares show larger; one sage #8FA98B clay handle runs
-    from the rim down and to the left (the viewer''s left) past the bottom-left corner of the calendar'
+  state: lying flat on the screen
+  content: 'one magnifying glass: a round lens 30% of the frame width across (x 28% to 58%, y 45% to 62%), sculpted
+    as a professional matte clay imitation of clear glass, in a thick terracotta #C8553D clay rim; through the lens
+    the empty cream squares under it show larger; one terracotta #C8553D clay handle about 18% of the frame width
+    long runs from the lower-left of the rim down and to the viewer''s left at about 45 degrees and ends on the
+    sage field at about x 14%, y 64%, with a soft contact shadow under its whole length'
 text_in_image:
 - string: BOOK A CALL
-  surface: 'the cream band at the top of the screen, deep ink #2B2A33 letters'
+  surface: 'the cream band at the top of the screen, deep ink #2B2A33 letters, centred'
   position: x 14% to 86%, y 32% to 39%
   case: upper
   must_be_exact: true
   occlusion: nothing covers any letter
 action_physics:
 - The screen faces the camera square on; the magnifying glass lies flat against the screen surface over the calendar,
-  rim and handle touching the screen, nothing touching the band or the letters.
-static: false
+  its rim and its handle touching the screen; nothing touches the band or the letters.
+static: true
 setting:
   ref: null
-  details: the clay phone screen fills the frame below 30%; above it plain cream clay
-  background_rule: 'plain cream #F3E9D8 clay above the page; no signs, frames, posters or other screens; the only
-    writing is the listed text'
+  details: the clay phone screen fills the frame from 30% of the height down; from the top edge to 30% only plain
+    cream clay
+  background_rule: no signs, frames, posters or other screens; the only writing is the quoted text
 camera:
-  framing: 'one subject: the booking page, edge to edge, the lens on the calendar'
+  framing: 'One subject: the booking page, edge to edge, the lens on the calendar'
   angle: straight on, square to the screen, camera inside the miniature clay world
   lens: macro, shallow depth of field
   aspect: '9:16'
-  safe_zones: 'STANDARDS 6 reels zone: top 14% empty; the text hook alone sits at 14% to 30% (added in the edit);
-    every key element (text, calendar, hearts, cards, lens) inside 30% to 65% of the height and 6% to 94% of the
-    width, and inside 6% to 79% of the width where it lies below 50% of the height; below 65% only plain continuation
-    of the screen or card and the named non-key parts'
+  safe_zones: 'Layout (heights measured down from the top edge of the frame): the top 30% of the frame is plain
+    and empty (the text hook is set at 14% to 30% in the edit); every key element sits between 30% and 65% of the
+    frame height and inside 6% to 94% of the width, and inside 6% to 79% of the width wherever it lies lower than
+    50% of the height; lower than 65% there is only the plain continuation of the surface.'
 continuity:
   previous_shot: null
   carry_over: []
@@ -81,23 +78,30 @@ regions:
   - 0.42
   - 0.78
   - 0.64
-- name: glass
+- name: lens
   kind: prop
   box:
-  - 0.23
-  - 0.43
-  - 0.57
-  - 0.63
-style: 'Premium studio claymation (claymation skill lane 4): everything sculpted from matte plasticine with refined
-  tool marks, soft rounded geometry, slight subsurface warmth, macro lens feel with shallow depth of field, soft
-  diffused studio light with a gentle rim glow. Palette (every colour used in this frame): warm cream #F3E9D8, terracotta
-  #C8553D, sage #8FA98B, deep ink #2B2A33. The top 30% of the frame is plain cream #F3E9D8 with nothing in it (the
-  text hook is set at 14% to 30% in the edit).'
+  - 0.28
+  - 0.45
+  - 0.58
+  - 0.62
+- name: handle
+  kind: prop
+  box:
+  - 0.12
+  - 0.58
+  - 0.32
+  - 0.65
+style: 'Premium studio claymation scene - everything sculpted from matte plasticine with refined intentional craftsmanship:
+  subtle tool marks, controlled texture, soft rounded geometry, slight subsurface warmth, macro lens feel with shallow
+  depth of field, soft diffused studio lighting with a gentle rim glow, the scene filling the entire frame with
+  the camera inside the miniature clay world. Vertical 9:16 frame. Palette (every colour in this frame): warm cream
+  #F3E9D8, terracotta #C8553D, sage #8FA98B, deep ink #2B2A33.'
 must_not:
-- no logo, wordmark or real platform name or icon anywhere
+- no logo, wordmark or real app name or app icon anywhere
 - no digits or numbers anywhere
-- no words other than the listed strings
-- nothing at all in the top 30% of the frame except plain cream clay
+- no words other than the quoted ones
+- nothing in the top 30% of the frame (measured down from the top edge) except the plain surface
 - no people, no hands, no faces
 - no workbench, table edge or room around the clay world
 - no glossy CGI look, no glass reflections
