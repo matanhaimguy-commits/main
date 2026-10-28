@@ -1,0 +1,82 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "H-01D",
+ "spec_sha256": "1e6e4de0fe1b4acc5fb827d5b8997c1d5779ee96f9f1c500d3cba0c5ea5e0988",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "files_opened": [
+  "clients/straightscale-en/runs/SSEN-2026-11-W3-01/shots/H-01D.spec.yaml",
+  "growth-engine/production/standards.json",
+  "growth-engine/production/STANDARDS.md",
+  "growth-engine/production/failure-library.md",
+  "growth-engine/production/VISUAL-QA.md"
+ ],
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Post, face, blindfold, empty-month, text-hook-space and empty-lower-zone are all boxed: \"name: post-face ... box: 0.42, 0.38, 0.58, 0.48\", \"name: blindfold ... 0.38, 0.37, 0.64, 0.42\"; setting, camera, props with content and size all present."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"hands: none visible\"; the post's wire arms are a prop with content (\"two tiny wire arms held out in front feeling the air\"), no human hand to rule."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "Contact points: \"the post stands on its two clay feet on the floor at y 0.56\"; \"the blindfold wraps around the card's top third and is knotted at its right edge\"; \"the calendar page hangs flat on the wall behind and above the post\"."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "No story-critical prop flagged, and both props are filled anyway: \"stitched grid of empty day squares (no numbers, no month name)\"; the only blanket negative is about text, which the calendar content (empty squares) already respects."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"text_in_image: none\"; the hook sits in the edit, region text-hook-space is boxed (0.06,0.14 to 0.94,0.27) and must_not forbids any letters in the picture. Hook is 8 words, within 4 to 10."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "The one background object has a rule: \"background_rule: nothing but the plain wall, the floor and the one calendar page\"; calendar content is filled; \"No window, shelf, desk or other objects\"."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Geometry agrees: calendar y 0.28 to 0.48 is below the hook zone (ends 0.27) and above the floor line 0.56; post x 0.38 to 0.62, y 0.36 to 0.56 covers only the middle of the calendar's lower rows, leaving upper strip and both sides visible (\"empty squares showing on both sides of it\"). Safe zones match STANDARDS 6 (top 14%, bottom 35%, sides 6%, right 21% of lower half); key content ends at y 0.56."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "\"previous_shot: null\"; carry_over: \"the series look: claymation with fabric and thread details, the song's cloth world (EN 03)\"."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "must_not now reads \"no clay people or client figures (the post card is the only character)\" and \"no picture border or frame around the whole image\", so the post and the calendar's stitched border are not removed. Minor wording only, see notes."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04/05: calendar has content and a background rule; FL-02: \"one page\" and \"one post only\"; FL-11: \"one post only\" plus feet-on-floor line; FL-13: no logo asked for, lower zone empty."
+  }
+ ],
+ "suggested_spec_changes": [],
+ "notes": [
+  "Optional polish, not a fail: 'head tilted a little' on a flat card could be read as the whole card leaning; 'knotted at its right edge' could say 'the right edge as seen in the frame' (the blindfold box extends to x 0.64, so frame-right is the intended reading).",
+  "Previous G-SPEC FAIL items (missing face and blindfold regions, calendar mostly hidden, safe-zone mismatch, 'no figures or people', 'no borders, frames') are all fixed in this version."
+ ]
+}

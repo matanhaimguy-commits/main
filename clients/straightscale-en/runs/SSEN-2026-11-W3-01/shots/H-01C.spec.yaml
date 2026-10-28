@@ -1,0 +1,122 @@
+shot_id: H-01C
+post_id: SSEN-2026-11-W3-01
+format: claymation
+script_lines:
+- H1
+line_text: If your months swing like this, here's what I'd post.
+story_purpose: 'Concept frame for stack EN05-V8 (HF-20): months that swing, as a seesaw with a full month on the low end and
+  a bare month up in the air.'
+must_read_in_1s: 'A seesaw: one month heavy with clients, the other up and empty'
+subjects:
+- id: PR-SEESAW
+  ref: null
+  state: a clay seesaw tipped hard to the left
+  pose: side view, centred, x 0.06 to 0.94; pivot at x 0.50 on the floor line y 0.56; left end down at y 0.55, right end up
+    at y 0.32
+  expression: ''
+- id: CH-CLIENTS
+  ref: null
+  state: ten little clay client figures, a group of extras, each figure once
+  pose: standing close together on the left end's calendar page
+  expression: calm and pleased, chatting
+hands: none visible
+props:
+- id: PR-SEESAW
+  story_critical: false
+  ref: null
+  state: 'tipped: left end down on the floor, right end high'
+  content: 'a terracotta clay plank on a mustard clay triangle pivot; on each end of the plank lies one page, a calendar month
+    page sculpted from flat cream clay, edged with a stitched terracotta fabric border, with a stitched grid of empty day
+    squares (no numbers, no month name); the LEFT page carries ten clay client figures, simple adult business people in tiny
+    fabric jackets and trousers, thread-wrapped hair, simple eyes with white sclera and dark pupils, mixed skin tones, standing
+    and chatting, calm and pleased; the RIGHT page, high in the air, is bare: no figure and no object on it'
+  size_in_frame: 88% of the frame width; the plank, pages and figures together from y 0.28 to 0.56; each figure about 6% of
+    the frame height
+  held_by: null
+text_in_image: none
+action_physics:
+- the plank rests on the pivot's top point; the plank's left end touches the floor at y 0.55
+- the ten figures stand with both feet on the left page, their weight holding that end down
+- the right page lies flat on the plank's raised right end, nothing on it
+static: true
+setting:
+  ref: null
+  details: One plain warm cream clay wall fills the background edge to edge, softly lit by warm amber light from the upper
+    left, a gentle deep teal shadow low down. A plain clay floor meets the wall at 56% down and runs toward the camera, empty.
+    No window, shelf, desk or other objects.
+  background_rule: nothing but the plain wall and floor around the seesaw
+camera:
+  framing: medium wide shot of the whole seesaw, side on
+  angle: camera at the height of the pivot top, side on, inside the miniature set
+  lens: macro miniature-set look, about 50mm, the whole seesaw sharp
+  aspect: '9:16'
+  safe_zones: 'STANDARDS 6 reels zone: the top 14% is plain wall; the text hook (added in the edit) sits from 14% to 27% down
+    on plain wall; all key content sits from 28% to 56% down and inside 6% side margins; below 56% only the plain clay floor
+    and wall continue, with nothing on them (the bottom 35% and the right 21% of the lower half hold no key content)'
+continuity:
+  previous_shot: null
+  carry_over:
+  - 'the series look: claymation with fabric and thread details, the song''s cloth world (EN 03)'
+regions:
+- name: text-hook-space
+  kind: other
+  box:
+  - 0.06
+  - 0.14
+  - 0.94
+  - 0.27
+- name: seesaw
+  kind: prop
+  box:
+  - 0.06
+  - 0.28
+  - 0.94
+  - 0.56
+- name: full-month-end
+  kind: prop
+  box:
+  - 0.06
+  - 0.36
+  - 0.44
+  - 0.56
+- name: client-faces
+  kind: face
+  box:
+  - 0.08
+  - 0.36
+  - 0.42
+  - 0.5
+- name: empty-month-end
+  kind: prop
+  box:
+  - 0.58
+  - 0.3
+  - 0.94
+  - 0.4
+- name: empty-lower-zone
+  kind: other
+  box:
+  - 0.0
+  - 0.56
+  - 1.0
+  - 1.0
+style: 'Stop-motion clay puppet scene - clay characters detailed with tiny craft materials: thread-wrapped hair, fabric details,
+  wire accents, on a fully sculpted clay set, cinematic stop-motion film lighting with gentle shadows, the scene filling the
+  entire frame with the camera inside the puppet world. Palette: warm cream, terracotta and mustard clay with deep teal shadows,
+  warm amber light; one bright subject against a calm, plain clay wall. Everything in frame is real modeling clay, photographed
+  - visible fingerprints and tool marks, real cast shadows, soft studio lighting, the clay scene filling the entire frame.'
+must_not:
+- no text, letters, numbers or words anywhere in the picture (the text hook is added later in the edit)
+- no hearts, likes, thumbs-up, follower counts, notification badges, social media icons or logos
+- no real platform names, logos, phones or app screens
+- no objects on the floor or wall below 56% down
+- no smooth, glossy or CGI-looking surfaces; no motion blur
+- no picture border or frame around the whole image, no split-screen panels, no visible set edges, workbench or room around
+  the miniature set
+- no figure or object on the right end's page (the bare page itself belongs there)
+- one seesaw only
+- no figure off the seesaw
+hero: true
+notes: 'Stack EN05-V8 text hook (edit, 14% to 27% down): One month full, one month empty. Post this instead. Model: openai/gpt-image-2/text-to-image,
+  size 1152x2048, quality medium, no references. Sub-style: claymation skill lane 3 (stop-motion puppet), for the song''s
+  cloth world.'

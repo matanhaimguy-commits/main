@@ -1,0 +1,84 @@
+{
+  "gate": "G-SPEC",
+  "shot_id": "H-01A",
+  "spec_sha256": "64507e09005bbe1768dd1e510ecd5e263cf86c777543bc3344b5b54824bb2fb0",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "PASS",
+  "files_opened": [
+    "/home/user/main/clients/straightscale-en/runs/SSEN-2026-11-W3-01/shots/H-01A.spec.yaml",
+    "/home/user/main/growth-engine/production/standards.json",
+    "/home/user/main/growth-engine/production/failure-library.md",
+    "/home/user/main/growth-engine/production/VISUAL-QA.md (sections 2, 4, 13.1)"
+  ],
+  "checks": [
+    {
+      "id": "P1",
+      "result": "PASS",
+      "evidence": "Every element is written and boxed: subjects PR-CALENDAR and CH-CLIENTS with pose and expression; 'hands: none visible'; props with content and size_in_frame; 'text_in_image: none'; action_physics (3 lines); setting with background_rule; camera with aspect and safe_zones; regions for text-hook-space, calendar, full-month, client-faces (kind face), empty-month, empty-lower-zone."
+    },
+    {
+      "id": "P2",
+      "result": "N/A",
+      "evidence": "Spec mode."
+    },
+    {
+      "id": "P3",
+      "result": "PASS",
+      "evidence": "'hands: none visible'; no hand region needed. The clay figures are subjects, not hands."
+    },
+    {
+      "id": "P4",
+      "result": "PASS",
+      "evidence": "'each client figure stands with both feet on one of the left page's ledges, four figures per ledge'; 'the calendar hangs flat against the wall from a stitched loop at its top centre'; 'the right page's ledges and squares carry nothing at all'."
+    },
+    {
+      "id": "P5",
+      "result": "PASS",
+      "evidence": "PR-CALENDAR content: 'flat cream clay, edged with a stitched terracotta fabric border, with a stitched grid of empty day squares ... three narrow clay ledges ... LEFT page carries twelve clay client figures ... RIGHT page is completely bare'. story_critical is false but the content is full and the blanket no-text negative cannot empty it (content says 'no numbers, no month name')."
+    },
+    {
+      "id": "P6",
+      "result": "PASS",
+      "evidence": "'text_in_image: none'; must_not 'no text, letters, numbers or words anywhere in the picture (the text hook is added later in the edit)'. No prop needs words."
+    },
+    {
+      "id": "P7",
+      "result": "PASS",
+      "evidence": "background_rule: 'nothing but the plain clay wall around the calendar'; setting 'No window, shelf, desk or other objects'. The bare right page is ruled on purpose ('completely bare'), not a stray empty frame."
+    },
+    {
+      "id": "P8",
+      "result": "PASS",
+      "evidence": "Size maths agrees: 'each page 44% wide' x2 = 88% = x 0.06 to 0.94; 12 figures = 3 ledges x 4; side margins 6% match the box. 'no picture border or frame around the whole image' is scoped to the whole image, so it does not clash with the page's 'stitched ... border'. Notes N1 to N3 are polish only."
+    },
+    {
+      "id": "P9",
+      "result": "PASS",
+      "evidence": "previous_shot: null; carry_over: 'the series look: claymation with fabric and thread details, the song's cloth world (EN 03)'."
+    },
+    {
+      "id": "P10",
+      "result": "N/A",
+      "evidence": "Spec mode."
+    },
+    {
+      "id": "P11",
+      "result": "PASS",
+      "evidence": "must_read_in_1s: 'One month crowded with clients, the next month empty' is one clear moment. Sizes are given as fractions of the frame, not thumbs or comparisons. 'extras, each figure once' is clear."
+    },
+    {
+      "id": "P12",
+      "result": "PASS",
+      "evidence": "FL-11: 'each figure once' plus a feet-on-ledge physics line. FL-02: structure stated ('exactly two calendar pages', one stitched loop, 'joined by a stitched seam'). FL-05: no frame, screen or sign in the background. FL-10: plain wall and a no-text rule. FL-13: no logo asked; the lower 44% is kept empty."
+    }
+  ],
+  "suggested_spec_changes": [],
+  "notes": [
+    "N1 (optional): the stitched loop at the calendar's top centre sits at or just above y 0.28, so it may rise into the plain text-hook band (14% to 27%). Either add the loop to the calendar box or say it stays under y 0.28 so the hook space stays plain.",
+    "N2 (optional): safe_zones says the right 21% of the lower half holds no key content, while the empty right page ends at y 0.56 and reaches x 0.94, so a thin strip of its bottom row (x 0.79 to 0.94, y 0.50 to 0.56) overlaps. It holds nothing, so the story still reads; no change needed.",
+    "N3 (optional): must_not 'no figure, object or mark on the right page' sits next to the wanted stitched grid of empty squares. Reading 'mark' as 'extra mark' would be clearer: 'no figure or object on the right page; only its empty stitched squares and ledges'.",
+    "N4 (optional): 'hands: none visible' could say 'no outside hands; the clay figures keep their own small clay arms', so a model does not strip the figures' arms.",
+    "N5 (optional): figures are about 6% of frame height (about 120 px at 1152x2048), so faces are tiny. Detail should be reviewed at a 2x crop at the visual gate."
+  ]
+}
