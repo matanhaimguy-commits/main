@@ -27,8 +27,9 @@
       "at": "2026-10-27T18:33:09+00:00"
     },
     "4": {
-      "status": "todo",
-      "note": ""
+      "status": "done",
+      "note": "masters approved by Matan on the Studio page (decision #1)",
+      "at": "2026-10-28T17:24:52+00:00"
     },
     "5": {
       "status": "todo",
@@ -152,6 +153,14 @@
         "by": "song take check",
         "note": "Masters: SONG-O60@v1 take 2 (0.956, 59.6 s) and SONG-O30@v1 take 2 (0.896, 32.4 s), both over the 0.88 floor with the hook sung by about 1.5 s"
       }
+    ],
+    "G-HUMAN-SONG": [
+      {
+        "at": "2026-10-28T17:24:44+00:00",
+        "status": "PASS",
+        "by": "Matan",
+        "note": "Studio page decision #1 (run #1): 'Both approved', answered 28 Oct 2026 17:12:59 UTC; O60 take 2 and O30 take 2 are the masters"
+      }
     ]
   },
   "specs": {},
@@ -236,10 +245,13 @@
       "id": "G-HUMAN-SONG:",
       "checkpoint": "G-HUMAN-SONG",
       "asset": null,
-      "status": "PENDING",
+      "status": "APPROVED",
       "note": "Listen to both masters before any picture: O60 take 2 (59.6 s) and O30 take 2 (32.4 s), male baritone, Atlas suno/chirp-v6. Check words, the 'lumpy months' hook, 'patchwork marketing', the spoken question and CTA; Whisper heard 'a lawn' for 'alone' and 'As last' for 'ads last' in the O30",
       "files": [],
-      "asked_at": "2026-10-27T18:39:30+00:00"
+      "asked_at": "2026-10-27T18:39:30+00:00",
+      "answered_at": "2026-10-28T17:24:44+00:00",
+      "by": "Matan",
+      "answer": "Studio page decision #1 (run #1): 'Both approved', answered 28 Oct 2026 17:12:59 UTC; O60 take 2 and O30 take 2 are the masters"
     }
   ]
 }
