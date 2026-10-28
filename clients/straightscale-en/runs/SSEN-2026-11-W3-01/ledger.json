@@ -111,6 +111,12 @@
         "status": "FAIL",
         "by": "producer session (hooks-v5), 2 fresh sonnet graders per round",
         "note": "Boosted-post idea out of rounds (3 of 3, best T B+/S A-). Replaced with bank W9-01 (3 rounds, best T A-/S A). Grades: qa/hooks-v5/, runs/SSEN-2026-11-W9-01/qa/hooks-v5/"
+      },
+      {
+        "at": "2026-10-28T20:10:09+00:00",
+        "status": "FAIL",
+        "by": "producer session (hooks-v6), fresh sonnet graders",
+        "note": "Main session, delegated by Matan, plan 28 Oct: new bank idea W9-08 out of rounds (3 of 3). Best: R1b T A-/A-, S A-/A- (words only); R3 with frame CF-W908@v1: V B-, T A-, S B+. Grades: qa/hooks-v6/grades.md"
       }
     ]
   },
@@ -503,6 +509,20 @@
             "by": "prompt-reviewer (fresh agent)",
             "report": "qa/CF-W908.v1.prompt.json",
             "prompt_sha256": "f9cc676f46dc361c0ca090f9dbef12bb02371cd3edd8673550f3d802a56ec2b8"
+          }
+        ],
+        "G-VIS": [
+          {
+            "at": "2026-10-28T20:10:27+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/CF-W908.v1.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 3,
+              "minor": 3
+            },
+            "hero": true
           }
         ]
       }

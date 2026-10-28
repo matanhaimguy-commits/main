@@ -21,3 +21,16 @@ Result: FAIL (A-). B reached A- on text and spoken, so its frame may be made (ma
 Both rank B first. Notes: text and voice must open on the same line ("Some months your posts bring clients");
 "one post brought your last client" may be false for a referral-fed owner; "You can't tell which" ends clipped;
 "Here's how" reads generic. Result: FAIL. Round 3 (last) gets the frame.
+
+## Round 3, the idea's last (`hooks-v6-W9-08-r3.json`), with the frame
+Frame: CF-W908@v1 (claymation: six identical post cards with a heart each, a tiny client on the top middle card),
+text hook laid on at y 14% to 30%. Its G-VIS is in `qa/CF-W908.v1.review.json`; the grid landed at about y 38% to
+58%, lower than its 30% to 52% box (the model centres the group, as in every frame this session).
+| Stack | Grader 5 V/T/S |
+|---|---|
+| A "Some months your posts bring clients. Which post did it?" / "Some months your posts bring clients. But do you know which?" | B-, B+, B |
+| B (A's text) / "Some months your posts bring clients, and you never know which." | B-, B+, B+ |
+| C "Some months your posts bring clients. You never know which." / (A's spoken) | B-, A-, B+ |
+Ranks C, B, A. Notes: the hearts read as likes, not clients; the tiny figure carries no meaning; the lower half is
+empty; say the text word for word in the voice. No stack at A on any channel from this grader; the second read was
+not run. Result: FAIL. W9-08 is out of rounds (3 of 3).
