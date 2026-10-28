@@ -5,7 +5,7 @@ import json
 import unittest
 
 from intake import cli
-from intake.testbase import FIXTURE, IntakeCase, sample
+from intake.testbase import FIXTURE, IntakeCase, response, sample
 from studio.testbase import Recorder
 
 
@@ -28,22 +28,38 @@ class IntakePull(IntakeCase):
         self.assertEqual(paths, [])
         self.assertFalse((self.root / "clients").exists())
 
-    def test_reads_the_hub_for_the_clients_business(self):
+    def test_reads_the_hub_by_brand_slug(self):
         hub = Recorder()
-        hub.replies[("GET", "intake")] = sample()
-        self.run_pull(call=hub.call, business="bakery-app")
-        self.assertEqual(hub.calls[0]["path"], "intake?business=bakery-app")
-        self.assertEqual(hub.calls[0]["api"], "studio")
+        hub.replies[("GET", "intakes")] = response()
+        self.run_pull(call=hub.call)
+        self.assertEqual(hub.calls[0]["path"], "intakes?brand=sample-bakery")
+        self.assertEqual(hub.calls[0]["api"], "clients")
+        self.assertFalse(hub.calls[0].get("missing_ok"))
 
-    def test_an_unsubmitted_intake_stops(self):
+    def test_takes_the_newest_intake_and_keeps_files_flat(self):
+        older = {**sample(), "answers": {"A1": "Old"}, "files": []}
         hub = Recorder()
-        hub.replies[("GET", "intake")] = {"answers": {}, "submitted_at": None}
+        hub.replies[("GET", "intakes")] = {"intakes": [sample(), older], "confirmations": []}
+        got, _, _ = self.run_pull(call=hub.call, dry_run=True)
+        self.assertEqual(got["answers"]["A1"], "Sample Bakery")
+        self.assertEqual(got["files"][0]["name"], "logo.png")
+        self.assertNotIn("question", got["files"][0])
+
+    def test_no_submitted_intake_stops(self):
+        hub = Recorder()
+        hub.replies[("GET", "intakes")] = {"intakes": [], "confirmations": []}
         with self.assertRaisesRegex(SystemExit, "NOT_SUBMITTED"):
             self.run_pull(call=hub.call)
 
+    def test_an_http_error_is_an_error_not_not_submitted(self):
+        def boom(*a, **k):
+            raise SystemExit("HUB_HTTP_404: not found")
+        with self.assertRaisesRegex(SystemExit, "HUB_HTTP_404"):
+            self.run_pull(call=boom)
+
     def test_cli_reports_missing_answers_and_exits_1(self):
-        bad = sample()
-        del bad["answers"]["G1"]
+        bad = response()
+        del bad["intakes"][0]["answers"]["G1"]
         p = self.root / "partial.json"
         p.write_text(json.dumps(bad))
         out = io.StringIO()

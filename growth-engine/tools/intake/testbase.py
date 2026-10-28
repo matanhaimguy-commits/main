@@ -12,8 +12,14 @@ if str(TOOLS) not in sys.path:
 FIXTURE = Path(__file__).resolve().parent / "fixtures" / "sample-intake.json"
 
 
-def sample() -> dict:
+def response() -> dict:
+    """The hub's response as saved in the fixture: {"intakes": [...], "confirmations": []}."""
     return json.loads(FIXTURE.read_text(encoding="utf-8"))
+
+
+def sample() -> dict:
+    """The newest intake row: {"answers", "files", "submitted_at", ...}."""
+    return response()["intakes"][0]
 
 
 class IntakeCase(unittest.TestCase):

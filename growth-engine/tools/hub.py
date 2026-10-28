@@ -58,8 +58,8 @@ Client OS (the app's per-brand dashboard; brands in growth-engine/tools/clients/
 
 Onboarding (growth-engine/ONBOARDING.md, stage O1):
 
-  hub.py intake-pull <slug> [--fixture file.json] [--dry-run] [--business B]
-                                                   read the client's submitted intake from the app (/intake/$token) and
+  hub.py intake-pull <slug> [--fixture file.json] [--dry-run]
+                                                   read the brand's newest submitted intake from the app (GET /api/clients/intakes?brand=<slug>) and
                                                    write clients/<slug>/intake/answers.json and files.json; prints O1's
                                                    gate (required answers missing). --fixture reads a saved intake and
                                                    needs no network; --dry-run writes nothing

@@ -16,15 +16,11 @@ def is_unknown(v) -> bool:
     return isinstance(v, str) and v.strip().lower() in UNKNOWN
 
 
-def missing(answers: dict, questions: list[dict], files: list[dict] | None = None) -> list[dict]:
-    """[{id, label, why}] for each required question with no usable answer. `files` are the uploaded files (a files
-    question counts as answered when the client attached one against it)."""
-    attached = {f.get("question") for f in files or []}
+def missing(answers: dict, questions: list[dict]) -> list[dict]:
+    """[{id, label, why}] for each required question with no usable answer."""
     out = []
     for q in questions:
         qid, a = q["id"], answers.get(q["id"])
-        if q["type"] == "files" and qid in attached:
-            continue
         if not q["required"]:
             continue
         if not filled(a):

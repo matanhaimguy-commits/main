@@ -8,12 +8,12 @@ QS = questions.load()
 
 
 class Required(unittest.TestCase):
-    def ids(self, answers, files=None):
-        return [m["id"] for m in required.missing(answers, QS, files)]
+    def ids(self, answers):
+        return [m["id"] for m in required.missing(answers, QS)]
 
     def test_the_sample_is_complete(self):
         s = sample()
-        self.assertEqual(self.ids(s["answers"], s["files"]), [])
+        self.assertEqual(self.ids(s["answers"]), [])
 
     def test_empty_intake_misses_every_required_answer(self):
         got = self.ids({})

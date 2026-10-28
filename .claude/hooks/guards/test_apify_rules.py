@@ -30,6 +30,23 @@ class ApifyRulesTest(unittest.TestCase):
         self.assertIn("maxItems does not cap it", check({"actor": "apify/instagram-scraper", "input": IG, "callOptions": {"maxItems": 400}}, CONFIG)[0])
         self.assertIn("over this scraper's cap", check({"actor": "apify/instagram-scraper", "input": IG, "callOptions": {"maxTotalChargeUsd": 50}}, CONFIG)[0])
 
+    def test_trustpilot_cap_and_emails_off(self):
+        a = "memo23/trustpilot-scraper-ppe"
+        inp = {"startUrls": ["example.com"], "maxItems": 150, "enrichEmails": False}
+        self.assertEqual(check({"actor": a, "input": inp, "callOptions": {"maxTotalChargeUsd": 0.5}}, CONFIG), [])
+        self.assertIn("over this scraper's cap", check({"actor": a, "input": inp, "callOptions": {"maxTotalChargeUsd": 0.51}}, CONFIG)[0])
+        self.assertIn("set callOptions.maxTotalChargeUsd", check({"actor": a, "input": inp, "callOptions": {}}, CONFIG)[0])
+        opts = {"maxTotalChargeUsd": 0.3}
+        for bad in ({"startUrls": ["example.com"]}, {**inp, "enrichEmails": True}):
+            self.assertEqual(check({"actor": a, "input": bad, "callOptions": opts}, CONFIG), ["send enrichEmails: false (personal data stays off)"])
+
+    def test_facebook_ads_cap(self):
+        a = "apify/facebook-ads-scraper"
+        inp = {"startUrls": [{"url": "https://www.facebook.com/ads/library/?q=x"}], "resultsLimit": 25, "onlyTotal": True}
+        self.assertEqual(check({"actor": a, "input": inp, "callOptions": {"maxTotalChargeUsd": 1}}, CONFIG), [])
+        self.assertIn("over this scraper's cap", check({"actor": a, "input": inp, "callOptions": {"maxTotalChargeUsd": 1.5}}, CONFIG)[0])
+        self.assertIn("set callOptions.maxTotalChargeUsd", check({"actor": a, "input": inp, "callOptions": {"maxItems": 25}}, CONFIG)[0])
+
     def test_google_maps_personal_data_stays_off(self):
         base = {"searchStringsArray": ["water filters"], "locationQuery": "Tirana, Albania", "maxCrawledPlacesPerSearch": 20}
         opts = {"maxTotalChargeUsd": 1}

@@ -44,8 +44,9 @@ Notes:
   Foundation v3's questionnaire, same ids and wording. G (offer economics, competitors, review sources, brand files) and
   H (consent for AI people and faces, proof permissions, approver, language and tone) were added for the research and the
   production rules. The app reads this file; ids never change.
-- **Open until the app ships:** the call `intake-pull` makes (`GET /api/studio/intake?business=<slug>`) is a guess at the
-  app's contract. It lives in one file, `tools/intake/fetch.py`.
+- `intake-pull` calls the app's `GET /api/clients/intakes?brand=<brand slug>` with the studio token and takes the newest
+  submitted intake (`intakes[0]`). No submitted intake stops with NOT_SUBMITTED; an HTTP error is an error. Files are a
+  flat list. The call lives in one file, `tools/intake/fetch.py`.
 
 ## O2 Research
 
@@ -53,7 +54,7 @@ Notes:
 |---|---|
 | **Inputs** | `intake/answers.json`. The client's website, Instagram, competitors, review sources (G1 to G3). |
 | **Outputs** | In `clients/<slug>/research/`: the voice of the customer (`voc-master.csv`, with a source on every row), competitors and their ads (`competitors.csv`, `ads.csv`), the outlier set (`outliers.csv` from `organic.py outliers`), page facts (`page-facts.md`), the demand map (`demand-map.csv`, 20 to 40 buyer phrases tagged direct, bridge or off_map) and the Hook Library (`hook-library.md`). These are Client Foundation v3 steps 01 (business snapshot and research map), 02 (VOC harvest) and 03 (competitors and market messages). |
-| **Producer** | `research-scout`, running Foundation steps 01 to 03. Scrapers only through `config/apify-actors.json`: Instagram, Facebook posts, Meta Ad Library (`apify/facebook-ads-scraper`, counts only unless more is needed), Google reviews, Trustpilot (`memo23/trustpilot-scraper-ppe`). Each call carries `maxTotalChargeUsd` and the actor's item cap (`max_items`). YouTube Shorts come from TranscriptAPI and carry views only (see below). |
+| **Producer** | `research-scout`, running Foundation steps 01 to 03. Scrapers only through `config/apify-actors.json`: Instagram, Facebook posts, Meta Ad Library (`apify/facebook-ads-scraper`, counts only unless more is needed), Google reviews, Trustpilot (`memo23/trustpilot-scraper-ppe`). Each call must carry `maxTotalChargeUsd`, which the gate enforces. The actor's `max_items` is the item cap to put in the input; the gate does not check it, so the USD cap is the hard limit. YouTube Shorts come from TranscriptAPI and carry views only (see below). |
 | **Evaluator** | A fresh session. It opens the files and checks evidence and counts: every VOC row has a quote, a source URL and a date; rows are real quotes, not summaries; at least 80 coded VOC rows per problem lane on `standard` budget (50 on `lean`) and at least 3 lanes; at least 8 competitors with their ad counts, or the reason an Ad Library scan was not possible; the outlier file has at least 10 trusted outliers or says why not; the demand map has 20 or more direct or bridge phrases; the Hook Library has at least 20 hooks with a source each. It re-computes three counts by hand and compares. |
 | **Gate** | **Evidence and counts.** The evaluator's report `research/review.md` ends with `PASS`. A FAIL names the missing counts and the producer fills only those. |
 | **Decides** | The main session. |

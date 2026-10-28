@@ -1,24 +1,48 @@
 {
-  "business": "sample-bakery",
-  "submitted_at": "2026-10-28T10:00:00Z",
-  "answers": {
-    "A1": "Sample Bakery",
-    "A2": "Springfield, serving the whole county",
-    "A3": {"website": "https://sample-bakery.example", "instagram": "@sample_bakery"},
-    "A4": "Sourdough loaves (6 USD), cakes to order (40 to 120 USD), a monthly bread subscription (30 USD)",
-    "B2": "I don't know",
-    "B4": 15,
-    "C1": "Families and office managers within 20 minutes of the shop",
-    "D5": "nothing",
-    "F2": ["DM", "phone"],
-    "F3": "English",
-    "G1": "Loaf 6 USD. A subscriber is worth about 360 USD a year. Margin about 60 percent.",
-    "H1": "no, hands, objects and animation only",
-    "H2": ["reviews", "customer photos"],
-    "H3": "Dana, within a day",
-    "H4": "English, plain and warm"
-  },
-  "files": [
-    {"question": "G4", "name": "logo.png", "url": "https://storage.example/sample-bakery/logo.png", "mime": "image/png", "size": 20480}
-  ]
+  "intakes": [
+    {
+      "id": "in_sample1",
+      "brand": "sample-bakery",
+      "answers": {
+        "A1": "Sample Bakery",
+        "A2": "Springfield, serving the whole county",
+        "A3": {
+          "website": "https://sample-bakery.example",
+          "instagram": "@sample_bakery"
+        },
+        "A4": "Sourdough loaves (6 USD), cakes to order (40 to 120 USD), a monthly bread subscription (30 USD)",
+        "B2": "I don't know",
+        "B4": 15,
+        "C1": "Families and office managers within 20 minutes of the shop",
+        "D5": "nothing",
+        "F2": [
+          "DM",
+          "phone"
+        ],
+        "F3": "English",
+        "G1": "Loaf 6 USD. A subscriber is worth about 360 USD a year. Margin about 60 percent.",
+        "H1": "no, hands, objects and animation only",
+        "H2": [
+          "reviews",
+          "customer photos"
+        ],
+        "H3": "Dana, within a day",
+        "H4": "English, plain and warm"
+      },
+      "files": [
+        {
+          "name": "logo.png",
+          "url": "https://storage.example/sample-bakery/logo.png",
+          "type": "image/png",
+          "size": 20480
+        }
+      ],
+      "status": "submitted",
+      "submits": 1,
+      "submitted_at": "2026-10-28T10:00:00Z",
+      "expires_at": "2026-11-28T10:00:00Z",
+      "created_at": "2026-10-27T09:00:00Z"
+    }
+  ],
+  "confirmations": []
 }
