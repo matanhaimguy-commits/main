@@ -17,3 +17,14 @@ has no stake; add the cost (some months three clients, some months none). Result
 | C "Referrals aren't your problem. The timing is." / "Some months you sign three clients. Some months, literally nothing." | n/a, **A, A** | n/a, A-, A- |
 Both rank C first. Grader 4's one note: "the timing" of what? Result: FAIL (one grader at A-). Round 3 (last): "Their
 timing is."
+
+## Round 3, the idea's last (`hooks-v5-W9-02-r3.json`)
+| Stack | Grader 5 V/T/S |
+|---|---|
+| A "Referrals aren't your problem. Their timing is." / "Some months you sign three clients. Some months, literally nothing." | n/a, B+, A- |
+| B "Your referrals are fine. Their timing isn't." / (A's spoken) | n/a, A-, A- |
+| C (A's text) / "You sign three clients one month. The next, literally nothing." | n/a, B+, B+ |
+Grader 5 put no stack at A on both channels, so the round fails whatever a second grader says; the second read was
+not run. Notes: "their timing" is unclear (the referrers' or the referred?); "isn't" ends the line on a missing word.
+Result: FAIL. Idea out of rounds (3 of 3). The bank holds no other TOF reach idea for slot W2-01 (W9-01 went to W3-01;
+W9-04, W9-05, W9-07 are MOF trust and W9-06 is BOF convert), so no further replacement was made.
