@@ -1,0 +1,86 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH17",
+ "spec_sha256": "fd462c4300397826322f69f939bb247895343dfd4b47ffc554adde6d44772259",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"two droop and one stands firm with an ADS piece sewn on\" is covered by PR-CLOTH state, PR-BUBBLES, PR-ROD, POSTS and ADS text, regions pieces, labels, ads_piece, bubbles"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: \"none visible\" and must_not \"no hands, no people\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: \"bubble 1 leaves its left end, bubble 2 its middle, bubble 3 its right end; each drifts right and up toward the open window\" one every 0.5 s; camera pan stated"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-BUBBLES content \"Three blank cream clay speech bubbles with small tails and thumb-pressed edges, no letters\"; PR-CLOTH content gives weave, colour and both labels"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "POSTS and ADS have surface, position, case and occlusion; region labels exists; 1 word each"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"the glass shows the plain clay street behind the glass (no signs, no text)\"; no frame or screen on the wall"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "props[PR-BUBBLES].size_in_frame \"7% of frame width each, in a row on the ADS top edge\" = 21% on an ADS piece \"20% of frame width (x 0.71 to 0.91)\", yet bubble 1 \"leaves its left end\" and bubble 3 \"its right end\"; and PR-ROD \"pieces hang from it by loops 8% long\" with \"one loop each\" runs down to the same top edge at 34% where the bubbles rest at \"28 to 34%\", so the middle bubble sits where the loop is; limp pieces say \"lower half drooping at an angle\" while the label rule says \"not folded or skewed\""
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over \"PR-CLOTH pieces and weave\"; SH16 has the same POSTS pieces (flat on the desk), SH17 hangs them on the rod (the sheet lists \"POSTS on a rod\"); end frame = SH18 window view, whose window and 12% bubbles are stated"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "r8 ambiguity fixed: piece x ranges stated (0.08 to 0.30, 0.39 to 0.61, 0.70 to 0.92) and \"the lower sash already raised, leaving a clear opening\" from frame 1"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-03 prevented by contact points; FL-05 prevented by the window rule; FL-10 prevented by \"no letters or words inside the stitched bubble outlines\" and the lettering must_not"
+  }
+ ],
+ "fixes": [
+  {
+   "check": "P8",
+   "change": "Make the bubbles fit and clear the loop: bubbles 6% of frame width each (18% in a row on the 20% ADS edge), and state the loop: \"each piece hangs by one small thread loop 3% wide at the left end of its top edge, x 0.72 to 0.75 on the firm piece; the three bubbles rest in a row to the right of that loop, below the rod, the rod and loop never touch a bubble\" (or lower the ADS top edge so the bubble row, 28 to 34%, sits under the loop line: keep the rod at 26%, loops 8%, and put the bubbles at 35 to 39% in front of the ADS face, then move region bubbles to match)."
+  },
+  {
+   "check": "P8",
+   "change": "Resolve the label rule on the limp pieces: \"on the two limp pieces the label sits below the fold, fully visible, reading left to right, tilted no more than 15 degrees\" instead of \"not folded or skewed\", since the lower half droops at an angle."
+  }
+ ],
+ "advisories": [
+  "r8 advisory still open: \"the ADS piece's top edge lifts 1 cm\" can read as the sewn piece coming loose (the opposite of the story; SH20 forbids lifts). Say \"the ADS piece stays sewn along its top and sides; only its top edge flexes up about a thumb's thickness\" and add a must_not \"no piece peels or tears\".",
+  "The window is only said to be \"at the right edge\", while the pieces reach x 0.92 and the margin is 6%; give the window frame's x and y in frame 1 (for example the open sash starts at x 0.94, y 0.14 to 0.45) so the bubble path has a target before the pan.",
+  "Style line says \"one motion action in the shot\" while the spec has the edge flex, three bubbles and a pan; the notes call it one follow-pan on one subject, so this is acceptable.",
+  "Firm piece reaches x 0.92 down to y 0.55, into the right-21% lower-half strip; it is the story, so keep it, but the caption must not go on this clip."
+ ]
+}

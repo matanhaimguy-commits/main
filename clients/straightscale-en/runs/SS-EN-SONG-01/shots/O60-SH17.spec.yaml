@@ -32,14 +32,15 @@ props:
   ref: PR-CLOTH@v1 (bubble panel)
   state: three blank cream clay bubbles resting on the top edge of the ADS piece at frame 1, then leaving it
   content: Three blank cream clay speech bubbles with small tails and thumb-pressed edges, no letters
-  size_in_frame: 7% of frame width each, in a row on the ADS top edge at 28 to 34% from the top, below the rod
+  size_in_frame: 6% of frame width each, 18% in a row on the 20% ADS top edge at 28 to 34% from the top, below the rod
   held_by: null
 - id: PR-ROD
   story_critical: false
   ref: null
   state: fixed to the wall
-  content: one thin straight pale-wood rod fixed to the wall on two small brackets, three pieces hanging from it by loops,
-    one loop each
+  content: one thin straight pale-wood rod fixed to the wall on two small brackets; each of the three pieces hangs from it
+    by one small thread loop 3% wide at the left end of its top edge (x 0.72 to 0.75 on the firm piece); the three bubbles
+    rest in a row to the right of that loop, below the rod; the rod and loop never touch a bubble
   size_in_frame: rod across 8 to 92% of the width at 26% from the top; the pieces hang from it by loops 8% long
   held_by: null
 text_in_image:
@@ -49,7 +50,7 @@ text_in_image:
   case: upper
   must_be_exact: true
   occlusion: ADS piece does not cover the firm piece's label; on the two limp pieces the label sits below the fold, fully
-    visible, not folded or skewed
+    visible, reading left to right, tilted no more than 15 degrees
 - string: ADS
   surface: charcoal stitched label on the small sewn-on piece
   position: sewn across the top third of the firm piece, the POSTS label below it

@@ -23,3 +23,18 @@ decides the cap route. Command once it is set:
 `python3 growth-engine/tools/pipeline.py budget straightscale-en SS-EN-SONG-01 --planned 2.78 --balance <live>`.
 
 Revised after G-SPEC (CLIP-C split into C and C2: +5 s of render and +1 start and +1 end keyframe, about +$0.24).
+
+## Update, 28 Oct, EN 03 production session 3 (what is left to spend)
+
+| Item | Count | Unit | Cost |
+|---|---|---|---|
+| H3 keyframe clips (unchanged) | 37 s | $0.024/s | $0.89 |
+| Clip keyframes (7 start, H-01 included, + 6 end) | 13 | $0.059 | $0.77 |
+| Stills with a code push-in | 12 | $0.059 | $0.71 |
+| Sheets still open: CH-FRIEND v2, a possible SET-FRIEND retake | 2 | $0.059 | $0.12 |
+| **Planned** | | | **$2.49** |
+| With the 25% retake buffer | | | **$3.11** |
+
+SET-OFFICE is no longer a sheet (fallback), so its $0.059 is gone. Spent this session: PR-ORGANIZER v3 (edit,
+1024x1024) and SET-FRIEND v1 (1152x2048), about $0.11. Live balance at the end of the session is in PROJECT.md;
+it is below $3.11, so G-BUDGET will not pass until the top-up. Not recorded: steps 6 to 8 are not all closed.

@@ -1,0 +1,77 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH05",
+ "spec_sha256": "95a09a6ac3ebedbb1b39253341ce50051d4f3743173e16f3e1d888358393a882",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"Maya sews loud EMAIL and LINKEDIN patches over the empty April pockets\" is covered by subjects, hands, PR-SCRAPS, PR-ORGANIZER, 4 text entries and 7 regions"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "left \"holding the lower-left corner of the EMAIL scrap flat, palm on the felt below the APRIL label\"; right \"thumb and finger on the needle\"; count_check \"five fingers on each visible hand\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: \"draws the needle and thick thread through the seam between the EMAIL and LINKEDIN scraps below the letters (needle at y 0.46 to 0.52, thread trailing to the lower right)\"; start and end poses stated"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-SCRAPS content lists all four patterns and label colours; PR-ORGANIZER content \"pockets 3 and 4 empty\", MARCH \"twelve in all\""
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "EMAIL, LINKEDIN, APRIL, MARCH each have surface, position, case and occlusion (\"no finger or needle over the letters\"); regions scrap_email, scrap_linkedin, april_label, march_label exist"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"plain wall; nothing else on the felt\"; World line lists only items this shot names (none appear); no frame, screen or sign"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "r8 contradiction fixed: action and hands.right now both place the needle at the seam below the letters; scrap boxes end y 0.48, right_hand box starts y 0.50, no text/hand overlap"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over \"PR-SCRAPS patterns and labels\", \"CH-MAYA cardigan sleeves\"; SH06 starts with COACH/ADS pinned and says COACH and ADS were taken from the desk edge below the frame, matching SH05 notes"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "r8 ambiguity fixed: \"fingertips below the EMAIL scrap's lower edge at x 0.30 to 0.44 (under the EMAIL scrap's right end, below the seam)\" and the region boxes agree"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 prevented: \"clear space between the fingers and the last letter L of EMAIL\", \"no finger or needle over the letters\", \"stay below the scraps' lower edge, clear of every letter\"; FL-03 prevented by contact points"
+  }
+ ],
+ "fixes": [],
+ "advisories": [
+  "r8 fixes all present (action rewritten to the lower seam, x range 0.30 to 0.44, region boxes no longer overlap, scrap row 40 to 52%). r8 advisory still open: the needle and thread are central to the action but are not in props; add PR-NEEDLE (non-critical, held by Maya's right hand, silver needle, thick charcoal thread as on SHEET-CH-MAYA) so FL-08 holds and the thread colour is fixed (the world says the four scraps are the only loud colours).",
+  "Scrap row is 40 to 52% but hands.right says fingertips start at y 0.50, a 2% overlap with the scrap lower edge; start the fingertips at y 0.52.",
+  "April row spans to x 0.94 and down to y 0.60, so empty pocket 4 sits partly in the right 21% of the lower half (caption/UI zone); acceptable for a close-up, keep the caption off this clip.",
+  "\"pinned\" implies pins; no pin is listed. Say \"held with a few small pins\" or \"lying flat\" if pins are not wanted."
+ ]
+}

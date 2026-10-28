@@ -1,0 +1,86 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH20",
+ "spec_sha256": "a3b54b7a5f0a79fcc6f302163ad0b3801d42301398c39f65f2a89dd2e4845f2e",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"She tugs the cloth band hard and it stays attached\" is covered by hands.right, band content with five pieces and four seams, action_physics, regions right_hand and band_seams"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "right \"gripping the band end ... right fingers around the last 3 cm of the fifth piece, beyond the fourth seam; all four seams stay clear of the fingers\"; \"left hand out of frame\"; count_check present"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: \"pulls the band 3 cm toward screen right, away from the organizer; ... four April clients lean 5 degrees toward screen right (the pull direction) once and settle upright\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-ORGANIZER content \"one small client per pocket, a calm sand-cream band of five joined pieces ... four seams, the five pieces carry no letters or words at all\"; MARCH \"twelve in all\""
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "APRIL and MARCH have surface, position, case and occlusion; regions april_label and march_label exist; band carries no text, stated"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"plain wall\"; no frame, screen or sign in the scene"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "camera.framing \"edit punch-in 125% on the April row and her hand\" against props[PR-ORGANIZER].size_in_frame \"April row 56% of frame width, x 0.06 to 0.62\": SH19 (the same CLIP-H render, 45.10 to 47.57 s) has the organizer \"62% of frame width (6 to 68%)\", which a 125% punch-in makes about 77%, not 56%; and april_label x 0.06 to 0.24 with right_hand x 0.66 to 0.79 cannot both sit in a 125% crop of SH19 (label at x 0.06 and hand at 0.70 to 0.82 are 0.76 of the frame apart, x1.25 = 0.95 of the frame, outside the 6% margins)"
+  },
+  {
+   "id": "P9",
+   "result": "FAIL",
+   "evidence": "continuity previous_shot O60-SH19, carry_over \"PR-ORGANIZER payoff state\"; SH19 has MARCH label y 0.17 to 0.24 and April label y 0.34 to 0.41 (0.17 apart), SH20 has 0.16 to 0.24 and 0.42 to 0.50 (0.26 apart), so the organizer is drawn smaller horizontally and taller vertically than a punch-in of SH19 can give; the reviewer comparing the two frames cannot match the regions"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "r8 ambiguity fixed: \"lean 5 degrees toward screen right (the pull direction)\" and \"the taut band leaves the organizer's right edge at x 0.62 and runs right to the hand at x 0.66 to 0.79\""
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 prevented by \"all four seams stay clear of the fingers\" and the band carrying no letters; FL-03 prevented by contact points; FL-04 not triggered (labels have content)"
+  }
+ ],
+ "fixes": [
+  {
+   "check": "P8/P9",
+   "change": "Make SH20 a true crop of SH19. State the crop: \"punch-in 125% of the SH19 frame, centred at x 0.52, y 0.40 of SH19\" and recompute every box with x' = (x - 0.52) * 1.25 + 0.5, y' = (y - 0.40) * 1.25 + 0.5. With the SH19 numbers this puts the organizer at x about -0.03 to 0.70 (left end cropped), so either (a) lower the punch-in to 110% centred at x 0.46 (organizer about 0.03 to 0.75 wide, April label inside, hand 0.8 to 0.92) and rewrite size_in_frame, april_label, march_label, band_seams and right_hand to match, or (b) keep 125% and drop the left end: delete APRIL and MARCH from text_in_image and the two label regions, and state that the label bands are cropped out."
+  },
+  {
+   "check": "P9",
+   "change": "Whichever option is used, carry the SH19 numbers into the SH20 size_in_frame line (organizer 62% wide in SH19, so about 68% at 110% or 77% at 125%) so the row width, band exit point and hand box follow from the previous shot rather than being new values."
+  }
+ ],
+ "advisories": [
+  "subjects[CH-MAYA] has eyeline \"at the band\" and expression \"steady\" but the state is arm and shoulder only, no face; a generator may add her head. Set eyeline and expression to n/a or add \"no face or head in frame\" to must_not.",
+  "Two motions at once (hand pull and the clients' lean) against the style line \"one motion action in the shot\"; the lean is secondary, keep it only if the clip test needs it.",
+  "No region for the four April clients or the MARCH row of clients; add a prop region on the April pockets so the lean can be checked.",
+  "r8 advisory: refs say PR-ORGANIZER@v2; the ledger also holds a v3 file, confirm the locked version."
+ ]
+}

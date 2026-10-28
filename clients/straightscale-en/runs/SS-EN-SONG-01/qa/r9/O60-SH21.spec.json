@@ -1,0 +1,78 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH21",
+ "spec_sha256": "36501581d352d4a318401f407179e45cf27bb9cf602bf29b08bdf41125bfe694",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"The loud patches sit in the bin; the calm organizer hangs behind them\" is covered by PR-BIN, PR-SCRAPS, PR-ORGANIZER, 5 text entries, regions bin, scrap_labels, organizer, email_label, ads_label"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: \"none visible\"; must_not \"no people\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics \"Frozen: four scraps are crammed in the bin; the EMAIL scrap's corner hangs over the left rim\"; static still"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-BIN content \"EMAIL and ADS folded with their labels showing; LINKEDIN and COACH folded with their labels turned inward, no letters visible\"; PR-SCRAPS content gives all four patterns; organizer content gives band, clients and no-letter pieces"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "EMAIL, ADS, CLIENTS, MARCH, APRIL each have surface, position, case and occlusion; regions email_label, ads_label exist; r8 size fix present (\"each folded scrap about 16% of frame width at the rim, its stitched label about 12%\" inside 14% boxes)"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"background is the organizer in soft focus, labels not read\"; no frame, screen or window shown; targeted lettering negative, not blanket"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "label 12% on a 16% scrap fits regions 0.30 to 0.44 and 0.56 to 0.70 (14%); bin 38% at 38 to 55% from the top sits under the organizer at 14 to 40%"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over \"PR-BIN with scraps\", \"organizer payoff state\"; organizer state matches SH19, SH20 and SH22 (MARCH full, APRIL four clients, calm band); bin content line matches SH13 (small round charcoal clay bin, thumb-pressed rim)"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "each label rule is explicit (which scrap, which rim, which labels are turned inward); \"labels not read\" is bounded by \"soft focus allowed, letters still spelled correctly\""
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 prevented by content lines and targeted negatives; FL-05 no empty frames; FL-10 \"no lettering on walls, laptop or papers other than the listed strings\""
+  }
+ ],
+ "fixes": [],
+ "advisories": [
+  "r8 fix present (scrap and label sizes). Open r8 advisories: carry_over \"PR-BIN with scraps\" comes from SH13, not the previous shot SH20 (which has no bin); say \"from SH13\".",
+  "The organizer is 80% wide by 14 to 40% from the top (about 864 x 499 px, 1.7:1), while it is about 1:1 in SH19 and about 0.8:1 in SH22; a generator will squash or crop it. Say \"lower rows may crop at the bin\" or give it a taller share; it is soft focus, so advisory.",
+  "Bin region 0.28 to 0.72 is 44% wide against \"bin 38% of frame width\"; approximate box.",
+  "background_rule \"labels not read\" and text_in_image \"letters still spelled correctly\" pull in two directions; pick one wording, for example \"organizer labels soft but spelled correctly\".",
+  "In SH13 the EMAIL scrap goes into the bin with its label folded inward; here its label shows. The re-crammed arrangement is plausible after a cut, but it changes the bin's state from SH13; note it in the shot."
+ ]
+}

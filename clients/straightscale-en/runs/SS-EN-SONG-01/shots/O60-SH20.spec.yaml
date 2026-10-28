@@ -36,23 +36,29 @@ props:
   state: APRIL row with the calm band, taut
   content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row
     above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three
-    small colourful clay clients standing shoulder to shoulder (twelve in all), visible above the APRIL row at 16 to 32% from
-    the top; the CLIENTS header is above the frame; APRIL pockets: one small client per pocket, a calm sand-cream band of
-    five joined pieces (one large, three small, one small) with four seams, the five pieces carry no letters or words at all;
-    the band is stitched along the top edge of the APRIL row and pulled taut.'
-  size_in_frame: April row 56% of frame width, x 0.06 to 0.62, 34 to 52% from the top; the taut band leaves the organizer's
-    right edge at x 0.62 and runs right to the hand at x 0.66 to 0.79
+    small colourful clay clients standing shoulder to shoulder (twelve in all), visible above the APRIL row; the CLIENTS header
+    across the top; APRIL pockets: one small client per pocket, a calm sand-cream band of five joined pieces (one large, three
+    small, one small) with four seams, the five pieces carry no letters or words at all; the band is stitched along the top
+    edge of the APRIL row and pulled taut.'
+  size_in_frame: 'as in SH19: organizer 62% of frame width (x 0.06 to 0.68), 15 to 48% from the top; the taut band leaves
+    the organizer''s right edge at x 0.68 and runs right to the hand at x 0.70 to 0.82'
   held_by: null
 text_in_image:
-- string: APRIL
-  surface: row label band
-  position: left end of the row
+- string: CLIENTS
+  surface: sewn header band across the top of the organizer
+  position: top of the organizer
   case: upper
   must_be_exact: true
-  occlusion: stays visible
+  occlusion: no hand, scrap or caption over the header
 - string: MARCH
   surface: row label band at the left end of the upper row
-  position: left end of the MARCH row, 16 to 24% from the top
+  position: left end of the upper row
+  case: upper
+  must_be_exact: true
+  occlusion: the pulling hand and band stay clear of the label
+- string: APRIL
+  surface: row label band at the left end of the lower row
+  position: left end of the lower row
   case: upper
   must_be_exact: true
   occlusion: the pulling hand and band stay clear of the label
@@ -70,9 +76,9 @@ setting:
     a thumb-pressed rim; a plain window with a thin pale-wood frame.'
   background_rule: plain wall
 camera:
-  framing: edit punch-in 125% on the April row and her hand
+  framing: 'the same frame as SH19 (no punch-in): organizer upper half, Maya right'
   angle: eye level
-  movement: locked off, picture change is the beat-snapped punch-in cut
+  movement: locked off; the picture change on the beat is the pull itself
   aspect: '9:16'
   safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half,
     6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
@@ -89,34 +95,48 @@ continuity:
   - PR-ORGANIZER payoff state
   - CH-MAYA olive cardigan sleeve
 regions:
+- name: organizer
+  kind: prop
+  box:
+  - 0.06
+  - 0.15
+  - 0.68
+  - 0.48
+- name: march_label
+  kind: text
+  box:
+  - 0.06
+  - 0.17
+  - 0.24
+  - 0.24
+- name: april_label
+  kind: text
+  box:
+  - 0.06
+  - 0.34
+  - 0.24
+  - 0.41
+- name: clients_header
+  kind: text
+  box:
+  - 0.2
+  - 0.14
+  - 0.56
+  - 0.19
 - name: right_hand
   kind: hand
   box:
-  - 0.66
-  - 0.34
-  - 0.79
-  - 0.48
+  - 0.7
+  - 0.38
+  - 0.82
+  - 0.46
 - name: band_seams
   kind: prop
   box:
   - 0.1
   - 0.34
-  - 0.62
-  - 0.4
-- name: april_label
-  kind: text
-  box:
-  - 0.06
-  - 0.42
-  - 0.24
-  - 0.5
-- name: march_label
-  kind: text
-  box:
-  - 0.06
-  - 0.16
-  - 0.24
-  - 0.24
+  - 0.68
+  - 0.38
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: a clay home office in
@@ -132,4 +152,5 @@ must_not:
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
 hero: false
-notes: 'Second half of CLIP-H; mirrors SH07 (''came loose'') with its opposite. Clip: CLIP-H.'
+notes: 'Second half of CLIP-H; mirrors SH07 (''came loose'') with its opposite. Clip: CLIP-H. Framing: SH19''s frame at 100%
+  (the earlier 125% punch-in did not fit SH19''s layout); the beat change is the pull.'

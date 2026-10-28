@@ -54,9 +54,43 @@ Next:
 - Studio: storage uploads are blocked here (lovable.cloud host); the run was pushed with Atlas URLs for the 6 sheets (studio/1). Docs are not on the page.
 - Ledger media ids were corrected from Atlas operation ids to prediction ids (28 Oct); CH-FRIEND@v2's edit_source is now 186285be...
 
+## Production handoff (28 Oct, EN 03 production session 3)
+Look-bible packet for the evaluator: `clients/straightscale-en/runs/SS-EN-SONG-01/qa/look-bible-packet.md` (every
+sheet, its review, the waived minors, what is still open).
+
+Done:
+- Sheets: PR-ORGANIZER v3 (edit pass on v2) failed G-VIS-SHEET on a major (the state A April pockets are still tall
+  cylinders), so v2 is locked with its minors waived. SET-FRIEND: simpler spec (ivory paper wall, the friend's
+  organizer, a small shelf), G-SPEC and G-PROMPT-IMG PASS, generated as v1: G-VIS-SHEET FAIL on 2 layout minors only
+  (organizer and shelf bigger than the spec boxes). SET-OFFICE: simpler spec (desk, bin, window) failed G-SPEC twice,
+  so no set sheet: the spec moved to `qa/retired/`, and every office shot carries a "World" line (plain ivory paper
+  wall and floor, soft warm light, and the look of the desk, chair, laptop, mug, bin and window it names).
+- CH-FRIEND: spec fixed (seated panel straight to camera, warm curious look, taupe chair back, sleeves inside the
+  canvas), G-SPEC PASS. The v2 edit prompt failed three fresh reviews in a row, each on a new point (r5, r6), so it is
+  past the loop limit and not generated. The last corrected prompt is in `qa/r6/CH-FRIEND.v2.prompt.json`.
+- O60 specs: the 8 r2 fixes, the SET-OFFICE fallback, PR-ORGANIZER@v2 refs and the reviewers' round fixes applied to
+  all 23 shot specs (`qa/r7` to `qa/r10`). SH20 now keeps SH19's frame (no 125% punch-in: it did not fit SH19's
+  layout). SH03/SH04 keep the ivory MARCH desk tag (no sheet holds it now).
+- Tool fix: `pipeline.py prompt --media` now splits the role off the end, so a URL or `prediction:ID:INDEX` value
+  works as a reference (test in `test_pipeline.py`). Edit passes use the previous version's Atlas media URL, registered
+  on it with `pipeline.py media --id <url>`.
+- Atlas note: a new output first sits on a `temp-24h-*` host that the proxy blocks; after about a minute
+  `atlas generate get <id>` returns an `atlas-media` URL that downloads.
+
+Next (main session):
+1. Fresh evaluator on the look-bible packet, then G-HUMAN-LOOK (main session). Decide SET-FRIEND (waive or retake)
+   and CH-FRIEND (one more review of the corrected prompt, simplify, or escalate).
+2. Step 8 keyframes and the hook frame H-01 after LOOK (stills: about 25 images, about $1.48).
+3. Step 9: `pipeline.py budget straightscale-en SS-EN-SONG-01 --planned <USD> --balance <live>` once steps 6 to 8
+   are closed (plan in `qa/clip-budget.md`, update of 28 Oct session 3: $2.49, $3.11 with buffer). Clips wait for Matan's Atlas top-up.
+
 ## Decisions (newest first)
 | Date | Decision | Options considered | Why | Who |
 |---|---|---|---|---|
+| 28 Oct | Look report: lock PR-SCRAPS v1; lock CH-MAYA v1 and PR-CLOTH v1 with their minors waived (clip prompts state a clean thumb-and-index needle pinch, nine bubbles, stitched lettering); PR-ORGANIZER one last retake (v3), else lock v2 with minors waived; CH-FRIEND seated panel redo (v2); SET-OFFICE and SET-FRIEND replaced by simpler set specs, at most 2 rounds, else the plain ivory backdrop | more retakes of each sheet; a 4th round on the set prompts | stop the loops, keep the series look | main session, delegated by Matan, plan 28 Oct |
+| 28 Oct | PR-ORGANIZER v3 failed on a major: v2 locked with its 4 minors waived (clip prompts state shallow, slanted April pockets and the band inside the felt edges) | a v4 | the main session's rule: v3 was the last round | main session, delegated by Matan, plan 28 Oct (applied by the producer session) |
+| 28 Oct | SET-OFFICE: the new spec failed G-SPEC twice, so no set sheet; office shots use the plain ivory paper backdrop and a shared World line | a third spec round | the main session's 2-round rule | main session, delegated by Matan, plan 28 Oct (applied by the producer session) |
+| 28 Oct | CH-FRIEND v2 prompt stopped after 3 failed reviews (pipeline loop limit 2); not generated | a 4th review | the loop limit sends it to the Director or the main session | producer session, for the main session to decide |
 | 27 Oct | Song route: Atlas Suno (`suno/chirp-v6`, named in the gate by the owner); singer: warm male baritone narrator, locked for the series. Pipeline run `clients/straightscale-en/runs/SS-EN-SONG-01` (steps 0 to 3 recorded; G-HOOK OVERRIDE by Matan). Masters: O60 take 2 (59.6 s, Whisper match 0.956), O30 take 2 (32.4 s, 0.896); about $0.26 on Atlas | ElevenLabs Music (billing failed); Suno by hand; female alto | owner pick | Matan |
 | 27 Oct | Escalation after 3 rewrite loops: O30 (86) held until the O60 is settled; O60 gets the 4 line fixes and one more gate; CTA "Follow for part two: where to find your buyers' words." (part two = EN 02); the payoff shows a few clients in April, fewer than March (the one result image, approved over song-organic.md 5's process-only rule) | O30 release now; park or release the O60 as is; CTA save; payoff process only | owner pick; readers asked for the April payoff in every sound-off read and for a "how" reel before following | Matan |
 | 27 Oct | GATE 4: spine A "Maya's quilt" (ST3 hidden cause, named-person story) with its O30 short; opening text problem first "Nothing filled April. Referrals filled March. Why?"; look claymation | spine B "The patches sing"; text good month first; crochet, 3D office | owner pick; every hook grader read crochet as a craft video at half a second | Matan |
