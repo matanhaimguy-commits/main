@@ -45,6 +45,15 @@
       "note": "In cloud sessions the connectors are named by ID (mcp__<uuid>__generate_image), so the hooks in .claude/settings.json (matchers mcp__Higgs__, mcp__ElevenLabs__, mcp__Apify__) don't fire. This session ran the checks by hand. Options: (a) widen the matchers to any server's generation tools (recommended, a code change for the main session); (b) keep manual checks.",
       "files": [],
       "asked_at": "2026-10-28T09:09:12+00:00"
+    },
+    {
+      "id": "G-HUMAN-FINAL:ATLAS-IMAGE-MODEL",
+      "checkpoint": "G-HUMAN-FINAL",
+      "asset": "ATLAS-IMAGE-MODEL",
+      "status": "PENDING",
+      "note": "Owner rule 28 Oct: all generation on Atlas. standards.json models.atlas.allowed names only suno/chirp-v6 (songs), so every image (W45 carousels Thu 5 and Sun 8, image Sat 7, then the rest) and every voice stays blocked. Name an Atlas image model with its params (and a voice model for the reels) for the 4:5 slide style; then price per slide in USD before generating. Recommendation: name one image model and run one carousel as the test.",
+      "files": [],
+      "asked_at": "2026-10-28T13:09:16+00:00"
     }
   ]
 }
