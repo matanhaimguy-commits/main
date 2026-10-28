@@ -19,19 +19,21 @@ props:
   story_critical: true
   ref: PR-CLOTH@v1
   state: bubbles woven in, close
-  content: One calm sand-cream linen cloth, a single colour, tight weave, with tone-on-tone speech-bubble shapes stitched in deeper tan thread,
-    plus pieces cut from it with the same weave and charcoal stitched labels OFFER, POSTS and ADS
-  size_in_frame: cloth fills the frame, bubbles 18 to 30% of frame width each
+  content: One calm sand-cream linen cloth, a single colour, tight weave, with tone-on-tone speech-bubble shapes stitched in deeper tan thread
+  size_in_frame: cloth fills the frame; the two phrase bubbles are about 70% of frame width, all other bubbles 18 to 30% and blank (tone-on-tone outline
+    only, no letters)
   held_by: null
 text_in_image:
 - string: FEAST OR FAMINE
-  surface: stitched deeper-tan letters inside a large speech-bubble outline
+  surface: stitched deeper-tan letters inside a large speech-bubble outline, thread at least three tones darker than the cloth, letters about 6% of frame
+    height, readable at 360 px wide
   position: upper bubble, 30% from the top
   case: upper
   must_be_exact: true
   occlusion: no other bubble overlaps it
 - string: SOME MONTHS NOTHING
-  surface: stitched deeper-tan letters inside a speech-bubble outline
+  surface: stitched deeper-tan letters inside a speech-bubble outline, thread at least three tones darker than the cloth, letters about 6% of frame height,
+    readable at 360 px wide
   position: lower bubble, 45% from the top
   case: upper
   must_be_exact: true
@@ -48,8 +50,8 @@ camera:
   angle: high three-quarter
   movement: 'edit: slow 100 to 108% push-in'
   aspect: '9:16'
-  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins;
-    faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins; faces and
+    key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
 timing:
   start_s: 34.63
   end_s: 37.1
@@ -83,10 +85,9 @@ regions:
   - 0.16
   - 0.96
   - 0.64
-style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature
-  handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. World: a clay home office
-  in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world; the method cloth
-  is one calm sand-cream colour.'
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade
+  set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. World: a clay home office in warm ivory and
+  marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
 must_not:
 - no other readable words on the cloth besides the two listed
 - no names
@@ -97,5 +98,5 @@ must_not:
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
 hero: false
-notes: 'Phrases are buyer words used in the script gate (VOC bank, no names). Bubbles appear here for the first time (owner note). No generated
-  clip: a gpt-image-2 still moved by a code push-in.'
+notes: 'Phrases are buyer words used in the script gate (VOC bank, no names). Bubbles appear here for the first time (owner note). No generated clip: a
+  gpt-image-2 still moved by a code push-in.'

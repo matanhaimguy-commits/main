@@ -9,7 +9,7 @@ must_read_in_1s: A calm cream CLIENTS organizer with clients in every month
 subjects:
 - id: SET-FRIEND
   ref: null
-  state: empty corner, no people
+  state: empty corner, no full-size people (the small clay clients are required)
   pose: organizer on the wall, small shelf and plant below
   expression: ''
   instances: 1
@@ -21,7 +21,7 @@ props:
   state: 'MARCH row: two to three clients in each pocket; APRIL row: two clients in each pocket; no patches, no scraps'
   content: 'Felt wall organizer the same size and layout as Maya''s: header band CLIENTS, two rows of four pockets, label
     bands MARCH and APRIL, but made from one single calm sand-cream linen, stitched in one piece.'
-  size_in_frame: about 70% of frame width, 20 to 50% from the top
+  size_in_frame: about 80% of frame width (x 0.1 to 0.9), 20 to 50% from the top
   held_by: null
 text_in_image:
 - string: CLIENTS
@@ -93,7 +93,7 @@ must_not:
 - no speech bubbles unless listed
 - no duplicate copies of a character within one view
 - no loud colours, no scraps
-- no people
+- no full-size people; the small clay clients are required
 hero: true
 notes: Look bible step 7. 1152x2048. The prop ref PR-ORGANIZER@v1 names the layout this organizer must match at G-VIS-SHEET;
   no image is attached (text-to-image), so the prompt describes the layout in full. SH08 composes the seated friend from CH-FRIEND@v1

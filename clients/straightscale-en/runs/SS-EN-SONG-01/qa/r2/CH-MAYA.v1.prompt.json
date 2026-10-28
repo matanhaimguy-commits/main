@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CH-MAYA",
+ "version": 1,
+ "prompt_sha256": "7c7fa4ef63ba3b10c762146d7917706bfa8d59bc334b5dd0488599149760bc76",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "every spec item present: \"Top row ... four views: front, three-quarter, side, back\", three heads, hands panel, needle, headset on focused head"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "\"Reference images: none attached.\" (text-to-image, none in spec)"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"on the image-left side her left hand, open and flat ... five fingers spread; ... right hand pinches a plain silver sewing needle ... five fingers\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"the right thumb and index fingertip touch the needle shaft ... thick charcoal thread hanging down\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "needle content given: \"plain silver sewing needle ... thick charcoal thread\"; no blanket no-text"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"no text anywhere: no labels, names or captions under the views\" matches text_in_image: none"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "\"the plain warm-ivory backdrop only ... no furniture\"; no frames or screens"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "headset only on focused head in both spec and prompt; no conflicts"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "no previous shot; \"this sheet is the locked design for every later shot of Maya\""
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "gpt-image-2 text-to-image, 1:1 1024x1024, medium (notes); sheet is hero"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "image-left/image-right sides stated explicitly"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-03/FL-06 covered by contact points and named expressions; FL-01 no text at all"
+  }
+ ],
+ "corrected_prompt": ""
+}

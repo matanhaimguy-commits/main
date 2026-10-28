@@ -1,0 +1,75 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "SHEET-SET-FRIEND",
+ "spec_sha256": "b328de323191deefb403971beb16c1dd8a00fe7a9d97050acb8a9cebb5178966",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "organizer, clients, shelf, plant, three strings present"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"Hands: no hands and no people in the frame.\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "static; \"Action: none\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "organizer content described in full (single sand-cream linen, header band, two rows of four open pockets, label bands, clients per row)"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "three quoted strings with surface and position; \"Nothing covers any letter\""
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "\"no screens, frames, books or signs\""
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "state \"empty corner, no people\" and must_not \"no people\" contradict the clients in every pocket; size_in_frame \"about 70% of frame width\" vs region box x 0.1 to 0.9 (80%)"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot null, carry_over []; no continuity to check"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode; notes say 1152x2048 / 1024x1024 on gpt-image-2 medium"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "\"people\" can be read as the clay clients/figures too"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04/FL-05 handled; targeted negatives only"
+  }
+ ],
+ "fixes": [
+  "subjects[0].state: 'empty corner, no full-size people (the small clay clients are required)'",
+  "must_not: replace 'no people' with 'no full-size people; the small clay clients in the pockets are required'",
+  "props[0].size_in_frame: 'about 80% of frame width (x 0.1 to 0.9), 20 to 50% from the top' to match the region box"
+ ]
+}

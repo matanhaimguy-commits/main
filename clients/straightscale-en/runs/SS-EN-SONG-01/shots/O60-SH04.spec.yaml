@@ -17,9 +17,9 @@ subjects:
   eyeline: down at the papers
 hands:
 - who: Maya
-  left: left hand flat on the top paper of the pile
+  left: left hand flat on the desk 3 cm from the edge of the sliding sheet, fingers toward the pile, not on any sheet
   right: right hand pressing the headset earcup
-  contact: left palm on the paper, right fingertips on the earcup
+  contact: left palm on the desk, right fingertips on the earcup
   count_check: five fingers on each visible hand
   must_not_cover: the MARCH tag and the pile's top sheet
 props:
@@ -27,17 +27,16 @@ props:
   story_critical: true
   ref: 'SET-OFFICE@v1 panel: desk, MARCH tag'
   state: propped against a taller paper pile
-  content: A felt tag the size of a hand, ivory with charcoal stitched letters MARCH, propped against a very tall pile of loose clay papers on
-    the desk
+  content: A felt tag the size of a hand, ivory with charcoal stitched letters MARCH, propped against a very tall pile of loose clay papers on the desk
   size_in_frame: tag about 16% of frame width
   held_by: null
 - id: PR-ORGANIZER
   story_critical: true
   ref: PR-ORGANIZER@v1
   state: APRIL row empty, soft focus behind her
-  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row above the APRIL row,
-    each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three small colourful clay clients standing shoulder
-    to shoulder (twelve in all); APRIL pockets: all four are empty, dark felt inside, no clients.'
+  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row above the APRIL row, each row
+    label sewn on a thick band at its left end; MARCH pockets: each of the four holds three small colourful clay clients standing shoulder to shoulder (twelve
+    in all); APRIL pockets: all four are empty, dark felt inside, no clients.'
   size_in_frame: organizer soft focus, top 15 to 40%
   held_by: null
 text_in_image:
@@ -59,8 +58,8 @@ camera:
   angle: slightly low, three-quarter
   movement: 'edit: slow 100 to 108% push-in'
   aspect: '9:16'
-  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins;
-    faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins; faces and
+    key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
 timing:
   start_s: 8.43
   end_s: 10.87
@@ -78,9 +77,9 @@ regions:
 - name: left_hand
   kind: hand
   box:
-  - 0.36
+  - 0.46
   - 0.52
-  - 0.52
+  - 0.6
   - 0.6
 - name: right_hand
   kind: hand
@@ -92,9 +91,9 @@ regions:
 - name: march_tag
   kind: text
   box:
-  - 0.68
+  - 0.6
   - 0.45
-  - 0.86
+  - 0.78
   - 0.54
 - name: maya_face
   kind: face
@@ -106,14 +105,13 @@ regions:
 - name: tag_and_pile
   kind: prop
   box:
-  - 0.62
-  - 0.42
-  - 0.9
   - 0.6
-style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature
-  handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. World: a clay home office
-  in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world; the method cloth
-  is one calm sand-cream colour.'
+  - 0.42
+  - 0.78
+  - 0.6
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade
+  set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. World: a clay home office in warm ivory and
+  marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no phone screen with lettering
@@ -123,5 +121,4 @@ must_not:
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
 hero: false
-notes: 'Organizer is background only here; its labels are not read, so no text entry for them. No generated clip: a gpt-image-2 still moved by
-  a code push-in.'
+notes: 'Organizer is background only here; its labels are not read, so no text entry for them. No generated clip: a gpt-image-2 still moved by a code push-in.'

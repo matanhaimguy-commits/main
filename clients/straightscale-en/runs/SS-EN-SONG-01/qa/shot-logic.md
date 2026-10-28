@@ -1,15 +1,15 @@
 # Shot logic (song skill 10 tests), SS-EN-SONG-01 O60
 
-Picture cadence: all 24 shots are 1.78 to 3.09 s (limit 1.5 to 3.5). The first 5 s hold two shots (2.88 s, 3.07 s) of one continuous pull-back, so the picture changes continuously inside them (STANDARDS 5 asks for a change every 1 to 1.5 s in the first 5 s, the song row asks 1.5 to 3.5 s; kept on purpose, see qa notes in the summary). Every cut snaps to a beat in `audio/timeline.json`.
+Picture cadence: all 24 shots are 1.78 to 3.09 s (limit 1.5 to 3.5). The first 6 s hold two shots (2.88 s, 3.07 s) of one continuous pull-back (CLIP-A, one camera move, no head turn), so the picture changes continuously inside them (STANDARDS 5 asks for a change every 1 to 1.5 s in the first 5 s, the song row asks 1.5 to 3.5 s; kept on purpose, see qa notes in the summary). Every cut snaps to a beat in `audio/timeline.json`.
 
 | Shot | Time (s) | Line | Who does what | What visibly changes | What a stranger reads in 1 s | Result |
 |---|---|---|---|---|---|---|
-| O60-SH01 | 0.00-2.88 | L01 | Camera pulls back from the APRIL row (nothing else moves) | Tight empty April row widens, March row starts to enter at the top | Every April pocket is empty (the text hook asks why) | PASS |
-| O60-SH02 | 2.88-5.95 | L01-L02 | Camera finishes the reveal; Maya's head turns up at the wall | Full MARCH row and Maya at her desk appear | March full, April empty, a woman at a desk | PASS |
+| O60-SH01 | 0.00-2.88 | L01 | Camera pulls back and lowers (the one move of CLIP-A); nothing else moves | Organizer slides up and shrinks: MARCH row (20-38%) above the empty APRIL row (40-62%) widens to the wide frame | MARCH row full of clients, every April pocket empty (the text hook asks why) | PASS |
+| O60-SH02 | 2.88-5.95 | L01-L02 | Camera finishes the same pull-back and rests; Maya sits still, head already raised (no head turn) | Maya at her desk appears under the organizer | March full, April empty, a woman at a desk | PASS |
 | O60-SH03 | 5.95-8.43 | L03 | Maya looks up at the empty April row; MARCH tag on a paper pile | Posture: slumped, looking up; tag and pile | She is busy with March work and April is empty | PASS |
 | O60-SH04 | 8.43-10.87 | L04 | Maya on a headset call, new sheet landing on the pile | Taller pile, headset on | She is too busy on calls to look for new clients | PASS |
-| O60-SH05 | 10.87-13.39 | L05 | Maya's needle sews EMAIL then LINKEDIN scraps over April pockets 1 and 2 | April pockets covered by loud patches | She is patching the empty pockets with labelled fixes | PASS |
-| O60-SH06 | 13.39-15.25 | L05-L06 | Maya pulls the last stitch on COACH and ADS (punch-in cut) | All four pockets covered | Four labelled patches now cover April | PASS |
+| O60-SH05 | 10.87-13.39 | L05 | Maya's needle sews the EMAIL scrap, then runs on to the LINKEDIN scrap (own clip CLIP-C) | Pockets 1 and 2 covered by loud patches | She is patching the empty pockets with labelled fixes | PASS |
+| O60-SH06 | 13.39-15.25 | L05-L06 | Maya pulls the last stitch on the ADS scrap, COACH already pinned beside it (own clip CLIP-C2, close framing rendered) | Pockets 3 and 4 covered by COACH and ADS | More labelled patches cover April | PASS |
 | O60-SH07 | 15.25-17.11 | L06 | Patches fall off; ADS hangs by one thread | Patches on the floor, April empty again | The fixes came loose | PASS |
 | O60-SH08 | 17.11-19.56 | L07 | A friend leans toward her call camera | Friend with a calm organizer full of clients in every month | A friend whose organizer is full and calm | PASS |
 | O60-SH09 | 19.56-21.34 | L07 | Maya, from behind, tilts her head at the screen | Maya and the fallen patches beside the laptop | Maya wonders about her patches after the friend's question | PASS |
@@ -20,8 +20,8 @@ Picture cadence: all 24 shots are 1.78 to 3.09 s (limit 1.5 to 3.5). The first 5
 | O60-SH14 | 31.87-34.63 | L10-L11 | The cloth bolt rolls out across the desk | Rolled bolt becomes a flat calm cloth | One calm plain cloth | PASS |
 | O60-SH15 | 34.63-37.10 | L12 | Frozen: bubbles stitched on the cloth | Bubble weave and two phrases appear on the cloth | The cloth is made of people's words | PASS |
 | O60-SH16 | 37.10-39.56 | L13 | Scissors rest by the cut: OFFER piece, three POSTS pieces | Pieces cut from the cloth, one from the next | The OFFER is cut from the cloth, the POSTS from the OFFER | PASS |
-| O60-SH17 | 39.56-42.04 | L14 | ADS piece on the firm POSTS piece puffs bubbles out | Two limp pieces, one firm with ADS | Ads sit only on the one post that stayed firm | PASS |
-| O60-SH18 | 42.04-45.10 | L15-L16 | Bubbles drift out of the window (pan right) | Window, tiny figures looking up, Maya on a call | Buyers keep arriving while she is busy | PASS |
+| O60-SH17 | 39.56-42.04 | L14 | ADS piece on the firm POSTS piece lifts 1 cm and three bubbles slide off its top edge; the camera follows them right (CLIP-G follow-pan) | Two limp pieces, one firm with ADS, bubbles leaving it | Ads sit only on the one post that stayed firm | PASS |
+| O60-SH18 | 42.04-45.10 | L15-L16 | The follow-pan comes to rest on the window; the same three bubbles drift up through the open pane | Window, tiny figures looking up, Maya on a call | Buyers keep arriving while she is busy | PASS |
 | O60-SH19 | 45.10-47.57 | L16 | Maya's fingers close on the band end | Wide organizer: March full, April four clients, calm band | April is less full than March but has clients | PASS |
 | O60-SH20 | 47.57-50.01 | L16-L17 | Maya tugs the band; stitches hold (punch-in cut) | Band goes taut, nothing lifts | Nothing came loose | PASS |
 | O60-SH21 | 50.01-52.51 | L17 | Frozen: scraps crammed in the bin | Loud scraps in the bin, calm organizer behind | The patchwork is gone | PASS |
@@ -42,10 +42,16 @@ Picture cadence: all 24 shots are 1.78 to 3.09 s (limit 1.5 to 3.5). The first 5
 | 7 | One panel = one moment = one state per character | PASS. SH22 has two characters, one instance each. Maya's state is stated per shot (back view, headset, hands only, standing). |
 | 8 | The prop that carries the line is exact and matches its sheet | PASS. Organizer (MARCH 12 clients, APRIL empty, then four clients + band), four scraps with exact labels, cloth with two exact phrases, OFFER/POSTS/ADS labels: all listed with content and sheet refs. |
 | 9 | The thing that carries the line is the subject | PASS. Each line's subject is its prop: organizer (L01-L04, L16), scraps (L05-L10), cloth and pieces (L11-L14), bubbles/window (L15), bin (L10, L17). |
-| 10 | A blocked or simplified shot still carries its line | PASS. Fallback for each clip: use its start and end frames as two stills with code push-ins (same lines, same words). CLIP-A -> SH01 start + SH02 end stills; C -> SH05/SH06 end frame; D -> SH10/SH11; E -> SH14 start + SH15; G -> SH17/SH18; H -> SH19/SH20. |
+| 10 | A blocked or simplified shot still carries its line | PASS. Fallback for each clip: use its start and end frames as two stills with code push-ins (same lines, same words). CLIP-A -> SH01 start + SH02 end stills; C -> SH05 start + end, C2 -> SH06 start + end; D -> SH10/SH11; E -> SH14 start + SH15; G -> SH17/SH18; H -> SH19/SH20. |
 
 ## Risks the reviewer should look at (judgement, not failures)
-- Hands are in SH04, SH05, SH06, SH10, SH11, SH13, SH19, SH20: each has a hands entry with a five-finger count check and hand regions.
+- Hands are in SH04, SH05, SH06, SH10, SH11, SH13, SH19, SH20: each has a hands entry with a five-finger count check and hand regions. Seated or standing figures with no hand entry have their hands placed in the pose line (below the desk edge, in her lap, folded arms, behind the laptop).
 - Text on props is rendered by the still model and kept by the video model from the start frame: EMAIL, LINKEDIN, COACH, ADS, CLIENTS, MARCH, APRIL, OFFER, POSTS, FEAST OR FAMINE, SOME MONTHS NOTHING. Crops of every text region are checked at the frame check.
-- Two beats per clip (A, C, D, G, H) is an exception to STANDARDS 2's 'silent keyframe clips are one shot each': one continuous render, one camera move or one action, cut into two beats by the move itself or a code punch-in. The owner asked for it to hold the budget; the G-SPEC reviewer should confirm.
+- Two beats per clip (A, D, G, H) is an exception to STANDARDS 2's 'silent keyframe clips are one shot each': one continuous render, one camera move or one action, cut into two beats by the move itself or a code punch-in. Beat-pair verdicts applied: A is one pull-back (SH02 has no head turn); C is split into CLIP-C (SH05) and CLIP-C2 (SH06, own start frame, close framing rendered, no punch-in); D and H stay as one shot each; G is one follow-pan on the three bubbles (SH17 lift contact points, SH18 rest on the window).
 - Speech bubbles appear first in SH15 (after the 'cloth is the words' line), as the owner required; SH17 to SH18 and SH23 reuse them. Every spec before SH15 forbids them in its must_not.
+
+## Revision after G-SPEC (28 Oct)
+- Start frames of the H3-KEY clips are hero: SH01, SH05, SH06, SH10, SH14, SH17, SH19.
+- SH01 geometry: MARCH visible at 20-38%, APRIL 40-62%; the hook text sits over the MARCH row and never over the APRIL row. H-01 must show MARCH above APRIL, not a plain wall above the APRIL row; re-check or re-make H-01 before it is used as the start frame.
+- Waiting scraps: no shelf. In SH05 COACH and ADS lie on the desk edge below the frame; in SH06 they are already pinned in the start frame.
+- Look-bible refs now point at the sheet close panels: laptop front (SH08, SH09), bin (SH13, SH21), window view (SH18), organizer label and pocket close-ups (SH01, SH02, SH19, SH20).

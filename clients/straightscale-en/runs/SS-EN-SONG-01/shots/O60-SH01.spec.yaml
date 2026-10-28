@@ -4,13 +4,14 @@ format: song
 script_lines:
 - O60-L01
 line_text: Lumpy months? It was never where your clients
-story_purpose: 'Hook frame 1: the empty APRIL pockets shown before anything is explained; the text hook asks why. This is the approved hook concept
-  frame (H-01) as the clip''s start frame.'
-must_read_in_1s: A wall organizer where every APRIL pocket is empty.
+story_purpose: 'Hook frame 1: the empty APRIL pockets shown before anything is explained; the text hook asks why. This is the approved hook concept frame
+  (H-01) as the clip''s start frame.'
+must_read_in_1s: MARCH row full of clients, every APRIL pocket empty.
 subjects:
 - id: PR-ORGANIZER
-  ref: PR-ORGANIZER@v1
-  state: APRIL row only in frame, all four pockets empty; the MARCH row is above the frame edge
+  ref: PR-ORGANIZER@v1 (label and pocket close-ups)
+  state: MARCH row visible at 20 to 38% from the top, four pockets of three small colourful clients each (twelve), the label MARCH on its band; APRIL row
+    40 to 62%, all four pockets empty
   pose: hangs flat on the wall, filling the middle of the frame
   expression: n/a
   instances: 1
@@ -18,12 +19,12 @@ hands: none visible
 props:
 - id: PR-ORGANIZER
   story_critical: true
-  ref: PR-ORGANIZER@v1
-  state: APRIL row empty, close
-  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row above the APRIL row,
-    each row label sewn on a thick band at its left end; MARCH pockets: (above the frame, not visible yet); APRIL pockets: all four are empty,
-    dark felt inside, no clients.'
-  size_in_frame: APRIL row spans 84% of frame width, 40 to 62% from the top
+  ref: PR-ORGANIZER@v1 (label and pocket close-ups)
+  state: MARCH full at 20 to 38%, APRIL empty at 40 to 62%, close
+  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row above the APRIL row, each row
+    label sewn on a thick band at its left end; MARCH pockets: each of the four holds three small colourful clay clients standing shoulder to shoulder (twelve
+    in all); APRIL pockets: all four are empty, dark felt inside, no clients.'
+  size_in_frame: organizer about 88% of frame width; MARCH row 20 to 38% from the top, APRIL row spans 84% of frame width, 40 to 62% from the top
   held_by: null
 text_in_image:
 - string: APRIL
@@ -31,40 +32,48 @@ text_in_image:
   position: left end of the row, about 44% from the top
   case: upper
   must_be_exact: true
-  occlusion: the hook text sits above it in the top third and never touches it
+  occlusion: the hook text sits over the top third and never touches the APRIL row or the APRIL band
+- string: MARCH
+  surface: row label band at the left end of the MARCH row
+  position: left end of the upper row, about 24% from the top
+  case: upper
+  must_be_exact: true
+  occlusion: the hook text never covers the MARCH band or the APRIL band
 - string: Nothing filled April.
   surface: edit overlay (added in the edit, never rendered by the video model)
-  position: top third, line 1
+  position: top third (over the MARCH row), line 1
   case: as_written
   must_be_exact: true
-  occlusion: stays above the organizer, clear of the APRIL band
+  occlusion: may cover MARCH clients in the top third, never the APRIL row or the APRIL band
 - string: Referrals filled March.
   surface: edit overlay (added in the edit)
-  position: top third, line 2
+  position: top third (over the MARCH row), line 2
   case: as_written
   must_be_exact: true
-  occlusion: stays above the organizer, clear of the APRIL band
+  occlusion: may cover MARCH clients in the top third, never the APRIL row or the APRIL band
 - string: Why?
   surface: edit overlay (added in the edit)
-  position: top third, line 3
+  position: top third (over the MARCH row), line 3
   case: as_written
   must_be_exact: true
-  occlusion: stays above the organizer, clear of the APRIL band
+  occlusion: may cover MARCH clients in the top third, never the APRIL row or the APRIL band
 action_physics:
-- The camera pulls back about 30 cm and rises slightly over the clip; nothing inside the frame moves except the parallax of the felt.
+- The camera pulls back about 30 cm and lowers about 10 cm over the 6 s render, so the organizer slides up the frame to its SH02 place; nothing inside the
+  frame moves except the parallax of the felt.
 static: false
 setting:
   ref: SET-OFFICE@v1
-  details: 'Maya''s clay home office wall: plain marble-coloured wall, the organizer centred; the top 35% of frame 1 is plain wall (the hook text
-    zone).'
+  details: 'Maya''s clay home office wall: plain marble-coloured wall around the organizer; the organizer fills the middle of the frame with the MARCH row
+    above the APRIL row, the wall only at the frame edges.'
   background_rule: wall is plain marble plaster, no frames, no posters, no writing
 camera:
-  framing: tight on the APRIL row, organizer straight-on, top third plain wall
+  framing: 'tight on the organizer: MARCH row at 20 to 38% from the top, APRIL row at 40 to 62%, straight-on, hook text over the top third'
   angle: eye level, straight-on
-  movement: slow dolly-out with a slight rise (about 5 s, 12 fps stepped), ending wide on SH02
+  movement: slow dolly-out with the camera lowering about 10 cm over the whole 6 s render (the organizer slides up the frame from the APRIL row at 40 to
+    62% to its SH02 place), ending wide on SH02; no rise (12 fps stepped)
   aspect: '9:16'
-  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins;
-    faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins; faces and
+    key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
 timing:
   start_s: 0.0
   end_s: 2.88
@@ -100,10 +109,24 @@ regions:
   - 0.15
   - 0.94
   - 0.33
-style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature
-  handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. 12 fps stepped stop-motion
-  cadence, no motion blur; one motion action in the shot. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four
-  fix scraps are the only loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
+- name: march_row
+  kind: prop
+  box:
+  - 0.08
+  - 0.2
+  - 0.92
+  - 0.38
+- name: march_label
+  kind: text
+  box:
+  - 0.08
+  - 0.22
+  - 0.34
+  - 0.3
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade
+  set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. 12 fps stepped stop-motion cadence, no motion
+  blur; one motion action in the shot. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud
+  saturated colours in the world; the method cloth is one calm sand-cream colour.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no clients in the APRIL pockets
@@ -114,6 +137,8 @@ must_not:
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
 hero: true
-notes: 'Owner picture note says ''tilts up''; this plan uses a pull-back with a slight rise so that the end frame holds March, April and Maya
-  together. Text hook ''Nothing filled April. Referrals filled March. Why?'' held its full 2.5 s over frame 1 (owner decision), then captions.
-  Start frame = H-01 hook concept frame (re-graded after G-HUMAN-SONG); end frame = SH02 start composition. Clip: CLIP-A.'
+notes: 'Owner picture note says ''tilts up''; this plan uses one pull-back that lowers the camera and ends on SH02''s framing, so the end frame holds March,
+  April and Maya together. Text hook ''Nothing filled April. Referrals filled March. Why?'' held its full 2.5 s over frame 1 (owner decision), then captions;
+  it may cover MARCH clients but never the APRIL row. Start frame = H-01 hook concept frame (re-graded after G-HUMAN-SONG); H-01 must show MARCH above APRIL
+  (no plain wall above the APRIL row), re-check or re-make H-01 before it is used as the start frame. End frame = SH02 start composition. Clip: CLIP-A,
+  6 s render (picture 5.95 s).'

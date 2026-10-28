@@ -10,7 +10,7 @@ subjects:
 - id: CH-MAYA
   ref: CH-MAYA@v1
   state: standing left, olive cardigan
-  pose: relaxed, hands tucked in cardigan pockets
+  pose: relaxed, arms folded in front of her, hands hidden under her folded arms
   expression: relieved smile
   instances: 1
   eyeline: at the friend
@@ -27,19 +27,27 @@ props:
   story_critical: true
   ref: PR-ORGANIZER@v1
   state: 'Maya''s organizer left: MARCH full, APRIL four clients, calm band'
-  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row above the APRIL row,
-    each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three small colourful clay clients standing shoulder
-    to shoulder (twelve in all); APRIL pockets: one client per pocket and a calm cloth band along the top edge.'
+  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row above the APRIL row, each row
+    label sewn on a thick band at its left end; MARCH pockets: each of the four holds three small colourful clay clients standing shoulder to shoulder (twelve
+    in all); APRIL pockets: one client per pocket and a calm sand-cream band of five joined pieces (one large, three small, one small) with four seams,
+    the pieces carry no lettering at this size, along the top edge.'
   size_in_frame: left organizer 40% of frame width, 16 to 44% from the top
   held_by: null
 - id: PR-ORGANIZER-FRIEND
   story_critical: true
   ref: SET-FRIEND@v1
   state: 'friend''s organizer right: one calm cream fabric, clients in both rows'
-  content: Felt wall organizer headed CLIENTS in one calm cream fabric, two rows of four pockets, clients in every pocket of both rows
+  content: Felt wall organizer headed CLIENTS in one calm cream fabric, two rows of four pockets, row labels MARCH and APRIL at the left ends, clients in
+    every pocket of both rows
   size_in_frame: right organizer 40% of frame width, 16 to 44% from the top
   held_by: null
 text_in_image:
+- string: CLIENTS
+  surface: header band on each organizer
+  position: top centre of each organizer
+  case: upper
+  must_be_exact: true
+  occlusion: not covered
 - string: MARCH
   surface: row label on Maya's organizer
   position: left end of the upper row, left organizer
@@ -52,8 +60,21 @@ text_in_image:
   case: upper
   must_be_exact: true
   occlusion: not covered
+- string: MARCH
+  surface: row label on the friend's organizer
+  position: left end of the upper row, right organizer
+  case: upper
+  must_be_exact: true
+  occlusion: not covered
+- string: APRIL
+  surface: row label on the friend's organizer
+  position: left end of the lower row, right organizer
+  case: upper
+  must_be_exact: true
+  occlusion: not covered
 action_physics:
-- 'Frozen: the two women stand shoulder to shoulder, Maya''s head turned 15 degrees toward her friend.'
+- 'Frozen: the two women stand side by side, about 15% of frame width apart, each below her own organizer, both feet flat on the clay floor, Maya''s head
+  turned 15 degrees toward her friend.'
 static: true
 setting:
   ref: SET-OFFICE@v1
@@ -64,8 +85,8 @@ camera:
   angle: eye level
   movement: 'edit: slow 100 to 108% push-in'
   aspect: '9:16'
-  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins;
-    faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins; faces and
+    key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
 timing:
   start_s: 52.51
   end_s: 54.99
@@ -83,16 +104,16 @@ regions:
 - name: maya_face
   kind: face
   box:
-  - 0.18
+  - 0.26
   - 0.46
-  - 0.34
+  - 0.42
   - 0.56
 - name: friend_face
   kind: face
   box:
-  - 0.62
+  - 0.54
   - 0.46
-  - 0.78
+  - 0.7
   - 0.56
 - name: organizers
   kind: prop
@@ -108,10 +129,16 @@ regions:
   - 0.17
   - 0.3
   - 0.38
-style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature
-  handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. World: a clay home office
-  in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world; the method cloth
-  is one calm sand-cream colour.'
+- name: labels_friend
+  kind: text
+  box:
+  - 0.54
+  - 0.17
+  - 0.78
+  - 0.38
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade
+  set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. World: a clay home office in warm ivory and
+  marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no scraps anywhere
@@ -122,5 +149,5 @@ must_not:
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
 hero: false
-notes: 'Both characters share one frame; one instance each. Makes the friend''s earlier screen appearance pay off. No generated clip: a gpt-image-2
-  still moved by a code push-in.'
+notes: 'Both characters share one frame; one instance each. Makes the friend''s earlier screen appearance pay off. No generated clip: a gpt-image-2 still
+  moved by a code push-in.'

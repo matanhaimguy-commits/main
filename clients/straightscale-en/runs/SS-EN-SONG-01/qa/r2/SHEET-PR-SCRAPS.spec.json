@@ -1,0 +1,71 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "SHEET-PR-SCRAPS",
+ "spec_sha256": "d14c675a4c08d2b87b582e19579ce58f4e9f30d9b0ac07a9cdcd526847dca709",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "four scraps, patterns, thread ends, four labels with thread colours, 2x2 order all present"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"Hands: no hands in the frame.\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "static flat lay; \"not overlapping, a soft shadow under each\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "each scrap has pattern and colours; labels \"EMAIL\", \"LINKEDIN\", \"COACH\", \"ADS\" with thread colours"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "quoted strings, \"in the centre of each scrap\", \"Nothing covers any letter\"; all 8 letters or fewer"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "\"the plain warm-ivory backdrop only\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "no contradictions with spec (pattern, order, letter colours match)"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot null, carry_over []; no continuity to check"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode; notes say 1152x2048 / 1024x1024 on gpt-image-2 medium"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "\"ADS ... hot-pink dots on a blue ground\" matches spec"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 content line given; FL-13 no platform logos or icons"
+  }
+ ],
+ "fixes": []
+}

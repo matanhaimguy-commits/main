@@ -1,0 +1,71 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "SHEET-CH-FRIEND",
+ "spec_sha256": "3baa7a9928e161fbc87c6065ca8bfb366cf60f39c5e781d1f5d8527e894b0d24",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "three views, build, hair puff, glasses, jacket with two patch pockets, no cardigan, expressions all present"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"both hands are inside her jacket pockets, so no fingers show; the seated view is a bust cut at mid-chest\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "static sheet; \"Action: none\"; hands in pockets is a contact state"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "no story props; glasses and jacket described"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"no text anywhere: no labels or names\""
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "\"no laptop, no screen border, no furniture\" covers the video-call trap"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "\"no olive cardigan, no bob\" consistent with the described look"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot null, carry_over []; no continuity to check"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode; notes say 1152x2048 / 1024x1024 on gpt-image-2 medium"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "\"rounder build\", \"seated bust drawn larger\" are clear enough for a sheet"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-06 named parts for the bust (mid-chest cut); FL-11 \"the same woman three times\", one per view"
+  }
+ ],
+ "fixes": []
+}

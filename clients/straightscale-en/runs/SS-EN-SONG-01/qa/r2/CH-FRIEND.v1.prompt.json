@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CH-FRIEND",
+ "version": 1,
+ "prompt_sha256": "f4e019329a3cbb5e327e5698b83a6a34a7004ca56c8bb2d3d0847b7fc3b7dc83",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "three views, build, hair puff, glasses, jacket with two patch pockets, no cardigan, expressions all present"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "\"Reference images: none attached.\""
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"both hands are inside her jacket pockets, so no fingers show; the seated view is a bust cut at mid-chest\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "static sheet; \"Action: none\"; hands in pockets is a contact state"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "no story props; glasses and jacket described"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"no text anywhere: no labels or names\""
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "\"no laptop, no screen border, no furniture\" covers the video-call trap"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "\"no olive cardigan, no bob\" consistent with the described look"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "no previous shot; clearly-different-from-Maya rule stated"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "gpt-image-2 text-to-image 1:1 1024x1024 medium"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "\"rounder build\", \"seated bust drawn larger\" are clear enough for a sheet"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-06 named parts for the bust (mid-chest cut); FL-11 \"the same woman three times\", one per view"
+  }
+ ],
+ "corrected_prompt": ""
+}

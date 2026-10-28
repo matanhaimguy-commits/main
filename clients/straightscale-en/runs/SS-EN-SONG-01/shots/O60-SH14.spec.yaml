@@ -20,8 +20,7 @@ props:
   story_critical: true
   ref: PR-CLOTH@v1
   state: plain cloth only, unrolling
-  content: One calm sand-cream linen cloth, a single colour, tight weave, (shown plain in this shot, no print yet), plus pieces cut from it with
-    the same weave and charcoal stitched labels OFFER, POSTS and ADS
+  content: One calm sand-cream linen cloth, a single colour, tight weave, shown plain in this shot, no print
   size_in_frame: cloth spans 85% of frame width, 40 to 62% from the top
   held_by: null
 text_in_image: none
@@ -37,8 +36,8 @@ camera:
   angle: high three-quarter
   movement: locked off
   aspect: '9:16'
-  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins;
-    faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins; faces and
+    key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
 timing:
   start_s: 31.87
   end_s: 34.63
@@ -58,10 +57,10 @@ regions:
   - 0.38
   - 0.92
   - 0.64
-style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature
-  handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. 12 fps stepped stop-motion
-  cadence, no motion blur; one motion action in the shot. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four
-  fix scraps are the only loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade
+  set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. 12 fps stepped stop-motion cadence, no motion
+  blur; one motion action in the shot. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud
+  saturated colours in the world; the method cloth is one calm sand-cream colour.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no print, pattern or stripes on the cloth
@@ -71,5 +70,5 @@ must_not:
 - no sung mouth movement and no singer on screen
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
-hero: false
+hero: true
 notes: 'CLIP-E: 5 s render, only about 2.8 s used (trim); a slow unroll. Plain cloth because the bubbles belong to the next line. Clip: CLIP-E.'

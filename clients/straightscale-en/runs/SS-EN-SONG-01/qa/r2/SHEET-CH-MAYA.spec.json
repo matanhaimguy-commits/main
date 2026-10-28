@@ -1,0 +1,71 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "SHEET-CH-MAYA",
+ "spec_sha256": "3c51cb6d079a8ed8490ba44200c32ac8a651f70afeb4e03a26aca4c8a5792bbc",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "every spec item present: \"Top row ... four views: front, three-quarter, side, back\", three heads, hands panel, needle, headset on focused head"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"on the image-left side her left hand, open and flat ... five fingers spread; ... right hand pinches a plain silver sewing needle ... five fingers\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"the right thumb and index fingertip touch the needle shaft ... thick charcoal thread hanging down\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "needle content given: \"plain silver sewing needle ... thick charcoal thread\"; no blanket no-text"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"no text anywhere: no labels, names or captions under the views\" matches text_in_image: none"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "\"the plain warm-ivory backdrop only ... no furniture\"; no frames or screens"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "headset only on focused head in both spec and prompt; no conflicts"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot null, carry_over []; no continuity to check"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode; notes say 1152x2048 / 1024x1024 on gpt-image-2 medium"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "image-left/image-right sides stated explicitly"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-03/FL-06 covered by contact points and named expressions; FL-01 no text at all"
+  }
+ ],
+ "fixes": []
+}

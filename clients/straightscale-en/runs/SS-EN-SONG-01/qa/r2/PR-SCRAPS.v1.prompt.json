@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "PR-SCRAPS",
+ "version": 1,
+ "prompt_sha256": "11b82e211de488e97d3091b1942b0e6e8f9af5c55a6bc5ca64ae5dfb73ddc452",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "four scraps, patterns, thread ends, four labels with thread colours, 2x2 order all present"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "\"Reference images: none attached.\""
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"Hands: no hands in the frame.\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "static flat lay; \"not overlapping, a soft shadow under each\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "each scrap has pattern and colours; labels \"EMAIL\", \"LINKEDIN\", \"COACH\", \"ADS\" with thread colours"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "quoted strings, \"in the centre of each scrap\", \"Nothing covers any letter\"; all 8 letters or fewer"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "\"the plain warm-ivory backdrop only\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "no contradictions with spec (pattern, order, letter colours match)"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "no previous shot; \"each pattern stays with its label in every shot\""
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "gpt-image-2 text-to-image 1:1 1024x1024 medium"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "\"ADS ... hot-pink dots on a blue ground\" matches spec"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 content line given; FL-13 no platform logos or icons"
+  }
+ ],
+ "corrected_prompt": ""
+}

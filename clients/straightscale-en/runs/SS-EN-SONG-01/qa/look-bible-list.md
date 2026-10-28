@@ -14,4 +14,4 @@ Style for every sheet: the claymation block word for word (organic.json `animati
 
 Added beyond the six ids you listed: **SET-FRIEND** (one sheet). The small props PR-LAPTOP, PR-BIN, PR-MARCHTAG, PR-BUYERS, PR-SCISSORS and PR-BUBBLES are panels inside SET-OFFICE and PR-CLOTH, not extra sheets. The hook concept frame H-01 (SH01 start frame) is also needed and is the approved frame 1.
 
-Keyframes the clips need after the sheets (step 8): CLIP-A start (H-01) and end (SH02 composition); CLIP-C start and end; CLIP-D start (SH10) and end (SH11); CLIP-E start; CLIP-G start (SH17) and end (SH18); CLIP-H start (SH19). Stills: SH03, 04, 07, 08, 09, 12, 13, 15, 16, 21, 22, 23. Card background: SH24 (PR-CLOTH texture crop, text added in code).
+Keyframes the clips need after the sheets (step 8): CLIP-A start (H-01) and end (SH02 composition); CLIP-C start (SH05) and end; CLIP-C2 start (SH06) and end; CLIP-D start (SH10) and end (SH11); CLIP-E start; CLIP-G start (SH17) and end (SH18); CLIP-H start (SH19). Stills: SH03, 04, 07, 08, 09, 12, 13, 15, 16, 21, 22, 23. Card background: SH24 (PR-CLOTH texture crop, text added in code).

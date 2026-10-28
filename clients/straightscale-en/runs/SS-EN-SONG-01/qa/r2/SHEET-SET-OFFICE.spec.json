@@ -1,0 +1,74 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "SHEET-SET-OFFICE",
+ "spec_sha256": "58140d7972a623a148ea09d383a51b3c02ac1b68bd99fbe10e599160a8c62533",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "all spec items present incl. rod, six figures, MARCH tag, three close panels; but see P8 on people"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"Hands: no hands and no people anywhere in the sheet\" (no hands needed)"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "static sheet; \"Action: none\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "organizer, laptop screen (\"plain softly glowing pale-blue blank screen\"), bin and window all have content lines; organizer design described in full"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "four quoted strings with surface and position; \"Nothing covers any letter\""
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "\"No posters, frames, book titles or signs\"; laptop screen blank rule given"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "subject state \"empty room, no people\" and must_not \"no people, no Maya\" contradict the 12 clients and the \"six tiny clay figures\" listed props"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot null, carry_over []; no continuity to check"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode; notes say 1152x2048 / 1024x1024 on gpt-image-2 medium"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "\"people\" can be read as the clay clients/figures too"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-05 and FL-04 handled (blank screen, no frames/signs)"
+  }
+ ],
+ "fixes": [
+  "subjects[0].state: 'empty room, no full-size people (the clay clients and street figures are listed props)'",
+  "must_not: replace 'no people, no Maya' with 'no full-size people in the room, no Maya; the 12 small clay clients and six tiny street figures are required'"
+ ]
+}

@@ -15,26 +15,26 @@ subjects:
   instances: 1
 - id: PR-SCRAPS
   ref: PR-SCRAPS@v1
-  state: all four scraps sewn over pockets 1 to 4
+  state: COACH and ADS pinned over pockets 3 and 4 and sewn along their other edges; EMAIL and LINKEDIN are already sewn and outside the frame
   pose: flat on the felt
   expression: n/a
   instances: 1
 hands:
 - who: Maya
-  left: left hand holding the ADS scrap flat against the felt
-  right: right hand pulling the last stitch tight
-  contact: left palm on the felt right of the ADS label, right fingers on the thread
+  left: left hand holding the left edge of the ADS scrap flat, palm on the felt left of the ADS label
+  right: right hand pulling the last stitch tight at the right edge of the ADS scrap
+  contact: left palm on the felt, right fingers on the thread
   count_check: five fingers on each visible hand
   must_not_cover: the stitched labels COACH and ADS
 props:
 - id: PR-SCRAPS
   story_critical: true
   ref: PR-SCRAPS@v1
-  state: COACH and ADS being finished over pockets 3 and 4, EMAIL and LINKEDIN sewn
-  content: 'Four ragged-edged fabric scraps, each about one pocket wide, each in a different loud clashing pattern with a big stitched label:
-    EMAIL mustard and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes with ivory letters, COACH lime leopard spots
-    with black letters, ADS hot-pink polka dots on blue with white letters; loose thread ends'
-  size_in_frame: each scrap about 20% of frame width
+  state: COACH and ADS pinned over pockets 3 and 4, the ADS right edge being finished
+  content: 'Four ragged-edged fabric scraps, each about one pocket wide, each in a different loud clashing pattern with a big stitched label: EMAIL mustard
+    and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes with ivory letters, COACH lime leopard spots with black letters,
+    ADS hot-pink polka dots on blue with white letters; loose thread ends'
+  size_in_frame: each scrap about 36% of frame width
   held_by: null
 text_in_image:
 - string: COACH
@@ -54,22 +54,22 @@ action_physics:
 static: false
 setting:
   ref: SET-OFFICE@v1
-  details: SET-OFFICE@v1, close on the right half of the APRIL row.
+  details: SET-OFFICE@v1, close on the right half of the APRIL row (pockets 3 and 4).
   background_rule: plain wall
 camera:
-  framing: edit punch-in 125% on pockets 3 and 4 and the hands
+  framing: close on pockets 3 and 4 and the hands, rendered (not an edit punch-in); the EMAIL and LINKEDIN labels are outside the frame
   angle: slightly low, straight-on
-  movement: locked off; picture change is the beat-snapped punch-in cut
+  movement: locked off
   aspect: '9:16'
-  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins;
-    faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins; faces and
+    key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
 timing:
   start_s: 13.39
   end_s: 15.25
   words: a coach and then some ads, and each held a month,
   sequence: SEQ02
   mode: H3-KEY
-  link: CHAIN
+  link: CUT
 continuity:
   previous_shot: O60-SH05
   carry_over:
@@ -78,16 +78,16 @@ regions:
 - name: left_hand
   kind: hand
   box:
-  - 0.55
-  - 0.52
-  - 0.72
-  - 0.64
+  - 0.5
+  - 0.5
+  - 0.66
+  - 0.62
 - name: right_hand
   kind: hand
   box:
-  - 0.32
+  - 0.74
   - 0.5
-  - 0.52
+  - 0.92
   - 0.62
 - name: scrap_coach
   kind: text
@@ -110,10 +110,10 @@ regions:
   - 0.36
   - 0.92
   - 0.54
-style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature
-  handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. 12 fps stepped stop-motion
-  cadence, no motion blur; one motion action in the shot. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four
-  fix scraps are the only loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade
+  set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. 12 fps stepped stop-motion cadence, no motion
+  blur; one motion action in the shot. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud
+  saturated colours in the world; the method cloth is one calm sand-cream colour.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no loose scraps yet
@@ -122,5 +122,7 @@ must_not:
 - no sung mouth movement and no singer on screen
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
-hero: false
-notes: 'Second half of CLIP-C; cut with a code punch-in, no second render. Clip: CLIP-C.'
+hero: true
+notes: 'Own clip CLIP-C2 (5 s render, picture 1.86 s) with its own start frame: COACH and ADS pinned over pockets 3 and 4, the ADS right-edge stitch half
+  pulled. The COACH and ADS scraps were taken from the desk edge below the frame before this frame; none waits anywhere in frame. Hard cut from SH05 on
+  the beat. Clip: CLIP-C2.'

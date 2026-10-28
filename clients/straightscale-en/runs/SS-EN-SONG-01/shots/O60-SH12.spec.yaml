@@ -20,18 +20,17 @@ props:
   story_critical: true
   ref: PR-SCRAPS@v1
   state: EMAIL, LINKEDIN, COACH, ADS laid apart
-  content: 'Four ragged-edged fabric scraps, each about one pocket wide, each in a different loud clashing pattern with a big stitched label:
-    EMAIL mustard and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes with ivory letters, COACH lime leopard spots
-    with black letters, ADS hot-pink polka dots on blue with white letters; loose thread ends'
+  content: 'Four ragged-edged fabric scraps, each about one pocket wide, each in a different loud clashing pattern with a big stitched label: EMAIL mustard
+    and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes with ivory letters, COACH lime leopard spots with black letters,
+    ADS hot-pink polka dots on blue with white letters; loose thread ends'
   size_in_frame: scraps about 22% of frame width each in a loose 2 by 2 spread, 28 to 55% from the top
   held_by: null
 - id: PR-ORGANIZER
   story_critical: true
   ref: PR-ORGANIZER@v1
   state: APRIL row empty at the top edge
-  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row above the APRIL row,
-    each row label sewn on a thick band at its left end; MARCH pockets: (above the frame); APRIL pockets: all four are empty, dark felt inside,
-    no clients.'
+  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row above the APRIL row, each row
+    label sewn on a thick band at its left end; MARCH pockets: (above the frame); APRIL pockets: all four are empty, dark felt inside, no clients.'
   size_in_frame: lower edge of the APRIL row at 14 to 24% from the top
   held_by: null
 text_in_image:
@@ -71,8 +70,8 @@ camera:
   angle: high angle about 50 degrees
   movement: 'edit: slow 100 to 108% push-in'
   aspect: '9:16'
-  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins;
-    faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins; faces and
+    key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
 timing:
   start_s: 26.32
   end_s: 29.41
@@ -100,10 +99,16 @@ regions:
   - 0.26
   - 0.92
   - 0.58
-style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature
-  handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. World: a clay home office
-  in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world; the method cloth
-  is one calm sand-cream colour.'
+- name: organizer_edge
+  kind: prop
+  box:
+  - 0.08
+  - 0.14
+  - 0.92
+  - 0.25
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade
+  set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. World: a clay home office in warm ivory and
+  marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no scrap touching or overlapping another

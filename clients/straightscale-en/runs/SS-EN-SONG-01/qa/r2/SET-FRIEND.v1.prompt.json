@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "SET-FRIEND",
+ "version": 1,
+ "prompt_sha256": "048146d4561cf7689970459bf1eb1b01bd0162a2ac989a10d7152eb9cd9e49ee",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "organizer, clients, shelf, plant, three strings present; laptop-screen crop is not in the spec, so not required"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "\"Reference images: none attached.\""
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"Hands: no hands and no people in the frame.\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "static; \"Action: none\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "organizer content described in full (single sand-cream linen, header band, two rows of four open pockets, label bands, clients per row)"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "three quoted strings with surface and position; \"Nothing covers any letter\""
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "\"no screens, frames, books or signs\""
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "FAIL: \"no people in the frame\" / \"Negatives: no people\" contradict the \"small smiling clay client figures\" in every pocket; spec size_in_frame says \"about 70%\" while its region box 0.1 to 0.9 and the prompt say 80%"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "\"same pocket layout and label positions as Maya's CLIENTS organizer\" and the layout is described in full"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "gpt-image-2 text-to-image 9:16 1152x2048 medium"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "FAIL (same cause as P8): \"people\" read two ways"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04/FL-05 handled; targeted negatives only"
+  }
+ ],
+ "corrected_prompt": "Format: Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. Stop-motion clay puppet detail: tiny real craft materials on the clay, thread-wrapped hair, real fabric and felt, real stitching. Palette: warm ivory and marble, charcoal accents. A set reference frame, vertical 9:16, an empty miniature clay wall corner.\n\nReference images: none attached.\n\nSubject: the corner of the friend's room with no full-size people; the only figures are the small clay clients in the pockets. On a warm sage-green clay wall, upper half of the frame, spanning 10% to 90% of the frame width and 20% to 50% from the top: a felt wall organizer about 60 cm wide made from one single calm sand-cream linen stitched in one piece with charcoal stitching, a header band at the top, two rows of four open-topped pockets, a thick label band at the left end of each row. In the upper row two or three small smiling clay client figures in blazers of different colours in each pocket, shown from the chest up; in the lower row two in each pocket. Below it a small wooden shelf with a clay plant.\n\nHands: no hands; no full-size people in the frame (the only figures are the small clay clients in the pockets).\n\nAction: none, a still set frame.\n\nProps: the organizer with its clients, the shelf and the plant, as described.\n\nText: exactly three strings in big charcoal capitals: \"CLIENTS\" on the header band, top centre; \"MARCH\" on the upper row's label band at its left end; \"APRIL\" on the lower row's label band at its left end. Nothing covers any letter. No other lettering anywhere.\n\nSetting: soft afternoon light; no screens, frames, books or signs.\n\nCamera: medium-wide view of the wall corner at eye level from inside the set, vertical 9:16; every element inside a 4% margin.\n\nContinuity: the same pocket layout and label positions as Maya's CLIENTS organizer, but one calm fabric with no patches and clients in every pocket.\n\nNegatives: no loud colours, no fabric scraps or patches, no empty pockets, no full-size people (the small clay clients are required), no logos. Everything in frame is real modeling clay, felt and fabric, photographed: visible fingerprints and tool marks, real cast shadows, soft studio lighting.\n"
+}

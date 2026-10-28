@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "PR-CLOTH",
+ "version": 1,
+ "prompt_sha256": "7fc912064c288d3dd849bf7d7d90e58f49ad8a32c7935fbdfb7839ab1724364f",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "bolt, woven piece with two phrases, OFFER, 3 POSTS, ADS pieces, 9 bubbles, scissors all present"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "\"Reference images: none attached.\""
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"Hands: no hands in the frame.\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "static flat lay; scissors \"closed and lying flat\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "cloth content line given (sand-cream linen, tone-on-tone tan bubbles, charcoal stitched labels); bubbles \"blank\""
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"FEAST OR FAMINE\", \"SOME MONTHS NOTHING\", \"OFFER\", \"POSTS\", \"ADS\" quoted with surface and position; \"Nothing covers any letter\""
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "\"the plain warm-ivory backdrop only\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "\"the cloth is never patterned or loud\", ADS piece \"cream linen, never pink polka dots\" consistent with spec; sizes fit the frame"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "no previous shot; \"locked design of the method cloth\""
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "gpt-image-2 text-to-image 1:1 1024x1024 medium"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "five cut pieces listed in order; last small piece is \"ADS\""
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 content line given; FL-03 not applicable (static)"
+  }
+ ],
+ "corrected_prompt": ""
+}

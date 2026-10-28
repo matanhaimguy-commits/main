@@ -10,12 +10,13 @@ subjects:
 - id: CH-MAYA
   ref: CH-MAYA@v1
   state: standing at the organizer's right side, olive cardigan
-  pose: right hand reaching for the end of the cloth band
+  pose: body front three-quarter toward the camera, head turned to the band, both feet flat on the clay floor, right hand reaching for the end of the cloth
+    band
   expression: quiet, content
   instances: 1
   eyeline: at the band
 - id: PR-ORGANIZER
-  ref: PR-ORGANIZER@v1
+  ref: PR-ORGANIZER@v1 (label and pocket close-ups)
   state: MARCH full, APRIL with four clients, calm band along the top of the APRIL row
   pose: on the wall
   expression: n/a
@@ -23,20 +24,21 @@ subjects:
 hands:
 - who: Maya
   left: left hand relaxed at her side
-  right: right hand gripping the end of the cloth band
-  contact: right fingers wrapped over the band's end
+  right: right hand open, fingertips touching the free end of the band, thumb under it
+  contact: right fingertips on the free end of the band, thumb under it
   count_check: five fingers on each visible hand
   must_not_cover: the APRIL label
 props:
 - id: PR-ORGANIZER
   story_critical: true
-  ref: PR-ORGANIZER@v1
+  ref: PR-ORGANIZER@v1 (label and pocket close-ups)
   state: MARCH full, APRIL four clients, calm band
-  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row above the APRIL row,
-    each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three small colourful clay clients standing shoulder
-    to shoulder (twelve in all); APRIL pockets: one small client in each of the four pockets, a calm sand-cream cloth band of joined OFFER, POSTS
-    and ADS pieces stitched along the row''s top edge.'
-  size_in_frame: organizer 15 to 48% from the top, 85% width
+  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row above the APRIL row, each row
+    label sewn on a thick band at its left end; MARCH pockets: each of the four holds three small colourful clay clients standing shoulder to shoulder (twelve
+    in all); APRIL pockets: one small client in each of the four pockets, a calm sand-cream band of five joined pieces (one large, three small, one small)
+    with four seams, the pieces carry no lettering at this size stitched along the row''s top edge.'
+  size_in_frame: organizer 62% of frame width (6 to 68%), 15 to 48% from the top; the band's free end runs past the right edge of the organizer to Maya's
+    hand
   held_by: null
 text_in_image:
 - string: CLIENTS
@@ -69,8 +71,8 @@ camera:
   angle: eye level
   movement: locked off
   aspect: '9:16'
-  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins;
-    faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins; faces and
+    key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
 timing:
   start_s: 45.1
   end_s: 47.57
@@ -87,49 +89,56 @@ regions:
 - name: organizer
   kind: prop
   box:
-  - 0.08
+  - 0.06
   - 0.15
-  - 0.88
+  - 0.68
   - 0.48
 - name: march_label
   kind: text
   box:
-  - 0.08
+  - 0.06
   - 0.17
-  - 0.28
+  - 0.24
   - 0.24
 - name: april_label
   kind: text
   box:
-  - 0.08
+  - 0.06
   - 0.34
-  - 0.28
+  - 0.24
   - 0.41
 - name: clients_header
   kind: text
   box:
-  - 0.28
+  - 0.2
   - 0.14
-  - 0.68
+  - 0.56
   - 0.19
 - name: right_hand
   kind: hand
   box:
-  - 0.72
+  - 0.7
   - 0.38
-  - 0.84
+  - 0.82
   - 0.46
 - name: maya_face
   kind: face
   box:
-  - 0.68
+  - 0.74
   - 0.2
-  - 0.86
+  - 0.92
   - 0.3
-style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature
-  handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. 12 fps stepped stop-motion
-  cadence, no motion blur; one motion action in the shot. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four
-  fix scraps are the only loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
+- name: left_hand
+  kind: hand
+  box:
+  - 0.8
+  - 0.52
+  - 0.92
+  - 0.62
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade
+  set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. 12 fps stepped stop-motion cadence, no motion
+  blur; one motion action in the shot. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud
+  saturated colours in the world; the method cloth is one calm sand-cream colour.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - 'April is never full: exactly four clients in the APRIL row, fewer than MARCH'
@@ -139,5 +148,5 @@ must_not:
 - no sung mouth movement and no singer on screen
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
-hero: false
+hero: true
 notes: 'CLIP-H 5 s render. Owner decision: a few clay clients in April, fewer than March (the one result image). Clip: CLIP-H.'

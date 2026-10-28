@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "PR-ORGANIZER",
+ "version": 1,
+ "prompt_sha256": "8048a843b929ed1c353c93bc7e8cf25febb536a6da2954cbf2985bbf55ee09a8",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "both states, 12 and 4 clients, sand-cream band, three close-ups, all five text strings present"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "\"Reference images: none attached.\""
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"Hands: no hands in the frame.\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "static prop sheet; \"Action: none\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "full content line: ivory felt, charcoal stitching, header band, two rows of four open-topped pockets, label bands; band \"carries no words\""
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"CLIENTS\", \"MARCH\", \"APRIL\" in quotes with surface, position; \"Nothing covers any letter\""
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "\"the plain warm-ivory backdrop only\"; no frames or screens"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "43%+6%+43% plus 4% margins fits; \"no fabric scraps\" matches spec"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "no previous shot; \"locked design of the organizer in every shot\""
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "gpt-image-2 text-to-image 1:1 1024x1024 medium"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "\"exactly one small clay client in each pocket (4 in all)\" and 12 in March are unambiguous"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 content line given, targeted negatives only; FL-02 structure in one line (\"two rows of four open-topped pockets\")"
+  }
+ ],
+ "corrected_prompt": ""
+}

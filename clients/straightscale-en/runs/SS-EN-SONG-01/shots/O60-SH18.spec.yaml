@@ -9,7 +9,7 @@ story_purpose: 'Result: the bubbles drift out of the window to tiny clay figures
 must_read_in_1s: Speech bubbles float out the window to small figures looking up.
 subjects:
 - id: PR-BUYERS
-  ref: 'SET-OFFICE@v1 panel: window view'
+  ref: 'SET-OFFICE@v1 panel: window view (bottom strip, right)'
   state: six tiny clay figures on the street below the window, faces turned up
   pose: standing still, arms by sides
   expression: curious
@@ -18,7 +18,7 @@ subjects:
 - id: CH-MAYA
   ref: CH-MAYA@v1
   state: small, in the lower left, headset on, side view
-  pose: seated at the desk on a call
+  pose: seated at the desk on a call, both hands hidden behind the desk edge
   expression: busy, calm
   instances: 1
 hands: none visible
@@ -32,19 +32,21 @@ props:
   held_by: null
 text_in_image: none
 action_physics:
-- Three speech bubbles drift up and out through the open window while the camera pans right; the figures on the street do not move.
+- The camera finishes its follow-pan and rests on the window; the three bubbles already in flight from SH17 drift up through the open pane, about 1 cm per
+  beat; the street figures stay still.
 static: false
 setting:
   ref: SET-OFFICE@v1
   details: 'SET-OFFICE@v1: the window with a clay street below.'
   background_rule: plain street, no signs, no shopfront text
 camera:
-  framing: 'medium: window upper-centre, street figures mid-low, Maya small at the left edge'
+  framing: 'medium: window upper-centre, street figures mid-low, Maya small at the left edge; the window opening spans 30 to 92% of the width; Maya sits
+    inside the room left of it'
   angle: eye level
   movement: slow pan right from SH17, ends at rest
   aspect: '9:16'
-  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins;
-    faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins; faces and
+    key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
 timing:
   start_s: 42.04
   end_s: 45.1
@@ -68,21 +70,21 @@ regions:
 - name: buyers
   kind: prop
   box:
-  - 0.2
+  - 0.3
   - 0.4
   - 0.9
   - 0.54
 - name: maya
   kind: face
   box:
-  - 0.08
+  - 0.06
   - 0.46
-  - 0.28
+  - 0.26
   - 0.58
-style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature
-  handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. 12 fps stepped stop-motion
-  cadence, no motion blur; one motion action in the shot. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four
-  fix scraps are the only loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade
+  set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. 12 fps stepped stop-motion cadence, no motion
+  blur; one motion action in the shot. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud
+  saturated colours in the world; the method cloth is one calm sand-cream colour.'
 must_not:
 - no text on the window or the street
 - no speech bubbles carrying words
@@ -93,5 +95,5 @@ must_not:
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
 hero: false
-notes: 'Second half of CLIP-G; pays ''too busy in March'' with ''while she was busy''. PR-BUYERS lives on the SET-OFFICE window-view panel. Clip:
-  CLIP-G.'
+notes: 'End of CLIP-G (one follow-pan from SH17); pays ''too busy in March'' with ''while she was busy''. PR-BUYERS lives on the SET-OFFICE window-view
+  panel. Clip: CLIP-G.'

@@ -24,3 +24,7 @@ date,client,post,asset,gate,check,severity,evidence
 2026-10-28,straightscale,SS-EN-SONG-01,SET-OFFICE@v1,G-PROMPT-IMG,P1,,"spec PR-WINDOW 'right 25% of the frame, 20 to 60% from the top' is missing; the prompt only says 'On the right wall a window'"
 2026-10-28,straightscale,SS-EN-SONG-01,SET-OFFICE@v1,G-PROMPT-IMG,P8,,"'organizer spans about 70% of the frame width ... centred' (to 85%) collides with the right-wall window (right 25%); 'no fabric scraps and no cloth anywhere' vs 'ivory felt' organizer and 'real modeling clay, felt and fabric'"
 2026-10-28,straightscale,SS-EN-SONG-01,SET-OFFICE@v1,G-PROMPT-IMG,P11,,"'no cloth anywhere' can be read as no felt or fabric; sentence '. each MARCH pocket' starts lower case, joining two ideas"
+2026-10-28,straightscale-en,SS-EN-SONG-01,SET-FRIEND@v1,G-PROMPT-IMG,P8,,"FAIL: 'no people in the frame' / 'Negatives: no people' contradict the 'small smiling clay client figures' in every pocket; spec size_in_frame says 'about 70%' while its region box 0.1 to 0.9 and the prompt say 80%"
+2026-10-28,straightscale-en,SS-EN-SONG-01,SET-FRIEND@v1,G-PROMPT-IMG,P11,,"FAIL (same cause as P8): 'people' read two ways"
+2026-10-28,straightscale-en,SS-EN-SONG-01,SET-OFFICE@v1,G-PROMPT-IMG,P8,,"FAIL: 'the empty room, no people' / 'no hands and no people anywhere in the sheet' / 'Negatives: no people' contradict the 12 clay clients and the 'six tiny clay figures'; a generator may drop them"
+2026-10-28,straightscale-en,SS-EN-SONG-01,SET-OFFICE@v1,G-PROMPT-IMG,P11,,"FAIL (same cause as P8): 'people' is read two ways"
