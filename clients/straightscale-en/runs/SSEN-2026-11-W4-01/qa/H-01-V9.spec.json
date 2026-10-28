@@ -1,0 +1,21 @@
+{"gate": "G-SPEC", "shot_id": "H-01-V9", "spec_sha256": "5bfe894abda122075e3d264dbd7a2f6c7512e7a4197fcce1728c8283af3fd3a2",
+ "reviewer": "prompt-reviewer (fresh agent)", "independent": true, "status": "FAIL",
+ "checks": [
+  {"id": "P1", "result": "PASS", "evidence": "Every item of the story is specced: PR-PHONE, PR-SCREEN, PR-GLASS, text 'BOOK A CALL', hands 'none visible'."},
+  {"id": "P2", "result": "N/A", "evidence": "Spec mode; ref: null, no references."},
+  {"id": "P3", "result": "PASS", "evidence": "hands: none visible; must_not 'no faces'; no hand regions needed."},
+  {"id": "P4", "result": "PASS", "evidence": "'The phone stands on its bottom edge on the floor; the magnifying glass hangs in the air a finger's width in front of the screen's lower half... not touching the phone.' Contact points are explicit. See P8 for the 'held' wording."},
+  {"id": "P5", "result": "PASS", "evidence": "PR-SCREEN content: 'BOOK A CALL ... calendar grid of 3 rows by 5 columns of plain cream clay squares, every square empty'. must_not negatives are targeted ('no digits', 'no words other than the listed strings'); no blanket 'no text'."},
+  {"id": "P6", "result": "PASS", "evidence": "string BOOK A CALL (3 words), surface 'top band of the phone screen, dark ink #2B2A33', position x 24-76% y 36-42%, must_be_exact true, occlusion 'nothing covers any letter'; the glass region (y 52-86) sits below the text box."},
+  {"id": "P7", "result": "PASS", "evidence": "background_rule: 'no signs, frames, posters or other screens; the only writing is on the listed screen'."},
+  {"id": "P8", "result": "FAIL", "evidence": "(a) safe_zones 'bottom 15% calm' (y > 0.85) contradicts the phone box y to 0.88 and the glass box y to 0.86 (regions and pose 'y 30% to 88%'). (b) story_purpose says 'a clay magnifying glass held over the booking page' but hands are 'none visible' and the glass is floating 'not touching the phone'. (c) PR-SCREEN says the words are 'filling the screen width' but text_in_image gives x 24% to 76%, which is narrower than the phone's x 18% to 82%; the two widths disagree."},
+  {"id": "P9", "result": "PASS", "evidence": "previous_shot: null; carry_over: []; first frame of the reel."},
+  {"id": "P10", "result": "N/A", "evidence": "Spec mode."},
+  {"id": "P11", "result": "PASS", "evidence": "No reading a model could take two ways that changes the story. 'a finger's width' is a distance in scale terms only and no finger appears. Minor: 'two empty calendar squares' is not placed, but the lens is boxed."},
+  {"id": "P12", "result": "PASS", "evidence": "FL-04 filled props, FL-05 background rule, FL-01 no hands near text, FL-13 'no logo, wordmark or real platform name or icon anywhere' with no logo asked for, FL-10 'the only writing is on the listed screen'."}
+ ],
+ "suggested_spec_changes": [
+  "Make the bottom safe zone and the geometry agree. Preferred: phone pose and phone region y 0.28 to 0.84 (but keep top 30% empty, so shrink to y 0.30 to 0.84, size_in_frame 64% width x 54% height) and glass region y 0.52 to 0.83, so nothing sits in the bottom 15%. Or relax safe_zones to 'bottom 12% calm' and keep the boxes at y <= 0.88.",
+  "Resolve held vs floating: change story_purpose to 'a clay magnifying glass hovering over the booking page shows the empty calendar' (matches action_physics and hands: none visible), or add hands.",
+  "Resolve the text width: change PR-SCREEN to 'the words BOOK A CALL in heavy bold dark ink letters on a cream band, spanning x 24% to 76% of the frame, inside the screen edges', or widen the text position and region to match."
+ ]}
