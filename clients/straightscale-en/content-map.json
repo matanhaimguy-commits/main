@@ -65,7 +65,7 @@
    "format": "mixed: reel_song (part one), reel_motion (part two, EN 02), reel_story_narrated, reel_animation_short; the claymation cloth world",
    "pillar": "rotates Steady months, Research, Offer, Organic, Funnel and paid ads",
    "belief": "B1 to B4",
-   "job": "reach",
+   "job": "reach (parts one to five); trust for part six, the last part",
    "length": "O30 to O60",
    "cta": "follow for the next part; the last part asks for a save",
    "visual_template": "the cloth world (brain visual.set)",
@@ -115,7 +115,7 @@
  "hook_library": "research/hook-library-en.md (HF ids); buyer phrases research/buyer-phrases-en.md (Q ids; only the recovered ids pass the hook check)",
  "calendar": [
   "W1: Mon 2 Nov EN 03 song (reach B1) · Wed 4 Nov One sentence (trust B3) · Fri 6 Nov built or patched (reach B2)",
-  "W2: Mon 9 Nov EN 04 Offer (reach B2) · Wed 11 Nov the order (trust B4) · Fri 13 Nov one question before you hire (convert B5)",
+  "W2: Mon 9 Nov EN 04 Offer (reach B2) · Wed 11 Nov the order (trust B4) · Fri 13 Nov what does the next fix build on (convert B5)",
   "W3: Mon 16 Nov EN 05 Organic (reach B3) · Wed 18 Nov three questions an offer answers (trust B4) · Fri 20 Nov the full month (reach B1)",
   "W4: Mon 23 Nov EN 06 Funnel (reach B2) · Wed 25 Nov tried everything (convert B5) · Fri 27 Nov part six Paid ads (trust B4)"
  ],
@@ -123,5 +123,11 @@
  "bank": "cards/bank/: 6 spare cards, used when a hook or script fails the bar",
  "open_slot_share": 0.0,
  "open_slot_note": "No open slot: 4 of 12 slots are fixed series parts; the 6-card bank and the 20% rule are met by swapping a bank card in for any slot whose hook or script fails.",
- "approved_by": "pending: organic-director review (S3 session), then the main session; Matan only at owner checkpoints"
+ "approved_by": "pending: organic-director review (S3 session), then the main session; Matan only at owner checkpoints",
+ "rules": [
+  "Series release rule (director, round 1): a part ships only when its script is released at 85 or more and its hook is A or A+. If a part is not released by its build deadline (the Wednesday before its Monday), a bank reach card (W9-01, W9-02 or W9-03) takes the Monday and the part moves back a week. EN 04, EN 05 and EN 06 sit at 76, 80 and 76 today.",
+  "DM fallback: W2-03, W4-02 and W9-06 ask for a DM; if E10 is not closed 48 hours before the slot, the CTA becomes save.",
+  "Job rotation waiver (director, round 1): with all four Mondays fixed as reach series parts and 6 reach posts in 12, two reach posts meet across weeks twice (W1-03 then W2-01, W3-03 then W4-01). Accepted for November.",
+  "Tone: 4 of 12 posts are contrarian (W1-03, W2-01, W3-01, W4-01), above the 20% guide; the three series spines are contrarian by design (contrarian vault C5 to C7)."
+ ]
 }

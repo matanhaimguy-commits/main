@@ -44,15 +44,15 @@ The method's five steps are six topics with the broad pillar, so Funnel and Paid
 | Fri 6 Nov | W1-03 | built or patched: one scrap of cloth, two paths | reel_motion | reach B2 | HF-19 | send |
 | Mon 9 Nov | W2-01 | EN 04 "decided before you quoted", part three (Offer) | reel_story_narrated | reach B2 | HF-04 | follow |
 | Wed 11 Nov | W2-02 | the order I'd build in with a full calendar | reel_motion | trust B4 | HF-20 | save |
-| Fri 13 Nov | W2-03 | one question before you hire anyone: what do you build before the ads? | reel_motion | convert B5 | HF-21 | DM |
+| Fri 13 Nov | W2-03 | before you pay for the next fix, ask what it builds on | reel_motion | convert B5 | HF-21 | DM (save fallback) |
 | Mon 16 Nov | W3-01 | EN 05 the boosted post explains itself, part four (Organic) | reel_animation_short | reach B3 | HF-12 | follow |
 | Wed 18 Nov | W3-02 | three questions an offer answers before you are compared | reel_motion | trust B4 | HF-22 | save |
-| Fri 20 Nov | W3-03 | the full month is where the quiet month starts | reel_animation_short | reach B1 | HF-25 | send |
+| Fri 20 Nov | W3-03 | the week the third client signed is where the quiet month starts | reel_animation_short | reach B1 | HF-25 | send |
 | Mon 23 Nov | W4-01 | EN 06 the page that changed the subject, part five (Funnel) | reel_animation_short | reach B2 | HF-05 | follow |
-| Wed 25 Nov | W4-02 | a buyer's list of everything she tried, answered piece by piece | reel_motion | convert B5 | HF-10 | DM |
+| Wed 25 Nov | W4-02 | a buyer's list of everything she tried, answered piece by piece | reel_motion | convert B5 | HF-10 | DM (save fallback) |
 | Fri 27 Nov | W4-03 | a post vs an ad: two jobs, part six (Paid ads) | reel_motion | trust B4 | HF-03 | save |
 
-Each week has one contrarian post (W1-03, W2-01 and W2-03, W3-01, W4-01). Hook formats are HF outliers, 10x+ first;
+Contrarian: W1-03, W2-01, W3-01, W4-01 (4 of 12, above the 20% guide; the series spines are contrarian by design). Hook formats are HF outliers, 10x+ first;
 HF-06 and HF-12 are under 10x and come from the owner-approved series pieces.
 
 ## Spend
@@ -64,7 +64,7 @@ cap is in the brain (E9), so G-BUDGET blocks paid generation under this slug unt
 ## Keywords and CTAs
 WORDS (EN 02's WORDS Sheet) is the only keyword planned, and `brain.json` still has it `live: false` (no hub funnel
 yet), so card-check fails any card that asks for it. Until it is live, trust posts ask for a save and convert posts for
-a DM. When it goes live, W3-02, W4-02, W4-03 and the bank cards W9-04 to W9-06 switch to keyword WORDS. A DM ask needs
+a DM, with a save fallback if E10 is not closed 48 hours before the slot. When it goes live, W3-02, W4-02, W4-03 and the bank cards W9-04 to W9-06 switch to keyword WORDS. A DM ask needs
 E10 (which hub business answers @straightscale_'s DMs; today the Albanian setup) settled before W2-03 posts.
 
 ## References (refbank)
@@ -85,17 +85,32 @@ talking-explainer refs in a row. Log with `refbank.py log` only after delivery.
 | W9-03 | stop adding the next tactic (villain: one more tactic) | reel_story_narrated | reach B2 | HF-26 |
 | W9-04 | "I just need more leads." Which ones? | reel_motion | trust B3 | HF-12 |
 | W9-05 | three places your buyers already wrote your next post | reel_motion | trust B4 | HF-22 |
-| W9-06 | freelancer vs agency vs one system: who owns the result | reel_motion | convert B5 | HF-03 |
+| W9-06 | a new tool vs a course vs one system: which still holds in the quiet month | reel_motion | convert B5 | HF-03 |
+
+## Rules (director review, round 1)
+- **Series release rule:** a part ships only with its script released at 85 or more and an A or A+ hook. If it is not
+  released by the Wednesday before its Monday, a bank reach card (W9-01, W9-02 or W9-03) takes the slot and the part
+  moves back a week. Today EN 04, EN 05 and EN 06 sit at 76, 80 and 76.
+- **DM fallback:** W2-03, W4-02 and W9-06 switch to save if E10 is not closed 48 hours before the slot.
+- **Waivers for November:** two reach posts meet across weeks twice (Fri W1-03 then Mon W2-01, Fri W3-03 then Mon
+  W4-01), and the first five posts carry no conversion CTA; both follow from four fixed Monday series parts.
+- **Truth:** demand phrases now point to recovered rows (Q-RN-0033, Q-RN-0025, Q-RN-0048, Q-RN-0037, added to
+  `research/demand-map.csv`); Q-B-0002, Q-E-0183 and Q-E-0009 stay off screen until their rows are found.
+- **AV-01:** no card speaks to agency buyers (E7); W2-03 and W9-06 use the do-it-yourself fixes.
 
 ## Open for the owner
-- EN 02 (part two, W5 card) has a placeholder slot on Sun 1 Nov, before the song (part one, Mon 2 Nov). Recommended:
-  post EN 02 after the song (for example Tue 3 Nov, outside the grid).
+- EN 02 (part two, W5 card, not changed here) has a placeholder slot on Sun 1 Nov, before the song (part one, Mon 2
+  Nov), and the director flags it against two defaults: a keyword CTA on a reach post and the on-screen "567" (P-06,
+  permission pending, against "no proof numbers"). Recommended: retag it trust B4, follow CTA until WORDS is live,
+  post it after the song (for example Tue 3 Nov), and settle the 567.
 - E9: cadence, posting time and a monthly USD cap are not in `brain.json` yet.
 - E10: which hub business answers the DMs the two convert posts ask for.
 - No B7 post this month (week-check warns every week): it needs real footage or the owner ramble (E8, E12).
-- W4-02 is the day before US Thanksgiving and W4-03 is Black Friday.
+- W4-02 is the day before US Thanksgiving and W4-03, the series finale, is Black Friday: keep, or move to Mon 30 Nov.
 
-## Checks (28 Oct)
-`card-check`: all 12 cards and 6 bank cards pass with no warnings. `week-check`: W1 to W4 pass; each warns "no human
-/ B7 post". The rotation rule compared neighbouring posts, not days, so Mon/Wed/Fri reels failed "no format two days in
-a row"; fixed in `organic_os/week.py` (compares calendar days) with a test.
+## Checks (28 Oct, after the director's round 1)
+`card-check`: all 12 cards and 6 bank cards pass. `week-check` per week (W1 to W4): pass, each warns "no human / B7
+post" (accepted: E8, E12). `week-check` over the 4 folders at once: pass, with the two cross-week reach pairs and the
+five posts without a conversion CTA as warnings (waived above). The rotation rule compared neighbouring posts, not
+days, so Mon/Wed/Fri reels failed "no format two days in a row"; fixed in `organic_os/week.py` (compares calendar
+days) with a test. Run week-check on all four folders together to see the month.
