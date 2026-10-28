@@ -59,6 +59,7 @@ class Wrapper(TP.Base):
         cls.repo_tmp = tempfile.TemporaryDirectory()
         r = Path(cls.repo_tmp.name)
         for rel in ("growth-engine/tools/pipeline.py", "growth-engine/tools/atlas_rules.py", "growth-engine/tools/atlas_calls.py",
+                    "growth-engine/tools/atlas_conditions.py",
                     "growth-engine/tools/budget_usd.py", "growth-engine/tools/call_aspect.py", "growth-engine/tools/gate_auth.py",
                     "growth-engine/tools/organic.py",
                     "growth-engine/tools/atlas/atlas_gate.py", "growth-engine/production/standards.json",
@@ -584,6 +585,43 @@ class OmniAndStt(TP.Base):
             ok, why = P.check_call("atlas_generate", bad)
             self.assertFalse(ok)
             self.assertIn(needle, " ".join(why))
+
+
+class F2Names(TP.Base):
+    """Matan's 28 Oct names with their real standards.json entries, through check_call: a test-only model runs on a test
+    asset with G-HUMAN-TEST and nowhere else, and 1440p-sr needs a Shot Spec with a face."""
+
+    def test_a_test_only_model_runs_on_a_test_asset_only(self):
+        P.init_run(SLUG, LIB, "reel_motion")
+        P.new_asset(SLUG, LIB, "T-NB2-CLAY", "test")
+        P.set_prompt(SLUG, LIB, "T-NB2-CLAY", "a clay character sheet", [])
+        P.budget(SLUG, LIB, planned=1, balance=8)
+        req = {"kind": "image", "model": "google/nano-banana-2/edit", "prompt": "a clay character sheet",
+               "medias": [], "params": {"resolution": "2k", "aspect_ratio": "9:16"}}
+        ok, why = P.check_call("atlas_generate", req)
+        self.assertIn("needs G-HUMAN-TEST", " ".join(why))
+        P.record_gate(SLUG, LIB, "G-HUMAN-TEST", "PASS", "Matan", asset="T-NB2-CLAY@v1", note="Run the test")
+        ok, why = P.check_call("atlas_generate", req)
+        self.assertTrue(ok, why)
+        P.new_asset(SLUG, LIB, "CH-SHEET", "character_sheet", ["SHEET-CH-MAYA"])
+        P.set_prompt(SLUG, LIB, "CH-SHEET", "a clay character sheet, production", [])
+        ok, why = P.check_call("atlas_generate", {**req, "prompt": "a clay character sheet, production"})
+        self.assertIn("G-HUMAN-TEST comparison only", " ".join(why))
+
+    def test_1440p_sr_reads_the_shot_spec_regions(self):
+        P.init_run(SLUG, POST, "reel_quote_broll")
+        a = {"type": "video_clip", "shots": ["S30-SEQ01-SH1"]}
+        led = P.load_ledger(SLUG, POST)
+        e = next(x for x in P.STANDARDS["models"]["atlas"]["allowed"] if x["id"] == "minimax/h3-developer/image-to-video")
+        sp = {**TP.SLIDE, "shot_id": a["shots"][0], "format": "talking_head", "regions": [{"name": "desk", "kind": "prop",
+                                                                                            "box": [0, 0, 1, 1]}]}
+        TP.write(P.spec_path(SLUG, POST, a["shots"][0]), sp)
+        req = {"kind": "video", "model": e["id"], "params": {"resolution": "1440p-sr", "prompt_expansion": False,
+                                                             "duration": 10}, "medias": [], "atlas": e}
+        self.assertIn("only for face or mouth", " ".join(P._atlas_checks(req, a, led)))
+        TP.write(P.spec_path(SLUG, POST, a["shots"][0]), {**sp, "regions": [{"name": "face", "kind": "face",
+                                                                             "box": [0, 0, 1, 1]}]})
+        self.assertEqual(P._atlas_checks(req, a, led), [])
 
 
 class Setup(unittest.TestCase):

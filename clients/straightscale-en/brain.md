@@ -50,8 +50,9 @@ app's address and EN 02's post ID.
 with, invented proof, Patchwork Marketing or the offer in a hook, StraightScale before the end card.
 
 **Look:** charcoal, ivory, marble, gold, red only for strikes; Playfair Display + Montserrat; real wordmark files only.
-Faces mixed: Matan's HeyGen twin as host (label open, E8), claymation cloth world (CLIENTS wall organizer), faceless
-kinetic type. Never childish.
+Faces mixed: no AI host (E8), claymation cloth world (CLIENTS wall organizer), faceless kinetic type, and face-on AI
+people as staged characters with Instagram's AI label, never a client, customer or the owner (D1, Matan 28 Oct).
+Never childish.
 
 **Series:** part one EN 03 song, two EN 02 (Research), three EN 04 (Offer), four EN 05 (Organic), five EN 06 (Funnel);
 part five vs Paid ads is open (E14).
@@ -62,5 +63,5 @@ Instagram; stage new; baseline unknown (E13).
 ## Decisions for Matan
 E1 method and step names · E2 sales team and CRM in the offer · E3 what the analysis covers and how it is booked · E4
 price and sales process · E5 proof evidence files · E6 where the research run is stored · E7 Patchwork form and a second
-avatar · E8 AI labels and the HeyGen twin · E9 cadence and budget · E10 switch the hub business to English · E11 approve
+avatar · E8 decided (no AI host; D1: staged AI people with the AI label) · E9 cadence and budget · E10 switch the hub business to English · E11 approve
 the messaging · E12 an English owner ramble · E13 Insights access · E14 series order.

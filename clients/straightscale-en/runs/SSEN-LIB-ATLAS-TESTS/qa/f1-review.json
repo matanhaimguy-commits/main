@@ -1,0 +1,40 @@
+{
+ "gate": "G-VIS (test)",
+ "files_opened": [
+  "f1-compare/side-3.0.jpg",
+  "f1-compare/T-H3-768-3.0.png",
+  "f1-compare/T-H3-1440-3.0.png",
+  "f1-compare/T-H3-2K-3.0.png",
+  "f1-compare/extra/face-native-5.0s.png",
+  "f1-compare/extra/face-half-5.0s.png",
+  "f1-compare/extra/mouth-seq-768.png",
+  "f1-compare/extra/mouth-seq-1440.png",
+  "f1-compare/extra/mouth-seq-2K.png"
+ ],
+ "scores": {
+  "768P": 6,
+  "1440p-sr": 7,
+  "2K": 7.5
+ },
+ "defects": {
+  "768P": [
+   "Looks digitally upscaled: slightly crunchy/over-sharpened beard and skin texture, mild mushy detail in eyes, teeth a bit blobby and merge into a white band",
+   "Framed much closer, so face has more pixels than the others, which flatters its sharpness",
+   "No waxy skin; teeth stable across consecutive frames"
+  ],
+  "1440p-sr": [
+   "Dark ink-like outline around beard strands and jaw edge (SR halo/posterised look), visible at native, faint at half scale",
+   "Mouth interior very dark with high-contrast teeth; teeth edges clean, no smearing across 3 consecutive frames",
+   "Skin slightly smoothed but not waxy; no shimmer seen"
+  ],
+  "2K": [
+   "Cleanest, most natural skin and beard gradients, no halos; slightly soft in the teeth and eyes",
+   "Eyes half-lidded in sampled frames (performance, not quality); face smallest in frame so fewer face pixels at phone size",
+   "No shimmer, waxy skin or teeth smearing seen in 3 consecutive frames"
+  ]
+ },
+ "sr_vs_768": "Modestly better. SR looks less crunchy and framing is wider, but it adds dark outline halos on beard edges. At phone size (half scale) the difference is small and a viewer would not say one is clearly sharper.",
+ "full2k_vs_sr": "Slightly cleaner (no halos, more natural texture) but not visibly sharper at phone size, and its face is smaller in frame. Not enough to justify 2.9x the price for talking-head clips.",
+ "recommendation": "1440p-sr for final face clips (good value; 768P acceptable for drafts). Reserve full 2K for hero shots only. Caveat: single sample per tier, different performances and framing.",
+ "summary": "At phone size all three read as sharp, real faces; differences are subtle. 768P scores 6 (crunchy, upscaled look, but closest framing), 1440p-sr 7 (cleaner but dark halos on beard edges), 2K 7.5 (most natural, no halos, but softer teeth and smaller face). 1440p-sr is modestly better than 768P; 2K is only marginally better than 1440p-sr and does not justify 2.9x the cost. No shimmer, waxy skin or teeth smearing found in consecutive frames. Recommend 1440p-sr."
+}

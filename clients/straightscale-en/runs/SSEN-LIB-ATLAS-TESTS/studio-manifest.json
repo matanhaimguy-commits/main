@@ -1,0 +1,36 @@
+{
+ "title": "Atlas tests: face-clip resolution and music beds",
+ "summary": "Your F1 and F3 tests on Atlas. The same 10 s talking clip at 768P, 1440p-sr and full H3 2K, and two minimax/music-3.0 instrumental beds. One question: which resolution for final face clips, and do the beds work.",
+ "files": [
+  {
+   "label": "Clip 768P (H3 developer, $0.24)",
+   "url": "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-bf7ebd423412f49cd2472d5057f27a11707096948ed6f8be6bd7927b70349a31/745832a0ee444054b812e59aa5177c51-793cfe02fc55633a.mp4",
+   "kind": "video",
+   "key": "T-H3-768@v1"
+  },
+  {
+   "label": "Clip 1440p-sr (H3 developer, $0.45)",
+   "url": "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-376caa26a28ee81954a4af392b24ba7fffd8732f94a51bdfdcc26971f0f35f89/c312bb2cf6ce41e2ae90cd8fb3f5a4fd-6455eb14ae13796e.mp4",
+   "kind": "video",
+   "key": "T-H3-1440@v1"
+  },
+  {
+   "label": "Clip 2K (full H3, $1.30)",
+   "url": "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-7a44fbe422695f7881bcd17979c30e6be1e1f879cf3d7a496613aa0fc02cb328/1c4496893378400ea6944b2da3c6f7c9-f9cbf8d775c5556a.mp4",
+   "kind": "video",
+   "key": "T-H3-2K@v1"
+  },
+  {
+   "label": "Bed A: calm lo-fi house, 100 BPM (122 s)",
+   "url": "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-34d5ccab147f045a23b2a9c162fdd4296031ab1be0c3eebb03f2ea57810d8acd/f4853fa4949743b29110d6342d1ba075-168f8d092679c57f.mp3",
+   "kind": "audio",
+   "key": "T-BED-A@v1"
+  },
+  {
+   "label": "Bed B: upbeat corporate-pop, 112 BPM (165 s)",
+   "url": "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-0ad78b57ce69a02f6916655572be4c3782d1a032933b0c43dc0cb4780c49b6ad/79e73b9d2e0149ecaca87d572b048363-e557b8638ae661cc.mp3",
+   "kind": "audio",
+   "key": "T-BED-B@v1"
+  }
+ ]
+}

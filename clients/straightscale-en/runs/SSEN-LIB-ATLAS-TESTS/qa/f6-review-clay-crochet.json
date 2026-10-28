@@ -1,0 +1,39 @@
+{
+  "files_opened": [
+    "qa/f6/SHEET-CLAY.jpg",
+    "qa/f6/BOARD-CLAY.jpg",
+    "qa/f6/SHEET-CROCHET.jpg",
+    "qa/f6/BOARD-CROCHET.jpg",
+    "assets/T-FACE.v1.png"
+  ],
+  "note": "Judged from the four side-by-side comparison images plus the reference photo; the originals in sheets/ and the prompt files were not opened.",
+  "clay": {
+    "sheet": {
+      "A": 6,
+      "B": 8,
+      "notes": "A: all six views present and consistent, likeness to the reference is decent (hair, stubble), but surfaces are smooth and look like a 3D render, with only faint clay marks. Close-ups are huge and very smooth. B: reads as real clay or felted clay, with a grainy hand-modelled texture, a sweater rib, laces and thumbprint-like marks. All six views are present and consistent. Hair is curlier and darker than the reference and the skin is more tan, so likeness is slightly looser. Close-ups cut off the sweater at the bottom."
+    },
+    "board": {
+      "A": 6,
+      "B": 8,
+      "notes": "A: a clay brick room, with correct actions (hand on head, phone, calendar filling and smiling). The set and camera drift between panels: panel 3 flips the desk and adds a drawer. The figure is smooth and looks like a render, and the face drifts from the sheet. B: the same set, camera and props in all three panels, and the character matches its sheet. Actions are correct (chin on hand with an empty calendar, phone with a surprised face, calendar filling and a smile). Texture is consistent clay. The laptop is oversized and tilted in panel 2. Gutters are present."
+    },
+    "winner": "B",
+    "why": "B looks like real tactile clay and holds the same character and set across all panels. A is a smoother render and its set changes between panels."
+  },
+  "crochet": {
+    "sheet": {
+      "A": 6,
+      "B": 8,
+      "notes": "A: clear stitches and all six views, but the beard is grey yarn and the hair is brown and swept. Likeness is looser and the face looks generic and cartoonish. Hands are mitten blobs. The smile is a black embroidered line, which is a bit off from the neutral view. B: dense stitch texture, with dark hair and a stubble beard that read closer to the reference. Views are consistent, with hands in pockets (no finger errors). Close-ups are cropped at the bottom."
+    },
+    "board": {
+      "A": 7,
+      "B": 7,
+      "notes": "A: stitched figure, same room throughout, and good acting. The calendar and review screens contain tiny gibberish text (unwanted text). Panel 1 is not a clearly empty calendar. Hair is brown, which matches its own sheet. Panel 2 is full-body standing, so framing varies. B: identical framing in all three panels, an empty calendar in panel 1 and the calendar filling in panel 3, and the character matches its sheet. The poses barely change. Panel 2 phone does not show a review and the hand stays at the chin, so the realising beat is weak. No text artefacts."
+    },
+    "winner": "B",
+    "why": "B has a closer likeness and a cleaner crochet sheet with no text artefacts. The boards are roughly even: A acts better but has gibberish screen text, and B is cleaner but stiffer."
+  },
+  "summary": "CLAY: B wins (real clay texture, consistent set and character). CROCHET: B wins, narrowly (better likeness, sheet and no text artefacts; the boards are about even)."
+}
