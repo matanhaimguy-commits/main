@@ -1,0 +1,111 @@
+shot_id: H-01-V9
+post_id: SSEN-2026-11-W4-01
+format: claymation
+script_lines:
+- L1
+line_text: Before you post more, click your own link. Read that page.
+story_purpose: 'Check the page first: a magnifying glass on the booking page shows the calendar is empty.'
+must_read_in_1s: A magnifying glass on a BOOK A CALL page shows the calendar is empty.
+subjects:
+- id: PR-SCREEN
+  ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
+    step 2); the prop sheet is cut from the approved frame at step 7'
+  state: lit, the booking page
+  pose: fills the frame from 30% of the height down, edge to edge
+  expression: ''
+  instances: 1
+hands: none visible
+props:
+- id: PR-SCREEN
+  story_critical: true
+  ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
+    step 2); the prop sheet is cut from the approved frame at step 7'
+  state: lit, the booking page
+  content: 'cream band with BOOK A CALL in deep ink; on the sage field a calendar of 3 rows by 4 columns of wide
+    flat rounded cream clay tiles, each about 16% of the frame width by 4% of the frame height, with sage gaps,
+    x 8% to 78%, y 39% to 54%, every tile empty: no digits, no names, no marks'
+  size_in_frame: the full width, from 30% of the height to the bottom edge
+- id: PR-GLASS
+  story_critical: true
+  ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
+    step 2); the prop sheet is cut from the approved frame at step 7'
+  state: lying flat on the screen
+  content: 'one magnifying glass: a round lens 24% of the frame width across (x 38% to 62%, y 40% to 53.5%) in a
+    thick terracotta #C8553D clay rim; the lens face is a solid matte clay disc with no shine, carrying the same
+    empty cream tiles modelled larger on it; one straight terracotta #C8553D clay handle, a round clay bar about
+    2.5% of the frame height thick, runs horizontally from the left point of the rim (x 38%, y 46.75%) to the viewer''s
+    left and ends at x 18%, y 46.75%, lying flat across the calendar with a soft contact shadow under it'
+text_in_image:
+- string: BOOK A CALL
+  surface: 'the cream band at the top of the screen, deep ink #2B2A33 letters, centred'
+  position: x 14% to 86%, y 31.5% to 36%
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+action_physics:
+- The screen faces the camera square on; the magnifying glass lies flat against the screen surface over the calendar,
+  its rim and its horizontal handle touching the calendar tiles; nothing touches the band or the letters.
+static: true
+setting:
+  ref: null
+  details: the clay phone screen fills the frame from 30% of the height down; from the top edge to 30% only plain
+    cream clay; lower than 55% only the plain sage screen field
+  background_rule: no signs, frames, posters or other screens; the only writing is the quoted text
+camera:
+  framing: 'One subject: the booking page, edge to edge, the magnifying glass on the calendar'
+  angle: straight on, square to the screen, camera inside the miniature clay world
+  lens: macro, shallow depth of field
+  aspect: '9:16'
+  safe_zones: 'Layout (STANDARDS 6; heights measured down from the top edge of the frame): the top 30% of the frame
+    is plain and empty (the text hook is set at 14% to 30% in the edit); every key element sits between 30% and
+    55% of the frame height (captions start at 55%) and inside 6% to 94% of the width, and inside 6% to 79% of the
+    width wherever it lies lower than 50% of the height; lower than 55% there is only the plain continuation of
+    the surface, nothing else.'
+continuity:
+  previous_shot: null
+  carry_over: []
+regions:
+- name: book-a-call
+  kind: text
+  box:
+  - 0.14
+  - 0.315
+  - 0.86
+  - 0.36
+- name: calendar
+  kind: prop
+  box:
+  - 0.08
+  - 0.39
+  - 0.78
+  - 0.54
+- name: lens
+  kind: prop
+  box:
+  - 0.38
+  - 0.4
+  - 0.62
+  - 0.535
+- name: handle
+  kind: prop
+  box:
+  - 0.18
+  - 0.455
+  - 0.38
+  - 0.48
+style: 'Premium studio claymation scene - everything sculpted from matte plasticine with refined intentional craftsmanship:
+  subtle tool marks, controlled texture, soft rounded geometry, slight subsurface warmth, macro lens feel with shallow
+  depth of field, soft diffused studio lighting with a gentle rim glow, the scene filling the entire frame with
+  the camera inside the miniature clay world. Vertical 9:16 frame. Palette (every colour in this frame): warm cream
+  #F3E9D8, terracotta #C8553D, sage #8FA98B, deep ink #2B2A33.'
+must_not:
+- no logo, wordmark or real app name or app icon anywhere
+- no digits or numbers anywhere
+- no words other than the quoted ones
+- nothing in the top 30% of the frame (measured down from the top edge) except the plain surface
+- no people, no hands, no faces
+- no workbench, table edge or room around the clay world
+- no glossy CGI look, no glass reflections
+hero: true
+notes: Concept frame for hook stacks EN06-V9 (Hook Lab v4). The text hook is overlaid in code at 14% to 30%, not
+  drawn by the model.

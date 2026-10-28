@@ -1,0 +1,29 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CF-V1",
+ "version": 1,
+ "prompt_sha256": "801638cb03e81860b8c14c628c4e4b72b941e65b50d47111701bc9d246b2c165",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {"id": "P1", "result": "PASS", "evidence": "Every spec subject, prop, text and rule is present: 'a single clay phone ... filling 18% to 82% of the frame width and 30% to 78%', 'about a dozen plump thumb-pressed clay hearts ... 14% to 86% ... 74% to 84%', 'from 26% to 74% of the frame width and 34% to 40%', and the safe zones 'main subject inside 10% to 90%'. All 11 card blocks present in order."},
+  {"id": "P2", "result": "PASS", "evidence": "'References: none attached (text to image).' matches the packet (no attached media); block 2 present."},
+  {"id": "P3", "result": "PASS", "evidence": "Spec 'hands: none visible'; prompt 'Hands: no hands visible.'"},
+  {"id": "P4", "result": "PASS", "evidence": "'the phone stands upright on its flat bottom edge, the edge pressed into the clay floor, no lean; the hearts rest on the floor and are pressed against the phone's lower edge; no heart touches the screen.'"},
+  {"id": "P5", "result": "PASS", "evidence": "Phone, screen and hearts all carry content lines: 'the screen field is sage #8FA98B; across its top a cream #F3E9D8 band holds the words \"BOOK A CALL\" ... calendar grid of 3 rows by 5 columns ... every square empty'. Negatives are targeted; no blanket 'no text'."},
+  {"id": "P6", "result": "PASS", "evidence": "'exactly \"BOOK A CALL\" in heavy bold deep ink #2B2A33 capital letters, centred in the cream band at the top of the phone screen ... from 26% to 74% ... 34% to 40%; nothing covers any letter.' Quotes, surface, position, case and occlusion present; 3 words."},
+  {"id": "P7", "result": "PASS", "evidence": "'no signs, frames, posters or other screens; the only writing is the quoted text.' The one screen (the phone) has its content rule; calendar squares are ruled 'every square empty'."},
+  {"id": "P8", "result": "PASS", "evidence": "Zones agree with the spec and each other: top 30% empty vs text at y 34-40%; phone bottom and floor line at 78%; hearts 74-84% stop at the 'nothing below 84%' line. 'No other text anywhere' does not empty the screen, which is filled by the content line."},
+  {"id": "P9", "result": "PASS", "evidence": "Spec previous_shot null, carry_over []; prompt 'Continuity: first frame of the reel; nothing carried over.'"},
+  {"id": "P10", "result": "PASS", "evidence": "openai/gpt-image-2/text-to-image is in models.atlas.allowed for still; --size 1152x2048 is size_for_aspect for 9:16; --quality medium is the required param; no extra text fields; prompt says 'Vertical 9:16 frame'. No video rules apply."},
+  {"id": "P11", "result": "PASS", "evidence": "Wording is plain and structured; geometry is given as numeric boxes ('18% to 82% of the frame width'). Advisory only: 'nothing below 84% of the frame height' is meant as no objects or text (the cream floor continues), which the spec shares; the heart pile's lower edge at 84% matches it."},
+  {"id": "P12", "result": "PASS", "evidence": "FL-02 structure line ('one rounded rectangular body ... one flat screen, no camera bump, no buttons, no second screen'); FL-03 contact points; FL-04 content lines; FL-05/FL-10 'no signs, frames, posters or other screens'; FL-11 'a single clay phone' plus a physics line; FL-13 not triggered (prompt says 'no logo', never asks for one)."}
+ ],
+ "notes": [
+  "No producer reasoning was in the packet; none was read.",
+  "Reviewed the registered text prompts/CF-V1.v1.2.txt against shots/H-01-V1.spec.yaml. Hash recorded as given by the packet (ledger hash of the registered text).",
+  "Advisory (not a fail): hearts y 74-84% overlap the phone's bottom 4% (floor line 78%), so the front hearts sit slightly in front of the lower rim; the spec shares this, and 'no heart touches the screen' covers it."
+ ],
+ "corrected_prompt": null
+}

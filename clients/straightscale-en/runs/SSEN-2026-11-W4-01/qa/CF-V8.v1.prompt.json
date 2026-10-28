@@ -1,0 +1,77 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CF-V8",
+ "version": 1,
+ "prompt_sha256": "707048a5759d2415c07f6380f3d9ea1c63e002054a6204bfca08bca477a515c8",
+ "actual_prompt_file_sha256": "1a89a31e6ba9193f62a0170da864af2cca0b174c32e248ab33a690b0aff17254",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "FAIL",
+   "evidence": "Spec camera.safe_zones: 'bottom 15% calm ... main subject inside x 10% to 90%'; prompt: 'bottom 8% calm', x range missing. Every subject, prop, text and arrow is otherwise present."
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'References: none attached (text to image).' Packet lists no media."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'Hands: no hands visible.' matches spec 'hands: none visible'."
+  },
+  {
+   "id": "P4",
+   "result": "FAIL",
+   "evidence": "'an arrow lies in the gap between the cards' names no contact point (spec: 'resting on the gap' is also vague). Cards' bottom edges on ledges are fine."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Post card: 'TIRED OF SLOW MONTHS?' plus three heart red hearts; page card: 2x5 grid of empty cream squares. Negatives are targeted, no blanket 'no text'."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "'exactly \"TIRED OF SLOW MONTHS?\" ... on the upper card ... 34% to 46%' and 'exactly \"WELCOME TO OUR WEBSITE\" ... centred at its top, 59% to 68%'; 'Nothing covers any letter'; 4 words each."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'no signs, frames, posters or screens. The top 30% ... plain empty cream backdrop.'"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "Prompt adds 'plain cream clay squares with thin ink outlines' while also saying 'no marks' and spec says 'plain cream clay squares'; outlines are drawn marks not in the spec."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot null; prompt 'first frame of the reel; nothing carried over.'"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Call openai/gpt-image-2/text-to-image, size 1152x2048 (9:16), quality medium: all in standards.json atlas.allowed (use includes still, size_for_aspect 9:16). Still, no video params."
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "'lies in the gap' (arrow) can be read as flat on a surface or standing; fixed together with P4. Shelf wording ('its own ledge' vs spec 'a cream clay shelf') is compatible and left as is."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 filled props, FL-05 background rule, FL-10 'no words other than the quoted ones', FL-13 'no logo, wordmark ... anywhere'. FL-01 and FL-03 do not apply (no hands, no moving action)."
+  }
+ ],
+ "notes": [
+  "The packet sha 707048a5... does not match the sha256 of prompts/CF-V8.v1.1.txt as found (1a89a31e...); the file as found was reviewed. Re-hash the corrected prompt before recording.",
+  "Spec inconsistency for the planner: page card runs to y 88% but the spec wants the bottom 15% calm. The corrected prompt keeps the card and allows only its bottom edge in that zone."
+ ],
+ "corrected_prompt": "Premium studio claymation scene - everything sculpted from matte plasticine with refined intentional craftsmanship: subtle tool marks, controlled texture, soft rounded geometry, slight subsurface warmth, macro lens feel with shallow depth of field, soft diffused studio lighting with a gentle rim glow, the scene filling the entire frame with the camera inside the miniature clay world. Vertical 9:16 frame. Palette: warm cream #F3E9D8 backdrop and floor, terracotta #C8553D accents, sage #8FA98B, deep ink #2B2A33 for letters on screens, heart red #D64545.\n\nReferences: none attached (text to image).\n\nSubject and pose: two clay cards stand upright on their bottom edges on a cream clay shelf, one above the other, centred. The upper card (the post) spans 14% to 86% of the frame width and 30% to 52% of the height; the lower card (the page) spans 14% to 86% of the width and 56% to 88% of the height.\n\nHands: no hands visible.\n\nAction as contact points: each card's bottom edge rests on its own cream clay shelf ledge; a short thick sage #8FA98B clay arrow stands in the gap between the cards, its tail touching the upper card's bottom edge and its tip touching the lower card's top edge, pointing down from the upper card to the lower card.\n\nProps with content: the upper card is a terracotta #C8553D clay card with rounded corners, with three small heart red #D64545 clay hearts stuck on its lower right corner. The lower card is a grey-blue #9AA3AD clay card with rounded corners; under its words sits a calendar grid of 2 rows by 5 columns of plain cream clay squares, every square empty: no digits, no names, no marks.\n\nText: on the upper card, exactly \"TIRED OF SLOW MONTHS?\" in heavy bold cream capital letters, on two lines, centred, at about 34% to 46% of the frame height. On the lower card, exactly \"WELCOME TO OUR WEBSITE\" in heavy bold deep ink #2B2A33 capital letters, on two lines, centred at its top, at about 59% to 68% of the frame height. Nothing covers any letter; the hearts sit below the upper card's letters. No other text anywhere.\n\nSetting and background: a plain cream clay backdrop, softly out of focus; no signs, frames, posters or screens. The top 30% of the frame is plain empty cream backdrop.\n\nCamera: straight on, the camera inside the miniature clay world, macro lens feel, shallow depth of field, vertical 9:16; top 30% calm and empty, bottom 15% calm (plain shelf and backdrop only, no letters; only the lower card's bottom edge at 88% reaches into it), main subject inside x 10% to 90%.\n\nContinuity: first frame of the reel; nothing carried over.\n\nNegatives: no logo, wordmark, real app name or app icon anywhere; no digits or numbers anywhere; no words other than the quoted ones; nothing at all in the top 30% of the frame except the plain cream backdrop; no faces; no set edges, workbench or room outside the clay world; no glossy CGI look.\n\nEverything in frame is real professionally sculpted matte plasticine, photographed - refined sculpting marks, real cast shadows, soft studio lighting, the clay scene filling the entire frame.\n"
+}

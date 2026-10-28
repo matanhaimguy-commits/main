@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CF-V8",
+ "version": 1,
+ "prompt_sha256": "7a9e4a4802571b68fe1a4d734b52b4f42134c312853a7be5b2fd42c01f29e774",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "All spec items present: 'one flat cream #F3E9D8 clay slab ... thick terracotta #C8553D clay rim', page slab, arrow 'from 40% to 48% ... touching neither card', hearts, four quoted strings, 'Hands: no hands visible.', setting, camera, safe zones, negatives. Card order differs slightly (Camera sits before Subject); no block missing."
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'References: none attached (text to image).' matches attached media: none."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'Hands: no hands visible.' matches spec 'hands: none visible'."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'Both cards and the arrow lie flat on the sage clay ground; nothing rests on top of them except the three hearts pressed into the post card.'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Both story props carry full content (colour, rim, layers, letters, hearts); negatives are targeted ('no words other than the quoted ones'), no blanket 'no text'."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "Four quoted strings, each with surface, line, colour, case, x/y position; 'nothing covers any letter'; max 2 words per string, 2 lines per card."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'no signs, frames, posters or screens; the only writing is the quoted text.'"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No direct conflict; the post card is 14% tall with lines to y 43.5% so the hearts placement is only ambiguous, handled under P11."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'first frame of the reel; nothing carried over.' matches previous_shot: null."
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Call openai/gpt-image-2/text-to-image, quality medium, size 1152x2048 = the 9:16 size in standards.json atlas allowed entry for still/static; 'Vertical 9:16 frame.'; declined_preset_id and speaker rules N/A for a still."
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "'three small clay hearts ... pressed onto its lower right corner, below its letters': the post card ends at y 45% and its letters end at y 43.5%, leaving about 1.5% (a thick rim) under line 2, so 'below its letters' can be read as under line 2 (no room, hearts would overlap letters or the rim) or under line 1 at the right end (the only space that fits)."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 prevented by content lines; FL-05 by the background rule; FL-13 no logo requested ('no logo, wordmark ... anywhere'); FL-01 no hands."
+  }
+ ],
+ "corrected_prompt": "Premium studio claymation scene - everything sculpted from matte plasticine with refined intentional craftsmanship: subtle tool marks, controlled texture, soft rounded geometry, slight subsurface warmth, macro lens feel with shallow depth of field, soft diffused studio lighting with a gentle rim glow, the scene filling the entire frame with the camera inside the miniature clay world. Vertical 9:16 frame. Palette (every colour in this frame): warm cream #F3E9D8, terracotta #C8553D, sage #8FA98B, deep ink #2B2A33, grey-blue #9AA3AD, heart red #D64545.\n\nReferences: none attached (text to image).\n\nCamera: seen from straight above, the lens looking straight down at the clay ground, square to the frame; macro lens feel, shallow depth of field, vertical 9:16. Two cards stacked vertically, the post card centred and the page card left of 79% of the width, the arrow between them.\n\nSubject and props: A flat sage #8FA98B clay ground fills the whole frame. On it lie two flat clay cards, one above the other. The upper card (the post): one flat cream #F3E9D8 clay slab with rounded corners and a thick terracotta #C8553D clay rim, one layer, from 6% to 94% of the frame width and 31% to 45% of the frame height, with three small clay hearts in heart red #D64545 pressed onto its lower right corner, below the right end of line 1 and to the right of line 2, inside the rim and clear of every letter. The lower card (the page): one flat grey-blue #9AA3AD clay slab with rounded corners, one layer, from 6% to 79% of the frame width and 49% to 64% of the frame height. Between them, one short thick terracotta #C8553D clay arrow pointing down, from 40% to 48% of the frame width and 45.5% to 48.5% of the frame height, touching neither card. From the top edge down to 30% of the frame height the ground is plain and empty.\n\nHands: no hands visible.\n\nAction as contact points: Both cards and the arrow lie flat on the sage clay ground; nothing rests on top of them except the three hearts pressed into the post card.\n\nText: heavy bold capital letters, exactly: \"TIRED OF SLOW\" on the post card, line 1, deep ink #2B2A33 letters, centred, at x 12% to 88%, y 32.5% to 37.5%; \"MONTHS?\" on the post card, line 2, deep ink #2B2A33 letters, centred, at x 32% to 68%, y 38.5% to 43.5%; \"WELCOME TO\" on the page card, line 1, deep ink #2B2A33 letters, centred, at x 14% to 71%, y 50.5% to 56%; \"OUR WEBSITE\" on the page card, line 2, deep ink #2B2A33 letters, centred, at x 12% to 73%, y 57% to 62.5%; nothing covers any letter. No other text anywhere.\n\nSetting and background: a flat sage #8FA98B clay ground filling the whole frame. no signs, frames, posters or screens; the only writing is the quoted text.\n\nLayout (heights measured down from the top edge of the frame): the top 30% of the frame is plain and empty (the text hook is set at 14% to 30% in the edit); every key element sits between 30% and 65% of the frame height and inside 6% to 94% of the width, and inside 6% to 79% of the width wherever it lies lower than 50% of the height; lower than 65% there is only the plain continuation of the surface.\n\nContinuity: first frame of the reel; nothing carried over.\n\nNegatives: no logo, wordmark or real app name or app icon anywhere; no digits or numbers anywhere; no words other than the quoted ones; nothing in the top 30% of the frame (measured down from the top edge) except the plain surface; no people, no hands, no faces; no workbench, table edge or room around the clay world; no glossy CGI look, no glass reflections.\n\nEverything in frame is real professionally sculpted matte plasticine, photographed - refined sculpting marks, real cast shadows, soft studio lighting, the clay scene filling the entire frame."
+}

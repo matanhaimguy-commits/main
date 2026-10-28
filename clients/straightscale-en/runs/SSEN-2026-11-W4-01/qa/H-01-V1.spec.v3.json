@@ -1,0 +1,22 @@
+{"gate": "G-SPEC", "shot_id": "H-01-V1", "spec_sha256": "23274d114f0318108665f99bb9c5e9570a2fbdea6a5996e74a1936e258e9af1a",
+ "reviewer": "prompt-reviewer (fresh agent)", "independent": true, "status": "FAIL",
+ "files_opened": ["clients/straightscale-en/runs/SSEN-2026-11-W4-01/shots/H-01-V1.spec.yaml", "growth-engine/production/STANDARDS.md (section 6)", "growth-engine/production/failure-library.md"],
+ "checks": [
+  {"id": "P1", "result": "PASS", "evidence": "Screen, hearts and BOOK A CALL text all present; hands 'none visible'; must_read_in_1s is one moment: 'A BOOK A CALL page, its calendar empty, hearts piled on the screen.'"},
+  {"id": "P2", "result": "N/A", "evidence": "Spec mode; no references (text-to-image)."},
+  {"id": "P3", "result": "PASS", "evidence": "hands: none visible; must_not: 'no people, no hands, no faces'."},
+  {"id": "P4", "result": "PASS", "evidence": "'the hearts lie flat against the screen surface in one low pile, each resting on the screen or on the heart under it'; hearts 'touching only the screen and each other'."},
+  {"id": "P5", "result": "PASS", "evidence": "PR-SCREEN and PR-HEARTS have full content lines (colours, layout, 'BOOK A CALL', 'every square empty'); no blanket 'no text' (must_not says 'no words other than the listed strings')."},
+  {"id": "P6", "result": "PASS", "evidence": "BOOK A CALL (3 words), surface 'the cream band at the top of the screen', position x 14% to 86%, y 32% to 39% inside the band 31% to 40%, occlusion 'nothing covers any letter'; region book-a-call boxed."},
+  {"id": "P7", "result": "PASS", "evidence": "background_rule: 'plain cream #F3E9D8 clay above the page; no signs, frames, posters or other screens'; the empty calendar squares are ruled ('no digits, no names, no marks')."},
+  {"id": "P8", "result": "FAIL", "evidence": "PR-HEARTS says the pile lies 'to the left of the calendar's bottom row, from 8% to 40% of the width and 58% to 65% of the height', but the calendar is 'from 8% to 78% of the width and 42% to 64% of the height' with 'every square empty'. The hearts box (0.08,0.58,0.40,0.65) sits inside the calendar box (0.08,0.42,0.78,0.64): the hearts cannot be 'to the left of' the bottom row and must cover the squares of columns 1 to 2, or the squares get pushed. Also 'seven ... hearts' puts a count on a screen, which STANDARDS section 6 'Numbers and screens' says to avoid (screens show states, not counts)."},
+  {"id": "P9", "result": "PASS", "evidence": "previous_shot: null, carry_over: [] (frame 1 of the reel)."},
+  {"id": "P10", "result": "N/A", "evidence": "Spec mode. Layout check against STANDARDS 6: top 14% empty and the hook zone 14-30% plain cream; band 14-86% wide at y 32-39% (above 50%, inside 6-94%); calendar x 8-78% (inside 6-79% below 50%) y 42-64%; hearts x 8-40% y 58-65%; all key elements inside 30-65% height; below 65% plain continuation. Safe-zone layout PASS."},
+  {"id": "P11", "result": "PASS", "evidence": "Every position is given in percentages with colours in hex; 'heavy bold deep ink #2B2A33 capital letters'; 'matte clay, not glass'. The only ambiguity is the hearts/calendar overlap, reported under P8."},
+  {"id": "P12", "result": "PASS", "evidence": "FL-04 prevented by content lines for the screen; FL-05 by the background_rule; FL-13 by 'no logo, wordmark or real platform name or icon anywhere'; FL-02 by the one-line screen structure ('screen continues past the left, right and bottom edges'); FL-01 not applicable (no hands)."}
+ ],
+ "suggested_spec_changes": [
+  "Remove the hearts/calendar overlap. Simplest: shrink the calendar to y 42% to 57% (3 rows by 4 columns, x 8% to 78% unchanged) and update regions.calendar to [0.08, 0.42, 0.78, 0.57] and the PR-SCREEN content ('from 42% to 57% of the height'; 'the sage field continues plain to the right of the calendar and below 57%').",
+  "Rewrite PR-HEARTS content: 'plump thumb-pressed clay hearts in heart red #D64545, each about 7% of the frame width, lying in one low pile on the sage field below the calendar, from 8% to 40% of the width and 59% to 65% of the height, touching only the screen and each other, none on the calendar squares, the band or the letters'; set regions.hearts to [0.08, 0.59, 0.40, 0.65]; update the action_physics line only if it names the old position.",
+  "Replace 'seven' with 'a small pile of' (no count on the screen), e.g. 'a small pile of plump thumb-pressed clay hearts ... each about 7% of the frame width'."
+ ]}

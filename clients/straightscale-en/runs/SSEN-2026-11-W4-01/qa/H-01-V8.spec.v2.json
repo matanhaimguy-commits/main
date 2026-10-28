@@ -1,0 +1,30 @@
+{
+  "gate": "G-SPEC",
+  "shot_id": "H-01-V8",
+  "version": 2,
+  "spec_sha256": "44fc07fc390cf652a8952523be2617a5bb5cfca855d73119eb7ffc674e65d09a",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "FAIL",
+  "checks": [
+    {"id": "P1", "result": "PASS", "evidence": "Both cards, the arrow and all four text strings are listed in subjects/props/text_in_image; must_read_in_1s: \"The post says TIRED OF SLOW MONTHS?, the page under it WELCOME TO OUR WEBSITE.\" is one clear moment; hands: none visible."},
+    {"id": "P2", "result": "N/A", "evidence": "Spec mode; no references (text-to-image)."},
+    {"id": "P3", "result": "PASS", "evidence": "\"hands: none visible\"; no hand regions needed."},
+    {"id": "P4", "result": "PASS", "evidence": "\"held to the backdrop wall by one pushpin pressed into the wall through its top centre; the arrow is pressed flat into the wall...; the page card's bottom edge rests on the clay floor and its back leans against the wall.\""},
+    {"id": "P5", "result": "PASS", "evidence": "PR-POST and PR-PAGE both have full content lines: \"a calendar grid of 2 rows by 5 columns of plain cream clay squares, every square empty: no digits, no names, no marks\"; no blanket no-text negative (must_not is targeted)."},
+    {"id": "P6", "result": "PASS", "evidence": "Four strings, each with surface, position, case, must_be_exact and \"occlusion: nothing covers any letter\"; 4 words per surface (\"TIRED OF SLOW\" + \"MONTHS?\"; \"WELCOME TO\" + \"OUR WEBSITE\")."},
+    {"id": "P7", "result": "PASS", "evidence": "background_rule: \"plain warm cream clay backdrop, softly out of focus; no signs, frames, posters or other screens; the only writing is the listed text\"."},
+    {"id": "P8", "result": "FAIL", "evidence": "The pin sits at the post card's top centre (card top y 30%), but \"TIRED OF SLOW\" starts at y 32% and spans x 20% to 80%, so the pin (size unstated) will land on or touch the letters around \"OF\", against \"nothing covers any letter\"; a pin on the top edge can also poke into the top 30% that must be empty. Also minor: a page card leaning on the wall has its base in front of the 84% wall-floor line, against \"nothing below 84% of the height\"."},
+    {"id": "P9", "result": "PASS", "evidence": "\"previous_shot: null\", \"carry_over: []\": first frame, nothing to carry."},
+    {"id": "P10", "result": "N/A", "evidence": "Spec mode; model rules are checked on the prompt (gpt-image-2, 9:16 stated in camera.aspect)."},
+    {"id": "P11", "result": "FAIL", "evidence": "\"one round sage clay pushpin\" has no size or exact position, and \"nothing below 84% of the height\" is read two ways because the floor itself continues below 84% and the leaning card's base and shadow will cross that line."},
+    {"id": "P12", "result": "PASS", "evidence": "FL-02 structure lines (\"a single flat ... clay card, one slab, rounded corners, no second layer\"), FL-04 content lines, FL-05/FL-10 background rule and \"no words other than the listed strings\"; FL-13 not triggered (\"no logo, wordmark or real platform name or icon anywhere\")."}
+  ],
+  "regions_review": "Regions box post, post-text, arrow, page, page-text and calendar; no hand or face regions needed (none visible, no faces). The pushpin and the three hearts fall inside the post region; adding a small box for the pin would let the reviewer check it against line 1.",
+  "suggested_spec_changes": [
+    "Fix the pin collision: give the pushpin a size and place it fully inside the card's top strip, e.g. \"pushpin diameter about 1.5% of the frame height, centred at x 50%, y 31%, entirely on the card and entirely below y 30%\".",
+    "Move the post text down so it clears the pin: \"TIRED OF SLOW\" position y 33.5% to 39%, \"MONTHS?\" y 39% to 44.5%; update the post-text region box to [0.2, 0.335, 0.8, 0.445]. The hearts stay in the lower right corner (x about 70% to 84%, y about 44.5% to 46.5%) clear of \"MONTHS?\" (x 35% to 65%).",
+    "Add a region {name: pin, kind: prop, box: [0.44, 0.30, 0.56, 0.33]} so the reviewer can crop it against line 1.",
+    "Replace the floor-line wording: \"the wall meets the floor at about 80% of the frame height; the page card's base and contact shadow end by 84%; below 84% only plain empty cream floor (no props, no text)\", and set the page card pose so its bottom edge is at y 82% to 84%."
+  ]
+}

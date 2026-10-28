@@ -1,0 +1,22 @@
+{"gate": "G-SPEC", "shot_id": "H-01-V1", "spec_sha256": "6d423371d9e6ed6c38b2d5c7ab279bec28cfdc399d4c04dd6a200ba749d6ceaf",
+ "reviewer": "prompt-reviewer (fresh agent)", "independent": true, "status": "PASS",
+ "files_opened": ["clients/straightscale-en/runs/SSEN-2026-11-W4-01/shots/H-01-V1.spec.yaml", "growth-engine/production/STANDARDS.md (section 6)", "growth-engine/production/failure-library.md", "clients/straightscale-en/runs/SSEN-2026-11-W4-01/qa/H-01-V1.spec.v5.json"],
+ "checks": [
+  {"id": "P1", "result": "PASS", "evidence": "Screen, hearts and text all present; hands 'none visible'; must_read_in_1s is one moment: 'A BOOK A CALL page with an empty calendar, hearts piled under it.'"},
+  {"id": "P2", "result": "N/A", "evidence": "Spec mode; text-to-image, no references."},
+  {"id": "P3", "result": "PASS", "evidence": "hands: 'none visible'; must_not: 'no people, no hands, no faces'."},
+  {"id": "P4", "result": "PASS", "evidence": "'the hearts lie flat against the screen surface in one low pile under the calendar, each resting on the screen or on the heart under it; nothing touches the band, the letters or the calendar tiles.'"},
+  {"id": "P5", "result": "PASS", "evidence": "PR-SCREEN content: 'cream band with BOOK A CALL in deep ink; ... every tile empty: no digits, no names, no marks'; PR-HEARTS content gives colour #D64545, size, box. must_not holds only targeted negatives, no blanket 'no text'."},
+  {"id": "P6", "result": "PASS", "evidence": "string 'BOOK A CALL' (3 words), surface 'the cream band at the top of the screen, deep ink #2B2A33 letters, centred', position 'x 14% to 86%, y 31.5% to 36%', occlusion 'nothing covers any letter'; region book-a-call [0.14,0.315,0.86,0.36] matches. Band about 92 px high at 2048 for letters across 72% of width: fits."},
+  {"id": "P7", "result": "PASS", "evidence": "background_rule: 'no signs, frames, posters or other screens; the only writing is the quoted text'; calendar tiles ruled 'no digits, no names, no marks'; below 55% 'only the plain sage screen field'."},
+  {"id": "P8", "result": "PASS", "evidence": "Geometry now consistent at 1152x2048. Calendar: 4 columns in x 8-78% (about 806 px) gives tiles about 190 px wide; 2 rows in y 39-48% (about 184 px) gives about 85 px tall: 'about twice as wide as tall' holds. Hearts: 4.5% of width is about 52 px; one heart high fits the 5% (about 102 px) box and 'never taller than 5%' caps the top hearts; x 8-60% holds about 11 hearts. Calendar box (to y 48) clear of hearts box (from y 50). Top 30% plain cream, 'previous' contradictions from v5 resolved."},
+  {"id": "P9", "result": "PASS", "evidence": "previous_shot: null, carry_over: [] (frame 1 of the reel)."},
+  {"id": "P10", "result": "N/A", "evidence": "Spec mode. Aspect '9:16' stated; model rules are checked on the prompt."},
+  {"id": "P11", "result": "PASS", "evidence": "'tiles ... about twice as wide as tall' and 'one heart high with a few resting on top and never taller than 5% of the frame height' are measurable; the v5 'squares' and 'one to two hearts high' wording is gone. Residual: 'a few' hearts on top is a loose count but bounded by the 5% height cap and the counts rule (no digits)."},
+  {"id": "P12", "result": "PASS", "evidence": "FL-04 prevented by content lines for screen and hearts; FL-05 by 'no signs, frames, posters or other screens'; FL-13 by 'no logo, wordmark or real app name or app icon anywhere'; FL-02 by 'the clay phone screen fills the frame from 30% of the height down'; FL-01, FL-03, FL-06, FL-11 not applicable (no hands, no people)."},
+  {"id": "SAFE-ZONE", "result": "PASS", "evidence": "STANDARDS 6: top 14% and 30% clear ('nothing in the top 30% ... except the plain surface'; hook overlay 14-30% in code). Key props: band y 31.5-36, calendar y 39-48, hearts y 50-55, all inside 15-55% and above captions at 55%; bottom 35% only plain sage. Sides: calendar x 8-78 and hearts x 8-60 sit inside 6% margins and the 79% limit for the lower half (below 50% height); band x 14-86 is above 50% so the 94% limit applies. Text overlay does not sit over the subject."}
+ ],
+ "suggested_spec_changes": [
+  "Optional, not a failure: the hook overlay in the top 30% is on plain cream, so the code must use deep ink #2B2A33 (4.5:1 or more).",
+  "Optional: the style palette lists terracotta #C8553D although no element in this frame uses it; the prompt should say it is unused here or the model may add it."
+ ]}
