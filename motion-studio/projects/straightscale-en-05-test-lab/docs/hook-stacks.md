@@ -105,18 +105,24 @@ Master stack carried into Script Lab (provisional; one round of fixes from the r
   5 notes): her finger is on the round coin-and-arrow button, large clay coins drop through the post, out of the
   phone, roll right under the empty CLIENTS pockets and off the desk edge. By 1.5 s the desk is bare and the post looks
   over the edge; at 2.5 s her finger reaches for the button again.
-- **Text (frame 1 to about 2.5 s, top third):** "Quiet month? She pushed a post. It wasn't the post." (10 words; round 5
-  G1's merge of D's opener and F's turn, cut to the 10-word limit. The graders' own 12-word merge was over STANDARDS 6.)
+- **Text (frame 1 to about 2.5 s, top third):** "Quiet month? She paid to push a post. Nothing." (9 words; round 4
+  stack C: T A and A-.) First carried in: "Quiet month? She pushed a post. It wasn't the post." (round 5 G1's merge of D's
+  opener and F's turn, cut to 10 words, ungraded); Script Lab test 12 sent it back (loop 4): on this body, where the fix
+  is choosing the right post, "it wasn't the post" read as a contradiction to a fresh sound-off reader. The swap was
+  checked with one more fresh sound-off read: no contradiction, every rung retold.
 - **Spoken line 1 (the post, first word at 0.0 s):** "Last quiet month, Maya paid to push me. She was guessing."
   (11 words; graded A and A in round 4, A- and A- in round 5; problem "quiet month" in words 1 to 3, the twist
   "guessing" at the end.)
-- **Seam (line 2, Script Lab test 12):** "She wrote me at midnight, from her own head." Line 3 pays the text hook: "It wasn't me.
-  She paid before any post was tested."
+- **Seam (line 2, Script Lab test 12, final script):** "She wrote me at midnight and paid before anyone saw me." Line 3
+  answers the master question: "That was the mistake: a post is a guess until buyers answer it."
+- **Master stack grades on record (not a pass):** V A- / A- (round 5 spec; the 0.0 s coin start is the one ungraded
+  fix), T A / A- (round 4), S A / A (round 4) and A- / A- (round 5).
 - Fallback opening (if boosted later): the same frame with the CLIENTS pockets simply empty and no coin motion.
 
 Variants (below A, for the trial reels after the main post; back to H6 after the owner's pick):
-- F as graded: "She paid to push a post. It wasn't the post." + "Quiet month. Maya guessed I'd work, and paid." (best graded).
-- C/D spoken with the round 4 text: "Quiet month? She paid to push a post. Nothing." (T A and A-).
+- F as graded: "She paid to push a post. It wasn't the post." + "Quiet month. Maya guessed I'd work, and paid." (best
+  graded set of round 5; its text fails test 12 on spine A's body, so it belongs with spine B if Matan picks B).
+- E reworked: "The post didn't fail. She paid before it proved itself." (T B and A-; needs H6).
 
 What blocks an A on the visual in every round is the same note: at 1 s a phone with a face reads as cute before it reads
 as a business; the coin button reads as a little "gamey". That is partly the claymation look (decided once per series,
