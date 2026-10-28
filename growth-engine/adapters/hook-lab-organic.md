@@ -4,6 +4,30 @@ Pass this file and the full Post Card with every `readymerce-hook-lab` call for 
 the Hook Lab disagree, this adapter wins for organic posts; everything else in the Hook Lab (the 3-channel stack, the 9
 gates, the A/A+ bar, the rubric, research) still applies. Source: ORGANIC-OS.md 7.3.
 
+## Proven formats only (owner rule, 28 Oct 2026; this section wins over everything below)
+Why: the EN 04 to 06 hooks were written from nothing, graded by AI readers, and came out in written English nobody
+says in a reel ("decided before you ever quoted"). An AI grader's "A" is an opinion, not evidence. What counts as
+proof is a post that already won with this buyer, and the buyers' own words.
+1. **Every stack starts from a proven format.** Hook Lab's H3 List 3 ("original, written from the rubric") is off
+   for organic until one of our own posts proves a new format in Live results. Every stack is List 2: a format entry
+   from the client's Hook Library (`clients/<slug>/research/hook-library-en.md`, ids `HF-nn`) at 3x or more over its
+   creator's median (prefer 10x+, the only ones whose structure may be copied), its mad-lib filled in. Cite the id.
+   No library entry fits the topic: say "only N formats fit" and stop; never pad with invented formats.
+2. **The words are the buyers' words.** Fill the slots from `clients/<slug>/research/buyer-phrases-en.md` (verbatim
+   lines with ids) and cite the ids. The spoken line must share real words with the cited phrases.
+3. **Say it out loud.** The spoken line is something an owner would say to a friend: 11 words or fewer, short common
+   words, no written-register or marketing words ("quote", "solutions", "leverage", "framework", "proposal"...)
+   unless the buyers wrote them. Read it aloud once; if you'd never hear it in a reel, cut it.
+4. **Code check before any grader.** Write the stacks to `docs/hooks.json` (`id, text, spoken, visual, format_id,
+   voc_ids, story`) and run `python3 growth-engine/tools/organic.py hooks <slug> docs/hooks.json`. Only PASS stacks
+   go on. The tool fails a stack with no proven format, no buyer words, a long or stiff spoken line, a text hook outside
+   4 to 10 words, no contrast or payoff word, or a banned word.
+5. **Graders can fail a hook, never prove it.** The blind fresh-grader read (G-HOOK) stays, but only as a clarity
+   check on stacks that already passed 1 to 4: what is this about, would you keep watching, which words were unclear.
+   Report their grades as readers' opinions, next to the format's real numbers, never as the reason a hook is good.
+6. **The owner sees the evidence.** Each master stack is shown with its source post (creator, views, breakout, the
+   original spoken line) and the buyer phrases it uses, so the owner can judge the proof, not our grade.
+
 1. **Two jobs in 1 to 3 seconds:** topic clarity and on-target curiosity. Check the 4 S's: Subject, Stakes, Speed
    (compressed), Super clear.
 2. **Kill the 4 mistakes:** delay (topic late), confusion (two readings, big words), irrelevance ("I/people" instead of
@@ -53,7 +77,9 @@ Hook Lab's visual rules were tuned on health products ("the body part already sw
 Hook Lab grades its own stacks. For organic posts the hook-agent's top 3 stacks then go to a **fresh agent** that gets
 only the persona card (AV-01 from the brain, scrolling at night, sound off first) and, per stack, the text hook, the
 spoken line 1 and the concept frame. It answers: that's me / not me, what the post is about, would you keep watching,
-and grades each channel. G-HOOK passes when the master stack is A or A+ on every channel from both graders.
+and grades each channel. G-HOOK passes when the master stack has passed `organic.py hooks` (proven format, buyer words,
+plain spoken English: "Proven formats only" above) AND is A or A+ on every channel from both graders. A stack that
+never passed the code check cannot pass G-HOOK however the graders score it.
 
 ## Concept frames are gated stills
 A concept frame is frame 1 of the hook shot, so the hook shot's Shot Spec (`H-01`) is written at step 2, not step 6,
