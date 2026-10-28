@@ -1,0 +1,73 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CF-V1",
+ "version": 1,
+ "prompt_sha256": "22d9ae13173848aaab2178ceba1665bc72235e6f5716dcabee5f8a59cae74800",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "All 11 blocks in order; every spec subject, hand, prop, text, action and setting line is present, e.g. 'one lit screen', 'the desk is bare', 'Nothing in the top 30% except the plain wall'."
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'Reference images: none attached; this prompt is the only input.' matches the empty media list (text-to-image)."
+  },
+  {
+   "id": "P3",
+   "result": "FAIL",
+   "evidence": "Hands block says both hands stay 'in front of the phone's lower part' but the left hand has 'four fingers around the phone's lower back' (behind the phone) and the right 'other four fingers ... curled under the phone's right edge' ('under' unclear, phone runs off the bottom edge)."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'the left hand's fingers grip the phone's lower back; the right thumb is still, 1 cm above the glass, not touching it.'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Screen content is filled: 'exactly one large light-grey incoming message bubble ... and empty white space below it'; negatives are targeted, none blanket ('no words other than the message')."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"We can get it done cheaper.\" (5 words) with surface 'inside the one grey bubble', position 'centred', case 'Sentence case', occlusion 'no letter touches a thumb, a finger, a hand or a sleeve'. (The last text sentence is fixed under P8.)"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'No other screens, papers, posters or readable words anywhere; the desk is bare.' and the phone screen has its content rule."
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "Text block: 'Nothing reaches above 62% of the frame height' is false for the phone and the bubble themselves (bubble at y 33% to 54%); and Hands block: 'in front of the phone's lower part' contradicts 'four fingers around the phone's lower back'."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'Continuity: none, this is the first frame of the reel.' matches spec previous_shot null, carry_over []."
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "atlas openai/gpt-image-2/text-to-image is in standards.json models.atlas.allowed, use includes still and start_frame, params quality medium, size 1152x2048 is the listed 9:16 size, prompt says '9:16'; no extra text fields; hands only, no person reference needed. Register the asset with --hero (STANDARDS 3: the hook concept frame is frame 1, so hero; standards.json 'still' alone is hero false)."
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "'Nothing reaches above 62% of the frame height' can be read from the top or from the bottom edge (no y convention is stated); 'letters about 60 px tall' gives no frame width (spec: 'at 1152 px wide'); 'curled under the phone's right edge' is two-way."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 prevention present ('No letter touches a thumb, a finger, a hand or a sleeve'); FL-03 contact points; FL-04/05 screen filled and ruled; FL-08 phone kept in hand with a hands line; FL-13 not triggered: no logo asked and a concept frame gets no brand overlay (bottom-left holds the left hand)."
+  }
+ ],
+ "corrected_prompt": "Photoreal POV photo, vertical 9:16, 35mm lens, shallow depth of field. Look: a POV dramatization with hands only and never a face; a warm evening home office lit by a tungsten desk lamp from the left, soft shadows, natural skin; the owner's wrists always in mustard-yellow knit sleeves; muted warm palette of walnut, warm grey and mustard, the phone screen the brightest thing in the frame.\nReference images: none attached; this prompt is the only input.\nSubject: all x and y percentages in this prompt are measured from the top-left corner of the frame (y 0% is the top edge, y 100% the bottom edge). One modern black smartphone held by the viewer, tilted back about 20 degrees from upright with its lit screen facing the camera, centred (x 16% to 84% of the frame width), running from 30% of the frame height down past the bottom edge, close to the camera; it appears once and is the only device in the picture.\nHands: two adult hands seen from the viewer's own point of view, both wrists in mustard-yellow knit sleeves. The left hand, in the lower left (x 12% to 50%, y 72% to 100%), holds the phone from below: four fingers around the phone's lower back, the thumb along its left edge. The right hand, in the lower right (x 55% to 88%, y 66% to 100%), is relaxed: its thumb hovers about 1 cm above the empty lower half of the screen, frozen, touching nothing, and its other four fingers are loosely curled in the air just beside the phone's right edge, touching nothing. Both hands stay below y 62% (in the lower 38% of the frame), well below the bubble; the left fingers are behind the phone, the left thumb is on its left edge, and the right thumb is in front of the glass. No letter touches a thumb, a finger, a hand or a sleeve. Exactly two hands with five fingers each.\nAction: the left hand's fingers grip the phone's lower back; the right thumb is still, 1 cm above the glass, not touching it.\nProps: the phone is a plain black smartphone with thin bezels and rounded corners, no logo on the case or the glass, one lit screen. The screen shows a plain chat view on a white background with exactly one large light-grey incoming message bubble at the top of the screen (x 22% to 78%, y 33% to 54% of the frame), and empty white space below it; no names, no avatars, no status bar, no time, no app logo.\nText: inside the one grey bubble, centred, in dark charcoal plain sans-serif, letters about 60 px tall on a frame 1152 px wide and 2048 px tall, on 2 or 3 lines, each line ending well inside the bubble's edge: \"We can get it done cheaper.\" Sentence case, exactly these words and this punctuation. No hand, finger or sleeve reaches above y 62% of the frame, so no letter touches anything.\nSetting: a home office in the evening seen over the hands: a warm walnut desk visible behind and beside the phone, soft and out of focus; the wall behind is plain dark warm grey and out of focus. No other screens, papers, posters or readable words anywhere; the desk is bare.\nCamera: first person looking down at the phone at about 30 degrees, phone screen sharp, 9:16. The top 30% of the frame is a calm, plain, out-of-focus dark wall with nothing in it. The bubble sits between 15% and 55% from the top and inside 6% side margins; below 55% there is only the phone body, the hands and the desk.\nContinuity: none, this is the first frame of the reel.\nNegatives: no face and no reflection of a face in the screen; no logo, brand or app name; no numbers, no clock, no status bar; no words other than the message; nothing in the top 30% except the plain wall; no third hand.",
+ "notes": "Reviewed prompts/CF-V1.v1.2.txt (sha matches the packet under pipeline.py sha_text normalisation). Changes in the corrected prompt: y-convention sentence added to Subject; hands 'in front of' replaced by behind/edge/in front of glass; right fingers 'in the air just beside the right edge'; frame size added to the letter height; 'Nothing reaches above 62%' replaced by 'No hand, finger or sleeve reaches above y 62%'. Apply the spec edits in qa/H-01-V1.spec.json first so spec and prompt agree. Corrected prompt sha_text: ff48763e5393690317341a5de72067d43453ea26932cf6dc1d597b926a505df5"
+}

@@ -29,15 +29,17 @@ props:
   story_critical: false
   ref: null
   state: three copies, identical in layout, words and type; only the price stickers differ in size
-  content: 'plain white tall narrow sheets; on each, the same three headings stacked in heavy black block capitals, each on one
-    single line filling about 85% of the sheet width (letters about 4% of the sheet height): PROGRAM, WEEKLY CALLS, A PROMISE; plain grey bars (not letters) under each
-    heading; one round red sticker in the top right corner of each sheet with no
-    writing on it, the left sticker largest, the middle smaller, the right smallest'
+  content: 'plain white tall narrow sheets; on each, one round red sticker with no writing in the top right corner,
+    above the first heading so it touches no heading letter (left sheet sticker about 9% of the frame width across,
+    middle about 6.5%, right about 4%); below the sticker row, the same three headings stacked in heavy black block
+    capitals, each on one single line, never wrapped, never wider than 85% of the sheet width, letters about 4% of the
+    sheet height and the same size for all three headings: PROGRAM, WEEKLY CALLS, A PROMISE; a few plain grey bars (not
+    letters) under each heading'
   size_in_frame: each sheet is about 28% of the frame width and 32% of the frame height
 text_in_image:
 - string: PROGRAM
   surface: heading 1 on each of the three sheets, heavy black block capitals
-  position: top of each sheet
+  position: top of the text area of each sheet, below the sticker row
   case: upper
   must_be_exact: true
   occlusion: nothing covers any letter
@@ -59,7 +61,7 @@ action_physics:
 static: false
 setting:
   ref: null
-  details: 'A warm walnut desk seen from straight above in the evening, warm tungsten lamp light from the upper left,
+  details: 'All x and y percentages are measured from the top-left corner of the frame. A warm walnut desk seen from straight above in the evening, warm tungsten lamp light from the upper left,
     soft shadows under the sheets.'
   background_rule: Nothing else on the desk; no readable words except the headings; the stickers carry no digits or
     letters.
@@ -68,9 +70,9 @@ camera:
   framing: flat lay; the top 30% of the frame bare dark walnut wood with nothing on it (the text hook is laid there in
     the edit); the sheets in the middle band; the hand enters from the bottom
   angle: straight down, 90 degrees
-  lens: 35mm photo, everything sharp
+  lens: candid iPhone 15 Pro photo, real skin texture, everything sharp
   aspect: '9:16'
-  safe_zones: 'reels safe zone (STANDARDS 6): the sheets, headings and stickers sit between 30% and 62% from the top
+  safe_zones: 'reels safe zone (STANDARDS 6): the sheets, headings and stickers sit between 30% and 56% from the top (the third heading of the right sheet at or above y 52%)
     and inside 6% side margins (the sheet bottom edges and the pinch at 55% to 62% are not key); the top 30% holds
     nothing; below 62% only the hand and wood'
 continuity:
@@ -95,9 +97,15 @@ regions:
 - name: hand
   kind: hand
   box: [0.60, 0.60, 0.90, 1.0]
-- name: stickers
+- name: sticker-left
   kind: prop
-  box: [0.20, 0.31, 0.93, 0.36]
+  box: [0.25, 0.31, 0.34, 0.36]
+- name: sticker-middle
+  kind: prop
+  box: [0.56, 0.31, 0.64, 0.36]
+- name: sticker-right
+  kind: prop
+  box: [0.87, 0.31, 0.94, 0.36]
 style: 'EN 04 look: photoreal POV dramatization, hands only, never a face; warm evening home office, tungsten desk
   lamp, soft shadows, natural skin; the hand always in a mustard-yellow knit sleeve; muted warm palette (walnut, warm
   grey, mustard, paper white), red only on the price stickers.'

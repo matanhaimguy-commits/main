@@ -92,27 +92,33 @@
   },
   "specs": {
     "H-01-V1": {
-      "sha256": "550802f7e95c2db924fdbee9eb5a3abb8e8671e6bb997b79284cc4bdbc9dc71a",
+      "sha256": "1f204941a1706e1979d6d65036e12426284c6d94dfc3f28896e0e399eac3bb8b",
       "lint": "PASS",
-      "lint_at": "2026-10-28T17:15:36+00:00",
+      "lint_at": "2026-10-28T17:20:18+00:00",
       "lint_issues": []
     },
     "H-01-V10": {
-      "sha256": "9a465e62a7ee922970ac1ca60945f2541a8cf5d06e900eaad91ad1953ed15f2f",
+      "sha256": "e0a53224167fa2a13d3f8ca62bf5eeddeb848a6f7da9cbf46114f25118a1c49f",
       "lint": "PASS",
-      "lint_at": "2026-10-28T17:15:36+00:00",
-      "lint_issues": []
+      "lint_at": "2026-10-28T17:20:18+00:00",
+      "lint_issues": [
+        {
+          "level": "warn",
+          "code": "V4",
+          "msg": "hands of the owner (POV, no face), mustard-yellow knit sleeves: count_check should name five fingers per hand"
+        }
+      ]
     },
     "H-01-V3": {
-      "sha256": "95e4493402889d667674485a2fbebebb5efd2174a2c6b0c637716eedd403a836",
+      "sha256": "eb937a556a2c965d4b0d8e0c3d0949b0f54b3ef191cf062581b335252cae175f",
       "lint": "PASS",
-      "lint_at": "2026-10-28T17:15:36+00:00",
+      "lint_at": "2026-10-28T17:20:18+00:00",
       "lint_issues": []
     },
     "H-01-V7": {
-      "sha256": "b3e702b754f2766c5128bfd99f9b90a7c8e16a694dc8c88037e4a478c62c9f6d",
+      "sha256": "6e91202bb6f098409e79f0764a0f3f07a512d3f6471a151af4bd79c139eef4f4",
       "lint": "PASS",
-      "lint_at": "2026-10-28T17:15:36+00:00",
+      "lint_at": "2026-10-28T17:20:18+00:00",
       "lint_issues": []
     }
   },
@@ -128,8 +134,8 @@
       "hero": true,
       "hook": true,
       "created": "2026-10-28T17:10:50+00:00",
-      "prompt_sha256": "22d9ae13173848aaab2178ceba1665bc72235e6f5716dcabee5f8a59cae74800",
-      "prompt_file": "prompts/CF-V1.v1.2.txt",
+      "prompt_sha256": "a648642d9a1dff575971330091c6128005ebd00e16ef14ab9eadc3f5977afa72",
+      "prompt_file": "prompts/CF-V1.v1.3.txt",
       "prompt_history": [
         {
           "at": "2026-10-28T17:10:50+00:00",
@@ -141,6 +147,12 @@
           "at": "2026-10-28T17:15:36+00:00",
           "sha256": "22d9ae13173848aaab2178ceba1665bc72235e6f5716dcabee5f8a59cae74800",
           "file": "prompts/CF-V1.v1.2.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:20:23+00:00",
+          "sha256": "a648642d9a1dff575971330091c6128005ebd00e16ef14ab9eadc3f5977afa72",
+          "file": "prompts/CF-V1.v1.3.txt",
           "medias": []
         }
       ],
@@ -160,8 +172,8 @@
       "hero": true,
       "hook": true,
       "created": "2026-10-28T17:10:51+00:00",
-      "prompt_sha256": "32119c212338e5113e0c96dbf3a813c6c88af0c808558dd1dfe0c1e3d514b680",
-      "prompt_file": "prompts/CF-V10.v1.2.txt",
+      "prompt_sha256": "bbf5e14bd12d317b8484b63ceb7384fa3fa487d3cb39ecbf15a744939369f952",
+      "prompt_file": "prompts/CF-V10.v1.3.txt",
       "prompt_history": [
         {
           "at": "2026-10-28T17:10:51+00:00",
@@ -173,6 +185,12 @@
           "at": "2026-10-28T17:15:36+00:00",
           "sha256": "32119c212338e5113e0c96dbf3a813c6c88af0c808558dd1dfe0c1e3d514b680",
           "file": "prompts/CF-V10.v1.2.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:20:23+00:00",
+          "sha256": "bbf5e14bd12d317b8484b63ceb7384fa3fa487d3cb39ecbf15a744939369f952",
+          "file": "prompts/CF-V10.v1.3.txt",
           "medias": []
         }
       ],
@@ -192,8 +210,8 @@
       "hero": true,
       "hook": true,
       "created": "2026-10-28T17:10:51+00:00",
-      "prompt_sha256": "ba08aaca0090dd972edf9aa8737bbd33a440b9211fa0b0170f36d1913ec706fd",
-      "prompt_file": "prompts/CF-V7.v1.2.txt",
+      "prompt_sha256": "e1a60c77d4983d48764a388ee0c8831d48b9437db7a7480e0380a25288641db1",
+      "prompt_file": "prompts/CF-V7.v1.3.txt",
       "prompt_history": [
         {
           "at": "2026-10-28T17:10:51+00:00",
@@ -205,6 +223,12 @@
           "at": "2026-10-28T17:15:36+00:00",
           "sha256": "ba08aaca0090dd972edf9aa8737bbd33a440b9211fa0b0170f36d1913ec706fd",
           "file": "prompts/CF-V7.v1.2.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:20:24+00:00",
+          "sha256": "e1a60c77d4983d48764a388ee0c8831d48b9437db7a7480e0380a25288641db1",
+          "file": "prompts/CF-V7.v1.3.txt",
           "medias": []
         }
       ],
@@ -224,8 +248,8 @@
       "hero": true,
       "hook": true,
       "created": "2026-10-28T17:10:52+00:00",
-      "prompt_sha256": "983d8a82cec1f6b15c2e86ccaa2eb95e86292931dc99d4895f4e97242cd6d376",
-      "prompt_file": "prompts/CF-V3.v1.3.txt",
+      "prompt_sha256": "ceede21bb8dd65bd4ae382d980664090d59e35a940f70c5a1a3948a8a032efc5",
+      "prompt_file": "prompts/CF-V3.v1.4.txt",
       "prompt_history": [
         {
           "at": "2026-10-28T17:10:52+00:00",
@@ -243,6 +267,12 @@
           "at": "2026-10-28T17:15:37+00:00",
           "sha256": "983d8a82cec1f6b15c2e86ccaa2eb95e86292931dc99d4895f4e97242cd6d376",
           "file": "prompts/CF-V3.v1.3.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:20:24+00:00",
+          "sha256": "ceede21bb8dd65bd4ae382d980664090d59e35a940f70c5a1a3948a8a032efc5",
+          "file": "prompts/CF-V3.v1.4.txt",
           "medias": []
         }
       ],
