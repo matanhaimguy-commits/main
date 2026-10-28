@@ -44,6 +44,7 @@ against O60's 75 s cap; the readable steps on her page need plain example words 
 ## Decisions (newest first)
 | Date | Decision | Options considered | Why | Who |
 |---|---|---|---|---|
+| 28 Oct | GATE 4 decided: spine B "Decided before you quoted" (lost deal, the second consultant at 31 s); the A- to A hooks accepted as they are; the script is released | A, C, more hook rounds | the writer's recommendation | Matan |
 | 28 Oct | GATE 4: the spine (A "Same question" ST5, B "Decided before you quoted" ST3 on the two_days pair, C "Why you?" ST6); writer recommends B | A, B, C, B with A's split as a trial variant | pending | Matan (pending) |
 | 28 Oct | Spine B taken through WRITE to a release candidate: 185 words, about 74 s, gate 86/100, no critical fail, loop 4 (rewrite 3 of 3); labelled provisional until the pick | stop at the spines | the brief asks for the recommended spine as an RC | Claude |
 | 28 Oct | G-HOOK not passed after 5 rounds of 2 fresh blind graders each; master candidate Q recorded with its untested fixes, taken to GATE 4 | more rounds | the round cap in the brief; the visual held at A- for every grader | Claude, owner to be told |

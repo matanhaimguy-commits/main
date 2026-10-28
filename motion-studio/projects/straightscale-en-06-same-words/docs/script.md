@@ -1,5 +1,7 @@
 # Speech scripts: StraightScale EN 06 "The page that changed the subject" (Script Lab WRITE)
 
+> **Released 28 Oct 2026:** Matan picked this spine at GATE 4 and accepted the hooks as they are. "Provisional" below is the history before the pick.
+
 Spine A (ST3 hidden cause through DEV-F2, the page as villain), the writer's recommendation, written before GATE 4 so
 Matan has something to judge. **Release candidate, provisional until Matan picks the spine** (`script-lab.md` 9).
 Loop 1 is first, the final release candidate is at the bottom. Pace before casting: 2.5 words/s. Speakers: Voice 1 =

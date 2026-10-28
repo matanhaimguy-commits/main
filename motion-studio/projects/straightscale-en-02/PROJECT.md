@@ -71,6 +71,9 @@ Pick: 1, shown as the quote itself, with line 2 as the twist.
 | 27 Oct | Line 8 reworded to "Once it's polished, it sounds like an ad." | Whisper heard "Polish" for "Polished"; the new wording ends clearly |
 | 27 Oct | Score: original, sampled CC0 instruments, B minor to D major, 104 BPM | audio/score.py, accents from audio/events.json |
 | 27 Oct | v1 delivered: deliver/v1/ (9:16 master, SRT, poster, contact sheet) | review rounds 1-3 in docs/review_log.md |
+| 28 Oct | WORDS funnel asks the main bottleneck (not revenue bands); routing in `resource/funnel/README.md` | Matan |
+| 28 Oct | The English account gets its own client brain (`clients/straightscale-en/`) | Matan |
+| 28 Oct | The hub waits 10 to 60 minutes before the qualifying question (a per-funnel delay is being added to the app) | Matan |
 
 
 ## Lead magnet: WORDS (keyword WORDS)
@@ -94,7 +97,7 @@ Resource: `resource/WORDS.md` and `resource/WORDS.pdf`. Funnel: `resource/funnel
 | leads_to_offer | true | the sheet is step 1 of the EN offer (Research); "Count your columns" surfaces the gap (thin columns = you don't know that part of your buyer), which is what the Research step fixes |
 | low_friction | true | keyword, one tap (`opener.mode: tap`, button before any link), the PDF, then one question; no form, no email, no follow gate |
 
-Proposal (not created): give the English account its own client brain, `clients/straightscale-en/brain.json`, so its
+Decided 28 Oct (Matan: yes), being built: the English account's own client brain, `clients/straightscale-en/brain.json`, so its
 lead magnets, demand map, proof bank and content log are checked by `organic.py card-check` like any client, instead
 of living in project notes. Recommended, because EN 01 to EN 03 already share one avatar, one offer sheet and now a
 keyword; the Albanian `clients/straightscale/brain.json` is a different offer and buyer. Matan decides.

@@ -44,6 +44,7 @@ L5 "around" to "built on" (not applied; needs its own gate)
 ## Decisions (newest first)
 | Date | Decision | Options considered | Why | Who |
 |---|---|---|---|---|
+| 28 Oct | GATE 4 decided: spine A "The post that got paid for" (the boosted post explains why nothing happened), no result shown; the A- to A hooks accepted as they are; the script is released | B, C, more hook rounds | the writer's recommendation | Matan |
 | 28 Oct | GATE 4: spine A "The post that got paid for" (ST3 on the talking post), B "Two posts" (ST6), or C "The push button" (ST8); riders: text hook, CTA wording, payoff picture | A, B, C (`docs/script-lab.md` 8 and 9) | Claude recommends A: the only spine with a graded opening, written to release candidate at 85 | Matan (pending) |
 | 28 Oct | Spine A taken through WRITE: 4 loops (first draft + 3 rewrites), 85/100 at loop 4, no critical fail; labelled provisional | stop at loop 3 (critical fail) | the skill's 3 rewrite loops; loop 3 failed on "a free test" used before it was explained | Claude |
 | 28 Oct | Master text hook swapped to "Quiet month? She paid to push a post. Nothing." (round 4, T A / A-); "...It wasn't the post." sent back to the Hook Lab | keep the graders' favourite text | Script Lab test 12: on spine A's body it read as a contradiction; one extra fresh sound-off read confirmed the swap (no script word changed) | Claude |

@@ -1,5 +1,7 @@
 # Speech script: StraightScale EN 05 "The post that got paid for" (Script Lab WRITE, spine A)
 
+> **Released 28 Oct 2026:** Matan picked this spine at GATE 4 and accepted the hooks as they are. "Provisional" below is the history before the pick.
+
 Spine A (ST3 hidden cause, compact, on DEV-F1: the post speaks), Claude's recommendation; **GATE 4 is open: Matan has
 not picked the spine.** Pack and gate reports: `script-lab.md`. Hook: master stack in `hook-stacks.md`. Look:
 claymation, the song's cloth world. Single tier O30 (20 to 35 s). Pace before casting: 2.5 words/s. Speaker: Voice 1,

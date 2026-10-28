@@ -15,16 +15,18 @@ schema (checked 28 Oct 2026 with the hub's own `schema.ts`, placeholders filled)
    Button: **Send it**. The tap opens the 24-hour window. No follow gate (it would cost one more tap; low_friction).
 3. **The resource** (`deliver`): one line on how to use it and the button **Open the sheet**, linking to `WORDS.pdf`
    uploaded to the hub's storage.
-4. **One qualifying question** (`after`): "what does a normal month bring in for you right now? Under $10K, $10K to
-   $20K, $20K to $50K, or over $50K?" It maps straight onto the EN offer's buyer ($20K to $50K a month).
+4. **One qualifying question** (`after`), the main bottleneck (Matan's pick, 28 Oct 2026): "what's the main thing
+   holding back more clients for you right now? Not enough enquiries, enquiries that don't buy, months that swing, or
+   something else?" The three named answers map onto the EN offer's steps (Research and Organic, Offer and Funnel, the
+   whole order).
 5. **Routing** (the hub's AI assistant reads the answer; it lives in the business profile, not the funnel, so the
-   owner sets it in the dashboard):
-   - **$20K to $50K, or over $50K** → qualified. The AI hands off to a person (the hub's handoff: the owner is
-     notified, the AI pauses in that thread). The person sends a short voice note with a mini diagnosis from what
-     they said, then invites them to the free business analysis (the offer sheet's free entry).
-   - **$10K to $20K** → warm. The AI thanks them, answers questions about the sheet, and points to the next posts.
-     No call invite unless they ask for one.
-   - **Under $10K, or no answer** → not qualified. Thanks, the sheet, nothing else. No follow-up push.
+   owner sets it in the dashboard), proposed:
+   - **One of the three named bottlenecks** → hand off to a person (the owner is notified, the AI pauses in that
+     thread). The person sends a short voice note with a mini diagnosis from what they said, then invites them to the
+     free business analysis (the offer sheet's free entry).
+   - **Something else** → the AI asks one short follow-up to understand it; if it is still outside what the offer
+     fixes (hiring, delivery capacity), thanks, help with the sheet, no call invite unless they ask.
+   - **No answer** → nothing more. No follow-up push.
    - Anyone who replies **"columns"** (the sheet's last line) with their niche: the AI asks the same question if not
      yet answered, then routes as above.
 6. **Tags**: every message the funnel sends carries `funnel_id` (`words` or `words-dm`) and the step; the comment
@@ -34,10 +36,11 @@ schema (checked 28 Oct 2026 with the hub's own `schema.ts`, placeholders filled)
 Policy: messages only go inside the 24-hour window the person opened. No cold DMs.
 
 Proposed business-profile lines for the owner to paste in the dashboard (Business → Profile), only if he agrees:
-- `qualifying_questions`: "What does a normal month bring in right now? Under $10K, $10K to $20K, $20K to $50K, or
-  over $50K?"
-- `extra`: "WORDS funnel: $20K a month or more → hand off to a person for a voice note and the free business analysis
-  invite. Under $20K → thank them, help with the sheet, no call invite unless they ask. Never quote prices or results."
+- `qualifying_questions`: "What's the main thing holding back more clients for you right now? Not enough enquiries,
+  enquiries that don't buy, months that swing, or something else?"
+- `extra`: "WORDS funnel: a named bottleneck (enquiries, enquiries that don't buy, months that swing) → hand off to a
+  person for a voice note and the free business analysis invite. Anything else → one follow-up question, then help
+  with the sheet, no call invite unless they ask. Never quote prices or results."
 
 ## Create it (blocked here: NO_TOKEN, 28 Oct 2026)
 Once `HUB_TOKEN` is set and EN 02 is posted (the post ID is needed to pin the comment funnel):
@@ -50,7 +53,6 @@ bash motion-studio/projects/straightscale-en-02/resource/funnel/create.sh <that-
 `create.sh` uploads `WORDS.pdf` with `hub.py upload`, puts its public URL and the post ID into both files, and runs
 `hub.py funnel` for each. Then test with a tester account (`testers` in the business) before the business is live.
 
-## Known gap
-ORGANIC-OS 8.5 step 4 says to wait 10 to 60 minutes before the qualifying question. The hub sends `after` right
-after the delivery (`lovable-app/src/agent/engine/funnel.ts`, `if (delivered(outcome) && f.after)`). A delay needs a
-hub change (owner decides; it goes through the hub repo with tests).
+## The wait before the question
+ORGANIC-OS 8.5 step 4 says to wait 10 to 60 minutes before the qualifying question. Matan chose (28 Oct 2026) to make
+the hub wait: a per-funnel delay is being added to the app; once it ships, both files get it.
