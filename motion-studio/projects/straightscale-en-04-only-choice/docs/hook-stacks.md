@@ -1,3 +1,46 @@
+# Hook stacks v2 (Offer), 28 Oct 2026: proven formats and buyers' words only
+
+Matan rejected v1 (below, kept for the record): written from nothing, graded by AI readers, written English nobody
+says in a reel. v2 follows `growth-engine/adapters/hook-lab-organic.md` "Proven formats only": every stack cites a
+format from `clients/straightscale/research/hook-library-en.md` (rebuilt 28 Oct from the 25 Oct Apify datasets) and
+verbatim buyer lines from `research/buyer-phrases-en.md`, and passes `organic.py hooks straightscale docs/hooks.json`
+(all PASS, 28 Oct). No AI grade is given: the proof is the source's numbers, shown below. Visuals are first drafts.
+
+## EN04-A (variant: caption proof only)
+- Text on screen: "Lower your price." No. Change your offer.
+- Spoken: They can get it cheaper elsewhere? Your price isn't why.
+- Visual: Phone in hand, a message fills the screen: "we can get it cheaper from someone else"; a thumb starts typing a lower number, stops
+- Proven source `HF-04`:
+  - `HF-04` · Numbered myth list, vanity vs paying clients · russruffino · 1,928 views (median 170) · 11.3x · **10x+** · 24 Oct 2026
+  - text (caption line 1): "1. “You need more followers.” No. You need more paying clients."
+  - formula: "1. “You need more [vanity number].” No. You need more [the thing that pays]."
+  - on screen: not in data · visual: 7 s reel · checks: 0 comments, likes in proportion, engagement 0.5%
+- Buyers' words:
+  - `Q-RN-0033` "customers that say they can get it done cheaper from someone else" · r/smallbusiness comment, small business owner · 23 Oct 2026 · reddit id 19rjfjxlkbsh0 · dataset WzZFBmveVzKw2rB3D
+
+## EN04-B (master, recommended: ad-proven)
+- Text on screen: A lower price won't stop "cheaper elsewhere"
+- Spoken: Your lower price isn't enough if they can get it cheaper.
+- Visual: Same message on the phone; a price tag on the desk gets crossed out and rewritten lower, twice
+- Proven source `HA-04`:
+  - `HA-04` · Russ Ruffino - Clients on Demand · 64 days, 5 copies, video, active · title: "Your Sales Calls Aren’t the Problem."
+  - line 1: "A great offer isn’t enough if you’re still wondering where your next client is coming from." then "Posting more. / Launching again. / Changing your ads."
+  - formula: "A great [thing they have] isn't enough if you're still wondering where your next [client] is coming from. [Fix 1]. [Fix 2]. [Fix 3]."
+- Buyers' words:
+  - `Q-RN-0033` "customers that say they can get it done cheaper from someone else" · r/smallbusiness comment, small business owner · 23 Oct 2026 · reddit id 19rjfjxlkbsh0 · dataset WzZFBmveVzKw2rB3D
+
+## Limits of the proof (honest)
+- HF entries are Instagram caption lines from small accounts (medians 113 to 7,236 views); the spoken hooks and
+  on-screen text are not in the data (no transcripts), and most HF winners fail the comments check.
+- HA entries are competitors' ads still running after 36 to 71 days: the strongest proof we have (an advertiser
+  keeps paying for what works), but run time is not spend.
+- The 13-creator scrape with transcripts (774 posts) was not found in Apify; getting it again needs an actor run
+  (spend), which waits for Matan.
+
+---
+
+# v1 (rejected by Matan, 28 Oct)
+
 # Hook stacks: StraightScale EN 04 "The only choice" (part three: Offer; two_days, reel_story_narrated, O60)
 
 Hook Lab H0 to H6 with `growth-engine/adapters/hook-lab-organic.md` (it wins over the skill for organic). Library:

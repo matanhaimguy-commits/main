@@ -1,6 +1,6 @@
 # Speech scripts: StraightScale EN 04 "The only choice" (Script Lab WRITE)
 
-> **Released 28 Oct 2026:** Matan picked this spine at GATE 4 and accepted the hooks as they are. "Provisional" below is the history before the pick.
+> **28 Oct 2026:** Matan picked this spine at GATE 4, then rejected the v1 hooks; the opening changes to the v2 hooks (`docs/hooks.json`, proven formats and buyer words). This script waits for his approval of v2.
 
 Loop 1 (the first draft) is first; the release candidate (loop 4, rewrite 3 of 3) is at the bottom.
 

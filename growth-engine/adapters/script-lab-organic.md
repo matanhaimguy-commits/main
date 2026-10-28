@@ -33,6 +33,10 @@ Source: ORGANIC-OS.md 7.3.
   voiced line with the sound off. (brand-kit.md's budget note "voiceover only on flagship reels" does not match the
   `reel_motion` rule; the owner is asked to align them.)
 - **Cold reader** reads as AV-01 from the brain, scrolling at night, sound off first.
+- **Said, not written** (owner rule, 28 Oct 2026): every voiced line is something an owner says out loud to a friend:
+  short common words, the buyers' own words (`research/buyer-phrases-en.md`) for the problem, no written-register or
+  marketing words ("quote", "solutions", "leverage", "framework", "proposal") unless the buyers wrote them. The plain
+  check in `organic_os/hook_plain.py` is the same list; a cold reader who stumbles on a word is a fail for that line.
 
 ## Rungs, tiers and scoring for organic (from the Script Lab read, 15 Oct 2026)
 - **Paid rungs out:** rungs 10 Value, 11 Safety and 12 Now (offer, guarantee, urgency) don't exist in organic posts.

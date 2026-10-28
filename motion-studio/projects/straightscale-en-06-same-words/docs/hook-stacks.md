@@ -1,3 +1,47 @@
+# Hook stacks v2 (Funnel), 28 Oct 2026: proven formats and buyers' words only
+
+Matan rejected v1 (below, kept for the record): written from nothing, graded by AI readers, written English nobody
+says in a reel. v2 follows `growth-engine/adapters/hook-lab-organic.md` "Proven formats only": every stack cites a
+format from `clients/straightscale/research/hook-library-en.md` (rebuilt 28 Oct from the 25 Oct Apify datasets) and
+verbatim buyer lines from `research/buyer-phrases-en.md`, and passes `organic.py hooks straightscale docs/hooks.json`
+(all PASS, 28 Oct). No AI grade is given: the proof is the source's numbers, shown below. Visuals are first drafts.
+
+## EN06-A (master, recommended: ad-proven)
+- Text on screen: Your posts work until people hit your website
+- Spoken: Your posts work until people land on your website.
+- Visual: A post gets likes and taps; the tap opens a cluttered website and the visitor closes it in a second
+- Proven source `HA-07`:
+  - `HA-07` · Will B. Consulting · 45 days, 33 copies, image, active · title as `HA-01`
+  - line 1: "For coaches and consultants who want consistent growth:" then "Referrals are great until they slow down. / Organic content works until the algorithm shifts. / Word of mouth builds momentum until it suddenly doesn't."
+  - formula: "For [buyers] who want [consistent outcome]: [Channel A] are great until they [stop]. [Channel B] works until [it stops]."
+- Buyers' words:
+  - `Q-RN-0048` "my website is a dumpster fire right now" · r/lifecoaching comment, coach · 12 Mar 2026 · reddit id o9yinb1 · dataset WfL5DZsbOcip5Hxyv
+  - `Q-RN-0049` "your website is not what brings clients to you" · r/lifecoaching comment, coach · 12 Oct 2025 · reddit id nj48ubm · dataset WfL5DZsbOcip5Hxyv
+
+## EN06-B (variant: caption proof only)
+- Text on screen: "Fix your website." No. Fix what it says.
+- Spoken: Your website is not what brings clients. What it says is.
+- Visual: A redesigned page slides in over the old one, same words on both, visitor still leaves
+- Proven source `HF-04`:
+  - `HF-04` · Numbered myth list, vanity vs paying clients · russruffino · 1,928 views (median 170) · 11.3x · **10x+** · 24 Oct 2026
+  - text (caption line 1): "1. “You need more followers.” No. You need more paying clients."
+  - formula: "1. “You need more [vanity number].” No. You need more [the thing that pays]."
+  - on screen: not in data · visual: 7 s reel · checks: 0 comments, likes in proportion, engagement 0.5%
+- Buyers' words:
+  - `Q-RN-0049` "your website is not what brings clients to you" · r/lifecoaching comment, coach · 12 Oct 2025 · reddit id nj48ubm · dataset WfL5DZsbOcip5Hxyv
+
+## Limits of the proof (honest)
+- HF entries are Instagram caption lines from small accounts (medians 113 to 7,236 views); the spoken hooks and
+  on-screen text are not in the data (no transcripts), and most HF winners fail the comments check.
+- HA entries are competitors' ads still running after 36 to 71 days: the strongest proof we have (an advertiser
+  keeps paying for what works), but run time is not spend.
+- The 13-creator scrape with transcripts (774 posts) was not found in Apify; getting it again needs an actor run
+  (spend), which waits for Matan.
+
+---
+
+# v1 (rejected by Matan, 28 Oct)
+
 # Hook stacks: StraightScale EN 06 "The page that changed the subject" (part five: Funnel)
 
 Hook Lab H0 to H6 with `growth-engine/adapters/hook-lab-organic.md` (it wins over the skill for organic). Library:

@@ -1,6 +1,6 @@
 # Speech scripts: StraightScale EN 06 "The page that changed the subject" (Script Lab WRITE)
 
-> **Released 28 Oct 2026:** Matan picked this spine at GATE 4 and accepted the hooks as they are. "Provisional" below is the history before the pick.
+> **28 Oct 2026:** Matan picked this spine at GATE 4, then rejected the v1 hooks; the opening changes to the v2 hooks (`docs/hooks.json`, proven formats and buyer words). This script waits for his approval of v2.
 
 Spine A (ST3 hidden cause through DEV-F2, the page as villain), the writer's recommendation, written before GATE 4 so
 Matan has something to judge. **Release candidate, provisional until Matan picks the spine** (`script-lab.md` 9).
