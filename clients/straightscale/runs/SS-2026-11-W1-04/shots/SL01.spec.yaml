@@ -1,0 +1,223 @@
+shot_id: SL01
+post_id: SS-2026-11-W1-04
+format: carousel_slide
+script_lines:
+- S1
+line_text: Të krahasojnë me çmimin? 5 pyetje para se ta ulësh.
+story_purpose: 'Opens the want: the owner''s profile looks like everyone else''s and the first message asks the
+  price.'
+must_read_in_1s: 'A hand holds a phone: a grid of look-alike work photos and a message that asks ''Sa kushton?''.'
+subjects:
+- id: PR-PHONE
+  ref: null
+  state: the red-case phone held close to the camera, screen lit and facing the camera
+  pose: upright, right of centre (x 40% to 92%), cropped by the lower frame edge, large and close
+  expression: ''
+  instances: 1
+hands:
+- who: OWNER (hand only)
+  left: not visible
+  right: 'reaches in from the right edge at 54% to 74% of the height: thumb pad on the phone''s right edge near
+    the bottom of the screen, the four fingers behind the case with only their tips showing past its edge; the forearm
+    leaves the frame at the right edge'
+  contact: right thumb pad on the phone's right edge; fingertips against the back of the case
+  must_not_cover: the screen
+  count_check: 'five fingers: the thumb on the edge plus four fingers behind the phone'
+props:
+- id: PR-PHONE
+  story_critical: false
+  ref: null
+  state: held upright, lit
+  content: 'a modern smartphone in a deep red #BE0F18 case, black glass front, rounded corners, no logo on the case
+    or the glass'
+  size_in_frame: about 52% of the frame width
+- id: PR-PHONE-SCREEN
+  story_critical: true
+  ref: PS-PROFILE state GRID-BUBBLE (prop sheet to build on SS-LIB-W45W46 before generation)
+  state: lit, facing the camera
+  content: a three-by-three grid of nine near-identical square photos of finished kitchens, all the same light oak
+    units and white worktops, no people, no text, no digits; over the lower part of the grid a large light ivory
+    message bubble with a dark rounded tail holds the two words Sa kushton? in dark charcoal sans; no names, no
+    avatars, no status bar, no app logo
+  size_in_frame: screen fills most of the phone
+- id: PR-LAPTOP
+  story_critical: false
+  ref: null
+  state: closed, at the back edge of the desk, out of focus
+  content: a closed silver-grey laptop with a plain lid, no logo, no sticker
+- id: PR-ARROW
+  story_critical: false
+  ref: null
+  state: bottom right, inside the 4% margin
+  content: 'a small crimson #B31217 round button with a white arrow pointing right, flat graphic, nothing else on
+    it'
+  size_in_frame: about 8% of the frame width
+text_in_image:
+- string: Të krahasojnë
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 61%, y 7% to 13% of the frame, heavy bold
+    geometric sans, about 80 px, ivory
+  position: line 1 of 4 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: me çmimin?
+  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 49%, y 14% to 21% of the frame, heavy
+    bold geometric sans, about 80 px, ivory; the word ''çmimin?'' sits inside a solid crimson #B31217 highlight
+    rectangle'
+  position: line 2 of 4 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: 5 pyetje para se
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 57%, y 23% to 28% of the frame, heavy
+    bold geometric sans, about 60 px, ivory
+  position: line 3 of 4 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: ta ulësh.
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 35%, y 29% to 34% of the frame, heavy
+    bold geometric sans, about 60 px, ivory
+  position: line 4 of 4 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: Sa kushton?
+  surface: inside the large ivory message bubble over the lower part of the photo grid on the phone screen, dark
+    charcoal bold sans
+  position: on the phone screen
+  case: as_written
+  must_be_exact: true
+  occlusion: the hand, the plate and any reflection stay off the words on the screen
+- string: 1/8
+  surface: 'top right, small gold #DD9A10 slide counter'
+  position: top right corner, inside the 4% margin
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing overlaps the counter
+action_physics:
+- The hand reaches in from the right edge and holds the phone upright, thumb pad on the phone's right edge and four
+  fingertips against the back of the case.
+static: false
+setting:
+  ref: null
+  details: 'A business owner''s dark wood desk at night: a warm tungsten desk lamp, a closed laptop at the back
+    edge, deep shadows. Very shallow depth: the desk and lamp are soft glows behind the hand. A small window at
+    the left edge of the frame at 42% to 62% of the height, below the text wall, slightly out of focus, the Tirana
+    clock tower a small lit silhouette in it.'
+  background_rule: 'Nothing on the desk or the walls carries a word, a logo or a sign; the laptop is closed with
+    a plain lid. The clock tower is a small lit silhouette with a plain clock face: no numerals, no letters; the
+    window glass reflects no text; no shop signs on the street.'
+camera:
+  framing: close shot of the hand and phone; the phone fills the right of the lower middle, the top 40% is a dark
+    calm wall
+  angle: eye level, the phone facing the camera
+  lens: 35mm film still, shallow depth of field
+  aspect: '4:5'
+  safe_zones: text and arrow inside a 4% margin; top 40% a calm dark wall; bottom-left corner (lowest 9% of the
+    height, left 40% of the width) calm, dark and empty
+continuity:
+  previous_shot: null
+  carry_over: []
+regions:
+- name: t01-head
+  kind: text
+  box:
+  - 0.06
+  - 0.07
+  - 0.619
+  - 0.138
+- name: t02-head
+  kind: text
+  box:
+  - 0.06
+  - 0.146
+  - 0.49
+  - 0.214
+- name: t03-head2
+  kind: text
+  box:
+  - 0.06
+  - 0.232
+  - 0.58
+  - 0.284
+- name: t04-head2
+  kind: text
+  box:
+  - 0.06
+  - 0.292
+  - 0.352
+  - 0.344
+- name: screen-text1
+  kind: text
+  box:
+  - 0.5
+  - 0.7
+  - 0.84
+  - 0.78
+- name: counter
+  kind: text
+  box:
+  - 0.86
+  - 0.04
+  - 0.96
+  - 0.08
+- name: logo-zone
+  kind: other
+  box:
+  - 0.0
+  - 0.91
+  - 0.4
+  - 1.0
+- name: arrow
+  kind: other
+  box:
+  - 0.86
+  - 0.89
+  - 0.96
+  - 0.96
+- name: window
+  kind: other
+  box:
+  - 0.0
+  - 0.42
+  - 0.2
+  - 0.62
+- name: phone
+  kind: prop
+  box:
+  - 0.4
+  - 0.44
+  - 0.92
+  - 1.0
+- name: phone-screen
+  kind: prop
+  box:
+  - 0.46
+  - 0.48
+  - 0.86
+  - 0.92
+- name: hand
+  kind: hand
+  box:
+  - 0.84
+  - 0.54
+  - 1.0
+  - 0.74
+style: 'Tirana after dark: cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
+  the cover''s window. Same light and colour grade on every slide. Thread: a smartphone in a deep red case (#BE0F18),
+  recurring on every slide, changing state with the story. Palette: scene tone near-black (#1F1F1F), type ivory
+  (#F8F6EF), accent crimson #B31217 as solid highlight rectangles behind key words and the swipe arrow button, small
+  gold (#DD9A10) only for the counter. #B31217 is the only saturated colour besides the gold counter and the phone
+  case. Type: heavy bold geometric sans in ivory, left-aligned in the calm dark area; key words in solid crimson
+  #B31217 highlight rectangles. Spell ë and ç out letter by letter in every prompt. Frame: slide counter top right
+  (gold), swipe arrow bottom right on slides 1 to N-1. Bottom-left corner calm, dark and empty.'
+must_not:
+- no logo or wordmark drawn anywhere
+- no letters or objects in the bottom-left corner
+- no readable words on any phone screen except the strings listed in the text block or the props block
+- no borders, side bars or blurred margins
+- no real platform name or interface on the screen
+hero: true
+notes: 'The cover bubble text ''Sa kushton?'' is part of the shipped hook; the screen is readable, so it has a prop
+  sheet. Prop sheet PS-PROFILE (state: GRID-BUBBLE) is attached as the last reference image.'

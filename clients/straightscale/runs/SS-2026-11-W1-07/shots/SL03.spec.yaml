@@ -1,0 +1,176 @@
+shot_id: SL03
+post_id: SS-2026-11-W1-07
+format: carousel_slide
+script_lines:
+- S3
+line_text: 'Çdo klient në kokë. Në vend të kësaj: një listë e shkruar.'
+story_purpose: 'Item 1: the clients the owner keeps in his head go on a written list.'
+must_read_in_1s: 'A closed notebook and a pencil beside the quiet phone: the list belongs on paper.'
+subjects:
+- id: PR-NOTEBOOK
+  ref: null
+  state: a closed black hardcover notebook with a pencil across it, on the table
+  pose: centre of the lower half, seen from slightly above
+  expression: ''
+  instances: 1
+hands: none visible
+props:
+- id: PR-NOTEBOOK
+  story_critical: false
+  ref: null
+  state: closed, pencil across the cover
+  content: a closed black hardcover notebook with a plain cover, no title, no label, and one wooden pencil lying
+    diagonally across it
+  size_in_frame: about 36% of the frame width
+- id: PR-PHONE
+  story_critical: false
+  ref: null
+  state: face up beside the notebook, screen off
+  content: 'a modern smartphone in a deep red #BE0F18 case, black glass front, rounded corners, no logo on the case
+    or the glass'
+  size_in_frame: about 18% of the frame width
+- id: PR-ARROW
+  story_critical: false
+  ref: null
+  state: bottom right, inside the 4% margin
+  content: 'a small crimson #B31217 round button with a white arrow pointing right, flat graphic, nothing else on
+    it'
+  size_in_frame: about 8% of the frame width
+text_in_image:
+- string: Çdo klient
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 49%, y 7% to 13% of the frame, heavy bold
+    geometric sans, about 80 px, ivory
+  position: line 1 of 4 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: në kokë.
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 40%, y 14% to 21% of the frame, heavy
+    bold geometric sans, about 80 px, ivory
+  position: line 2 of 4 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: 'Në vend të kësaj:'
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 38%, y 23% to 26% of the frame, geometric
+    sans, about 36 px, ivory
+  position: line 3 of 4 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: një listë e shkruar.
+  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 71%, y 28% to 33% of the frame, heavy
+    bold geometric sans, about 60 px, ivory; the word ''shkruar.'' sits inside a solid crimson #B31217 highlight
+    rectangle'
+  position: line 4 of 4 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: 3/8
+  surface: 'top right, small gold #DD9A10 slide counter'
+  position: top right corner, inside the 4% margin
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing overlaps the counter
+action_physics:
+- The notebook lies with its whole back flat on the table and the pencil rests diagonally on its cover; the phone
+  lies flat beside it; nothing is touched by a hand.
+static: false
+setting:
+  ref: null
+  details: 'The owner''s restaurant after service, at night: a dark wood corner table, a warm tungsten wall lamp,
+    empty chairs, deep shadows. No window and no clock tower are visible in this shot.'
+  background_rule: No menus, receipts, signs or readable words anywhere; the walls are plain.
+camera:
+  framing: medium close shot from above the table; the notebook and the phone in the lower middle, the top 40% is
+    a dark calm wall
+  angle: 40 degrees above the table, centred
+  lens: 35mm film still, shallow depth of field
+  aspect: '4:5'
+  safe_zones: text and arrow inside a 4% margin; top 40% a calm dark wall; bottom-left corner (lowest 9% of the
+    height, left 40% of the width) calm, dark and empty
+continuity:
+  previous_shot: SL02
+  carry_over:
+  - The phone lies face up and quiet beside a new object, the notebook; plate and glass are out of frame; same table
+    and light.
+regions:
+- name: t01-head
+  kind: text
+  box:
+  - 0.06
+  - 0.07
+  - 0.49
+  - 0.138
+- name: t02-head
+  kind: text
+  box:
+  - 0.06
+  - 0.146
+  - 0.404
+  - 0.214
+- name: t03-small
+  kind: text
+  box:
+  - 0.06
+  - 0.232
+  - 0.388
+  - 0.263
+- name: t04-head2
+  kind: text
+  box:
+  - 0.06
+  - 0.281
+  - 0.71
+  - 0.333
+- name: counter
+  kind: text
+  box:
+  - 0.86
+  - 0.04
+  - 0.96
+  - 0.08
+- name: logo-zone
+  kind: other
+  box:
+  - 0.0
+  - 0.91
+  - 0.4
+  - 1.0
+- name: arrow
+  kind: other
+  box:
+  - 0.86
+  - 0.89
+  - 0.96
+  - 0.96
+- name: notebook
+  kind: prop
+  box:
+  - 0.22
+  - 0.58
+  - 0.62
+  - 0.86
+- name: phone
+  kind: prop
+  box:
+  - 0.66
+  - 0.66
+  - 0.82
+  - 0.84
+style: 'Tirana after dark: cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
+  the cover''s window. Same light and colour grade on every slide. Thread: a smartphone in a deep red case (#BE0F18),
+  recurring on every slide, changing state with the story. Palette: scene tone near-black (#1F1F1F), type ivory
+  (#F8F6EF), accent crimson #B31217 as solid highlight rectangles behind key words and the swipe arrow button, small
+  gold (#DD9A10) only for the counter. #B31217 is the only saturated colour besides the gold counter and the phone
+  case. Type: heavy bold geometric sans in ivory, left-aligned in the calm dark area; key words in solid crimson
+  #B31217 highlight rectangles. Spell ë and ç out letter by letter in every prompt. Frame: slide counter top right
+  (gold), swipe arrow bottom right on slides 1 to N-1. Bottom-left corner calm, dark and empty.'
+must_not:
+- no logo or wordmark drawn anywhere
+- no letters or objects in the bottom-left corner
+- no readable words on any phone screen except the strings listed in the text block or the props block
+- no borders, side bars or blurred margins
+- no window and no clock tower
+hero: false
+notes: The style line's clock tower belongs to window shots only; this shot has no window, so none is drawn.

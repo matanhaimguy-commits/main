@@ -1,0 +1,197 @@
+shot_id: SL06
+post_id: SS-2026-11-W1-07
+format: carousel_slide
+script_lines:
+- S6
+line_text: 'Furnitorë që s''flasin me njëri-tjetrin. Në vend të kësaj: një plan për të gjithë.'
+story_purpose: 'Item 4: instead of suppliers working apart, one plan they all follow.'
+must_read_in_1s: 'Three folders stacked in one neat pile: one plan, held together.'
+subjects:
+- id: PR-FOLDERS
+  ref: null
+  state: three closed matte dark-grey folders stacked in one neat aligned pile on the table
+  pose: centre of the lower half
+  expression: ''
+  instances: 1
+hands: none visible
+props:
+- id: PR-FOLDERS
+  story_critical: false
+  ref: null
+  state: closed, stacked and aligned
+  content: three closed matte dark-grey card folders, identical, stacked with edges aligned, no labels, no tabs
+    with text, no logo
+  size_in_frame: about 24% of the frame width
+- id: PR-PHONE
+  story_critical: false
+  ref: null
+  state: face up beside the stack, screen off
+  content: 'a modern smartphone in a deep red #BE0F18 case, black glass front, rounded corners, no logo on the case
+    or the glass'
+  size_in_frame: about 12% of the frame width
+- id: PR-ARROW
+  story_critical: false
+  ref: null
+  state: bottom right, inside the 4% margin
+  content: 'a small crimson #B31217 round button with a white arrow pointing right, flat graphic, nothing else on
+    it'
+  size_in_frame: about 8% of the frame width
+text_in_image:
+- string: Furnitorë që s'flasin
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 74%, y 7% to 12% of the frame, heavy bold
+    geometric sans, about 60 px, ivory
+  position: line 1 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: me njëri-tjetrin.
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 61%, y 13% to 18% of the frame, heavy
+    bold geometric sans, about 60 px, ivory
+  position: line 2 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: 'Në vend të kësaj:'
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 38%, y 20% to 23% of the frame, geometric
+    sans, about 36 px, ivory
+  position: line 3 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: një plan
+  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 40%, y 24% to 31% of the frame, heavy
+    bold geometric sans, about 80 px, ivory; the word ''plan'' sits inside a solid crimson #B31217 highlight rectangle'
+  position: line 4 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: për të gjithë.
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 66%, y 32% to 39% of the frame, heavy
+    bold geometric sans, about 80 px, ivory
+  position: line 5 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: 6/8
+  surface: 'top right, small gold #DD9A10 slide counter'
+  position: top right corner, inside the 4% margin
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing overlaps the counter
+action_physics:
+- The three folders lie in one pile with their edges aligned and their whole backs flat on the table; the phone
+  lies flat beside them; nothing is touched by a hand.
+static: false
+setting:
+  ref: null
+  details: 'The owner''s restaurant after service, at night: a dark wood corner table, a warm tungsten wall lamp,
+    empty chairs, deep shadows. Wide: the whole corner table is visible. A small window at the right edge of the
+    frame at 42% to 62% of the height, below the text wall, slightly out of focus, the Tirana clock tower a small
+    lit silhouette in it.'
+  background_rule: 'No menus, receipts, signs or readable words anywhere; the walls are plain. The clock tower is
+    a small lit silhouette with a plain clock face: no numerals, no letters; the window glass reflects no text;
+    no shop signs on the street.'
+camera:
+  framing: wide shot of the corner table; the folders and the phone in the lower middle, the top 40% is the dark
+    wall
+  angle: eye level, centred
+  lens: 35mm film still, shallow depth of field
+  aspect: '4:5'
+  safe_zones: text and arrow inside a 4% margin; top 40% a calm dark wall; bottom-left corner (lowest 9% of the
+    height, left 40% of the width) calm, dark and empty
+continuity:
+  previous_shot: SL05
+  carry_over:
+  - The phone is small and quiet beside the folders; wider than slides 3 to 5; same table.
+regions:
+- name: t01-head2
+  kind: text
+  box:
+  - 0.06
+  - 0.07
+  - 0.742
+  - 0.122
+- name: t02-head2
+  kind: text
+  box:
+  - 0.06
+  - 0.13
+  - 0.613
+  - 0.182
+- name: t03-small
+  kind: text
+  box:
+  - 0.06
+  - 0.2
+  - 0.388
+  - 0.231
+- name: t04-head
+  kind: text
+  box:
+  - 0.06
+  - 0.249
+  - 0.404
+  - 0.317
+- name: t05-head
+  kind: text
+  box:
+  - 0.06
+  - 0.325
+  - 0.662
+  - 0.393
+- name: counter
+  kind: text
+  box:
+  - 0.86
+  - 0.04
+  - 0.96
+  - 0.08
+- name: logo-zone
+  kind: other
+  box:
+  - 0.0
+  - 0.91
+  - 0.4
+  - 1.0
+- name: arrow
+  kind: other
+  box:
+  - 0.86
+  - 0.89
+  - 0.96
+  - 0.96
+- name: window
+  kind: other
+  box:
+  - 0.8
+  - 0.42
+  - 1.0
+  - 0.62
+- name: folders
+  kind: prop
+  box:
+  - 0.38
+  - 0.62
+  - 0.62
+  - 0.84
+- name: phone
+  kind: prop
+  box:
+  - 0.66
+  - 0.7
+  - 0.78
+  - 0.84
+style: 'Tirana after dark: cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
+  the cover''s window. Same light and colour grade on every slide. Thread: a smartphone in a deep red case (#BE0F18),
+  recurring on every slide, changing state with the story. Palette: scene tone near-black (#1F1F1F), type ivory
+  (#F8F6EF), accent crimson #B31217 as solid highlight rectangles behind key words and the swipe arrow button, small
+  gold (#DD9A10) only for the counter. #B31217 is the only saturated colour besides the gold counter and the phone
+  case. Type: heavy bold geometric sans in ivory, left-aligned in the calm dark area; key words in solid crimson
+  #B31217 highlight rectangles. Spell ë and ç out letter by letter in every prompt. Frame: slide counter top right
+  (gold), swipe arrow bottom right on slides 1 to N-1. Bottom-left corner calm, dark and empty.'
+must_not:
+- no logo or wordmark drawn anywhere
+- no letters or objects in the bottom-left corner
+- no readable words on any phone screen except the strings listed in the text block or the props block
+- no borders, side bars or blurred margins
+hero: false

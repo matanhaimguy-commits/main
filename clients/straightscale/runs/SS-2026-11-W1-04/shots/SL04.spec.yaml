@@ -1,0 +1,197 @@
+shot_id: SL04
+post_id: SS-2026-11-W1-04
+format: carousel_slide
+script_lines:
+- S4
+line_text: Thua diçka që s'e thotë konkurrenti? Jo? Shkruaj çfarë bën ndryshe.
+story_purpose: 'Item 2 with its fix: if a competitor''s profile says the same, there is nothing to choose between.'
+must_read_in_1s: 'Two phones side by side show the same photo grid: nothing tells the two businesses apart.'
+subjects:
+- id: PR-PHONE
+  ref: null
+  state: the red-case phone lying face up on the desk on the left, screen lit
+  pose: portrait, rotated 10 degrees clockwise seen from above, top edge pointing to the upper right, left half
+    of the lower frame
+  expression: ''
+  instances: 1
+- id: PR-PHONE-2
+  ref: null
+  state: a second phone in a plain black case lying face up on the desk on the right, screen lit
+  pose: portrait, rotated 10 degrees counter-clockwise seen from above, top edge pointing to the upper left, right
+    half of the lower frame
+  expression: ''
+  instances: 1
+hands: none visible
+props:
+- id: PR-PHONE
+  story_critical: false
+  ref: null
+  state: left, face up, screen lit
+  content: 'a modern smartphone in a deep red #BE0F18 case, black glass front, rounded corners, no logo on the case
+    or the glass'
+  size_in_frame: about 34% of the frame width
+- id: PR-PHONE-2
+  story_critical: false
+  ref: null
+  state: right, face up, screen lit
+  content: a modern smartphone in a plain black case, no logo
+  size_in_frame: about 34% of the frame width
+- id: PR-PHONE-SCREEN
+  story_critical: true
+  ref: PS-PROFILE state GRID (prop sheet to build on SS-LIB-W45W46)
+  state: both screens lit, the same grid
+  content: each screen shows the same three-by-three grid of nine near-identical square photos of finished kitchens
+    in light oak and white; the right grid is an exact copy of the left; no text, no digits, no status bar, no app
+    logo
+  size_in_frame: each screen fills most of its phone
+- id: PR-LAPTOP
+  story_critical: false
+  ref: null
+  state: closed, at the back edge of the desk, out of focus
+  content: a closed silver-grey laptop with a plain lid, no logo, no sticker
+- id: PR-ARROW
+  story_critical: false
+  ref: null
+  state: bottom right, inside the 4% margin
+  content: 'a small crimson #B31217 round button with a white arrow pointing right, flat graphic, nothing else on
+    it'
+  size_in_frame: about 8% of the frame width
+text_in_image:
+- string: PYETJA 2
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 23%, y 7% to 10% of the frame, small spaced
+    capitals, about 30 px, ivory
+  position: line 1 of 4 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: Thua diçka që s'e
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 79%, y 11% to 18% of the frame, heavy
+    bold geometric sans, about 80 px, ivory
+  position: line 2 of 4 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: thotë konkurrenti?
+  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 83%, y 19% to 26% of the frame, heavy
+    bold geometric sans, about 80 px, ivory; the word ''konkurrenti?'' sits inside a solid crimson #B31217 highlight
+    rectangle'
+  position: line 3 of 4 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: Jo? Shkruaj çfarë bën ndryshe.
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 76%, y 28% to 32% of the frame, bold geometric
+    sans, about 44 px, ivory
+  position: line 4 of 4 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: 4/8
+  surface: 'top right, small gold #DD9A10 slide counter'
+  position: top right corner, inside the 4% margin
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing overlaps the counter
+action_physics:
+- Both phones lie with their whole backs flat on the desk, screens up and lit, with nothing touching them.
+static: false
+setting:
+  ref: null
+  details: 'A business owner''s dark wood desk at night: a warm tungsten desk lamp, a closed laptop at the back
+    edge, deep shadows. No window and no clock tower are visible in this shot.'
+  background_rule: Nothing on the desk or the walls carries a word, a logo or a sign; the laptop is closed with
+    a plain lid. Both phone screens show only the photo grids.
+camera:
+  framing: close shot from above the desk; the two phones side by side in the lower middle, the top 40% is a dark
+    calm wall
+  angle: 50 degrees above the desk, centred
+  lens: 35mm film still, shallow depth of field
+  aspect: '4:5'
+  safe_zones: text and arrow inside a 4% margin; top 40% a calm dark wall; bottom-left corner (lowest 9% of the
+    height, left 40% of the width) calm, dark and empty
+continuity:
+  previous_shot: SL03
+  carry_over:
+  - The red-case phone is joined by a second phone with the same grid; same desk and light.
+regions:
+- name: t01-label
+  kind: text
+  box:
+  - 0.06
+  - 0.07
+  - 0.232
+  - 0.1
+- name: t02-head
+  kind: text
+  box:
+  - 0.06
+  - 0.118
+  - 0.791
+  - 0.186
+- name: t03-head
+  kind: text
+  box:
+  - 0.06
+  - 0.194
+  - 0.834
+  - 0.262
+- name: t04-sub
+  kind: text
+  box:
+  - 0.06
+  - 0.28
+  - 0.768
+  - 0.32
+- name: counter
+  kind: text
+  box:
+  - 0.86
+  - 0.04
+  - 0.96
+  - 0.08
+- name: logo-zone
+  kind: other
+  box:
+  - 0.0
+  - 0.91
+  - 0.4
+  - 1.0
+- name: arrow
+  kind: other
+  box:
+  - 0.86
+  - 0.89
+  - 0.96
+  - 0.96
+- name: phone
+  kind: prop
+  box:
+  - 0.08
+  - 0.5
+  - 0.48
+  - 0.9
+- name: phone-2
+  kind: prop
+  box:
+  - 0.52
+  - 0.5
+  - 0.92
+  - 0.9
+style: 'Tirana after dark: cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
+  the cover''s window. Same light and colour grade on every slide. Thread: a smartphone in a deep red case (#BE0F18),
+  recurring on every slide, changing state with the story. Palette: scene tone near-black (#1F1F1F), type ivory
+  (#F8F6EF), accent crimson #B31217 as solid highlight rectangles behind key words and the swipe arrow button, small
+  gold (#DD9A10) only for the counter. #B31217 is the only saturated colour besides the gold counter and the phone
+  case. Type: heavy bold geometric sans in ivory, left-aligned in the calm dark area; key words in solid crimson
+  #B31217 highlight rectangles. Spell ë and ç out letter by letter in every prompt. Frame: slide counter top right
+  (gold), swipe arrow bottom right on slides 1 to N-1. Bottom-left corner calm, dark and empty.'
+must_not:
+- no logo or wordmark drawn anywhere
+- no letters or objects in the bottom-left corner
+- no readable words on any phone screen except the strings listed in the text block or the props block
+- no borders, side bars or blurred margins
+- no window and no clock tower
+- no third phone
+hero: false
+notes: 'Prop sheet PS-PROFILE (state: GRID) is attached as the last reference image. The style line''s clock tower
+  belongs to window shots only; this shot has no window, so none is drawn.'

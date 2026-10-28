@@ -1,0 +1,182 @@
+shot_id: IMG01
+post_id: SS-2026-11-W1-06
+format: static
+script_lines:
+- S1
+line_text: Kush u përgjigjet mesazheve kur je me klient?
+story_purpose: 'The owner-fear question: while the owner is with one client, new messages wait on the lit phone.'
+must_read_in_1s: A lit phone with new messages sits alone on the sales desk while the owner is busy with a client.
+subjects:
+- id: PR-PHONE
+  ref: null
+  state: the red-case phone lying face up on the sales desk, screen lit with two unread message bubbles, alone
+  pose: large in the foreground, lower middle to right (x 44% to 94%), portrait, rotated 15 degrees clockwise seen
+    from above, top edge pointing to the upper right
+  expression: ''
+  instances: 1
+- id: CH-OWNER
+  ref: null
+  state: a shop owner seen from behind at the far end of the showroom, dark shirt, short dark hair at the back of
+    the head, back of the neck and collar visible, no face or profile visible
+  pose: standing upright, both feet flat on the floor, weight even, facing the sample rack, both hands in his trouser
+    pockets
+  expression: ''
+  instances: 1
+- id: CH-CLIENT
+  ref: null
+  state: a customer seen from behind, to the owner's left, shoulder to shoulder, grey jacket, short grey-brown hair
+    at the back of the head, jacket collar visible, no face or profile visible
+  pose: standing upright, both feet flat on the floor, facing the sample rack, head bowed toward a door sample,
+    both hands in his jacket pockets
+  expression: ''
+  instances: 1
+hands: none visible
+props:
+- id: PR-PHONE
+  story_critical: false
+  ref: null
+  state: lying face up, screen lit
+  content: 'a modern smartphone in a deep red #BE0F18 case, black glass front, rounded corners, no logo on the case
+    or the glass'
+  size_in_frame: about 50% of the frame width
+- id: PR-PHONE-SCREEN
+  story_critical: true
+  ref: PS-CHAT state CHAT-IN-2 (prop sheet to build on SS-LIB-W45W46)
+  state: lit, two unread messages
+  content: 'a plain chat view: a light-grey incoming bubble near the top holding two short dark-grey bars instead
+    of letters, and a second smaller incoming bubble under it with one short bar; no names, no avatars, no digits,
+    no status bar, no app logo'
+  size_in_frame: screen fills most of the phone
+- id: PR-SAMPLE-RACK
+  story_critical: false
+  ref: null
+  state: far behind the people, out of focus
+  content: a wall rack of plain kitchen cabinet door samples, rectangles in light oak, white and charcoal, unlabelled
+text_in_image:
+- string: Kush u përgjigjet
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 79%, y 7% to 13% of the frame, heavy bold
+    geometric sans, about 80 px, ivory
+  position: line 1 of 3 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: mesazheve kur je
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 74%, y 14% to 21% of the frame, heavy
+    bold geometric sans, about 80 px, ivory
+  position: line 2 of 3 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: me klient?
+  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 49%, y 22% to 28% of the frame, heavy
+    bold geometric sans, about 80 px, ivory; the word ''klient?'' sits inside a solid crimson #B31217 highlight
+    rectangle'
+  position: line 3 of 3 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+action_physics:
+- The phone lies with its whole back flat on the sales desk, screen up, with no hand or object touching it.
+- The owner and the customer stand with both feet flat on the showroom floor, their bodies facing the sample rack,
+  the customer's head bowed toward one door sample, the owner's head turned slightly toward it, their hands staying
+  in their pockets.
+static: false
+setting:
+  ref: null
+  details: 'A kitchen-and-furniture showroom in the evening, warm tungsten lamps on and the shop still open: a long
+    dark charcoal-stained oak sales desk in the foreground, near-black in the lower left, and far behind it a wall
+    rack of plain kitchen cabinet door samples in light oak, white and charcoal. The owner and the customer stand
+    far behind the phone, soft and out of focus. No window and no clock tower are visible in this shot.'
+  background_rule: The sample rack holds only plain colour samples; no price tags, signs, posters, clocks, screens
+    or readable words anywhere; the walls are plain. The phone screen shows only the bubbles described.
+  background_action: 'At the far end of the showroom, soft focus: the owner (seen from behind) and the customer
+    (seen from behind) stand side by side facing the sample rack; the customer''s head is bowed toward a door sample,
+    the owner''s head is turned slightly toward it.'
+camera:
+  framing: tight crop on the sales desk; the phone large in the lower middle and right (x 44% to 94%), the two people
+    small and soft in the middle band (y 40% to 58%), the top 40% a plain dark calm wall
+  angle: about 35 degrees above the sales desk surface, slightly from the left
+  lens: 35mm film still, shallow depth of field
+  aspect: '4:5'
+  safe_zones: text inside a 4% margin; no arrow in this shot; top 40% a calm dark wall; bottom-left corner (lowest
+    9% of the height, left 40% of the width) calm, dark and empty
+continuity:
+  previous_shot: null
+  carry_over: []
+regions:
+- name: t01-head
+  kind: text
+  box:
+  - 0.06
+  - 0.07
+  - 0.791
+  - 0.138
+- name: t02-head
+  kind: text
+  box:
+  - 0.06
+  - 0.146
+  - 0.748
+  - 0.214
+- name: t03-head
+  kind: text
+  box:
+  - 0.06
+  - 0.222
+  - 0.49
+  - 0.29
+- name: logo-zone
+  kind: other
+  box:
+  - 0.0
+  - 0.91
+  - 0.4
+  - 1.0
+- name: phone
+  kind: prop
+  box:
+  - 0.44
+  - 0.6
+  - 0.94
+  - 0.9
+- name: phone-screen
+  kind: prop
+  box:
+  - 0.5
+  - 0.62
+  - 0.88
+  - 0.88
+- name: people
+  kind: other
+  box:
+  - 0.42
+  - 0.4
+  - 0.72
+  - 0.58
+- name: rack
+  kind: other
+  box:
+  - 0.3
+  - 0.4
+  - 1.0
+  - 0.6
+style: 'Tirana after dark: cinematic night city scenes, warm tungsten light, no window and no clock tower in this
+  single image. Same light and colour grade on every slide. Thread: a smartphone in a deep red case (#BE0F18), recurring
+  on every slide, changing state with the story. Palette: scene tone near-black (#1F1F1F), type ivory (#F8F6EF),
+  accent crimson #B31217 as solid highlight rectangles behind key words; there is no swipe arrow button and no gold
+  in this single image. #B31217 is the only saturated colour besides the phone case. Type: heavy bold geometric
+  sans in ivory, left-aligned in the calm dark area; key words in solid crimson #B31217 highlight rectangles. Spell
+  ë and ç out letter by letter in every prompt. Frame: a single image with no slide counter and no swipe arrow.
+  Bottom-left corner calm, dark and empty.'
+must_not:
+- no logo or wordmark drawn anywhere
+- no letters or objects in the bottom-left corner
+- no readable words on any phone screen except the strings listed in the text block or the props block
+- no borders, side bars or blurred margins
+- no window and no clock tower
+- no faces or profiles on the people
+- no third person
+hero: true
+notes: 'The card''s hook gate shipped a daytime showroom with a tight crop; this spec follows the locked style bible
+  (night look, warm tungsten) with the shop open in the evening and no window. Director to confirm. Prop sheet PS-CHAT
+  (state: CHAT-IN-2) is attached as the last reference image.'

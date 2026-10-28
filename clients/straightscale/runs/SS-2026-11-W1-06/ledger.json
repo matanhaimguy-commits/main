@@ -1,0 +1,167 @@
+{
+  "post_id": "SS-2026-11-W1-06",
+  "slug": "straightscale",
+  "format": "image_question",
+  "family": "still",
+  "card": "clients/straightscale/cards/2026-11-W1/SS-2026-11-W1-06.yaml",
+  "created": "2026-10-28T09:55:45+00:00",
+  "steps": {
+    "0": {
+      "status": "todo",
+      "note": ""
+    },
+    "1": {
+      "status": "todo",
+      "note": ""
+    },
+    "2": {
+      "status": "todo",
+      "note": ""
+    },
+    "3": {
+      "status": "todo",
+      "note": ""
+    },
+    "4": {
+      "status": "na",
+      "note": "family"
+    },
+    "5": {
+      "status": "na",
+      "note": "family"
+    },
+    "6": {
+      "status": "todo",
+      "note": ""
+    },
+    "7": {
+      "status": "todo",
+      "note": ""
+    },
+    "8": {
+      "status": "na",
+      "note": "family"
+    },
+    "9": {
+      "status": "todo",
+      "note": ""
+    },
+    "10": {
+      "status": "todo",
+      "note": ""
+    },
+    "11": {
+      "status": "todo",
+      "note": ""
+    },
+    "12": {
+      "status": "na",
+      "note": "family"
+    },
+    "13": {
+      "status": "todo",
+      "note": ""
+    },
+    "14": {
+      "status": "todo",
+      "note": ""
+    },
+    "15": {
+      "status": "todo",
+      "note": ""
+    }
+  },
+  "run_gates": {},
+  "specs": {
+    "IMG01": {
+      "sha256": "3b54a996cf34d55fab014f3df4219404e7a5be615d87f2a1c093d5a3e5047025",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T10:25:34+00:00",
+      "lint_issues": []
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "IMG01",
+      "version": 1,
+      "type": "static",
+      "shots": [
+        "IMG01"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-28T10:06:49+00:00",
+      "prompt_sha256": "aaa04f4553a4f4ae620a8f8785f603325135cfdb844da4c3b47b3101bd8da303",
+      "prompt_file": "prompts/IMG01.v1.4.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T10:06:49+00:00",
+          "sha256": "f19cd5bbd86ed5b03943c419a6038619ec4759ef30e9966f8cbf4e7ef4561cc3",
+          "file": "prompts/IMG01.v1.1.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:11:19+00:00",
+          "sha256": "a40ee50805a91d327142ed35b08bf803ce8b0be28306f54ed1e784c2af665125",
+          "file": "prompts/IMG01.v1.2.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:24:55+00:00",
+          "sha256": "aaa04f4553a4f4ae620a8f8785f603325135cfdb844da4c3b47b3101bd8da303",
+          "file": "prompts/IMG01.v1.3.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:25:35+00:00",
+          "sha256": "aaa04f4553a4f4ae620a8f8785f603325135cfdb844da4c3b47b3101bd8da303",
+          "file": "prompts/IMG01.v1.4.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-PS-CHAT-APPROVED",
+          "role": "image_references"
+        }
+      ],
+      "ids": [],
+      "files": [],
+      "gates": {}
+    }
+  ],
+  "queue": []
+}

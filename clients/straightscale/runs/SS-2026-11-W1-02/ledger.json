@@ -1,0 +1,976 @@
+{
+  "post_id": "SS-2026-11-W1-02",
+  "slug": "straightscale",
+  "format": "carousel_framework",
+  "family": "still",
+  "card": "clients/straightscale/cards/2026-11-W1/SS-2026-11-W1-02.yaml",
+  "created": "2026-10-28T09:55:39+00:00",
+  "steps": {
+    "0": {
+      "status": "todo",
+      "note": ""
+    },
+    "1": {
+      "status": "todo",
+      "note": ""
+    },
+    "2": {
+      "status": "todo",
+      "note": ""
+    },
+    "3": {
+      "status": "todo",
+      "note": ""
+    },
+    "4": {
+      "status": "na",
+      "note": "family"
+    },
+    "5": {
+      "status": "na",
+      "note": "family"
+    },
+    "6": {
+      "status": "todo",
+      "note": ""
+    },
+    "7": {
+      "status": "todo",
+      "note": ""
+    },
+    "8": {
+      "status": "na",
+      "note": "family"
+    },
+    "9": {
+      "status": "todo",
+      "note": ""
+    },
+    "10": {
+      "status": "todo",
+      "note": ""
+    },
+    "11": {
+      "status": "todo",
+      "note": ""
+    },
+    "12": {
+      "status": "na",
+      "note": "family"
+    },
+    "13": {
+      "status": "todo",
+      "note": ""
+    },
+    "14": {
+      "status": "todo",
+      "note": ""
+    },
+    "15": {
+      "status": "todo",
+      "note": ""
+    }
+  },
+  "run_gates": {},
+  "specs": {
+    "SL01": {
+      "sha256": "b15dfd3e5c9b0a24c42feaef08dafa4495697fd4ac13e62c8c49980b23e8e538",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T10:25:31+00:00",
+      "lint_issues": []
+    },
+    "SL02": {
+      "sha256": "d6c13ff6716d52ec9dd8099355a24b70cb85b48358c0f8330c7b0f5314c2f1b9",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T10:25:31+00:00",
+      "lint_issues": []
+    },
+    "SL03": {
+      "sha256": "f5a11f3a37e2b0e69471e0c2c04fd678a95b92e948fc90b18d8a57caca1dd49e",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T10:25:31+00:00",
+      "lint_issues": []
+    },
+    "SL04": {
+      "sha256": "fefaae96445b9251309e7e23376e1c4397baf3398b8037ca9e03dc19ce97b2ed",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T10:25:31+00:00",
+      "lint_issues": []
+    },
+    "SL05": {
+      "sha256": "cefd433b13dce4ec2a7304b10594b3a5d81ec9122862fc1426012bab0a603928",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T10:25:31+00:00",
+      "lint_issues": []
+    },
+    "SL06": {
+      "sha256": "ed2f306c4b30b30d258223785d6e94318cf1aabe45a125fcb30c2b8cf8e2c594",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T10:25:31+00:00",
+      "lint_issues": []
+    },
+    "SL07": {
+      "sha256": "76be6cf4f42e82f9eef2be612932c936b336dec1e857db542a8cb72294346f32",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T10:25:31+00:00",
+      "lint_issues": []
+    },
+    "SL08": {
+      "sha256": "d78d53203bdbd7d54773d218b8d10fbf362d9799f653b94883952a63ef4b3ed0",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T10:25:31+00:00",
+      "lint_issues": []
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "SL01",
+      "version": 1,
+      "type": "cover",
+      "shots": [
+        "SL01"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-28T10:06:43+00:00",
+      "prompt_sha256": "eb0b6bd3f01e65e8187793db498ac401020eaec16a14432501ab50d15aedf9a0",
+      "prompt_file": "prompts/SL01.v1.4.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T10:06:43+00:00",
+          "sha256": "0d26edfa367e65c94954693c6471b1c599b527251e32f48d74935349e21ca15b",
+          "file": "prompts/SL01.v1.1.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:11:16+00:00",
+          "sha256": "305e9ac93315d63b861feb4d9fb9a87f2c39d34e201800d15c6ac4183a698ff7",
+          "file": "prompts/SL01.v1.2.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:24:51+00:00",
+          "sha256": "eb0b6bd3f01e65e8187793db498ac401020eaec16a14432501ab50d15aedf9a0",
+          "file": "prompts/SL01.v1.3.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:25:31+00:00",
+          "sha256": "eb0b6bd3f01e65e8187793db498ac401020eaec16a14432501ab50d15aedf9a0",
+          "file": "prompts/SL01.v1.4.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-PS-ULJE-APPROVED",
+          "role": "image_references"
+        }
+      ],
+      "ids": [],
+      "files": [],
+      "gates": {}
+    },
+    {
+      "asset_id": "SL02",
+      "version": 1,
+      "type": "slide",
+      "shots": [
+        "SL02"
+      ],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T10:06:43+00:00",
+      "prompt_sha256": "178cf2ab61a67bc7a5d7ef6378a906ecd298a86f94a3d746633b372f815435a0",
+      "prompt_file": "prompts/SL02.v1.4.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T10:06:43+00:00",
+          "sha256": "fc53fa681072624abffbee9790e854ffdb0768f7cb41fb3d9743c0a2add734e8",
+          "file": "prompts/SL02.v1.1.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:11:16+00:00",
+          "sha256": "1d0d68d08367ef92d02c3f0d2f35f0e74a5fec77744f8fbcf7c6a9096b108c69",
+          "file": "prompts/SL02.v1.2.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:24:51+00:00",
+          "sha256": "178cf2ab61a67bc7a5d7ef6378a906ecd298a86f94a3d746633b372f815435a0",
+          "file": "prompts/SL02.v1.3.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:25:31+00:00",
+          "sha256": "178cf2ab61a67bc7a5d7ef6378a906ecd298a86f94a3d746633b372f815435a0",
+          "file": "prompts/SL02.v1.4.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL01-APPROVED-COVER",
+          "role": "image_references"
+        }
+      ],
+      "ids": [],
+      "files": [],
+      "gates": {}
+    },
+    {
+      "asset_id": "SL03",
+      "version": 1,
+      "type": "slide",
+      "shots": [
+        "SL03"
+      ],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T10:06:44+00:00",
+      "prompt_sha256": "33d34ec222a20b758ee9f06ef7fec0ea711e90b9038e25373edfd465925c08dc",
+      "prompt_file": "prompts/SL03.v1.4.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T10:06:44+00:00",
+          "sha256": "a00a0b01c61481972c17ecfb3b1b2cc8454069e5bae8803591baca4209281fd2",
+          "file": "prompts/SL03.v1.1.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:11:16+00:00",
+          "sha256": "11b89d6d9cf1b42455d8dddd5385d2be8468a2e6733ee7b468299d9a41085067",
+          "file": "prompts/SL03.v1.2.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:24:51+00:00",
+          "sha256": "33d34ec222a20b758ee9f06ef7fec0ea711e90b9038e25373edfd465925c08dc",
+          "file": "prompts/SL03.v1.3.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:25:31+00:00",
+          "sha256": "33d34ec222a20b758ee9f06ef7fec0ea711e90b9038e25373edfd465925c08dc",
+          "file": "prompts/SL03.v1.4.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL01-APPROVED-COVER",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL02-APPROVED-SLIDE2",
+          "role": "image_references"
+        }
+      ],
+      "ids": [],
+      "files": [],
+      "gates": {}
+    },
+    {
+      "asset_id": "SL04",
+      "version": 1,
+      "type": "slide",
+      "shots": [
+        "SL04"
+      ],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T10:06:44+00:00",
+      "prompt_sha256": "f4db33b080eb1b2e95d90ac0adaee074213d9b48f8d3fd3cb5eaa2aadc7cbcf4",
+      "prompt_file": "prompts/SL04.v1.4.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T10:06:44+00:00",
+          "sha256": "6a679caf80b726c20c7e647c20624e110b5afa8d4273609993d8bf8d924f889b",
+          "file": "prompts/SL04.v1.1.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:11:16+00:00",
+          "sha256": "cb5b59eff40b7a5f6ab903e0fcd4611b98f247d85b66faa2e4091cafd33722a2",
+          "file": "prompts/SL04.v1.2.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:24:52+00:00",
+          "sha256": "f4db33b080eb1b2e95d90ac0adaee074213d9b48f8d3fd3cb5eaa2aadc7cbcf4",
+          "file": "prompts/SL04.v1.3.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:25:32+00:00",
+          "sha256": "f4db33b080eb1b2e95d90ac0adaee074213d9b48f8d3fd3cb5eaa2aadc7cbcf4",
+          "file": "prompts/SL04.v1.4.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL01-APPROVED-COVER",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL02-APPROVED-SLIDE2",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-PS-CHAT-APPROVED",
+          "role": "image_references"
+        }
+      ],
+      "ids": [],
+      "files": [],
+      "gates": {}
+    },
+    {
+      "asset_id": "SL05",
+      "version": 1,
+      "type": "slide",
+      "shots": [
+        "SL05"
+      ],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T10:06:44+00:00",
+      "prompt_sha256": "7b638000c1f95d1bbb1babef76e3dc3f2a47f4bffffd64dc719738d090b7e5a3",
+      "prompt_file": "prompts/SL05.v1.4.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T10:06:44+00:00",
+          "sha256": "d975e0e69c652301455ddf4f31d573fc4a41c4891c5c91861ea38477f765915d",
+          "file": "prompts/SL05.v1.1.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:11:17+00:00",
+          "sha256": "8b53dffb8f925b9c04ce5502def0311aa7ff50ebee82b30dab197c5c3f7a6a2b",
+          "file": "prompts/SL05.v1.2.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:24:52+00:00",
+          "sha256": "7b638000c1f95d1bbb1babef76e3dc3f2a47f4bffffd64dc719738d090b7e5a3",
+          "file": "prompts/SL05.v1.3.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:25:32+00:00",
+          "sha256": "7b638000c1f95d1bbb1babef76e3dc3f2a47f4bffffd64dc719738d090b7e5a3",
+          "file": "prompts/SL05.v1.4.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL01-APPROVED-COVER",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL02-APPROVED-SLIDE2",
+          "role": "image_references"
+        }
+      ],
+      "ids": [],
+      "files": [],
+      "gates": {}
+    },
+    {
+      "asset_id": "SL06",
+      "version": 1,
+      "type": "slide",
+      "shots": [
+        "SL06"
+      ],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T10:06:45+00:00",
+      "prompt_sha256": "2815ccb4e9f04929bfaf2953534cd4c7172f8673ef0f7afda2b6ec7f12710615",
+      "prompt_file": "prompts/SL06.v1.4.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T10:06:45+00:00",
+          "sha256": "ed7b19c41cd6c5fbdfead1aa3d8b985003c487de2dbf3b9a8c50012ab5bee6c5",
+          "file": "prompts/SL06.v1.1.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:11:17+00:00",
+          "sha256": "f09f31dcbf1e599a7c1122288be1a58e79bcf6fe554dcb963a0368ed6f7205cc",
+          "file": "prompts/SL06.v1.2.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:24:52+00:00",
+          "sha256": "2815ccb4e9f04929bfaf2953534cd4c7172f8673ef0f7afda2b6ec7f12710615",
+          "file": "prompts/SL06.v1.3.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:25:32+00:00",
+          "sha256": "2815ccb4e9f04929bfaf2953534cd4c7172f8673ef0f7afda2b6ec7f12710615",
+          "file": "prompts/SL06.v1.4.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL01-APPROVED-COVER",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL02-APPROVED-SLIDE2",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-PS-COMPOSER-APPROVED",
+          "role": "image_references"
+        }
+      ],
+      "ids": [],
+      "files": [],
+      "gates": {}
+    },
+    {
+      "asset_id": "SL07",
+      "version": 1,
+      "type": "slide",
+      "shots": [
+        "SL07"
+      ],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T10:06:45+00:00",
+      "prompt_sha256": "19f4f9b427f221b0956e66726cd01cfd7d6eeef6f535e9d3fb14864d724780b5",
+      "prompt_file": "prompts/SL07.v1.4.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T10:06:45+00:00",
+          "sha256": "bc9769f77d375a83a9dad64a22fe860ff11a95bfaa72ffc8e67f8e415b9b3a71",
+          "file": "prompts/SL07.v1.1.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:11:17+00:00",
+          "sha256": "e511fff5b05052fda10409e8ae4b808886aa8e7ab11ee46c631b113be89af539",
+          "file": "prompts/SL07.v1.2.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:24:52+00:00",
+          "sha256": "19f4f9b427f221b0956e66726cd01cfd7d6eeef6f535e9d3fb14864d724780b5",
+          "file": "prompts/SL07.v1.3.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:25:32+00:00",
+          "sha256": "19f4f9b427f221b0956e66726cd01cfd7d6eeef6f535e9d3fb14864d724780b5",
+          "file": "prompts/SL07.v1.4.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL01-APPROVED-COVER",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL02-APPROVED-SLIDE2",
+          "role": "image_references"
+        }
+      ],
+      "ids": [],
+      "files": [],
+      "gates": {}
+    },
+    {
+      "asset_id": "SL08",
+      "version": 1,
+      "type": "slide",
+      "shots": [
+        "SL08"
+      ],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T10:06:45+00:00",
+      "prompt_sha256": "5bfb3df326a0b6903ef7fbd3e4938d79bdb75e1fe58125e0f3cadbda3ffa8f24",
+      "prompt_file": "prompts/SL08.v1.4.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T10:06:46+00:00",
+          "sha256": "6113cf15f83aedfefb33f15ff81f2aecfd9f3595c860e2def6b32b8625e1e009",
+          "file": "prompts/SL08.v1.1.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:11:17+00:00",
+          "sha256": "779493076316ee38f0fbc74714d90f782c7b8f8d94aa070fea4d3af13ce114c4",
+          "file": "prompts/SL08.v1.2.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:24:52+00:00",
+          "sha256": "5bfb3df326a0b6903ef7fbd3e4938d79bdb75e1fe58125e0f3cadbda3ffa8f24",
+          "file": "prompts/SL08.v1.3.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:25:32+00:00",
+          "sha256": "5bfb3df326a0b6903ef7fbd3e4938d79bdb75e1fe58125e0f3cadbda3ffa8f24",
+          "file": "prompts/SL08.v1.4.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL01-APPROVED-COVER",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL02-APPROVED-SLIDE2",
+          "role": "image_references"
+        }
+      ],
+      "ids": [],
+      "files": [],
+      "gates": {}
+    }
+  ],
+  "queue": []
+}

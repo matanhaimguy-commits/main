@@ -1,0 +1,209 @@
+shot_id: SL03
+post_id: SS-2026-11-W1-02
+format: carousel_slide
+script_lines:
+- S3
+line_text: E di pse të zgjodhën klientët e fundit? Po apo jo?
+story_purpose: 'First yes/no check: does the owner know why his last buyers chose him?'
+must_read_in_1s: 'An empty shop at night with one quiet phone: a question to answer yes or no.'
+subjects:
+- id: PR-PHONE
+  ref: null
+  state: the red-case phone standing small on the sales desk, leaning on a window-frame sample corner, screen off
+  pose: lower right third of the frame, far from the camera
+  expression: ''
+  instances: 1
+hands: none visible
+props:
+- id: PR-PHONE
+  story_critical: false
+  ref: null
+  state: leaning on a frame sample, screen off
+  content: 'a modern smartphone in a deep red #BE0F18 case, black glass front, rounded corners, no logo on the case
+    or the glass'
+  size_in_frame: about 12% of the frame width
+- id: PR-FRAME-SAMPLE-CORNER
+  story_critical: false
+  ref: null
+  state: a white corner sample standing on the sales desk
+  content: one plain white window-frame corner section about 30 cm tall standing on the sales desk, no label
+- id: PR-FRAME-SAMPLES
+  story_critical: false
+  ref: null
+  state: hung on the back wall, out of focus
+  content: three plain corner sections of window frames hung on the wall, two white and one charcoal, no labels,
+    no price tags, no stickers
+- id: PR-CARD-READER
+  story_critical: false
+  ref: null
+  state: on the sales desk, screen dark
+  content: a plain countertop card reader with a dark blank screen and a plain keypad of blank rubber keys, no brand
+    mark
+- id: PR-ARROW
+  story_critical: false
+  ref: null
+  state: bottom right, inside the 4% margin
+  content: 'a small crimson #B31217 round button with a white arrow pointing right, flat graphic, nothing else on
+    it'
+  size_in_frame: about 8% of the frame width
+text_in_image:
+- string: NJIH BLERËSIN
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 33%, y 7% to 10% of the frame, small spaced
+    capitals, about 30 px, ivory
+  position: line 1 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: E di pse
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 40%, y 11% to 18% of the frame, heavy
+    bold geometric sans, about 80 px, ivory
+  position: line 2 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: të zgjodhën
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 53%, y 19% to 26% of the frame, heavy
+    bold geometric sans, about 80 px, ivory
+  position: line 3 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: klientët e fundit?
+  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 64%, y 28% to 33% of the frame, heavy
+    bold geometric sans, about 60 px, ivory; the word ''klientët'' sits inside a solid crimson #B31217 highlight
+    rectangle'
+  position: line 4 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: Po apo jo?
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 29%, y 35% to 39% of the frame, bold geometric
+    sans, about 44 px, ivory
+  position: line 5 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: 3/8
+  surface: 'top right, small gold #DD9A10 slide counter'
+  position: top right corner, inside the 4% margin
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing overlaps the counter
+action_physics:
+- The phone leans back against the white corner sample, its bottom edge flat on the sales desk.
+static: false
+setting:
+  ref: null
+  details: 'A small windows-and-doors shop at night: a long dark wood sales desk across the lower fifth of the frame,
+    a plain card reader on it, sample corner sections of white and charcoal window frames hung on the back wall,
+    warm tungsten lamps, deep shadows. Wide view; every lamp is on, the shop is empty. A small window at the right
+    edge of the frame at 42% to 62% of the height, below the text wall, slightly out of focus, the Tirana clock
+    tower a small lit silhouette in it.'
+  background_rule: 'The back wall holds only the plain frame samples; no signs, posters, calendars, screens or readable
+    words anywhere except what the text block and props block list. The clock tower is a small lit silhouette with
+    a plain clock face: no numerals, no letters; the window glass reflects no text; no shop signs on the street.'
+camera:
+  framing: wide shot of the whole shop from the door side; the sales desk runs across the lower fifth, the top 40%
+    is the dark back wall
+  angle: eye level, centred
+  lens: 35mm film still, shallow depth of field
+  aspect: '4:5'
+  safe_zones: text and arrow inside a 4% margin; top 40% a calm dark wall; bottom-left corner (lowest 9% of the
+    height, left 40% of the width) calm, dark and empty
+continuity:
+  previous_shot: SL02
+  carry_over:
+  - Same shop and lamp light; the phone is smaller and farther away, screen off.
+  - Sales desk edge at 84% of the height as on slide 1.
+regions:
+- name: t01-label
+  kind: text
+  box:
+  - 0.06
+  - 0.07
+  - 0.339
+  - 0.1
+- name: t02-head
+  kind: text
+  box:
+  - 0.06
+  - 0.118
+  - 0.404
+  - 0.186
+- name: t03-head
+  kind: text
+  box:
+  - 0.06
+  - 0.194
+  - 0.533
+  - 0.262
+- name: t04-head2
+  kind: text
+  box:
+  - 0.06
+  - 0.28
+  - 0.645
+  - 0.332
+- name: t05-sub
+  kind: text
+  box:
+  - 0.06
+  - 0.35
+  - 0.296
+  - 0.39
+- name: counter
+  kind: text
+  box:
+  - 0.86
+  - 0.04
+  - 0.96
+  - 0.08
+- name: logo-zone
+  kind: other
+  box:
+  - 0.0
+  - 0.91
+  - 0.4
+  - 1.0
+- name: arrow
+  kind: other
+  box:
+  - 0.86
+  - 0.89
+  - 0.96
+  - 0.96
+- name: window
+  kind: other
+  box:
+  - 0.8
+  - 0.42
+  - 1.0
+  - 0.62
+- name: phone
+  kind: prop
+  box:
+  - 0.62
+  - 0.66
+  - 0.78
+  - 0.82
+- name: sample-corner
+  kind: prop
+  box:
+  - 0.54
+  - 0.58
+  - 0.66
+  - 0.82
+style: 'Tirana after dark: cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
+  the cover''s window. Same light and colour grade on every slide. Thread: a smartphone in a deep red case (#BE0F18),
+  recurring on every slide, changing state with the story. Palette: scene tone near-black (#1F1F1F), type ivory
+  (#F8F6EF), accent crimson #B31217 as solid highlight rectangles behind key words and the swipe arrow button, small
+  gold (#DD9A10) only for the counter. #B31217 is the only saturated colour besides the gold counter and the phone
+  case. Type: heavy bold geometric sans in ivory, left-aligned in the calm dark area; key words in solid crimson
+  #B31217 highlight rectangles. Spell ë and ç out letter by letter in every prompt. Frame: slide counter top right
+  (gold), swipe arrow bottom right on slides 1 to N-1. Bottom-left corner calm, dark and empty.'
+must_not:
+- no logo or wordmark drawn anywhere
+- no letters or objects in the bottom-left corner
+- no readable words on any phone screen except the strings listed in the text block or the props block
+- no borders, side bars or blurred margins
+hero: false

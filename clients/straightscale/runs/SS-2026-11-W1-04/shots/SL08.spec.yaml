@@ -1,0 +1,189 @@
+shot_id: SL08
+post_id: SS-2026-11-W1-04
+format: carousel_slide
+script_lines:
+- S8
+line_text: Çdo jo është një rresht që mungon. Shkruaj ANALIZA në komente. Analizë falas, 45 minuta, pa detyrim.
+  Në Tiranë ose te biznesi yt.
+story_purpose: 'Payoff (each no is a missing line) and the one ask: comment ANALIZA, with only the offer''s known
+  facts.'
+must_read_in_1s: A calm desk at night; the line says comment ANALIZA for a free 45-minute analysis.
+subjects:
+- id: PR-PHONE
+  ref: null
+  state: the red-case phone seated upright in a black phone stand on the desk, screen off, calm
+  pose: lower centre of the frame, medium distance
+  expression: ''
+  instances: 1
+hands: none visible
+props:
+- id: PR-PHONE
+  story_critical: false
+  ref: null
+  state: upright in the stand, screen off
+  content: 'a modern smartphone in a deep red #BE0F18 case, black glass front, rounded corners, no logo on the case
+    or the glass'
+  size_in_frame: about 16% of the frame width
+- id: PR-STAND
+  story_critical: false
+  ref: null
+  state: on the surface, holding the phone upright
+  content: a plain black matte angled phone stand with one groove, no logo; the phone's bottom edge sits in the
+    groove and its back leans against the stand's rear support
+- id: PR-LAPTOP
+  story_critical: false
+  ref: null
+  state: closed, at the back edge of the desk, out of focus
+  content: a closed silver-grey laptop with a plain lid, no logo, no sticker
+text_in_image:
+- string: Çdo jo është një
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 74%, y 7% to 13% of the frame, heavy bold
+    geometric sans, about 80 px, ivory
+  position: line 1 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: rresht që mungon.
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 79%, y 14% to 21% of the frame, heavy
+    bold geometric sans, about 80 px, ivory
+  position: line 2 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: Shkruaj ANALIZA në komente.
+  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 69%, y 23% to 27% of the frame, bold
+    geometric sans, about 44 px, ivory; the word ''ANALIZA'' sits inside a solid crimson #B31217 highlight rectangle'
+  position: line 3 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: Analizë falas, 45 minuta, pa detyrim.
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 77%, y 28% to 32% of the frame, geometric
+    sans, about 36 px, ivory
+  position: line 4 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: Në Tiranë ose te biznesi yt.
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 60%, y 32% to 36% of the frame, geometric
+    sans, about 36 px, ivory
+  position: line 5 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: 8/8
+  surface: 'top right, small gold #DD9A10 slide counter'
+  position: top right corner, inside the 4% margin
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing overlaps the counter
+action_physics:
+- The phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support; nothing touches
+  it.
+static: false
+setting:
+  ref: null
+  details: 'A business owner''s dark wood desk at night: a warm tungsten desk lamp, a closed laptop at the back
+    edge, deep shadows. Wide, calm, the lamp on, nobody there. A small window at the right edge of the frame at
+    42% to 62% of the height, below the text wall, slightly out of focus, the Tirana clock tower a small lit silhouette
+    in it.'
+  background_rule: 'Nothing on the desk or the walls carries a word, a logo or a sign; the laptop is closed with
+    a plain lid. The clock tower is a small lit silhouette with a plain clock face: no numerals, no letters; the
+    window glass reflects no text; no shop signs on the street.'
+camera:
+  framing: wide shot of the desk from the front; the phone in the lower middle, the top 40% the dark wall
+  angle: eye level, centred
+  lens: 35mm film still, shallow depth of field
+  aspect: '4:5'
+  safe_zones: text inside a 4% margin; no arrow in this shot; top 40% a calm dark wall; bottom-left corner (lowest
+    9% of the height, left 40% of the width) calm, dark and empty
+continuity:
+  previous_shot: SL07
+  carry_over:
+  - The phone rests upright in its stand, screen off, after slide 7's lit phone in a hand; same desk and lamp.
+regions:
+- name: t01-head
+  kind: text
+  box:
+  - 0.06
+  - 0.07
+  - 0.748
+  - 0.138
+- name: t02-head
+  kind: text
+  box:
+  - 0.06
+  - 0.146
+  - 0.791
+  - 0.214
+- name: t03-sub
+  kind: text
+  box:
+  - 0.06
+  - 0.232
+  - 0.697
+  - 0.272
+- name: t04-small
+  kind: text
+  box:
+  - 0.06
+  - 0.29
+  - 0.774
+  - 0.321
+- name: t05-small
+  kind: text
+  box:
+  - 0.06
+  - 0.329
+  - 0.6
+  - 0.36
+- name: counter
+  kind: text
+  box:
+  - 0.86
+  - 0.04
+  - 0.96
+  - 0.08
+- name: logo-zone
+  kind: other
+  box:
+  - 0.0
+  - 0.91
+  - 0.4
+  - 1.0
+- name: window
+  kind: other
+  box:
+  - 0.8
+  - 0.42
+  - 1.0
+  - 0.62
+- name: phone
+  kind: prop
+  box:
+  - 0.44
+  - 0.62
+  - 0.56
+  - 0.86
+- name: stand
+  kind: prop
+  box:
+  - 0.44
+  - 0.78
+  - 0.56
+  - 0.86
+style: 'Tirana after dark: cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
+  the cover''s window. Same light and colour grade on every slide. Thread: a smartphone in a deep red case (#BE0F18),
+  recurring on every slide, changing state with the story. Palette: scene tone near-black (#1F1F1F), type ivory
+  (#F8F6EF), accent crimson #B31217 as solid highlight rectangles behind key words and the swipe arrow button, small
+  gold (#DD9A10) only for the counter. #B31217 is the only saturated colour besides the gold counter and the phone
+  case. Type: heavy bold geometric sans in ivory, left-aligned in the calm dark area; key words in solid crimson
+  #B31217 highlight rectangles. Spell ë and ç out letter by letter in every prompt. Frame: slide counter top right
+  (gold), swipe arrow bottom right on slides 1 to N-1. Bottom-left corner calm, dark and empty.'
+must_not:
+- no logo or wordmark drawn anywhere
+- no letters or objects in the bottom-left corner
+- no readable words on any phone screen except the strings listed in the text block or the props block
+- no borders, side bars or blurred margins
+- no swipe arrow, no round button, no arrow graphic anywhere
+hero: false
