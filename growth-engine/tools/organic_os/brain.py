@@ -92,10 +92,13 @@ def brain_report(slug: str, brain: dict, issues: list[dict], gaps: list[dict]) -
         lines += ["## Blocking", "", "None: production may run.", ""]
     lines += ["## Gaps to fill (required, not blocking)", "", "| Field | Missing | How to get it |", "|---|---|---|"]
     lines += [f"| {g['field']} | {g['missing']} | {g['how_to_get']} |" for g in gaps]
-    dec = brain.get("decisions_open") or []
+    dec = [d for d in brain.get("decisions_open") or [] if not d.get("decided")]
     if dec:
         lines += ["", "## Decisions for the owner", ""]
         for d in dec:
             lines.append(f"- **{d['id']}** {d['question']}" + (f" Recommended: {d['recommendation']}" if d.get("recommendation") else "")
                          + (f" Until then: {d['interim']}" if d.get("interim") else ""))
+    done = [d for d in brain.get("decisions_open") or [] if d.get("decided")]
+    if done:
+        lines += ["", "## Decided", ""] + [f"- **{d['id']}** {d['decided']['answer']} ({d['decided']['by']})" for d in done]
     return "\n".join(lines) + "\n"

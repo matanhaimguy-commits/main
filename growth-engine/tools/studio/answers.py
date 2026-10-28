@@ -5,11 +5,13 @@ The owner's answers from the Studio page that the studio hasn't taken in yet, as
 import json
 import urllib.parse
 
+from .business import business_for
 from .cli import opt
 
 
-def answers(*, call, slug=None) -> list[dict]:
-    q = urllib.parse.urlencode({"status": "answered", **({"business": slug} if slug else {})})
+def answers(*, call, slug=None, root=None) -> list[dict]:
+    """slug: a client folder (its brain's hub.business is asked for) or a hub business."""
+    q = urllib.parse.urlencode({"status": "answered", **({"business": business_for(slug, root)} if slug else {})})
     out = []
     for d in call("GET", f"decisions?{q}", api="studio")["decisions"]:
         a = d.get("answer") or {}
