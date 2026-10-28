@@ -697,9 +697,35 @@
             "report": "qa/CF-V8.v3.prompt.json",
             "prompt_sha256": "6f00e75d6f75eb58167200eef87576c947e30357dca217b8a24328d8a99b1aa4"
           }
+        ],
+        "G-VIS": [
+          {
+            "at": "2026-10-28T19:49:32+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/CF-V8.v3.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 1,
+              "minor": 1
+            },
+            "hero": true
+          }
         ]
       }
     }
   ],
-  "queue": []
+  "queue": [
+    {
+      "id": "G-HUMAN-ESCALATE:CF-V8@v3",
+      "checkpoint": "G-HUMAN-ESCALATE",
+      "asset": "CF-V8@v3",
+      "status": "PENDING",
+      "note": "CF-V8: failed 3 attempts at G-VIS; best version and its report go to the owner (VISUAL-QA 5.5)",
+      "files": [
+        "clients/straightscale-en/runs/SSEN-2026-11-W4-01/assets/CF-V8.v3.png"
+      ],
+      "asked_at": "2026-10-28T19:49:32+00:00"
+    }
+  ]
 }

@@ -17,33 +17,42 @@ episode: 4
 job: reach
 funnel_stage: TOF
 project: motion-studio/projects/straightscale-en-05-test-lab
-belief: B3
+belief: B2
 awareness: problem_aware
-demand_phrase: LinkedIn is working but I spend too much time on posts that get zero leads, feels like shouting in empty room
-idea_source: brain
-source_ref: motion-studio/projects/straightscale-en-05-test-lab (GATE 4 spine A, hooks v2 master EN05-B, Matan 28 Oct); hook
-  format HF-12 (AlexHormozi, 8.61x); phrases Q-RN-0025, Q-RN-0026 (Q-E-0183 not recovered); contrarian C6; ref ig-papertiger-animation
-narrow_product: 'The boosted post explains why nothing happened: it was a guess nobody had answered yet'
+demand_phrase: LinkedIn works for me, but it's sporadic and not predictable.
+idea_source: demand_map
+source_ref: 'phrases Q-R-0022 (direct), Q-RN-0025 (direct), Q-RN-0024 (direct); contrarian C6; ref: pick at use'
+narrow_product: 'LinkedIn works some months because one post brought the client, and nobody wrote down which one: ask every
+  new client which post made them reach out, then post that one again on purpose'
 format: reel_animation_short
 format_tier: B
 story_template: object_speaks
 animation_style: claymation
 usd_budget: 1.9
 length_target_s: 35
-hook_type: hidden_cause
-emotion: humor
+hook_type: question
+emotion: surprise
 tone: contrarian
 cta_type: follow
-hypothesis: A talking post that names the real cause of a failed boost earns follows from owners who paid to push one
+hypothesis: Naming the one post that brought the last client (and that nobody knows which) holds LinkedIn-fed owners and earns
+  follows
 success_metric: follows_per_1k_reach
-notes: 'EN 05, part four. Script v2 escalated (80/100). Hook Lab v3 best EN05-R3b recorded. Payoff shows a process, never
-  a result. CTA: follow for the next part. Idea gate: L4 posting content > a boosted post that brought nothing > the boost
-  paid to push a guess > the post itself explains: nobody had answered it yet (series spine approved by Matan, gated only,
-  not changed) · trinity: clear (one cause), unique (blames the guess, not the budget or the algorithm), depictable (a talking
-  post) · shock 7 · $5 yes · key visual: a claymation post card with a face, a gold coin dropped into it, and nothing moves
-  · flag: the demand phrase''s source Q-E-0183 is not recovered, so it is not quoted on screen Round 1 (director): demand
-  phrase repointed to the recovered row Q-RN-0025. Format (session F1 router, 28 Oct, FORMATS.md): EN 05 keeps its object_speaks
-  story in claymation (the boosted post explains): mechanism, L19 fit 5.0; reel_talking_object ties, kept as reel_animation_short
-  because its script (80/100) is written for it.'
+notes: 'Hook Lab v6 (main session, delegated by Matan, plan 28 Oct): the boosted-post idea (3 rounds) and bank W9-01 (3 rounds)
+  are retired; this slot now carries new bank idea W9-08. Idea gate: L4 organic posting > LinkedIn works, but sporadic > the
+  posts that brought clients were never identified > one question to every new client (''which post made you reach out?'')
+  and that post posted again on purpose · on the map: pillar Organic, belief B2 (not the channel), AV-01, demand phrase direct
+  (Q-R-0022) · trinity: clear and complete (one question, no tool), unique (blames not knowing which post, not the algorithm
+  or posting more), depictable (a pile of identical post cards, one of them with a client walking out of it) · shock 7 · $5
+  yes · key visual: a claymation stack of identical post cards; a tiny client figure steps out of one, and the owner can''t
+  tell which · leads to the Organic step (find what buyers answer, then repeat it; paid ads later behind it). | Earlier notes:
+  EN 05, part four. Script v2 escalated (80/100). Hook Lab v3 best EN05-R3b recorded. Payoff shows a process, never a result.
+  CTA: follow for the next part. Idea gate: L4 posting content > a boosted post that brought nothing > the boost paid to push
+  a guess > the post itself explains: nobody had answered it yet (series spine approved by Matan, gated only, not changed)
+  · trinity: clear (one cause), unique (blames the guess, not the budget or the algorithm), depictable (a talking post) ·
+  shock 7 · $5 yes · key visual: a claymation post card with a face, a gold coin dropped into it, and nothing moves · flag:
+  the demand phrase''s source Q-E-0183 is not recovered, so it is not quoted on screen Round 1 (director): demand phrase repointed
+  to the recovered row Q-RN-0025. Format (session F1 router, 28 Oct, FORMATS.md): EN 05 keeps its object_speaks story in claymation
+  (the boosted post explains): mechanism, L19 fit 5.0; reel_talking_object ties, kept as reel_animation_short because its
+  script (80/100) is written for it.'
 target: 'first month, no insights yet (E13): sets the page''s baseline; template candidate at 2x the November median'
 load_bearing_beat: mechanism

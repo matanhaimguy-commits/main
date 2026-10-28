@@ -538,9 +538,37 @@
         }
       ],
       "medias": [],
-      "ids": [],
-      "files": [],
-      "gates": {}
+      "ids": [
+        "c178b2521f414853be389c4b294d134e"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-2026-11-W2-01/assets/CF-W902.v2.png"
+      ],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T19:49:40+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-W902.v2.prompt.json",
+            "prompt_sha256": "4024f42f4497a44ee00df4c74b52d82325d8a8e690bdebbbaadfd27c7fd0319d"
+          }
+        ],
+        "G-VIS": [
+          {
+            "at": "2026-10-28T19:52:34+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/CF-W902.v2.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 0,
+              "minor": 3
+            },
+            "hero": true
+          }
+        ]
+      }
     }
   ],
   "queue": []
