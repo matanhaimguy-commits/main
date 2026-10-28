@@ -12,7 +12,8 @@ AI_PEOPLE = {"reel_ugc_talking", "reel_lived_authority", "reel_ugc_pov", "reel_p
              "reel_whiteboard"}
 FIELDS = ("series_character", "notes", "hypothesis", "story_template")
 CAST = re.compile(r"\b(?:real|actual|our|my|happy|satisfied|paying) (?:client|customer)s?\b|\btestimonials?\b"
-                  r"|\b(?:as|plays?|playing) (?:the |a |our )?(?:owner|founder|client|customer|matan)\b|\bmatan\b", re.I)
+                  r"|\b(?:as|plays?|playing) (?:the |a |our )?(?:owner|founder|client|customer|matan)\b"
+                  r"|\bmatan(?:'s)? (?:twin|double|lookalike|look-alike|clone|avatar|stand-in)\b", re.I)
 
 
 def people_issues(card: dict) -> list[dict]:

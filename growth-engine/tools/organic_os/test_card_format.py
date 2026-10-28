@@ -36,6 +36,11 @@ class CardFormatTest(unittest.TestCase):
             with self.subTest(bad=bad):
                 self.assertIn("ai_person", codes(self.check(**ugc, notes=bad), o.ERROR))
         self.assertNotIn("ai_person", codes(self.check(notes="a real client review on screen")))
+        # naming the owner is not casting him (the F1 re-route notes cite his 28 Oct decision)
+        for ok in ("the fallback Matan asked us to stop (28 Oct)", "Matan approved the format"):
+            with self.subTest(ok=ok):
+                self.assertNotIn("ai_person", codes(self.check(**ugc, notes=ok)))
+        self.assertIn("ai_person", codes(self.check(**ugc, notes="the host plays Matan"), o.ERROR))
 
 
 if __name__ == "__main__":
