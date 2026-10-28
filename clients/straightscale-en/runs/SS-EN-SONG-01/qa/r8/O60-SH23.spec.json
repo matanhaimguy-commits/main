@@ -1,0 +1,76 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH23",
+ "spec_sha256": "242be311ff761e9b2073808f4ce31959b958eccc2ade183c9e214646e9f81e9c",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Pile of bubbles, folded cloth (now its own prop with ref, state, size and region), desk, frozen action, World line, two regions all present."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands \"none visible\"; must_not \"no people\"."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"Frozen: the top bubble is slipping down the side of the pile 1 cm.\" One small contact-based detail on a still."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-BUBBLES content \"Nine blank cream clay speech bubbles with small tails and thumb-pressed edges, heaped loosely on a charcoal desk\"; PR-CLOTH \"folded in a neat flat stack of three layers, plain, no print\", content \"one calm sand-cream linen, a single colour, tight weave\"."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "text_in_image \"none\"; must_not \"no words or letters on the bubbles\", \"no lettering on walls, laptop or papers\"."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"plain wall and desk\"; World line restricts office items; no frames or screens."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "pile \"26 to 80%\" at \"34 to 54% from the top\" equals region pile [0.26,0.34,0.8,0.54]; folded cloth \"6 to 22%\", \"40 to 52%\" equals region [0.06,0.4,0.22,0.52]; both end above the 55% caption band; state and content both say nine."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH22, carry_over \"PR-CLOTH bubbles and folded cloth\"; nine blank bubbles match the sheet's pile of nine; cloth colour matches."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "r7 ambiguities fixed: \"nine\", \"slightly high angle, about 20 degrees above the desk\", \"left of the pile\"."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-10 met (\"no words or letters on the bubbles\"); FL-04 met (content for both props); FL-03 met; FL-05 n/a."
+  }
+ ],
+ "fixes": [],
+ "advisories": [
+  "r7 fixes confirmed (folded cloth prop and region, pile size, single camera angle, \"nine\").",
+  "The pile's right edge at x 0.80 touches the right-21% lower-half strip over y 0.50 to 0.54 only by 1%; no action.",
+  "\"slipping down the side of the pile 1 cm\" has no clay-set scale; say \"about one bubble width\" to make it checkable."
+ ]
+}

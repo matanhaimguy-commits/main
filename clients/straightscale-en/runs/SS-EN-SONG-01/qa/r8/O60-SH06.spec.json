@@ -1,0 +1,75 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH06",
+ "spec_sha256": "9aabb1b77bf9b8d46abff8a8e1c253d051ae2eb16ef9834bdd6ccc092c636a2a",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"COACH and ADS patches are sewn over the next two April pockets, so the row is nearly covered.\" is covered by hands, scraps, organizer, text, regions"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "left \"holding the left edge of the ADS scrap flat, palm on the felt left of the ADS label\"; right \"pulling the last stitch tight at the right edge of the ADS scrap\"; must_not_cover \"the stitched labels COACH and ADS\"; count_check present"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"Maya's right hand pulls the final stitch tight on the ADS scrap; the other scraps are already sewn.\" with contact \"right fingers on the thread\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-SCRAPS content lists the four patterns and label colours; organizer content \"the right two MARCH pockets, each holding three small colourful clay clients\""
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "COACH and ADS each have surface, position, case, occlusion; regions scrap_coach, scrap_ads exist; labels MARCH, APRIL and CLIENTS stated out of frame (\"no row label band and no CLIENTS header in frame\")"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain wall\"; no frame or screen in scene"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "one hand action, locked-off camera, style \"one motion action in the shot\"; must_not \"no loose scraps yet\" agrees with the state"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "r7 fix present: state \"olive-green knitted cardigan sleeves\" and carry_over \"CH-MAYA cardigan sleeves\""
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "positions are single values (scraps 36% width, pockets 3 and 4, labels outside the frame stated)"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01: hand boxes sit below the scrap row (y 0.50 to 0.62) and the occlusion rule is written; FL-04 scraps and organizer filled"
+  }
+ ],
+ "fixes": [],
+ "advisories": [
+  "scrap_coach and scrap_ads boxes cover the whole scrap (y to 0.52) and overlap the hand boxes by 2% in y; shrink them to the label.",
+  "\"palm on the felt left of the ADS label\" at x 0.50 to 0.66 lands on the scrap itself; say \"palm on the scrap's left margin, clear of the label\"."
+ ]
+}

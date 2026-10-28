@@ -1,0 +1,77 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH19",
+ "spec_sha256": "8ae05e92c4a207375d458929fdcda7d7c7596566f267630a634e048b56407aac",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Maya, organizer, band, right hand, all three strings, action, World line, camera, seven regions all present."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"right fingertips on the free end of the band, thumb under it\"; left \"relaxed at her side\"; count_check \"five fingers on each visible hand\"; must_not_cover \"the APRIL label\"; right_hand [0.7,0.38,0.82,0.46] is clear of april_label [0.06,0.34,0.24,0.41]."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"Maya's right fingers close on the free end of the cloth band; nothing on the organizer moves yet.\" Contact point and what stays still are given."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-ORGANIZER content gives layout, 12 clients in MARCH, 4 in APRIL, band of \"five joined pieces (one large, three small, one small) with four seams, the five pieces carry no letters or words at all\"."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "CLIENTS, MARCH, APRIL: surfaces \"sewn header band\", \"row label band at the left end of the upper/lower row\", occlusion \"no hand or scrap over the label\"; must_not \"no words on the cloth band\"."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"plain wall; no loose scraps in sight\"; World line restricts the office items; no frames or screens."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "band free end \"hangs down in a gentle curve to Maya's right hand at 38 to 46% from the top\" matches right_hand [0.7,0.38,0.82,0.46]; organizer 6 to 68% matches region; Maya's right hand on the image-left side of her body reaches toward the organizer, consistent with \"front three-quarter\"; faces and props inside 15 to 55%."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH18, carry_over \"PR-ORGANIZER payoff state\", \"CH-MAYA olive cardigan\"; \"no headset on Maya\" correct after SH18; April four clients and band match SHEET-PR-ORGANIZER state B."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "r7 wording fixed (\"carry no letters or words at all\"); the band path from the organizer edge to the hand is stated; \"exactly four clients in the APRIL row\"."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-03 met; FL-01 met (hand clear of the labels); FL-04 met; FL-05 met (no frames, plain wall); FL-11 met (\"both feet flat on the clay floor\")."
+  }
+ ],
+ "fixes": [],
+ "advisories": [
+  "r7 fixes confirmed (no-letters wording, band path, \"no words on the cloth band\", \"no headset on Maya\").",
+  "refs say PR-ORGANIZER@v2 but the ledger also holds a v3 file; confirm which version is the locked one before prompts are written.",
+  "left_hand region [0.8,0.52,0.92,0.62] sits in the caption band and the right-21% zone; it is a relaxed empty hand, not a key prop, but the crop reviewer should expect it at the bottom edge of the safe area.",
+  "The contact line says \"fingertips touching\" while action_physics says \"fingers close on\"; both fit one still, but a prompt should use only \"fingertips on the free end, thumb under it\"."
+ ]
+}

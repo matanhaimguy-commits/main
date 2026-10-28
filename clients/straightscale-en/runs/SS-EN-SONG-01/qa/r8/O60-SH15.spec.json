@@ -1,0 +1,77 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH15",
+ "spec_sha256": "351cff0e12995dd1b0267306846a3e08c61397bede5532f5bd6bc3fb2e09f9a1",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Cloth, both phrases, frozen action, World line, camera, three regions all present; hands \"none visible\"."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands \"none visible\"; must_not \"no people\"."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"Frozen: bubble outlines are stitched across the cloth; one thread end of the lower bubble curls 1 cm.\" A still with one small physical detail; static true."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-CLOTH content \"One calm sand-cream linen cloth ... tone-on-tone speech-bubble shapes stitched in deeper tan thread\"; other bubbles \"blank (tone-on-tone outline only, no letters)\"."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"FEAST OR FAMINE\" and \"SOME MONTHS NOTHING\": three words each, surface \"charcoal stitched letters inside a large tan speech-bubble outline\", positions \"upper bubble, 30% from the top\" and \"lower bubble, 45% from the top\", occlusion \"no other bubble overlaps it\"."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"only the cloth in frame\"; must_not \"no other readable words on the cloth besides the two listed\", \"no names\"."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Text colour and bubble style now agree with SHEET-PR-CLOTH (\"charcoal stitching inside one tan woven bubble\"); regions bubble_one [0.12,0.24,0.88,0.38] and bubble_two [0.12,0.4,0.88,0.54] sit at the stated 30% and 45% and inside 15 to 55%."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH14, carry_over \"PR-CLOTH colour and weave\"; the notes state \"The one-line layout of each phrase deliberately overrides the two-line layout on PR-CLOTH@v1\", so the reference difference is declared."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No two-way word: letter height \"about 3% of frame height\", width \"about 65% of frame width\", \"each phrase on one line\"."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-10 met (\"blank ... no letters\", \"no other readable words\"); FL-04 met (content line); FL-01 n/a."
+  }
+ ],
+ "fixes": [],
+ "advisories": [
+  "r7 fixes confirmed: surface now \"charcoal stitched letters inside a large tan speech-bubble outline\"; override of the two-line layout is in notes. The prompt must repeat that override, because the attached sheet shows two lines.",
+  "angle \"high three-quarter\" with a cloth that \"fills the frame\" and straight one-line text: a strong tilt would skew the letters. Consider \"high angle, almost top-down\" (advisory only).",
+  "The number and placement of the other blank bubbles is left to the model (only size 18 to 30% and blank); a prompt could name 3 to 4 and their corners.",
+  "bubble_two reaches y 0.54 across x 0.12 to 0.88, grazing the right-21% lower-half strip; the letters themselves sit near 45%, so no action."
+ ]
+}

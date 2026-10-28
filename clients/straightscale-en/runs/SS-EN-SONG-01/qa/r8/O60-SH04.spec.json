@@ -1,0 +1,77 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH04",
+ "spec_sha256": "c6b4e083d0e64f8cbe0e91487122036190494d024ef3f82c711b42dc953d64d0",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"Maya on a phone call with papers piling up; April pockets untouched behind her.\" is covered: headset, both hands, tag, pile, blurred organizer"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "left \"flat on the desk 3 cm from the edge of the sliding sheet ... not on any sheet\"; right \"pressing the headset earcup\"; must_not_cover \"the MARCH tag and the pile's top sheet\"; count_check present"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"One clay paper sheet, its leading edge resting on the top sheet of the pile and its trailing edge 2 cm above the desk, held by the paper's own curl; no hand touches it.\" (r7 P4 fix present)"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-MARCHTAG content \"ivory with charcoal stitched letters MARCH, propped against a very tall pile of loose clay papers\"; organizer content filled with APRIL \"all four are empty\""
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "MARCH desk tag has surface, position, case and occlusion \"hand and headset cord stay clear of the tag\"; region march_tag present; organizer labels deliberately unlisted (soft focus)"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"background wall plain; organizer blurred, labels not required to read\"; no frame or screen named; must_not \"no phone screen with lettering\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "\"wearing a headset (no phone in the frame)\" and must_read \"phone call\" agree through the headset; hands do not touch the sheet or tag"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over: \"CH-MAYA olive cardigan plus headset\", \"MARCH tag\", \"paper pile grows taller than in SH03\""
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "r7 ambiguity fixed: \"seated on a plain charcoal clay chair\", \"torso leaning forward over the desk\""
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-11: \"Maya sits on the plain charcoal clay chair: weight on the seat, both feet flat on the floor. One instance of Maya.\"; FL-01 hands stay clear of the tag"
+  }
+ ],
+ "fixes": [],
+ "advisories": [
+  "right_hand box (x 0.55 to 0.66, y 0.40 to 0.47) clips the corner of the march_tag box (x 0.60+, y 0.45+); move the hand box up to the earcup (y 0.32 to 0.42) so a 2x crop of the hand does not include the tag.",
+  "The organizer is soft-focus but its content line says \"headed CLIENTS\" with row labels; add a line \"labels soft and unreadable, no extra letters\" or list them with must_be_exact false so blurred lettering is not judged a defect.",
+  "\"sliding sheet\" in hands.left reads as motion in a still; say \"the resting sheet\".",
+  "Desk items from SH03 (laptop, mug) are not carried or dropped in carry_over."
+ ]
+}

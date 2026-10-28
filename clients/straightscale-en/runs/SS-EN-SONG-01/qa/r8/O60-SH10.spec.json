@@ -1,0 +1,75 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH10",
+ "spec_sha256": "991532d60c98064950c10189580de0c2a4436981560db26f844c745feb20fe57",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"Two different patches held side by side with a gap and no join.\" is covered by hands, scraps, organizer, text, camera"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "left \"pinching the top-left corner of the EMAIL scrap\", right \"pinching the top-right corner of the ADS scrap\"; contact \"thumb and forefinger on each top corner\"; must_not_cover labels and gap; count_check present"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"The two scraps hang still; the camera dollies back slowly from this close frame (the clip's one motion).\" (r7 P8 fix present); grip contact points given"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-ORGANIZER now in props: \"APRIL row soft behind the scraps, all four pockets empty, dark felt inside\" (r7 P5 fix); PR-SCRAPS content filled"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "EMAIL and ADS each have surface, position, case, occlusion \"no finger over the letters\"; region boxes exist for both scraps"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"background soft, plain, no readable text\"; no frame or screen"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "one motion (dolly-out) matches style \"one motion action in the shot\"; the sway is gone; must_not \"never touching or sewn together\" matches the 3 cm gap"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over \"PR-SCRAPS EMAIL and ADS\", \"CH-MAYA hands\"; sleeves \"olive cardigan\" as in SH05 and SH06"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "\"head is above the top edge of the frame, no chin and no face visible\" is one reading; sizes single (38% width, 28 to 55%)"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-06 visible body parts named; FL-01 hands on the top corners, labels centred below them; FL-04 filled"
+  }
+ ],
+ "fixes": [],
+ "advisories": [
+  "scrap_email and scrap_ads boxes cover whole scraps and overlap the hand boxes (y 0.32 to 0.38); shrink them to the labels.",
+  "PR-SCRAPS held_by is null while the hands hold two scraps; set held_by to Maya for the held pair."
+ ]
+}

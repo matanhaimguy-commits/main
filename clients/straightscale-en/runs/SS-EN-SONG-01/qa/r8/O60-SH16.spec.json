@@ -1,0 +1,78 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH16",
+ "spec_sha256": "107f1dad77ec754d2c0113c7729a03818a9118d8cf71eec9ae6da181e941fc46",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Cloth with hole, OFFER piece, three POSTS pieces, scissors, both text strings, World line, six regions (including scissors) all present."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands \"none visible\"; must_not \"no people\"."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"Frozen: the bigger cloth fills 8 to 48% of the width ... the scissors rest open on the bare desk at x 0.62 to 0.77, y 0.41 to 0.45, below the OFFER piece, touching nothing else.\" One position for the scissors, no motion."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-CLOTH content gives weave, bubble stitching, labels OFFER and POSTS; PR-SCISSORS content \"Small orange-handled clay scissors with thumb-pressed handles, blades open\"."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"OFFER\" and \"POSTS\": surface \"charcoal stitched label\", positions \"centre of the OFFER piece\" and \"centre of each of three POSTS pieces\", occlusion \"no scissors over the label\" and \"no piece overlaps another's label\"."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"only the cloth pieces and scissors in frame\"; must_not \"no letters or words inside the stitched bubble outlines on the cloth\"."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "The r7 geometry is repaired: cloth 8 to 48%, OFFER 56 to 90%, posts row 46 to 55%, scissors x 0.62 to 0.77 / y 0.41 to 0.45 clear of offer_label [0.62,0.26,0.86,0.34] and posts_labels (y 0.48 to 0.54); everything inside 15 to 55% from the top. The small number slips (see advisories) do not change the layout."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH15, carry_over \"PR-CLOTH pieces\", \"same weave on every piece\"; labels OFFER and POSTS match SHEET-PR-CLOTH; scissors panel exists on the sheet."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "\"the hole's last cut edge\" and \"3 cm\" are gone; pieces are placed by width and 0-to-1 box; POSTS \"long side horizontal ... label reading left to right\"."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-10 met (\"no other readable words on any piece besides OFFER and POSTS\"); FL-03 met; FL-04 met; FL-01 n/a."
+  }
+ ],
+ "fixes": [],
+ "advisories": [
+  "r7 fixes confirmed (no overlap, one scissors position, POSTS orientation stated, bubble-outline negatives, scissors region).",
+  "Numbers that disagree slightly: \"a bare desk gap of 6% of the width\" but cloth ends at 48% and OFFER starts at 56% (8%); the hole is \"30% of the frame wide\" while the OFFER piece cut from it is 34% wide. Make the hole 34% (or the piece 30%) and the gap 8% so a reviewer sees one story.",
+  "The sheet shows POSTS pieces as tall strips; this spec lays them with the long side horizontal (r7 suggested it). Add one line to notes, as SH15 does, that this deliberately overrides the sheet orientation, so the prompt says so.",
+  "The scissors have about 1% of frame height clear above and below (OFFER bottom 0.40, scissors 0.41 to 0.45, posts top 0.46); tight for \"touching nothing else\" with open blades. Consider moving the scissors to y 0.36 to 0.40 at x 0.62 to 0.77 beside rather than below the OFFER piece, or lowering the posts row slightly.",
+  "The third POSTS piece (about x 0.72 to 0.90) grazes the right-21% lower-half strip between y 0.50 and 0.55; inside the spec's own \"key props to 55%\" rule, so advisory only."
+ ]
+}

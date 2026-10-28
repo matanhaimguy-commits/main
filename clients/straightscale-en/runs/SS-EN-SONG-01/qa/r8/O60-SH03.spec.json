@@ -1,0 +1,75 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH03",
+ "spec_sha256": "e38aae8fe96927776981b3f20469bee081a05be0c0bc75a6576f3921d69763dd",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"Maya looks up at empty April while a big MARCH tag sits on a pile of papers.\" is covered by subjects, both story props, 4 text entries, camera and setting"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible; pose \"hands out of frame below the desk edge\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"Maya's head tilts up from the screen to the empty APRIL row; the pose is frozen mid-tilt in the still.\" with subject pose and eyeline given; chair weight line present"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-MARCHTAG content \"A felt tag the size of a hand, ivory with charcoal stitched letters MARCH, propped against a tall pile of loose clay papers\"; organizer content filled"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "CLIENTS, MARCH, APRIL, desk-tag MARCH each have surface, position, case, occlusion; regions for all four exist (march_tag, march_label, april_label, clients_header)"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"The laptop is seen edge-on from the side; any visible screen face is plain flat dark grey, no icons.\" (r7 P7 fix present)"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "single static pose; camera \"at the side of the desk; the wall with the organizer is on her far side, so she turns her head and eyes up toward it\" is one coherent layout"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over: \"CH-MAYA olive cardigan\", \"PR-ORGANIZER state MARCH full APRIL empty\" match SH02"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "r7 \"behind and above her\" ambiguity resolved in camera.framing (far-side wall, organizer face-on 15 to 42%)"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-11: \"Maya sits on the plain charcoal clay chair: weight on the seat, both feet flat on the floor\"; FL-04 tag and organizer filled"
+  }
+ ],
+ "fixes": [],
+ "advisories": [
+  "PR-MARCHTAG ref is PR-SCRAPS@v1, which attaches a sheet of four loud scraps to a shot that must show none: add \"no fabric scraps in frame\" to must_not.",
+  "Small number drift: organizer \"15 to 42%\" in size_in_frame and framing vs region box to 0.44; tag \"at 44% from the top\" vs text position \"47% from the top\" (read as tag top edge vs label)."
+ ]
+}

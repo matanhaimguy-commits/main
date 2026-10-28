@@ -1,0 +1,80 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH20",
+ "spec_sha256": "82c8538510e31c04a7858ac1cd025d1e54c9904a2aacdee916d3316af727f486",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Maya sleeve, organizer, right hand, APRIL and MARCH strings, action, World line, four regions all present."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"right fingers around the last 3 cm of the fifth piece, beyond the fourth seam; all four seams stay clear of the fingers and visible\"; right_hand [0.66,0.34,0.79,0.48] no longer overlaps band_seams [0.1,0.34,0.66,0.4]; \"left hand out of frame\"; count_check \"five fingers on the right hand\"."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"Maya's right hand pulls the band 3 cm toward screen right ... the stitched seams between the pieces stay closed\"; contact point given."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-ORGANIZER content gives rows, clients per pocket, band of five pieces with four seams, \"no letters or words at all\"."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "APRIL \"left end of the row\", MARCH \"left end of the MARCH row, 16 to 24% from the top\", occlusion \"the pulling hand and band stay clear of the label\"; CLIENTS is stated as \"above the frame\" and not listed."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"plain wall\"; World line restricts the office items; no frames or screens."
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "size_in_frame \"April row about 77% of frame width, 34 to 52% from the top\", and april_label [0.06,0.42,0.24,0.5] puts the row's left end at x 0.06, so the row runs to about x 0.83; yet the grip is at right_hand [0.66,0.34,0.79,0.48] and the action says the hand pulls the band \"toward screen right, away from the organizer\". The hand then sits on top of the organizer's pockets, not beyond its edge. (The 77% is SH19's 62% scaled by the 125% punch-in, but the hand box is not.)"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH19, carry_over \"PR-ORGANIZER payoff state\", \"CH-MAYA olive cardigan sleeve\"; sleeve \"olive-green knitted cardigan sleeve over a white blouse cuff\" matches the sheet; band and clients match SH19."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "\"the four April clients lean 5 degrees toward the band once and settle upright\": the band runs along the top edge of the row, directly above the clients, so \"toward the band\" has no horizontal direction (up, or toward the pull?). Also where the band leaves the organizer edge is not stated."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-03 met (contact points); FL-01 met (seams and labels kept clear of the hand); FL-04 met; FL-05 met."
+  }
+ ],
+ "fixes": [
+  "props[PR-ORGANIZER].size_in_frame: give the organizer's x extent and the exit point of the band, for example \"April row 56% of frame width, x 0.06 to 0.62; the taut band leaves the organizer's right edge at x 0.62 and runs right to the hand at x 0.66 to 0.79\", and keep regions right_hand and band_seams; or move the hand inside the stated row and say the band is pulled forward off the wall instead of \"away from the organizer\".",
+  "action_physics: replace \"lean 5 degrees toward the band\" with \"lean 5 degrees toward screen right (the pull direction) once and settle upright\".",
+  "regions[band_seams]: end at the organizer exit point (0.62) or say it spans the free part of the band up to the grip."
+ ],
+ "advisories": [
+  "Two motions at once (hand pull and client lean) against the style line \"one motion action in the shot\"; the lean is secondary, so keep it only if the clip test needs it.",
+  "The pulling arm and shoulder lie right of the hand at x above 0.79 for y 0.38 to 0.52; the arm is not a key prop, but the strip is the safe-zone UI area.",
+  "refs say PR-ORGANIZER@v2; the ledger also holds a v3 file, confirm the locked version."
+ ]
+}

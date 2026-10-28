@@ -1,0 +1,75 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH07",
+ "spec_sha256": "5d15b1a081f4fd8f76bb0a821159b7861f85531b0dbb269a4cb30f6424c9e9f2",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"The patches have fallen off and April is empty again.\" is covered by scraps on the floor, hanging ADS, empty APRIL row, 5 text entries"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible; must_not \"no people in the frame\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"Frozen moment: the ADS scrap hangs by one thread from the lower edge of the APRIL row, 4 cm above the three scraps lying on the floor.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-SCRAPS content lists four patterns and label colours; organizer \"APRIL pockets: all four are empty, dark felt inside, no clients\""
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "EMAIL, LINKEDIN, COACH, ADS, APRIL each have surface, position, case, occlusion; region ads_hanging [0.68,0.38,0.9,0.48] added (r7 fix)"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain wall and floor, no other objects\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "static frozen state; the hanging ADS and floor scraps do not conflict (4 cm gap)"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "SH06 sewn ADS to SH07 hanging ADS is the stated \"came loose\" state change (notes: cause to result)"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "\"APRIL row 22 to 40%\" and label \"about 26% from the top\" are single numbers"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 props filled; FL-05 no frames or screens; no hands near text"
+  }
+ ],
+ "fixes": [],
+ "advisories": [
+  "Geometry: APRIL row at 22 to 40% with \"MARCH pockets: (above the frame)\" leaves no room: a MARCH row of the same height would sit at about 2 to 20%, inside the frame. Say \"the MARCH row is cut off by the top edge of the frame\" or move the APRIL row to 8 to 26%, so no MARCH label or full MARCH row appears unlisted.",
+  "size_in_frame \"45 to 58%\" vs scraps_floor box y 0.44 to 0.55; ads_hanging box (to y 0.48) overlaps the floor-scrap box (from 0.44) by design."
+ ]
+}

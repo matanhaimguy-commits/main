@@ -1,0 +1,76 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH08",
+ "spec_sha256": "f0e5b62ee3afd5c835b3045e329df54dd71a5125306b8113c064b9cdfd9539f1",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"A friend on a laptop screen, with her own organizer full of clients in every month.\" is covered by subjects, two props, 3 text entries, camera and setting"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible; head and shoulders only"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"The friend leans in slightly toward her call camera; frozen mid-lean. Nothing else moves.\" (pose frozen; no contact action)"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-LAPTOP content \"clay laptop, silver lid, narrow charcoal bezel on all four sides, screen fills the frame to the bezel and shows the live call image only, no icons\" (r7 fix); organizer \"two small clay clients in each of the eight pockets (sixteen in all)\" matches SHEET-SET-FRIEND"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "CLIENTS, MARCH, APRIL each have surface, position, case, occlusion; region clients_header [0.38,0.17,0.62,0.23] present (r7 fix)"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"screen shows only the friend and her wall; no chat windows\"; must_not \"no chat interface or icons on the screen\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "friend state \"warm and curious\" and \"a small kind smile\" match SHEET-CH-FRIEND v2 seated panel; no conflicting instruction found"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "ref \"CH-FRIEND@v2 (seated panel)\" matches the locked sheet; organizer ref SET-FRIEND@v1 matches SHEET-SET-FRIEND (CLIENTS, MARCH, APRIL, two clients per pocket); laptop is silver with charcoal bezel as in SH02"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "r7 \"pale blue panel\" clause is gone; count is the fixed \"two ... in each of the eight pockets\""
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04/FL-05: screen and organizer filled with content; FL-10 labels listed; FL-12 same sheet version as SH09"
+  }
+ ],
+ "fixes": [],
+ "advisories": [
+  "size_in_frame \"organizer fills the upper 55% of the screen\" reads as filling 0 to 55%, but the region is y 0.17 to 0.40; write \"organizer sits within the upper 55%, spanning 17 to 40% from the top, behind the friend\".",
+  "PR-LAPTOP is story_critical with ref \"none\": the schema expects a sheet for a story-critical prop; either mark it non-critical or accept the content-line route in the run notes.",
+  "The seated sheet shows a chair back behind her shoulders; add \"chair back behind her shoulders\" to the pose so the bust does not float (FL-11)."
+ ]
+}

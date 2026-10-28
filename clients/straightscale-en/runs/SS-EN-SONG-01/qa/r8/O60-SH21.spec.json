@@ -1,0 +1,78 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH21",
+ "spec_sha256": "978ac3c7a49c7d3987cdd78b7fa8f876cfd033b107cd6d7f4e4aa23848297494",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Bin, organizer, scraps, EMAIL, ADS, CLIENTS, MARCH, APRIL, frozen action, World line, five regions all present; hands \"none visible\"."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands \"none visible\"; must_not \"no people\"."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"Frozen: four scraps are crammed in the bin; the EMAIL scrap's corner hangs over the left rim.\" Static still, contact stated."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-BIN content \"Small round charcoal clay waste bin with a thumb-pressed rim, EMAIL and ADS folded with their labels showing; LINKEDIN and COACH folded with their labels turned inward\"; states now agree (\"only the EMAIL and ADS labels showing\"); organizer content complete."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "EMAIL \"label about 12% of frame width\" on \"the folded gingham scrap lying on top at the bin's left rim\", ADS likewise on the right rim; CLIENTS, MARCH, APRIL with \"soft focus allowed, letters still spelled correctly, nothing over them\"."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"background is the organizer in soft focus, labels not read\"; World line restricts office items; no frames or screens."
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "PR-SCRAPS size_in_frame \"scrap corners 10% of frame width each\" cannot hold the stated \"label about 12% of frame width\" on those scraps (a label wider than the scrap corner showing); regions email_label [0.3,0.38,0.44,0.44] and ads_label [0.56,0.38,0.7,0.44] are 14% wide, so the box and the size line disagree. The r7 fix asked for 14% and it is still 10%."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH20, carry_over \"PR-BIN with scraps\", \"organizer payoff state\"; scrap patterns match SHEET-PR-SCRAPS; four scraps in the bin follows SH13 (three plus ADS)."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "\"scrap corners\" is now explained by the surfaces (\"folded ... scrap lying on top at the bin's left rim\"); organizer \"soft focus\" against \"letters still spelled correctly\" is workable."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 met (contents for bin, scraps and organizer); FL-10 met (lettering negative names the listed strings); FL-05 met (no frames); FL-02 met (bin structure in one line)."
+  }
+ ],
+ "fixes": [
+  "props[PR-SCRAPS].size_in_frame: change \"scrap corners 10% of frame width each\" to \"each folded scrap about 16% of frame width at the rim, its stitched label about 12% of frame width\", so the EMAIL and ADS labels fit inside the scraps and inside regions email_label and ads_label (14% wide)."
+ ],
+ "advisories": [
+  "The organizer is \"80% width\" by \"14 to 40% from the top\" (about 864 by 499 px, 1.7:1) while the sheet organizer is close to 1:1; a generator will squash or crop it. Give it a taller frame share or say the lower rows are cropped; it is in soft focus, so advisory.",
+  "carry_over lists \"PR-BIN with scraps\" but the previous shot SH20 has no bin; it carries from SH13. Say \"from SH13\".",
+  "Bin region [0.28,0.38,0.72,0.55] is 44% wide against \"bin 38% of frame width\"; approximate box."
+ ]
+}

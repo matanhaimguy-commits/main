@@ -1,0 +1,79 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH22",
+ "spec_sha256": "5a3cb54324b82876a63188478d96af900aae5890becf3cf1518918aa9f0e4841",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Maya, friend, two organizers, five text strings, frozen action, World line, camera and seven regions (both CLIENTS headers now have boxes clients_maya and clients_friend) all present."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands \"none visible\": Maya \"hands hidden under her folded arms\", friend \"hands tucked in jacket pockets\" (as on SHEET-CH-FRIEND); no hand is asked to appear."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"the two women stand side by side, about 15% of frame width apart, each below her own organizer, both feet flat on the clay floor, Maya's head turned 15 degrees toward her friend.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-ORGANIZER content complete (12 and 4 clients, band, \"no letters or words at all\"); PR-ORGANIZER-FRIEND content \"one single calm sand-cream linen, two rows of four pockets ... two small clay clients in each of the eight pockets\", ref SET-FRIEND@v1 agrees with SHEET-SET-FRIEND."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "CLIENTS, MARCH, APRIL for each organizer with surface, position \"left organizer\"/\"right organizer\" and occlusion \"not covered\"; five short strings."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"plain wall, nothing else\"; World line restricts office items; no frames or screens."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Left organizer x 0.06 to 0.46 and right 0.54 to 0.94 (40% each), 16 to 44% from the top, match the region boxes; each woman stands below her own organizer (maya_face x 0.26 to 0.42, friend_face x 0.54 to 0.7); the friend's organizer has no band and Maya's does, and must_not says so."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "CH-FRIEND state now carries \"broad-hipped, teal-grey canvas jacket with two patch pockets over a cream top, dark jeans, white shoes, black curly puff, tortoiseshell wire glasses\" as on SHEET-CH-FRIEND; ref names the standing panels for body and the seated panel for the face; carry_over includes \"CH-FRIEND look\"; Maya olive cardigan as on her sheet."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "r7 wording fixed; \"side by side, about 15% of frame width apart\" and \"turned 15 degrees\" are measurable. No two-way word left."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-11 met (\"both feet flat on the clay floor\", one instance each, \"no third person\"); FL-04 met; FL-05 met; FL-01 n/a."
+  }
+ ],
+ "fixes": [],
+ "advisories": [
+  "r7 fixes confirmed (header regions, friend outfit and ref, no-letters wording, \"no band and no second fabric on the friend's organizer\").",
+  "Both faces reach y 0.56 against \"faces ... 15% to 55%\" and the caption band starting at 55%; trim the face boxes to y1 0.55 (approximate boxes, so advisory).",
+  "Maya's \"hands hidden under her folded arms\": folded arms often show fingertips; add \"fingers tucked into the crooks of her elbows, no fingers visible\" so the hands check has a definite answer.",
+  "setting.details says the friend's organizer is \"standing next to Maya's on the wall\"; \"standing\" for a wall item can read as freestanding. Use \"hanging\".",
+  "Organizer proportions here are 40% wide by 28% tall (about 0.8:1) while SET-FRIEND shows about 1.3:1 and PR-ORGANIZER about 1.1:1; the model will follow the references, so expect a wider organizer than the boxes.",
+  "CH-FRIEND@v2 and the ledger: v2 has no registered file yet in the ledger (only CH-FRIEND.v1.png is in assets/sheets); confirm v2 is locked before the prompt is written."
+ ]
+}

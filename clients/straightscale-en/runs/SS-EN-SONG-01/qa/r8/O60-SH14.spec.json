@@ -1,0 +1,76 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH14",
+ "spec_sha256": "87d9f0e510a57f72ae31684387b89b848327ffd5bcc3bce569e463961a4e1652",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Subject PR-CLOTH, prop, action, World line, camera, region \"cloth\" all present; hands \"none visible\"; text \"none\"."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands \"none visible\" and must_not \"no hands, no people\"; action says \"no hands touch it\"."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"The bolt stays at the left end of the desk and turns in place, shrinking; the cloth's free end slides right along the desk top, flat against it ... the cloth's lower face stays in contact with the desk the whole time\". One consistent motion with contact."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-CLOTH content \"One calm sand-cream linen cloth, a single colour, tight weave, shown plain in this shot, no print\", ref PR-CLOTH@v1."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "text_in_image \"none\"; must_not \"no lettering on walls, laptop or papers other than the listed strings\" and \"no speech bubbles anywhere in the frame\"."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"plain wall behind, desk charcoal\"; World line restricts office items to those named."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "size_in_frame \"cloth spans 85% of frame width, 40 to 55% from the top\" matches region cloth [0.08,0.38,0.92,0.55]; key prop stays above the 55% caption band."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH13, carry_over \"PR-CLOTH one calm colour\"; plain bolt matches the rolled bolt on SHEET-PR-CLOTH; bubbles correctly withheld (\"no bubbles yet\")."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "r7 ambiguities (40 cm, which edge stays) removed; \"bolt ... turning in place\" and \"free end slides right\" are unambiguous."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-03 met (contact points); FL-10 met (\"plain wall behind\", no lettering); FL-08 met (\"no hands touch it\")."
+  }
+ ],
+ "fixes": [],
+ "advisories": [
+  "All r7 fixes confirmed (rewritten action, 40 to 55% placement, \"no hands, no people\").",
+  "An 85%-wide cloth reaches x 0.915 down to y 0.55, so a thin strip touches the \"right 21% of the lower half\" zone; unavoidable for a full-width cloth and harmless.",
+  "The shot is H3-KEY: tell the prompt writer the first and last frames are the start image and the cloth fully flat, so the model has an end state."
+ ]
+}

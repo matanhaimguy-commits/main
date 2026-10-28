@@ -1,0 +1,88 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH05",
+ "spec_sha256": "85604fa78955662d0bb5ee8cbf1ffd6847b1f87d5bc9fdb5298894bb9381ec40",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"Maya sews loud EMAIL and LINKEDIN patches over the empty April pockets.\" is covered by hands, scraps, organizer, text and regions"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "right hand \"enters from the lower right ... fingertips below the EMAIL scrap's lower edge at x 0.36 to 0.46, y 0.50 to 0.60, clear space between the fingers and the last letter L of EMAIL\"; left hand \"palm on the felt below the APRIL label\"; count_check present"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics names contact points (needle through an edge, left hand holds the EMAIL corner), but see P8 for where they are"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-SCRAPS content lists all four patterns with label colours; organizer content \"APRIL pockets: pockets 1 and 2 covered by scraps, pockets 3 and 4 empty\""
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "EMAIL, LINKEDIN, APRIL, MARCH each have surface, position, case, occlusion; regions scrap_email, scrap_linkedin, april_label, march_label exist"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain wall; nothing else on the felt\"; no frame or screen in scene"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "action_physics: \"draws the needle and thick thread through the right edge of the EMAIL scrap, then along the pinned top edge to the LINKEDIN scrap\" contradicts hands.right \"through the seam below the scraps' lettering, fingertips below the EMAIL scrap's lower edge\": the top edge sits above the letters, the hand is below them"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over: \"PR-SCRAPS patterns and labels\", \"CH-MAYA cardigan sleeves\"; state \"only her two hands and forearms in the olive cardigan sleeves\""
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "\"the pinned top edge\" and \"the right edge\" name different places than the hands line; fingertips x 0.36 to 0.46 lie under the seam and the LINKEDIN scrap (EMAIL ends at x 0.37) while the line says \"below the EMAIL scrap's lower edge\""
+  },
+  {
+   "id": "P12",
+   "result": "FAIL",
+   "evidence": "FL-01 (text over hands): the hands line gives the prevention, but the action line sends the needle along the top edge past the lettering, so a generator will cross the letters"
+  }
+ ],
+ "fixes": [
+  {
+   "check": "P8",
+   "change": "Rewrite the action to match the hands line: \"Maya's right hand, entering from the lower right, draws the needle and thick thread through the seam between the EMAIL and LINKEDIN scraps below the letters (needle at y 0.46 to 0.52, thread trailing to the lower right); thumb and finger stay below the scraps' lower edge, clear of every letter. The left hand holds the EMAIL corner still. The clip ends with the EMAIL right edge sewn along the lower half of the seam and the needle at the LINKEDIN lower-left edge. The camera is locked.\" Delete \"through the right edge of the EMAIL scrap, then along the pinned top edge\"."
+  },
+  {
+   "check": "P12",
+   "change": "Same rewrite; keep \"no finger or needle over the letters\" and the clear space from the L of EMAIL. Also say the fingertips sit \"below the seam at x 0.30 to 0.44\" (under the EMAIL scrap's right end) so the x range matches EMAIL ending at x 0.37."
+  },
+  {
+   "check": "P11",
+   "change": "Make scrap_email and scrap_linkedin region boxes cover the label only, or end them at y 0.50, so the right_hand box (y 0.50 to 0.62) does not overlap a text box; reconcile size_in_frame \"row 40 to 58%\" with the scrap boxes (40 to 52%)."
+  }
+ ],
+ "advisories": [
+  "PR-NEEDLE (needle and thread) is central to the action but is not in props; add it as a non-critical prop held by the right hand (FL-08).",
+  "Captions at 55 to 62% will sit on the hands and the lower row; hero shot, so keep the caption off this clip in the edit."
+ ]
+}

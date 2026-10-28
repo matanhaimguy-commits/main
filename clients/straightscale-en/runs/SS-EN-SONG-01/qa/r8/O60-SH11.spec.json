@@ -1,0 +1,77 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH11",
+ "spec_sha256": "ae76eaccac4aa7d86f704b46893098907247ac5949b66f45682a12227958f954",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"Maya holds two unjoined patches in front of an empty April row, more patches on the floor.\" is covered by subjects, scraps, organizer, 5 text entries, camera"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "left \"pinching the top-left corner of the EMAIL scrap\", right \"pinching the top-right corner of the ADS scrap\" (r7 fix); email_label and ads_label boxes now y 0.41 to 0.47 below the hands (y 0.35 to 0.40)"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"The dolly-out comes to rest; Maya's hands keep the two scraps still, 3 cm apart.\" (r7 swing removed); \"both feet flat on the clay floor, weight on both feet\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-SCRAPS state \"two held apart (EMAIL, ADS), two lying crumpled on the floor with their labels face down so no letters show\"; organizer content filled"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "CLIENTS entry and clients_header region [0.3,0.12,0.7,0.16] added (r7 fix); MARCH, APRIL, EMAIL, ADS each have surface, position, case, occlusion"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain wall, nothing else\"; no frame or screen"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "one motion (dolly-out comes to rest), style \"one motion action in the shot\"; no conflicting instruction"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over \"CH-MAYA\", \"PR-SCRAPS\", \"PR-ORGANIZER\"; SH10 state (cardigan, EMAIL and ADS held) continues; SH09 face-down LINKEDIN and COACH match"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "organizer \"14 to 30%\", held scraps \"37 to 49%\", floor scraps region 0.55 to 0.64: single numbers"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-11 feet and weight line present, one instance; FL-01 hands above the label boxes; FL-04 filled"
+  }
+ ],
+ "fixes": [],
+ "advisories": [
+  "The single hands box [0.28,0.35,0.72,0.40] spans the face box (x 0.40 to 0.60, y 0.31 to 0.39); split it into two boxes, one per hand.",
+  "Hands at 35 to 40% sit at face level in the boxes while the pose says \"chest height\"; check against the SH10 end frame.",
+  "Maya's face is visible here: state headset on or off and cardigan colour (olive) in the state line.",
+  "PR-SCRAPS held_by null although two scraps are held; clients_header box starts at 12%, above the organizer's stated 14%."
+ ]
+}

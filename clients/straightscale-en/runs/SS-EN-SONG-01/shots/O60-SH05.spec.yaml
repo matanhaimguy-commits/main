@@ -24,8 +24,8 @@ hands:
 - who: Maya
   left: left hand holding the lower-left corner of the EMAIL scrap flat, palm on the felt below the APRIL label
   right: right hand enters from the lower right and draws the needle and thick thread through the seam below the scraps' lettering,
-    fingertips below the EMAIL scrap's lower edge at x 0.36 to 0.46, y 0.50 to 0.60, clear space between the fingers and the
-    last letter L of EMAIL
+    fingertips below the EMAIL scrap's lower edge at x 0.30 to 0.44 (under the EMAIL scrap's right end, below the seam), y
+    0.50 to 0.60, clear space between the fingers and the last letter L of EMAIL
   contact: left palm on the felt below the row, right thumb and finger on the needle
   count_check: five fingers on each visible hand
   must_not_cover: the stitched labels EMAIL and LINKEDIN
@@ -38,7 +38,7 @@ props:
     big stitched label: EMAIL mustard and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes
     with ivory letters, COACH lime leopard spots with black letters, ADS hot-pink polka dots on blue with white letters; loose
     thread ends'
-  size_in_frame: each scrap about 20% of frame width, row 40 to 58% from the top
+  size_in_frame: each scrap about 20% of frame width, row 40 to 52% from the top
   held_by: null
 - id: PR-ORGANIZER
   story_critical: true
@@ -76,9 +76,10 @@ text_in_image:
   must_be_exact: true
   occlusion: no hand, needle or scrap over the label
 action_physics:
-- Maya's right hand draws the needle and thick thread through the right edge of the EMAIL scrap, then along the pinned top
-  edge to the LINKEDIN scrap in one pass (the clip ends with EMAIL sewn and the needle at the LINKEDIN edge); the left hand
-  holds the EMAIL corner still. The camera is locked.
+- Maya's right hand, entering from the lower right, draws the needle and thick thread through the seam between the EMAIL and
+  LINKEDIN scraps below the letters (needle at y 0.46 to 0.52, thread trailing to the lower right); thumb and finger stay
+  below the scraps' lower edge, clear of every letter. The left hand holds the EMAIL corner still. The clip ends with the
+  EMAIL right edge sewn along the lower half of the seam and the needle at the LINKEDIN lower-left edge. The camera is locked.
 static: false
 setting:
   ref: null
@@ -118,9 +119,9 @@ regions:
 - name: right_hand
   kind: hand
   box:
-  - 0.34
+  - 0.3
   - 0.5
-  - 0.5
+  - 0.46
   - 0.62
 - name: scrap_email
   kind: text
@@ -128,14 +129,14 @@ regions:
   - 0.15
   - 0.4
   - 0.37
-  - 0.52
+  - 0.48
 - name: scrap_linkedin
   kind: text
   box:
   - 0.37
   - 0.4
   - 0.59
-  - 0.52
+  - 0.48
 - name: april_label
   kind: text
   box:

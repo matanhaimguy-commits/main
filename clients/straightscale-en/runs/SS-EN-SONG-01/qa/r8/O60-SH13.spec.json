@@ -1,0 +1,77 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH13",
+ "spec_sha256": "3fb04bee86124ec087981ab77079dbe43d990d0e2206025762f1a53b5e9c3175",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Every element in the spec is present: CH-MAYA, both hands, PR-BIN, PR-SCRAPS, text \"ADS\", \"Frozen: the ADS scrap has just left Maya's right fingers\", World line, camera, five regions."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"left palm on the rim, right fingers opened, scrap released\"; count_check \"five fingers on each visible hand\"; must_not_cover \"the ADS label\"."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"the ADS scrap has just left Maya's right fingers and is 5 cm above the bin mouth; her left palm rests on the rim.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-BIN content \"Small round charcoal clay waste bin with a thumb-pressed rim, three crumpled scraps ... inside with their labels folded inward, no letters visible\"; PR-SCRAPS content lists all four patterns and labels."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"ADS\" on \"stitched label on the falling pink polka-dot scrap\", position \"scrap, centre\", occlusion \"right hand clear of the letters\"; one string, one word."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"plain wall\"; details \"only the bin on the floor against the plain wall\"; World line limits office items to those the shot names; no frames, screens or signs named."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Facing is consistent: \"standing at the left of the bin, facing screen right; the camera sees her right side, her right arm nearest the lens, her left hand on the far rim\" matches right_hand [0.4,0.3,0.58,0.4] above bin [0.26,0.42,0.62,0.55]; all regions sit inside 15 to 55% from the top and outside the right 21% of the lower half."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH12; carry_over \"PR-SCRAPS\", \"CH-MAYA\", \"three other scraps already in the bin (cleared between SH12 and SH13)\"; Maya \"olive cardigan sleeve\" as on SHEET-CH-MAYA; scrap patterns match SHEET-PR-SCRAPS."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "The r7 ambiguities are closed: facing and near arm are stated, and \"the desk is not in frame, only the bin on the floor against the plain wall\". No remaining two-way word."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-03 met (contact points, 5 cm gap); FL-01 met (\"right hand clear of the letters\"); FL-04 met (bin and scraps have content); FL-11 n/a (one instance, side view)."
+  }
+ ],
+ "fixes": [],
+ "advisories": [
+  "r7 fixes confirmed in the spec: pose now gives facing and near arm; desk line replaced; carry_over names the three scraps already in the bin.",
+  "Region right_hand [0.4,0.3,0.58,0.4] overlaps ads_scrap [0.42,0.34,0.62,0.45]; fine because the hand is released and above the scrap, but the crop reviewer should read the label, not the hand.",
+  "Bin is \"30% of frame width\" while the bin region is 36% wide; approximate boxes, no action needed.",
+  "PR-SCRAPS content lists all four labels although only ADS is legible in this frame; PR-BIN content says the other three show no letters, so the rule is stated, but the prompt writer should carry that sentence over."
+ ]
+}
