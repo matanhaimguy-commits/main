@@ -103,9 +103,9 @@ approve paid generation" (line 19) are replaced by them and by G-BUDGET.
   Albanian takes are scored against the measured one). Kokoro (`setup.sh voice`) is for scratch timing only, never
   the master clock or the delivery. Designing a new voice is a casting: G-HUMAN-VOICE.
 - **The gate:** every ElevenLabs call is checked by the hook. The voice is the run's first generation, so at step 4,
-  before the first call: `pipeline.py budget <slug> <post_id> --planned <Higgsfield credits, 0 if none> --balance
-  <live balance> --el <ElevenLabs credits>` (the gate wants a G-BUDGET PASS from the last 24 hours; about 177
-  ElevenLabs credits per 4-take narrator beat, STANDARDS 10). A later batch (the bed, SFX, a generated image) needs a
+  before the first call: `pipeline.py budget <slug> <post_id> --planned <Atlas USD> --balance
+  <live Atlas balance, USD>` (the gate wants a G-BUDGET PASS from the last 24 hours; ElevenLabs v3 on Atlas is $0.10
+  per 1,000 characters, STANDARDS 10). A later batch (the bed, SFX, a generated image) needs a
   G-BUDGET from the last 24 hours too, and step 9 re-prices the whole piece (section 1). Each beat is a `voice` asset
   (`pipeline.py asset ... VO-B1 --type voice`, `prompt ... --file` with the exact text); audio only after G-SCRIPT.
 - **Takes:** beats of 2 to 7 lines, 4 takes each; the take score (word errors, the pace band from the G-HUMAN-VOICE

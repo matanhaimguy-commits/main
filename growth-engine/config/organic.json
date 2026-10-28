@@ -1,5 +1,5 @@
 {
-  "_doc": "Defaults from ORGANIC-OS.md (sections 6.1, 6.2, 6.6, 7.4, 7.7). Edit here, not in code. Credits are Higgsfield credits per finished piece with the cast already built, incl. ~25% retakes, from each adapter's own math at growth-engine/production/STANDARDS.md section 10 prices (16 Oct 2026); a series' first episode adds the adapter's one-off cast cost, and lengths come from STANDARDS.md section 8. Story layer (15 Oct 2026): story_templates, animation_styles and each format's production family (growth-engine/production/STANDARDS.md families) feed the router and the production pipeline (growth-engine/tools/pipeline.py).",
+  "_doc": "Defaults from ORGANIC-OS.md (sections 6.1, 6.2, 6.6, 7.4, 7.7). Edit here, not in code. Budgets are Atlas USD (owner, 28 Oct 2026: generation runs on Atlas): each format's usd range is its atlas_units (images, H3 video seconds, OmniHuman seconds, voiced seconds, Suno songs per piece, before retakes) at growth-engine/production/standards.json atlas_prices plus 25% retakes (organic_os/usd.py; STANDARDS.md 10); the router and G-BUDGET count usd. The older credits field (Higgsfield credits per finished piece with the cast already built, incl. ~25% retakes, from each adapter's own math at growth-engine/production/STANDARDS.md section 10 prices (16 Oct 2026)) stays for the history in the ledger; a series' first episode adds the adapter's one-off cast cost, and lengths come from STANDARDS.md section 8. Story layer (15 Oct 2026): story_templates, animation_styles and each format's production family (growth-engine/production/STANDARDS.md families) feed the router and the production pipeline (growth-engine/tools/pipeline.py).",
   "beliefs": {
     "B1": {
       "label": "This problem is real, and it is costing me.",
@@ -183,6 +183,16 @@
         1,
         15
       ],
+      "atlas_units": {
+        "images": [
+          1,
+          12
+        ]
+      },
+      "usd": [
+        0.07,
+        0.89
+      ],
       "jobs": [
         "trust",
         "reach"
@@ -203,6 +213,16 @@
         1,
         15
       ],
+      "atlas_units": {
+        "images": [
+          1,
+          12
+        ]
+      },
+      "usd": [
+        0.07,
+        0.89
+      ],
       "jobs": [
         "trust",
         "convert"
@@ -222,6 +242,16 @@
         16,
         33
       ],
+      "atlas_units": {
+        "images": [
+          13,
+          26
+        ]
+      },
+      "usd": [
+        0.96,
+        1.92
+      ],
       "jobs": [
         "trust"
       ],
@@ -238,6 +268,16 @@
       "credits": [
         16,
         33
+      ],
+      "atlas_units": {
+        "images": [
+          13,
+          26
+        ]
+      },
+      "usd": [
+        0.96,
+        1.92
       ],
       "jobs": [
         "trust",
@@ -258,6 +298,16 @@
         16,
         33
       ],
+      "atlas_units": {
+        "images": [
+          13,
+          26
+        ]
+      },
+      "usd": [
+        0.96,
+        1.92
+      ],
       "jobs": [
         "reach"
       ],
@@ -274,6 +324,16 @@
       "credits": [
         16,
         33
+      ],
+      "atlas_units": {
+        "images": [
+          13,
+          26
+        ]
+      },
+      "usd": [
+        0.96,
+        1.92
       ],
       "jobs": [
         "trust"
@@ -292,6 +352,16 @@
         16,
         33
       ],
+      "atlas_units": {
+        "images": [
+          13,
+          26
+        ]
+      },
+      "usd": [
+        0.96,
+        1.92
+      ],
       "jobs": [
         "trust",
         "convert"
@@ -309,6 +379,16 @@
         0,
         29
       ],
+      "atlas_units": {
+        "images": [
+          0,
+          23
+        ]
+      },
+      "usd": [
+        0.0,
+        1.7
+      ],
       "jobs": [
         "trust"
       ],
@@ -325,6 +405,20 @@
       "credits": [
         0,
         30
+      ],
+      "atlas_units": {
+        "images": [
+          0,
+          24
+        ],
+        "voice_s": [
+          10,
+          75
+        ]
+      },
+      "usd": [
+        0.08,
+        2.34
       ],
       "jobs": [
         "trust",
@@ -348,6 +442,24 @@
         25,
         40
       ],
+      "atlas_units": {
+        "images": [
+          5,
+          8
+        ],
+        "video_s": [
+          10,
+          15
+        ],
+        "voice_s": [
+          10,
+          20
+        ]
+      },
+      "usd": [
+        0.75,
+        1.19
+      ],
       "jobs": [
         "reach"
       ],
@@ -365,6 +477,24 @@
       "credits": [
         80,
         200
+      ],
+      "atlas_units": {
+        "images": [
+          8,
+          20
+        ],
+        "video_s": [
+          28,
+          70
+        ],
+        "voice_s": [
+          20,
+          75
+        ]
+      },
+      "usd": [
+        1.58,
+        4.15
       ],
       "jobs": [
         "trust",
@@ -388,6 +518,24 @@
       "credits": [
         80,
         200
+      ],
+      "atlas_units": {
+        "images": [
+          8,
+          20
+        ],
+        "video_s": [
+          28,
+          70
+        ],
+        "voice_s": [
+          20,
+          75
+        ]
+      },
+      "usd": [
+        1.58,
+        4.15
       ],
       "jobs": [
         "reach",
@@ -413,6 +561,24 @@
         220,
         320
       ],
+      "atlas_units": {
+        "images": [
+          10,
+          16
+        ],
+        "video_s": [
+          83,
+          120
+        ],
+        "voice_s": [
+          35,
+          45
+        ]
+      },
+      "usd": [
+        3.49,
+        5.12
+      ],
       "jobs": [
         "trust",
         "convert"
@@ -436,6 +602,24 @@
       "credits": [
         210,
         445
+      ],
+      "atlas_units": {
+        "images": [
+          19,
+          24
+        ],
+        "video_s": [
+          75,
+          100
+        ],
+        "voice_s": [
+          45,
+          60
+        ]
+      },
+      "usd": [
+        4.0,
+        5.23
       ],
       "jobs": [
         "reach",
@@ -463,6 +647,24 @@
       "credits": [
         150,
         220
+      ],
+      "atlas_units": {
+        "images": [
+          10,
+          16
+        ],
+        "video_s": [
+          55,
+          80
+        ],
+        "voice_s": [
+          45,
+          75
+        ]
+      },
+      "usd": [
+        2.73,
+        4.15
       ],
       "jobs": [
         "reach",
@@ -496,6 +698,24 @@
         140,
         355
       ],
+      "atlas_units": {
+        "images": [
+          8,
+          20
+        ],
+        "video_s": [
+          52,
+          132
+        ],
+        "songs": [
+          2,
+          3
+        ]
+      },
+      "usd": [
+        2.48,
+        5.93
+      ],
       "jobs": [
         "reach",
         "trust"
@@ -520,6 +740,16 @@
         0,
         10
       ],
+      "atlas_units": {
+        "images": [
+          0,
+          8
+        ]
+      },
+      "usd": [
+        0.0,
+        0.59
+      ],
       "jobs": [
         "trust"
       ],
@@ -536,6 +766,16 @@
       "credits": [
         16,
         33
+      ],
+      "atlas_units": {
+        "images": [
+          13,
+          26
+        ]
+      },
+      "usd": [
+        0.96,
+        1.92
       ],
       "jobs": [
         "trust",
@@ -556,6 +796,24 @@
       "credits": [
         180,
         495
+      ],
+      "atlas_units": {
+        "images": [
+          12,
+          30
+        ],
+        "video_s": [
+          66,
+          183
+        ],
+        "voice_s": [
+          45,
+          75
+        ]
+      },
+      "usd": [
+        3.21,
+        8.28
       ],
       "jobs": [
         "reach",
@@ -582,6 +840,24 @@
       "credits": [
         70,
         100
+      ],
+      "atlas_units": {
+        "images": [
+          6,
+          10
+        ],
+        "video_s": [
+          25,
+          35
+        ],
+        "voice_s": [
+          20,
+          35
+        ]
+      },
+      "usd": [
+        1.35,
+        2.05
       ],
       "jobs": [
         "reach",
@@ -613,6 +889,16 @@
       "credits": [
         0,
         10
+      ],
+      "atlas_units": {
+        "images": [
+          0,
+          8
+        ]
+      },
+      "usd": [
+        0.0,
+        0.59
       ],
       "jobs": [
         "trust",

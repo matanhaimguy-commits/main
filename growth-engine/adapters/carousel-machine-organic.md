@@ -225,8 +225,8 @@ photos), Tool or news drop (only after its fact and source are in the brain). Th
   media ... SL01@v<n> --id <the four job ids> --file <the four files>`). The producer never picks: a fresh
   visual-reviewer gets a contact sheet of the four at 200 px wide, names the strongest cover at phone size (V19) and
   runs the full review on that one (section 7). The skill's "2 to 4 rounds" (line 241) is replaced.
-- **Budget** (STANDARDS 10): `pipeline.py budget <slug> <post_id> --planned <credits> --balance <live Higgsfield
-  balance>` (it adds 25% and checks the client's monthly cap in brain.json). It runs before the concept frames (step
+- **Budget** (STANDARDS 10): `pipeline.py budget <slug> <post_id> --planned <USD> --balance <live Atlas
+  balance, USD>` (it adds 25% and checks the client's monthly USD cap in brain.json). It runs before the concept frames (step
   2), again at step 9 to re-price the whole carousel (STANDARDS 10's carousel price, which includes the 3 concept frames),
   and again before any later batch when the last G-BUDGET is over 24 h old. A cost preflight (`get_cost: true`) works
   on one `generate_image` call, not inside a batch. Check the balance again right before the batch: credits are

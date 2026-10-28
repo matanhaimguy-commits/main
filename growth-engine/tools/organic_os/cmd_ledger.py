@@ -1,36 +1,37 @@
-"""organic.py ledger | ledger-add: credits and minutes spent against the monthly cap (ORGANIC-OS 7.7)."""
+"""organic.py ledger | ledger-add: Atlas USD and minutes spent against the monthly cap (ORGANIC-OS 7.7)."""
 from __future__ import annotations
 
-import csv
 import datetime as dt
 
 from .config import CONFIG
 from .files import client_dir, load_brain
-from .router import ledger_rows, month_spend
+from .ledger_file import append_row
+from .router import ledger_rows, month_spend, usd_cap
 
 
 def ledger_cmd(a) -> int:
     rows = ledger_rows(a.slug)
     month = a.month or dt.date.today().strftime("%Y-%m")
     sp = month_spend(rows, month)
-    cap = load_brain(a.slug)["package"]["monthly_credit_cap"]
-    print(f"{month}: {sp['credits']:.0f} / {cap} Higgsfield credits ({sp['credits'] / cap:.0%}), "
-          f"{sp['elevenlabs']:.0f} ElevenLabs credits, {sp['minutes']:.0f} production minutes")
+    cap = usd_cap(load_brain(a.slug))
+    share = f" ({sp['usd'] / cap:.0%})" if cap else ""
+    print(f"{month}: ${sp['usd']:.2f} / " + (f"${cap:.2f} Atlas USD{share}" if cap is not None else
+          "no USD cap set (brain.json package.monthly_usd_cap, the owner's)")
+          + f", {sp['minutes']:.0f} production minutes")
+    if sp["credits"] or sp["elevenlabs"]:
+        print(f"  history: {sp['credits']:.0f} Higgsfield credits, {sp['elevenlabs']:.0f} ElevenLabs credits")
     for f_, v in sorted(sp["by_format"].items()):
-        print(f"  {f_}: {v['pieces']} pieces, {v['credits']:.0f} credits, {v['minutes']:.0f} min")
-    if sp["credits"] > cap / 1.25:
+        print(f"  {f_}: {v['pieces']} pieces, ${v['usd']:.2f}, {v['minutes']:.0f} min")
+    if cap and sp["usd"] > cap / 1.25:
         print("  over 80% of the cap: keep the 25% retake buffer, move remaining slots to tier C")
     return 0
 
 
 def ledger_add_cmd(a) -> int:
-    p = client_dir(a.slug) / "ledger.csv"
-    new = not p.exists()
     fmt = CONFIG["formats"].get(a.format)
-    with p.open("a", newline="") as f:
-        wr = csv.writer(f)
-        if new:
-            wr.writerow(["date", "post_id", "format", "tier", "higgsfield_credits", "elevenlabs_credits", "minutes", "note"])
-        wr.writerow([a.date, a.post, a.format, fmt["tier"] if fmt else "", a.credits, a.el, a.minutes, a.note])
+    append_row(client_dir(a.slug) / "ledger.csv",
+               {"date": a.date, "post_id": a.post, "format": a.format, "tier": fmt["tier"] if fmt else "",
+                "atlas_usd": a.usd, "higgsfield_credits": a.credits, "elevenlabs_credits": a.el, "minutes": a.minutes,
+                "note": a.note})
     print(f"logged {a.post} in clients/{a.slug}/ledger.csv")
     return 0

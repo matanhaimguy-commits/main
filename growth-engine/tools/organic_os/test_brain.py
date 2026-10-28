@@ -20,6 +20,19 @@ class BrainTest(unittest.TestCase):
         issues, _ = o.brain_check(b, DEMAND)
         self.assertIn("blocking", codes(issues, o.ERROR))
 
+    def test_usd_cap_is_a_gap_until_the_owner_sets_it(self):
+        _, gaps = o.brain_check(BRAIN, DEMAND)
+        self.assertNotIn("package.monthly_usd_cap", [g["field"] for g in gaps])
+        for pkg in ({"monthly_credit_cap": 1200}, {"monthly_usd_cap": None}):
+            b = copy.deepcopy(BRAIN)
+            b["package"] = {"posts_per_week": 7, "account_stage": "new", **pkg}
+            issues, gaps = o.brain_check(b, DEMAND)
+            self.assertEqual(codes(issues, o.ERROR), [])
+            self.assertIn("package.monthly_usd_cap", [g["field"] for g in gaps])
+        b = copy.deepcopy(BRAIN)
+        b["package"]["monthly_usd_cap"] = -5
+        self.assertIn("schema", codes(o.brain_check(b, DEMAND)[0], o.ERROR))
+
 
 if __name__ == "__main__":
     unittest.main()

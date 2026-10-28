@@ -83,7 +83,7 @@ informal "ti", plain words.
    `runs/SS-LIB-STYLE`: `--media e6bc8781-70fa-4450-aa10-989160b20a2e:image_references`), a fresh prompt-reviewer
    checks it, `record` the report.
    Voice and music: `asset ... VO --type voice` / `--type music` and `prompt ... --file` with the exact text.
-4. `budget straightscale <post_id> --planned <credits> --balance <Higgsfield balance right now>` before the run's first
+4. `budget straightscale <post_id> --planned <USD> --balance <Atlas balance right now, atlas account balance>` before the run's first
    generation (for a reel that is the voice), and again within 24 h of each later batch (STANDARDS 10).
 5. Generate with exactly the registered prompt and references (the gate checks the hash and the order). Then
    `media ... <ID>@v<n> --id <job or media id> --file <local file>`.

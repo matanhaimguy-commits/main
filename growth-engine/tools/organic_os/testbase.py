@@ -22,7 +22,7 @@ BRAIN = {
     "market": {"language": "sq", "country": "AL"},
     "constraints": {"cannot_say": ["prices"]},
     "baseline": {"followers": None, "as_of": None},
-    "package": {"posts_per_week": 7, "account_stage": "new", "monthly_credit_cap": 1200},
+    "package": {"posts_per_week": 7, "account_stage": "new", "monthly_usd_cap": 60},
 }
 MAP = {"pillars": [{"name": "Find"}, {"name": "Convert"}], "series": [{"name": "The Build", "pillar": "Convert"}, {"name": "One Step", "pillar": "Find"}],
        "buyer_formats": []}

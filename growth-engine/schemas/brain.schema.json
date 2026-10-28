@@ -542,8 +542,7 @@
    "type": "object",
    "required": [
     "posts_per_week",
-    "account_stage",
-    "monthly_credit_cap"
+    "account_stage"
    ],
    "properties": {
     "posts_per_week": {
@@ -570,8 +569,17 @@
       "type": "string"
      }
     },
+    "monthly_usd_cap": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0,
+     "description": "The owner's monthly Atlas Cloud generation cap in USD (G-BUDGET and the router count it; STANDARDS.md 10). null or missing: not set, so G-BUDGET fails every paid generation and only free formats route. Only the owner sets it."
+    },
     "monthly_credit_cap": {
-     "type": "integer"
+     "type": "integer",
+     "description": "History: the monthly cap in Higgsfield credits from before the move to Atlas (28 Oct 2026). Nothing reads it for budgets now."
     },
     "account_stage": {
      "enum": [

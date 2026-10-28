@@ -54,8 +54,8 @@ class Base(unittest.TestCase):
         P.ROOT, P.OUT = self.root, self.root / "growth-engine" / "production"
         cd = self.root / "clients" / SLUG
         cd.mkdir(parents=True)
-        (cd / "brain.json").write_text(json.dumps({"package": {"monthly_credit_cap": 1300}}))
-        (cd / "ledger.csv").write_text("date,post_id,format,higgsfield_credits,elevenlabs_credits,minutes,note\n")
+        (cd / "brain.json").write_text(json.dumps({"package": {"monthly_usd_cap": 50}}))
+        (cd / "ledger.csv").write_text("date,post_id,format,tier,atlas_usd,higgsfield_credits,elevenlabs_credits,minutes,note\n")
 
     def tearDown(self):
         P.ROOT, P.OUT = self._root, self._out
@@ -476,6 +476,28 @@ class Records(Base):
         with self.assertRaises(P.PipelineError):
             P.close_step(SLUG, POST, 3, "done")
         self.assertEqual(P.load_ledger(SLUG, POST)["steps"]["4"]["status"], "na")
+
+
+class BudgetUsd(Base):
+    """G-BUDGET counts Atlas USD: the brain's monthly_usd_cap, the ledger's atlas_usd this month, the live balance."""
+
+    def test_cap_and_month_spend_in_usd(self):
+        P.init_run(SLUG, POST, "carousel_mistakes")
+        month = P.now().strftime("%Y-%m")
+        with (self.root / "clients" / SLUG / "ledger.csv").open("a") as f:
+            f.write(f"{month}-01,X-1,reel_quote_broll,C,46,900,0,0,\n")
+        r = P.budget(SLUG, POST, planned=4, balance=8.3)
+        self.assertEqual((r["status"], r["unit"], r["month_spent"], r["with_buffer"]), ("FAIL", "usd", 46, 5.0))
+        self.assertIn("month cap $50.00", r["notes"][0])
+        self.assertEqual(P.latest(P.load_ledger(SLUG, POST)["run_gates"]["G-BUDGET"])["data"]["cap"], 50)
+        self.assertEqual(P.budget(SLUG, POST, planned=3.2, balance=8.3)["status"], "PASS")
+
+    def test_no_usd_cap_fails(self):
+        P.init_run(SLUG, POST, "carousel_mistakes")
+        (self.root / "clients" / SLUG / "brain.json").write_text(json.dumps({"package": {"monthly_credit_cap": 1300}}))
+        r = P.budget(SLUG, POST, planned=1, balance=100)
+        self.assertEqual(r["status"], "FAIL")
+        self.assertIn("monthly_usd_cap", " ".join(r["notes"]))
 
 
 class Crops(unittest.TestCase):
