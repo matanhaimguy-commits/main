@@ -5,6 +5,7 @@ import { pickVariant } from '../logic/text';
 import type { OutboundMessage } from '../meta/messages';
 import type { CommentEvent } from '../meta/webhook';
 import type { Deps } from './deps';
+import { handleAfter } from './funnel-after';
 import { delivered, sendDm, sendPrivateReply, sendPublicReply, type SendOutcome } from './send';
 
 export function resolveLink(b: Business, ref: string): string {
@@ -96,7 +97,6 @@ export async function runDeliver(
     { text: f.deliver.text, button: { title: f.deliver.button, url: resolveLink(b, f.deliver.link) } },
     { key: `funnel:${f.id}:deliver:${triggerKey}`, source: 'funnel', funnelId: f.id, step: 'deliver' },
   );
-  if (delivered(outcome) && f.after) {
-    await sendDm(deps, b, contact, { text: f.after }, { key: `funnel:${f.id}:after:${triggerKey}`, source: 'funnel', funnelId: f.id, step: 'after' });
-  }
+  // The last message: right away by default, or queued when the funnel sets `after_delay_minutes`.
+  if (delivered(outcome) && f.after) await handleAfter(deps, b, f, contact, triggerKey, outcome.status);
 }

@@ -1,13 +1,10 @@
 import { z } from 'zod/v4';
+import { buttonTitle, id } from './fields';
+import { FunnelSchema, type Funnel } from './funnel-schema';
 
-export const PLATFORMS = ['instagram', 'facebook'] as const;
-export type Platform = (typeof PLATFORMS)[number];
-
-const id = z.string().regex(/^[a-z0-9][a-z0-9_-]*$/, 'use lowercase letters, digits, - and _');
-
-// Meta caps button titles at 20 characters and button-template text at 640.
-const buttonTitle = z.string().min(1).max(20);
-const buttonText = z.string().min(1).max(640);
+// The pieces live in their own files; everything is still imported from here.
+export { PLATFORMS, type Platform } from './fields';
+export { FunnelSchema, type Funnel };
 
 export const LinkSchema = z.object({
   id,
@@ -15,49 +12,6 @@ export const LinkSchema = z.object({
   url: z.url(),
   // Tells the AI when this link is the right one to send.
   when: z.string().optional(),
-});
-
-export const FunnelSchema = z.object({
-  id,
-  status: z.enum(['active', 'paused']).default('active'),
-  // comment: someone comments a keyword on a pinned post (private reply).
-  // story_reply: someone replies to a story with a keyword (Instagram).
-  // dm_keyword: someone sends the keyword as a DM.
-  trigger: z.enum(['comment', 'story_reply', 'dm_keyword']).default('comment'),
-  platforms: z.array(z.enum(PLATFORMS)).min(1).default(['instagram', 'facebook']),
-  // Post / media IDs this funnel is pinned to. Required for comment funnels.
-  posts: z.array(z.coerce.string()).default([]),
-  // Account-wide comment funnel. The audit refuses it unless acknowledged,
-  // because a comment on a two-year-old post would be pulled into this funnel.
-  all_posts: z.boolean().default(false),
-  all_posts_acknowledged: z.boolean().default(false),
-  keywords: z.array(z.string().min(1)).min(1),
-  match: z.enum(['exact', 'word', 'contains']).default('word'),
-  // Optional public reply under the comment; one is picked per comment.
-  public_replies: z.array(z.string().min(1)).default([]),
-  // First DM. With mode "tap" the button is a postback that delivers the link
-  // in a second message; the tap also opens the 24h window so the AI can talk.
-  // With mode "link" the button opens the delivery link directly.
-  opener: z.object({
-    text: buttonText,
-    button: buttonTitle,
-    mode: z.enum(['tap', 'link']).default('tap'),
-  }),
-  // Instagram only: ask them to follow before delivering. Costs one extra tap.
-  follow_gate: z
-    .object({
-      enabled: z.boolean().default(true),
-      text: buttonText,
-      button: buttonTitle,
-    })
-    .optional(),
-  deliver: z.object({
-    text: buttonText,
-    link: z.string().min(1), // a link id from `links`, or a full URL
-    button: buttonTitle,
-  }),
-  // Last message: open a conversation, not just hand over a link.
-  after: z.string().min(1).max(1000).optional(),
 });
 
 export const BusinessSchema = z.object({
@@ -143,5 +97,4 @@ export const BusinessSchema = z.object({
 });
 
 export type Business = z.infer<typeof BusinessSchema>;
-export type Funnel = z.infer<typeof FunnelSchema>;
 export type Link = z.infer<typeof LinkSchema>;

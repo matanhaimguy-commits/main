@@ -33,6 +33,7 @@ Lovable and rebuilds the app, so changes cost no Lovable credits.
 - **Every minute** the database (`pg_cron` + `pg_net`) calls `/api/tick` with a shared secret, for
   follow-ups, health checks and anything left over. The app records its own address and the secret
   in `app_state('tick_target')` the first time the dashboard is opened on the published site.
+- **Funnel wait:** a funnel's last message (`after`) goes out right after the delivery unless the funnel sets `after_delay_minutes` (0 to 60, default 0); then it is queued and the minute tick sends it once the wait is over, only if the person has not written back and their 24-hour window is still open (needs migration `20261028090000_funnel_followups.sql`, applied by hand).
 - **Settings** (Meta App ID/Secret, Claude key, alerts) are entered on the Settings page and stored
   encrypted. A Lovable Cloud secret with the same name (e.g. `META_APP_SECRET`) overrides them.
 - **Real sending** is off until it is switched on in Settings *and* the business is set to Live

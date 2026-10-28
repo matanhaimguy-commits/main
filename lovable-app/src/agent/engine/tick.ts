@@ -1,5 +1,6 @@
 import { getState, setState } from '../db/connections';
 import { claimDueReplies, claimWebhookEvents, finishWebhookEvent, retryWebhookEvent, type WebhookEventRow } from '../db/repo';
+import { runDueAfters } from './after-run';
 import type { Deps } from './deps';
 import { checkDmAccess, checkSubscriptions, runHealthChecks } from './health';
 import { processPayload } from './process';
@@ -62,6 +63,7 @@ export async function drain(deps: Deps, opts: { waitUpToSeconds: number; deadlin
 
 const PERIODIC = {
   followups: 60_000,
+  funnel_after: 60_000,
   health: 10 * 60_000,
   subscriptions: 60 * 60_000,
   dm_access: 60 * 60_000,
@@ -83,6 +85,7 @@ export async function scheduledRun(deps: Deps, deadline: number): Promise<{ hand
   const now = Date.now();
   const jobs: Record<keyof typeof PERIODIC, () => Promise<unknown>> = {
     followups: () => runFollowups(deps),
+    funnel_after: () => runDueAfters(deps),
     health: () => runHealthChecks(deps),
     subscriptions: () => checkSubscriptions(deps),
     dm_access: () => checkDmAccess(deps),

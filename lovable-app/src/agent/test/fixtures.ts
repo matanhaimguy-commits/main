@@ -3,6 +3,7 @@ import type { Business } from '../config/schema';
 
 export const PAGE_ID = '111111111111111';
 export const IG_ID = '17841400000000001';
+export const APP_ID = '999000999';
 export const APP_SECRET = 'test-app-secret';
 export const VERIFY_TOKEN = 'test-verify-token';
 
