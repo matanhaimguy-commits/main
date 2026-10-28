@@ -26,3 +26,13 @@ defect and only the owner can override a reviewer gate. Gate decision for hook f
 Matan, plan 28 Oct): an offset of up to 10% with everything else right is fixed in the edit, so the frame is usable.
 Edit note: move the writing group up 4 points (about 82 px of 2048), scale to about 95%, extend the plain board.
 Cost $0.04739.
+
+# Replacement: bank W9-04 ("I just need more leads." Which ones?), slot W1-02
+## Round 1 (`motion-studio/projects/straightscale-en-02/docs/hooks-v7-W9-04-r1.json`), words only (graders 7 and 8, mixed packet)
+| Stack | Text / spoken | Grader 7 V/T/S | Grader 8 V/T/S |
+|---|---|---|---|
+| R1a | "Need more leads? Name which ones first." / "You want more leads. Which ones? Say it in one sentence." | n/a, B-, B- | n/a, C+, B- |
+| R1b | "More leads won't help until you know which ones." / "More leads won't help. Your buyer's own sentence will." | n/a, B, B- | n/a, B-, B |
+| R1c | "Posting for months, no leads? Know which buyer first." / "Posting for months, no leads? Start with your buyer's words." | not read | n/a, B, B |
+Notes: "which ones" is vague; "Need more leads?" is generic; "your buyer's own sentence" is cryptic; say the concrete
+fix and use the same words on screen and in the voice. Result: FAIL.
