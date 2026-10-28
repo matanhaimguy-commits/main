@@ -57,3 +57,10 @@ bash motion-studio/projects/straightscale-en-02/resource/funnel/create.sh <that-
 ORGANIC-OS 8.5 step 4: wait 10 to 60 minutes before the qualifying question. Both funnels set
 `after_delay_minutes: 20` (the hub's per-funnel wait, 28 Oct 2026). The question is skipped if the person writes back
 first, opts out, or the 24-hour window would be closed.
+
+## WORDS.pdf public URL
+Not uploaded yet (28 Oct 2026): `hub.py upload` fails with STORAGE_UNREACHABLE, the hub's storage host
+`c--239a3368-f157-4af9-9f3c-129789693927-prod.lovable.cloud` is not allowed in this cloud environment. Once it is:
+`python3 growth-engine/tools/hub.py upload straightscale motion-studio/projects/straightscale-en-02/resource/WORDS.pdf`
+and write the URL here (`create.sh` also uploads it when it runs). The hub's only business, `straightscale`, has no
+WORDS funnel; do not create it before the English profile is set.

@@ -1,5 +1,7 @@
 # straightscale-en-02: "Your buyers already wrote your hooks"
 
+**Status (28 Oct 2026):** v1 delivered. Distribution package written (`docs/distribution.md`). Hub draft ready in `hub/item.json`, not pushed: uploads blocked (hub storage host not allowed in the cloud environment). Not to be approved until the English profile and the WORDS funnel are live and tested.
+
 Mode: owner picked "any top of funnel" (27 Oct 2026); built without further stops, shown at approval 2.
 Workflow: `SIMPLE.md` in `matanhaimguy-commits/organic-engine` with the motion-reel skill for the build.
 Offer sheet: vault note "StraightScale EN offer" (Research, Offer, Organic, Funnel, Paid ads).
@@ -74,6 +76,7 @@ Pick: 1, shown as the quote itself, with line 2 as the twist.
 | 28 Oct | WORDS funnel asks the main bottleneck (not revenue bands); routing in `resource/funnel/README.md` | Matan |
 | 28 Oct | The English account gets its own client brain (`clients/straightscale-en/`) | Matan |
 | 28 Oct | The hub waits 10 to 60 minutes before the qualifying question (a per-funnel delay is being added to the app) | Matan |
+| 28 Oct | Hub draft prepared, not pushed: package in `docs/distribution.md`, draft in `hub/item.json` (status draft, no scheduled time, keyword WORDS, no funnel_id, notes start "AI label: on" and "DO NOT APPROVE YET") | the hub storage host is blocked by the network policy (STORAGE_UNREACHABLE), so no media URLs; a reel draft with no video is not pushed. One `hub.py push hub/item.json` uploads and creates it once the host is allowed |
 
 
 ## Lead magnet: WORDS (keyword WORDS)
