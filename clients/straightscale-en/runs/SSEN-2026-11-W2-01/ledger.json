@@ -122,7 +122,16 @@
       "sha256": "a731bb305e066e043a715f381e0f79475f4481f22d3d3c8c13ea04897da3ede1",
       "lint": "PASS",
       "lint_at": "2026-10-28T17:30:55+00:00",
-      "lint_issues": []
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T17:31:29+00:00",
+          "status": "PASS",
+          "sha256": "a731bb305e066e043a715f381e0f79475f4481f22d3d3c8c13ea04897da3ede1",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-V3.spec.json"
+        }
+      ]
     },
     "H-01-V7": {
       "sha256": "c0983a566a0e967f22b5db0df7fe3cea3514b6f994cdcbba5d65b347cad4f368",

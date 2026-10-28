@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CF-V10",
+ "version": 1,
+ "prompt_sha256": "504e3539ce2a6a5da95cb0e0f9a57e63a53dedbb028f293480aeb972ab4f9ce2",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "All 11 blocks present in order (format line, reference map, Subject, Hands, Action, Props, Text, Setting, Camera, Continuity, Negatives). Covers phone ('tilted back about 20 degrees', 'x 16% to 84%', 'y 30% down past the bottom edge'), left hand with box and cuff, bubble content, text, walnut desk strips, plain wall, lamp out of frame, top 30% empty, safe zones, mustard sleeves, style palette. No spec element missing."
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'Reference images: none attached; this prompt is the only input.' The packet lists no media (text-to-image)."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'The left hand ... holds the phone from below: its thumb lies along the phone's left edge and is its only visible finger; its other four fingers wrap around the phone's lower back ... The other hand is out of frame ... Exactly one hand; of its fingers only the thumb shows, plus the sleeve cuff.'"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'The left thumb rests along the phone's left edge and its four hidden fingers grip the phone's lower back; the phone is still.'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Props: 'a plain chat view on a white background with exactly one large light-grey incoming message bubble ... (x 22% to 78%, y 33% to 54%), and empty white space below it'; negatives are targeted ('no words other than the message'), so the bubble is not emptied."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "Text: '\"We can get it done cheaper.\"' (6 words) inside the grey bubble, centred, dark charcoal plain sans-serif, sentence case, ~60 px tall letters on a 1152 px frame, 'each line ending well inside the bubble's edge'; occlusion 'No hand, finger, sleeve rises above the line 62% of the way down from the top, so no letter touches anything.'"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'No other screens, papers, posters or readable words anywhere except the message in the bubble; the desk is bare.'; wall 'plain dark warm grey'; the phone screen has its content rule."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Bubble y 33% to 54% sits inside the phone (y 30% to 100%), the 15% to 55% band and the 6% margins; hand at y 72% to 100% is below the '62%' line; the sleeve is 'behind' the phone while the cuff shows 'left of the phone's left edge' (different parts). The sentence-case sentence is repeated in the Text block but says the same thing."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'Continuity: none, this is the first frame of the reel.' Spec previous_shot null, carry_over []."
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "standards.json models.atlas.allowed: openai/gpt-image-2/text-to-image, use includes still, params quality medium (call: --quality medium), size 1152x2048 in params_one_of and the size_for_aspect for 9:16 (prompt and spec 9:16), text_fields [] (no extra text fields). Hands only, no person, so no reference photo rule. Hero registration (--hero) matches STANDARDS (hook concept frame is hero). Video rules N/A. Packet hash 504e3539...b9ce2 matches the whitespace-normalised hash of prompts/CF-V10.v1.5.txt (recomputed)."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "Positions anchored ('measured down from the top edge and across from the left edge'); 'the line 62% of the way down from the top' explicit; sentence case stated against '60 px'; 'sleeve ... behind the phone' depth order stated."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 prevention present ('No letter touches ... anything', hand kept below y 62%, lines end inside the bubble); FL-02 ('appears once and is the only device'); FL-03 contact points; FL-04/05/10 screen content and background rule; FL-06 visible hand parts named; FL-11 'Exactly one hand'; FL-13 not triggered (no logo requested; 'no logo, brand or app name')."
+  }
+ ],
+ "corrected_prompt": null
+}
