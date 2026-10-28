@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>EN 07 hook frame 1</title>
+<style>
+@font-face { font-family: "Montserrat"; font-weight: 800; src: url(../assets/fonts/Montserrat/montserrat-latin-800-normal.woff2); }
+html, body { margin: 0; background: #1F1F1F; }
+canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script type="module">
+// Wires one stack's frame 1 (?s=01). Static frame: seek(t) redraws the same picture for any t.
+import { paper } from './cloth.js';
+import { hookText } from './hooktext.js';
+import { STACKS } from './stacks.js';
+
+const ctx = document.getElementById('c').getContext('2d');
+const st = STACKS[new URLSearchParams(location.search).get('s') || '01'];
+await document.fonts.load('800 92px Montserrat');
+window.seek = () => { paper(ctx, 1080, 1920); st.draw(ctx); hookText(ctx, st.lines, st.text || {}); };
+window.seek(0);
+</script>
+</body>
+</html>
