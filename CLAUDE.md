@@ -24,6 +24,7 @@
   `growth-engine/production/`; read its `README.md` first. Every Higgsfield and ElevenLabs generation is gated by the
   hook `.claude/hooks/generation_gate.py` (runs and gates: `growth-engine/tools/pipeline.py`); every number comes from
   `STANDARDS.md`; story reels follow `STORY-FORMATS.md`.
+  Generation runs on Atlas only (owner, 28 Oct 2026: much cheaper); Higgsfield is switched off in the gate.
   Atlas Cloud runs only through the gated `atlas` command (`growth-engine/tools/atlas/README.md`; install: `bash growth-engine/tools/atlas/setup.sh`).
 - **Instagram / Facebook automation** (comment-to-DM funnels, AI sales DMs, for us and clients): the hosted app
   is `lovable-app/` (a Lovable project; read `lovable-app/README.md`). It is pushed to the Lovable project's own

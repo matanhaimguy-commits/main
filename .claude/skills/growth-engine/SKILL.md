@@ -67,7 +67,8 @@ hub publishes, and only what a person approved.
   environment secret) and network access to the hub host and its storage host. If it fails with
   `HUB_UNREACHABLE` / `STORAGE_UNREACHABLE`, keep producing into `clients/<slug>/content/` and tell the user
   which domain to allow; never paste the token anywhere.
-- Research and images go through the connectors (Apify, Higgsfield), which work without network access.
+- Research goes through the Apify connector; images, video and audio through the gated `atlas` command only
+  (Higgsfield is switched off: owner, 28 Oct 2026).
 - Video: `bash motion-studio/setup.sh` before building.
 
 ## Step 0 · Client kit (once per client)
@@ -182,7 +183,7 @@ Then `hub.py funnel <slug> content/<key>/funnel.json` for new keywords. Re-runni
 ## Step 7 · Hand over
 Commit and push the client folder (no secrets, no raw scraped media). Tell the user in a few lines: what was
 researched (top pattern), the week's posts with days and asks, what needs a person (approvals on the Content
-page, native read), the spend (Apify, Higgsfield credits, voice), and anything blocked.
+page, native read), the spend (Apify, Atlas in USD), and anything blocked.
 
 ## Rules
 - Facts only from the client. Style from references, never content: never copy a competitor's words,

@@ -512,14 +512,15 @@ class Hook(unittest.TestCase):
             self.assertEqual(r.returncode, 0)
             out = json.loads(r.stdout)
             self.assertEqual(out["hookSpecificOutput"]["permissionDecision"], "deny")
-            self.assertIn("not registered", out["hookSpecificOutput"]["permissionDecisionReason"])
+            # Higgsfield is switched off (owner, 28 Oct 2026: generation runs on Atlas), so it is refused before any check
+            self.assertIn("SERVICE OFF", out["hookSpecificOutput"]["permissionDecisionReason"])
             r = subprocess.run([sys.executable, str(hook)], input=json.dumps({"tool_name": "Bash", "tool_input": {}}),
                                capture_output=True, text=True, env=env)
             self.assertEqual((r.returncode, r.stdout), (0, ""))
             r = subprocess.run([sys.executable, str(hook)], input=json.dumps(
                 {"tool_name": "mcp__Higgs__generate_image", "tool_input": {"params": {"model": "x", "get_cost": True}}}),
                 capture_output=True, text=True, env=env)
-            self.assertEqual((r.returncode, r.stdout), (0, ""))
+            self.assertIn("SERVICE OFF", json.loads(r.stdout)["hookSpecificOutput"]["permissionDecisionReason"])
 
 
 if __name__ == "__main__":

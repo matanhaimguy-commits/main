@@ -297,6 +297,133 @@
             "title",
             "negative_tags"
           ]
+        },
+        {
+          "id": "minimax/h3-developer/image-to-video",
+          "kind": "video",
+          "use": [
+            "video_clip"
+          ],
+          "params": {
+            "resolution": "768P",
+            "prompt_expansion": false
+          },
+          "params_if_given": {
+            "ratio": [
+              "adaptive"
+            ]
+          },
+          "min_s": 4,
+          "max_s": 15,
+          "text_fields": []
+        },
+        {
+          "id": "minimax/h3-developer/reference-to-video",
+          "kind": "video",
+          "use": [
+            "video_clip"
+          ],
+          "params": {
+            "resolution": "768P",
+            "prompt_expansion": false
+          },
+          "params_if_given": {
+            "ratio": [
+              "adaptive",
+              "9:16",
+              "3:4",
+              "1:1"
+            ]
+          },
+          "min_s": 4,
+          "max_s": 15,
+          "text_fields": []
+        },
+        {
+          "id": "openai/gpt-image-2/text-to-image",
+          "kind": "image",
+          "use": [
+            "start_frame",
+            "still",
+            "slide",
+            "cover",
+            "static",
+            "storyboard",
+            "style_ref",
+            "character_sheet",
+            "prop_sheet",
+            "set_sheet"
+          ],
+          "params": {
+            "quality": "medium"
+          },
+          "params_one_of": {
+            "size": [
+              "1152x2048",
+              "1024x1536",
+              "1024x1024"
+            ]
+          },
+          "params_if_given": {
+            "output_format": [
+              "jpeg",
+              "png"
+            ],
+            "moderation": [
+              "low"
+            ],
+            "enable_sync_mode": [
+              true,
+              false
+            ],
+            "enable_base64_output": [
+              false
+            ]
+          },
+          "text_fields": []
+        },
+        {
+          "id": "openai/gpt-image-2/edit",
+          "kind": "image",
+          "use": [
+            "start_frame",
+            "still",
+            "slide",
+            "cover",
+            "static",
+            "storyboard",
+            "style_ref",
+            "character_sheet",
+            "prop_sheet",
+            "set_sheet"
+          ],
+          "params": {
+            "quality": "medium"
+          },
+          "params_one_of": {
+            "size": [
+              "1152x2048",
+              "1024x1536",
+              "1024x1024"
+            ]
+          },
+          "params_if_given": {
+            "output_format": [
+              "jpeg",
+              "png"
+            ],
+            "moderation": [
+              "low"
+            ],
+            "enable_sync_mode": [
+              true,
+              false
+            ],
+            "enable_base64_output": [
+              false
+            ]
+          },
+          "text_fields": []
         }
       ]
     },
@@ -1012,5 +1139,9 @@
       ],
       "what": "The code's text constants, layout positions, timing table and brand colours against the Shot Spec and the released script, before any render (VISUAL-QA 7.2)."
     }
+  },
+  "disabled_services": {
+    "_doc": "Services the generation gate refuses whatever the call. Owner decides.",
+    "higgs": "Matan, 28 Oct 2026: never Higgsfield; generation runs on Atlas (much cheaper) through the gated `atlas` command."
   }
 }

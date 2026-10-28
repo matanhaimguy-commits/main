@@ -673,12 +673,12 @@ def record_gate(slug, post_id, gate, status, by, asset=None, note=None, score=No
 
 def budget(slug, post_id, planned: float, balance: float, el: float = 0.0) -> dict:
     sys.path.insert(0, str(GE / "tools"))
-    import organic  # noqa: E402
-    organic.ROOT = ROOT
-    brain = organic.load_brain(slug)
+    from organic_os import files as organic_files, router as organic_router  # noqa: E402
+    organic_files.ROOT = ROOT  # client_dir() reads this module's ROOT
+    brain = organic_files.load_brain(slug)
     cap = (brain.get("package") or {}).get("monthly_credit_cap")
     month = now().strftime("%Y-%m")
-    spent = organic.month_spend(organic.ledger_rows(slug), month)
+    spent = organic_router.month_spend(organic_router.ledger_rows(slug), month)
     need = planned * (1 + STANDARDS["gate_policy"]["retake_buffer"])
     notes = []
     status = PASS

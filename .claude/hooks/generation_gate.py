@@ -23,6 +23,12 @@ def main() -> int:
         tool = canonical(data.get("tool_name", ""), pipeline.STANDARDS["gated_tools"])
         if tool not in pipeline.STANDARDS["gated_tools"]:
             return 0
+        from guards.services import off_reason
+        off = off_reason(tool, pipeline.STANDARDS)
+        if off:
+            print(json.dumps({"hookSpecificOutput": {"hookEventName": "PreToolUse", "permissionDecision": "deny",
+                                                     "permissionDecisionReason": f"SERVICE OFF: {off}"}}))
+            return 0
         ok, reasons = pipeline.check_call(tool, data.get("tool_input") or {})
     except Exception as e:  # fail closed
         ok, reasons = False, [f"the gate check errored ({type(e).__name__}: {e}); fix growth-engine/tools/pipeline.py "
