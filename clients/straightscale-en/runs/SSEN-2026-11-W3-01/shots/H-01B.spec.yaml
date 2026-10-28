@@ -1,0 +1,99 @@
+shot_id: H-01B
+post_id: SSEN-2026-11-W3-01
+format: claymation
+script_lines:
+- H1
+line_text: Some months nothing? You don't need more posts. You need one.
+story_purpose: 'Concept frame for stack EN05-V3 (HF-04): the myth ''post more'' as a tall stack of posts that still leaves
+  the month empty.'
+must_read_in_1s: A huge pile of posts, and the month is still empty
+subjects:
+- id: PR-POST-STACK
+  ref: null
+  state: a tall, slightly leaning stack of about thirty clay post cards
+  pose: standing on the floor at the left, from y 0.30 to 0.86, x 0.10 to 0.42, wobbling a little
+  expression: ''
+- id: PR-CALENDAR
+  ref: null
+  state: one empty calendar month page pinned to the wall
+  pose: on the wall at the right, x 0.48 to 0.86, y 0.40 to 0.74
+  expression: ''
+hands: none visible
+props:
+- id: PR-POST-STACK
+  story_critical: false
+  ref: null
+  state: a tall leaning stack
+  content: square clay post cards, each a thin flat tile of cream clay with a stitched fabric edge and a small clay picture
+    shape on its face (a sun, a cup, a plant), no words, stacked unevenly so the stack wobbles
+  size_in_frame: about 56% of the frame height, 32% of the width
+  held_by: null
+- id: PR-CALENDAR
+  story_critical: false
+  ref: null
+  state: one month page, completely empty
+  content: one a calendar month page sculpted from flat cream clay with a stitched fabric border and a stitched grid of empty
+    day squares (no numbers, no month name), held to the wall by a single clay pin, every day square empty
+  size_in_frame: about 38% of the width, 34% of the height
+  held_by: null
+text_in_image: none
+action_physics:
+- the post stack stands on the floor of the set, its base flat on the floor, each card resting on the one below
+- the calendar page hangs from one clay pin pushed into the wall
+static: true
+setting:
+  ref: null
+  details: One plain warm cream clay wall fills the background edge to edge, softly lit by warm amber light from the upper
+    left, a gentle teal shadow at the bottom; the top 30% of the frame is only this plain wall. A plain clay floor meets the
+    wall at y 0.86. No window, shelf, desk or other objects.
+  background_rule: nothing but the plain clay wall behind the subject
+camera:
+  framing: wide-ish medium shot of the stack and the page together
+  angle: camera at eye level with the middle of the stack, inside the miniature set
+  lens: macro miniature-set look, about 50mm, shallow depth of field, the subject sharp
+  aspect: '9:16'
+  safe_zones: subject between y 0.30 and 0.80 and x 0.08 to 0.86; the top 30% is plain clay wall for the text hook; nothing
+    important in the bottom 20% or the right 13% (platform UI)
+continuity:
+  previous_shot: null
+  carry_over:
+  - 'the series look: claymation in the song''s cloth world (fabric and thread details on clay)'
+regions:
+- name: post-stack
+  kind: prop
+  box:
+  - 0.1
+  - 0.3
+  - 0.42
+  - 0.86
+- name: empty-month
+  kind: prop
+  box:
+  - 0.48
+  - 0.4
+  - 0.86
+  - 0.74
+- name: text-hook-space
+  kind: other
+  box:
+  - 0.0
+  - 0.0
+  - 1.0
+  - 0.28
+style: 'Stop-motion clay puppet scene - clay characters detailed with tiny craft materials: thread-wrapped hair, fabric details,
+  wire accents, on a fully sculpted clay set, cinematic stop-motion film lighting with gentle shadows, the scene filling the
+  entire frame with the camera inside the puppet world. Palette: warm cream, terracotta and mustard clay with deep teal shadows,
+  warm amber light; one bright subject against a calm, plain clay wall. Everything in frame is real modeling clay, photographed
+  - visible fingerprints and tool marks, real cast shadows, soft studio lighting, the clay scene filling the entire frame.'
+must_not:
+- no text, letters, numbers or words anywhere in the picture (the text hook is added later in the edit)
+- no hearts, likes, thumbs-up, follower counts, notification badges or any social media icons or logos
+- no real platform names, logos or app screens
+- no phone screens with interface elements
+- no extra subjects beyond those named; no clutter in the top third of the frame
+- no smooth, glossy or CGI-looking surfaces; no motion blur
+- no borders, frames, split screens, set edges, workbench or the room around the miniature set
+- no figures or people
+- nothing on the calendar page
+hero: true
+notes: 'Stack EN05-V3 text hook (edit): "Post more." No. Post what clients ask about. Model as H-01A.'

@@ -1,0 +1,99 @@
+shot_id: H-01A
+post_id: SSEN-2026-11-W3-01
+format: claymation
+script_lines:
+- H1
+line_text: Some months clients, other months nothing? Your posts know why.
+story_purpose: 'Concept frame for stack EN05-V1 (HF-06): the lumpy months, the main pain, as one picture: one month full of
+  clients, the next month empty.'
+must_read_in_1s: One month crowded with clients, the next month empty
+subjects:
+- id: PR-CALENDAR
+  ref: null
+  state: a clay wall calendar open to two month pages side by side, hung on the wall
+  pose: flat on the wall, facing the camera, centred, spanning x 0.08 to 0.92 and y 0.34 to 0.80
+  expression: ''
+hands: none visible
+props:
+- id: PR-CALENDAR
+  story_critical: false
+  ref: null
+  state: two month pages side by side
+  content: 'two of a calendar month page sculpted from flat cream clay with a stitched fabric border and a stitched grid of
+    empty day squares (no numbers, no month name), joined by a stitched seam down the middle; the LEFT page has about twelve
+    little clay client figures about the height of a thumb, simple adult business people in tiny fabric jackets and trousers,
+    thread-wrapped hair, dot-and-sclera eyes, mixed skin tones, standing and chatting, calm and pleased standing on its day
+    squares, filling it; the RIGHT page is completely bare: empty stitched squares, nobody on it'
+  size_in_frame: about 84% of the frame width, about 46% of the frame height
+  held_by: null
+text_in_image: none
+action_physics:
+- the clay client figures stand on the left page's day squares as on a small shelf ledge sculpted along each row, their feet
+  touching the ledge
+- 'the right page carries nothing: no figure, no object, no mark'
+static: true
+setting:
+  ref: null
+  details: One plain warm cream clay wall fills the background edge to edge, softly lit by warm amber light from the upper
+    left, a gentle teal shadow at the bottom; the top 30% of the frame is only this plain wall. No window, shelf, desk or
+    other objects.
+  background_rule: nothing but the plain clay wall behind the subject
+camera:
+  framing: medium close-up of the calendar, square to the camera
+  angle: camera at eye level, inside the miniature set, facing the wall calendar straight on
+  lens: macro miniature-set look, about 50mm, shallow depth of field, the subject sharp
+  aspect: '9:16'
+  safe_zones: subject between y 0.30 and 0.80 and x 0.08 to 0.86; the top 30% is plain clay wall for the text hook; nothing
+    important in the bottom 20% or the right 13% (platform UI)
+continuity:
+  previous_shot: null
+  carry_over:
+  - 'the series look: claymation in the song''s cloth world (fabric and thread details on clay)'
+regions:
+- name: calendar
+  kind: prop
+  box:
+  - 0.08
+  - 0.34
+  - 0.92
+  - 0.8
+- name: full-month
+  kind: prop
+  box:
+  - 0.08
+  - 0.34
+  - 0.5
+  - 0.8
+- name: empty-month
+  kind: prop
+  box:
+  - 0.5
+  - 0.34
+  - 0.92
+  - 0.8
+- name: text-hook-space
+  kind: other
+  box:
+  - 0.0
+  - 0.0
+  - 1.0
+  - 0.3
+style: 'Stop-motion clay puppet scene - clay characters detailed with tiny craft materials: thread-wrapped hair, fabric details,
+  wire accents, on a fully sculpted clay set, cinematic stop-motion film lighting with gentle shadows, the scene filling the
+  entire frame with the camera inside the puppet world. Palette: warm cream, terracotta and mustard clay with deep teal shadows,
+  warm amber light; one bright subject against a calm, plain clay wall. Everything in frame is real modeling clay, photographed
+  - visible fingerprints and tool marks, real cast shadows, soft studio lighting, the clay scene filling the entire frame.'
+must_not:
+- no text, letters, numbers or words anywhere in the picture (the text hook is added later in the edit)
+- no hearts, likes, thumbs-up, follower counts, notification badges or any social media icons or logos
+- no real platform names, logos or app screens
+- no phone screens with interface elements
+- no extra subjects beyond those named; no clutter in the top third of the frame
+- no smooth, glossy or CGI-looking surfaces; no motion blur
+- no borders, frames, split screens, set edges, workbench or the room around the miniature set
+- no figure, object or mark on the right page
+- no more than two calendar pages
+hero: true
+notes: 'Stack EN05-V1 text hook (added in the edit, top third): One month full, the next month nothing. Here''s why. Model:
+  openai/gpt-image-2/text-to-image, 1152x2048, quality medium. Sub-style: claymation skill lane 3 (stop-motion puppet), chosen
+  for the song''s cloth world.'

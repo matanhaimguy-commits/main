@@ -1,0 +1,96 @@
+shot_id: H-01C
+post_id: SSEN-2026-11-W3-01
+format: claymation
+script_lines:
+- H1
+line_text: If your months swing like this, here's what I'd post.
+story_purpose: 'Concept frame for stack EN05-V8 (HF-20): months that swing, as a seesaw with a full month at one end and an
+  empty month up in the air.'
+must_read_in_1s: 'A seesaw: one month heavy with clients, the other up and empty'
+subjects:
+- id: PR-SEESAW
+  ref: null
+  state: a clay seesaw tipped hard to the left
+  pose: centred, x 0.06 to 0.94, the low left end at y 0.80, the high right end at y 0.40, pivot at x 0.50 y 0.62
+  expression: ''
+hands: none visible
+props:
+- id: PR-SEESAW
+  story_critical: false
+  ref: null
+  state: 'tipped: left end down on the floor, right end high'
+  content: a terracotta clay plank on a mustard clay triangle pivot; on each end lies a calendar month page sculpted from
+    flat cream clay with a stitched fabric border and a stitched grid of empty day squares (no numbers, no month name); the
+    LEFT page is crowded with about ten little clay client figures about the height of a thumb, simple adult business people
+    in tiny fabric jackets and trousers, thread-wrapped hair, dot-and-sclera eyes, mixed skin tones, standing and chatting,
+    calm and pleased, pressing that end down to the floor; the RIGHT page, high in the air, is completely bare
+  size_in_frame: about 88% of the frame width, the whole seesaw between y 0.40 and 0.84
+  held_by: null
+text_in_image: none
+action_physics:
+- the plank rests on the pivot's top point; the left end touches the floor, the right end is high with nothing on it
+- the clay figures stand on the left calendar page, their feet on it, their weight holding that end down
+static: true
+setting:
+  ref: null
+  details: One plain warm cream clay wall fills the background edge to edge, softly lit by warm amber light from the upper
+    left, a gentle teal shadow at the bottom; the top 30% of the frame is only this plain wall. A plain clay floor meets the
+    wall at y 0.84. No window, shelf, desk or other objects.
+  background_rule: nothing but the plain clay wall behind the subject
+camera:
+  framing: medium wide shot of the whole seesaw, side view
+  angle: camera at the height of the pivot, side on, inside the miniature set
+  lens: macro miniature-set look, about 50mm, shallow depth of field, the subject sharp
+  aspect: '9:16'
+  safe_zones: subject between y 0.30 and 0.80 and x 0.08 to 0.86; the top 30% is plain clay wall for the text hook; nothing
+    important in the bottom 20% or the right 13% (platform UI)
+continuity:
+  previous_shot: null
+  carry_over:
+  - 'the series look: claymation in the song''s cloth world (fabric and thread details on clay)'
+regions:
+- name: seesaw
+  kind: prop
+  box:
+  - 0.06
+  - 0.4
+  - 0.94
+  - 0.84
+- name: full-month-end
+  kind: prop
+  box:
+  - 0.06
+  - 0.58
+  - 0.44
+  - 0.84
+- name: empty-month-end
+  kind: prop
+  box:
+  - 0.58
+  - 0.36
+  - 0.94
+  - 0.56
+- name: text-hook-space
+  kind: other
+  box:
+  - 0.0
+  - 0.0
+  - 1.0
+  - 0.3
+style: 'Stop-motion clay puppet scene - clay characters detailed with tiny craft materials: thread-wrapped hair, fabric details,
+  wire accents, on a fully sculpted clay set, cinematic stop-motion film lighting with gentle shadows, the scene filling the
+  entire frame with the camera inside the puppet world. Palette: warm cream, terracotta and mustard clay with deep teal shadows,
+  warm amber light; one bright subject against a calm, plain clay wall. Everything in frame is real modeling clay, photographed
+  - visible fingerprints and tool marks, real cast shadows, soft studio lighting, the clay scene filling the entire frame.'
+must_not:
+- no text, letters, numbers or words anywhere in the picture (the text hook is added later in the edit)
+- no hearts, likes, thumbs-up, follower counts, notification badges or any social media icons or logos
+- no real platform names, logos or app screens
+- no phone screens with interface elements
+- no extra subjects beyond those named; no clutter in the top third of the frame
+- no smooth, glossy or CGI-looking surfaces; no motion blur
+- no borders, frames, split screens, set edges, workbench or the room around the miniature set
+- no figure or object on the high right end
+- one seesaw only
+hero: true
+notes: 'Stack EN05-V8 text hook (edit): One month full, one month empty. Post this instead. Model as H-01A.'
