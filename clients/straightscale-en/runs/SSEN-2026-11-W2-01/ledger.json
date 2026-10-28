@@ -116,6 +116,15 @@
           "code": "V4",
           "msg": "hands of the owner (POV, no face), mustard-yellow knit sleeves: count_check should name five fingers per hand"
         }
+      ],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T17:32:04+00:00",
+          "status": "PASS",
+          "sha256": "0afb32c23f8f640c19df811f399359ffcc4ff3b3fee7d5067bd402d20faa5168",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-V10.spec.json"
+        }
       ]
     },
     "H-01-V3": {
@@ -190,7 +199,9 @@
         }
       ],
       "medias": [],
-      "ids": [],
+      "ids": [
+        "855b65dfda4242ac998d6c5996ffbefa"
+      ],
       "files": [],
       "gates": {
         "G-PROMPT-IMG": [
@@ -252,7 +263,17 @@
       "medias": [],
       "ids": [],
       "files": [],
-      "gates": {}
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T17:32:05+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-V10.v1.prompt.json",
+            "prompt_sha256": "504e3539ce2a6a5da95cb0e0f9a57e63a53dedbb028f293480aeb972ab4f9ce2"
+          }
+        ]
+      }
     },
     {
       "asset_id": "CF-V7",
@@ -294,7 +315,9 @@
         }
       ],
       "medias": [],
-      "ids": [],
+      "ids": [
+        "f8d86803cc644ebbaf51d3661ea36e31"
+      ],
       "files": [],
       "gates": {
         "G-PROMPT-IMG": [
