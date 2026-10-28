@@ -1,0 +1,91 @@
+shot_id: SHEET-SET-FRIEND
+post_id: SS-EN-SONG-01
+format: set_sheet
+script_lines: []
+line_text: ''
+story_purpose: 'Locks the friend''s corner and her organizer: same layout as Maya''s, but one calm fabric and clients in every
+  pocket (SH08, SH22).'
+must_read_in_1s: A calm cream CLIENTS organizer with clients in every month
+subjects:
+- id: SET-FRIEND
+  ref: null
+  state: empty corner, no people
+  pose: organizer on the wall, small shelf and plant below
+  expression: ''
+  instances: 1
+hands: none visible
+props:
+- id: PR-ORGANIZER-FRIEND
+  story_critical: true
+  ref: SET-FRIEND@v1
+  state: 'MARCH row: two to three clients in each pocket; APRIL row: two clients in each pocket; no patches, no scraps'
+  content: 'Felt wall organizer the same size and layout as Maya''s: header band CLIENTS, two rows of four pockets, label
+    bands MARCH and APRIL, but made from one single calm sand-cream linen, stitched in one piece.'
+  size_in_frame: about 70% of frame width, 20 to 50% from the top
+  held_by: null
+text_in_image:
+- string: CLIENTS
+  surface: header band
+  position: top centre of the organizer
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+- string: MARCH
+  surface: upper row label band
+  position: left end of the upper row
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+- string: APRIL
+  surface: lower row label band
+  position: left end of the lower row
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+action_physics: []
+static: true
+setting:
+  ref: null
+  details: a warm sage-green clay wall corner, a small wooden shelf with a clay plant under the organizer, soft afternoon
+    light
+  background_rule: no screens, frames, books or signs; no lettering besides the listed strings
+camera:
+  framing: medium-wide view of the wall corner, camera at eye level inside the set
+  angle: straight-on, eye level with the subject
+  movement: none (a still sheet)
+  aspect: '9:16'
+  safe_zones: 'a reference sheet, not a reel frame: every element inside a 4% margin, nothing cropped at the edges'
+continuity:
+  previous_shot: null
+  carry_over: []
+regions:
+- name: organizer
+  kind: prop
+  box:
+  - 0.1
+  - 0.2
+  - 0.9
+  - 0.5
+- name: labels
+  kind: text
+  box:
+  - 0.1
+  - 0.2
+  - 0.25
+  - 0.5
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
+  forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
+  texture. Stop-motion puppet lane: tiny real craft materials on the clay (thread-wrapped hair, real fabric and felt, real
+  stitching). Palette: warm ivory and marble, charcoal; the four fix scraps are the only loud colours; the method cloth is
+  one calm sand-cream linen.'
+must_not:
+- no logos, no real platform names or icons
+- no lettering anywhere except the listed strings
+- no photoreal skin, no glossy CGI plastic
+- no extra, missing or merged fingers
+- no speech bubbles unless listed
+- no duplicate copies of a character within one view
+- no loud colours, no scraps
+- no people
+hero: true
+notes: Look bible step 7. 1152x2048.

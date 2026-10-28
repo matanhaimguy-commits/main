@@ -1,0 +1,119 @@
+shot_id: SHEET-PR-SCRAPS
+post_id: SS-EN-SONG-01
+format: prop_sheet
+script_lines: []
+line_text: ''
+story_purpose: 'Locks the four fixes as loud labelled scraps (9 shots): patterns, colours and labels must never swap.'
+must_read_in_1s: Four loud fabric scraps labelled EMAIL, LINKEDIN, COACH, ADS
+subjects:
+- id: PR-SCRAPS
+  ref: null
+  state: four scraps laid flat in a 2 by 2 grid, EMAIL top left, LINKEDIN top right, COACH bottom left, ADS bottom right
+  pose: flat, slightly overlapping shadows, straight-on
+  expression: ''
+  instances: 1
+hands: none visible
+props:
+- id: PR-SCRAPS
+  story_critical: true
+  ref: null
+  state: flat, each with a few loose thread ends
+  content: 'Four ragged-edged fabric scraps, each about one pocket wide, each a different loud clashing pattern with a big
+    stitched label: EMAIL mustard and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes with
+    ivory letters, COACH lime leopard spots with black letters, ADS hot-pink polka dots on blue with white letters; loose
+    thread ends.'
+  size_in_frame: each scrap about 40% of the frame width
+  held_by: null
+text_in_image:
+- string: EMAIL
+  surface: stitched label on the mustard and teal gingham scrap
+  position: centre of the top-left scrap
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+- string: LINKEDIN
+  surface: stitched label on the orange and purple striped scrap
+  position: centre of the top-right scrap
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+- string: COACH
+  surface: stitched label on the lime leopard scrap
+  position: centre of the bottom-left scrap
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+- string: ADS
+  surface: stitched label on the hot-pink polka-dot on blue scrap
+  position: centre of the bottom-right scrap
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+action_physics: []
+static: true
+setting:
+  ref: null
+  details: plain soft warm-ivory paper backdrop, even studio light, soft contact shadows
+  background_rule: 'nothing else in frame: no furniture, no props besides those listed, no text'
+camera:
+  framing: 'prop sheet: four scraps in a 2 by 2 grid'
+  angle: straight-on, eye level with the subject
+  movement: none (a still sheet)
+  aspect: '1:1'
+  safe_zones: 'a reference sheet, not a reel frame: every element inside a 4% margin, nothing cropped at the edges'
+continuity:
+  previous_shot: null
+  carry_over: []
+regions:
+- name: email
+  kind: text
+  box:
+  - 0.04
+  - 0.04
+  - 0.48
+  - 0.48
+- name: linkedin
+  kind: text
+  box:
+  - 0.52
+  - 0.04
+  - 0.96
+  - 0.48
+- name: coach
+  kind: text
+  box:
+  - 0.04
+  - 0.52
+  - 0.48
+  - 0.96
+- name: ads
+  kind: text
+  box:
+  - 0.52
+  - 0.52
+  - 0.96
+  - 0.96
+- name: all_scraps
+  kind: prop
+  box:
+  - 0.04
+  - 0.04
+  - 0.96
+  - 0.96
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
+  forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
+  texture. Stop-motion puppet lane: tiny real craft materials on the clay (thread-wrapped hair, real fabric and felt, real
+  stitching). Palette: warm ivory and marble, charcoal; the four fix scraps are the only loud colours; the method cloth is
+  one calm sand-cream linen.'
+must_not:
+- no logos, no real platform names or icons
+- no lettering anywhere except the listed strings
+- no photoreal skin, no glossy CGI plastic
+- no extra, missing or merged fingers
+- no speech bubbles unless listed
+- no duplicate copies of a character within one view
+- no two scraps share a pattern or colour
+- no platform logos or icons on LINKEDIN or ADS
+- no extra scraps
+hero: true
+notes: Look bible step 7.

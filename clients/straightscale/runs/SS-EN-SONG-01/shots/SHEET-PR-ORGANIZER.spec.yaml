@@ -1,0 +1,108 @@
+shot_id: SHEET-PR-ORGANIZER
+post_id: SS-EN-SONG-01
+format: prop_sheet
+script_lines: []
+line_text: ''
+story_purpose: 'Locks the CLIENTS organizer, the piece''s one picture of a month: state A (March full, April empty) and state
+  B (the payoff April).'
+must_read_in_1s: 'The same CLIENTS organizer twice: April empty, then April with a few clients'
+subjects:
+- id: PR-ORGANIZER
+  ref: null
+  state: two copies side by side on a plain backdrop, left = state A, right = state B
+  pose: flat on the backdrop, straight-on
+  expression: ''
+  instances: 1
+hands: none visible
+props:
+- id: PR-ORGANIZER
+  story_critical: true
+  ref: null
+  state: 'left, state A: MARCH four pockets with three small colourful clay clients in blazers each (12), APRIL four pockets
+    empty. Right, state B: MARCH the same 12, APRIL one client in each pocket (4), and a calm sand-cream linen band stitched
+    along the top edge of the APRIL row'
+  content: 'Felt wall organizer about 60 cm wide: ivory felt with charcoal stitching, a header band with the word CLIENTS,
+    two rows of four open-topped pockets, a thick label band at the left end of each row, MARCH on the upper row and APRIL
+    on the lower row, letters big enough to read at phone size.'
+  size_in_frame: each copy about 46% of the frame width
+  held_by: null
+text_in_image:
+- string: CLIENTS
+  surface: header band
+  position: top centre of each copy
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+- string: MARCH
+  surface: upper row label band
+  position: left end of the upper row, each copy
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+- string: APRIL
+  surface: lower row label band
+  position: left end of the lower row, each copy
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+action_physics: []
+static: true
+setting:
+  ref: null
+  details: plain soft warm-ivory paper backdrop, even studio light, soft contact shadows
+  background_rule: 'nothing else in frame: no furniture, no props besides those listed, no text'
+camera:
+  framing: 'prop sheet: two copies of the organizer side by side, same scale'
+  angle: straight-on, eye level with the subject
+  movement: none (a still sheet)
+  aspect: '1:1'
+  safe_zones: 'a reference sheet, not a reel frame: every element inside a 4% margin, nothing cropped at the edges'
+continuity:
+  previous_shot: null
+  carry_over: []
+regions:
+- name: state_a
+  kind: prop
+  box:
+  - 0.02
+  - 0.2
+  - 0.49
+  - 0.8
+- name: state_b
+  kind: prop
+  box:
+  - 0.51
+  - 0.2
+  - 0.98
+  - 0.8
+- name: labels_a
+  kind: text
+  box:
+  - 0.02
+  - 0.2
+  - 0.2
+  - 0.8
+- name: labels_b
+  kind: text
+  box:
+  - 0.51
+  - 0.2
+  - 0.69
+  - 0.8
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
+  forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
+  texture. Stop-motion puppet lane: tiny real craft materials on the clay (thread-wrapped hair, real fabric and felt, real
+  stitching). Palette: warm ivory and marble, charcoal; the four fix scraps are the only loud colours; the method cloth is
+  one calm sand-cream linen.'
+must_not:
+- no logos, no real platform names or icons
+- no lettering anywhere except the listed strings
+- no photoreal skin, no glossy CGI plastic
+- no extra, missing or merged fingers
+- no speech bubbles unless listed
+- no duplicate copies of a character within one view
+- no scraps on either copy
+- state B April holds exactly one client per pocket, fewer than March
+- the band is plain sand-cream linen with no words
+hero: true
+notes: Look bible step 7. Each client figure is a tiny clay person, different blazer colours, all smiling softly.

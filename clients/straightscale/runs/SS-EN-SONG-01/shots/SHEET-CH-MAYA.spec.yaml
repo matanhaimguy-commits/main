@@ -1,0 +1,123 @@
+shot_id: SHEET-CH-MAYA
+post_id: SS-EN-SONG-01
+format: character_sheet
+script_lines: []
+line_text: ''
+story_purpose: 'Locks Maya, the consultant whose months are lumpy, for every shot she is in (13 shots): face, bob, olive cardigan,
+  hands.'
+must_read_in_1s: One clay woman in an olive cardigan, shown from four sides
+subjects:
+- id: CH-MAYA
+  ref: null
+  state: clay puppet woman, late 30s, slim average build, warm light-brown skin, dark brown chin-length bob made of thread-wrapped
+    clay, small round gold-wire earrings, olive-green knitted cardigan of real wool texture over a white blouse, charcoal
+    trousers, tan shoes
+  pose: 'top row: standing full body in four views, front, three-quarter, side and back, same scale, arms relaxed'
+  expression: 'bottom row heads: worried (brows up, lips pressed), focused (wearing a small charcoal headset with a mic arm,
+    eyes down), relieved (soft smile, eyes open)'
+  instances: 1
+hands:
+- who: Maya, bottom-right close-up panel
+  left: left hand open flat, palm toward camera, fingers spread
+  right: right hand pinching a silver sewing needle with charcoal thread between thumb and index finger
+  contact: right thumb and index fingertip on the needle shaft, the thread hanging down
+  count_check: five fingers on each hand
+  must_not_cover: the needle stays fully visible
+props:
+- id: PR-NEEDLE
+  story_critical: false
+  ref: null
+  state: held in the right hand
+  content: a plain silver sewing needle with thick charcoal thread
+  size_in_frame: small, inside the hands panel
+  held_by: Maya right hand
+text_in_image: none
+action_physics: []
+static: true
+setting:
+  ref: null
+  details: plain soft warm-ivory paper backdrop, even studio light, soft contact shadows
+  background_rule: 'nothing else in frame: no furniture, no props besides those listed, no text'
+camera:
+  framing: 'character sheet: a row of four full-body views on top, a row of three expression heads and one hands panel below'
+  angle: straight-on, eye level with the subject
+  movement: none (a still sheet)
+  aspect: '1:1'
+  safe_zones: 'a reference sheet, not a reel frame: every element inside a 4% margin, nothing cropped at the edges'
+continuity:
+  previous_shot: null
+  carry_over: []
+regions:
+- name: front
+  kind: face
+  box:
+  - 0.03
+  - 0.04
+  - 0.26
+  - 0.6
+- name: three_quarter
+  kind: face
+  box:
+  - 0.27
+  - 0.04
+  - 0.5
+  - 0.6
+- name: side
+  kind: other
+  box:
+  - 0.51
+  - 0.04
+  - 0.74
+  - 0.6
+- name: back
+  kind: other
+  box:
+  - 0.75
+  - 0.04
+  - 0.97
+  - 0.6
+- name: head_worried
+  kind: face
+  box:
+  - 0.03
+  - 0.64
+  - 0.22
+  - 0.96
+- name: head_focused
+  kind: face
+  box:
+  - 0.23
+  - 0.64
+  - 0.42
+  - 0.96
+- name: head_relieved
+  kind: face
+  box:
+  - 0.43
+  - 0.64
+  - 0.62
+  - 0.96
+- name: hands
+  kind: hand
+  box:
+  - 0.64
+  - 0.64
+  - 0.97
+  - 0.96
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
+  forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
+  texture. Stop-motion puppet lane: tiny real craft materials on the clay (thread-wrapped hair, real fabric and felt, real
+  stitching). Palette: warm ivory and marble, charcoal; the four fix scraps are the only loud colours; the method cloth is
+  one calm sand-cream linen.'
+must_not:
+- no logos, no real platform names or icons
+- no lettering anywhere except the listed strings
+- no photoreal skin, no glossy CGI plastic
+- no extra, missing or merged fingers
+- no speech bubbles unless listed
+- no duplicate copies of a character within one view
+- no second woman, no other characters
+- no headset except on the focused head
+- no text labels under the views
+hero: true
+notes: Look bible step 7. 1024x1024 on openai/gpt-image-2 medium.

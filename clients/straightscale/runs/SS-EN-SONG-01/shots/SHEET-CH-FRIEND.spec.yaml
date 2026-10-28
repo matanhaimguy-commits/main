@@ -1,0 +1,75 @@
+shot_id: SHEET-CH-FRIEND
+post_id: SS-EN-SONG-01
+format: character_sheet
+script_lines: []
+line_text: ''
+story_purpose: 'Locks the friend who had lumpy months too and asks ''Are your fixes connected?'' (SH08, SH09, SH22): clearly
+  not Maya.'
+must_read_in_1s: A second clay woman in a teal-grey jacket, kind face
+subjects:
+- id: CH-FRIEND
+  ref: null
+  state: clay puppet woman, about 40, rounder build than Maya, deep brown skin, black curly hair in a high puff made of coiled
+    thread, small tortoiseshell wire glasses, teal-grey canvas jacket with two patch pockets over a cream top, dark jeans,
+    white shoes; no cardigan
+  pose: 'left: standing full body front view with both hands in her jacket pockets; middle: three-quarter full body, hands
+    in pockets; right: seated head-and-shoulders, facing camera as on a video call'
+  expression: 'front and three-quarter: warm kind smile; seated: curious, one brow raised, as if asking a question'
+  instances: 1
+hands: none visible
+props: []
+text_in_image: none
+action_physics: []
+static: true
+setting:
+  ref: null
+  details: plain soft warm-ivory paper backdrop, even studio light, soft contact shadows
+  background_rule: 'nothing else in frame: no furniture, no props besides those listed, no text'
+camera:
+  framing: 'character sheet: two full-body views and one seated head-and-shoulders view in a row'
+  angle: straight-on, eye level with the subject
+  movement: none (a still sheet)
+  aspect: '1:1'
+  safe_zones: 'a reference sheet, not a reel frame: every element inside a 4% margin, nothing cropped at the edges'
+continuity:
+  previous_shot: null
+  carry_over: []
+regions:
+- name: front
+  kind: face
+  box:
+  - 0.03
+  - 0.05
+  - 0.33
+  - 0.95
+- name: three_quarter
+  kind: face
+  box:
+  - 0.35
+  - 0.05
+  - 0.65
+  - 0.95
+- name: seated
+  kind: face
+  box:
+  - 0.67
+  - 0.3
+  - 0.97
+  - 0.75
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
+  forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
+  texture. Stop-motion puppet lane: tiny real craft materials on the clay (thread-wrapped hair, real fabric and felt, real
+  stitching). Palette: warm ivory and marble, charcoal; the four fix scraps are the only loud colours; the method cloth is
+  one calm sand-cream linen.'
+must_not:
+- no logos, no real platform names or icons
+- no lettering anywhere except the listed strings
+- no photoreal skin, no glossy CGI plastic
+- no extra, missing or merged fingers
+- no speech bubbles unless listed
+- no duplicate copies of a character within one view
+- no olive cardigan, no bob haircut (those are Maya's)
+- no laptop frame or screen border
+- hands stay inside the pockets
+hero: true
+notes: Look bible step 7. Hands are in the pockets on purpose (no hand risk).

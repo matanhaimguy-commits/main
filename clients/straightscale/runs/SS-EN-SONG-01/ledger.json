@@ -145,6 +145,21 @@
         "status": "PASS",
         "by": "pipeline.py budget",
         "note": "Atlas only: suno/chirp-v6 at about $0.13 a call, 2 calls (O60, O30), 2 takes each; no Higgsfield credits planned for step 4"
+      },
+      {
+        "at": "2026-10-28T18:03:06+00:00",
+        "status": "FAIL",
+        "by": "pipeline.py budget",
+        "data": {
+          "unit": "usd",
+          "planned": 1.2,
+          "with_buffer": 1.5,
+          "balance": 6.71,
+          "month_spent": 0.0,
+          "cap": null,
+          "el_planned": 0
+        },
+        "note": "no monthly USD cap: the owner sets brain.json package.monthly_usd_cap (STANDARDS.md 10)"
       }
     ],
     "G-AUDIO-MASTER": [
@@ -322,6 +337,48 @@
       "lint": "PASS",
       "lint_at": "2026-10-28T17:57:10+00:00",
       "lint_issues": []
+    },
+    "SHEET-CH-MAYA": {
+      "sha256": "74acbd85639f4c2d3bf5c0692f24fd911df0d8952c649ebf1efc7156c4386c24",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T18:01:41+00:00",
+      "lint_issues": []
+    },
+    "SHEET-CH-FRIEND": {
+      "sha256": "e755b254b33c94e2a609a9d42ab5f3a02b61770e3348634af87bfbd97bb48832",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T18:01:41+00:00",
+      "lint_issues": []
+    },
+    "SHEET-SET-OFFICE": {
+      "sha256": "140c15d8a0a8cec58da6e06a7bec63e6f87a0225f9b178267a53212a72753630",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T18:01:41+00:00",
+      "lint_issues": []
+    },
+    "SHEET-PR-ORGANIZER": {
+      "sha256": "7b251305c6a8bcded5d4242d8f5207fc374ef78ee6336807df752d3b13a42c04",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T18:01:41+00:00",
+      "lint_issues": []
+    },
+    "SHEET-PR-SCRAPS": {
+      "sha256": "6ef1eb7ed30a4656929332adce7cd65945303e3d55a665dc443b7ba83b91e3de",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T18:01:41+00:00",
+      "lint_issues": []
+    },
+    "SHEET-PR-CLOTH": {
+      "sha256": "e02d89b8d8e7ee0930d624dc4ddc0bb19bc11cf710d80a3b0e3b5aeddad813cc",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T18:01:41+00:00",
+      "lint_issues": []
+    },
+    "SHEET-SET-FRIEND": {
+      "sha256": "043ecca021618c1e916738fa7d48d714c2c44b1bf78a259757ed69fde3a7702e",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T18:01:41+00:00",
+      "lint_issues": []
     }
   },
   "assets": [
@@ -400,6 +457,195 @@
         ]
       },
       "tool": "atlas"
+    },
+    {
+      "asset_id": "CH-MAYA",
+      "version": 1,
+      "type": "character_sheet",
+      "shots": [
+        "SHEET-CH-MAYA"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-28T18:02:41+00:00",
+      "prompt_sha256": "7d198492eb53c6999bc3c95bd63a4986524c7aa599ad7e40ca8556231ec61cc4",
+      "prompt_file": "prompts/CH-MAYA.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:02:41+00:00",
+          "sha256": "7d198492eb53c6999bc3c95bd63a4986524c7aa599ad7e40ca8556231ec61cc4",
+          "file": "prompts/CH-MAYA.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [],
+      "files": [],
+      "gates": {},
+      "tool": "atlas_generate"
+    },
+    {
+      "asset_id": "CH-FRIEND",
+      "version": 1,
+      "type": "character_sheet",
+      "shots": [
+        "SHEET-CH-FRIEND"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-28T18:02:41+00:00",
+      "prompt_sha256": "8ef34f6f8a5c02895159039e650551ed7b10b5aff91c349e9f75fc6928032038",
+      "prompt_file": "prompts/CH-FRIEND.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:02:42+00:00",
+          "sha256": "8ef34f6f8a5c02895159039e650551ed7b10b5aff91c349e9f75fc6928032038",
+          "file": "prompts/CH-FRIEND.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [],
+      "files": [],
+      "gates": {},
+      "tool": "atlas_generate"
+    },
+    {
+      "asset_id": "SET-OFFICE",
+      "version": 1,
+      "type": "set_sheet",
+      "shots": [
+        "SHEET-SET-OFFICE"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-28T18:02:42+00:00",
+      "prompt_sha256": "c40dc5505335b7ae32af1960a769d151daadcf3031a1d58b3f8255aeff6705d8",
+      "prompt_file": "prompts/SET-OFFICE.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:02:42+00:00",
+          "sha256": "c40dc5505335b7ae32af1960a769d151daadcf3031a1d58b3f8255aeff6705d8",
+          "file": "prompts/SET-OFFICE.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [],
+      "files": [],
+      "gates": {},
+      "tool": "atlas_generate"
+    },
+    {
+      "asset_id": "PR-ORGANIZER",
+      "version": 1,
+      "type": "prop_sheet",
+      "shots": [
+        "SHEET-PR-ORGANIZER"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-28T18:02:42+00:00",
+      "prompt_sha256": "1354ce93a27054243337791f3fb2882f7e72282680cb071d2555f1b61b5ee50b",
+      "prompt_file": "prompts/PR-ORGANIZER.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:02:42+00:00",
+          "sha256": "1354ce93a27054243337791f3fb2882f7e72282680cb071d2555f1b61b5ee50b",
+          "file": "prompts/PR-ORGANIZER.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [],
+      "files": [],
+      "gates": {},
+      "tool": "atlas_generate"
+    },
+    {
+      "asset_id": "PR-SCRAPS",
+      "version": 1,
+      "type": "prop_sheet",
+      "shots": [
+        "SHEET-PR-SCRAPS"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-28T18:02:43+00:00",
+      "prompt_sha256": "bb378ad470cd207e82348074c94ecff05850e58fe3e3a7adaa706a0a4544216b",
+      "prompt_file": "prompts/PR-SCRAPS.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:02:43+00:00",
+          "sha256": "bb378ad470cd207e82348074c94ecff05850e58fe3e3a7adaa706a0a4544216b",
+          "file": "prompts/PR-SCRAPS.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [],
+      "files": [],
+      "gates": {},
+      "tool": "atlas_generate"
+    },
+    {
+      "asset_id": "PR-CLOTH",
+      "version": 1,
+      "type": "prop_sheet",
+      "shots": [
+        "SHEET-PR-CLOTH"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-28T18:02:43+00:00",
+      "prompt_sha256": "fe57f5d4558309502243d055d4fcaaba75586a17a170a1d61be8631a5f09eba8",
+      "prompt_file": "prompts/PR-CLOTH.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:02:43+00:00",
+          "sha256": "fe57f5d4558309502243d055d4fcaaba75586a17a170a1d61be8631a5f09eba8",
+          "file": "prompts/PR-CLOTH.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [],
+      "files": [],
+      "gates": {},
+      "tool": "atlas_generate"
+    },
+    {
+      "asset_id": "SET-FRIEND",
+      "version": 1,
+      "type": "set_sheet",
+      "shots": [
+        "SHEET-SET-FRIEND"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-28T18:02:43+00:00",
+      "prompt_sha256": "c1d81d79008f9312b376baf280772a9ccbd7bac6cf44e6861783a7a9ec4c7b5b",
+      "prompt_file": "prompts/SET-FRIEND.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:02:44+00:00",
+          "sha256": "c1d81d79008f9312b376baf280772a9ccbd7bac6cf44e6861783a7a9ec4c7b5b",
+          "file": "prompts/SET-FRIEND.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [],
+      "files": [],
+      "gates": {},
+      "tool": "atlas_generate"
     }
   ],
   "queue": [

@@ -1,0 +1,148 @@
+shot_id: SHEET-PR-CLOTH
+post_id: SS-EN-SONG-01
+format: prop_sheet
+script_lines: []
+line_text: ''
+story_purpose: 'Locks the method: one calm cloth woven from buyers'' words, the pieces cut from it (OFFER, POSTS, ADS), the
+  loose bubbles and the scissors (7 shots).'
+must_read_in_1s: One calm cream cloth with woven speech bubbles, and the pieces cut from it
+subjects:
+- id: PR-CLOTH
+  ref: null
+  state: 'laid out on the backdrop in panels: top left a plain rolled bolt, top right a flat woven piece, bottom row the cut
+    pieces, a small pile of loose bubbles and the scissors'
+  pose: flat, straight-on
+  expression: ''
+  instances: 1
+hands: none visible
+props:
+- id: PR-CLOTH
+  story_critical: true
+  ref: null
+  state: 'top right woven piece: tone-on-tone speech-bubble shapes woven in deeper tan thread, two of them carrying stitched
+    phrases; bottom row cut pieces: one large OFFER piece, three small POSTS pieces, one small ADS piece, same weave and colour,
+    charcoal stitched labels'
+  content: 'One calm sand-cream linen cloth, the only colour of the method: a rolled bolt, a flat woven piece with speech
+    bubbles in deeper tan thread, and pieces cut from it labelled OFFER, POSTS and ADS in charcoal stitching.'
+  size_in_frame: woven piece about 45% of frame width; cut pieces 10 to 25%
+  held_by: null
+- id: PR-BUBBLES
+  story_critical: false
+  ref: null
+  state: a small pile of nine
+  content: blank cream clay speech bubbles, palm-sized, no words
+  size_in_frame: small, bottom right
+  held_by: null
+- id: PR-SCISSORS
+  story_critical: false
+  ref: null
+  state: closed, lying flat
+  content: clay sewing scissors with orange handles and silver blades
+  size_in_frame: small, bottom right
+  held_by: null
+text_in_image:
+- string: FEAST OR FAMINE
+  surface: stitched inside one woven bubble
+  position: upper half of the woven piece
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+- string: SOME MONTHS NOTHING
+  surface: stitched inside another woven bubble
+  position: lower half of the woven piece
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+- string: OFFER
+  surface: charcoal stitched label
+  position: centre of the large cut piece
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+- string: POSTS
+  surface: charcoal stitched label
+  position: centre of each of the three small pieces
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+- string: ADS
+  surface: charcoal stitched label
+  position: centre of the small ADS piece
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+action_physics: []
+static: true
+setting:
+  ref: null
+  details: plain soft warm-ivory paper backdrop, even studio light, soft contact shadows
+  background_rule: 'nothing else in frame: no furniture, no props besides those listed, no text'
+camera:
+  framing: 'prop sheet: bolt and woven piece on top, cut pieces, bubbles and scissors below'
+  angle: straight-on, eye level with the subject
+  movement: none (a still sheet)
+  aspect: '1:1'
+  safe_zones: 'a reference sheet, not a reel frame: every element inside a 4% margin, nothing cropped at the edges'
+continuity:
+  previous_shot: null
+  carry_over: []
+regions:
+- name: bolt
+  kind: prop
+  box:
+  - 0.03
+  - 0.04
+  - 0.45
+  - 0.45
+- name: woven
+  kind: text
+  box:
+  - 0.5
+  - 0.04
+  - 0.97
+  - 0.5
+- name: offer
+  kind: text
+  box:
+  - 0.03
+  - 0.55
+  - 0.3
+  - 0.95
+- name: posts
+  kind: text
+  box:
+  - 0.32
+  - 0.55
+  - 0.62
+  - 0.95
+- name: ads_piece
+  kind: text
+  box:
+  - 0.64
+  - 0.55
+  - 0.76
+  - 0.75
+- name: bubbles_scissors
+  kind: prop
+  box:
+  - 0.78
+  - 0.6
+  - 0.97
+  - 0.95
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
+  forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
+  texture. Stop-motion puppet lane: tiny real craft materials on the clay (thread-wrapped hair, real fabric and felt, real
+  stitching). Palette: warm ivory and marble, charcoal; the four fix scraps are the only loud colours; the method cloth is
+  one calm sand-cream linen.'
+must_not:
+- no logos, no real platform names or icons
+- no lettering anywhere except the listed strings
+- no photoreal skin, no glossy CGI plastic
+- no extra, missing or merged fingers
+- no speech bubbles unless listed
+- no duplicate copies of a character within one view
+- 'the cloth is never patterned or loud: one calm colour'
+- no words in the bubbles other than the two listed phrases
+- the cut ADS piece is cream linen, never the pink polka-dot ADS scrap
+hero: true
+notes: Look bible step 7. POSTS appears three times on purpose (three small pieces).
