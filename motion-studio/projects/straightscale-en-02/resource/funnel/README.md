@@ -54,5 +54,6 @@ bash motion-studio/projects/straightscale-en-02/resource/funnel/create.sh <that-
 `hub.py funnel` for each. Then test with a tester account (`testers` in the business) before the business is live.
 
 ## The wait before the question
-ORGANIC-OS 8.5 step 4 says to wait 10 to 60 minutes before the qualifying question. Matan chose (28 Oct 2026) to make
-the hub wait: a per-funnel delay is being added to the app; once it ships, both files get it.
+ORGANIC-OS 8.5 step 4: wait 10 to 60 minutes before the qualifying question. Both funnels set
+`after_delay_minutes: 20` (the hub's per-funnel wait, 28 Oct 2026). The question is skipped if the person writes back
+first, opts out, or the 24-hour window would be closed.
