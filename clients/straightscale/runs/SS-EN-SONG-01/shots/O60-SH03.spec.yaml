@@ -1,0 +1,150 @@
+shot_id: O60-SH03
+post_id: SS-EN-SONG-01
+format: song
+script_lines:
+- O60-L03
+line_text: then April went quiet, she'd been too busy in March
+story_purpose: 'Stakes: April went quiet because she was too busy in March.'
+must_read_in_1s: Maya looks up at empty April while a big MARCH tag sits on a pile of papers.
+subjects:
+- id: CH-MAYA
+  ref: CH-MAYA@v1
+  state: three-quarter back view, head tilted up
+  pose: seated at the desk, shoulders slumped
+  expression: worried, brows low (side view)
+  instances: 1
+  eyeline: up at the empty APRIL row
+- id: PR-ORGANIZER
+  ref: PR-ORGANIZER@v1
+  state: MARCH full, APRIL empty
+  pose: on the wall behind and above her
+  expression: n/a
+  instances: 1
+hands: none visible
+props:
+- id: PR-ORGANIZER
+  story_critical: true
+  ref: PR-ORGANIZER@v1
+  state: MARCH full, APRIL empty, medium
+  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row above the APRIL row,
+    each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three small colourful clay clients standing shoulder
+    to shoulder (twelve in all); APRIL pockets: all four are empty, dark felt inside, no clients.'
+  size_in_frame: organizer 15 to 42% from the top, 85% width
+  held_by: null
+- id: PR-MARCHTAG
+  story_critical: true
+  ref: 'SET-OFFICE@v1 panel: desk, MARCH tag'
+  state: propped against a paper pile
+  content: A felt tag the size of a hand, ivory with charcoal stitched letters MARCH, propped against a tall pile of loose clay papers on the
+    desk
+  size_in_frame: tag about 18% of frame width at 44% from the top
+  held_by: null
+text_in_image:
+- string: CLIENTS
+  surface: sewn header band across the top of the organizer
+  position: top of the organizer
+  case: upper
+  must_be_exact: true
+  occlusion: no hand, scrap or caption over the header
+- string: MARCH
+  surface: row label band at the left end of the upper row
+  position: left end of the upper row
+  case: upper
+  must_be_exact: true
+  occlusion: no hand or scrap over the label
+- string: APRIL
+  surface: row label band at the left end of the lower row
+  position: left end of the lower row
+  case: upper
+  must_be_exact: true
+  occlusion: no hand or scrap over the label
+- string: MARCH
+  surface: stitched felt desk tag
+  position: on the desk, left of centre, 46% from the top
+  case: upper
+  must_be_exact: true
+  occlusion: no paper, hand or caption over the tag
+action_physics:
+- Maya's head tilts up from the screen to the empty APRIL row; the pose is frozen mid-tilt in the still.
+static: true
+setting:
+  ref: SET-OFFICE@v1
+  details: 'SET-OFFICE@v1: organizer on the wall, desk in front.'
+  background_rule: plain marble wall; desk holds only the laptop, the paper pile with the MARCH tag, a mug
+camera:
+  framing: 'medium: organizer upper half, Maya and desk lower half'
+  angle: slightly low, straight-on
+  movement: 'edit: slow 100 to 108% push-in over the shot'
+  aspect: '9:16'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins;
+    faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+timing:
+  start_s: 5.95
+  end_s: 8.43
+  words: then April went quiet, she'd been too busy in March
+  sequence: SEQ01
+  mode: STILL
+  link: CUT
+continuity:
+  previous_shot: O60-SH02
+  carry_over:
+  - CH-MAYA olive cardigan
+  - PR-ORGANIZER state MARCH full APRIL empty
+regions:
+- name: organizer
+  kind: prop
+  box:
+  - 0.1
+  - 0.15
+  - 0.9
+  - 0.44
+- name: march_label
+  kind: text
+  box:
+  - 0.1
+  - 0.16
+  - 0.3
+  - 0.23
+- name: april_label
+  kind: text
+  box:
+  - 0.1
+  - 0.31
+  - 0.3
+  - 0.38
+- name: clients_header
+  kind: text
+  box:
+  - 0.3
+  - 0.14
+  - 0.7
+  - 0.19
+- name: march_tag
+  kind: text
+  box:
+  - 0.6
+  - 0.44
+  - 0.8
+  - 0.53
+- name: maya_head
+  kind: face
+  box:
+  - 0.28
+  - 0.46
+  - 0.52
+  - 0.6
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature
+  handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. World: a clay home office
+  in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world; the method cloth
+  is one calm sand-cream colour.'
+must_not:
+- no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
+- no clients in the APRIL pockets
+- no extra, missing or merged fingers
+- no logos, no real platform names, no lettering on walls, laptop or papers other than the listed strings
+- no sung mouth movement and no singer on screen
+- no photoreal skin, no glossy CGI plastic
+- no morphing of props between shapes
+hero: false
+notes: 'Motion comes from a code push-in. ''MARCH tag too small'' note from the loop 5 gate: the tag is big and must read at phone size. No generated
+  clip: a gpt-image-2 still moved by a code push-in.'

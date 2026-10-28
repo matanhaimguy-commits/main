@@ -1,0 +1,134 @@
+shot_id: O60-SH10
+post_id: SS-EN-SONG-01
+format: song
+script_lines:
+- O60-L08
+line_text: 'They weren''t: just scraps, each one patched on alone,'
+story_purpose: 'Aha: they were not connected; two scraps held side by side show different fabrics and edges that do not meet.'
+must_read_in_1s: Two different patches held side by side with a gap and no join.
+subjects:
+- id: CH-MAYA
+  ref: CH-MAYA@v1
+  state: her two hands only, close
+  pose: holding scraps up at chest height
+  expression: n/a (hands only)
+  instances: 1
+- id: PR-SCRAPS
+  ref: PR-SCRAPS@v1
+  state: EMAIL and ADS scraps held side by side with a 3 cm gap
+  pose: hanging by their top corners
+  expression: n/a
+  instances: 1
+hands:
+- who: Maya
+  left: left hand pinching the top-left corner of the EMAIL scrap
+  right: right hand pinching the top-right corner of the ADS scrap
+  contact: thumb and forefinger on each top corner
+  count_check: five fingers on each visible hand
+  must_not_cover: the stitched labels EMAIL and ADS and the gap between the scraps
+props:
+- id: PR-SCRAPS
+  story_critical: true
+  ref: PR-SCRAPS@v1
+  state: EMAIL (gingham) left and ADS (polka dots) right, held apart
+  content: 'Four ragged-edged fabric scraps, each about one pocket wide, each in a different loud clashing pattern with a big stitched label:
+    EMAIL mustard and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes with ivory letters, COACH lime leopard spots
+    with black letters, ADS hot-pink polka dots on blue with white letters; loose thread ends'
+  size_in_frame: each scrap about 38% of frame width, 28 to 55% from the top
+  held_by: null
+text_in_image:
+- string: EMAIL
+  surface: stitched label on the gingham scrap
+  position: left scrap, centre
+  case: upper
+  must_be_exact: true
+  occlusion: no finger over the letters
+- string: ADS
+  surface: stitched label on the polka-dot scrap
+  position: right scrap, centre
+  case: upper
+  must_be_exact: true
+  occlusion: no finger over the letters
+action_physics:
+- The two scraps hang side by side and sway 1 cm; the camera dollies back slowly from this close frame (the clip's one motion).
+static: false
+setting:
+  ref: SET-OFFICE@v1
+  details: 'SET-OFFICE@v1: the APRIL row soft behind the scraps.'
+  background_rule: background soft, plain, no readable text
+camera:
+  framing: close on two hands holding two scraps
+  angle: eye level, straight-on
+  movement: slow dolly-out over the clip, ends on the wide frame of SH11
+  aspect: '9:16'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins;
+    faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+timing:
+  start_s: 21.34
+  end_s: 23.86
+  words: 'They weren''t: just scraps, each one patched on alone,'
+  sequence: SEQ03
+  mode: H3-KEY
+  link: CUT
+continuity:
+  previous_shot: O60-SH09
+  carry_over:
+  - PR-SCRAPS EMAIL and ADS
+  - CH-MAYA hands
+regions:
+- name: left_hand
+  kind: hand
+  box:
+  - 0.1
+  - 0.26
+  - 0.32
+  - 0.38
+- name: right_hand
+  kind: hand
+  box:
+  - 0.66
+  - 0.26
+  - 0.9
+  - 0.38
+- name: scrap_email
+  kind: text
+  box:
+  - 0.1
+  - 0.32
+  - 0.46
+  - 0.55
+- name: scrap_ads
+  kind: text
+  box:
+  - 0.54
+  - 0.32
+  - 0.9
+  - 0.55
+- name: gap
+  kind: other
+  box:
+  - 0.46
+  - 0.32
+  - 0.54
+  - 0.55
+- name: held_scraps
+  kind: prop
+  box:
+  - 0.08
+  - 0.3
+  - 0.92
+  - 0.56
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature
+  handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. 12 fps stepped stop-motion
+  cadence, no motion blur; one motion action in the shot. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four
+  fix scraps are the only loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
+must_not:
+- no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
+- the two scraps are never touching or sewn together
+- no extra, missing or merged fingers
+- no logos, no real platform names, no lettering on walls, laptop or papers other than the listed strings
+- no sung mouth movement and no singer on screen
+- no photoreal skin, no glossy CGI plastic
+- no morphing of props between shapes
+hero: false
+notes: 'CLIP-D: 5 s render. Start frame = SH10, end frame = SH11 wide. The O30 uses this whole clip. Clip: CLIP-D.'

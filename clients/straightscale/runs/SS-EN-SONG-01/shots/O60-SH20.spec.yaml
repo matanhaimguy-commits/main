@@ -1,0 +1,110 @@
+shot_id: O60-SH20
+post_id: SS-EN-SONG-01
+format: song
+script_lines:
+- O60-L16
+- O60-L17
+line_text: but nothing came loose. No more patchwork
+story_purpose: 'Nothing came loose: Maya tugs the band and every stitch holds.'
+must_read_in_1s: She tugs the cloth band hard and it stays attached.
+subjects:
+- id: CH-MAYA
+  ref: CH-MAYA@v1
+  state: arm and shoulder
+  pose: pulling the band to her right
+  expression: steady
+  instances: 1
+  eyeline: at the band
+- id: PR-ORGANIZER
+  ref: PR-ORGANIZER@v1
+  state: April row with the calm band pulled taut
+  pose: on the wall
+  expression: n/a
+  instances: 1
+hands:
+- who: Maya
+  left: left hand out of frame
+  right: right hand gripping the band end and pulling right
+  contact: right fingers around the band, four stitched seams between pieces visible
+  count_check: five fingers on the right hand; left hand not visible
+  must_not_cover: the band's seams
+props:
+- id: PR-ORGANIZER
+  story_critical: true
+  ref: PR-ORGANIZER@v1
+  state: APRIL row with the calm band, taut
+  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row above the APRIL row,
+    each row label sewn on a thick band at its left end; MARCH pockets: (above the frame); APRIL pockets: one small client per pocket, calm band
+    of joined pieces along the top edge pulled taut.'
+  size_in_frame: April row about 80% of frame width, 30 to 52% from the top
+  held_by: null
+text_in_image:
+- string: APRIL
+  surface: row label band
+  position: left end of the row
+  case: upper
+  must_be_exact: true
+  occlusion: stays visible
+action_physics:
+- Maya's right hand pulls the band 3 cm to the right; the band goes taut, the stitched seams between the pieces stay closed and the four small
+  clients tilt once and settle.
+static: false
+setting:
+  ref: SET-OFFICE@v1
+  details: 'SET-OFFICE@v1: close on the April row.'
+  background_rule: plain wall
+camera:
+  framing: edit punch-in 125% on the April row and her hand
+  angle: eye level
+  movement: locked off, picture change is the beat-snapped punch-in cut
+  aspect: '9:16'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins;
+    faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+timing:
+  start_s: 47.57
+  end_s: 50.01
+  words: but nothing came loose. No more patchwork
+  sequence: SEQ05
+  mode: H3-KEY
+  link: CHAIN
+continuity:
+  previous_shot: O60-SH19
+  carry_over:
+  - PR-ORGANIZER payoff state
+regions:
+- name: right_hand
+  kind: hand
+  box:
+  - 0.58
+  - 0.38
+  - 0.82
+  - 0.52
+- name: band_seams
+  kind: prop
+  box:
+  - 0.1
+  - 0.3
+  - 0.84
+  - 0.44
+- name: april_label
+  kind: text
+  box:
+  - 0.06
+  - 0.4
+  - 0.24
+  - 0.48
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature
+  handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. 12 fps stepped stop-motion
+  cadence, no motion blur; one motion action in the shot. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four
+  fix scraps are the only loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
+must_not:
+- no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
+- no piece lifts, peels or tears
+- no loose scraps
+- no extra, missing or merged fingers
+- no logos, no real platform names, no lettering on walls, laptop or papers other than the listed strings
+- no sung mouth movement and no singer on screen
+- no photoreal skin, no glossy CGI plastic
+- no morphing of props between shapes
+hero: false
+notes: 'Second half of CLIP-H; mirrors SH07 (''came loose'') with its opposite. Clip: CLIP-H.'

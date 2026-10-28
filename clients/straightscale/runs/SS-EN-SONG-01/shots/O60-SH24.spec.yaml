@@ -1,0 +1,91 @@
+shot_id: O60-SH24
+post_id: SS-EN-SONG-01
+format: song
+script_lines:
+- O60-L18
+line_text: where to find your buyers' words.
+story_purpose: 'End card: follow for part two, with the handle.'
+must_read_in_1s: Follow for part two, from @straightscale_.
+subjects:
+- id: PR-CLOTH
+  ref: PR-CLOTH@v1
+  state: calm sand-cream cloth texture filling the frame as the card background
+  pose: flat, evenly lit
+  expression: n/a
+  instances: 1
+hands: none visible
+props:
+- id: PR-CLOTH
+  story_critical: false
+  ref: PR-CLOTH@v1
+  state: backdrop only
+  content: One calm sand-cream linen cloth, a single colour, tight weave, with tone-on-tone speech-bubble shapes stitched in deeper tan thread,
+    plus pieces cut from it with the same weave and charcoal stitched labels OFFER, POSTS and ADS
+  size_in_frame: fills the frame
+  held_by: null
+text_in_image:
+- string: Follow for part two
+  surface: code-rendered card line (never made by an image or video model)
+  position: centre, about 42% from the top
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing else near it
+- string: '@straightscale_'
+  surface: code-rendered handle under the line
+  position: about 50% from the top
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing else near it
+action_physics: []
+static: true
+setting:
+  ref: null
+  details: 'SET-OFFICE@v1 is not used: the card sits on a flat cloth texture.'
+  background_rule: cloth only, no objects
+camera:
+  framing: full-frame flat card
+  angle: straight-on
+  movement: none; text fades in on the sung 'follow'
+  aspect: '9:16'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins;
+    faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+timing:
+  start_s: 56.84
+  end_s: 59.57
+  words: where to find your buyers' words.
+  sequence: SEQ06
+  mode: CARD
+  link: CUT
+continuity:
+  previous_shot: O60-SH23
+  carry_over:
+  - PR-CLOTH colour
+regions:
+- name: card_line
+  kind: text
+  box:
+  - 0.1
+  - 0.36
+  - 0.9
+  - 0.46
+- name: card_handle
+  kind: text
+  box:
+  - 0.2
+  - 0.47
+  - 0.8
+  - 0.53
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature
+  handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. World: a clay home office
+  in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world; the method cloth
+  is one calm sand-cream colour.'
+must_not:
+- no logo drawn by the model (real logo file only), no link, no price
+- no bubbles or people
+- no extra, missing or merged fingers
+- no logos, no real platform names, no lettering on walls, laptop or papers other than the listed strings
+- no sung mouth movement and no singer on screen
+- no photoreal skin, no glossy CGI plastic
+- no morphing of props between shapes
+hero: false
+notes: CARD, 2.7 s with the music under it. Made in code on the cloth texture; counts as a still background only. Code-made card.

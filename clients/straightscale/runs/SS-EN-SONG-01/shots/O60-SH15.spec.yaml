@@ -1,0 +1,101 @@
+shot_id: O60-SH15
+post_id: SS-EN-SONG-01
+format: song
+script_lines:
+- O60-L12
+line_text: 'That cloth is the words her buyers use for their problem:'
+story_purpose: 'The cloth is the words her buyers use: speech bubbles appear woven into the cloth, two carrying real buyer phrases.'
+must_read_in_1s: The cloth is covered with speech bubbles; two carry readable phrases.
+subjects:
+- id: PR-CLOTH
+  ref: PR-CLOTH@v1
+  state: calm cloth with speech bubbles woven in tone-on-tone
+  pose: laid flat, filling the frame
+  expression: n/a
+  instances: 1
+hands: none visible
+props:
+- id: PR-CLOTH
+  story_critical: true
+  ref: PR-CLOTH@v1
+  state: bubbles woven in, close
+  content: One calm sand-cream linen cloth, a single colour, tight weave, with tone-on-tone speech-bubble shapes stitched in deeper tan thread,
+    plus pieces cut from it with the same weave and charcoal stitched labels OFFER, POSTS and ADS
+  size_in_frame: cloth fills the frame, bubbles 18 to 30% of frame width each
+  held_by: null
+text_in_image:
+- string: FEAST OR FAMINE
+  surface: stitched deeper-tan letters inside a large speech-bubble outline
+  position: upper bubble, 30% from the top
+  case: upper
+  must_be_exact: true
+  occlusion: no other bubble overlaps it
+- string: SOME MONTHS NOTHING
+  surface: stitched deeper-tan letters inside a speech-bubble outline
+  position: lower bubble, 45% from the top
+  case: upper
+  must_be_exact: true
+  occlusion: no other bubble overlaps it
+action_physics:
+- 'Frozen: bubble outlines are stitched across the cloth; one thread end of the lower bubble curls 1 cm.'
+static: true
+setting:
+  ref: SET-OFFICE@v1
+  details: 'SET-OFFICE@v1: the cloth close on the desk.'
+  background_rule: only the cloth in frame
+camera:
+  framing: close, cloth fills the frame
+  angle: high three-quarter
+  movement: 'edit: slow 100 to 108% push-in'
+  aspect: '9:16'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins;
+    faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+timing:
+  start_s: 34.63
+  end_s: 37.1
+  words: 'That cloth is the words her buyers use for their problem:'
+  sequence: SEQ04
+  mode: STILL
+  link: CUT
+continuity:
+  previous_shot: O60-SH14
+  carry_over:
+  - PR-CLOTH colour and weave
+regions:
+- name: bubble_one
+  kind: text
+  box:
+  - 0.12
+  - 0.24
+  - 0.88
+  - 0.38
+- name: bubble_two
+  kind: text
+  box:
+  - 0.12
+  - 0.4
+  - 0.88
+  - 0.54
+- name: cloth
+  kind: prop
+  box:
+  - 0.04
+  - 0.16
+  - 0.96
+  - 0.64
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature
+  handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. World: a clay home office
+  in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world; the method cloth
+  is one calm sand-cream colour.'
+must_not:
+- no other readable words on the cloth besides the two listed
+- no names
+- no people
+- no extra, missing or merged fingers
+- no logos, no real platform names, no lettering on walls, laptop or papers other than the listed strings
+- no sung mouth movement and no singer on screen
+- no photoreal skin, no glossy CGI plastic
+- no morphing of props between shapes
+hero: false
+notes: 'Phrases are buyer words used in the script gate (VOC bank, no names). Bubbles appear here for the first time (owner note). No generated
+  clip: a gpt-image-2 still moved by a code push-in.'

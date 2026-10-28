@@ -1,0 +1,149 @@
+shot_id: O60-SH11
+post_id: SS-EN-SONG-01
+format: song
+script_lines:
+- O60-L09
+line_text: 'that''s patchwork marketing: no scrap'
+story_purpose: 'THE PICTURE named in the chorus: patchwork marketing, loose scraps that never hold, empty April behind.'
+must_read_in_1s: Maya holds two unjoined patches in front of an empty April row, more patches on the floor.
+subjects:
+- id: CH-MAYA
+  ref: CH-MAYA@v1
+  state: standing, front three-quarter, olive cardigan
+  pose: holding the two scraps apart at chest height
+  expression: tired, flat mouth
+  instances: 1
+  eyeline: at the scraps
+- id: PR-ORGANIZER
+  ref: PR-ORGANIZER@v1
+  state: MARCH full, APRIL empty
+  pose: on the wall behind her
+  expression: n/a
+  instances: 1
+hands:
+- who: Maya
+  left: left hand pinching a corner of the EMAIL scrap
+  right: right hand pinching a corner of the ADS scrap
+  contact: thumb and forefinger on each corner
+  count_check: five fingers on each visible hand
+  must_not_cover: the scraps' labels
+props:
+- id: PR-SCRAPS
+  story_critical: true
+  ref: PR-SCRAPS@v1
+  state: two held apart, two lying on the floor
+  content: 'Four ragged-edged fabric scraps, each about one pocket wide, each in a different loud clashing pattern with a big stitched label:
+    EMAIL mustard and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes with ivory letters, COACH lime leopard spots
+    with black letters, ADS hot-pink polka dots on blue with white letters; loose thread ends'
+  size_in_frame: held scraps 18% of frame width each at 33 to 45% from the top
+  held_by: null
+- id: PR-ORGANIZER
+  story_critical: true
+  ref: PR-ORGANIZER@v1
+  state: MARCH full, APRIL empty, wide
+  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row above the APRIL row,
+    each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three small colourful clay clients standing shoulder
+    to shoulder (twelve in all); APRIL pockets: all four are empty, dark felt inside, no clients.'
+  size_in_frame: organizer 15 to 33% from the top
+  held_by: null
+text_in_image:
+- string: MARCH
+  surface: row label band at the left end of the upper row
+  position: left end of the upper row
+  case: upper
+  must_be_exact: true
+  occlusion: no hand or scrap over the label
+- string: APRIL
+  surface: row label band at the left end of the lower row
+  position: left end of the lower row
+  case: upper
+  must_be_exact: true
+  occlusion: no hand or scrap over the label
+- string: EMAIL
+  surface: stitched label on the held gingham scrap
+  position: held scrap, left
+  case: upper
+  must_be_exact: true
+  occlusion: hands clear
+- string: ADS
+  surface: stitched label on the held polka scrap
+  position: held scrap, right
+  case: upper
+  must_be_exact: true
+  occlusion: hands clear
+action_physics:
+- The dolly-out comes to rest; Maya's hands keep the two scraps 3 cm apart, the loose thread ends swing once.
+static: false
+setting:
+  ref: SET-OFFICE@v1
+  details: 'SET-OFFICE@v1: wide, floor with two scraps in front of her.'
+  background_rule: plain wall, nothing else
+camera:
+  framing: 'wide: organizer top, Maya mid, floor scraps lower'
+  angle: eye level
+  movement: the clip's dolly-out ends here
+  aspect: '9:16'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins;
+    faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+timing:
+  start_s: 23.86
+  end_s: 26.32
+  words: 'that''s patchwork marketing: no scrap'
+  sequence: SEQ03
+  mode: H3-KEY
+  link: CHAIN
+continuity:
+  previous_shot: O60-SH10
+  carry_over:
+  - CH-MAYA
+  - PR-SCRAPS
+  - PR-ORGANIZER
+regions:
+- name: hands
+  kind: hand
+  box:
+  - 0.3
+  - 0.34
+  - 0.7
+  - 0.44
+- name: held_scraps
+  kind: prop
+  box:
+  - 0.26
+  - 0.33
+  - 0.74
+  - 0.47
+- name: organizer
+  kind: prop
+  box:
+  - 0.1
+  - 0.14
+  - 0.9
+  - 0.32
+- name: april_label
+  kind: text
+  box:
+  - 0.1
+  - 0.24
+  - 0.3
+  - 0.3
+- name: maya_face
+  kind: face
+  box:
+  - 0.4
+  - 0.27
+  - 0.6
+  - 0.35
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature
+  handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. 12 fps stepped stop-motion
+  cadence, no motion blur; one motion action in the shot. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four
+  fix scraps are the only loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
+must_not:
+- no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
+- no extra, missing or merged fingers
+- no logos, no real platform names, no lettering on walls, laptop or papers other than the listed strings
+- no sung mouth movement and no singer on screen
+- no photoreal skin, no glossy CGI plastic
+- no morphing of props between shapes
+hero: false
+notes: 'Second half of CLIP-D. Clip: CLIP-D.'

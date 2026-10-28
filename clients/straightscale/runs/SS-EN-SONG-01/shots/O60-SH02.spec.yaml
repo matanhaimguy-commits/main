@@ -1,0 +1,131 @@
+shot_id: O60-SH02
+post_id: SS-EN-SONG-01
+format: song
+script_lines:
+- O60-L01
+- O60-L02
+line_text: 'came from, take Maya, a consultant: referrals filled her March,'
+story_purpose: 'Name the world: March is full of clients, April is empty, and Maya is the consultant at the desk below.'
+must_read_in_1s: Full March pockets, empty April pockets, a woman at a desk below.
+subjects:
+- id: CH-MAYA
+  ref: CH-MAYA@v1
+  state: seen from behind and slightly side, typing at the laptop
+  pose: seated, back to camera, head up toward the wall
+  expression: n/a (back view)
+  instances: 1
+- id: PR-ORGANIZER
+  ref: PR-ORGANIZER@v1
+  state: MARCH row full, APRIL row empty
+  pose: hangs on the wall above the desk
+  expression: n/a
+  instances: 1
+hands: none visible
+props:
+- id: PR-ORGANIZER
+  story_critical: true
+  ref: PR-ORGANIZER@v1
+  state: MARCH full, APRIL empty, wide
+  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row above the APRIL row,
+    each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three small colourful clay clients standing shoulder
+    to shoulder (twelve in all); APRIL pockets: all four are empty, dark felt inside, no clients.'
+  size_in_frame: organizer fills 80% of frame width, 15 to 45% from the top
+  held_by: null
+text_in_image:
+- string: CLIENTS
+  surface: sewn header band across the top of the organizer
+  position: top of the organizer
+  case: upper
+  must_be_exact: true
+  occlusion: no hand, scrap or caption over the header
+- string: MARCH
+  surface: row label band at the left end of the upper row
+  position: left end of the upper row
+  case: upper
+  must_be_exact: true
+  occlusion: no hand or scrap over the label
+- string: APRIL
+  surface: row label band at the left end of the lower row
+  position: left end of the lower row
+  case: upper
+  must_be_exact: true
+  occlusion: no hand or scrap over the label
+action_physics:
+- The camera finishes its pull-back and comes to rest on the wide frame; Maya's head turns slightly up toward the empty APRIL row (the one action
+  in the second half).
+static: false
+setting:
+  ref: SET-OFFICE@v1
+  details: 'SET-OFFICE@v1: organizer on the wall, charcoal desk with a closed-lid-free open laptop seen from behind, a mug, a lamp.'
+  background_rule: marble wall, charcoal desk, nothing else on the wall
+camera:
+  framing: 'wide: organizer top half, Maya and desk lower half; the lower 35% is desk top and floor'
+  angle: eye level, straight-on
+  movement: the clip's pull-back ends here
+  aspect: '9:16'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins;
+    faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+timing:
+  start_s: 2.88
+  end_s: 5.95
+  words: 'came from, take Maya, a consultant: referrals filled her March,'
+  sequence: SEQ01
+  mode: H3-KEY
+  link: CHAIN
+continuity:
+  previous_shot: O60-SH01
+  carry_over:
+  - PR-ORGANIZER MARCH full APRIL empty
+  - CH-MAYA olive cardigan, back view
+  - warm light from the left
+regions:
+- name: organizer
+  kind: prop
+  box:
+  - 0.1
+  - 0.15
+  - 0.9
+  - 0.46
+- name: march_label
+  kind: text
+  box:
+  - 0.1
+  - 0.16
+  - 0.3
+  - 0.23
+- name: april_label
+  kind: text
+  box:
+  - 0.1
+  - 0.31
+  - 0.3
+  - 0.38
+- name: clients_header
+  kind: text
+  box:
+  - 0.3
+  - 0.14
+  - 0.7
+  - 0.19
+- name: maya_back
+  kind: face
+  box:
+  - 0.3
+  - 0.47
+  - 0.62
+  - 0.64
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature
+  handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. 12 fps stepped stop-motion
+  cadence, no motion blur; one motion action in the shot. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four
+  fix scraps are the only loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
+must_not:
+- no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
+- no clients in the APRIL pockets
+- no lettering on the laptop
+- no extra, missing or merged fingers
+- no logos, no real platform names, no lettering on walls, laptop or papers other than the listed strings
+- no sung mouth movement and no singer on screen
+- no photoreal skin, no glossy CGI plastic
+- no morphing of props between shapes
+hero: false
+notes: 'Second half of CLIP-A. The edit does not cut here: the camera pull-back is the picture change. Clip: CLIP-A.'

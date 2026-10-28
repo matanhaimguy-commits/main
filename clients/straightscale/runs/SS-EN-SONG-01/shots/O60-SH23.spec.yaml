@@ -1,0 +1,73 @@
+shot_id: O60-SH23
+post_id: SS-EN-SONG-01
+format: song
+script_lines:
+- O60-L18
+line_text: 'Follow for part two:'
+story_purpose: 'Part two setup: a pile of blank speech bubbles waiting to be gathered (where to find your buyers'' words).'
+must_read_in_1s: A pile of speech bubbles waiting on the desk.
+subjects:
+- id: PR-BUBBLES
+  ref: PR-CLOTH@v1 (bubble panel)
+  state: a loose pile of about nine cream clay speech bubbles
+  pose: heaped on the desk beside the folded cloth
+  expression: n/a
+  instances: 1
+hands: none visible
+props:
+- id: PR-BUBBLES
+  story_critical: true
+  ref: PR-CLOTH@v1 (bubble panel)
+  state: pile of blank bubbles
+  content: Nine blank cream clay speech bubbles with small tails and thumb-pressed edges, heaped loosely on a charcoal desk beside a folded calm
+    cloth
+  size_in_frame: pile 55% of frame width at 38 to 58% from the top
+  held_by: null
+text_in_image: none
+action_physics:
+- 'Frozen: the top bubble is slipping down the side of the pile 1 cm.'
+static: true
+setting:
+  ref: SET-OFFICE@v1
+  details: 'SET-OFFICE@v1: desk top close.'
+  background_rule: plain wall and desk
+camera:
+  framing: close on the desk, pile centred
+  angle: eye level, slightly high
+  movement: 'edit: slow 100 to 108% push-in'
+  aspect: '9:16'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins;
+    faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+timing:
+  start_s: 54.99
+  end_s: 56.84
+  words: 'Follow for part two:'
+  sequence: SEQ06
+  mode: STILL
+  link: CUT
+continuity:
+  previous_shot: O60-SH22
+  carry_over:
+  - PR-CLOTH bubbles and folded cloth
+regions:
+- name: pile
+  kind: prop
+  box:
+  - 0.14
+  - 0.34
+  - 0.86
+  - 0.6
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature
+  handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. World: a clay home office
+  in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world; the method cloth
+  is one calm sand-cream colour.'
+must_not:
+- no words or letters on the bubbles
+- no people
+- no extra, missing or merged fingers
+- no logos, no real platform names, no lettering on walls, laptop or papers other than the listed strings
+- no sung mouth movement and no singer on screen
+- no photoreal skin, no glossy CGI plastic
+- no morphing of props between shapes
+hero: false
+notes: 'Spoken CTA line; the caption carries the words. No generated clip: a gpt-image-2 still moved by a code push-in.'

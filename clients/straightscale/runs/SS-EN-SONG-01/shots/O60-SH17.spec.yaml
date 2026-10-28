@@ -1,0 +1,101 @@
+shot_id: O60-SH17
+post_id: SS-EN-SONG-01
+format: song
+script_lines:
+- O60-L14
+line_text: and ads went last, only on the posts that worked,
+story_purpose: 'Ads go last and only on the post that worked: the ADS piece is sewn onto the one firm POSTS piece while two droop.'
+must_read_in_1s: Of three POSTS pieces, two droop and one stands firm with an ADS piece sewn on.
+subjects:
+- id: PR-CLOTH
+  ref: PR-CLOTH@v1
+  state: three POSTS pieces on a rod, two limp, one firm with an ADS piece sewn to it
+  pose: hanging by loops from a thin wooden rod
+  expression: n/a
+  instances: 1
+hands: none visible
+props:
+- id: PR-CLOTH
+  story_critical: true
+  ref: PR-CLOTH@v1
+  state: three POSTS pieces plus a calm ADS piece sewn on the firm one
+  content: One calm sand-cream linen cloth, a single colour, tight weave, with tone-on-tone speech-bubble shapes stitched in deeper tan thread,
+    plus pieces cut from it with the same weave and charcoal stitched labels OFFER, POSTS and ADS
+  size_in_frame: pieces 22% of frame width each, 28 to 56% from the top
+  held_by: null
+text_in_image:
+- string: POSTS
+  surface: charcoal stitched label on each of the three pieces
+  position: centre of each piece
+  case: upper
+  must_be_exact: true
+  occlusion: ADS piece does not cover the firm piece's label
+- string: ADS
+  surface: charcoal stitched label on the small sewn-on piece
+  position: upper part of the firm piece
+  case: upper
+  must_be_exact: true
+  occlusion: not folded
+action_physics:
+- The ADS piece on the firm POSTS piece gives one small puff and releases three clay speech bubbles that rise out of frame; the two limp pieces
+  stay still. The camera is locked until the pan in SH18.
+static: false
+setting:
+  ref: SET-OFFICE@v1
+  details: 'SET-OFFICE@v1: rod by the window, desk edge below.'
+  background_rule: plain wall, window frame at the right edge
+camera:
+  framing: medium close on the three hanging pieces
+  angle: eye level, straight-on
+  movement: locked off, then slow pan right to the window (SH18)
+  aspect: '9:16'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins;
+    faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+timing:
+  start_s: 39.56
+  end_s: 42.04
+  words: and ads went last, only on the posts that worked,
+  sequence: SEQ04
+  mode: H3-KEY
+  link: CUT
+continuity:
+  previous_shot: O60-SH16
+  carry_over:
+  - PR-CLOTH pieces and weave
+regions:
+- name: pieces
+  kind: prop
+  box:
+  - 0.08
+  - 0.28
+  - 0.92
+  - 0.58
+- name: labels
+  kind: text
+  box:
+  - 0.08
+  - 0.34
+  - 0.92
+  - 0.52
+- name: ads_piece
+  kind: prop
+  box:
+  - 0.62
+  - 0.3
+  - 0.88
+  - 0.4
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature
+  handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. 12 fps stepped stop-motion
+  cadence, no motion blur; one motion action in the shot. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four
+  fix scraps are the only loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
+must_not:
+- no speech bubbles before the puff (they come from the ADS piece)
+- no loud patterns
+- no extra, missing or merged fingers
+- no logos, no real platform names, no lettering on walls, laptop or papers other than the listed strings
+- no sung mouth movement and no singer on screen
+- no photoreal skin, no glossy CGI plastic
+- no morphing of props between shapes
+hero: false
+notes: 'CLIP-G 6 s render: start frame = SH17, end frame = window view of SH18. Cause (ADS on the firm piece) and result (bubbles leave it) in
+  one clip (test 2). Clip: CLIP-G.'

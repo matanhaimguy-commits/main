@@ -1,0 +1,123 @@
+shot_id: O60-SH07
+post_id: SS-EN-SONG-01
+format: song
+script_lines:
+- O60-L06
+line_text: then came loose.
+story_purpose: 'Release: each fix held a month, then came loose.'
+must_read_in_1s: The patches have fallen off and April is empty again.
+subjects:
+- id: PR-SCRAPS
+  ref: PR-SCRAPS@v1
+  state: four scraps lying on the floor, the ADS one still hanging from the organizer by one corner thread
+  pose: crumpled flat on the clay floor
+  expression: n/a
+  instances: 1
+hands: none visible
+props:
+- id: PR-SCRAPS
+  story_critical: true
+  ref: PR-SCRAPS@v1
+  state: EMAIL, LINKEDIN, COACH on the floor, ADS dangling by one corner thread
+  content: 'Four ragged-edged fabric scraps, each about one pocket wide, each in a different loud clashing pattern with a big stitched label:
+    EMAIL mustard and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes with ivory letters, COACH lime leopard spots
+    with black letters, ADS hot-pink polka dots on blue with white letters; loose thread ends'
+  size_in_frame: scraps 15% frame width each, 45 to 58% from the top
+  held_by: null
+- id: PR-ORGANIZER
+  story_critical: true
+  ref: PR-ORGANIZER@v1
+  state: APRIL row empty again, loose thread ends on the felt
+  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row above the APRIL row,
+    each row label sewn on a thick band at its left end; MARCH pockets: (above the frame); APRIL pockets: all four are empty, dark felt inside,
+    no clients.'
+  size_in_frame: April row 22 to 40% from the top
+  held_by: null
+text_in_image:
+- string: EMAIL
+  surface: stitched label
+  position: on the floor scrap, left
+  case: upper
+  must_be_exact: true
+  occlusion: no scrap folded over its letters
+- string: LINKEDIN
+  surface: stitched label
+  position: on the floor scrap
+  case: upper
+  must_be_exact: true
+  occlusion: not folded over
+- string: COACH
+  surface: stitched label
+  position: on the floor scrap
+  case: upper
+  must_be_exact: true
+  occlusion: not folded over
+- string: ADS
+  surface: stitched label
+  position: on the dangling scrap
+  case: upper
+  must_be_exact: true
+  occlusion: not folded over
+action_physics:
+- 'Frozen moment: the ADS scrap hangs by one thread from the lower edge of the APRIL row, 4 cm above the three scraps lying on the floor.'
+static: true
+setting:
+  ref: SET-OFFICE@v1
+  details: 'SET-OFFICE@v1: floor in front of the organizer, no people.'
+  background_rule: plain wall and floor, no other objects
+camera:
+  framing: 'medium: APRIL row at the top, floor with scraps below'
+  angle: slightly high, straight-on
+  movement: 'edit: slow 100 to 108% push-in'
+  aspect: '9:16'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins;
+    faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+timing:
+  start_s: 15.25
+  end_s: 17.11
+  words: then came loose.
+  sequence: SEQ02
+  mode: STILL
+  link: CUT
+continuity:
+  previous_shot: O60-SH06
+  carry_over:
+  - PR-SCRAPS
+  - APRIL row empty
+regions:
+- name: scraps_floor
+  kind: prop
+  box:
+  - 0.12
+  - 0.42
+  - 0.88
+  - 0.6
+- name: scraps_labels
+  kind: text
+  box:
+  - 0.12
+  - 0.44
+  - 0.88
+  - 0.58
+- name: april_row
+  kind: prop
+  box:
+  - 0.1
+  - 0.2
+  - 0.9
+  - 0.4
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature
+  handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. World: a clay home office
+  in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world; the method cloth
+  is one calm sand-cream colour.'
+must_not:
+- no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
+- no people in the frame
+- no extra, missing or merged fingers
+- no logos, no real platform names, no lettering on walls, laptop or papers other than the listed strings
+- no sung mouth movement and no singer on screen
+- no photoreal skin, no glossy CGI plastic
+- no morphing of props between shapes
+hero: false
+notes: 'The ''came loose'' result is a state change from SH06 (cause) to SH07 (result); a hard cut on the beat. No generated clip: a gpt-image-2
+  still moved by a code push-in.'

@@ -1,0 +1,116 @@
+shot_id: O60-SH16
+post_id: SS-EN-SONG-01
+format: song
+script_lines:
+- O60-L13
+line_text: her offer came from those words, her posts came from that offer,
+story_purpose: 'The chain: the OFFER is cut from the cloth, the POSTS are cut from the OFFER.'
+must_read_in_1s: An OFFER piece cut from the cloth, three POSTS pieces cut from it.
+subjects:
+- id: PR-CLOTH
+  ref: PR-CLOTH@v1
+  state: cloth with a piece-shaped hole, the OFFER piece beside it, three POSTS pieces in a row
+  pose: laid flat on the desk
+  expression: n/a
+  instances: 1
+hands: none visible
+props:
+- id: PR-CLOTH
+  story_critical: true
+  ref: PR-CLOTH@v1
+  state: OFFER piece and three POSTS pieces cut from it
+  content: One calm sand-cream linen cloth, a single colour, tight weave, with tone-on-tone speech-bubble shapes stitched in deeper tan thread,
+    plus pieces cut from it with the same weave and charcoal stitched labels OFFER, POSTS and ADS
+  size_in_frame: OFFER piece 40% of frame width, POSTS pieces 18% each
+  held_by: null
+- id: PR-SCISSORS
+  story_critical: false
+  ref: PR-CLOTH@v1 (scissors panel)
+  state: clay scissors resting open on the cloth
+  content: Small orange-handled clay scissors with thumb-pressed handles, blades open and resting on the cloth edge
+  size_in_frame: scissors 15% of frame width
+  held_by: null
+text_in_image:
+- string: OFFER
+  surface: charcoal stitched label on the large piece
+  position: centre of the OFFER piece
+  case: upper
+  must_be_exact: true
+  occlusion: no scissors over the label
+- string: POSTS
+  surface: charcoal stitched label on each small piece
+  position: centre of each of three POSTS pieces
+  case: upper
+  must_be_exact: true
+  occlusion: no piece overlaps another's label
+action_physics:
+- 'Frozen: three POSTS pieces lie in a row below the OFFER piece; a hole the size of the OFFER piece shows in the bigger cloth; the scissors rest
+  3 cm from the last cut edge.'
+static: true
+setting:
+  ref: SET-OFFICE@v1
+  details: 'SET-OFFICE@v1: the desk top.'
+  background_rule: only the cloth pieces and scissors in frame
+camera:
+  framing: top three-quarter on the desk, pieces centred
+  angle: high angle about 50 degrees
+  movement: 'edit: slow 100 to 108% push-in'
+  aspect: '9:16'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins;
+    faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+timing:
+  start_s: 37.1
+  end_s: 39.56
+  words: her offer came from those words, her posts came from that offer,
+  sequence: SEQ04
+  mode: STILL
+  link: CUT
+continuity:
+  previous_shot: O60-SH15
+  carry_over:
+  - PR-CLOTH pieces
+  - same weave on every piece
+regions:
+- name: offer_piece
+  kind: prop
+  box:
+  - 0.1
+  - 0.24
+  - 0.62
+  - 0.44
+- name: offer_label
+  kind: text
+  box:
+  - 0.2
+  - 0.3
+  - 0.52
+  - 0.38
+- name: posts_pieces
+  kind: prop
+  box:
+  - 0.1
+  - 0.46
+  - 0.9
+  - 0.6
+- name: posts_labels
+  kind: text
+  box:
+  - 0.1
+  - 0.48
+  - 0.9
+  - 0.58
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature
+  handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. World: a clay home office
+  in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world; the method cloth
+  is one calm sand-cream colour.'
+must_not:
+- no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
+- no loud patterns on any piece
+- no extra, missing or merged fingers
+- no logos, no real platform names, no lettering on walls, laptop or papers other than the listed strings
+- no sung mouth movement and no singer on screen
+- no photoreal skin, no glossy CGI plastic
+- no morphing of props between shapes
+hero: false
+notes: 'Maya is out of frame on purpose. The pieces carry the same bubble weave as SH15. No generated clip: a gpt-image-2 still moved by a code
+  push-in.'

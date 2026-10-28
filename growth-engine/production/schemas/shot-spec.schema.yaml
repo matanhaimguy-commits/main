@@ -22,7 +22,7 @@ properties:
     type: string
     description: "Unique in the post. Video: <tier>-SEQnn-SHn (S90-SEQ03-SH2). Slides: SLnn. Statics: IMGnn. Sheets: SHEET-<ref id>. Motion scenes: SCnn. Storyboard panels use the shot ids they show."
     pattern: "^[A-Z0-9][A-Z0-9-]{1,40}$"
-  post_id: {type: string, pattern: "^[A-Z]{2,5}-(\\d{4}-\\d{2}-W\\d-\\d{2}|LIB-[A-Z0-9-]+|TEST-[A-Z0-9-]+)$"}
+  post_id: {type: string, pattern: "^[A-Z]{2,5}-(\\d{4}-\\d{2}-W\\d-\\d{2}|LIB-[A-Z0-9-]+|TEST-[A-Z0-9-]+|[A-Z]{2}-[A-Z0-9]+-\\d{2})$"}
   format:
     enum: [realistic_photo, ugc, talking_head, podcast, animation_3d, claymation, crochet, animation_2d, stop_motion,
       song, drama, motion, carousel_slide, static, character_sheet, prop_sheet, set_sheet, storyboard_panel, style_reference]
