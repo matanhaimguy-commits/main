@@ -2,8 +2,8 @@
 
 Matan rejected v1 (below, kept for the record): written from nothing, graded by AI readers, written English nobody
 says in a reel. v2 follows `growth-engine/adapters/hook-lab-organic.md` "Proven formats only": every stack cites a
-format from `clients/straightscale/research/hook-library-en.md` (rebuilt 28 Oct from the 25 Oct Apify datasets) and
-verbatim buyer lines from `research/buyer-phrases-en.md`, and passes `organic.py hooks straightscale docs/hooks.json`
+format from `clients/straightscale-en/research/hook-library-en.md` (rebuilt 28 Oct from the 25 Oct Apify datasets) and
+verbatim buyer lines from `research/buyer-phrases-en.md`, and passes `organic.py hooks straightscale-en docs/hooks.json`
 (all PASS, 28 Oct). No AI grade is given: the proof is the source's numbers, shown below. Visuals are first drafts.
 
 ## EN06-A (master, recommended: ad-proven)
@@ -45,7 +45,7 @@ verbatim buyer lines from `research/buyer-phrases-en.md`, and passes `organic.py
 # Hook stacks: StraightScale EN 06 "The page that changed the subject" (part five: Funnel)
 
 Hook Lab H0 to H6 with `growth-engine/adapters/hook-lab-organic.md` (it wins over the skill for organic). Library:
-`clients/straightscale/research/hook-library-en.md` (27 Oct 2026). Avatar AV-01, the lumpy-pipeline owner. Step taught:
+`clients/straightscale-en/research/hook-library-en.md` (27 Oct 2026). Avatar AV-01, the lumpy-pipeline owner. Step taught:
 Funnel (offer sheet step 4: the page the posts lead to says the offer in the same buyer words the post used, then takes
 the conversion). Template `hidden_villain` (the villain is the mistake: a page that changes the subject; mock the fix,
 never the owner). Format `reel_animation`, claymation, the song's cloth world. No picture is made in this stage, so

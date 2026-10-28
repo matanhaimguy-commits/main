@@ -2,8 +2,8 @@
 
 Matan rejected v1 (below, kept for the record): written from nothing, graded by AI readers, written English nobody
 says in a reel. v2 follows `growth-engine/adapters/hook-lab-organic.md` "Proven formats only": every stack cites a
-format from `clients/straightscale/research/hook-library-en.md` (rebuilt 28 Oct from the 25 Oct Apify datasets) and
-verbatim buyer lines from `research/buyer-phrases-en.md`, and passes `organic.py hooks straightscale docs/hooks.json`
+format from `clients/straightscale-en/research/hook-library-en.md` (rebuilt 28 Oct from the 25 Oct Apify datasets) and
+verbatim buyer lines from `research/buyer-phrases-en.md`, and passes `organic.py hooks straightscale-en docs/hooks.json`
 (all PASS, 28 Oct). No AI grade is given: the proof is the source's numbers, shown below. Visuals are first drafts.
 
 ## EN05-A (variant: caption proof only)
@@ -45,7 +45,7 @@ verbatim buyer lines from `research/buyer-phrases-en.md`, and passes `organic.py
 # Hook stacks: StraightScale EN 05 "The post that knew" (part four: Organic; object_speaks, O30, claymation)
 
 Hook Lab H0 to H7 (`readymerce-hook-lab` v1.1) with `growth-engine/adapters/hook-lab-organic.md` (the adapter wins for
-organic). Library: `clients/straightscale/research/hook-library-en.md` (27 Oct 2026). Avatar AV-01, the lumpy-pipeline
+organic). Library: `clients/straightscale-en/research/hook-library-en.md` (27 Oct 2026). Avatar AV-01, the lumpy-pipeline
 owner. Step taught: Organic (offer sheet step 3; mechanism "organic first, then paid": "organic content is the free test
 lab; paid ads only go behind posts that already brought the right buyers"). Template `object_speaks` (STORY-FORMATS 3.4,
 HL-T1 character in place): a post of hers tells the story. Look: claymation, the song's cloth world. No picture is made

@@ -2,8 +2,8 @@
 
 Matan rejected v1 (below, kept for the record): written from nothing, graded by AI readers, written English nobody
 says in a reel. v2 follows `growth-engine/adapters/hook-lab-organic.md` "Proven formats only": every stack cites a
-format from `clients/straightscale/research/hook-library-en.md` (rebuilt 28 Oct from the 25 Oct Apify datasets) and
-verbatim buyer lines from `research/buyer-phrases-en.md`, and passes `organic.py hooks straightscale docs/hooks.json`
+format from `clients/straightscale-en/research/hook-library-en.md` (rebuilt 28 Oct from the 25 Oct Apify datasets) and
+verbatim buyer lines from `research/buyer-phrases-en.md`, and passes `organic.py hooks straightscale-en docs/hooks.json`
 (all PASS, 28 Oct). No AI grade is given: the proof is the source's numbers, shown below. Visuals are first drafts.
 
 ## EN04-A (variant: caption proof only)
@@ -44,7 +44,7 @@ verbatim buyer lines from `research/buyer-phrases-en.md`, and passes `organic.py
 # Hook stacks: StraightScale EN 04 "The only choice" (part three: Offer; two_days, reel_story_narrated, O60)
 
 Hook Lab H0 to H6 with `growth-engine/adapters/hook-lab-organic.md` (it wins over the skill for organic). Library:
-`clients/straightscale/research/hook-library-en.md` (27 Oct 2026). Avatar AV-01, the lumpy-pipeline owner. Step taught:
+`clients/straightscale-en/research/hook-library-en.md` (27 Oct 2026). Avatar AV-01, the lumpy-pipeline owner. Step taught:
 Offer (offer sheet step 2: "why the client is the only choice and not one of many to compare"). Belief A, the viewer's:
 when a prospect compares me, the answer is a sharper price, a bigger package or a nicer proposal. Belief B, ours: an
 offer built from the buyers' own words, with a way of solving it that is yours alone, leaves nothing to line it up

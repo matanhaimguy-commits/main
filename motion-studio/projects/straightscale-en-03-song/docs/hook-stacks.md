@@ -1,6 +1,6 @@
 # Hook stacks: StraightScale EN song 01 (TOF, indie folk, O60 + O30)
 
-Hook Lab H0 to H6 with `growth-engine/adapters/hook-lab-organic.md`. Library: `clients/straightscale/research/hook-library-en.md`
+Hook Lab H0 to H6 with `growth-engine/adapters/hook-lab-organic.md`. Library: `clients/straightscale-en/research/hook-library-en.md`
 (27 Oct 2026). Avatar AV-01, the lumpy-pipeline owner. Angle: "Steady months, without adding one more tactic."
 Awareness: solution-aware (generic fixes). Picture: Patchwork (every fix a patch sewn on alone; the seams split = the
 empty month). Look planned: one textile material for the whole piece (crochet), the owner's year as a quilt.
