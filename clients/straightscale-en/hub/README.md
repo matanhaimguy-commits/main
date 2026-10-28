@@ -34,7 +34,7 @@ Summary of the Albanian setup as recorded in `clients/straightscale/brain.json`,
 | `goal` | book the free 45-minute analysis (keyword ANALIZA) | ask the main bottleneck, then hand off to a person who sends a voice note and invites to the free analysis; the bot never books |
 | `qualifying_questions` | not recorded in the repo | the main bottleneck (Matan's pick, 28 Oct, word for word from the WORDS funnel), plus "what do you sell, and who to" only when unclear |
 | `faq` | not recorded in the repo (the brain's facts: packages, office, analysis) | what we do, price (not in DMs), the analysis, booking, "another agency?", guarantees (none), the WORDS Sheet, who we work with, results (no numbers) |
-| `policies` | not recorded in the repo | 24-hour window only, no cold DMs, hand off on prices, results, contracts or anything not written, no push when the question is unanswered |
+| `policies` | not recorded in the repo | 24-hour window only, no cold DMs, a price question gets "no prices in DMs" and the bottleneck question, hand off on results, contracts or anything not written, no push when the question is unanswered |
 | `voice` | Albanian (register per `clients/straightscale/brain.json`) | calm and direct, English, "you", the buyer's own words, no emoji, no hype |
 | `never` | not recorded in the repo | no results, prices, proof numbers, the Albanian offer, the sales team or CRM (E2), the AI VSL, lead follow-up, attacks on referrals, em dashes, hype, invented urgency |
 | `extra` | not recorded in the repo | the WORDS routing from `funnel/README.md`, the "columns" reply, and how each bottleneck maps to the five steps |
