@@ -1,6 +1,6 @@
 ---
 id: yt-thefutur-three-books
-title: "Off-camera question, three picks held up one by one"
+title: "Off-camera question, three picks named one by one"
 url: https://www.youtube.com/shorts/A-LQwz40G7Y
 platform: youtube
 creator: thefutur
@@ -51,7 +51,7 @@ one by one, with a one-line reason each ("this one" at 27 s suggests he holds or
 
 ## Signature device
 **The asked list.** A second voice asks for a numbered list; the expert answers with item, then one reason, then
-who it is for, and the physical item appears as he names it. The list count is in the question, so the viewer knows
+who it is for, and (inferred from "this one", not seen) the item may be on screen as he names it. The list count is in the question, so the viewer knows
 the length and stays to the third.
 
 ## Pacing read
@@ -66,7 +66,7 @@ Not seen.
 - The "hard to pick just three" line and the cheat on item 2 feel human.
 
 ## Steal this (grammar) / Leave this (content)
-- Steal: the question asked by someone else; item, reason, who it is for; a held object per item.
+- Steal: the question asked by someone else; item, reason, who it is for; one object per item (our build choice).
 - Leave: their book picks, words and look.
 
 ## Build it in our studio

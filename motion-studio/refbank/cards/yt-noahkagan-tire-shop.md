@@ -33,7 +33,7 @@ pacing: null
 ## The film in one line
 A guest on Noah Kagan's channel tells his start in one breath: a door-to-door business at 18 shut by a fine, his
 savings lost to a con artist, back to a tire shop job, where he asked every Porsche and Ferrari owner "what do you
-do for a living?", heard "mortgage or real estate" nine times out of ten, got his licence and opened his own
+do for a living?", heard that "nine out of ten times" they owned a mortgage company or were in real estate, got his licence and opened his own
 company at 22.
 
 ## Why it stops the scroll (first 2 s)

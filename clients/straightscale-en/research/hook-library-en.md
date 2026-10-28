@@ -195,7 +195,7 @@ text and visual are unknown unless the words imply them. Ranked by breakout.
   - spoken (first sentence, verbatim): "Are you a businessman or are you an entrepreneur?" (then: "Here's an easy way to find out.")
   - formula: "Are you a [label A] or are you a [label B]? Here's an easy way to find out." then one object, two paths (mad-lib)
   - card: `yt-alexberman-orange` · checks: views only (a listing carries no likes, comments or dates)
-- `HF-20` · "If I had to... here's exactly what I'd do" · PatrickDang (YouTube Shorts) · 31K views (median 1.75K over 48 shorts) · 17.71x · **10x+** · https://www.youtube.com/shorts/CBQsuB4m06c
+- `HF-20` · If I had to, here is exactly what I would do · PatrickDang (YouTube Shorts) · 31K views (median 1.75K over 48 shorts) · 17.71x · **10x+** · https://www.youtube.com/shorts/CBQsuB4m06c
   - spoken (first sentence, verbatim): "If I needed to make $3,000 with Claude AI in the next 30 days, here's exactly what I would do even if I had a full-time job."
   - formula: "If I needed to [goal] in the next [days], here's exactly what I would do, even if [constraint]." (mad-lib; the number must be the viewer's goal, never our result)
   - card: `yt-patrickdang-thirty-days` · checks: views only
@@ -207,20 +207,20 @@ text and visual are unknown unless the words imply them. Ranked by breakout.
   - spoken (first sentence, verbatim, the second voice): "What are three marketing books every creative should read?"
   - formula: "What are [three] [things] every [buyer] should [use]?" asked by another person, answered item by item (mad-lib)
   - card: `yt-thefutur-three-books` · checks: views only. Opens with a question (principle 4), asked by someone else.
-- `HF-23` · Blunt claim, then a mentor's words · LeilaHormozi (YouTube Shorts) · 27K views (median 2.3K over 48 shorts) · 11.74x · **10x+** · https://www.youtube.com/shorts/MW1yUGVdcEs
-  - spoken (first sentence, verbatim): "The only thing you've got is your character."
-  - formula: "The only thing you've got is your [quality]." then "[Mentor] told me: you don't have more [A], [B] or [C]..." (mad-lib)
-  - card: `yt-leila-character` · checks: views only
-- `HF-24` · "I can tell from one sentence": five levels · codiesanchezct (YouTube Shorts) · 214K views (median 18.5K over 48 shorts) · 11.57x · **10x+** · https://www.youtube.com/shorts/3NDIHrvyVCM
-  - spoken (first sentence, verbatim): "I can now tell if an employee's going to make it from one sentence, and it's what they say when something breaks."
-  - formula: "I can now tell if [a person] is going to [succeed] from one sentence, and it's what they say when [moment]. There are five levels." (mad-lib)
-  - card: `yt-codie-five-levels` · checks: views only
 - `HF-25` · Mid-story start with an age · NoahKagan (YouTube Shorts) · 8.4M views (median 644.5K over 48 shorts) · 13.03x · **10x+** · https://www.youtube.com/shorts/wJZYoF2C0RA
   - spoken (first sentence, verbatim, the guest): "Age 18 I started my own business selling nuts door-to-door."
   - formula: "Age [age], I started [first business]." then two falls and the question that turned it (mad-lib)
   - card: `yt-noahkagan-tire-shop` · checks: views only. On topic through the turn ("what do you do for a living?" asked to people who already had the result), not the first line.
+- `HF-23` · Blunt claim, then a mentor's words · LeilaHormozi (YouTube Shorts) · 27K views (median 2.3K over 48 shorts) · 11.74x · **10x+** · https://www.youtube.com/shorts/MW1yUGVdcEs
+  - spoken (first sentence, verbatim): "The only thing you've got is your character."
+  - formula: "The only thing you've got is your [quality]." then "[Mentor] told me: you don't have more [A], [B] or [C]..." (mad-lib)
+  - card: `yt-leila-character` · checks: views only
+- `HF-24` · I can tell from one sentence: five levels · codiesanchezct (YouTube Shorts) · 214K views (median 18.5K over 48 shorts) · 11.57x · **10x+** · https://www.youtube.com/shorts/3NDIHrvyVCM
+  - spoken (first sentence, verbatim): "I can now tell if an employee's going to make it from one sentence, and it's what they say when something breaks."
+  - formula: "I can now tell if [a person] is going to [succeed] from one sentence, and it's what they say when [moment]. There are five levels." (mad-lib)
+  - card: `yt-codie-five-levels` · checks: views only
 - `HF-26` · Stop doing the three cheap versions · PatrickDang (YouTube Shorts) · 12K views (median 1.75K over 48 shorts) · 6.86x · https://www.youtube.com/shorts/-T34eARzeWU
-  - spoken (first sentence, verbatim): "If you're trying to make money with Claude and AI, stop trying to do these AI coloring books, Etsy templates, or cheap PDFs." (auto-captions: "cloud")
+  - spoken (first sentence, verbatim): "If you're trying to make money with cloud and AI, stop trying to do these AI coloring books, Etsy templates, or cheap PDFs." (auto-captions; "cloud" is probably "Claude")
   - formula: "If you're trying to [goal], stop trying to do [tactic 1], [tactic 2], or [tactic 3]." (mad-lib; aim at the tactic, never at the viewer)
   - card: `yt-patrickdang-s-tier` · checks: views only
 - `HF-27` · Behind the scenes with a big number · NoahKagan (YouTube Shorts) · 3.3M views (median 644.5K over 48 shorts) · 5.12x · https://www.youtube.com/shorts/gOowzG23YX8

@@ -54,8 +54,8 @@ From the transcript timing; what is on screen is not known.
 | 65.9-67.6 | "I appreciate your time. Thank you very much." | clean end, no CTA in the transcript |
 
 ## Signature device
-**Rule, then role-play.** A one-line rule spoken straight to camera, then the same person acts the seller in a live
-mock call with a second voice playing the buyer. The scene runs to a real outcome (no deal) instead of a happy ending,
+**Rule, then role-play.** A one-line rule, then a mock call with a second voice playing the buyer. Not seen: that
+the rule is said to camera and that the same person plays the seller are inferred from the transcript. The scene runs to a real outcome (no deal) instead of a happy ending,
 so the rule is shown working by what it filters out. The second voice speaks in short, plain answers ("No." "Yes."
 "We are six."), which keeps the seller's lines carrying the lesson.
 
@@ -68,8 +68,7 @@ Not seen. Palette, type and camera are unknown; check the reel before building.
 
 ## Why it works
 - The opening contradicts the advice the viewer has heard, so it opens a loop: "how does that not lose deals?"
-- The scene answers with a concrete, uncomfortable moment every seller knows (the committee, "I need to talk to my
-  team") and shows a script for it.
+- The scene answers with a concrete, uncomfortable moment every seller knows (the committee, "I need to speak to my team") and shows a script for it.
 - The ending is a no, which feels honest and makes the seller look in control: a status signal, not a sales trick.
 - Comment trigger: people argue whether walking away is smart.
 

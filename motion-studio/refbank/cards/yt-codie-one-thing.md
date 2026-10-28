@@ -1,6 +1,6 @@
 ---
 id: yt-codie-one-thing
-title: "\"Studies show you make more if you do one thing\": a study-backed claim, then the twist"
+title: "Studies say you make more if you do one thing: a study-backed claim, then the twist"
 url: https://www.youtube.com/shorts/XDhiqpzNlcw
 platform: youtube
 creator: codiesanchezct

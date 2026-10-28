@@ -37,7 +37,7 @@ A client's win told in first person by his coach: what he signed, the twist ("he
 ## Why it stops the scroll (first 2 s)
 - Spoken hook, verbatim: "So, my client Tom just landed an $8,000 per month client selling AI services."
 - Text and visual: not seen.
-- Mechanism: a named person and a result, then the twist that removes the viewer's excuse ("he didn't know it").
+- Mechanism: a named person and a result, then the twist that removes the viewer's excuse (he did not know the work).
 
 ## Beat map
 | t (s) | what is said | beat |

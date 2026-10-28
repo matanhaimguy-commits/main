@@ -1,6 +1,6 @@
 ---
 id: yt-leila-character
-title: "\"You don't have more experience, track record or money\": a mentor's line turned into a pitch"
+title: "No more experience, track record or money than anyone: a mentor's line turned into a pitch"
 url: https://www.youtube.com/shorts/MW1yUGVdcEs
 platform: youtube
 creator: leilahormozi
@@ -45,7 +45,7 @@ more upside).
 |---|---|---|
 | 0.0-3.1 | the claim | hook |
 | 3.1-23.9 | the mentor's words, quoted in full | the quote |
-| 23.9-26.3 | "I really took that to heart" | the turn |
+| 23.9-26.3 | "I like really took that to heart" | the turn |
 | 26.3-42.5 | the pitch she used: "I don't have as much money... I will treat you well. You will have a voice" | the script, read aloud |
 | 42.5-67.6 | "It's trade-offs": what being small gives the right person | the lesson |
 

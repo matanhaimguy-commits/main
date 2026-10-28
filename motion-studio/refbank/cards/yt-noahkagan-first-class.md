@@ -1,6 +1,6 @@
 ---
 id: yt-noahkagan-first-class
-title: "\"What do you do to afford this?\" asked to a first-class passenger, answered in plain words"
+title: "\"What kind of stuff do you do for living to afford this?\" asked to a first-class passenger, answered in plain words"
 url: https://www.youtube.com/shorts/XafQv5QWY7A
 platform: youtube
 creator: noahkagan
@@ -31,12 +31,12 @@ pacing: null
 ---
 
 ## The film in one line
-The host asks a first-class passenger "what kind of stuff do you do for a living to afford this?", gets "futures at
-the Chicago Board of Trade", asks how much traders make and what can go wrong (one lost about 800,000 overnight),
+The host asks a first-class passenger "what kind of stuff do you do for living to afford this?", gets "Futures at
+Chicago Board of Trade", asks how much traders make and what can go wrong (one lost about 800,000 overnight),
 and ends on his advice for beginners.
 
 ## Why it stops the scroll (first 2 s)
-- Spoken hook, verbatim: "What kind of stuff do you do for a living to afford this?" "I work in finance."
+- Spoken hook, verbatim: "what kind of stuff do you do for living to afford this?" "I work in finance."
 - Text and visual: not seen; the title says a first-class cabin.
 - Mechanism: the question everyone wants to ask a stranger, asked out loud; the setting proves the stakes.
 
@@ -45,9 +45,9 @@ and ends on his advice for beginners.
 |---|---|---|
 | 0.0-3.0 | the question, the first answer | cold open |
 | 3.0-14.2 | what exactly he trades | the detail |
-| 14.2-22.6 | "what can someone make doing that?" | the money question |
+| 14.2-22.6 | "what can someone make doing that kind of stuff" | the money question |
 | 22.6-30.4 | the story of a trader who lost 800,000 | the risk |
-| 30.4-35.6 | "what advice do you have for someone starting out?" | the takeaway |
+| 30.4-35.6 | "what advice you have for someone starting out in their career" | the takeaway |
 
 ## Signature device
 **The nosy question, then three follow-ups.** One question about money that a viewer would never ask, then the

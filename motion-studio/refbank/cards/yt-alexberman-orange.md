@@ -31,7 +31,7 @@ pacing: null
 ---
 
 ## The film in one line
-"Are you a businessman or an entrepreneur?" One orange bought for $2: the businessman sells it for $4, the
+"Are you a businessman or are you an entrepreneur?" One orange bought for $2: the businessman sells it for $4, the
 entrepreneur squeezes it into juice to sell something worth more.
 
 ## Why it stops the scroll (first 2 s)
@@ -64,7 +64,7 @@ Not seen.
 ## Why it works
 - The viewer sorts themselves (and wants to be the second one): a self-identity hook.
 - A concrete prop makes an abstract idea visible.
-- Share trigger: "send this to your friend who is a businessman".
+- Share trigger (our reading, not from the data): the viewer can send it to a friend who fits label A.
 
 ## Steal this (grammar) / Leave this (content)
 - Steal: identity question, one prop, two paths split screen, the transformation as the payoff.

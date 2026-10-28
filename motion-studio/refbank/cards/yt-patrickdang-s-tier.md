@@ -35,8 +35,8 @@ pacing: null
 human would do, with AI doing most of it, and here is why a business still pays you.
 
 ## Why it stops the scroll (first 2 s)
-- Spoken hook, verbatim: "If you're trying to make money with Claude and AI, stop trying to do these AI coloring
-  books, Etsy templates, or cheap PDFs." (auto-captions read "cloud")
+- Spoken hook, verbatim: "If you're trying to make money with cloud and AI, stop trying to do these AI coloring
+  books, Etsy templates, or cheap PDFs." (auto-captions; "cloud" is probably "Claude")
 - Text and visual: not seen. Title names "3 S-tier AI businesses" but the transcript shows one service in detail.
 - Mechanism: call out the viewer's current plan by name, then a "stop doing" verdict.
 
@@ -47,7 +47,7 @@ human would do, with AI doing most of it, and here is why a business still pays 
 | 9.8-24.5 | "the easiest way... sell an AI powered service" | the switch |
 | 24.5-39.7 | one example, step by step | proof by example |
 | 39.7-58.0 | "why would a business pay you if they can do it themselves?" | the objection, answered |
-| 58.0-70.8 | "you don't need to be an expert" | removes the last excuse |
+| 58.0-70.8 | "you don't need to necessarily be an expert" | removes the last excuse |
 | 70.8-75.8 | "comment live" | CTA |
 
 ## Signature device

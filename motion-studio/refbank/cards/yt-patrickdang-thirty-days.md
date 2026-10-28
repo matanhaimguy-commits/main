@@ -1,6 +1,6 @@
 ---
 id: yt-patrickdang-thirty-days
-title: "\"If I had 30 days to land one client, here's exactly what I'd do\": a four-step plan on screen"
+title: "If I had 30 days to land a client, here is what I would do: a four-step plan (screens inferred from the words)"
 url: https://www.youtube.com/shorts/CBQsuB4m06c
 platform: youtube
 creator: patrickdang
@@ -16,7 +16,7 @@ captured: 2026-10-28
 duration_s: 86                        # about: last cue at 84.3 s
 category: talking-explainer
 hook: [if-i-had-to, direct-address]
-devices: [step-plan, screen-in-frame, cursor-demo, voiceover-explainer]
+devices: [step-plan, screen-in-frame, voiceover-explainer]   # screen-in-frame inferred from the transcript, not seen
 energy: high
 palette: []
 sound: [voiceover, music-beat]
@@ -40,7 +40,7 @@ decision maker, then a "comment live" CTA.
   do even if I had a full-time job."
 - Text and visual: not seen. "I can see that they're only running 12 ads" (24 s) implies a screen recording of an ad
   library on screen.
-- Mechanism: the "if I had to start over" frame: a goal, a deadline and a constraint in one line, then proof by name
+- Mechanism: the if-I-had-to frame: a goal, a deadline and a constraint in one line, then proof by name
   ("Tom") at 7 s.
 
 ## Beat map
@@ -55,7 +55,8 @@ decision maker, then a "comment live" CTA.
 | 68.4-84.3 | why they reply; "comment live" for the training | payoff and CTA |
 
 ## Signature device
-**The step plan with the work already done.** Each step is shown on a real screen as it is said, and the outreach
+**The step plan with the work already done.** Each step seems to be shown on a screen as it is said (inferred from "I can see" lines in the transcript; not
+seen), and the outreach
 step reads the actual message aloud. The idea inside the plan (send the work before you ask for the call) is the
 memorable twist.
 
@@ -68,11 +69,11 @@ Not seen.
 
 ## Why it works
 - Specific goal, deadline and constraint: the viewer can picture doing it.
-- Each step is shown, not described, so it feels doable.
+- Each step is concrete enough to picture (and, judging by the words, shown on screen), so it feels doable.
 - The comment-keyword CTA turns the payoff into a DM conversation.
 
 ## Steal this (grammar) / Leave this (content)
-- Steal: "if I had to ... here's exactly what I'd do", numbered steps shown on screen, a message read aloud, a
+- Steal: "if I had to ... here's exactly what I'd do", numbered steps (show each on a screen), a message read aloud, a
   comment keyword at the end.
 - Leave: his money goal, tools, brand names and script.
 
