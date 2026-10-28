@@ -42,12 +42,14 @@
       "at": "2026-10-28T19:11:28+00:00"
     },
     "7": {
-      "status": "todo",
-      "note": ""
+      "status": "done",
+      "note": "G-HUMAN-LOOK conditions 1-5 met in the specs (28 Oct, producer session 4): World line and REF-PAPER@v1 (crop of CH-MAYA@v1, G-VIS-SHEET PASS) in every office shot; laptop, bin and MARCH tag described in full; pocket, needle, bubble and lettering lines; AI label in qa/packaging-notes.md; SH08, SH09, SH22 on CH-FRIEND v1 standing views. Re-reviews at G-SPEC r12/r13: see the handoff for the specs still open.",
+      "at": "2026-10-28T23:16:37+00:00"
     },
     "8": {
-      "status": "todo",
-      "note": ""
+      "status": "blocked",
+      "note": "Every clip is a silent one-shot keyframe clip (STANDARDS 2), so no storyboard is needed for the calls; step 8 still needs G-CONTINUITY on board assets and G-HUMAN-HOOKBOARD (H-01). Blocked: the gate refuses any image call that uses CH-MAYA@v1, PR-CLOTH@v1, PR-ORGANIZER@v2, SET-FRIEND@v1 or CH-FRIEND@v1 as references (their G-VIS-SHEET is FAIL with minors waived; only an owner OVERRIDE clears it), so no boards or keyframes were generated (spend 0). G-SPEC also open on some shots.",
+      "at": "2026-10-28T23:16:45+00:00"
     },
     "9": {
       "status": "todo",
@@ -171,6 +173,36 @@
           "planned": 1.2,
           "with_buffer": 1.5,
           "balance": 4.6602,
+          "month_spent": 0,
+          "cap": 100,
+          "el_planned": 0
+        },
+        "note": ""
+      },
+      {
+        "at": "2026-10-28T23:16:29+00:00",
+        "status": "FAIL",
+        "by": "pipeline.py budget",
+        "data": {
+          "unit": "usd",
+          "planned": 2.37,
+          "with_buffer": 2.96,
+          "balance": 2.03,
+          "month_spent": 0,
+          "cap": 100,
+          "el_planned": 0
+        },
+        "note": "live Atlas balance $2.03 can't cover $2.96 (planned + 25% retakes)"
+      },
+      {
+        "at": "2026-10-28T23:16:29+00:00",
+        "status": "PASS",
+        "by": "pipeline.py budget",
+        "data": {
+          "unit": "usd",
+          "planned": 1.48,
+          "with_buffer": 1.85,
+          "balance": 2.03,
           "month_spent": 0,
           "cap": 100,
           "el_planned": 0
@@ -1002,13 +1034,20 @@
           "sha256": "cd573f745bf3b4299a6fce34f8a2f796d9eadb5ce5dc102f05eb25dfdf415174",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r12/O60-SH16.spec.json"
+        },
+        {
+          "at": "2026-10-28T23:16:13+00:00",
+          "status": "PASS",
+          "sha256": "6c4dc8bddadcf8bee9e791bc8e30d3eb94f978b1e5d4872f4f0f92409cc38607",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r13/O60-SH16.spec.json"
         }
       ]
     },
     "O60-SH17": {
-      "sha256": "a0df04ff8c85c41aac62ee2fa7a641aeb18f41835cb6e707ab2a46cd5058a3e6",
+      "sha256": "8c927cb2a6a9d15937c24757f9229eb9b29a92f149d7cb05b5d176a9cc7007c1",
       "lint": "PASS",
-      "lint_at": "2026-10-28T23:15:44+00:00",
+      "lint_at": "2026-10-28T23:16:14+00:00",
       "lint_issues": [],
       "G-SPEC": [
         {
@@ -1066,6 +1105,13 @@
           "sha256": "a85e365e69e69abccf5850a34055e94c4bcdf5fb29639593dd6c441a43d0ec9a",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r12/O60-SH17.spec.json"
+        },
+        {
+          "at": "2026-10-28T23:16:13+00:00",
+          "status": "FAIL",
+          "sha256": "a0df04ff8c85c41aac62ee2fa7a641aeb18f41835cb6e707ab2a46cd5058a3e6",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r13/O60-SH17.spec.json"
         }
       ]
     },
@@ -1109,6 +1155,13 @@
           "sha256": "68eef0fa25635eaa08a5a28a2c168a76448930f0f226353a086fafb0304da535",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r12/O60-SH18.spec.json"
+        },
+        {
+          "at": "2026-10-28T23:16:13+00:00",
+          "status": "PASS",
+          "sha256": "b1653d8ccf91818f7b30f1c3dbb1d71c9a2cc8bba176a12c26865bb75d7cb748",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r13/O60-SH18.spec.json"
         }
       ]
     },
@@ -1152,6 +1205,13 @@
           "sha256": "12408dea4e6cc098ee9df76f915afdcbd989d57c4050db529b7a99bd8fd27479",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r12/O60-SH19.spec.json"
+        },
+        {
+          "at": "2026-10-28T23:16:13+00:00",
+          "status": "PASS",
+          "sha256": "d04d7c53038ab462a713ccb83cba096a7ddfa82ff19d66683c81f55c2447fcb1",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r13/O60-SH19.spec.json"
         }
       ]
     },
@@ -1216,13 +1276,20 @@
           "sha256": "0838c05418b082c3d1b9dee4ed8783f2d60c21cade3b17d82fef3c2667879621",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r12/O60-SH20.spec.json"
+        },
+        {
+          "at": "2026-10-28T23:16:13+00:00",
+          "status": "PASS",
+          "sha256": "85017164803de7730ba4f0d0c6e6f5233a94b804e320a19fdc921894ecf06290",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r13/O60-SH20.spec.json"
         }
       ]
     },
     "O60-SH21": {
-      "sha256": "9edbc0b6c0c9bc655c01d6016d2ed78f5f6ef2efaa79326619cc3ab447cc1a34",
+      "sha256": "4f94b15e2e3a3a481012fa6119720dc885ff377772cfa51b7291c45da4c67007",
       "lint": "PASS",
-      "lint_at": "2026-10-28T23:15:44+00:00",
+      "lint_at": "2026-10-28T23:16:14+00:00",
       "lint_issues": [],
       "G-SPEC": [
         {
@@ -1266,6 +1333,13 @@
           "sha256": "cad1386505a0741a27a3cf25c8073b95ebe4da817001ba8f8af8572fc81515f1",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r12/O60-SH21.spec.json"
+        },
+        {
+          "at": "2026-10-28T23:16:14+00:00",
+          "status": "FAIL",
+          "sha256": "9edbc0b6c0c9bc655c01d6016d2ed78f5f6ef2efaa79326619cc3ab447cc1a34",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r13/O60-SH21.spec.json"
         }
       ]
     },

@@ -53,3 +53,7 @@ one-shot keyframe clip (STANDARDS 2), so the keyframes carry the look.
 | Stills with a code push-in | 12 | $0.059 | $0.71 |
 | **Planned** | | | **$2.37** |
 | With the 25% retake buffer | | | **$2.96** |
+
+Recorded 28 Oct (session 4), live balance $2.03 (shared account, falling): G-BUDGET FAIL on the whole piece ($2.37,
+$2.96 with buffer; gap $0.93), then G-BUDGET PASS on what the balance covers: the stills and keyframes ($1.48, $1.85
+with buffer). The clips ($0.89) wait for Matan's Atlas top-up; step 9 closes only on a whole-piece PASS after step 8.

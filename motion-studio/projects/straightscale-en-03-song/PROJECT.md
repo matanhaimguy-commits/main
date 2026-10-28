@@ -85,9 +85,45 @@ Next (main session):
 3. Step 9: `pipeline.py budget straightscale-en SS-EN-SONG-01 --planned <USD> --balance <live>` once steps 6 to 8
    are closed (plan in `qa/clip-budget.md`, update of 28 Oct session 3: $2.49, $3.11 with buffer). Clips wait for Matan's Atlas top-up.
 
+## Production handoff (28 Oct, EN 03 production session 4: G-HUMAN-LOOK conditions)
+Spend: $0 (no generation; the only image work was a crop in code). Live Atlas balance $2.03 at the end.
+
+Done:
+- Condition 1: the World line, word for word, in the style and setting of every office shot (SH01 to SH23; SH24 style
+  too); "marble" only as "no marble". Paper reference REF-PAPER@v1 (`assets/refs/PAPER-IVORY.v1.png`, a crop of
+  CH-MAYA@v1 made by `growth-engine/tools/paper_crop.py`, mean #faeed6), registered as a style_ref, G-VIS-SHEET PASS,
+  and named as setting.ref in every office shot. `atlas upload` failed (401: it needs a real console login; the proxy
+  key covers only the API host), so it has no Atlas URL yet: upload it and register the URL with
+  `pipeline.py media ... REF-PAPER@v1 --id <url>` before the first call that uses it.
+- Condition 2: the free route: PR-LAPTOP, PR-BIN and PR-MARCHTAG described in full in every shot that uses them; each
+  shot's office-item list trimmed to the items it names. No prop sheet.
+- Condition 3: SH01/SH02 APRIL pockets "shallow slanted pockets, dark empty interior"; thumb-and-index pinch (SH05,
+  SH06); exactly nine bubbles (SH23) and exactly three where three show (SH17, SH18); stitched lettering (SH15 to SH17).
+- Condition 4: AI label on, `qa/packaging-notes.md`; SH08, SH09, SH22 carry a must_not against framing the clay women
+  as real clients or results.
+- Condition 5: SH08 (chest-up three-quarter bust on Maya's laptop, on her desk), SH09 (small on the screen) and SH22
+  (three-quarter view mirrored to face Maya, hands in her jacket pockets; Maya's hands under her folded arms) on
+  CH-FRIEND v1's standing views.
+- G-SPEC: rounds r12 and r13 (fresh sonnet reviewers, `qa/r12`, `qa/r13`). Each round found new, older geometry points
+  (organizer proportions, safe zones, hand and text boxes, the SH10 to SH11 dolly, the SH17 to SH18 pan); all are fixed.
+- Step 7 closed. Step 8 blocked (below). G-BUDGET recorded (see `qa/clip-budget.md`).
+
+Open (main session):
+1. G-SPEC: see the ledger (`pipeline.py status`). Specs that failed two loops (r12, r13) have their r13 fixes applied
+   and lint clean, but are not re-reviewed: a third review is the main session's call (loop limit 2).
+2. The waived sheets block every image call: the gate refuses CH-MAYA@v1, PR-CLOTH@v1, PR-ORGANIZER@v2, SET-FRIEND@v1
+   and CH-FRIEND@v1 as references because their G-VIS-SHEET is FAIL; a delegated G-HUMAN-LOOK does not change that, and
+   only the owner's OVERRIDE (`--by Matan`) does. Ask Matan for an OVERRIDE on those five, or change the gate.
+3. Step 8: silent one-shot clips need no storyboard, but the step needs G-CONTINUITY on board assets and
+   G-HUMAN-HOOKBOARD on H-01. Decide: keyframes as the boards (about $0.77 for 13), or mark step 8 not applicable for
+   silent keyframe song pieces (a rule change).
+4. Step 9: whole piece $2.37 ($2.96 with buffer) against $2.03: gap $0.93. Clips wait for the top-up.
+5. G-HUMAN-ESCALATE PR-ORGANIZER@v3 stays queued and unsent (v3 abandoned).
+
 ## Decisions (newest first)
 | Date | Decision | Options considered | Why | Who |
 |---|---|---|---|---|
+| 28 Oct | G-HUMAN-LOOK conditions: prop text instead of a prop sheet (condition 2); paper reference as a code crop; SH08/SH09/SH22 on CH-FRIEND v1 standing views; step 8 marked blocked | a combined prop sheet ($0.09); CH-FRIEND v2 | free and safe; the waived sheets block every generated board | producer session 4, for the main session |
 | 28 Oct | Look report: lock PR-SCRAPS v1; lock CH-MAYA v1 and PR-CLOTH v1 with their minors waived (clip prompts state a clean thumb-and-index needle pinch, nine bubbles, stitched lettering); PR-ORGANIZER one last retake (v3), else lock v2 with minors waived; CH-FRIEND seated panel redo (v2); SET-OFFICE and SET-FRIEND replaced by simpler set specs, at most 2 rounds, else the plain ivory backdrop | more retakes of each sheet; a 4th round on the set prompts | stop the loops, keep the series look | main session, delegated by Matan, plan 28 Oct |
 | 28 Oct | PR-ORGANIZER v3 failed on a major: v2 locked with its 4 minors waived (clip prompts state shallow, slanted April pockets and the band inside the felt edges) | a v4 | the main session's rule: v3 was the last round | main session, delegated by Matan, plan 28 Oct (applied by the producer session) |
 | 28 Oct | SET-OFFICE: the new spec failed G-SPEC twice, so no set sheet; office shots use the plain ivory paper backdrop and a shared World line | a third spec round | the main session's 2-round rule | main session, delegated by Matan, plan 28 Oct (applied by the producer session) |

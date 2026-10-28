@@ -62,11 +62,12 @@ text_in_image:
   occlusion: not folded
 action_physics:
 - 'From frame 1, three blank clay bubbles rest in a row on the top edge of the ADS piece, below the rod. The ADS piece''s
-  top edge (still sewn on) bows outward 1 cm and the three bubbles slide up off it, one every 0.5 s: bubble 1 leaves its left
-  end, bubble 2 its middle, bubble 3 its right end; each drifts right and up toward the open window beyond the right edge
-  of frame 1. The camera pans right following them, past a plain wall gap and past Maya seated at her desk (she enters from
-  the right at about 65% of the clip) and comes nearer, so they read larger in SH18, and comes to rest on the window view
-  of SH18; the two limp pieces hang still.'
+  top edge (still sewn on) bows outward 1 cm and the three bubbles slide up off it, one every 0.5 s: the rightmost bubble
+  (bubble 3) leaves first, then bubble 2, then bubble 1, so no bubble crosses another; each rises one bubble-height (to about
+  27 to 30.5% from the top), staying below the rod at 26%, then drifts right out of frame 1 toward the open window beyond
+  the right edge of frame 1. The camera pans right following them, past a plain wall gap and past Maya seated at her desk
+  (she enters from the right at about 65% of the clip) and comes nearer, so they read larger in SH18, and comes to rest on
+  the window view of SH18; the two limp pieces hang still.'
 static: false
 setting:
   ref: 'REF-PAPER@v1 (plain-paper crop of CH-MAYA@v1: paper colour, texture and light only)'

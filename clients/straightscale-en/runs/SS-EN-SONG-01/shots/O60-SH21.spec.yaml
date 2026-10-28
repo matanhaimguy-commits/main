@@ -41,7 +41,8 @@ props:
     (twelve in all); APRIL pockets: shallow slanted pockets, one small client standing in each of the four, a calm sand-cream
     band of five joined pieces (one large, three small, one small) with four seams, the five pieces carry no letters or words
     at all; the band is stitched along the top edge of the APRIL row, inside the felt edges.'
-  size_in_frame: organizer 14 to 40% from the top, 80% width
+  size_in_frame: organizer about 50% of frame width (x 0.25 to 0.75), 14 to 40% from the top, its proportions as on PR-ORGANIZER@v2
+    and in SH19 and SH20
   held_by: null
 - id: PR-SCRAPS
   story_critical: true
@@ -134,9 +135,9 @@ regions:
 - name: organizer
   kind: prop
   box:
-  - 0.1
+  - 0.25
   - 0.14
-  - 0.9
+  - 0.75
   - 0.4
 - name: email_label
   kind: text
@@ -155,23 +156,23 @@ regions:
 - name: clients_header
   kind: text
   box:
-  - 0.3
+  - 0.38
   - 0.14
-  - 0.7
+  - 0.62
   - 0.18
 - name: march_label
   kind: text
   box:
-  - 0.1
+  - 0.25
   - 0.19
-  - 0.28
+  - 0.36
   - 0.28
 - name: april_label
   kind: text
   box:
-  - 0.1
+  - 0.25
   - 0.3
-  - 0.28
+  - 0.36
   - 0.39
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
