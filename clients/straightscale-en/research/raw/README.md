@@ -54,3 +54,9 @@ Rebuild the outliers: `python3 growth-engine/tools/organic.py outliers clients/s
 per page, 192 per channel, for AlexHormozi and DanMartell (JeremyHaynes: not found). `_items.json` and
 `_outliers.csv` come from `organic.py yt-import` and `organic.py outliers --days 0`. `yt-shorts_transcripts.jsonl`:
 14 transcripts (`get_youtube_transcript`, text) for HF-10 to HF-18 and HL-07 to HL-11 in `../hook-library-en.md`.
+
+Second batch (28 Oct 2026, for the reference bank and HF-19 to HF-30): `yt-shorts_<handle>_p1.json` for thefutur,
+AlexBerman, PatrickDang, codiesanchezct, LeilaHormozi, NoahKagan, JeremyMiner and DanLok, one page each (48 shorts),
+trimmed to videoId, title, viewCountText and members_only (all that `yt_shorts.to_items` reads). ImanGadzhi listed
+no Shorts; JordanPlatten was listed but not saved (best 2.4x). 15 more lines in `yt-shorts_transcripts.jsonl`, each
+with a `timed` field (the cue times) and `last_cue_s`.

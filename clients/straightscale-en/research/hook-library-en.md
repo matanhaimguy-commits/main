@@ -26,6 +26,12 @@ views); the hook check (`organic_os/hook_sources.py`) reads only `HF` and `HL` i
   shorts each (`raw/yt-shorts_*`). 44 and 17 shorts at 3x+ their channel's median, 53 and 41 at 0.5x or less. 9
   on-topic breakouts (HF-10 to HF-18) and 5 on-topic losers (HL-07 to HL-11) now have a verbatim spoken first line
   from a transcript. @JeremyHaynes: not found by handle or name, skipped.
+- YouTube Shorts, second batch (28 Oct 2026): one listing page (48 Shorts) each for @thefutur, @AlexBerman,
+  @PatrickDang, @codiesanchezct, @LeilaHormozi, @NoahKagan, @JeremyMiner and @DanLok (`raw/yt-shorts_<handle>_p1.json`,
+  trimmed to id, title and views; `..._outliers.csv`). @JeremyMiner and @DanLok had no Short at 3x+; @ImanGadzhi
+  listed no Shorts; @JordanPlatten's best was 2.4x (not saved). 15 transcripts with timing in
+  `raw/yt-shorts_transcripts.jsonl`; 12 on-topic breakouts are HF-19 to HF-30. Each is also a reference card in
+  `motion-studio/refbank/cards/yt-*.md` (the card id is given per entry).
 - Ads: 11 Meta Ad Library datasets (curious_coder/facebook-ads-library-scraper, 25 Oct 2026), 550 ads from 11
   pages, 126 distinct ad texts after merging copies (empty and template texts left out).
 
@@ -179,6 +185,73 @@ The Wrong Business?" 808K (35.13x), "They Actually Followed Hormozi's Insane Adv
 Is Right?" 467K (20.3x); DanMartell 16 more of his 17, led by "Whats the best AI tool right now?" 258K (10.75x), "Have
 you tried Higgsfield Genjutsu?" 174K (7.25x).
 
+## Organic breakouts from YouTube Shorts, second batch (28 Oct 2026)
+Source and limits as the first batch above, with two differences: each median is over one listing page (the
+channel's latest 48 Shorts), not 192, and on topic was judged from the transcript, not the title. Spoken lines are
+verbatim from TranscriptAPI auto-captions. No frames could be fetched (i.ytimg.com refused by the proxy), so on-screen
+text and visual are unknown unless the words imply them. Ranked by breakout.
+
+- `HF-19` · Identity question with one prop · AlexBerman (YouTube Shorts) · 567K views (median 6.3K over 48 shorts) · 90.0x · **10x+** · https://www.youtube.com/shorts/w05ZBo57gvA
+  - spoken (first sentence, verbatim): "Are you a businessman or are you an entrepreneur?" (then: "Here's an easy way to find out.")
+  - formula: "Are you a [label A] or are you a [label B]? Here's an easy way to find out." then one object, two paths (mad-lib)
+  - card: `yt-alexberman-orange` · checks: views only (a listing carries no likes, comments or dates)
+- `HF-20` · If I had to, here is exactly what I would do · PatrickDang (YouTube Shorts) · 31K views (median 1.75K over 48 shorts) · 17.71x · **10x+** · https://www.youtube.com/shorts/CBQsuB4m06c
+  - spoken (first sentence, verbatim): "If I needed to make $3,000 with Claude AI in the next 30 days, here's exactly what I would do even if I had a full-time job."
+  - formula: "If I needed to [goal] in the next [days], here's exactly what I would do, even if [constraint]." (mad-lib; the number must be the viewer's goal, never our result)
+  - card: `yt-patrickdang-thirty-days` · checks: views only
+- `HF-21` · Rule first, then a role-played sales call · thefutur (YouTube Shorts) · 154K views (median 9.75K over 48 shorts) · 15.79x · **10x+** · https://www.youtube.com/shorts/d-Wkas8aKko
+  - spoken (first sentence, verbatim): "Just talk about money first." (then: "Talk about money because money is the disqualifier.")
+  - formula: "Just [do the thing sellers avoid] first. [Do it] because [it] is the disqualifier." then a mock call (mad-lib)
+  - card: `yt-thefutur-money-first` · checks: views only
+- `HF-22` · Three picks, asked by someone else · thefutur (YouTube Shorts) · 150K views (median 9.75K over 48 shorts) · 15.38x · **10x+** · https://www.youtube.com/shorts/A-LQwz40G7Y
+  - spoken (first sentence, verbatim, the second voice): "What are three marketing books every creative should read?"
+  - formula: "What are [three] [things] every [buyer] should [use]?" asked by another person, answered item by item (mad-lib)
+  - card: `yt-thefutur-three-books` · checks: views only. Opens with a question (principle 4), asked by someone else.
+- `HF-25` · Mid-story start with an age · NoahKagan (YouTube Shorts) · 8.4M views (median 644.5K over 48 shorts) · 13.03x · **10x+** · https://www.youtube.com/shorts/wJZYoF2C0RA
+  - spoken (first sentence, verbatim, the guest): "Age 18 I started my own business selling nuts door-to-door."
+  - formula: "Age [age], I started [first business]." then two falls and the question that turned it (mad-lib)
+  - card: `yt-noahkagan-tire-shop` · checks: views only. On topic through the turn ("what do you do for a living?" asked to people who already had the result), not the first line.
+- `HF-23` · Blunt claim, then a mentor's words · LeilaHormozi (YouTube Shorts) · 27K views (median 2.3K over 48 shorts) · 11.74x · **10x+** · https://www.youtube.com/shorts/MW1yUGVdcEs
+  - spoken (first sentence, verbatim): "The only thing you've got is your character."
+  - formula: "The only thing you've got is your [quality]." then "[Mentor] told me: you don't have more [A], [B] or [C]..." (mad-lib)
+  - card: `yt-leila-character` · checks: views only
+- `HF-24` · I can tell from one sentence: five levels · codiesanchezct (YouTube Shorts) · 214K views (median 18.5K over 48 shorts) · 11.57x · **10x+** · https://www.youtube.com/shorts/3NDIHrvyVCM
+  - spoken (first sentence, verbatim): "I can now tell if an employee's going to make it from one sentence, and it's what they say when something breaks."
+  - formula: "I can now tell if [a person] is going to [succeed] from one sentence, and it's what they say when [moment]. There are five levels." (mad-lib)
+  - card: `yt-codie-five-levels` · checks: views only
+- `HF-26` · Stop doing the three cheap versions · PatrickDang (YouTube Shorts) · 12K views (median 1.75K over 48 shorts) · 6.86x · https://www.youtube.com/shorts/-T34eARzeWU
+  - spoken (first sentence, verbatim): "If you're trying to make money with cloud and AI, stop trying to do these AI coloring books, Etsy templates, or cheap PDFs." (auto-captions; "cloud" is probably "Claude")
+  - formula: "If you're trying to [goal], stop trying to do [tactic 1], [tactic 2], or [tactic 3]." (mad-lib; aim at the tactic, never at the viewer)
+  - card: `yt-patrickdang-s-tier` · checks: views only
+- `HF-27` · Behind the scenes with a big number · NoahKagan (YouTube Shorts) · 3.3M views (median 644.5K over 48 shorts) · 5.12x · https://www.youtube.com/shorts/gOowzG23YX8
+  - spoken (first sentence, verbatim): "I met a guy in the street, he had a clip about why rich people have too much money that has 17 million views."
+  - formula: "I [found] a [thing] that [already worked], so we [built on it]." (mad-lib; the number must be real and ours)
+  - card: `yt-noahkagan-millions-views` · checks: views only
+- `HF-28` · Question, one-line answer, one number · LeilaHormozi (YouTube Shorts) · 9.7K views (median 2.3K over 48 shorts) · 4.22x · https://www.youtube.com/shorts/cHV0luUDVl4
+  - spoken (first sentence, verbatim): "How do you evaluate trust?"
+  - formula: "How do you [judge the thing buyers worry about]?" / "It usually comes from [one-line answer]." (mad-lib)
+  - card: `yt-leila-trust` · checks: views only. Opens with a question (principle 4).
+- `HF-29` · The paradox, then two labels · codiesanchezct (YouTube Shorts) · 65K views (median 18.5K over 48 shorts) · 3.51x · https://www.youtube.com/shorts/E3_naI8UUcs
+  - spoken (first sentence, verbatim): "The most profitable businesses I've ever owned sell something nobody wants to buy."
+  - formula: "The most [successful] [businesses] I've ever [run] [do the opposite of what you'd expect]. Let me explain." (mad-lib)
+  - card: `yt-codie-oxygen-dessert` · checks: views only. Names life coaching as a "dessert" example: do not copy that line to coaches.
+- `HF-30` · "My client just..." case in one breath · PatrickDang (YouTube Shorts) · 5.8K views (median 1.75K over 48 shorts) · 3.31x · https://www.youtube.com/shorts/5AaOQrN8_aA
+  - spoken (first sentence, verbatim): "So, my client Tom just landed an $8,000 per month client selling AI services." (then: "And the funny part is he didn't even know anything about AI 2 months ago.")
+  - formula: "So, my client [name] just [result]. And the funny part is [the excuse he didn't have]." (mad-lib; needs a real client result with an evidence file, brain E5)
+  - card: `yt-patrickdang-client-tom` · checks: views only
+
+What the 12 share (counts, not a grade): 6 of 12 put a contrast or a verdict in the first sentence (HF-19, HF-21,
+HF-23, HF-24, HF-26, HF-29); 3 of 12 open with a question (HF-19, HF-22, HF-28), 2 of them asked by a second
+voice or answered within 4 s; 4 of 12 are told as a story or a process with a person in it (HF-20, HF-25, HF-27,
+HF-30). 7 of 12 are 10x+.
+
+Off topic at 3x+ (transcript fetched, no id): codiesanchezct "Women make more money doing this ONE thing" 104K
+(5.62x; card `yt-codie-one-thing`); AlexBerman "Companies That Own Everything" 22K (3.49x; card
+`yt-alexberman-own-everything`); NoahKagan "How this Passenger Affords First Class" 2.0M (3.1x; card
+`yt-noahkagan-first-class`, the street-interview format). Off topic by title, no transcript: AlexBerman "Buying the
+Apple Vision Pro" 1.3M (206x), "How to Trick ChatGPT in 15 Seconds" 33K (5.24x); NoahKagan 7 more at 3x+ (wealth and life
+stories); LeilaHormozi 5 more at 3x+ (leadership lines).
+
 ### Losers from YouTube Shorts (0.5x or less, on topic), ranked from the lowest
 - `HL-07` · Client story about an offer · AlexHormozi (YouTube Shorts) · 5.4K views (median 23K over 192 shorts) · 0.23x · https://www.youtube.com/shorts/Co9FC0G3SNM
   - spoken (first sentence, verbatim from the transcript): "So, I had a lady a couple months ago and so she did hairstyle stuff and so she's like, "Okay, I can teach hairdressers how to do this particular type of cut.""
@@ -291,6 +364,9 @@ takimoore, kallawaymarketing) are withdrawn: their rows were not recovered, so t
   hot seat's first line is the guest's voice. HF-13 and HL-10 carry nearly the same transcript at 8.39x and 0.27x,
   so for these clips the title or timing, not the spoken words, made the gap. YouTube Shorts are not Instagram reels:
   the same hook may do differently on @straightscale_.
+- Second batch (HF-19 to HF-30): the same limits, plus a median over only 48 Shorts per channel (one page), so a few
+  Shorts move it. NoahKagan's median is 644.5K: his 3x bar is near 2M. Six of the twelve come from two channels
+  (PatrickDang, codiesanchezct). PatrickDang's titles and hooks lean on AI money claims; take the structure only.
 
 ## Live results
 (empty: logged by the analyst at 72 h and 7 d after each post)
