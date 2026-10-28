@@ -32,8 +32,9 @@
       "at": "2026-10-28T17:24:52+00:00"
     },
     "5": {
-      "status": "todo",
-      "note": ""
+      "status": "blocked",
+      "note": "timeline needs word timings: allow atlas-media.oss-us-west-1.aliyuncs.com (or a session that reaches it); lyric match done (0.951 / 0.910)",
+      "at": "2026-10-28T17:33:29+00:00"
     },
     "6": {
       "status": "todo",
@@ -161,6 +162,14 @@
         "by": "Matan",
         "note": "Studio page decision #1 (run #1): 'Both approved', answered 28 Oct 2026 17:12:59 UTC; O60 take 2 and O30 take 2 are the masters"
       }
+    ],
+    "G-TIMELINE": [
+      {
+        "at": "2026-10-28T17:33:29+00:00",
+        "status": "FAIL",
+        "by": "EN 03 production session",
+        "note": "Lyric match on Atlas xai/stt-v1: O60 0.951, O30 0.910, every line heard in order (audio/timeline.md). Open: no word timestamps (Atlas CLI 0.1.38 returns text only for xai/stt-v1) and the masters' host atlas-media.oss-us-west-1.aliyuncs.com is refused by this environment's network policy, so no BPM, stem, line times or slices yet"
+      }
     ]
   },
   "specs": {},
@@ -186,7 +195,8 @@
       ],
       "medias": [],
       "ids": [
-        "8f0741beaf4346989948dbc2cecbd25d"
+        "8f0741beaf4346989948dbc2cecbd25d",
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-b420cac5f2a2afa003faf5fe4dba01ed60328be54f39659c8df1952378a81fb8/8f0741beaf4346989948dbc2cecbd25d-83f954ad1a573dc2.mp3"
       ],
       "files": [],
       "gates": {
@@ -223,7 +233,8 @@
       ],
       "medias": [],
       "ids": [
-        "298342acc20f468497b7dd16efe3ef1a"
+        "298342acc20f468497b7dd16efe3ef1a",
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-3eccdc60d5764e38d53512067f640d72e9460e9237c7e92351cece50272eb4f3/298342acc20f468497b7dd16efe3ef1a-b51fd4bebfe2683b.mp3"
       ],
       "files": [],
       "gates": {

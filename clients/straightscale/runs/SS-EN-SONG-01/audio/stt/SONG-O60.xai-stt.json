@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "command": "generate.audio",
+  "outcome": "succeeded",
+  "data": {
+    "operation_id": "op_efe076f5b2e04a32a573ed746e0a58f8",
+    "kind": "audio",
+    "model": "xai/stt-v1",
+    "submission_state": "accepted",
+    "prediction": {
+      "id": "dfffb02872b5416f94b72c8c8c183928",
+      "status": "completed",
+      "terminal": true,
+      "observed_at": "2026-10-28T17:30:46.107510529Z",
+      "model": "xai/stt-v1",
+      "outputs": [
+        {
+          "text": "Lumpy months, it was never where your clients came from. Take Maya, consultant referrals filled in March, then April went quiet. She'd been too busy in March to look for April's clients while the work was coming in. So she tried some fixes, cold email, LinkedIn, a coach, and then some ads, and each held a month, then came loose. A friend who'd had lumpy months too asked her, are your fixes connected? They weren't, just scraps, each one patched on her lawn. That's patchwork marketing, no scrap is sewn to the next. Steady months don't need one more scrap sewn on. Just one cloth to cut every piece from. The cloth is the words that buyers use for their problem. Her offer came from those words, her post came from that offer, and ads won't last only on the post that worked, so those posts kept finding buyers while she was busy. Next April wasn't as full as March, but nothing came loose. No more patchwork marketing, no scraps sewn on alone. Follow for part two, where to find your buyers' words."
+        }
+      ]
+    },
+    "wait": {
+      "status": "completed"
+    },
+    "artifacts": [
+      {
+        "index": 0,
+        "local": {
+          "status": "skipped"
+        }
+      }
+    ],
+    "resume": "atlas generate wait 'dfffb02872b5416f94b72c8c8c183928' '--no-download' '--timeout' '10m0s'",
+    "resume_argv": [
+      "atlas",
+      "generate",
+      "wait",
+      "dfffb02872b5416f94b72c8c8c183928",
+      "--no-download",
+      "--timeout",
+      "10m0s"
+    ]
+  },
+  "errors": [],
+  "warnings": []
+}

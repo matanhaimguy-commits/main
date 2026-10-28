@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "command": "generate.audio",
+  "outcome": "succeeded",
+  "data": {
+    "operation_id": "op_f8607478d6e3493496ef123c508ecf0f",
+    "kind": "audio",
+    "model": "xai/stt-v1",
+    "submission_state": "accepted",
+    "prediction": {
+      "id": "d9e1e051313f4ac685e4d711e6ea8f3c",
+      "status": "completed",
+      "terminal": true,
+      "observed_at": "2026-10-28T17:31:32.240261764Z",
+      "model": "xai/stt-v1",
+      "outputs": [
+        {
+          "text": "Lumpy months, it was never where your clients came from. Posts, emails, a coach, some ads, each held a month and came loose. Cause each was a scrap, patched on a loan. As patchwork marketing, no scrap is sewn to the next. Not one more scrap, one cloth to cut every piece from. And that cloth is the words your buyers use for their problem. Make the offer from their words and make the post from the offer, then as last. Only on the post that works, so those posts keep finding buyers while you're busy. Follow for part two, where to find your buyers' words."
+        }
+      ]
+    },
+    "wait": {
+      "status": "completed"
+    },
+    "artifacts": [
+      {
+        "index": 0,
+        "local": {
+          "status": "skipped"
+        }
+      }
+    ],
+    "resume": "atlas generate wait 'd9e1e051313f4ac685e4d711e6ea8f3c' '--no-download' '--timeout' '10m0s'",
+    "resume_argv": [
+      "atlas",
+      "generate",
+      "wait",
+      "d9e1e051313f4ac685e4d711e6ea8f3c",
+      "--no-download",
+      "--timeout",
+      "10m0s"
+    ]
+  },
+  "errors": [],
+  "warnings": []
+}
