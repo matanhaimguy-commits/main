@@ -1,6 +1,6 @@
 {
  "client": "straightscale-en",
- "month": "2026-11 (Mon 2 Nov to Fri 27 Nov 2026)",
+ "month": "2026-11 (Mon 2 Nov to Mon 30 Nov 2026)",
  "theme": "Steady months come from building the pieces in order, each cut from the buyers' words (Research, Offer, Organic, Funnel, Paid ads)",
  "belief_focus": "New page, no public proof, buyers solution aware (generic) at S3 to S4 (brain awareness). Reach moves B1 (my months swing) and B2 (every fix was patched on alone); trust moves B3 (it can be solved) and B4 (the order); the 2 convert posts move B5 (one system in order beats one more agency, course or tool). No B6 (no proof file, E5), no B8 (offer.delivers unknown, E3), no B7 piece this month (no real footage, no host: E8, E12).",
  "stage": "new",
@@ -13,7 +13,7 @@
   "reach": 6,
   "trust": 4,
   "convert": 2,
-  "note": "12 reels: 50% reach, 33% trust, 17% convert"
+  "note": "12 reels (EN 02 holds Wed 4 Nov): 50% reach, 33% trust, 17% convert"
  },
  "formats_per_week": {
   "reel": 3,
@@ -65,12 +65,12 @@
    "format": "mixed: reel_song (part one), reel_motion (part two, EN 02), reel_story_narrated, reel_animation_short; the claymation cloth world",
    "pillar": "rotates Steady months, Research, Offer, Organic, Funnel and paid ads",
    "belief": "B1 to B4",
-   "job": "reach (parts one to five); trust for part six, the last part",
+   "job": "reach (parts one, three, four, five); trust for part two (EN 02) and part six",
    "length": "O30 to O60",
    "cta": "follow for the next part; the last part asks for a save",
    "visual_template": "the cloth world (brain visual.set)",
    "target_episodes": 6,
-   "status": "lab: part one EN 03 (2 Nov), part two EN 02 (W5 card), part three EN 04 (9 Nov), part four EN 05 (16 Nov), part five EN 06 (23 Nov), part six Paid ads (27 Nov)",
+   "status": "lab: part one EN 03 (2 Nov), part two EN 02 (4 Nov), part three EN 04 (9 Nov), part four EN 05 (16 Nov), part five EN 06 (23 Nov), part six Paid ads (30 Nov)",
    "rule": "one step per part, in the offer's order; StraightScale named only on the end card"
   },
   {
@@ -107,27 +107,30 @@
    "keyword": "WORDS",
    "use": "the WORDS Sheet (EN 02); trust and convert posts only",
    "live": false,
-   "note": "brain lead_magnets WORDS live false: the hub funnel is not created (HUB_TOKEN, app address, EN 02 post ID). Until it is live no card asks for it; trust posts ask for a save, convert posts for a DM. When live, W3 Wed, W4 Wed, W4 Fri and bank cards switch to keyword WORDS."
+   "note": "brain lead_magnets WORDS live false until the hub funnel is created. Until then trust posts ask for a save (EN 02: follow); when live, EN 02, W3-02, W5-01 and the bank trust cards switch to keyword WORDS."
   }
  ],
  "buyer_formats": [],
  "buyer_formats_source": "No format is proven on this page yet (no posts, no insights: E13). Hook formats come from the Hook Library's HF outliers, 10x+ first (research/hook-library-en.md).",
  "hook_library": "research/hook-library-en.md (HF ids); buyer phrases research/buyer-phrases-en.md (Q ids; only the recovered ids pass the hook check)",
  "calendar": [
-  "W1: Mon 2 Nov EN 03 song (reach B1) · Wed 4 Nov One sentence (trust B3) · Fri 6 Nov built or patched (reach B2)",
-  "W2: Mon 9 Nov EN 04 Offer (reach B2) · Wed 11 Nov the order (trust B4) · Fri 13 Nov what does the next fix build on (convert B5)",
-  "W3: Mon 16 Nov EN 05 Organic (reach B3) · Wed 18 Nov three questions an offer answers (trust B4) · Fri 20 Nov the full month (reach B1)",
-  "W4: Mon 23 Nov EN 06 Funnel (reach B2) · Wed 25 Nov tried everything (convert B5) · Fri 27 Nov part six Paid ads (trust B4)"
+  "W1: Mon 2 Nov EN 03 song (reach B1) · Wed 4 Nov EN 02 Research, part two (trust B4) · Fri 6 Nov built or patched (reach B2)",
+  "W2: Mon 9 Nov EN 04 Offer (reach B2) · Wed 11 Nov the order (trust B4) · Fri 13 Nov what will this leave me if I stop paying (convert B5)",
+  "W3: Mon 16 Nov EN 05 Organic (reach B3) · Wed 18 Nov three questions an offer answers (trust B4) · Fri 20 Nov the week the third client signs (reach B1)",
+  "W4: Mon 23 Nov EN 06 Funnel (reach B2) · Wed 25 Nov tried everything (convert B5)",
+  "W5: Mon 30 Nov part six Paid ads (trust B4), moved off Black Friday"
  ],
- "spend": "Tier C motion reels, tier B narrated story and claymation shorts; one tier A piece (the EN 03 song, the November wildcard). EN 06 routed down from reel_animation (tier A) to reel_animation_short (tier B, its O30 script). No monthly_usd_cap in the brain (E9): G-BUDGET blocks paid generation under this slug until set.",
+ "spend": "Tier C motion reels, tier B narrated story and claymation shorts; one tier A piece (the EN 03 song, the November wildcard). EN 06 routed down from reel_animation (tier A) to reel_animation_short (tier B, its O30 script). Monthly cap $100 Atlas USD (main session, 28 Oct; S1 sets monthly_usd_cap in brain.json); the cards' usd_budgets stand, about $27 for the month.",
  "bank": "cards/bank/: 6 spare cards, used when a hook or script fails the bar",
  "open_slot_share": 0.0,
  "open_slot_note": "No open slot: 4 of 12 slots are fixed series parts; the 6-card bank and the 20% rule are met by swapping a bank card in for any slot whose hook or script fails.",
  "approved_by": "pending: organic-director review (S3 session), then the main session; Matan only at owner checkpoints",
  "rules": [
-  "Series release rule (director, round 1): a part ships only when its script is released at 85 or more and its hook is A or A+. If a part is not released by its build deadline (the Wednesday before its Monday), a bank reach card (W9-01, W9-02 or W9-03) takes the Monday and the part moves back a week; for part six (W4-03, Fri 27 Nov), W9-04 or W9-05 takes the slot. EN 04, EN 05 and EN 06 sit at 76, 80 and 76 today.",
-  "DM fallback: W2-03, W4-02 and W9-06 ask for a DM; if E10 is not closed 48 hours before the slot, the CTA becomes save.",
-  "Job rotation waiver (director, round 1): with all four Mondays fixed as reach series parts and 6 reach posts in 12, two reach posts meet across weeks twice (W1-03 then W2-01, W3-03 then W4-01). Accepted for November. The first five posts (2 to 11 Nov) carry no conversion CTA (month-wide week-check warns); accepted for the same reason.",
-  "Tone: 4 of 12 posts are contrarian (W1-03, W2-01, W3-01, W4-01), above the 20% guide; the three series spines are contrarian by design (contrarian vault C5 to C7)."
+  "Series release rule (main session, 28 Oct): a part ships only with its script released at 85 or more and an A or A+ hook. If a part is not released 3 days before its slot, a bank reach card (W9-01, W9-02 or W9-03) takes the slot and the part moves back a week; for part six (Mon 30 Nov) W9-04, W9-05 or W9-07 takes it. EN 04, EN 05 and EN 06 sit at 76, 80 and 76 today.",
+  "Song: stays Mon 2 Nov only if released by Fri 30 Oct 12:00 New York; otherwise a bank reach card takes Mon 2 Nov.",
+  "DM CTAs (W2-03, W4-02, W9-06) stay: E10 closed 28 Oct, the DM bot answers in the English profile.",
+  "Waivers for November (director): two reach posts meet across weeks (Fri W1-03 then Mon W2-01, Fri W3-03 then Mon W4-01), and the first posts carry no conversion CTA; both follow from the fixed Monday series parts.",
+  "Tone: 4 of 12 posts are contrarian (W1-03, W2-01, W3-01, W4-01), above the 20% guide; the three series spines are contrarian by design (contrarian vault C5 to C7).",
+  "EN 02's on-screen '567' is a count of our own research, not a client result: not a proof number under E5 (main session)."
  ]
 }
