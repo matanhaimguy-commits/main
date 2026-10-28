@@ -11,14 +11,14 @@ subjects:
   ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
     step 2); the prop sheet is cut from the approved frame at step 7'
   state: a flat clay card lying on the clay ground
-  pose: x 6% to 94%, y 31% to 45%
+  pose: x 6% to 94%, y 31% to 41.5%
   expression: ''
   instances: 1
 - id: PR-PAGE
   ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
     step 2); the prop sheet is cut from the approved frame at step 7'
   state: a flat clay card lying on the clay ground
-  pose: x 6% to 79%, y 49% to 64%
+  pose: x 6% to 79%, y 45.5% to 55%
   expression: ''
   instances: 1
 hands: none visible
@@ -29,9 +29,15 @@ props:
     step 2); the prop sheet is cut from the approved frame at step 7'
   state: lying flat
   content: 'one flat cream #F3E9D8 clay slab with rounded corners and a thick terracotta #C8553D clay rim, one layer,
-    its two lines of deep ink letters centred on it, three small clay hearts in heart red #D64545 pressed onto its
-    lower right corner below the letters'
-  size_in_frame: 88% of the width, 14% of the height
+    its two lines of deep ink letters on it'
+  size_in_frame: 88% of the width, 10.5% of the height
+- id: PR-HEARTS
+  story_critical: true
+  ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
+    step 2); the prop sheet is cut from the approved frame at step 7'
+  state: pressed onto the post card
+  content: 'three small clay hearts in heart red #D64545 pressed onto the post card to the right of line 2, x 74%
+    to 88%, y 36.5% to 40.5%, clear of every letter'
 - id: PR-PAGE
   story_critical: true
   ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
@@ -39,56 +45,58 @@ props:
   state: lying flat
   content: 'one flat grey-blue #9AA3AD clay slab with rounded corners, one layer, its two lines of deep ink letters
     centred on it'
-  size_in_frame: 73% of the width, 15% of the height
+  size_in_frame: 73% of the width, 9.5% of the height
 - id: PR-ARROW
   story_critical: false
   ref: null
   state: lying flat between the cards
-  content: 'one short thick terracotta #C8553D clay arrow pointing down, x 40% to 48%, y 45.5% to 48.5%, touching
-    neither card'
+  content: 'one short thick terracotta #C8553D clay arrow pointing down, x 40% to 48%, y 42% to 45%, touching neither
+    card'
 text_in_image:
 - string: TIRED OF SLOW
   surface: 'the post card, line 1, deep ink #2B2A33 letters, centred'
-  position: x 12% to 88%, y 32.5% to 37.5%
+  position: x 12% to 88%, y 32% to 36%
   case: upper
   must_be_exact: true
   occlusion: nothing covers any letter
 - string: MONTHS?
   surface: 'the post card, line 2, deep ink #2B2A33 letters, centred'
-  position: x 32% to 68%, y 38.5% to 43.5%
+  position: x 32% to 68%, y 36.5% to 40.5%
   case: upper
   must_be_exact: true
   occlusion: nothing covers any letter
 - string: WELCOME TO
-  surface: 'the page card, line 1, deep ink #2B2A33 letters, centred'
-  position: x 14% to 71%, y 50.5% to 56%
+  surface: 'the page card, line 1, deep ink #2B2A33 letters, centred on the card'
+  position: x 14% to 71%, y 46.5% to 50.5%
   case: upper
   must_be_exact: true
   occlusion: nothing covers any letter
 - string: OUR WEBSITE
-  surface: 'the page card, line 2, deep ink #2B2A33 letters, centred'
-  position: x 12% to 73%, y 57% to 62.5%
+  surface: 'the page card, line 2, deep ink #2B2A33 letters, centred on the card'
+  position: x 12% to 73%, y 50.5% to 54.5%
   case: upper
   must_be_exact: true
   occlusion: nothing covers any letter
 action_physics:
-- Both cards and the arrow lie flat on the sage clay ground; nothing rests on top of them except the three hearts
-  pressed into the post card.
+- Both cards and the arrow lie flat on the sage clay ground; the three hearts are pressed into the post card's surface
+  to the right of line 2; nothing else rests on the cards.
 static: true
 setting:
   ref: null
-  details: 'a flat sage #8FA98B clay ground filling the whole frame'
+  details: 'a flat sage #8FA98B clay ground filling the whole frame; from the top edge to 30% and everywhere lower
+    than 55% only plain ground'
   background_rule: no signs, frames, posters or screens; the only writing is the quoted text
 camera:
   framing: Two cards stacked vertically, the post card centred and the page card left of 79% of the width, the arrow
-    between them
+    between them; the whole card area in sharp focus
   angle: seen from straight above, the lens looking straight down at the clay ground, square to the frame
   lens: macro, shallow depth of field
   aspect: '9:16'
-  safe_zones: 'Layout (heights measured down from the top edge of the frame): the top 30% of the frame is plain
-    and empty (the text hook is set at 14% to 30% in the edit); every key element sits between 30% and 65% of the
-    frame height and inside 6% to 94% of the width, and inside 6% to 79% of the width wherever it lies lower than
-    50% of the height; lower than 65% there is only the plain continuation of the surface.'
+  safe_zones: 'Layout (STANDARDS 6; heights measured down from the top edge of the frame): the top 30% of the frame
+    is plain and empty (the text hook is set at 14% to 30% in the edit); every key element sits between 30% and
+    55% of the frame height (captions start at 55%) and inside 6% to 94% of the width, and inside 6% to 79% of the
+    width wherever it lies lower than 50% of the height; lower than 55% there is only the plain continuation of
+    the surface, nothing else.'
 continuity:
   previous_shot: null
   carry_over: []
@@ -99,35 +107,42 @@ regions:
   - 0.06
   - 0.31
   - 0.94
-  - 0.45
+  - 0.415
 - name: post-text
   kind: text
   box:
   - 0.12
-  - 0.325
+  - 0.32
   - 0.88
-  - 0.435
+  - 0.405
+- name: hearts
+  kind: prop
+  box:
+  - 0.74
+  - 0.365
+  - 0.88
+  - 0.405
 - name: arrow
   kind: prop
   box:
   - 0.4
-  - 0.455
+  - 0.42
   - 0.48
-  - 0.485
+  - 0.45
 - name: page
   kind: prop
   box:
   - 0.06
-  - 0.49
+  - 0.455
   - 0.79
-  - 0.64
+  - 0.55
 - name: page-text
   kind: text
   box:
   - 0.12
-  - 0.505
+  - 0.465
   - 0.73
-  - 0.625
+  - 0.545
 style: 'Premium studio claymation scene - everything sculpted from matte plasticine with refined intentional craftsmanship:
   subtle tool marks, controlled texture, soft rounded geometry, slight subsurface warmth, macro lens feel with shallow
   depth of field, soft diffused studio lighting with a gentle rim glow, the scene filling the entire frame with

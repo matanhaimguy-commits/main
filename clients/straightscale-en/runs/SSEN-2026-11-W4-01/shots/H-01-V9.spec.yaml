@@ -22,7 +22,7 @@ props:
     step 2); the prop sheet is cut from the approved frame at step 7'
   state: lit, the booking page
   content: 'cream band with BOOK A CALL in deep ink; on the sage field a calendar of 3 rows by 4 columns of big
-    plain cream clay squares with sage gaps, x 8% to 78%, y 42% to 64%, every square empty: no digits, no names,
+    plain cream clay squares with sage gaps, x 8% to 78%, y 39% to 54%, every square empty: no digits, no names,
     no marks'
   size_in_frame: the full width, from 30% of the height to the bottom edge
 - id: PR-GLASS
@@ -30,36 +30,37 @@ props:
   ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
     step 2); the prop sheet is cut from the approved frame at step 7'
   state: lying flat on the screen
-  content: 'one magnifying glass: a round lens 30% of the frame width across (x 28% to 58%, y 45% to 62%), sculpted
-    as a professional matte clay imitation of clear glass, in a thick terracotta #C8553D clay rim; through the lens
-    the empty cream squares under it show larger; one terracotta #C8553D clay handle about 18% of the frame width
-    long runs from the lower-left of the rim down and to the viewer''s left at about 45 degrees and ends on the
-    sage field at about x 14%, y 64%, with a soft contact shadow under its whole length'
+  content: 'one magnifying glass: a round lens 24% of the frame width across (x 38% to 62%, y 40% to 53.5%) in a
+    thick terracotta #C8553D clay rim; the lens interior is flat matte clay with no transparency and no shine, showing
+    the empty cream squares under it drawn larger; one straight terracotta #C8553D clay handle runs horizontally
+    from the left point of the rim (x 38%, y 46.75%) to the viewer''s left and ends at x 18%, y 46.75%, lying flat
+    across the calendar with a soft contact shadow under it'
 text_in_image:
 - string: BOOK A CALL
   surface: 'the cream band at the top of the screen, deep ink #2B2A33 letters, centred'
-  position: x 14% to 86%, y 32% to 39%
+  position: x 14% to 86%, y 31.5% to 36%
   case: upper
   must_be_exact: true
   occlusion: nothing covers any letter
 action_physics:
 - The screen faces the camera square on; the magnifying glass lies flat against the screen surface over the calendar,
-  its rim and its handle touching the screen; nothing touches the band or the letters.
+  its rim and its horizontal handle touching the calendar squares; nothing touches the band or the letters.
 static: true
 setting:
   ref: null
   details: the clay phone screen fills the frame from 30% of the height down; from the top edge to 30% only plain
-    cream clay
+    cream clay; lower than 55% only the plain sage screen field
   background_rule: no signs, frames, posters or other screens; the only writing is the quoted text
 camera:
   framing: 'One subject: the booking page, edge to edge, the lens on the calendar'
   angle: straight on, square to the screen, camera inside the miniature clay world
   lens: macro, shallow depth of field
   aspect: '9:16'
-  safe_zones: 'Layout (heights measured down from the top edge of the frame): the top 30% of the frame is plain
-    and empty (the text hook is set at 14% to 30% in the edit); every key element sits between 30% and 65% of the
-    frame height and inside 6% to 94% of the width, and inside 6% to 79% of the width wherever it lies lower than
-    50% of the height; lower than 65% there is only the plain continuation of the surface.'
+  safe_zones: 'Layout (STANDARDS 6; heights measured down from the top edge of the frame): the top 30% of the frame
+    is plain and empty (the text hook is set at 14% to 30% in the edit); every key element sits between 30% and
+    55% of the frame height (captions start at 55%) and inside 6% to 94% of the width, and inside 6% to 79% of the
+    width wherever it lies lower than 50% of the height; lower than 55% there is only the plain continuation of
+    the surface, nothing else.'
 continuity:
   previous_shot: null
   carry_over: []
@@ -68,30 +69,30 @@ regions:
   kind: text
   box:
   - 0.14
-  - 0.32
+  - 0.315
   - 0.86
-  - 0.39
+  - 0.36
 - name: calendar
   kind: prop
   box:
   - 0.08
-  - 0.42
+  - 0.39
   - 0.78
-  - 0.64
+  - 0.54
 - name: lens
   kind: prop
   box:
-  - 0.28
-  - 0.45
-  - 0.58
+  - 0.38
+  - 0.4
   - 0.62
+  - 0.535
 - name: handle
   kind: prop
   box:
-  - 0.12
-  - 0.58
-  - 0.32
-  - 0.65
+  - 0.18
+  - 0.455
+  - 0.38
+  - 0.48
 style: 'Premium studio claymation scene - everything sculpted from matte plasticine with refined intentional craftsmanship:
   subtle tool marks, controlled texture, soft rounded geometry, slight subsurface warmth, macro lens feel with shallow
   depth of field, soft diffused studio lighting with a gentle rim glow, the scene filling the entire frame with

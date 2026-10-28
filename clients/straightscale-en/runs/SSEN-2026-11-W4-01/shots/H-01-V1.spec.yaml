@@ -22,21 +22,21 @@ props:
     step 2); the prop sheet is cut from the approved frame at step 7'
   state: lit, the booking page
   content: 'cream band with BOOK A CALL in deep ink; on the sage field a calendar of 2 rows by 4 columns of big
-    plain cream clay squares with sage gaps, x 8% to 78%, y 42% to 56%, every square empty: no digits, no names,
+    plain cream clay squares with sage gaps, x 8% to 78%, y 39% to 48%, every square empty: no digits, no names,
     no marks'
   size_in_frame: the full width, from 30% of the height to the bottom edge
 - id: PR-HEARTS
   story_critical: true
   ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
     step 2); the prop sheet is cut from the approved frame at step 7'
-  state: a small low pile lying on the screen
-  content: 'a small low pile of plump thumb-pressed clay hearts in heart red #D64545, each about 7% of the frame
-    width, on the plain sage field under the calendar, x 8% to 60%, y 58% to 64%, touching only the screen and each
-    other, not touching the calendar'
+  state: a low pile lying on the screen
+  content: 'a low pile, one to two hearts high, of plump thumb-pressed clay hearts in heart red #D64545, each about
+    6% of the frame width, on the plain sage field under the calendar, x 8% to 60%, y 50% to 55%, touching only
+    the screen and each other, not touching the calendar'
 text_in_image:
 - string: BOOK A CALL
   surface: 'the cream band at the top of the screen, deep ink #2B2A33 letters, centred'
-  position: x 14% to 86%, y 32% to 39%
+  position: x 14% to 86%, y 31.5% to 36%
   case: upper
   must_be_exact: true
   occlusion: nothing covers any letter
@@ -48,17 +48,18 @@ static: true
 setting:
   ref: null
   details: the clay phone screen fills the frame from 30% of the height down; from the top edge to 30% only plain
-    cream clay
+    cream clay; lower than 55% only the plain sage screen field
   background_rule: no signs, frames, posters or other screens; the only writing is the quoted text
 camera:
   framing: 'One subject: the booking page, edge to edge, big'
   angle: straight on, square to the screen, camera inside the miniature clay world
   lens: macro, shallow depth of field
   aspect: '9:16'
-  safe_zones: 'Layout (heights measured down from the top edge of the frame): the top 30% of the frame is plain
-    and empty (the text hook is set at 14% to 30% in the edit); every key element sits between 30% and 65% of the
-    frame height and inside 6% to 94% of the width, and inside 6% to 79% of the width wherever it lies lower than
-    50% of the height; lower than 65% there is only the plain continuation of the surface.'
+  safe_zones: 'Layout (STANDARDS 6; heights measured down from the top edge of the frame): the top 30% of the frame
+    is plain and empty (the text hook is set at 14% to 30% in the edit); every key element sits between 30% and
+    55% of the frame height (captions start at 55%) and inside 6% to 94% of the width, and inside 6% to 79% of the
+    width wherever it lies lower than 50% of the height; lower than 55% there is only the plain continuation of
+    the surface, nothing else.'
 continuity:
   previous_shot: null
   carry_over: []
@@ -67,23 +68,23 @@ regions:
   kind: text
   box:
   - 0.14
-  - 0.32
+  - 0.315
   - 0.86
-  - 0.39
+  - 0.36
 - name: calendar
   kind: prop
   box:
   - 0.08
-  - 0.42
+  - 0.39
   - 0.78
-  - 0.56
+  - 0.48
 - name: hearts
   kind: prop
   box:
   - 0.08
-  - 0.58
+  - 0.5
   - 0.6
-  - 0.64
+  - 0.55
 style: 'Premium studio claymation scene - everything sculpted from matte plasticine with refined intentional craftsmanship:
   subtle tool marks, controlled texture, soft rounded geometry, slight subsurface warmth, macro lens feel with shallow
   depth of field, soft diffused studio lighting with a gentle rim glow, the scene filling the entire frame with
