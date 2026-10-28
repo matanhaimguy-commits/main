@@ -11,11 +11,11 @@ subjects:
 - id: CH-FRIEND
   ref: 'CH-FRIEND@v1 (middle panel only: three-quarter standing view, both hands in her jacket pockets; the seated panel is
     not used)'
-  state: 'on the laptop screen, three-quarter bust from the waist up: teal-grey canvas jacket with two patch pockets over
+  state: 'on the laptop screen, three-quarter bust from the chest up: teal-grey canvas jacket with two patch pockets over
     a cream top, black curly puff, tortoiseshell wire glasses; her head (face 33 to 44% from the top) sits just below the
     organizer and does not overlap it'
   pose: standing in three-quarter view, body turned about 30 degrees to image-left, head turned toward her call camera, both
-    hands in her jacket pockets at the bottom edge of the screen, only the wrists and pocket edges show
+    hands in her jacket pockets below the bottom edge of the screen, out of view
   expression: warm kind smile
   instances: 1
   eyeline: at the call camera
@@ -90,7 +90,9 @@ camera:
   movement: 'edit: slow 100 to 106% push-in'
   aspect: '9:16'
   safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half,
-    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.
+    Accepted: the laptop''s lower-right corner (x 0.79 to 0.92, y 0.50 to 0.56) sits in the right 21% of the lower half; it
+    is plain bezel and keyboard, with no text and no story content.'
 timing:
   start_s: 17.11
   end_s: 19.56

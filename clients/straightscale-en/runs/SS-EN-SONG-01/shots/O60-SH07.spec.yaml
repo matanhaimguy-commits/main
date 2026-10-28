@@ -24,7 +24,8 @@ props:
     big stitched label: EMAIL mustard and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes
     with ivory letters, COACH lime leopard spots with black letters, ADS hot-pink polka dots on blue with white letters; loose
     thread ends'
-  size_in_frame: floor scraps 15% of frame width each, 45 to 55% from the top; ADS hanging 34 to 42%
+  size_in_frame: floor scraps 15% of frame width each, 45 to 55% from the top, at x 0.12 to 0.27 (EMAIL), 0.375 to 0.525 (LINKEDIN)
+    and 0.63 to 0.78 (COACH); ADS hanging 34 to 42%
   held_by: null
 - id: PR-ORGANIZER
   story_critical: true
@@ -105,14 +106,14 @@ regions:
   box:
   - 0.12
   - 0.45
-  - 0.88
+  - 0.78
   - 0.55
 - name: scraps_labels
   kind: text
   box:
   - 0.12
   - 0.45
-  - 0.88
+  - 0.78
   - 0.55
 - name: april_row
   kind: prop

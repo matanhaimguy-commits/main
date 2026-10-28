@@ -9,8 +9,8 @@ must_read_in_1s: Maya holds two unjoined patches below an empty April row.
 subjects:
 - id: CH-MAYA
   ref: CH-MAYA@v1
-  state: standing, front three-quarter, olive cardigan, framed from mid-thigh up
-  pose: holding the two scraps apart at chest height, just below her chin; her legs leave the frame at the bottom edge
+  state: standing, front three-quarter, olive cardigan, full length, her feet at about 67% from the top
+  pose: holding the two scraps apart at chest height, just below her chin
   expression: tired, flat mouth
   instances: 1
   eyeline: at the scraps
@@ -85,18 +85,20 @@ text_in_image:
   occlusion: hands clear
 action_physics:
 - The dolly-out comes to rest; Maya's hands keep the two scraps still, 3 cm apart.
-- Maya stands with both feet flat on the clay floor, below the frame, weight on both feet.
+- Maya stands with both feet flat on the clay floor at about 67% from the top, weight on both feet; below her, plain floor
+  to the bottom edge.
 static: false
 setting:
   ref: 'REF-PAPER@v1 (plain-paper crop of CH-MAYA@v1: paper colour, texture and light only)'
-  details: 'Plain ivory paper office: wide, floor with two scraps in front of her. World: warm ivory paper (about #f6e8d2),
-    soft warm light from one side, matte clay with visible fingerprints, felt, knit and linen as real fabric, the four fix
-    scraps the only loud colours, no marble, no other props. Set (no set sheet; SET-OFFICE retired; paper reference REF-PAPER@v1,
-    a plain-paper crop of CH-MAYA@v1): a plain warm-ivory paper wall and floor meeting in a soft curve, soft contact shadows.
-    No office furniture or objects appear in this shot.'
+  details: 'Plain ivory paper office: wide, Maya standing full length in front of the wall below the organizer. World: warm
+    ivory paper (about #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt, knit and linen
+    as real fabric, the four fix scraps the only loud colours, no marble, no other props. Set (no set sheet; SET-OFFICE retired;
+    paper reference REF-PAPER@v1, a plain-paper crop of CH-MAYA@v1): a plain warm-ivory paper wall and floor meeting in a
+    soft curve, soft contact shadows. No office furniture or objects appear in this shot.'
   background_rule: plain wall, nothing else
 camera:
-  framing: 'wide: organizer top, Maya from mid-thigh up in the middle, her held scraps at chest height'
+  framing: 'wide: organizer top (14.5 to 31.5%), Maya full length below it (head 32 to 39%, held scraps at chest height 46
+    to 53%, feet at about 67%), plain floor below'
   angle: eye level
   movement: the clip's dolly-out ends here
   aspect: '9:16'

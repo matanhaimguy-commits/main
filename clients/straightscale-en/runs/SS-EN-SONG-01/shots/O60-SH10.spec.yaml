@@ -59,11 +59,11 @@ action_physics:
 static: false
 setting:
   ref: 'REF-PAPER@v1 (plain-paper crop of CH-MAYA@v1: paper colour, texture and light only)'
-  details: 'Plain ivory paper office: the APRIL row soft behind the scraps. World: warm ivory paper (about #f6e8d2), soft
-    warm light from one side, matte clay with visible fingerprints, felt, knit and linen as real fabric, the four fix scraps
-    the only loud colours, no marble, no other props. Set (no set sheet; SET-OFFICE retired; paper reference REF-PAPER@v1,
-    a plain-paper crop of CH-MAYA@v1): a plain warm-ivory paper wall and floor meeting in a soft curve, soft contact shadows.
-    No office furniture or objects appear in this shot.'
+  details: 'Plain ivory paper office: Maya''s cardigan front behind the scraps; the organizer is above the frame. World: warm
+    ivory paper (about #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt, knit and linen
+    as real fabric, the four fix scraps the only loud colours, no marble, no other props. Set (no set sheet; SET-OFFICE retired;
+    paper reference REF-PAPER@v1, a plain-paper crop of CH-MAYA@v1): a plain warm-ivory paper wall and floor meeting in a
+    soft curve, soft contact shadows. No office furniture or objects appear in this shot.'
   background_rule: behind the scraps only Maya's olive cardigan front and cream top; the organizer is above the frame (it
     enters at the top as the camera pulls back); no readable text other than EMAIL and ADS
 camera:
@@ -73,7 +73,10 @@ camera:
     wide frame of SH11
   aspect: '9:16'
   safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half,
-    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.
+    Accepted: the frame is locked to SH11 scaled 3x, so the lower-right corner of the ADS scrap and the image-right hand reach
+    x 0.79 to 0.94 at y 0.50 to 0.53 (right 21% of the lower half); that corner is plain polka-dot cloth, and the ADS label
+    sits above it at 38 to 47% from the top.'
 timing:
   start_s: 21.34
   end_s: 23.86
