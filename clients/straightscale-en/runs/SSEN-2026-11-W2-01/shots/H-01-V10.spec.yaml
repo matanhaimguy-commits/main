@@ -1,0 +1,91 @@
+shot_id: H-01-V10
+post_id: SSEN-2026-11-W2-01
+format: realistic_photo
+script_lines:
+- L1
+line_text: "You sounded like everyone else, so price was all they saw."
+story_purpose: 'Concept frame for hook stack EN04-V10 (frame 1 of the hook shot): the moment the owner reads that the
+  client went with someone cheaper.'
+must_read_in_1s: A phone held in a hand shows one huge message saying they can get it done cheaper from someone else.
+subjects:
+- id: PR-PHONE
+  ref: null
+  state: a plain black smartphone held upright in the left hand, screen lit, facing the camera
+  pose: centred (x 18% to 82%), lower two thirds of the frame (y 34% to 96%), close to the camera
+  expression: ''
+  instances: 1
+  eyeline: ''
+hands:
+- who: the owner (POV, no face), mustard-yellow knit sleeves
+  left: holds the phone from below, four fingers around the lower back edge, thumb on the left side
+  right: not in frame
+  contact: only the left hand touches the phone
+  must_not_cover: any letter of the message bubble
+  count_check: one hand, five fingers, no extra hand or finger
+props:
+- id: PR-PHONE
+  story_critical: false
+  ref: null
+  state: lit, one incoming message
+  content: a modern black smartphone, thin bezels, rounded corners, no logo on the case or the glass
+  size_in_frame: its box is 70% of the frame width and 64% of the frame height
+- id: PR-PHONE-SCREEN
+  story_critical: false
+  ref: null
+  state: lit, one incoming message, no reply yet
+  content: 'a plain chat view on a white background with exactly one large light-grey incoming bubble near the top
+    of the screen, left-aligned, holding the text in the text_in_image block in dark charcoal; below it empty white
+    space; no names, no avatars, no status bar, no time, no app logo'
+text_in_image:
+- string: "We can get it done cheaper from someone else."
+  surface: inside the one grey bubble on the phone screen, dark charcoal, plain sans, set large so it reads at phone
+    size (each line about 60 px tall at 1152 px wide), 3 or 4 lines
+  position: the only text on the phone screen
+  case: as_written
+  must_be_exact: true
+  occlusion: the thumb never covers any letter
+action_physics:
+- The left hand holds the phone from below, fingers around its lower edge; the phone is still.
+static: false
+setting:
+  ref: null
+  details: 'A home office in the evening, seen over the hands: a warm wooden desk below the phone, soft out of focus,
+    a warm desk lamp off frame to the left, the wall behind dark warm grey and out of focus.'
+  background_rule: No other screens, no posters, no readable words anywhere except the message bubble; the desk is
+    bare apart from a blurred mug at the right edge.
+  background_action: none
+camera:
+  framing: the phone large in the lower two thirds; the top 32% of the frame a calm, dark, out of focus wall with
+    nothing in it (the text hook is laid there in the edit)
+  angle: first-person, looking down at the phone at about 30 degrees
+  lens: 35mm photo, shallow depth of field, phone screen sharp
+  aspect: '9:16'
+  safe_zones: top 32% calm and empty for the text hook; right 13% holds nothing important; bottom 10% holds only hand
+    and desk
+continuity:
+  previous_shot: null
+  carry_over: []
+regions:
+- name: text-hook-zone
+  kind: other
+  box: [0.0, 0.0, 1.0, 0.32]
+- name: phone
+  kind: prop
+  box: [0.18, 0.34, 0.82, 0.96]
+- name: bubble
+  kind: text
+  box: [0.24, 0.40, 0.76, 0.62]
+- name: hand
+  kind: hand
+  box: [0.18, 0.80, 0.70, 1.0]
+style: 'EN 04 look: photoreal POV dramatization, hands only, never a face; warm evening home office, tungsten desk
+  lamp, soft shadows, natural skin; the owner always wears a mustard-yellow knit sweater; muted warm palette (walnut,
+  warm grey, mustard), the phone screen the brightest thing in the frame.'
+must_not:
+- no face, no reflection of a face in the screen
+- no logo, brand or app name anywhere
+- no words other than the message
+- no numbers, no time, no status bar
+- nothing in the top 32% except a calm out of focus wall
+hero: true
+notes: 'Concept frame for Hook Lab v4 (stack EN04-V10); the props are marked not story-critical only because no prop sheet exists before the look bible (step 7); the phone becomes a sheet prop then. The text hook is laid on top in the edit, not drawn by the model.'

@@ -1,0 +1,244 @@
+{
+  "post_id": "SSEN-2026-11-W2-01",
+  "slug": "straightscale-en",
+  "format": "reel_story_narrated",
+  "family": "ai_video",
+  "card": "clients/straightscale-en/cards/2026-11-W2/SSEN-2026-11-W2-01.yaml",
+  "created": "2026-10-28T17:08:23+00:00",
+  "steps": {
+    "0": {
+      "status": "todo",
+      "note": ""
+    },
+    "1": {
+      "status": "todo",
+      "note": ""
+    },
+    "2": {
+      "status": "todo",
+      "note": ""
+    },
+    "3": {
+      "status": "todo",
+      "note": ""
+    },
+    "4": {
+      "status": "todo",
+      "note": ""
+    },
+    "5": {
+      "status": "todo",
+      "note": ""
+    },
+    "6": {
+      "status": "todo",
+      "note": ""
+    },
+    "7": {
+      "status": "todo",
+      "note": ""
+    },
+    "8": {
+      "status": "todo",
+      "note": ""
+    },
+    "9": {
+      "status": "todo",
+      "note": ""
+    },
+    "10": {
+      "status": "todo",
+      "note": ""
+    },
+    "11": {
+      "status": "todo",
+      "note": ""
+    },
+    "12": {
+      "status": "todo",
+      "note": ""
+    },
+    "13": {
+      "status": "todo",
+      "note": ""
+    },
+    "14": {
+      "status": "todo",
+      "note": ""
+    },
+    "15": {
+      "status": "todo",
+      "note": ""
+    }
+  },
+  "run_gates": {
+    "G-BUDGET": [
+      {
+        "at": "2026-10-28T17:11:29+00:00",
+        "status": "PASS",
+        "by": "pipeline.py budget",
+        "data": {
+          "unit": "usd",
+          "planned": 0.4,
+          "with_buffer": 0.5,
+          "balance": 6.904494,
+          "month_spent": 0,
+          "cap": 100,
+          "el_planned": 0
+        },
+        "note": ""
+      }
+    ]
+  },
+  "specs": {
+    "H-01-V1": {
+      "sha256": "64f290b1af675a3170f3130fb4ada7cbd3ffa15e170837a9e441a2e94d14f723",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T17:10:04+00:00",
+      "lint_issues": [
+        {
+          "level": "warn",
+          "code": "P6",
+          "msg": "text 'We can get it done cheaper from someone else.' is over 6 words on one surface: split or simplify"
+        }
+      ]
+    },
+    "H-01-V10": {
+      "sha256": "8c55e492eea59da681f46cf7dfb9ab74dc4778f558d14bfa6642aacf09f47ed5",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T17:10:04+00:00",
+      "lint_issues": [
+        {
+          "level": "warn",
+          "code": "P6",
+          "msg": "text 'We can get it done cheaper from someone else.' is over 6 words on one surface: split or simplify"
+        }
+      ]
+    },
+    "H-01-V3": {
+      "sha256": "4b04816f193099f29642b9e69ec82e62c4f894304f7ac6d24985c3dc2e8ef028",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T17:10:04+00:00",
+      "lint_issues": []
+    },
+    "H-01-V7": {
+      "sha256": "afff89a834a57269603137da30ec06aa0e4f818db13cd17f11a3df9d9e3d286b",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T17:10:04+00:00",
+      "lint_issues": [
+        {
+          "level": "warn",
+          "code": "P6",
+          "msg": "text 'We can get it done cheaper from someone else.' is over 6 words on one surface: split or simplify"
+        }
+      ]
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "CF-V1",
+      "version": 1,
+      "type": "still",
+      "shots": [
+        "H-01-V1"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": true,
+      "created": "2026-10-28T17:10:50+00:00",
+      "prompt_sha256": "8963d081360e86df0f3eb23771e7fcded401b8f86390b75d668cf87fe47fde65",
+      "prompt_file": "prompts/CF-V1.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T17:10:50+00:00",
+          "sha256": "8963d081360e86df0f3eb23771e7fcded401b8f86390b75d668cf87fe47fde65",
+          "file": "prompts/CF-V1.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [],
+      "files": [],
+      "gates": {}
+    },
+    {
+      "asset_id": "CF-V10",
+      "version": 1,
+      "type": "still",
+      "shots": [
+        "H-01-V10"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": true,
+      "created": "2026-10-28T17:10:51+00:00",
+      "prompt_sha256": "aef07c524bf1fd5499caa6784d660d0a9eb08988fd1288b4e803d92106ea5c92",
+      "prompt_file": "prompts/CF-V10.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T17:10:51+00:00",
+          "sha256": "aef07c524bf1fd5499caa6784d660d0a9eb08988fd1288b4e803d92106ea5c92",
+          "file": "prompts/CF-V10.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [],
+      "files": [],
+      "gates": {}
+    },
+    {
+      "asset_id": "CF-V7",
+      "version": 1,
+      "type": "still",
+      "shots": [
+        "H-01-V7"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": true,
+      "created": "2026-10-28T17:10:51+00:00",
+      "prompt_sha256": "099e96f60821546eb980d25bd7049c13f6b6c85a1e5771d2de1b0b9fcd0053f2",
+      "prompt_file": "prompts/CF-V7.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T17:10:51+00:00",
+          "sha256": "099e96f60821546eb980d25bd7049c13f6b6c85a1e5771d2de1b0b9fcd0053f2",
+          "file": "prompts/CF-V7.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [],
+      "files": [],
+      "gates": {}
+    },
+    {
+      "asset_id": "CF-V3",
+      "version": 1,
+      "type": "still",
+      "shots": [
+        "H-01-V3"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": true,
+      "created": "2026-10-28T17:10:52+00:00",
+      "prompt_sha256": "cbc933e9ecb5dcab2fe9de25876ac7e7c72ced852368f0d9e5c659aba870a747",
+      "prompt_file": "prompts/CF-V3.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T17:10:52+00:00",
+          "sha256": "cbc933e9ecb5dcab2fe9de25876ac7e7c72ced852368f0d9e5c659aba870a747",
+          "file": "prompts/CF-V3.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [],
+      "files": [],
+      "gates": {}
+    }
+  ],
+  "queue": []
+}
