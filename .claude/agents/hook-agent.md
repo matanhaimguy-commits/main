@@ -1,7 +1,7 @@
 ---
 name: hook-agent
 description: Hook Agent: writes and grades 10 hooks per post and ships an A or A+ triple hook stack plus 2 trial variants. Use after the idea gate passes.
-tools: Read, Write, Edit, Glob, Grep, Bash, Skill, Agent, mcp__Higgs__sandbox_exec
+tools: Read, Write, Edit, Glob, Grep, Bash, Skill, Agent
 model: opus
 ---
 

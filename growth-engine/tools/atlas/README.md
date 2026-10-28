@@ -137,18 +137,16 @@ Any parameter that carries text and is not listed in the entry blocks the call (
 `quality`, a voice id and the like with their allowed values. A family banned in STANDARDS.md 1 (Seedance, Veo, Sora
 and the rest) stays banned on Atlas unless the owner names that exact model.
 
-## Optional hardening (a suggestion; not installed)
+## The Bash guard (installed 28 Oct 2026)
 
-The wrapper guards the `atlas` command, not other routes. The owner can add a PreToolUse hook on Bash to
-`.claude/settings.json` that denies commands mentioning the real binary path, `api.atlascloud.ai`,
-`ATLASCLOUD_API_KEY`, the stored login (`.config/atlas-cli`), the Atlas skills' scripts (`atlas-cloud-skills/skills/`,
-`atlas-rest`) or another Atlas install, and denies any call it can't read:
+The wrapper guards the `atlas` command; `.claude/hooks/atlas_bash_guard.py` (a PreToolUse hook on Bash in
+`.claude/settings.json`, `onFailure: block`) guards the other routes. Rules: `.claude/hooks/guards/atlas_bash.py`,
+tests: `.claude/hooks/guards/test_atlas_bash.py`. It denies a command that mentions the real binary or the stored login
+(`atlas-cli`), the API host or the key (`atlascloud`, `cloud.ai`), the test-stub switch `ATLAS_REAL_BIN`, the Atlas
+skills' scripts (`atlas-cloud-skills`, `atlas-rest`) or `atlas-mcp`; the same match runs with quotes and `+` joins
+taken out, and on the script files the command runs (after an interpreter or `<`, or an executable file), except the
+gate's own code in `growth-engine/tools/` and `.claude/hooks/` and the wrapper `/usr/local/bin/atlas`. Input it can't
+read is denied. `atlas ...` and `/usr/local/bin/atlas ...` pass: the wrapper gates the billable commands itself.
 
-```json
-{ "matcher": "Bash",
-  "hooks": [{ "type": "command", "timeout": 10, "onFailure": "block",
-              "command": "python3 \"$CLAUDE_PROJECT_DIR/growth-engine/tools/atlas/atlas_gate.py\" --bash-hook" }] }
-```
-
-It is a plain text match: it also blocks harmless commands that mention those strings (a `grep` for the host), and a
-script file that hides them gets through.
+It is a text match: it also blocks harmless commands that mention those strings (search with the Grep tool instead),
+and a script that builds the host from pieces at run time still gets through.

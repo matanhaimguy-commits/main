@@ -85,17 +85,18 @@ For the exact prompt text (whitespace aside) it finds the registered asset versi
   need the owner). Silent keyframe clips are one shot each (start image, optional end image), so they need no
   storyboard; a chain of silent shots is several one-shot clips (STANDARDS 2). Every audio reference has its own
   G-AUDIO PASS;
-- the model rules (STANDARDS 1 and 2, standards.json): model and settings per asset type (H3 at 2K, 9:16,
-  `declined_preset_id`, 5 to 15 s; the image settings and the reference rule of STANDARDS 1); Kling only with
-  G-FALLBACK; other video models only with an owner G-EXCEPTION; voices, music and songs only on ElevenLabs;
+- the model rules (STANDARDS 1 and 2, standards.json): Atlas only, on the owner's named models with their settings
+  (H3 at 768P, 4 to 15 s; `openai/gpt-image-2` at medium; voices on `elevenlabs/v3/text-to-speech`; songs on
+  `suno/chirp-v6`) and the reference rule of STANDARDS 1. Higgsfield and the ElevenLabs connector are off
+  (`disabled_services`): every one of their generating or credit-spending tools is refused;
 - audio only after the script is released (G-SCRIPT 85+);
 - a G-BUDGET PASS from the last 24 hours; a video call also needs step 9 closed (STANDARDS 10);
 - a song run: no image or video call before the owner's G-HUMAN-SONG;
 - a version is generated once (a retake is a new version, so attempts are counted). After 3 attempts the asset goes
   to the owner (G-HUMAN-ESCALATE); a prompt that fails 2 review loops goes to the Organic Director first (STANDARDS 9).
 Cost preflights (`get_cost`, `estimate_only`) always pass. `GATE-SELFTEST` as a prompt is always blocked (proves the
-gate is live). Other credit-spending generators (presets, Marketing Studio, influencer builder) need an owner-approved
-test asset.
+gate is live). The Higgsfield credit-spending tools (presets, Marketing Studio, influencer builder, upscale, 3D,
+sandbox and the rest) are refused with the service, whatever the test asset.
 
 ## Who decides what
 

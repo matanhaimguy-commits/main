@@ -15,7 +15,7 @@ Fails closed: a call it can't read, an unknown command, or a gate that errors is
 does not run. README.md (same folder) has the details.
 
   atlas_gate.py <atlas args...>     what /usr/local/bin/atlas runs
-  atlas_gate.py --bash-hook         optional PreToolUse hook on Bash (README.md): blocks commands that skip the wrapper
+Commands that skip the wrapper are denied by the PreToolUse hook on Bash, .claude/hooks/atlas_bash_guard.py.
 """
 from __future__ import annotations
 
@@ -50,9 +50,6 @@ NUM = re.compile(r"-\d+(\.\d+)?$")
 REF = re.compile(r"\s*(?:[a-z][a-z0-9+.-]*://|//|@|prediction:|data:)", re.I)   # anything that may be a reference
 URL_REF = re.compile(r"(?:https?://|prediction:|data:)", re.I)                     # the references the gate can check
 CHAT_DEFAULT_MODEL = "deepseek-ai/deepseek-v3.2"
-BASH_DENY = ("/usr/local/lib/atlas-cli", "api.atlascloud.ai", "ATLASCLOUD_API_KEY", "atlascloud-cli",
-             "AtlasCloudAI/cli/main/install", "AtlasCloudAI/tap", "atlas-mcp", "atlas-cloud-skills/skills/",
-             "atlas-rest", ".config/atlas-cli")
 # the CLI reads these (found in 0.1.38's strings): endpoints, extra headers, release and telemetry hosts. A stored key
 # must only ever go to api.atlascloud.ai, so the wrapper drops them before the real CLI runs.
 ENV_DROP = ("ATLAS_API_BASE", "ATLAS_AUTH_BASE", "ATLAS_API_EXTRA_HEADER_NAME", "ATLAS_API_EXTRA_HEADER_VALUE",
@@ -398,30 +395,5 @@ def main(argv: list[str]) -> int:
     return run_real((call.argv if call is not None else None) or argv)
 
 
-def _deny(msg: str) -> None:
-    print(json.dumps({"hookSpecificOutput": {"hookEventName": "PreToolUse", "permissionDecision": "deny",
-                                             "permissionDecisionReason": msg}}))
-
-
-def bash_hook() -> int:
-    """PreToolUse hook on Bash: a command that calls the real binary, the raw API, the key, the stored login, the
-    reference skills' scripts or another install. Input it can't read is denied."""
-    try:
-        cmd = json.loads(sys.stdin.read())["tool_input"]["command"]
-        if not isinstance(cmd, str):
-            raise TypeError("command is not text")
-    except (ValueError, KeyError, TypeError) as e:
-        _deny(f"the Atlas Bash hook could not read this call ({type(e).__name__}); it fails closed")
-        return 0
-    hit = [p for p in BASH_DENY if p in cmd]
-    if hit:
-        _deny(f"Atlas outside the gate: the command mentions {', '.join(hit)}. Use the `atlas` wrapper "
-              "(growth-engine/tools/atlas/README.md); never call the real binary, the API, the key, the stored login or "
-              "the reference skills' scripts (read those with the Read tool only).")
-    return 0
-
-
 if __name__ == "__main__":
-    if sys.argv[1:] == ["--bash-hook"]:
-        sys.exit(bash_hook())
     sys.exit(main(sys.argv[1:]))

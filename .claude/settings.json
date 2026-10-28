@@ -21,7 +21,7 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "mcp__.+__(generate_image|generate_image_batch|generate_video|generate_video_batch|generate_audio|generate_audio_batch|execute_preset|outpaint_image|motion_control|ads_studio_generate|shorts_studio_create|ai_influencer_generate)|mcp__.+__creative_(generate_speech|generate_image|edit_image|generate_video|generate_in_flow|run_flow_nodes)",
+        "matcher": "mcp__.+__(generate_image|generate_image_batch|generate_video|generate_video_batch|generate_audio|generate_audio_batch|execute_preset|outpaint_image|motion_control|ads_studio_generate|shorts_studio_create|ai_influencer_generate|generate_3d|upscale_image|upscale_video|remove_background|reframe|relight_image|create_voice|create_voice_from_confirmed_audio|voice_change|dubbing|apps_invoke|sandbox_exec|scene_builder_3d_generate_video|scene_builder_3d_generate_angles|scene_builder_3d_run_python|video_analysis_create|virality_predictor|build_ai_influencer|animation_actions|create_website|deploy_website)|mcp__.+__creative_(generate_speech|generate_image|edit_image|generate_video|generate_in_flow|run_flow_nodes|design_voice)",
         "hooks": [
           {
             "type": "command",
@@ -29,6 +29,18 @@
             "timeout": 30,
             "onFailure": "block",
             "statusMessage": "Checking the production gates"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/atlas_bash_guard.py\"",
+            "timeout": 10,
+            "onFailure": "block",
+            "statusMessage": "Checking for Atlas calls outside the gate"
           }
         ]
       },
