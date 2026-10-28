@@ -4,6 +4,9 @@ Tests: growth-engine/tools/test_budget_usd.py."""
 from __future__ import annotations
 
 
+SOURCE = "budget_usd"   # the marker gate_auth.budget_ok looks for: these numbers came from run(), not a hand
+
+
 def check(cap: float | None, month_spent: float, planned: float, balance: float, buffer: float) -> dict:
     """planned and balance in USD. Returns {status, notes, data}; data goes on the G-BUDGET record."""
     need = round(planned * (1 + buffer), 2)
@@ -29,9 +32,23 @@ def run(P, slug: str, post_id: str, planned: float, balance: float, el: float = 
     brain = organic_files.load_brain(slug)
     spent = organic_router.month_spend(organic_router.ledger_rows(slug), P.now().strftime("%Y-%m"))
     r = check(organic_router.usd_cap(brain), spent["usd"], planned, balance, P.STANDARDS["gate_policy"]["retake_buffer"])
-    data = {**r["data"], "el_planned": el}
+    data = {**r["data"], "el_planned": el, "source": SOURCE}
     led = P.load_ledger(slug, post_id)
     P.add_record(led["run_gates"], "G-BUDGET", {"status": r["status"], "by": "pipeline.py budget", "data": data,
                                                 "note": "; ".join(r["notes"])})
     P.save_ledger(led)
     return {"status": r["status"], "notes": r["notes"], **data}
+
+
+def after_steps(P, led: dict, n: int) -> tuple[bool, str]:
+    """Step n re-prices the whole video: its G-BUDGET PASS must be newer than every earlier step's close (D-a)."""
+    import gate_auth
+    b = P.latest(led["run_gates"].get("G-BUDGET"))
+    if not gate_auth.budget_ok(b, P.OK_STATES):
+        return False, "G-BUDGET has no PASS with its numbers (pipeline.py budget)"
+    closed = [P.parse_ts(st["at"]) for k, st in led["steps"].items()
+              if int(k) < n and st.get("status") == "done" and st.get("at")]
+    if closed and P.parse_ts(b["at"]) < max(closed):
+        return False, (f"the last G-BUDGET ({b['at']}) is older than step {n - 1}'s close: re-price the whole piece with "
+                       f"pipeline.py budget {led['slug']} {led['post_id']} --planned USD --balance USD")
+    return True, ""

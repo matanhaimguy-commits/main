@@ -238,9 +238,11 @@ owner sees each as FYI in the queue, and a pending question for that checkpoint 
 `claude (delegated)`. **G-HUMAN-VOICE, G-HUMAN-SONG and G-HUMAN-FINAL stay Matan only.** A session started by another
 session never records these three (CLAUDE.md, Sessions).
 
-**G-BUDGET** is recorded by `pipeline.py budget` (budget_usd.py): a PASS carries its data (unit usd, planned,
-with_buffer, balance, month_spent, cap) and the numbers must pass. A bare PASS is refused, by `pipeline.py gate` and by
-the generation gate, which doesn't count one already in a ledger; the owner's way past it is an OVERRIDE with a reason.
+**G-BUDGET** PASS is written only by `pipeline.py budget` (budget_usd.py): its data carries the marker
+`source: budget_usd`, unit usd and finite, non-negative planned, with_buffer, balance, month_spent and cap that pass.
+`pipeline.py gate` refuses a G-BUDGET PASS (a FAIL may be recorded by hand), and the generation gate and step 9 don't
+count a PASS without that data; the owner's way past it is an OVERRIDE with a reason. A delegated LOOK or HOOKBOARD
+note names the evaluator's report by its repo path, and the file must exist.
 
 ## 10. Budget
 

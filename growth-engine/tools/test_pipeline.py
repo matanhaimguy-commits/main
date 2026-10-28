@@ -399,12 +399,12 @@ class Rules2026(Base):
         later = (P.parse_ts(b_at) + P.dt.timedelta(hours=2)).isoformat()
         for k in range(9):
             led["steps"][str(k)].update(status="done", at=later)
-        self.assertFalse(P.budget_after_steps(led, 9)[0])
+        self.assertFalse(P.budget_usd.after_steps(P, led, 9)[0])
         bare = {"at": later, "status": "PASS", "by": "pipeline.py budget"}
         led["run_gates"]["G-BUDGET"].append(bare)
-        self.assertFalse(P.budget_after_steps(led, 9)[0], "a bare PASS is not counted")
+        self.assertFalse(P.budget_usd.after_steps(P, led, 9)[0], "a bare PASS is not counted")
         bare["data"] = led["run_gates"]["G-BUDGET"][0]["data"]
-        self.assertTrue(P.budget_after_steps(led, 9)[0])
+        self.assertTrue(P.budget_usd.after_steps(P, led, 9)[0])
 
     def test_prompt_loops_go_to_the_director_not_the_owner(self):
         self.lib_with_style()
@@ -478,6 +478,9 @@ class Records(Base):
         d = "claude (delegated by Matan, plan 28 Oct)"
         with self.assertRaisesRegex(P.PipelineError, "names the fresh evaluator's report"):
             P.record_gate(SLUG, POST, "G-HUMAN-HOOKBOARD", "PASS", d, note="the evaluator liked it")
+        with self.assertRaisesRegex(P.PipelineError, "is not a file in the repo"):
+            P.record_gate(SLUG, POST, "G-HUMAN-HOOKBOARD", "PASS", d, note="reviews/hookboard.v1.review.json: PASS")
+        write(self.root / "reviews" / "hookboard.v1.review.json", {"status": "PASS"})
         for gate in ("G-HUMAN-HOOKBOARD", "G-HUMAN-LOOK"):
             P.record_gate(SLUG, POST, gate, "PASS", d, note="reviews/hookboard.v1.review.json: PASS, all six checks")
         led = P.load_ledger(SLUG, POST)
@@ -493,17 +496,18 @@ class Records(Base):
         with self.assertRaises(P.PipelineError):
             P.record_gate(SLUG, POST, "G-HUMAN-LOOK", "PASS", "claude (delegated)", note="reviews/x.review.json")
 
-    def test_a_bare_budget_pass_is_refused(self):
+    def test_a_budget_pass_comes_only_from_pipeline_budget(self):
         P.init_run(SLUG, POST, "carousel_mistakes")
-        for by in ("claude", "Matan"):
-            with self.assertRaisesRegex(P.PipelineError, "carries budget_usd's data"):
-                P.record_gate(SLUG, POST, "G-BUDGET", "PASS", by, note="ok")
-        data = {"unit": "usd", "planned": 2, "with_buffer": 2.5, "balance": 6.9, "month_spent": 0, "cap": 100}
-        P.record_gate(SLUG, POST, "G-BUDGET", "PASS", "claude", note="re-priced", data=data)
-        with self.assertRaisesRegex(P.PipelineError, "over the cap"):
-            P.record_gate(SLUG, POST, "G-BUDGET", "PASS", "claude", data={**data, "month_spent": 99})
+        data = {"unit": "usd", "planned": 2, "with_buffer": 2.5, "balance": 6.9, "month_spent": 0, "cap": 100,
+                "el_planned": 0, "source": "budget_usd"}
+        for by, d in (("claude", None), ("Matan", None), ("claude", data)):
+            with self.assertRaisesRegex(P.PipelineError, "written only by pipeline.py budget"):
+                P.record_gate(SLUG, POST, "G-BUDGET", "PASS", by, note="ok", data=d)
         P.record_gate(SLUG, POST, "G-BUDGET", "FAIL", "claude", note="no balance")
         P.record_gate(SLUG, POST, "G-BUDGET", "OVERRIDE", "Matan", note="go anyway")
+        r = P.budget(SLUG, POST, planned=2, balance=8)
+        self.assertEqual((r["status"], r["source"]), ("PASS", "budget_usd"))
+        self.assertTrue(P.gate_auth.budget_ok(P.latest(P.load_ledger(SLUG, POST)["run_gates"]["G-BUDGET"])))
 
     def test_steps_close_in_order_with_their_gates(self):
         P.init_run(SLUG, POST, "carousel_mistakes")
