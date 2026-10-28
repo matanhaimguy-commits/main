@@ -109,8 +109,10 @@ Done:
 - Step 7 closed. Step 8 blocked (below). G-BUDGET recorded (see `qa/clip-budget.md`).
 
 Open (main session):
-1. G-SPEC: see the ledger (`pipeline.py status`). Specs that failed two loops (r12, r13) have their r13 fixes applied
-   and lint clean, but are not re-reviewed: a third review is the main session's call (loop limit 2).
+1. G-SPEC: PASS on the current files of SH09, SH12 to SH16, SH18 to SH20, SH23, SH24 (11 of 24). Open: SH01 to SH08,
+   SH10, SH11, SH17, SH21, SH22 (13). Each failed two loops (r12, r13); the r13 fixes are applied and lint passes, but a
+   third review is the main session's call (loop limit 2). Rule question for the main session: each fresh reviewer finds
+   new, older geometry points; set a scope (fail only on defects a generation would trip on) before a third round.
 2. The waived sheets block every image call: the gate refuses CH-MAYA@v1, PR-CLOTH@v1, PR-ORGANIZER@v2, SET-FRIEND@v1
    and CH-FRIEND@v1 as references because their G-VIS-SHEET is FAIL; a delegated G-HUMAN-LOOK does not change that, and
    only the owner's OVERRIDE (`--by Matan`) does. Ask Matan for an OVERRIDE on those five, or change the gate.

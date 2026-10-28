@@ -1,0 +1,78 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH22",
+ "spec_sha256": "67b967b407c65e53cf1d2f0642fdb9603dc3732e53e6ae4803afce2a6114ae6e",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Both women, both organizers, all five strings (CLIENTS x2, MARCH x2, APRIL x2 listed as 5 entries covering both organizers), friend's three-quarter view and Maya's folded arms all present"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible; Maya 'both hands tucked under her folded arms and out of sight'; friend 'both hands in her jacket pockets ... only the wrists show'; must_not 'no hands in Maya's cardigan'"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'the two women stand side by side, about 15% of frame width apart, each below her own organizer, weight on both feet'; hands-in-pockets and folded arms are contact points"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Maya's organizer content gives rows, twelve MARCH clients, four APRIL clients, five-piece calm band 'inside the felt edges', 'shallow slanted pockets' (waived minors stated); friend's organizer gives 'two small clay clients in each of the eight pockets'"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "CLIENTS, MARCH, APRIL on both organizers each have surface, position, case, 'must_be_exact: true', occlusion 'not covered'; five band pieces 'carry no letters or words at all'"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'background_rule: plain wall, nothing else'; 'No office furniture or objects appear in this shot'"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "Organizer box contradicts the locked sheets: 'left organizer 40% of frame width, 16 to 44% from the top' = 432 x 538 px, aspect 0.80 (portrait), but PR-ORGANIZER@v2 panels are about 465 x 410 (1.13:1, landscape) and SET-FRIEND's organizer is about 1020 x 770 (1.32:1). With the sheets attached the model must stretch the organizers about 1.4 to 1.65x tall, crop them or drop rows (same defect that failed SH21). Also the heads: the women's hair and puff start about 40 to 41% (face box 0.45 to 0.54), while the organizers end at 44%, so hair would overlap the APRIL row."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over 'both organizers calm', 'CH-FRIEND look'; Maya organizer state matches SH21 (MARCH full, APRIL four clients, calm band). Shape continuity with SH21 depends on the P8 fix"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No two-way reading beyond the framing note (see advisories)"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-05 background frames and screens: 'plain wall, nothing else'; FL-04 story prop filled with content; text exact with occlusion; no hands visible so FL hand patterns not triggered"
+  }
+ ],
+ "suggested_spec_changes": [
+  "P8 FIX (organizer proportions): keep each organizer 40% of frame width and set height from the sheets: Maya's organizer 'x 0.06 to 0.46, 16 to 36% from the top' (432 x about 385 px, 1.12:1 as PR-ORGANIZER@v2); friend's organizer 'x 0.54 to 0.94, 16 to 33% from the top' (432 x about 330 px, 1.32:1 as SET-FRIEND@v1). Add 'proportions as on PR-ORGANIZER@v2 and SET-FRIEND@v1, not stretched'.",
+  "Update regions to match: organizers box [0.06,0.16,0.94,0.36]; labels [0.06,0.17,0.30,0.34]; labels_friend [0.54,0.17,0.78,0.31]; clients_maya [0.14,0.16,0.38,0.20]; clients_friend [0.62,0.16,0.86,0.20].",
+  "P8 FIX (heads): add to camera.framing 'the top of each head and hair sits at or below 40%, clear of the organizers, which end at 36% and 33%' (the face band 45 to 54% stays).",
+  "Advisory: camera.framing says 'mid-thigh up' and 'legs leave the bottom edge'; state once that the figures are cropped at mid-thigh by the bottom edge of the frame.",
+  "Advisory: SET-FRIEND@v1 sheet contains a plant and a shelf; the friend's organizer ref should say 'organizer only: ignore the plant and shelf'.",
+  "Advisory: friend's client jacket colours are unspecified; say 'muted navy, green, grey, tan and plum jackets as on the sheet'."
+ ]
+}

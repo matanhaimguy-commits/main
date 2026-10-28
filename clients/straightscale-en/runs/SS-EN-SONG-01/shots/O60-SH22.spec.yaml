@@ -37,7 +37,7 @@ props:
     (twelve in all); APRIL pockets: shallow slanted pockets, one small client standing in each, and a calm sand-cream band
     of five joined pieces (one large, three small, one small) with four seams, the five pieces carry no letters or words at
     all; the band is stitched along the top edge of the APRIL row, inside the felt edges.'
-  size_in_frame: left organizer 40% of frame width, 16 to 44% from the top
+  size_in_frame: left organizer 40% of frame width (x 0.06 to 0.46), 16 to 36% from the top, its proportions as on PR-ORGANIZER@v2
   held_by: null
 - id: PR-ORGANIZER-FRIEND
   story_critical: true
@@ -45,7 +45,7 @@ props:
   state: 'friend''s organizer right: one calm cream fabric, clients in both rows'
   content: Wall organizer headed CLIENTS in one single calm sand-cream linen, two rows of four pockets, row labels MARCH and
     APRIL at the left ends, two small clay clients in each of the eight pockets
-  size_in_frame: right organizer 40% of frame width, 16 to 44% from the top
+  size_in_frame: right organizer 40% of frame width (x 0.54 to 0.94), 16 to 33% from the top, its proportions as on SET-FRIEND@v1
   held_by: null
 text_in_image:
 - string: CLIENTS
@@ -91,8 +91,8 @@ setting:
     soft contact shadows. No office furniture or objects appear in this shot.'
   background_rule: plain wall, nothing else
 camera:
-  framing: 'wide: two organizers upper half (16 to 44%), the two women from mid-thigh up below them, faces at 45 to 54%; their
-    legs leave the bottom edge of the frame'
+  framing: 'wide: two organizers in the upper part (16 to 36%), the two women from mid-thigh up below them, the tops of their
+    heads at or below 40%, faces at 45 to 54%; their legs leave the bottom edge of the frame'
   angle: eye level
   movement: 'edit: slow 100 to 108% push-in'
   aspect: '9:16'
@@ -133,35 +133,35 @@ regions:
   - 0.06
   - 0.16
   - 0.94
-  - 0.44
+  - 0.36
 - name: labels
   kind: text
   box:
   - 0.06
+  - 0.2
   - 0.17
-  - 0.3
-  - 0.38
+  - 0.36
 - name: labels_friend
   kind: text
   box:
   - 0.54
-  - 0.17
-  - 0.78
-  - 0.38
+  - 0.19
+  - 0.65
+  - 0.33
 - name: clients_maya
   kind: text
   box:
   - 0.14
   - 0.16
   - 0.38
-  - 0.21
+  - 0.19
 - name: clients_friend
   kind: text
   box:
   - 0.62
   - 0.16
   - 0.86
-  - 0.21
+  - 0.19
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt,

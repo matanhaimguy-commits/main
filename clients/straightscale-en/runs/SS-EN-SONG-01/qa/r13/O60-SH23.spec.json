@@ -1,0 +1,76 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH23",
+ "spec_sha256": "4cd32c00bd7868d1b8b0f300954f564ad7db76376dfe747aed87cd510ac2a1b2",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "PR-BUBBLES (nine) and PR-CLOTH folded, charcoal desk and paper wall all present; no people or hands"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible; must_not 'no people'"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'Frozen: the top bubble is slipping down the side of the pile 1 cm' (one contact: top bubble on the pile)"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "'Exactly nine (count them: nine, not eight) blank cream clay speech bubbles with small tails and thumb-pressed edges'; cloth 'folded in a neat flat stack of three layers, plain, no print'; nine-bubble waiver stated in notes"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "text_in_image: none; must_not 'no words or letters on the bubbles'; cloth 'plain, no print'"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'background_rule: plain wall and desk'; desk defined 'one flat top on four straight legs, no drawers'"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Pile 26 to 78% at 34 to 54%, cloth 6 to 22% at 40 to 52%: no overlap; 'pile centred' agrees with 26 to 78%"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over 'PR-CLOTH bubbles and folded cloth'; the desk is the charcoal clay desk used in earlier office shots; a cut from SH22 (wall) to a desk close-up is stated as CUT"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No word with two readings that a generation would trip on (see advisories)"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL count pattern covered by 'count them: nine, not eight'; FL-05 background rule given"
+  }
+ ],
+ "suggested_spec_changes": [
+  "Advisory: '1 cm' is not a scale a model can read in a miniature; say 'the top bubble tilts and slides about one bubble-width down the side of the pile'.",
+  "Advisory: state where the desk's back edge falls (for example 'desk top fills the lower 60% of the frame, plain wall above') so the model does not invent the horizon.",
+  "Advisory: PR-CLOTH@v1 flat piece has woven bubble outlines; the folded cloth here is plain. Say 'the plain bolt cloth, not the woven bubble piece' next to the ref.",
+  "Advisory: pile right edge (78%) sits one point from the right 21% zone; it is upper-half content so accepted, state it if a reviewer asks."
+ ]
+}
