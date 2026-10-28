@@ -476,7 +476,7 @@
     "O60-SH13": {
       "sha256": "7be4a37e51b764493c7ea79d6cd29400b323f955c296c85d11884e09d4036100",
       "lint": "PASS",
-      "lint_at": "2026-10-28T18:42:41+00:00",
+      "lint_at": "2026-10-28T18:46:02+00:00",
       "lint_issues": [],
       "G-SPEC": [
         {
@@ -498,7 +498,7 @@
     "O60-SH14": {
       "sha256": "c3479ef4528905993fece8ba7c75afd4dcf859e00382cd3c9b81e7b1cba88a76",
       "lint": "PASS",
-      "lint_at": "2026-10-28T18:42:41+00:00",
+      "lint_at": "2026-10-28T18:46:02+00:00",
       "lint_issues": [],
       "G-SPEC": [
         {
@@ -520,7 +520,7 @@
     "O60-SH15": {
       "sha256": "2f79088cc7606d813d10cff6c5b1bcba168571a93bc12fe2d698c6d9a7c3ebcf",
       "lint": "PASS",
-      "lint_at": "2026-10-28T18:42:41+00:00",
+      "lint_at": "2026-10-28T18:46:02+00:00",
       "lint_issues": [],
       "G-SPEC": [
         {
@@ -542,7 +542,7 @@
     "O60-SH16": {
       "sha256": "b696046729e639132b4197aa3ca8125e020bbb4f06efb986aeaac61a72055a0d",
       "lint": "PASS",
-      "lint_at": "2026-10-28T18:42:41+00:00",
+      "lint_at": "2026-10-28T18:46:02+00:00",
       "lint_issues": [],
       "G-SPEC": [
         {
@@ -564,7 +564,7 @@
     "O60-SH17": {
       "sha256": "5f42e043386cdc135fd4c5a9390a140e69533771203f48c5445083f81f014729",
       "lint": "PASS",
-      "lint_at": "2026-10-28T18:42:41+00:00",
+      "lint_at": "2026-10-28T18:46:02+00:00",
       "lint_issues": [],
       "G-SPEC": [
         {
@@ -586,7 +586,7 @@
     "O60-SH18": {
       "sha256": "dd234ea03e5ed68c9ca405978daa163d0ce508ec6f7174ed56ada75aea0571ad",
       "lint": "PASS",
-      "lint_at": "2026-10-28T18:42:41+00:00",
+      "lint_at": "2026-10-28T18:46:02+00:00",
       "lint_issues": [],
       "G-SPEC": [
         {
@@ -608,7 +608,7 @@
     "O60-SH19": {
       "sha256": "4e0b6192e9f00e178efd198be9716c969e26efbcca35ca8ebbba1084d1d850c1",
       "lint": "PASS",
-      "lint_at": "2026-10-28T18:42:41+00:00",
+      "lint_at": "2026-10-28T18:46:02+00:00",
       "lint_issues": [],
       "G-SPEC": [
         {
@@ -630,7 +630,7 @@
     "O60-SH20": {
       "sha256": "4adffa7e05983c97c7abbde7590129e816f7c431a690d14092340450df860a3e",
       "lint": "PASS",
-      "lint_at": "2026-10-28T18:42:41+00:00",
+      "lint_at": "2026-10-28T18:46:02+00:00",
       "lint_issues": [],
       "G-SPEC": [
         {
@@ -652,7 +652,7 @@
     "O60-SH21": {
       "sha256": "1915e35628fd58df2ef2e6860f98faefe621466b16d231c9c26b97b71d5823d5",
       "lint": "PASS",
-      "lint_at": "2026-10-28T18:42:41+00:00",
+      "lint_at": "2026-10-28T18:46:02+00:00",
       "lint_issues": [],
       "G-SPEC": [
         {
@@ -674,7 +674,7 @@
     "O60-SH22": {
       "sha256": "c38996ba175e75be9ca240cad628a50807d0e7b04f6298bc4dc60b64f447a008",
       "lint": "PASS",
-      "lint_at": "2026-10-28T18:42:41+00:00",
+      "lint_at": "2026-10-28T18:46:02+00:00",
       "lint_issues": [],
       "G-SPEC": [
         {
@@ -696,7 +696,7 @@
     "O60-SH23": {
       "sha256": "e2047e9f1ae6c6230f888e75af61e97bdf5e2f137d813bf945cd549b7dbaf7d0",
       "lint": "PASS",
-      "lint_at": "2026-10-28T18:42:41+00:00",
+      "lint_at": "2026-10-28T18:46:02+00:00",
       "lint_issues": [],
       "G-SPEC": [
         {
@@ -1497,6 +1497,20 @@
             "by": "prompt-reviewer (fresh agent)",
             "report": "qa/r6/SET-FRIEND.v1.prompt.json",
             "prompt_sha256": "0461284104c4bdd75785d5adfd927a2d60ce978b784f19ffd8fd1b6923107ae2"
+          }
+        ],
+        "G-VIS-SHEET": [
+          {
+            "at": "2026-10-28T18:45:27+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/SET-FRIEND.v1.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 0,
+              "minor": 2
+            },
+            "hero": true
           }
         ]
       },

@@ -1,0 +1,48 @@
+{
+  "gate": "G-VIS-SHEET",
+  "asset_id": "SET-FRIEND",
+  "version": 1,
+  "reviewer": "visual-reviewer (fresh agent)",
+  "independent": true,
+  "status": "FAIL",
+  "hero": true,
+  "files_opened": ["full.png","tile_r1c1.png","tile_r1c2.png","tile_r1c3.png","tile_r2c1.png","tile_r2c2.png","tile_r2c3.png","tile_r3c1.png","tile_r3c2.png","tile_r3c3.png","region_SHEET-SET-FRIEND_organizer.png","region_SHEET-SET-FRIEND_clients_label.png","region_SHEET-SET-FRIEND_labels.png","region_SHEET-SET-FRIEND_shelf.png","thumb_200.png"],
+  "defect_counts": {"critical": 0, "major": 0, "minor": 2},
+  "checks": [
+    {"id":"V1","result":"PASS","severity":"","region":"full","evidence":"Reads in 1s as a cream CLIENTS organizer with clients in every pocket (must_read_in_1s met); also holds at 200 px."},
+    {"id":"V2","result":"PASS","severity":"","region":"full","evidence":"Supports the story purpose: friend's own calm linen CLIENTS wall, pockets full in both rows."},
+    {"id":"V3","result":"N/A","severity":"","region":"full","evidence":"Sheet, no script lines, no action."},
+    {"id":"V4","result":"PASS","severity":"","region":"organizer","evidence":"16 small clay clients, each with 2 ears, 2 eyes, nose, smile, normal head/neck/shoulders; no merged or extra bodies (organizer crop, r2c2, r2c3)."},
+    {"id":"V5","result":"N/A","severity":"","region":"full","evidence":"No hands visible (spec: none)."},
+    {"id":"V6","result":"PASS","severity":"","region":"organizer","evidence":"No fingers or limbs anywhere; figures are chest-up only, as specified."},
+    {"id":"V7","result":"N/A","severity":"","region":"full","evidence":"Static sheet."},
+    {"id":"V8","result":"PASS","severity":"","region":"shelf","evidence":"Pot sits on the board with a contact shadow; organizer and shelf cast soft shadows consistently to the right (r2c3, r3c3)."},
+    {"id":"V9","result":"PASS","severity":"","region":"clients_label","evidence":"Header reads C-L-I-E-N-T-S, exact, uppercase, nothing occluding (clients_label crop)."},
+    {"id":"V10","result":"PASS","severity":"","region":"labels","evidence":"Upper label reads M-A-R-C-H, lower reads A-P-R-I-L, exact, upper case, on the left band of the correct rows (labels crop, r2c1)."},
+    {"id":"V11","result":"PASS","severity":"","region":"full","evidence":"No other lettering anywhere; no logos, signs or extra text."},
+    {"id":"V12","result":"PASS","severity":"","region":"organizer","evidence":"One linen panel, one header band, two rows of four slanted open-topped pockets, one label band per row; March 2+2+2+2=8, April 2+2+2+2=8; no patches, scraps or second fabric, no empty pocket."},
+    {"id":"V13","result":"PASS","severity":"","region":"shelf","evidence":"One pale clay board on two brackets, one terracotta pot with a small green clay plant; tidy."},
+    {"id":"V14","result":"PASS","severity":"","region":"organizer","evidence":"Each pocket holds exactly two figures; counts are stable and countable in the full image."},
+    {"id":"V15","result":"PASS","severity":"","region":"organizer","evidence":"Clients vary in hair and blazer colour as intended; same clay doll style throughout, no near-duplicate pairs side by side except normal variety."},
+    {"id":"V16","result":"PASS","severity":"","region":"full","evidence":"Same pocket layout and ivory paper world as PR-ORGANIZER v2; linen full by design."},
+    {"id":"V17","result":"N/A","severity":"","region":"full","evidence":"No previous shot to carry over."},
+    {"id":"V18","result":"FAIL","severity":"minor","region":"organizer","evidence":"Organizer spans about x 0.05 to 0.96 and y 0.235 to 0.62 of the frame; spec asks x 0.12 to 0.88, y 0.20 to 0.52 (about 91% width vs 76%). Right edge is only about 4.2% from the frame edge, at the limit of the 4% margin. Visible in full.png."},
+    {"id":"V19","result":"FAIL","severity":"minor","region":"shelf","evidence":"Shelf spans about x 0.20 to 0.79 and y 0.77 to 0.86; spec asks x 0.32 to 0.68, y 60 to 72%. Shelf is wider and lower than specified, and the crop regions miss it (shelf crop shows only the empty wall plus a slice of the plant)."},
+    {"id":"V20","result":"PASS","severity":"","region":"thumb_200.png","format":"9:16 1152x2048","evidence":"Nothing cropped, straight-on eye level, all elements inside the frame; thumbnail still reads CLIENTS, MARCH, APRIL and full pockets."},
+    {"id":"V21","result":"PASS","severity":"","region":"full","evidence":"Claymation puppet look with real linen weave, stitching, thumbprinted clay, warm soft light, whole set in focus, matte surfaces."},
+    {"id":"V22","result":"PASS","severity":"","region":"full","evidence":"No melted shapes, warping, banding or artefacts at tile zoom; stitching continuous."},
+    {"id":"V23","result":"PASS","severity":"","region":"full","evidence":"Plain ivory wall, only organizer and shelf present; nothing extra."},
+    {"id":"V24","result":"PASS","severity":"","region":"full","evidence":"Palette matches spec: ivory, sand-cream linen, charcoal stitching, pale wood, one green plant. No logos."},
+    {"id":"V25","result":"PASS","severity":"","region":"full","evidence":"No before/after pairing, no condition wording, nothing shaming."},
+    {"id":"V26","result":"N/A","severity":"","region":"full","evidence":"Internal reference sheet, not a published post; disclosure rule applies at post level."}
+  ],
+  "edit_fixes": [],
+  "fix": {
+    "route": "regenerate or waive",
+    "prompt_changes": [
+      "Only if the spec positions are binding: organizer narrower (about 76% of width, x 0.12-0.88), top at 20% and bottom at 52% from the top; shelf narrower (x 0.32-0.68) at 60-72% from the top.",
+      "Otherwise the main session may amend the spec boxes and crop regions to the delivered layout (organizer x 0.05-0.96, y 0.235-0.62; shelf x 0.20-0.79, y 0.77-0.86) and accept as-is: the content (text, 8+8 clients, one fabric, plant, shelf) has zero defects."
+    ]
+  },
+  "summary": "Content is fully correct: CLIENTS, MARCH and APRIL exact, 8 clients in each row with two per pocket, one linen only, no stray text, clean clay look. Two minor layout deviations from the spec (organizer and shelf larger and lower than specified) fail the hero zero-defect rule; fix by waiver with a spec update, or regenerate."
+}
