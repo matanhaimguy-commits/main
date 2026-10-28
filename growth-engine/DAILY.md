@@ -1,5 +1,11 @@
 # Daily run: one post a day per client
 
+> **Superseded (28 Oct 2026).** This daily run is replaced by the English weekly engine (phase 4 of the owner's plan
+> of 28 Oct; loop and board: `Agency OS/Sessions board.md` in the vault): the `growth-engine` skill, one week per batch,
+> for `clients/straightscale-en/`. Its budgets (Higgsfield and ElevenLabs credits) and its Albanian target are history:
+> generation runs on Atlas only, in USD (`production/STANDARDS.md` 1 and 10), and the Higgsfield and ElevenLabs
+> connectors are switched off in the gate (`standards.json` `disabled_services`). Kept for the record; don't run it.
+
 Since 15 Oct 2026 StraightScale posts every day. A scheduled task ("StraightScale daily content",
 `trig_01V1gzqwB9WdoBpTF1zyZVrZ`, every morning 06:49 Europe/Tirane) wakes the studio session that holds the
 Lovable, Higgsfield and ElevenLabs connectors and runs this file. (A task that starts a fresh session gets no

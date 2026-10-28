@@ -32,16 +32,15 @@ fonts only, any generated image inside passed G-VIS on its own.
 audio; F3 captions exact, timed and inside the safe zones; F4 transcript of the final mix matches the script; F5
 loudness and true peak (`vqa_crops.py loudness`) within STANDARDS.md; F6 hook timing (first word at 0.0 s; songs: first
 sung word by about 1 s); F7 policy (no side-by-side before and after, no "your [condition]", AI disclosure rule); F8
-credits within the preflight. The Director's pass (story and job) is separate.
+Atlas USD within the G-BUDGET pass (STANDARDS.md 10). The Director's pass (story and job) is separate.
 
-**When the image is only on the Higgsfield CDN** (this container's network may block `d2ol7oe51mr4n9.cloudfront.net`):
-review it inside the Higgsfield sandbox. Load `mcp__Higgs__sandbox_exec` with ToolSearch. In one command: `curl -sf` the
-media URL into `/home/user/qa/<asset>.v<n>/`, write the Shot Spec there as JSON (a heredoc of the spec's content: text,
-not file bytes), write `growth-engine/tools/vqa_crops.py` there the same way, and run
-`python3 vqa_crops.py image src.jpg --out crops --spec spec.json --ext jpg`. Then open the crops with further
-`sandbox_exec` calls that pass `image_paths` (up to 4 files, 512 KiB in total, per call): the images come back to you
-natively. Print `crops/manifest.json` and save it to `clients/<slug>/runs/<post>/qa/crops/<asset>.v<n>/manifest.json`
-in the repo, so the orchestrator can check your `files_opened`. Never move image bytes as base64 text. For video, `vqa_crops.py frames|motion|final <video> --out frames` works the same way.
+**Local files only.** Review files on this machine, made with the repo's own tools: `growth-engine/tools/vqa_crops.py
+image <file> --out <dir> --spec <spec>` (PIL, numpy) for stills, and `vqa_crops.py frames|motion|final <video>
+--out <dir>` (ffmpeg) for frames and contact sheets, opened with Read. Atlas results are downloaded into the run folder
+by the gated `atlas` command; if the file is not on disk, stop and ask the orchestrator to fetch it (`atlas generate
+get`, free). Never send a file or a URL to another service to view it (no connector sandbox, no upload), and never
+move image or video bytes as base64 text. Save the packet's `manifest.json` at
+`clients/<slug>/runs/<post>/qa/crops/<asset>.v<n>/manifest.json`, so the orchestrator can check your `files_opened`.
 
 **Write the report** (default `clients/<slug>/runs/<post>/qa/<asset>.v<n>.take.json`):
 ```json

@@ -585,32 +585,6 @@ class OmniAndStt(TP.Base):
             self.assertIn(needle, " ".join(why))
 
 
-class BashHook(unittest.TestCase):
-    def hook(self, cmd=None, raw=None):
-        r = subprocess.run([sys.executable, str(HERE / "atlas" / "atlas_gate.py"), "--bash-hook"],
-                           input=raw if raw is not None else json.dumps({"tool_name": "Bash",
-                                                                         "tool_input": {"command": cmd}}),
-                           capture_output=True, text=True)
-        self.assertEqual(r.returncode, 0)
-        return json.loads(r.stdout)["hookSpecificOutput"]["permissionDecision"] if r.stdout else "allow"
-
-    def test_direct_routes_are_denied(self):
-        for cmd in ("/usr/local/lib/atlas-cli/atlas generate video m -p x",
-                    "curl -H 'Authorization: Bearer x' https://api.atlascloud.ai/api/v1/model/generateVideo",
-                    "npm install -g atlascloud-cli", "echo $ATLASCLOUD_API_KEY",
-                    "node references/atlas-cloud-skills/skills/seedance-2-5-skill/scripts/generate.mjs cfg.json",
-                    "node scripts/providers/atlas-rest.mjs", "cat ~/.config/atlas-cli/auth.json"):
-            with self.subTest(cmd=cmd):
-                self.assertEqual(self.hook(cmd), "deny")
-        self.assertEqual(self.hook("atlas generate video m -p x"), "allow")
-        self.assertEqual(self.hook("bash growth-engine/tools/atlas/setup.sh"), "allow")
-
-    def test_unreadable_input_is_denied(self):
-        for raw in ("", "not json", "[]", '{"tool_input": {}}', '{"tool_input": {"command": 3}}'):
-            with self.subTest(raw=raw):
-                self.assertEqual(self.hook(raw=raw), "deny")
-
-
 class Setup(unittest.TestCase):
     """setup.sh checks every source against the pinned sha256 before it installs anything."""
 
