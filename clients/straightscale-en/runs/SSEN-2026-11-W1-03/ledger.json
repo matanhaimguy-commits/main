@@ -1,0 +1,87 @@
+{
+  "post_id": "SSEN-2026-11-W1-03",
+  "slug": "straightscale-en",
+  "format": "reel_motion",
+  "family": "motion",
+  "card": "clients/straightscale-en/cards/2026-11-W1/SSEN-2026-11-W1-03.yaml",
+  "created": "2026-10-28T17:05:15+00:00",
+  "steps": {
+    "0": {
+      "status": "todo",
+      "note": ""
+    },
+    "1": {
+      "status": "todo",
+      "note": ""
+    },
+    "2": {
+      "status": "todo",
+      "note": ""
+    },
+    "3": {
+      "status": "todo",
+      "note": ""
+    },
+    "4": {
+      "status": "todo",
+      "note": ""
+    },
+    "5": {
+      "status": "todo",
+      "note": ""
+    },
+    "6": {
+      "status": "todo",
+      "note": ""
+    },
+    "7": {
+      "status": "todo",
+      "note": ""
+    },
+    "8": {
+      "status": "todo",
+      "note": ""
+    },
+    "9": {
+      "status": "todo",
+      "note": ""
+    },
+    "10": {
+      "status": "todo",
+      "note": ""
+    },
+    "11": {
+      "status": "todo",
+      "note": ""
+    },
+    "12": {
+      "status": "todo",
+      "note": ""
+    },
+    "13": {
+      "status": "todo",
+      "note": ""
+    },
+    "14": {
+      "status": "todo",
+      "note": ""
+    },
+    "15": {
+      "status": "todo",
+      "note": ""
+    }
+  },
+  "run_gates": {
+    "G-HOOK": [
+      {
+        "at": "2026-10-28T17:14:21+00:00",
+        "status": "FAIL",
+        "by": "hook-lab: 2 fresh blind graders per round, 3 rounds",
+        "note": "Replace: best stack R3A (HF-06) graded B+/A/A- and A-/A/A- (V/T/S); no stack A or A+ on all channels from both graders after round 3. All finalists passed organic.py hooks. Frames code-rendered, $0. Report: motion-studio/projects/straightscale-en-07-built-or-patched/docs/hook-lab.md"
+      }
+    ]
+  },
+  "specs": {},
+  "assets": [],
+  "queue": []
+}
