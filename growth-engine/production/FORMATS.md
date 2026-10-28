@@ -435,6 +435,13 @@ distance or stylized until D1 (the strategist presenter is the one exception).
 *Recommendation:* decide D1 for the EN page: allow face-on AI creators and lived-authority people as clearly staged
 characters with the AI label, never as clients or owners, or keep them blocked.
 
+**F9. Downloading Atlas outputs.** Generated media is served from `atlas-media.oss-us-west-1.aliyuncs.com`. The main
+session reports (28 Oct) that this environment's network blocks it, so no session can download or review an Atlas
+output (G-TAKE, G-VIS and G-FINAL all need the file). Checked from session F1 on 28 Oct: a request to the host's root
+reached the server and got its own `403 Forbidden` (`Server: AliyunOSS`, bucket listing refused), so the block on
+object downloads is not confirmed or ruled out from here. *Recommendation:* Matan allows the host in the cloud
+environment's network settings, then one session downloads one finished output to confirm before any paid batch.
+
 ---
 
 ## 6. November 2026, re-routed (StraightScale EN)
@@ -464,7 +471,7 @@ is allowed by STANDARDS 7; the podcast hosts and the POV owner are shown from be
 ---
 
 ## Changelog
-- 2026-10-28 v1.0 (session F1): first version. New formats `reel_ugc_talking`, `reel_whiteboard`,
+- 2026-10-28 v1.0 (session F1): first version; F9 (Atlas media downloads) added from the main session's note. New formats `reel_ugc_talking`, `reel_whiteboard`,
   `reel_lived_authority`, `reel_skit`, `reel_talking_object`; new styles `skeleton_xray`, `anime_2d`; every format
   carries `format_family`, `funnel` and `l19`; `beats` in `organic.json`; the router ranks by L19 fit, funnel and
   variety, and cost only filters; `week-check` enforces the variety rules; Post Cards name `load_bearing_beat`.
