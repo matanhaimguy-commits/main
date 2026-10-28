@@ -41,7 +41,7 @@ props:
     small colourful clay clients standing shoulder to shoulder (twelve in all), visible above the APRIL row; the CLIENTS header
     across the top; APRIL pockets: one small client per pocket, a calm sand-cream band of five joined pieces (one large, three
     small, one small) with four seams, the five pieces carry no letters or words at all; the band is stitched along the top
-    edge of the APRIL row and pulled taut.'
+    edge of the APRIL row, inside the felt edges and pulled taut.'
   size_in_frame: 'as in SH19: organizer 62% of frame width (x 0.06 to 0.68), 15 to 48% from the top; the taut band leaves
     the organizer''s right edge at x 0.68 and runs right to the hand at x 0.70 to 0.82'
   held_by: null
@@ -70,12 +70,19 @@ action_physics:
   and settle upright.
 static: false
 setting:
-  ref: null
-  details: 'Plain ivory paper office: wall and organizer, Maya at its right edge. World (no set sheet, SET-OFFICE fallback,
-    main session 28 Oct): a plain warm-ivory paper wall and floor meeting in a soft curve, soft warm light, soft contact shadows.
+  ref: 'REF-PAPER@v1 (plain-paper crop of CH-MAYA@v1: paper colour, texture and light only)'
+  details: 'Plain ivory paper office: wall and organizer, Maya at its right edge. World: warm ivory paper (about #f6e8d2),
+    soft warm light from one side, matte clay with visible fingerprints, felt, knit and linen as real fabric, the four fix
+    scraps the only loud colours, no marble, no other props. Set (no set sheet; SET-OFFICE retired; paper reference REF-PAPER@v1,
+    a plain-paper crop of CH-MAYA@v1): a plain warm-ivory paper wall and floor meeting in a soft curve, soft contact shadows.
     Of the office items, only those this shot names appear, each looking like this: a simple charcoal clay desk (one flat
-    top on four straight legs, no drawers); an open silver clay laptop with a plain lid; one white clay mug; a small round
-    charcoal clay bin with a thumb-pressed rim; a plain window with a thin pale-wood frame.'
+    top on four straight legs, no drawers); PR-LAPTOP (no sheet, full description): a small clay laptop, matte silver-grey
+    clay lid and base with soft rounded corners and visible fingerprints, a plain lid with no logo, sticker or lettering,
+    a narrow charcoal bezel of even width on all four sides, a plain charcoal keyboard with soft square keys and no letters;
+    the screen shows only what this shot names, no icons, no windows, no text; one white clay mug; PR-BIN (no sheet, full
+    description): a small round waste bin of matte charcoal clay, about knee-high to Maya, straight sides widening slightly
+    toward the top, a thick rolled rim pressed with visible thumbprints, no lid, no pattern, no lettering; a plain window
+    with a thin pale-wood frame.'
   background_rule: plain wall; no loose scraps in sight
 camera:
   framing: 'the same frame as SH19 (no punch-in): organizer upper half, Maya right'
@@ -164,9 +171,9 @@ regions:
   - 0.48
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
-  texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: a clay home office in
-  warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world;
-  the method cloth is one calm sand-cream colour.'
+  texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: warm ivory paper (about
+  #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt, knit and linen as real fabric, the
+  four fix scraps the only loud colours, no marble, no other props. The method cloth is one calm sand-cream colour.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no piece lifts, peels or tears

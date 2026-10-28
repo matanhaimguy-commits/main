@@ -4,18 +4,22 @@ format: song
 script_lines:
 - O60-L07
 line_text: 'A friend who''d had lumpy months too asked her:'
-story_purpose: 'Carrier: a friend who also had lumpy months, now with a calm organizer, appears on Maya''s laptop.'
+story_purpose: 'Carrier: a friend who also had lumpy months, standing in front of her calm organizer, appears on the laptop
+  on Maya''s desk.'
 must_read_in_1s: A friend on a laptop screen, with her own organizer full of clients in every month.
 subjects:
 - id: CH-FRIEND
-  ref: CH-FRIEND@v2 (seated panel)
-  state: on Maya's laptop screen, head and shoulders
-  pose: seated facing the camera of the call, a small kind smile
-  expression: warm and curious
+  ref: 'CH-FRIEND@v1 (middle panel only: three-quarter standing view, both hands in her jacket pockets; the seated panel is
+    not used)'
+  state: 'on the laptop screen, three-quarter bust from the waist up: teal-grey canvas jacket with two patch pockets over
+    a cream top, black curly puff, tortoiseshell wire glasses'
+  pose: standing in three-quarter view, body turned about 30 degrees to image-left, head turned toward her call camera, both
+    hands in her jacket pockets at the bottom edge of the screen, only the wrists and pocket edges show
+  expression: warm kind smile
   instances: 1
-  eyeline: at the screen camera
+  eyeline: at the call camera
 - id: PR-LAPTOP
-  ref: 'none (no set sheet: the laptop front is drawn from this content line)'
+  ref: 'none (no sheet: the full description in the props content line and in setting.details)'
   state: open laptop, screen fills the frame to the bezel, showing the friend seated in front of her organizer wall
   pose: straight-on
   expression: n/a
@@ -25,18 +29,21 @@ props:
 - id: PR-ORGANIZER-FRIEND
   story_critical: true
   ref: SET-FRIEND@v1
-  state: 'behind the friend: CLIENTS organizer, one calm cream fabric, clients in both rows'
+  state: 'behind the friend on the screen: CLIENTS organizer, one calm cream fabric, clients in both rows'
   content: Wall organizer headed CLIENTS in one single calm sand-cream linen, two rows of four pockets, MARCH row and APRIL
     row; two small clay clients in each of the eight pockets (sixteen in all)
-  size_in_frame: organizer fills the upper 55% of the screen
+  size_in_frame: organizer fills the upper part of the screen, 15 to 29% from the top of the frame
   held_by: null
 - id: PR-LAPTOP
   story_critical: true
-  ref: 'none (no set sheet: the laptop front is drawn from this content line)'
-  state: open, straight-on
-  content: clay laptop, silver lid, narrow charcoal bezel on all four sides, screen fills the frame to the bezel and shows
-    the live call image only, no icons
-  size_in_frame: bezel at the frame edges
+  ref: 'none (no sheet: the full description in this content line and in setting.details)'
+  state: open on Maya's charcoal desk, straight-on, the screen about 80% of frame width
+  content: 'PR-LAPTOP (no sheet, full description): a small clay laptop, matte silver-grey clay lid and base with soft rounded
+    corners and visible fingerprints, a plain lid with no logo, sticker or lettering, a narrow charcoal bezel of even width
+    on all four sides, a plain charcoal keyboard with soft square keys and no letters; the screen shows only what this shot
+    names, no icons, no windows, no text.. In this shot: open, straight-on, the screen shows only the live call image of the
+    friend in front of her organizer'
+  size_in_frame: laptop screen 10 to 90% of frame width, 14 to 52% from the top; keyboard edge 52 to 56%
   held_by: null
 text_in_image:
 - string: CLIENTS
@@ -44,7 +51,7 @@ text_in_image:
   position: top of the organizer
   case: upper
   must_be_exact: true
-  occlusion: friend's head does not cover it
+  occlusion: the friend's head is below it and never covers it
 - string: MARCH
   surface: row label on the friend's organizer
   position: left end of the upper row
@@ -58,15 +65,22 @@ text_in_image:
   must_be_exact: true
   occlusion: not covered
 action_physics:
-- The friend leans in slightly toward her call camera; frozen mid-lean. Nothing else moves.
+- 'Frozen: the friend stands still in three-quarter view with both hands in her jacket pockets, head turned to her call camera.
+  Nothing moves.'
 static: true
 setting:
-  ref: SET-FRIEND@v1
-  details: SET-FRIEND@v1 seen through a clay laptop screen with a narrow dark bezel; the screen content is a live call image,
-    no interface icons, no text other than the organizer labels.
-  background_rule: screen shows only the friend and her wall; no chat windows
+  ref: 'REF-PAPER@v1 (plain-paper crop of CH-MAYA@v1: paper colour, texture and light only) for Maya''s wall; SET-FRIEND@v1
+    for the image on the screen'
+  details: 'Maya''s office: the open laptop on her charcoal desk against the plain ivory paper wall, a thin band of wall above
+    the screen and the desk edge below. World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay
+    with visible fingerprints, felt, knit and linen as real fabric, the four fix scraps the only loud colours, no marble,
+    no other props. On the screen: SET-FRIEND@v1 as a live call image (her ivory paper wall and her calm organizer), no interface
+    icons, no text other than the organizer labels. Of the office items, only the desk and the laptop appear: a simple charcoal
+    clay desk (one flat top on four straight legs, no drawers) and the PR-LAPTOP described in props.'
+  background_rule: screen shows only the friend and her wall; no chat windows; Maya's wall plain ivory paper, no frames
 camera:
-  framing: tight on the laptop screen, bezel at the frame edges
+  framing: 'close on the laptop on the desk: screen 10 to 90% of frame width and 14 to 52% from the top, a thin band of ivory
+    wall above, the desk edge below'
   angle: straight-on
   movement: 'edit: slow 100 to 106% push-in'
   aspect: '9:16'
@@ -88,35 +102,43 @@ regions:
 - name: friend_face
   kind: face
   box:
-  - 0.36
-  - 0.36
-  - 0.64
-  - 0.5
+  - 0.4
+  - 0.3
+  - 0.6
+  - 0.42
 - name: friend_organizer
   kind: prop
   box:
-  - 0.14
-  - 0.17
-  - 0.86
-  - 0.4
+  - 0.16
+  - 0.15
+  - 0.84
+  - 0.29
 - name: organizer_labels
   kind: text
   box:
-  - 0.14
-  - 0.17
+  - 0.16
+  - 0.15
   - 0.4
-  - 0.38
+  - 0.29
 - name: clients_header
   kind: text
   box:
-  - 0.38
-  - 0.17
-  - 0.62
-  - 0.23
+  - 0.4
+  - 0.15
+  - 0.6
+  - 0.19
+- name: laptop
+  kind: prop
+  box:
+  - 0.08
+  - 0.13
+  - 0.92
+  - 0.56
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
-  texture. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only
-  loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
+  texture. World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt,
+  knit and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props. The method cloth is
+  one calm sand-cream colour.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no scraps and no patchwork on the friend's organizer
@@ -126,6 +148,12 @@ must_not:
 - no sung mouth movement and no singer on screen
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
+- no caption, name tag or text that frames the clay friend or Maya as a real client or a real result (both are stylized composites;
+  AI label on)
+- no seated pose and no chair behind the friend
 hero: false
 notes: 'The friend''s organizer differs from Maya''s only by being one calm fabric (not by seams): a quilt has seams too (loop
-  5 sound-off note). No generated clip: a gpt-image-2 still moved by a code push-in.'
+  5 sound-off note). No generated clip: a gpt-image-2 still moved by a code push-in. Re-staged (G-HUMAN-LOOK condition 5):
+  CH-FRIEND v1 has no usable seated panel, so the friend stands in her three-quarter view, hands in her jacket pockets, cropped
+  to a bust by the screen; the laptop sits on Maya''s desk so the shot carries the office World line and REF-PAPER@v1. Condition
+  4: the friend is a stylized composite, not a real client; no caption names her or her result.'

@@ -16,9 +16,10 @@ subjects:
   expression: n/a (back view)
   instances: 1
 - id: CH-FRIEND
-  ref: CH-FRIEND@v2 (seated panel)
-  state: tiny on the laptop screen
-  pose: seated, facing camera
+  ref: 'CH-FRIEND@v1 (middle panel only: three-quarter standing view, both hands in her jacket pockets; the seated panel is
+    not used)'
+  state: tiny on the laptop screen, three-quarter bust from the waist up
+  pose: standing in three-quarter view, both hands in her jacket pockets, head turned to her call camera
   expression: expectant
   instances: 1
 hands: none visible
@@ -36,10 +37,13 @@ props:
   held_by: null
 - id: PR-LAPTOP
   story_critical: true
-  ref: 'none (no set sheet: the laptop front is drawn from this content line)'
+  ref: 'none (no sheet: the full description in this content line and in setting.details)'
   state: open, screen shows the friend small
-  content: Clay laptop, silver lid, narrow charcoal bezel, screen showing the friend seated before her calm sand-cream organizer,
-    no icons
+  content: 'PR-LAPTOP (no sheet, full description): a small clay laptop, matte silver-grey clay lid and base with soft rounded
+    corners and visible fingerprints, a plain lid with no logo, sticker or lettering, a narrow charcoal bezel of even width
+    on all four sides, a plain charcoal keyboard with soft square keys and no letters; the screen shows only what this shot
+    names, no icons, no windows, no text.. In this shot: open, the screen shows the friend small, standing in three-quarter
+    view before her calm sand-cream organizer, no icons'
   size_in_frame: laptop about 35% of frame width
   held_by: null
 text_in_image:
@@ -60,13 +64,19 @@ action_physics:
 - 'Maya sits on the plain charcoal clay chair: weight on the seat, both feet flat on the floor.'
 static: true
 setting:
-  ref: null
-  details: 'Plain ivory paper office: over-the-shoulder, desk from behind her. World (no set sheet, SET-OFFICE fallback, main
-    session 28 Oct): a plain warm-ivory paper wall and floor meeting in a soft curve, soft warm light, soft contact shadows.
+  ref: 'REF-PAPER@v1 (plain-paper crop of CH-MAYA@v1: paper colour, texture and light only)'
+  details: 'Plain ivory paper office: over-the-shoulder, desk from behind her. World: warm ivory paper (about #f6e8d2), soft
+    warm light from one side, matte clay with visible fingerprints, felt, knit and linen as real fabric, the four fix scraps
+    the only loud colours, no marble, no other props. Set (no set sheet; SET-OFFICE retired; paper reference REF-PAPER@v1,
+    a plain-paper crop of CH-MAYA@v1): a plain warm-ivory paper wall and floor meeting in a soft curve, soft contact shadows.
     Of the office items, only those this shot names appear, each looking like this: a simple charcoal clay desk (one flat
-    top on four straight legs, no drawers); an open silver clay laptop with a plain lid; one white clay mug; a plain charcoal
-    clay chair (one flat seat, one low back, four straight legs); a small round charcoal clay bin with a thumb-pressed rim;
-    a plain window with a thin pale-wood frame.'
+    top on four straight legs, no drawers); PR-LAPTOP (no sheet, full description): a small clay laptop, matte silver-grey
+    clay lid and base with soft rounded corners and visible fingerprints, a plain lid with no logo, sticker or lettering,
+    a narrow charcoal bezel of even width on all four sides, a plain charcoal keyboard with soft square keys and no letters;
+    the screen shows only what this shot names, no icons, no windows, no text; one white clay mug; a plain charcoal clay chair
+    (one flat seat, one low back, four straight legs); PR-BIN (no sheet, full description): a small round waste bin of matte
+    charcoal clay, about knee-high to Maya, straight sides widening slightly toward the top, a thick rolled rim pressed with
+    visible thumbprints, no lid, no pattern, no lettering; a plain window with a thin pale-wood frame.'
   background_rule: wall behind the laptop is plain; the organizer is out of frame
 camera:
   framing: 'over-the-shoulder medium: Maya''s head and shoulder left, laptop right'
@@ -118,8 +128,9 @@ regions:
   - 0.55
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
-  texture. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only
-  loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
+  texture. World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt,
+  knit and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props. The method cloth is
+  one calm sand-cream colour.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no extra people
@@ -129,6 +140,9 @@ must_not:
 - no sung mouth movement and no singer on screen
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
+- no caption, name tag or text that frames the clay friend or Maya as a real client or a real result (both are stylized composites;
+  AI label on)
 hero: false
 notes: 'Spoken line ''Are your fixes connected?'' (19.73 to 20.79) is sung over this shot. No generated clip: a gpt-image-2
-  still moved by a code push-in.'
+  still moved by a code push-in. CH-FRIEND on the screen follows SH08 (v1 three-quarter view, hands in pockets); the seated
+  panel is not used.'

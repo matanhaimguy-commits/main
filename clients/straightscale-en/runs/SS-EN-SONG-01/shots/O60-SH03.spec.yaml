@@ -28,16 +28,18 @@ props:
   state: MARCH full, APRIL empty, medium
   content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row
     above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three
-    small colourful clay clients standing shoulder to shoulder (twelve in all); APRIL pockets: all four are empty, dark felt
-    inside, no clients.'
+    small colourful clay clients standing shoulder to shoulder (twelve in all); APRIL pockets: all four are empty, shallow
+    slanted pockets, dark empty interior, no clients.'
   size_in_frame: organizer 15 to 42% from the top, 85% width
   held_by: null
 - id: PR-MARCHTAG
   story_critical: true
   ref: PR-SCRAPS@v1 (stitched felt label craft only; the tag itself is drawn from this content line)
   state: propped against a paper pile
-  content: A felt tag the size of a hand, ivory with charcoal stitched letters MARCH, propped against a tall pile of loose
-    clay papers on the desk
+  content: 'PR-MARCHTAG (no sheet, full description): a flat felt tag about the size of Maya''s palm, ivory felt with a soft
+    charcoal blanket-stitched edge, the word MARCH in charcoal stitched capital letters across its middle, no other marks.
+    In this shot: a felt tag the size of a hand, ivory with charcoal stitched letters MARCH, propped against a tall pile of
+    loose clay papers on the desk'
   size_in_frame: tag about 18% of frame width at 44% from the top
   held_by: null
 text_in_image:
@@ -70,13 +72,19 @@ action_physics:
 - 'Maya sits on the plain charcoal clay chair: weight on the seat, both feet flat on the floor.'
 static: true
 setting:
-  ref: null
-  details: 'Plain ivory paper office: organizer on the wall, desk in front. World (no set sheet, SET-OFFICE fallback, main
-    session 28 Oct): a plain warm-ivory paper wall and floor meeting in a soft curve, soft warm light, soft contact shadows.
+  ref: 'REF-PAPER@v1 (plain-paper crop of CH-MAYA@v1: paper colour, texture and light only)'
+  details: 'Plain ivory paper office: organizer on the wall, desk in front. World: warm ivory paper (about #f6e8d2), soft
+    warm light from one side, matte clay with visible fingerprints, felt, knit and linen as real fabric, the four fix scraps
+    the only loud colours, no marble, no other props. Set (no set sheet; SET-OFFICE retired; paper reference REF-PAPER@v1,
+    a plain-paper crop of CH-MAYA@v1): a plain warm-ivory paper wall and floor meeting in a soft curve, soft contact shadows.
     Of the office items, only those this shot names appear, each looking like this: a simple charcoal clay desk (one flat
-    top on four straight legs, no drawers); an open silver clay laptop with a plain lid; one white clay mug; a plain charcoal
-    clay chair (one flat seat, one low back, four straight legs); a small round charcoal clay bin with a thumb-pressed rim;
-    a plain window with a thin pale-wood frame.'
+    top on four straight legs, no drawers); PR-LAPTOP (no sheet, full description): a small clay laptop, matte silver-grey
+    clay lid and base with soft rounded corners and visible fingerprints, a plain lid with no logo, sticker or lettering,
+    a narrow charcoal bezel of even width on all four sides, a plain charcoal keyboard with soft square keys and no letters;
+    the screen shows only what this shot names, no icons, no windows, no text; one white clay mug; a plain charcoal clay chair
+    (one flat seat, one low back, four straight legs); PR-BIN (no sheet, full description): a small round waste bin of matte
+    charcoal clay, about knee-high to Maya, straight sides widening slightly toward the top, a thick rolled rim pressed with
+    visible thumbprints, no lid, no pattern, no lettering; a plain window with a thin pale-wood frame.'
   background_rule: plain ivory paper wall; desk holds only the laptop, the paper pile with the MARCH tag, a mug. The laptop
     is seen edge-on from the side; any visible screen face is plain flat dark grey, no icons.
 camera:
@@ -145,8 +153,9 @@ regions:
   - 0.56
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
-  texture. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only
-  loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
+  texture. World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt,
+  knit and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props. The method cloth is
+  one calm sand-cream colour.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no clients in the APRIL pockets

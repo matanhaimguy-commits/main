@@ -38,3 +38,18 @@ Revised after G-SPEC (CLIP-C split into C and C2: +5 s of render and +1 start an
 SET-OFFICE is no longer a sheet (fallback), so its $0.059 is gone. Spent this session: PR-ORGANIZER v3 (edit,
 1024x1024) and SET-FRIEND v1 (1152x2048), about $0.11. Live balance at the end of the session is in PROJECT.md;
 it is below $3.11, so G-BUDGET will not pass until the top-up. Not recorded: steps 6 to 8 are not all closed.
+
+## Update, 28 Oct, EN 03 production session 4 (after G-HUMAN-LOOK with conditions)
+
+CH-FRIEND v2 is no longer needed (SH08, SH09 and SH22 re-staged on CH-FRIEND v1's standing views) and SET-FRIEND v1
+is locked with its minors waived, so the open sheets cost nothing. Condition 2 took the free route (full prop text in
+the shots), and the paper reference REF-PAPER@v1 is a crop made in code. No storyboard stills: every clip is a silent
+one-shot keyframe clip (STANDARDS 2), so the keyframes carry the look.
+
+| Item | Count | Unit | Cost |
+|---|---|---|---|
+| H3 keyframe clips (unchanged) | 37 s | $0.024/s | $0.89 |
+| Clip keyframes (7 start, H-01 included, + 6 end) | 13 | $0.059 | $0.77 |
+| Stills with a code push-in | 12 | $0.059 | $0.71 |
+| **Planned** | | | **$2.37** |
+| With the 25% retake buffer | | | **$2.96** |

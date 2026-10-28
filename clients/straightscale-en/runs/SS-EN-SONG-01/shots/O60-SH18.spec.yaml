@@ -38,13 +38,19 @@ action_physics:
   still.
 static: false
 setting:
-  ref: null
+  ref: 'REF-PAPER@v1 (plain-paper crop of CH-MAYA@v1: paper colour, texture and light only)'
   details: 'Plain ivory paper office: a plain window; through the glass a plain grey-ivory clay street with six tiny figures
-    at the bottom of the view. World (no set sheet, SET-OFFICE fallback, main session 28 Oct): a plain warm-ivory paper wall
-    and floor meeting in a soft curve, soft warm light, soft contact shadows. Of the office items, only those this shot names
-    appear, each looking like this: a simple charcoal clay desk (one flat top on four straight legs, no drawers); an open
-    silver clay laptop with a plain lid; one white clay mug; a small round charcoal clay bin with a thumb-pressed rim; a plain
-    window with a thin pale-wood frame.'
+    at the bottom of the view. World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay with visible
+    fingerprints, felt, knit and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props.
+    Set (no set sheet; SET-OFFICE retired; paper reference REF-PAPER@v1, a plain-paper crop of CH-MAYA@v1): a plain warm-ivory
+    paper wall and floor meeting in a soft curve, soft contact shadows. Of the office items, only those this shot names appear,
+    each looking like this: a simple charcoal clay desk (one flat top on four straight legs, no drawers); PR-LAPTOP (no sheet,
+    full description): a small clay laptop, matte silver-grey clay lid and base with soft rounded corners and visible fingerprints,
+    a plain lid with no logo, sticker or lettering, a narrow charcoal bezel of even width on all four sides, a plain charcoal
+    keyboard with soft square keys and no letters; the screen shows only what this shot names, no icons, no windows, no text;
+    one white clay mug; PR-BIN (no sheet, full description): a small round waste bin of matte charcoal clay, about knee-high
+    to Maya, straight sides widening slightly toward the top, a thick rolled rim pressed with visible thumbprints, no lid,
+    no pattern, no lettering; a plain window with a thin pale-wood frame.'
   background_rule: plain street, no signs, no shopfront text
 camera:
   framing: 'medium: the window glass fills 14 to 54% from the top and 30 to 92% of the width and shows the street through
@@ -91,9 +97,9 @@ regions:
   - 0.54
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
-  texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: a clay home office in
-  warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world;
-  the method cloth is one calm sand-cream colour.'
+  texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: warm ivory paper (about
+  #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt, knit and linen as real fabric, the
+  four fix scraps the only loud colours, no marble, no other props. The method cloth is one calm sand-cream colour.'
 must_not:
 - no text on the window or the street
 - no speech bubbles carrying words

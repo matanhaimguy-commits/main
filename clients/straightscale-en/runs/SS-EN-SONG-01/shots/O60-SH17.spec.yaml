@@ -22,7 +22,8 @@ props:
   ref: PR-CLOTH@v1
   state: three POSTS pieces plus a calm ADS piece sewn on the firm one
   content: One calm sand-cream linen cloth, a single colour, tight weave, with tone-on-tone speech-bubble shapes stitched
-    in deeper tan thread, plus pieces cut from it with the same weave and charcoal stitched labels POSTS and ADS
+    in deeper tan thread, plus pieces cut from it with the same weave and charcoal stitched labels POSTS and ADS; every letter
+    on the cloth and its pieces is stitched in raised charcoal thread, never printed
   size_in_frame: three pieces 22% of frame width each, at x 0.08 to 0.30 (left), 0.39 to 0.61 (centre), 0.70 to 0.92 (right,
     the firm one), 34 to 55% from the top; the ADS piece 20% of frame width (x 0.71 to 0.91) sewn across the whole top third
     of the firm piece, its top edge at 34%, 8% below the rod
@@ -66,13 +67,19 @@ action_physics:
   nearer, so they read larger in SH18, and comes to rest on the window view of SH18; the two limp pieces hang still.'
 static: false
 setting:
-  ref: null
+  ref: 'REF-PAPER@v1 (plain-paper crop of CH-MAYA@v1: paper colour, texture and light only)'
   details: 'Plain ivory paper office: one thin pale-wood rod fixed to the wall on two small brackets by the window, desk edge
-    below. World (no set sheet, SET-OFFICE fallback, main session 28 Oct): a plain warm-ivory paper wall and floor meeting
-    in a soft curve, soft warm light, soft contact shadows. Of the office items, only those this shot names appear, each looking
-    like this: a simple charcoal clay desk (one flat top on four straight legs, no drawers); an open silver clay laptop with
-    a plain lid; one white clay mug; a small round charcoal clay bin with a thumb-pressed rim; a plain window with a thin
-    pale-wood frame.'
+    below. World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt,
+    knit and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props. Set (no set sheet;
+    SET-OFFICE retired; paper reference REF-PAPER@v1, a plain-paper crop of CH-MAYA@v1): a plain warm-ivory paper wall and
+    floor meeting in a soft curve, soft contact shadows. Of the office items, only those this shot names appear, each looking
+    like this: a simple charcoal clay desk (one flat top on four straight legs, no drawers); PR-LAPTOP (no sheet, full description):
+    a small clay laptop, matte silver-grey clay lid and base with soft rounded corners and visible fingerprints, a plain lid
+    with no logo, sticker or lettering, a narrow charcoal bezel of even width on all four sides, a plain charcoal keyboard
+    with soft square keys and no letters; the screen shows only what this shot names, no icons, no windows, no text; one white
+    clay mug; PR-BIN (no sheet, full description): a small round waste bin of matte charcoal clay, about knee-high to Maya,
+    straight sides widening slightly toward the top, a thick rolled rim pressed with visible thumbprints, no lid, no pattern,
+    no lettering; a plain window with a thin pale-wood frame.'
   background_rule: plain wall, window frame at the right edge; the lower sash is raised; the glass shows the plain clay street
     behind the glass (no signs, no text)
 camera:
@@ -131,9 +138,9 @@ regions:
   - 0.34
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
-  texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: a clay home office in
-  warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world;
-  the method cloth is one calm sand-cream colour.'
+  texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: warm ivory paper (about
+  #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt, knit and linen as real fabric, the
+  four fix scraps the only loud colours, no marble, no other props. The method cloth is one calm sand-cream colour.'
 must_not:
 - no clay speech bubbles anywhere except the three on the ADS piece (the stitched bubble weave on the cloth is allowed)
 - no loud patterns
@@ -146,4 +153,6 @@ must_not:
 - no hands, no people
 hero: true
 notes: 'CLIP-G 6 s render: one follow-pan on one subject (the three bubbles). Start frame = SH17, end frame = window view
-  of SH18. Cause (ADS piece lifts the bubbles off) and result (they reach the buyers) in one clip (test 2). Clip: CLIP-G.'
+  of SH18. Cause (ADS piece lifts the bubbles off) and result (they reach the buyers) in one clip (test 2). Clip: CLIP-G.
+  Prompt line (G-HUMAN-LOOK condition 3): stitched lettering, raised thread, never printed (PR-CLOTH@v1 minor waived: its
+  labels look printed).'

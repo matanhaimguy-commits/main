@@ -21,7 +21,7 @@ props:
   ref: PR-CLOTH@v1
   state: bubbles woven in, close
   content: One calm sand-cream linen cloth, a single colour, tight weave, with tone-on-tone speech-bubble shapes stitched
-    in deeper tan thread
+    in deeper tan thread; every letter on the cloth and its pieces is stitched in raised charcoal thread, never printed
   size_in_frame: cloth fills the frame; the two phrase bubbles are about 76% of frame width, all other bubbles 18 to 30% and
     blank (tone-on-tone outline only, no letters)
   held_by: null
@@ -44,12 +44,18 @@ action_physics:
 - 'Frozen: bubble outlines are stitched across the cloth; one thread end of the lower bubble curls 1 cm.'
 static: true
 setting:
-  ref: null
-  details: 'Plain ivory paper office: the cloth close on the desk. World (no set sheet, SET-OFFICE fallback, main session
-    28 Oct): a plain warm-ivory paper wall and floor meeting in a soft curve, soft warm light, soft contact shadows. Of the
-    office items, only those this shot names appear, each looking like this: a simple charcoal clay desk (one flat top on
-    four straight legs, no drawers); an open silver clay laptop with a plain lid; one white clay mug; a small round charcoal
-    clay bin with a thumb-pressed rim; a plain window with a thin pale-wood frame.'
+  ref: 'REF-PAPER@v1 (plain-paper crop of CH-MAYA@v1: paper colour, texture and light only)'
+  details: 'Plain ivory paper office: the cloth close on the desk. World: warm ivory paper (about #f6e8d2), soft warm light
+    from one side, matte clay with visible fingerprints, felt, knit and linen as real fabric, the four fix scraps the only
+    loud colours, no marble, no other props. Set (no set sheet; SET-OFFICE retired; paper reference REF-PAPER@v1, a plain-paper
+    crop of CH-MAYA@v1): a plain warm-ivory paper wall and floor meeting in a soft curve, soft contact shadows. Of the office
+    items, only those this shot names appear, each looking like this: a simple charcoal clay desk (one flat top on four straight
+    legs, no drawers); PR-LAPTOP (no sheet, full description): a small clay laptop, matte silver-grey clay lid and base with
+    soft rounded corners and visible fingerprints, a plain lid with no logo, sticker or lettering, a narrow charcoal bezel
+    of even width on all four sides, a plain charcoal keyboard with soft square keys and no letters; the screen shows only
+    what this shot names, no icons, no windows, no text; one white clay mug; PR-BIN (no sheet, full description): a small
+    round waste bin of matte charcoal clay, about knee-high to Maya, straight sides widening slightly toward the top, a thick
+    rolled rim pressed with visible thumbprints, no lid, no pattern, no lettering; a plain window with a thin pale-wood frame.'
   background_rule: only the cloth in frame
 camera:
   framing: close, cloth fills the frame
@@ -93,8 +99,9 @@ regions:
   - 0.64
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
-  texture. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only
-  loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
+  texture. World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt,
+  knit and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props. The method cloth is
+  one calm sand-cream colour.'
 must_not:
 - no other readable words on the cloth besides the two listed
 - no names
@@ -107,4 +114,5 @@ must_not:
 hero: false
 notes: 'Phrases are buyer words used in the script gate (VOC bank, no names). Bubbles appear here for the first time (owner
   note). No generated clip: a gpt-image-2 still moved by a code push-in. The one-line layout of each phrase deliberately overrides
-  the two-line layout on PR-CLOTH@v1: the reference is not copied line for line.'
+  the two-line layout on PR-CLOTH@v1: the reference is not copied line for line. Prompt line (G-HUMAN-LOOK condition 3): stitched
+  lettering, raised thread, never printed (PR-CLOTH@v1 minor waived: its labels look printed).'
