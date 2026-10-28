@@ -3,6 +3,11 @@
 Mode: autopilot (owner, 26 Oct 2026: "generate the final video from A to Z and bring it to me ready"; no approval stops).
 Workflow: `SIMPLE.md` in `matanhaimguy-commits/organic-engine` (steps 1 to 9) with this skill for the build.
 
+## Status
+Stage: killed by Matan, 26 Oct 2026. Not posted and never to be posted: its angle (the step after the reply, lead
+follow-up) is off the offer, since StraightScale does not follow up leads itself (brain.json voice.banned). Kept only as a
+source for the avatar AV-01 and the buyer quotes (brain.json sources). No Post Card: it was made before the cards.
+
 ## Brief
 | Field | Value | Source |
 |---|---|---|
@@ -63,6 +68,7 @@ Pick: 1 (spoken) with on-screen text "3 clients in March. / 0 in April." Line 2 
 ## Decisions log
 | When | Decision | Why |
 |---|---|---|
+| 26 Oct | Killed by Matan; avatar and buyer quotes kept | the reply angle is off the offer: StraightScale does not follow up leads (brain.json sources, voice.banned) |
 | 26 Oct | MOF reel on the one belief B-03 | SIMPLE.md: narrow buckets bring buyers; B-03 is the strategy's "one belief" for the main avatar |
 | 26 Oct | Faceless pictogram explainer, no AI host | host decision 1 open; Kallaway against AI avatars; ref tt-clearmindtalks (28.5M plays) |
 | 26 Oct | Category explainer-2d; signature device: the path line with the gap (literal metaphor) | refbank check passed (last film was data-infographic with chart-grow) |

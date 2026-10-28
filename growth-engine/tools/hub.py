@@ -47,19 +47,28 @@ Decision JSON: {"checkpoint": "G-HUMAN-SONG", "step": 4, "question": "...", "opt
 "key": "G-HUMAN-SONG:SONG@v2" (optional; one question per key, the checkpoint by default)}.
 After the owner answers on the Studio page: studio-answers, record each answer in the run (pipeline.py
 approve/gate, --by the owner's name, as when they answer in chat), then studio-synced <id>.
+
+Client OS (the app's per-brand dashboard; brands in growth-engine/tools/clients/registry.json):
+
+  hub.py client-sync <slug> [--dry-run] [--json] [--month YYYY-MM]
+                                                   build the brand's snapshot (brain, plan, one piece per Post
+                                                   Card with its run, project and hook, spend) and POST it to
+                                                   /api/clients/sync (contract: agent-start-spark docs/client-os.md);
+                                                   --dry-run builds and checks it, prints the counts, sends nothing
 """
 import json, mimetypes, os, re, sys, urllib.error, urllib.request
 from pathlib import Path
 
 from studio import answers as studio_answers, ask as studio_ask, push as studio_push, synced as studio_synced
 from studio.business import business_for
+from clients import sync as client_sync
 
 ROOT = Path(__file__).resolve().parent.parent
 ENV_FILE = ROOT / ".env"
 HUB_URL = os.environ.get("HUB_URL", "https://matan-social-agent.lovable.app").rstrip("/")
-# The Studio page's commands, one module each in growth-engine/tools/studio/.
+# The Studio page's commands (one module each in growth-engine/tools/studio/) and client-sync (tools/clients/).
 STUDIO_COMMANDS = {"studio-push": studio_push, "studio-ask": studio_ask, "studio-answers": studio_answers,
-                   "studio-synced": studio_synced}
+                   "studio-synced": studio_synced, "client-sync": client_sync}
 
 
 def token() -> str:

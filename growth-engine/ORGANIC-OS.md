@@ -291,6 +291,7 @@ pillar: Convert               # one of the account's 4-5 pillars
 series: "Patchwork Autopsy"   # or null
 episode: 7
 job: trust                    # reach | trust | convert
+funnel_stage: MOF              # TOF | MOF | BOF; card-check defaults it from the job (reach TOF, trust MOF, convert BOF) and warns on a mismatch
 belief: B3                    # from the belief ladder
 avatar: AV-01                 # from the client brain
 awareness: problem_aware
@@ -313,6 +314,7 @@ hypothesis: "Naming the exact leak point gets more saves than a general tip"
 success_metric: saves_per_reach
 target: ">= account median x1.5"
 status: planned               # planned > scripted > produced > approved > scheduled > live > scored
+project: motion-studio/projects/<folder>   # when the piece has one; organic.py calendar and hub.py client-sync read it
 ```
 
 ### 7.2 Idea gate (before any writing)

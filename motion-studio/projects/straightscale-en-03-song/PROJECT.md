@@ -17,7 +17,7 @@ offer" (Research, Offer, Organic, Funnel, Paid ads). Docs: `docs/hook-stacks.md`
 - Facts: none on screen or in the lyrics (proof files not collected); Maya is a composite in a stylized world.
 
 ## Status
-Stage: song made (Atlas Suno, 2 masters picked); waiting on the owner's listen (G-HUMAN-SONG) before any picture
+Stage: song made and approved (G-HUMAN-SONG passed by Matan on the Studio page, 28 Oct: O60 take 2 and O30 take 2 are the masters; run step 4 done); next is the picture (step 5)
 Next: owner decisions in docs/script.md "Writer's recommendation" (O30 release, O60 fixes + one more gate, CTA follow
 to EN 02, the payoff picture); then lyrics, lyric gate, style prompt; the song route; G-HUMAN-SONG before any picture.
 Open: song route (ElevenLabs Music billing failed; Atlas Suno needs the owner to name the model in the gate; or the

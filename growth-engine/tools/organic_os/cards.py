@@ -5,6 +5,7 @@ import jsonschema
 
 from .card_cta import cta_issues
 from .config import CARD_SCHEMA, CONFIG, LENGTHS
+from .funnel import funnel_issues
 from .issues import ERROR, WARN, has_errors, issue, unknown
 
 
@@ -88,6 +89,7 @@ def card_check(card: dict, brain: dict, cmap: dict, demand: list[dict]) -> list[
     if card["format_tier"] == "A" and not (card["angle_proven"] or card.get("wildcard")):
         issues.append(issue(ERROR, "spend", "tier A needs a proven angle (beat the median in a cheaper format) or the month's wildcard"))
 
+    issues += funnel_issues(card)
     issues += cta_issues(card, brain, job)
 
     permitted = {p["id"] for p in brain.get("proof_bank", []) if p.get("permission") == "yes"}
