@@ -841,19 +841,27 @@
     },
     "G-HUMAN-VOICE": {
       "mode": "per_voice",
-      "what": "Listen once when a voice is cast for a client or series (audition and 15 s pilot); later spoken pieces with the locked voice pass on the measured take checks. For a non-English voice the note records the pace band measured on the approved audition (STANDARDS 4)."
+      "what": "Listen once when a voice is cast for a client or series (audition and 15 s pilot); later spoken pieces with the locked voice pass on the measured take checks. For a non-English voice the note records the pace band measured on the approved audition (STANDARDS 4). Matan only (never delegated; plan 28 Oct)."
     },
     "G-HUMAN-SONG": {
       "mode": "required",
-      "what": "The owner listens to every song master before any picture is made (per piece): words, brand and keyword pronunciation, a slow hook. Sung Albanian can't be fully measured by Whisper."
+      "what": "The owner listens to every song master before any picture is made (per piece): words, brand and keyword pronunciation, a slow hook. Sung Albanian can't be fully measured by Whisper. Matan only (never delegated; plan 28 Oct)."
     },
     "G-HUMAN-LOOK": {
       "mode": "per_series",
-      "what": "Approve the look bible (style, character, set and prop sheets) once per client or series; recorded on the client's LIB run."
+      "what": "Approve the look bible (style, character, set and prop sheets) once per client or series; recorded on the client's LIB run. Delegated (plan 28 Oct, A1): also 'claude (delegated by Matan, plan 28 Oct)' with a note naming the fresh evaluator's report.",
+      "delegate": {
+        "by": "claude (delegated by Matan, plan 28 Oct)",
+        "note": "Matan, plan of 28 Oct (A1): Claude may record this checkpoint after a fresh evaluator session's report; --note names that report's file and what it found. The owner sees it as FYI in the queue."
+      }
     },
     "G-HUMAN-HOOKBOARD": {
       "mode": "required",
-      "what": "Hook storyboards always go to the owner (VISUAL-QA 6). Drama: the animatic and the cost preflight ride with the hook board. Podcast: the line-1 speaker's start frame with the title bar. Motion: the hook styleframe (the first 2 s at phone size with the text hook)."
+      "what": "Hook storyboards always go to the owner (VISUAL-QA 6). Drama: the animatic and the cost preflight ride with the hook board. Podcast: the line-1 speaker's start frame with the title bar. Motion: the hook styleframe (the first 2 s at phone size with the text hook). Delegated (plan 28 Oct, A1): also 'claude (delegated by Matan, plan 28 Oct)' with a note naming the fresh evaluator's report.",
+      "delegate": {
+        "by": "claude (delegated by Matan, plan 28 Oct)",
+        "note": "Matan, plan of 28 Oct (A1): Claude may record this checkpoint after a fresh evaluator session's report; --note names that report's file and what it found. The owner sees it as FYI in the queue."
+      }
     },
     "G-HUMAN-ESCALATE": {
       "mode": "required",
@@ -861,7 +869,7 @@
     },
     "G-HUMAN-FINAL": {
       "mode": "required",
-      "what": "Approval on the hub's Content page; nothing posts without it. Every Albanian string (script, lyrics, supers, captions, slides, caption text) is marked for a native read in the hub notes."
+      "what": "Approval on the hub's Content page; nothing posts without it. Every Albanian string (script, lyrics, supers, captions, slides, caption text) is marked for a native read in the hub notes. Matan only (never delegated; plan 28 Oct)."
     },
     "G-HUMAN-TEST": {
       "mode": "required",

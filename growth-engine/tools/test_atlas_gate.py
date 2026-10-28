@@ -59,7 +59,7 @@ class Wrapper(TP.Base):
         cls.repo_tmp = tempfile.TemporaryDirectory()
         r = Path(cls.repo_tmp.name)
         for rel in ("growth-engine/tools/pipeline.py", "growth-engine/tools/atlas_rules.py", "growth-engine/tools/atlas_calls.py",
-                    "growth-engine/tools/budget_usd.py", "growth-engine/tools/call_aspect.py",
+                    "growth-engine/tools/budget_usd.py", "growth-engine/tools/call_aspect.py", "growth-engine/tools/gate_auth.py",
                     "growth-engine/tools/organic.py",
                     "growth-engine/tools/atlas/atlas_gate.py", "growth-engine/production/standards.json",
                     "growth-engine/production/schemas", "growth-engine/config"):

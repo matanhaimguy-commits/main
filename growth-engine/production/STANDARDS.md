@@ -231,6 +231,17 @@ adds the animatic and cost preflight, podcast the line-1 start frame with the ti
 G-HUMAN-ESCALATE (an asset after 3 failed attempts, a script after 3 FIX loops), G-HUMAN-FINAL (every post; Albanian strings marked for a native
 read), G-HUMAN-TEST, G-FALLBACK (Director), G-EXCEPTION.
 
+**Delegated owner checkpoints** (Matan, plan of 28 Oct, A1): G-HUMAN-LOOK and G-HUMAN-HOOKBOARD may also be recorded
+`--by "claude (delegated by Matan, plan 28 Oct)"` after a fresh evaluator session judged them; the `--note` names that
+evaluator's report file (`...review.json` or `.md`) and what it found, and the gate refuses the record without it. The
+owner sees each as FYI in the queue, and a pending question for that checkpoint closes. G-HUMAN-SPINE stays
+`claude (delegated)`. **G-HUMAN-VOICE, G-HUMAN-SONG and G-HUMAN-FINAL stay Matan only.** A session started by another
+session never records these three (CLAUDE.md, Sessions).
+
+**G-BUDGET** is recorded by `pipeline.py budget` (budget_usd.py): a PASS carries its data (unit usd, planned,
+with_buffer, balance, month_spent, cap) and the numbers must pass. A bare PASS is refused, by `pipeline.py gate` and by
+the generation gate, which doesn't count one already in a ledger; the owner's way past it is an OVERRIDE with a reason.
+
 ## 10. Budget
 
 - **Budgets are Atlas USD** (owner, 28 Oct 2026: generation runs on Atlas). Prices (`standards.json` `atlas_prices`,
