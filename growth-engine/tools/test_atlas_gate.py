@@ -20,6 +20,7 @@ sys.path.insert(0, str(HERE / "atlas"))
 import atlas_gate as G  # noqa: E402
 import pipeline as P  # noqa: E402
 import test_pipeline as TP  # noqa: E402
+from test_atlas_shapes import Shapes  # noqa: E402,F401  (the real entries on 9:16 and 4:5 work)
 
 REPO = HERE.parents[1]
 SLUG, POST, LIB = TP.SLUG, TP.POST, TP.LIB
@@ -58,7 +59,7 @@ class Wrapper(TP.Base):
         cls.repo_tmp = tempfile.TemporaryDirectory()
         r = Path(cls.repo_tmp.name)
         for rel in ("growth-engine/tools/pipeline.py", "growth-engine/tools/atlas_rules.py", "growth-engine/tools/atlas_calls.py",
-                    "growth-engine/tools/budget_usd.py",
+                    "growth-engine/tools/budget_usd.py", "growth-engine/tools/call_aspect.py",
                     "growth-engine/tools/organic.py",
                     "growth-engine/tools/atlas/atlas_gate.py", "growth-engine/production/standards.json",
                     "growth-engine/production/schemas", "growth-engine/config"):

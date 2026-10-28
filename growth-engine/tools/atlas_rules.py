@@ -9,7 +9,7 @@ import json
 
 SRC = "standards.json models.atlas.allowed"
 ENTRY_KEYS = {"id", "kind", "use", "params", "params_one_of", "params_if_given", "min_s", "max_s", "text_fields",
-              "note", "duration_from", "aspect_from", "prop_subjects_only", "analysis", "reads"}
+              "note", "duration_from", "aspect_from", "size_for_aspect", "prop_subjects_only", "analysis", "reads"}
 SHAPE = "each entry is an object {id, kind, use, params, params_one_of, params_if_given, min_s, max_s, text_fields}"
 
 
@@ -35,6 +35,12 @@ def entry_problem(e) -> str | None:
             return f"{k} is true or false"
     if e.get("duration_from", "audio") != "audio":
         return "duration_from is \"audio\" (the length is the audio reference's)"
+    sfa = e.get("size_for_aspect", {})
+    if not isinstance(sfa, dict) or any(not isinstance(v, list) or not all(isinstance(x, str) for x in v)
+                                        for v in sfa.values()):
+        return "size_for_aspect maps a Shot Spec aspect (\"4:5\") to the sizes that make it ([\"1024x1536\"])"
+    if sfa and e.get("aspect_from"):
+        return "size_for_aspect and aspect_from don't mix (the frame follows the image)"
     if e.get("aspect_from", "image") != "image":
         return "aspect_from is \"image\" (the frame follows the image reference)"
     if e["kind"] == "video" and not ("min_s" in e and "max_s" in e):
@@ -80,16 +86,28 @@ def review_text(req: dict, e: dict) -> str:
     return text
 
 
-def strings(v):
+REF_KINDS = ("image", "video", "audio")
+
+
+def ref_object(v, refs=()) -> bool:
+    """A reference given as an object, as H3 reference-to-video's refers takes it: {"url": a reference, "type":
+    image|video|audio (optional)}. Its keys and type are structure, not text."""
+    return isinstance(v, dict) and v.get("url") in refs and set(v) <= {"url", "type"} \
+        and v.get("type", "image") in REF_KINDS
+
+
+def strings(v, refs=()):
     if isinstance(v, str):
         yield v
     elif isinstance(v, (list, tuple)):
         for x in v:
-            yield from strings(x)
+            yield from strings(x, refs)
+    elif ref_object(v, refs):
+        yield v["url"]
     elif isinstance(v, dict):
         for k, x in v.items():
             yield str(k)
-            yield from strings(x)
+            yield from strings(x, refs)
 
 
 def param_checks(req: dict, e: dict) -> list[str]:
@@ -112,7 +130,7 @@ def param_checks(req: dict, e: dict) -> list[str]:
         | set(texts)
     refs = {m["value"] for m in req.get("medias") or []}
     for k, v in p.items():
-        loose = [s for s in strings(v) if s not in refs]
+        loose = [s for s in strings(v, refs) if s not in refs]
         if k not in listed and loose:
             why.append(f"{model}: {k} carries text no review covers ({loose[0][:40]!r}): drop it, or the owner lists {k} "
                        f"in the model's entry (params, params_one_of, params_if_given, or text_fields, which are reviewed "

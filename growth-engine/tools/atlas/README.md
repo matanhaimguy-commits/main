@@ -67,7 +67,10 @@ The gate then checks, for an Atlas call, exactly this:
    whose type makes this kind of call;
 3. the call follows the entry: `use`, `params`, `params_one_of`, `params_if_given`, the duration within `min_s` to
    `max_s`, and no parameter carrying text the entry does not list;
-4. image and video calls match the Shot Spec's aspect ratio (pass `--aspect-ratio`: the CLI's own default is 1:1);
+4. image and video calls match the Shot Spec's aspect, by whichever shape key the model takes (`call_aspect.py`):
+   `--aspect-ratio` or `--ratio` (`9:16`), or `--size` (`1152x2048`) compared by its ratio. gpt-image-2 takes only
+   `--size` and has no 4:5 size, so its entries' `size_for_aspect` names the size for each aspect (a 4:5 slide at
+   1024x1536, cropped to 4:5 at export). H3 image-to-video takes only `ratio: adaptive`: `aspect_from: image`;
 5. G-BUDGET is fresh (24 h), video calls need step 9 closed, a song needs G-HUMAN-SONG before any picture, a version
    runs once, and attempts are counted;
 6. the Shot Specs are current with G-SPEC, the prompt has its G-PROMPT-IMG or G-PROMPT-VID PASS, and the references
@@ -125,10 +128,12 @@ shape only; this model is not named):
 | `text_fields` | Extra text fields the call may set (`negative_prompt`, `lyrics`, `style`, `title`, `negative_tags`, ...). They are reviewed with the prompt: register the prompt card as the prompt, then for each of these fields the call sets, in this order, a line `[field]` and its text. If a text field has a default in `atlas models get` (some music models have default lyrics), pass it explicitly. |
 | `duration_from` | `"audio"`: the model has no duration; the clip is as long as its audio reference, measured on that audio's G-AUDIO PASS (`data.seconds`), within `min_s` to `max_s`. |
 | `aspect_from` | `"image"`: the frame follows the image reference, so the call passes no aspect ratio. |
+| `size_for_aspect` | For a model shaped by `size`: each Shot Spec aspect and the sizes that make it (`{"4:5": ["1024x1536"]}`). Without it a size passes when its ratio equals the spec's. |
 | `prop_subjects_only` | `true`: only for clips whose every Shot Spec subject is a `PR-` prop (a talking object). |
 | `analysis`, `reads` | `true` and the asset types it reads: an analysis call (no prompt, no budget, one registered file). |
 
-Any parameter that carries text and is not listed in the entry blocks the call, so list `aspect_ratio`, `resolution`,
+Any parameter that carries text and is not listed in the entry blocks the call (a reference given as an object,
+`{"url": a registered reference, "type": "image"}` as in H3's `refers`, is structure, not text), so list `aspect_ratio`, `resolution`,
 `quality`, a voice id and the like with their allowed values. A family banned in STANDARDS.md 1 (Seedance, Veo, Sora
 and the rest) stays banned on Atlas unless the owner names that exact model.
 

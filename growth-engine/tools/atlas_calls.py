@@ -27,7 +27,7 @@ def checks(P, req: dict, a: dict, led: dict) -> list[str]:
     """The owner's entry applied to a generation, plus the Shot Spec aspect unless the frame follows the image."""
     why = atlas_rules.entry_checks(req, a, asset_specs(P, a, led), lambda v: audio_seconds(P, led, v))
     if req["kind"] in ("image", "video") and not req["atlas"].get("aspect_from"):
-        why += P._spec_aspect(a, led, req["params"])
+        why += P._spec_aspect(a, led, req["params"], req["atlas"].get("size_for_aspect"))
     return why
 
 

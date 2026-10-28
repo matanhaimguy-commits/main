@@ -45,6 +45,7 @@ import yaml
 import atlas_calls
 import atlas_rules
 import budget_usd
+import call_aspect
 
 GE = Path(__file__).resolve().parents[1]
 PROD = GE / "production"
@@ -930,7 +931,8 @@ def _gate_any_version(led, a, gate, **match) -> bool:
     return False
 
 
-def _spec_aspect(a: dict, led: dict, p: dict) -> list[str]:
+def _spec_aspect(a: dict, led: dict, p: dict, size_for_aspect: dict | None = None) -> list[str]:
+    """The call's aspect_ratio, ratio or size against the Shot Spec's aspect (call_aspect.py)."""
     if a["type"] in ("storyboard", "style_ref") or a["type"].endswith("_sheet"):
         return []
     aspects = set()
@@ -938,8 +940,8 @@ def _spec_aspect(a: dict, led: dict, p: dict) -> list[str]:
         sp = spec_path(led["slug"], led["post_id"], s)
         if sp.exists():
             aspects.add((yaml.safe_load(sp.read_text()) or {}).get("camera", {}).get("aspect"))
-    if len(aspects) == 1 and p.get("aspect_ratio") not in aspects:
-        return [f"aspect_ratio {p.get('aspect_ratio')} differs from the Shot Spec ({aspects.pop()})"]
+    if len(aspects) == 1 and None not in aspects:
+        return call_aspect.mismatch(p, aspects.pop(), size_for_aspect)
     return []
 
 
