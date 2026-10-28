@@ -35,6 +35,10 @@
   "StraightScale Homepage". Read its `AGENTS.md` first; commits to `main` sync into Lovable, so never force-push,
   rebase or amend there. The plan is `Agency OS/Projects/Website plan 2026-10.md` in the vault. Never publish without
   the owner.
+- **Sessions (owner, 28 Oct)**: the main session runs the other sessions. Each step is checked by a fresh evaluator
+  session, the main session decides internal gates, and only owner checkpoints (STANDARDS 9) go to the hub's Studio
+  page. A session started by another session never passes an owner checkpoint, never publishes and never touches
+  the live hub business. Loop and board: `Agency OS/Sessions board.md` in the vault.
 - Other folders: `Mark AI/` (product research), `openmontage-work/` and `straightscale-reel/` (earlier video
   experiments, see `motion-studio/knowledge/our-pipeline.md`).
 - **Code structure (owner rule, 27 Oct 2026)**: never one large, long file. One small main file (a page, an entry point,
