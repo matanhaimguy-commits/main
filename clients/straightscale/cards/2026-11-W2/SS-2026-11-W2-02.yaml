@@ -19,9 +19,9 @@ awareness: problem_aware
 demand_phrase: na krahasojnë me çmimin
 idea_source: outlier
 source_ref: 'research/2026-10-14 #1 @eri.businesscoach numbered owner self-check (30.3x); map pillar Close (quote, follow-up)'
-narrow_product: 'After the quote: 5 yes/no questions that show where a buyer goes once you send a price (what they compare
-  you with, an agreed next step, a follow-up when they go quiet, why the last lost quote was lost, what happens if they say
-  yes)'
+narrow_product: 'After the quote: 5 yes/no questions that show where a buyer goes once you send a price; the one that decides
+  most is whether a next step was agreed before the price went out (what they compare you with, an agreed next step, a follow-up
+  when they go quiet, why the last lost quote was lost, what happens if they say yes)'
 format: carousel_self_check
 format_tier: C
 credit_budget: 16
@@ -40,13 +40,21 @@ notes: 'Quote stage only, so it does not repeat W2-01 (after they write) or W1-0
   7): objects, the red-case phone, hands only or from behind; nobody shown as a real client or as StraightScale staff. Hub
   notes start: AI label: on (if a photoreal scene is used). Truth: no counts except the post''s own items; screens show states,
   never a count or a platform name or logo; no answer-time or speed words; no price, guarantee or urgency; nobody named or
-  mocked. Albanian lines are drafts: native read needed (D2 register ti).'
+  mocked. Albanian lines are drafts: native read needed (D2 register ti). IDEA GATE (Idea Agent, 28 Oct 2026, OS 7.2): PASS
+  after tightening. Drill-down: L1 Close > L2 the quote stage > L3 what happens after the price is sent > L4 the variable:
+  an agreed next step before the price goes out. The list stays, and the turn now names the one variable so the post has a
+  level-4 point, not five equal ones. Trinity: complete (yes/no plus the variable to fix first), unique (the buyer goes quiet
+  without a next step, not only because of the price), depictable (his last sent quote). Shock 6/10: he believes the silence
+  after a quote means the price was too high; we show no next step was agreed. $5 test: yes. Key visuals: cover ''Pas ofertës:
+  5 pyetje që tregojnë ku ikën klienti'' over a sealed quote on a counter beside the red-case phone; slide 2 must work alone:
+  ''Ofertë pa hap tjetër = klient që hesht.'' (native read needed). The 5 is the post''s own count; no days or hours.'
 status: planned
 hub_item_id: null
 content_dir: null
 run: null
 gates:
   map: pass
+  idea: pass
   truth: pending
   originality: pending
   language: pending

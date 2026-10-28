@@ -19,8 +19,9 @@ awareness: problem_aware
 demand_phrase: klientët nuk kthehen
 idea_source: demand_map
 source_ref: research/demand-map.csv 'klientët nuk kthehen' (direct) + brain AV-01 fears ('clients don't come back')
-narrow_product: 'Clients who bought once don''t come back because nobody invites them back: the one invite-back message after
-  the work is done, shown as a client list going grey vs one that gets a message'
+narrow_product: 'Clients who bought once don''t come back because nobody invites them back: the one message after the work
+  is done (name the work, ask how it is going, leave the next step open), shown as a client list going grey vs one row that
+  gets the message'
 format: reel_motion
 format_tier: C
 credit_budget: 10
@@ -38,13 +39,24 @@ notes: 'O30 compact hidden cause (ST3). Picture: a list of past clients that fad
   (still PENDING in the 28 Oct queue, `pipeline.py queue`); the hook styleframe needs G-HUMAN-HOOKBOARD. No voiceless fallback
   (text-only reels were rejected). AI label: on (AI voice, STANDARDS 7). Truth: no counts except the post''s own items; screens
   show states, never a count or a platform name or logo; no answer-time or speed words; no price, guarantee or urgency; nobody
-  named or mocked. Albanian lines are drafts: native read needed (D2 register ti).'
+  named or mocked. Albanian lines are drafts: native read needed (D2 register ti). IDEA GATE (Idea Agent, 28 Oct 2026, OS
+  7.2): PASS after tightening. Drill-down: L1 Close > L2 repeat clients > L3 contact after the work is done > L4 one message
+  in three parts (name the work, ask how it is going, leave the next step open). The old narrow product named the message
+  but not what it says, so the reel would leave homework; the three parts close it. Trinity: complete (the message is shown
+  on screen in the payoff), unique (blames the missing invitation, not the client or the price), depictable (a list of past
+  clients he can open tonight). Shock 6/10: he believes they left for a competitor or were unhappy; we show nobody asked them
+  back. $5 test: yes for clinics, salons and gyms in AV-01; for kitchens or windows the same message keeps the next step open
+  (a referral or a check), so it still pays. Key visual 0-3 s: rows of a past-client list fading to grey one by one from frame
+  1, no names and no numbers; text hook ''Klientët nuk ikin.'' Draft payoff message (native read needed): ''Si po të shërben
+  [puna]? Kur të duhet sërish, më shkruaj këtu.'' Note for the Director: ''Klientët nuk ikin'' is an absolute; keep it framed
+  as the reframe of the mistake, the Hook Agent may soften it.'
 status: planned
 hub_item_id: null
 content_dir: null
 run: null
 gates:
   map: pass
+  idea: pass
   truth: pending
   originality: pending
   language: pending
