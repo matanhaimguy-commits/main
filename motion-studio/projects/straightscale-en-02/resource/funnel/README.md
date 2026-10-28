@@ -11,7 +11,7 @@ schema (checked 28 Oct 2026 with the hub's own `schema.ts`, placeholders filled)
 
 ## The flow
 1. **Comment WORDS** on EN 02. A public reply under the comment ("Sent you a DM with the searches.").
-2. **Button before any link** (`opener.mode: "tap"`): "Want me to send you the WORDS Sheet? ... about 20 minutes."
+2. **Button before any link** (`opener.mode: "tap"`): "Want me to send you the WORDS Sheet? ... 20 to 30 minutes."
    Button: **Send it**. The tap opens the 24-hour window. No follow gate (it would cost one more tap; low_friction).
 3. **The resource** (`deliver`): one line on how to use it and the button **Open the sheet**, linking to `WORDS.pdf`
    uploaded to the hub's storage.

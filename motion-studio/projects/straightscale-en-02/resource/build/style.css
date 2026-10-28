@@ -23,3 +23,6 @@ table { border-collapse:collapse; width:100%; margin:6px 0 10px; font-size:9.5pt
 th { background:var(--char); color:var(--ivory); text-align:left; padding:6px 8px; font-weight:600; }
 td { border-bottom:1px solid var(--marble); padding:6px 8px; vertical-align:top; }
 td:first-child { font-weight:700; color:var(--char); white-space:nowrap; }
+/* keep a lead-in line with its list, and short numbered lists whole */
+p:has(+ ol), p:has(+ ul) { break-after:avoid; }
+ol { break-inside:avoid; }

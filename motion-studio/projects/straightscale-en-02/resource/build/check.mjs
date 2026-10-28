@@ -25,8 +25,9 @@ export function check(md) {
   for (const src of SOURCES) {
     const body = secs[src];
     if (body === undefined) { problems.push(`missing section: ${src}`); continue; }
-    if (!/\*\*Search \d+\.\*\*/.test(body)) problems.push(`${src}: no numbered search`);
+    if (!/\*\*Search \d+\./.test(body)) problems.push(`${src}: no numbered search`);
     if (!body.includes('```')) problems.push(`${src}: no copy-paste box`);
+    if ((body.match(/Start here\./g) || []).length !== 1) problems.push(`${src}: needs exactly one "Start here" search`);
     if (!/Filled example|filled example|Filled in/.test(body) && !/https:\/\//.test(body)) problems.push(`${src}: no filled example`);
     if (!body.includes('**What to copy:**')) problems.push(`${src}: no "What to copy"`);
     if (!body.includes('**Sort it:**')) problems.push(`${src}: no "Sort it"`);
