@@ -4,22 +4,21 @@ format: claymation
 script_lines:
 - L1
 line_text: Your post says one thing. Your page says another. Nobody books.
-story_purpose: 'The mismatch itself: the post speaks the buyer''s words, the page it leads to speaks different words,
-  and the calendar stays empty.'
-must_read_in_1s: The post says TIRED OF SLOW MONTHS?, the page under it WELCOME TO OUR WEBSITE.
+story_purpose: 'The mismatch: the post speaks the buyer''s words, the page under it speaks different words.'
+must_read_in_1s: The post says TIRED OF SLOW MONTHS?, the page under it says WELCOME TO OUR WEBSITE.
 subjects:
 - id: PR-POST
   ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
     step 2); the prop sheet is cut from the approved frame at step 7'
-  state: pinned flat to the backdrop wall
-  pose: upper middle, x 14% to 86%, y 30% to 47%
+  state: a flat clay card lying on the clay ground
+  pose: x 6% to 94%, y 31% to 45%
   expression: ''
   instances: 1
 - id: PR-PAGE
   ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
     step 2); the prop sheet is cut from the approved frame at step 7'
-  state: standing on the floor, leaning back against the backdrop wall
-  pose: lower middle, x 14% to 86%, y 56% to 84%
+  state: a flat clay card lying on the clay ground
+  pose: x 6% to 94%, y 49% to 64%
   expression: ''
   instances: 1
 hands: none visible
@@ -28,68 +27,66 @@ props:
   story_critical: true
   ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
     step 2); the prop sheet is cut from the approved frame at step 7'
-  state: pinned to the wall
-  content: 'a single flat terracotta #C8553D clay card, one slab, rounded corners, no second layer, held to the
-    backdrop wall by one round sage clay pushpin at its top centre; three small clay hearts in heart red #D64545
-    pressed onto its lower right corner, below the letters'
-  size_in_frame: 72% of the width, 17% of the height
+  state: lying flat
+  content: 'one flat terracotta #C8553D clay slab with rounded corners, one layer, its words centred on it'
+  size_in_frame: 88% of the width, 14% of the height
 - id: PR-PAGE
   story_critical: true
   ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
     step 2); the prop sheet is cut from the approved frame at step 7'
-  state: leaning on the wall
-  content: 'a single flat grey-blue #9AA3AD clay card, one slab, rounded corners, no second layer; its words across
-    the top, under them a calendar grid of 2 rows by 5 columns of plain cream clay squares, every square empty:
-    no digits, no names, no marks'
-  size_in_frame: 72% of the width, 28% of the height
+  state: lying flat
+  content: 'one flat grey-blue #9AA3AD clay slab with rounded corners, one layer, its words centred on it'
+  size_in_frame: 88% of the width, 15% of the height
 - id: PR-ARROW
   story_critical: false
   ref: null
-  state: pressed flat onto the backdrop wall between the cards
-  content: 'one short thick sage #8FA98B clay arrow pointing down, its tail just under the post card, its tip just
-    above the page card'
+  state: lying flat between the cards
+  content: 'one short thick sage #8FA98B clay arrow pointing down, x 46% to 54%, y 45.5% to 48.5%, touching neither
+    card'
 text_in_image:
 - string: TIRED OF SLOW
-  surface: the post card, line 1, cream letters
-  position: x 20% to 80%, y 32% to 38%
+  surface: 'the post card, line 1, cream #F3E9D8 letters'
+  position: x 12% to 88%, y 32.5% to 37.5%
   case: upper
   must_be_exact: true
   occlusion: nothing covers any letter
 - string: MONTHS?
-  surface: the post card, line 2, cream letters
-  position: x 35% to 65%, y 38% to 44%
+  surface: 'the post card, line 2, cream #F3E9D8 letters'
+  position: x 30% to 70%, y 38.5% to 43.5%
   case: upper
   must_be_exact: true
   occlusion: nothing covers any letter
 - string: WELCOME TO
-  surface: 'the top of the page card, line 1, deep ink #2B2A33 letters'
-  position: x 25% to 75%, y 58% to 63%
+  surface: 'the page card, line 1, deep ink #2B2A33 letters'
+  position: x 14% to 78%, y 50.5% to 56%
   case: upper
   must_be_exact: true
   occlusion: nothing covers any letter
 - string: OUR WEBSITE
-  surface: 'the top of the page card, line 2, deep ink #2B2A33 letters'
-  position: x 22% to 78%, y 63% to 68%
+  surface: 'the page card, line 2, deep ink #2B2A33 letters'
+  position: x 12% to 78%, y 57% to 62.5%
   case: upper
   must_be_exact: true
   occlusion: nothing covers any letter
 action_physics:
-- The post card lies flat against the backdrop wall, held by one pushpin pressed into the wall through its top centre;
-  the arrow is pressed flat into the wall between the cards; the page card's bottom edge rests on the clay floor
-  and its back leans against the wall.
+- Both cards and the arrow lie flat on the cream clay ground, seen from straight above; nothing rests on top of
+  them.
 static: false
 setting:
   ref: null
-  details: a plain cream clay backdrop wall meeting a cream clay floor at about 84% of the frame height
-  background_rule: plain warm cream clay backdrop, softly out of focus; no signs, frames, posters or other screens;
-    the only writing is the listed text
+  details: 'a flat cream #F3E9D8 clay ground seen from straight above, filling the frame'
+  background_rule: 'plain cream #F3E9D8 clay above the page; no signs, frames, posters or other screens; the only
+    writing is the listed text'
 camera:
-  framing: two cards stacked vertically and centred, the arrow between them
-  angle: straight on at screen height, camera inside the miniature clay world
+  framing: two cards stacked vertically, centred, the arrow between them; the page card's words kept left of 79%
+    of the width
+  angle: straight on, square to the screen, camera inside the miniature clay world
   lens: macro, shallow depth of field
   aspect: '9:16'
-  safe_zones: top 30% calm and empty for the text hook; nothing below 84% of the height (bottom band calm for captions
-    and UI); main subject inside x 10% to 90%
+  safe_zones: 'STANDARDS 6 reels zone: top 14% empty; the text hook alone sits at 14% to 30% (added in the edit);
+    every key element (text, calendar, hearts, cards, lens) inside 30% to 65% of the height and 6% to 94% of the
+    width, and inside 6% to 79% of the width where it lies below 50% of the height; below 65% only plain continuation
+    of the screen or card and the named non-key parts'
 continuity:
   previous_shot: null
   carry_over: []
@@ -97,58 +94,51 @@ regions:
 - name: post
   kind: prop
   box:
-  - 0.14
-  - 0.3
-  - 0.86
-  - 0.47
+  - 0.06
+  - 0.31
+  - 0.94
+  - 0.45
 - name: post-text
   kind: text
   box:
-  - 0.2
-  - 0.32
-  - 0.8
-  - 0.44
+  - 0.12
+  - 0.325
+  - 0.88
+  - 0.435
 - name: arrow
   kind: prop
   box:
-  - 0.44
-  - 0.48
-  - 0.56
-  - 0.55
+  - 0.46
+  - 0.455
+  - 0.54
+  - 0.485
 - name: page
   kind: prop
   box:
-  - 0.14
-  - 0.56
-  - 0.86
-  - 0.84
+  - 0.06
+  - 0.49
+  - 0.94
+  - 0.64
 - name: page-text
   kind: text
   box:
-  - 0.22
-  - 0.58
+  - 0.12
+  - 0.505
   - 0.78
-  - 0.68
-- name: calendar
-  kind: prop
-  box:
-  - 0.2
-  - 0.7
-  - 0.8
-  - 0.82
-style: 'Premium studio claymation (claymation skill lane 4, the series'' cloth-and-clay world): everything sculpted
-  from matte plasticine with refined tool marks, soft rounded geometry, slight subsurface warmth, macro lens feel
-  with shallow depth of field, soft diffused studio light with a gentle rim glow. Palette: warm cream #F3E9D8 backdrop
-  and floor, terracotta #C8553D accents, sage #8FA98B, deep ink #2B2A33, heart red #D64545. Top 30% of the frame
-  is a calm plain cream backdrop with nothing in it (the text hook is set there in the edit).'
+  - 0.625
+style: 'Premium studio claymation (claymation skill lane 4): everything sculpted from matte plasticine with refined
+  tool marks, soft rounded geometry, slight subsurface warmth, macro lens feel with shallow depth of field, soft
+  diffused studio light with a gentle rim glow. Palette (every colour used in this frame): warm cream #F3E9D8, terracotta
+  #C8553D, sage #8FA98B, deep ink #2B2A33, grey-blue #9AA3AD. The top 30% of the frame is plain cream #F3E9D8 with
+  nothing in it (the text hook is set at 14% to 30% in the edit).'
 must_not:
 - no logo, wordmark or real platform name or icon anywhere
 - no digits or numbers anywhere
 - no words other than the listed strings
-- no letters in the top 30% of the frame
-- no faces or face profiles
+- nothing at all in the top 30% of the frame except plain cream clay
+- no people, no hands, no faces
 - no workbench, table edge or room around the clay world
 - no glossy CGI look, no glass reflections
 hero: true
-notes: Concept frame for hook stack EN06-V8 (Hook Lab v4). The text hook is overlaid in code in the edit, not drawn
-  by the model.
+notes: Concept frame for hook stacks EN06-V8 (Hook Lab v4). The text hook is overlaid in code at 14% to 30%, not
+  drawn by the model.

@@ -4,112 +4,102 @@ format: claymation
 script_lines:
 - L1
 line_text: The problem isn't your posts. It's what happens after someone clicks.
-story_purpose: 'The post works (the hearts) but the page it leads to gets nobody: the problem is after the click.'
-must_read_in_1s: One big phone shows a BOOK A CALL page with an empty calendar, a pile of hearts at its foot.
+story_purpose: 'The page a post leads to: likes came in (the hearts) but the booking calendar stays empty.'
+must_read_in_1s: A BOOK A CALL page, its calendar empty, hearts piled on the screen.
 subjects:
-- id: PR-PHONE
+- id: PR-SCREEN
   ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
     step 2); the prop sheet is cut from the approved frame at step 7'
-  state: upright, screen lit, showing the booking page
-  pose: centred, x 18% to 82%, y 30% to 78%, standing on its bottom edge, screen facing the camera, no lean
+  state: lit, the booking page
+  pose: fills the frame below 30%, edge to edge
   expression: ''
   instances: 1
 hands: none visible
 props:
-- id: PR-PHONE
-  story_critical: true
-  ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
-    step 2); the prop sheet is cut from the approved frame at step 7'
-  state: upright, screen lit
-  content: 'a single clay phone: one rounded rectangular body in matte deep ink #2B2A33 clay, not glass, no reflections,
-    a rounded terracotta #C8553D clay case rim, one flat screen, no camera bump, no buttons, no second screen, no
-    logo'
-  size_in_frame: 64% of the frame width, 48% of the height
 - id: PR-SCREEN
   story_critical: true
   ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
     step 2); the prop sheet is cut from the approved frame at step 7'
   state: lit, the booking page
-  content: 'the screen field is sage #8FA98B; across its top a cream #F3E9D8 band holds the words BOOK A CALL in
-    heavy bold deep ink #2B2A33 capital letters, centred in the band with a small cream margin each side; under
-    the band a calendar grid of 3 rows by 5 columns of plain cream clay squares on the sage field, every square
-    empty: no digits, no names, no marks'
+  content: 'a macro close-up of a clay phone''s screen: the screen''s rounded top edge and a terracotta #C8553D
+    clay rim run across the frame at 30% of the height and the screen continues past the left, right and bottom
+    edges of the frame; the screen is matte clay, not glass, no reflections; a cream #F3E9D8 band across the top
+    of the screen from 31% to 40% of the height holds the words BOOK A CALL in heavy bold deep ink #2B2A33 capital
+    letters, centred; under the band, on a sage #8FA98B screen field, a calendar of 3 rows by 4 columns of big plain
+    cream clay squares with sage gaps, from 8% to 78% of the width and 42% to 64% of the height, every square empty:
+    no digits, no names, no marks; the sage field continues plain to the right of the calendar and below 64%'
+  size_in_frame: the full width, from 30% to the bottom edge
 - id: PR-HEARTS
   story_critical: true
   ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
     step 2); the prop sheet is cut from the approved frame at step 7'
-  state: a loose pile at the phone's foot
-  content: 'about a dozen plump thumb-pressed clay hearts in heart red #D64545, piled on the floor against the phone''s
-    bottom edge, x 14% to 86%, y 74% to 84%'
+  state: a small pile lying on the screen
+  content: 'seven plump thumb-pressed clay hearts in heart red #D64545, each about 7% of the frame width, lying
+    in one low pile on the sage field to the left of the calendar''s bottom row, from 8% to 40% of the width and
+    58% to 65% of the height, touching only the screen and each other, none on the band or the letters'
 text_in_image:
 - string: BOOK A CALL
-  surface: 'the cream band at the top of the phone screen, deep ink #2B2A33 letters'
-  position: x 26% to 74%, y 34% to 40%
+  surface: 'the cream band at the top of the screen, deep ink #2B2A33 letters'
+  position: x 14% to 86%, y 32% to 39%
   case: upper
   must_be_exact: true
   occlusion: nothing covers any letter
 action_physics:
-- The phone stands upright on its flat bottom edge, the edge pressed into the clay floor, no lean; the hearts rest
-  on the floor and are pressed against the phone's lower edge, none on the screen.
+- The screen faces the camera square on; the hearts lie flat against the screen surface in one low pile, each resting
+  on the screen or on the heart under it.
 static: false
 setting:
   ref: null
-  details: a soft cream clay floor meeting a plain cream clay backdrop wall; the floor line sits at about 78% of
-    the frame height
-  background_rule: plain warm cream clay backdrop, softly out of focus; no signs, frames, posters or other screens;
-    the only writing is the listed text
+  details: the clay phone screen fills the frame below 30%; above it plain cream clay
+  background_rule: 'plain cream #F3E9D8 clay above the page; no signs, frames, posters or other screens; the only
+    writing is the listed text'
 camera:
-  framing: 'one subject: the phone, big and centred, the heart pile at its foot'
-  angle: straight on at screen height, camera inside the miniature clay world
+  framing: 'one subject: the booking page, edge to edge, big'
+  angle: straight on, square to the screen, camera inside the miniature clay world
   lens: macro, shallow depth of field
   aspect: '9:16'
-  safe_zones: top 30% calm and empty for the text hook; nothing below 84% of the height (bottom band calm for captions
-    and UI); main subject inside x 10% to 90%
+  safe_zones: 'STANDARDS 6 reels zone: top 14% empty; the text hook alone sits at 14% to 30% (added in the edit);
+    every key element (text, calendar, hearts, cards, lens) inside 30% to 65% of the height and 6% to 94% of the
+    width, and inside 6% to 79% of the width where it lies below 50% of the height; below 65% only plain continuation
+    of the screen or card and the named non-key parts'
 continuity:
   previous_shot: null
   carry_over: []
 regions:
-- name: phone
-  kind: prop
-  box:
-  - 0.18
-  - 0.3
-  - 0.82
-  - 0.78
 - name: book-a-call
   kind: text
   box:
-  - 0.26
-  - 0.34
-  - 0.74
-  - 0.4
+  - 0.14
+  - 0.32
+  - 0.86
+  - 0.39
 - name: calendar
   kind: prop
   box:
-  - 0.24
+  - 0.08
   - 0.42
-  - 0.76
-  - 0.74
+  - 0.78
+  - 0.64
 - name: hearts
   kind: prop
   box:
-  - 0.14
-  - 0.74
-  - 0.86
-  - 0.84
-style: 'Premium studio claymation (claymation skill lane 4, the series'' cloth-and-clay world): everything sculpted
-  from matte plasticine with refined tool marks, soft rounded geometry, slight subsurface warmth, macro lens feel
-  with shallow depth of field, soft diffused studio light with a gentle rim glow. Palette: warm cream #F3E9D8 backdrop
-  and floor, terracotta #C8553D accents, sage #8FA98B, deep ink #2B2A33, heart red #D64545. Top 30% of the frame
-  is a calm plain cream backdrop with nothing in it (the text hook is set there in the edit).'
+  - 0.08
+  - 0.58
+  - 0.4
+  - 0.65
+style: 'Premium studio claymation (claymation skill lane 4): everything sculpted from matte plasticine with refined
+  tool marks, soft rounded geometry, slight subsurface warmth, macro lens feel with shallow depth of field, soft
+  diffused studio light with a gentle rim glow. Palette (every colour used in this frame): warm cream #F3E9D8, terracotta
+  #C8553D, sage #8FA98B, deep ink #2B2A33, heart red #D64545. The top 30% of the frame is plain cream #F3E9D8 with
+  nothing in it (the text hook is set at 14% to 30% in the edit).'
 must_not:
 - no logo, wordmark or real platform name or icon anywhere
 - no digits or numbers anywhere
 - no words other than the listed strings
-- no letters in the top 30% of the frame
-- no faces or face profiles
+- nothing at all in the top 30% of the frame except plain cream clay
+- no people, no hands, no faces
 - no workbench, table edge or room around the clay world
 - no glossy CGI look, no glass reflections
 hero: true
-notes: Concept frame for hook stack EN06-V1 (Hook Lab v4). The text hook is overlaid in code in the edit, not drawn
-  by the model.
+notes: Concept frame for hook stacks EN06-V1, EN06-V2 (Hook Lab v4). The text hook is overlaid in code at 14% to
+  30%, not drawn by the model.
