@@ -1,0 +1,223 @@
+{
+ "gate": "G-VIS",
+ "asset_id": "CF-W911",
+ "version": 1,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "hero": true,
+ "files_opened": [
+  "full.png",
+  "tile_r1c1.png",
+  "tile_r1c2.png",
+  "tile_r1c3.png",
+  "tile_r2c1.png",
+  "tile_r2c2.png",
+  "tile_r2c3.png",
+  "tile_r3c1.png",
+  "tile_r3c2.png",
+  "tile_r3c3.png",
+  "region_H-01-W911_text-hook-zone.png",
+  "region_H-01-W911_card.png",
+  "region_H-01-W911_heading.png",
+  "region_H-01-W911_line-1.png",
+  "region_H-01-W911_line-2.png",
+  "region_H-01-W911_bin.png",
+  "thumb_200.png"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Reads in 1s as an offer card in a bin with WE DELIVER RESULTS struck in red (thumb_200)."
+  },
+  {
+   "id": "V2",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Fits the script line: first line of the offer struck out."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Single clear idea."
+  },
+  {
+   "id": "V4",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No people or faces."
+  },
+  {
+   "id": "V5",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No hands, spec says none."
+  },
+  {
+   "id": "V6",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No hands or figures."
+  },
+  {
+   "id": "V7",
+   "result": "PASS",
+   "severity": "",
+   "region": "bin",
+   "evidence": "Bin base rests on floor; card sits inside, rim in front of card."
+  },
+  {
+   "id": "V8",
+   "result": "PASS",
+   "severity": "",
+   "region": "bin",
+   "evidence": "Card stands in bin plausibly."
+  },
+  {
+   "id": "V9",
+   "result": "PASS",
+   "severity": "",
+   "region": "heading, line-1, line-2",
+   "evidence": "Letters read exactly OFFER, WE DELIVER, RESULTS; no diacritics, no extra words, no digits."
+  },
+  {
+   "id": "V10",
+   "result": "PASS",
+   "severity": "",
+   "region": "line-1, line-2",
+   "evidence": "Strikes cover middle of letters, tops and bottoms visible; but heading/line text sits at y 34-36% and 43-47% vs spec 34.5-37.5 and 38.5-41.5 (consequence of oversize card)."
+  },
+  {
+   "id": "V11",
+   "result": "PASS",
+   "severity": "",
+   "region": "card",
+   "evidence": "Text sharp and embossed clay."
+  },
+  {
+   "id": "V12",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "card",
+   "evidence": "Card spans x 27% to 74% (47% of width) vs spec 34% to 66% (32%); visible part y 31% to about 48% (17% of height) vs spec 30-42%. Scale error about 1.45x, not a shift."
+  },
+  {
+   "id": "V13",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "bin",
+   "evidence": "Bin spans x 20% to 81% (62% wide) vs spec 26-74%; base at y about 64.5% vs spec 55%. Bin body runs about 10 points into the caption zone (below 55%) and the rim is at about 42-50% not 42%."
+  },
+  {
+   "id": "V14",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "card",
+   "evidence": "Card carries an extra double deep-ink inner frame line around the edge; spec says nothing else on the card (outline only)."
+  },
+  {
+   "id": "V15",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No characters."
+  },
+  {
+   "id": "V16",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No sheets, first frame."
+  },
+  {
+   "id": "V17",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "Single frame."
+  },
+  {
+   "id": "V18",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "full",
+   "evidence": "Layout: key elements not inside 26-74% width (bin 20-81%); bin bottom and shadow at 64.5% sit in the caption zone below 55%. Top 29% is plain wall (PASS). Not a position-only defect: the subject group is about 1.3x to 1.45x too big, so a shift of 10% or less does not fix it (shrinking would be a rescale, not an offset)."
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "9:16, 1152x2048."
+  },
+  {
+   "id": "V20",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200",
+   "evidence": "Thumbnail reads clearly: card, red strikes, bin."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Matte plasticine look, palette matches (cream, terracotta, sage, grey-blue, ink)."
+  },
+  {
+   "id": "V22",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Clean, sharp, no artefacts."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Wall/floor line at y about 51% straight."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No logos, brands, digits."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Not before/after."
+  },
+  {
+   "id": "V26",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Nothing shaming; AI disclosure handled at post level, not in image."
+  }
+ ],
+ "edit_fixable_defects": [],
+ "fix": {
+  "route": "regenerate",
+  "prompt_changes": [
+   "State sizes harder: card 32% of frame width and bin 48% of width, bin base at y 55%, camera pulled back so the group is smaller",
+   "Add: no inner frame line on the card, only an outer thin outline",
+   "Keep everything lower than 55% plain floor",
+   "Alternative (owner/main session call): scale the group to about 0.75 in the edit and extend wall and floor; this is a size change, not the 10% offset rule"
+  ]
+ },
+ "summary": "Content, text and style are right and spelled correctly. Fails because card and bin are oversized (bin 62% wide, base at 64.5% into the caption zone). Not a pure offset, so the 10% edit rule does not apply."
+}

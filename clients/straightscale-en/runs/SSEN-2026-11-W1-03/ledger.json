@@ -79,6 +79,24 @@
         "by": "hook-lab: 2 fresh blind graders per round, 3 rounds",
         "note": "Replace: best stack R3A (HF-06) graded B+/A/A- and A-/A/A- (V/T/S); no stack A or A+ on all channels from both graders after round 3. All finalists passed organic.py hooks. Frames code-rendered, $0. Report: motion-studio/projects/straightscale-en-07-built-or-patched/docs/hook-lab.md"
       }
+    ],
+    "G-BUDGET": [
+      {
+        "at": "2026-10-28T23:17:09+00:00",
+        "status": "PASS",
+        "by": "pipeline.py budget",
+        "data": {
+          "unit": "usd",
+          "planned": 0.05,
+          "with_buffer": 0.06,
+          "balance": 2.026045,
+          "month_spent": 0,
+          "cap": 100,
+          "el_planned": 0,
+          "source": "budget_usd"
+        },
+        "note": ""
+      }
     ]
   },
   "specs": {
@@ -141,8 +159,12 @@
         }
       ],
       "medias": [],
-      "ids": [],
-      "files": [],
+      "ids": [
+        "ce9aa300ce8d4ad6b3090664e38d6f9a"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-2026-11-W1-03/assets/CF-W911.v1.png"
+      ],
       "gates": {
         "G-PROMPT-IMG": [
           {
@@ -151,6 +173,27 @@
             "by": "prompt-reviewer (fresh agent)",
             "report": "qa/CF-W911.v1.prompt.json",
             "prompt_sha256": "e46cdd7c5eb7c7b51f5a6b9ffb24474f03d4b8dd6d0de1b86ce214902da8674a"
+          },
+          {
+            "at": "2026-10-28T23:17:08+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-W911.v1.prompt.json",
+            "prompt_sha256": "1e4ee05a3e72295b65f49f266b77cc8da3e4aed3f3df9c06a7291a442eac11ab"
+          }
+        ],
+        "G-VIS": [
+          {
+            "at": "2026-10-28T23:19:07+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/CF-W911.v1.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 3,
+              "minor": 1
+            },
+            "hero": true
           }
         ]
       }
