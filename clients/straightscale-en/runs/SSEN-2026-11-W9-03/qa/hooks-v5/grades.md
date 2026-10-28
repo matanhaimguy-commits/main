@@ -18,3 +18,12 @@ Round 2 adds "Here's why" and says "worked" or "lasted".
 | C (B's text) / (A's spoken) | n/a, B+, B+ | n/a, A-, B |
 Notes: keep "Tried"; "worked a month" is clipped; use one verb in both channels; say what "nothing" is (clients).
 Result: FAIL. Round 3 (last) names the clients in the spoken line.
+
+## Round 3, the idea's last (`hooks-v5-W9-03-r3.json`)
+| Stack | Grader 5 V/T/S | Grader 6 V/T/S |
+|---|---|---|
+| A "Tried ads, DMs, a coach? Each worked for a month." / "You got a month of clients, then nothing again. Here's why." | n/a, B+, A- | n/a, B+, A- |
+| B (A's text) / "Each gave you a month of clients, then nothing. Here's why." | n/a, B+, B+ | n/a, B+, B+ |
+| C "Tried ads, cold DMs, a coach? Each lasted a month." / (A's spoken) | n/a, A-, A- | n/a, A-, A- |
+Both rank C first. Notes: "lasted a month" leaves the subject implied (say "brought clients"); "Here's why" is a
+stock tease; "DMs" alone is vague. Result: FAIL (best A- on both channels from both). Idea out of rounds (3 of 3).

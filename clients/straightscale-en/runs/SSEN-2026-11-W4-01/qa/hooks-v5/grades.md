@@ -20,3 +20,14 @@ Both rank B first. The round 1 spoken line scored A from both graders there and 
 a lot between fresh graders. Notes: a post doesn't "ask"; "fix the website" says nothing about what is wrong;
 "just says welcome" is the concrete, picturable line; text and voice should say the same thing. Result: FAIL.
 Round 3 (last) puts "your website just says welcome" on screen.
+
+## Round 3, the idea's last (`docs/hooks-v5-r3.json`)
+| Stack | Grader 5 V/T/S | Grader 6 V/T/S |
+|---|---|---|
+| A "Likes, no clients? Your website just says welcome." / "Your post talks about slow months. Your website just says welcome." | n/a, B+, B | n/a, B, B+ |
+| B (A's text) / "Your post is about slow months. Your website never mentions them." | n/a, B+, B+ | n/a, B, A- |
+| C "Post about slow months. Website says welcome. No clients." / "Your post gets the likes. Your website loses the clients." | n/a, C+, A- | n/a, C+, B+ |
+Notes: "says welcome" is cryptic in words alone (the frame shows it: "WELCOME TO OUR WEBSITE" under "TIRED OF SLOW
+MONTHS?"); text and voice make two points; no audience word. Result: FAIL. Idea out of rounds (3 of 3).
+Note for the main session: every EN 06 stack leans on its picture (the post card and the page card side by side). It
+was graded in words only because CF-V8@v1 failed G-VIS, so its visual channel never helped it.
