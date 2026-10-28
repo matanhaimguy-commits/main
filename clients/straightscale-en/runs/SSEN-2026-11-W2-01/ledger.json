@@ -1,0 +1,396 @@
+{
+  "post_id": "SSEN-2026-11-W2-01",
+  "slug": "straightscale-en",
+  "format": "reel_story_narrated",
+  "family": "ai_video",
+  "card": "clients/straightscale-en/cards/2026-11-W2/SSEN-2026-11-W2-01.yaml",
+  "created": "2026-10-28T17:08:23+00:00",
+  "steps": {
+    "0": {
+      "status": "todo",
+      "note": ""
+    },
+    "1": {
+      "status": "todo",
+      "note": ""
+    },
+    "2": {
+      "status": "todo",
+      "note": ""
+    },
+    "3": {
+      "status": "todo",
+      "note": ""
+    },
+    "4": {
+      "status": "todo",
+      "note": ""
+    },
+    "5": {
+      "status": "todo",
+      "note": ""
+    },
+    "6": {
+      "status": "todo",
+      "note": ""
+    },
+    "7": {
+      "status": "todo",
+      "note": ""
+    },
+    "8": {
+      "status": "todo",
+      "note": ""
+    },
+    "9": {
+      "status": "todo",
+      "note": ""
+    },
+    "10": {
+      "status": "todo",
+      "note": ""
+    },
+    "11": {
+      "status": "todo",
+      "note": ""
+    },
+    "12": {
+      "status": "todo",
+      "note": ""
+    },
+    "13": {
+      "status": "todo",
+      "note": ""
+    },
+    "14": {
+      "status": "todo",
+      "note": ""
+    },
+    "15": {
+      "status": "todo",
+      "note": ""
+    }
+  },
+  "run_gates": {
+    "G-BUDGET": [
+      {
+        "at": "2026-10-28T17:11:29+00:00",
+        "status": "PASS",
+        "by": "pipeline.py budget",
+        "data": {
+          "unit": "usd",
+          "planned": 0.4,
+          "with_buffer": 0.5,
+          "balance": 6.904494,
+          "month_spent": 0,
+          "cap": 100,
+          "el_planned": 0
+        },
+        "note": ""
+      }
+    ]
+  },
+  "specs": {
+    "H-01-V1": {
+      "sha256": "620159011ff7172dbe9f3584a76d05dec07c8248582f05951ba824045ddd0d11",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T17:23:09+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T17:26:23+00:00",
+          "status": "PASS",
+          "sha256": "620159011ff7172dbe9f3584a76d05dec07c8248582f05951ba824045ddd0d11",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-V1.spec.json"
+        }
+      ]
+    },
+    "H-01-V10": {
+      "sha256": "0afb32c23f8f640c19df811f399359ffcc4ff3b3fee7d5067bd402d20faa5168",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T17:29:51+00:00",
+      "lint_issues": [
+        {
+          "level": "warn",
+          "code": "V4",
+          "msg": "hands of the owner (POV, no face), mustard-yellow knit sleeves: count_check should name five fingers per hand"
+        }
+      ],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T17:32:04+00:00",
+          "status": "PASS",
+          "sha256": "0afb32c23f8f640c19df811f399359ffcc4ff3b3fee7d5067bd402d20faa5168",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-V10.spec.json"
+        }
+      ]
+    },
+    "H-01-V3": {
+      "sha256": "a731bb305e066e043a715f381e0f79475f4481f22d3d3c8c13ea04897da3ede1",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T17:30:55+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T17:31:29+00:00",
+          "status": "PASS",
+          "sha256": "a731bb305e066e043a715f381e0f79475f4481f22d3d3c8c13ea04897da3ede1",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-V3.spec.json"
+        }
+      ]
+    },
+    "H-01-V7": {
+      "sha256": "c0983a566a0e967f22b5db0df7fe3cea3514b6f994cdcbba5d65b347cad4f368",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T17:23:10+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T17:26:23+00:00",
+          "status": "PASS",
+          "sha256": "c0983a566a0e967f22b5db0df7fe3cea3514b6f994cdcbba5d65b347cad4f368",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-V7.spec.json"
+        }
+      ]
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "CF-V1",
+      "version": 1,
+      "type": "still",
+      "shots": [
+        "H-01-V1"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": true,
+      "created": "2026-10-28T17:10:50+00:00",
+      "prompt_sha256": "2867b72715ec62813d34bbdd902e7b2d1ae40ae347fcc4bb5992661534709626",
+      "prompt_file": "prompts/CF-V1.v1.4.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T17:10:50+00:00",
+          "sha256": "8963d081360e86df0f3eb23771e7fcded401b8f86390b75d668cf87fe47fde65",
+          "file": "prompts/CF-V1.v1.1.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:15:36+00:00",
+          "sha256": "22d9ae13173848aaab2178ceba1665bc72235e6f5716dcabee5f8a59cae74800",
+          "file": "prompts/CF-V1.v1.2.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:20:23+00:00",
+          "sha256": "a648642d9a1dff575971330091c6128005ebd00e16ef14ab9eadc3f5977afa72",
+          "file": "prompts/CF-V1.v1.3.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:23:42+00:00",
+          "sha256": "2867b72715ec62813d34bbdd902e7b2d1ae40ae347fcc4bb5992661534709626",
+          "file": "prompts/CF-V1.v1.4.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "855b65dfda4242ac998d6c5996ffbefa"
+      ],
+      "files": [],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T17:26:23+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-V1.v1.prompt.json",
+            "prompt_sha256": "2867b72715ec62813d34bbdd902e7b2d1ae40ae347fcc4bb5992661534709626"
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "CF-V10",
+      "version": 1,
+      "type": "still",
+      "shots": [
+        "H-01-V10"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": true,
+      "created": "2026-10-28T17:10:51+00:00",
+      "prompt_sha256": "504e3539ce2a6a5da95cb0e0f9a57e63a53dedbb028f293480aeb972ab4f9ce2",
+      "prompt_file": "prompts/CF-V10.v1.5.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T17:10:51+00:00",
+          "sha256": "aef07c524bf1fd5499caa6784d660d0a9eb08988fd1288b4e803d92106ea5c92",
+          "file": "prompts/CF-V10.v1.1.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:15:36+00:00",
+          "sha256": "32119c212338e5113e0c96dbf3a813c6c88af0c808558dd1dfe0c1e3d514b680",
+          "file": "prompts/CF-V10.v1.2.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:20:23+00:00",
+          "sha256": "bbf5e14bd12d317b8484b63ceb7384fa3fa487d3cb39ecbf15a744939369f952",
+          "file": "prompts/CF-V10.v1.3.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:23:42+00:00",
+          "sha256": "f734c88df20a15deca84a8b13bc9c302bdafa8bf33970a5afa6971795102364b",
+          "file": "prompts/CF-V10.v1.4.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:29:52+00:00",
+          "sha256": "504e3539ce2a6a5da95cb0e0f9a57e63a53dedbb028f293480aeb972ab4f9ce2",
+          "file": "prompts/CF-V10.v1.5.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [],
+      "files": [],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T17:32:05+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-V10.v1.prompt.json",
+            "prompt_sha256": "504e3539ce2a6a5da95cb0e0f9a57e63a53dedbb028f293480aeb972ab4f9ce2"
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "CF-V7",
+      "version": 1,
+      "type": "still",
+      "shots": [
+        "H-01-V7"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": true,
+      "created": "2026-10-28T17:10:51+00:00",
+      "prompt_sha256": "4c9289f126dc5f4daa0520d66675a7011dcc91bff26dbeae8c83e37d4e7aff20",
+      "prompt_file": "prompts/CF-V7.v1.4.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T17:10:51+00:00",
+          "sha256": "099e96f60821546eb980d25bd7049c13f6b6c85a1e5771d2de1b0b9fcd0053f2",
+          "file": "prompts/CF-V7.v1.1.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:15:36+00:00",
+          "sha256": "ba08aaca0090dd972edf9aa8737bbd33a440b9211fa0b0170f36d1913ec706fd",
+          "file": "prompts/CF-V7.v1.2.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:20:24+00:00",
+          "sha256": "e1a60c77d4983d48764a388ee0c8831d48b9437db7a7480e0380a25288641db1",
+          "file": "prompts/CF-V7.v1.3.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:23:43+00:00",
+          "sha256": "4c9289f126dc5f4daa0520d66675a7011dcc91bff26dbeae8c83e37d4e7aff20",
+          "file": "prompts/CF-V7.v1.4.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "f8d86803cc644ebbaf51d3661ea36e31"
+      ],
+      "files": [],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T17:26:23+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-V7.v1.prompt.json",
+            "prompt_sha256": "4c9289f126dc5f4daa0520d66675a7011dcc91bff26dbeae8c83e37d4e7aff20"
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "CF-V3",
+      "version": 1,
+      "type": "still",
+      "shots": [
+        "H-01-V3"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": true,
+      "created": "2026-10-28T17:10:52+00:00",
+      "prompt_sha256": "8ea2e31099a455adb617298dc2b3beafe25a305e72a6e9e5f2b15344fa05885d",
+      "prompt_file": "prompts/CF-V3.v1.5.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T17:10:52+00:00",
+          "sha256": "cbc933e9ecb5dcab2fe9de25876ac7e7c72ced852368f0d9e5c659aba870a747",
+          "file": "prompts/CF-V3.v1.1.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:13:50+00:00",
+          "sha256": "139d75d3a73541fdab985e599308f0956de6a69f7ebcb51e16618de56fc3f523",
+          "file": "prompts/CF-V3.v1.2.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:15:37+00:00",
+          "sha256": "983d8a82cec1f6b15c2e86ccaa2eb95e86292931dc99d4895f4e97242cd6d376",
+          "file": "prompts/CF-V3.v1.3.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:20:24+00:00",
+          "sha256": "ceede21bb8dd65bd4ae382d980664090d59e35a940f70c5a1a3948a8a032efc5",
+          "file": "prompts/CF-V3.v1.4.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:23:43+00:00",
+          "sha256": "8ea2e31099a455adb617298dc2b3beafe25a305e72a6e9e5f2b15344fa05885d",
+          "file": "prompts/CF-V3.v1.5.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [],
+      "files": [],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T17:25:42+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-V3.v1.prompt.json",
+            "prompt_sha256": "8ea2e31099a455adb617298dc2b3beafe25a305e72a6e9e5f2b15344fa05885d"
+          }
+        ]
+      }
+    }
+  ],
+  "queue": []
+}

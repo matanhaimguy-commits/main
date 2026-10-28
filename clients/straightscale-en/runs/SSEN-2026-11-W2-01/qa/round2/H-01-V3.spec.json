@@ -1,0 +1,79 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "H-01-V3",
+ "spec_sha256": "95e4493402889d667674485a2fbebebb5efd2174a2c6b0c637716eedd403a836",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "All elements present with boxed regions: 'regions: sheets, headings-left/middle/right, hand [0.60,0.60,0.90,1.0], stickers'. Advisory: the one stickers box [0.20,0.31,0.93,0.36] spans empty paper; three boxes (one per sticker) crop better."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'right: enters from the bottom edge, index finger and thumb pinching the bottom LEFT corner of the right-hand sheet ... must_not_cover: any heading letter and any part of any sticker; count_check: one hand, five fingers'"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'pinches the bottom left corner ... lifts that corner about 2 cm; the lift reads as a small curl of the paper and a soft shadow under it'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "props.content gives layout, headings, grey bars, sticker colour and no writing. story_critical: false is accepted per the packet (no prop sheet before the look bible); the content line is filled so the prop cannot come back empty."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "Three strings, each 3 words or fewer, with surface, position, case and occlusion: 'WEEKLY CALLS ... heading 2 on each of the three sheets ... nothing covers any letter'"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'background_rule: Nothing else on the desk; no readable words except the headings; the stickers carry no digits or letters.'"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "(a) PROGRAM is 'position: top of each sheet' with a 85%-wide line, while each sheet has 'one round red sticker in the top right corner': the first heading and the sticker compete for the same top band, and nothing says which is above. (b) 'each on one single line filling about 85% of the sheet width (letters about 4% of the sheet height)' cannot hold for 'PROGRAM' (7 characters), 'WEEKLY CALLS' (12) and 'A PROMISE' (9) at one letter height: at 4% of height only the 12-character line reaches about 85%."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'previous_shot: null, carry_over: []' (first frame of the hook shot)"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "'the left sticker largest, the middle smaller, the right smallest' gives no size, so the model can make them near equal and the 'smallest price' read is lost; and 'filling about 85%' (see P8b) can be read as 'stretch to 85%' or 'at most 85%'."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01: hand pinches at y 62%, below the last heading band (headings to y 56%), 'must_not_cover any heading letter'; FL-03 contact points given; FL-04 content filled; FL-10 'grey bars (not letters)', 'stickers carry no digits or letters'."
+  }
+ ],
+ "suggested_spec_changes": [
+  "props.content: replace 'each on one single line filling about 85% of the sheet width (letters about 4% of the sheet height)' with 'below the sticker row, each on one single line, never wrapped, never wider than 85% of the sheet width, letters about 4% of the sheet height and the same size for all three headings'.",
+  "props.content: replace 'one round red sticker in the top right corner of each sheet with no writing on it, the left sticker largest, the middle smaller, the right smallest' with 'one round red sticker in the top right corner of each sheet, above the first heading so it touches no heading letter, with no writing on it: the left sticker about 9% of the frame width, the middle about 6.5%, the right about 4%'.",
+  "text_in_image PROGRAM position: 'top of the text area of each sheet, below the sticker row'; WEEKLY CALLS 'middle of each sheet'; A PROMISE 'lower middle of each sheet' (unchanged).",
+  "regions: replace the single 'stickers' box with three prop boxes, one per sticker (about [0.25,0.31,0.34,0.36], [0.56,0.31,0.64,0.36], [0.87,0.31,0.94,0.36]).",
+  "Advisory (not blocking): STANDARDS 6 keeps key content out of the right 21% of the lower half; the right sheet's third heading and its pinch sit near x 0.79 to 0.90 and y 0.50 to 0.62. The spec already declares the pinch not key; keep the headings of the right sheet at or above y 0.52 or accept the risk.",
+  "Advisory: STANDARDS 3 writes realistic stills as an iPhone 15 Pro photo; camera.lens says '35mm photo'. Keep the spec, but the producer should know the rule is not followed here."
+ ],
+ "note": "No producer reasoning in the packet. Round 1 spec flags (corner, A4, heading height) are fixed in this spec."
+}

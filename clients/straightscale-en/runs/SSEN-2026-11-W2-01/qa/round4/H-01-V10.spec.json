@@ -1,0 +1,80 @@
+{
+  "gate": "G-SPEC",
+  "shot_id": "H-01-V10",
+  "spec_sha256": "a8458d8ab0e133ee07f192e8f12de8365ba54d76af9f18b4cdec6c9ea5e3933c",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "FAIL",
+  "checks": [
+    {
+      "id": "P1",
+      "result": "PASS",
+      "evidence": "Every line checkable: subjects PR-PHONE, hand, props, text, action, setting, camera, must_not all filled"
+    },
+    {
+      "id": "P2",
+      "result": "N/A",
+      "evidence": "spec mode"
+    },
+    {
+      "id": "P3",
+      "result": "PASS",
+      "evidence": "hands.left: \"the thumb lies along the phone's left edge and is the only finger visible; the other four fingers wrap around the phone's lower back\"; count_check present"
+    },
+    {
+      "id": "P4",
+      "result": "PASS",
+      "evidence": "\"The left thumb rests along the phone's left edge and its four hidden fingers grip the phone's lower back; the phone is still.\""
+    },
+    {
+      "id": "P5",
+      "result": "PASS",
+      "evidence": "PR-PHONE-SCREEN content: \"exactly one large light-grey incoming bubble ... holding the text\"; story_critical false is explained in notes"
+    },
+    {
+      "id": "P6",
+      "result": "PASS",
+      "evidence": "\"We can get it done cheaper.\" 5 words, surface inside the grey bubble, position centred, occlusion \"no hand, finger, sleeve reaches above y 62%\""
+    },
+    {
+      "id": "P7",
+      "result": "PASS",
+      "evidence": "background_rule: \"No other screens, papers, posters or readable words anywhere except the message in the bubble; the wall is plain; the desk is bare.\""
+    },
+    {
+      "id": "P8",
+      "result": "PASS",
+      "evidence": "Coordinates consistent: phone y 30-100, bubble y 33-54, hand y 72-100, hook zone y 0-30"
+    },
+    {
+      "id": "P9",
+      "result": "PASS",
+      "evidence": "previous_shot null, carry_over []"
+    },
+    {
+      "id": "P10",
+      "result": "N/A",
+      "evidence": "spec mode"
+    },
+    {
+      "id": "P11",
+      "result": "FAIL",
+      "evidence": "hands.must_not_cover: \"both hands, sleeves stay below y 62%\" while hands.right is \"not in frame\" and count_check says \"one hand\"; 'both hands' can be read as two hands. Advisory: must_read_in_1s says \"one huge message\" but the text is 60 px letters, say \"one large message\""
+    },
+    {
+      "id": "P12",
+      "result": "PASS",
+      "evidence": "FL-01 occlusion and region kind hand/text boxed; FL-03 contact points; FL-05 background rule; FL-13 no logo asked"
+    },
+    {
+      "id": "regions",
+      "result": "PASS",
+      "evidence": "text-hook-zone, phone, bubble, left-hand boxed"
+    }
+  ],
+  "suggested_spec_changes": [
+    "hands.must_not_cover: replace \"both hands, sleeves stay below y 62% (in the lower 38% of the frame, y measured from the top)\" with \"the hand and the sleeve stay below y 62% (in the lower 38% of the frame, y measured from the top)\"",
+    "Optional: must_read_in_1s: replace \"one huge message\" with \"one large message\"",
+    "After editing, re-hash the spec and rerun G-SPEC if the orchestrator requires a hash match"
+  ]
+}
