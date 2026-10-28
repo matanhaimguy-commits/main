@@ -6,7 +6,7 @@ script_lines:
 line_text: "They can get it done cheaper because you sound the same."
 story_purpose: 'Concept frame for hook stack EN04-V3 (frame 1 of the hook shot): the cause as one picture: three offers
   that read the same, so only the price can be compared.'
-must_read_in_1s: Three identical sheets lie side by side and a hand picks the one with the smallest price sticker.
+must_read_in_1s: Three identical sheets; a hand pinches the one with the smallest price sticker.
 subjects:
 - id: PR-SHEETS
   ref: null
@@ -19,10 +19,11 @@ subjects:
 hands:
 - who: the buyer (POV from above, no face), mustard-yellow knit sleeve
   left: not in frame
-  right: enters from the bottom edge, index finger and thumb pinching the bottom LEFT corner of the right-hand sheet (the corner away
+  right: the buyer's right hand enters from the bottom edge, index finger and thumb pinching the bottom LEFT corner of the rightmost sheet (the corner away
     from its sticker), at about y 62% of the frame and lifting that corner about 2 cm off the desk, seen as a small curl and a soft shadow under it
-  contact: only the right hand's finger and thumb touch the right-hand sheet
-  must_not_cover: any heading letter and any part of any sticker
+  contact: only the right hand's finger and thumb touch the rightmost sheet
+  must_not_cover: any heading letter and any part of any sticker; no letter or sticker touches or is drawn on the hand,
+    fingers or sleeve; the hand stays below the last heading with clear paper between them
   count_check: one hand, five fingers, no extra hand or finger
 props:
 - id: PR-SHEETS
@@ -56,7 +57,7 @@ text_in_image:
   must_be_exact: true
   occlusion: nothing covers any letter
 action_physics:
-- The three sheets lie flat on the desk; the right hand pinches the bottom left corner of the right-hand sheet (away from its
+- The three sheets lie flat on the desk; the right hand pinches the bottom left corner of the rightmost sheet (away from its
   sticker) and lifts that corner about 2 cm; the lift reads as a small curl of the paper and a soft shadow under it.
 static: false
 setting:
@@ -72,7 +73,7 @@ camera:
   angle: straight down, 90 degrees
   lens: candid iPhone 15 Pro photo, real skin texture, everything sharp
   aspect: '9:16'
-  safe_zones: 'reels safe zone (STANDARDS 6): the sheets, headings and stickers sit between 30% and 56% from the top (the third heading of the right sheet at or above y 52%)
+  safe_zones: 'reels safe zone (STANDARDS 6): the sheets, headings and stickers sit between 30% and 56% from the top (the third heading of the right sheet at or above y 50%)
     and inside 6% side margins (the sheet bottom edges and the pinch at 55% to 62% are not key); the top 30% holds
     nothing; below 62% only the hand and wood'
 continuity:

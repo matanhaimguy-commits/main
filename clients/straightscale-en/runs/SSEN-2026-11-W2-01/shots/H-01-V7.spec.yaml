@@ -20,11 +20,12 @@ hands:
 - who: the owner (POV, no face), mustard-yellow knit sleeves
   left: 'holds the phone from below at its lower left: the thumb lies along the phone''s left edge and is the only finger
     visible; the other four fingers wrap around the phone''s lower back, out of sight behind it, no fingertips past its
-    edges; the wrist in the mustard sleeve comes up from the bottom edge (x 12% to 50%, y 72% to 100%)'
+    edges; the wrist and mustard knit sleeve come up from the bottom edge behind the phone and are out of sight behind it,
+    except the sleeve cuff showing left of the phone''s left edge (x 12% to 16%, y 72% to 100%)'
   right: in the lower right (x 52% to 79%, y 66% to 100%), holds one red ballpoint pen upright between thumb and index finger,
-    the other three fingers curled into the palm; the pen tip points up at y 62%, the pen held in front of and nearer the
-    camera than the phone, a visible gap of soft out-of-focus air between the pen tip and the screen, not writing; the pen
-    cap is not in frame
+    the other three fingers curled into the palm, its wrist in a mustard knit sleeve coming up from the bottom edge in front
+    of the phone; the pen tip points up at y 62%, the pen held in front of and nearer the camera than the phone, a visible
+    gap of soft out-of-focus air between the pen tip and the screen, not writing; the pen cap is not in frame
   contact: the left thumb and hidden fingers hold the phone; the right thumb and index finger pinch the pen's barrel; the
     pen touches nothing
   must_not_cover: any letter of the message bubble; both hands, sleeves and the pen stay below y 62% (in the lower 38% of
@@ -54,8 +55,9 @@ props:
     names, no avatars, no status bar, no time, no app logo
 text_in_image:
 - string: We can get it done cheaper.
-  surface: inside the one grey bubble on the phone screen, dark charcoal plain sans, 2 or 3 lines, capital letters about
-    60 px tall on a frame 1152 px wide and 2048 px tall, every line ending well inside the bubble edge
+  surface: 'inside the one grey bubble on the phone screen, dark charcoal plain sans, 2 or 3 lines, sentence case: only
+    the W is a capital letter, not all capitals; the tall letters (the W and the ascenders) about 60 px high on a frame
+    1152 px wide and 2048 px tall, every line ending well inside the bubble edge'
   position: the only text on the phone screen, centred in the bubble
   case: as_written
   must_be_exact: true
@@ -81,10 +83,10 @@ camera:
   angle: first-person, looking down at the phone at about 30 degrees
   lens: candid iPhone 15 Pro photo, real skin texture, shallow depth of field, phone screen sharp
   aspect: '9:16'
-  safe_zones: 'reels safe zone (STANDARDS 6): the key content, the bubble, sits between 15% and 55% from the top and inside
-    the 6% side margins; the top 30% holds nothing; below 55% only the phone body, the hands, the pen and the desk strips,
-    all supporting detail; the hands and the pen never in the right 21% of the lower half (only the phone right edge and
-    the desk strip are there)'
+  safe_zones: 'reels safe zone (STANDARDS 6): the key content, the bubble (y 33% to 54%), sits inside the 15% to 55% band,
+    below the empty top 30%, and inside the 6% side margins; the top 30% holds nothing; below 55% only the phone body, the
+    hands, the pen and the desk strips, all supporting detail; the hands and the pen never in the right 21% of the lower
+    half (only the phone right edge and the desk strip are there)'
 continuity:
   previous_shot: null
   carry_over: []
