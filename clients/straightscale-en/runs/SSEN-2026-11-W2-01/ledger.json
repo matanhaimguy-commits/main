@@ -202,7 +202,9 @@
       "ids": [
         "855b65dfda4242ac998d6c5996ffbefa"
       ],
-      "files": [],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-2026-11-W2-01/assets/CF-V1.v1.png"
+      ],
       "gates": {
         "G-PROMPT-IMG": [
           {
@@ -211,6 +213,20 @@
             "by": "prompt-reviewer (fresh agent)",
             "report": "qa/CF-V1.v1.prompt.json",
             "prompt_sha256": "2867b72715ec62813d34bbdd902e7b2d1ae40ae347fcc4bb5992661534709626"
+          }
+        ],
+        "G-VIS": [
+          {
+            "at": "2026-10-28T18:31:12+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/CF-V1.v1.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 5,
+              "minor": 1
+            },
+            "hero": true
           }
         ]
       }
@@ -318,7 +334,9 @@
       "ids": [
         "f8d86803cc644ebbaf51d3661ea36e31"
       ],
-      "files": [],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-2026-11-W2-01/assets/CF-V7.v1.png"
+      ],
       "gates": {
         "G-PROMPT-IMG": [
           {
