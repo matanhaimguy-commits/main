@@ -1,75 +1,17 @@
-{
- "gate": "G-SPEC",
- "shot_id": "H-01-W911",
- "spec_sha256": "801019d958dbb7ce0e51eb61f46baf95622079a45286b9e40c3d06bec7dfe271",
- "reviewer": "prompt-reviewer (fresh agent)",
- "independent": true,
- "status": "FAIL",
+{"gate": "G-SPEC", "shot_id": "H-01-W911", "spec_sha256": "dfab1c7eeb58f14ef4e81abcc5c931d79d0bd468571b6dc8cd7a7d0b56bd9e13",
+ "reviewer": "prompt-reviewer (fresh agent)", "independent": true, "status": "PASS",
  "checks": [
-  {
-   "id": "P1",
-   "result": "PASS",
-   "evidence": "Subjects/props/text all present: PR-CARD, PR-BIN, text_in_image OFFER and WE DELIVER RESULTS; hands: 'none visible'; must_read_in_1s is one moment: 'An offer card about to fall in a bin, its line WE DELIVER RESULTS struck out in red.'"
-  },
-  {
-   "id": "P2",
-   "result": "N/A",
-   "evidence": "Spec mode; no reference images (text to image)."
-  },
-  {
-   "id": "P3",
-   "result": "PASS",
-   "evidence": "hands: 'none visible' and must_not 'no hands, no people, no faces'; no region of kind hand needed."
-  },
-  {
-   "id": "P4",
-   "result": "PASS",
-   "evidence": "'The card's lower edge rests on the bin's front rim at y 43%; its back leans over the open bin, touching nothing else.' and 'The bin's base rests flat on the clay floor at y 55%.' Contact points given."
-  },
-  {
-   "id": "P5",
-   "result": "PASS",
-   "evidence": "PR-CARD content: 'a heading line OFFER ... WE DELIVER RESULTS ... one thick terracotta-red #C8553D clay strike'; PR-BIN content filled ('plain, no face, no label'); must_not has targeted negatives only, no blanket 'no text'."
-  },
-  {
-   "id": "P6",
-   "result": "PASS",
-   "evidence": "Both strings exact, quoted-equivalent, with surface, position and occlusion: 'x 28% to 72%, y 36.5% to 41%' / 'nothing covers any letter'; 3 words max per surface; no hand or prop overlaps the text."
-  },
-  {
-   "id": "P7",
-   "result": "PASS",
-   "evidence": "background_rule: 'no signs, frames, posters, screens, desks or other objects; the only writing is the quoted text'."
-  },
-  {
-   "id": "P8",
-   "result": "FAIL",
-   "evidence": "state says 'its top leaning back over the bin's opening, tilted about 15 degrees toward the camera': top leaning back (away from camera) contradicts a tilt toward the camera."
-  },
-  {
-   "id": "P9",
-   "result": "PASS",
-   "evidence": "continuity: previous_shot null, carry_over [] (first frame; hook concept frame)."
-  },
-  {
-   "id": "P10",
-   "result": "N/A",
-   "evidence": "Spec mode; model rules judged on the prompt."
-  },
-  {
-   "id": "P11",
-   "result": "FAIL",
-   "evidence": "'tilted about 15 degrees toward the camera' can be read as top toward the camera or the face turned toward the camera; 'one thick ... strike' has no height, so 'leaves the top and bottom of each letter visible' cannot be checked."
-  },
-  {
-   "id": "P12",
-   "result": "FAIL",
-   "evidence": "FL-02 (object structure): PR-BIN has no one-line structure ('round ... waste bin, plain'); nothing says single open top, no lid, no handles, one rim only. FL-05, FL-04, FL-10 prevented."
-  }
+  {"id": "P1", "result": "PASS", "evidence": "Every subject, prop and text is specified: PR-CARD and PR-BIN with content and size, and the three strings OFFER, WE DELIVER and RESULTS. must_read_in_1s is one moment: 'An offer card dropped in a bin, its line WE DELIVER RESULTS struck out in red.'"},
+  {"id": "P2", "result": "N/A", "evidence": "Spec mode; no reference images (text to image)."},
+  {"id": "P3", "result": "PASS", "evidence": "hands: none visible; must_not: 'no hands, no people, no faces'."},
+  {"id": "P4", "result": "PASS", "evidence": "'The bin's base rests flat on the clay floor at y 55%'; 'bottom edge rests on the bin's inside floor, hidden... the bin's front rim crosses in front of the card at y 42%'; 'Each strike lies flat on the card's surface'."},
+  {"id": "P5", "result": "PASS", "evidence": "PR-CARD content: 'one thick warm cream #F3E9D8 clay card... heading OFFER, then... WE DELIVER and RESULTS'; PR-BIN content: 'one round sage #8FA98B clay waste bin... only the card is in it'. No blanket negative empties them."},
+  {"id": "P6", "result": "PASS", "evidence": "Three strings, 4 words in total, each with must_be_exact, surface, a position box and an occlusion rule: 'the strike covers only the middle third of each letter; the top and bottom of every letter stay visible'. Quotes and positions are present in the spec fields."},
+  {"id": "P7", "result": "PASS", "evidence": "background_rule: 'no signs, frames, posters, screens, desks or other objects; the only writing is the quoted text'."},
+  {"id": "P8", "result": "PASS", "evidence": "Geometry agrees: wall to y 50%, floor from y 50%, bin base y 55%, rim y 42%, card y 30% to 42% above the rim, text boxes inside the card box. 'nothing else on the card' is consistent with the three strings. The style palette lists all the colours used."},
+  {"id": "P9", "result": "PASS", "evidence": "continuity: previous_shot null, carry_over []; first image of the prop, which the notes state."},
+  {"id": "P10", "result": "N/A", "evidence": "Spec mode. Aspect 9:16 matches the 1152x2048 stated by the caller; the safe zones follow STANDARDS 6 (top 29% plain wall, key elements at 30% to 55%)."},
+  {"id": "P11", "result": "PASS", "evidence": "Percent coordinates are defined: 'measured from the top-left corner of the frame (y 0% is the top edge)'. The strike is defined: 'about one third of the letter height thick across the middle of the letters from the first letter to the last'. Each line has its own strike."},
+  {"id": "P12", "result": "PASS", "evidence": "Gibberish-text (FL-10) and empty-prop (FL-04/05) patterns are prevented: 'no words other than OFFER, WE DELIVER and RESULTS on the one card'; 'no logo, brand, app or platform name'; 'no digits, prices or currency signs'. Regions are boxed for the card, the three text lines and the bin; no hands or faces are present."}
  ],
- "suggested_spec_changes": [
-  "PR-CARD.state: replace 'tilted about 15 degrees toward the camera' with 'its face tilted back about 15 degrees so the top edge leans away from the camera over the bin's opening and the face looks slightly up at the camera; its lower edge on the front rim'.",
-  "PR-CARD.content and text_in_image[WE DELIVER RESULTS]: give the strike a size: 'one straight horizontal strike, about 0.8% of the frame height thick (a third of the letter height), crossing the letters at mid-height from the first letter to the last'.",
-  "PR-BIN.content: add the structure line 'a single open-topped round bin with one rim and one plain wall, no lid, no handles, no pedal, no second bin'."
- ]
-}
+ "suggested_spec_changes": []}

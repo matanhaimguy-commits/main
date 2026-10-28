@@ -103,6 +103,38 @@
           "source": "budget_usd"
         },
         "note": ""
+      },
+      {
+        "at": "2026-10-28T23:08:07+00:00",
+        "status": "PASS",
+        "by": "pipeline.py budget",
+        "data": {
+          "unit": "usd",
+          "planned": 0.05,
+          "with_buffer": 0.06,
+          "balance": 2.168215,
+          "month_spent": 0,
+          "cap": 100,
+          "el_planned": 0,
+          "source": "budget_usd"
+        },
+        "note": ""
+      },
+      {
+        "at": "2026-10-28T23:14:26+00:00",
+        "status": "PASS",
+        "by": "pipeline.py budget",
+        "data": {
+          "unit": "usd",
+          "planned": 0.05,
+          "with_buffer": 0.06,
+          "balance": 2.073435,
+          "month_spent": 0,
+          "cap": 100,
+          "el_planned": 0,
+          "source": "budget_usd"
+        },
+        "note": ""
       }
     ],
     "G-HOOK": [
@@ -777,9 +809,77 @@
         }
       ],
       "medias": [],
-      "ids": [],
-      "files": [],
-      "gates": {}
+      "ids": [
+        "a458879d34a64714a1db8a9ae0e7474d"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-2026-11-W4-01/assets/CF-W910.v1.png"
+      ],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T23:07:30+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-W910.v1.prompt.json",
+            "prompt_sha256": "9311d172cba5e9fe94950e897884f716c044e9963bcfaff46d940155e3342884"
+          }
+        ],
+        "G-VIS": [
+          {
+            "at": "2026-10-28T23:13:03+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/CF-W910.v1.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 4,
+              "minor": 0
+            },
+            "hero": true
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "CF-W910",
+      "version": 2,
+      "type": "still",
+      "shots": [
+        "H-01-W910"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": true,
+      "created": "2026-10-28T23:13:15+00:00",
+      "prompt_sha256": "de9b9d716762dc0268a1995954130ed31283cae2b266b1c30b20a8f021143098",
+      "prompt_file": "prompts/CF-W910.v2.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T23:13:16+00:00",
+          "sha256": "de9b9d716762dc0268a1995954130ed31283cae2b266b1c30b20a8f021143098",
+          "file": "prompts/CF-W910.v2.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "a6174d411db44a4db7a76ee277db45d4"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-2026-11-W4-01/assets/CF-W910.v2.png"
+      ],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T23:14:16+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-W910.v2.prompt.json",
+            "prompt_sha256": "de9b9d716762dc0268a1995954130ed31283cae2b266b1c30b20a8f021143098"
+          }
+        ]
+      }
     }
   ],
   "queue": [

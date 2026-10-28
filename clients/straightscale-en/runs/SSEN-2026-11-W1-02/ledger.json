@@ -71,7 +71,26 @@
       "note": ""
     }
   },
-  "run_gates": {},
+  "run_gates": {
+    "G-BUDGET": [
+      {
+        "at": "2026-10-28T23:09:39+00:00",
+        "status": "PASS",
+        "by": "pipeline.py budget",
+        "data": {
+          "unit": "usd",
+          "planned": 0.05,
+          "with_buffer": 0.06,
+          "balance": 2.120825,
+          "month_spent": 0,
+          "cap": 100,
+          "el_planned": 0,
+          "source": "budget_usd"
+        },
+        "note": ""
+      }
+    ]
+  },
   "specs": {
     "H-01-W102": {
       "sha256": "65d6b112b02830378e404cb3750687db69a15538a3447b3c4cbe6b90e9f68036",
@@ -108,20 +127,61 @@
       "hero": true,
       "hook": true,
       "created": "2026-10-28T23:05:15+00:00",
-      "prompt_sha256": "8862d2bdec6b0ad73d81f16d6430067439673a8f5c0bee24a844bf060c8b8216",
-      "prompt_file": "prompts/CF-W102.v1.1.txt",
+      "prompt_sha256": "98fcc9f6490baf9b1ddba17f62e87d0d2228603cf5010f8d02fc01873ff7b07b",
+      "prompt_file": "prompts/CF-W102.v1.2.txt",
       "prompt_history": [
         {
           "at": "2026-10-28T23:05:16+00:00",
           "sha256": "8862d2bdec6b0ad73d81f16d6430067439673a8f5c0bee24a844bf060c8b8216",
           "file": "prompts/CF-W102.v1.1.txt",
           "medias": []
+        },
+        {
+          "at": "2026-10-28T23:07:17+00:00",
+          "sha256": "98fcc9f6490baf9b1ddba17f62e87d0d2228603cf5010f8d02fc01873ff7b07b",
+          "file": "prompts/CF-W102.v1.2.txt",
+          "medias": []
         }
       ],
       "medias": [],
-      "ids": [],
-      "files": [],
-      "gates": {}
+      "ids": [
+        "ae6dbf36b09c42138658ff46e03652a2"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-2026-11-W1-02/assets/CF-W102.v1.png"
+      ],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T23:07:17+00:00",
+            "status": "FAIL",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-W102.v1.prompt.json",
+            "prompt_sha256": "8862d2bdec6b0ad73d81f16d6430067439673a8f5c0bee24a844bf060c8b8216"
+          },
+          {
+            "at": "2026-10-28T23:09:25+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-W102.v1.prompt.json",
+            "prompt_sha256": "98fcc9f6490baf9b1ddba17f62e87d0d2228603cf5010f8d02fc01873ff7b07b"
+          }
+        ],
+        "G-VIS": [
+          {
+            "at": "2026-10-28T23:12:44+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/CF-W102.v1.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 1,
+              "minor": 0
+            },
+            "hero": true
+          }
+        ]
+      }
     }
   ],
   "queue": []

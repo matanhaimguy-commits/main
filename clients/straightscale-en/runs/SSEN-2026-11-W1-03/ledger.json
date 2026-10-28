@@ -83,9 +83,9 @@
   },
   "specs": {
     "H-01-W911": {
-      "sha256": "f5150ab64cfd08d7d302671ae51e50982683d11f82ce8a765eb10f5c4135de6a",
+      "sha256": "dfab1c7eeb58f14ef4e81abcc5c931d79d0bd468571b6dc8cd7a7d0b56bd9e13",
       "lint": "PASS",
-      "lint_at": "2026-10-28T23:05:59+00:00",
+      "lint_at": "2026-10-28T23:12:30+00:00",
       "lint_issues": [],
       "G-SPEC": [
         {
@@ -94,10 +94,67 @@
           "sha256": "801019d958dbb7ce0e51eb61f46baf95622079a45286b9e40c3d06bec7dfe271",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/H-01-W911.spec.json"
+        },
+        {
+          "at": "2026-10-28T23:09:25+00:00",
+          "status": "FAIL",
+          "sha256": "f5150ab64cfd08d7d302671ae51e50982683d11f82ce8a765eb10f5c4135de6a",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-W911.spec.json"
+        },
+        {
+          "at": "2026-10-28T23:14:06+00:00",
+          "status": "PASS",
+          "sha256": "dfab1c7eeb58f14ef4e81abcc5c931d79d0bd468571b6dc8cd7a7d0b56bd9e13",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-W911.spec.json"
         }
       ]
     }
   },
-  "assets": [],
+  "assets": [
+    {
+      "asset_id": "CF-W911",
+      "version": 1,
+      "type": "still",
+      "shots": [
+        "H-01-W911"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": true,
+      "created": "2026-10-28T23:14:06+00:00",
+      "prompt_sha256": "1e4ee05a3e72295b65f49f266b77cc8da3e4aed3f3df9c06a7291a442eac11ab",
+      "prompt_file": "prompts/CF-W911.v1.2.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T23:14:06+00:00",
+          "sha256": "e46cdd7c5eb7c7b51f5a6b9ffb24474f03d4b8dd6d0de1b86ce214902da8674a",
+          "file": "prompts/CF-W911.v1.1.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T23:16:16+00:00",
+          "sha256": "1e4ee05a3e72295b65f49f266b77cc8da3e4aed3f3df9c06a7291a442eac11ab",
+          "file": "prompts/CF-W911.v1.2.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [],
+      "files": [],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T23:16:16+00:00",
+            "status": "FAIL",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-W911.v1.prompt.json",
+            "prompt_sha256": "e46cdd7c5eb7c7b51f5a6b9ffb24474f03d4b8dd6d0de1b86ce214902da8674a"
+          }
+        ]
+      }
+    }
+  ],
   "queue": []
 }
