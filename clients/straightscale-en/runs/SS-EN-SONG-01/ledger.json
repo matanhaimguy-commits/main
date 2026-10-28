@@ -356,7 +356,7 @@
     "O60-SH05": {
       "sha256": "95a09a6ac3ebedbb1b39253341ce50051d4f3743173e16f3e1d888358393a882",
       "lint": "PASS",
-      "lint_at": "2026-10-28T19:02:12+00:00",
+      "lint_at": "2026-10-28T19:02:45+00:00",
       "lint_issues": [],
       "G-SPEC": [
         {
@@ -667,6 +667,13 @@
           "sha256": "7be4a37e51b764493c7ea79d6cd29400b323f955c296c85d11884e09d4036100",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r7/O60-SH13.spec.json"
+        },
+        {
+          "at": "2026-10-28T19:02:29+00:00",
+          "status": "PASS",
+          "sha256": "3fb04bee86124ec087981ab77079dbe43d990d0e2206025762f1a53b5e9c3175",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r8/O60-SH13.spec.json"
         }
       ]
     },
@@ -696,6 +703,13 @@
           "sha256": "c3479ef4528905993fece8ba7c75afd4dcf859e00382cd3c9b81e7b1cba88a76",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r7/O60-SH14.spec.json"
+        },
+        {
+          "at": "2026-10-28T19:02:29+00:00",
+          "status": "PASS",
+          "sha256": "87d9f0e510a57f72ae31684387b89b848327ffd5bcc3bce569e463961a4e1652",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r8/O60-SH14.spec.json"
         }
       ]
     },
@@ -725,6 +739,13 @@
           "sha256": "2f79088cc7606d813d10cff6c5b1bcba168571a93bc12fe2d698c6d9a7c3ebcf",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r7/O60-SH15.spec.json"
+        },
+        {
+          "at": "2026-10-28T19:02:29+00:00",
+          "status": "PASS",
+          "sha256": "351cff0e12995dd1b0267306846a3e08c61397bede5532f5bd6bc3fb2e09f9a1",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r8/O60-SH15.spec.json"
         }
       ]
     },
@@ -754,13 +775,20 @@
           "sha256": "b696046729e639132b4197aa3ca8125e020bbb4f06efb986aeaac61a72055a0d",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r7/O60-SH16.spec.json"
+        },
+        {
+          "at": "2026-10-28T19:02:29+00:00",
+          "status": "PASS",
+          "sha256": "107f1dad77ec754d2c0113c7729a03818a9118d8cf71eec9ae6da181e941fc46",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r8/O60-SH16.spec.json"
         }
       ]
     },
     "O60-SH17": {
-      "sha256": "50b59946c2c9b8b69f3896019a6a1ccc9bb761bf23504b874ad08ca61fca27f6",
+      "sha256": "fd462c4300397826322f69f939bb247895343dfd4b47ffc554adde6d44772259",
       "lint": "PASS",
-      "lint_at": "2026-10-28T18:56:44+00:00",
+      "lint_at": "2026-10-28T19:02:45+00:00",
       "lint_issues": [],
       "G-SPEC": [
         {
@@ -783,6 +811,13 @@
           "sha256": "5f42e043386cdc135fd4c5a9390a140e69533771203f48c5445083f81f014729",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r7/O60-SH17.spec.json"
+        },
+        {
+          "at": "2026-10-28T19:02:29+00:00",
+          "status": "FAIL",
+          "sha256": "50b59946c2c9b8b69f3896019a6a1ccc9bb761bf23504b874ad08ca61fca27f6",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r8/O60-SH17.spec.json"
         }
       ]
     },
@@ -812,6 +847,13 @@
           "sha256": "dd234ea03e5ed68c9ca405978daa163d0ce508ec6f7174ed56ada75aea0571ad",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r7/O60-SH18.spec.json"
+        },
+        {
+          "at": "2026-10-28T19:02:30+00:00",
+          "status": "PASS",
+          "sha256": "05cd1f6b1b81c8abb1cb8ddc9d315dfade2c04550f194e0017248a312a83dc1d",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r8/O60-SH18.spec.json"
         }
       ]
     },
@@ -841,13 +883,20 @@
           "sha256": "4e0b6192e9f00e178efd198be9716c969e26efbcca35ca8ebbba1084d1d850c1",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r7/O60-SH19.spec.json"
+        },
+        {
+          "at": "2026-10-28T19:02:30+00:00",
+          "status": "PASS",
+          "sha256": "8ae05e92c4a207375d458929fdcda7d7c7596566f267630a634e048b56407aac",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r8/O60-SH19.spec.json"
         }
       ]
     },
     "O60-SH20": {
-      "sha256": "82c8538510e31c04a7858ac1cd025d1e54c9904a2aacdee916d3316af727f486",
+      "sha256": "a3b54b7a5f0a79fcc6f302163ad0b3801d42301398c39f65f2a89dd2e4845f2e",
       "lint": "PASS",
-      "lint_at": "2026-10-28T18:56:44+00:00",
+      "lint_at": "2026-10-28T19:02:45+00:00",
       "lint_issues": [],
       "G-SPEC": [
         {
@@ -870,13 +919,20 @@
           "sha256": "4adffa7e05983c97c7abbde7590129e816f7c431a690d14092340450df860a3e",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r7/O60-SH20.spec.json"
+        },
+        {
+          "at": "2026-10-28T19:02:30+00:00",
+          "status": "FAIL",
+          "sha256": "82c8538510e31c04a7858ac1cd025d1e54c9904a2aacdee916d3316af727f486",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r8/O60-SH20.spec.json"
         }
       ]
     },
     "O60-SH21": {
-      "sha256": "978ac3c7a49c7d3987cdd78b7fa8f876cfd033b107cd6d7f4e4aa23848297494",
+      "sha256": "36501581d352d4a318401f407179e45cf27bb9cf602bf29b08bdf41125bfe694",
       "lint": "PASS",
-      "lint_at": "2026-10-28T18:56:44+00:00",
+      "lint_at": "2026-10-28T19:02:45+00:00",
       "lint_issues": [],
       "G-SPEC": [
         {
@@ -899,6 +955,13 @@
           "sha256": "1915e35628fd58df2ef2e6860f98faefe621466b16d231c9c26b97b71d5823d5",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r7/O60-SH21.spec.json"
+        },
+        {
+          "at": "2026-10-28T19:02:30+00:00",
+          "status": "FAIL",
+          "sha256": "978ac3c7a49c7d3987cdd78b7fa8f876cfd033b107cd6d7f4e4aa23848297494",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r8/O60-SH21.spec.json"
         }
       ]
     },
@@ -928,6 +991,13 @@
           "sha256": "c38996ba175e75be9ca240cad628a50807d0e7b04f6298bc4dc60b64f447a008",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r7/O60-SH22.spec.json"
+        },
+        {
+          "at": "2026-10-28T19:02:30+00:00",
+          "status": "PASS",
+          "sha256": "5a3cb54324b82876a63188478d96af900aae5890becf3cf1518918aa9f0e4841",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r8/O60-SH22.spec.json"
         }
       ]
     },
@@ -957,6 +1027,13 @@
           "sha256": "e2047e9f1ae6c6230f888e75af61e97bdf5e2f137d813bf945cd549b7dbaf7d0",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r7/O60-SH23.spec.json"
+        },
+        {
+          "at": "2026-10-28T19:02:31+00:00",
+          "status": "PASS",
+          "sha256": "242be311ff761e9b2073808f4ce31959b958eccc2ade183c9e214646e9f81e9c",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r8/O60-SH23.spec.json"
         }
       ]
     },

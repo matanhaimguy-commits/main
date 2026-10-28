@@ -23,14 +23,16 @@ props:
   state: three POSTS pieces plus a calm ADS piece sewn on the firm one
   content: One calm sand-cream linen cloth, a single colour, tight weave, with tone-on-tone speech-bubble shapes stitched
     in deeper tan thread, plus pieces cut from it with the same weave and charcoal stitched labels POSTS and ADS
-  size_in_frame: pieces 22% of frame width each, 28 to 55% from the top; the ADS piece 12% of frame width
+  size_in_frame: three pieces 22% of frame width each, at x 0.08 to 0.30 (left), 0.39 to 0.61 (centre), 0.70 to 0.92 (right,
+    the firm one), 34 to 55% from the top; the ADS piece 20% of frame width (x 0.71 to 0.91) sewn across the whole top third
+    of the firm piece, its top edge at 34%, 8% below the rod
   held_by: null
 - id: PR-BUBBLES
   story_critical: true
   ref: PR-CLOTH@v1 (bubble panel)
   state: three blank cream clay bubbles resting on the top edge of the ADS piece at frame 1, then leaving it
   content: Three blank cream clay speech bubbles with small tails and thumb-pressed edges, no letters
-  size_in_frame: 12% of frame width each
+  size_in_frame: 7% of frame width each, in a row on the ADS top edge at 28 to 34% from the top, below the rod
   held_by: null
 - id: PR-ROD
   story_critical: false
@@ -38,7 +40,7 @@ props:
   state: fixed to the wall
   content: one thin straight pale-wood rod fixed to the wall on two small brackets, three pieces hanging from it by loops,
     one loop each
-  size_in_frame: rod across 8 to 92% of the width at 26% from the top
+  size_in_frame: rod across 8 to 92% of the width at 26% from the top; the pieces hang from it by loops 8% long
   held_by: null
 text_in_image:
 - string: POSTS
@@ -55,10 +57,11 @@ text_in_image:
   must_be_exact: true
   occlusion: not folded
 action_physics:
-- 'From frame 1, three blank clay bubbles rest on the top edge of the ADS piece. The ADS piece''s top edge lifts 1 cm and
-  the three bubbles slide up off it, one every 0.5 s: bubble 1 leaves its top-left corner, bubble 2 the middle of its top
-  edge, bubble 3 its top-right corner; each drifts right and up toward the open window. The camera pans right following them
-  and comes to rest on the window view of SH18; the two limp pieces hang still.'
+- 'From frame 1, the window at the right edge has its lower sash already raised, leaving a clear opening, and three blank
+  clay bubbles rest in a row on the top edge of the ADS piece, below the rod. The ADS piece''s top edge lifts 1 cm and the
+  three bubbles slide up off it, one every 0.5 s: bubble 1 leaves its left end, bubble 2 its middle, bubble 3 its right end;
+  each drifts right and up toward the open window. The camera pans right following them and comes nearer, so they read larger
+  in SH18, and comes to rest on the window view of SH18; the two limp pieces hang still.'
 static: false
 setting:
   ref: null
@@ -68,8 +71,8 @@ setting:
     like this: a simple charcoal clay desk (one flat top on four straight legs, no drawers); an open silver clay laptop with
     a plain lid; one white clay mug; a small round charcoal clay bin with a thumb-pressed rim; a plain window with a thin
     pale-wood frame.'
-  background_rule: plain wall, window frame at the right edge; the window pane shows the plain clay street behind the glass
-    (no signs, no text)
+  background_rule: plain wall, window frame at the right edge; the lower sash is raised; the glass shows the plain clay street
+    behind the glass (no signs, no text)
 camera:
   framing: medium close on the three hanging pieces
   angle: eye level, straight-on
@@ -93,7 +96,7 @@ regions:
   kind: prop
   box:
   - 0.08
-  - 0.28
+  - 0.34
   - 0.92
   - 0.55
 - name: labels
@@ -106,17 +109,17 @@ regions:
 - name: ads_piece
   kind: prop
   box:
-  - 0.66
-  - 0.3
-  - 0.8
-  - 0.36
+  - 0.71
+  - 0.34
+  - 0.91
+  - 0.41
 - name: bubbles
   kind: prop
   box:
   - 0.55
   - 0.14
   - 0.92
-  - 0.3
+  - 0.34
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: a clay home office in

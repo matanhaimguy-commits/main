@@ -40,7 +40,8 @@ props:
     the top; the CLIENTS header is above the frame; APRIL pockets: one small client per pocket, a calm sand-cream band of
     five joined pieces (one large, three small, one small) with four seams, the five pieces carry no letters or words at all;
     the band is stitched along the top edge of the APRIL row and pulled taut.'
-  size_in_frame: April row about 77% of frame width, 34 to 52% from the top
+  size_in_frame: April row 56% of frame width, x 0.06 to 0.62, 34 to 52% from the top; the taut band leaves the organizer's
+    right edge at x 0.62 and runs right to the hand at x 0.66 to 0.79
   held_by: null
 text_in_image:
 - string: APRIL
@@ -57,7 +58,8 @@ text_in_image:
   occlusion: the pulling hand and band stay clear of the label
 action_physics:
 - Maya's right hand pulls the band 3 cm toward screen right, away from the organizer; the band goes taut, the stitched seams
-  between the pieces stay closed, and the four April clients lean 5 degrees toward the band once and settle upright.
+  between the pieces stay closed, and the four April clients lean 5 degrees toward screen right (the pull direction) once
+  and settle upright.
 static: false
 setting:
   ref: null
@@ -99,7 +101,7 @@ regions:
   box:
   - 0.1
   - 0.34
-  - 0.66
+  - 0.62
   - 0.4
 - name: april_label
   kind: text
