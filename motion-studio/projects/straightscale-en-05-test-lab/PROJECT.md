@@ -36,7 +36,7 @@ motion-reel skill for the build later. Docs: `docs/hook-stacks.md`, `docs/script
 Stage: script & VO (hooks and spines written; recommended spine taken to a release candidate)
 Current version: script loop 4, spine A, 86 words, about 34 s; 85/100, no critical fail ("Release candidate,
 provisional until Matan picks the spine"). No picture, no audio.
-Next step: GATE 4, Matan picks the spine (question in `docs/script-lab.md` section 9)
+Next step: rewrite the spines and the script on the approved v2 master hook, then GATE 4 (question in `docs/script-lab.md` section 9)
 Blockers / open questions: G-HOOK not passed after 5 blind rounds (master V A-, T A to A-, S A to A-; re-grade on a real
 concept frame before any storyboard) · text hook, "the next part" vs "part five", process-only payoff (GATE 4 riders) ·
 L5 "around" to "built on" (not applied; needs its own gate)
@@ -44,6 +44,7 @@ L5 "around" to "built on" (not applied; needs its own gate)
 ## Decisions (newest first)
 | Date | Decision | Options considered | Why | Who |
 |---|---|---|---|---|
+| 28 Oct | Hooks v2 (master EN05-B) | Matan | "much better and stronger"; next time base hooks on organic breakouts, not ads |
 | 28 Oct | Hooks v1 rejected (Matan: unclear, not the buyers' words, written English, not proven formats). Hooks v2 built only from proven sources (Hook Library HA ads 30+ days or HF outliers 3x+) and verbatim buyer phrases; all pass `organic.py hooks`. Master = the ad-proven stack. The script release candidate is ON HOLD: it was written on the v1 hook and must be rewritten on the v2 master once Matan approves it, with the new "said, not written" rule | v1 kept; more AI grading rounds | an AI grade is opinion; proof is a post or ad that already won with this buyer | Matan (rejection), Claude (v2) |
 | 28 Oct | GATE 4: spine A "The post that got paid for" (ST3 on the talking post), B "Two posts" (ST6), or C "The push button" (ST8); riders: text hook, CTA wording, payoff picture | A, B, C (`docs/script-lab.md` 8 and 9) | Claude recommends A: the only spine with a graded opening, written to release candidate at 85 | Matan (pending) |
 | 28 Oct | Spine A taken through WRITE: 4 loops (first draft + 3 rewrites), 85/100 at loop 4, no critical fail; labelled provisional | stop at loop 3 (critical fail) | the skill's 3 rewrite loops; loop 3 failed on "a free test" used before it was explained | Claude |
@@ -67,3 +68,4 @@ L5 "around" to "built on" (not applied; needs its own gate)
   release candidate, provisional · `docs/script-lab.md`, `docs/script.md`
 - 28 Oct · no generation, no paid calls, nothing committed (the parent session commits)
 - 28 Oct · hooks v1 rejected by Matan; hooks v2 from proven formats in docs/hook-stacks.md and docs/hooks.json (all PASS) · script on hold
+- 28 Oct · Matan approved hooks v2 (master EN05-B) · script rewrite on it is next

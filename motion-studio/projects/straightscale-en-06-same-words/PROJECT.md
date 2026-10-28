@@ -35,7 +35,7 @@ motion-reel skill for the build later. Docs: `docs/hook-stacks.md`, `docs/script
 ## Status
 Stage: script & VO (hooks and spines written; recommended spine A taken to a release candidate at both tiers)
 Current version: none (no picture, no audio)
-Next step: GATE 4, Matan picks the spine (A, B or C) and answers the hook question; then the concept frame
+Next step: rewrite the spines and the script on the approved v2 master hook, then GATE 4 (A, B or C) and answers the hook question; then the concept frame
 (G-HUMAN-HOOKBOARD), the voice (Voice 1 the page, Voice 2 the narrator) and the build through the motion-reel skill
 Blockers / open questions: G-HOOK not passed after 5 blind rounds (master stack best: text A- and A-, spoken A- and A-,
 visual A- in round 4, B and B+ in round 5); tier A needs `wildcard` or `angle_proven`; every cold reader asked "do my
@@ -44,6 +44,7 @@ clients even reach a page?" (GATE 4 question in `docs/script-lab.md` 9)
 ## Decisions (newest first)
 | Date | Decision | Options considered | Why | Who |
 |---|---|---|---|---|
+| 28 Oct | Hooks v2 (master EN06-A) | Matan | "much better and stronger"; next time base hooks on organic breakouts, not ads |
 | 28 Oct | Hooks v1 rejected (Matan: unclear, not the buyers' words, written English, not proven formats). Hooks v2 built only from proven sources (Hook Library HA ads 30+ days or HF outliers 3x+) and verbatim buyer phrases; all pass `organic.py hooks`. Master = the ad-proven stack. The script release candidate is ON HOLD: it was written on the v1 hook and must be rewritten on the v2 master once Matan approves it, with the new "said, not written" rule | v1 kept; more AI grading rounds | an AI grade is opinion; proof is a post or ad that already won with this buyer | Matan (rejection), Claude (v2) |
 | 28 Oct | GATE 4: which spine (A "The page that changed the subject", B "Maya follows one visitor", C "Three ways I change the subject"), the hook stack below A, `wildcard` for tier A, the "do they reach a page?" doubt | see `docs/script-lab.md` 8 and 9 | the owner's gate | Matan (pending) |
 | 28 Oct | Recommended spine A taken through WRITE: O60 180 words, about 72 s, gate 88; O30 86 words, about 34 s, gate 87; draft plus 3 rewrites, no critical fail. Labelled release candidate, provisional until Matan picks | write B or C first; stop at the spines | the owner needs something to judge; scripts are cheap | Claude |
@@ -65,3 +66,4 @@ clients even reach a page?" (GATE 4 question in `docs/script-lab.md` 9)
   (`docs/script-lab.md`); spine A written at O60 and O30, 4 gated loops with 16 fresh cold readers, RC O60 88, O30 87
   (`docs/script.md`) · waiting on Matan
 - 28 Oct · hooks v1 rejected by Matan; hooks v2 from proven formats in docs/hook-stacks.md and docs/hooks.json (all PASS) · script on hold
+- 28 Oct · Matan approved hooks v2 (master EN06-A) · script rewrite on it is next
