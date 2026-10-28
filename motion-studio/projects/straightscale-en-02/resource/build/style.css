@@ -1,0 +1,25 @@
+/* EN 02 palette (index.html PAL): char #1F1F1F, ivory #F8F6EF, marble #EDE4D6, gold #DD9A10,
+   grey #6E685F, card #2A2826. Red is for strikes only, so not used here. */
+:root { --char:#1F1F1F; --ivory:#F8F6EF; --marble:#EDE4D6; --gold:#DD9A10; --grey:#6E685F; --card:#2A2826; }
+@page { size: A4; }
+html { background: var(--ivory); }
+body { margin:0; color:var(--char); font-family:'Montserrat',sans-serif; font-size:10.5pt; line-height:1.5; }
+.band { background:var(--char); padding:14px 18px; border-radius:6px; margin-bottom:18px; }
+.band img { height:26px; display:block; }
+h1 { font-family:'Playfair Display',serif; font-weight:700; font-size:32pt; line-height:1.05; margin:0 0 8px; }
+h1 + p strong { font-weight:600; font-size:12.5pt; }
+h2 { font-family:'Playfair Display',serif; font-weight:700; font-size:17pt; margin:22px 0 6px; padding-top:8px;
+     border-top:2px solid var(--gold); break-after:avoid; }
+h2 + * { break-before:avoid; }
+p, li { margin:0 0 6px; }
+ul, ol { padding-left:20px; margin:0 0 8px; }
+strong { font-weight:700; }
+em { font-family:'Playfair Display',serif; font-style:italic; color:var(--grey); }
+code { font-family:'Montserrat',sans-serif; font-weight:600; background:var(--marble); padding:1px 5px; border-radius:3px; font-size:9.5pt; }
+pre { background:var(--marble); border-left:4px solid var(--gold); padding:9px 12px; border-radius:4px; margin:4px 0 8px;
+      break-inside:avoid; white-space:pre-wrap; word-break:break-all; }
+pre code { background:none; padding:0; font-size:10.5pt; }
+table { border-collapse:collapse; width:100%; margin:6px 0 10px; font-size:9.5pt; break-inside:avoid; }
+th { background:var(--char); color:var(--ivory); text-align:left; padding:6px 8px; font-weight:600; }
+td { border-bottom:1px solid var(--marble); padding:6px 8px; vertical-align:top; }
+td:first-child { font-weight:700; color:var(--char); white-space:nowrap; }

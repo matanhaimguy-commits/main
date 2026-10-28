@@ -1,0 +1,25 @@
+{
+  "id": "words",
+  "status": "active",
+  "trigger": "comment",
+  "platforms": ["instagram", "facebook"],
+  "posts": ["__EN02_POST_ID__"],
+  "keywords": ["WORDS"],
+  "match": "word",
+  "public_replies": [
+    "Sent you a DM with the searches.",
+    "Check your DMs, it's there.",
+    "Just sent it to your DMs."
+  ],
+  "opener": {
+    "text": "Thanks for commenting WORDS. Want me to send you the WORDS Sheet? It's the 12 searches we use to find buyers' exact sentences in reviews, Reddit, newsletters, YouTube and Facebook groups. One sitting, about 20 minutes.",
+    "button": "Send it",
+    "mode": "tap"
+  },
+  "deliver": {
+    "text": "Here it is. Fill in the blanks on page 1, then run the searches in order. Copy the sentences exactly, don't polish them.",
+    "link": "__WORDS_PDF_URL__",
+    "button": "Open the sheet"
+  },
+  "after": "One question so I can point you to the right next step: what does a normal month bring in for you right now? Under $10K, $10K to $20K, $20K to $50K, or over $50K?"
+}
