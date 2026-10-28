@@ -1,0 +1,471 @@
+{
+ "client": "straightscale-en",
+ "account": "@straightscale_ (Instagram), StraightScale's English global page",
+ "updated": "2026-10-28",
+ "refresh_due": "2027-01-26",
+ "sources": [
+  "vault: Agency OS/Clients/StraightScale/StraightScale EN offer.md (offer sheet, 26 Oct 2026; wins over any older note)",
+  "vault: Agency OS/Clients/StraightScale/StraightScale decisions.md (Decided rows 26 to 28 Oct 2026)",
+  "vault: Agency OS/Clients/StraightScale/StraightScale content log.md (26 to 28 Oct 2026)",
+  "vault: Agency OS/Log/Log 2026-10-26.md and Log 2026-10-28.md (where the research run is; what waits for the owner)",
+  "motion-studio/projects/straightscale-en-01/PROJECT.md (killed 26 Oct: used only for the avatar and buyer quotes, never its reply angle)",
+  "motion-studio/projects/straightscale-en-02/PROJECT.md, CREDITS.md and resource/ (WORDS.md, README.md, cold-read.md, funnel/)",
+  "motion-studio/projects/straightscale-en-03-song/PROJECT.md, docs/script-lab.md (brief card, persona card), docs/script.md",
+  "motion-studio/projects/straightscale-en-04-only-choice, -05-test-lab, -06-same-words: PROJECT.md and docs/script.md (spines and hooks approved by Matan, 28 Oct)",
+  "research run foundation-v2 (25 Oct 2026): 06-VOC_MASTER.csv (567 rows), 07-AWARENESS-SOPHISTICATION.md, 09-AVATARS.md. Not in any repo: read from the copy Matan uploaded to the cloud session on 26 Oct (decision E6)"
+ ],
+ "business_model": {
+  "sells": "The whole client-getting system for an expert business, built in this order (Matan, 26 Oct 2026): 1 Research: deep research on the client's buyers, competitors and market (who buys, in their own words, and what already wins in the niche). 2 Offer: from the research, an offer with a unique mechanism, so the client is the only choice and not one of many to compare. 3 Organic: a content machine that attracts the right buyers organically. 4 Funnel: a landing page that attracts the buyer, shows the offer and takes the conversions. 5 Paid ads: Meta ads (Facebook, Instagram) that put money only behind what already worked organically, aimed at the same buyer. Later, not in the offer yet: an AI VSL made with HeyGen, tested on StraightScale first. Open, ask before using: the sales team StraightScale provides and trains, and the CRM for every client (25 Oct operator facts, not in Matan's 26 Oct list; decision E2).",
+  "price_notes": "unknown: no price for the English offer in any source. The Albanian Client Engine packages (Silver, Gold, Diamond) are a separate offer and never apply here (decision E4).",
+  "margin": "unknown",
+  "capacity": "unknown: the 19 Oct capacity note (about 10 new client businesses that month) was recorded for the Albanian offer; nothing is stated for the English offer (decision E4).",
+  "sales_process": "Free entry: a free business analysis (strategy meeting), including a look at the prospect's competitors' ads (offer sheet). What happens after it (proposal, price, contract) is not written for the English offer (decision E4). Content path designed so far: reach reels end on a follow CTA for the next part of the series; EN 02 asks for the keyword WORDS; the DM sends the WORDS Sheet, asks one question (the main bottleneck) and, in the proposed routing, hands a named bottleneck to a person who sends a short voice note and invites them to the free business analysis. Not live: the hub funnel is not created (decision E3)."
+ },
+ "offer": {
+  "main_offer": "The whole client-getting system, in order: Research, Offer, Organic, Funnel, Paid ads (paid ads only behind what already worked organically). Every content idea must lead to one of these five steps (offer sheet). Free entry: a free business analysis (strategy meeting), including a look at the prospect's competitors' ads.",
+  "next_step": "Comment WORDS on EN 02 (or send WORDS as a DM): the DM sends the WORDS Sheet, then asks the main bottleneck; a person invites qualified people to the free business analysis. Built, not live: the hub funnel waits for HUB_TOKEN, the app's address and EN 02's post ID. Until then reach posts ask for a follow (the series CTA).",
+  "keyword": "WORDS",
+  "delivers": "unknown: what the free business analysis covers beyond a look at the prospect's competitors' ads, how long it takes, where it happens and what the person keeps if they don't buy (decision E3)."
+ },
+ "avatars": [
+  {
+   "id": "AV-01",
+   "name": "The lumpy-pipeline owner",
+   "role": "Founder-led coach, consultant or small agency owner (the offer sheet also names high-ticket service businesses), English-speaking, global, about $20K to $50K USD a month, goal about 5x (offer sheet). Late 30s to mid 40s, works from a home office (EN 03 persona card). Research: consultants and agency owners first, coaches second (09-AVATARS AV-01).",
+   "situation": "Her best clients came by referral and she likes them. One channel she runs by hand (LinkedIn, cold email) works, but not predictably: full months, then quiet ones. In the full month she is too busy to look for the next (EN 03 brief and persona cards; 09-AVATARS AV-01).",
+   "keeps_up": "The quiet month; the client who leaves (\"Half of our MRR just got cut with that.\", Q-R-0120); weeks of outreach with no replies; \"every year I convince myself it is the end of the world\" (Q-R-0127).",
+   "words": [
+    "some months wed sign 3 clients other months literally nothing",
+    "LinkedIn works for me, but it's sporadic and not predictable.",
+    "like others said it's lumpy",
+    "real feeling of feast or famine",
+    "2 years of posting content, running ads, and praying someone books a call.",
+    "content has been a black box for us for a long time",
+    "I already tried everything in this space, from working with other coaches to Ads, cold DMs",
+    "how are you acquiring stable clientele outside of direct referrals?",
+    "I was in a race to the bottom on pricing, and I knew it."
+   ],
+   "tried": [
+    "referrals and network: they work, with no control over when (Q-R-0065)",
+    "cold email at a higher volume: a burst, then a wash (Q-R-0027, Q-R-0053)",
+    "LinkedIn: works, but sporadic (Q-R-0022)",
+    "a coach, some ads (Q-R-0135)",
+    "a little ad money behind a post, on a guess (EN 05 persona card)",
+    "offer sheet: several agencies, freelancers, courses and tools (see the conflict in decision E7)"
+   ],
+   "false_beliefs": [
+    "The fix is a better channel: more outreach, a better LinkedIn, more content (EN 03 starting belief; Q-R-0052, Q-R-0074)",
+    "A quiet month needs one more tactic or a paid push (EN 03, EN 05, EN 06 failed fixes)",
+    "She loses deals on price, so she takes something off or adds a bonus (EN 04)"
+   ],
+   "desires": [
+    "steady months: knowing where next month's clients come from (EN 03 angle; research MD-01)",
+    "stable clients outside of direct referrals (Q-R-0074)",
+    "about 5x the business (offer sheet)"
+   ],
+   "fears": [
+    "losing income in the quiet month (Q-R-0127, Q-R-0094)",
+    "one more agency, program or tool that takes the money and brings nothing (offer sheet objections; Q-E-0055)"
+   ],
+   "identity": "A founder-led expert whose business was built on referrals and good work; tired of \"post more\", \"more outreach\" and \"fix your offer\"; distrusts anything that sounds like an agency pitch or \"done-for-you\" (EN 03 persona card).",
+   "note": "Approved as the avatar at the song's GATE 1 (Matan, 27 Oct) and used by EN 02 to EN 06. Words are verbatim from the research corpus (see research/demand-map.csv). Never attack referrals: attack the lumpiness (07 and 09 research)."
+  }
+ ],
+ "demand_map_file": "research/demand-map.csv",
+ "awareness": {
+  "stage": "Solution aware, generic (AW-3g): 27 of 40 in-ICP organic samples (68%); problem aware (AW-2) 10 of 40 (25%); 1 of 40 knows a done-for-you category exists (07-AWARENESS-SOPHISTICATION section 16; cited in EN 01 and EN 03).",
+  "sophistication": "S3 to S4, provisional in the research (07, 09-AVATARS lock card): she has already heard \"more outreach\", \"LinkedIn system\", \"post more content\" and \"fix your offer\".",
+  "notes": "The research's entry advice: open on the channel she already uses and its lumpy result, then the new information. Cold outreach and LinkedIn are the tired channels; referrals are liked (07 section 7c). The research ranked a reply-to-sale mechanism (MK-02) first for AV-01; the offer sheet rules that angle out, so it is never used."
+ },
+ "mechanism": {
+  "ump": "Patchwork Marketing: growth stitched from separate freelancers, agencies, courses and tools, so nothing compounds and nobody owns the result (offer sheet). For AV-01 it is told in its DIY form: every fix she tried herself, each patched on alone (EN 03, approved by Matan at GATES 1 to 4, 27 Oct).",
+  "ums": "Organic first, then paid: organic content is the free test lab, and paid ads only go behind posts that already brought the right buyers; research before content, offer before ads (offer sheet). The method's name is not decided (decision E1).",
+  "steps": [
+   "Research",
+   "Offer",
+   "Organic",
+   "Funnel",
+   "Paid ads"
+  ],
+  "step_names_open": "Earlier five steps Find, Own, Attract, Convert, Close; suggested, not decided: Find (research), Own (offer), Attract (organic), Convert (funnel), Scale (paid ads) (offer sheet; decision E1).",
+  "big_idea": "Steady months, without adding one more tactic. (EN 03 angle, GATE 3, Matan 27 Oct)",
+  "contrast_line": "Most agencies test the message with the client's ad budget. We put ads only behind posts that already brought the right buyers. (offer sheet, Why it is different)",
+  "picture": "One cloth: the buyers' own words; the offer, the posts, the page and the ads are each cut from it, in order (EN 03 to EN 06)."
+ },
+ "belief_ladder": [
+  {
+   "id": "B1",
+   "statement": "My months swing (lumpy, feast or famine), and each fix I added held a month, then came loose.",
+   "state": "unknown"
+  },
+  {
+   "id": "B2",
+   "statement": "It isn't my channel or my fault: every fix was patched on alone (Patchwork Marketing).",
+   "state": "unknown"
+  },
+  {
+   "id": "B3",
+   "statement": "It can be solved: steady months come from building the pieces in order, each cut from the one before.",
+   "state": "unknown"
+  },
+  {
+   "id": "B4",
+   "statement": "The order is research the buyers' words, then the offer, organic posts, a matching page, and paid ads last, only behind posts that worked.",
+   "state": "unknown"
+  },
+  {
+   "id": "B5",
+   "statement": "One system built in that order beats one more agency, freelancer, course or tool.",
+   "state": "unknown"
+  },
+  {
+   "id": "B6",
+   "statement": "It works for a business like mine (needs proof with evidence; process content until then).",
+   "state": "not_held"
+  },
+  {
+   "id": "B7",
+   "statement": "I trust and like the StraightScale people.",
+   "state": "unknown"
+  },
+  {
+   "id": "B8",
+   "statement": "The free business analysis is easy, safe and worth doing now.",
+   "state": "unknown"
+  }
+ ],
+ "contrarian_vault": [
+  {
+   "id": "C1",
+   "position": "Paid ads go only behind posts that already brought the right buyers. Most agencies test the message with the client's ad budget.",
+   "source": "offer sheet, Why it is different (Matan, 26 Oct)"
+  },
+  {
+   "id": "C2",
+   "position": "Research before content, offer before ads: nothing is made before we know the buyer's words.",
+   "source": "offer sheet, Why it is different"
+  },
+  {
+   "id": "C3",
+   "position": "Steady months don't need one more tactic.",
+   "source": "EN 03 angle, GATE 3 (Matan, 27 Oct)"
+  },
+  {
+   "id": "C4",
+   "position": "Don't write hooks. Collect them: your buyers already wrote them.",
+   "source": "EN 02 brief (the take); EN 02 v1 waits for Matan's approval"
+  },
+  {
+   "id": "C5",
+   "position": "You lost to someone cheaper, and it was decided before you ever quoted: in an offer that says what everyone else's says.",
+   "source": "EN 04 script, spine B (Matan, 28 Oct)"
+  },
+  {
+   "id": "C6",
+   "position": "A post is a guess until buyers answer it.",
+   "source": "EN 05 script, spine A (Matan, 28 Oct)"
+  },
+  {
+   "id": "C7",
+   "position": "More posts won't fix a page that changes the subject.",
+   "source": "EN 06 text hook (accepted by Matan, 28 Oct)"
+  }
+ ],
+ "proof_bank": [
+  {
+   "id": "P-01",
+   "type": "owner result (operator facts)",
+   "text": "Matan's own business: $50K to $1M a month.",
+   "source": "offer sheet, Proof (from the 25 Oct operator facts)",
+   "permission": "pending",
+   "note": "evidence file not collected: no number goes on screen until its evidence is in the repo (offer sheet)"
+  },
+  {
+   "id": "P-02",
+   "type": "client result (operator facts)",
+   "text": "A business taken from $0 to $300K a month.",
+   "source": "offer sheet, Proof",
+   "permission": "pending",
+   "note": "shown anonymously by niche once evidence is in the repo; evidence not collected"
+  },
+  {
+   "id": "P-03",
+   "type": "client result (operator facts)",
+   "text": "A courses business, EUR 30K to 100K a month.",
+   "source": "offer sheet, Proof",
+   "permission": "pending",
+   "note": "shown anonymously by niche once evidence is in the repo; evidence not collected"
+  },
+  {
+   "id": "P-04",
+   "type": "client result (operator facts)",
+   "text": "A consulting business, EUR 15K to 55K a month.",
+   "source": "offer sheet, Proof",
+   "permission": "pending",
+   "note": "shown anonymously by niche once evidence is in the repo; evidence not collected"
+  },
+  {
+   "id": "P-05",
+   "type": "client result (operator facts)",
+   "text": "A new consulting business, EUR 0 to 140K a month.",
+   "source": "offer sheet, Proof",
+   "permission": "pending",
+   "note": "shown anonymously by niche once evidence is in the repo; evidence not collected"
+  },
+  {
+   "id": "P-06",
+   "type": "process fact (our research)",
+   "text": "567 buyer sentences from 414 authors collected before the English page's first video (research run, Oct 2026).",
+   "source": "EN 02 CREDITS.md (06-VOC_MASTER.csv, foundation-v2 run)",
+   "permission": "pending",
+   "note": "on screen in EN 02 and in the WORDS Sheet, but the corpus is in no repo yet (decision E6): store it before EN 02 posts",
+   "date": "2026-10-25"
+  }
+ ],
+ "lead_magnets": [
+  {
+   "keyword": "WORDS",
+   "resource": "The WORDS Sheet: 12 copy-paste searches that find your buyers' exact sentences, in six sources (competitors' Google reviews, review sites, Reddit, newsletter and Substack comments, YouTube comments, public Facebook groups), each with the query pattern, a filled example, what to copy and how to sort it into fear, desire and identity. Files: motion-studio/projects/straightscale-en-02/resource/WORDS.md (source) and WORDS.pdf.",
+   "delivers": "A 5-page PDF in the DM after one tap; a first run of 6 \"Start here\" searches, 20 to 30 minutes (2 setup + six sections of about 3 minutes), gives 9 to 15 buyer sentences in three columns and one hook to use word for word.",
+   "live": false,
+   "funnel_id": null,
+   "funnel_files": [
+    "motion-studio/projects/straightscale-en-02/resource/funnel/words.funnel.json (id words: comment WORDS, pinned to the EN 02 post)",
+    "motion-studio/projects/straightscale-en-02/resource/funnel/words-dm.funnel.json (id words-dm: WORDS sent as a DM)"
+   ],
+   "qualifying_question": "What's the main thing holding back more clients for you right now? Not enough enquiries, enquiries that don't buy, months that swing, or something else? (the main bottleneck: Matan's pick, 28 Oct 2026)",
+   "posts": "EN 02 asks for it; the EN 03 song's CTA points to EN 02 as part two",
+   "not_live_because": "the hub funnel is not created: HUB_TOKEN and the app's address are not set, EN 02 is not posted (its post ID pins the comment funnel), and no tester account has run it; the 10 to 60 minute wait before the question is an app change being built (Matan, 28 Oct)",
+   "checks": {
+    "main_pain": true,
+    "one_thing": true,
+    "quick_win": true,
+    "leads_to_offer": true,
+    "low_friction": true,
+    "checked": "2026-10-28"
+   },
+   "checks_source": "motion-studio/projects/straightscale-en-02/PROJECT.md, Lead magnet: WORDS (checked after the cold-read fixes in resource/cold-read.md)"
+  }
+ ],
+ "voice": {
+  "adjectives": [
+   "calm",
+   "direct"
+  ],
+  "adjectives_note": "From EN 01's brief (\"English narrator, calm and direct\"); a third adjective is not recorded for this account.",
+  "samples": [],
+  "banned": [
+   "em dashes",
+   "hype words",
+   "reply speed, lead follow-up, \"call your leads faster\" or sales scripts as the angle (StraightScale does not follow up leads itself)",
+   "advice everyone already agrees with",
+   "invented numbers, results, clients, quotes or reviews",
+   "any proof number until its evidence file is in the repo",
+   "the name Patchwork Marketing in a hook; the offer in a hook",
+   "StraightScale named anywhere but the end card or handle (EN 04 to EN 06 series rule)",
+   "the provided sales team or the CRM (open, decision E2)",
+   "prices, guarantees or promised results",
+   "quote authors' names or handles"
+  ],
+  "language": "en",
+  "register": "you and your (second person); English has no ti or ju choice",
+  "copy_rules": "Text hook 4 to 10 words; buyer quotes verbatim with source and date, never polished (EN 02, EN 04 to EN 06 series rules)."
+ },
+ "visual": {
+  "colors": {
+   "charcoal": "#1F1F1F",
+   "ivory": "#F8F6EF",
+   "marble": "#EDE4D6",
+   "gold": "#DD9A10",
+   "red": "#BE0F18 (only for strikes, EN 02)"
+  },
+  "fonts": [
+   "Playfair Display",
+   "Montserrat"
+  ],
+  "logo_files": [
+   "motion-studio/projects/straightscale-en-02/assets/brand/wordmark-white.png (identical to clients/straightscale/brand/wordmark-white.png)",
+   "motion-studio/projects/straightscale-en-01/assets/brand/logo-full.png",
+   "motion-studio/projects/straightscale-en-01/assets/brand/symbol.png",
+   "motion-studio/projects/straightscale-en-01/assets/brand/wordmark-white.png"
+  ],
+  "face": "mixed",
+  "face_note": "On-camera host: Matan's HeyGen twin (Matan, 27 Oct). Pieces so far: faceless kinetic type (EN 01, EN 02), claymation characters (EN 03, EN 05, EN 06), POV hands only (EN 04). Maya and every story character is a composite in a stylized world.",
+  "ai_label": "unknown: how the HeyGen twin, AI voices and AI scenes are labelled on this account is not decided (decision E8)",
+  "real_footage": false,
+  "set": "The cloth world (claymation): a home office with a CLIENTS wall organizer, one pocket per week (EN 03, EN 05, EN 06).",
+  "recurring_object": "The CLIENTS wall organizer and the one cloth printed with buyers' words, from which every piece is cut.",
+  "style_bible": "unknown: no style bible for the English account yet",
+  "never": "the company presented in a childish way (Matan, 27 Oct)"
+ },
+ "market": {
+  "language": "en",
+  "country": "global (English-speaking)",
+  "timezone": "unknown: posting times for the global page are not set (decision E9)",
+  "events": []
+ },
+ "constraints": {
+  "cannot_say": [
+   "invented numbers, results, client names, quotes or reviews",
+   "any proof number before its evidence file is in the repo (offer sheet)",
+   "reply speed, lead follow-up, \"call your leads faster\", sales scripts: StraightScale does not follow up leads itself",
+   "the provided sales team and the CRM (not in Matan's 26 Oct list; ask first)",
+   "the AI VSL as part of the offer (later, not in the offer yet)",
+   "prices, discounts, guarantees or promised results",
+   "the Albanian offer (Tirana office, ANALIZA, the Client Engine packages)",
+   "hype words",
+   "em dashes"
+  ],
+  "will_not_show": [
+   "the names or handles of the people quoted (source kind and month only)",
+   "a result picture without a proof file (the song's slower-April payoff is the one approved exception, Matan 27 Oct)",
+   "the company presented in a childish way"
+  ],
+  "approver": "Matan (hub Content page; piece checkpoints on the Studio page)",
+  "turnaround_hours": null
+ },
+ "baseline": {
+  "followers": null,
+  "reach_30d": null,
+  "median_views": null,
+  "saves": null,
+  "sends": null,
+  "dms": null,
+  "client_sources": "unknown",
+  "as_of": null,
+  "notes": "The English page had posted no video when the research was done (EN 02 CREDITS). One Albanian carousel was published on the account on 15 Oct, and the hub business connected to it (straightscale) still runs the Albanian setup with the analiza funnels active (decisions, 26 Oct; decision E10)."
+ },
+ "package": {
+  "posts_per_week": 0,
+  "videos_per_month": null,
+  "carousels_per_month": null,
+  "platforms": [
+   "instagram (@straightscale_)"
+  ],
+  "monthly_credit_cap": 0,
+  "account_stage": "new",
+  "note": "0 = not set: the schema needs integers. No cadence or generation budget is recorded for the English page (decision E9). A cap of 0 makes G-BUDGET fail any paid generation under this slug; the English runs so far were logged under clients/straightscale (runs/SS-EN-SONG-01). The WORDS funnel files also list Facebook; whether the English page has its own Facebook page is unknown."
+ },
+ "series": {
+  "name": "how the pieces fit (working name from EN 04 and EN 06 lines)",
+  "parts": [
+   "part one: EN 03 song \"Maya's quilt\" (TOF; O60 and O30 scripts released; song made, waits for G-HUMAN-SONG)",
+   "part two: EN 02 \"Your buyers already wrote your hooks\" (Research; v1 delivered, waits for approval and the WORDS funnel)",
+   "part three: EN 04 \"Decided before you quoted\" (Offer; script released 28 Oct)",
+   "part four: EN 05 \"The post that got paid for\" (Organic; script released 28 Oct)",
+   "part five: EN 06 \"The page that changed the subject\" (Funnel; scripts released 28 Oct)"
+  ],
+  "open": "whether part five is Funnel or Paid ads, EN 06's tier A wildcard slot, EN 05's CTA wording (decision E14)"
+ },
+ "decisions_open": [
+  {
+   "id": "E1",
+   "question": "The method's name and step names: keep Research, Offer, Organic, Funnel, Paid ads as plain names, or name them (earlier Find, Own, Attract, Convert, Close; suggested Find, Own, Attract, Convert, Scale)?",
+   "options": [
+    "plain step names, method unnamed",
+    "Find, Own, Attract, Convert, Close",
+    "Find, Own, Attract, Convert, Scale"
+   ],
+   "interim": "Scripts name only Patchwork Marketing; the method stays unnamed and the steps are called by what they are (EN 03 reveal plan)."
+  },
+  {
+   "id": "E2",
+   "question": "Do the sales team StraightScale provides and trains, and the CRM for every client (25 Oct operator facts), belong in the English offer?",
+   "interim": "Never mentioned in content, captions or the DM bot."
+  },
+  {
+   "id": "E3",
+   "question": "The free business analysis: what it covers beyond a look at the competitors' ads, how long, where (call or in person), what the person keeps, and how it is booked (link, calendar, DM). Also: who answers the WORDS hand-offs and sends the voice note, and should the proposed WORDS routing lines go into the hub's business profile?",
+   "recommendation": "Write it down; it unlocks B8 posts and the funnel's hand-off.",
+   "interim": "No post explains the analysis; the WORDS funnel is not created."
+  },
+  {
+   "id": "E4",
+   "question": "Price, capacity and the sales process after the analysis for the English offer (none is recorded; the Albanian packages do not apply).",
+   "interim": "Never in content; the DM bot never quotes prices or results."
+  },
+  {
+   "id": "E5",
+   "question": "Proof: collect the evidence files for the five owner-reported results (offer sheet) and confirm they may be shown anonymously by niche.",
+   "recommendation": "Collect them; B6 has no material until then.",
+   "interim": "No result number on screen; B6 only through process content."
+  },
+  {
+   "id": "E6",
+   "question": "Where is the foundation-v2 research run stored? 06-VOC_MASTER.csv (567 quotes from 414 authors), 07 and 09 exist only on the Mac (~/Downloads/Organic-Engine/) and in a cloud session's temporary copy; no repo holds them.",
+   "recommendation": "Commit it to a private repo (or clients/straightscale-en/research/) with push access, so every quote id can be checked.",
+   "interim": "Use only quotes already cited with their Q-ids. The \"567\" on EN 02 and in the WORDS Sheet has no evidence file in the repo until then (offer-sheet rule)."
+  },
+  {
+   "id": "E7",
+   "question": "Patchwork form and a second avatar: the offer sheet says buyers tried several agencies (\"they tried other agencies that failed them\"), while the research finds AV-01 mostly never hired an acquisition firm (6 of 181 codable rows) and the song uses the DIY form. Keep the DIY form for AV-01, and add the research's AV-03 \"the burned category buyer\" (fits Matan's objections) as AV-02?",
+   "recommendation": "Keep the DIY form for AV-01; add the burned buyer only with Matan's yes.",
+   "interim": "AV-01 only; agency-burn lines only as buyer quotes."
+  },
+  {
+   "id": "E8",
+   "question": "AI labels and the host: how are Matan's HeyGen twin, AI voices and AI scenes labelled on this account, and are the twin's consent and footage in place?",
+   "interim": "No twin pieces until decided; claymation and faceless pieces only."
+  },
+  {
+   "id": "E9",
+   "question": "Cadence and budget for the English page: posts a week, videos and carousels a month, stories, posting times, and a monthly generation cap (Atlas dollars or Higgsfield credits).",
+   "interim": "package fields are 0 placeholders; paid generation under this slug fails G-BUDGET until set."
+  },
+  {
+   "id": "E10",
+   "question": "The hub: when does the business connected to @straightscale_ (straightscale) switch from the Albanian setup (analiza funnels active) to the English offer, and does the Albanian carousel from 15 Oct stay on the English grid? Where does the Albanian offer post?",
+   "interim": "Before the WORDS funnel is created, run `hub.py clients` to see which hub business holds @straightscale_ and which funnels are active on it."
+  },
+  {
+   "id": "E11",
+   "question": "Approve the messaging block (one-liner, pitch, 3 value props, boilerplate) for the bio, the DM bot and captions.",
+   "interim": "Draft only; nothing reuses it until approved."
+  },
+  {
+   "id": "E12",
+   "question": "Owner ramble: a 15 to 20 minute voice note in English (what annoys you in the industry, what clients always ask, what everyone gets wrong)?",
+   "recommendation": "Yes: it fills the voice samples, the contrarian vault and the story bank."
+  },
+  {
+   "id": "E13",
+   "question": "Insights access for @straightscale_ so the baseline (followers, reach, median views) and the Learn loop can fill.",
+   "interim": "Baseline stays unknown."
+  },
+  {
+   "id": "E14",
+   "question": "The series order: is part five Funnel (EN 06) or Paid ads (the song sings ads last)? EN 06's tier A needs a wildcard slot; EN 05's CTA says \"the next part\" instead of \"part five\".",
+   "interim": "EN 06 waits on the answer before any picture."
+  }
+ ],
+ "messaging": {
+  "status": "draft: owner to approve (E11)",
+  "language": "en",
+  "one_liner": "We help founder-led coaches, consultants and agency owners at $20K to $50K a month get clients predictably: we research their buyers, build an offer they can't be compared on, a content machine that attracts those buyers, a funnel that converts them, and ads that only scale what already worked.",
+  "pitch": "Patchwork Marketing is growth stitched from separate freelancers, agencies, courses and tools, so nothing compounds and nobody owns the result. StraightScale builds the whole client-getting system instead, in order: research on your buyers, an offer you can't be compared on, organic content that attracts those buyers, a funnel that converts them, and paid ads only behind posts that already brought the right buyers. It starts with a free business analysis, including a look at your competitors' ads.",
+  "value_props": [
+   "Research before content, offer before ads: nothing is made before we know your buyers' words.",
+   "Organic first, then paid: ads only go behind posts that already brought the right buyers.",
+   "One system built in order, not separate freelancers, agencies, courses and tools that never compound."
+  ],
+  "boilerplate": "StraightScale builds the whole client-getting system for founder-led coaches, consultants and agency owners, in order: research on their buyers, an offer they can't be compared on, a content machine that attracts those buyers, a funnel that converts them, and ads that only scale what already worked. The first step is a free business analysis.",
+  "voice_is": [
+   "calm",
+   "direct"
+  ],
+  "voice_is_not": [
+   "hype",
+   "advice everyone already agrees with",
+   "an agency pitch or done-for-you talk",
+   "childish",
+   "promising results, prices or timelines"
+  ],
+  "sources": [
+   "offer sheet, One line (one_liner, verbatim)",
+   "offer sheet, Why it is different: Patchwork Marketing, organic first then paid, research before content (pitch, value props)",
+   "offer sheet, What we sell and Free entry (pitch, boilerplate)",
+   "EN 01 brief, calm and direct (voice_is)",
+   "offer sheet; decisions 27 Oct (never childish); EN 03 persona card (distrusts agency pitch, done-for-you) (voice_is_not)"
+  ]
+ }
+}
