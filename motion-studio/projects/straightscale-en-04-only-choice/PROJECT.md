@@ -33,14 +33,22 @@ motion-reel skill for the build later. Docs: `docs/hook-stacks.md`, `docs/script
 - CTA: follow for the next part (reach job).
 
 ## Status
-Stage: script & VO (hooks and spines written; recommended spine taken to a release candidate)
+Stage: script & VO (hooks and spines written; recommended spine B taken to a release candidate, 86/100, loop 4)
 Current version: none (no picture, no audio)
-Next step: GATE 4, Matan picks the spine
-Blockers / open questions: see Decisions and the GATE 4 question in `docs/script-lab.md`
+Next step: GATE 4, Matan picks the spine (A, B or C; question in `docs/script-lab.md` section 9); then the master hook
+stack's named fixes go to fresh blind graders on the concept frame
+Blockers / open questions: G-HOOK not passed after 5 blind rounds (best: stack Q, V A-, T A-, S A to B+); the two
+owners meet at about 31 s, not in frame 1 (every split frame lost the visual at phone size); the RC runs 74 s, tight
+against O60's 75 s cap; the readable steps on her page need plain example words that are not StraightScale's method
 
 ## Decisions (newest first)
 | Date | Decision | Options considered | Why | Who |
 |---|---|---|---|---|
+| 28 Oct | GATE 4: the spine (A "Same question" ST5, B "Decided before you quoted" ST3 on the two_days pair, C "Why you?" ST6); writer recommends B | A, B, C, B with A's split as a trial variant | pending | Matan (pending) |
+| 28 Oct | Spine B taken through WRITE to a release candidate: 185 words, about 74 s, gate 86/100, no critical fail, loop 4 (rewrite 3 of 3); labelled provisional until the pick | stop at the spines | the brief asks for the recommended spine as an RC | Claude |
+| 28 Oct | G-HOOK not passed after 5 rounds of 2 fresh blind graders each; master candidate Q recorded with its untested fixes, taken to GATE 4 | more rounds | the round cap in the brief; the visual held at A- for every grader | Claude, owner to be told |
+| 28 Oct | The two owners meet at line 7 (about 31 s), not in frame 1 | STORY-FORMATS 3.2's split at 0 to 3 s (stack P) | the split frame lost the visual in all 5 rounds (bubbles halved at phone size) | Claude, owner to confirm at GATE 4 |
+| 28 Oct | Picture: the series' cloth means only "what the offer is made of" (the same plain cloth vs a cloth printed with buyer phrases Q-R-0058, Q-R-0094, Q-R-0022); the fixes are real props | the song's patch for every fix | one meaning per object (Script Lab test 8) | Claude |
 | 28 Oct | Template, format and reference as in the brief | the other STORY-FORMATS templates; refbank pick list | each reel of the series uses a different template and format from the song and from each other; refs pass `check` | Claude |
 
 ## Approvals
@@ -49,3 +57,10 @@ Blockers / open questions: see Decisions and the GATE 4 question in `docs/script
 
 ## Log
 - 28 Oct · folder made from `templates/project`; brief, template, format and reference set · ok
+- 28 Oct · Hook Lab: 10 stacks graded, 3 kept; G-HOOK 5 rounds, 10 fresh blind graders (headless agents, persona card
+  only): not passed, best stack Q V A-, T A-, S A to B+ · docs/hook-stacks.md
+- 28 Oct · Script Lab: brief, persona, structure pick, ladder, 3 spines (A ST5, B ST3, C ST6), recommendation B; the GATE 4
+  question · docs/script-lab.md
+- 28 Oct · WRITE on spine B: 4 versions, 8 fresh cold readers (listen-only and sound-off per loop); loop 1 critical
+  fail (two prospects or one), loop 2 78, loop 3 84, loop 4 86 with no critical fail: release candidate, provisional
+  until Matan's pick · docs/script.md
