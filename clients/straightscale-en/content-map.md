@@ -44,7 +44,7 @@ The method's five steps are six topics with the broad pillar, so Funnel and Paid
 | Fri 6 Nov | W1-03 | built or patched: one scrap of cloth, two paths | reel_motion | reach B2 | HF-19 | send |
 | Mon 9 Nov | W2-01 | EN 04 "decided before you quoted", part three (Offer) | reel_story_narrated | reach B2 | HF-04 | follow |
 | Wed 11 Nov | W2-02 | the order I'd build in with a full calendar | reel_motion | trust B4 | HF-20 | save |
-| Fri 13 Nov | W2-03 | before you pay for the next fix, ask what it builds on | reel_motion | convert B5 | HF-21 | DM (save fallback) |
+| Fri 13 Nov | W2-03 | before you pay for the next fix, ask what it leaves you if you stop paying | reel_motion | convert B5 | HF-21 | DM (save fallback) |
 | Mon 16 Nov | W3-01 | EN 05 the boosted post explains itself, part four (Organic) | reel_animation_short | reach B3 | HF-12 | follow |
 | Wed 18 Nov | W3-02 | three questions an offer answers before you are compared | reel_motion | trust B4 | HF-22 | save |
 | Fri 20 Nov | W3-03 | the week the third client signed is where the quiet month starts | reel_animation_short | reach B1 | HF-25 | send |
@@ -90,11 +90,11 @@ talking-explainer refs in a row. Log with `refbank.py log` only after delivery.
 ## Rules (director review, round 1)
 - **Series release rule:** a part ships only with its script released at 85 or more and an A or A+ hook. If it is not
   released by the Wednesday before its Monday, a bank reach card (W9-01, W9-02 or W9-03) takes the slot and the part
-  moves back a week. Today EN 04, EN 05 and EN 06 sit at 76, 80 and 76.
+  moves back a week; for part six (Fri 27 Nov) W9-04 or W9-05 takes the slot. Today EN 04, EN 05 and EN 06 sit at 76, 80 and 76.
 - **DM fallback:** W2-03, W4-02 and W9-06 switch to save if E10 is not closed 48 hours before the slot.
 - **Waivers for November:** two reach posts meet across weeks twice (Fri W1-03 then Mon W2-01, Fri W3-03 then Mon
   W4-01), and the first five posts carry no conversion CTA; both follow from four fixed Monday series parts.
-- **Truth:** demand phrases now point to recovered rows (Q-RN-0033, Q-RN-0025, Q-RN-0048, Q-RN-0037, added to
+- **Truth:** demand phrases now point to recovered rows (Q-RN-0033, Q-RN-0025, Q-RN-0048, Q-RN-0037, Q-RN-0023, Q-RN-0024, added to
   `research/demand-map.csv`); Q-B-0002, Q-E-0183 and Q-E-0009 stay off screen until their rows are found.
 - **AV-01:** no card speaks to agency buyers (E7); W2-03 and W9-06 use the do-it-yourself fixes.
 
@@ -106,7 +106,7 @@ talking-explainer refs in a row. Log with `refbank.py log` only after delivery.
 - E9: cadence, posting time and a monthly USD cap are not in `brain.json` yet.
 - E10: which hub business answers the DMs the two convert posts ask for.
 - No B7 post this month (week-check warns every week): it needs real footage or the owner ramble (E8, E12).
-- W4-02 is the day before US Thanksgiving and W4-03, the series finale, is Black Friday: keep, or move to Mon 30 Nov.
+- W4-02 is the day before US Thanksgiving and W4-03, the series finale, is Black Friday; the director recommends moving the finale to Mon 30 Nov.
 
 ## Checks (28 Oct, after the director's round 1)
 `card-check`: all 12 cards and 6 bank cards pass. `week-check` per week (W1 to W4): pass, each warns "no human / B7
