@@ -1,0 +1,76 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH20",
+ "spec_sha256": "85017164803de7730ba4f0d0c6e6f5233a94b804e320a19fdc921894ecf06290",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Maya, organizer, taut band, April clients lean, CLIENTS/MARCH/APRIL all stated"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'right fingers around the last 3 cm of the fifth piece, beyond the fourth seam; all four seams stay clear'; left hidden; five-finger check; sleeve to wrist stated"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'Maya's right hand pulls the band 3 cm toward screen right ... band goes taut ... clients lean 5 degrees toward screen right once and settle upright'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-ORGANIZER content identical to SH19 plus 'pulled taut'; band carries no words; waivers (slanted pockets, band inside felt edges) stated"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "CLIENTS, MARCH, APRIL quoted with 'the pulling hand and band stay clear of the label'"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'background_rule: plain wall; no loose scraps in sight'"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Same layout as SH19 (organizer 0.06-0.68, face 0.74-0.92, hand 0.70-0.86 at y 0.37-0.47); regions stay in 15-55% and outside the right 21% lower half"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'CH-MAYA position and pose from SH19', cardigan sleeve, organizer state carried; framing 'the same frame as SH19'"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "'last 3 cm of the fifth piece, beyond the fourth seam' fixes the grip; 'taut' defined by the pull"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 hand far from labels; FL-03 contact points; FL-08 hand keeps the band through the clip"
+  }
+ ],
+ "suggested_spec_changes": [],
+ "advisories": [
+  "Must_not is thinner than SH19: add 'no headset on Maya', 'no words on the cloth band' and 'exactly four clients in the APRIL row' so the SH20 prompt cannot drift if it is written alone (CLIP-H may share one prompt).",
+  "Geometry is tight: the band leaves the organizer at x 0.68 and the fingers start at x 0.70, while the last piece is 'one small'. After the pull the hand moves right (box 0.70-0.86): say the gripped tail is at least 8% of frame width long so seam 4 stays visible left of the fingers.",
+  "'3 cm' has no scale in frame: express as about 3% of frame width."
+ ]
+}

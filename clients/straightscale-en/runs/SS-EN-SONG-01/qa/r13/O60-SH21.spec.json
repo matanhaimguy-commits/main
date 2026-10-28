@@ -1,0 +1,80 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH21",
+ "spec_sha256": "9edbc0b6c0c9bc655c01d6016d2ed78f5f6ef2efaa79326619cc3ab447cc1a34",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "PR-BIN, four scraps (EMAIL, ADS, LINKEDIN, COACH), PR-ORGANIZER with CLIENTS/MARCH/APRIL all present; no hands, no people"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible; 'no people'"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'Frozen: four scraps are crammed in the bin; the EMAIL scrap's corner hangs over the left rim'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-BIN described in full (round charcoal clay, rolled rim, no lid); PR-SCRAPS four patterns and labels; organizer content line full"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "EMAIL, ADS, CLIENTS, MARCH, APRIL quoted with surface, position, occlusion; LINKEDIN and COACH 'labels turned inward, no letters visible'"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'background is the organizer in soft focus; CLIENTS, MARCH and APRIL stay legible and spelled exactly'"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "Organizer box conflicts with the locked sheet and SH19/SH20: 'organizer 14 to 40% from the top, 80% width' (x 0.10-0.90) is 864 px by 499 px, a 1.7:1 landscape, while PR-ORGANIZER@v2 and SH19 (62% by 33%, about 1.05:1) are nearly square. With the sheet attached the model must stretch the organizer, crop it or drop rows, and the 12 + 4 clients and the three labels will not fit. Also the bin top (0.38) overlaps the organizer bottom (0.40) and the APRIL row."
+  },
+  {
+   "id": "P9",
+   "result": "FAIL",
+   "evidence": "Same defect for continuity: the organizer in SH21 would not match the organizer in SH19/SH20 (shape and size), which G-CONTINUITY will flag."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "'only the EMAIL and ADS labels showing' is stated per scrap"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 targeted negatives only; FL-05 organizer is the only background item; FL-02 bin structure line present"
+  }
+ ],
+ "suggested_spec_changes": [
+  "Size the organizer as in SH19's proportions: for example 'organizer 50% of frame width (x 0.25 to 0.75), 14 to 40% from the top, about square, soft focus', or keep 80% width only if the organizer is cropped by the top of frame and explicitly shown as two rows of four with the bottom hidden behind the bin (then say which parts are cut).",
+  "Update the regions to match: organizer, clients_header (centred on the new organizer), march_label and april_label (left end of the new organizer, y 0.19-0.28 and 0.30-0.39) so APRIL stays left of the bin rim (bin x 0.28-0.72).",
+  "Keep the bin top at 0.38 only if the APRIL row bottom is above it; otherwise say the bin overlaps the lowest 2% of the organizer and the APRIL clients stay visible above the rim."
+ ],
+ "advisories": [
+  "'occlusion: not covered' on EMAIL and ADS: say by what ('no scrap fold, rim or shadow over the letters').",
+  "LINKEDIN is a real platform name, but only as the sheet's scrap label turned inward here, so it is not visible; keep it hidden.",
+  "Push-in to 108% moves the organizer's left edge past the 6% side margin: harmless if the new organizer is 50% wide."
+ ]
+}

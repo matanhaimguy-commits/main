@@ -1,0 +1,76 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH01",
+ "spec_sha256": "d50d06e2bd4dcffcb5b0b79bb3c878825e1771403304cc091e958ea7218c72ce",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Organizer, MARCH/APRIL/CLIENTS and the overlay strings are all listed; must_read_in_1s is one moment: 'MARCH row full of clients ..., every APRIL pocket empty.'"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: not applicable (no prompt or model call yet)."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'hands: none visible' and no hand in action_physics."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'nothing inside the frame moves except the parallax of the felt'; the only action is a numbered camera move (30 cm back, 10 cm down, 6 s)."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Organizer content line is filled: 'APRIL pockets: all four are empty, shallow slanted pockets, dark empty interior, no clients' (required wording present); MARCH 'twelve in all'."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "Each string has quotes, surface, position, case and occlusion: 'the hook text never covers the MARCH band or pocket 1'. Overlay strings are added in the edit, not generated (7 words across 3 lines: advisory)."
+  },
+  {
+   "id": "P7",
+   "result": "FAIL",
+   "evidence": "background_rule covers the wall ('no frames, no posters, no writing') but the laptop is listed in setting.details ('PR-LAPTOP ...') with the rule 'the screen shows only what this shot names' while the shot names no screen content, no screen facing and no position; the clip ends wide on SH02 where the laptop screen is visible."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Header at 15-19% vs hook box 14-27% x 36-94% are compatible; the safe-zone overlap is stated as an accepted exception with reason ('pocket 4 is empty and carries no text, and no captions run during SH01')."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot null; carry_over matches SH02 ('PR-ORGANIZER MARCH full APRIL empty', ivory wall, light from the left)."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: not applicable (no prompt or model call yet)."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No two-way word found that would trip a generation; 'no text on the wall' is advisory (see changes)."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04/FL-05 prevented (prop content filled, wall rule); FL-01 n/a (no hands); FL-02 organizer structure given in one line."
+  }
+ ],
+ "suggested_spec_changes": [
+  "FIX (P7): add to setting.background_rule: 'In the last frames of the pull-back, a small clay laptop stands on the charcoal desk beyond Maya, lid up, its screen facing Maya and the camera, the screen a plain flat dark-grey panel, no icons, no light, no text; one white clay mug on the desk to the right of the laptop (about x 0.70, y 0.60).' (same wording as SH02), so the end frame matches SH02 and the screen has a content rule.",
+  "ADVISORY (P1): Maya (back view, seated) is in the clip's end frame but is not a subject here; add one line in notes or subjects that she appears only in the final frames exactly as in SH02, so the clip prompt does not drop her.",
+  "ADVISORY (P11): replace the must_not 'no text on the wall' with 'no writing on the bare paper wall' so it cannot be read as emptying the organizer's CLIENTS, MARCH and APRIL bands (same wall).",
+  "ADVISORY (P6): the overlay is 7 words on one surface (3 lines); it is an edit overlay so not a generation risk, but keep it to the owner-approved wording only."
+ ]
+}

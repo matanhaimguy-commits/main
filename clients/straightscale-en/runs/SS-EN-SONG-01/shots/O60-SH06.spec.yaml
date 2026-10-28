@@ -26,9 +26,9 @@ hands:
   left: 'left hand holds the COACH and ADS seam flat: palm on the felt below the seam (x 0.38 to 0.50, y 0.52 to 0.58), fingertips
     on the ADS lower-left edge'
   right: 'right hand pulls the last stitch tight at the ADS right edge: the thread leaves the felt 1 cm inside the ADS right
-    edge (x 0.76, y 0.48) and runs taut to the thumb and index fingertips (x 0.68 to 0.78, y 0.38 to 0.48); the needle has
-    already gone through and hangs on the thread end below the hand, shaft visible; a clear 2 cm gap between the fingers and
-    the S of ADS'
+    edge (x 0.76, y 0.44) and runs up, taut, to the thumb and index fingertips pinched above the letter row (x 0.70 to 0.78,
+    y 0.32 to 0.36); the needle hangs on the thread end below the hand over the plain right part of the scrap, shaft visible;
+    the fingers stay at least 0.04 of the frame clear of the ADS letters'
   contact: left palm on the felt; right hand in a clean thumb-and-index pinch on the thread, the other three fingers curled
     loosely
   count_check: five fingers on each visible hand
@@ -67,7 +67,7 @@ text_in_image:
   position: over pocket 4
   case: upper
   must_be_exact: true
-  occlusion: no finger or needle over the letters
+  occlusion: no finger or needle over the letters; no letter touches a hand
 action_physics:
 - Maya's right hand pulls the final stitch tight on the ADS scrap, the thread taut from the felt to her fingertips; the other
   scraps are already sewn.
@@ -114,9 +114,9 @@ regions:
   kind: hand
   box:
   - 0.68
-  - 0.38
+  - 0.32
   - 0.78
-  - 0.48
+  - 0.36
 - name: scrap_coach
   kind: text
   box:
@@ -138,6 +138,20 @@ regions:
   - 0.3
   - 0.8
   - 0.54
+- name: ads_letters
+  kind: text
+  box:
+  - 0.53
+  - 0.4
+  - 0.69
+  - 0.46
+- name: coach_letters
+  kind: text
+  box:
+  - 0.17
+  - 0.4
+  - 0.33
+  - 0.46
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: warm ivory paper (about

@@ -1,0 +1,76 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH03",
+ "spec_sha256": "1511f1220b75bbbe80bc0ac442ce49febf08738806d0c025f3c60b372911fc0f",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Maya, organizer, MARCH tag, pile, laptop, mug, chair all described; must_read_in_1s is one moment: 'Maya looks up at the empty APRIL row; a big MARCH tag sits on the paper pile below.'"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: not applicable (no prompt or model call yet)."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'hands: none visible'; pose 'hands out of frame below the desk edge'."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "Pose frozen mid-tilt; seat physics 'weight on the seat, both feet flat on the floor'; tag contact 'bottom edge on the desk and its back leans against the front face of a tall pile ... at about 10 degrees'."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Organizer and MARCH tag content filled (word MARCH, ivory felt, charcoal stitch); APRIL wording 'shallow slanted pockets, dark empty interior' present."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "All four strings quoted with surface, position, occlusion; tag: 'no paper, hand or caption over the tag' (tag 44 to 53%, clear of the 55 to 62% caption band)."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: 'plain ivory paper wall; desk holds only the laptop ...'; screen 'plain flat dark grey, no icons'."
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "Three contradictions: (a) subjects.PR-ORGANIZER.pose 'on the wall behind and above her' vs camera.framing 'hangs on the wall in front of her and above her eyeline'; (b) camera.framing 'camera at Maya's left side; Maya in profile facing frame-right' is impossible (a camera on her left sees her facing frame-left; compare SH04 'her right side to the camera ... frame-right'); (c) organizer '85% width', '15 to 42% from the top' is about 918 x 518 px (aspect 1.8) against the locked PR-ORGANIZER.v2 aspect of about 1.17. Also maya_head box to 0.56 passes the 55% face limit with no accepted exception."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH02; carry_over olive cardigan, organizer state, laptop and mug 'as in SH02', pile and tag 'new on this cut'."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: not applicable (no prompt or model call yet)."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "'shown face-on by the slightly low angle' and the eyeline depend on (a) and (b); resolved by the P8 fix."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 prevented by the tag content line; FL-01 n/a (no hands); FL-11 'instances: 1' + seat physics."
+  }
+ ],
+ "suggested_spec_changes": [
+  "FIX (P8a, b): decide where the wall is. Suggested: camera at Maya's right side, Maya in profile facing frame-right (as SH04), the organizer on the back wall behind the desk, seen face-on, above and behind her; she looks up and back over it. Write the same sentence in subjects.PR-ORGANIZER.pose and camera.framing, and change 'camera at Maya's left side' to 'camera at Maya's right side'.",
+  "FIX (P8c): organizer size to the locked proportion: 'about 62% of frame width (x 0.19 to 0.81), 15 to 45% from the top'; update the organizer, march_label, april_label and clients_header boxes; keep the tag (x 0.6 to 0.78, 44 to 53%) clear of the organizer's bottom edge.",
+  "FIX (safe zone): maya_head box ends at 0.56; either tighten to 0.55 or add 'Accepted: Maya's chin and the desk edge reach 56 to 58%, captions may pass over them; no text there.'",
+  "ADVISORY: the mug 'at its right end' may fall in the right 21% of the lower half; give it x 0.70 or less."
+ ]
+}

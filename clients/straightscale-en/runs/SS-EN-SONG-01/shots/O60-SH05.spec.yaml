@@ -71,7 +71,7 @@ text_in_image:
   position: left end of the row
   case: upper
   must_be_exact: true
-  occlusion: stays visible
+  occlusion: no hand, needle or scrap over the label
 - string: MARCH
   surface: row label band at the left end of the upper row
   position: left end of the MARCH row, about 22% from the top
@@ -99,7 +99,9 @@ camera:
   aspect: '9:16'
   safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half,
     6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.
-    Accepted: the working hands reach 59 to 60%, so captions may pass over the fingertips; no text sits there.'
+    Accepted: the working hands reach 59 to 60%, so captions may pass over the fingertips; no text sits there. Accepted: the
+    APRIL row runs to x 0.94 and 60%, so pockets 3 and 4 sit inside the right 21% of the lower half and the caption band;
+    they are empty plain felt with no text, and the read of the shot is the EMAIL and LINKEDIN stitching at x 0.15 to 0.59.'
 timing:
   start_s: 10.87
   end_s: 13.39
@@ -162,6 +164,13 @@ regions:
   - 0.16
   - 0.14
   - 0.3
+- name: email_letters
+  kind: text
+  box:
+  - 0.19
+  - 0.42
+  - 0.33
+  - 0.49
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: warm ivory paper (about

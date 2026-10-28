@@ -31,7 +31,7 @@ props:
     above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three
     small clay clients in muted navy, green, grey, tan and plum jackets (as on PR-ORGANIZER@v2) standing shoulder to shoulder
     (twelve in all); APRIL pockets: all four are empty, shallow slanted pockets, dark empty interior, no clients.'
-  size_in_frame: organizer fills 80% of frame width, 15 to 45% from the top
+  size_in_frame: organizer about 62% of frame width (x 0.19 to 0.81), 15 to 45% from the top, its proportions as on PR-ORGANIZER@v2
   held_by: null
 text_in_image:
 - string: CLIENTS
@@ -59,17 +59,18 @@ action_physics:
 static: false
 setting:
   ref: 'REF-PAPER@v1 (plain-paper crop of CH-MAYA@v1: paper colour, texture and light only)'
-  details: 'Plain ivory paper office: organizer on the wall, charcoal desk with a small clay laptop standing on it beyond
-    Maya, lid up, its screen facing Maya and the camera; one white clay mug on the desk to the right of the laptop (about
-    x 0.70, y 0.60). World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay with visible fingerprints,
-    felt, knit and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props. Set (no set
-    sheet; SET-OFFICE retired; paper reference REF-PAPER@v1, a plain-paper crop of CH-MAYA@v1): a plain warm-ivory paper wall
-    and floor meeting in a soft curve, soft contact shadows. The office items in this shot, and only these, each looking like
-    this: a simple charcoal clay desk (one flat top on four straight legs, no drawers); PR-LAPTOP (no sheet, full description):
-    a small clay laptop, matte silver-grey clay lid and base with soft rounded corners and visible fingerprints, a plain lid
-    with no logo, sticker or lettering, a narrow charcoal bezel of even width on all four sides, a plain charcoal keyboard
-    with soft square keys and no letters; the screen shows only what this shot names, no icons, no windows, no text; one white
-    clay mug; a plain charcoal clay chair (one flat seat, one low back, four straight legs).'
+  details: 'Plain ivory paper office: organizer on the wall, charcoal desk with a small clay laptop standing centred on it
+    beyond Maya (x 0.45 to 0.60), lid up, its screen facing Maya and the camera; one white clay mug on the desk to the right
+    of the laptop (about x 0.70, y 0.66). World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay
+    with visible fingerprints, felt, knit and linen as real fabric, the four fix scraps the only loud colours, no marble,
+    no other props. Set (no set sheet; SET-OFFICE retired; paper reference REF-PAPER@v1, a plain-paper crop of CH-MAYA@v1):
+    a plain warm-ivory paper wall and floor meeting in a soft curve, soft contact shadows. The office items in this shot,
+    and only these, each looking like this: a simple charcoal clay desk (one flat top on four straight legs, no drawers);
+    PR-LAPTOP (no sheet, full description): a small clay laptop, matte silver-grey clay lid and base with soft rounded corners
+    and visible fingerprints, a plain lid with no logo, sticker or lettering, a narrow charcoal bezel of even width on all
+    four sides, a plain charcoal keyboard with soft square keys and no letters; the screen shows only what this shot names,
+    no icons, no windows, no text; one white clay mug; a plain charcoal clay chair (one flat seat, one low back, four straight
+    legs).'
   background_rule: ivory paper wall, charcoal desk, nothing else on the wall. The laptop screen faces Maya and the camera
     and shows a plain flat dark-grey panel, no icons, no light, no text.
 camera:
@@ -98,30 +99,30 @@ regions:
 - name: organizer
   kind: prop
   box:
-  - 0.1
+  - 0.19
   - 0.15
-  - 0.9
-  - 0.46
+  - 0.81
+  - 0.45
 - name: march_label
   kind: text
   box:
-  - 0.1
-  - 0.16
-  - 0.3
-  - 0.23
+  - 0.19
+  - 0.21
+  - 0.31
+  - 0.29
 - name: april_label
   kind: text
   box:
-  - 0.1
+  - 0.19
+  - 0.34
   - 0.31
-  - 0.3
-  - 0.38
+  - 0.42
 - name: clients_header
   kind: text
   box:
-  - 0.3
-  - 0.14
-  - 0.7
+  - 0.33
+  - 0.15
+  - 0.67
   - 0.19
 - name: maya_back
   kind: face

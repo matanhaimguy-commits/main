@@ -1,0 +1,76 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH04",
+ "spec_sha256": "59b2a4f3a0272efdabd5789ca1ee97faa659b7acc3f2cf4b3cb69e0d95605297",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Maya (headset), left and right hands, tag, pile, loose sheet, blurred organizer all present; must_read_in_1s: 'Maya on a phone call with papers piling up; April pockets untouched behind her.' The pile has no prop entry of its own (advisory)."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: not applicable (no prompt or model call yet)."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "Both hands with contact and count: 'left palm on the desk, right fingertips on the earcup', 'five fingers on each visible hand', boxes given, 'both hands stay clear of the tag'."
+  },
+  {
+   "id": "P4",
+   "result": "FAIL",
+   "evidence": "action_physics: 'One clay sheet lies on the desk with its right edge tucked under the pile's top sheet' while the pile is 'very tall' (tag content) and 'Pile's top sheet' sits near 42%: a sheet lying on the desk cannot tuck under the top sheet of a very tall pile. The contact point is physically impossible, so a generation will invent one."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Organizer content line filled (muted jackets, 'shallow slanted pockets, dark empty interior', labels blurred); tag content filled ('MARCH in charcoal stitched capital letters')."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "One string MARCH with surface, position, occlusion; no label text required on the blurred organizer, plus must_not 'no readable lettering on the blurred organizer'."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'background wall plain; organizer blurred'; no phone: 'no phone in the frame'."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Subject side view, camera 'slightly low, three-quarter' and the tag 'right of centre, 47% from the top' vs content 'centred 49%' are small mismatches (advisory), nothing blocking."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH03; carry_over olive cardigan plus headset, MARCH tag, 'paper pile grows taller than in SH03'; headset exists on CH-MAYA.v1."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: not applicable (no prompt or model call yet)."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "'3 cm left of the loose sheet' could be frame-left or Maya's left (advisory)."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 prevented (hands clear of tag), FL-03 contact point at the earcup, FL-11 'One instance of Maya', FL-08 no phone prop. Safe-zone overlaps are stated ('Accepted: the left hand and the base of the pile reach 60%')."
+  }
+ ],
+ "suggested_spec_changes": [
+  "FIX (P4): change to 'One clay sheet lies on the desk at the base of the pile with its right edge slid under the pile's bottom sheet; its left edge curls up 2 cm; no hand touches it.' Add a region 'loose_sheet' (kind prop) with a box, and move left_hand so its box sits clear of it on the side stated in frame terms.",
+  "ADVISORY (P11): write hand positions in frame terms: 'left hand (far from camera) flat on the desk, frame-left of the loose sheet by 3 cm, fingers pointing frame-right toward the pile'.",
+  "ADVISORY (P8): align the tag height (text position says 47%, content says 49%, box 45 to 54%) and change 'slightly low, three-quarter' to 'slightly low, side-on' so it agrees with the side view.",
+  "ADVISORY (P1): add the paper pile as its own prop entry (size, position x 0.6 to 0.78, top near 42%, blank loose clay papers) instead of describing it inside the tag content."
+ ]
+}

@@ -1,0 +1,80 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH17",
+ "spec_sha256": "a0df04ff8c85c41aac62ee2fa7a641aeb18f41835cb6e707ab2a46cd5058a3e6",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Three POSTS pieces, ADS piece, three bubbles, rod, loop, Maya (background_rule, must_not), window all appear"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible; Maya's 'hands hidden behind it' in must_not"
+  },
+  {
+   "id": "P4",
+   "result": "FAIL",
+   "evidence": "Bubble paths collide: 'bubble 1 leaves its left end, bubble 2 its middle, bubble 3 its right end; each drifts right and up'. Bubble 1 starts at the left end (x 0.76) and drifts right, straight across bubbles 2 and 3 which are still resting on the same edge, and 'up' sends all three into the rod at 26% (rod runs to x 0.92, the bubbles sit at x 0.76 to 0.91). A model will merge or clip them through each other or through the rod."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-CLOTH, PR-BUBBLES ('exactly three bubbles ... use only three here') and PR-ROD fully described"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "POSTS and ADS quoted with surface, position, 'ADS piece does not cover the firm piece's label', stitched waiver stated"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'the window is not in frame 1 ... glass shows the plain clay street (no signs, no text)'"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Rod 26%, loops 8% long, ADS top edge 34%, bubbles 30.5-34% at x 0.76-0.91 right of the loop x 0.72-0.75: layout is consistent; all key content in 15-55% and x <= 0.92"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over 'PR-CLOTH pieces and weave', headset, window view of SH18; SH18 spec matches (sash raised, six figures, Maya at left)"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "'the three bubbles rest in a row to the right of that loop, below the rod'"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-03 contact-point motion; FL-09 background kept still on purpose in a one-action stop-motion clip; FL-04 bubbles/ADS filled"
+  }
+ ],
+ "suggested_spec_changes": [
+  "P4: replace the bubble-exit sentence with: 'the three bubbles lift off the ADS piece's top edge one by one, the rightmost first: bubble 3 (right end) at 0 s, bubble 2 (middle) at 0.5 s, bubble 1 (left end) at 1.0 s. Each slides straight up 1 bubble-height (3.5% of frame height, to 27 to 30.5%, still below the rod at 26%), then drifts right at that height past x 0.94 and out of frame 1; none touches the rod, a bracket or another bubble.'",
+  "Also state that the bubbles stay below the rod's lower edge until they are past the rod's right end (x 0.92), and re-check the end: they must reach the window view of SH18 climbing, as SH18 says 'rise outside'."
+ ],
+ "advisories": [
+  "Maya is not in subjects although she enters the clip and is the end-frame's second subject: add a CH-MAYA subject line (side view, seated, headset on, hands hidden behind the desk edge, enters from the right at about 65% of the clip, face 15-55% from the top at rest) so the prompt carries her pose and hands rule.",
+  "ADS piece is 'the top third' (34 to 39.3%) but regions ads_piece runs 0.34 to 0.41; pick one.",
+  "'bows outward 1 cm': name the direction (toward the camera) and drop the cm, no scale is given.",
+  "PR-CLOTH sheet pieces are portrait rectangles; say the limp pieces are plain rectangles so the fold reads."
+ ]
+}

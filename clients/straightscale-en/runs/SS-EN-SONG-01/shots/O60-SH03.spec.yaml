@@ -9,7 +9,8 @@ must_read_in_1s: Maya looks up at the empty APRIL row; a big MARCH tag sits on t
 subjects:
 - id: CH-MAYA
   ref: CH-MAYA@v1
-  state: side view (profile), facing frame-right, seated, head tilted up about 30 degrees toward the wall
+  state: side view (profile), facing frame-right, seated, her right side to the camera, head tilted up and turned to her left
+    toward the organizer on the back wall
   pose: seated on the chair at the desk, shoulders slumped, hands out of frame below the desk edge
   expression: worried, brows low (side view)
   instances: 1
@@ -17,7 +18,7 @@ subjects:
 - id: PR-ORGANIZER
   ref: PR-ORGANIZER@v2
   state: MARCH full, APRIL empty
-  pose: on the wall behind and above her
+  pose: on the back wall behind the desk, seen face-on, above and behind her; she looks up and back toward it
   expression: n/a
   instances: 1
 hands: none visible
@@ -30,7 +31,7 @@ props:
     above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three
     small clay clients in muted navy, green, grey, tan and plum jackets (as on PR-ORGANIZER@v2) standing shoulder to shoulder
     (twelve in all); APRIL pockets: all four are empty, shallow slanted pockets, dark empty interior, no clients.'
-  size_in_frame: organizer 15 to 42% from the top, 85% width
+  size_in_frame: organizer about 58% of frame width (x 0.21 to 0.79), 15 to 43% from the top, its proportions as on PR-ORGANIZER@v2
   held_by: null
 - id: PR-MARCHTAG
   story_critical: true
@@ -86,15 +87,16 @@ setting:
   background_rule: plain ivory paper wall; desk holds only the laptop, the paper pile with the MARCH tag, a mug. The laptop
     is seen edge-on from the side; any visible screen face is plain flat dark grey, no icons.
 camera:
-  framing: 'medium: camera at Maya''s left side; Maya in profile facing frame-right, head tilted up about 30 degrees toward
-    the organizer, which hangs on the wall in front of her and above her eyeline in the upper frame (15 to 42% from the top,
-    shown face-on by the slightly low angle); the desk runs left to right below her, the laptop seen edge-on at its left end,
-    the paper pile with the MARCH tag right of centre, the mug at its right end'
+  framing: 'medium: camera at Maya''s right side; Maya in profile facing frame-right, head tilted up and turned to her left
+    toward the organizer, which hangs on the back wall behind the desk, seen face-on, above and behind her (x 0.21 to 0.79,
+    15 to 43% from the top); the desk runs left to right below her, the laptop seen edge-on at its left end, the paper pile
+    with the MARCH tag right of centre (x 0.60 to 0.78), the mug at x 0.66 to 0.70'
   angle: slightly low, straight-on
   movement: 'edit: slow 100 to 108% push-in over the shot'
   aspect: '9:16'
   safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half,
-    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.
+    Accepted: Maya''s chin and the desk edge reach 56 to 58%, so captions may pass over them; no text sits there.'
 timing:
   start_s: 5.95
   end_s: 8.43
@@ -113,30 +115,30 @@ regions:
 - name: organizer
   kind: prop
   box:
-  - 0.1
+  - 0.21
   - 0.15
-  - 0.9
-  - 0.44
+  - 0.79
+  - 0.43
 - name: march_label
   kind: text
   box:
-  - 0.1
-  - 0.16
-  - 0.3
-  - 0.23
+  - 0.21
+  - 0.2
+  - 0.32
+  - 0.28
 - name: april_label
   kind: text
   box:
-  - 0.1
-  - 0.31
-  - 0.3
-  - 0.38
+  - 0.21
+  - 0.33
+  - 0.32
+  - 0.41
 - name: clients_header
   kind: text
   box:
-  - 0.3
-  - 0.14
-  - 0.7
+  - 0.34
+  - 0.15
+  - 0.66
   - 0.19
 - name: march_tag
   kind: text

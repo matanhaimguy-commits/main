@@ -18,7 +18,8 @@ subjects:
   eyeline: down at the papers
 hands:
 - who: Maya
-  left: left hand flat on the desk 3 cm left of the loose sheet, fingers toward the pile, not on any sheet
+  left: left hand (far from the camera) flat on the desk 3 cm frame-left of the loose sheet, fingers pointing frame-right
+    toward the pile, not on any sheet
   right: right hand raised to her ear, fingertips pressing the headset earcup at ear height (x 0.44 to 0.53, y 0.34 to 0.41)
   contact: left palm on the desk, right fingertips on the earcup
   count_check: five fingers on each visible hand
@@ -46,13 +47,14 @@ props:
 text_in_image:
 - string: MARCH
   surface: stitched felt desk tag
-  position: on the desk, right of centre, 47% from the top
+  position: on the desk, right of centre, about 49% from the top
   case: upper
   must_be_exact: true
   occlusion: both hands stay clear of the tag
 action_physics:
-- One clay sheet lies on the desk with its right edge tucked under the pile's top sheet; its left edge curls up 2 cm; no hand
-  touches it. Maya's left palm rests flat on the desk 3 cm left of that sheet.
+- One clay sheet lies on the desk at the base of the pile, its right edge slid under the pile's bottom sheet; its left edge
+  curls up 2 cm; no hand touches it. Maya's left hand (far from the camera) lies flat on the desk 3 cm frame-left of that
+  sheet, fingers pointing frame-right toward the pile.
 - 'Maya sits on the plain charcoal clay chair: weight on the seat, both feet flat on the floor. One instance of Maya.'
 static: true
 setting:
@@ -66,7 +68,7 @@ setting:
   background_rule: background wall plain; organizer blurred, labels not required to read
 camera:
   framing: medium close on Maya and the desk
-  angle: slightly low, three-quarter
+  angle: slightly low, side-on
   movement: 'edit: slow 100 to 108% push-in'
   aspect: '9:16'
   safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half,
@@ -89,10 +91,10 @@ regions:
 - name: left_hand
   kind: hand
   box:
-  - 0.46
+  - 0.42
   - 0.52
-  - 0.6
-  - 0.6
+  - 0.54
+  - 0.59
 - name: right_hand
   kind: hand
   box:
@@ -121,6 +123,13 @@ regions:
   - 0.42
   - 0.78
   - 0.6
+- name: loose_sheet
+  kind: prop
+  box:
+  - 0.56
+  - 0.55
+  - 0.66
+  - 0.59
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt,
