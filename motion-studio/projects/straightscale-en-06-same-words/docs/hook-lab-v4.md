@@ -46,8 +46,8 @@ be recorded because the prompt changed first). Specs and prompts are built from 
 | Frame | Stacks | Picture | Gate state |
 |---|---|---|---|
 | CF-V8@v1 (H-01-V8) | V8 | top-down: cream post card "TIRED OF SLOW / MONTHS?" with hearts, arrow down, grey-blue page card "WELCOME TO / OUR WEBSITE" | G-SPEC PASS, G-PROMPT-IMG PASS, G-BUDGET PASS, generated, file blocked |
-| CF-V1@v1 (H-01-V1) | V1, V2 | macro booking page: BOOK A CALL band, empty 2x4 calendar of tiles, a low row of hearts | v6 in review |
-| CF-V9@v1 (H-01-V9) | V9 | same page, a magnifying glass on the empty calendar | v6 in review |
+| CF-V1@v1 (H-01-V1) | V1, V2 | macro booking page: BOOK A CALL band, empty 2x4 calendar of tiles, a low row of hearts | G-SPEC PASS, G-PROMPT-IMG PASS (v6); not generated (download blocked) |
+| CF-V9@v1 (H-01-V9) | V9 | same page, a magnifying glass on the empty calendar | G-PROMPT-IMG PASS (v6); G-SPEC FAIL on one line (the lens face's tile count is unstated; fix: "2 rows by 2 columns of larger empty tiles; the disc is opaque") |
 
 Prompt loop limit (2) was passed on CF-V1, CF-V8 and CF-V9; this session (acting for the director role) chose
 "rewrite and simplify" each time, never escalation (replace, don't escalate). The CF-V2 asset is dropped (V2 uses

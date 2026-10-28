@@ -124,6 +124,13 @@
           "sha256": "48a06e0dbafd062b51b2f64dd8160fcf6fa9c34f0998e6ec8307a8fa8d15e745",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/H-01-V1.spec.v5.json"
+        },
+        {
+          "at": "2026-10-28T17:24:22+00:00",
+          "status": "PASS",
+          "sha256": "6d423371d9e6ed6c38b2d5c7ab279bec28cfdc399d4c04dd6a200ba749d6ceaf",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-V1.spec.v6.json"
         }
       ]
     },
@@ -194,6 +201,13 @@
           "sha256": "7936a5c516444052e19e6885a08fa6a8b67da8f38095ec187db010ce8a310e6f",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/H-01-V9.spec.v5.json"
+        },
+        {
+          "at": "2026-10-28T17:24:22+00:00",
+          "status": "FAIL",
+          "sha256": "2d8eba16fb735e4a0f22ad1354c97bdcb9969f3135d9ef9b97100589a8384238",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-V9.spec.v6.json"
         }
       ]
     }
@@ -289,6 +303,13 @@
             "by": "prompt-reviewer (fresh agent)",
             "report": "qa/CF-V1.v1.prompt.v5.json",
             "prompt_sha256": "30b7b135023889fab49c32cbbef6507586970a248a1c5a284a825273a2b4d7cb"
+          },
+          {
+            "at": "2026-10-28T17:24:22+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-V1.v1.prompt.v6.json",
+            "prompt_sha256": "f5c4efea80004d1ea89e7ca54b63e0b2644f8b946dd3200a0feb0f94eb5c63e2"
           }
         ]
       }
@@ -517,6 +538,13 @@
             "by": "prompt-reviewer (fresh agent)",
             "report": "qa/CF-V9.v1.prompt.v5.json",
             "prompt_sha256": "f143df955883c1ec24b56aa845eefd3fca358362d30c13a92870572c18a6a4fd"
+          },
+          {
+            "at": "2026-10-28T17:24:22+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-V9.v1.prompt.v6.json",
+            "prompt_sha256": "3559b60751fe8d1b2e7d6bedb70123e8c062365b5f8fb96e30c64b2add89f1b1"
           }
         ]
       }
