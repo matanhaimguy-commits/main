@@ -424,6 +424,48 @@
             ]
           },
           "text_fields": []
+        },
+        {
+          "id": "elevenlabs/v3/text-to-speech",
+          "kind": "audio",
+          "use": [
+            "voice",
+            "audio_slice"
+          ],
+          "params_if_given": {
+            "voice": [
+              "hpp4J3VqNfWAUOO0d1Us",
+              "CwhRBWXzGAHq8TQ4Fs17",
+              "EXAVITQu4vr4xnSDxMaL",
+              "FGY2WhTYpPnrIDTdsKH5",
+              "IKne3meq5aSn9XLyUdCD",
+              "JBFqnCBsd6RMkjVDRZzb",
+              "N2lVS1w4EtoT3dr4eOWO",
+              "SAz9YHcvj6GT2YYXdXww",
+              "SOYHLrjzK2X1ezoPC6cr",
+              "TX3LPaxmHKxFdv7VOQHJ",
+              "Xb7hH8MSUJpSbSDYk0k2",
+              "XrExE9yKIg1WjnnlVkGX",
+              "bIHbv24MWmeRgasZH58o",
+              "cgSgspJ2msm6clMCkdW9",
+              "cjVigY5qzO86Huf0OWal",
+              "iP95p4xoKVk53GoZ742B",
+              "nPczCjzI2devNBz1zQrb",
+              "onwK4e9ZLuTAKqWW03F9",
+              "pFZP5JQG7iQjIQuC4Bku",
+              "pNInz6obpgDQGcFmaJgB",
+              "pqHfZKP75CvOlQylNhV4"
+            ],
+            "language_code": [
+              "en"
+            ],
+            "apply_text_normalization": [
+              "auto",
+              "on",
+              "off"
+            ]
+          },
+          "text_fields": []
         }
       ]
     },
