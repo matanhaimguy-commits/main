@@ -1,0 +1,78 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH21",
+ "spec_sha256": "cad1386505a0741a27a3cf25c8073b95ebe4da817001ba8f8af8572fc81515f1",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s: 'The loud patches sit in the bin; the calm organizer hangs behind them.'; bin, four scraps, organizer all present, hands none"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible; must_not 'no people'"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "static; 'Frozen: four scraps are crammed in the bin; the EMAIL scrap's corner hangs over the left rim.'"
+  },
+  {
+   "id": "P5",
+   "result": "FAIL",
+   "evidence": "organizer content lacks 'shallow slanted pockets' for APRIL; otherwise bin and scraps filled in full"
+  },
+  {
+   "id": "P6",
+   "result": "FAIL",
+   "evidence": "text_in_image requires CLIENTS/MARCH/APRIL 'letters still spelled correctly' but setting.background_rule says 'labels not read'; regions give no boxes for CLIENTS, MARCH or APRIL"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "organizer soft focus, no frames or screens; bin 'no lettering'"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "'labels not read' (background_rule) vs 'soft focus allowed, letters still spelled correctly' (text_in_image); bin 'size_in_frame: 38% of frame width' vs bin region x 0.28-0.72 (44%)"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over PR-BIN with scraps, organizer payoff state; scraps match PR-SCRAPS sheet (EMAIL mustard/teal gingham, ADS pink dots on blue)"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "'knee-high to Maya' is the only soft phrase and Maya is absent; low risk, see suggestion"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 scraps filled; FL-05 no screens; FL-10 only listed strings"
+  }
+ ],
+ "suggested_spec_changes": [
+  "Add to the PR-ORGANIZER content line the waived-minor wording used in SH01 to SH07: 'APRIL pockets are shallow slanted pockets' (each pocket's top edge cut on a slant, a client standing in each).",
+  "Pick one rule for the organizer labels: 'soft focus, CLIENTS, MARCH, APRIL still legible and spelled exactly' (delete 'labels not read'), or drop the three strings and say 'no letters legible'.",
+  "Add text regions for clients_header, march_label, april_label on the organizer (y 0.14-0.40).",
+  "Make bin width consistent: 38% in size_in_frame and 0.28-0.72 region (44%): set one value.",
+  "Drop 'about knee-high to Maya' for this shot (no Maya in frame).",
+  "Advisory: the office-item catalogue in setting.details (laptop, mug, bin, window) names items this shot does not use; keep only the items named in this shot to stop a model drawing them against 'no other props'."
+ ]
+}

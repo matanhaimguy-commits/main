@@ -23,7 +23,7 @@ subjects:
   instances: 1
 hands:
 - who: Maya
-  left: left hand relaxed at her side
+  left: left hand out of sight behind her body on the far side (her body is turned three-quarter toward the camera)
   right: right hand open, fingertips touching the free end of the band, thumb under it
   contact: right fingertips on the free end of the band, thumb under it
   count_check: five fingers on each visible hand
@@ -35,10 +35,11 @@ props:
   state: MARCH full, APRIL four clients, calm band
   content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row
     above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three
-    small colourful clay clients standing shoulder to shoulder (twelve in all); APRIL pockets: one small client in each of
-    the four pockets, a calm sand-cream band of five joined pieces (one large, three small, one small) with four seams, the
-    five pieces carry no letters or words at all; the band is stitched along the top edge of the APRIL row, inside the felt
-    edges.'
+    small clay clients in muted navy, green, grey, tan and plum jackets (as on PR-ORGANIZER@v2) standing shoulder to shoulder
+    (twelve in all); APRIL pockets: shallow slanted pockets, one small client standing in each of the four, a calm sand-cream
+    band of five joined pieces (one large, three small, one small) with four seams, the five pieces carry no letters or words
+    at all; pieces 1 to 4 of the band are stitched along the top edge of the APRIL row, inside the felt edges; piece 5 is
+    the free tail, which leaves the organizer''s right felt edge and runs to Maya''s right hand.'
   size_in_frame: organizer 62% of frame width (6 to 68%), 15 to 48% from the top; the band's free end leaves the organizer
     edge at the top of the APRIL row and hangs down in a gentle curve to Maya's right hand at 38 to 46% from the top
   held_by: null
@@ -70,14 +71,7 @@ setting:
     soft warm light from one side, matte clay with visible fingerprints, felt, knit and linen as real fabric, the four fix
     scraps the only loud colours, no marble, no other props. Set (no set sheet; SET-OFFICE retired; paper reference REF-PAPER@v1,
     a plain-paper crop of CH-MAYA@v1): a plain warm-ivory paper wall and floor meeting in a soft curve, soft contact shadows.
-    Of the office items, only those this shot names appear, each looking like this: a simple charcoal clay desk (one flat
-    top on four straight legs, no drawers); PR-LAPTOP (no sheet, full description): a small clay laptop, matte silver-grey
-    clay lid and base with soft rounded corners and visible fingerprints, a plain lid with no logo, sticker or lettering,
-    a narrow charcoal bezel of even width on all four sides, a plain charcoal keyboard with soft square keys and no letters;
-    the screen shows only what this shot names, no icons, no windows, no text; one white clay mug; PR-BIN (no sheet, full
-    description): a small round waste bin of matte charcoal clay, about knee-high to Maya, straight sides widening slightly
-    toward the top, a thick rolled rim pressed with visible thumbprints, no lid, no pattern, no lettering; a plain window
-    with a thin pale-wood frame.'
+    No office furniture or objects appear in this shot.'
   background_rule: plain wall; no loose scraps in sight
 camera:
   framing: 'wide: organizer upper half, Maya right, floor lower'
@@ -141,18 +135,11 @@ regions:
   - 0.2
   - 0.92
   - 0.3
-- name: left_hand
-  kind: hand
-  box:
-  - 0.8
-  - 0.52
-  - 0.92
-  - 0.62
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: warm ivory paper (about
   #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt, knit and linen as real fabric, the
-  four fix scraps the only loud colours, no marble, no other props. The method cloth is one calm sand-cream colour.'
+  four fix scraps the only loud colours, no marble, no other props.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - 'April is never full: exactly four clients in the APRIL row, fewer than MARCH'

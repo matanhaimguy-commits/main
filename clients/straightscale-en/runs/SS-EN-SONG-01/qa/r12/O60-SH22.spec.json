@@ -1,0 +1,76 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH22",
+ "spec_sha256": "d2199c633f3f7e6ff8cb5decd419a29cdbc0bfb788107a3b890c2e2bfc83e170",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s: 'Two women stand before two calm organizers, both with clients.'; both women, both organizers, labels present"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'both hands in her jacket pockets as on the sheet, only the wrists show'; Maya 'hands tucked under her folded arms and out of sight (her cardigan has no pockets)'; no_pockets must_not"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'Frozen: ... both feet flat on the clay floor, Maya's head turned 15 degrees toward her friend.'"
+  },
+  {
+   "id": "P5",
+   "result": "FAIL",
+   "evidence": "Maya's organizer content lacks 'shallow slanted pockets' for APRIL; friend's organizer is filled (sand-cream linen, two clients in each of eight pockets)"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "five strings, each with surface, position, case, occlusion 'not covered'; CLIENTS/MARCH/APRIL boxed for both organizers"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: 'plain wall, nothing else'"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "friend_face box y 0.46-0.56 and maya_face 0.46-0.56 end below the 55% line and run into the caption band (55-62%); full standing bodies cannot fit between a face at 0.46 and the bottom 35% unless feet fall in the clear zone"
+  },
+  {
+   "id": "P9",
+   "result": "FAIL",
+   "evidence": "CH-FRIEND v1 three-quarter view turns toward screen right; the spec puts her on the right 'turned toward Maya' (screen left) without saying the view is mirrored"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "'about 15% of frame width apart' numeric; 'relaxed' qualified by hands rule"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-11 one instance each plus 'no third person'; real-client framing blocked ('stylized composites; AI label on')"
+  }
+ ],
+ "suggested_spec_changes": [
+  "Add to the PR-ORGANIZER content line the waived-minor wording used in SH01 to SH07: 'APRIL pockets are shallow slanted pockets' (each pocket's top edge cut on a slant, a client standing in each).",
+  "State 'CH-FRIEND v1 three-quarter view mirrored horizontally so she faces screen left toward Maya (jacket, glasses, puff unchanged)', or use the front view with head turned 15 degrees, or swap positions.",
+  "Move both face boxes to y 0.42-0.52 (or shrink framing so heads sit above 55%), and state whether feet are in frame or cropped by the bottom 35% clear zone.",
+  "Advisory: the office-item catalogue in setting.details (laptop, mug, bin, window) names items this shot does not use; keep only the items named in this shot to stop a model drawing them against 'no other props'. Applies here: no desk, laptop, mug, bin or window appears in this shot."
+ ]
+}

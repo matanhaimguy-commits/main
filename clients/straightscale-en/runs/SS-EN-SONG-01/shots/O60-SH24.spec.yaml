@@ -25,14 +25,14 @@ props:
 text_in_image:
 - string: Follow for part two
   surface: code-rendered card line (never made by an image or video model); charcoal on the sand-cream cloth (contrast above
-    4.5:1), bold sans, line about 5% of frame height, inside the 6% side margins
+    4.5:1), bold sans, 72 px bold sans at 1080x1920, measured width about 800 px (x 140 to 940 px), inside the 6% side margins
   position: centre, about 42% from the top
   case: as_written
   must_be_exact: true
   occlusion: nothing else near it
 - string: '@straightscale_'
-  surface: code-rendered handle under the line; charcoal on the sand-cream cloth (contrast above 4.5:1), bold sans, handle
-    about 3.5% of frame height, inside the 6% side margins
+  surface: code-rendered handle under the line; charcoal on the sand-cream cloth (contrast above 4.5:1), bold sans, 56 px
+    bold sans, measured width about 520 px (x 280 to 800 px), inside the 6% side margins
   position: about 50% from the top
   case: as_written
   must_be_exact: true
@@ -46,7 +46,8 @@ setting:
 camera:
   framing: full-frame flat card
   angle: straight-on
-  movement: none; text fades in on the sung 'follow'
+  movement: none; the text fades in on the first sung word of this shot's line, 'where', at about 57.04 s (56.84 s plus 0.2
+    s)
   aspect: '9:16'
   safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half,
     6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
@@ -80,7 +81,7 @@ style: 'Handmade claymation stop-motion look: plasticine characters with visible
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt,
   knit and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props. The method cloth is
-  one calm sand-cream colour.'
+  one calm sand-cream colour. This is a flat code card: the style applies to the cloth texture only.'
 must_not:
 - no logo drawn by the model (real logo file only), no link, no price
 - no bubbles or people

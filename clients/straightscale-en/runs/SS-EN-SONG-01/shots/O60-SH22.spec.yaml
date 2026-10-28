@@ -17,8 +17,8 @@ subjects:
   instances: 1
   eyeline: at the friend
 - id: CH-FRIEND
-  ref: CH-FRIEND@v1 (front and three-quarter standing views only, both hands in her jacket pockets; the seated panel is not
-    used)
+  ref: CH-FRIEND@v1 (three-quarter standing view mirrored horizontally so she faces screen left toward Maya; jacket, glasses
+    and puff unchanged; both hands in her jacket pockets; the seated panel is not used)
   state: standing right in three-quarter view turned toward Maya, broad-hipped, teal-grey canvas jacket with two patch pockets
     over a cream top, dark jeans, white shoes, black curly puff, tortoiseshell wire glasses
   pose: relaxed, both hands in her jacket pockets as on the sheet, only the wrists show
@@ -33,9 +33,10 @@ props:
   state: 'Maya''s organizer left: MARCH full, APRIL four clients, calm band'
   content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row
     above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three
-    small colourful clay clients standing shoulder to shoulder (twelve in all); APRIL pockets: one client per pocket and a
-    calm sand-cream band of five joined pieces (one large, three small, one small) with four seams, the five pieces carry
-    no letters or words at all; the band is stitched along the top edge of the APRIL row, inside the felt edges.'
+    small clay clients in muted navy, green, grey, tan and plum jackets (as on PR-ORGANIZER@v2) standing shoulder to shoulder
+    (twelve in all); APRIL pockets: shallow slanted pockets, one small client standing in each, and a calm sand-cream band
+    of five joined pieces (one large, three small, one small) with four seams, the five pieces carry no letters or words at
+    all; the band is stitched along the top edge of the APRIL row, inside the felt edges.'
   size_in_frame: left organizer 40% of frame width, 16 to 44% from the top
   held_by: null
 - id: PR-ORGANIZER-FRIEND
@@ -78,8 +79,8 @@ text_in_image:
   must_be_exact: true
   occlusion: not covered
 action_physics:
-- 'Frozen: the two women stand side by side, about 15% of frame width apart, each below her own organizer, both feet flat
-  on the clay floor, Maya''s head turned 15 degrees toward her friend.'
+- 'Frozen: the two women stand side by side, about 15% of frame width apart, each below her own organizer, weight on both
+  feet (feet below the frame), Maya''s head turned 15 degrees toward her friend.'
 static: true
 setting:
   ref: 'REF-PAPER@v1 (plain-paper crop of CH-MAYA@v1: paper colour, texture and light only)'
@@ -87,17 +88,11 @@ setting:
     paper (about #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt, knit and linen as real
     fabric, the four fix scraps the only loud colours, no marble, no other props. Set (no set sheet; SET-OFFICE retired; paper
     reference REF-PAPER@v1, a plain-paper crop of CH-MAYA@v1): a plain warm-ivory paper wall and floor meeting in a soft curve,
-    soft contact shadows. Of the office items, only those this shot names appear, each looking like this: a simple charcoal
-    clay desk (one flat top on four straight legs, no drawers); PR-LAPTOP (no sheet, full description): a small clay laptop,
-    matte silver-grey clay lid and base with soft rounded corners and visible fingerprints, a plain lid with no logo, sticker
-    or lettering, a narrow charcoal bezel of even width on all four sides, a plain charcoal keyboard with soft square keys
-    and no letters; the screen shows only what this shot names, no icons, no windows, no text; one white clay mug; PR-BIN
-    (no sheet, full description): a small round waste bin of matte charcoal clay, about knee-high to Maya, straight sides
-    widening slightly toward the top, a thick rolled rim pressed with visible thumbprints, no lid, no pattern, no lettering;
-    a plain window with a thin pale-wood frame.'
+    soft contact shadows. No office furniture or objects appear in this shot.'
   background_rule: plain wall, nothing else
 camera:
-  framing: 'wide: two organizers upper half, two women lower half'
+  framing: 'wide: two organizers upper half (16 to 44%), the two women from mid-thigh up below them, faces at 45 to 54%; their
+    legs leave the bottom edge of the frame'
   angle: eye level
   movement: 'edit: slow 100 to 108% push-in'
   aspect: '9:16'
@@ -122,16 +117,16 @@ regions:
   kind: face
   box:
   - 0.26
-  - 0.46
+  - 0.45
   - 0.42
-  - 0.56
+  - 0.54
 - name: friend_face
   kind: face
   box:
   - 0.54
-  - 0.46
+  - 0.45
   - 0.7
-  - 0.56
+  - 0.54
 - name: organizers
   kind: prop
   box:
@@ -170,8 +165,7 @@ regions:
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt,
-  knit and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props. The method cloth is
-  one calm sand-cream colour.'
+  knit and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no scraps anywhere

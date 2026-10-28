@@ -10,8 +10,8 @@ must_read_in_1s: She tugs the cloth band hard and it stays attached.
 subjects:
 - id: CH-MAYA
   ref: CH-MAYA@v1
-  state: standing at the organizer's right side, olive cardigan, the olive-green knitted cardigan sleeve over a white blouse
-    cuff on the pulling arm
+  state: standing at the organizer's right side, olive cardigan, the olive knitted cardigan sleeve down to the wrist of the
+    pulling arm, the hand emerging from it
   pose: body front three-quarter toward the camera, head turned to the band, both feet flat on the clay floor, right hand
     pulling the band end toward screen right
   expression: quiet, content
@@ -25,7 +25,7 @@ subjects:
   instances: 1
 hands:
 - who: Maya
-  left: left hand relaxed at her side
+  left: left hand out of sight behind her body on the far side (her body is turned three-quarter toward the camera)
   right: right hand gripping the band end and pulling toward screen right, away from the organizer
   contact: right fingers around the last 3 cm of the fifth piece, beyond the fourth seam; all four seams stay clear of the
     fingers and visible
@@ -38,10 +38,12 @@ props:
   state: APRIL row with the calm band, taut
   content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row
     above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three
-    small colourful clay clients standing shoulder to shoulder (twelve in all), visible above the APRIL row; the CLIENTS header
-    across the top; APRIL pockets: one small client per pocket, a calm sand-cream band of five joined pieces (one large, three
-    small, one small) with four seams, the five pieces carry no letters or words at all; the band is stitched along the top
-    edge of the APRIL row, inside the felt edges and pulled taut.'
+    small clay clients in muted navy, green, grey, tan and plum jackets (as on PR-ORGANIZER@v2) standing shoulder to shoulder
+    (twelve in all), visible above the APRIL row; the CLIENTS header across the top; APRIL pockets: shallow slanted pockets,
+    one small client standing in each, a calm sand-cream band of five joined pieces (one large, three small, one small) with
+    four seams, the five pieces carry no letters or words at all; pieces 1 to 4 of the band are stitched along the top edge
+    of the APRIL row, inside the felt edges; piece 5 is the free tail, which leaves the organizer''s right felt edge and runs
+    to Maya''s right hand and pulled taut.'
   size_in_frame: 'as in SH19: organizer 62% of frame width (x 0.06 to 0.68), 15 to 48% from the top; the taut band leaves
     the organizer''s right edge at x 0.68 and runs right to the hand at x 0.70 to 0.82'
   held_by: null
@@ -75,14 +77,7 @@ setting:
     soft warm light from one side, matte clay with visible fingerprints, felt, knit and linen as real fabric, the four fix
     scraps the only loud colours, no marble, no other props. Set (no set sheet; SET-OFFICE retired; paper reference REF-PAPER@v1,
     a plain-paper crop of CH-MAYA@v1): a plain warm-ivory paper wall and floor meeting in a soft curve, soft contact shadows.
-    Of the office items, only those this shot names appear, each looking like this: a simple charcoal clay desk (one flat
-    top on four straight legs, no drawers); PR-LAPTOP (no sheet, full description): a small clay laptop, matte silver-grey
-    clay lid and base with soft rounded corners and visible fingerprints, a plain lid with no logo, sticker or lettering,
-    a narrow charcoal bezel of even width on all four sides, a plain charcoal keyboard with soft square keys and no letters;
-    the screen shows only what this shot names, no icons, no windows, no text; one white clay mug; PR-BIN (no sheet, full
-    description): a small round waste bin of matte charcoal clay, about knee-high to Maya, straight sides widening slightly
-    toward the top, a thick rolled rim pressed with visible thumbprints, no lid, no pattern, no lettering; a plain window
-    with a thin pale-wood frame.'
+    No office furniture or objects appear in this shot.'
   background_rule: plain wall; no loose scraps in sight
 camera:
   framing: 'the same frame as SH19 (no punch-in): organizer upper half, Maya right'
@@ -146,7 +141,7 @@ regions:
   box:
   - 0.26
   - 0.34
-  - 0.68
+  - 0.82
   - 0.38
 - name: maya_face
   kind: face
@@ -155,13 +150,6 @@ regions:
   - 0.2
   - 0.92
   - 0.3
-- name: left_hand
-  kind: hand
-  box:
-  - 0.8
-  - 0.52
-  - 0.92
-  - 0.62
 - name: april_clients
   kind: prop
   box:
@@ -173,7 +161,7 @@ style: 'Handmade claymation stop-motion look: plasticine characters with visible
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: warm ivory paper (about
   #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt, knit and linen as real fabric, the
-  four fix scraps the only loud colours, no marble, no other props. The method cloth is one calm sand-cream colour.'
+  four fix scraps the only loud colours, no marble, no other props.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no piece lifts, peels or tears
