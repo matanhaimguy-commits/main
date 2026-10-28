@@ -24,3 +24,12 @@ Result: FAIL. Per the main session's rule the page idea is replaced, with no fur
 | C "More outreach won't fix a message nobody answers." / "You doubled your outreach, and still no replies. Here's why." | n/a, B, A- |
 Ranks C, B, A. Notes: "a wash" is jargon; name the channel; the text should mirror C's spoken story; "Here's why" is
 filler. No stack at A on both channels, so the second read was not run. Result: FAIL.
+
+## Round 2 (`docs/hooks-v6-W9-10-r2.json`), words only
+| Stack | Grader 3 V/T/S |
+|---|---|
+| A "You doubled your cold emails. Still no replies." / "You doubled your cold emails. Still no replies. Here's what's wrong." | n/a, B+, B |
+| B "Cold emails not working? Sending more won't fix it." / "No replies to your cold emails? Sending more won't fix it." | n/a, B, B |
+| C (A's text) / "Sending twice as many won't fix it. Your first sentence will." | n/a, B+, A- |
+Ranks C, A, B. Notes: "Here's what's wrong" is a vague tease; put the payoff ("the first line of your email") in
+words; B reads as a generic template. No stack at A on both channels; second read not run. Result: FAIL.

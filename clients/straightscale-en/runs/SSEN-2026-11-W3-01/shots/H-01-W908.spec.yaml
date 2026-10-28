@@ -6,7 +6,7 @@ script_lines:
 line_text: Some months your posts bring clients. Here's how to tell which.
 story_purpose: 'Concept frame for the W9-08 hook stacks (new bank idea, Hook Lab v6): many identical posts, and one of them
   just brought a client.'
-must_read_in_1s: Six identical clay post cards; a tiny clay client steps out of one.
+must_read_in_1s: Six identical clay post cards; a tiny clay client stands on one.
 subjects:
 - id: PR-POSTS
   ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at step 2)'
@@ -16,17 +16,19 @@ subjects:
   instances: 1
 - id: CH-CLIENT
   ref: 'no sheet yet: first image of the character'
-  state: 'a tiny clay person seen from straight above (head top and shoulders visible, no face), facing the bottom of the
-    frame, mid-step: its left foot flat on the top middle card, its right toe over the card''s bottom edge above the 2% gap
-    between the rows; a mustard #DD9A10 jacket and charcoal #2B2A33 trousers, round cream head with short charcoal clay hair,
-    about 7% of the frame height and 8% of its width'
-  pose: stands on the top middle card at x 46% to 54%, y 33% to 40%, one foot on the card, one foot lifted over its edge
+  state: 'a tiny clay person standing still on the top middle card, seen from straight above (the top of the head and the
+    shoulders visible, no face), both arms straight down at its sides; a mustard #DD9A10 jacket and charcoal #2B2A33 trousers,
+    round cream head with short charcoal clay hair, about 8% of the frame height and 8% of its width'
+  pose: stands in the centre of the top middle card, x 46% to 54%, y 32% to 40%, both feet hidden under the body from this
+    view
   expression: 'none visible: seen from straight above, no face'
   instances: 1
 hands:
 - who: CH-CLIENT, the tiny clay figure seen from straight above
-  left: a tiny round clay mitten hand with no fingers, the left arm swinging back at its side, touching nothing
-  right: a tiny round clay mitten hand with no fingers, the right arm swinging forward at its side, touching nothing
+  left: a tiny round clay mitten hand with no fingers at the end of the arm on the right side of the frame, hanging straight
+    down at the side, touching nothing
+  right: a tiny round clay mitten hand with no fingers at the end of the arm on the left side of the frame, hanging straight
+    down at the side, touching nothing
   contact: neither hand touches anything
   count_check: two mitten hands, no fingers, one at the end of each arm
 props:
@@ -42,8 +44,8 @@ props:
 text_in_image: none
 action_physics:
 - The six cards lie flat on the sage clay ground in a 3 by 2 grid (rows y 30% to 40% and 42% to 52%, columns with 3% gaps);
-  the tiny figure faces the bottom of the frame with its left foot flat on the top middle card and its right toe over that
-  card's bottom edge, above the 2% gap; its shadow falls on the card.
+  the tiny figure stands still in the centre of the top middle card, its weight on the card, its soft shadow falling on the
+  card around it.
 static: true
 setting:
   ref: null
@@ -83,14 +85,14 @@ regions:
   kind: other
   box:
   - 0.46
-  - 0.33
+  - 0.32
   - 0.54
   - 0.4
 - name: client-hands
   kind: hand
   box:
   - 0.44
-  - 0.33
+  - 0.32
   - 0.56
   - 0.4
 style: 'Premium studio claymation scene - everything sculpted from matte plasticine with refined intentional craftsmanship:

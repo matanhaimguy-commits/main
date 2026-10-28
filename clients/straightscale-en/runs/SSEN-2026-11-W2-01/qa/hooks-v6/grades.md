@@ -14,3 +14,13 @@ looks like a good month and nothing shows the cost of the empty one; the notes a
 wood; "three referrals" is weaker than "sign three clients". Fixes offered: "The gaps between them are."; put the
 spoken line on screen. Result: FAIL (visual B+ from both). Per the main session's rule W9-02 is replaced, with no
 further round.
+
+# Replacement: bank W9-09 ("posting into an empty room"), slot W2-01
+## Round 1 (`docs/hooks-v6-W9-09.json`), words only
+| Stack | Grader 3 V/T/S |
+|---|---|
+| A "Shouting into an empty room? Your first line is why." / "Your posts get zero leads. The first line is why." | n/a, B-, B+ |
+| B "Your posts get zero leads? Blame the first line." / "Zero leads from your posts? Your first line is about you." | n/a, B, A- |
+| C "Your first line is why your posts get zero leads." / "Not the algorithm. Your first line talks about you, not them." | n/a, B+, A- |
+Ranks C, B, A. Notes: the metaphor delays the claim; "about you" reads two ways; "Not the algorithm" names her
+excuse; carry it into the text. No stack at A on both channels, so the second read was not run. Result: FAIL.
