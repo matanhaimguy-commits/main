@@ -30,3 +30,18 @@ production. Cost $0.04739.
 | R2c | "Nobody buying your offer? The first line is the problem." / "Nobody buys, so you cut the price? Fix the first line." | B+, B, B+ | B+, B+, A- |
 Notes: "first line" of what (say "your offer's first line"); text and voice should say the same thing; the price story
 is what lands; the card is small and cut by the rim. Result: FAIL.
+
+## Round 3, the idea's last (`hooks-v7-W9-11-r3.json`), same frame (graders 9 and 10)
+| Stack | Text / spoken | Grader 9 V/T/S | Grader 10 V/T/S |
+|---|---|---|---|
+| R3a | "Offer feels dead? Fix its first line, not the price." / "Cutting your price because nobody buys? Fix your offer's first line." | A-, B+, A- | B, B, B+ |
+| R3b | "Nobody buys your offer? Rewrite its first line first." / "Cutting your price because nobody buys? Rewrite your offer's first line." | A-, B, A- | B, B, B+ |
+| R3c | "Offer not selling? Fix its first line before the price." / (R3a's spoken) | A-, A-, A- | B, B+, B+ |
+Notes: put the spoken line on screen word for word ("Cutting your price because nobody buys? Fix your offer's first
+line."); "feels dead" is vague; "first line first" stutters; the card is half hidden by the bin rim and the lower half
+is empty. Result: FAIL. W9-11 is out of rounds (3 of 3).
+
+## The slot after W9-11
+No bank idea fits W1-03 (TOF reach): W9-04, W9-05 and W9-07 are MOF trust (W9-04 now in W1-02, W9-05 repeats W1-02's
+own idea), W9-06 is BOF convert, and W9-01, W9-02, W9-03, W9-08, W9-09, W9-10 and W9-11 are retired or out of rounds.
+The slot goes back to the main session for a new idea (not to Matan).

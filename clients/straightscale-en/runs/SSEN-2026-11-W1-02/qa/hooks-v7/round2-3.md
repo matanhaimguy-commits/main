@@ -36,3 +36,13 @@ Cost $0.04739.
 | R1c | "Posting for months, no leads? Know which buyer first." / "Posting for months, no leads? Start with your buyer's words." | not read | n/a, B, B |
 Notes: "which ones" is vague; "Need more leads?" is generic; "your buyer's own sentence" is cryptic; say the concrete
 fix and use the same words on screen and in the voice. Result: FAIL.
+
+## W9-04 round 2 (`hooks-v7-W9-04-r2.json`), words only (graders 9 and 10)
+| Stack | Text / spoken | Grader 9 V/T/S | Grader 10 V/T/S |
+|---|---|---|---|
+| R2a | "\"I need more leads.\" No. You need your buyers' words." / "You don't need more leads. You need your buyers' words." | n/a, B, B+ | n/a, B+, B+ |
+| R2b | "Months of posting, few leads? Your buyers' words come first." / "Few leads after months of posting? Your buyers' words come first." | n/a, A-, A- | n/a, B+, B+ |
+| R2c | "You don't need more leads. You need your buyers' words." / "You don't need more leads. Here's what you need instead." | n/a, B, B- | n/a, B+, C |
+Notes: "months of posting, few leads" is her exact situation (grader 9: "that's me"); "buyers' words come first" is
+abstract (first before what?); "Here's what you need instead" is an empty tease; say the concrete action ("exact
+words", "what buyers actually write"). Result: FAIL.
