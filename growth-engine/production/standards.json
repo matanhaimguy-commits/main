@@ -1196,6 +1196,10 @@
         "note": "Matan, plan of 28 Oct (A1): Claude may record this checkpoint after a fresh evaluator session's report; --note names that report's file and what it found. The owner sees it as FYI in the queue."
       }
     },
+    "G-HUMAN-OFFER": {
+      "mode": "per_brand",
+      "what": "Onboarding stage O3 (ONBOARDING.md): Matan picks the offer direction for a new brand from 2 or 3 evidence-backed directions. Asked once per brand on the Studio page (the brand's onboarding run), before the Client Brain is finished and any plan is made. The client confirms the items on the confirm link as well; that is not this gate. Matan only (never delegated; plan 28 Oct)."
+    },
     "G-HUMAN-ESCALATE": {
       "mode": "required",
       "what": "An asset that failed 3 attempts (VISUAL-QA 5.5, 7.1): the best version and its report. Or a script (speech or lyrics) that failed 3 FIX loops with new readers (STANDARDS 9 G-SCRIPT): the best draft and its reports. A prompt that failed 2 review loops goes to the Organic Director first, who may send it here."

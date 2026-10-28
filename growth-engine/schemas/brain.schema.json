@@ -25,6 +25,10 @@
   "client": {
    "type": "string"
   },
+  "account": {
+   "type": "string",
+   "description": "The handle and a short line about the account, for example @name (Instagram), the page's language."
+  },
   "hub": {
    "type": "object",
    "description": "Where this client folder posts in the hub (the Social Agent app).",

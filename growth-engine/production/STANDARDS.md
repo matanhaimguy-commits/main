@@ -234,14 +234,14 @@ script-lab-organic.md is the default range for a reach reel, not a fail for an O
 audition and 15 s pilot; the keyframe quote reel's step 4 needs it until the narrator's record exists), **G-HUMAN-SONG**
 (every song master, before any picture), G-HUMAN-LOOK (once per series), G-HUMAN-HOOKBOARD (every hook board; drama
 adds the animatic and cost preflight, podcast the line-1 start frame with the title bar, motion the hook styleframe),
-G-HUMAN-ESCALATE (an asset after 3 failed attempts, a script after 3 FIX loops), G-HUMAN-FINAL (every post; Albanian strings marked for a native
+G-HUMAN-OFFER (once per new brand: Matan picks the offer direction, onboarding O3), G-HUMAN-ESCALATE (an asset after 3 failed attempts, a script after 3 FIX loops), G-HUMAN-FINAL (every post; Albanian strings marked for a native
 read), G-HUMAN-TEST, G-FALLBACK (Director), G-EXCEPTION.
 
 **Delegated owner checkpoints** (Matan, plan of 28 Oct, A1): G-HUMAN-LOOK and G-HUMAN-HOOKBOARD may also be recorded
 `--by "claude (delegated by Matan, plan 28 Oct)"` after a fresh evaluator session judged them; the `--note` names that
 evaluator's report file (`...review.json` or `.md`) and what it found, and the gate refuses the record without it. The
 owner sees each as FYI in the queue, and a pending question for that checkpoint closes. G-HUMAN-SPINE stays
-`claude (delegated)`. **G-HUMAN-VOICE, G-HUMAN-SONG and G-HUMAN-FINAL stay Matan only.** A session started by another
+`claude (delegated)`. **G-HUMAN-VOICE, G-HUMAN-SONG, G-HUMAN-OFFER and G-HUMAN-FINAL stay Matan only.** A session started by another
 session never records these three (CLAUDE.md, Sessions).
 
 **G-BUDGET** PASS is written only by `pipeline.py budget` (budget_usd.py): its data carries the marker
@@ -399,3 +399,4 @@ fetched from a URL at run time and isn't in any skill folder.
   about 4 s, then voices its own words; talking formats wait); F1 at phone size 768P 6, `1440p-sr` 7, full 2K 7.5 of 10;
   F3 two instrumental beds, no vocals; F6 (R1) Nano Banana 2 wins 3D and 2D, gpt-image-2 wins clay and crochet. Spend
   about $4.30 of $6.71.
+- 2026-10-28, onboarding (session C4): new owner checkpoint G-HUMAN-OFFER (`human_checkpoints`, mode `per_brand`, Matan only): the offer direction for a new brand, asked on the Studio page at stage O3 of `growth-engine/ONBOARDING.md`. The pipeline has no per-brand run to hang it on (runs are per post; a LIB run is per look bible), so it is a standards entry only: the Studio question asks it, Matan answers on the page, and a session records the answer with `pipeline.py gate ... G-HUMAN-OFFER --by Matan` on any run of the brand. No step waits on it; ONBOARDING.md O3 does.

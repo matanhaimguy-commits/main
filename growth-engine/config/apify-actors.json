@@ -1,5 +1,5 @@
 {
-  "_doc": "Apify scrapers the session may run through mcp__Apify__call-actor, checked by .claude/hooks/apify_gate.py. input_keys come from each actor's input schema (fetch-actor-details, 27 Oct 2026): Apify silently ignores a misspelled key, so the gate refuses unknown keys. null = keys not checked yet (the vault's research systems name these; verify with fetch-actor-details and fill in). All of these bill per event, so callOptions.maxItems does nothing; every call must set callOptions.maxTotalChargeUsd at or under max_charge_usd. fixed: keys that must be sent with exactly this value; forbid: keys that must be absent, false or 0 (personal-data add-ons). Add or raise an actor only with the owner's OK.",
+  "_doc": "Apify scrapers the session may run through mcp__Apify__call-actor, checked by .claude/hooks/apify_gate.py. input_keys come from each actor's input schema (fetch-actor-details, 27 Oct 2026): Apify silently ignores a misspelled key, so the gate refuses unknown keys. null = keys not checked yet (the vault's research systems name these; verify with fetch-actor-details and fill in). All of these bill per event, so callOptions.maxItems does nothing; every call must set callOptions.maxTotalChargeUsd at or under max_charge_usd. fixed: keys that must be sent with exactly this value; forbid: keys that must be absent, false or 0 (personal-data add-ons). Add or raise an actor only with the owner's OK. max_items (onboarding, 28 Oct 2026): the item cap to put in the input under that key; the gate does not enforce it, maxTotalChargeUsd is the hard cap.",
   "actors": {
     "apify/instagram-scraper": {
       "id": "shu8hvrXbJbY3Eb9W",
@@ -110,9 +110,19 @@
       "max_charge_usd": 3
     },
     "apify/facebook-ads-scraper": {
-      "use": "Ad Library pages for competitor ads",
-      "input_keys": null,
-      "max_charge_usd": 3
+      "use": "Meta Ad Library: each competitor's ads, count, start dates, formats, message (onboarding O2, Foundation step 03; use when the Ad Library connector fails). Counts only: onlyTotal true.",
+      "input_keys": [
+        "startUrls",
+        "resultsLimit",
+        "isDetailsPerAd",
+        "includeAboutPage",
+        "enrichWithEcommerceData",
+        "onlyTotal"
+      ],
+      "max_items": {
+        "resultsLimit": 25
+      },
+      "max_charge_usd": 1
     },
     "clockworks/tiktok-scraper": {
       "use": "TikTok reference reels (refbank)",
@@ -229,6 +239,29 @@
       "use": "YouTube videos",
       "input_keys": null,
       "max_charge_usd": 5
+    },
+    "memo23/trustpilot-scraper-ppe": {
+      "use": "buyers' words from Trustpilot reviews of the client's and competitors' domains (onboarding O2, Foundation step 02 voice of the customer). Not run yet: confirm the actor id with fetch-actor-details before the first call.",
+      "input_keys": [
+        "startUrls",
+        "maxItems",
+        "scrapeAllReviews",
+        "sampling",
+        "sortBy",
+        "expandRegionalDomains",
+        "reviewInsights",
+        "painPointAnalysis",
+        "enrichEmails",
+        "includeCompanyDetails",
+        "includeStats"
+      ],
+      "fixed": {
+        "enrichEmails": false
+      },
+      "max_items": {
+        "maxItems": 150
+      },
+      "max_charge_usd": 0.5
     }
   }
 }
