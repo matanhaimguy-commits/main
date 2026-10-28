@@ -36,12 +36,13 @@ motion-reel skill for the build later. Docs: `docs/hook-stacks.md`, `docs/script
 Stage: script & VO (script v2 on the approved v2 master hook EN04-B: escalated to Matan after Script Lab)
 Current version: script v2 final draft (loop 4), 165 words, about 66 s, gate 76/100, no critical fail (`docs/script.md`); no picture, no audio
 Next step: Matan answers the escalation question (`docs/script-v2-loops.md`, "Escalation"); then one more gated loop or the concept frame
-Blockers / open questions: the approved spoken hook tripped all 12 cold readers (owner call: option A swaps in EN04-A's
+Blockers / open questions: Hook Lab v3 (Matan's A/A+ bar) did not reach the bar in 3 rounds; the best stack and its fix await the master decision (`docs/hook-lab-v3.md`); the approved spoken hook tripped all 12 cold readers (owner call: option A swaps in EN04-A's
 approved spoken line); the series order (part six, Paid ads) is still an owner question
 
 ## Decisions (newest first)
 | Date | Decision | Options considered | Why | Who |
 |---|---|---|---|---|
+| 28 Oct | **Hook Lab v3** (Matan: "only A and A+ hooks, clarity above all"): 10 new stacks from organic breakouts (HF) in buyer words, code check, 3 rounds of 2 fresh blind graders; **no stack reached A/A+ on all channels from both graders**. Best: EN04-R3b: text "Lost a deal to someone cheaper? It wasn't your price.", spoken "Your price wasn't why they went cheaper. Here's what was." (round 3: V A / A-, T A / A-, S B+ / B+). Graders' named fix, not yet graded: both graders' spoken fix "Your price wasn't the reason. Here's what was.". The v2 master is unchanged (`docs/hook-lab-v3.md`, `docs/hooks-v3.json`) | take the best stack; one more round on the named fix; keep the v2 master | Matan's bar; the main session's 3-round limit | Claude (proposal); Matan or the main session for him (pending) |
 | 28 Oct | **Escalated** (script v2): spine B rewritten on the master v2 hook EN04-B, spoken hook word for word; Script Lab 4 loops (draft + 3 rewrites), 12 fresh cold readers (listen-only, skeptic, sound-off); scores 79, 72, 75, 76; no critical fail; not released (under 85). Recommended: A, the spoken hook becomes EN04-A's approved line, then one more loop | A: EN04-A spoken hook + one loop; B: accept at 76; C: a real named-steps example from a client case | Script Lab cap reached; the locked hook line is the top confusion | Claude (escalation), Matan (pending) |
 | 28 Oct | Hooks v2 (master EN04-B) | Matan | "much better and stronger"; next time base hooks on organic breakouts, not ads |
 | 28 Oct | Hooks v1 rejected (Matan: unclear, not the buyers' words, written English, not proven formats). Hooks v2 built only from proven sources (Hook Library HA ads 30+ days or HF outliers 3x+) and verbatim buyer phrases; all pass `organic.py hooks`. Master = the ad-proven stack. The script release candidate is ON HOLD: it was written on the v1 hook and must be rewritten on the v2 master once Matan approves it, with the new "said, not written" rule | v1 kept; more AI grading rounds | an AI grade is opinion; proof is a post or ad that already won with this buyer | Matan (rejection), Claude (v2) |
@@ -69,3 +70,4 @@ approved spoken line); the series order (part six, Paid ads) is still an owner q
 - 28 Oct · hooks v1 rejected by Matan; hooks v2 from proven formats in docs/hook-stacks.md and docs/hooks.json (all PASS) · script on hold
 - 28 Oct · Matan approved hooks v2 (master EN04-B) · script rewrite on it is next
 - 28 Oct · script v2 on hook EN04-B: Script Lab 4 loops, 12 fresh cold readers, final 76/100, escalated · `docs/script.md`, `docs/script-v2-loops.md`; v1 script moved to `docs/script-v1.md`
+- 28 Oct · Hook Lab v3 on Matan's A/A+ bar: 10 stacks, 3 blind rounds, 6 fresh graders; best stack recorded, bar not reached · `docs/hook-lab-v3.md`
