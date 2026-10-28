@@ -47,7 +47,7 @@ proof is a post that already won with this buyer, and the buyers' own words.
    post itself lists ("3 mistakes"), never a result or any other number that is not in brain.json; no hype words; top
    third of the screen, frame 1 to about 3 s. Carousels: the cover is the visual + text hook, and
    **slide 2 must work alone as a hook** (Instagram may show slide 2 first).
-4. **10 hooks per post**, graded; ship only A or A+. Return the master stack plus 2 variants for trial reels.
+4. **10 hooks per post**, graded; ship only A or A+ (at most 3 rounds, then the next idea: "Replace, don't escalate"). Return the master stack plus 2 variants for trial reels.
 5. Rotate types across the week (the card's `hook_type`): contrarian, hidden cause, mistake / "never ever", case study,
    comparison or tier list, question, list, personal story, teaching.
 6. Negativity aims at the **mistake**, never at the viewer.
@@ -82,6 +82,32 @@ Hook Lab's visual rules were tuned on health products ("the body part already sw
   street, and the busy one posts less"), impossible scale (a pile of unread messages burying the reception desk), two
   futures, misdirection, challenge (a documented series, real tracked data only).
 
+## Replace, don't escalate (Matan, plan of 28 Oct; wins over Hook Lab's loops and the lines below)
+- **At most 3 rounds** per post (a round: write or fix, code check, the blind grade). A hook passes only when **both** of
+  2 fresh blind graders give A or A+ on **visual, text and spoken**. Short of that after round 3, or sooner when a round
+  shows the idea itself is the problem, **replace it with the next idea in the bank** (the next `HF-nn` format with
+  buyer phrases that fit the card); don't keep polishing it.
+- **Never escalate to Matan.** A hook, script or take that runs out of rounds is replaced or simplified by the main
+  session; nothing goes to the owner as G-HUMAN-ESCALATE for it. The owner sees hooks only at G-HUMAN-HOOKBOARD.
+- A concept frame or take that fails 3 times gets **a simpler shot** (fewer elements, one subject, bigger in frame),
+  as a new asset; if the simpler one fails 3 times too, the hook is replaced.
+
+## Real-frame rule (plan of 28 Oct)
+The **visual** grade comes only from a real concept frame image, made in the series look (`openai/gpt-image-2` on
+Atlas, `/edit` with the series' look references or `/text-to-image`, at 1152x2048 for 9:16), never from a written
+description of the frame. No frame yet, no visual grade: the graders grade text and spoken only, and the stack can't
+pass G-HOOK until the frame exists and is graded.
+
+## Pre-grade checklist (the graders' recurring failure reasons; check before every round)
+1. **Frame 1 on a phone:** one subject, big, little clutter. View it at phone size (about 360 px wide); busy or small
+   fails.
+2. **Spoken line adds to the text,** never repeats it: the text hook and the spoken line say the same idea in different
+   words (the triple hook), they don't read the same sentence twice.
+3. **One reading only:** no word or phrase that can be read two ways ("quote", "close", "lead" in the wrong sense);
+   swap it for a word with one meaning.
+4. **Concrete payoff:** the payoff is a thing you can see or count (a full calendar, a booked call), not an abstract
+   one ("growth", "clarity", "results").
+
 ## Independent grading (G-HOOK)
 Hook Lab grades its own stacks. For organic posts the hook-agent's top 3 stacks then go to a **fresh agent** that gets
 only the persona card (AV-01 from the brain, scrolling at night, sound off first) and, per stack, the text hook, the
@@ -94,15 +120,15 @@ never passed the code check cannot pass G-HOOK however the graders score it.
 A concept frame is frame 1 of the hook shot, so the hook shot's Shot Spec (`H-01`) is written at step 2, not step 6,
 and the concept frame is a `still` asset that serves it (G-PROMPT-IMG before the call, G-VIS after, as any still).
 It is frame 1, so it is hero (zero defects, STANDARDS 3 and 9): register it with `--hero`
-(`pipeline.py asset <slug> <post_id> <ID> --type still --shots H-01 --hero`) or as a `start_frame`. The model follows
-STANDARDS 1 (a realistic person: GPT Image 2 with a reference photo; no person, in the client's style: GPT Image 2.5;
-stylized: Nano Banana 2). Its call is a generation, so it needs a G-BUDGET PASS from the last 24 h first
+(`pipeline.py asset <slug> <post_id> <ID> --type still --shots H-01 --hero`) or as a `start_frame`. The model is
+`openai/gpt-image-2` on Atlas in the series look (the real-frame rule above; Higgsfield is off since 28 Oct). Its call is a generation, so it needs a G-BUDGET PASS from the last 24 h first
 (`pipeline.py budget`, STANDARDS 10). The approved concept frame becomes the start of the hook storyboard.
 Every finalist's concept frame passes G-VIS before the grader sees it, so a losing finalist's frame is already closed
-for G-ASSETS (step 11). A frame that fails 3 attempts goes to the owner (G-HUMAN-ESCALATE) like any asset; the owner
-may drop that stack and close the frame with a G-VIS OVERRIDE, note "dropped finalist, not used".
-Exceptions: a song run makes no picture before G-HUMAN-SONG, so the grader reads the H-01 Shot Spec and the concept
-frame is made after step 4 (`song-organic.md` 1); podcast follows `podcast-organic.md` 3.
+for G-ASSETS (step 11). A frame that fails 3 attempts gets a simpler shot, then the hook is replaced ("Replace, don't escalate" above); a
+dropped finalist's frame is closed with a G-VIS OVERRIDE, note "dropped finalist, not used", when the owner next
+records one (never a question of its own).
+Exceptions: a song run makes no picture before G-HUMAN-SONG, so text and spoken are graded first and the visual grade
+waits for the concept frame made after step 4 (the real-frame rule; `song-organic.md` 1); podcast follows `podcast-organic.md` 3.
 
 ## Text hook length (one rule, STANDARDS 6)
 4 to 10 words on the reel's text hook and on a carousel cover headline (carousel-machine's "up to 12 words" is
