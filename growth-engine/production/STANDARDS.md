@@ -233,14 +233,14 @@ script-lab-organic.md is the default range for a reach reel, not a fail for an O
 audition and 15 s pilot; the keyframe quote reel's step 4 needs it until the narrator's record exists), **G-HUMAN-SONG**
 (every song master, before any picture), G-HUMAN-LOOK (once per series), G-HUMAN-HOOKBOARD (every hook board; drama
 adds the animatic and cost preflight, podcast the line-1 start frame with the title bar, motion the hook styleframe),
-G-HUMAN-ESCALATE (an asset after 3 failed attempts, a script after 3 FIX loops), G-HUMAN-FINAL (every post; Albanian strings marked for a native
+G-HUMAN-OFFER (once per new brand: Matan picks the offer direction, onboarding O3), G-HUMAN-ESCALATE (an asset after 3 failed attempts, a script after 3 FIX loops), G-HUMAN-FINAL (every post; Albanian strings marked for a native
 read), G-HUMAN-TEST, G-FALLBACK (Director), G-EXCEPTION.
 
 **Delegated owner checkpoints** (Matan, plan of 28 Oct, A1): G-HUMAN-LOOK and G-HUMAN-HOOKBOARD may also be recorded
 `--by "claude (delegated by Matan, plan 28 Oct)"` after a fresh evaluator session judged them; the `--note` names that
 evaluator's report file (`...review.json` or `.md`) and what it found, and the gate refuses the record without it. The
 owner sees each as FYI in the queue, and a pending question for that checkpoint closes. G-HUMAN-SPINE stays
-`claude (delegated)`. **G-HUMAN-VOICE, G-HUMAN-SONG and G-HUMAN-FINAL stay Matan only.** A session started by another
+`claude (delegated)`. **G-HUMAN-VOICE, G-HUMAN-SONG, G-HUMAN-OFFER and G-HUMAN-FINAL stay Matan only.** A session started by another
 session never records these three (CLAUDE.md, Sessions).
 
 **G-BUDGET** PASS is written only by `pipeline.py budget` (budget_usd.py): its data carries the marker
@@ -382,3 +382,4 @@ fetched from a URL at run time and isn't in any skill folder.
 - 2026-10-28, models and clips: Atlas only. Higgsfield and the ElevenLabs connector are off in the gate (`disabled_services`; every Higgsfield tool that generates, edits or spends credits is gated); section 1's H3 row is the Atlas 768P entry, Kling, music beds and sound effects have no Atlas model yet, voices are `elevenlabs/v3/text-to-speech` and songs `suno/chirp-v6` on Atlas; section 2's clip length reads the Atlas entries (4 to 15 s) with the 5 s planning floor of `clips.min_s`.
 - 2026-10-28, services: HeyGen's paid tools (video, avatar, lip-sync, translation, image and speech generation, voice cloning) and the ElevenLabs connector's `creative_transcribe_audio` are off too (`disabled_services.heygen`, `.elevenlabs`); word timings come from `xai/stt-v1` on Atlas.
 - 2026-10-28, formats (session F1): `FORMATS.md` is the format library (what each format is for, its L19 properties, skill, Atlas route and price). Five formats added to `organic.json` with their Atlas units and USD (section 10); `reel_motion` is at most 1 post in 6 and only for a list, data or type-led beat, and cost no longer ranks formats in the router (it filters against the cap). Model gaps F1 to F9 (H3 resolution, H3 audio-reference lip-sync, music beds, sound effects, GPT Image 2 high, stylized sheets, Kling, D1) and F9 (Atlas media downloads) are owner decisions in `FORMATS.md` 5; nothing in `models.atlas.allowed` changed.
+- 2026-10-28, onboarding (session C4): new owner checkpoint G-HUMAN-OFFER (`human_checkpoints`, mode `per_brand`, Matan only): the offer direction for a new brand, asked on the Studio page at stage O3 of `growth-engine/ONBOARDING.md`. The pipeline has no per-brand run to hang it on (runs are per post; a LIB run is per look bible), so it is a standards entry only: the Studio question asks it, Matan answers on the page, and a session records the answer with `pipeline.py gate ... G-HUMAN-OFFER --by Matan` on any run of the brand. No step waits on it; ONBOARDING.md O3 does.

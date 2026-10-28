@@ -37,8 +37,8 @@ class Checkpoints(unittest.TestCase):
             self.assertTrue(A.is_delegated(HC[gate], D, HUMANS))
             self.assertFalse(A.is_delegated(HC[gate], "Matan", HUMANS))
 
-    def test_voice_song_final_stay_matan_only(self):
-        for gate in ("G-HUMAN-VOICE", "G-HUMAN-SONG", "G-HUMAN-FINAL"):
+    def test_voice_song_offer_final_stay_matan_only(self):
+        for gate in ("G-HUMAN-VOICE", "G-HUMAN-SONG", "G-HUMAN-OFFER", "G-HUMAN-FINAL"):
             self.assertNotIn("delegate", HC[gate])
             for by in (D, "claude (delegated)", "claude"):
                 self.assertIn("is a human checkpoint", self.why(gate, by))

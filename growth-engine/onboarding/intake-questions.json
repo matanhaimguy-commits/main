@@ -1,0 +1,554 @@
+{
+  "$comment": "The intake question set: every brand, every language. Adapted from StraightScale Foundation v3's onboarding questionnaire (A1 to F5, the same ids and wording) plus the research inputs (G) and the consent questions (H). Ids are stable: the hub app reads this file and stores answers under them. Add new ids; never rename or reuse one.",
+  "version": 1,
+  "questions_language": "en",
+  "translations": {},
+  "sections": [
+    {
+      "id": "A",
+      "title": "Your business"
+    },
+    {
+      "id": "B",
+      "title": "Where you want to go"
+    },
+    {
+      "id": "C",
+      "title": "Your customers"
+    },
+    {
+      "id": "D",
+      "title": "You and your brand"
+    },
+    {
+      "id": "E",
+      "title": "Competitors"
+    },
+    {
+      "id": "F",
+      "title": "Practical"
+    },
+    {
+      "id": "G",
+      "title": "Research inputs"
+    },
+    {
+      "id": "H",
+      "title": "Consent and permissions"
+    }
+  ],
+  "questions": [
+    {
+      "id": "A1",
+      "section": "A",
+      "label": "Business name",
+      "type": "text",
+      "required": true,
+      "maps_to": [
+        "client",
+        "account"
+      ],
+      "used_by": "O1"
+    },
+    {
+      "id": "A2",
+      "section": "A",
+      "label": "City, and the areas you serve",
+      "type": "text",
+      "required": false,
+      "maps_to": [
+        "market.city",
+        "market.country"
+      ],
+      "used_by": "O2"
+    },
+    {
+      "id": "A3",
+      "section": "A",
+      "label": "Links",
+      "type": "links",
+      "required": true,
+      "help": "Website, Instagram, Facebook, TikTok, Google Maps listing, booking or order page. At least a website or an Instagram account: the research reads them (offer, prices, claims; the own-account audit).",
+      "maps_to": [
+        "account"
+      ],
+      "used_by": "O2",
+      "fields": [
+        "website",
+        "instagram",
+        "facebook",
+        "tiktok",
+        "google_maps",
+        "booking"
+      ],
+      "required_any": [
+        "website",
+        "instagram"
+      ]
+    },
+    {
+      "id": "A4",
+      "section": "A",
+      "label": "What do you sell? Your main services or products, with rough prices",
+      "type": "longtext",
+      "required": true,
+      "maps_to": [
+        "business_model.sells",
+        "business_model.price_notes",
+        "offer.main_offer"
+      ],
+      "used_by": "O2 O3"
+    },
+    {
+      "id": "A5",
+      "section": "A",
+      "label": "What sells the most, and what makes you the most money?",
+      "type": "longtext",
+      "required": false,
+      "maps_to": [
+        "offer.main_offer",
+        "business_model.margin"
+      ],
+      "used_by": "O3"
+    },
+    {
+      "id": "A6",
+      "section": "A",
+      "label": "How long have you been open, and how many people work with you?",
+      "type": "text",
+      "required": false,
+      "maps_to": [
+        "business_model.capacity"
+      ],
+      "used_by": "O3"
+    },
+    {
+      "id": "A7",
+      "section": "A",
+      "label": "In a normal month: roughly how many customers, and how much does one customer spend on average?",
+      "type": "text",
+      "required": false,
+      "maps_to": [
+        "business_model.margin"
+      ],
+      "used_by": "O3"
+    },
+    {
+      "id": "B1",
+      "section": "B",
+      "label": "What do you want the business to look like in 12 months? In your own words.",
+      "type": "longtext",
+      "required": false,
+      "maps_to": [
+        "business_model.sells"
+      ],
+      "used_by": "O3"
+    },
+    {
+      "id": "B2",
+      "section": "B",
+      "label": "What do you want to grow most right now: which service, product line or new offer?",
+      "type": "longtext",
+      "required": true,
+      "help": "One line is enough. If you don't know, say so and the research will propose directions.",
+      "maps_to": [
+        "offer.main_offer"
+      ],
+      "used_by": "O3",
+      "allow_unknown_when_required": true
+    },
+    {
+      "id": "B3",
+      "section": "B",
+      "label": "Do you already have an offer, package or idea in mind that you want to push?",
+      "type": "longtext",
+      "required": false,
+      "maps_to": [
+        "offer.main_offer",
+        "offer.delivers"
+      ],
+      "used_by": "O3"
+    },
+    {
+      "id": "B4",
+      "section": "B",
+      "label": "How many more customers a month can you take on today?",
+      "type": "number",
+      "required": true,
+      "maps_to": [
+        "business_model.capacity"
+      ],
+      "used_by": "O3 O5"
+    },
+    {
+      "id": "B5",
+      "section": "B",
+      "label": "About how much do you plan to spend on ads each month?",
+      "type": "text",
+      "required": false,
+      "help": "Ads, not content production. The content production cap is set with us.",
+      "maps_to": [
+        "package.monthly_usd_cap"
+      ],
+      "used_by": "O5"
+    },
+    {
+      "id": "C1",
+      "section": "C",
+      "label": "Who buys from you most? (age, situation, men or women, locals, tourists, businesses)",
+      "type": "longtext",
+      "required": true,
+      "maps_to": [
+        "avatars"
+      ],
+      "used_by": "O2 O3"
+    },
+    {
+      "id": "C2",
+      "section": "C",
+      "label": "Why do they choose you? Use their words if you remember them.",
+      "type": "longtext",
+      "required": false,
+      "maps_to": [
+        "avatars[].words",
+        "proof_bank"
+      ],
+      "used_by": "O2"
+    },
+    {
+      "id": "C3",
+      "section": "C",
+      "label": "What do people usually ask before they buy?",
+      "type": "longtext",
+      "required": false,
+      "maps_to": [
+        "belief_ladder",
+        "avatars[].fears"
+      ],
+      "used_by": "O2 O3"
+    },
+    {
+      "id": "C4",
+      "section": "C",
+      "label": "When someone doesn't buy, what's usually the reason?",
+      "type": "longtext",
+      "required": false,
+      "maps_to": [
+        "belief_ladder",
+        "avatars[].false_beliefs"
+      ],
+      "used_by": "O3"
+    },
+    {
+      "id": "C5",
+      "section": "C",
+      "label": "Which customers do you want more of?",
+      "type": "longtext",
+      "required": false,
+      "maps_to": [
+        "avatars"
+      ],
+      "used_by": "O3"
+    },
+    {
+      "id": "D1",
+      "section": "D",
+      "label": "Why did you start this business? (the short story)",
+      "type": "longtext",
+      "required": false,
+      "maps_to": [
+        "contrarian_vault",
+        "voice.samples"
+      ],
+      "used_by": "O3"
+    },
+    {
+      "id": "D2",
+      "section": "D",
+      "label": "What do you do differently, or never compromise on?",
+      "type": "longtext",
+      "required": false,
+      "maps_to": [
+        "mechanism",
+        "contrarian_vault"
+      ],
+      "used_by": "O3"
+    },
+    {
+      "id": "D3",
+      "section": "D",
+      "label": "What proof do you have?",
+      "type": "longtext",
+      "required": false,
+      "help": "Google rating and number of reviews, years open, awards, certificates, known clients, before-and-after photos, numbers you're proud of.",
+      "maps_to": [
+        "proof_bank"
+      ],
+      "used_by": "O2 O3"
+    },
+    {
+      "id": "D4",
+      "section": "D",
+      "label": "In three words, how do you want people to see your business?",
+      "type": "text",
+      "required": false,
+      "maps_to": [
+        "voice.adjectives"
+      ],
+      "used_by": "O3 O5"
+    },
+    {
+      "id": "D5",
+      "section": "D",
+      "label": "Is there anything you never want us to say or show?",
+      "type": "longtext",
+      "required": true,
+      "help": "Write 'nothing' if there is nothing.",
+      "maps_to": [
+        "constraints.cannot_say",
+        "constraints.will_not_show"
+      ],
+      "used_by": "O3"
+    },
+    {
+      "id": "D6",
+      "section": "D",
+      "label": "How do you feel about your name and look?",
+      "type": "choice",
+      "required": false,
+      "options": [
+        "keep them",
+        "refresh them",
+        "open to a new name"
+      ],
+      "maps_to": [
+        "visual"
+      ],
+      "used_by": "O3 O5"
+    },
+    {
+      "id": "E1",
+      "section": "E",
+      "label": "Who do customers compare you with? (names or links)",
+      "type": "longtext",
+      "required": false,
+      "maps_to": [
+        "market"
+      ],
+      "used_by": "O2"
+    },
+    {
+      "id": "E2",
+      "section": "E",
+      "label": "Which businesses do you admire, here or anywhere in the world?",
+      "type": "longtext",
+      "required": false,
+      "maps_to": [
+        "market"
+      ],
+      "used_by": "O2"
+    },
+    {
+      "id": "F1",
+      "section": "F",
+      "label": "How can customers pay?",
+      "type": "multichoice",
+      "required": false,
+      "options": [
+        "cash",
+        "card",
+        "bank transfer",
+        "instalments",
+        "online"
+      ],
+      "maps_to": [
+        "business_model.sales_process"
+      ],
+      "used_by": "O3"
+    },
+    {
+      "id": "F2",
+      "section": "F",
+      "label": "How do customers book or order?",
+      "type": "multichoice",
+      "required": true,
+      "options": [
+        "DM",
+        "WhatsApp",
+        "phone",
+        "website",
+        "walk-in",
+        "email"
+      ],
+      "maps_to": [
+        "offer.next_step",
+        "business_model.sales_process"
+      ],
+      "used_by": "O3 O5"
+    },
+    {
+      "id": "F3",
+      "section": "F",
+      "label": "Which languages do your customers speak? Do you sell outside the country?",
+      "type": "text",
+      "required": true,
+      "maps_to": [
+        "voice.language",
+        "market.language",
+        "market.country"
+      ],
+      "used_by": "O2 O3"
+    },
+    {
+      "id": "F4",
+      "section": "F",
+      "label": "What marketing do you do now, and what has worked or not worked?",
+      "type": "longtext",
+      "required": false,
+      "maps_to": [
+        "baseline",
+        "business_model.sales_process"
+      ],
+      "used_by": "O2"
+    },
+    {
+      "id": "F5",
+      "section": "F",
+      "label": "Anything you can share easily: logo, photos, price list, a reviews export, customer messages",
+      "type": "files",
+      "required": false,
+      "help": "Not needed to start.",
+      "maps_to": [
+        "visual.logo_files",
+        "proof_bank"
+      ],
+      "used_by": "O2 O5"
+    },
+    {
+      "id": "G1",
+      "section": "G",
+      "label": "Offer economics: price of the main offer, what one customer is worth over time, and the margin",
+      "type": "longtext",
+      "required": true,
+      "help": "Ranges are fine. Used only to set the offer and the budget, never shown in posts.",
+      "maps_to": [
+        "business_model.price_notes",
+        "business_model.margin"
+      ],
+      "used_by": "O3"
+    },
+    {
+      "id": "G2",
+      "section": "G",
+      "label": "Competitors to study: up to 5 names or links, and up to 5 accounts you admire",
+      "type": "links",
+      "required": false,
+      "help": "We also find competitors ourselves; yours are added first.",
+      "maps_to": [
+        "market"
+      ],
+      "used_by": "O2",
+      "fields": [
+        "competitors",
+        "admired"
+      ]
+    },
+    {
+      "id": "G3",
+      "section": "G",
+      "label": "Where do your customers write about you or your category? (Google reviews, Trustpilot, Facebook groups, Reddit, forums, comments)",
+      "type": "links",
+      "required": false,
+      "help": "The research reads these for the customers' own words.",
+      "maps_to": [
+        "demand_map_file"
+      ],
+      "used_by": "O2",
+      "fields": [
+        "google_reviews",
+        "trustpilot",
+        "facebook_groups",
+        "reddit",
+        "forums",
+        "other"
+      ]
+    },
+    {
+      "id": "G4",
+      "section": "G",
+      "label": "Brand files and colours",
+      "type": "files",
+      "required": false,
+      "help": "Logo, brand colours, fonts, 3 to 10 photos that look like you.",
+      "maps_to": [
+        "visual.colors",
+        "visual.fonts",
+        "visual.logo_files"
+      ],
+      "used_by": "O5"
+    },
+    {
+      "id": "H1",
+      "section": "H",
+      "label": "Can we show an AI-made person or face in your content?",
+      "type": "choice",
+      "required": true,
+      "help": "Decides the video formats we may use.",
+      "options": [
+        "yes, labelled as AI",
+        "no, hands, objects and animation only",
+        "only a real person (me or my team) on camera"
+      ],
+      "maps_to": [
+        "visual.face",
+        "visual.ai_label"
+      ],
+      "used_by": "O3 O5"
+    },
+    {
+      "id": "H2",
+      "section": "H",
+      "label": "Which proof may we use in public posts?",
+      "type": "multichoice",
+      "required": true,
+      "help": "Anything not ticked stays internal.",
+      "options": [
+        "reviews",
+        "customer photos",
+        "before and after",
+        "numbers",
+        "customer names",
+        "none yet"
+      ],
+      "maps_to": [
+        "proof_bank[].permission"
+      ],
+      "used_by": "O2 O3"
+    },
+    {
+      "id": "H3",
+      "section": "H",
+      "label": "Who approves posts, and how fast can they answer?",
+      "type": "text",
+      "required": true,
+      "maps_to": [
+        "constraints.approver",
+        "constraints.turnaround_hours"
+      ],
+      "used_by": "O5"
+    },
+    {
+      "id": "H4",
+      "section": "H",
+      "label": "Which language and tone do you want the content in?",
+      "type": "text",
+      "required": true,
+      "help": "For example: English, plain and warm. Or Albanian, informal (ti).",
+      "maps_to": [
+        "voice.language",
+        "voice.register"
+      ],
+      "used_by": "O3 O5"
+    }
+  ]
+}

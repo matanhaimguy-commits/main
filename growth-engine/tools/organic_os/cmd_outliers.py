@@ -10,7 +10,7 @@ from .research import outliers
 
 COLUMNS = ["account", "url", "type", "timestamp", "basis", "views", "likes", "likes_hidden", "comments", "x_median",
            "comments_per_1k", "account_comments_per_1k", "engagement", "views_3x", "comments_above_rate",
-           "likes_in_proportion", "engagement_2pct", "trusted", "partial_outlier", "hook_source", "hook"]
+           "likes_in_proportion", "engagement_2pct", "trusted", "partial_outlier", "hook_source", "hook", "skipped"]
 
 
 def run(a) -> int:
@@ -27,6 +27,12 @@ def run(a) -> int:
     print(f"{len(rows)} posts, {len(trusted)} trusted outliers (all 4 checks)")
     for r_ in trusted[:15]:
         print(f"  {r_['x_median']}x  @{r_['account']}  {r_['url']}")
+    skipped = [r for r in rows if r.get("skipped")]
+    if skipped:
+        print(f"{len(skipped)} posts are views-only (no comment counts): {skipped[0]['skipped']}")
+        hot = [r for r in skipped if r.get("views_3x")]
+        for r_ in hot[:10]:
+            print(f"  {r_['x_median']}x on views  @{r_['account']}  {r_['url']}")
     by_hand = [r for r in rows if r.get("likes_hidden") and r.get("partial_outlier")]
     if by_hand:
         print(f"{len(by_hand)} more pass views and comments but hide their likes: check them by hand")

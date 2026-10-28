@@ -36,11 +36,12 @@ def _recent(items: list[dict], days: int | None, now: dt.datetime) -> list[dict]
 def _baseline(posts: list[dict]) -> dict:
     """The account's own rates, from the posts that show each number."""
     vid = [p for p in posts if _views(p)]
-    tot_v = sum(_views(p) for p in vid)
+    cvid = [p for p in vid if not p.get("views_only")]  # only posts that show comment counts set the comment rate
+    tot_v = sum(_views(p) for p in cvid)
     lpk = [_likes(p) / _views(p) * 1000 for p in vid if _likes(p) is not None]
     shown = [_likes(p) for p in posts if _likes(p) is not None]
     return {"med_views": statistics.median([_views(p) for p in vid]) if vid else None,
-            "cpk": (sum(p.get("commentsCount") or 0 for p in vid) / tot_v * 1000) if tot_v else None,
+            "cpk": (sum(p.get("commentsCount") or 0 for p in cvid) / tot_v * 1000) if tot_v else None,
             "med_lpk": statistics.median(lpk) if lpk else None,
             "med_likes": statistics.median(shown) if shown else 0}
 
@@ -72,6 +73,19 @@ def _likes_only(likes, base: dict) -> dict:
             "partial_outlier": bool(x and x >= 3)}
 
 
+VIEWS_ONLY_WHY = ("views-only import (YouTube listings carry no comment counts): the comments and engagement checks "
+                  "were skipped, so this row can't be trusted; check the video's comments by hand if views_3x is true")
+
+
+def _views_only(row: dict, base: dict) -> dict:
+    """A post with views but no comment count: only the views check can run, the rest are skipped and say why."""
+    v = row["views"]
+    x = round(v / base["med_views"], 2) if v and base["med_views"] else None
+    return {"basis": "views_only", "x_median": x, "views_3x": bool(x and x >= 3), "comments_above_rate": None,
+            "likes_in_proportion": None, "engagement_2pct": None, "trusted": False,
+            "partial_outlier": bool(x and x >= 3), "skipped": VIEWS_ONLY_WHY}
+
+
 def outliers(items: list[dict], days: int | None = 90, now: dt.datetime | None = None) -> list[dict]:
     items = _recent(items, days, now or dt.datetime.now(dt.timezone.utc))
     accounts: dict[str, list[dict]] = {}
@@ -86,6 +100,10 @@ def outliers(items: list[dict], days: int | None = 90, now: dt.datetime | None =
             row = {"account": acct, "url": p.get("url") or p.get("shortCode"), "type": p.get("type") or p.get("productType"),
                    "timestamp": p.get("timestamp"), "views": v, "likes": likes, "likes_hidden": likes is None,
                    "comments": comments}
+            if p.get("views_only") and v and base["med_views"]:
+                row.update(_views_only(row, base))
+                rows.append(row)
+                continue
             row.update(_view_checks(likes, comments, v, base) if v and base["med_views"] else _likes_only(likes, base))
             rows.append(row)
     return sorted(rows, key=lambda r: -(r.get("x_median") or 0))
