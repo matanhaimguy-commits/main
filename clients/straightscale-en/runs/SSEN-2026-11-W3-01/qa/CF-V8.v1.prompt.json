@@ -2,71 +2,71 @@
  "gate": "G-PROMPT-IMG",
  "asset_id": "CF-V8",
  "version": 1,
- "prompt_sha256": "beae9d2add12c3b03d5d4634e79b3d893751e799c0531a2b9677fe25eb43b5bc",
+ "prompt_sha256": "e3a5fb20342119ce745a4f68e21baa61895ad0ac8b38c5672291f9bb6baeb2b4",
  "reviewer": "prompt-reviewer (fresh agent)",
  "independent": true,
- "status": "FAIL",
+ "status": "PASS",
  "checks": [
   {
    "id": "P1",
-   "result": "FAIL",
-   "evidence": "Spec says 'standing and chatting'; the prompt has 'calm and pleased' but never 'chatting'. All other subjects, props, action, setting, camera, carry-over (STYLE: 'fabric details') are present."
+   "result": "PASS",
+   "evidence": "All spec elements present: 'Seesaw: a clay seesaw tipped hard to the left ... right end up at y 0.32', 'ten little clay client figures ... calm and pleased, chatting' (the earlier 'chatting' gap is fixed), full prop content line, 'TEXT: none', setting with background rule, camera and safe zones, six regions, carry-over, all must_not negatives. All 11 card blocks present in order."
   },
   {
    "id": "P2",
    "result": "PASS",
-   "evidence": "0 references attached and none mentioned; prompt describes no image. Call text-to-image."
+   "evidence": "'REFERENCE MAP: no images are attached; this is a text-to-image call.' Attached media: none."
   },
   {
    "id": "P3",
    "result": "PASS",
-   "evidence": "'HANDS: no human hands, fingers or arms anywhere in the picture.'"
+   "evidence": "'HANDS: no human hands, fingers or arms anywhere in the picture.' Matches 'hands: none visible'."
   },
   {
    "id": "P4",
    "result": "PASS",
-   "evidence": "'the left end touches the floor at about 80% down', 'standing on the page with their feet on it, their weight holding that end down'."
+   "evidence": "'the plank rests on the pivot's top point; the plank's left end touches the floor at y 0.55'; 'the ten figures stand with both feet on the left page, their weight holding that end down'; 'the right page lies flat on the plank's raised right end, nothing on it'."
   },
   {
    "id": "P5",
    "result": "PASS",
-   "evidence": "'a calendar month page sculpted from flat cream clay with a stitched fabric border and a stitched grid of empty day squares'; 'The calendar's day squares are empty stitched squares with no numbers' states the design so the TEXT block does not empty it."
+   "evidence": "PROPS WITH CONTENT gives full content for the pages ('stitched grid of empty day squares (no numbers, no month name)') and the bare right page by design; the TEXT line bans letters and numbers but the pages need none, so it does not empty a story prop."
   },
   {
    "id": "P6",
    "result": "PASS",
-   "evidence": "'TEXT: none.' with surfaces named: 'not on the calendar, the wall or any object'."
+   "evidence": "'TEXT: none. No text, letters, numbers or words anywhere in the picture: not on the calendar, the wall, the floor or any object.' Hook space reserved: 'the top 27% of the frame is plain clay wall with nothing on it (words are added there later)'."
   },
   {
    "id": "P7",
    "result": "PASS",
-   "evidence": "'No window, shelf, desk or other objects.' No frames or screens in the scene."
+   "evidence": "'No window, shelf, desk or other objects. Background rule: nothing but the plain wall and floor around the seesaw.'"
   },
   {
    "id": "P8",
-   "result": "FAIL",
-   "evidence": "'Must also not include: no figure or object on the high right end' contradicts 'On each end of the plank lies a calendar month page' (the page is an object on that end). Also 'Nothing important in the ... right 13% of the frame' contradicts 'spanning from 6% to 94% of the frame width' with the right end high at 40%."
+   "result": "PASS",
+   "evidence": "No conflicting instructions: floor line 56%, left end 55%, right end 32%, 'below 56% only the plain clay floor and wall continue, empty' (pivot base sits on the floor line); 'no figure off the seesaw' agrees with the figures on the left page."
   },
   {
    "id": "P9",
    "result": "PASS",
-   "evidence": "First shot of the series (previous_shot null); carry-over style 'thread-wrapped hair, fabric details' in STYLE."
+   "evidence": "'CONTINUITY: the series look: claymation with fabric and thread details, the song's cloth world. This is the first frame of the reel.' Spec previous_shot is null."
   },
   {
    "id": "P10",
    "result": "PASS",
-   "evidence": "openai/gpt-image-2/text-to-image allowed for these asset types; size 1152x2048 is the 9:16 size; quality medium; no text_fields; prompt says 'vertical 9:16'."
+   "evidence": "Call openai/gpt-image-2/text-to-image, size 1152x2048 (9:16, size_for_aspect), quality medium: all in standards.json models.atlas.allowed for a 'still'; prompt says 'one vertical 9:16 image'; no references needed; no video or speaker rules apply."
   },
   {
    "id": "P11",
    "result": "PASS",
-   "evidence": "No two-way reading found; 'thumb' height is stated with the figures on a page and read as miniature (see spec note)."
+   "evidence": "'page' is defined as 'a calendar month page sculpted from flat cream clay'; positions are fractions from the top-left. Optional polish only: 'a group of extras' (copied from the spec) could be dropped as it adds nothing for a picture model; not a defect."
   },
   {
    "id": "P12",
    "result": "PASS",
-   "evidence": "FL-02 structure line ('one clay seesaw ... terracotta clay plank rests on the top point of a mustard clay triangle pivot', 'one seesaw only'); FL-11 'feet on it'; FL-04 pages filled; FL-05 no background frames."
+   "evidence": "FL-02 'a terracotta clay plank on a mustard clay triangle pivot' and 'one seesaw only'; FL-03 contact points; FL-05 background rule; FL-06 'simple eyes with white sclera and dark pupils'; FL-11 'each figure once' and 'both feet on the left page'; FL-13 not triggered (no logo asked)."
   }
  ],
- "corrected_prompt": "STYLE: Stop-motion clay puppet scene - clay characters detailed with tiny craft materials: thread-wrapped hair, fabric details, wire accents, on a fully sculpted clay set, cinematic stop-motion film lighting with gentle shadows, the scene filling the entire frame with the camera inside the puppet world. Palette: warm cream, terracotta and mustard clay with deep teal shadows, warm amber light; one bright subject against a calm, plain clay wall.\n\nFORMAT AND LAYOUT: one vertical 9:16 image (portrait, 9 wide by 16 tall). Positions are fractions of the frame from the top-left corner. The top 30% of the frame is only plain clay wall, empty, kept clear for words added later. The main subject sits between 30% and 84% down. Nothing important in the bottom 16% or the right 13% of the frame, except the plank tip and the bare page edge at the right end of the seesaw.\n\nSUBJECT, THE SEESAW: one clay seesaw seen side on, centred, spanning from 6% to 94% of the frame width, between 40% and 84% down. A terracotta clay plank rests on the top point of a mustard clay triangle pivot at 50% across and 62% down. The seesaw is tipped hard to the left: the left end touches the floor at about 80% down, the right end is high in the air at about 40% down.\nOn each end of the plank lies a calendar month page sculpted from flat cream clay with a stitched fabric border and a stitched grid of empty day squares.\nTHE LEFT, LOW END: its page is crowded with about ten little clay client figures, each about the height of a thumb, standing on the page with their feet on it, their weight holding that end down. They are simple adult business people in tiny fabric jackets and trousers, thread-wrapped hair, simple eyes with white sclera and dark pupils, mixed skin tones, standing and chatting, calm and pleased.\nTHE RIGHT, HIGH END: its page is completely bare, nobody and nothing on it.\n\nSETTING: one plain warm cream clay wall fills the background, a plain clay floor meets the wall at 84% down; warm amber light from the upper left, gentle deep teal shadows low down. No window, shelf, desk or other objects. Camera at the height of the pivot, side on. Medium wide shot of the whole seesaw.\n\nMust also not include: no figure or object on the high right end's calendar page (the page itself belongs there); one seesaw only.\n\nHANDS: no human hands, fingers or arms anywhere in the picture.\n\nTEXT: none. No text, letters, numbers or words anywhere in the picture: not on the calendar, the wall or any object. The calendar's day squares are empty stitched squares with no numbers, and there is no month name.\n\nCAMERA: macro miniature-set look, about 50mm, shallow depth of field, the main subject sharp; the camera sits inside the miniature clay world.\n\nDO NOT INCLUDE: no text, letters, numbers or words; no hearts, likes, thumbs-up, follower counts, notification badges, social media icons or logos; no real platform names, logos or app screens; no phone screens; no extra subjects beyond those named; no clutter in the top third; no smooth, glossy or CGI-looking surfaces; no motion blur; no borders, frames, split screens, set edges, workbench or the room around the miniature set.\n\nEverything in frame is real modeling clay, photographed - visible fingerprints and tool marks, real cast shadows, soft studio lighting, the clay scene filling the entire frame.\n"
+ "corrected_prompt": null
 }

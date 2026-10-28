@@ -2,80 +2,86 @@
   "gate": "G-PROMPT-IMG",
   "asset_id": "CF-V1",
   "version": 1,
-  "prompt_sha256": "ccf2ec9d090d451bac2b7ee43bfa655c7e180c128ed270ece6cbd8075735a79b",
+  "prompt_sha256": "1ee54f0ff9c6754bf3a7c45afc1785eb31897161be11139ff77e6b03dddab851",
   "reviewer": "prompt-reviewer (fresh agent)",
   "independent": true,
-  "status": "FAIL",
+  "status": "PASS",
   "files_opened": [
-    "/home/user/main/clients/straightscale-en/runs/SSEN-2026-11-W3-01/prompts/CF-V1.v1.1.txt",
+    "/home/user/main/clients/straightscale-en/runs/SSEN-2026-11-W3-01/prompts/CF-V1.v1.2.txt",
     "/home/user/main/clients/straightscale-en/runs/SSEN-2026-11-W3-01/shots/H-01A.spec.yaml",
     "/home/user/main/clients/straightscale-en/runs/SSEN-2026-11-W3-01/ledger.json",
-    "growth-engine/production/standards.json",
-    "growth-engine/production/failure-library.md",
-    "growth-engine/production/VISUAL-QA.md (sections 2, 4)"
+    "/home/user/main/growth-engine/production/standards.json",
+    "/home/user/main/growth-engine/production/failure-library.md",
+    "/home/user/main/growth-engine/production/VISUAL-QA.md (sections 2, 4, 13.1)"
   ],
-  "integrity_note": "The sha256 of prompts/CF-V1.v1.1.txt on disk is d545645bce2774aab471dd6666884a10c749a5487e8d86696e45a99af84eabc9, not the registered ccf2ec9d090d451bac2b7ee43bfa655c7e180c128ed270ece6cbd8075735a79b (ledger.json asset CF-V1). This review is of the text on disk. The corrected prompt must be saved as a new prompt file and registered; this report does not cover the registered hash.",
+  "integrity_note": "sha_text of prompts/CF-V1.v1.2.txt on disk equals the registered 1ee54f0f...ab851 (ledger prompt_history). No producer reasoning was in the packet.",
   "checks": [
     {
       "id": "P1",
-      "result": "FAIL",
-      "evidence": "Content coverage is complete (calendar, two pages, 'about twelve little clay client figures', 'Their feet touch the ledges', hands none, text none, wall, camera), but (a) the safe zone differs from the spec: prompt 'The main subject sits between 30% and 84% down. Nothing important in the bottom 16%' vs spec 'the bottom 20%' and subject y 0.30 to 0.80; (b) card blocks missing or out of order: no reference-map block and no continuity block (spec carry_over 'the series look' is only implied by STYLE), and SETTING comes before HANDS and TEXT instead of after them."
+      "result": "PASS",
+      "evidence": "All 11 card blocks are present in order (FORMAT, REFERENCE MAP, SUBJECT AND POSE, HANDS, ACTION, PROPS, TEXT, SETTING, CAMERA, CONTINUITY, NEGATIVES). Every spec element appears: 'twelve little clay client figures ... four per row', 'calm and pleased, chatting', 'spanning x 0.06 to 0.94 and y 0.28 to 0.56', size line '88% of the frame width and 28% of its height', all six regions, all 9 must_not items, carry_over 'the series look: claymation with fabric and thread details, the song's cloth world'."
     },
     {
       "id": "P2",
-      "result": "FAIL",
-      "evidence": "Zero attached images (correct for text-to-image) but the prompt has no reference-map line; the block is missing. Fix: 'no reference images are attached; everything comes from this text.'"
+      "result": "PASS",
+      "evidence": "'REFERENCE MAP: no images are attached; this is a text-to-image call.' Matches Attached media: none."
     },
     {
       "id": "P3",
       "result": "PASS",
-      "evidence": "'HANDS: no human hands, fingers or arms anywhere in the picture.'"
+      "evidence": "'HANDS: no human hands, fingers or arms anywhere in the picture.' Spec: 'hands: none visible'. See note N1 on the word 'arms'."
     },
     {
       "id": "P4",
       "result": "PASS",
-      "evidence": "'stand on its ledges ... Their feet touch the ledges.'; 'A small clay ledge runs along the bottom of each row of squares.'"
+      "evidence": "'each client figure stands with both feet on one of the left page's ledges, four figures per ledge'; 'the calendar hangs flat against the wall from a stitched loop at its top centre'."
     },
     {
       "id": "P5",
       "result": "PASS",
-      "evidence": "Calendar content written in full: 'cream clay with a stitched fabric border and a stitched grid ... joined by a stitched seam'; the no-text line is scoped to 'no numbers' and 'no month name', so nothing is emptied."
+      "evidence": "PROPS block gives the full calendar content ('flat cream clay ... stitched terracotta fabric border ... three narrow clay ledges ... LEFT page carries twelve clay client figures ... RIGHT page is completely bare'). The no-text rule is scoped ('no numbers, no month name'), so it empties nothing."
     },
     {
       "id": "P6",
       "result": "PASS",
-      "evidence": "TEXT: none, with 'not on the calendar, the wall or any object' (spec text_in_image: none)."
+      "evidence": "'TEXT: none. No text, letters, numbers or words anywhere in the picture' with surfaces named ('not on the calendar, the wall, the floor or any object'). Matches 'text_in_image: none'."
     },
     {
       "id": "P7",
       "result": "PASS",
-      "evidence": "'No window, shelf, desk or other objects.' and the calendar is filled, not an empty frame."
+      "evidence": "'Background rule: nothing but the plain clay wall around the calendar.' 'No window, shelf, desk or other objects.' No frame, screen or sign in the scene; the bare right page is ruled."
     },
     {
       "id": "P8",
-      "result": "FAIL",
-      "evidence": "DO NOT INCLUDE says 'no borders, frames, split screens' while the subject requires 'a stitched fabric border' and 'two month pages side by side'. Also 'spanning from 8% to 92% of the frame width' conflicts with 'Nothing important in ... the right 13%'."
+      "result": "PASS",
+      "evidence": "No instruction pair that cannot both be true: 'no picture border or frame around the whole image' is scoped away from the page's 'stitched terracotta fabric border'; 'Layout: top 27% plain' agrees with the hook region 14% to 27%. Notes N2, N3 are polish only."
     },
     {
       "id": "P9",
       "result": "PASS",
-      "evidence": "Spec previous_shot is null; the series look is carried in the STYLE block ('thread-wrapped hair, fabric details, wire accents')."
+      "evidence": "previous_shot: null in the spec; the prompt carries the spec's carry_over and adds 'This is the first frame of the reel.'"
     },
     {
       "id": "P10",
       "result": "PASS",
-      "evidence": "Call openai/gpt-image-2/text-to-image, 1152x2048 (size_for_aspect 9:16), quality medium, 0 references, asset type still: all allowed in standards.json atlas.allowed. Prompt says 'one vertical 9:16 image'. No video rules apply. (Registered-hash mismatch: see integrity_note.)"
+      "evidence": "Call openai/gpt-image-2/text-to-image is in standards.json models.atlas.allowed for 'still'; quality medium is the required param; size 1152x2048 is in size_for_aspect for 9:16; the prompt says 9:16. No media, no video, no speaker, no declined_preset_id (video only)."
     },
     {
       "id": "P11",
-      "result": "FAIL",
-      "evidence": "'no borders, frames, split screens' can be read as removing the calendar's own border and two-page spread (same wording as P8); other open wording ('about the height of a thumb', no row count) is inherited from the spec and left as is, to be fixed in the spec."
+      "result": "PASS",
+      "evidence": "Sizes are fractions of the frame, rows and ledges are counted ('three narrow clay ledges ... four figures per ledge'), the right page is 'completely bare: empty squares and empty ledges'. Notes N1 to N3 list words that could be read two ways but would not change the picture much."
     },
     {
       "id": "P12",
       "result": "PASS",
-      "evidence": "FL-02 structure: 'one clay wall calendar ... two month pages' plus 'no more than two calendar pages'; FL-05: no empty frames; FL-10: 'not on the calendar, the wall or any object'; FL-11: 'Their feet touch the ledges'; FL-13: no logo requested."
+      "evidence": "FL-11: 'each figure once' plus 'both feet on one of the left page's ledges'. FL-02: 'exactly two calendar pages', 'joined by a stitched seam', one stitched loop. FL-05: no frame, screen or sign. FL-10: plain wall plus a scoped no-text rule. FL-13: no logo asked, 'no real platform names, logos'. FL-04: no story prop depends on words."
     }
   ],
-  "corrected_prompt": "STYLE: Stop-motion clay puppet scene - clay characters detailed with tiny craft materials: thread-wrapped hair, fabric details, wire accents, on a fully sculpted clay set, cinematic stop-motion film lighting with gentle shadows, the scene filling the entire frame with the camera inside the puppet world. Palette: warm cream, terracotta and mustard clay with deep teal shadows, warm amber light; one bright subject against a calm, plain clay wall.\n\nFORMAT AND LAYOUT: one vertical 9:16 image (portrait, 9 wide by 16 tall). Positions are fractions of the frame from the top-left corner. The top 30% of the frame is only plain clay wall, empty, kept clear for words added later. The main subject sits between 30% and 80% down. Nothing important in the bottom 20% of the frame, and nothing but the empty page's bare squares in the right 13%.\n\nREFERENCE MAP: no reference images are attached; everything comes from this text.\n\nSUBJECT, THE WALL CALENDAR: one clay wall calendar hangs flat on the wall, facing the camera straight on, centred, spanning from 8% to 92% of the frame width and from 34% to 80% of the frame height. It is open to two month pages side by side, each sculpted from flat cream clay with a stitched fabric border and a stitched grid of empty day squares, joined by a stitched seam down the middle. A small clay ledge runs along the bottom of each row of squares.\nTHE LEFT PAGE (8% to 50% across) is full: about twelve little clay client figures, each about the height of a thumb, stand on its ledges, filling the page. They are simple adult business people in tiny fabric jackets and trousers, thread-wrapped hair, simple eyes with white sclera and dark pupils, mixed skin tones, standing and chatting, calm and pleased. Their feet touch the ledges.\nTHE RIGHT PAGE (50% to 92% across) is completely bare: empty stitched squares and empty ledges, nobody and nothing on it.\n\nHANDS: no human hands, fingers or arms anywhere in the picture.\n\nTEXT: none. No text, letters, numbers or words anywhere in the picture: not on the calendar, the wall or any object. The calendar's day squares are empty stitched squares with no numbers, and there is no month name.\n\nSETTING: one plain warm cream clay wall fills the background edge to edge, softly lit by warm amber light from the upper left, a gentle deep teal shadow at the bottom. No window, shelf, desk or other objects. Camera at eye level, facing the calendar straight on. Medium close-up.\n\nCAMERA: macro miniature-set look, about 50mm, shallow depth of field, the main subject sharp; the camera sits inside the miniature clay world.\n\nCONTINUITY: this is the first shot, no previous shot to match; carry over the series look: claymation in the song's cloth world (fabric and thread details on clay).\n\nDO NOT INCLUDE: no text, letters, numbers or words; no hearts, likes, thumbs-up, follower counts, notification badges, social media icons or logos; no real platform names, logos or app screens; no phone screens; no extra subjects beyond those named; no clutter in the top third; no smooth, glossy or CGI-looking surfaces; no motion blur; no border or frame around the whole picture, no split-screen layout, no set edges, workbench or the room around the miniature set (the calendar's own stitched fabric border and its two side-by-side pages are wanted); no figure, object or mark on the right page; no more than two calendar pages.\n\nEverything in frame is real modeling clay, photographed - visible fingerprints and tool marks, real cast shadows, soft studio lighting, the clay scene filling the entire frame.\n"
+  "corrected_prompt": null,
+  "notes": [
+    "N1 (optional): 'no human hands, fingers or arms anywhere' could be read to strip the clay figures' own arms (they wear jackets). If the first take shows armless figures, add: 'no outside human hands; the clay figures keep their own small clay arms'.",
+    "N2 (optional): SETTING says the wall 'fills the background edge to edge' while CAMERA says 'below 56% only the plain clay floor and wall continue'. Both are plain and empty, so the picture is the same either way; a floor line may or may not show.",
+    "N3 (optional): 'no figure, object or mark on the right page' sits next to the wanted empty stitched squares; the PROPS line settles it ('empty squares and empty ledges').",
+    "N4 (optional): figures at about 6% of frame height (about 120 px) will have tiny faces; review a 2x crop at the visual gate."
+  ]
 }

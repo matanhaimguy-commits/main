@@ -1,23 +1,22 @@
 {
  "gate": "G-SPEC",
  "shot_id": "H-01B",
- "spec_sha256": "15624c547b8e370b93eeefe293f47e29c7d9dd58f6c50a0ff1afefba50a56037",
+ "spec_sha256": "8c66f9df48ddf8115922ab8324d3aea0a90df28f83311d2241fd231d93925074",
  "reviewer": "prompt-reviewer (fresh agent)",
  "independent": true,
- "status": "FAIL",
+ "status": "PASS",
  "files_opened": [
-  "growth-engine/production/standards.json",
-  "growth-engine/production/STANDARDS.md",
-  "growth-engine/production/failure-library.md",
-  "growth-engine/production/VISUAL-QA.md",
   "clients/straightscale-en/runs/SSEN-2026-11-W3-01/shots/H-01B.spec.yaml",
-  "clients/straightscale-en/runs/SSEN-2026-11-W3-01/shots/H-01A.spec.yaml"
+  "clients/straightscale-en/runs/SSEN-2026-11-W3-01/qa/H-01B.spec.json (previous report)",
+  "growth-engine/production/standards.json",
+  "growth-engine/production/STANDARDS.md (section 6)",
+  "growth-engine/production/failure-library.md"
  ],
  "checks": [
   {
    "id": "P1",
    "result": "PASS",
-   "evidence": "Every line is checkable: subjects PR-POST-STACK and PR-CALENDAR with boxes, 'hands: none visible', 'text_in_image: none', setting, camera, style, must_not all present; must_read_in_1s 'A huge pile of posts, and the month is still empty' is one moment."
+   "evidence": "must_read_in_1s 'A huge pile of posts, and the month is still empty' is covered by subjects PR-POST-STACK and PR-CALENDAR, both with box positions; hands, props, text, setting, camera all filled."
   },
   {
    "id": "P2",
@@ -27,37 +26,37 @@
   {
    "id": "P3",
    "result": "PASS",
-   "evidence": "'hands: none visible' and 'no figures or people'; no hand regions needed."
+   "evidence": "hands: 'none visible'; must_not has 'no clay people or client figures'."
   },
   {
    "id": "P4",
    "result": "PASS",
-   "evidence": "'its base flat on the floor, each card resting on the one below'; 'the calendar page hangs from one clay pin pushed into the wall' (contact points)."
+   "evidence": "action_physics: 'the bottom card of the pile rests flat on the floor at y 0.56; each card rests flat on the one below'; 'the calendar page hangs from one clay pin pushed into the wall at its top centre'."
   },
   {
    "id": "P5",
    "result": "PASS",
-   "evidence": "Calendar content filled: 'flat cream clay with a stitched fabric border and a stitched grid of empty day squares'; stack content filled ('cream clay ... stitched fabric edge ... a sun, a cup, a plant'). The emptiness is the intended story and is stated. Optional: calendar is the story's point yet marked story_critical: false."
+   "evidence": "PR-CALENDAR content: 'stitched grid of empty day squares (no numbers, no month name) ... single round clay pin'; PR-POST-STACK content gives card material, edge stripes and 'one small mustard clay sun shape'. The emptiness is the content, and must_not targets only 'nothing on the calendar page'."
   },
   {
    "id": "P6",
    "result": "PASS",
-   "evidence": "'text_in_image: none'; must_not 'no text, letters, numbers or words anywhere' is targeted at a text-free frame; the hook is added in the edit."
+   "evidence": "text_in_image: none; must_not 'no text, letters, numbers or words anywhere in the picture (the text hook is added later in the edit)'; text-hook-space region 14% to 27% down is boxed. No story text exists, so the blanket negative empties no story prop."
   },
   {
    "id": "P7",
    "result": "PASS",
-   "evidence": "'background_rule: nothing but the plain clay wall behind the subject'; calendar page has a content rule ('every day square empty'), no frames or screens elsewhere."
+   "evidence": "background_rule: 'nothing but the plain wall and floor around the pile and the page'; setting 'No window, shelf, desk or other objects'; calendar is a foreground prop with its content ruled."
   },
   {
    "id": "P8",
-   "result": "FAIL",
-   "evidence": "camera.safe_zones 'subject between y 0.30 and 0.80 ... nothing important in the bottom 20%' contradicts the stack 'from y 0.30 to 0.86' and the floor at 'y 0.86'. Also STANDARDS 6 reels safe zone (bottom 35% clear of key content, key props 15% to 55% from top, right 21% in lower half, 6% side margins) is not met by a stack to y 0.86 and x 0.08."
+   "result": "PASS",
+   "evidence": "Sizes agree with boxes (pile x 0.08-0.42 = 34%, y 0.28-0.56 = 28%; page x 0.50-0.92 = 42%, y 0.30-0.52 = 22%); the previous safe-zone and bottom-20% contradictions are gone; key content sits inside 28% to 56% and 6% side margins."
   },
   {
    "id": "P9",
    "result": "PASS",
-   "evidence": "previous_shot null; carry_over 'the series look: claymation in the song's cloth world'."
+   "evidence": "continuity previous_shot null (first frame); carry_over 'the series look: claymation with fabric and thread details, the song's cloth world (EN 03)'."
   },
   {
    "id": "P10",
@@ -66,19 +65,18 @@
   },
   {
    "id": "P11",
-   "result": "FAIL",
-   "evidence": "'a tall, slightly leaning stack of about thirty clay post cards' with 'a small clay picture shape on its face' and camera 'at eye level with the middle of the stack': the stack can be read as flat tiles piled up (faces hidden, only edges seen) or as upright cards (faces visible); 'wobbling a little' in a static image can invite motion blur; 'about thirty' is uncountable; content line has a typo 'one a calendar month page'."
+   "result": "PASS",
+   "evidence": "Orientation is now stated: 'lying flat one on top of another so their stitched edges make stripes up the side of the pile; the top card faces up'; angle 'looking down about 15 degrees, so the top card's face shows'. Minor wording polish only (see notes)."
   },
   {
    "id": "P12",
    "result": "PASS",
-   "evidence": "FL-02 structure lines present ('one month page ... held to the wall by a single clay pin'; stack resting card on card); FL-04/FL-05 ruled ('every day square empty', plain wall); FL-11 stack base flat on floor."
+   "evidence": "FL-02 structure lines present for both objects (pile of flat cards, single pin page); FL-05 background rule present; FL-10 plain surfaces stated; FL-13 no logo asked for."
   }
  ],
- "suggested_spec_changes": [
-  "camera.safe_zones: make it agree with the layout and STANDARDS 6 (e.g. move the stack and page up so key content sits 15% to 55% from the top and the bottom 35% is only plain floor, or record an explicit owner/director exception); today it says subject y 0.30 to 0.80 and bottom 20% clear while the stack runs to y 0.86.",
-  "PR-POST-STACK: state orientation, e.g. 'cards lie flat in a leaning pile; stitched edges show on the sides; the top cards tilt toward the camera so their picture shapes show' (or 'cards fanned upright'), and replace 'about thirty' with 'a tall pile'.",
-  "pose: change 'wobbling a little' to 'caught still, mid-wobble, no motion blur'.",
-  "PR-CALENDAR.content: fix typo 'one a calendar month page' to 'one calendar month page'; consider story_critical: true for the empty month (then keep must_not targeted at the calendar, not a blanket)."
+ "suggested_spec_changes": [],
+ "notes": [
+  "Polish, not a defect: the calendar box bottom edge y 0.52 and x up to 0.92 puts about 2% of its height into the right 21% of the lower half if 'lower half' means below 50%; the spec's own safe_zones text uses 56% as the lower-half line. Could raise the page bottom to y 0.50 if the owner reads it strictly.",
+  "Polish: style block carries boilerplate 'clay characters ... thread-wrapped hair' and 'one bright subject' while the scene has no characters and two subjects; must_not 'no clay people' covers it, but trimming those phrases would remove any chance of a stray figure."
  ]
 }

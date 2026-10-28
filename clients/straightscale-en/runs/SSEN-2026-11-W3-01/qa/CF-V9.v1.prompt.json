@@ -2,79 +2,87 @@
  "gate": "G-PROMPT-IMG",
  "asset_id": "CF-V9",
  "version": 1,
- "prompt_sha256": "753a60bb6876334f0e956c5720b4ab1316545810393319176d276ce1c7834150",
+ "prompt_sha256": "8e47b2b9db4fb85e6d87084de1351020ccf796a214e2f318fd9698c7012989f0",
  "reviewer": "prompt-reviewer (fresh agent)",
  "independent": true,
- "status": "FAIL",
+ "status": "PASS",
  "files_opened": [
-  "clients/straightscale-en/runs/SSEN-2026-11-W3-01/prompts/CF-V9.v1.1.txt",
+  "clients/straightscale-en/runs/SSEN-2026-11-W3-01/prompts/CF-V9.v1.2.txt",
   "clients/straightscale-en/runs/SSEN-2026-11-W3-01/shots/H-01D.spec.yaml",
   "growth-engine/production/standards.json",
+  "growth-engine/production/STANDARDS.md",
   "growth-engine/production/failure-library.md",
-  "growth-engine/production/VISUAL-QA.md"
+  "growth-engine/production/VISUAL-QA.md",
+  "clients/straightscale-en/runs/SSEN-2026-11-W3-01/qa/CF-V9.v1.prompt.json",
+  "clients/straightscale-en/runs/SSEN-2026-11-W3-01/ledger.json",
+  "growth-engine/tools/pipeline.py"
  ],
- "sha_note": "sha256 of the file via pipeline.sha_text (normalised) equals the registered 753a60bb...; raw file bytes hash differs, which is expected",
+ "sha_note": "pipeline.sha_text of prompts/CF-V9.v1.2.txt equals the registered 8e47b2b9...",
  "checks": [
   {
    "id": "P1",
    "result": "PASS",
-   "evidence": "Prompt carries post, face, blindfold knotted right, wire arms, feet, calendar with empty squares, setting, camera: \"A strip of red fabric is tied over its eyes ... knotted at its right edge\""
+   "evidence": "Every spec element appears: \"Post: the talking clay post card with a face, wearing a red fabric blindfold ... head tilted a little\"; \"two tiny wire arms held out in front\"; calendar with size \"84% of the frame width (x 0.08 to 0.92), 20% of its height\"; setting, camera, safe zones, all six regions and the spec negatives."
   },
   {
    "id": "P2",
    "result": "PASS",
-   "evidence": "No attached files (text-to-image); no reference map needed and none is claimed"
+   "evidence": "\"REFERENCE MAP: no images are attached; this is a text-to-image call.\" Matches attached media: none."
   },
   {
    "id": "P3",
    "result": "PASS",
-   "evidence": "\"HANDS: no human hands, fingers or arms anywhere in the picture.\" (spec: hands none visible; wire arms are the character's)"
+   "evidence": "\"HANDS: no human hands, fingers or arms anywhere in the picture.\" The post's wire arms are a clay-card prop, not human; see notes."
   },
   {
    "id": "P4",
    "result": "PASS",
-   "evidence": "\"stands upright ... on two small clay feet on the set floor\"; \"wrapped around the card's top third and knotted at its right edge\"; \"calendar month page hangs flat on the wall\""
+   "evidence": "\"the post stands on its two clay feet on the floor at y 0.56\"; \"the blindfold wraps around the card's top third and is knotted at its right edge\"; \"the calendar page hangs flat on the wall behind and above the post\"."
   },
   {
    "id": "P5",
    "result": "PASS",
-   "evidence": "\"a stitched grid of empty day squares; every square is empty\" and \"no numbers ... no month name\" (targeted, not a blanket negative on a story prop)"
+   "evidence": "No story-critical props; both props carry full content (\"stitched grid of empty day squares\"), and the TEXT negative is scoped to letters, numbers and the month name, so it does not empty the grid."
   },
   {
    "id": "P6",
    "result": "PASS",
-   "evidence": "\"TEXT: none. No text, letters, numbers or words anywhere in the picture: not on the calendar, the wall or any object.\" matches text_in_image: none"
+   "evidence": "\"TEXT: none. No text, letters, numbers or words anywhere in the picture: not on the calendar, the wall, the floor or any object.\" with the hook region \"words are added there later\" kept clear."
   },
   {
    "id": "P7",
    "result": "PASS",
-   "evidence": "\"No window, shelf, desk or other objects.\"; the only wall item has content: \"nothing on the calendar page\""
+   "evidence": "\"Background rule: nothing but the plain wall, the floor and the one calendar page.\" and \"No window, shelf, desk or other objects.\""
   },
   {
    "id": "P8",
    "result": "PASS",
-   "evidence": "Prompt is internally consistent: bottom 16% (post ends at 84%) and right 13% rules fit its own positions. Note: the calendar is mostly hidden behind the post (spec geometry fault, reported in the G-SPEC review), not a prompt contradiction"
+   "evidence": "\"no human ... arms\" vs \"two tiny wire arms\" is consistent (human qualifier); \"no picture border or frame around the whole image\" does not conflict with the calendar's \"stitched terracotta fabric border\"; \"the post card is the only character\" does not conflict with the post."
   },
   {
    "id": "P9",
    "result": "PASS",
-   "evidence": "previous_shot null; series look carried: \"warm cream, terracotta and mustard clay ... fabric details\""
+   "evidence": "\"CONTINUITY: the series look: claymation with fabric and thread details, the song's cloth world. This is the first frame of the reel.\" matches previous_shot null."
   },
   {
    "id": "P10",
    "result": "PASS",
-   "evidence": "openai/gpt-image-2/text-to-image allowed for still; size 1152x2048 is the 9:16 size; quality medium; text_fields none; no people refused (clay character); 0 refs ok for text-to-image"
+   "evidence": "Asset type still, openai/gpt-image-2/text-to-image on Atlas is named in STANDARDS section 1 / standards.json atlas models, quality medium; 1152x2048 is 9:16 and the prompt says \"9:16\". No video, speaker or declined preset involved."
   },
   {
    "id": "P11",
-   "result": "FAIL",
-   "evidence": "\"Must also not include: no figures or people\" can read as deleting the clay post character; \"no borders, frames\" can read as removing the calendar's \"stitched fabric border\" and the card's \"stitched fabric edge\""
+   "result": "PASS",
+   "evidence": "Previous P11 fail is fixed: \"no clay people or client figures (the post card is the only character)\" and \"no picture border or frame around the whole image\" are scoped. Remaining soft spots are polish only (see notes)."
   },
   {
    "id": "P12",
    "result": "PASS",
-   "evidence": "FL-02 structure in one line per object; FL-05 calendar has a rule; FL-11 \"one post only\" and \"one talking clay post card\"; FL-06 \"a sculpted nose and a small wobbly-line mouth\"; FL-13 no logo is requested"
+   "evidence": "FL-04/05 calendar has content and background rule; FL-02 \"one page\"; FL-11 \"one post only\" and feet-on-floor line; FL-13 no logo requested, lower zone empty; FL-10 \"plain\" wall and floor with a scoped no-text rule."
   }
  ],
- "corrected_prompt": "STYLE: Stop-motion clay puppet scene - clay characters detailed with tiny craft materials: thread-wrapped hair, fabric details, wire accents, on a fully sculpted clay set, cinematic stop-motion film lighting with gentle shadows, the scene filling the entire frame with the camera inside the puppet world. Palette: warm cream, terracotta and mustard clay with deep teal shadows, warm amber light; one bright subject against a calm, plain clay wall.\n\nFORMAT AND LAYOUT: one vertical 9:16 image (portrait, 9 wide by 16 tall). Positions are fractions of the frame from the top-left corner. The top 30% of the frame is only plain clay wall, empty, kept clear for words added later. The main subject sits between 30% and 84% down. Nothing important in the bottom 16% or the right 13% of the frame.\n\nSUBJECT, THE BLINDFOLDED POST: one talking clay post card stands upright at the centre on two small clay feet on the set floor, from 22% to 74% across and from 38% to 84% down. It is a square card sculpted from cream clay with a stitched fabric edge and a simple clay face in its middle (a sculpted nose and a small wobbly-line mouth). A strip of red fabric is tied over its eyes as a blindfold, wrapped around the card's top third and knotted at its right edge. Two tiny wire arms are held out in front, feeling the air. Its head tilts a little: puzzled and a little sheepish.\nBEHIND IT: one calendar month page hangs flat on the wall, softly out of focus, from 20% to 80% across and from 32% to 66% down, sculpted from flat cream clay with a stitched fabric border and a stitched grid of empty day squares; every square is empty.\n\nSETTING: one plain warm cream clay wall fills the background, a plain clay floor meets the wall at 84% down; warm amber light from the upper left, gentle deep teal shadows low down. No window, shelf, desk or other objects. Camera at the post's eye level. Medium shot of the post with the calendar behind it.\n\nMust also not include: no human figures or people (the clay post card character is wanted); nothing on the calendar page; one post only.\n\nHANDS: no human hands, fingers or arms anywhere in the picture.\n\nTEXT: none. No text, letters, numbers or words anywhere in the picture: not on the calendar, the wall or any object. The calendar's day squares are empty stitched squares with no numbers, and there is no month name.\n\nCAMERA: macro miniature-set look, about 50mm, shallow depth of field, the main subject sharp; the camera sits inside the miniature clay world.\n\nDO NOT INCLUDE: no text, letters, numbers or words; no hearts, likes, thumbs-up, follower counts, notification badges, social media icons or logos; no real platform names, logos or app screens; no phone screens; no extra subjects beyond those named; no clutter in the top third; no smooth, glossy or CGI-looking surfaces; no motion blur; no border or frame around the whole picture, no split screens, no set edges, workbench or the room around the miniature set (the calendar page keeps its stitched fabric border).\n\nEverything in frame is real modeling clay, photographed - visible fingerprints and tool marks, real cast shadows, soft studio lighting, the clay scene filling the entire frame.\n"
+ "corrected_prompt": null,
+ "notes": [
+  "Optional polish, not a fail: 'head tilted a little' on a flat card and 'knotted at its right edge' (frame-right) could be made explicit; HANDS line could read 'no human hands or fingers (the post's own wire arms are wanted)'.",
+  "Prompt carries the 11 still-card blocks in order (format, reference map, subject, hands, action, props, text, setting, camera, continuity, negatives)."
+ ]
 }

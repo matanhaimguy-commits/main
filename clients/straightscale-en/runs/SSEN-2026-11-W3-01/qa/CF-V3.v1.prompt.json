@@ -2,21 +2,26 @@
  "gate": "G-PROMPT-IMG",
  "asset_id": "CF-V3",
  "version": 1,
- "prompt_sha256": "3eec38e26a6d47be1eba0c4b979c68786d613e1f10baf68e5cfc93b816b9ebcf",
+ "prompt_sha256": "927525602ecf22da8f306f13890ebdc8927f77bcc4f77f4b9dfdbb55ceee7c82",
  "reviewer": "prompt-reviewer (fresh agent)",
  "independent": true,
- "status": "FAIL",
- "note": "The prompt file on disk (prompts/CF-V3.v1.1.txt) hashes to 6e6aac464754ba409ae25bba7eddcd5efe5ee7a13b5a1ad78b881e5fab7f2250, not the registered 3eec38e2...; the file changed after registration or the registration is stale. Reviewed the on-disk text. Re-register the final (corrected) text before any generation. The upstream spec H-01B also FAILS G-SPEC (P8, P11); fix it first.",
+ "status": "PASS",
+ "files_opened": [
+  "clients/straightscale-en/runs/SSEN-2026-11-W3-01/prompts/CF-V3.v1.2.txt",
+  "clients/straightscale-en/runs/SSEN-2026-11-W3-01/shots/H-01B.spec.yaml",
+  "growth-engine/production/standards.json",
+  "growth-engine/production/failure-library.md"
+ ],
  "checks": [
   {
    "id": "P1",
    "result": "PASS",
-   "evidence": "'SUBJECT 1, THE POST STACK ... about thirty square clay post cards' and 'SUBJECT 2 ... held to the wall by a single clay pin'; hands, text, setting, camera and negatives all present."
+   "evidence": "Prompt has FORMAT, REFERENCE MAP, SUBJECT AND POSE, HANDS, ACTION, PROPS WITH CONTENT, TEXT, SETTING, CAMERA, CONTINUITY, NEGATIVES; both subjects 'Post Stack' and 'Calendar' present with positions."
   },
   {
    "id": "P2",
    "result": "PASS",
-   "evidence": "0 references attached (text-to-image); prompt attaches/mentions no image, so no reference map is needed."
+   "evidence": "'REFERENCE MAP: no images are attached; this is a text-to-image call.' matches attached media: none."
   },
   {
    "id": "P3",
@@ -26,48 +31,52 @@
   {
    "id": "P4",
    "result": "PASS",
-   "evidence": "'each resting on the one below, its base flat on the floor'; 'held to the wall by a single clay pin'."
+   "evidence": "'the bottom card of the pile rests flat on the floor at y 0.56; each card rests flat on the one below.' and 'the calendar page hangs from one clay pin pushed into the wall at its top centre.'"
   },
   {
    "id": "P5",
    "result": "PASS",
-   "evidence": "'flat cream clay with a stitched fabric border and a stitched grid of empty day squares'; targeted 'Every day square is empty' (intended emptiness), cards 'a sun, a cup, a plant'."
+   "evidence": "'a stitched grid of empty day squares (no numbers, no month name) ... single round clay pin' and 'the top card faces up and shows one small mustard clay sun shape'; the no-text rule is targeted to numbers and names, not a blanket that empties a prop."
   },
   {
    "id": "P6",
    "result": "PASS",
-   "evidence": "'TEXT: none.' with surfaces named: 'not on the calendar, the wall or any object'."
+   "evidence": "No on-screen text in spec; 'TEXT: none. No text, letters, numbers or words anywhere in the picture: not on the calendar, the wall, the floor or any object.' Hook area reserved: 'top 27% ... plain clay wall'."
   },
   {
    "id": "P7",
    "result": "PASS",
-   "evidence": "'No window, shelf, desk or other objects' and the calendar's content rule."
+   "evidence": "'Background rule: nothing but the plain wall and floor around the pile and the page.' 'No window, shelf, desk or other objects.'"
   },
   {
    "id": "P8",
-   "result": "FAIL",
-   "evidence": "'The main subject sits between 30% and 84% down. Nothing important in the bottom 16%' contradicts 'from 30% to 86% down' for the stack and 'floor meets the wall at 86% down' (spec itself says bottom 20%)."
+   "result": "PASS",
+   "evidence": "No contradiction found; sizes and boxes agree with the spec (28%x34%, 42%x22%); 'nothing on the calendar page' and 'stitched grid of empty day squares' agree."
   },
   {
    "id": "P9",
    "result": "PASS",
-   "evidence": "No previous shot; carry-over 'fabric details' / 'stitched' in the style matches the spec's cloth-world carry-over."
+   "evidence": "'CONTINUITY: the series look: claymation with fabric and thread details ... This is the first frame of the reel.' matches spec previous_shot null."
   },
   {
    "id": "P10",
-   "result": "FAIL",
-   "evidence": "Call openai/gpt-image-2/text-to-image, size 1152x2048 (9:16), quality medium matches standards.json models.atlas.allowed. But the layout (key content to 86% down, bottom 16% clear, right 13%) breaks STANDARDS 6 reels safe zone (bottom 35% clear, key props 15% to 55% from top, 6% sides). This comes from the Shot Spec; it cannot be fixed in the prompt alone, so the spec needs the change (see G-SPEC) and the prompt re-derived."
+   "result": "PASS",
+   "evidence": "Packet call openai/gpt-image-2/text-to-image, --size 1152x2048 (9:16 in size_for_aspect), quality medium, matches models.atlas.allowed; 9:16 matches spec; no references so no ref minimum applies on Atlas. sha_text of the file = 927525602ecf22da8f306f13890ebdc8927f77bcc4f77f4b9dfdbb55ceee7c82 (matches registered)."
   },
   {
    "id": "P11",
-   "result": "FAIL",
-   "evidence": "'a tall, slightly leaning, wobbling stack of about thirty square clay post cards ... a small simple clay picture shape on its face' at an eye-level camera: flat pile vs upright cards unclear, faces may be hidden; 'wobbling' in a still; 'Medium shot' vs the spec's 'wide-ish medium shot'."
+   "result": "PASS",
+   "evidence": "'lying flat one on top of another ... the top card faces up'; 'looking down about 15 degrees, so the top card's face shows' leaves one reading."
   },
   {
    "id": "P12",
    "result": "PASS",
-   "evidence": "FL-02 structure ('one calendar month page ... a single clay pin'), FL-05 ('No window, shelf, desk'), FL-11 ('its base flat on the floor') all stated."
+   "evidence": "FL-02 structure lines for pile and page; FL-04 not triggered (empty calendar is the intent, content line given); FL-05 background rule; FL-10 'plain' surfaces and no text; FL-13 no logo asked."
   }
  ],
- "corrected_prompt": "STYLE: Stop-motion clay puppet scene - clay characters detailed with tiny craft materials: thread-wrapped hair, fabric details, wire accents, on a fully sculpted clay set, cinematic stop-motion film lighting with gentle shadows, the scene filling the entire frame with the camera inside the puppet world. Palette: warm cream, terracotta and mustard clay with deep teal shadows, warm amber light; one bright subject against a calm, plain clay wall.\n\nFORMAT AND LAYOUT: one vertical 9:16 image (portrait, 9 wide by 16 tall). Positions are fractions of the frame from the top-left corner. The top 30% of the frame is only plain clay wall, empty, kept clear for words added later. The post stack and the calendar page sit between 30% and 86% down, with the stack's base on the floor line at 86% down; below that line is only plain clay floor. Nothing important in the right 13% of the frame.\n\nSUBJECT 1, THE POST STACK: on the left, standing on the floor, a tall, slightly leaning, uneven stack of about thirty square clay postcards, caught still in mid-wobble with no motion blur, from 30% to 86% down and from 10% to 42% across. Each card is a thin flat tile of cream clay with a stitched fabric edge and a small simple clay picture shape on its face (a sun, a cup, a plant), no words. The cards lie flat, one on top of another (not standing upright on their edges), stacked unevenly, each resting on the one below, the bottom card flat on the floor; their stitched edges show along the sides of the stack, and the stack leans just enough that the top cards tilt toward the camera so the small picture shapes on their faces show.\nSUBJECT 2, THE EMPTY MONTH: on the right, one calendar month page sculpted from flat cream clay with a stitched fabric border and a stitched grid of empty day squares, held to the wall by a single clay pin, from 48% to 86% across and from 40% to 74% down. Every day square is empty.\n\nSETTING: one plain warm cream clay wall fills the background, a plain clay floor meets the wall at 86% down; warm amber light from the upper left, gentle deep teal shadows low down. No window, shelf, desk or other objects. Camera at eye level with the middle of the stack. Wide-ish medium shot of the stack and the page together.\n\nMust also not include: no figures or people; nothing on the calendar page.\n\nHANDS: no human hands, fingers or arms anywhere in the picture.\n\nTEXT: none. No text, letters, numbers or words anywhere in the picture: not on the calendar, the wall or any object. The calendar's day squares are empty stitched squares with no numbers, and there is no month name.\n\nCAMERA: macro miniature-set look, about 50mm, shallow depth of field, the main subject sharp; the camera sits inside the miniature clay world.\n\nDO NOT INCLUDE: no text, letters, numbers or words; no hearts, likes, thumbs-up, follower counts, notification badges, social media icons or logos; no real platform names, logos or app screens; no phone screens; no extra subjects beyond those named; no clutter in the top third; no smooth, glossy or CGI-looking surfaces; no motion blur; no borders, frames, split screens, set edges, workbench or the room around the miniature set.\n\nEverything in frame is real modeling clay, photographed - visible fingerprints and tool marks, real cast shadows, soft studio lighting, the clay scene filling the entire frame.\n"
+ "corrected_prompt": null,
+ "notes": [
+  "Polish only: the style block's 'clay characters ... thread-wrapped hair' and 'one bright subject' boilerplate sits beside a no-people, two-subject scene; the negative 'no clay people or client figures' covers it.",
+  "Polish only: calendar box bottom y 0.52 reaches 2% into the right 21% of the lower half under the strict 50% reading; the spec treats 56% as the line."
+ ]
 }
