@@ -24,6 +24,27 @@ Open: song route (ElevenLabs Music billing failed; Atlas Suno needs the owner to
 owner makes it in Suno by hand, the song skill's default) · the visual hook is re-graded on the claymation concept
 frame after G-HUMAN-SONG · hook variants back to H6 before any trial reel.
 
+## Production handoff (28 Oct, EN 03 production session, stopped by the main session)
+State: step 4 done (G-HUMAN-SONG PASS, masters = take 2 = output index 1 of predictions `8f0741be...` O60 and
+`298342ac...` O30, URLs registered on SONG-O60@v1 / SONG-O30@v1). Step 5 blocked: lyric match done on Atlas
+`xai/stt-v1` (O60 0.951, O30 0.910; run `audio/timeline.md` has the line table O60-L01..L18, O30-L01..L11 and the
+words to caption in bold); G-TIMELINE recorded FAIL for the missing word timings. Steps 6 and 7 not started (no specs,
+no prompts, no stills). Atlas spend this session: 3 STT calls, under $0.01; balance $6.71.
+Next session: download the masters, faster-whisper word timestamps aligned to the FINAL lyrics, librosa BPM, vocal
+stem, line times and slices; re-record G-TIMELINE, then step 6 (visual-planner, spec-check, one reviewer per artifact),
+step 7 sheet prompts (stop-motion puppet lane of the claymation skill suits the fabric-scrap world), stills on
+gpt-image-2 within $1.50, then `pipeline.py budget` for the clips.
+
+Gaps found:
+- Network: `atlas-media.oss-us-west-1.aliyuncs.com` (every Atlas output) was refused here; the owner has since allowed
+  it for new sessions.
+- Atlas CLI 0.1.38 returns only `text` for `xai/stt-v1` (no word or segment times, diarize on or off), so Atlas can't
+  give the timeline; word timings need the file locally.
+- The step 4 take-check word timings were never saved; save `qa/` timing JSON in the run next time.
+- Gate: `pipeline.py client_gate_ok()` lets any library run's G-HUMAN-LOOK (SS-LIB-STYLE, the carousel look) pass the
+  look check for these claymation sheets; the claymation look needs its own G-HUMAN-LOOK record (main session agreed).
+- Models: the claymation skill prefers Nano Banana 2 for clay stills; on Atlas only gpt-image-2 is named.
+
 ## Decisions (newest first)
 | Date | Decision | Options considered | Why | Who |
 |---|---|---|---|---|
