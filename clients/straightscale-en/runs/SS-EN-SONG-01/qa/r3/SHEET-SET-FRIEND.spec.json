@@ -1,0 +1,71 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "SHEET-SET-FRIEND",
+ "spec_sha256": "f262767359044f06f3e60175f9f8730a48558db99b3b274fad4320314d00e1c7",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "every line checkable: organizer 80% wide (x 0.1 to 0.9), three text strings with surface, position and occlusion; setting names wall, shelf, plant, light"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attachments yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: [] and static: true"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-ORGANIZER-FRIEND content \"header band CLIENTS, two rows of four pockets, label bands MARCH and APRIL ... one single calm sand-cream linen\" and a client count per row in state"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "CLIENTS, MARCH, APRIL each with surface, position, \"nothing covers any letter\"; 1 word each"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"no screens, frames, books or signs; no lettering besides the listed strings\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "earlier conflict fixed: \"empty corner, no full-size people (the small clay clients are required)\"; size 80% matches region box x 0.1 to 0.9"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "continuity previous_shot null, carry_over []"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode; notes: \"1152x2048\" for 9:16 text-to-image, no image attached"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "\"no full-size people\" vs \"small clay clients\" distinct; must_read_in_1s: \"A calm cream CLIENTS organizer with clients in every month\" is one moment"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-02 structure line present (two rows of four pockets); FL-05 ruled; no hands near text (FL-01 n/a)"
+  }
+ ],
+ "fixes": []
+}

@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CH-FRIEND",
+ "version": 2,
+ "prompt_sha256": "152fd6028da3c8faeec162cb50c500e2cc65e7323b20ec4db0ec529d1071a605",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "seated panel: head-on, lens eyeline, raised brow, curious smile; standing views kept; hands in pockets; no text"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "\"image 1 is this character sheet's previous version (edit source): keep the two standing full-body views exactly as they are ... change only the right-hand seated panel\"; one reference, matches the v1 image (standing left, standing three-quarter, large seated bust right)"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"in both full-body views both hands are inside her jacket pockets ... the seated view is a bust cut at mid-chest, so her hands are not shown\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"Action: none, a still sheet.\" Seated contact is not stated (see P12)"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "no story props; glasses and clothes named"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"Text: no text anywhere: no labels or names.\""
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "plain backdrop only; no screen to rule"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "\"the top of a plain ivory clay chair back shows behind her shoulders\" contradicts \"Props: none besides her glasses and clothes\" and \"Setting: ... no furniture\""
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "standing views carried over from the open v1 image: \"keep the two standing full-body views exactly as they are\"; the v1 shoulder/right-edge defect is addressed (\"at least 4% inside the right edge\")"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "edit pass per standards edit_pass: one reference, role edit_source = the asset's own v1 (job 5e9f6fe2...), openai/gpt-image-2/edit 1024x1024 medium; \"square 1:1\""
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "same cause as P8: \"no furniture\" and \"chair back\" read two ways; a chair back in \"ivory\" on an ivory paper backdrop can vanish, so she still reads as floating"
+  },
+  {
+   "id": "P12",
+   "result": "FAIL",
+   "evidence": "FL-11 floating person without its prevention: the v1 defect was a torso that \"reads as a torso sitting on the floor\"; the prompt gives no contact line (back against the chair, weight on a seat)"
+  }
+ ],
+ "corrected_prompt": "Format: Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. Stop-motion clay puppet detail: tiny real craft materials on the clay, thread-wrapped hair, real fabric and felt, real stitching. Palette: warm ivory and marble, charcoal accents. A character reference sheet, square 1:1, on a plain soft warm-ivory paper backdrop with even studio light. This is an edit of the attached sheet.\n\nReference images: image 1 is this character sheet's previous version (edit source): keep the two standing full-body views exactly as they are, pixel for pixel in design, pose, clothes and backdrop; change only the right-hand seated panel.\n\nSubject: the friend, unchanged in the two standing views. Right panel only, redrawn: the same woman seated, head-and-shoulders, head turned straight to the camera, eyes looking directly into the lens, right brow raised higher than the left, a small curious closed-mouth smile; the top of a plain ivory clay chair back, a shade darker than the backdrop with a soft contact shadow, shows behind her shoulders and her back rests against it, so she reads as seated, and the chair back stays inside the 4% margin too; her shoulders end in a soft clay cut line at least 8% above the bottom edge and at least 4% inside the right edge.\n\nHands: in both full-body views both hands are inside her jacket pockets, so no fingers show; the seated view is a bust cut at mid-chest, so her hands are not shown.\n\nAction: none, a still sheet.\n\nProps: none besides her glasses and clothes and the one chair back behind the seated panel.\n\nText: no text anywhere: no labels or names.\n\nSetting: the plain warm-ivory backdrop only, soft contact shadows; no laptop, no screen border, no furniture other than that one chair back.\n\nCamera: straight-on at eye level, every view fully inside the frame with a 4% margin, square 1:1.\n\nContinuity: this is the locked design of the friend for every later shot; she must read as clearly different from Maya (no olive cardigan, no bob).\n\nNegatives: no olive cardigan, no bob haircut; no other characters; no visible fingers; no photoreal skin, no glossy CGI plastic; no logos. Everything in frame is real modeling clay, felt and fabric, photographed: visible fingerprints and tool marks, real cast shadows, soft studio lighting.\n"
+}

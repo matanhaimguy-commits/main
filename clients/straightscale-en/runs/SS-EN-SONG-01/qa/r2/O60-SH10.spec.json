@@ -1,0 +1,71 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH10",
+ "spec_sha256": "e3feeea926ab855634f8ff8865d3608b16bfc4082f0c75703584e686d8b208f9",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s: \"Two different patches held side by side with a gap and no join.\"; 2 subject(s), 1 prop(s), 2 text string(s), action and setting all written out."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: Maya left: left hand pinching the top-left corner of the EMAIL scrap; right: right hand pinching the top-right corner of the ADS scrap; contact: thumb and forefinger on each top corner"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: The two scraps hang side by side and sway 1 cm; the camera dollies back slowly from this close frame (the clip's one motion). CLIP-D pair: one dolly-out, SH10 start and SH11 end frame, one render."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story-critical props with content: PR-SCRAPS (content: Four ragged-edged fabric scraps, each about one po...)"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"EMAIL\" on stitched label on the gingham scrap; \"ADS\" on stitched label on the polka-dot scrap"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"background soft, plain, no readable text\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No two lines contradict (checked pose vs hands, state vs content, regions vs size_in_frame, and refs against the look-bible sheet specs)."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot: O60-SH09; carry_over: PR-SCRAPS EMAIL and ADS; CH-MAYA hands"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No word a model could read two ways; positions are given in % of frame height and contacts name the part touching."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 text over hands, FL-03 action, FL-04 empty props, FL-05 empty frames and screens, FL-06 anatomy, FL-11 clones and floating: each prevented in the spec (text occlusion, contact points, prop content, background rule, instances: 1)."
+  }
+ ],
+ "fixes": []
+}

@@ -1,0 +1,74 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH20",
+ "spec_sha256": "6946d9bac4704cb53cdf9b060b957c6f075120656c5b236c3d605adbf661e466",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s: \"She tugs the cloth band hard and it stays attached.\"; 2 subject(s), 1 prop(s), 1 text string(s), action and setting all written out."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: Maya left: left hand out of frame; right: right hand gripping the band end and pulling toward screen right, away from the organizer; contact: right fingers around the band, four stitched seams between pieces visible"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: Maya's right hand pulls the band 3 cm toward screen right, away from the organizer; the band goes taut, the stitched seams between the pieces stay closed and the four small clients tilt once and settle. CLIP-H pair: fingers close on the band end, then the same hand tugs it: one continuous action."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story-critical props with content: PR-ORGANIZER (content: Felt wall organizer headed CLIENTS, ivory felt wit...)"
+  },
+  {
+   "id": "P6",
+   "result": "FAIL",
+   "evidence": "The MARCH row and its label band are in the punched-in frame, but text_in_image lists only APRIL; must_not forbids \"lettering ... other than the listed strings\"."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain wall\""
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "PR-ORGANIZER content says \"MARCH pockets: (above the frame)\", but the APRIL row is placed at 30 to 52% from the top; the MARCH row sits directly above it, so about 8 to 28% of the frame shows MARCH pockets (and a punch-in of SH19 keeps that row)."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot: O60-SH19; carry_over: PR-ORGANIZER payoff state"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No word a model could read two ways; positions are given in % of frame height and contacts name the part touching."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 text over hands, FL-03 action, FL-04 empty props, FL-05 empty frames and screens, FL-06 anatomy, FL-11 clones and floating: each prevented in the spec (text occlusion, contact points, prop content, background rule, instances: 1)."
+  }
+ ],
+ "fixes": [
+  "PR-ORGANIZER content: replace \"MARCH pockets: (above the frame)\" with \"MARCH pockets: each of the four holds three small colourful clay clients standing shoulder to shoulder (twelve in all), visible above the APRIL row at 8 to 28% from the top; the CLIENTS header is above the frame\".",
+  "text_in_image: add {string: MARCH, surface: row label band at the left end of the upper row, position: left end of the MARCH row, about 14% from the top, case: upper, must_be_exact: true, occlusion: the pulling hand and band stay clear of the label}; add region march_label kind text [0.06, 0.08, 0.24, 0.2]."
+ ]
+}

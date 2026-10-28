@@ -17,33 +17,42 @@ offer" (Research, Offer, Organic, Funnel, Paid ads). Docs: `docs/hook-stacks.md`
 - Facts: none on screen or in the lyrics (proof files not collected); Maya is a composite in a stylized world.
 
 ## Status
-Stage: song made (Atlas Suno, 2 masters picked); waiting on the owner's listen (G-HUMAN-SONG) before any picture
+Stage: step 7 look bible in progress (see the production handoff); song masters approved (G-HUMAN-SONG PASS)
 Next: owner decisions in docs/script.md "Writer's recommendation" (O30 release, O60 fixes + one more gate, CTA follow
 to EN 02, the payoff picture); then lyrics, lyric gate, style prompt; the song route; G-HUMAN-SONG before any picture.
 Open: song route (ElevenLabs Music billing failed; Atlas Suno needs the owner to name the model in the gate; or the
 owner makes it in Suno by hand, the song skill's default) · the visual hook is re-graded on the claymation concept
 frame after G-HUMAN-SONG · hook variants back to H6 before any trial reel.
 
-## Production handoff (28 Oct, EN 03 production session, stopped by the main session)
-State: step 4 done (G-HUMAN-SONG PASS, masters = take 2 = output index 1 of predictions `8f0741be...` O60 and
-`298342ac...` O30, URLs registered on SONG-O60@v1 / SONG-O30@v1). Step 5 blocked: lyric match done on Atlas
-`xai/stt-v1` (O60 0.951, O30 0.910; run `audio/timeline.md` has the line table O60-L01..L18, O30-L01..L11 and the
-words to caption in bold); G-TIMELINE recorded FAIL for the missing word timings. Steps 6 and 7 not started (no specs,
-no prompts, no stills). Atlas spend this session: 3 STT calls, under $0.01; balance $6.71.
-Next session: download the masters, faster-whisper word timestamps aligned to the FINAL lyrics, librosa BPM, vocal
-stem, line times and slices; re-record G-TIMELINE, then step 6 (visual-planner, spec-check, one reviewer per artifact),
-step 7 sheet prompts (stop-motion puppet lane of the claymation skill suits the fabric-scrap world), stills on
-gpt-image-2 within $1.50, then `pipeline.py budget` for the clips.
+## Production handoff (28 Oct, EN 03 production session 2)
+Run: `clients/straightscale-en/runs/SS-EN-SONG-01` (moved from `clients/straightscale/` on the main session's call, so
+G-BUDGET counts the English $100 cap). Slug `straightscale-en` from now on.
 
-Gaps found:
-- Network: `atlas-media.oss-us-west-1.aliyuncs.com` (every Atlas output) was refused here; the owner has since allowed
-  it for new sessions.
-- Atlas CLI 0.1.38 returns only `text` for `xai/stt-v1` (no word or segment times, diarize on or off), so Atlas can't
-  give the timeline; word timings need the file locally.
-- The step 4 take-check word timings were never saved; save `qa/` timing JSON in the run next time.
-- Gate: `pipeline.py client_gate_ok()` lets any library run's G-HUMAN-LOOK (SS-LIB-STYLE, the carousel look) pass the
-  look check for these claymation sheets; the claymation look needs its own G-HUMAN-LOOK record (main session agreed).
-- Models: the claymation skill prefers Nano Banana 2 for clay stills; on Atlas only gpt-image-2 is named.
+Done:
+- Step 5 (G-TIMELINE PASS): masters downloaded; `growth-engine/tools/song_timeline.py` places the final lyric words by
+  forced alignment (pocketsphinx; faster-whisper's model host huggingface.co is blocked here) and makes the librosa beat
+  grid, line times and 5 to 15 s slices: `audio/words.json`, `audio/timeline.json`, `audio/timeline.md`. O60 97 BPM,
+  voice in 0.92 s, 18 lines, 6 slices; O30 85 BPM, voice in 0.36 s, 11 lines, 3 slices. No vocal stem (Demucs host blocked).
+- Step 6: 24 O60 Shot Specs (O30 reuses them, `qa/o30-reuse.md`); 7 silent H3-KEY clips, 37 s; 12 stills; end card in code.
+  G-SPEC after 2 rounds: 16 PASS; 8 FAIL with fixes in `qa/r2/O60-SH*.spec.json` (SH01, 03, 04, 05, 06, 07, 15, 20).
+  SH03/SH04 vs SET-OFFICE: the MARCH tag must match (sheet says orange, left of the laptop; shots say ivory): pick one.
+- Step 7 look bible: 7 sheet specs (`shots/SHEET-*`). Generated on `openai/gpt-image-2` medium: CH-MAYA v1 (G-VIS-SHEET
+  FAIL minor: needle hidden, bottom row at the edge), CH-FRIEND v1 (FAIL major: seated panel), PR-ORGANIZER v1 (FAIL major:
+  3x2 grid) and v2 (grid, counts and band fixed; G-VIS-SHEET FAIL on 4 minors: April pocket shape differs between states, band overhang, copies 46% wide; waivable or one more retake, `qa/PR-ORGANIZER.v2.review.json`), PR-SCRAPS v1 (PASS), PR-CLOTH v1 (FAIL minor: 8 bubbles,
+  printed letters). Look report for the main session's G-HUMAN-LOOK: `qa/look-report.md`.
+- Spend this session: 6 images, about $0.35 (live balance falls faster: other sessions share the account).
+
+Next:
+1. SET-OFFICE and SET-FRIEND: G-SPEC PASS; prompts failed round 3 (the main session's limit). Apply the corrected
+   prompts in `qa/r3/SET-*.v1.prompt.json`, then a fresh review and generate (about $0.10).
+2. CH-FRIEND v2 (edit pass on v1): prompt failed; add the chair back to `SHEET-CH-FRIEND` (spec says no furniture), take the
+   corrected prompt in `qa/r3/CH-FRIEND.v2.prompt.json`, re-review spec and prompt, generate.
+3. CH-MAYA and PR-CLOTH minors: the owner may waive them at G-HUMAN-LOOK, or retake.
+4. The 8 failing O60 specs: apply their fixes, fresh G-SPEC, close step 6 (G-PLAN).
+5. Step 8 (keyframes, hook frame H-01 with MARCH above APRIL), then step 9: `pipeline.py budget straightscale-en
+   SS-EN-SONG-01 --planned 2.78 --balance <live>` (plan in `qa/clip-budget.md`: $2.78, $3.47 with buffer).
+- Studio: storage uploads are blocked here (lovable.cloud host); the run was pushed with Atlas URLs for the 6 sheets (studio/1). Docs are not on the page.
+- Ledger media ids were corrected from Atlas operation ids to prediction ids (28 Oct); CH-FRIEND@v2's edit_source is now 186285be...
 
 ## Decisions (newest first)
 | Date | Decision | Options considered | Why | Who |

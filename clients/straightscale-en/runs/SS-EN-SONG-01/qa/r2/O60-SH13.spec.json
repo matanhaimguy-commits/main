@@ -1,0 +1,71 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH13",
+ "spec_sha256": "b7673de1bcf83b6ce9666e0dae138b58f91dd64ee4fb57f22ca2a43a7510e10f",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s: \"She drops the loud ADS patch into a bin.\"; 1 subject(s), 2 prop(s), 1 text string(s), action and setting all written out."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: Maya left: left hand resting on the bin rim; right: right hand open just above the bin mouth, the ADS scrap falling from it; contact: left palm on the rim, right fingers opened, scrap released"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: Frozen: the ADS scrap has just left Maya's right fingers and is 5 cm above the bin mouth; her left palm rests on the rim."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story-critical props with content: PR-BIN (content: Small round charcoal clay waste bin with a thumb-p...), PR-SCRAPS (content: Four ragged-edged fabric scraps, each about one po...)"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"ADS\" on stitched label on the falling pink polka-dot scrap"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain wall\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No two lines contradict (checked pose vs hands, state vs content, regions vs size_in_frame, and refs against the look-bible sheet specs)."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot: O60-SH12; carry_over: PR-SCRAPS; CH-MAYA"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No word a model could read two ways; positions are given in % of frame height and contacts name the part touching."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 text over hands, FL-03 action, FL-04 empty props, FL-05 empty frames and screens, FL-06 anatomy, FL-11 clones and floating: each prevented in the spec (text occlusion, contact points, prop content, background rule, instances: 1)."
+  }
+ ],
+ "fixes": []
+}

@@ -1,6 +1,6 @@
 {
  "title": "EN 03 \"Maya's quilt\" (song, claymation)",
- "summary": "Step 5 done (G-TIMELINE PASS): word timings by forced alignment, beat grid, line times and slices for O60 and O30. Next: step 6 Shot Specs, step 7 claymation look bible.",
+ "summary": "Steps 5 and 6 done (G-TIMELINE PASS; 16/24 Shot Specs G-SPEC PASS). Step 7: 6 claymation sheets made; look report for G-HUMAN-LOOK in qa/look-report.md. Set sheets and two retakes wait for the next session.",
  "files": [
   {
    "step": 4,
@@ -32,6 +32,72 @@
    "label": "Timeline data (BPM, beats, lines, slices)",
    "path": "audio/timeline.json",
    "kind": "doc"
+  },
+  {
+   "step": 6,
+   "label": "Shot logic (24 O60 shots)",
+   "path": "qa/shot-logic.md",
+   "kind": "doc"
+  },
+  {
+   "step": 6,
+   "label": "O30 reuse map",
+   "path": "qa/o30-reuse.md",
+   "kind": "doc"
+  },
+  {
+   "step": 7,
+   "label": "Look report (for G-HUMAN-LOOK)",
+   "path": "qa/look-report.md",
+   "kind": "doc"
+  },
+  {
+   "step": 9,
+   "label": "Clip budget",
+   "path": "qa/clip-budget.md",
+   "kind": "doc"
+  },
+  {
+   "step": 7,
+   "label": "CH-MAYA sheet v1",
+   "path": "assets/sheets/CH-MAYA.v1.png",
+   "kind": "image",
+   "key": "CH-MAYA@v1"
+  },
+  {
+   "step": 7,
+   "label": "CH-FRIEND sheet v1",
+   "path": "assets/sheets/CH-FRIEND.v1.png",
+   "kind": "image",
+   "key": "CH-FRIEND@v1"
+  },
+  {
+   "step": 7,
+   "label": "PR-ORGANIZER sheet v1",
+   "path": "assets/sheets/PR-ORGANIZER.v1.png",
+   "kind": "image",
+   "key": "PR-ORGANIZER@v1"
+  },
+  {
+   "step": 7,
+   "label": "PR-SCRAPS sheet v1",
+   "path": "assets/sheets/PR-SCRAPS.v1.png",
+   "kind": "image",
+   "key": "PR-SCRAPS@v1"
+  },
+  {
+   "step": 7,
+   "label": "PR-CLOTH sheet v1",
+   "path": "assets/sheets/PR-CLOTH.v1.png",
+   "kind": "image",
+   "key": "PR-CLOTH@v1"
+  },
+  {
+   "step": 7,
+   "label": "PR-ORGANIZER sheet v2",
+   "path": "assets/sheets/PR-ORGANIZER.v2.png",
+   "kind": "image",
+   "key": "PR-ORGANIZER@v2"
   }
  ]
 }

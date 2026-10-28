@@ -1,0 +1,71 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH02",
+ "spec_sha256": "e7db7bef59347c7deda296798b363788c0df0361e6bef965fe7b7801d042f02a",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s: \"Full March pockets, empty April pockets, a woman at a desk below.\"; 2 subject(s), 1 prop(s), 3 text string(s), action and setting all written out."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible; seated, back to camera, head already raised toward the APRIL row in the end frame"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: The camera finishes its pull-back and comes to rest on the wide frame. Maya sits still, head already raised toward the APRIL row in the end frame (no head turn). CLIP-A pair: one pull-back from SH01 start to SH02 end, no head turn: one move."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story-critical props with content: PR-ORGANIZER (content: Felt wall organizer headed CLIENTS, ivory felt wit...)"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"CLIENTS\" on sewn header band across the top of the organizer; \"MARCH\" on row label band at the left end of the upper row; \"APRIL\" on row label band at the left end of the lower row"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"marble wall, charcoal desk, nothing else on the wall\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No two lines contradict (checked pose vs hands, state vs content, regions vs size_in_frame, and refs against the look-bible sheet specs)."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot: O60-SH01; carry_over: PR-ORGANIZER MARCH full APRIL empty; CH-MAYA olive cardigan, back view; warm light from the left"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No word a model could read two ways; positions are given in % of frame height and contacts name the part touching."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 text over hands, FL-03 action, FL-04 empty props, FL-05 empty frames and screens, FL-06 anatomy, FL-11 clones and floating: each prevented in the spec (text occlusion, contact points, prop content, background rule, instances: 1)."
+  }
+ ],
+ "fixes": []
+}

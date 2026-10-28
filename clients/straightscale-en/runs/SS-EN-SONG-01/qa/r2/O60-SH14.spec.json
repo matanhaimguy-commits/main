@@ -1,0 +1,71 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH14",
+ "spec_sha256": "54438e2abb7f2998bd98c459db8b7da7108fe87a3af8f7b958d0666b2e64a36a",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s: \"One calm plain cloth unrolls across the desk.\"; 1 subject(s), 1 prop(s), 0 text string(s), action and setting all written out."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible; rolled bolt at the left, free end spreading right"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: The rolled bolt of cloth rolls 40 cm to the right along the desk and flattens, unrolling its free end; the camera is locked."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story-critical props with content: PR-CLOTH (content: One calm sand-cream linen cloth, a single colour, ...)"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "none (no lettering expected); no speech bubbles anywhere in the frame (they appear only on..."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain wall behind, desk charcoal\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No two lines contradict (checked pose vs hands, state vs content, regions vs size_in_frame, and refs against the look-bible sheet specs)."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot: O60-SH13; carry_over: PR-CLOTH one calm colour"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No word a model could read two ways; positions are given in % of frame height and contacts name the part touching."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 text over hands, FL-03 action, FL-04 empty props, FL-05 empty frames and screens, FL-06 anatomy, FL-11 clones and floating: each prevented in the spec (text occlusion, contact points, prop content, background rule, instances: 1)."
+  }
+ ],
+ "fixes": []
+}

@@ -1,0 +1,74 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH03",
+ "spec_sha256": "065fe0a3312dbdfb22c48e6a12f8c1384d68c4e11cff7c3a410d33bdd3856a43",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s: \"Maya looks up at empty April while a big MARCH tag sits on a pile of papers.\"; 2 subject(s), 2 prop(s), 4 text string(s), action and setting all written out."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible; seated at the desk, shoulders slumped, hands out of frame below the desk edge"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: Maya's head tilts up from the screen to the empty APRIL row; the pose is frozen mid-tilt in the still."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story-critical props with content: PR-ORGANIZER (content: Felt wall organizer headed CLIENTS, ivory felt wit...), PR-MARCHTAG (content: A felt tag the size of a hand, ivory with charcoal...)"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"CLIENTS\" on sewn header band across the top of the organizer; \"MARCH\" on row label band at the left end of the upper row; \"APRIL\" on row label band at the left end of the lower row; \"MARCH\" on stitched felt desk tag"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain marble wall; desk holds only the laptop, the paper pile with the MARCH tag, a mug\""
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "PR-MARCHTAG: \"ivory with charcoal stitched letters MARCH\", \"right of centre\", ref \"SET-OFFICE@v1 panel: desk, MARCH tag\". SHEET-SET-OFFICE.spec.yaml (PR-DESK and the MARCH string) says \"a big orange felt tag reading MARCH\", \"on the desk, left of the laptop\", and its only close panels are laptop, bin and window: no \"desk, MARCH tag\" panel exists."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot: O60-SH02; carry_over: CH-MAYA olive cardigan; PR-ORGANIZER state MARCH full APRIL empty"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No word a model could read two ways; positions are given in % of frame height and contacts name the part touching."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 text over hands, FL-03 action, FL-04 empty props, FL-05 empty frames and screens, FL-06 anatomy, FL-11 clones and floating: each prevented in the spec (text occlusion, contact points, prop content, background rule, instances: 1)."
+  }
+ ],
+ "fixes": [
+  "Make the tag agree with the sheet the generator will be given. Spec-side route (no sheet re-review): PR-MARCHTAG ref -> \"SET-OFFICE@v1 wide view (desk, MARCH tag; no tag close panel exists)\"; content -> \"A big orange felt tag the size of a hand with charcoal stitched letters MARCH, propped against a tall pile of loose clay papers on the desk\"; text MARCH (desk tag) position -> \"on the desk, left of the laptop\"; move regions march_tag to match; and drop the tag from the style line's \"only loud saturated colours\" claim (the orange tag is the one exception).",
+  "Sheet-side route (alternative, needs SHEET-SET-OFFICE re-review): change the sheet's PR-DESK and MARCH entries to an ivory tag with charcoal letters; then only the ref line above changes here. Either route, SH03 and SH04 must state the same colour and side as the sheet."
+ ]
+}

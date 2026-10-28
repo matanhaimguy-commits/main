@@ -1,0 +1,74 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH06",
+ "spec_sha256": "bacca8a12900c428d208ba0ecb64fe11cafbcdedbd3f45a3af30066257b00437",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "FAIL",
+   "evidence": "must_read_in_1s: \"Four loud labelled patches now cover every April pocket.\" and story_purpose \"all four April pockets are now covered\", but framing says \"close on pockets 3 and 4 ... the EMAIL and LINKEDIN labels are outside the frame\": only two patches can be seen."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: Maya left: left hand holding the left edge of the ADS scrap flat, palm on the felt left of the ADS label; right: right hand pulling the last stitch tight at the right edge of the ADS scrap; contact: left palm on the felt, right fi..."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: Maya's right hand pulls the final stitch tight on the ADS scrap; the other scraps are already sewn."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story-critical props with content: PR-SCRAPS (content: Four ragged-edged fabric scraps, each about one po...)"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"COACH\" on stitched label on the leopard-spot scrap; \"ADS\" on stitched label on the pink polka-dot scrap"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain wall\""
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "The April row sits at 36 to 54% from the top (scraps_row [0.08,0.36,0.92,0.54]) and no organizer prop or setting line says what fills the top 36% (the MARCH row sits directly above the April pockets); a generator invents it."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot: O60-SH05; carry_over: PR-SCRAPS four loud patterns"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No word a model could read two ways; positions are given in % of frame height and contacts name the part touching."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 text over hands, FL-03 action, FL-04 empty props, FL-05 empty frames and screens, FL-06 anatomy, FL-11 clones and floating: each prevented in the spec (text occlusion, contact points, prop content, background rule, instances: 1)."
+  }
+ ],
+ "fixes": [
+  "must_read_in_1s -> \"COACH and ADS patches are sewn over the next two April pockets, so the row is nearly covered.\" story_purpose -> \"Failed fixes: the coach and the ads are sewn on too (pockets 3 and 4); with SH05 all four April pockets are covered.\" (keep the four-patch reading for the SH05+SH06 cut, not for this frame).",
+  "Add a props entry {id: PR-ORGANIZER, story_critical: true, ref: PR-ORGANIZER@v1, state: right half in frame: APRIL pockets 3 and 4 covered by scraps, content: \"Felt wall organizer, ivory felt with charcoal stitching; above the scraps (0 to 36% from the top) the right two MARCH pockets, each holding three small colourful clay clients shoulder to shoulder; no row label band and no CLIENTS header in frame\", size_in_frame: right half of the organizer fills the frame width}."
+ ]
+}

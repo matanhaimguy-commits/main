@@ -1,0 +1,71 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "SHEET-SET-OFFICE",
+ "spec_sha256": "3c44a386c7f0390a802f1c8f002098d0c3c9272905bd4583b95f86496210b044",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "every line checkable: story_purpose names organizer, desk, window, laptop front, bin, window view; 4 text strings each with surface and position"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attachments yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: [] and static: true (still sheet, no action)"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-ORGANIZER content \"ivory felt with charcoal stitching ... two rows of four open-topped pockets\" and state A \"12 in all\"; PR-LAPTOP \"plain softly glowing pale-blue blank screen with no icons\""
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "text_in_image lists CLIENTS, MARCH, APRIL, MARCH (tag), each with surface, position and \"nothing covers any letter\"; all 1 word"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"the laptop screen in the close panel is blank pale-blue glow with no icons or words; no posters, frames, book titles or signs\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "earlier \"no people\" conflict fixed: \"no full-size people in the room, no Maya; the 12 small clay clients and six tiny street figures are required\""
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "continuity previous_shot null, carry_over [] (first sheet of its kind)"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode; notes: \"1152x2048\" for 9:16 text-to-image, no image attached"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "\"no full-size people\" and \"small clay clients\" are now separate terms; regions boxed for organizer, labels, desk, tag, window and the three close panels"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-02 structure is stated (\"two rows of four open-topped pockets\"); FL-05 ruled (no frames, screens blank by rule); FL-04 props filled. Note for the prompt: the exact FOUR by TWO grid wording after the PR-ORGANIZER v1 miss is a prompt-level prevention"
+  }
+ ],
+ "fixes": []
+}

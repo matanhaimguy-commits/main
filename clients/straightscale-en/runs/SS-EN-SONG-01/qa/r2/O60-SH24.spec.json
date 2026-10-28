@@ -1,0 +1,71 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH24",
+ "spec_sha256": "5a86e0fc60e889c5e259a715b48ffadd77c52364c428594344c1cc522e92aa29",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s: \"Follow for part two, from @straightscale_.\"; 1 subject(s), 1 prop(s), 2 text string(s), action and setting all written out."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible; flat, evenly lit"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: none (static: true, code card)"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "no story-critical prop; PR-CLOTH backdrop has content"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"Follow for part two\" on code-rendered card line (never made by an image or vide...; \"@straightscale_\" on code-rendered handle under the line; charcoal on the sa..."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"cloth only, no objects\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No two lines contradict (checked pose vs hands, state vs content, regions vs size_in_frame, and refs against the look-bible sheet specs)."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot: O60-SH23; carry_over: PR-CLOTH colour"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No word a model could read two ways; positions are given in % of frame height and contacts name the part touching."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-13: must_not \"no logo drawn by the model (real logo file only)\"; text is code-rendered, so FL-01/FL-10 do not apply."
+  }
+ ],
+ "fixes": []
+}

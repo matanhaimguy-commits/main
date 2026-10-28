@@ -1,0 +1,71 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH19",
+ "spec_sha256": "4a9555f78beab70775f6c68478b4548bc84a6613ef3860a3eb963b133d98d080",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s: \"Maya beside the organizer: full March, a few clients in April, a calm band along it.\"; 2 subject(s), 1 prop(s), 3 text string(s), action and setting all written out."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: Maya left: left hand relaxed at her side; right: right hand open, fingertips touching the free end of the band, thumb under it; contact: right fingertips on the free end of the band, thumb under it"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: Maya's right fingers close on the free end of the cloth band; nothing on the organizer moves yet. CLIP-H pair: fingers close on the band end, then the same hand tugs it: one continuous action."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story-critical props with content: PR-ORGANIZER (content: Felt wall organizer headed CLIENTS, ivory felt wit...)"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"CLIENTS\" on sewn header band across the top of the organizer; \"MARCH\" on row label band at the left end of the upper row; \"APRIL\" on row label band at the left end of the lower row"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain wall; no loose scraps in sight\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No two lines contradict (checked pose vs hands, state vs content, regions vs size_in_frame, and refs against the look-bible sheet specs)."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot: O60-SH18; carry_over: PR-ORGANIZER payoff state; CH-MAYA olive cardigan"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No word a model could read two ways; positions are given in % of frame height and contacts name the part touching."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 text over hands, FL-03 action, FL-04 empty props, FL-05 empty frames and screens, FL-06 anatomy, FL-11 clones and floating: each prevented in the spec (text occlusion, contact points, prop content, background rule, instances: 1)."
+  }
+ ],
+ "fixes": []
+}

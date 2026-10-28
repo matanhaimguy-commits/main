@@ -1,0 +1,225 @@
+{
+ "gate": "G-VIS-SHEET",
+ "asset_id": "PR-ORGANIZER",
+ "version": 2,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "hero": true,
+ "files_opened": [
+  "full.png",
+  "tile_r1c1.png",
+  "tile_r1c2.png",
+  "tile_r1c3.png",
+  "tile_r2c1.png",
+  "tile_r2c2.png",
+  "tile_r2c3.png",
+  "tile_r3c1.png",
+  "tile_r3c2.png",
+  "tile_r3c3.png",
+  "region_SHEET-PR-ORGANIZER_state_a.png",
+  "region_SHEET-PR-ORGANIZER_state_b.png",
+  "region_SHEET-PR-ORGANIZER_clients_a.png",
+  "region_SHEET-PR-ORGANIZER_clients_b.png",
+  "region_SHEET-PR-ORGANIZER_labels_a.png",
+  "region_SHEET-PR-ORGANIZER_labels_b.png",
+  "region_SHEET-PR-ORGANIZER_crop_march.png",
+  "region_SHEET-PR-ORGANIZER_crop_april.png",
+  "region_SHEET-PR-ORGANIZER_crop_pocket.png",
+  "thumb_200.png"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Reads in one second: the same CLIENTS organizer twice, April empty (dark pockets) left, one client per April pocket right."
+  },
+  {
+   "id": "V2",
+   "result": "PASS",
+   "severity": "",
+   "region": "state_a/state_b",
+   "evidence": "Grid is now exactly 4 columns x 2 rows per copy, APRIL under MARCH, columns line up between rows. State A: 4 March pockets x 3 clients = 12, 4 April pockets empty with dark brown felt interiors. State B: same 12 in March, exactly 1 client in each of 4 April pockets, fewer than March."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Spec content met: header CLIENTS, label bands MARCH upper, APRIL lower at left, thick bands, charcoal stitching, ivory felt, bottom strip of MARCH label, APRIL label, one MARCH pocket with 3 clients."
+  },
+  {
+   "id": "V4",
+   "result": "PASS",
+   "severity": "",
+   "region": "clients/pocket",
+   "evidence": "Clay figures have normal heads, two eyes, ears, nose, mouth, one torso each; no merged or extra bodies in region_crop_pocket or tile_r2c3."
+  },
+  {
+   "id": "V5",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No hands in frame."
+  },
+  {
+   "id": "V6",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No hands, no fingers."
+  },
+  {
+   "id": "V7",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "Static prop sheet, no action."
+  },
+  {
+   "id": "V8",
+   "result": "PASS",
+   "severity": "",
+   "region": "state_a",
+   "evidence": "Static hanging organizer; cord to one pin at top centre, plausible. Clients stand behind the pocket front, plausible."
+  },
+  {
+   "id": "V9",
+   "result": "PASS",
+   "severity": "",
+   "region": "header/labels/crops",
+   "evidence": "CLIENTS (letter by letter C-L-I-E-N-T-S) correct on both copies; MARCH (M-A-R-C-H) and APRIL (A-P-R-I-L) correct on both copies and both close-ups. No diacritics. Nothing covers a letter."
+  },
+  {
+   "id": "V10",
+   "result": "PASS",
+   "severity": "",
+   "region": "labels_a/labels_b",
+   "evidence": "Label letters are charcoal felt-like appliques, large; readable at 200px thumb (CLIENTS yes, MARCH/APRIL just legible)."
+  },
+  {
+   "id": "V11",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No extra lettering anywhere; band in state B has no words."
+  },
+  {
+   "id": "V12",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "state_a April row vs state_b April row, tile_r2c1 vs tile_r2c3",
+   "evidence": "April pockets differ between copies: state A April pockets are tall straight cylinders with round dark openings and no slanted front, while state B April pockets (and all March pockets, both copies) are shallow slanted-front pockets. The organizer is meant to be one object; SH01/SH02 (state A) and SH19/SH20 (state B) would show different pocket shapes."
+  },
+  {
+   "id": "V13",
+   "result": "PASS",
+   "severity": "",
+   "region": "state_b band",
+   "evidence": "Sand-cream band is fine woven linen-like texture, plain, no words, no scraps on either copy. Band sits on the row boundary (top edge of APRIL row) as specified."
+  },
+  {
+   "id": "V14",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "state_b band, tile_r2c3 and tile_r2c2",
+   "evidence": "The band overhangs the organizer: it runs about 5 px past the left edge and about 6 px past the right edge of the felt (full.png x 523-1004 vs organizer 528-998), like a strap laid over, and it hides the horizontal stitch line. Reads slightly pasted on."
+  },
+  {
+   "id": "V15",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "The organizer matches itself across copies: same header, labels, 12 March clients in identical order and colours, same felt. Close-up pocket matches the first March pocket of both copies (navy/dark hair, green/brown hair, grey/blond with red tie)."
+  },
+  {
+   "id": "V16",
+   "result": "PASS",
+   "severity": "",
+   "region": "vs sheets",
+   "evidence": "Same ivory paper backdrop, charcoal and sand-cream palette, felt craft on clay as CH-MAYA, PR-SCRAPS, PR-CLOTH. Sand-cream band matches the PR-CLOTH family colour. Client figures stay in the same clay style."
+  },
+  {
+   "id": "V17",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "full",
+   "evidence": "March clients repeat identical faces/poses on both copies (correct), but inside one copy several clients share the same face template; blazers are muted (navy, grey, olive, rust, mustard, purple) where the spec says colourful and the scraps are supposed to be the only loud colours, so muted is defensible. Logged as minor."
+  },
+  {
+   "id": "V18",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "full layout",
+   "evidence": "Copies are about 46% wide each (x 22-492 and 528-998), spec 43%; gap about 3.5% not 6%; left copy edge at 2.1% and right copy edge at 97.5% and the bottom strip at 2%/98%, inside the 4% margin the spec asks for. Nothing is cropped."
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "1:1, straight-on, eye level, top region copies, bottom strip three close-ups in the right order."
+  },
+  {
+   "id": "V20",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200",
+   "evidence": "At 200px both copies and the empty/one-per-pocket difference are still readable; CLIENTS legible."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Claymation puppet-craft look: felt with real fibre texture, stitched, clay figures with soft modelling. Felt reads a little photographic, which the look bible accepts as puppet craft."
+  },
+  {
+   "id": "V22",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Clean, no blur, warping, melted text or artifacts at 2x tiles."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Even soft light, plain backdrop, soft contact shadows; no extra objects."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No logos, platform names or icons; no brand words."
+  },
+  {
+   "id": "V25",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No before/after side-by-side claim in the asset itself (two states of a prop sheet, internal reference); shots must not present it as a split screen."
+  },
+  {
+   "id": "V26",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Nothing shames or says 'your [condition]'; no AI disclosure issue on a prop sheet."
+  }
+ ],
+ "summary": "The two v1 failures are fixed: exact 4x2 grid per copy with APRIL under MARCH, 12 clients in March, state A April empty with dark interiors, state B one client per April pocket, linen band on the April row top edge. Hero zero tolerance still fails on 4 minors: April pocket shape differs between state A (tall cylinders) and state B/March (shallow slanted), band overhangs the felt, layout sizes/margins off spec, muted blazers. No critical or major. Practically usable if the owner waives the minors, but SH01/SH02 will lock a different April pocket than SH19/SH20.",
+ "fix": {
+  "route": "regenerate",
+  "prompt_changes": [
+   "Say once: every pocket on both copies, all four columns and both rows, is the same shallow slanted-front felt pocket with a curved top edge; state A April pockets are empty with the dark felt lining visible inside the opening, not taller or cylindrical.",
+   "State B: the linen band lies exactly within the organizer's width, on the row boundary, not past its left or right edge, flat sewn with a stitch line along it.",
+   "Two copies each 43% of frame width, 6% gap, 4% margin on all sides including the bottom close-up strip.",
+   "Keep: 4x2 grid, 12 March clients with the same figures, one client per April pocket in state B, label text unchanged."
+  ]
+ }
+}

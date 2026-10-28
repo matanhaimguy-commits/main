@@ -1,0 +1,73 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH04",
+ "spec_sha256": "9f5fb3533f62583f35954951691422e450a1192143a5068f611fd903cdcfb4c1",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s: \"Maya on a phone call with papers piling up; April pockets untouched behind her.\"; 1 subject(s), 2 prop(s), 1 text string(s), action and setting all written out."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: Maya left: left hand flat on the desk 3 cm from the edge of the sliding sheet, fingers toward the pile, not on any sheet; right: right hand pressing the headset earcup; contact: left palm on the desk, right fingertips on the earcu..."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: One new clay paper sheet is sliding onto the top of the pile (frozen mid-slide); Maya's left palm rests flat beside it, 3 cm from its edge."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story-critical props with content: PR-MARCHTAG (content: A felt tag the size of a hand, ivory with charcoal...), PR-ORGANIZER (content: Felt wall organizer headed CLIENTS, ivory felt wit...)"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"MARCH\" on stitched felt desk tag"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"background wall plain; organizer blurred, labels not required to read\""
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "PR-MARCHTAG: \"ivory with charcoal stitched letters MARCH\", ref \"SET-OFFICE@v1 panel: desk, MARCH tag\", position \"right of centre\". SHEET-SET-OFFICE.spec.yaml says \"a big orange felt tag reading MARCH\", \"left of the laptop\", and has no desk/MARCH-tag panel (panels: laptop, bin, window)."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot: O60-SH03; carry_over: CH-MAYA olive cardigan plus headset; MARCH tag; paper pile grows taller than in SH03"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No word a model could read two ways; positions are given in % of frame height and contacts name the part touching."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 text over hands, FL-03 action, FL-04 empty props, FL-05 empty frames and screens, FL-06 anatomy, FL-11 clones and floating: each prevented in the spec (text occlusion, contact points, prop content, background rule, instances: 1)."
+  }
+ ],
+ "fixes": [
+  "Same fix as SH03: make PR-MARCHTAG match the sheet (orange felt tag, charcoal stitched MARCH, left of the laptop, ref \"SET-OFFICE@v1 wide view (desk, MARCH tag; no tag close panel exists)\"), update the MARCH text position and the march_tag and tag_and_pile regions, and except the tag from the style line's \"only loud saturated colours\" claim; or change the sheet to ivory. SH03, SH04 and the sheet must agree."
+ ]
+}

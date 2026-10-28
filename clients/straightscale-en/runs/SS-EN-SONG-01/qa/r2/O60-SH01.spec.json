@@ -1,0 +1,75 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH01",
+ "spec_sha256": "603cd19b3fe81b090134165fa7014e0bb7d8be37936297ce43b0cbe67547db73",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s: \"MARCH row full of clients, every APRIL pocket empty.\"; 1 subject(s), 1 prop(s), 5 text string(s), action and setting all written out."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible; hangs flat on the wall, filling the middle of the frame"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: The camera pulls back about 30 cm and lowers about 10 cm over the 6 s render, so the organizer slides up the frame to its SH02 place; nothing inside the frame moves except the parallax of the felt. CLIP-A pair: one pull-back from SH01 start to SH02 end, no head turn: one move."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story-critical props with content: PR-ORGANIZER (content: Felt wall organizer headed CLIENTS, ivory felt wit...)"
+  },
+  {
+   "id": "P6",
+   "result": "FAIL",
+   "evidence": "The organizer content says \"headed CLIENTS\" and its header sits at about 15 to 19% from the top, but text_in_image lists only APRIL, MARCH and the three hook lines; must_not says \"no ... lettering ... other than the listed strings\". The overlay entries say \"never rendered by the video model\", which leaves open that the image model (H-01) paints them."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"wall is plain marble plaster, no frames, no posters, no writing\""
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "hook_text region [0.06,0.15,0.94,0.33] covers march_label [0.08,0.22,0.34,0.30], yet the MARCH occlusion says \"the hook text never covers the MARCH band\"."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot: None; carry_over: PR-ORGANIZER APRIL row empty; marble wall; warm practical light from the left"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No word a model could read two ways; positions are given in % of frame height and contacts name the part touching."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 text over hands, FL-03 action, FL-04 empty props, FL-05 empty frames and screens, FL-06 anatomy, FL-11 clones and floating: each prevented in the spec (text occlusion, contact points, prop content, background rule, instances: 1)."
+  }
+ ],
+ "fixes": [
+  "regions: change hook_text box to [0.36, 0.15, 0.94, 0.33] (hook lines sit right of the MARCH band, x 36 to 94%), and in the three overlay entries change position to \"top third (over the MARCH row, right of the MARCH band, x 36 to 94%), line N\".",
+  "text_in_image: add {string: CLIENTS, surface: sewn header band across the top of the organizer, position: top of the organizer, about 15 to 19% from the top, case: upper, must_be_exact: true, occlusion: the render shows the header whole; only the edit hook overlay may pass over it, never a prop or hand}.",
+  "In the three overlay entries change the surface to \"edit overlay (added in the edit, never rendered by the image model or the video model; absent from H-01 and from every generated frame)\"."
+ ]
+}

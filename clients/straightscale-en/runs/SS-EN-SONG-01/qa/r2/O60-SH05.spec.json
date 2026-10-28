@@ -1,0 +1,74 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH05",
+ "spec_sha256": "5522837919760284fffc7c7b5d8eec77a0fcd0a82c84d03259a1918dae69694b",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s: \"Maya sews loud EMAIL and LINKEDIN patches over the empty April pockets.\"; 2 subject(s), 2 prop(s), 3 text string(s), action and setting all written out."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: Maya left: left hand holding the lower-left corner of the EMAIL scrap flat, palm on the felt below the APRIL label; right: right hand drawing the needle and thick thread through the right edge of the EMAIL scrap, then along the pi..."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: Maya's right hand draws the needle and thick thread through the right edge of the EMAIL scrap, then along the pinned top edge to the LINKEDIN scrap in one pass (the clip ends with EMAIL sewn and the needle at the LINKEDI..."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story-critical props with content: PR-SCRAPS (content: Four ragged-edged fabric scraps, each about one po...), PR-ORGANIZER (content: Felt wall organizer headed CLIENTS, ivory felt wit...)"
+  },
+  {
+   "id": "P6",
+   "result": "FAIL",
+   "evidence": "The MARCH row label band is in frame at about 16 to 36% from the top, but text_in_image has no MARCH entry, and must_not forbids \"lettering ... other than the listed strings\"."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain wall; nothing else on the felt\""
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "PR-ORGANIZER content says \"MARCH pockets: (above the frame)\", but size_in_frame/regions put the APRIL row at 38 to 60% from the top (april_row [0.06,0.38,0.94,0.6]); the MARCH row sits directly above it, so 16 to 36% of the frame (and the CLIENTS header) shows MARCH."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot: O60-SH04; carry_over: PR-SCRAPS patterns and labels; CH-MAYA cardigan sleeves"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No word a model could read two ways; positions are given in % of frame height and contacts name the part touching."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 text over hands, FL-03 action, FL-04 empty props, FL-05 empty frames and screens, FL-06 anatomy, FL-11 clones and floating: each prevented in the spec (text occlusion, contact points, prop content, background rule, instances: 1)."
+  }
+ ],
+ "fixes": [
+  "PR-ORGANIZER content: replace \"MARCH pockets: (above the frame)\" with \"MARCH pockets: each of the four holds three small colourful clay clients standing shoulder to shoulder (twelve in all), visible above the APRIL row at 16 to 36% from the top; the CLIENTS header is above the frame\".",
+  "text_in_image: add {string: MARCH, surface: row label band at the left end of the upper row, position: left end of the MARCH row, about 22% from the top, case: upper, must_be_exact: true, occlusion: no hand, needle or scrap over the label}; add region march_label kind text [0.06, 0.16, 0.14, 0.3]."
+ ]
+}

@@ -1,0 +1,71 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH16",
+ "spec_sha256": "5d343e894afa6d8c5629d56c5acb8bb8cae9cd85010121ae0d19d4208896c1bc",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s: \"An OFFER piece cut from the cloth, three POSTS pieces cut from it.\"; 1 subject(s), 2 prop(s), 2 text string(s), action and setting all written out. Note (not a fail): \"POSTS cut from the OFFER\" is carried by position only (the OFFER piece shows no holes); the one-second read is \"pieces cut from a cloth\". Three POSTS-shaped holes in the OFFER piece would make the chain literal but force POSTS pieces under about 11% of frame width, which cannot carry a legible label, so the spec is kept."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible; laid flat on the desk"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: Frozen: the bigger cloth fills 8 to 56% of the width at 16 to 44% from the top with a hole the size of the OFFER piece at its centre; the OFFER piece lies on the desk to the right of the cloth (56 to 92% wide); three POS..."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story-critical props with content: PR-CLOTH (content: One calm sand-cream linen cloth, a single colour, ...)"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"OFFER\" on charcoal stitched label on the large piece; \"POSTS\" on charcoal stitched label on each small piece"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"only the cloth pieces and scissors in frame\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No two lines contradict (checked pose vs hands, state vs content, regions vs size_in_frame, and refs against the look-bible sheet specs)."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot: O60-SH15; carry_over: PR-CLOTH pieces; same weave on every piece"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: judged at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No word a model could read two ways; positions are given in % of frame height and contacts name the part touching."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 text over hands, FL-03 action, FL-04 empty props, FL-05 empty frames and screens, FL-06 anatomy, FL-11 clones and floating: each prevented in the spec (text occlusion, contact points, prop content, background rule, instances: 1)."
+  }
+ ],
+ "fixes": []
+}

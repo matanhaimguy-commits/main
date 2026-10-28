@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "PR-ORGANIZER",
+ "version": 2,
+ "prompt_sha256": "8f50f748ea5d4a8629603ba4652a81acefb1b449461a39e739ef92103faf5186",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "two copies, 43% wide, 6% gap, top 68%, state A 12 clients/April empty, state B April 4 clients plus linen band, 5 text strings (3 per copy plus 2 close-ups), bottom strip of 3 close-ups"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "\"Reference images: none attached.\" (media list empty)"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"Hands: no hands in the frame.\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"Action: none, a still sheet.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "full content: \"ivory felt with charcoal stitching ... exactly FOUR columns by TWO rows ... (eight pockets per copy)\"; band \"a fine linen weave, not burlap\"; no blanket \"no text\" negative"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"exactly three strings in charcoal capitals\" per copy, plus close-up strings; surface, position, \"Nothing covers any letter. The linen band carries no words.\""
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "\"the plain warm-ivory backdrop only\"; no frames, screens or signs"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "no conflict: \"no fabric scraps on either copy\" vs the requested linen band is separated by \"a flat band of fine sand-cream linen\"; counts consistent (12, 12, 4)"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "retake of a failed sheet from text only, no previous shot carry-over; v1 defects each answered (grid, dark interiors, linen band)"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "1024x1024 (1:1) text-to-image gpt-image-2 medium on Atlas, no references; \"square 1:1\""
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "\"exactly FOUR columns by TWO rows ... the APRIL pockets aligned directly under the MARCH pockets\" leaves no second reading; \"(a fine linen weave, not burlap)\""
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-02 prevented by the structure line; FL-13 no logo asked; FL-04 content filled"
+  }
+ ],
+ "corrected_prompt": ""
+}
