@@ -215,6 +215,14 @@
         "by": "claude (EN 03 producer session 3)",
         "note": "24 O60 Shot Specs (O30 reuses them, qa/o30-reuse.md) and 6 sheet specs, all with a current G-SPEC PASS (reports qa/r5 to qa/r11); SET-OFFICE retired to qa/retired (fallback: plain ivory backdrop and a World line per office shot); shot logic qa/shot-logic.md"
       }
+    ],
+    "G-HUMAN-LOOK": [
+      {
+        "at": "2026-10-28T22:48:46+00:00",
+        "status": "PASS",
+        "by": "claude (delegated by Matan, plan 28 Oct)",
+        "note": "clients/straightscale-en/runs/SS-EN-SONG-01/qa/look-evaluator-report.md: LOOK PASS WITH CONDITIONS 1-5 (World line pinned with a paper crop reference; laptop, bin and March tag described or one prop sheet; SH01/SH02 organizer pockets stated; AI label on; SH08/SH22 re-staged). Locked: PR-SCRAPS v1; CH-MAYA v1, PR-CLOTH v1, PR-ORGANIZER v2, SET-FRIEND v1 with minors waived; CH-FRIEND v1 standing views; SET-OFFICE retired. The conditions are met in step 7 before any clip."
+      }
     ]
   },
   "specs": {
@@ -2172,6 +2180,15 @@
         "assets/sheets/PR-ORGANIZER.v3.png"
       ],
       "asked_at": "2026-10-28T18:42:21+00:00"
+    },
+    {
+      "id": "G-HUMAN-LOOK:",
+      "checkpoint": "G-HUMAN-LOOK",
+      "asset": null,
+      "status": "FYI",
+      "note": "FYI (delegated): clients/straightscale-en/runs/SS-EN-SONG-01/qa/look-evaluator-report.md: LOOK PASS WITH CONDITIONS 1-5 (World line pinned with a paper crop reference; laptop, bin and March tag described or one prop sheet; SH01/SH02 organizer pockets stated; AI label on; SH08/SH22 re-staged). Locked: PR-SCRAPS v1; CH-MAYA v1, PR-CLOTH v1, PR-ORGANIZER v2, SET-FRIEND v1 with minors waived; CH-FRIEND v1 standing views; SET-OFFICE retired. The conditions are met in step 7 before any clip.",
+      "files": [],
+      "asked_at": "2026-10-28T22:48:46+00:00"
     }
   ]
 }
