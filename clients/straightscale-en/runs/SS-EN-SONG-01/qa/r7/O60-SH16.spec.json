@@ -1,0 +1,77 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH16",
+ "spec_sha256": "b696046729e639132b4197aa3ca8125e020bbb4f06efb986aeaac61a72055a0d",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Cloth, OFFER piece, three POSTS pieces, scissors, both strings, frozen layout, World line, camera and regions offer_piece/offer_label/posts_pieces/posts_labels/cloth_with_hole present (no box for the non-critical scissors)."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: \"none visible\"."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "static: \"Frozen: the bigger cloth fills 8 to 56% of the width ... the scissors rest open 3 cm right of the hole's last cut edge.\" Positions are given as boxes."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-CLOTH content \"plus pieces cut from it with the same weave and charcoal stitched labels OFFER and POSTS\"; scissors content \"Small orange-handled clay scissors\"."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"OFFER\" and \"POSTS\" with surface, position, case and occlusion (\"no scissors over the label\")."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"only the cloth pieces and scissors in frame\"; no frames, screens or signs."
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "Geometry cannot all be true: cloth \"8 to 56%\" and OFFER piece \"56 to 92%\" touch at x 0.56 with no gap; the hole is 36% wide in a 48% cloth, so \"3 cm right of the hole's last cut edge\" leaves a 6% margin, but the scissors are \"15% of frame width\" and would overlap the OFFER piece and its label box [0.62, 0.26, 0.86, 0.34] against \"no scissors over the label\"; content says the blades rest \"on the cloth edge\" while the action puts them beside the hole."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH15; carry_over \"PR-CLOTH pieces\", \"same weave on every piece\"; OFFER, POSTS and scissors match the PR-CLOTH@v1 panels (scissors shown closed on the sheet, open here by design)."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "\"the hole's last cut edge\" has no visible meaning (which edge was cut last); \"3 cm\" has no scale; pieces are placed by 18% width and \"46 to 56% from the top\" (landscape) while the sheet's POSTS pieces are tall portrait strips, so orientation is open."
+  },
+  {
+   "id": "P12",
+   "result": "FAIL",
+   "evidence": "FL-10: content has \"tone-on-tone speech-bubble shapes stitched\" on the cloth but no rule \"blank, no letters\" and no \"no other readable words on the cloth\" (SH15 has both); the model will fill empty bubble outlines with letters. FL-04, FL-03 met."
+  }
+ ],
+ "fixes": [
+  "props[PR-CLOTH].size_in_frame and action_physics: lay the pieces out without contact or overlap, e.g. cloth 8 to 48% wide with a hole 30% wide, a visible 6% desk gap, OFFER piece 56 to 90% wide, and give the scissors their own bare-desk spot (named x and y, at least 3% from any label) instead of \"3 cm right of the hole's last cut edge\".",
+  "action_physics and props[PR-SCISSORS].content: use one position for the scissors (either \"resting open on the bare desk below the OFFER piece\" or \"on the cloth edge\"), not both.",
+  "props[PR-CLOTH].state or action_physics: say the POSTS pieces lie with their long side horizontal, label reading left to right (or keep the sheet's portrait strips and shrink the row to fit 46 to 55%).",
+  "must_not: add \"no letters or words inside the stitched bubble outlines on the cloth\", \"no other readable words on any piece besides OFFER and POSTS\", \"no people\".",
+  "optional: add a region for the scissors (kind prop)."
+ ]
+}

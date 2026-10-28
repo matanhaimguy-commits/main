@@ -9,7 +9,7 @@ must_read_in_1s: The loud patches sit in the bin; the calm organizer hangs behin
 subjects:
 - id: PR-BIN
   ref: 'none (no set sheet: the bin is drawn from this content line and the World line)'
-  state: charcoal bin holding all four loud scraps with their corners out
+  state: four scraps inside, only the EMAIL and ADS labels showing
   pose: standing on the floor
   expression: n/a
   instances: 1
@@ -24,10 +24,10 @@ props:
 - id: PR-BIN
   story_critical: true
   ref: 'none (no set sheet: the bin is drawn from this content line and the World line)'
-  state: all four scraps inside, labels showing
+  state: four scraps inside, only the EMAIL and ADS labels showing
   content: Small round charcoal clay waste bin with a thumb-pressed rim, EMAIL and ADS folded with their labels showing; LINKEDIN
     and COACH folded with their labels turned inward, no letters visible
-  size_in_frame: bin 38% of frame width at 38 to 56% from the top
+  size_in_frame: bin 38% of frame width at 38 to 55% from the top
   held_by: null
 - id: PR-ORGANIZER
   story_critical: true
@@ -37,13 +37,13 @@ props:
     above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three
     small colourful clay clients standing shoulder to shoulder (twelve in all); APRIL pockets: one small client in each of
     the four pockets, a calm sand-cream band of five joined pieces (one large, three small, one small) with four seams, the
-    pieces carry no lettering at this size stitched along the row''s top edge.'
+    five pieces carry no letters or words at all; the band is stitched along the top edge of the APRIL row.'
   size_in_frame: organizer 14 to 40% from the top, 80% width
   held_by: null
 - id: PR-SCRAPS
   story_critical: true
   ref: PR-SCRAPS@v1
-  state: four scraps in the bin, only the EMAIL and ADS labels showing
+  state: four scraps inside, only the EMAIL and ADS labels showing
   content: 'Four ragged-edged fabric scraps, each about one pocket wide, each in a different loud clashing pattern with a
     big stitched label: EMAIL mustard and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes
     with ivory letters, COACH lime leopard spots with black letters, ADS hot-pink polka dots on blue with white letters; loose
@@ -52,19 +52,37 @@ props:
   held_by: null
 text_in_image:
 - string: EMAIL
-  surface: stitched label
-  position: scrap corner left
+  surface: stitched label on the folded gingham scrap lying on top at the bin's left rim
+  position: left rim of the bin, label about 12% of frame width
   case: upper
   must_be_exact: true
   occlusion: not covered
 - string: ADS
-  surface: stitched label
-  position: scrap corner right
+  surface: stitched label on the folded polka-dot scrap lying on top at the bin's right rim
+  position: right rim of the bin, label about 12% of frame width
   case: upper
   must_be_exact: true
   occlusion: not covered
+- string: CLIENTS
+  surface: organizer header band
+  position: top of the organizer
+  case: upper
+  must_be_exact: true
+  occlusion: soft focus allowed, letters still spelled correctly, nothing over them
+- string: MARCH
+  surface: organizer upper row label band
+  position: left end of the upper row
+  case: upper
+  must_be_exact: true
+  occlusion: soft focus allowed, letters still spelled correctly, nothing over them
+- string: APRIL
+  surface: organizer lower row label band
+  position: left end of the lower row
+  case: upper
+  must_be_exact: true
+  occlusion: soft focus allowed, letters still spelled correctly, nothing over them
 action_physics:
-- 'Frozen: four scraps are crammed in the bin; one corner hangs over the rim.'
+- 'Frozen: four scraps are crammed in the bin; the EMAIL scrap''s corner hangs over the left rim.'
 static: true
 setting:
   ref: null
@@ -100,14 +118,14 @@ regions:
   - 0.28
   - 0.38
   - 0.72
-  - 0.56
+  - 0.55
 - name: scrap_labels
   kind: text
   box:
   - 0.3
   - 0.38
   - 0.7
-  - 0.5
+  - 0.46
 - name: organizer
   kind: prop
   box:
@@ -115,6 +133,20 @@ regions:
   - 0.14
   - 0.9
   - 0.4
+- name: email_label
+  kind: text
+  box:
+  - 0.3
+  - 0.38
+  - 0.44
+  - 0.44
+- name: ads_label
+  kind: text
+  box:
+  - 0.56
+  - 0.38
+  - 0.7
+  - 0.44
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only

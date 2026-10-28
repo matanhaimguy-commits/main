@@ -16,8 +16,9 @@ subjects:
   instances: 1
   eyeline: at the friend
 - id: CH-FRIEND
-  ref: CH-FRIEND@v2 (seated panel)
-  state: standing right
+  ref: CH-FRIEND@v2 (front and three-quarter standing views for body and outfit, seated panel for the face)
+  state: standing right, broad-hipped, teal-grey canvas jacket with two patch pockets over a cream top, dark jeans, white
+    shoes, black curly puff, tortoiseshell wire glasses
   pose: relaxed, hands tucked in jacket pockets
   expression: warm smile
   instances: 1
@@ -31,16 +32,16 @@ props:
   content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row
     above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three
     small colourful clay clients standing shoulder to shoulder (twelve in all); APRIL pockets: one client per pocket and a
-    calm sand-cream band of five joined pieces (one large, three small, one small) with four seams, the pieces carry no lettering
-    at this size, along the top edge.'
+    calm sand-cream band of five joined pieces (one large, three small, one small) with four seams, the five pieces carry
+    no letters or words at all; the band is stitched along the top edge of the APRIL row.'
   size_in_frame: left organizer 40% of frame width, 16 to 44% from the top
   held_by: null
 - id: PR-ORGANIZER-FRIEND
   story_critical: true
   ref: SET-FRIEND@v1
   state: 'friend''s organizer right: one calm cream fabric, clients in both rows'
-  content: Felt wall organizer headed CLIENTS in one calm cream fabric, two rows of four pockets, row labels MARCH and APRIL
-    at the left ends, clients in every pocket of both rows
+  content: Wall organizer headed CLIENTS in one single calm sand-cream linen, two rows of four pockets, row labels MARCH and
+    APRIL at the left ends, two small clay clients in each of the eight pockets
   size_in_frame: right organizer 40% of frame width, 16 to 44% from the top
   held_by: null
 text_in_image:
@@ -106,6 +107,7 @@ continuity:
   - CH-MAYA
   - CH-FRIEND
   - both organizers calm
+  - CH-FRIEND look
 regions:
 - name: maya_face
   kind: face
@@ -142,6 +144,20 @@ regions:
   - 0.17
   - 0.78
   - 0.38
+- name: clients_maya
+  kind: text
+  box:
+  - 0.14
+  - 0.16
+  - 0.38
+  - 0.21
+- name: clients_friend
+  kind: text
+  box:
+  - 0.62
+  - 0.16
+  - 0.86
+  - 0.21
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only
@@ -155,6 +171,7 @@ must_not:
 - no sung mouth movement and no singer on screen
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
+- no band and no second fabric on the friend's organizer
 hero: false
 notes: 'Both characters share one frame; one instance each. Makes the friend''s earlier screen appearance pay off. No generated
   clip: a gpt-image-2 still moved by a code push-in.'

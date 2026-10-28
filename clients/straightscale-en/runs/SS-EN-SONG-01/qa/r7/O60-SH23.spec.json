@@ -1,0 +1,75 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH23",
+ "spec_sha256": "e2047e9f1ae6c6230f888e75af61e97bdf5e2f137d813bf945cd549b7dbaf7d0",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "FAIL",
+   "evidence": "content and pose say the pile sits \"beside the folded cloth\" and carry_over lists \"folded cloth\", but no prop entry, ref, state, size or position exists for the folded cloth, so a prompt built from the props list will omit or invent it."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: \"none visible\"; must_not \"no people\"."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"Frozen: the top bubble is slipping down the side of the pile 1 cm.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-BUBBLES content \"Nine blank cream clay speech bubbles with small tails and thumb-pressed edges, heaped loosely on a charcoal desk\"; ref PR-CLOTH@v1 bubble panel."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "text_in_image: none; targeted negative \"no words or letters on the bubbles\" (not a blanket \"no text\")."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"plain wall and desk\"; no frames, screens or signs."
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "PR-BUBBLES is story_critical with \"pile 55% of frame width at 38 to 58% from the top\" and region [0.14, 0.34, 0.86, 0.6], reaching into the 55 to 62% caption band for the line \"Follow for part two:\" against safe_zones \"captions go 55 to 62% down, so no key prop is there\"; angle \"eye level, slightly high\" contradicts itself; state \"about nine\" against content \"Nine\"."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH22; carry_over \"PR-CLOTH bubbles and folded cloth\"; bubbles match the sheet panel (nine, blank, cream)."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "\"beside the folded cloth\" gives no side, size or fold style; \"about nine\" against \"Nine\"; \"eye level, slightly high\" can be read as either."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 met (bubbles filled, blank on purpose); FL-10 met (no words on bubbles); FL-03 met."
+  }
+ ],
+ "fixes": [
+  "props: add PR-CLOTH (story_critical false) with ref PR-CLOTH@v1, state \"folded in a neat flat stack of three layers, plain, no print\", content \"one calm sand-cream linen, a single colour, tight weave\", position \"left of the pile, 20% of frame width, 40 to 52% from the top\"; add a region for it.",
+  "props[PR-BUBBLES].size_in_frame and regions[pile]: \"pile 50% of frame width at 34 to 54% from the top\", box [0.2, 0.34, 0.8, 0.54]; state and content both say \"nine\".",
+  "camera.angle: choose one, e.g. \"slightly high angle, about 20 degrees above the desk\"."
+ ]
+}

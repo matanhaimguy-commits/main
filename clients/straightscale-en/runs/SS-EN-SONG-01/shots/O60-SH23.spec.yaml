@@ -9,8 +9,8 @@ must_read_in_1s: A pile of speech bubbles waiting on the desk.
 subjects:
 - id: PR-BUBBLES
   ref: PR-CLOTH@v1 (bubble panel)
-  state: a loose pile of about nine cream clay speech bubbles
-  pose: heaped on the desk beside the folded cloth
+  state: a loose pile of nine cream clay speech bubbles
+  pose: heaped on the desk, right of the folded cloth
   expression: n/a
   instances: 1
 hands: none visible
@@ -18,10 +18,17 @@ props:
 - id: PR-BUBBLES
   story_critical: true
   ref: PR-CLOTH@v1 (bubble panel)
-  state: pile of blank bubbles
+  state: pile of nine blank bubbles
   content: Nine blank cream clay speech bubbles with small tails and thumb-pressed edges, heaped loosely on a charcoal desk
     beside a folded calm cloth
-  size_in_frame: pile 55% of frame width at 38 to 58% from the top
+  size_in_frame: pile about 54% of frame width (26 to 80%) at 34 to 54% from the top
+  held_by: null
+- id: PR-CLOTH
+  story_critical: false
+  ref: PR-CLOTH@v1
+  state: folded in a neat flat stack of three layers, plain, no print
+  content: one calm sand-cream linen, a single colour, tight weave
+  size_in_frame: left of the pile, 16% of frame width (6 to 22%), 40 to 52% from the top
   held_by: null
 text_in_image: none
 action_physics:
@@ -37,7 +44,7 @@ setting:
   background_rule: plain wall and desk
 camera:
   framing: close on the desk, pile centred
-  angle: eye level, slightly high
+  angle: slightly high angle, about 20 degrees above the desk
   movement: 'edit: slow 100 to 108% push-in'
   aspect: '9:16'
   safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half,
@@ -57,10 +64,17 @@ regions:
 - name: pile
   kind: prop
   box:
-  - 0.14
+  - 0.26
   - 0.34
-  - 0.86
-  - 0.6
+  - 0.8
+  - 0.54
+- name: folded_cloth
+  kind: prop
+  box:
+  - 0.06
+  - 0.4
+  - 0.22
+  - 0.52
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only

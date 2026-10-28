@@ -9,15 +9,16 @@ story_purpose: 'Result: the bubbles drift out of the window to tiny clay figures
 must_read_in_1s: Speech bubbles float out the window to small figures looking up.
 subjects:
 - id: PR-BUYERS
-  ref: 'none (no set sheet: the window and the street figures are drawn from this content line)'
-  state: six tiny clay figures on the street below the window, faces turned up
+  ref: null
+  state: one group (counted as one instance) of six tiny clay people in six different plain colours of coat, four adults and
+    two children, standing apart in a row on a plain grey-ivory clay street, faces tilted up
   pose: standing still, arms by sides
   expression: curious
   instances: 1
   eyeline: up at the bubbles
 - id: CH-MAYA
   ref: CH-MAYA@v1
-  state: small, in the lower left, headset on, side view
+  state: small, inside the room left of the window frame, headset on, side view
   pose: seated at the desk on a call, both hands hidden behind the desk edge
   expression: busy, calm
   instances: 1
@@ -32,20 +33,23 @@ props:
   held_by: null
 text_in_image: none
 action_physics:
-- The camera finishes its follow-pan and rests on the window; the three bubbles already in flight from SH17 drift up through
-  the open pane, about 1 cm per beat; the street figures stay still.
+- The camera finishes its follow-pan and rests on the window; the lower sash is raised, leaving a clear opening; the three
+  bubbles already in flight from SH17 rise through the opening about one bubble-width per second; the street figures stay
+  still.
 static: false
 setting:
   ref: null
-  details: 'Plain ivory paper office: the window with a clay street below. World (no set sheet, SET-OFFICE fallback, main
-    session 28 Oct): a plain warm-ivory paper wall and floor meeting in a soft curve, soft warm light, soft contact shadows.
-    Of the office items, only those this shot names appear, each looking like this: a simple charcoal clay desk (one flat
-    top on four straight legs, no drawers); an open silver clay laptop with a plain lid; one white clay mug; a small round
-    charcoal clay bin with a thumb-pressed rim; a plain window with a thin pale-wood frame.'
+  details: 'Plain ivory paper office: a plain window; through the glass a plain grey-ivory clay street with six tiny figures
+    at the bottom of the view. World (no set sheet, SET-OFFICE fallback, main session 28 Oct): a plain warm-ivory paper wall
+    and floor meeting in a soft curve, soft warm light, soft contact shadows. Of the office items, only those this shot names
+    appear, each looking like this: a simple charcoal clay desk (one flat top on four straight legs, no drawers); an open
+    silver clay laptop with a plain lid; one white clay mug; a small round charcoal clay bin with a thumb-pressed rim; a plain
+    window with a thin pale-wood frame.'
   background_rule: plain street, no signs, no shopfront text
 camera:
-  framing: 'medium: window upper-centre, street figures mid-low, Maya small at the left edge; the window opening spans 30
-    to 92% of the width; Maya sits inside the room left of it'
+  framing: 'medium: the window glass fills 14 to 54% from the top and 30 to 92% of the width and shows the street through
+    it; the six figures stand at the bottom of the glass view; Maya is inside the room, left of the window frame, her face
+    at 42 to 54% from the top'
   angle: eye level
   movement: slow pan right from SH17, ends at rest
   aspect: '9:16'
@@ -76,15 +80,15 @@ regions:
   box:
   - 0.3
   - 0.4
-  - 0.9
+  - 0.78
   - 0.54
 - name: maya
   kind: face
   box:
   - 0.06
-  - 0.46
+  - 0.42
   - 0.26
-  - 0.58
+  - 0.54
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: a clay home office in
@@ -100,5 +104,5 @@ must_not:
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
 hero: false
-notes: 'End of CLIP-G (one follow-pan from SH17); pays ''too busy in March'' with ''while she was busy''. PR-BUYERS lives
-  on the SET-OFFICE window-view panel. Clip: CLIP-G.'
+notes: 'End of CLIP-G (one follow-pan from SH17); pays ''too busy in March'' with ''while she was busy''. PR-BUYERS is drawn
+  from this spec''s own content line. Clip: CLIP-G.'

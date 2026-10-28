@@ -12,7 +12,7 @@ subjects:
   ref: PR-CLOTH@v1
   state: 'three POSTS pieces on a rod: the right-hand piece is firm and hangs straight with the ADS piece sewn on its upper
     part; the left and centre pieces are limp, folded over at the top third with the lower half drooping at an angle'
-  pose: hanging by loops from a thin wooden rod
+  pose: hanging by one loop each from one thin pale-wood rod fixed to the wall on two small brackets
   expression: n/a
   instances: 1
 hands: none visible
@@ -22,15 +22,23 @@ props:
   ref: PR-CLOTH@v1
   state: three POSTS pieces plus a calm ADS piece sewn on the firm one
   content: One calm sand-cream linen cloth, a single colour, tight weave, with tone-on-tone speech-bubble shapes stitched
-    in deeper tan thread, plus pieces cut from it with the same weave and charcoal stitched labels OFFER, POSTS and ADS
-  size_in_frame: pieces 22% of frame width each, 28 to 56% from the top
+    in deeper tan thread, plus pieces cut from it with the same weave and charcoal stitched labels POSTS and ADS
+  size_in_frame: pieces 22% of frame width each, 28 to 55% from the top; the ADS piece 12% of frame width
   held_by: null
 - id: PR-BUBBLES
   story_critical: true
   ref: PR-CLOTH@v1 (bubble panel)
-  state: three blank cream clay bubbles leaving the top edge of the ADS piece
+  state: three blank cream clay bubbles resting on the top edge of the ADS piece at frame 1, then leaving it
   content: Three blank cream clay speech bubbles with small tails and thumb-pressed edges, no letters
   size_in_frame: 12% of frame width each
+  held_by: null
+- id: PR-ROD
+  story_critical: false
+  ref: null
+  state: fixed to the wall
+  content: one thin straight pale-wood rod fixed to the wall on two small brackets, three pieces hanging from it by loops,
+    one loop each
+  size_in_frame: rod across 8 to 92% of the width at 26% from the top
   held_by: null
 text_in_image:
 - string: POSTS
@@ -38,26 +46,30 @@ text_in_image:
   position: centre of each piece
   case: upper
   must_be_exact: true
-  occlusion: ADS piece does not cover the firm piece's label
+  occlusion: ADS piece does not cover the firm piece's label; on the two limp pieces the label sits below the fold, fully
+    visible, not folded or skewed
 - string: ADS
   surface: charcoal stitched label on the small sewn-on piece
-  position: upper part of the firm piece
+  position: sewn across the top third of the firm piece, the POSTS label below it
   case: upper
   must_be_exact: true
   occlusion: not folded
 action_physics:
-- 'The ADS piece''s top edge lifts 1 cm and three clay bubbles slide up off it, one every 0.5 s: bubble 1 leaves its top-left
-  corner, bubble 2 the middle of its top edge, bubble 3 its top-right corner; each drifts right and up toward the open window
-  pane. The camera pans right following them and comes to rest on the window view of SH18; the two limp pieces hang still.'
+- 'From frame 1, three blank clay bubbles rest on the top edge of the ADS piece. The ADS piece''s top edge lifts 1 cm and
+  the three bubbles slide up off it, one every 0.5 s: bubble 1 leaves its top-left corner, bubble 2 the middle of its top
+  edge, bubble 3 its top-right corner; each drifts right and up toward the open window. The camera pans right following them
+  and comes to rest on the window view of SH18; the two limp pieces hang still.'
 static: false
 setting:
   ref: null
-  details: 'Plain ivory paper office: rod by the window, desk edge below. World (no set sheet, SET-OFFICE fallback, main session
-    28 Oct): a plain warm-ivory paper wall and floor meeting in a soft curve, soft warm light, soft contact shadows. Of the
-    office items, only those this shot names appear, each looking like this: a simple charcoal clay desk (one flat top on
-    four straight legs, no drawers); an open silver clay laptop with a plain lid; one white clay mug; a small round charcoal
-    clay bin with a thumb-pressed rim; a plain window with a thin pale-wood frame.'
-  background_rule: plain wall, window frame at the right edge
+  details: 'Plain ivory paper office: one thin pale-wood rod fixed to the wall on two small brackets by the window, desk edge
+    below. World (no set sheet, SET-OFFICE fallback, main session 28 Oct): a plain warm-ivory paper wall and floor meeting
+    in a soft curve, soft warm light, soft contact shadows. Of the office items, only those this shot names appear, each looking
+    like this: a simple charcoal clay desk (one flat top on four straight legs, no drawers); an open silver clay laptop with
+    a plain lid; one white clay mug; a small round charcoal clay bin with a thumb-pressed rim; a plain window with a thin
+    pale-wood frame.'
+  background_rule: plain wall, window frame at the right edge; the window pane shows the plain clay street behind the glass
+    (no signs, no text)
 camera:
   framing: medium close on the three hanging pieces
   angle: eye level, straight-on
@@ -83,7 +95,7 @@ regions:
   - 0.08
   - 0.28
   - 0.92
-  - 0.58
+  - 0.55
 - name: labels
   kind: text
   box:
@@ -94,10 +106,10 @@ regions:
 - name: ads_piece
   kind: prop
   box:
-  - 0.62
+  - 0.66
   - 0.3
-  - 0.88
-  - 0.4
+  - 0.8
+  - 0.36
 - name: bubbles
   kind: prop
   box:
@@ -111,13 +123,15 @@ style: 'Handmade claymation stop-motion look: plasticine characters with visible
   warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world;
   the method cloth is one calm sand-cream colour.'
 must_not:
-- no clay speech bubbles before the lift (the stitched bubble weave on the cloth is allowed)
+- no clay speech bubbles anywhere except the three on the ADS piece (the stitched bubble weave on the cloth is allowed)
 - no loud patterns
 - no extra, missing or merged fingers
 - no logos, no real platform names, no lettering on walls, laptop or papers other than the listed strings
 - no sung mouth movement and no singer on screen
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
+- no letters or words inside the stitched bubble outlines on the cloth
+- no hands, no people
 hero: true
 notes: 'CLIP-G 6 s render: one follow-pan on one subject (the three bubbles). Start frame = SH17, end frame = window view
   of SH18. Cause (ADS piece lifts the bubbles off) and result (they reach the buyers) in one clip (test 2). Clip: CLIP-G.'

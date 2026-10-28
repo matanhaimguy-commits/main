@@ -1,0 +1,77 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH17",
+ "spec_sha256": "5f42e043386cdc135fd4c5a9390a140e69533771203f48c5445083f81f014729",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Three POSTS pieces, ADS piece, bubbles, four strings, action, World line, camera and regions pieces/labels/ads_piece/bubbles present."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: \"none visible\"; no person in frame."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"The ADS piece's top edge lifts 1 cm and three clay bubbles slide up off it, one every 0.5 s: bubble 1 leaves its top-left corner ...\" gives named corners and times."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-CLOTH and PR-BUBBLES both have content (\"Three blank cream clay speech bubbles with small tails and thumb-pressed edges, no letters\")."
+  },
+  {
+   "id": "P6",
+   "result": "FAIL",
+   "evidence": "\"POSTS\" on \"each of the three pieces\", position \"centre of each piece\", but the left and centre pieces are \"folded over at the top third with the lower half drooping at an angle\", so a centred label can sit on the fold or be skewed; occlusion covers only \"ADS piece does not cover the firm piece's label\". The ADS piece has no size anywhere, and its box [0.62, 0.3, 0.88, 0.4] is wider than a 22% piece."
+  },
+  {
+   "id": "P7",
+   "result": "FAIL",
+   "evidence": "background_rule \"plain wall, window frame at the right edge\": the window is in the start frame but nothing says what is behind the pane (empty glass reads as a blank screen); SH18 later fills it with the street."
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "must_not \"no clay speech bubbles before the lift\" against the action where the bubbles \"slide up off\" the ADS piece (where were they at frame 1, and appearing from nothing breaks \"no objects appearing\"); PR-CLOTH content lists \"labels OFFER, POSTS and ADS\" but no OFFER piece is in this shot; size \"28 to 56% from the top\" against region pieces y1 0.58 (caption band)."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH16; carry_over \"PR-CLOTH pieces and weave\"; POSTS and ADS pieces match PR-CLOTH@v1."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "\"rod by the window\" and \"hanging by loops from a thin wooden rod\" never say what the rod is fixed to or how many loops, so it can float or become a curtain rod; \"the small sewn-on piece\" has no size or exact spot (\"upper part of the firm piece\")."
+  },
+  {
+   "id": "P12",
+   "result": "FAIL",
+   "evidence": "FL-02: the rod and its hanging pieces have no one-line structure (no brackets or support), a floating-object risk; FL-10: no \"blank, no letters\" rule for the stitched bubble outlines on the pieces."
+  }
+ ],
+ "fixes": [
+  "subjects[PR-CLOTH].pose and a new prop PR-ROD (story_critical false): \"one thin pale-wood rod fixed to the wall on two small brackets, three pieces hanging from it by loops, one loop each\"; add the same line to setting.details.",
+  "text_in_image[POSTS].occlusion: add \"on the two limp pieces the label sits below the fold, fully visible, not folded or skewed\"; give the ADS piece a size (e.g. \"ADS piece 12% of frame width, sewn across the top third of the firm piece, POSTS label below it\") and correct regions[ads_piece] to match.",
+  "setting.background_rule: add \"the window pane shows the clay street (no signs, no text) behind the glass\".",
+  "action_physics and must_not: say where the bubbles are at frame 1 (e.g. \"three blank bubbles rest on the top edge of the ADS piece from frame 1\") and change the must_not to \"no clay speech bubbles anywhere except the three on the ADS piece\"; remove OFFER from props[PR-CLOTH].content; set size_in_frame and region y1 to 0.55.",
+  "must_not: add \"no letters or words inside the stitched bubble outlines\", \"no hands, no people\"."
+ ]
+}

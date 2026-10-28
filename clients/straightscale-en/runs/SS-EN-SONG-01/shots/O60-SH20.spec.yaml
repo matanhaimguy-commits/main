@@ -10,7 +10,7 @@ must_read_in_1s: She tugs the cloth band hard and it stays attached.
 subjects:
 - id: CH-MAYA
   ref: CH-MAYA@v1
-  state: arm and shoulder
+  state: arm and shoulder in an olive-green knitted cardigan sleeve over a white blouse cuff
   pose: pulling the band toward screen right, away from the organizer
   expression: steady
   instances: 1
@@ -25,7 +25,8 @@ hands:
 - who: Maya
   left: left hand out of frame
   right: right hand gripping the band end and pulling toward screen right, away from the organizer
-  contact: right fingers around the band, four stitched seams between pieces visible
+  contact: right fingers around the last 3 cm of the fifth piece, beyond the fourth seam; all four seams stay clear of the
+    fingers and visible
   count_check: five fingers on the right hand; left hand not visible
   must_not_cover: the band's seams
 props:
@@ -35,11 +36,11 @@ props:
   state: APRIL row with the calm band, taut
   content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row
     above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three
-    small colourful clay clients standing shoulder to shoulder (twelve in all), visible above the APRIL row at 8 to 28% from
+    small colourful clay clients standing shoulder to shoulder (twelve in all), visible above the APRIL row at 16 to 32% from
     the top; the CLIENTS header is above the frame; APRIL pockets: one small client per pocket, a calm sand-cream band of
-    five joined pieces (one large, three small, one small) with four seams, the pieces carry no lettering at this size, along
-    the top edge pulled taut.'
-  size_in_frame: April row about 77% of frame width, 30 to 52% from the top
+    five joined pieces (one large, three small, one small) with four seams, the five pieces carry no letters or words at all;
+    the band is stitched along the top edge of the APRIL row and pulled taut.'
+  size_in_frame: April row about 77% of frame width, 34 to 52% from the top
   held_by: null
 text_in_image:
 - string: APRIL
@@ -50,13 +51,13 @@ text_in_image:
   occlusion: stays visible
 - string: MARCH
   surface: row label band at the left end of the upper row
-  position: left end of the MARCH row, about 14% from the top
+  position: left end of the MARCH row, 16 to 24% from the top
   case: upper
   must_be_exact: true
   occlusion: the pulling hand and band stay clear of the label
 action_physics:
 - Maya's right hand pulls the band 3 cm toward screen right, away from the organizer; the band goes taut, the stitched seams
-  between the pieces stay closed and the four small clients tilt once and settle.
+  between the pieces stay closed, and the four April clients lean 5 degrees toward the band once and settle upright.
 static: false
 setting:
   ref: null
@@ -84,35 +85,36 @@ continuity:
   previous_shot: O60-SH19
   carry_over:
   - PR-ORGANIZER payoff state
+  - CH-MAYA olive cardigan sleeve
 regions:
 - name: right_hand
   kind: hand
   box:
-  - 0.58
-  - 0.38
-  - 0.82
-  - 0.52
+  - 0.66
+  - 0.34
+  - 0.79
+  - 0.48
 - name: band_seams
   kind: prop
   box:
   - 0.1
-  - 0.3
-  - 0.84
-  - 0.44
+  - 0.34
+  - 0.66
+  - 0.4
 - name: april_label
   kind: text
   box:
   - 0.06
-  - 0.4
+  - 0.42
   - 0.24
-  - 0.48
+  - 0.5
 - name: march_label
   kind: text
   box:
   - 0.06
-  - 0.08
+  - 0.16
   - 0.24
-  - 0.2
+  - 0.24
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: a clay home office in

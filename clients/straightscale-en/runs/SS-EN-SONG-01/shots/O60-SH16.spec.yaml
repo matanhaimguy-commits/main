@@ -21,13 +21,13 @@ props:
   state: OFFER piece and three POSTS pieces cut from it
   content: One calm sand-cream linen cloth, a single colour, tight weave, with tone-on-tone speech-bubble shapes stitched
     in deeper tan thread, plus pieces cut from it with the same weave and charcoal stitched labels OFFER and POSTS
-  size_in_frame: bigger cloth 48% of frame width, OFFER piece 36% of frame width, POSTS pieces 18% each
+  size_in_frame: bigger cloth 40% of frame width, OFFER piece 34% of frame width, POSTS pieces 18% each
   held_by: null
 - id: PR-SCISSORS
   story_critical: false
   ref: PR-CLOTH@v1 (scissors panel)
-  state: clay scissors resting open on the cloth
-  content: Small orange-handled clay scissors with thumb-pressed handles, blades open and resting on the cloth edge
+  state: resting open on the bare desk below the OFFER piece
+  content: Small orange-handled clay scissors with thumb-pressed handles, blades open, lying flat on the bare desk
   size_in_frame: scissors 15% of frame width
   held_by: null
 text_in_image:
@@ -44,9 +44,11 @@ text_in_image:
   must_be_exact: true
   occlusion: no piece overlaps another's label
 action_physics:
-- 'Frozen: the bigger cloth fills 8 to 56% of the width at 16 to 44% from the top with a hole the size of the OFFER piece
-  at its centre; the OFFER piece lies on the desk to the right of the cloth (56 to 92% wide); three POSTS pieces lie in a
-  row below at 46 to 56% from the top; the scissors rest open 3 cm right of the hole''s last cut edge.'
+- 'Frozen: the bigger cloth fills 8 to 48% of the width at 16 to 44% from the top, with a hole 30% of the frame wide at its
+  centre; a bare desk gap of 6% of the width; the OFFER piece lies on the desk at 56 to 90% of the width, 20 to 40% from the
+  top; three POSTS pieces lie in a row below at 46 to 55% from the top, each with its long side horizontal and its label reading
+  left to right, with bare desk between them; the scissors rest open on the bare desk at x 0.62 to 0.77, y 0.41 to 0.45, below
+  the OFFER piece, touching nothing else.'
 static: true
 setting:
   ref: null
@@ -81,7 +83,7 @@ regions:
   box:
   - 0.56
   - 0.2
-  - 0.92
+  - 0.9
   - 0.4
 - name: offer_label
   kind: text
@@ -96,7 +98,7 @@ regions:
   - 0.1
   - 0.46
   - 0.9
-  - 0.56
+  - 0.55
 - name: posts_labels
   kind: text
   box:
@@ -109,8 +111,15 @@ regions:
   box:
   - 0.08
   - 0.16
-  - 0.56
+  - 0.48
   - 0.44
+- name: scissors
+  kind: prop
+  box:
+  - 0.62
+  - 0.41
+  - 0.77
+  - 0.45
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only
@@ -123,6 +132,9 @@ must_not:
 - no sung mouth movement and no singer on screen
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
+- no letters or words inside the stitched bubble outlines on the cloth
+- no other readable words on any piece besides OFFER and POSTS
+- no people
 hero: false
 notes: 'Maya is out of frame on purpose. The pieces carry the same bubble weave as SH15. No generated clip: a gpt-image-2
   still moved by a code push-in.'

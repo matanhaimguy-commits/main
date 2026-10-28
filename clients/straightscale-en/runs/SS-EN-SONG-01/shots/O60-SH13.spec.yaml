@@ -10,7 +10,8 @@ subjects:
 - id: CH-MAYA
   ref: CH-MAYA@v1
   state: arm and torso, side view, olive cardigan sleeve
-  pose: standing over the bin
+  pose: standing at the left of the bin, facing screen right; the camera sees her right side, her right arm nearest the lens,
+    her left hand on the far rim of the bin
   expression: calm, decided (side face)
   instances: 1
   eyeline: down at the bin
@@ -52,11 +53,12 @@ action_physics:
 static: true
 setting:
   ref: null
-  details: 'Plain ivory paper office: corner of the office, bin beside the desk. World (no set sheet, SET-OFFICE fallback,
-    main session 28 Oct): a plain warm-ivory paper wall and floor meeting in a soft curve, soft warm light, soft contact shadows.
-    Of the office items, only those this shot names appear, each looking like this: a simple charcoal clay desk (one flat
-    top on four straight legs, no drawers); an open silver clay laptop with a plain lid; one white clay mug; a small round
-    charcoal clay bin with a thumb-pressed rim; a plain window with a thin pale-wood frame.'
+  details: 'Plain ivory paper office: the desk is not in frame, only the bin on the floor against the plain wall. World (no
+    set sheet, SET-OFFICE fallback, main session 28 Oct): a plain warm-ivory paper wall and floor meeting in a soft curve,
+    soft warm light, soft contact shadows. Of the office items, only those this shot names appear, each looking like this:
+    a simple charcoal clay desk (one flat top on four straight legs, no drawers); an open silver clay laptop with a plain
+    lid; one white clay mug; a small round charcoal clay bin with a thumb-pressed rim; a plain window with a thin pale-wood
+    frame.'
   background_rule: plain wall
 camera:
   framing: medium close on Maya's arm, hand and the bin
@@ -77,6 +79,7 @@ continuity:
   carry_over:
   - PR-SCRAPS
   - CH-MAYA
+  - three other scraps already in the bin (cleared between SH12 and SH13)
 regions:
 - name: right_hand
   kind: hand

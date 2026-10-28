@@ -1,0 +1,76 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH20",
+ "spec_sha256": "4adffa7e05983c97c7abbde7590129e816f7c431a690d14092340450df860a3e",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Maya, organizer, right hand, two strings, action, World line, camera and regions right_hand/band_seams/april_label/march_label present (Maya's face is out of frame by design)."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P3",
+   "result": "FAIL",
+   "evidence": "hands contact \"right fingers around the band, four stitched seams between pieces visible\", must_not_cover \"the band's seams\", but region right_hand [0.58, 0.38, 0.82, 0.52] lies inside band_seams [0.1, 0.3, 0.84, 0.44]; the spec never says where along the band the grip is, so the fingers can hide the fourth seam."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"Maya's right hand pulls the band 3 cm toward screen right, away from the organizer; the band goes taut, the stitched seams ... stay closed and the four small clients tilt once and settle.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-ORGANIZER content with rows, clients (12 and 4), band of five pieces with four seams."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"APRIL\" and \"MARCH\" with surface, position and occlusion (\"the pulling hand and band stay clear of the label\")."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"plain wall\"."
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "\"MARCH\" is \"about 14% from the top\" with region [0.06, 0.08, 0.24, 0.2] and \"MARCH pockets ... visible ... at 8 to 28% from the top\", inside the top 14% that safe_zones \"clear of key content\"; the pulling arm and shoulder lie right of the hand at x 0.82, at y 0.38 to 0.52 (right 21% of the lower half)."
+  },
+  {
+   "id": "P9",
+   "result": "FAIL",
+   "evidence": "subject CH-MAYA state is only \"arm and shoulder\" and carry_over lists only \"PR-ORGANIZER payoff state\": the olive cardigan sleeve (SH13, SH19) is not stated, so the sleeve colour can change."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "content \"the pieces carry no lettering at this size, along the top edge pulled taut\": \"at this size\" can be read as \"tiny letters allowed\"; \"3 cm\" has no scale; \"the four small clients tilt once\" (are they the April clients, and which way?) is open."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-03 met (3 cm pull, taut band, closed seams); FL-01 met (hand away from both labels); FL-04 met."
+  }
+ ],
+ "fixes": [
+  "hands[0].contact: add \"the grip is on the last 3 cm of the fifth piece, beyond the fourth seam; all four seams stay clear of the fingers\"; adjust regions[right_hand] so it does not cover band_seams.",
+  "props[PR-ORGANIZER].size_in_frame, text_in_image[MARCH].position and regions: shift the framing down so the MARCH label sits at 16 to 24% from the top and the April row at 34 to 52%, or drop the MARCH string and say the MARCH row is cropped; keep the hand and arm inside x 0.06 to 0.79 where y is above 0.5.",
+  "subjects[CH-MAYA].state: \"arm and shoulder in an olive-green knitted cardigan sleeve over a white blouse cuff\"; carry_over add \"CH-MAYA olive cardigan sleeve\".",
+  "props[PR-ORGANIZER].content: \"the five pieces carry no letters or words at all\"; action_physics: \"the four April clients lean 5 degrees toward the band once and settle upright\"."
+ ]
+}

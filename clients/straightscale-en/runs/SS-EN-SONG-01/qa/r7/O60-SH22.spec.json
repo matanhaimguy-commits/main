@@ -1,0 +1,75 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH22",
+ "spec_sha256": "c38996ba175e75be9ca240cad628a50807d0e7b04f6298bc4dc60b64f447a008",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "FAIL",
+   "evidence": "text_in_image has \"CLIENTS\" with surface \"header band on each organizer\" but regions hold only maya_face, friend_face, organizers, labels, labels_friend: the two header bands have no box of their own for the text crop."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: \"none visible\"; Maya \"hands hidden under her folded arms\", friend \"hands tucked in jacket pockets\" (as on the sheet)."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"Frozen: the two women stand side by side, about 15% of frame width apart ... both feet flat on the clay floor, Maya's head turned 15 degrees toward her friend.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Both organizers have content lines; the friend's refs SET-FRIEND@v1 with \"clients in every pocket of both rows\"."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"CLIENTS\", \"MARCH\", \"APRIL\" for both organizers, each with surface, position, case and occlusion."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"plain wall, nothing else\"; the sheet's shelf and plant are not asked for."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Faces at y 0.46 to 0.56 are at the lower edge of the 15% to 55% band but the strings and organizers agree (two organizers at 40% each, 16 to 44%); \"no scraps anywhere\" matches the calm organizers."
+  },
+  {
+   "id": "P9",
+   "result": "FAIL",
+   "evidence": "subject CH-FRIEND state is only \"standing right\": no jacket, puff, glasses, jeans or shoes (the SHEET-CH-FRIEND state), so the outfit can drift; ref \"CH-FRIEND@v2 (seated panel)\" is the seated head-and-shoulders panel while she stands full body (the standing views are the left and middle panels)."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "\"(seated panel)\" cannot be followed for a standing figure; \"at this size\" in the organizer band line can be read as \"tiny letters allowed\"; the friend's organizer has no \"one fabric, no band\" negative while Maya's has a band."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-11 met (one instance each, feet flat); FL-04 met; FL-01 not applicable (no hands)."
+  }
+ ],
+ "fixes": [
+  "regions: add boxes for the two CLIENTS header bands (kind text), e.g. [0.14, 0.16, 0.38, 0.21] and [0.62, 0.16, 0.86, 0.21] to match the organizers.",
+  "subjects[CH-FRIEND].state: \"standing right, broad-hipped, teal-grey canvas jacket with two patch pockets over a cream top, dark jeans, white shoes, black curly puff, tortoiseshell wire glasses\"; ref: \"CH-FRIEND@v2 (front and three-quarter standing views for body and outfit, seated panel for the face)\"; add \"CH-FRIEND look\" to carry_over.",
+  "props[PR-ORGANIZER].content and must_not: \"the five pieces carry no letters or words at all\"; add \"no band and no second fabric on the friend's organizer\"."
+ ]
+}

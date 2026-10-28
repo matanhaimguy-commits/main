@@ -27,17 +27,15 @@ props:
   held_by: null
 text_in_image:
 - string: FEAST OR FAMINE
-  surface: stitched deeper-tan letters inside a large speech-bubble outline, thread at least three tones darker than the cloth,
-    capital letters about 3% of frame height, each phrase on one line, filling about 65% of frame width, readable at 360 px
-    wide
+  surface: charcoal stitched letters inside a large tan speech-bubble outline, capital letters about 3% of frame height, each
+    phrase on one line, filling about 65% of frame width, readable at 360 px wide
   position: upper bubble, 30% from the top
   case: upper
   must_be_exact: true
   occlusion: no other bubble overlaps it
 - string: SOME MONTHS NOTHING
-  surface: stitched deeper-tan letters inside a speech-bubble outline, thread at least three tones darker than the cloth,
-    capital letters about 3% of frame height, each phrase on one line, filling about 65% of frame width, readable at 360 px
-    wide
+  surface: charcoal stitched letters inside a tan speech-bubble outline, capital letters about 3% of frame height, each phrase
+    on one line, filling about 65% of frame width, readable at 360 px wide
   position: lower bubble, 45% from the top
   case: upper
   must_be_exact: true
@@ -108,4 +106,5 @@ must_not:
 - no morphing of props between shapes
 hero: false
 notes: 'Phrases are buyer words used in the script gate (VOC bank, no names). Bubbles appear here for the first time (owner
-  note). No generated clip: a gpt-image-2 still moved by a code push-in.'
+  note). No generated clip: a gpt-image-2 still moved by a code push-in. The one-line layout of each phrase deliberately overrides
+  the two-line layout on PR-CLOTH@v1: the reference is not copied line for line.'

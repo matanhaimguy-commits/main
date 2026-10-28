@@ -1,0 +1,75 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH14",
+ "spec_sha256": "c3479ef4528905993fece8ba7c75afd4dcf859e00382cd3c9b81e7b1cba88a76",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Subject and prop PR-CLOTH with sheet ref and content, no hands, no text, action, World line, camera, cloth region all present."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: \"none visible\"; the cloth moves on its own, but no hand is implied."
+  },
+  {
+   "id": "P4",
+   "result": "FAIL",
+   "evidence": "\"The rolled bolt of cloth rolls 40 cm to the right along the desk and flattens, unrolling its free end\" against pose \"rolled bolt at the left, free end spreading right\": if the bolt rolls right the cloth lies behind it on the left, if the free end spreads right the bolt stays; no contact line says which edge stays on the desk, and \"40 cm\" has no scale in a clay set."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "content \"One calm sand-cream linen cloth, a single colour, tight weave, shown plain in this shot, no print\"."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "text_in_image: none, and must_not forbids bubbles, print, pattern and stripes on the cloth."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"plain wall behind, desk charcoal\"; no frames, screens or signs named."
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "size_in_frame \"cloth spans 85% of frame width, 40 to 62% from the top\" (region [0.08, 0.38, 0.92, 0.64]) against safe_zones \"key props sit 15% to 55% from the top; captions go 55 to 62% down\"; the unroll description also contradicts itself (see P4)."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH13; carry_over \"PR-CLOTH one calm colour\" matches PR-CLOTH@v1; plain-cloth state is stated and justified in notes."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No separate ambiguity beyond the unroll wording and the \"40 cm\" scale already failed under P4."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-03 is the live pattern and is failed under P4; FL-04 met (cloth has content); no frames or text."
+  }
+ ],
+ "fixes": [
+  "action_physics: rewrite as one consistent motion with contact points, e.g. \"the bolt stays at the left end of the desk and turns in place, shrinking; the cloth's free end slides right along the desk top, flat against it, until the flat cloth spans 85% of the frame width; the cloth's lower face stays in contact with the desk the whole time; no hands touch it\". Drop \"40 cm\" or tie it to the desk length.",
+  "props[PR-CLOTH].size_in_frame and regions[cloth]: change to \"cloth spans 85% of frame width, 40 to 55% from the top\" and box [0.08, 0.38, 0.92, 0.55] so no key prop sits in the 55 to 62% caption band.",
+  "must_not: add \"no hands, no people\" so the model does not invent a hand to pull the cloth."
+ ]
+}

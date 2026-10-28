@@ -11,7 +11,7 @@ subjects:
 - id: PR-CLOTH
   ref: PR-CLOTH@v1
   state: a calm sand-cream cloth, plain at this point (no bubbles yet), unrolling
-  pose: rolled bolt at the left, free end spreading right
+  pose: rolled bolt at the left end of the desk, turning in place; the free end slides right along the desk
   expression: n/a
   instances: 1
 hands: none visible
@@ -21,11 +21,13 @@ props:
   ref: PR-CLOTH@v1
   state: plain cloth only, unrolling
   content: One calm sand-cream linen cloth, a single colour, tight weave, shown plain in this shot, no print
-  size_in_frame: cloth spans 85% of frame width, 40 to 62% from the top
+  size_in_frame: cloth spans 85% of frame width, 40 to 55% from the top
   held_by: null
 text_in_image: none
 action_physics:
-- The rolled bolt of cloth rolls 40 cm to the right along the desk and flattens, unrolling its free end; the camera is locked.
+- The bolt stays at the left end of the desk and turns in place, shrinking; the cloth's free end slides right along the desk
+  top, flat against it, until the flat cloth spans 85% of the frame width; the cloth's lower face stays in contact with the
+  desk the whole time; no hands touch it. The camera is locked.
 static: false
 setting:
   ref: null
@@ -60,7 +62,7 @@ regions:
   - 0.08
   - 0.38
   - 0.92
-  - 0.64
+  - 0.55
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: a clay home office in
@@ -75,6 +77,7 @@ must_not:
 - no sung mouth movement and no singer on screen
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
+- no hands, no people
 hero: true
 notes: 'CLIP-E: 5 s render, only about 2.8 s used (trim); a slow unroll. Plain cloth because the bubbles belong to the next
   line. Clip: CLIP-E.'

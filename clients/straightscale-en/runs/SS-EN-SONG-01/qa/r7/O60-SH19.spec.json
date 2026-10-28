@@ -1,0 +1,75 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH19",
+ "spec_sha256": "4e0b6192e9f00e178efd198be9716c969e26efbcca35ca8ebbba1084d1d850c1",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Maya, organizer, both hands, three strings, action, World line, camera and regions organizer/march_label/april_label/clients_header/right_hand/maya_face/left_hand present."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"right hand open, fingertips touching the free end of the band, thumb under it\"; \"left hand relaxed at her side\"; must_not_cover \"the APRIL label\"; count_check present."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"Maya's right fingers close on the free end of the cloth band; nothing on the organizer moves yet.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-ORGANIZER content gives materials, rows, 12 and 4 clients, a band of \"five joined pieces ... with four seams\"; matches PR-ORGANIZER@v2 state B."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"CLIENTS\", \"MARCH\", \"APRIL\" each with surface, position, case and occlusion; boxes for all three."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"plain wall; no loose scraps in sight\"."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "\"fingertips touching\" then \"fingers close\" is a start-to-grip motion, not a conflict; organizer 15 to 48% and faces/hands inside the safe zone (the relaxed left hand at y 0.52 to 0.62 is not story-critical)."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH18; carry_over \"PR-ORGANIZER payoff state\", \"CH-MAYA olive cardigan\"; band, 12 and 4 clients agree with the v2 sheet."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "content \"the pieces carry no lettering at this size stitched along the row's top edge\" runs two ideas together and \"at this size\" can be read as \"tiny letters are allowed\"; the band is at y about 0.33 while right_hand is at y 0.38 to 0.46 and the spec does not say how the free end hangs from the organizer edge down to the hand."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 met; FL-01 met (hand at x 0.7 to 0.82, labels at x 0.06 to 0.56); FL-11 met (\"both feet flat on the clay floor\"); FL-03 met (fingertips on the free end)."
+  }
+ ],
+ "fixes": [
+  "props[PR-ORGANIZER].content: replace \"the pieces carry no lettering at this size stitched along the row's top edge\" with \"the five pieces carry no letters or words at all; the band is stitched along the top edge of the APRIL row\".",
+  "props[PR-ORGANIZER].size_in_frame or action_physics: add \"the band's free end leaves the organizer edge at the top of the APRIL row and hangs down in a gentle curve to Maya's right hand at 38 to 46% from the top\".",
+  "must_not: add \"no words on the cloth band\" and \"no headset on Maya\"."
+ ]
+}

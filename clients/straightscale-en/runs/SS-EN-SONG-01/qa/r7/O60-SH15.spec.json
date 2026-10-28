@@ -1,0 +1,74 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH15",
+ "spec_sha256": "2f79088cc7606d813d10cff6c5b1bcba168571a93bc12fe2d698c6d9a7c3ebcf",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Cloth subject and prop, both strings, frozen action, World line, camera, regions bubble_one/bubble_two/cloth all present."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: \"none visible\"; must_not \"no people\"."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "static with \"Frozen: bubble outlines are stitched across the cloth; one thread end of the lower bubble curls 1 cm.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "content \"One calm sand-cream linen cloth, a single colour, tight weave, with tone-on-tone speech-bubble shapes stitched in deeper tan thread\"; other bubbles \"blank (tone-on-tone outline only, no letters)\"."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"FEAST OR FAMINE\" and \"SOME MONTHS NOTHING\": 3 words each, surface, position (\"upper bubble, 30% from the top\"), size (\"about 3% of frame height\"), occlusion \"no other bubble overlaps it\"."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"only the cloth in frame\"; blank bubbles carry an explicit no-letters rule."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Phrase boxes (y 0.24 to 0.38 and 0.40 to 0.54) sit inside 15% to 55%; \"cloth fills the frame\" and \"only the cloth in frame\" agree."
+  },
+  {
+   "id": "P9",
+   "result": "FAIL",
+   "evidence": "text surface \"stitched deeper-tan letters ... thread at least three tones darker than the cloth\" disagrees with the locked PR-CLOTH@v1 sheet, where both phrases are \"charcoal stitching inside one tan woven bubble\" (and the image shows charcoal letters); the spec also asks for \"each phrase on one line\" while the sheet sets both on two lines."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or attached files exist yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "\"three tones darker\" is loose but is removed by the P9 fix; no other two-way words."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-10 met (\"no other readable words on the cloth besides the two listed\", \"no names\"); FL-04 met; FL-01 not applicable."
+  }
+ ],
+ "fixes": [
+  "text_in_image[0].surface and [1].surface: replace \"stitched deeper-tan letters ... thread at least three tones darker than the cloth\" with \"charcoal stitched letters inside a tan speech-bubble outline\", as on PR-CLOTH@v1.",
+  "text_in_image[*].surface: keep \"each phrase on one line, filling about 65% of frame width\" but add to notes (and so to the prompt) that the one-line layout deliberately overrides the two-line layout on the sheet, so the reference is not copied line-for-line."
+ ]
+}
