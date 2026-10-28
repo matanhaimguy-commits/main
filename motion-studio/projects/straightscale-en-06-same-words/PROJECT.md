@@ -33,14 +33,23 @@ motion-reel skill for the build later. Docs: `docs/hook-stacks.md`, `docs/script
 - CTA: follow for the next part (reach job).
 
 ## Status
-Stage: script & VO (hooks and spines written; recommended spine taken to a release candidate)
+Stage: script & VO (hooks and spines written; recommended spine A taken to a release candidate at both tiers)
 Current version: none (no picture, no audio)
-Next step: GATE 4, Matan picks the spine
-Blockers / open questions: see Decisions and the GATE 4 question in `docs/script-lab.md`
+Next step: GATE 4, Matan picks the spine (A, B or C) and answers the hook question; then the concept frame
+(G-HUMAN-HOOKBOARD), the voice (Voice 1 the page, Voice 2 the narrator) and the build through the motion-reel skill
+Blockers / open questions: G-HOOK not passed after 5 blind rounds (master stack best: text A- and A-, spoken A- and A-,
+visual A- in round 4, B and B+ in round 5); tier A needs `wildcard` or `angle_proven`; every cold reader asked "do my
+clients even reach a page?" (GATE 4 question in `docs/script-lab.md` 9)
 
 ## Decisions (newest first)
 | Date | Decision | Options considered | Why | Who |
 |---|---|---|---|---|
+| 28 Oct | GATE 4: which spine (A "The page that changed the subject", B "Maya follows one visitor", C "Three ways I change the subject"), the hook stack below A, `wildcard` for tier A, the "do they reach a page?" doubt | see `docs/script-lab.md` 8 and 9 | the owner's gate | Matan (pending) |
+| 28 Oct | Recommended spine A taken through WRITE: O60 180 words, about 72 s, gate 88; O30 86 words, about 34 s, gate 87; draft plus 3 rewrites, no critical fail. Labelled release candidate, provisional until Matan picks | write B or C first; stop at the spines | the owner needs something to judge; scripts are cheap | Claude |
+| 28 Oct | Master hook stack: text "More posts won't fix a page that changes the subject.", spoken "More posts? Fine. I'm the page they land on. I change the subject.", H-01 the visitor whose blue bubble matches nothing on the grey page. G-HOOK not passed after the 5-round cap; the joined master was not graded blind | more rounds (the brief's cap is 5) | best text and spoken from round 5, best visual from round 4; spoken line 1 changed by the Script Lab seam fix (listen readers couldn't tell who "I" was) | Claude, owner to decide |
+| 28 Oct | Second person ("you", "your page") for the villain, not Maya in third person | "her page" stacks | every "her" stack graded down for "not me" (rounds 1 and 2) | Claude |
+| 28 Oct | The bad page's jargon print never says SCALE | SYNERGY, SOLUTIONS, SCALE | a sound-off reader linked SCALE to @straightscale_ | Claude |
+| 28 Oct | Blind graders and cold readers were fresh headless Claude instances (`claude -p`, no tools, empty folder) | the Agent tool | the Agent tool was not available in this session | Claude |
 | 28 Oct | Template, format and reference as in the brief | the other STORY-FORMATS templates; refbank pick list | each reel of the series uses a different template and format from the song and from each other; refs pass `check` | Claude |
 
 ## Approvals
@@ -49,3 +58,8 @@ Blockers / open questions: see Decisions and the GATE 4 question in `docs/script
 
 ## Log
 - 28 Oct · folder made from `templates/project`; brief, template, format and reference set · ok
+- 28 Oct · Hook Lab: 10 stacks graded; G-HOOK 5 rounds, two fresh blind graders each (10 graders): not passed, best
+  master recorded (`docs/hook-stacks.md`) · open
+- 28 Oct · Script Lab: brief card, persona, structure pick, ladder, 3 spines, recommendation, GATE 4 question
+  (`docs/script-lab.md`); spine A written at O60 and O30, 4 gated loops with 16 fresh cold readers, RC O60 88, O30 87
+  (`docs/script.md`) · waiting on Matan
