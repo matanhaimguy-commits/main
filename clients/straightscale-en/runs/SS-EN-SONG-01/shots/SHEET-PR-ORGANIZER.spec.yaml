@@ -10,7 +10,7 @@ subjects:
 - id: PR-ORGANIZER
   ref: null
   state: two copies side by side on a plain backdrop, left = state A, right = state B
-  pose: flat on the backdrop, straight-on
+  pose: hanging upright against the backdrop, facing the camera
   expression: ''
   instances: 1
 hands: none visible
@@ -24,7 +24,7 @@ props:
   content: 'Felt wall organizer about 60 cm wide: ivory felt with charcoal stitching, a header band with the word CLIENTS,
     two rows of four open-topped pockets, a thick label band at the left end of each row, MARCH on the upper row and APRIL
     on the lower row, letters big enough to read at phone size.'
-  size_in_frame: each copy about 46% of the frame width
+  size_in_frame: each copy about 43% of the frame width, a 6% gap between them, top 68% of the frame
   held_by: null
 text_in_image:
 - string: CLIENTS
@@ -45,14 +45,27 @@ text_in_image:
   case: upper
   must_be_exact: true
   occlusion: nothing covers any letter
+- string: MARCH
+  surface: close-up of the MARCH label band
+  position: bottom strip, left panel
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+- string: APRIL
+  surface: close-up of the APRIL label band
+  position: bottom strip, middle panel
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
 action_physics: []
 static: true
 setting:
   ref: null
   details: plain soft warm-ivory paper backdrop, even studio light, soft contact shadows
-  background_rule: 'nothing else in frame: no furniture, no props besides those listed, no text'
+  background_rule: 'nothing else in frame: no furniture, no props besides those listed, no lettering besides the listed strings'
 camera:
-  framing: 'prop sheet: two copies of the organizer side by side, same scale'
+  framing: 'prop sheet: two copies of the organizer side by side in the top 68%, and a bottom strip of three close-ups: the
+    MARCH label band, the APRIL label band, one MARCH pocket with its three clients'
   angle: straight-on, eye level with the subject
   movement: none (a still sheet)
   aspect: '1:1'
@@ -64,31 +77,66 @@ regions:
 - name: state_a
   kind: prop
   box:
-  - 0.02
-  - 0.2
-  - 0.49
-  - 0.8
+  - 0.04
+  - 0.04
+  - 0.47
+  - 0.68
 - name: state_b
   kind: prop
   box:
-  - 0.51
-  - 0.2
-  - 0.98
-  - 0.8
+  - 0.53
+  - 0.04
+  - 0.96
+  - 0.68
+- name: clients_a
+  kind: text
+  box:
+  - 0.13
+  - 0.04
+  - 0.38
+  - 0.12
+- name: clients_b
+  kind: text
+  box:
+  - 0.62
+  - 0.04
+  - 0.87
+  - 0.12
 - name: labels_a
   kind: text
   box:
-  - 0.02
-  - 0.2
-  - 0.2
-  - 0.8
+  - 0.04
+  - 0.12
+  - 0.14
+  - 0.68
 - name: labels_b
   kind: text
   box:
-  - 0.51
-  - 0.2
-  - 0.69
-  - 0.8
+  - 0.53
+  - 0.12
+  - 0.63
+  - 0.68
+- name: crop_march
+  kind: text
+  box:
+  - 0.04
+  - 0.72
+  - 0.33
+  - 0.96
+- name: crop_april
+  kind: text
+  box:
+  - 0.36
+  - 0.72
+  - 0.64
+  - 0.96
+- name: crop_pocket
+  kind: prop
+  box:
+  - 0.67
+  - 0.72
+  - 0.96
+  - 0.96
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. Stop-motion puppet lane: tiny real craft materials on the clay (thread-wrapped hair, real fabric and felt, real

@@ -7,4 +7,5 @@ Every English piece's production run lives here: `pipeline.py init straightscale
 The hub has one business, `straightscale`; `brain.json` `hub.business` names it, so `hub.py` and the studio commands
 (`studio-push straightscale-en <post_id>`) post there without `--business`.
 
-`clients/straightscale/runs/SS-EN-SONG-01` was made before this folder existed and stays where it is.
+`SS-EN-SONG-01` (EN 03, the song) was made under `clients/straightscale/runs/` before this folder existed and moved here on
+28 Oct (main session), so it budgets against the English cap; its card is `cards/2026-11-W1/SSEN-2026-11-W1-01.yaml`.

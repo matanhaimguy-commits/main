@@ -1,0 +1,75 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "SHEET-SET-FRIEND",
+ "spec_sha256": "043ecca021618c1e916738fa7d48d714c2c44b1bf78a259757ed69fde3a7702e",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "every subject, prop, text string, setting and camera line is present and checkable"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible / hands listed"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: [] and static: true (a still sheet); no action to check"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story-critical props carry a content line"
+  },
+  {
+   "id": "P6",
+   "result": "FAIL",
+   "evidence": "regions: 'labels' covers x 0.1-0.25 only; the CLIENTS header band (top centre) has no text region"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule rules out frames, screens, signs"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "props PR-ORGANIZER-FRIEND ref: SET-FRIEND@v1 is this sheet's own id, and the run is text-to-image with no reference images, so the ref cannot be attached"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot: null, carry_over: [] (first use of this sheet)"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "no word with two readings found"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01..FL-13 patterns have their prevention in the spec"
+  }
+ ],
+ "fixes": [
+  "Set props[0].ref to null (or to PR-ORGANIZER@v1 only if an edit pass is intended); keep the match to Maya's organizer as a G-VIS-SHEET comparison.",
+  "Add a text region for the CLIENTS header band (about x 0.3-0.7, y 0.2-0.25).",
+  "Advisory: the look-bible lists a laptop-screen crop of the friend seated; the spec says 'no people', so SH08 composes it from CH-FRIEND@v1 plus this set."
+ ]
+}

@@ -1,0 +1,76 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH19",
+ "spec_sha256": "34d630d633ce4096bd6aafe0c58fa56e3365abe199b5eaea4c74405e99700737",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"Maya beside the organizer: full March, a few clients in April, a calm band along it.\"; 2 subject(s), 1 prop(s), 3 text string(s) and 1 action line(s) are all written out"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: attached-image order is judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "FAIL",
+   "evidence": "hands[0].left \"left hand relaxed at her side\" is visible (count_check names each visible hand) but regions has no left_hand box."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics \"Maya's right fingers close on the free end of the cloth band; nothing on the organizer moves yet.\" CLIP-H pair verdict: SH19 + SH20 is one reach, grip and tug of one arm with a locked camera (the SH20 punch-in is made in the edit), so it is one continuous action and acceptable as one shot."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story props with content: PR-ORGANIZER"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "strings \"CLIENTS\", \"MARCH\", \"APRIL\" each with surface, position and occlusion rule; all 6 words or fewer"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain wall; no loose scraps in sight\""
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "props[0].size_in_frame \"85% width\" and regions organizer [0.08,0.15,0.88,0.48] with Maya \"standing at the organizer's right side\" (maya_face [0.68,0.2,0.86,0.3], right_hand [0.72,0.38,0.84,0.46]): she stands in front of the last pockets, hiding a client of the \"exactly four clients in the APRIL row\" and the free end of the band; hands[0].right \"gripping the end\" while action_physics says her fingers \"close on\" it."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH18; carry_over ['PR-ORGANIZER payoff state', 'CH-MAYA olive cardigan']"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution, duration and declined_preset_id are checked at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "props[0].content \"a calm sand-cream cloth band of joined OFFER, POSTS and ADS pieces\": how many pieces and whether they carry letters is open (PR-CLOTH has OFFER, three POSTS, ADS = five pieces; SH20 shows \"four stitched seams\"); must_not forbids lettering other than the listed strings."
+  },
+  {
+   "id": "P12",
+   "result": "FAIL",
+   "evidence": "FL-11: subjects[0] \"standing\" with no feet-on-floor line."
+  }
+ ],
+ "fixes": [
+  "P8: props[0].size_in_frame \"organizer 62% of frame width (6 to 68%), 15 to 48% from the top; the band's free end runs past the right edge of the organizer to Maya's hand\"; regions organizer [0.06,0.15,0.68,0.48]; maya_face [0.74,0.2,0.92,0.3]; right_hand [0.7,0.38,0.82,0.46]; subjects[0].pose: \"body front three-quarter toward the camera, head turned to the band, both feet flat on the clay floor\". hands[0].right: \"right hand open, fingertips touching the free end of the band, thumb under it\" (the action then closes the fingers). SH20 sizes follow (62% x 1.25 = about 77%).",
+  "P3: regions: add {name: left_hand, kind: hand, box: [0.8,0.52,0.92,0.62]}.",
+  "P11: props[0].content: \"a calm sand-cream band of five joined pieces (one large, three small, one small) with four seams, the pieces carry no lettering at this size\". Same wording in SH20, SH21, SH22.",
+  "P12: covered by the pose fix under P8 (\"both feet flat on the clay floor\")."
+ ]
+}

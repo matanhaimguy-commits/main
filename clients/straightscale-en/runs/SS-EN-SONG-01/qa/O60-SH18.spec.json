@@ -1,0 +1,75 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH18",
+ "spec_sha256": "95d3a7d748d90c384e8a81e4e31c993262910c273048a1d60ae90f3d9b7c8fab",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"Speech bubbles float out the window to small figures looking up.\"; 2 subject(s), 1 prop(s), 0 text string(s) and 1 action line(s) are all written out"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: attached-image order is judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "FAIL",
+   "evidence": "hands: \"none visible\" for Maya seated on a call; where her hands are is not said."
+  },
+  {
+   "id": "P4",
+   "result": "FAIL",
+   "evidence": "\"Three speech bubbles drift up and out through the open window while the camera pans right\". CLIP-G pair verdict: acceptable as one clip only with the SH17 rewrite (bubbles in flight carried by one follow-pan); as written, SH17 sends them out of frame and SH18 starts them again."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story props with content: PR-BUBBLES"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "text_in_image: none; no letters are asked for"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain street, no signs, no shopfront text\""
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "regions buyers [0.2,0.4,0.9,0.54] and maya [0.08,0.46,0.28,0.58] overlap (x 0.2 to 0.28, y 0.46 to 0.54); the street seen through the window and Maya inside the room share the same area."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH17; carry_over ['PR-CLOTH bubbles', 'CH-MAYA headset']"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution, duration and declined_preset_id are checked at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "no word with two readings found; position and state words are concrete (\"six tiny clay figures on the street below the window, faces turned up\")"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/06/09/10/11/13 checked against the spec: no pattern open without its rule"
+  }
+ ],
+ "fixes": [
+  "P4: action_physics: \"The camera finishes its follow-pan and rests on the window; the three bubbles already in flight from SH17 drift up through the open pane, about 1 cm per beat; the street figures stay still.\"",
+  "P8: camera.framing: add \"the window opening spans 30 to 92% of the width; Maya sits inside the room left of it\". regions: buyers [0.3,0.4,0.9,0.54]; maya [0.06,0.46,0.26,0.58].",
+  "P3: subjects[1].pose: add \"both hands hidden behind the desk edge\"."
+ ]
+}

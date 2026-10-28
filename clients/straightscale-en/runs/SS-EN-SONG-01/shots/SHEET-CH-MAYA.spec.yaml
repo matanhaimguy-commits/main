@@ -17,9 +17,16 @@ subjects:
     eyes down), relieved (soft smile, eyes open)'
   instances: 1
 hands:
-- who: Maya, bottom-right close-up panel
-  left: left hand open flat, palm toward camera, fingers spread
-  right: right hand pinching a silver sewing needle with charcoal thread between thumb and index finger
+- who: Maya, the four full-body views
+  left: her left hand hangs relaxed at her side, empty
+  right: her right hand hangs relaxed at her side, empty
+  contact: nothing held, fingers loosely curled
+  count_check: five fingers on each hand in every view
+  must_not_cover: the cardigan front
+- who: Maya, bottom-right close-up panel (image-left hand = her left)
+  left: 'on the image-left side: her left hand open flat, palm toward camera, fingers spread'
+  right: 'on the image-right side: her right hand pinching a silver sewing needle with charcoal thread between thumb and index
+    finger'
   contact: right thumb and index fingertip on the needle shaft, the thread hanging down
   count_check: five fingers on each hand
   must_not_cover: the needle stays fully visible
@@ -37,7 +44,7 @@ static: true
 setting:
   ref: null
   details: plain soft warm-ivory paper backdrop, even studio light, soft contact shadows
-  background_rule: 'nothing else in frame: no furniture, no props besides those listed, no text'
+  background_rule: 'nothing else in frame: no furniture, no props besides those listed, no lettering besides the listed strings'
 camera:
   framing: 'character sheet: a row of four full-body views on top, a row of three expression heads and one hands panel below'
   angle: straight-on, eye level with the subject

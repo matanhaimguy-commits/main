@@ -1,0 +1,76 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH22",
+ "spec_sha256": "15b7f139b5e038879ebe057d4840a95c076376bb38149544e212d38328d8d178",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"Two women stand before two calm organizers, both with clients.\"; 2 subject(s), 2 prop(s), 2 text string(s) and 1 action line(s) are all written out"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: attached-image order is judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "FAIL",
+   "evidence": "hands: \"none visible\" relies on \"hands tucked in cardigan pockets\", but CH-MAYA (look-bible list) is an \"olive cardigan over a white blouse\" with no pockets named."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: \"Frozen: the two women stand shoulder to shoulder, Maya's head turned 15 degrees toward her friend.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story props with content: PR-ORGANIZER, PR-ORGANIZER-FRIEND"
+  },
+  {
+   "id": "P6",
+   "result": "FAIL",
+   "evidence": "text_in_image lists MARCH and APRIL on Maya's organizer only; both organizers have a CLIENTS header and the friend's organizer has MARCH and APRIL labels too (SET-FRIEND \"same size and labels as Maya's (CLIENTS, MARCH, APRIL)\"), all unlisted lettering."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain wall, nothing else\""
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "action_physics \"stand shoulder to shoulder\" against regions maya_face [0.18,0.46,0.34,0.56] and friend_face [0.62,0.46,0.78,0.56] (28% of frame width apart, each under her own organizer)."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH21; carry_over ['CH-MAYA', 'CH-FRIEND', 'both organizers calm']"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution, duration and declined_preset_id are checked at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "no word with two readings found; position and state words are concrete (\"standing left, olive cardigan\")"
+  },
+  {
+   "id": "P12",
+   "result": "FAIL",
+   "evidence": "FL-11: two standing figures with no feet-on-floor line."
+  }
+ ],
+ "fixes": [
+  "P6: text_in_image: add CLIENTS (header band, each organizer), MARCH and APRIL (row labels on the friend's organizer, left end of each row); regions: add labels_friend [0.54,0.17,0.78,0.38].",
+  "P8: action_physics: \"Frozen: the two women stand side by side, about 15% of frame width apart, each below her own organizer, both feet flat on the clay floor, Maya's head turned 15 degrees toward her friend\". regions: maya_face [0.26,0.46,0.42,0.56]; friend_face [0.54,0.46,0.7,0.56]; organizers sit above each woman.",
+  "P3: subjects[0].pose: \"relaxed, arms folded in front of her, hands hidden under her folded arms\", or add patch pockets to CH-MAYA before its sheet is made; keep the friend's jacket pockets.",
+  "P12: covered by the action_physics fix under P8."
+ ]
+}

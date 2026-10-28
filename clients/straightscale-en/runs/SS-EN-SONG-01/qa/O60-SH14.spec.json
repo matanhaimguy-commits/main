@@ -1,0 +1,73 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH14",
+ "spec_sha256": "ce2ad382c5ad616db3bc79137349b698883e24f852ba1e08c73da9a3d391650c",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"One calm plain cloth unrolls across the desk.\"; 1 subject(s), 1 prop(s), 0 text string(s) and 1 action line(s) are all written out"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: attached-image order is judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible (no hand is described in the frame)"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: \"The rolled bolt of cloth rolls 40 cm to the right along the desk and flattens, unrolling its free end; the camera is locked.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story props with content: PR-CLOTH"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "text_in_image: none; no letters are asked for"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain wall behind, desk charcoal\""
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "props[0].content ends \"plus pieces cut from it with the same weave and charcoal stitched labels OFFER, POSTS and ADS\" while props[0].state is \"plain cloth only, unrolling\", text_in_image is \"none\" and must_not says \"no scraps on the desk\": the model is told to add lettered pieces."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH13; carry_over ['PR-CLOTH one calm colour']"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution, duration and declined_preset_id are checked at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "no word with two readings found; position and state words are concrete (\"a calm sand-cream cloth, plain at this point (no bubbles yet), unrolling\")"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/06/09/10/11/13 checked against the spec: no pattern open without its rule"
+  }
+ ],
+ "fixes": [
+  "P8: props[0].content: delete \", plus pieces cut from it with the same weave and charcoal stitched labels OFFER, POSTS and ADS\" so it reads \"One calm sand-cream linen cloth, a single colour, tight weave, shown plain in this shot, no print\". hero: true (start frame of CLIP-E, standards.json start_frame hero true)."
+ ]
+}

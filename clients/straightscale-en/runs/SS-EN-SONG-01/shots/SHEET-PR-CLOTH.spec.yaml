@@ -42,13 +42,13 @@ props:
   held_by: null
 text_in_image:
 - string: FEAST OR FAMINE
-  surface: stitched inside one woven bubble
+  surface: charcoal stitching inside one tan woven bubble
   position: upper half of the woven piece
   case: upper
   must_be_exact: true
   occlusion: nothing covers any letter
 - string: SOME MONTHS NOTHING
-  surface: stitched inside another woven bubble
+  surface: charcoal stitching inside another tan woven bubble
   position: lower half of the woven piece
   case: upper
   must_be_exact: true
@@ -76,10 +76,10 @@ static: true
 setting:
   ref: null
   details: plain soft warm-ivory paper backdrop, even studio light, soft contact shadows
-  background_rule: 'nothing else in frame: no furniture, no props besides those listed, no text'
+  background_rule: 'nothing else in frame: no furniture, no props besides those listed, no lettering besides the listed strings'
 camera:
   framing: 'prop sheet: bolt and woven piece on top, cut pieces, bubbles and scissors below'
-  angle: straight-on, eye level with the subject
+  angle: straight-on from directly above, flat lay
   movement: none (a still sheet)
   aspect: '1:1'
   safe_zones: 'a reference sheet, not a reel frame: every element inside a 4% margin, nothing cropped at the edges'
@@ -145,4 +145,5 @@ must_not:
 - no words in the bubbles other than the two listed phrases
 - the cut ADS piece is cream linen, never the pink polka-dot ADS scrap
 hero: true
-notes: Look bible step 7. POSTS appears three times on purpose (three small pieces).
+notes: Look bible step 7. POSTS appears three times on purpose (three small pieces). Other states (unrolled, POSTS on a rod,
+  folded) are made per shot from this sheet.

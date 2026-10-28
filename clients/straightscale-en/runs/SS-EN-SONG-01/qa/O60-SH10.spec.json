@@ -1,0 +1,73 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH10",
+ "spec_sha256": "c4fc46d6805eb8fa79dd37a2015dd362b0e1dac13e930a85eff5ef02406cbe01",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"Two different patches held side by side with a gap and no join.\"; 2 subject(s), 1 prop(s), 2 text string(s) and 1 action line(s) are all written out"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: attached-image order is judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: thumb and forefinger on each top corner; five fingers on each visible hand"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics \"The two scraps hang side by side and sway 1 cm; the camera dollies back slowly\" . CLIP-D pair verdict: SH10 + SH11 is one slow dolly-out from a close frame to the wide frame, with hands that hold still and passive sway; one camera move, a start and an end frame, so a keyframe render can do it. Accepted as one shot."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story props with content: PR-SCRAPS"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "strings \"EMAIL\", \"ADS\" each with surface, position and occlusion rule; all 6 words or fewer"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"background soft, plain, no readable text\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "subjects, props, text, camera and regions agree with each other on the points checked"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH09; carry_over ['PR-SCRAPS EMAIL and ADS', 'CH-MAYA hands']"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution, duration and declined_preset_id are checked at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "no word with two readings found; position and state words are concrete (\"her two hands only, close\")"
+  },
+  {
+   "id": "P12",
+   "result": "FAIL",
+   "evidence": "FL-06 (faceless or blob anatomy at the edge of a close-up): subjects[0].state \"her two hands only, close\" with hands at 26 to 38% from the top, so the top of the frame shows an unnamed chest, chin or head; the end frame SH11 has her face at 27 to 35%, so a cropped face is likely."
+  }
+ ],
+ "fixes": [
+  "P12: subjects[0].state: \"her two hands and forearms in olive cardigan sleeves and the cardigan front below the collar; her head is above the top edge of the frame, no chin and no face visible\". hero: true (start frame of CLIP-D, standards.json start_frame hero true)."
+ ]
+}

@@ -1,0 +1,71 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH08",
+ "spec_sha256": "4b0c3e873ecd57b78786f3050bc46cbadf492b9d7cde9d2d3916d0407c351194",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"A friend on a laptop screen, with her own organizer full of clients in every month.\"; 2 subject(s), 1 prop(s), 3 text string(s) and 1 action line(s) are all written out"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: attached-image order is judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible (no hand is described in the frame)"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: \"The friend leans in slightly toward her call camera; frozen mid-lean. Nothing else moves.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story props with content: PR-ORGANIZER-FRIEND"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "strings \"CLIENTS\", \"MARCH\", \"APRIL\" each with surface, position and occlusion rule; all 6 words or fewer"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"screen shows only the friend and her wall; no chat windows\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "subjects, props, text, camera and regions agree with each other on the points checked"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH07; carry_over ['CH-FRIEND look', \"friend's organizer = one calm fabric, clients in every month\"]"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution, duration and declined_preset_id are checked at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "no word with two readings found; position and state words are concrete (\"on Maya's laptop screen, head and shoulders\")"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/06/09/10/11/13 checked against the spec: no pattern open without its rule"
+  }
+ ],
+ "fixes": []
+}

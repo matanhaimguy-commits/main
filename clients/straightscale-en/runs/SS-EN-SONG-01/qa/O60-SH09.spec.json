@@ -1,0 +1,75 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH09",
+ "spec_sha256": "a99056d1c6b8b9072e961b90ea08509bfea48d299c98aba6c18f8fd8c9916ba7",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"Maya, from behind, stares at the friend on screen; the fallen patches lie beside the laptop.\"; 2 subject(s), 2 prop(s), 2 text string(s) and 1 action line(s) are all written out"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: attached-image order is judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "FAIL",
+   "evidence": "hands: \"none visible\" for an over-the-shoulder shot of a seated woman at a desk; her hands are not placed."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: \"Maya's head is frozen mid-tilt toward the screen; the heap of scraps sits still on the desk.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story props with content: PR-SCRAPS, PR-LAPTOP"
+  },
+  {
+   "id": "P6",
+   "result": "FAIL",
+   "evidence": "text_in_image lists EMAIL and ADS only, but props[0] is \"four scraps in a loose heap\" with \"a big stitched label\" each, and must_not forbids lettering \"other than the listed strings\"; LINKEDIN and COACH letters would be half-hidden gibberish. heap_labels box [0.4,0.5,0.7,0.6] sits in the 55 to 62% caption band where a caption would cover \"heap not covered by caption\"."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"wall behind the laptop is plain; the organizer is out of frame\""
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "regions laptop [0.42,0.3,0.88,0.52] and scrap_heap [0.4,0.5,0.7,0.6]: the heap \"beside the laptop\" is placed under it."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH08; carry_over ['CH-MAYA back view', 'PR-SCRAPS heap']"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution, duration and declined_preset_id are checked at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "no word with two readings found; position and state words are concrete (\"back view over the shoulder\")"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/06/09/10/11/13 checked against the spec: no pattern open without its rule"
+  }
+ ],
+ "fixes": [
+  "P3: hands: \"none visible (both hands below the frame edge in her lap)\".",
+  "P6: props[0].state: \"four scraps in a loose heap, the LINKEDIN and COACH scraps lying face down so no letters show on them; EMAIL on top, ADS at the edge, labels face up\". regions scrap_heap and heap_labels [0.4,0.45,0.7,0.55]; laptop [0.42,0.28,0.88,0.45] so the heap does not sit under the laptop box (they overlap today).",
+  "P8: See the P6 fix: laptop [0.42,0.28,0.88,0.45], heap [0.4,0.45,0.7,0.55]."
+ ]
+}

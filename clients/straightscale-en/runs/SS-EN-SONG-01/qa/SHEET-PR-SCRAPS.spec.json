@@ -1,0 +1,76 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "SHEET-PR-SCRAPS",
+ "spec_sha256": "6ef1eb7ed30a4656929332adce7cd65945303e3d55a665dc443b7ba83b91e3de",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "every subject, prop, text string, setting and camera line is present and checkable"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible / hands listed"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: [] and static: true (a still sheet); no action to check"
+  },
+  {
+   "id": "P5",
+   "result": "FAIL",
+   "evidence": "background_rule: 'nothing else in frame: no furniture, no props besides those listed, no text' sits next to the story-critical PR-SCRAPS whose EMAIL, LINKEDIN, COACH, ADS labels are text (blanket 'no text', FL-04)"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "text_in_image entries have string, surface, position, case and occlusion"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule rules out frames, screens, signs"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "background_rule 'no text' contradicts the four listed labels; camera.angle 'eye level' contradicts scraps 'laid flat'; content says 'each about one pocket wide' while size_in_frame says 'about 40% of the frame width'"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot: null, carry_over: [] (first use of this sheet)"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "pose 'flat, slightly overlapping shadows' (do scraps overlap or not?) and 'hot-pink polka dots on blue' (which colour is the ground)"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01..FL-13 patterns have their prevention in the spec"
+  }
+ ],
+ "fixes": [
+  "background_rule: replace 'no text' with 'no lettering besides the listed strings'.",
+  "camera.angle: 'straight-on from directly above, flat lay'.",
+  "pose: 'flat, not overlapping, soft shadow under each'; ADS scrap: 'hot-pink dots on a blue ground'; drop 'about one pocket wide' from content or say it is a scale note only.",
+  "Advisory: the look-bible lists states (pinned, sewn over pockets, on the floor, in the bin, held by corners); the spec keeps flat only, so those are generated per shot."
+ ]
+}

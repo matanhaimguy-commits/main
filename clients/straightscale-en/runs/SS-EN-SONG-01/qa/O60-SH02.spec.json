@@ -1,0 +1,75 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH02",
+ "spec_sha256": "bd719cc2e88657c4be4637f92b7d634ff3e9751a8503c908590e3ac3e612cc4e",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"Full March pockets, empty April pockets, a woman at a desk below.\"; 2 subject(s), 1 prop(s), 3 text string(s) and 1 action line(s) are all written out"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: attached-image order is judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "FAIL",
+   "evidence": "subjects[0].state \"seated, back to camera, typing at the laptop\" but hands: \"none visible\"; typing is a hand action with no hand described, so the model will invent hands on a clay keyboard (extra fingers)."
+  },
+  {
+   "id": "P4",
+   "result": "FAIL",
+   "evidence": "action_physics \"Maya's head turns slightly up toward the empty APRIL row (the one action in the second half)\" adds a character action on top of the camera pull-back. CLIP-A pair verdict: the pull-back alone is one move a keyframe model can render; pull-back plus head turn is two (STANDARDS 2 one shot per silent keyframe clip; claymation one motion action). The head turn also has no contact point."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story props with content: PR-ORGANIZER"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "strings \"CLIENTS\", \"MARCH\", \"APRIL\" each with surface, position and occlusion rule; all 6 words or fewer"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"marble wall, charcoal desk, nothing else on the wall\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "subjects, props, text, camera and regions agree with each other on the points checked"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH01; carry_over ['PR-ORGANIZER MARCH full APRIL empty', 'CH-MAYA olive cardigan, back view', 'warm light from the left']"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution, duration and declined_preset_id are checked at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "setting.details \"charcoal desk with a closed-lid-free open laptop\" can be read as lid closed or open."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/06/09/10/11/13 checked against the spec: no pattern open without its rule"
+  }
+ ],
+ "fixes": [
+  "P3: subjects[0].state: \"seated, back to camera, both forearms resting on the desk edge, hands hidden behind the open laptop\". Remove \"typing\". hands: \"none visible (both hands hidden behind the laptop)\".",
+  "P4: action_physics: \"The camera finishes its pull-back and comes to rest on the wide frame. Maya sits still, head already raised toward the APRIL row in the end frame (no head turn).\" Then CLIP-A (SH01 + SH02) is accepted as one continuous camera move with a start frame and an end frame.",
+  "P11: setting.details: replace \"a closed-lid-free open laptop seen from behind\" with \"an open laptop, lid up, seen from behind\"."
+ ]
+}

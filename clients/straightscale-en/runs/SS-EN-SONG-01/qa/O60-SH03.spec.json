@@ -1,0 +1,76 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH03",
+ "spec_sha256": "ccbe027331e7e3ee70f37c504b7576d3c45a0a42dd910b7c623b9426f6f102d1",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"Maya looks up at empty April while a big MARCH tag sits on a pile of papers.\"; 2 subject(s), 2 prop(s), 4 text string(s) and 1 action line(s) are all written out"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: attached-image order is judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "FAIL",
+   "evidence": "hands: \"none visible\" for a seated woman at a desk with a laptop; where the hands are is not said."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: \"Maya's head tilts up from the screen to the empty APRIL row; the pose is frozen mid-tilt in the still.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story props with content: PR-ORGANIZER, PR-MARCHTAG"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "strings \"CLIENTS\", \"MARCH\", \"APRIL\", \"MARCH\" each with surface, position and occlusion rule; all 6 words or fewer"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain marble wall; desk holds only the laptop, the paper pile with the MARCH tag, a mug\""
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "text_in_image[3] MARCH tag position \"on the desk, left of centre, 46% from the top\" but regions march_tag box [0.6,0.44,0.8,0.53] is right of centre (and the left-of-centre spot is where maya_head [0.28,0.46,0.52,0.6] sits); subjects[0] state \"three-quarter back view\" but expression \"worried, brows low (side view)\" (brows are not visible from behind); maya_head box runs to 0.60 against the rule faces sit 15 to 55% from the top; march_tag box reaches x 0.8, past the 79% limit of the right 21% in the lower half."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH02; carry_over ['CH-MAYA olive cardigan', 'PR-ORGANIZER state MARCH full APRIL empty']"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution, duration and declined_preset_id are checked at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "no word with two readings found; position and state words are concrete (\"three-quarter back view, head tilted up\")"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/06/09/10/11/13 checked against the spec: no pattern open without its rule"
+  }
+ ],
+ "fixes": [
+  "P3: hands: \"none visible (both hands below the desk edge)\"; add to subjects[0].pose \"hands out of frame below the desk edge\".",
+  "P8: text_in_image[3].position: \"on the desk, right of centre, 47% from the top, in front of the paper pile\".",
+  "P8: regions: march_tag box [0.6,0.44,0.78,0.53]; maya_head box [0.28,0.45,0.52,0.56].",
+  "P8: subjects[0].state: \"side view (profile), seated, head tilted up toward the wall\" (so the brows can be seen)."
+ ]
+}

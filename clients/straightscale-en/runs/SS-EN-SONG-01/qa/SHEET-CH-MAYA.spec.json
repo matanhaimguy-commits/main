@@ -1,0 +1,74 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "SHEET-CH-MAYA",
+ "spec_sha256": "74acbd85639f4c2d3bf5c0692f24fd911df0d8952c649ebf1efc7156c4386c24",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "every subject, prop, text string, setting and camera line is present and checkable"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "FAIL",
+   "evidence": "hands: lists only 'Maya, bottom-right close-up panel'; the four full-body views (pose: 'arms relaxed') have no hand rule or count, and nothing says which image side 'left hand' is on"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: [] and static: true (a still sheet); no action to check"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story-critical props carry a content line"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "text_in_image entries have string, surface, position, case and occlusion"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule rules out frames, screens, signs"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "no two lines contradict"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot: null, carry_over: [] (first use of this sheet)"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "no word with two readings found"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01..FL-13 patterns have their prevention in the spec"
+  }
+ ],
+ "fixes": [
+  "In hands, add an entry for the four full-body views: both hands hang relaxed at her sides, five fingers each, nothing held, count_check five fingers on each hand.",
+  "In the close-up entry say 'left hand' means the viewer's right side of the panel (or swap to image-left / image-right) so the pose cannot be read two ways."
+ ]
+}

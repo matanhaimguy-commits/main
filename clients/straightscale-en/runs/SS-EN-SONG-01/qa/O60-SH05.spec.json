@@ -1,0 +1,76 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH05",
+ "spec_sha256": "fd6f3617e240db31dfd0c16a55f10059cac38993f2e910b920d72b083fe4da55",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"Maya sews loud EMAIL and LINKEDIN patches over the empty April pockets.\"; 2 subject(s), 2 prop(s), 3 text string(s) and 1 action line(s) are all written out"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: attached-image order is judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "FAIL",
+   "evidence": "hands[0] left \"holding the LINKEDIN scrap flat\" next to pocket 2 (box [0.3,0.5,0.46,0.62]) while right hand sews the EMAIL scrap at pocket 1 (EMAIL box [0.1,0.4,0.34,0.52]) but right_hand box is [0.48,0.48,0.66,0.6], to the right of the left hand and far from EMAIL: arms cross and the sewing hand is not at the stitch."
+  },
+  {
+   "id": "P4",
+   "result": "FAIL",
+   "evidence": "action_physics \"pulls the needle ... through the right edge of the EMAIL scrap, then moves along the row to the LINKEDIN scrap\". CLIP-C pair verdict: SH05 + SH06 asks one 5 s keyframe render to sew four scraps in sequence, two of which arrive from a shelf (props[1] \"COACH and ADS scraps waiting on a shelf\"); that is a chain of separate steps (pin, sew, fetch, pin, sew), not one action, so STANDARDS 2 one shot per silent keyframe clip is not met."
+  },
+  {
+   "id": "P5",
+   "result": "FAIL",
+   "evidence": "props[0] state \"COACH and ADS scraps waiting on a shelf under the row\" (subjects[1].state): a shelf is in no sheet (PR-ORGANIZER, SET-OFFICE) and has no content line, so the model will invent one."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "strings \"EMAIL\", \"LINKEDIN\", \"APRIL\" each with surface, position and occlusion rule; all 6 words or fewer"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain wall; nothing else on the felt\""
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "regions scrap_email box starts x 0.10 and scrap_linkedin ends 0.58, while april_label box is [0.06,0.4,0.14,0.5]: the scrap overlaps the label band that text_in_image says \"stays visible\". Also hero false although SH05 is the start frame of CLIP-C (standards.json start_frame hero true)."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH04; carry_over ['PR-SCRAPS patterns and labels', 'CH-MAYA cardigan sleeves']"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution, duration and declined_preset_id are checked at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "no word with two readings found; position and state words are concrete (\"only her two hands and forearms in the olive cardigan sleeves\")"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/06/09/10/11/13 checked against the spec: no pattern open without its rule"
+  }
+ ],
+ "fixes": [
+  "P3: hands[0]: left \"left hand holding the lower-left corner of the EMAIL scrap flat, palm on the felt below the APRIL label\"; right \"right hand drawing the needle and thick thread through the right edge of the EMAIL scrap, then along the pinned top edge to the LINKEDIN scrap in one pass\"; contact \"left palm on the felt below the row, right thumb and finger on the needle\". regions: left_hand [0.1,0.52,0.26,0.64]; right_hand [0.28,0.46,0.46,0.58].",
+  "P4: Split CLIP-C into two clips: SH05 stays its own 5 s render ending with EMAIL sewn and the needle at the LINKEDIN edge; SH06 becomes its own 5 s render (CLIP-C2, costs about $0.12 more, plus one start keyframe) starting with COACH and ADS pinned over pockets 3 and 4. Delete the sentence \"cut with a code punch-in, no second render\" from SH06 notes and the \"End frame: all four scraps sewn\" from SH05 notes.",
+  "P5: subjects[1].state: \"EMAIL and LINKEDIN scraps pinned over pockets 1 and 2; COACH and ADS are not in frame\". Delete the shelf. props[1].content for the organizer already says pockets 3 and 4 empty.",
+  "P8: regions: scrap_email [0.15,0.4,0.37,0.52]; scrap_linkedin [0.37,0.4,0.59,0.52]. hero: true."
+ ]
+}

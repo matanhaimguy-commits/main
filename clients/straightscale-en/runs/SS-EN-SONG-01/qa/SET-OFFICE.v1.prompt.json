@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "SET-OFFICE",
+ "version": 1,
+ "prompt_sha256": "c40dc5505335b7ae32af1960a769d151daadcf3031a1d58b3f8255aeff6705d8",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "FAIL",
+   "evidence": "spec PR-WINDOW 'right 25% of the frame, 20 to 60% from the top' is missing; the prompt only says 'On the right wall a window'"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "Reference images: none attached. (ledger medias: [])"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "Hands block present"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "Action: none, a still sheet"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story props carry content; only targeted negatives"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "text block has quotes, surface, position, occlusion"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "Setting: plain backdrop only; no frames, screens or signs"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "'organizer spans about 70% of the frame width ... centred' (to 85%) collides with the right-wall window (right 25%); 'no fabric scraps and no cloth anywhere' vs 'ivory felt' organizer and 'real modeling clay, felt and fabric'"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "Continuity line present; first use of the sheet"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "vertical 9:16; type sheet, openai/gpt-image-2/text-to-image medium at 1152x2048, no references, one image"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "'no cloth anywhere' can be read as no felt or fabric; sentence '. each MARCH pocket' starts lower case, joining two ideas"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 content given, FL-01 no hands near text, FL-11 one woman per view"
+  }
+ ],
+ "corrected_prompt": "Format: Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. Stop-motion clay puppet detail: tiny real craft materials on the clay, thread-wrapped hair, real fabric and felt, real stitching. Palette: warm ivory and marble, charcoal accents. A set reference frame, vertical 9:16, an empty miniature clay home office.\n\nReference images: none attached.\n\nSubject: the empty room, no people. On the back wall, upper half of the frame, in the left two thirds (from 6% to 72% of the frame width): a felt wall organizer about 60 cm wide: ivory felt with charcoal stitching, a header band at the top with the word \"CLIENTS\" stitched in big charcoal capitals, two rows of four open-topped pockets, a thick label band at the left end of each row with \"MARCH\" on the upper row and \"APRIL\" on the lower row in big charcoal capitals. Each MARCH pocket holds three small clay client figures shown from the chest up above the pocket rim, smiling softly, in blazers of different colours (12 in all); all four APRIL pockets are empty and flat.\n\nHands: no hands and no people in the frame.\n\nAction: none, a still set frame.\n\nProps: below the organizer a charcoal clay desk with an open silver laptop seen only from the back, a white mug, a small brass lamp, a charcoal headset, and a pile of papers with a big orange felt tag on top; a small round charcoal bin on the floor beside the desk, empty. On the right wall, in the right-hand 20% of the frame (from 76% to 96% of the width, between 20% and 60% from the top), a window: outside, a clay street with six tiny clay figures standing on the pavement looking up; beside the window a thin wooden rod with small loops, nothing hanging on it.\n\nText: exactly four strings, stitched or printed in charcoal capitals: \"CLIENTS\" on the organizer's header band, top centre; \"MARCH\" on the upper row's label band at its left end; \"APRIL\" on the lower row's label band at its left end; \"MARCH\" on the orange felt tag on the paper pile, left of the laptop. Nothing covers any letter. No other lettering anywhere.\n\nSetting: warm ivory marble-textured clay wall, warm wooden clay floor, morning light from the window. No screens visible (the laptop shows only its back), no posters, frames, book titles or signs.\n\nCamera: wide establishing view from inside the miniature set at desk height, vertical 9:16; the organizer spans about 66% of the frame width, from 6% to 72%, between 18% and 45% from the top, and does not overlap the window; the desk sits in the lower third; every element inside a 4% margin.\n\nContinuity: the organizer must match the CLIENTS organizer prop sheet, state A: March full, April empty.\n\nNegatives: no people, no Maya; no loose fabric scraps and no sand-cream cloth pieces anywhere (the organizer's felt and the clients' blazers are allowed); no clients in the APRIL pockets; nothing on the rod; no logos. Everything in frame is real modeling clay, felt and fabric, photographed: visible fingerprints and tool marks, real cast shadows, soft studio lighting.\n"
+}

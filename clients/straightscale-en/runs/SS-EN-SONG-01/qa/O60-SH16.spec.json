@@ -1,0 +1,74 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH16",
+ "spec_sha256": "ab5e70f635e8848de78c1ac6d5ece951b469995c20655c2b9d5b32b5d47f1664",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "FAIL",
+   "evidence": "the larger cloth with \"a hole the size of the OFFER piece\" (action_physics) has no position, size or region: regions cover only offer_piece [0.1,0.24,0.62,0.44] and posts_pieces, so the layout of cloth, hole, OFFER piece and scissors is open. Posts row reaches 0.6, into the caption band."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: attached-image order is judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible (no hand is described in the frame)"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: \"Frozen: three POSTS pieces lie in a row below the OFFER piece; a hole the size of the OFFER piece shows in the bigger cloth; the scissors rest 3 cm fr\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story props with content: PR-CLOTH"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "strings \"OFFER\", \"POSTS\" each with surface, position and occlusion rule; all 6 words or fewer"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"only the cloth pieces and scissors in frame\""
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "must_not[0] \"no speech bubbles anywhere in the frame\" contradicts props[0].content \"tone-on-tone speech-bubble shapes stitched in deeper tan thread\" and notes \"The pieces carry the same bubble weave as SH15\"; content also lists an ADS label that is not in this frame."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH15; carry_over ['PR-CLOTH pieces', 'same weave on every piece']"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution, duration and declined_preset_id are checked at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "no word with two readings found; position and state words are concrete (\"cloth with a piece-shaped hole, the OFFER piece beside it, three POSTS pieces in a row\")"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/06/09/10/11/13 checked against the spec: no pattern open without its rule"
+  }
+ ],
+ "fixes": [
+  "P8: must_not[0]: \"no clay speech bubbles (the tone-on-tone stitched bubble weave on the cloth is allowed)\". props[0].content: replace \"labels OFFER, POSTS and ADS\" with \"labels OFFER and POSTS\".",
+  "P1: action_physics: \"Frozen: the bigger cloth fills 8 to 56% of the width at 16 to 44% from the top with a hole the size of the OFFER piece at its centre; the OFFER piece lies on the desk to the right of the cloth (56 to 92% wide); three POSTS pieces lie in a row below at 46 to 56% from the top; the scissors rest open 3 cm right of the hole's last cut edge.\" regions: add cloth_with_hole prop [0.08,0.16,0.56,0.44]; offer_piece [0.56,0.2,0.92,0.4]; offer_label [0.62,0.26,0.86,0.34]; posts_pieces [0.1,0.46,0.9,0.56]; posts_labels [0.1,0.48,0.9,0.54]."
+ ]
+}

@@ -1,0 +1,74 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH24",
+ "spec_sha256": "0c8f58a111dec86a5590dc9e4802a0793170ac0432a797a58cd6c8345ffb5eb2",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"Follow for part two, from @straightscale_.\"; 1 subject(s), 1 prop(s), 2 text string(s) and 0 action line(s) are all written out"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: attached-image order is judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible (no hand is described in the frame)"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: \"none (static card)\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "no story-critical prop in the shot"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "strings \"Follow for part two\", \"@straightscale_\" each with surface, position and occlusion rule; all 6 words or fewer"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"cloth only, no objects\""
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "props[0].content \"with tone-on-tone speech-bubble shapes stitched ... plus pieces cut from it ... labels OFFER, POSTS and ADS\" while setting.background_rule is \"cloth only, no objects\", must_not says \"no bubbles\" and the card text must sit on a plain surface."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH23; carry_over ['PR-CLOTH colour']"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution, duration and declined_preset_id are checked at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "text_in_image gives no colour or size for \"Follow for part two\" and \"@straightscale_\", so contrast (STANDARDS 6: 4.5:1) cannot be checked."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/06/09/10/11/13 checked against the spec: no pattern open without its rule"
+  }
+ ],
+ "fixes": [
+  "P8: props[0].content: \"One calm sand-cream linen cloth, a single colour, tight weave, plain: no bubble shapes, no pieces, no lettering\".",
+  "P11: text_in_image[0] and [1]: add \"charcoal on the sand-cream cloth (contrast above 4.5:1), bold sans, line about 5% of frame height, handle about 3.5%, inside the 6% side margins\"."
+ ]
+}

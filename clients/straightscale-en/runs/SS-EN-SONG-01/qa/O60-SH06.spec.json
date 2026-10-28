@@ -1,0 +1,74 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH06",
+ "spec_sha256": "5476091be70aae308d4bb7ef4d6034340b86baa9938350b6a92e8ea5d2014ce7",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"Four loud labelled patches now cover every April pocket.\"; 2 subject(s), 1 prop(s), 2 text string(s) and 1 action line(s) are all written out"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: attached-image order is judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "FAIL",
+   "evidence": "hands[0] left \"holding the ADS scrap flat ... left palm on the felt right of the ADS label\", right \"pulling the last stitch tight\" but regions put right_hand [0.32,0.5,0.52,0.62] to the left of left_hand [0.55,0.72] and the ADS scrap box is [0.5,0.38,0.88,0.52]: hands are crossed and the right hand is not at the ADS stitch. Left and right are also reversed against SH05."
+  },
+  {
+   "id": "P4",
+   "result": "FAIL",
+   "evidence": "CLIP-C pair verdict: the second half of a one-render chain (notes \"Second half of CLIP-C; cut with a code punch-in, no second render\"). Sewing COACH and ADS after EMAIL and LINKEDIN, with COACH and ADS fetched from a shelf in SH05, is not one action."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story props with content: PR-SCRAPS"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "strings \"COACH\", \"ADS\" each with surface, position and occlusion rule; all 6 words or fewer"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain wall\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "subjects, props, text, camera and regions agree with each other on the points checked"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH05; carry_over ['PR-SCRAPS four loud patterns']"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution, duration and declined_preset_id are checked at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "no word with two readings found; position and state words are concrete (\"only her two hands and forearms\")"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/06/09/10/11/13 checked against the spec: no pattern open without its rule"
+  }
+ ],
+ "fixes": [
+  "P3: hands[0]: left \"left hand holding the left edge of the ADS scrap flat, palm on the felt left of the ADS label\"; right \"right hand pulling the last stitch tight at the right edge of the ADS scrap\"; contact \"left palm on the felt, right fingers on the thread\". regions: left_hand [0.5,0.5,0.66,0.62]; right_hand [0.74,0.5,0.92,0.62].",
+  "P4: Make SH06 its own clip as written under SH05: start frame COACH and ADS pinned over pockets 3 and 4 with EMAIL and LINKEDIN already sewn, framing \"close on pockets 3 and 4 and the hands\" rendered (not an edit punch-in), so EMAIL and LINKEDIN labels are outside the frame. Add hero: true."
+ ]
+}

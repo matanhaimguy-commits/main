@@ -1,0 +1,74 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH01",
+ "spec_sha256": "111a5159aa22f5bce210f681c7c3e3d801a70f27c3bbbe7c4140fd3ab4f1a7c1",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"A wall organizer where every APRIL pocket is empty.\"; 1 subject(s), 1 prop(s), 4 text string(s) and 1 action line(s) are all written out"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: attached-image order is judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible (no hand is described in the frame)"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: \"The camera pulls back about 30 cm ... nothing inside the frame moves except the parallax of the felt.\" CLIP-A beat pair: SH01 + SH02 is one continuous pull-back, which a start+end keyframe render can do. It stays one move only if the head turn in SH02 is removed (see SH02)."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story props with content: PR-ORGANIZER"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "strings \"APRIL\", \"Nothing filled April.\", \"Referrals filled March.\", \"Why?\" each with surface, position and occlusion rule; all 6 words or fewer"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"wall is plain marble plaster, no frames, no posters, no writing\""
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "subjects[0].state \"the MARCH row is above the frame edge\" and setting.details \"the top 35% of frame 1 is plain wall\" cannot both hold with props.size_in_frame \"APRIL row spans 84% of frame width, 40 to 62% from the top\": the MARCH row hangs directly above the APRIL row, so it would sit at about 20 to 38%, inside the plain-wall zone. Also camera.movement \"dolly-out with a slight rise\" contradicts SH02, where the organizer sits at 15 to 45% (higher in frame than 40 to 62%), which needs the camera to lower, not rise. camera.movement says \"about 5 s\" but CLIP-A is a 6 s render (picture 5.95 s)."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot None; carry_over ['PR-ORGANIZER APRIL row empty', 'marble wall', 'warm practical light from the left']"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution, duration and declined_preset_id are checked at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "no word with two readings found; position and state words are concrete (\"APRIL row only in frame, all four pockets empty; the MARCH row is above the frame edge\")"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/06/09/10/11/13 checked against the spec: no pattern open without its rule"
+  }
+ ],
+ "fixes": [
+  "P8: subjects[0].state and props[0].content: replace \"the MARCH row is above the frame edge\" / \"MARCH pockets: (above the frame, not visible yet)\" with \"MARCH row visible at 20 to 38% from the top, four pockets of three small colourful clients each (twelve), the label MARCH on its band; APRIL row 40 to 62%, all four pockets empty\". Delete \"the top 35% of frame 1 is plain wall (the hook text zone)\" and write \"the hook text sits over the top third and may cover MARCH clients but never the APRIL row or the APRIL band\". Update must_read_in_1s to \"MARCH row full of clients, every APRIL pocket empty.\" and the hook_text occlusion strings to match. If the approved H-01 frame really shows a plain wall above the APRIL row, H-01 itself is geometrically impossible and must be re-made or re-checked before it is used as the start frame.",
+  "P8: camera.movement: \"slow dolly-out with the camera lowering about 10 cm over the whole 6 s render (the organizer slides up the frame from APRIL row at 40 to 62% to its SH02 place), ending wide on SH02; no rise\". action_physics: \"The camera pulls back about 30 cm and lowers about 10 cm over 6 s; ...\" keep the rest."
+ ]
+}

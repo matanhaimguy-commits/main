@@ -1,0 +1,76 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH17",
+ "spec_sha256": "b34319338dec783181c4fce80f26ecfc5c1df5d4036657377ddd6d0e507156aa",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "FAIL",
+   "evidence": "action_physics has three clay speech bubbles rising out of the ADS piece, but props and subjects hold no bubble prop: no content, reference or region for them."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: attached-image order is judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible (no hand is described in the frame)"
+  },
+  {
+   "id": "P4",
+   "result": "FAIL",
+   "evidence": "\"The ADS piece ... gives one small puff and releases three clay speech bubbles that rise out of frame ... The camera is locked until the pan in SH18\" and notes \"CLIP-G 6 s render\". CLIP-G pair verdict: a puff-and-release action followed by a pan is two things in one render, and bubbles that \"rise out of frame\" cannot reappear in SH18's window view. \"Puff\" has no contact point."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story props with content: PR-CLOTH"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "strings \"POSTS\", \"ADS\" each with surface, position and occlusion rule; all 6 words or fewer"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain wall, window frame at the right edge\""
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "must_not[0] \"no speech bubbles before the puff\" conflicts with props[0].content \"tone-on-tone speech-bubble shapes stitched\" (the cloth weave); hero false although this is the start frame of CLIP-G (standards.json start_frame hero true)."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH16; carry_over ['PR-CLOTH pieces and weave']"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution, duration and declined_preset_id are checked at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "\"two limp ... one stands firm\": which of the three pieces is firm and what limp looks like are not said (the ads_piece box [0.62,0.3,0.88,0.4] is the only hint)."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/06/09/10/11/13 checked against the spec: no pattern open without its rule"
+  }
+ ],
+ "fixes": [
+  "P1: props: add {id: PR-BUBBLES, story_critical: true, ref: \"PR-CLOTH@v1 (bubble panel)\", state: \"three blank cream clay bubbles leaving the top edge of the ADS piece\", content: \"Three blank cream clay speech bubbles with small tails and thumb-pressed edges, no letters\", size_in_frame: \"12% of frame width each\", held_by: null}; regions: add bubbles [0.55,0.14,0.92,0.3].",
+  "P4: action_physics: \"The ADS piece's top edge lifts 1 cm and three clay bubbles slide up off it, one every 0.5 s, then drift right and up toward the open window; the camera pans right following them and comes to rest on the window view of SH18; the two limp pieces hang still.\" movement: \"slow pan right that follows the bubbles to the window (the only camera move)\". With this the pair is one continuous follow-pan on one subject and may stay one clip.",
+  "P11: subjects[0].state: add \"the right-hand piece is firm and hangs straight with the ADS piece sewn on its upper part; the left and centre pieces are limp, folded over at the top third with the lower half drooping at an angle\".",
+  "P8: must_not[0]: \"no clay speech bubbles before the puff (the stitched bubble weave on the cloth is allowed)\". hero: true."
+ ]
+}

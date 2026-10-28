@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "PR-CLOTH",
+ "version": 1,
+ "prompt_sha256": "fe57f5d4558309502243d055d4fcaaba75586a17a170a1d61be8631a5f09eba8",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "FAIL",
+   "evidence": "spec size_in_frame 'woven piece about 45% of frame width; cut pieces 10 to 25%' is missing; the prompt gives no sizes"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "Reference images: none attached. (ledger medias: [])"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "Hands block present"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "Action: none, a still sheet"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story props carry content; only targeted negatives"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "text block has quotes, surface, position, occlusion"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "Setting: plain backdrop only; no frames, screens or signs"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "no two instructions conflict"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "Continuity line present; first use of the sheet"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "square 1:1; type sheet, openai/gpt-image-2/text-to-image medium at 1024x1024, no references, one image"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "no ambiguous word found"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 content given, FL-01 no hands near text, FL-11 one woman per view"
+  }
+ ],
+ "corrected_prompt": "Format: Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. Stop-motion clay puppet detail: tiny real craft materials on the clay, thread-wrapped hair, real fabric and felt, real stitching. Palette: warm ivory and marble, charcoal accents. A prop reference sheet, square 1:1, on a plain soft warm-ivory paper backdrop with even studio light.\n\nReference images: none attached.\n\nSubject: one calm sand-cream linen cloth, the only colour of the method, shown as: top left, a plain rolled bolt of it; top right, a flat woven piece of the same cloth about 45% of the frame width with tone-on-tone speech-bubble shapes woven in slightly deeper tan thread; bottom row, left to right, pieces cut from the same cloth: one large rectangle about 25% of the frame width, three small rectangles side by side about 10% of the frame width each, one small rectangle about 12% of the frame width; bottom right corner, a small pile of nine blank palm-sized cream clay speech bubbles and a pair of clay sewing scissors with orange handles and silver blades, closed and lying flat.\n\nHands: no hands in the frame.\n\nAction: none, a still sheet.\n\nProps: the bolt, the woven piece, the five cut pieces, the bubble pile and the scissors, as described; the cut pieces have the same weave and colour as the bolt.\n\nText: exact strings in charcoal stitched capitals: \"FEAST OR FAMINE\" inside one woven bubble in the upper half of the woven piece; \"SOME MONTHS NOTHING\" inside another woven bubble in its lower half; \"OFFER\" in the centre of the large cut piece; \"POSTS\" in the centre of each of the three small pieces; \"ADS\" in the centre of the last small piece. Nothing covers any letter. The loose clay bubbles are blank. No other lettering.\n\nSetting: the plain warm-ivory backdrop only, soft shadows.\n\nCamera: straight-on from above, every piece fully inside the frame with a 4% margin, square 1:1.\n\nContinuity: this is the locked design of the method cloth and its pieces in every shot.\n\nNegatives: the cloth is never patterned or loud; no words in any bubble except the two phrases; the ADS piece is cream linen, never pink polka dots; no logos. Everything in frame is real modeling clay, felt and fabric, photographed: visible fingerprints and tool marks, real cast shadows, soft studio lighting.\n"
+}

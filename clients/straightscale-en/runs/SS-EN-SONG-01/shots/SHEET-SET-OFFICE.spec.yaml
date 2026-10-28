@@ -4,13 +4,14 @@ format: set_sheet
 script_lines: []
 line_text: ''
 story_purpose: 'Locks Maya''s home office, where 23 of the 24 shots happen: the wall with the CLIENTS organizer (MARCH full,
-  APRIL empty), the desk and the window.'
+  APRIL empty), the desk and the window, plus close panels of the laptop front, the bin and the window view.'
 must_read_in_1s: 'A clay home office with a CLIENTS organizer: March full, April empty'
 subjects:
 - id: SET-OFFICE
   ref: null
   state: empty room, no people
-  pose: wide establishing view, organizer on the back wall upper half, desk below it, window on the right
+  pose: 'top 70%: wide establishing view, organizer on the back wall left of centre, desk below it, window on the right wall;
+    bottom 30%: a strip of three close panels'
   expression: ''
   instances: 1
 hands: none visible
@@ -23,23 +24,38 @@ props:
   content: 'Felt wall organizer about 60 cm wide: ivory felt with charcoal stitching, a header band with the word CLIENTS,
     two rows of four open-topped pockets, a thick label band at the left end of each row, MARCH on the upper row and APRIL
     on the lower row, letters big enough to read at phone size.'
-  size_in_frame: about 70% of frame width, 18 to 45% from the top
+  size_in_frame: about 64% of frame width (x 0.06 to 0.70), 12 to 36% from the top, clear of the window
   held_by: null
 - id: PR-DESK
   story_critical: false
   ref: null
   state: tidy
-  content: charcoal clay desk with an open silver laptop seen from the back, a white mug, a small brass lamp, a charcoal headset,
-    a pile of papers with a big orange felt tag reading MARCH on top, a small round charcoal bin on the floor beside it, empty
-  size_in_frame: lower third
+  content: charcoal clay desk with an open silver laptop, its back toward the camera and its screen toward the wall, a white
+    mug, a small brass lamp, a charcoal headset, a pile of papers with a big orange felt tag reading MARCH on top
+  size_in_frame: 40 to 68% from the top
+  held_by: null
+- id: PR-LAPTOP
+  story_critical: true
+  ref: SET-OFFICE@v1
+  state: 'bottom strip, left panel: the laptop seen from the front, open'
+  content: an open silver clay laptop with a narrow charcoal bezel and a plain softly glowing pale-blue blank screen with
+    no icons, windows or words
+  size_in_frame: left third of the bottom strip
+  held_by: null
+- id: PR-BIN
+  story_critical: true
+  ref: SET-OFFICE@v1
+  state: 'bottom strip, middle panel: empty'
+  content: a small round charcoal clay waste bin with a thumb-pressed rim, empty inside
+  size_in_frame: middle third of the bottom strip
   held_by: null
 - id: PR-WINDOW
-  story_critical: false
-  ref: null
-  state: daylight
-  content: 'a window on the right wall: a clay street outside with six tiny clay figures on the pavement looking up; next
-    to the window a thin wooden rod with small loops, empty'
-  size_in_frame: right 25% of the frame, 20 to 60% from the top
+  story_critical: true
+  ref: SET-OFFICE@v1
+  state: daylight; also the bottom strip's right panel as a close view
+  content: 'a window on the right wall: a clay street outside with six tiny clay figures on the pavement looking up; beside
+    the window a thin wooden rod with small loops, empty'
+  size_in_frame: x 0.76 to 0.97, 15 to 55% from the top; close view in the right third of the bottom strip
   held_by: null
 text_in_image:
 - string: CLIENTS
@@ -71,10 +87,11 @@ static: true
 setting:
   ref: null
   details: warm ivory marble-textured clay wall, charcoal desk, warm wooden clay floor, morning light from the window
-  background_rule: the laptop is seen only from the back; no screens, posters, frames, books with titles or signs; no lettering
-    besides the listed strings
+  background_rule: in the wide view the laptop shows only its back; the laptop screen in the close panel is blank pale-blue
+    glow with no icons or words; no posters, frames, book titles or signs; no lettering besides the listed strings
 camera:
-  framing: wide establishing view of the room, camera inside the miniature set at desk height
+  framing: top 70% a wide establishing view from inside the miniature set at desk height; bottom 30% three close panels side
+    by side with thin ivory gutters
   angle: straight-on, eye level with the subject
   movement: none (a still sheet)
   aspect: '9:16'
@@ -86,52 +103,73 @@ regions:
 - name: organizer
   kind: prop
   box:
-  - 0.08
-  - 0.17
-  - 0.82
-  - 0.46
+  - 0.06
+  - 0.12
+  - 0.7
+  - 0.36
 - name: clients_label
   kind: text
   box:
-  - 0.33
-  - 0.17
-  - 0.57
-  - 0.22
+  - 0.26
+  - 0.12
+  - 0.5
+  - 0.16
 - name: march_label
   kind: text
   box:
-  - 0.08
-  - 0.23
-  - 0.2
-  - 0.33
+  - 0.06
+  - 0.17
+  - 0.16
+  - 0.26
 - name: april_label
   kind: text
   box:
-  - 0.08
-  - 0.34
-  - 0.2
-  - 0.44
+  - 0.06
+  - 0.27
+  - 0.16
+  - 0.36
 - name: desk
   kind: prop
   box:
   - 0.05
-  - 0.55
-  - 0.8
-  - 0.8
+  - 0.4
+  - 0.74
+  - 0.68
 - name: march_tag
   kind: text
   box:
   - 0.1
-  - 0.56
-  - 0.3
-  - 0.64
+  - 0.42
+  - 0.28
+  - 0.5
 - name: window
   kind: prop
   box:
-  - 0.75
-  - 0.2
+  - 0.76
+  - 0.15
   - 0.97
-  - 0.6
+  - 0.55
+- name: laptop_front
+  kind: prop
+  box:
+  - 0.04
+  - 0.72
+  - 0.33
+  - 0.96
+- name: bin
+  kind: prop
+  box:
+  - 0.36
+  - 0.72
+  - 0.64
+  - 0.96
+- name: window_close
+  kind: prop
+  box:
+  - 0.67
+  - 0.72
+  - 0.96
+  - 0.96
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. Stop-motion puppet lane: tiny real craft materials on the clay (thread-wrapped hair, real fabric and felt, real
@@ -144,8 +182,11 @@ must_not:
 - no extra, missing or merged fingers
 - no speech bubbles unless listed
 - no duplicate copies of a character within one view
-- no people, no Maya, no scraps, no cloth
+- no people, no Maya
+- no loose fabric scraps and no sand-cream cloth pieces
 - no clients in the APRIL pockets
 - nothing on the rod
+- no icons, apps or words on the laptop screen
 hero: true
-notes: Look bible step 7. 1152x2048. The organizer here must match SHEET-PR-ORGANIZER state A.
+notes: Look bible step 7. 1152x2048. Refs name what each element must match at G-VIS-SHEET (PR-ORGANIZER state A; the close
+  panels are this sheet's own); no image is attached (text-to-image).

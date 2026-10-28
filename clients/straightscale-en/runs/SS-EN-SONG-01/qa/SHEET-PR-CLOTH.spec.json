@@ -1,0 +1,76 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "SHEET-PR-CLOTH",
+ "spec_sha256": "e02d89b8d8e7ee0930d624dc4ddc0bb19bc11cf710d80a3b0e3b5aeddad813cc",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "every subject, prop, text string, setting and camera line is present and checkable"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible / hands listed"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: [] and static: true (a still sheet); no action to check"
+  },
+  {
+   "id": "P5",
+   "result": "FAIL",
+   "evidence": "background_rule: 'nothing else in frame: no furniture, no props besides those listed, no text' sits next to the story-critical PR-CLOTH whose phrases are text (blanket 'no text', FL-04)"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "text_in_image entries have string, surface, position, case and occlusion"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule rules out frames, screens, signs"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "background_rule says 'no text' but text_in_image lists five strings; camera.angle 'straight-on, eye level with the subject' contradicts a cloth 'laid out ... flat'"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot: null, carry_over: [] (first use of this sheet)"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "'straight-on, eye level' for flat pieces can be read as a side view of lying cloth; 'tone-on-tone' phrase colour is not stated (stitched phrases are charcoal in the prompt, bubbles are tan)"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01..FL-13 patterns have their prevention in the spec"
+  }
+ ],
+ "fixes": [
+  "background_rule: replace 'no text' with 'no lettering besides the listed strings'.",
+  "camera.angle: 'straight-on from directly above, flat lay'.",
+  "text_in_image: add colour for the two phrases (charcoal stitching inside the tan woven bubbles).",
+  "Advisory (not failing): the look-bible also lists the unrolled bolt, firm and limp POSTS on a rod, a folded cloth and three small bubbles (SH14, SH17, SH23); the sheet shows only the rolled bolt, so those states are generated per shot from this sheet."
+ ]
+}

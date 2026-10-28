@@ -1,0 +1,73 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CH-MAYA",
+ "version": 1,
+ "prompt_sha256": "7d198492eb53c6999bc3c95bd63a4986524c7aa599ad7e40ca8556231ec61cc4",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Subject: ... Top row ... four views: front, three-quarter, side, back ... Bottom row ... (1) worried ... (2) focused: wearing a small charcoal headset ... (3) relieved"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "Reference images: none attached. (ledger medias: [])"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "Hands block present"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "Action: none, a still sheet"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story props carry content; only targeted negatives"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "text block has quotes, surface, position, occlusion"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "Setting: plain backdrop only; no frames, screens or signs"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "no two instructions conflict"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "Continuity line present; first use of the sheet"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "square 1:1; type sheet, openai/gpt-image-2/text-to-image medium at 1024x1024, no references, one image"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "no ambiguous word found"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 content given, FL-01 no hands near text, FL-11 one woman per view"
+  }
+ ],
+ "corrected_prompt": "",
+ "note": "Advisory: 'her left hand' is the viewer's right side; harmless for a sheet."
+}

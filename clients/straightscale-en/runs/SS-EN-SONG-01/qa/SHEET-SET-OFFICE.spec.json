@@ -1,0 +1,76 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "SHEET-SET-OFFICE",
+ "spec_sha256": "140c15d8a0a8cec58da6e06a7bec63e6f87a0225f9b178267a53212a72753630",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "FAIL",
+   "evidence": "SH08 and SH09 use 'SET-OFFICE@v1 panel: laptop' (PR-LAPTOP story_critical, 'charcoal bezel') and SH13/SH21 'panel: bin' ('thumb-pressed rim'); the spec shows the laptop 'seen from the back' only and a bin 'empty', with no laptop-front, bin or rod region; look-bible asks for a laptop front with screen frame"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible / hands listed"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: [] and static: true (a still sheet); no action to check"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story-critical props carry a content line"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "text_in_image entries have string, surface, position, case and occlusion"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule rules out frames, screens, signs"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "organizer 'about 70% of frame width' (region x 0.08-0.82, y 0.17-0.46) overlaps the window 'right 25%' (x 0.75-0.97, y 0.2-0.6); ref PR-ORGANIZER@v1 on the organizer but the run attaches no images"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot: null, carry_over: [] (first use of this sheet)"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "must_not 'no scraps, no cloth' can be read as no felt/fabric at all (the organizer is felt, the clients wear blazers); 'laptop seen from the back' with Maya seated at it (SH02) puts the screen toward the wall"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01..FL-13 patterns have their prevention in the spec"
+  }
+ ],
+ "fixes": [
+  "Add a bottom strip (or a second sheet) with: laptop front with a narrow charcoal bezel and a plain blank-glow screen with no icons (rule written in background_rule), the small round charcoal bin with a thumb-pressed rim empty, and the window view with the six figures; add regions for laptop, bin and rod. Or change the SH08/SH09/SH13/SH21 refs to what the sheet really shows.",
+  "Organizer width about 64% (x 0.06-0.70) so it clears the window at x 0.76-0.97; fix the region boxes to match.",
+  "Set props[0].ref to null (no image is attached) and keep the match to PR-ORGANIZER state A as a G-VIS-SHEET comparison.",
+  "must_not: 'no loose fabric scraps, no sand-cream cloth pieces' instead of 'no cloth'. State the laptop orientation: back toward the camera, screen toward the wall."
+ ]
+}

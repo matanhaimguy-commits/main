@@ -20,4 +20,4 @@ The piece stays under the EN per-piece ceiling ($10, straightscale-en brain note
 `pipeline.py budget` could not record it: `clients/straightscale/brain.json` has no `package.monthly_usd_cap` (the
 $100 Atlas cap is on `straightscale-en`, and this run stays under `straightscale`). Recorded FAIL; the main session
 decides the cap route. Command once it is set:
-`python3 growth-engine/tools/pipeline.py budget straightscale SS-EN-SONG-01 --planned 2.54 --balance <live>`.
+`python3 growth-engine/tools/pipeline.py budget straightscale-en SS-EN-SONG-01 --planned 2.54 --balance <live>`.

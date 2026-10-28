@@ -1,0 +1,73 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH20",
+ "spec_sha256": "6271e9f46b4fa04cd8af35c2ecdc71fbf9a998445c1f974dab4b585c8c01d145",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"She tugs the cloth band hard and it stays attached.\"; 2 subject(s), 1 prop(s), 1 text string(s) and 1 action line(s) are all written out"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: attached-image order is judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: right fingers around the band, four stitched seams between pieces visible; five fingers on the right hand; left hand not visible"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"Maya's right hand pulls the band 3 cm ..., the band goes taut, the stitched seams ... stay closed and the four small clients tilt once and settle\". CLIP-H pair verdict: reach-grip (SH19) then tug (SH20) is one continuous arm action, camera locked, punch-in in the edit: accepted as one shot."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story props with content: PR-ORGANIZER"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "strings \"APRIL\" each with surface, position and occlusion rule; all 6 words or fewer"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain wall\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "subjects, props, text, camera and regions agree with each other on the points checked"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH19; carry_over ['PR-ORGANIZER payoff state']"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution, duration and declined_preset_id are checked at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "\"pulling the band to her right\", \"pulls the band 3 cm to the right\", \"pulling right\": Maya faces the camera in SH19, so her right is screen left, toward the organizer; the band must move away from the row (screen right)."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/06/09/10/11/13 checked against the spec: no pattern open without its rule"
+  }
+ ],
+ "fixes": [
+  "P11: subjects[0].pose, hands[0].right and action_physics: replace \"to her right\" / \"to the right\" / \"right\" with \"toward screen right, away from the organizer\"."
+ ]
+}

@@ -1,0 +1,71 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "SHEET-CH-FRIEND",
+ "spec_sha256": "e755b254b33c94e2a609a9d42ab5f3a02b61770e3348634af87bfbd97bb48832",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "every subject, prop, text string, setting and camera line is present and checkable"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible / hands listed"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: [] and static: true (a still sheet); no action to check"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story-critical props carry a content line"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "text_in_image entries have string, surface, position, case and occlusion"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule rules out frames, screens, signs"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "no two lines contradict"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot: null, carry_over: [] (first use of this sheet)"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "no word with two readings found"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01..FL-13 patterns have their prevention in the spec"
+  }
+ ],
+ "fixes": []
+}

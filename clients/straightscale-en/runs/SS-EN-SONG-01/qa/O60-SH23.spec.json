@@ -1,0 +1,71 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH23",
+ "spec_sha256": "0dfb52a1fa8696cbe93a3edb8b9f351006442b148df49ce20053ab109b3a9455",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"A pile of speech bubbles waiting on the desk.\"; 1 subject(s), 1 prop(s), 0 text string(s) and 1 action line(s) are all written out; the folded cloth beside the pile appears in PR-BUBBLES.content"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: attached-image order is judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible (no hand is described in the frame)"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: \"Frozen: the top bubble is slipping down the side of the pile 1 cm.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story props with content: PR-BUBBLES"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "text_in_image: none; no letters are asked for"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain wall and desk\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "subjects, props, text, camera and regions agree with each other on the points checked"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH22; carry_over ['PR-CLOTH bubbles and folded cloth']"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution, duration and declined_preset_id are checked at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "no word with two readings found; position and state words are concrete (\"a loose pile of about nine cream clay speech bubbles\")"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/06/09/10/11/13 checked against the spec: no pattern open without its rule"
+  }
+ ],
+ "fixes": []
+}

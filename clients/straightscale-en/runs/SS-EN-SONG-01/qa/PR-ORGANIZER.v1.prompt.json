@@ -1,0 +1,73 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "PR-ORGANIZER",
+ "version": 1,
+ "prompt_sha256": "1354ce93a27054243337791f3fb2882f7e72282680cb071d2555f1b61b5ee50b",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Subject: two copies ... Left copy (state A) ... Right copy (state B) ..."
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "Reference images: none attached. (ledger medias: [])"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "Hands block present"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "Action: none, a still sheet"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story props carry content; only targeted negatives"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "text block has quotes, surface, position, occlusion"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "Setting: plain backdrop only; no frames, screens or signs"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "'each about 46% of the frame width' x2 = 92% plus 'both copies fully inside the frame with a 4% margin' (8%) leaves no gap between copies"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "Continuity line present; first use of the sheet"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "square 1:1; type sheet, openai/gpt-image-2/text-to-image medium at 1024x1024, no references, one image"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "'straight-on' with 'soft contact shadows' does not say whether the organizers hang upright or lie flat"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 content given, FL-01 no hands near text, FL-11 one woman per view"
+  }
+ ],
+ "corrected_prompt": "Format: Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. Stop-motion clay puppet detail: tiny real craft materials on the clay, thread-wrapped hair, real fabric and felt, real stitching. Palette: warm ivory and marble, charcoal accents. A prop reference sheet, square 1:1, on a plain soft warm-ivory paper backdrop with even studio light.\n\nReference images: none attached.\n\nSubject: two copies of the same organizer side by side at the same scale, each hanging upright and flat against the backdrop and facing the camera straight-on, each about 43% of the frame width with a 6% gap between them. Each copy is a felt wall organizer about 60 cm wide: ivory felt with charcoal stitching, a header band at the top with the word \"CLIENTS\" stitched in big charcoal capitals, two rows of four open-topped pockets, a thick label band at the left end of each row with \"MARCH\" on the upper row and \"APRIL\" on the lower row in big charcoal capitals. Left copy (state A): each MARCH pocket holds three small clay client figures shown from the chest up above the pocket rim, smiling softly, in blazers of different colours (12 in all); all four APRIL pockets are empty. Right copy (state B): the MARCH row identical to the left copy (12 clients); in the APRIL row exactly one small clay client in each pocket (4 in all), and a plain sand-cream linen band stitched along the top edge of the APRIL row.\n\nHands: no hands in the frame.\n\nAction: none, a still sheet.\n\nProps: only the two organizers and the small clay clients inside their pockets.\n\nText: on each copy exactly three strings in charcoal capitals: \"CLIENTS\" on the header band, top centre; \"MARCH\" on the upper row's label band at its left end; \"APRIL\" on the lower row's label band at its left end. Nothing covers any letter. The linen band carries no words. No other lettering.\n\nSetting: the plain warm-ivory backdrop only, soft contact shadows.\n\nCamera: straight-on, both copies fully inside the frame with a 4% margin, square 1:1.\n\nContinuity: this is the locked design of the organizer in every shot: same felt, stitching, labels and pocket layout.\n\nNegatives: no fabric scraps on either copy; never more than one client in an APRIL pocket on the right copy; no logos. Everything in frame is real modeling clay, felt and fabric, photographed: visible fingerprints and tool marks, real cast shadows, soft studio lighting.\n",
+ "note": "Note: the spec itself fails G-SPEC (no close-up crops, label legibility at 360 px); this correction keeps the current layout."
+}

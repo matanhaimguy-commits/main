@@ -1,0 +1,75 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH11",
+ "spec_sha256": "7c897fa506bb6af0f2cf75298ac6bb8adde2bc56e7c551adf9eecd849786407f",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"Maya holds two unjoined patches in front of an empty April row, more patches on the floor.\"; 2 subject(s), 2 prop(s), 4 text string(s) and 1 action line(s) are all written out"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: attached-image order is judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: thumb and forefinger on each corner; five fingers on each visible hand"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics \"The dolly-out comes to rest; Maya's hands keep the two scraps 3 cm apart, the loose thread ends swing once.\" CLIP-D pair verdict: the second half of the same dolly-out; the hands hold still, the thread swing is passive, so it is one continuous move and acceptable as one shot."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story props with content: PR-SCRAPS, PR-ORGANIZER"
+  },
+  {
+   "id": "P6",
+   "result": "FAIL",
+   "evidence": "props[0] \"two held apart, two lying on the floor\": the two floor scraps (LINKEDIN, COACH) have stitched labels but no text entry, and must_not forbids lettering \"other than the listed strings\". regions have no box for MARCH, EMAIL or ADS."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain wall, nothing else\""
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "regions maya_face [0.4,0.27,0.6,0.35] overlaps the APRIL row (organizer 15 to 33%, april_label [0.1,0.24,0.3,0.3]): her forehead hides part of the empty pockets that the must_read relies on."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH10; carry_over ['CH-MAYA', 'PR-SCRAPS', 'PR-ORGANIZER']"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution, duration and declined_preset_id are checked at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "no word with two readings found; position and state words are concrete (\"standing, front three-quarter, olive cardigan\")"
+  },
+  {
+   "id": "P12",
+   "result": "FAIL",
+   "evidence": "FL-11 (floating person): subjects[0] \"standing, front three-quarter\" has no physics line that puts her feet on the floor."
+  }
+ ],
+ "fixes": [
+  "P6: props[0].state: \"two held apart (EMAIL, ADS), two lying crumpled on the floor with their labels face down so no letters show\". Add regions: march_label [0.1,0.15,0.3,0.21], email_label [0.28,0.34,0.44,0.44], ads_label [0.56,0.34,0.72,0.44], floor_scraps [0.2,0.55,0.8,0.64].",
+  "P8: regions: organizer [0.1,0.14,0.9,0.3]; maya_face [0.4,0.31,0.6,0.39]; hands [0.3,0.38,0.7,0.47]; held_scraps [0.26,0.37,0.74,0.5]; props[1].size_in_frame \"organizer 14 to 30% from the top\"; props[0].size_in_frame \"held scraps 18% of frame width each at 37 to 49% from the top\". Then the SH10 end frame must match.",
+  "P12: subjects[0].pose: add \"both feet flat on the clay floor, weight on both feet\"."
+ ]
+}

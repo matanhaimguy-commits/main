@@ -1,0 +1,74 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH21",
+ "spec_sha256": "6cf29270e4c7f4ced1efc34238e227060ca968d6d10f9e1427363f3410ab0a6d",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"The loud patches sit in the bin; the calm organizer hangs behind them.\"; 2 subject(s), 2 prop(s), 2 text string(s) and 1 action line(s) are all written out"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: attached-image order is judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible (no hand is described in the frame)"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: \"Frozen: four scraps are crammed in the bin; one corner hangs over the rim.\""
+  },
+  {
+   "id": "P5",
+   "result": "FAIL",
+   "evidence": "subjects[1] PR-ORGANIZER \"MARCH full, APRIL four clients, calm band, soft focus\" carries the must_read (\"the calm organizer hangs behind them\") but props has no organizer entry, so there is no content line and the model may leave it empty or add scraps."
+  },
+  {
+   "id": "P6",
+   "result": "FAIL",
+   "evidence": "props[0].content says all four scraps are \"folded inside with their corners and labels showing\" but text_in_image lists only EMAIL and ADS; LINKEDIN and COACH letters would be unlisted lettering."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"background is the organizer in soft focus, labels not read\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "subjects, props, text, camera and regions agree with each other on the points checked"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH20; carry_over ['PR-BIN with scraps', 'organizer payoff state']"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution, duration and declined_preset_id are checked at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "no word with two readings found; position and state words are concrete (\"charcoal bin holding all four loud scraps with their corners out\")"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/06/09/10/11/13 checked against the spec: no pattern open without its rule"
+  }
+ ],
+ "fixes": [
+  "P5: props: add {id: PR-ORGANIZER, story_critical: true, ref: \"PR-ORGANIZER@v1\", state: \"MARCH full, APRIL four clients, calm band, soft focus\", content: the same payoff content line as SH19 (with the five-piece band), size_in_frame: \"organizer 14 to 40% from the top, 80% width\", held_by: null}.",
+  "P6: props[0].content: \"EMAIL and ADS folded with their labels showing; LINKEDIN and COACH folded with their labels turned inward, no letters visible\". Region bin [0.28,0.38,0.72,0.56]; scrap_labels [0.3,0.38,0.7,0.5]; size_in_frame \"bin 38% of frame width at 38 to 56% from the top\" (keeps the labels out of the 55 to 62% caption band)."
+ ]
+}

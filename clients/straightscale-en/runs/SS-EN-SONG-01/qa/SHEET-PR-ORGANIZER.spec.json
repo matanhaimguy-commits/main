@@ -1,0 +1,76 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "SHEET-PR-ORGANIZER",
+ "spec_sha256": "7b251305c6a8bcded5d4242d8f5207fc374ef78ee6336807df752d3b13a42c04",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "FAIL",
+   "evidence": "look-bible: 'Close crops of the labels and a pocket' and labels 'big enough to read at 360 px'; the spec has one 1:1 sheet with two ~46% copies and no crop panel, so MARCH/APRIL letters and a 3-client pocket (12 clients, ~90 px pockets) are too small for SH01's tight April row"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible / hands listed"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: [] and static: true (a still sheet); no action to check"
+  },
+  {
+   "id": "P5",
+   "result": "FAIL",
+   "evidence": "background_rule: 'nothing else in frame: no furniture, no props besides those listed, no text' sits next to the story-critical organizer whose CLIENTS, MARCH, APRIL are text (blanket 'no text', FL-04)"
+  },
+  {
+   "id": "P6",
+   "result": "FAIL",
+   "evidence": "regions: labels_a and labels_b cover only x 0.02-0.2 / 0.51-0.69 (row labels); the CLIENTS header band (top centre of each copy) has no text region"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule rules out frames, screens, signs"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "size_in_frame 'each copy about 46%' x2 = 92% leaves no gap, and regions state_a 0.02-0.49 / state_b 0.51-0.98 break safe_zones 'inside a 4% margin'; background_rule 'no text' contradicts the three strings"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot: null, carry_over: [] (first use of this sheet)"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "state: 'flat on the backdrop, straight-on': a wall organizer lying flat or hung upright can be read both ways"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01..FL-13 patterns have their prevention in the spec"
+  }
+ ],
+ "fixes": [
+  "Layout: top ~68% two organizers each ~43% wide with a 6% gap and 4% margin (regions state_a 0.04-0.47, state_b 0.53-0.96); bottom strip three close-up panels: the MARCH and APRIL label bands, and one pocket with three clients. Add regions and text entries for the crops.",
+  "background_rule: replace 'no text' with 'no lettering besides the listed strings'.",
+  "Add a text region for the CLIENTS header on each copy.",
+  "pose: 'hanging upright against the backdrop, facing the camera'."
+ ]
+}

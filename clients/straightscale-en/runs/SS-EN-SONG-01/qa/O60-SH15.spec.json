@@ -1,0 +1,74 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH15",
+ "spec_sha256": "0518c142f6bb27078b935e361e29c5c3a85a0a77b8039493bbd7854500aaf1ae",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"The cloth is covered with speech bubbles; two carry readable phrases.\"; 1 subject(s), 1 prop(s), 2 text string(s) and 1 action line(s) are all written out"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: attached-image order is judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible (no hand is described in the frame)"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: \"Frozen: bubble outlines are stitched across the cloth; one thread end of the lower bubble curls 1 cm.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story props with content: PR-CLOTH"
+  },
+  {
+   "id": "P6",
+   "result": "FAIL",
+   "evidence": "FEAST OR FAMINE / SOME MONTHS NOTHING are \"stitched deeper-tan letters\" on a sand-cream cloth, tone on tone; must_read says both are readable, and nothing sets thread contrast or letter height, so they may not read at 360 px."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"only the cloth in frame\""
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "props[0].content still lists \"pieces cut from it ... labels OFFER, POSTS and ADS\" while text_in_image has only FEAST OR FAMINE and SOME MONTHS NOTHING and must_not says \"no other readable words on the cloth besides the two listed\". size_in_frame \"bubbles 18 to 30% of frame width each\" cannot hold the phrase bubbles, whose regions are 76% wide ([0.12,0.24,0.88,0.38])."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH14; carry_over ['PR-CLOTH colour and weave']"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution, duration and declined_preset_id are checked at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "no word with two readings found; position and state words are concrete (\"calm cloth with speech bubbles woven in tone-on-tone\")"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/06/09/10/11/13 checked against the spec: no pattern open without its rule"
+  }
+ ],
+ "fixes": [
+  "P8: props[0].content: delete the \"plus pieces cut from it ...\" clause. size_in_frame: \"cloth fills the frame; the two phrase bubbles are about 70% of frame width, all other bubbles 18 to 30% and blank (tone-on-tone outline only, no letters)\".",
+  "P6: text_in_image[0] and [1]: add \"thread at least three tones darker than the cloth, letters about 6% of frame height, readable at 360 px wide\"."
+ ]
+}

@@ -1,0 +1,74 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH13",
+ "spec_sha256": "69608309e0d4abea5984adb43f5895a1c07734e8c2094544293e57fb05438227",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"She drops the loud ADS patch into a bin.\"; 1 subject(s), 2 prop(s), 1 text string(s) and 1 action line(s) are all written out"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: attached-image order is judged at G-PROMPT"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: left palm on the rim, right fingers opened, scrap released; five fingers on each visible hand"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: \"Frozen: the ADS scrap has just left Maya's right fingers and is 5 cm above the bin mouth; her left palm rests on the rim.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story props with content: PR-BIN, PR-SCRAPS"
+  },
+  {
+   "id": "P6",
+   "result": "FAIL",
+   "evidence": "props[0] \"EMAIL, LINKEDIN and COACH scraps visible inside\" the bin: they carry stitched labels but only ADS is listed in text_in_image, and must_not forbids other lettering."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: \"plain wall\""
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "regions bin [0.26,0.44,0.62,0.6] runs into the 55 to 62% caption band; props[0].size_in_frame says the bin sits \"at 48% from the top\"."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH12; carry_over ['PR-SCRAPS', 'CH-MAYA']"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution, duration and declined_preset_id are checked at G-PROMPT"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "no word with two readings found; position and state words are concrete (\"arm and torso, side view, olive cardigan sleeve\")"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/06/09/10/11/13 checked against the spec: no pattern open without its rule"
+  }
+ ],
+ "fixes": [
+  "P6: props[0].content: replace \"EMAIL, LINKEDIN and COACH scraps visible inside\" with \"three crumpled scraps (mustard-teal gingham, orange-purple stripes, lime leopard) inside with their labels folded inward, no letters visible on them\".",
+  "P8: regions: bin [0.26,0.42,0.62,0.55]."
+ ]
+}

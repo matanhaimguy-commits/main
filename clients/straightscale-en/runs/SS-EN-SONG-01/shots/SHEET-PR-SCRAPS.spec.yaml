@@ -9,7 +9,7 @@ subjects:
 - id: PR-SCRAPS
   ref: null
   state: four scraps laid flat in a 2 by 2 grid, EMAIL top left, LINKEDIN top right, COACH bottom left, ADS bottom right
-  pose: flat, slightly overlapping shadows, straight-on
+  pose: lying flat, not overlapping, a soft shadow under each
   expression: ''
   instances: 1
 hands: none visible
@@ -18,10 +18,9 @@ props:
   story_critical: true
   ref: null
   state: flat, each with a few loose thread ends
-  content: 'Four ragged-edged fabric scraps, each about one pocket wide, each a different loud clashing pattern with a big
-    stitched label: EMAIL mustard and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes with
-    ivory letters, COACH lime leopard spots with black letters, ADS hot-pink polka dots on blue with white letters; loose
-    thread ends.'
+  content: 'Four ragged-edged fabric scraps, each a different loud clashing pattern with a big stitched label: EMAIL mustard
+    and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes with ivory letters, COACH lime leopard
+    spots with black letters, ADS hot-pink dots on a blue ground with white letters; loose thread ends.'
   size_in_frame: each scrap about 40% of the frame width
   held_by: null
 text_in_image:
@@ -54,10 +53,10 @@ static: true
 setting:
   ref: null
   details: plain soft warm-ivory paper backdrop, even studio light, soft contact shadows
-  background_rule: 'nothing else in frame: no furniture, no props besides those listed, no text'
+  background_rule: 'nothing else in frame: no furniture, no props besides those listed, no lettering besides the listed strings'
 camera:
   framing: 'prop sheet: four scraps in a 2 by 2 grid'
-  angle: straight-on, eye level with the subject
+  angle: straight-on from directly above, flat lay
   movement: none (a still sheet)
   aspect: '1:1'
   safe_zones: 'a reference sheet, not a reel frame: every element inside a 4% margin, nothing cropped at the edges'
@@ -116,4 +115,4 @@ must_not:
 - no platform logos or icons on LINKEDIN or ADS
 - no extra scraps
 hero: true
-notes: Look bible step 7.
+notes: Look bible step 7. Other states (pinned, sewn, on the floor, in the bin, held) are made per shot from this sheet.
