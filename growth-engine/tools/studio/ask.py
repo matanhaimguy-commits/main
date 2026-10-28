@@ -1,10 +1,12 @@
 """hub.py studio-ask <slug> <post_id> <decision.json> [--business B]
 
-Puts a checkpoint question to the owner on the Studio page. The run must have been pushed first."""
+Puts a checkpoint question to the owner on the Studio page. The run must have been pushed first. --business
+defaults to the client brain's hub.business, else <slug>."""
 import json
 import sys
 from pathlib import Path
 
+from .business import business_for
 from .cli import opt, positionals
 
 USAGE = "studio-ask <slug> <post_id> <decision.json> [--business B]"
@@ -28,9 +30,9 @@ def read_decision(path: str) -> dict:
     return d
 
 
-def ask(slug: str, post_id: str, path: str, *, call, business=None) -> dict:
+def ask(slug: str, post_id: str, path: str, *, call, business=None, root=None) -> dict:
     d = read_decision(path)
-    d.update({"business": business or slug, "post_id": post_id})
+    d.update({"business": business_for(slug, root, business), "post_id": post_id})
     return call("POST", "decisions", d, api="studio")
 
 

@@ -30,7 +30,9 @@ Studio (the app's Studio page: each piece's steps 0-15, gates, files and the own
   hub.py studio-answers [--slug S]                 the owner's answers not yet taken in, as JSON
   hub.py studio-synced <decision_id>               mark an answer as taken into the studio
 
---business is the app's business slug when it differs from the client folder <slug>.
+<slug> is a client folder or the app's business slug: a client folder whose brain.json names hub.business (as
+clients/straightscale-en names "straightscale", the hub's only business) is sent as that business, so --business is
+needed only to override it. Items' "business" is mapped the same way.
 Manifest JSON (paths relative to the manifest): {"title", "summary",
 "files": [{"step": 3, "label": "Speech script", "path": "docs/script.md"},
           {"step": 4, "label": "Song master v1", "path": "audio/song.v1.mp3"},
@@ -50,6 +52,7 @@ import json, mimetypes, os, re, sys, urllib.error, urllib.request
 from pathlib import Path
 
 from studio import answers as studio_answers, ask as studio_ask, push as studio_push, synced as studio_synced
+from studio.business import business_for
 
 ROOT = Path(__file__).resolve().parent.parent
 ENV_FILE = ROOT / ".env"
@@ -153,34 +156,37 @@ def main(argv=None):
             fun = ", ".join(f"{f['id']}({'/'.join(f['keywords'])})" for f in c["funnels"]) or "no funnels"
             print(f"{c['slug']:<20} {c['name']:<24} {ig:<22} live={c['live']}  funnels: {fun}")
     elif cmd == "client":
-        slug = rest[0]
+        slug = business_for(rest[0])
         c = next((c for c in call("GET", "clients")["clients"] if c["slug"] == slug), None)
         if not c:
             sys.exit(f"NO_CLIENT: {slug}")
         print(json.dumps(c, ensure_ascii=False, indent=1))
     elif cmd == "items":
-        q = "&".join(f"{k}={v}" for k, v in (("business", opt("--business")), ("status", opt("--status"))) if v)
+        q = "&".join(f"{k}={v}" for k, v in (("business", opt("--business") and business_for(opt("--business"))), ("status", opt("--status"))) if v)
         for it in call("GET", "items" + (f"?{q}" if q else ""))["items"]:
             when = it.get("scheduled_at") or ""
             print(f"#{it['id']:<5} {it['business']:<16} {it['status']:<10} {it['kind']:<9} {when[:16]:<17} {it.get('external_key') or ''}  {(it.get('title') or it['caption'][:50])!r}")
     elif cmd == "upload":
-        slug = rest[0]
+        slug = business_for(rest[0])
         for f in rest[1:]:
             print(upload(slug, Path(f)))
     elif cmd == "push":
         path = Path(rest[0])
         body = json.loads(path.read_text(encoding="utf-8"))
         items = body["items"] if "items" in body else [body]
+        for i in items:
+            if i.get("business"):
+                i["business"] = business_for(i["business"])
         items = [resolve_media(i, path.parent) for i in items]
         res = call("POST", "items", {"items": items})
         for it in res["items"]:
             print(f"#{it['id']} {it['status']} {it['kind']} {it.get('external_key') or ''}")
     elif cmd == "funnel":
-        slug, path = rest[0], Path(rest[1])
+        slug, path = business_for(rest[0]), Path(rest[1])
         res = call("POST", "funnels", {"business": slug, "funnel": json.loads(path.read_text(encoding="utf-8"))})
         print(json.dumps(res, ensure_ascii=False, indent=1))
     elif cmd == "results":
-        slug = rest[0]
+        slug = business_for(rest[0])
         res = call("GET", f"results?business={slug}&days={opt('--days', '30')}")
         print(json.dumps(res["results"], ensure_ascii=False, indent=1))
     elif cmd in STUDIO_COMMANDS:

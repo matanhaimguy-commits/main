@@ -1,5 +1,7 @@
 """hub.py studio-push <slug> <post_id> [--title T] [--files manifest.json] [--business B] [--summary S]
 
+--business defaults to the client brain's hub.business, else <slug> (business.py).
+
 Reads clients/<slug>/runs/<post_id>/ledger.json, builds the steps and gates as pipeline.py status sees them,
 resolves the manifest's files and creates or updates the run on the Studio page."""
 import json
@@ -7,6 +9,7 @@ import sys
 import urllib.parse
 from pathlib import Path
 
+from .business import business_for
 from .cli import opt, positionals
 from .ledger_steps import build_steps
 from .manifest import resolve_files
@@ -44,7 +47,7 @@ def push(slug: str, post_id: str, *, call, upload, title=None, manifest_path=Non
         led = P.load_ledger(slug, post_id)
     except P.PipelineError as e:
         sys.exit(f"NO_RUN: {e}")
-    business = business or slug
+    business = business_for(slug, P.ROOT, business)
     manifest, base = read_manifest(manifest_path)
     body = run_body(led, business, post_id, build_steps(P, led, manifest.get("steps")), manifest, title, summary)
     uploaded = 0

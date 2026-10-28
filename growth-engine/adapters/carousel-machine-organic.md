@@ -84,8 +84,8 @@ to the cover, plus the slide 2 rule. There is no spoken channel.
   two editing passes. Default 10-slide shape (line 130). The SHORT and DENSE lanes follow STANDARDS 6 (only the turn
   slide breaks its lane; past the DENSE limit, split the slide); a DENSE slide holds separate items of 5 words or
   fewer.
-- **Slide count 7 to 12** (STANDARDS 3). Formats the skill sizes outside it are clamped: Myth vs truth and Tool or news
-  start at 7; Start here stops at 12.
+- **Slide count 7 to 10** (STANDARDS 3; the hub takes at most 10 files a post). Formats the skill sizes outside it are
+  clamped: Myth vs truth and Tool or news start at 7; Start here stops at 10.
 - **Give the value away.** The what and the why in full, and on a method post the steps too: the reader needs no
   homework (ORGANIC-OS 7.2). The skill's "sell the how only through the ask" (line 161) is not used. The agency is
   named lightly or not at all.
@@ -132,7 +132,7 @@ to the cover, plus the slide 2 rule. There is no spoken channel.
 | `carousel_teardown` (trust; B2, B3) | Teardown of a known business (7 to 9) | send | Public observation only; never a real local business mocked by name without permission (brain); never its logo in the art (rule 5) |
 | `carousel_comparison` (trust, convert; B5) | Two-sided contrast (8 to 10) or Myth vs truth (7 to 9) | save, or ANALIZA; book on a convert card | A system vs a marketer or another agency for pieces (brain B5) |
 | `carousel_opinion` (trust, reach; B7, B1, B2) | Hills I'll die on (8 to 10) | follow, send or comment | Positions from the contrarian vault only (C1 to C5) |
-| `carousel_bts` (trust; B7; production `real`) | Start here or a BTS set (7 to 12) | follow | Real photos only. The brain has no real footage yet, so it is not made |
+| `carousel_bts` (trust; B7; production `real`) | Start here or a BTS set (7 to 10) | follow | Real photos only. The brain has no real footage yet, so it is not made |
 | `image_question` (trust, reach; 1 slide) | One slide, asset type `static` (hero; its visual gate is G-VIS, not G-VIS-SLIDE) | comment (the answer to its question), or save | A real self-check question; one image a week at most (`week_rules`) |
 | `image_review_quote` (trust, convert) | One slide | | Needs a real review with permission; the proof bank has none, so it is not made |
 

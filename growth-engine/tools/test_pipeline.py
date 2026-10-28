@@ -17,6 +17,8 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import pipeline as P  # noqa: E402
 import vqa_crops as V  # noqa: E402
+from test_call_aspect import Mismatch, Ratio  # noqa: E402,F401  (call_aspect.py runs with this suite)
+from test_gate_auth import Budget as GateAuthBudget, Checkpoints  # noqa: E402,F401  (gate_auth.py too)
 
 SLUG, POST, LIB = "acme", "AC-2026-10-W3-01", "AC-LIB-STYLE"
 REF = "11111111-2222-3333-4444-555555555555"
@@ -398,7 +400,10 @@ class Rules2026(Base):
         for k in range(9):
             led["steps"][str(k)].update(status="done", at=later)
         self.assertFalse(P.budget_after_steps(led, 9)[0])
-        led["run_gates"]["G-BUDGET"].append({"at": later, "status": "PASS", "by": "pipeline.py budget"})
+        bare = {"at": later, "status": "PASS", "by": "pipeline.py budget"}
+        led["run_gates"]["G-BUDGET"].append(bare)
+        self.assertFalse(P.budget_after_steps(led, 9)[0], "a bare PASS is not counted")
+        bare["data"] = led["run_gates"]["G-BUDGET"][0]["data"]
         self.assertTrue(P.budget_after_steps(led, 9)[0])
 
     def test_prompt_loops_go_to_the_director_not_the_owner(self):
@@ -464,6 +469,41 @@ class Records(Base):
         P.record_gate(SLUG, POST, "G-HUMAN-SPINE", "PASS", "claude (delegated)", note="picked spine B: strongest seam")
         text, n = P.queue_report(SLUG)
         self.assertIn("FYI", text)
+
+    def test_delegated_owner_checkpoints_plan_28_oct(self):
+        P.init_run(SLUG, POST, "carousel_mistakes")
+        led = P.load_ledger(SLUG, POST)
+        P._queue_add(led, "G-HUMAN-HOOKBOARD", "the hook board")
+        P.save_ledger(led)
+        d = "claude (delegated by Matan, plan 28 Oct)"
+        with self.assertRaisesRegex(P.PipelineError, "names the fresh evaluator's report"):
+            P.record_gate(SLUG, POST, "G-HUMAN-HOOKBOARD", "PASS", d, note="the evaluator liked it")
+        for gate in ("G-HUMAN-HOOKBOARD", "G-HUMAN-LOOK"):
+            P.record_gate(SLUG, POST, gate, "PASS", d, note="reviews/hookboard.v1.review.json: PASS, all six checks")
+        led = P.load_ledger(SLUG, POST)
+        self.assertTrue(P.gate_ok(led["run_gates"]["G-HUMAN-HOOKBOARD"]))
+        q = [x for x in led["queue"] if x["checkpoint"] == "G-HUMAN-HOOKBOARD"]
+        self.assertEqual([(x["status"], x["by"]) for x in q], [("APPROVED", d)])   # the pending question closes
+        self.assertTrue(q[0]["note"].startswith("FYI (delegated): reviews/hookboard.v1.review.json"))
+        self.assertEqual([x["status"] for x in led["queue"] if x["checkpoint"] == "G-HUMAN-LOOK"], ["FYI"])
+        for gate in ("G-HUMAN-VOICE", "G-HUMAN-SONG", "G-HUMAN-FINAL"):
+            for by in (d, "claude (delegated)"):
+                with self.subTest(gate=gate, by=by), self.assertRaisesRegex(P.PipelineError, "is a human checkpoint"):
+                    P.record_gate(SLUG, POST, gate, "PASS", by, note="reviews/x.review.json: PASS")
+        with self.assertRaises(P.PipelineError):
+            P.record_gate(SLUG, POST, "G-HUMAN-LOOK", "PASS", "claude (delegated)", note="reviews/x.review.json")
+
+    def test_a_bare_budget_pass_is_refused(self):
+        P.init_run(SLUG, POST, "carousel_mistakes")
+        for by in ("claude", "Matan"):
+            with self.assertRaisesRegex(P.PipelineError, "carries budget_usd's data"):
+                P.record_gate(SLUG, POST, "G-BUDGET", "PASS", by, note="ok")
+        data = {"unit": "usd", "planned": 2, "with_buffer": 2.5, "balance": 6.9, "month_spent": 0, "cap": 100}
+        P.record_gate(SLUG, POST, "G-BUDGET", "PASS", "claude", note="re-priced", data=data)
+        with self.assertRaisesRegex(P.PipelineError, "over the cap"):
+            P.record_gate(SLUG, POST, "G-BUDGET", "PASS", "claude", data={**data, "month_spent": 99})
+        P.record_gate(SLUG, POST, "G-BUDGET", "FAIL", "claude", note="no balance")
+        P.record_gate(SLUG, POST, "G-BUDGET", "OVERRIDE", "Matan", note="go anyway")
 
     def test_steps_close_in_order_with_their_gates(self):
         P.init_run(SLUG, POST, "carousel_mistakes")

@@ -38,6 +38,14 @@ Source: ORGANIC-OS.md 7.3.
   marketing words ("quote", "solutions", "leverage", "framework", "proposal") unless the buyers wrote them. The plain
   check in `organic_os/hook_plain.py` is the same list; a cold reader who stumbles on a word is a fail for that line.
 
+## Replace, don't escalate (Matan, plan of 28 Oct; wins over Script Lab's 3 FIX loops then G-HUMAN-ESCALATE)
+- **At most 3 rounds** (write or FIX, then a fresh cold read). A script that scores **under 85** after round 3 is not
+  sent to Matan: the post takes **the next idea in the bank** (a new hook stack from `hook-lab-organic.md`, then a new
+  script). Escalations never go to Matan.
+- A take that fails 3 times gets a simpler shot (fewer elements, one subject), not a question to the owner.
+- Before each cold read, run the pre-grade checklist in `hook-lab-organic.md` on line 1 and the payoff (spoken line not
+  repeating the on-screen text, one reading per word, a concrete payoff).
+
 ## Rungs, tiers and scoring for organic (from the Script Lab read, 15 Oct 2026)
 - **Paid rungs out:** rungs 10 Value, 11 Safety and 12 Now (offer, guarantee, urgency) don't exist in organic posts.
   They are replaced by **one CTA rung** that fits the card's job. Critical fail 2 ("a rung the tier requires is

@@ -17,8 +17,10 @@ from __future__ import annotations
 
 import argparse
 import datetime as dt
+import sys
 
 from . import cmd_brain, cmd_cards, cmd_hooks, cmd_ledger, cmd_outliers, cmd_score, cmd_yt
+from .files import MissingFile
 
 COMMANDS = {
     "brain-check": cmd_brain.run,
@@ -55,4 +57,8 @@ def parser() -> argparse.ArgumentParser:
 
 def main(argv=None) -> int:
     a = parser().parse_args(argv)
-    return COMMANDS[a.cmd](a)
+    try:
+        return COMMANDS[a.cmd](a)
+    except MissingFile as e:
+        print(f"error: {e}", file=sys.stderr)
+        return 1
