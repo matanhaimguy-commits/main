@@ -131,6 +131,8 @@ shape only; this model is not named):
 | `size_for_aspect` | For a model shaped by `size`: each Shot Spec aspect and the sizes that make it (`{"4:5": ["1024x1536"]}`). Without it a size passes when its ratio equals the spec's. |
 | `prop_subjects_only` | `true`: only for clips whose every Shot Spec subject is a `PR-` prop (a talking object). |
 | `analysis`, `reads` | `true` and the asset types it reads: an analysis call (no prompt, no budget, one registered file). |
+| `params_when` | A dearer value allowed only when a condition holds on the asset and its Shot Specs: `{"resolution": {"1440p-sr": "face_or_mouth"}}`. Conditions (`../atlas_conditions.py`): `face_or_mouth` (a Shot Spec region of kind `face`, or named for a mouth) and `realistic_people` (a character_sheet, start_frame or still whose Shot Specs are ugc, talking_head, podcast, drama or presenter; a sheet's own SHEET- spec is skipped, so register the sheet with the people shots it serves). Each value is also in `params_one_of` or `params_if_given`. |
+| `test_only` | `true`: the model runs only on test assets (`--type test`, with G-HUMAN-TEST), for an owner's comparison before it is named for production. |
 
 Any parameter that carries text and is not listed in the entry blocks the call (a reference given as an object,
 `{"url": a registered reference, "type": "image"}` as in H3's `refers`, is structure, not text), so list `aspect_ratio`, `resolution`,

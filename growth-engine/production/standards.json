@@ -305,8 +305,18 @@
             "video_clip"
           ],
           "params": {
-            "resolution": "768P",
             "prompt_expansion": false
+          },
+          "params_one_of": {
+            "resolution": [
+              "768P",
+              "1440p-sr"
+            ]
+          },
+          "params_when": {
+            "resolution": {
+              "1440p-sr": "face_or_mouth"
+            }
           },
           "params_if_given": {
             "ratio": [
@@ -317,7 +327,7 @@
           "max_s": 15,
           "text_fields": [],
           "aspect_from": "image",
-          "note": "Schema (atlas models get, 28 Oct 2026): ratio takes only adaptive, so the clip's frame is the start frame's (a 9:16 start frame makes a 9:16 clip): aspect_from image, no --aspect-ratio."
+          "note": "Schema (atlas models get, 28 Oct 2026): ratio takes only adaptive, so the clip's frame is the start frame's (a 9:16 start frame makes a 9:16 clip): aspect_from image, no --aspect-ratio. Matan, 28 Oct 2026 (F1, \"Sharper face clips\"): 1440p-sr ($0.045/s, 10 s $0.45, about 1.9x 768P) only for clips whose Shot Spec has a face or mouth region; 768P for drafts and silent B-roll."
         },
         {
           "id": "minimax/h3-developer/reference-to-video",
@@ -326,8 +336,18 @@
             "video_clip"
           ],
           "params": {
-            "resolution": "768P",
             "prompt_expansion": false
+          },
+          "params_one_of": {
+            "resolution": [
+              "768P",
+              "1440p-sr"
+            ]
+          },
+          "params_when": {
+            "resolution": {
+              "1440p-sr": "face_or_mouth"
+            }
           },
           "params_if_given": {
             "ratio": [
@@ -342,7 +362,7 @@
           "min_s": 4,
           "max_s": 15,
           "text_fields": [],
-          "note": "Schema (28 Oct 2026): ratio takes adaptive, 21:9, 16:9, 4:3, 1:1, 3:4, 9:16 (no 4:5); the CLI maps --aspect-ratio to ratio. Listed: the ratios we use that it makes (9:16 reels, 1:1). The gate checks the ratio against the Shot Spec, so adaptive never passes."
+          "note": "Schema (28 Oct 2026): ratio takes adaptive, 21:9, 16:9, 4:3, 1:1, 3:4, 9:16 (no 4:5); the CLI maps --aspect-ratio to ratio. Listed: the ratios we use that it makes (9:16 reels, 1:1). The gate checks the ratio against the Shot Spec, so adaptive never passes. Matan, 28 Oct 2026 (F1, \"Sharper face clips\"): 1440p-sr ($0.045/s, 10 s $0.45, about 1.9x 768P) only for clips whose Shot Spec has a face or mouth region; 768P for drafts and silent B-roll."
         },
         {
           "id": "openai/gpt-image-2/text-to-image",
@@ -414,10 +434,11 @@
             "prop_sheet",
             "set_sheet"
           ],
-          "params": {
-            "quality": "medium"
-          },
           "params_one_of": {
+            "quality": [
+              "medium",
+              "high"
+            ],
             "size": [
               "1152x2048",
               "1024x1536",
@@ -452,7 +473,12 @@
               "1024x1024"
             ]
           },
-          "note": "Schema (28 Oct 2026): shape is set by size (the CLI refuses --aspect-ratio); the listed sizes have no 4:5 (the CLI refuses 1024x1280). size_for_aspect: a 9:16 spec at 1152x2048, 1:1 at 1024x1024, and a 4:5 slide, cover or static at 1024x1536 (2:3), cropped to 4:5 (the middle 1024x1280, never stretched) before the 1080x1350 export; the Shot Spec keeps text and faces inside that crop."
+          "note": "Schema (28 Oct 2026): shape is set by size (the CLI refuses --aspect-ratio); the listed sizes have no 4:5 (the CLI refuses 1024x1280). size_for_aspect: a 9:16 spec at 1152x2048, 1:1 at 1024x1024, and a 4:5 slide, cover or static at 1024x1536 (2:3), cropped to 4:5 (the middle 1024x1280, never stretched) before the 1080x1350 export; the Shot Spec keeps text and faces inside that crop. Matan, 28 Oct 2026 (F5, \"Real-looking people\"): quality high ($0.276 at 1152x2048, 1.9x medium) only for realistic-people assets: a character_sheet, start_frame or still whose Shot Specs are ugc, talking_head, podcast, drama or presenter (a character sheet is registered with the people shots it serves); medium for everything else.",
+          "params_when": {
+            "quality": {
+              "high": "realistic_people"
+            }
+          }
         },
         {
           "id": "elevenlabs/v3/text-to-speech",
@@ -516,6 +542,100 @@
           "note": "Talking-object clips only (every Shot Spec subject is a PR- prop): the object's approved 9:16 start frame, registered as a one-panel storyboard, as --image and its G-AUDIO-passed slice as --audio. No duration setting: the clip is as long as the audio, measured on the slice's G-AUDIO PASS (data.seconds), 4 to 15 s. Owner's pick, 27 Oct 2026."
         },
         {
+          "id": "minimax/h3/reference-to-video",
+          "kind": "video",
+          "use": [
+            "video_clip"
+          ],
+          "test_only": true,
+          "params": {
+            "resolution": "2K",
+            "prompt_expansion": false
+          },
+          "params_if_given": {
+            "ratio": [
+              "9:16"
+            ]
+          },
+          "min_s": 10,
+          "max_s": 10,
+          "text_fields": [],
+          "note": "Test only (F1, Matan 28 Oct 2026): the full H3 2K clip of the 10 s resolution comparison (768P, 1440p-sr, 2K; $1.30, no discount). Named for production only if the test shows 1440p-sr falls short."
+        },
+        {
+          "id": "google/nano-banana-2/edit",
+          "kind": "image",
+          "use": [
+            "character_sheet",
+            "prop_sheet",
+            "set_sheet",
+            "storyboard"
+          ],
+          "test_only": true,
+          "params_one_of": {
+            "resolution": [
+              "2k"
+            ],
+            "aspect_ratio": [
+              "9:16",
+              "1:1"
+            ]
+          },
+          "params_if_given": {
+            "output_format": [
+              "png",
+              "jpeg"
+            ],
+            "enable_sync_mode": [
+              true,
+              false
+            ],
+            "enable_base64_output": [
+              false
+            ],
+            "enable_web_search": [
+              false
+            ],
+            "enable_image_search": [
+              false
+            ]
+          },
+          "text_fields": [],
+          "note": "Test only (F6, Matan 28 Oct 2026, \"Run the test\"): stylized sheets and 3-panel storyboards against gpt-image-2 /edit, one character sheet and one storyboard per style ($0.12 at 2k). The gate allows it only on test assets with G-HUMAN-TEST until the owner names the winner for character_sheet, prop_sheet, set_sheet and storyboard in stylized formats."
+        },
+        {
+          "id": "minimax/music-3.0",
+          "kind": "audio",
+          "use": [
+            "music"
+          ],
+          "params": {
+            "is_instrumental": true,
+            "lyrics_optimizer": false
+          },
+          "params_if_given": {
+            "format": [
+              "mp3",
+              "wav"
+            ],
+            "bitrate": [
+              256000
+            ],
+            "sample_rate": [
+              44100
+            ],
+            "enable_sync_mode": [
+              true,
+              false
+            ],
+            "enable_base64_output": [
+              false
+            ]
+          },
+          "text_fields": [],
+          "note": "Music beds (asset type music): instrumental only, is_instrumental locked true, no lyrics field (any lyrics text blocks the call). $0.15 a call (estimate 28 Oct 2026), 2 takes a piece. Matan, 28 Oct 2026 (F3, \"Music beds\"), named after 2 G-HUMAN-TEST beds."
+        },
+        {
           "id": "xai/stt-v1",
           "kind": "audio",
           "analysis": true,
@@ -525,7 +645,8 @@
             "song",
             "music",
             "video_clip",
-            "final"
+            "final",
+            "test"
           ],
           "params": {
             "language": "en"
@@ -551,7 +672,7 @@
               false
             ]
           },
-          "note": "Word timings for captions, slices and take checks: English only. Analysis, not generation: no prompt, no budget gate; it reads one file registered on one of our assets (pipeline.py media ... --id URL). Owner's pick, 27 Oct 2026."
+          "note": "Word timings for captions, slices and take checks: English only. Analysis, not generation: no prompt, no budget gate; it reads one file registered on one of our assets (pipeline.py media ... --id URL). Owner's pick, 27 Oct 2026. Also reads test assets (28 Oct 2026, F2: the lip-sync test's transcript check)."
         }
       ]
     },

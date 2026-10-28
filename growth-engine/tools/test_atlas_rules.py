@@ -117,5 +117,77 @@ class Stt(unittest.TestCase):
         self.assertIn("audio_format must be one of ['auto']", self.why(params={"audio_format": "pcm"}))
 
 
+class Conditions(unittest.TestCase):
+    """Matan's 28 Oct names (FORMATS.md 5): 1440p-sr for faces, gpt-image-2 high for realistic people, instrumental
+    music-3.0 beds, and the test-only models of the F1 and F6 comparisons."""
+    DEV = "minimax/h3-developer/reference-to-video"
+    FACE = {"shot_id": "S30-SEQ01-SH1", "format": "talking_head", "regions": [{"name": "face", "kind": "face"}]}
+    MOUTH = {"shot_id": "S30-SEQ01-SH2", "format": "ugc", "regions": [{"name": "mouth-close", "kind": "other"}]}
+    BROLL = {"shot_id": "S30-SEQ02-SH1", "format": "realistic_photo", "regions": [{"name": "desk", "kind": "prop"}]}
+    SHEET = {"shot_id": "SHEET-CH-MAYA", "format": "character_sheet", "regions": [{"name": "face", "kind": "face"}]}
+    CLAY = {"shot_id": "S30-SEQ03-SH1", "format": "claymation"}
+
+    def why(self, model, params, atype, specs, kind="video"):
+        e = entry(model)
+        req = {"kind": kind, "model": model, "prompt": "p", "params": params, "atlas": e, "medias": []}
+        return " | ".join(R.entry_checks(req, {"type": atype}, list(specs), lambda v: None))
+
+    def h3(self, res, specs):
+        return self.why(self.DEV, {"resolution": res, "prompt_expansion": False, "ratio": "9:16", "duration": 10},
+                        "video_clip", specs)
+
+    def test_1440p_sr_only_for_a_face_or_mouth(self):
+        self.assertEqual(self.h3("768P", [self.BROLL]), "")
+        self.assertEqual(self.h3("1440p-sr", [self.FACE]), "")
+        self.assertEqual(self.h3("1440p-sr", [self.BROLL, self.MOUTH]), "")
+        self.assertIn("1440p-sr' is only for face or mouth", self.h3("1440p-sr", [self.BROLL]))
+        self.assertIn("1440p-sr' is only for face or mouth", self.h3("1440p-sr", []))
+        self.assertIn("one of ['768P', '1440p-sr']", self.h3("4k-sr", [self.FACE]))
+        i2v = entry("minimax/h3-developer/image-to-video")
+        self.assertEqual(i2v["params_when"], {"resolution": {"1440p-sr": "face_or_mouth"}})
+
+    def gpt(self, quality, atype, specs):
+        return self.why("openai/gpt-image-2/edit", {"quality": quality, "size": "1152x2048"}, atype, specs, "image")
+
+    def test_gpt_image_2_high_only_for_realistic_people(self):
+        self.assertEqual(self.gpt("medium", "slide", [self.CLAY]), "")
+        self.assertEqual(self.gpt("high", "start_frame", [self.FACE]), "")
+        self.assertEqual(self.gpt("high", "still", [self.MOUTH]), "")
+        self.assertEqual(self.gpt("high", "character_sheet", [self.SHEET, self.FACE]), "")
+        self.assertIn("serves no such shot", self.gpt("high", "character_sheet", [self.SHEET]))
+        self.assertIn("S30-SEQ03-SH1 (claymation)", self.gpt("high", "start_frame", [self.FACE, self.CLAY]))
+        self.assertIn("a slide is not a realistic-people asset", self.gpt("high", "slide", [self.FACE]))
+        self.assertIn("one of ['medium', 'high']", self.gpt("low", "slide", [self.CLAY]))
+        t2i = entry("openai/gpt-image-2/text-to-image")
+        self.assertEqual(t2i["params"], {"quality": "medium"}, "text-to-image stays at medium (F5 named /edit)")
+
+    def test_music_3_beds_are_instrumental(self):
+        m = "minimax/music-3.0"
+        ok = {"is_instrumental": True, "lyrics_optimizer": False}
+        self.assertEqual(self.why(m, ok, "music", [], "audio"), "")
+        self.assertEqual(self.why(m, {**ok, "format": "wav", "sample_rate": 44100}, "music", [], "audio"), "")
+        self.assertIn("pass is_instrumental: True", self.why(m, {**ok, "is_instrumental": False}, "music", [], "audio"))
+        self.assertIn("lyrics carries text", self.why(m, {**ok, "lyrics": "la la"}, "music", [], "audio"))
+        self.assertIn("pass lyrics_optimizer: False", self.why(m, {"is_instrumental": True}, "music", [], "audio"))
+        self.assertIn("not a song", self.why(m, ok, "song", [], "audio"))
+
+    def test_test_only_models_make_test_assets_only(self):
+        nb = {"resolution": "2k", "aspect_ratio": "9:16"}
+        self.assertIn("G-HUMAN-TEST comparison only, not a character_sheet",
+                      self.why("google/nano-banana-2/edit", nb, "character_sheet", [], "image"))
+        h3 = {"resolution": "2K", "prompt_expansion": False, "ratio": "9:16", "duration": 10}
+        self.assertIn("comparison only, not a video_clip", self.why("minimax/h3/reference-to-video", h3, "video_clip",
+                                                                     [self.FACE]))
+        self.assertEqual(R.C.test_only_checks(entry("google/nano-banana-2/edit"), {"type": "test"}), [])
+
+    def test_new_keys_are_read_strictly(self):
+        base = {"id": "m", "kind": "image", "params_one_of": {"quality": ["medium", "high"]}}
+        self.assertIsNone(R.entry_problem({**base, "params_when": {"quality": {"high": "realistic_people"}}}))
+        for bad, needle in (({"quality": "high"}, "maps a parameter"), ({"quality": {"high": "vip"}}, "not vip"),
+                            ({"quality": {"ultra": "realistic_people"}}, "also in params_one_of")):
+            self.assertIn(needle, R.entry_problem({**base, "params_when": bad}))
+        self.assertIn("test_only is true or false", R.entry_problem({**base, "test_only": "yes"}))
+
+
 if __name__ == "__main__":
     unittest.main()

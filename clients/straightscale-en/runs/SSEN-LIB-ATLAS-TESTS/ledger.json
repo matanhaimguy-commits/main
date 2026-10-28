@@ -1,0 +1,911 @@
+{
+  "post_id": "SSEN-LIB-ATLAS-TESTS",
+  "slug": "straightscale-en",
+  "format": "reel_ugc_talking",
+  "family": "library",
+  "card": null,
+  "created": "2026-10-28T17:59:42+00:00",
+  "steps": {},
+  "run_gates": {
+    "G-BUDGET": [
+      {
+        "at": "2026-10-28T17:59:42+00:00",
+        "status": "PASS",
+        "by": "pipeline.py budget",
+        "data": {
+          "unit": "usd",
+          "planned": 3.8,
+          "with_buffer": 4.75,
+          "balance": 6.71,
+          "month_spent": 0,
+          "cap": 100,
+          "el_planned": 0
+        },
+        "note": ""
+      }
+    ]
+  },
+  "specs": {},
+  "assets": [
+    {
+      "asset_id": "SLICE-CHRIS",
+      "version": 1,
+      "type": "audio_slice",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:00:29+00:00",
+      "prompt_sha256": "61249eae996d348cb77969592e08506129aa2b06bffdae3723fe93bd515fdc05",
+      "prompt_file": "prompts/SLICE-CHRIS.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:00:29+00:00",
+          "sha256": "61249eae996d348cb77969592e08506129aa2b06bffdae3723fe93bd515fdc05",
+          "file": "prompts/SLICE-CHRIS.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-32b22a459363709899295420670ed771e04aa0d3b5e3382b8ee72b3be3138de3/a319500ebe824f90ab24f4df12fc0f30-35eb1fa1437bc965.mp3"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/audio/SLICE-CHRIS.v1.mp3"
+      ],
+      "gates": {
+        "G-AUDIO": [
+          {
+            "at": "2026-10-28T18:01:17+00:00",
+            "status": "PASS",
+            "by": "take check (xai/stt-v1)",
+            "note": "Word match 25/25 against the transcript (prompts/SLICE-CHRIS.v1.1.txt), STT prediction d57874d8c06d461d89056a32a0307716. 8.20 s, pauses at 2.26, 4.20, 5.72, 7.16 s. Voice Chris iP95p4xoKVk53GoZ742B (the EN narrator pick), ElevenLabs v3 on Atlas, prediction a319500ebe824f90ab24f4df12fc0f30.",
+            "score": 1.0,
+            "data": {
+              "seconds": 8.2,
+              "words": "25/25"
+            }
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "T-FACE",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:00:29+00:00",
+      "prompt_sha256": "1d833fd76f62c84a25ae4d28b3ee4c6b1739d953e3772dea21a114701fca5c95",
+      "prompt_file": "prompts/T-FACE.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:00:30+00:00",
+          "sha256": "1d833fd76f62c84a25ae4d28b3ee4c6b1739d953e3772dea21a114701fca5c95",
+          "file": "prompts/T-FACE.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-97a86c89c0042e2642e787429bdcc739906da0aa78388a516a8aed92793ff4fb/bcf115f2f9d7401b942c85e80c4adac8-8a23aaa57d9cc082.png"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/assets/T-FACE.v1.png"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-28T18:00:30+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Matan, 28 Oct 2026 ~17:52 UTC, F2 \"Lip-sync test first\": One 10 s talking clip ($0.24 at 768P), with a known ElevenLabs-v3-on-Atlas slice, a transcript and the drift check, before any talking piece is scheduled. (the start frame for that clip)"
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "T-H3-768",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:02:32+00:00",
+      "prompt_sha256": "091765a248a24729db39b45845db1bcec4fade741bb0ce6b6827a5eaa7ff9f0d",
+      "prompt_file": "prompts/T-H3-768.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:02:32+00:00",
+          "sha256": "091765a248a24729db39b45845db1bcec4fade741bb0ce6b6827a5eaa7ff9f0d",
+          "file": "prompts/T-H3-768.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-bf7ebd423412f49cd2472d5057f27a11707096948ed6f8be6bd7927b70349a31/745832a0ee444054b812e59aa5177c51-793cfe02fc55633a.mp4"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/takes/T-H3-768.mp4"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-28T18:02:32+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Matan, 28 Oct 2026 ~17:52 UTC, F2 \"Lip-sync test first\": One 10 s talking clip ($0.24 at 768P), with a known ElevenLabs-v3-on-Atlas slice, a transcript and the drift check, before any talking piece is scheduled. Also the 768P version of Matan, 28 Oct 2026 ~17:52 UTC, F1 \"Sharper face clips\": Add H3 developer at 1440p-sr for clips with a face or mouth, after the 10 s comparison test at 768P, 1440p-sr and full H3 2K (about $1.99)."
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "T-H3-1440",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:02:32+00:00",
+      "prompt_sha256": "ddd37d6377af2706a6e3e777e4abc98e275b3448a9e926f106dda5c8cd45d248",
+      "prompt_file": "prompts/T-H3-1440.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:02:32+00:00",
+          "sha256": "ddd37d6377af2706a6e3e777e4abc98e275b3448a9e926f106dda5c8cd45d248",
+          "file": "prompts/T-H3-1440.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-376caa26a28ee81954a4af392b24ba7fffd8732f94a51bdfdcc26971f0f35f89/c312bb2cf6ce41e2ae90cd8fb3f5a4fd-6455eb14ae13796e.mp4"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/takes/T-H3-1440.mp4"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-28T18:02:32+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Matan, 28 Oct 2026 ~17:52 UTC, F1 \"Sharper face clips\": Add H3 developer at 1440p-sr for clips with a face or mouth, after the 10 s comparison test at 768P, 1440p-sr and full H3 2K (about $1.99)."
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "T-H3-2K",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:02:33+00:00",
+      "prompt_sha256": "74af19318ae9d5acfd04892e72889d0f8c39ff197e93766c27ad82508527a17b",
+      "prompt_file": "prompts/T-H3-2K.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:02:33+00:00",
+          "sha256": "74af19318ae9d5acfd04892e72889d0f8c39ff197e93766c27ad82508527a17b",
+          "file": "prompts/T-H3-2K.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-7a44fbe422695f7881bcd17979c30e6be1e1f879cf3d7a496613aa0fc02cb328/1c4496893378400ea6944b2da3c6f7c9-f9cbf8d775c5556a.mp4"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/takes/T-H3-2K.mp4"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-28T18:02:33+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Matan, 28 Oct 2026 ~17:52 UTC, F1 \"Sharper face clips\": Add H3 developer at 1440p-sr for clips with a face or mouth, after the 10 s comparison test at 768P, 1440p-sr and full H3 2K (about $1.99)."
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "T-BED-A",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:16:53+00:00",
+      "prompt_sha256": "e9851188d6a37d073b1bbeaea110c6785c323a73e4f920dcf0d66cf11cd71c1e",
+      "prompt_file": "prompts/T-BED-A.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:16:53+00:00",
+          "sha256": "e9851188d6a37d073b1bbeaea110c6785c323a73e4f920dcf0d66cf11cd71c1e",
+          "file": "prompts/T-BED-A.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-34d5ccab147f045a23b2a9c162fdd4296031ab1be0c3eebb03f2ea57810d8acd/f4853fa4949743b29110d6342d1ba075-168f8d092679c57f.mp3"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/music/T-BED-A.mp3"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-28T18:16:53+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Matan, 28 Oct 2026 ~17:52 UTC, F3 \"Music beds\": Name minimax/music-3.0 with is_instrumental: true for beds, after 2 test beds."
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "T-BED-B",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:16:53+00:00",
+      "prompt_sha256": "2dab4659f54b1188b9e1421eaeceab0ce16fafc5af94bcf286e788b6cabc8fdd",
+      "prompt_file": "prompts/T-BED-B.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:16:54+00:00",
+          "sha256": "2dab4659f54b1188b9e1421eaeceab0ce16fafc5af94bcf286e788b6cabc8fdd",
+          "file": "prompts/T-BED-B.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-0ad78b57ce69a02f6916655572be4c3782d1a032933b0c43dc0cb4780c49b6ad/79e73b9d2e0149ecaca87d572b048363-e557b8638ae661cc.mp3"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/music/T-BED-B.mp3"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-28T18:16:54+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Matan, 28 Oct 2026 ~17:52 UTC, F3 \"Music beds\": Name minimax/music-3.0 with is_instrumental: true for beds, after 2 test beds."
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "T-SHEET-CLAY-NB2",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:21:14+00:00",
+      "prompt_sha256": "77b3b9d3d8bfdd641bf8993bc4dc3bfb72cda54d7bf6cfd5bbf35201af3379e0",
+      "prompt_file": "prompts/T-SHEET-CLAY-NB2.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:21:15+00:00",
+          "sha256": "77b3b9d3d8bfdd641bf8993bc4dc3bfb72cda54d7bf6cfd5bbf35201af3379e0",
+          "file": "prompts/T-SHEET-CLAY-NB2.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-4bc32e96e72eea690be67e63791558755b7a1b443e7cd0d6f6b288019ffcdd75/b7a1a3de1b584a40b6757690c8cd7e5c-c58f8f983ac1f399.jpg"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/sheets/T-SHEET-CLAY-NB2.jpg"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-28T18:21:15+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Matan, 28 Oct 2026 ~17:52 UTC, F6 \"Run the test\": Nano Banana 2 (google/nano-banana-2/edit) against gpt-image-2 for stylized sheets: one character sheet and one 3-panel storyboard per style, about $1.50. Name the winner for character_sheet, prop_sheet, set_sheet and storyboard in stylized formats."
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "T-SHEET-CLAY-GPT",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:21:48+00:00",
+      "prompt_sha256": "e057bcc7750f4f805123febd5c3bc7998272f8aff4af36630f3b82b963207f23",
+      "prompt_file": "prompts/T-SHEET-CLAY-GPT.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:21:48+00:00",
+          "sha256": "e057bcc7750f4f805123febd5c3bc7998272f8aff4af36630f3b82b963207f23",
+          "file": "prompts/T-SHEET-CLAY-GPT.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-ec007788b575c2c9deaa27fbd1b612d35f0529566671256bd8f8ffe21c3bea40/a8196810b04745f89cc5b9d05ff0eb62-2d6e4ad61f0ed5c4.png"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/sheets/T-SHEET-CLAY-GPT.png"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-28T18:21:48+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Matan, 28 Oct 2026 ~17:52 UTC, F6 \"Run the test\": Nano Banana 2 (google/nano-banana-2/edit) against gpt-image-2 for stylized sheets: one character sheet and one 3-panel storyboard per style, about $1.50. Name the winner for character_sheet, prop_sheet, set_sheet and storyboard in stylized formats."
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "T-SHEET-CROCHET-NB2",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:22:44+00:00",
+      "prompt_sha256": "512b9f6d0d0757962f4faf18433f6fdc8dddd075813311abcf23ee6aca7d5696",
+      "prompt_file": "prompts/T-SHEET-CROCHET-NB2.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:22:45+00:00",
+          "sha256": "512b9f6d0d0757962f4faf18433f6fdc8dddd075813311abcf23ee6aca7d5696",
+          "file": "prompts/T-SHEET-CROCHET-NB2.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-1efe9229d729c52f1a3012357686ed849dbddd5af9c172065570e1e586f46c02/7d2171f84a5e41ffa99a733eb0795f5b-05643a5a6b9fccd3.jpg"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/sheets/T-SHEET-CROCHET-NB2.jpg"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-28T18:22:45+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Matan, 28 Oct 2026 ~17:52 UTC, F6 \"Run the test\": Nano Banana 2 (google/nano-banana-2/edit) against gpt-image-2 for stylized sheets: one character sheet and one 3-panel storyboard per style, about $1.50. Name the winner for character_sheet, prop_sheet, set_sheet and storyboard in stylized formats."
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "T-SHEET-CROCHET-GPT",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:24:00+00:00",
+      "prompt_sha256": "5ec01db7ddd3c117ec34c4bdbbd9484a9846cc9ca817bed8bbe2fbef715ac0ef",
+      "prompt_file": "prompts/T-SHEET-CROCHET-GPT.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:24:00+00:00",
+          "sha256": "5ec01db7ddd3c117ec34c4bdbbd9484a9846cc9ca817bed8bbe2fbef715ac0ef",
+          "file": "prompts/T-SHEET-CROCHET-GPT.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-3efefc60f0442ae357b488301c4e065cdf79db355ea2389d3d037a97fba1dea6/81371c594bf143a9bf88ba454039ac45-2d7770d7c2dded9d.png"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/sheets/T-SHEET-CROCHET-GPT.png"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-28T18:24:00+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Matan, 28 Oct 2026 ~17:52 UTC, F6 \"Run the test\": Nano Banana 2 (google/nano-banana-2/edit) against gpt-image-2 for stylized sheets: one character sheet and one 3-panel storyboard per style, about $1.50. Name the winner for character_sheet, prop_sheet, set_sheet and storyboard in stylized formats."
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "T-SHEET-ANIM3D-NB2",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:24:56+00:00",
+      "prompt_sha256": "ea1b5c3191db2ff1a5d37e85b97b1b0ebae6d4b68b7e10ee37624efc03fb1be6",
+      "prompt_file": "prompts/T-SHEET-ANIM3D-NB2.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:24:56+00:00",
+          "sha256": "ea1b5c3191db2ff1a5d37e85b97b1b0ebae6d4b68b7e10ee37624efc03fb1be6",
+          "file": "prompts/T-SHEET-ANIM3D-NB2.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-bfc53fa6b8ba5c5df15b037a753bf2417695f8216b5449f33eaaf615cbe0e466/8e7bbf38d9a749c39ef7ebfff4d61409-5ab4a8e3d6cd6ff2.jpg"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/sheets/T-SHEET-ANIM3D-NB2.jpg"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-28T18:24:57+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Matan, 28 Oct 2026 ~17:52 UTC, F6 \"Run the test\": Nano Banana 2 (google/nano-banana-2/edit) against gpt-image-2 for stylized sheets: one character sheet and one 3-panel storyboard per style, about $1.50. Name the winner for character_sheet, prop_sheet, set_sheet and storyboard in stylized formats."
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "T-SHEET-ANIM3D-GPT",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:26:12+00:00",
+      "prompt_sha256": "ef67392666d2eac81d7ba83e3080f1809bbdea8fa50a193ae6b1993b336696ad",
+      "prompt_file": "prompts/T-SHEET-ANIM3D-GPT.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:26:12+00:00",
+          "sha256": "ef67392666d2eac81d7ba83e3080f1809bbdea8fa50a193ae6b1993b336696ad",
+          "file": "prompts/T-SHEET-ANIM3D-GPT.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-64d35258c8f64096050460d6a67aaa54d5179fa29b5bda90bce74651b1a01545/38a7107f18d14b8f9080f4712452f025-f37e441251d513c3.png"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/sheets/T-SHEET-ANIM3D-GPT.png"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-28T18:26:12+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Matan, 28 Oct 2026 ~17:52 UTC, F6 \"Run the test\": Nano Banana 2 (google/nano-banana-2/edit) against gpt-image-2 for stylized sheets: one character sheet and one 3-panel storyboard per style, about $1.50. Name the winner for character_sheet, prop_sheet, set_sheet and storyboard in stylized formats."
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "T-SHEET-ANIM2D-NB2",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:27:08+00:00",
+      "prompt_sha256": "5b0e740878f6be1674b566a2eb075629b17886fd186b33bb98bced08be928d6b",
+      "prompt_file": "prompts/T-SHEET-ANIM2D-NB2.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:27:08+00:00",
+          "sha256": "5b0e740878f6be1674b566a2eb075629b17886fd186b33bb98bced08be928d6b",
+          "file": "prompts/T-SHEET-ANIM2D-NB2.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-7b383438fc906cc0ed7556a9f46221c1076f96e5c50cfcbbf1df0b04d775275d/ff842794727a4c01bcf5fee4c3d8916f-c4deb283269ab326.jpg"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/sheets/T-SHEET-ANIM2D-NB2.jpg"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-28T18:27:08+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Matan, 28 Oct 2026 ~17:52 UTC, F6 \"Run the test\": Nano Banana 2 (google/nano-banana-2/edit) against gpt-image-2 for stylized sheets: one character sheet and one 3-panel storyboard per style, about $1.50. Name the winner for character_sheet, prop_sheet, set_sheet and storyboard in stylized formats."
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "T-SHEET-ANIM2D-GPT",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:28:23+00:00",
+      "prompt_sha256": "c6e0faeda3d89b5654f7e163bca10bf0912893e5bd9233d6e41cf8a71ff8ab26",
+      "prompt_file": "prompts/T-SHEET-ANIM2D-GPT.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:28:23+00:00",
+          "sha256": "c6e0faeda3d89b5654f7e163bca10bf0912893e5bd9233d6e41cf8a71ff8ab26",
+          "file": "prompts/T-SHEET-ANIM2D-GPT.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-5068ec25778a2864f7308db9a45465df0468b11268efd8d04df4e090b2a6a478/7bed2da1267e4ae19e044f5f79784d50-79858e67746cb442.png"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/sheets/T-SHEET-ANIM2D-GPT.png"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-28T18:28:23+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Matan, 28 Oct 2026 ~17:52 UTC, F6 \"Run the test\": Nano Banana 2 (google/nano-banana-2/edit) against gpt-image-2 for stylized sheets: one character sheet and one 3-panel storyboard per style, about $1.50. Name the winner for character_sheet, prop_sheet, set_sheet and storyboard in stylized formats."
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "T-BOARD-CLAY-NB2",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:32:26+00:00",
+      "prompt_sha256": "a196529b9f32baab2040161bebc8e9ca982db9e7b9511c4cf78d0cd592706500",
+      "prompt_file": "prompts/T-BOARD-CLAY-NB2.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:32:26+00:00",
+          "sha256": "a196529b9f32baab2040161bebc8e9ca982db9e7b9511c4cf78d0cd592706500",
+          "file": "prompts/T-BOARD-CLAY-NB2.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-37ade35cde4af597d62f5fdc53729f788a5f4e7e02757f96cf8de979b5c4147c/586091b750624eb18fc05e5d39b7d29d-14e790334705ac0a.jpg"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/sheets/T-BOARD-CLAY-NB2.jpg"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-28T18:32:26+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Matan, 28 Oct 2026 ~17:52 UTC, F6 \"Run the test\": Nano Banana 2 (google/nano-banana-2/edit) against gpt-image-2 for stylized sheets: one character sheet and one 3-panel storyboard per style, about $1.50. Name the winner for character_sheet, prop_sheet, set_sheet and storyboard in stylized formats."
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "T-BOARD-CLAY-GPT",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:33:32+00:00",
+      "prompt_sha256": "2e9865c2603d7a8aee58391fa0ac80c53f7b0a532fb9eabda024cecacc83a2c9",
+      "prompt_file": "prompts/T-BOARD-CLAY-GPT.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:33:32+00:00",
+          "sha256": "2e9865c2603d7a8aee58391fa0ac80c53f7b0a532fb9eabda024cecacc83a2c9",
+          "file": "prompts/T-BOARD-CLAY-GPT.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-617ba1eb9ceaf820d31c84b7b7e95781cd45617f8ef2adc17304ee7c1471e902/f1f10ba44bef4e7395795edf33413a47-9b98bf8f29e0a617.png"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/sheets/T-BOARD-CLAY-GPT.png"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-28T18:33:32+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Matan, 28 Oct 2026 ~17:52 UTC, F6 \"Run the test\": Nano Banana 2 (google/nano-banana-2/edit) against gpt-image-2 for stylized sheets: one character sheet and one 3-panel storyboard per style, about $1.50. Name the winner for character_sheet, prop_sheet, set_sheet and storyboard in stylized formats."
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "T-BOARD-CROCHET-NB2",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:34:29+00:00",
+      "prompt_sha256": "52700085f5c6aaeacc697e21fffd4703c0d40fa7bfa5bb8a8a897d7fbf36d84b",
+      "prompt_file": "prompts/T-BOARD-CROCHET-NB2.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:34:29+00:00",
+          "sha256": "52700085f5c6aaeacc697e21fffd4703c0d40fa7bfa5bb8a8a897d7fbf36d84b",
+          "file": "prompts/T-BOARD-CROCHET-NB2.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-53ffa2128f748f233476e580503a114c4f57584a245fe960b8caf4ddf0a960a3/61cbcc525cce49c69db91bb4088f2f81-585510cf64594ee5.jpg"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/sheets/T-BOARD-CROCHET-NB2.jpg"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-28T18:34:29+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Matan, 28 Oct 2026 ~17:52 UTC, F6 \"Run the test\": Nano Banana 2 (google/nano-banana-2/edit) against gpt-image-2 for stylized sheets: one character sheet and one 3-panel storyboard per style, about $1.50. Name the winner for character_sheet, prop_sheet, set_sheet and storyboard in stylized formats."
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "T-BOARD-CROCHET-GPT",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:36:05+00:00",
+      "prompt_sha256": "aa856eccc35e5fe1e74a87b907f773d9bb56e3d3c86ad55880956b953742c230",
+      "prompt_file": "prompts/T-BOARD-CROCHET-GPT.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:36:06+00:00",
+          "sha256": "aa856eccc35e5fe1e74a87b907f773d9bb56e3d3c86ad55880956b953742c230",
+          "file": "prompts/T-BOARD-CROCHET-GPT.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-c8e5ff4e2a85947f9303176135568ae3bf5215aff7bf9c1d5dcc2060304227ab/99f40bda29e044d5a1e2ae56e4f5c9fe-cf03f37cce4e0a42.png"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/sheets/T-BOARD-CROCHET-GPT.png"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-28T18:36:06+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Matan, 28 Oct 2026 ~17:52 UTC, F6 \"Run the test\": Nano Banana 2 (google/nano-banana-2/edit) against gpt-image-2 for stylized sheets: one character sheet and one 3-panel storyboard per style, about $1.50. Name the winner for character_sheet, prop_sheet, set_sheet and storyboard in stylized formats."
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "T-BOARD-ANIM3D-NB2",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:37:03+00:00",
+      "prompt_sha256": "2b52071037b9222abac61a3bd65668704a26a1c681e53bfa3cc0f7b5e99745da",
+      "prompt_file": "prompts/T-BOARD-ANIM3D-NB2.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:37:03+00:00",
+          "sha256": "2b52071037b9222abac61a3bd65668704a26a1c681e53bfa3cc0f7b5e99745da",
+          "file": "prompts/T-BOARD-ANIM3D-NB2.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-960d3cdee745111d84483d9df3ceb0776b9e0eb04cd3813afdc2b9b60a267b22/f95b699e868c4b0fbe2c01834f781099-abc59c99fe8e361f.jpg"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/sheets/T-BOARD-ANIM3D-NB2.jpg"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-28T18:37:03+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Matan, 28 Oct 2026 ~17:52 UTC, F6 \"Run the test\": Nano Banana 2 (google/nano-banana-2/edit) against gpt-image-2 for stylized sheets: one character sheet and one 3-panel storyboard per style, about $1.50. Name the winner for character_sheet, prop_sheet, set_sheet and storyboard in stylized formats."
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "T-BOARD-ANIM3D-GPT",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:38:07+00:00",
+      "prompt_sha256": "09d4510c1d2865bdc845c053d9a6088686a72dc3c544313219624644e7d780e3",
+      "prompt_file": "prompts/T-BOARD-ANIM3D-GPT.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:38:08+00:00",
+          "sha256": "09d4510c1d2865bdc845c053d9a6088686a72dc3c544313219624644e7d780e3",
+          "file": "prompts/T-BOARD-ANIM3D-GPT.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-bd11de33d4739615c810e60a7e7fded4c017829e47aae345d42843a6dcae57ac/bf8ef7bb21894e61aed39d52532b5867-d4df688f96ac499e.png"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/sheets/T-BOARD-ANIM3D-GPT.png"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-28T18:38:08+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Matan, 28 Oct 2026 ~17:52 UTC, F6 \"Run the test\": Nano Banana 2 (google/nano-banana-2/edit) against gpt-image-2 for stylized sheets: one character sheet and one 3-panel storyboard per style, about $1.50. Name the winner for character_sheet, prop_sheet, set_sheet and storyboard in stylized formats."
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "T-BOARD-ANIM2D-NB2",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:39:36+00:00",
+      "prompt_sha256": "6967bb985ca591967934c58d0b2e22be4e931123022ebe17ee3dbb553e864b5d",
+      "prompt_file": "prompts/T-BOARD-ANIM2D-NB2.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:39:36+00:00",
+          "sha256": "6967bb985ca591967934c58d0b2e22be4e931123022ebe17ee3dbb553e864b5d",
+          "file": "prompts/T-BOARD-ANIM2D-NB2.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-b80388afc7241ae17d086ac1debd50e764a26371dfdd004cea581192674ec55a/75712c3158e1460ca844cf21b520a608-05ae88de3bcdaa2e.jpg"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/sheets/T-BOARD-ANIM2D-NB2.jpg"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-28T18:39:36+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Matan, 28 Oct 2026 ~17:52 UTC, F6 \"Run the test\": Nano Banana 2 (google/nano-banana-2/edit) against gpt-image-2 for stylized sheets: one character sheet and one 3-panel storyboard per style, about $1.50. Name the winner for character_sheet, prop_sheet, set_sheet and storyboard in stylized formats."
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "T-BOARD-ANIM2D-GPT",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T18:41:12+00:00",
+      "prompt_sha256": "115b5ca0530a22fe9341dc7dff4a2ba8c2d0e7df732f42a3135f296ea12fcb16",
+      "prompt_file": "prompts/T-BOARD-ANIM2D-GPT.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:41:12+00:00",
+          "sha256": "115b5ca0530a22fe9341dc7dff4a2ba8c2d0e7df732f42a3135f296ea12fcb16",
+          "file": "prompts/T-BOARD-ANIM2D-GPT.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-7b90a9ef80d2ba860ab1425e3d22a726a2858b3342809ebc4e6d48cd6107bef9/fca60e637af546eb90660d877ed32b77-7d01bb8d09d4b457.png"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/sheets/T-BOARD-ANIM2D-GPT.png"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-28T18:41:12+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Matan, 28 Oct 2026 ~17:52 UTC, F6 \"Run the test\": Nano Banana 2 (google/nano-banana-2/edit) against gpt-image-2 for stylized sheets: one character sheet and one 3-panel storyboard per style, about $1.50. Name the winner for character_sheet, prop_sheet, set_sheet and storyboard in stylized formats."
+          }
+        ]
+      },
+      "tool": "atlas"
+    }
+  ],
+  "queue": []
+}
