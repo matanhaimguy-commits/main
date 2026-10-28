@@ -92,28 +92,64 @@
   },
   "specs": {
     "H-01A": {
-      "sha256": "cc61aeeefdd6e70dc6aba3ab3d1252e526d7ee3254472b6dbbfc43b4b06632f5",
+      "sha256": "64507e09005bbe1768dd1e510ecd5e263cf86c777543bc3344b5b54824bb2fb0",
       "lint": "PASS",
-      "lint_at": "2026-10-28T17:08:28+00:00",
-      "lint_issues": []
+      "lint_at": "2026-10-28T17:12:52+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T17:11:56+00:00",
+          "status": "FAIL",
+          "sha256": "cc61aeeefdd6e70dc6aba3ab3d1252e526d7ee3254472b6dbbfc43b4b06632f5",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01A.spec.json"
+        }
+      ]
     },
     "H-01B": {
-      "sha256": "15624c547b8e370b93eeefe293f47e29c7d9dd58f6c50a0ff1afefba50a56037",
+      "sha256": "8c66f9df48ddf8115922ab8324d3aea0a90df28f83311d2241fd231d93925074",
       "lint": "PASS",
-      "lint_at": "2026-10-28T17:08:28+00:00",
-      "lint_issues": []
+      "lint_at": "2026-10-28T17:12:52+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T17:11:56+00:00",
+          "status": "FAIL",
+          "sha256": "15624c547b8e370b93eeefe293f47e29c7d9dd58f6c50a0ff1afefba50a56037",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01B.spec.json"
+        }
+      ]
     },
     "H-01C": {
-      "sha256": "78e6c6c6782aeeb7d844d6b758bc7f71cf12560aba4dea031307880b4e22820e",
+      "sha256": "d0f2d534c8fd109941c1477d40d180fb7d658e54c95f1d1da7c9403693cc8ccd",
       "lint": "PASS",
-      "lint_at": "2026-10-28T17:08:28+00:00",
-      "lint_issues": []
+      "lint_at": "2026-10-28T17:12:52+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T17:11:56+00:00",
+          "status": "FAIL",
+          "sha256": "78e6c6c6782aeeb7d844d6b758bc7f71cf12560aba4dea031307880b4e22820e",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01C.spec.json"
+        }
+      ]
     },
     "H-01D": {
-      "sha256": "0c2b011a8bbee81be3f67075ee6bd88dda2863627d92ecb7a4d97f785703c0fa",
+      "sha256": "1e6e4de0fe1b4acc5fb827d5b8997c1d5779ee96f9f1c500d3cba0c5ea5e0988",
       "lint": "PASS",
-      "lint_at": "2026-10-28T17:08:28+00:00",
-      "lint_issues": []
+      "lint_at": "2026-10-28T17:12:52+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T17:11:56+00:00",
+          "status": "FAIL",
+          "sha256": "0c2b011a8bbee81be3f67075ee6bd88dda2863627d92ecb7a4d97f785703c0fa",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01D.spec.json"
+        }
+      ]
     }
   },
   "assets": [
@@ -128,20 +164,36 @@
       "hero": true,
       "hook": false,
       "created": "2026-10-28T17:08:34+00:00",
-      "prompt_sha256": "ccf2ec9d090d451bac2b7ee43bfa655c7e180c128ed270ece6cbd8075735a79b",
-      "prompt_file": "prompts/CF-V1.v1.1.txt",
+      "prompt_sha256": "1ee54f0ff9c6754bf3a7c45afc1785eb31897161be11139ff77e6b03dddab851",
+      "prompt_file": "prompts/CF-V1.v1.2.txt",
       "prompt_history": [
         {
           "at": "2026-10-28T17:08:59+00:00",
           "sha256": "ccf2ec9d090d451bac2b7ee43bfa655c7e180c128ed270ece6cbd8075735a79b",
           "file": "prompts/CF-V1.v1.1.txt",
           "medias": []
+        },
+        {
+          "at": "2026-10-28T17:13:14+00:00",
+          "sha256": "1ee54f0ff9c6754bf3a7c45afc1785eb31897161be11139ff77e6b03dddab851",
+          "file": "prompts/CF-V1.v1.2.txt",
+          "medias": []
         }
       ],
       "medias": [],
       "ids": [],
       "files": [],
-      "gates": {}
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T17:11:56+00:00",
+            "status": "FAIL",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-V1.v1.prompt.json",
+            "prompt_sha256": "ccf2ec9d090d451bac2b7ee43bfa655c7e180c128ed270ece6cbd8075735a79b"
+          }
+        ]
+      }
     },
     {
       "asset_id": "CF-V3",
@@ -154,20 +206,36 @@
       "hero": true,
       "hook": false,
       "created": "2026-10-28T17:08:34+00:00",
-      "prompt_sha256": "3eec38e26a6d47be1eba0c4b979c68786d613e1f10baf68e5cfc93b816b9ebcf",
-      "prompt_file": "prompts/CF-V3.v1.1.txt",
+      "prompt_sha256": "927525602ecf22da8f306f13890ebdc8927f77bcc4f77f4b9dfdbb55ceee7c82",
+      "prompt_file": "prompts/CF-V3.v1.2.txt",
       "prompt_history": [
         {
           "at": "2026-10-28T17:09:00+00:00",
           "sha256": "3eec38e26a6d47be1eba0c4b979c68786d613e1f10baf68e5cfc93b816b9ebcf",
           "file": "prompts/CF-V3.v1.1.txt",
           "medias": []
+        },
+        {
+          "at": "2026-10-28T17:13:14+00:00",
+          "sha256": "927525602ecf22da8f306f13890ebdc8927f77bcc4f77f4b9dfdbb55ceee7c82",
+          "file": "prompts/CF-V3.v1.2.txt",
+          "medias": []
         }
       ],
       "medias": [],
       "ids": [],
       "files": [],
-      "gates": {}
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T17:11:57+00:00",
+            "status": "FAIL",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-V3.v1.prompt.json",
+            "prompt_sha256": "3eec38e26a6d47be1eba0c4b979c68786d613e1f10baf68e5cfc93b816b9ebcf"
+          }
+        ]
+      }
     },
     {
       "asset_id": "CF-V8",
@@ -180,20 +248,36 @@
       "hero": true,
       "hook": false,
       "created": "2026-10-28T17:08:35+00:00",
-      "prompt_sha256": "beae9d2add12c3b03d5d4634e79b3d893751e799c0531a2b9677fe25eb43b5bc",
-      "prompt_file": "prompts/CF-V8.v1.1.txt",
+      "prompt_sha256": "e3a5fb20342119ce745a4f68e21baa61895ad0ac8b38c5672291f9bb6baeb2b4",
+      "prompt_file": "prompts/CF-V8.v1.2.txt",
       "prompt_history": [
         {
           "at": "2026-10-28T17:09:00+00:00",
           "sha256": "beae9d2add12c3b03d5d4634e79b3d893751e799c0531a2b9677fe25eb43b5bc",
           "file": "prompts/CF-V8.v1.1.txt",
           "medias": []
+        },
+        {
+          "at": "2026-10-28T17:13:14+00:00",
+          "sha256": "e3a5fb20342119ce745a4f68e21baa61895ad0ac8b38c5672291f9bb6baeb2b4",
+          "file": "prompts/CF-V8.v1.2.txt",
+          "medias": []
         }
       ],
       "medias": [],
       "ids": [],
       "files": [],
-      "gates": {}
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T17:11:57+00:00",
+            "status": "FAIL",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-V8.v1.prompt.json",
+            "prompt_sha256": "beae9d2add12c3b03d5d4634e79b3d893751e799c0531a2b9677fe25eb43b5bc"
+          }
+        ]
+      }
     },
     {
       "asset_id": "CF-V9",
@@ -206,20 +290,36 @@
       "hero": true,
       "hook": false,
       "created": "2026-10-28T17:08:35+00:00",
-      "prompt_sha256": "753a60bb6876334f0e956c5720b4ab1316545810393319176d276ce1c7834150",
-      "prompt_file": "prompts/CF-V9.v1.1.txt",
+      "prompt_sha256": "8e47b2b9db4fb85e6d87084de1351020ccf796a214e2f318fd9698c7012989f0",
+      "prompt_file": "prompts/CF-V9.v1.2.txt",
       "prompt_history": [
         {
           "at": "2026-10-28T17:09:00+00:00",
           "sha256": "753a60bb6876334f0e956c5720b4ab1316545810393319176d276ce1c7834150",
           "file": "prompts/CF-V9.v1.1.txt",
           "medias": []
+        },
+        {
+          "at": "2026-10-28T17:13:15+00:00",
+          "sha256": "8e47b2b9db4fb85e6d87084de1351020ccf796a214e2f318fd9698c7012989f0",
+          "file": "prompts/CF-V9.v1.2.txt",
+          "medias": []
         }
       ],
       "medias": [],
       "ids": [],
       "files": [],
-      "gates": {}
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T17:11:57+00:00",
+            "status": "FAIL",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-V9.v1.prompt.json",
+            "prompt_sha256": "753a60bb6876334f0e956c5720b4ab1316545810393319176d276ce1c7834150"
+          }
+        ]
+      }
     }
   ],
   "queue": []

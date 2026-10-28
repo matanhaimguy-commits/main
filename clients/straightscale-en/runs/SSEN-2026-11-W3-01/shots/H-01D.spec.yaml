@@ -10,73 +10,95 @@ must_read_in_1s: A blindfolded post, and behind it an empty month
 subjects:
 - id: PR-POST
   ref: null
-  state: a talking clay post card with a face, wearing a fabric blindfold
-  pose: standing upright on two small clay feet at centre, x 0.22 to 0.74, y 0.38 to 0.84, head tilted a little, unsure
+  state: the talking clay post card with a face, wearing a red fabric blindfold, standing
+  pose: upright on two small clay feet at centre, x 0.38 to 0.62, from y 0.36 to the floor line y 0.56, head tilted a little
   expression: puzzled and a little sheepish under the blindfold, mouth a small wobbly line
 hands: none visible
 props:
 - id: PR-POST
   story_critical: false
   ref: null
-  state: blindfolded, standing
-  content: a square post card sculpted from cream clay with a stitched fabric edge, a simple clay face in the middle (sculpted
-    nose and mouth), a strip of red fabric tied over the eyes as a blindfold with a knot at the side, two tiny wire arms held
-    out in front feeling the air, two small clay feet
-  size_in_frame: about 52% of the width, 46% of the height
+  state: blindfolded, standing, arms out
+  content: a square post card sculpted from cream clay with a stitched terracotta fabric edge, a simple clay face in its middle
+    (a sculpted nose and a small wobbly-line mouth), a strip of red fabric tied over its eyes as a blindfold, knotted at its
+    right edge, two tiny wire arms held out in front feeling the air, two small clay feet
+  size_in_frame: 24% of the frame width, 20% of its height
   held_by: null
 - id: PR-CALENDAR
   story_critical: false
   ref: null
-  state: one empty month page on the wall behind, softly out of focus
-  content: one a calendar month page sculpted from flat cream clay with a stitched fabric border and a stitched grid of empty
-    day squares (no numbers, no month name), every day square empty
-  size_in_frame: about 60% of the width, behind the post, x 0.20 to 0.80, y 0.32 to 0.66
+  state: one empty month page on the wall behind the post, wider than the post, empty squares showing on both sides of it
+  content: one page, a calendar month page sculpted from flat cream clay, edged with a stitched terracotta fabric border,
+    with a stitched grid of empty day squares (no numbers, no month name), every day square empty
+  size_in_frame: 84% of the frame width (x 0.08 to 0.92), 20% of its height (y 0.28 to 0.48)
   held_by: null
 text_in_image: none
 action_physics:
-- the post stands on its two clay feet on the set floor
-- the blindfold wraps around the card's top third, knotted at its right edge
-- the calendar page hangs flat on the wall behind it
+- the post stands on its two clay feet on the floor at y 0.56
+- the blindfold wraps around the card's top third and is knotted at its right edge
+- the calendar page hangs flat on the wall behind and above the post; the post covers only the middle of its lower rows
 static: true
 setting:
   ref: null
   details: One plain warm cream clay wall fills the background edge to edge, softly lit by warm amber light from the upper
-    left, a gentle teal shadow at the bottom; the top 30% of the frame is only this plain wall. A plain clay floor meets the
-    wall at y 0.84. No window, shelf, desk or other objects.
-  background_rule: nothing but the plain clay wall behind the subject
+    left, a gentle deep teal shadow low down. A plain clay floor meets the wall at 56% down and runs toward the camera, empty.
+    No window, shelf, desk or other objects.
+  background_rule: nothing but the plain wall, the floor and the one calendar page
 camera:
-  framing: medium shot of the post, the calendar behind it
+  framing: medium shot of the post with the calendar behind it
   angle: camera at the post's eye level, inside the miniature set
-  lens: macro miniature-set look, about 50mm, shallow depth of field, the subject sharp
+  lens: macro miniature-set look, about 50mm, the post sharp, the calendar page slightly soft but its empty squares clear
   aspect: '9:16'
-  safe_zones: subject between y 0.30 and 0.80 and x 0.08 to 0.86; the top 30% is plain clay wall for the text hook; nothing
-    important in the bottom 20% or the right 13% (platform UI)
+  safe_zones: 'STANDARDS 6 reels zone: the top 14% is plain wall; the text hook (added in the edit) sits from 14% to 27% down
+    on plain wall; all key content sits from 28% to 56% down and inside 6% side margins; below 56% only the plain clay floor
+    and wall continue, with nothing on them (the bottom 35% and the right 21% of the lower half hold no key content)'
 continuity:
   previous_shot: null
   carry_over:
-  - 'the series look: claymation in the song''s cloth world (fabric and thread details on clay)'
+  - 'the series look: claymation with fabric and thread details, the song''s cloth world (EN 03)'
 regions:
-- name: post
-  kind: prop
-  box:
-  - 0.22
-  - 0.38
-  - 0.74
-  - 0.84
-- name: empty-month
-  kind: prop
-  box:
-  - 0.2
-  - 0.32
-  - 0.8
-  - 0.66
 - name: text-hook-space
   kind: other
   box:
+  - 0.06
+  - 0.14
+  - 0.94
+  - 0.27
+- name: post
+  kind: prop
+  box:
+  - 0.38
+  - 0.36
+  - 0.62
+  - 0.56
+- name: post-face
+  kind: face
+  box:
+  - 0.42
+  - 0.38
+  - 0.58
+  - 0.48
+- name: blindfold
+  kind: prop
+  box:
+  - 0.38
+  - 0.37
+  - 0.64
+  - 0.42
+- name: empty-month
+  kind: prop
+  box:
+  - 0.08
+  - 0.28
+  - 0.92
+  - 0.48
+- name: empty-lower-zone
+  kind: other
+  box:
   - 0.0
-  - 0.0
+  - 0.56
   - 1.0
-  - 0.3
+  - 1.0
 style: 'Stop-motion clay puppet scene - clay characters detailed with tiny craft materials: thread-wrapped hair, fabric details,
   wire accents, on a fully sculpted clay set, cinematic stop-motion film lighting with gentle shadows, the scene filling the
   entire frame with the camera inside the puppet world. Palette: warm cream, terracotta and mustard clay with deep teal shadows,
@@ -84,14 +106,16 @@ style: 'Stop-motion clay puppet scene - clay characters detailed with tiny craft
   - visible fingerprints and tool marks, real cast shadows, soft studio lighting, the clay scene filling the entire frame.'
 must_not:
 - no text, letters, numbers or words anywhere in the picture (the text hook is added later in the edit)
-- no hearts, likes, thumbs-up, follower counts, notification badges or any social media icons or logos
-- no real platform names, logos or app screens
-- no phone screens with interface elements
-- no extra subjects beyond those named; no clutter in the top third of the frame
+- no hearts, likes, thumbs-up, follower counts, notification badges, social media icons or logos
+- no real platform names, logos, phones or app screens
+- no objects on the floor or wall below 56% down
 - no smooth, glossy or CGI-looking surfaces; no motion blur
-- no borders, frames, split screens, set edges, workbench or the room around the miniature set
-- no figures or people
+- no picture border or frame around the whole image, no split-screen panels, no visible set edges, workbench or room around
+  the miniature set
+- no clay people or client figures (the post card is the only character)
 - nothing on the calendar page
 - one post only
 hero: true
-notes: 'Stack EN05-V9 text hook (edit): Some months nothing? Stop guessing what to post. Model as H-01A.'
+notes: 'Stack EN05-V9 text hook (edit, 14% to 27% down): Some months nothing? Stop guessing what to post. Model: openai/gpt-image-2/text-to-image,
+  size 1152x2048, quality medium, no references. Sub-style: claymation skill lane 3 (stop-motion puppet), for the song''s
+  cloth world.'
