@@ -87,6 +87,22 @@
           "el_planned": 0
         },
         "note": ""
+      },
+      {
+        "at": "2026-10-28T19:45:02+00:00",
+        "status": "PASS",
+        "by": "pipeline.py budget",
+        "data": {
+          "unit": "usd",
+          "planned": 0.1,
+          "with_buffer": 0.12,
+          "balance": 2.357775,
+          "month_spent": 0,
+          "cap": 100,
+          "el_planned": 0,
+          "source": "budget_usd"
+        },
+        "note": ""
       }
     ],
     "G-HOOK": [
@@ -162,6 +178,35 @@
           "sha256": "c0983a566a0e967f22b5db0df7fe3cea3514b6f994cdcbba5d65b347cad4f368",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/H-01-V7.spec.json"
+        }
+      ]
+    },
+    "H-01-W902": {
+      "sha256": "64edd0016941aa3c1161d9451bafae09d790275c3393e6cd71235e158b57c9cd",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T19:42:04+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T19:40:59+00:00",
+          "status": "FAIL",
+          "sha256": "1b13106120ef11c40f5e3a5bd7c65faf66227501230acbd15dee426f2e6befdc",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-W902.spec.json"
+        },
+        {
+          "at": "2026-10-28T19:42:04+00:00",
+          "status": "FAIL",
+          "sha256": "c85e0e5f6673c2aa333b6b079709b62c5acbf97239c50d1e0057e1012331d3d8",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-W902.spec.json"
+        },
+        {
+          "at": "2026-10-28T19:43:25+00:00",
+          "status": "PASS",
+          "sha256": "64edd0016941aa3c1161d9451bafae09d790275c3393e6cd71235e158b57c9cd",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-W902.spec.json"
         }
       ]
     }
@@ -416,6 +461,86 @@
           }
         ]
       }
+    },
+    {
+      "asset_id": "CF-W902",
+      "version": 1,
+      "type": "still",
+      "shots": [
+        "H-01-W902"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": true,
+      "created": "2026-10-28T19:43:25+00:00",
+      "prompt_sha256": "1ed31e624c3fe3407833ab480b4985444a9567b5b0524670ee1ccae8a137253c",
+      "prompt_file": "prompts/CF-W902.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T19:43:38+00:00",
+          "sha256": "1ed31e624c3fe3407833ab480b4985444a9567b5b0524670ee1ccae8a137253c",
+          "file": "prompts/CF-W902.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "7de9f244c3f44e529c76bb0eed058ea9"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-2026-11-W2-01/assets/CF-W902.v1.png"
+      ],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T19:45:01+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-W902.v1.prompt.json",
+            "prompt_sha256": "1ed31e624c3fe3407833ab480b4985444a9567b5b0524670ee1ccae8a137253c"
+          }
+        ],
+        "G-VIS": [
+          {
+            "at": "2026-10-28T19:48:17+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/CF-W902.v1.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 3,
+              "minor": 0
+            },
+            "hero": true
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "CF-W902",
+      "version": 2,
+      "type": "still",
+      "shots": [
+        "H-01-W902"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": true,
+      "created": "2026-10-28T19:48:18+00:00",
+      "prompt_sha256": "4024f42f4497a44ee00df4c74b52d82325d8a8e690bdebbbaadfd27c7fd0319d",
+      "prompt_file": "prompts/CF-W902.v2.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T19:48:18+00:00",
+          "sha256": "4024f42f4497a44ee00df4c74b52d82325d8a8e690bdebbbaadfd27c7fd0319d",
+          "file": "prompts/CF-W902.v2.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [],
+      "files": [],
+      "gates": {}
     }
   ],
   "queue": []

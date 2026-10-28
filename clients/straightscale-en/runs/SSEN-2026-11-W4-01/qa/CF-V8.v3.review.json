@@ -1,0 +1,221 @@
+{
+ "gate": "G-VIS",
+ "asset_id": "CF-V8",
+ "version": 3,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "hero": true,
+ "files_opened": [
+  "full.png",
+  "tile_r1c1.png",
+  "tile_r1c2.png",
+  "tile_r1c3.png",
+  "tile_r2c1.png",
+  "tile_r2c2.png",
+  "tile_r2c3.png",
+  "tile_r3c1.png",
+  "tile_r3c2.png",
+  "tile_r3c3.png",
+  "region_H-01-V8_post.png",
+  "region_H-01-V8_post-text.png",
+  "region_H-01-V8_hearts.png",
+  "region_H-01-V8_arrow.png",
+  "region_H-01-V8_page.png",
+  "region_H-01-V8_page-text.png",
+  "thumb_200.png"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Cream post card TIRED OF SLOW MONTHS? above grey-blue page card WELCOME TO OUR WEBSITE; mismatch reads at once."
+  },
+  {
+   "id": "V2",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Terracotta down arrow links post to page; only story elements present."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Static frame, nothing contradicts the script line."
+  },
+  {
+   "id": "V4",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No people."
+  },
+  {
+   "id": "V5",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No hands."
+  },
+  {
+   "id": "V6",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No faces."
+  },
+  {
+   "id": "V7",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Cards and arrow lie flat with soft contact shadows."
+  },
+  {
+   "id": "V8",
+   "result": "PASS",
+   "severity": "",
+   "region": "hearts",
+   "evidence": "Three red clay hearts pressed on the post card right of '?', clear of every letter (region_H-01-V8_hearts, tile_r2c3). Cluster is at about x 68% to 84%, y 38% to 44%, a little left/lower than spec x74-88, y36.5-40.5; cosmetic."
+  },
+  {
+   "id": "V9",
+   "result": "PASS",
+   "severity": "",
+   "region": "post-text",
+   "evidence": "Letter by letter: T-I-R-E-D O-F S-L-O-W / M-O-N-T-H-S-? correct, no diacritics, nothing covers letters."
+  },
+  {
+   "id": "V10",
+   "result": "PASS",
+   "severity": "",
+   "region": "page-text",
+   "evidence": "W-E-L-C-O-M-E T-O / O-U-R W-E-B-S-I-T-E correct and clean (full.png, tile_r3c1 to r2c2)."
+  },
+  {
+   "id": "V11",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No extra words, digits, logos or signs; ink on cream and grey-blue is high contrast."
+  },
+  {
+   "id": "V12",
+   "result": "PASS",
+   "severity": "",
+   "region": "post",
+   "evidence": "One cream slab, thick terracotta rim, rounded corners, single layer. Size is about 75% of width and 13% of height vs spec 88% and 10.5%; see V18."
+  },
+  {
+   "id": "V13",
+   "result": "PASS",
+   "severity": "",
+   "region": "page",
+   "evidence": "One grey-blue slab, rounded corners, single layer, text centred; right edge about 77.5% of width."
+  },
+  {
+   "id": "V14",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "arrow",
+   "evidence": "Arrow is about x 43% to 52%, y 47% to 52%. Its shaft top touches the post card's rim and its tip touches the page card's top edge (region_H-01-V8_arrow, page). Spec: touching neither card, x40-48, y42-45."
+  },
+  {
+   "id": "V15",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No characters, no sheets (first frame)."
+  },
+  {
+   "id": "V16",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No previous shot."
+  },
+  {
+   "id": "V17",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No carry-over."
+  },
+  {
+   "id": "V18",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "full / page / page-text / arrow",
+   "evidence": "Layout sits lower than spec. Post card y about 33.4% to 46.5% (spec 31-41.5). Arrow y about 47% to 52% (spec 42-45). Page card y about 52% to 63.6% (spec 45.5-55); WELCOME TO at about 54% to 57.5% and OUR WEBSITE about 58% to 62% sit mostly in the caption zone below 55%, where only plain ground is allowed, so captions will cover the page text. Page card right edge about 77.5% (ok, under 79%). Top 30% plain (tiles r1c1-r1c3 clean); lower 64% plain ground. Post card width about 12.7% to 87.8% (spec 6 to 94)."
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "9:16, 1152x2048, square top-down view."
+  },
+  {
+   "id": "V20",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200.png",
+   "evidence": "At 200 px both cards and both texts read; arrow and hearts visible."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Matte plasticine, tool marks, palette matches spec; no glossy CGI."
+  },
+  {
+   "id": "V22",
+   "result": "PASS",
+   "severity": "",
+   "region": "tiles",
+   "evidence": "Consistent ground texture, no artifacts across 9 tiles."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Sharp over card area; no table edge or stray objects."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No logos or trademarks; generic fake post and page."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No side-by-side before/after, no 'your [condition]', no shaming."
+  },
+  {
+   "id": "V26",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "AI disclosure handled at post level; nothing in the image conflicts."
+  }
+ ],
+ "fix": {
+  "route": "regenerate",
+  "prompt_changes": [
+   "Raise the whole stack: post card y 31% to 41.5%, arrow y 42% to 45%, page card y 45.5% to 55%, all measured from the top edge; say 'everything lower than 55% is plain sage ground, nothing else'.",
+   "Make the post card 88% of width and 10.5% of height (x 6% to 94%), page card 73% of width and 9.5% of height.",
+   "Leave a visible green gap between the arrow and both cards (arrow touching neither, x 40% to 48%).",
+   "Hearts at x 74% to 88%, y 36.5% to 40.5%. Keep all text, colours and the empty top 30% unchanged."
+  ]
+ }
+}

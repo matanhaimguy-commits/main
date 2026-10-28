@@ -87,6 +87,22 @@
           "el_planned": 0
         },
         "note": ""
+      },
+      {
+        "at": "2026-10-28T19:39:53+00:00",
+        "status": "PASS",
+        "by": "pipeline.py budget",
+        "data": {
+          "unit": "usd",
+          "planned": 0.1,
+          "with_buffer": 0.12,
+          "balance": 2.405165,
+          "month_spent": 0,
+          "cap": 100,
+          "el_planned": 0,
+          "source": "budget_usd"
+        },
+        "note": ""
       }
     ],
     "G-HOOK": [
@@ -582,20 +598,107 @@
       "hero": true,
       "hook": false,
       "created": "2026-10-28T18:31:55+00:00",
-      "prompt_sha256": "ebece4516e9d46269470e84467fba1de64887eb66c62f97c7a4ccf96ca59286b",
-      "prompt_file": "prompts/CF-V8.v2.1.txt",
+      "prompt_sha256": "2146974da594d1a3877590d3be9c222de0570d2e818e897de7ad2ee581817e1b",
+      "prompt_file": "prompts/CF-V8.v2.2.txt",
       "prompt_history": [
         {
           "at": "2026-10-28T18:31:55+00:00",
           "sha256": "ebece4516e9d46269470e84467fba1de64887eb66c62f97c7a4ccf96ca59286b",
           "file": "prompts/CF-V8.v2.1.txt",
           "medias": []
+        },
+        {
+          "at": "2026-10-28T19:38:08+00:00",
+          "sha256": "2146974da594d1a3877590d3be9c222de0570d2e818e897de7ad2ee581817e1b",
+          "file": "prompts/CF-V8.v2.2.txt",
+          "medias": []
         }
       ],
       "medias": [],
-      "ids": [],
-      "files": [],
-      "gates": {}
+      "ids": [
+        "0854ac8070b14bf299db101ea20202cd"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-2026-11-W4-01/assets/CF-V8.v2.png"
+      ],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T19:39:44+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-V8.v2.prompt.v2.json",
+            "prompt_sha256": "2146974da594d1a3877590d3be9c222de0570d2e818e897de7ad2ee581817e1b"
+          }
+        ],
+        "G-VIS": [
+          {
+            "at": "2026-10-28T19:42:48+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/CF-V8.v2.review.json",
+            "defects": {
+              "critical": 1,
+              "major": 4,
+              "minor": 0
+            },
+            "hero": true
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "CF-V8",
+      "version": 3,
+      "type": "still",
+      "shots": [
+        "H-01-V8"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-28T19:43:11+00:00",
+      "prompt_sha256": "6f00e75d6f75eb58167200eef87576c947e30357dca217b8a24328d8a99b1aa4",
+      "prompt_file": "prompts/CF-V8.v3.2.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T19:43:11+00:00",
+          "sha256": "61daac77f64fc2275925cf1783dd95a99dacddb2b49d6a96716f7d73f94b45df",
+          "file": "prompts/CF-V8.v3.1.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T19:44:39+00:00",
+          "sha256": "6f00e75d6f75eb58167200eef87576c947e30357dca217b8a24328d8a99b1aa4",
+          "file": "prompts/CF-V8.v3.2.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "46895288616b4987bef04065e2716c37"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-2026-11-W4-01/assets/CF-V8.v3.png"
+      ],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T19:44:39+00:00",
+            "status": "FAIL",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-V8.v3.prompt.json",
+            "prompt_sha256": "61daac77f64fc2275925cf1783dd95a99dacddb2b49d6a96716f7d73f94b45df"
+          },
+          {
+            "at": "2026-10-28T19:46:23+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-V8.v3.prompt.json",
+            "prompt_sha256": "6f00e75d6f75eb58167200eef87576c947e30357dca217b8a24328d8a99b1aa4"
+          }
+        ]
+      }
     }
   ],
   "queue": []
