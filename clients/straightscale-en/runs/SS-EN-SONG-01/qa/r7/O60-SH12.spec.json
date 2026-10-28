@@ -1,0 +1,84 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH12",
+ "spec_sha256": "d148e58192dbcf6d36aab23ee5e5714fe527f206c36ae134ff9bb36904292d15",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "four scraps, floor, organizer edge, loose thread all present"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'hands: none visible'; 'no people'"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'Frozen: the four scraps lie apart on the floor; one loose thread end lifts in a curl 1 cm'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-SCRAPS content filled; PR-ORGANIZER content filled ('APRIL pockets: all four are empty')"
+  },
+  {
+   "id": "P6",
+   "result": "FAIL",
+   "evidence": "the APRIL row's lower edge is in frame (14 to 24% from the top) so its label band is in frame, but text_in_image has no APRIL entry and the spec does not say the band is cropped out"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'background_rule: plain floor, no other objects'"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "'no scrap touching or overlapping another' agrees with 'laid apart ... visible gaps'"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over 'PR-SCRAPS', 'no Maya'; floor state follows SH11 by a cut"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "'lower edge of the APRIL row at 14 to 24% from the top' reads two ways (the edge sits somewhere in a 10% range, or the row spans 14 to 24%)"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 content filled; FL-11 N/A (no people)"
+  }
+ ],
+ "fixes": [
+  {
+   "check": "P6",
+   "change": "Either add APRIL (row label band, left end of the row, case upper, nothing covers it) with a region box, or state 'the left end with the label band is outside the frame' and keep the pockets only."
+  },
+  {
+   "check": "P11",
+   "change": "Write one number: 'the APRIL row's lower edge at 22% from the top; the row occupies 14 to 22%'."
+  }
+ ],
+ "suggested_spec_changes": [
+  "Either add APRIL (row label band, left end of the row, case upper, nothing covers it) with a region box, or state 'the left end with the label band is outside the frame' and keep the pockets only.",
+  "Write one number: 'the APRIL row's lower edge at 22% from the top; the row occupies 14 to 22%'."
+ ]
+}

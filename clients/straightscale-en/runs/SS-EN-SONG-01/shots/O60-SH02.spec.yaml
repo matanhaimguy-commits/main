@@ -10,8 +10,8 @@ must_read_in_1s: Full March pockets, empty April pockets, a woman at a desk belo
 subjects:
 - id: CH-MAYA
   ref: CH-MAYA@v1
-  state: seen from behind and slightly side, seated, both forearms resting on the desk edge, hands hidden behind the open
-    laptop
+  state: seen from behind, seated on the chair, both forearms resting on the desk edge in front of her, hands out of view
+    in front of her body
   pose: seated, back to camera, head already raised toward the APRIL row in the end frame
   expression: n/a (back view)
   instances: 1
@@ -55,6 +55,7 @@ text_in_image:
 action_physics:
 - The camera finishes its pull-back and comes to rest on the wide frame. Maya sits still, head already raised toward the APRIL
   row in the end frame (no head turn).
+- 'Maya sits on the plain charcoal clay chair: weight on the seat, both feet flat on the floor.'
 static: false
 setting:
   ref: null
@@ -62,11 +63,13 @@ setting:
     a mug. World (no set sheet, SET-OFFICE fallback, main session 28 Oct): a plain warm-ivory paper wall and floor meeting
     in a soft curve, soft warm light, soft contact shadows. Of the office items, only those this shot names appear, each looking
     like this: a simple charcoal clay desk (one flat top on four straight legs, no drawers); an open silver clay laptop with
-    a plain lid; one white clay mug; a small round charcoal clay bin with a thumb-pressed rim; a plain window with a thin
-    pale-wood frame.'
-  background_rule: ivory paper wall, charcoal desk, nothing else on the wall
+    a plain lid; one white clay mug; a plain charcoal clay chair (one flat seat, one low back, four straight legs); a small
+    round charcoal clay bin with a thumb-pressed rim; a plain window with a thin pale-wood frame.'
+  background_rule: ivory paper wall, charcoal desk, nothing else on the wall. The laptop screen faces Maya and the camera
+    and shows a plain flat dark-grey panel, no icons, no light, no text.
 camera:
-  framing: 'wide: organizer top half, Maya and desk lower half; the lower 35% is desk top and floor'
+  framing: 'wide: organizer top half, Maya and desk lower half; the lower 35% is desk top and floor; camera behind Maya''s
+    shoulders; the laptop stands on the desk beyond her, its screen facing her and the camera'
   angle: eye level, straight-on
   movement: the clip's pull-back ends here
   aspect: '9:16'

@@ -23,8 +23,9 @@ subjects:
 hands:
 - who: Maya
   left: left hand holding the lower-left corner of the EMAIL scrap flat, palm on the felt below the APRIL label
-  right: right hand drawing the needle and thick thread through the right edge of the EMAIL scrap, then along the pinned top
-    edge to the LINKEDIN scrap in one pass
+  right: right hand enters from the lower right and draws the needle and thick thread through the seam below the scraps' lettering,
+    fingertips below the EMAIL scrap's lower edge at x 0.36 to 0.46, y 0.50 to 0.60, clear space between the fingers and the
+    last letter L of EMAIL
   contact: left palm on the felt below the row, right thumb and finger on the needle
   count_check: five fingers on each visible hand
   must_not_cover: the stitched labels EMAIL and LINKEDIN
@@ -117,10 +118,10 @@ regions:
 - name: right_hand
   kind: hand
   box:
-  - 0.28
-  - 0.46
-  - 0.46
-  - 0.58
+  - 0.34
+  - 0.5
+  - 0.5
+  - 0.62
 - name: scrap_email
   kind: text
   box:

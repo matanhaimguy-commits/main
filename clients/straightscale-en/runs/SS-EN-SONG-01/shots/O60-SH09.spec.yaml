@@ -11,11 +11,12 @@ subjects:
 - id: CH-MAYA
   ref: CH-MAYA@v1
   state: back view over the shoulder
-  pose: head tilted slightly to the right, listening, both hands below the frame edge in her lap
+  pose: seated on the chair, head tilted toward image-right, toward the laptop, listening, both hands below the frame edge
+    in her lap
   expression: n/a (back view)
   instances: 1
 - id: CH-FRIEND
-  ref: CH-FRIEND@v1
+  ref: CH-FRIEND@v2 (seated panel)
   state: tiny on the laptop screen
   pose: seated, facing camera
   expression: expectant
@@ -37,8 +38,8 @@ props:
   story_critical: true
   ref: 'none (no set sheet: the laptop front is drawn from this content line)'
   state: open, screen shows the friend small
-  content: Clay laptop with charcoal bezel, screen showing the friend seated before her calm cream organizer, no icons; the
-    laptop body and bezel match the laptop-front panel, only the screen differs (it shows the friend, not the blank pale blue)
+  content: Clay laptop, silver lid, narrow charcoal bezel, screen showing the friend seated before her calm sand-cream organizer,
+    no icons
   size_in_frame: laptop about 35% of frame width
   held_by: null
 text_in_image:
@@ -56,14 +57,16 @@ text_in_image:
   occlusion: not covered
 action_physics:
 - Maya's head is frozen mid-tilt toward the screen; the heap of scraps sits still on the desk.
+- 'Maya sits on the plain charcoal clay chair: weight on the seat, both feet flat on the floor.'
 static: true
 setting:
   ref: null
   details: 'Plain ivory paper office: over-the-shoulder, desk from behind her. World (no set sheet, SET-OFFICE fallback, main
     session 28 Oct): a plain warm-ivory paper wall and floor meeting in a soft curve, soft warm light, soft contact shadows.
     Of the office items, only those this shot names appear, each looking like this: a simple charcoal clay desk (one flat
-    top on four straight legs, no drawers); an open silver clay laptop with a plain lid; one white clay mug; a small round
-    charcoal clay bin with a thumb-pressed rim; a plain window with a thin pale-wood frame.'
+    top on four straight legs, no drawers); an open silver clay laptop with a plain lid; one white clay mug; a plain charcoal
+    clay chair (one flat seat, one low back, four straight legs); a small round charcoal clay bin with a thumb-pressed rim;
+    a plain window with a thin pale-wood frame.'
   background_rule: wall behind the laptop is plain; the organizer is out of frame
 camera:
   framing: 'over-the-shoulder medium: Maya''s head and shoulder left, laptop right'

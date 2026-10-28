@@ -31,9 +31,10 @@ props:
   ref: PR-ORGANIZER@v2
   state: APRIL row empty at the top edge
   content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row
-    above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: (above the frame); APRIL pockets:
-    all four are empty, dark felt inside, no clients.'
-  size_in_frame: lower edge of the APRIL row at 14 to 24% from the top
+    above the APRIL row, each row label sewn on a thick band at its left end; MARCH row above the frame; APRIL pockets: all
+    four are empty, dark felt inside, no clients. The left end with the label band is outside the frame; only the pockets
+    show.'
+  size_in_frame: the APRIL row occupies 14 to 22% from the top, its lower edge at 22%
   held_by: null
 text_in_image:
 - string: EMAIL
@@ -111,7 +112,7 @@ regions:
   - 0.08
   - 0.14
   - 0.92
-  - 0.25
+  - 0.22
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only

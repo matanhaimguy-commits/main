@@ -1,0 +1,84 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH10",
+ "spec_sha256": "73c4813228137ce17bd77508901b00156d36c005e6fb3dfab674b55e6b7eae42",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "two hands, EMAIL and ADS scraps, gap, forearms, cardigan front, soft APRIL row behind"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "left 'pinching the top-left corner of the EMAIL scrap', right 'pinching the top-right corner of the ADS scrap'; contact 'thumb and forefinger on each top corner'; boxes sit above the label boxes"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "contact points named: 'thumb and forefinger on each top corner', 'hanging by their top corners', '3 cm gap'"
+  },
+  {
+   "id": "P5",
+   "result": "FAIL",
+   "evidence": "setting 'the APRIL row soft behind the scraps' puts PR-ORGANIZER in the frame, but props lists only PR-SCRAPS: no content line says the APRIL pockets are empty, so they may come back filled"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "EMAIL and ADS: surface, position, case, 'no finger over the letters'; region boxes exist"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'background soft, plain, no readable text'"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "action 'The two scraps hang side by side and sway 1 cm; the camera dollies back slowly ... (the clip's one motion)' plus style 'one motion action in the shot': sway and dolly are two motions"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over 'PR-SCRAPS EMAIL and ADS', 'CH-MAYA hands'; SHEET-PR-SCRAPS patterns match"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "head is 'above the top edge of the frame, no chin and no face visible' (FL-06 handled)"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-06 names visible body parts; FL-01 hand boxes (y 0.26 to 0.38) sit above the label boxes (y 0.32 to 0.55 centre of scrap)"
+  }
+ ],
+ "fixes": [
+  {
+   "check": "P5",
+   "change": "Add props PR-ORGANIZER (story_critical, ref PR-ORGANIZER@v2, state 'APRIL row soft behind the scraps, all four pockets empty, dark felt inside') with the content line used in SH11."
+  },
+  {
+   "check": "P8",
+   "change": "Delete the sway: 'the two scraps hang still; the camera dollies back slowly (the clip's one motion)'."
+  }
+ ],
+ "suggested_spec_changes": [
+  "Add props PR-ORGANIZER (story_critical, ref PR-ORGANIZER@v2, state 'APRIL row soft behind the scraps, all four pockets empty, dark felt inside') with the content line used in SH11.",
+  "Delete the sway: 'the two scraps hang still; the camera dollies back slowly (the clip's one motion)'."
+ ]
+}

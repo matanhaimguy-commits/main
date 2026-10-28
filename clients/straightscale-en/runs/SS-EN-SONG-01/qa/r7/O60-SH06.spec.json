@@ -1,0 +1,79 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH06",
+ "spec_sha256": "aac3e70b016334936d331773654eb2363e2062080cee9f81a5b4c246ff447aba",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "hands, COACH and ADS scraps, organizer right half, thread all present"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "left 'palm on the felt left of the ADS label', right 'fingers on the thread'; count_check and must_not_cover given; boxes sit below the label boxes"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'Maya's right hand pulls the final stitch tight on the ADS scrap'; contact 'right fingers on the thread'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-SCRAPS content lists all four patterns; PR-ORGANIZER content filled ('right two MARCH pockets, each holding three small colourful clay clients')"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "COACH and ADS each with surface, position, case, occlusion, region boxes"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'background_rule: plain wall'"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "state lines agree: 'COACH and ADS pinned ... ADS right edge being finished'; framing excludes EMAIL and LINKEDIN"
+  },
+  {
+   "id": "P9",
+   "result": "FAIL",
+   "evidence": "SH05 carry_over holds 'CH-MAYA cardigan sleeves'; SH06 subject state is only 'only her two hands and forearms' and carry_over lacks the sleeves, so the forearm clothing is unspecified"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "'pockets 3 and 4' match the region boxes (coach left, ads right)"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01: hand boxes start below the label boxes (hands y 0.5 to 0.62, labels y 0.38 to 0.52) and must_not_cover is set; FL-04 content filled"
+  }
+ ],
+ "fixes": [
+  {
+   "check": "P9",
+   "change": "Set state 'her two hands and forearms in olive-green knitted cardigan sleeves' and add 'CH-MAYA cardigan sleeves' to carry_over."
+  }
+ ],
+ "suggested_spec_changes": [
+  "Set state 'her two hands and forearms in olive-green knitted cardigan sleeves' and add 'CH-MAYA cardigan sleeves' to carry_over."
+ ]
+}

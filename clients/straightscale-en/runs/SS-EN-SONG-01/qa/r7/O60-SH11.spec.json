@@ -1,0 +1,89 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH11",
+ "spec_sha256": "4edf23e07fa99ede783e5693f29a0135717928e736aea092273afabebd6a0eb4",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Maya, both hands, EMAIL and ADS held, two floor scraps, organizer all present"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "FAIL",
+   "evidence": "hands pinch 'a corner' of each scrap without saying which; hands box [0.3, 0.38, 0.7, 0.47] overlaps email_label [0.28, 0.34, 0.44, 0.44] and ads_label [0.56, 0.34, 0.72, 0.44] (FL-01)"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'thumb and forefinger on each corner' and 'both feet flat on the clay floor, weight on both feet'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-SCRAPS and PR-ORGANIZER content filled ('APRIL pockets: all four are empty')"
+  },
+  {
+   "id": "P6",
+   "result": "FAIL",
+   "evidence": "PR-ORGANIZER is wide in frame (14 to 30% from the top) and its content line says 'headed CLIENTS', yet text_in_image has no CLIENTS entry and regions have no box for it (SH02 and SH03 list it)"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'background_rule: plain wall, nothing else'"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "action 'The dolly-out comes to rest; Maya's hands keep the two scraps 3 cm apart, the loose thread ends swing once' plus style 'one motion action in the shot': the thread swing is a second motion"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over 'CH-MAYA', 'PR-SCRAPS', 'PR-ORGANIZER'; positions match SH10 end frame per notes"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "no two-way word except the unspecified corner (covered in P3)"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-11 physics line present ('both feet flat on the clay floor, weight on both feet'); FL-06 face box present"
+  }
+ ],
+ "fixes": [
+  {
+   "check": "P3",
+   "change": "State the corners as in SH10: left hand on the top-left corner of EMAIL, right hand on the top-right corner of ADS; set label boxes below the hands, e.g. email_label [0.3, 0.41, 0.42, 0.47]."
+  },
+  {
+   "check": "P6",
+   "change": "Add CLIENTS (surface sewn header band, position top of the organizer, case upper, occlusion no hand or scrap over the header) and a region clients_header [0.3, 0.12, 0.7, 0.16]."
+  },
+  {
+   "check": "P8",
+   "change": "Drop the swing: 'the dolly-out comes to rest; Maya's hands keep the two scraps still, 3 cm apart'."
+  }
+ ],
+ "suggested_spec_changes": [
+  "State the corners as in SH10: left hand on the top-left corner of EMAIL, right hand on the top-right corner of ADS; set label boxes below the hands, e.g. email_label [0.3, 0.41, 0.42, 0.47].",
+  "Add CLIENTS (surface sewn header band, position top of the organizer, case upper, occlusion no hand or scrap over the header) and a region clients_header [0.3, 0.12, 0.7, 0.16].",
+  "Drop the swing: 'the dolly-out comes to rest; Maya's hands keep the two scraps still, 3 cm apart'."
+ ]
+}

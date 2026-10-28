@@ -1,0 +1,94 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH08",
+ "spec_sha256": "8c28ea9ba603eb7412c5e33ddd7097193b48d065ba556817fc28e12dab8da167",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "friend, laptop screen, organizer, bezel, call image all present"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'hands: none visible'"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'The friend leans in slightly toward her call camera; frozen mid-lean. Nothing else moves.'"
+  },
+  {
+   "id": "P5",
+   "result": "FAIL",
+   "evidence": "subject PR-LAPTOP ref says 'the laptop front is drawn from this content line' but no props entry or content line for the laptop exists in this spec (only 'narrow dark bezel' in setting.details)"
+  },
+  {
+   "id": "P6",
+   "result": "FAIL",
+   "evidence": "text_in_image lists CLIENTS (top centre of the friend's organizer) but no region box covers it; organizer_labels is x 0.14 to 0.4 only"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "screen has a content rule: 'screen shows only the friend and her wall; no chat windows'; 'no interface icons'"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "PR-ORGANIZER-FRIEND content 'MARCH row and APRIL row both holding two or three small clay clients each' conflicts with the locked SHEET-SET-FRIEND (two clients in each of the four pockets, 8 plus 8)"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over 'CH-FRIEND look', 'friend's organizer = one calm fabric'; CH-FRIEND@v2 matches SHEET-CH-FRIEND v2 seated panel"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "'the screen shows the friend, not the blank pale blue of the panel' refers to a panel that is not in the packet; 'two or three' clients is also a range"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-05 screen has a content rule; FL-04 organizer content filled; FL-10 'no text other than the organizer labels'"
+  }
+ ],
+ "fixes": [
+  {
+   "check": "P5",
+   "change": "Add props PR-LAPTOP with content: 'clay laptop, silver lid, narrow charcoal bezel on all four sides, screen fills the frame to the bezel'."
+  },
+  {
+   "check": "P6",
+   "change": "Add region clients_header kind text, box [0.38, 0.17, 0.62, 0.23]."
+  },
+  {
+   "check": "P8",
+   "change": "Write 'two small clay clients in each of the eight pockets (sixteen in all)'."
+  },
+  {
+   "check": "P11",
+   "change": "Delete the 'blank pale blue of the panel' clause and write what the screen shows: the friend seated in front of her organizer wall; use the fixed count of two clients per pocket."
+  }
+ ],
+ "suggested_spec_changes": [
+  "Add props PR-LAPTOP with content: 'clay laptop, silver lid, narrow charcoal bezel on all four sides, screen fills the frame to the bezel'.",
+  "Add region clients_header kind text, box [0.38, 0.17, 0.62, 0.23].",
+  "Write 'two small clay clients in each of the eight pockets (sixteen in all)'.",
+  "Delete the 'blank pale blue of the panel' clause and write what the screen shows: the friend seated in front of her organizer wall; use the fixed count of two clients per pocket."
+ ]
+}

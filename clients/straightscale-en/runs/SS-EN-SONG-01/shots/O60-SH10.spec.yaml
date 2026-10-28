@@ -38,6 +38,16 @@ props:
     thread ends'
   size_in_frame: each scrap about 38% of frame width, 28 to 55% from the top
   held_by: null
+- id: PR-ORGANIZER
+  story_critical: true
+  ref: PR-ORGANIZER@v2
+  state: APRIL row soft behind the scraps, all four pockets empty, dark felt inside
+  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row
+    above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three
+    small colourful clay clients standing shoulder to shoulder (twelve in all); APRIL pockets: all four are empty, dark felt
+    inside, no clients.'
+  size_in_frame: APRIL row soft behind the scraps
+  held_by: null
 text_in_image:
 - string: EMAIL
   surface: stitched label on the gingham scrap
@@ -52,7 +62,7 @@ text_in_image:
   must_be_exact: true
   occlusion: no finger over the letters
 action_physics:
-- The two scraps hang side by side and sway 1 cm; the camera dollies back slowly from this close frame (the clip's one motion).
+- The two scraps hang still; the camera dollies back slowly from this close frame (the clip's one motion).
 static: false
 setting:
   ref: null

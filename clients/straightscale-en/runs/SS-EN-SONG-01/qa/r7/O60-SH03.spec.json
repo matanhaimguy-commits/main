@@ -1,0 +1,89 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH03",
+ "spec_sha256": "9ef894ca24875b8a2d576539757a582b4684282969cdeafc76b4e6bdb2136d74",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Maya, organizer, MARCH tag, laptop, pile, mug all in subjects, props or setting"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'hands out of frame below the desk edge'; hands: none visible"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "head tilt is a frozen pose with a stated end point ('up at the empty APRIL row'); tag 'propped against a tall pile'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-MARCHTAG content: 'felt tag the size of a hand, ivory with charcoal stitched letters MARCH'; PR-ORGANIZER content filled"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "four text entries each with surface, position, case, occlusion; boxes exist for CLIENTS, MARCH, APRIL, desk tag"
+  },
+  {
+   "id": "P7",
+   "result": "FAIL",
+   "evidence": "setting names 'an open silver clay laptop with a plain lid' and action says 'Maya's head tilts up from the screen', but no rule says what the screen face shows if visible"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "no conflicting pair; tag at 44 to 47% from the top matches region march_tag (0.44 to 0.53)"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over 'CH-MAYA olive cardigan', 'PR-ORGANIZER state MARCH full APRIL empty' matches SH02"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "PR-ORGANIZER pose 'on the wall behind and above her' with Maya in 'side view (profile)' and eyeline 'up at the empty APRIL row': behind her and facing her cannot both hold from this camera"
+  },
+  {
+   "id": "P12",
+   "result": "FAIL",
+   "evidence": "FL-11 prevention missing: 'seated at the desk, shoulders slumped' has no chair and no weight line"
+  }
+ ],
+ "fixes": [
+  {
+   "check": "P7",
+   "change": "Add: the laptop screen faces Maya and is seen edge-on from the side; any visible screen face is plain flat dark grey, no icons."
+  },
+  {
+   "check": "P11",
+   "change": "State the layout: camera at the side of the desk; the wall with the organizer is on Maya's far side, so she turns her head and eyes up toward it; organizer shown face-on at 15 to 42%."
+  },
+  {
+   "check": "P12",
+   "change": "Add a plain charcoal clay chair and 'seated on the chair, weight on the seat, both feet on the floor'."
+  }
+ ],
+ "suggested_spec_changes": [
+  "Add: the laptop screen faces Maya and is seen edge-on from the side; any visible screen face is plain flat dark grey, no icons.",
+  "State the layout: camera at the side of the desk; the wall with the organizer is on Maya's far side, so she turns her head and eyes up toward it; organizer shown face-on at 15 to 42%.",
+  "Add a plain charcoal clay chair and 'seated on the chair, weight on the seat, both feet on the floor'."
+ ]
+}

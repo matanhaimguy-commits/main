@@ -22,8 +22,8 @@ subjects:
   instances: 1
 hands:
 - who: Maya
-  left: left hand pinching a corner of the EMAIL scrap
-  right: right hand pinching a corner of the ADS scrap
+  left: left hand pinching the top-left corner of the EMAIL scrap
+  right: right hand pinching the top-right corner of the ADS scrap
   contact: thumb and forefinger on each corner
   count_check: five fingers on each visible hand
   must_not_cover: the scraps' labels
@@ -49,6 +49,12 @@ props:
   size_in_frame: organizer 14 to 30% from the top
   held_by: null
 text_in_image:
+- string: CLIENTS
+  surface: sewn header band
+  position: top of the organizer
+  case: upper
+  must_be_exact: true
+  occlusion: no hand or scrap over the header
 - string: MARCH
   surface: row label band at the left end of the upper row
   position: left end of the upper row
@@ -74,7 +80,7 @@ text_in_image:
   must_be_exact: true
   occlusion: hands clear
 action_physics:
-- The dolly-out comes to rest; Maya's hands keep the two scraps 3 cm apart, the loose thread ends swing once.
+- The dolly-out comes to rest; Maya's hands keep the two scraps still, 3 cm apart.
 static: false
 setting:
   ref: null
@@ -108,10 +114,10 @@ regions:
 - name: hands
   kind: hand
   box:
-  - 0.3
-  - 0.38
-  - 0.7
-  - 0.47
+  - 0.28
+  - 0.35
+  - 0.72
+  - 0.4
 - name: held_scraps
   kind: prop
   box:
@@ -150,17 +156,17 @@ regions:
 - name: email_label
   kind: text
   box:
-  - 0.28
-  - 0.34
-  - 0.44
-  - 0.44
+  - 0.3
+  - 0.41
+  - 0.42
+  - 0.47
 - name: ads_label
   kind: text
   box:
-  - 0.56
-  - 0.34
-  - 0.72
-  - 0.44
+  - 0.58
+  - 0.41
+  - 0.7
+  - 0.47
 - name: floor_scraps
   kind: prop
   box:
@@ -168,6 +174,13 @@ regions:
   - 0.55
   - 0.8
   - 0.64
+- name: clients_header
+  kind: text
+  box:
+  - 0.3
+  - 0.12
+  - 0.7
+  - 0.16
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: a clay home office in

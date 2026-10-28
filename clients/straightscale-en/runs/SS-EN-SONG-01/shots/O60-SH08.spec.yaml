@@ -16,7 +16,7 @@ subjects:
   eyeline: at the screen camera
 - id: PR-LAPTOP
   ref: 'none (no set sheet: the laptop front is drawn from this content line)'
-  state: open laptop, screen fills the frame (the screen shows the friend, not the blank pale blue of the panel)
+  state: open laptop, screen fills the frame to the bezel, showing the friend seated in front of her organizer wall
   pose: straight-on
   expression: n/a
   instances: 1
@@ -26,9 +26,17 @@ props:
   story_critical: true
   ref: SET-FRIEND@v1
   state: 'behind the friend: CLIENTS organizer, one calm cream fabric, clients in both rows'
-  content: Felt wall organizer headed CLIENTS in one single calm cream fabric, two rows of four pockets, MARCH row and APRIL
-    row both holding two or three small clay clients each
+  content: Wall organizer headed CLIENTS in one single calm sand-cream linen, two rows of four pockets, MARCH row and APRIL
+    row; two small clay clients in each of the eight pockets (sixteen in all)
   size_in_frame: organizer fills the upper 55% of the screen
+  held_by: null
+- id: PR-LAPTOP
+  story_critical: true
+  ref: 'none (no set sheet: the laptop front is drawn from this content line)'
+  state: open, straight-on
+  content: clay laptop, silver lid, narrow charcoal bezel on all four sides, screen fills the frame to the bezel and shows
+    the live call image only, no icons
+  size_in_frame: bezel at the frame edges
   held_by: null
 text_in_image:
 - string: CLIENTS
@@ -98,6 +106,13 @@ regions:
   - 0.17
   - 0.4
   - 0.38
+- name: clients_header
+  kind: text
+  box:
+  - 0.38
+  - 0.17
+  - 0.62
+  - 0.23
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only

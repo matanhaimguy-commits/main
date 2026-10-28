@@ -10,8 +10,8 @@ must_read_in_1s: Maya on a phone call with papers piling up; April pockets untou
 subjects:
 - id: CH-MAYA
   ref: CH-MAYA@v1
-  state: wearing a headset, side view
-  pose: leaning forward over the desk
+  state: wearing a headset (no phone in the frame), side view, seated on a plain charcoal clay chair
+  pose: torso leaning forward over the desk
   expression: focused, mouth closed (not singing)
   instances: 1
   eyeline: down at the papers
@@ -49,16 +49,18 @@ text_in_image:
   must_be_exact: true
   occlusion: hand and headset cord stay clear of the tag
 action_physics:
-- One new clay paper sheet is sliding onto the top of the pile (frozen mid-slide); Maya's left palm rests flat beside it,
-  3 cm from its edge.
+- One clay paper sheet, its leading edge resting on the top sheet of the pile and its trailing edge 2 cm above the desk, held
+  by the paper's own curl; no hand touches it. Maya's left palm rests flat on the desk beside it, 3 cm from its edge.
+- 'Maya sits on the plain charcoal clay chair: weight on the seat, both feet flat on the floor. One instance of Maya.'
 static: true
 setting:
   ref: null
   details: 'Plain ivory paper office: busy desk, organizer out of focus behind her. World (no set sheet, SET-OFFICE fallback,
     main session 28 Oct): a plain warm-ivory paper wall and floor meeting in a soft curve, soft warm light, soft contact shadows.
     Of the office items, only those this shot names appear, each looking like this: a simple charcoal clay desk (one flat
-    top on four straight legs, no drawers); an open silver clay laptop with a plain lid; one white clay mug; a small round
-    charcoal clay bin with a thumb-pressed rim; a plain window with a thin pale-wood frame.'
+    top on four straight legs, no drawers); an open silver clay laptop with a plain lid; one white clay mug; a plain charcoal
+    clay chair (one flat seat, one low back, four straight legs); a small round charcoal clay bin with a thumb-pressed rim;
+    a plain window with a thin pale-wood frame.'
   background_rule: background wall plain; organizer blurred, labels not required to read
 camera:
   framing: medium close on Maya and the desk

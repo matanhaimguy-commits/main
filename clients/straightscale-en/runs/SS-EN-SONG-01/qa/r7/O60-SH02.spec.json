@@ -1,0 +1,94 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH02",
+ "spec_sha256": "78fd9ed7428caef17cf6fc3a71c1448936998ee55fe898ac4cca8ddf83751bff",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "organizer, Maya, desk, laptop, mug all named with positions ('organizer fills 80% of frame width, 15 to 45% from the top')"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'hands: none visible'; spec states 'hands hidden' (conflict handled under P8)"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'The camera finishes its pull-back and comes to rest on the wide frame. Maya sits still ... (no head turn)'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-ORGANIZER content filled incl. 'APRIL pockets: all four are empty, dark felt inside'"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "CLIENTS, MARCH, APRIL each have surface, position, case and occlusion, and a region box (clients_header, march_label, april_label)"
+  },
+  {
+   "id": "P7",
+   "result": "FAIL",
+   "evidence": "setting: 'open laptop, lid up, seen from behind' with Maya's back to camera: the laptop screen faces Maya and so the camera, and no screen content rule is given (must_not only says 'no lettering on the laptop')"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "'hands hidden behind the open laptop': a camera behind Maya cannot see a laptop hide her hands (the laptop is in front of her, beyond her hands)"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over 'PR-ORGANIZER MARCH full APRIL empty', 'CH-MAYA olive cardigan, back view' matches SH01 end state and SHEET-CH-MAYA"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "'open laptop ... seen from behind' reads two ways: the camera sees the laptop's back, or the camera is behind Maya"
+  },
+  {
+   "id": "P12",
+   "result": "FAIL",
+   "evidence": "FL-11 prevention missing: Maya is 'seated' with no chair named and no weight or feet line; the World item list has no chair"
+  }
+ ],
+ "fixes": [
+  {
+   "check": "P7",
+   "change": "Add: the laptop screen faces Maya and shows a plain flat dark-grey panel, no icons, no light text."
+  },
+  {
+   "check": "P8",
+   "change": "Rewrite subject state: 'seen from behind, seated, both forearms resting on the desk edge in front of her, hands out of view in front of her body'; keep hands: none visible."
+  },
+  {
+   "check": "P11",
+   "change": "Say 'camera behind Maya's shoulders; the laptop stands on the desk beyond her, its screen facing her and the camera'."
+  },
+  {
+   "check": "P12",
+   "change": "Add a chair to the shot's items (a plain charcoal clay chair, one flat seat, one low back, four straight legs) and a physics line: 'seated on the chair, weight on the seat, both feet on the floor'."
+  }
+ ],
+ "suggested_spec_changes": [
+  "Add: the laptop screen faces Maya and shows a plain flat dark-grey panel, no icons, no light text.",
+  "Rewrite subject state: 'seen from behind, seated, both forearms resting on the desk edge in front of her, hands out of view in front of her body'; keep hands: none visible.",
+  "Say 'camera behind Maya's shoulders; the laptop stands on the desk beyond her, its screen facing her and the camera'.",
+  "Add a chair to the shot's items (a plain charcoal clay chair, one flat seat, one low back, four straight legs) and a physics line: 'seated on the chair, weight on the seat, both feet on the floor'."
+ ]
+}

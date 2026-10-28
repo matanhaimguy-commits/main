@@ -1,0 +1,84 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH05",
+ "spec_sha256": "d2cc55b1f2fb4c6dbf20aa001d5b1c7170d3e7f5a0525e204cfe7964fa978009",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "both hands, needle and thread, EMAIL and LINKEDIN scraps, organizer rows all present"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "FAIL",
+   "evidence": "right_hand box [0.28, 0.46, 0.46, 0.58] overlaps the EMAIL label box [0.15, 0.4, 0.37, 0.52] (x 0.28 to 0.37, y 0.46 to 0.52) while the right hand draws the needle 'through the right edge of the EMAIL scrap'"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'right hand draws the needle and thick thread through the right edge of the EMAIL scrap ... left hand holds the EMAIL corner still'; contact points named"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-SCRAPS content lists all four patterns, colours and letter colours; PR-ORGANIZER content filled with 'pockets 3 and 4 empty'"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "EMAIL, LINKEDIN, APRIL, MARCH each with surface, position, case, occlusion and a region box"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'background_rule: plain wall; nothing else on the felt'"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "scrap state (pinned, then sewn) consistent with 'the clip ends with EMAIL sewn'; COACH and ADS 'not in frame'"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over 'PR-SCRAPS patterns and labels', 'CH-MAYA cardigan sleeves'; SH04 ends with an empty APRIL row, start frame has two scraps by clip design (notes)"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "pocket order matches the region boxes left to right (EMAIL 0.15 to 0.37, LINKEDIN 0.37 to 0.59). Advisory: 'pinned' could draw pins; prefer 'laid over and held by a few stitches'"
+  },
+  {
+   "id": "P12",
+   "result": "FAIL",
+   "evidence": "FL-01 (text over hands): prevention asks the hand to stay below or beside the text with clear space; the hand box overlaps the EMAIL label box"
+  }
+ ],
+ "fixes": [
+  {
+   "check": "P3",
+   "change": "Place the needle pass at the seam between the scraps below the letters: right hand enters from the lower right, fingertips below the scrap's lower edge at x 0.36 to 0.46, y 0.5 to 0.6; move right_hand box to [0.34, 0.5, 0.5, 0.62]; keep 'no finger or needle over the letters'."
+  },
+  {
+   "check": "P12",
+   "change": "Same fix as P3; add 'clear space between fingers and the last letter L of EMAIL'."
+  }
+ ],
+ "suggested_spec_changes": [
+  "Place the needle pass at the seam between the scraps below the letters: right hand enters from the lower right, fingertips below the scrap's lower edge at x 0.36 to 0.46, y 0.5 to 0.6; move right_hand box to [0.34, 0.5, 0.5, 0.62]; keep 'no finger or needle over the letters'.",
+  "Same fix as P3; add 'clear space between fingers and the last letter L of EMAIL'."
+ ]
+}

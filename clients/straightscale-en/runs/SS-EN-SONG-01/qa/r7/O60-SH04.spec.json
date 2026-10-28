@@ -1,0 +1,89 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH04",
+ "spec_sha256": "a056b03b3b1896ca41ee710241ba8b379b61eb6eba9955bc52cfe113074f8345",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Maya, headset, both hands, tag, pile, sliding sheet, organizer all present"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "left palm 'flat on the desk 3 cm from the edge of the sliding sheet', right 'fingertips on the earcup', count_check and must_not_cover given"
+  },
+  {
+   "id": "P4",
+   "result": "FAIL",
+   "evidence": "action: 'One new clay paper sheet is sliding onto the top of the pile (frozen mid-slide)' has no contact point or source (nothing pushes it, and no hand is on it)"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-MARCHTAG and PR-ORGANIZER both have content lines; organizer is soft-focus background by design"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "MARCH tag: surface, position 'right of centre, 47% from the top', occlusion 'hand and headset cord stay clear'; region march_tag exists"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'background wall plain; organizer blurred'; no frames, screens or signs"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "hands, tag and headset instructions do not conflict; hand boxes sit beside, not over, march_tag box"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over 'CH-MAYA olive cardigan plus headset', 'paper pile grows taller than in SH03' (reason given)"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "'leaning forward over the desk' does not say seated or standing; must_read_in_1s says 'on a phone call' but the only phone-like item is a headset ('no phone screen with lettering' in must_not)"
+  },
+  {
+   "id": "P12",
+   "result": "FAIL",
+   "evidence": "FL-11 prevention missing: leaning Maya has no chair or feet/weight line"
+  }
+ ],
+ "fixes": [
+  {
+   "check": "P4",
+   "change": "Write: 'one sheet, its leading edge resting on the top sheet of the pile and its trailing edge 2 cm above the desk, held by the paper's own curl; no hand touches it'."
+  },
+  {
+   "check": "P11",
+   "change": "Say 'seated on a plain charcoal clay chair, torso leaning forward over the desk' and 'wearing a headset (no phone in the frame)'."
+  },
+  {
+   "check": "P12",
+   "change": "Add 'seated on the chair, weight on the seat, both feet on the floor, one instance'."
+  }
+ ],
+ "suggested_spec_changes": [
+  "Write: 'one sheet, its leading edge resting on the top sheet of the pile and its trailing edge 2 cm above the desk, held by the paper's own curl; no hand touches it'.",
+  "Say 'seated on a plain charcoal clay chair, torso leaning forward over the desk' and 'wearing a headset (no phone in the frame)'.",
+  "Add 'seated on the chair, weight on the seat, both feet on the floor, one instance'."
+ ]
+}

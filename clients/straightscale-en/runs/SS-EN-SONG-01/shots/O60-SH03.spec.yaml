@@ -10,7 +10,7 @@ subjects:
 - id: CH-MAYA
   ref: CH-MAYA@v1
   state: side view (profile), seated, head tilted up toward the wall
-  pose: seated at the desk, shoulders slumped, hands out of frame below the desk edge
+  pose: seated on the chair at the desk, shoulders slumped, hands out of frame below the desk edge
   expression: worried, brows low (side view)
   instances: 1
   eyeline: up at the empty APRIL row
@@ -67,17 +67,22 @@ text_in_image:
   occlusion: no paper, hand or caption over the tag
 action_physics:
 - Maya's head tilts up from the screen to the empty APRIL row; the pose is frozen mid-tilt in the still.
+- 'Maya sits on the plain charcoal clay chair: weight on the seat, both feet flat on the floor.'
 static: true
 setting:
   ref: null
   details: 'Plain ivory paper office: organizer on the wall, desk in front. World (no set sheet, SET-OFFICE fallback, main
     session 28 Oct): a plain warm-ivory paper wall and floor meeting in a soft curve, soft warm light, soft contact shadows.
     Of the office items, only those this shot names appear, each looking like this: a simple charcoal clay desk (one flat
-    top on four straight legs, no drawers); an open silver clay laptop with a plain lid; one white clay mug; a small round
-    charcoal clay bin with a thumb-pressed rim; a plain window with a thin pale-wood frame.'
-  background_rule: plain ivory paper wall; desk holds only the laptop, the paper pile with the MARCH tag, a mug
+    top on four straight legs, no drawers); an open silver clay laptop with a plain lid; one white clay mug; a plain charcoal
+    clay chair (one flat seat, one low back, four straight legs); a small round charcoal clay bin with a thumb-pressed rim;
+    a plain window with a thin pale-wood frame.'
+  background_rule: plain ivory paper wall; desk holds only the laptop, the paper pile with the MARCH tag, a mug. The laptop
+    is seen edge-on from the side; any visible screen face is plain flat dark grey, no icons.
 camera:
-  framing: 'medium: organizer upper half, Maya and desk lower half'
+  framing: 'medium: organizer upper half, Maya and desk lower half; camera at the side of the desk; the wall with the organizer
+    is on her far side, so she turns her head and eyes up toward it; the organizer is shown face-on at 15 to 42% from the
+    top'
   angle: slightly low, straight-on
   movement: 'edit: slow 100 to 108% push-in over the shot'
   aspect: '9:16'
