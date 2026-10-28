@@ -14,3 +14,13 @@ Grader 1 ranks B, C, A. Notes: "bookings" fits salons, not consultants; "the pag
 the signs are small and centred with an empty lower half. Grader 1 put no stack at A on any channel, so the round
 fails whatever a second grader says; the second read was not run.
 Result: FAIL. Per the main session's rule the page idea is replaced, with no further round.
+
+# Replacement: bank W9-10 ("twice the outreach, the same message"), slot W4-01
+## Round 1 (`docs/hooks-v6-W9-10.json`), words only
+| Stack | Grader 2 V/T/S |
+|---|---|
+| A "Twice the cold emails. The same ignored message, twice." / "Nobody replies, so you send twice as many. Same message, twice." | n/a, B, B+ |
+| B "Cold outreach a wash? Fix the first sentence, not volume." / "Your cold outreach is a wash. More volume won't fix it." | n/a, B+, B |
+| C "More outreach won't fix a message nobody answers." / "You doubled your outreach, and still no replies. Here's why." | n/a, B, A- |
+Ranks C, B, A. Notes: "a wash" is jargon; name the channel; the text should mirror C's spoken story; "Here's why" is
+filler. No stack at A on both channels, so the second read was not run. Result: FAIL.

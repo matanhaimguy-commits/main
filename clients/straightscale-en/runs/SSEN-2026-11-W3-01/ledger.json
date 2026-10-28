@@ -186,6 +186,27 @@
           "report": "qa/H-01D.spec.json"
         }
       ]
+    },
+    "H-01-W908": {
+      "sha256": "5fc0061589a7e20822daf068733295c4177151943363ba9a6d8cd67cb815212f",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T19:57:36+00:00",
+      "lint_issues": [
+        {
+          "level": "warn",
+          "code": "V4",
+          "msg": "hands of CH-CLIENT, the tiny clay figure seen from straight above: count_check should name five fingers per hand"
+        }
+      ],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T19:57:36+00:00",
+          "status": "FAIL",
+          "sha256": "6a1d0c3817a47574882cf8e387110d6690720a34f2a112672612a6057bf1e726",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-W908.spec.json"
+        }
+      ]
     }
   },
   "assets": [
