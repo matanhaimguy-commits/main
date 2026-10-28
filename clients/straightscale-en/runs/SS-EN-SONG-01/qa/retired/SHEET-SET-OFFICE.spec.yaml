@@ -1,0 +1,112 @@
+shot_id: SHEET-SET-OFFICE
+post_id: SS-EN-SONG-01
+format: set_sheet
+script_lines: []
+line_text: ''
+story_purpose: 'Locks Maya''s office in the series'' simple ivory paper world: the desk where she works, the bin the scraps
+  go into and the window the speech bubbles drift out of. The organizer, the scraps and the cloth come from their own locked
+  sheets; this set holds only these three props.'
+must_read_in_1s: A calm ivory paper room with a charcoal desk, a small bin and a window
+subjects:
+- id: SET-OFFICE
+  ref: null
+  state: empty room, no people
+  pose: 'one wide view: plain ivory paper back wall and floor, desk left of centre, bin on the floor right of the desk, window
+    in the back wall on the right'
+  expression: ''
+  instances: 1
+hands: none visible
+props:
+- id: PR-DESK
+  story_critical: true
+  ref: SET-OFFICE@v1
+  state: tidy, laptop open with its back to the camera
+  content: 'a simple charcoal clay desk: one flat rectangular top on four straight legs, no drawers; on it an open silver
+    clay laptop with its plain lid back toward the camera (no logo, screen not visible) and one white clay mug'
+  size_in_frame: x 0.08 to 0.58, 52 to 80% from the top
+  held_by: null
+- id: PR-BIN
+  story_critical: true
+  ref: SET-OFFICE@v1
+  state: empty
+  content: 'a small round charcoal clay waste bin: one open cylinder, slightly wider at the top, with a thumb-pressed rim,
+    empty inside, standing on the floor'
+  size_in_frame: x 0.62 to 0.76, 70 to 82% from the top
+  held_by: null
+- id: PR-WINDOW
+  story_critical: true
+  ref: SET-OFFICE@v1
+  state: open, daylight
+  content: 'a plain rectangular window cut into the paper wall: a thin pale-wood frame, one pane swung open inward; through
+    it a soft, simple clay street (pale paper house shapes, no people, no signs); just left of the window a single thin straight
+    wooden rod fixed flat to the wall, with five small round charcoal clay rings threaded on it, evenly spaced, nothing hanging
+    from them'
+  size_in_frame: window x 0.62 to 0.92, 18 to 48% from the top; rod just left of it at the same height
+  held_by: null
+text_in_image: none
+action_physics: []
+static: true
+setting:
+  ref: null
+  details: 'the series ivory paper world: a plain warm-ivory paper back wall and floor that meet in a soft curve, soft warm
+    light from the window, soft contact shadows'
+  background_rule: 'nothing else in frame: only the desk with its laptop and mug, the bin and the window with its rod; the
+    left part of the back wall above the desk stays empty (the organizer is added in the shots from its own sheet); no lettering'
+camera:
+  framing: one wide view from inside the miniature set at desk height, the whole room visible
+  angle: straight-on, eye level with the desk
+  movement: none (a still sheet)
+  aspect: '9:16'
+  safe_zones: 'a reference sheet, not a reel frame: every element inside a 4% margin, nothing cropped at the edges'
+continuity:
+  previous_shot: null
+  carry_over: []
+regions:
+- name: desk
+  kind: prop
+  box:
+  - 0.08
+  - 0.52
+  - 0.58
+  - 0.8
+- name: bin
+  kind: prop
+  box:
+  - 0.62
+  - 0.7
+  - 0.76
+  - 0.82
+- name: window
+  kind: prop
+  box:
+  - 0.55
+  - 0.18
+  - 0.92
+  - 0.48
+- name: empty_wall
+  kind: prop
+  box:
+  - 0.06
+  - 0.1
+  - 0.55
+  - 0.48
+style: 'Handmade claymation stop-motion look: plasticine forms with visible thumbprints and slight tool marks, soft rounded
+  forms, miniature handmade set pieces, gentle stop-motion texture; on this sheet soft warm light and the whole set in focus,
+  no depth-of-field blur. Stop-motion puppet lane: tiny real craft materials on the clay (real fabric and felt, real stitching).
+  Palette: warm ivory, charcoal, silver and white clay, pale wood; plain matte surfaces, no marble texture. No fabric scraps
+  on this sheet.'
+must_not:
+- no logos, no real platform names or icons
+- no lettering anywhere
+- no photoreal skin, no glossy CGI plastic
+- no people of any size, no hands
+- no posters, frames, books, signs or shopfronts
+- no organizer, no fabric scraps, no cloth on the set
+- the laptop screen never faces the camera
+- nothing in the bin
+- nothing on the rod except its five clay rings
+hero: true
+notes: 'Look bible step 7. Simplified set (main session, 28 Oct, after 3 prompt rounds on the earlier 3-panel spec): the series
+  ivory paper world and three props only. 1152x2048, text-to-image, no reference. Dropped from the earlier spec and left to
+  the shots and the locked sheets: the organizer (PR-ORGANIZER), the MARCH paper tag, the laptop front panel, the lamp, headset
+  and the six street figures (SH18 names them itself).'

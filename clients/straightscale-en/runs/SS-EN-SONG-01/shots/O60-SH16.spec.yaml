@@ -19,8 +19,8 @@ props:
   story_critical: true
   ref: PR-CLOTH@v1
   state: OFFER piece and three POSTS pieces cut from it
-  content: One calm sand-cream linen cloth, a single colour, tight weave, with tone-on-tone speech-bubble shapes stitched in deeper tan thread, plus pieces
-    cut from it with the same weave and charcoal stitched labels OFFER and POSTS
+  content: One calm sand-cream linen cloth, a single colour, tight weave, with tone-on-tone speech-bubble shapes stitched
+    in deeper tan thread, plus pieces cut from it with the same weave and charcoal stitched labels OFFER and POSTS
   size_in_frame: bigger cloth 48% of frame width, OFFER piece 36% of frame width, POSTS pieces 18% each
   held_by: null
 - id: PR-SCISSORS
@@ -44,21 +44,25 @@ text_in_image:
   must_be_exact: true
   occlusion: no piece overlaps another's label
 action_physics:
-- 'Frozen: the bigger cloth fills 8 to 56% of the width at 16 to 44% from the top with a hole the size of the OFFER piece at its centre; the OFFER piece
-  lies on the desk to the right of the cloth (56 to 92% wide); three POSTS pieces lie in a row below at 46 to 56% from the top; the scissors rest open 3
-  cm right of the hole''s last cut edge.'
+- 'Frozen: the bigger cloth fills 8 to 56% of the width at 16 to 44% from the top with a hole the size of the OFFER piece
+  at its centre; the OFFER piece lies on the desk to the right of the cloth (56 to 92% wide); three POSTS pieces lie in a
+  row below at 46 to 56% from the top; the scissors rest open 3 cm right of the hole''s last cut edge.'
 static: true
 setting:
-  ref: SET-OFFICE@v1
-  details: 'SET-OFFICE@v1: the desk top.'
+  ref: null
+  details: 'Plain ivory paper office: the desk top. World (no set sheet, SET-OFFICE fallback, main session 28 Oct): a plain
+    warm-ivory paper wall and floor meeting in a soft curve, soft warm light, soft contact shadows. Of the office items, only
+    those this shot names appear, each looking like this: a simple charcoal clay desk (one flat top on four straight legs,
+    no drawers); an open silver clay laptop with a plain lid; one white clay mug; a small round charcoal clay bin with a thumb-pressed
+    rim; a plain window with a thin pale-wood frame.'
   background_rule: only the cloth pieces and scissors in frame
 camera:
   framing: top three-quarter on the desk, pieces centred
   angle: high angle about 50 degrees
   movement: 'edit: slow 100 to 108% push-in'
   aspect: '9:16'
-  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins; faces and
-    key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half,
+    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
 timing:
   start_s: 37.1
   end_s: 39.56
@@ -107,9 +111,10 @@ regions:
   - 0.16
   - 0.56
   - 0.44
-style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade
-  set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. World: a clay home office in warm ivory and
-  marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
+  forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
+  texture. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only
+  loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
 must_not:
 - no clay speech bubbles (the tone-on-tone stitched bubble weave on the cloth is allowed)
 - no loud patterns on any piece
@@ -119,4 +124,5 @@ must_not:
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
 hero: false
-notes: 'Maya is out of frame on purpose. The pieces carry the same bubble weave as SH15. No generated clip: a gpt-image-2 still moved by a code push-in.'
+notes: 'Maya is out of frame on purpose. The pieces carry the same bubble weave as SH15. No generated clip: a gpt-image-2
+  still moved by a code push-in.'

@@ -28,16 +28,20 @@ action_physics:
 - The rolled bolt of cloth rolls 40 cm to the right along the desk and flattens, unrolling its free end; the camera is locked.
 static: false
 setting:
-  ref: SET-OFFICE@v1
-  details: 'SET-OFFICE@v1: the desk top, close.'
+  ref: null
+  details: 'Plain ivory paper office: the desk top, close. World (no set sheet, SET-OFFICE fallback, main session 28 Oct):
+    a plain warm-ivory paper wall and floor meeting in a soft curve, soft warm light, soft contact shadows. Of the office
+    items, only those this shot names appear, each looking like this: a simple charcoal clay desk (one flat top on four straight
+    legs, no drawers); an open silver clay laptop with a plain lid; one white clay mug; a small round charcoal clay bin with
+    a thumb-pressed rim; a plain window with a thin pale-wood frame.'
   background_rule: plain wall behind, desk charcoal
 camera:
   framing: medium-high on the desk top
   angle: high three-quarter
   movement: locked off
   aspect: '9:16'
-  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins; faces and
-    key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half,
+    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
 timing:
   start_s: 31.87
   end_s: 34.63
@@ -57,10 +61,11 @@ regions:
   - 0.38
   - 0.92
   - 0.64
-style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade
-  set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. 12 fps stepped stop-motion cadence, no motion
-  blur; one motion action in the shot. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud
-  saturated colours in the world; the method cloth is one calm sand-cream colour.'
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
+  forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
+  texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: a clay home office in
+  warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world;
+  the method cloth is one calm sand-cream colour.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no print, pattern or stripes on the cloth
@@ -71,4 +76,5 @@ must_not:
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
 hero: true
-notes: 'CLIP-E: 5 s render, only about 2.8 s used (trim); a slow unroll. Plain cloth because the bubbles belong to the next line. Clip: CLIP-E.'
+notes: 'CLIP-E: 5 s render, only about 2.8 s used (trim); a slow unroll. Plain cloth because the bubbles belong to the next
+  line. Clip: CLIP-E.'

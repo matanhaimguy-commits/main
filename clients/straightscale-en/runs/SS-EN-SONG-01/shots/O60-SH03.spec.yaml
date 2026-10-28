@@ -15,7 +15,7 @@ subjects:
   instances: 1
   eyeline: up at the empty APRIL row
 - id: PR-ORGANIZER
-  ref: PR-ORGANIZER@v1
+  ref: PR-ORGANIZER@v2
   state: MARCH full, APRIL empty
   pose: on the wall behind and above her
   expression: n/a
@@ -24,18 +24,20 @@ hands: none visible
 props:
 - id: PR-ORGANIZER
   story_critical: true
-  ref: PR-ORGANIZER@v1
+  ref: PR-ORGANIZER@v2
   state: MARCH full, APRIL empty, medium
-  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row above the APRIL row, each row
-    label sewn on a thick band at its left end; MARCH pockets: each of the four holds three small colourful clay clients standing shoulder to shoulder (twelve
-    in all); APRIL pockets: all four are empty, dark felt inside, no clients.'
+  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row
+    above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three
+    small colourful clay clients standing shoulder to shoulder (twelve in all); APRIL pockets: all four are empty, dark felt
+    inside, no clients.'
   size_in_frame: organizer 15 to 42% from the top, 85% width
   held_by: null
 - id: PR-MARCHTAG
   story_critical: true
-  ref: 'SET-OFFICE@v1 panel: desk, MARCH tag'
+  ref: PR-SCRAPS@v1 (stitched felt label craft only; the tag itself is drawn from this content line)
   state: propped against a paper pile
-  content: A felt tag the size of a hand, ivory with charcoal stitched letters MARCH, propped against a tall pile of loose clay papers on the desk
+  content: A felt tag the size of a hand, ivory with charcoal stitched letters MARCH, propped against a tall pile of loose
+    clay papers on the desk
   size_in_frame: tag about 18% of frame width at 44% from the top
   held_by: null
 text_in_image:
@@ -67,16 +69,20 @@ action_physics:
 - Maya's head tilts up from the screen to the empty APRIL row; the pose is frozen mid-tilt in the still.
 static: true
 setting:
-  ref: SET-OFFICE@v1
-  details: 'SET-OFFICE@v1: organizer on the wall, desk in front.'
-  background_rule: plain marble wall; desk holds only the laptop, the paper pile with the MARCH tag, a mug
+  ref: null
+  details: 'Plain ivory paper office: organizer on the wall, desk in front. World (no set sheet, SET-OFFICE fallback, main
+    session 28 Oct): a plain warm-ivory paper wall and floor meeting in a soft curve, soft warm light, soft contact shadows.
+    Of the office items, only those this shot names appear, each looking like this: a simple charcoal clay desk (one flat
+    top on four straight legs, no drawers); an open silver clay laptop with a plain lid; one white clay mug; a small round
+    charcoal clay bin with a thumb-pressed rim; a plain window with a thin pale-wood frame.'
+  background_rule: plain ivory paper wall; desk holds only the laptop, the paper pile with the MARCH tag, a mug
 camera:
   framing: 'medium: organizer upper half, Maya and desk lower half'
   angle: slightly low, straight-on
   movement: 'edit: slow 100 to 108% push-in over the shot'
   aspect: '9:16'
-  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins; faces and
-    key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half,
+    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
 timing:
   start_s: 5.95
   end_s: 8.43
@@ -132,9 +138,10 @@ regions:
   - 0.45
   - 0.52
   - 0.56
-style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade
-  set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. World: a clay home office in warm ivory and
-  marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
+  forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
+  texture. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only
+  loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no clients in the APRIL pockets
@@ -144,5 +151,5 @@ must_not:
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
 hero: false
-notes: 'Motion comes from a code push-in. ''MARCH tag too small'' note from the loop 5 gate: the tag is big and must read at phone size. No generated clip:
-  a gpt-image-2 still moved by a code push-in.'
+notes: 'Motion comes from a code push-in. ''MARCH tag too small'' note from the loop 5 gate: the tag is big and must read
+  at phone size. No generated clip: a gpt-image-2 still moved by a code push-in.'

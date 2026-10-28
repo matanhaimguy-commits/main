@@ -4,13 +4,14 @@ format: song
 script_lines:
 - O60-L14
 line_text: and ads went last, only on the posts that worked,
-story_purpose: 'Ads go last and only on the post that worked: the ADS piece is sewn onto the one firm POSTS piece while two droop.'
+story_purpose: 'Ads go last and only on the post that worked: the ADS piece is sewn onto the one firm POSTS piece while two
+  droop.'
 must_read_in_1s: Of three POSTS pieces, two droop and one stands firm with an ADS piece sewn on.
 subjects:
 - id: PR-CLOTH
   ref: PR-CLOTH@v1
-  state: 'three POSTS pieces on a rod: the right-hand piece is firm and hangs straight with the ADS piece sewn on its upper part; the left and centre pieces
-    are limp, folded over at the top third with the lower half drooping at an angle'
+  state: 'three POSTS pieces on a rod: the right-hand piece is firm and hangs straight with the ADS piece sewn on its upper
+    part; the left and centre pieces are limp, folded over at the top third with the lower half drooping at an angle'
   pose: hanging by loops from a thin wooden rod
   expression: n/a
   instances: 1
@@ -20,8 +21,8 @@ props:
   story_critical: true
   ref: PR-CLOTH@v1
   state: three POSTS pieces plus a calm ADS piece sewn on the firm one
-  content: One calm sand-cream linen cloth, a single colour, tight weave, with tone-on-tone speech-bubble shapes stitched in deeper tan thread, plus pieces
-    cut from it with the same weave and charcoal stitched labels OFFER, POSTS and ADS
+  content: One calm sand-cream linen cloth, a single colour, tight weave, with tone-on-tone speech-bubble shapes stitched
+    in deeper tan thread, plus pieces cut from it with the same weave and charcoal stitched labels OFFER, POSTS and ADS
   size_in_frame: pieces 22% of frame width each, 28 to 56% from the top
   held_by: null
 - id: PR-BUBBLES
@@ -45,21 +46,25 @@ text_in_image:
   must_be_exact: true
   occlusion: not folded
 action_physics:
-- 'The ADS piece''s top edge lifts 1 cm and three clay bubbles slide up off it, one every 0.5 s: bubble 1 leaves its top-left corner, bubble 2 the middle
-  of its top edge, bubble 3 its top-right corner; each drifts right and up toward the open window pane. The camera pans right following them and comes to
-  rest on the window view of SH18; the two limp pieces hang still.'
+- 'The ADS piece''s top edge lifts 1 cm and three clay bubbles slide up off it, one every 0.5 s: bubble 1 leaves its top-left
+  corner, bubble 2 the middle of its top edge, bubble 3 its top-right corner; each drifts right and up toward the open window
+  pane. The camera pans right following them and comes to rest on the window view of SH18; the two limp pieces hang still.'
 static: false
 setting:
-  ref: SET-OFFICE@v1
-  details: 'SET-OFFICE@v1: rod by the window, desk edge below.'
+  ref: null
+  details: 'Plain ivory paper office: rod by the window, desk edge below. World (no set sheet, SET-OFFICE fallback, main session
+    28 Oct): a plain warm-ivory paper wall and floor meeting in a soft curve, soft warm light, soft contact shadows. Of the
+    office items, only those this shot names appear, each looking like this: a simple charcoal clay desk (one flat top on
+    four straight legs, no drawers); an open silver clay laptop with a plain lid; one white clay mug; a small round charcoal
+    clay bin with a thumb-pressed rim; a plain window with a thin pale-wood frame.'
   background_rule: plain wall, window frame at the right edge
 camera:
   framing: medium close on the three hanging pieces
   angle: eye level, straight-on
   movement: slow pan right that follows the bubbles to the window (the only camera move)
   aspect: '9:16'
-  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins; faces and
-    key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half,
+    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
 timing:
   start_s: 39.56
   end_s: 42.04
@@ -100,10 +105,11 @@ regions:
   - 0.14
   - 0.92
   - 0.3
-style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade
-  set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. 12 fps stepped stop-motion cadence, no motion
-  blur; one motion action in the shot. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud
-  saturated colours in the world; the method cloth is one calm sand-cream colour.'
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
+  forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
+  texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: a clay home office in
+  warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world;
+  the method cloth is one calm sand-cream colour.'
 must_not:
 - no clay speech bubbles before the lift (the stitched bubble weave on the cloth is allowed)
 - no loud patterns
@@ -113,5 +119,5 @@ must_not:
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
 hero: true
-notes: 'CLIP-G 6 s render: one follow-pan on one subject (the three bubbles). Start frame = SH17, end frame = window view of SH18. Cause (ADS piece lifts
-  the bubbles off) and result (they reach the buyers) in one clip (test 2). Clip: CLIP-G.'
+notes: 'CLIP-G 6 s render: one follow-pan on one subject (the three bubbles). Start frame = SH17, end frame = window view
+  of SH18. Cause (ADS piece lifts the bubbles off) and result (they reach the buyers) in one clip (test 2). Clip: CLIP-G.'

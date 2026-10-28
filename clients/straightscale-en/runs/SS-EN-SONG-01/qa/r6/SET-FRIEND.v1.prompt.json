@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "SET-FRIEND",
+ "version": 1,
+ "prompt_sha256": "0461284104c4bdd75785d5adfd927a2d60ce978b784f19ffd8fd1b6923107ae2",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "All 11 blocks in order. Spec items present: organizer with 8+8 clients 'exactly two small clay clients in each of the four pockets (8)', shelf with pot and plant, 'smiling softly', three strings, 4% margin, setting rule. Advisory only: spec must_not 'no photoreal skin, no glossy CGI plastic' is not verbatim, covered by 'real modeling clay, felt and fabric'."
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'Reference images: none attached.' matches the packet (no attached files). Spec lists ref PR-ORGANIZER@v2 on the prop, but the route is text-to-image and the prompt gives the full layout in text. Orchestrator should confirm no reference is intended."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'Hands: no hands in the frame.' matches spec 'hands: none visible'."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'Action: none, a still sheet.' matches spec static:true, action_physics []. Clients are placed by 'shown from the chest up above the pocket rim'."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Organizer content filled: 'single calm sand-cream linen with charcoal stitching, a header band along its top, two rows of four open-topped shallow pockets with slanted front edges, a thick label band'. No blanket 'no text' negative."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "'\"CLIENTS\" on the header band, top centre of the organizer; \"MARCH\" on the upper row's label band at its left end; \"APRIL\" on the lower row's label band at its left end ... Nothing covers any letter.' Case: big charcoal capitals. All strings are 1 word."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'Nothing else in frame: no screens, picture frames, books, signs or furniture.' Rule given; none of these are in the spec."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No hard conflict. Advisory: 'Everything in frame is real modeling clay, felt and fabric' sits beside a 'plain warm-ivory paper wall'; the intent (material feel) is clear."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "Spec previous_shot null, carry_over []. Prompt continuity ('same organizer layout as Maya's ... one single calm linen and clients in every pocket') matches the spec's story_purpose."
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Route openai/gpt-image-2/text-to-image allowed for set_sheet in standards.json atlas.allowed; quality medium; size 1152x2048 is the 9:16 size; prompt says 'vertical 9:16'. No video, no declined_preset_id, no speaker. sha256 recomputed: 0461284104c4bdd75785d5adfd927a2d60ce978b784f19ffd8fd1b6923107ae2 matches."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "Terms are concrete: 'pale-wood-coloured clay shelf', 'chest up above the pocket rim', positions given in % of frame. Advisory: 'Maya's' has no reference attached, but the layout is fully spelled out, so it is harmless."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-02 structure line present ('one rectangular panel ... a header band along its top, two rows of four ... a thick label band at the left end of each row'; shelf 'one flat board fixed to the wall on two small brackets'). FL-04 filled props. FL-05 and FL-10 background rule plus plain wall. FL-13 'no logos'. FL-01, FL-03, FL-06, FL-08, FL-09 and FL-11 not applicable (no hands, people, action or video)."
+  }
+ ],
+ "corrected_prompt": null
+}

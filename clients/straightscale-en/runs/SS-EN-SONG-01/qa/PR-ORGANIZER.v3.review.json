@@ -1,0 +1,230 @@
+{
+ "gate": "G-VIS-SHEET",
+ "asset_id": "PR-ORGANIZER",
+ "version": 3,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "hero": true,
+ "files_opened": [
+  "full.png",
+  "tile_r1c1.png",
+  "tile_r1c2.png",
+  "tile_r1c3.png",
+  "tile_r2c1.png",
+  "tile_r2c2.png",
+  "tile_r2c3.png",
+  "tile_r3c1.png",
+  "tile_r3c2.png",
+  "tile_r3c3.png",
+  "region_SHEET-PR-ORGANIZER_state_a.png",
+  "region_SHEET-PR-ORGANIZER_state_b.png",
+  "region_SHEET-PR-ORGANIZER_clients_a.png",
+  "region_SHEET-PR-ORGANIZER_clients_b.png",
+  "region_SHEET-PR-ORGANIZER_labels_a.png",
+  "region_SHEET-PR-ORGANIZER_labels_b.png",
+  "region_SHEET-PR-ORGANIZER_crop_march.png",
+  "region_SHEET-PR-ORGANIZER_crop_april.png",
+  "region_SHEET-PR-ORGANIZER_crop_pocket.png",
+  "thumb_200.png"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Reads in one look as the same CLIENTS organizer twice: April empty, then April with four clients."
+  },
+  {
+   "id": "V2",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Story-critical prop (the one picture of a month) is clear and central; text and clients visible at phone size."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "state_a,state_b",
+   "evidence": "State A: MARCH 12 clients (3 per pocket x 4), APRIL empty. State B: MARCH same 12, APRIL one per pocket (4) plus plain sand-cream linen band. Matches spec counts."
+  },
+  {
+   "id": "V4",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No hands visible, none required."
+  },
+  {
+   "id": "V5",
+   "result": "PASS",
+   "severity": "",
+   "region": "crop_pocket",
+   "evidence": "Clay figures have normal heads, ears, shoulders; no anatomy faults."
+  },
+  {
+   "id": "V6",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No hands or fingers in frame."
+  },
+  {
+   "id": "V7",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "Static sheet, no action."
+  },
+  {
+   "id": "V8",
+   "result": "PASS",
+   "severity": "",
+   "region": "state_a,state_b",
+   "evidence": "Organizer hangs from cord and pin, clients sit in pockets with plausible overlap; contact shadows soft."
+  },
+  {
+   "id": "V9",
+   "result": "PASS",
+   "severity": "",
+   "region": "clients_a,clients_b (full)",
+   "evidence": "Read letter by letter: CLIENTS on both header bands, exact, nothing covers letters. The packet regions clients_a/b show only the hanging cord (region boxes are mis-placed vs the header; the text itself was read in full.png and tiles r1c1-r1c3)."
+  },
+  {
+   "id": "V10",
+   "result": "PASS",
+   "severity": "",
+   "region": "labels_a,labels_b,crop_march,crop_april",
+   "evidence": "MARCH and APRIL read exactly on upper/lower label bands of both copies, and in the two close-ups. No diacritics expected. Letters not occluded."
+  },
+  {
+   "id": "V11",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No lettering besides the five listed strings; band has no words."
+  },
+  {
+   "id": "V12",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "state_a vs state_b, APRIL row",
+   "evidence": "Same organizer should have same pocket geometry. State A April pockets are tall open cylinders with a dark brown interior seen from above (full.png about x120-490, y480-600), while state B April pockets are short shallow slanted pockets with a stitched curved lip (about x625-995, y535-600). March pockets in both copies match each other. The April row is not the same object across states, which breaks the point of locking one prop."
+  },
+  {
+   "id": "V13",
+   "result": "PASS",
+   "severity": "",
+   "region": "state_b",
+   "evidence": "Band is plain sand-cream woven linen, no words, no scraps on either copy."
+  },
+  {
+   "id": "V14",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Header band, two rows of four open-topped pockets, label bands at left end of each row, as specified."
+  },
+  {
+   "id": "V15",
+   "result": "PASS",
+   "severity": "",
+   "region": "crop_pocket,state_a,state_b",
+   "evidence": "March clients identical in both copies (same blazer order and faces); April clients in B consistent with March palette."
+  },
+  {
+   "id": "V16",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "state_a vs state_b",
+   "evidence": "See V12: April pocket construction differs between copies. Also band in B sits across the row boundary, which pushes the B April pockets lower than the A April pockets."
+  },
+  {
+   "id": "V17",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No locked ref sheet for this prop (ref null)."
+  },
+  {
+   "id": "V18",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "full, left edge and right edge",
+   "evidence": "Spec: every element inside a 4% margin. Left copy's left edge is at about 2% (x about 22 of 1024), right copy's right edge about 97.5%, bottom-strip panels start at about 2% and end at about 98%. Nothing is cropped, but the margin is breached."
+  },
+  {
+   "id": "V19",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "full",
+   "evidence": "Spec: each copy about 43% of width with a 6% gap, top 68%. Actual: each copy about 46% wide, gap about 3.3%. Copies occupy top about 60% (ok); bottom strip is three close-ups as specified."
+  },
+  {
+   "id": "V20",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200",
+   "evidence": "At 200 px CLIENTS, MARCH and APRIL still read, empty vs filled April is obvious, the band is visible."
+  },
+  {
+   "id": "V21",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "state_a,state_b,crop_pocket",
+   "evidence": "Style bible asks for visible thumbprints and tool marks on clay; figures are smooth and nearly CGI-clean with only faint blazer texture. Felt, stitching and hair are good."
+  },
+  {
+   "id": "V22",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Even warm studio light, ivory backdrop, soft shadows, no artefacts or melting; stitching consistent."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Clean render, no stray marks, no extra objects."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Palette warm ivory, charcoal, calm sand-cream linen; no scraps or loud fix colours on organizer (client blazers coloured as per notes)."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No real logos, no trademark, no before/after shaming; a calm progress prop. Note: the two states are side by side by spec for a prop sheet, which is a lock sheet not a post asset."
+  },
+  {
+   "id": "V26",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "AI disclosure applies to the published post, not a prop sheet."
+  }
+ ],
+ "defects": {
+  "critical": 0,
+  "major": 2,
+  "minor": 3
+ },
+ "edit_fixes": [
+  "Redraw state A APRIL pockets to match state B pockets (same short stitched slanted pocket with curved lip, no deep cylinders, no dark brown interior); keep them empty but with the same pocket mouth shape as MARCH pockets.",
+  "Keep pocket size and position identical between the two copies; state B differs only by four clients and the linen band, laid along the top edge of the APRIL row without shifting pockets.",
+  "Scale each copy to 43% of width, gap 6%, all content inside 4% margin including the bottom close-up panels.",
+  "Add visible thumbprints and small tool marks to the clay figures."
+ ],
+ "summary": "Text, counts, band and thumbnail are correct, but the APRIL pockets differ in construction between state A and B (major), and margins, copy size/gap and clay texture miss spec (minor). Hero rule: FAIL, route edit.",
+ "fix": {
+  "route": "edit"
+ }
+}

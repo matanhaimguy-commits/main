@@ -24,19 +24,20 @@ hands:
 props:
 - id: PR-BIN
   story_critical: true
-  ref: 'SET-OFFICE@v1 panel: bin with thumb-pressed rim (bottom strip, middle)'
+  ref: 'none (no set sheet: the bin is drawn from this content line and the World line)'
   state: open clay waste bin with the other three scraps inside
-  content: Small round charcoal clay waste bin with a thumb-pressed rim, three crumpled scraps (mustard-teal gingham, orange-purple stripes, lime leopard)
-    inside with their labels folded inward, no letters visible on them
+  content: Small round charcoal clay waste bin with a thumb-pressed rim, three crumpled scraps (mustard-teal gingham, orange-purple
+    stripes, lime leopard) inside with their labels folded inward, no letters visible on them
   size_in_frame: bin 30% of frame width at 48% from the top
   held_by: null
 - id: PR-SCRAPS
   story_critical: true
   ref: PR-SCRAPS@v1
   state: ADS scrap falling above the bin
-  content: 'Four ragged-edged fabric scraps, each about one pocket wide, each in a different loud clashing pattern with a big stitched label: EMAIL mustard
-    and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes with ivory letters, COACH lime leopard spots with black letters,
-    ADS hot-pink polka dots on blue with white letters; loose thread ends'
+  content: 'Four ragged-edged fabric scraps, each about one pocket wide, each in a different loud clashing pattern with a
+    big stitched label: EMAIL mustard and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes
+    with ivory letters, COACH lime leopard spots with black letters, ADS hot-pink polka dots on blue with white letters; loose
+    thread ends'
   size_in_frame: ADS scrap 16% of frame width
   held_by: null
 text_in_image:
@@ -50,16 +51,20 @@ action_physics:
 - 'Frozen: the ADS scrap has just left Maya''s right fingers and is 5 cm above the bin mouth; her left palm rests on the rim.'
 static: true
 setting:
-  ref: SET-OFFICE@v1
-  details: 'SET-OFFICE@v1: corner of the office, bin beside the desk.'
+  ref: null
+  details: 'Plain ivory paper office: corner of the office, bin beside the desk. World (no set sheet, SET-OFFICE fallback,
+    main session 28 Oct): a plain warm-ivory paper wall and floor meeting in a soft curve, soft warm light, soft contact shadows.
+    Of the office items, only those this shot names appear, each looking like this: a simple charcoal clay desk (one flat
+    top on four straight legs, no drawers); an open silver clay laptop with a plain lid; one white clay mug; a small round
+    charcoal clay bin with a thumb-pressed rim; a plain window with a thin pale-wood frame.'
   background_rule: plain wall
 camera:
   framing: medium close on Maya's arm, hand and the bin
   angle: slightly high, side
   movement: 'edit: slow 100 to 108% push-in'
   aspect: '9:16'
-  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins; faces and
-    key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half,
+    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
 timing:
   start_s: 29.41
   end_s: 31.87
@@ -108,9 +113,10 @@ regions:
   - 0.2
   - 0.4
   - 0.32
-style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade
-  set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. World: a clay home office in warm ivory and
-  marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
+  forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
+  texture. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only
+  loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no extra, missing or merged fingers
@@ -119,5 +125,5 @@ must_not:
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
 hero: false
-notes: 'Steady months line; the abstract line is answered with a contrast, not a stunt (test 3): the loud scrap leaves, the calm cloth comes next. No generated
-  clip: a gpt-image-2 still moved by a code push-in.'
+notes: 'Steady months line; the abstract line is answered with a contrast, not a stunt (test 3): the loud scrap leaves, the
+  calm cloth comes next. No generated clip: a gpt-image-2 still moved by a code push-in.'

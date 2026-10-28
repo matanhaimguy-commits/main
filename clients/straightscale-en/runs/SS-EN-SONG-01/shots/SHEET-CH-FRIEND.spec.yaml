@@ -9,12 +9,16 @@ must_read_in_1s: A second clay woman in a teal-grey jacket, kind face
 subjects:
 - id: CH-FRIEND
   ref: null
-  state: clay puppet woman, about 40, rounder build than Maya, deep brown skin, black curly hair in a high puff made of coiled
-    thread, small tortoiseshell wire glasses, teal-grey canvas jacket with two patch pockets over a cream top, dark jeans,
-    white shoes; no cardigan
-  pose: 'left: standing full body front view with both hands in her jacket pockets; middle: three-quarter full body, hands
-    in pockets; right: seated head-and-shoulders, facing camera as on a video call'
-  expression: 'front and three-quarter: warm kind smile; seated: curious, one brow raised, as if asking a question'
+  state: clay puppet woman, about 40, a soft, round, broad-hipped clay body with round shoulders, shorter and wider than a
+    slim figure, deep brown skin, black curly hair in a high puff made of coiled thread, small tortoiseshell wire glasses,
+    teal-grey canvas jacket with two patch pockets over a cream top, dark jeans, white shoes; no cardigan
+  pose: 'left: standing full body front view with both hands in her jacket pockets, both feet flat on the backdrop floor,
+    weight on both feet, soft contact shadow under the shoes; middle: three-quarter full body, hands in pockets, both feet
+    flat on the backdrop floor, weight on both feet, soft contact shadow under the shoes; right: seated head-and-shoulders,
+    head and eyes straight to the camera as on a video call, her back resting against the top of a chair back that shows behind
+    her shoulders'
+  expression: 'front and three-quarter: warm kind smile; seated: warm and curious, eyes on the lens, a small closed-mouth
+    smile, one brow slightly raised'
   instances: 1
 hands: none visible
 props: []
@@ -23,14 +27,19 @@ action_physics: []
 static: true
 setting:
   ref: null
-  details: plain soft warm-ivory paper backdrop, even studio light, soft contact shadows
-  background_rule: 'nothing else in frame: no furniture, no props besides those listed, no lettering besides the listed strings'
+  details: plain soft warm-ivory paper backdrop, even soft studio light, all three views fully in focus, soft contact shadows;
+    in the seated panel only, a single chair back in warm taupe clay, a shade darker than the ivory backdrop, with one flat
+    top rail, seen from the front, no armrests, no legs or seat in frame, behind her shoulders, her back resting against it
+  background_rule: 'nothing else in frame: no furniture except that one chair back in the seated panel, no props besides those
+    listed, no lettering'
 camera:
-  framing: 'character sheet: two full-body views and one seated head-and-shoulders view in a row'
+  framing: 'character sheet: two full-body views and one seated head-and-shoulders view in a row; the same woman shown three
+    times, once in each panel, one figure per panel'
   angle: straight-on, eye level with the subject
   movement: none (a still sheet)
   aspect: '1:1'
-  safe_zones: 'a reference sheet, not a reel frame: every element inside a 4% margin, nothing cropped at the edges'
+  safe_zones: 'a reference sheet, not a reel frame: every element inside a 4% margin, nothing cropped at the edges; the seated
+    bust, its sleeves and the chair back end at least 4% inside the right edge and 8% above the bottom'
 continuity:
   previous_shot: null
   carry_over: []
@@ -38,29 +47,28 @@ regions:
 - name: front
   kind: face
   box:
-  - 0.03
+  - 0.08
   - 0.05
-  - 0.33
-  - 0.95
+  - 0.28
+  - 0.25
 - name: three_quarter
   kind: face
   box:
-  - 0.35
+  - 0.4
   - 0.05
-  - 0.65
-  - 0.95
+  - 0.6
+  - 0.25
 - name: seated
   kind: face
   box:
-  - 0.67
+  - 0.72
   - 0.3
-  - 0.97
-  - 0.75
+  - 0.92
+  - 0.55
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
-  forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
-  texture. Stop-motion puppet lane: tiny real craft materials on the clay (thread-wrapped hair, real fabric and felt, real
-  stitching). Palette: warm ivory and marble, charcoal; the four fix scraps are the only loud colours; the method cloth is
-  one calm sand-cream linen.'
+  forms, miniature handmade set pieces, gentle stop-motion texture; on this sheet even soft studio light, all three views
+  fully in focus, no depth-of-field blur. Stop-motion puppet lane: tiny real craft materials on the clay (thread-wrapped hair,
+  real fabric and felt, real stitching). Palette: warm ivory and marble, charcoal. No scraps or cloth on this sheet.'
 must_not:
 - no logos, no real platform names or icons
 - no lettering anywhere except the listed strings
@@ -71,5 +79,8 @@ must_not:
 - no olive cardigan, no bob haircut (those are Maya's)
 - no laptop frame or screen border
 - hands stay inside the pockets
+- no sideways head turn or off-camera glance in the seated panel; no smirk
+- 'the seated bust never floats: the chair back is behind it'
 hero: true
-notes: Look bible step 7. Hands are in the pockets on purpose (no hand risk).
+notes: 'Look bible step 7. Hands are in the pockets on purpose (no hand risk). v2 (main session, 28 Oct): redo of the seated
+  panel only: straight to camera, warm curious look, chair back, sleeve inside the canvas.'

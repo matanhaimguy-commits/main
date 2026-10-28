@@ -3,25 +3,37 @@ post_id: SS-EN-SONG-01
 format: set_sheet
 script_lines: []
 line_text: ''
-story_purpose: 'Locks the friend''s corner and her organizer: same layout as Maya''s, but one calm fabric and clients in every
-  pocket (SH08, SH22).'
+story_purpose: 'Locks the friend''s wall in the same ivory paper world: her own CLIENTS organizer, the same layout as Maya''s,
+  in one calm sand-cream linen with clients in every pocket (SH08 behind her on the call, SH22 beside Maya''s).'
 must_read_in_1s: A calm cream CLIENTS organizer with clients in every month
 subjects:
 - id: SET-FRIEND
   ref: null
-  state: empty corner, no full-size people (the small clay clients are required)
-  pose: organizer on the wall, small shelf and plant below
+  state: empty wall, no full-size people (the small clay clients in the pockets are required)
+  pose: organizer centred on the wall, a small shelf with a plant below it
   expression: ''
   instances: 1
 hands: none visible
 props:
 - id: PR-ORGANIZER-FRIEND
   story_critical: true
-  ref: PR-ORGANIZER@v1
-  state: 'MARCH row: two to three clients in each pocket; APRIL row: two clients in each pocket; no patches, no scraps'
-  content: 'Felt wall organizer the same size and layout as Maya''s: header band CLIENTS, two rows of four pockets, label
-    bands MARCH and APRIL, but made from one single calm sand-cream linen, stitched in one piece.'
-  size_in_frame: about 80% of frame width (x 0.1 to 0.9), 20 to 50% from the top
+  ref: PR-ORGANIZER@v2
+  state: 'MARCH row: two clients in each of the four pockets (8); APRIL row: two clients in each of the four pockets (8);
+    no patches, no scraps'
+  content: 'a wall organizer the same size and layout as Maya''s: a header band with the word CLIENTS, two rows of four open-topped
+    shallow slanted pockets, a thick label band at the left end of each row, MARCH on the upper row and APRIL on the lower
+    row in big charcoal capitals, all made from one single calm sand-cream linen with charcoal stitching; each small clay
+    client in a blazer, shown from the chest up above the pocket rim, smiling softly; structure: one rectangular linen panel
+    with one header band on top, two rows of four pockets, one label band at the left end of each row'
+  size_in_frame: about 76% of frame width (x 0.12 to 0.88), 20 to 52% from the top
+  held_by: null
+- id: PR-SHELF
+  story_critical: false
+  ref: null
+  state: tidy
+  content: 'a small plain wooden clay shelf: one flat board fixed to the wall on two small brackets, with one round terracotta-coloured
+    clay pot holding a small green clay plant'
+  size_in_frame: x 0.32 to 0.68, 60 to 72% from the top
   held_by: null
 text_in_image:
 - string: CLIENTS
@@ -46,12 +58,12 @@ action_physics: []
 static: true
 setting:
   ref: null
-  details: a warm sage-green clay wall corner, a small wooden shelf with a clay plant under the organizer, soft afternoon
-    light
-  background_rule: no screens, frames, books or signs; no lettering besides the listed strings
+  details: 'the series ivory paper world: a plain warm-ivory paper wall, soft warm light, soft contact shadows'
+  background_rule: 'nothing else in frame: only the organizer and the shelf with its plant; no screens, frames, books or signs;
+    no lettering besides the listed strings'
 camera:
-  framing: medium-wide view of the wall corner, camera at eye level inside the set
-  angle: straight-on, eye level with the subject
+  framing: medium view of the wall, organizer and shelf fully in frame
+  angle: straight-on, eye level with the organizer
   movement: none (a still sheet)
   aspect: '9:16'
   safe_zones: 'a reference sheet, not a reel frame: every element inside a 4% margin, nothing cropped at the edges'
@@ -62,39 +74,45 @@ regions:
 - name: organizer
   kind: prop
   box:
-  - 0.1
+  - 0.12
   - 0.2
-  - 0.9
-  - 0.5
+  - 0.88
+  - 0.52
 - name: clients_label
   kind: text
   box:
-  - 0.3
+  - 0.32
   - 0.2
-  - 0.7
-  - 0.25
+  - 0.68
+  - 0.26
 - name: labels
   kind: text
   box:
-  - 0.1
-  - 0.25
-  - 0.25
-  - 0.5
-style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
-  forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
-  texture. Stop-motion puppet lane: tiny real craft materials on the clay (thread-wrapped hair, real fabric and felt, real
-  stitching). Palette: warm ivory and marble, charcoal; the four fix scraps are the only loud colours; the method cloth is
-  one calm sand-cream linen.'
+  - 0.12
+  - 0.26
+  - 0.24
+  - 0.52
+- name: shelf
+  kind: prop
+  box:
+  - 0.32
+  - 0.6
+  - 0.68
+  - 0.72
+style: 'Handmade claymation stop-motion look: plasticine forms with visible thumbprints and slight tool marks, soft rounded
+  forms, miniature handmade set pieces, gentle stop-motion texture; on this sheet soft warm light and the whole set in focus,
+  no depth-of-field blur. Stop-motion puppet lane: tiny real craft materials on the clay (real fabric and felt, real stitching).
+  Palette: warm ivory, sand-cream linen, charcoal stitching, pale wood, one small green plant; plain matte surfaces, no marble
+  texture. No loud fabric scraps on this sheet.'
 must_not:
 - no logos, no real platform names or icons
 - no lettering anywhere except the listed strings
 - no photoreal skin, no glossy CGI plastic
-- no extra, missing or merged fingers
-- no speech bubbles unless listed
-- no duplicate copies of a character within one view
-- no loud colours, no scraps
-- no full-size people; the small clay clients are required
+- no full-size people, no hands
+- no patches, no loud fabric scraps, no second fabric on the organizer
+- no empty pocket
+- no screens, frames, books or signs
 hero: true
-notes: Look bible step 7. 1152x2048. The prop ref PR-ORGANIZER@v1 names the layout this organizer must match at G-VIS-SHEET;
-  no image is attached (text-to-image), so the prompt describes the layout in full. SH08 composes the seated friend from CH-FRIEND@v1
-  with this set.
+notes: 'Look bible step 7. Simplified set (main session, 28 Oct, after 3 prompt rounds): the ivory paper world instead of
+  the sage wall, two props only. 1152x2048, text-to-image. Pocket shape matches PR-ORGANIZER (shallow, slanted). The laptop-screen
+  crop is made in SH08 itself.'

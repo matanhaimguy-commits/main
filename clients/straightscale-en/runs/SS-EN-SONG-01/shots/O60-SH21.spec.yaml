@@ -8,13 +8,13 @@ story_purpose: 'No more patchwork marketing: the loud scraps are in the bin, the
 must_read_in_1s: The loud patches sit in the bin; the calm organizer hangs behind them.
 subjects:
 - id: PR-BIN
-  ref: 'SET-OFFICE@v1 panel: bin with thumb-pressed rim (bottom strip, middle)'
+  ref: 'none (no set sheet: the bin is drawn from this content line and the World line)'
   state: charcoal bin holding all four loud scraps with their corners out
   pose: standing on the floor
   expression: n/a
   instances: 1
 - id: PR-ORGANIZER
-  ref: PR-ORGANIZER@v1
+  ref: PR-ORGANIZER@v2
   state: MARCH full, APRIL four clients, calm band, soft focus
   pose: on the wall behind
   expression: n/a
@@ -23,29 +23,31 @@ hands: none visible
 props:
 - id: PR-BIN
   story_critical: true
-  ref: 'SET-OFFICE@v1 panel: bin with thumb-pressed rim (bottom strip, middle)'
+  ref: 'none (no set sheet: the bin is drawn from this content line and the World line)'
   state: all four scraps inside, labels showing
-  content: Small round charcoal clay waste bin with a thumb-pressed rim, EMAIL and ADS folded with their labels showing; LINKEDIN and COACH folded with
-    their labels turned inward, no letters visible
+  content: Small round charcoal clay waste bin with a thumb-pressed rim, EMAIL and ADS folded with their labels showing; LINKEDIN
+    and COACH folded with their labels turned inward, no letters visible
   size_in_frame: bin 38% of frame width at 38 to 56% from the top
   held_by: null
 - id: PR-ORGANIZER
   story_critical: true
-  ref: PR-ORGANIZER@v1
+  ref: PR-ORGANIZER@v2
   state: MARCH full, APRIL four clients, calm band, soft focus
-  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row above the APRIL row, each row
-    label sewn on a thick band at its left end; MARCH pockets: each of the four holds three small colourful clay clients standing shoulder to shoulder (twelve
-    in all); APRIL pockets: one small client in each of the four pockets, a calm sand-cream band of five joined pieces (one large, three small, one small)
-    with four seams, the pieces carry no lettering at this size stitched along the row''s top edge.'
+  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row
+    above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three
+    small colourful clay clients standing shoulder to shoulder (twelve in all); APRIL pockets: one small client in each of
+    the four pockets, a calm sand-cream band of five joined pieces (one large, three small, one small) with four seams, the
+    pieces carry no lettering at this size stitched along the row''s top edge.'
   size_in_frame: organizer 14 to 40% from the top, 80% width
   held_by: null
 - id: PR-SCRAPS
   story_critical: true
   ref: PR-SCRAPS@v1
   state: four scraps in the bin, only the EMAIL and ADS labels showing
-  content: 'Four ragged-edged fabric scraps, each about one pocket wide, each in a different loud clashing pattern with a big stitched label: EMAIL mustard
-    and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes with ivory letters, COACH lime leopard spots with black letters,
-    ADS hot-pink polka dots on blue with white letters; loose thread ends'
+  content: 'Four ragged-edged fabric scraps, each about one pocket wide, each in a different loud clashing pattern with a
+    big stitched label: EMAIL mustard and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes
+    with ivory letters, COACH lime leopard spots with black letters, ADS hot-pink polka dots on blue with white letters; loose
+    thread ends'
   size_in_frame: scrap corners 10% of frame width each
   held_by: null
 text_in_image:
@@ -65,16 +67,20 @@ action_physics:
 - 'Frozen: four scraps are crammed in the bin; one corner hangs over the rim.'
 static: true
 setting:
-  ref: SET-OFFICE@v1
-  details: 'SET-OFFICE@v1: bin in the foreground, organizer behind and above.'
+  ref: null
+  details: 'Plain ivory paper office: bin in the foreground, organizer behind and above. World (no set sheet, SET-OFFICE fallback,
+    main session 28 Oct): a plain warm-ivory paper wall and floor meeting in a soft curve, soft warm light, soft contact shadows.
+    Of the office items, only those this shot names appear, each looking like this: a simple charcoal clay desk (one flat
+    top on four straight legs, no drawers); an open silver clay laptop with a plain lid; one white clay mug; a small round
+    charcoal clay bin with a thumb-pressed rim; a plain window with a thin pale-wood frame.'
   background_rule: background is the organizer in soft focus, labels not read
 camera:
   framing: 'medium: organizer soft in the upper third, bin centre'
   angle: eye level
   movement: 'edit: slow 100 to 108% push-in'
   aspect: '9:16'
-  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins; faces and
-    key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half,
+    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
 timing:
   start_s: 50.01
   end_s: 52.51
@@ -109,9 +115,10 @@ regions:
   - 0.14
   - 0.9
   - 0.4
-style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade
-  set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. World: a clay home office in warm ivory and
-  marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
+  forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
+  texture. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only
+  loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no people
@@ -121,5 +128,5 @@ must_not:
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
 hero: false
-notes: 'Chorus 2 picture: THE PICTURE named and put away (line ''No more patchwork marketing''). No generated clip: a gpt-image-2 still moved by a code
-  push-in.'
+notes: 'Chorus 2 picture: THE PICTURE named and put away (line ''No more patchwork marketing''). No generated clip: a gpt-image-2
+  still moved by a code push-in.'

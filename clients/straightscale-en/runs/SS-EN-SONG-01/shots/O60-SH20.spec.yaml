@@ -16,7 +16,7 @@ subjects:
   instances: 1
   eyeline: at the band
 - id: PR-ORGANIZER
-  ref: PR-ORGANIZER@v1
+  ref: PR-ORGANIZER@v2
   state: April row with the calm band pulled taut
   pose: on the wall
   expression: n/a
@@ -31,11 +31,14 @@ hands:
 props:
 - id: PR-ORGANIZER
   story_critical: true
-  ref: PR-ORGANIZER@v1 (label and pocket close-ups)
+  ref: PR-ORGANIZER@v2 (label and pocket close-ups)
   state: APRIL row with the calm band, taut
-  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row above the APRIL row, each row
-    label sewn on a thick band at its left end; MARCH pockets: (above the frame); APRIL pockets: one small client per pocket, a calm sand-cream band of
-    five joined pieces (one large, three small, one small) with four seams, the pieces carry no lettering at this size, along the top edge pulled taut.'
+  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row
+    above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three
+    small colourful clay clients standing shoulder to shoulder (twelve in all), visible above the APRIL row at 8 to 28% from
+    the top; the CLIENTS header is above the frame; APRIL pockets: one small client per pocket, a calm sand-cream band of
+    five joined pieces (one large, three small, one small) with four seams, the pieces carry no lettering at this size, along
+    the top edge pulled taut.'
   size_in_frame: April row about 77% of frame width, 30 to 52% from the top
   held_by: null
 text_in_image:
@@ -45,21 +48,31 @@ text_in_image:
   case: upper
   must_be_exact: true
   occlusion: stays visible
+- string: MARCH
+  surface: row label band at the left end of the upper row
+  position: left end of the MARCH row, about 14% from the top
+  case: upper
+  must_be_exact: true
+  occlusion: the pulling hand and band stay clear of the label
 action_physics:
-- Maya's right hand pulls the band 3 cm toward screen right, away from the organizer; the band goes taut, the stitched seams between the pieces stay closed
-  and the four small clients tilt once and settle.
+- Maya's right hand pulls the band 3 cm toward screen right, away from the organizer; the band goes taut, the stitched seams
+  between the pieces stay closed and the four small clients tilt once and settle.
 static: false
 setting:
-  ref: SET-OFFICE@v1
-  details: 'SET-OFFICE@v1: close on the April row.'
+  ref: null
+  details: 'Plain ivory paper office: close on the April row. World (no set sheet, SET-OFFICE fallback, main session 28 Oct):
+    a plain warm-ivory paper wall and floor meeting in a soft curve, soft warm light, soft contact shadows. Of the office
+    items, only those this shot names appear, each looking like this: a simple charcoal clay desk (one flat top on four straight
+    legs, no drawers); an open silver clay laptop with a plain lid; one white clay mug; a small round charcoal clay bin with
+    a thumb-pressed rim; a plain window with a thin pale-wood frame.'
   background_rule: plain wall
 camera:
   framing: edit punch-in 125% on the April row and her hand
   angle: eye level
   movement: locked off, picture change is the beat-snapped punch-in cut
   aspect: '9:16'
-  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins; faces and
-    key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half,
+    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
 timing:
   start_s: 47.57
   end_s: 50.01
@@ -93,10 +106,18 @@ regions:
   - 0.4
   - 0.24
   - 0.48
-style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade
-  set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. 12 fps stepped stop-motion cadence, no motion
-  blur; one motion action in the shot. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud
-  saturated colours in the world; the method cloth is one calm sand-cream colour.'
+- name: march_label
+  kind: text
+  box:
+  - 0.06
+  - 0.08
+  - 0.24
+  - 0.2
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
+  forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
+  texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: a clay home office in
+  warm ivory and marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world;
+  the method cloth is one calm sand-cream colour.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no piece lifts, peels or tears

@@ -4,7 +4,8 @@ format: song
 script_lines:
 - O60-L17
 line_text: on alone.
-story_purpose: 'No scrap sewn on alone: Maya and her friend stand side by side with two calm organizers, both with clients in every month.'
+story_purpose: 'No scrap sewn on alone: Maya and her friend stand side by side with two calm organizers, both with clients
+  in every month.'
 must_read_in_1s: Two women stand before two calm organizers, both with clients.
 subjects:
 - id: CH-MAYA
@@ -15,7 +16,7 @@ subjects:
   instances: 1
   eyeline: at the friend
 - id: CH-FRIEND
-  ref: CH-FRIEND@v1
+  ref: CH-FRIEND@v2 (seated panel)
   state: standing right
   pose: relaxed, hands tucked in jacket pockets
   expression: warm smile
@@ -25,20 +26,21 @@ hands: none visible
 props:
 - id: PR-ORGANIZER
   story_critical: true
-  ref: PR-ORGANIZER@v1
+  ref: PR-ORGANIZER@v2
   state: 'Maya''s organizer left: MARCH full, APRIL four clients, calm band'
-  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row above the APRIL row, each row
-    label sewn on a thick band at its left end; MARCH pockets: each of the four holds three small colourful clay clients standing shoulder to shoulder (twelve
-    in all); APRIL pockets: one client per pocket and a calm sand-cream band of five joined pieces (one large, three small, one small) with four seams,
-    the pieces carry no lettering at this size, along the top edge.'
+  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row
+    above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three
+    small colourful clay clients standing shoulder to shoulder (twelve in all); APRIL pockets: one client per pocket and a
+    calm sand-cream band of five joined pieces (one large, three small, one small) with four seams, the pieces carry no lettering
+    at this size, along the top edge.'
   size_in_frame: left organizer 40% of frame width, 16 to 44% from the top
   held_by: null
 - id: PR-ORGANIZER-FRIEND
   story_critical: true
   ref: SET-FRIEND@v1
   state: 'friend''s organizer right: one calm cream fabric, clients in both rows'
-  content: Felt wall organizer headed CLIENTS in one calm cream fabric, two rows of four pockets, row labels MARCH and APRIL at the left ends, clients in
-    every pocket of both rows
+  content: Felt wall organizer headed CLIENTS in one calm cream fabric, two rows of four pockets, row labels MARCH and APRIL
+    at the left ends, clients in every pocket of both rows
   size_in_frame: right organizer 40% of frame width, 16 to 44% from the top
   held_by: null
 text_in_image:
@@ -73,20 +75,24 @@ text_in_image:
   must_be_exact: true
   occlusion: not covered
 action_physics:
-- 'Frozen: the two women stand side by side, about 15% of frame width apart, each below her own organizer, both feet flat on the clay floor, Maya''s head
-  turned 15 degrees toward her friend.'
+- 'Frozen: the two women stand side by side, about 15% of frame width apart, each below her own organizer, both feet flat
+  on the clay floor, Maya''s head turned 15 degrees toward her friend.'
 static: true
 setting:
-  ref: SET-OFFICE@v1
-  details: SET-OFFICE@v1 with the friend's organizer standing next to Maya's on the wall.
+  ref: null
+  details: 'Plain ivory paper office with the friend''s organizer standing next to Maya''s on the wall. World (no set sheet,
+    SET-OFFICE fallback, main session 28 Oct): a plain warm-ivory paper wall and floor meeting in a soft curve, soft warm
+    light, soft contact shadows. Of the office items, only those this shot names appear, each looking like this: a simple
+    charcoal clay desk (one flat top on four straight legs, no drawers); an open silver clay laptop with a plain lid; one
+    white clay mug; a small round charcoal clay bin with a thumb-pressed rim; a plain window with a thin pale-wood frame.'
   background_rule: plain wall, nothing else
 camera:
   framing: 'wide: two organizers upper half, two women lower half'
   angle: eye level
   movement: 'edit: slow 100 to 108% push-in'
   aspect: '9:16'
-  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins; faces and
-    key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half,
+    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
 timing:
   start_s: 52.51
   end_s: 54.99
@@ -136,9 +142,10 @@ regions:
   - 0.17
   - 0.78
   - 0.38
-style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade
-  set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. World: a clay home office in warm ivory and
-  marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
+  forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
+  texture. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only
+  loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no scraps anywhere
@@ -149,5 +156,5 @@ must_not:
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
 hero: false
-notes: 'Both characters share one frame; one instance each. Makes the friend''s earlier screen appearance pay off. No generated clip: a gpt-image-2 still
-  moved by a code push-in.'
+notes: 'Both characters share one frame; one instance each. Makes the friend''s earlier screen appearance pay off. No generated
+  clip: a gpt-image-2 still moved by a code push-in.'

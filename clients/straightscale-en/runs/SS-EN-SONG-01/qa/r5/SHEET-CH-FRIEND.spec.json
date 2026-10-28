@@ -1,0 +1,23 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "SHEET-CH-FRIEND",
+ "spec_sha256": "c042524b9ccbca94218b63baa76fa42d54afc43ae23519789b5062b1788f507c",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {"id": "P1", "result": "PASS", "evidence": "subject, three panels, setting, camera and style all written: 'left: standing full body front view ... middle: three-quarter ... right: seated head-and-shoulders'; must_read_in_1s is one moment: 'A second clay woman in a teal-grey jacket, kind face'"},
+  {"id": "P2", "result": "N/A", "evidence": "spec mode"},
+  {"id": "P3", "result": "PASS", "evidence": "hands: 'none visible'; pose puts hands 'in her jacket pockets' in both full-body panels and must_not says 'hands stay inside the pockets'; seated panel is head-and-shoulders so no hand shows; no hand regions needed"},
+  {"id": "P4", "result": "PASS", "evidence": "action_physics: [] and static: true; stance is written as contact points: 'both feet flat on the backdrop floor, weight on both feet, soft contact shadow under the shoes' and 'her back resting against the top of a chair back'"},
+  {"id": "P5", "result": "PASS", "evidence": "props: [] and no story-critical prop on the sheet; background_rule 'no props besides those listed'; no blanket 'no text' next to a prop"},
+  {"id": "P6", "result": "PASS", "evidence": "text_in_image: none, with 'no lettering' in background_rule and must_not; no strings, so no quote/occlusion lines needed"},
+  {"id": "P7", "result": "PASS", "evidence": "no frames, screens, signs or books; the only background object is ruled: 'a single chair back in warm taupe clay ... one flat top rail ... no armrests, no legs or seat in frame'; 'no laptop frame or screen border'"},
+  {"id": "P8", "result": "PASS", "evidence": "'hands: none visible' agrees with hands in pockets; 'one chair back in the seated panel only' agrees with 'no furniture except that one chair back'; 'real fabric and felt' agrees with 'No scraps or cloth on this sheet' (that bans the PR-SCRAPS/PR-CLOTH props, not the jacket)"},
+  {"id": "P9", "result": "PASS", "evidence": "continuity.previous_shot null, carry_over []; the sheet matches what the serving shots use: SH22 'hands tucked in jacket pockets', SH08/SH09 seated facing the call camera, warm curious look"},
+  {"id": "P10", "result": "N/A", "evidence": "spec mode"},
+  {"id": "P11", "result": "PASS", "evidence": "the one phrase a model could misread, 'as on a video call', is fenced by 'no laptop frame or screen border' and 'head and eyes straight to the camera'. Advisory only: palette 'warm ivory and marble' sits beside a 'plain soft warm-ivory paper backdrop'; the paper backdrop wins, so no change is required"},
+  {"id": "P12", "result": "PASS", "evidence": "FL-11 clone/floating: 'one figure per panel', 'no duplicate copies of a character within one view', 'the seated bust never floats: the chair back is behind it'; FL-02 chair structure: 'one flat top rail, seen from the front, no armrests, no legs or seat in frame'; FL-06 face detail: faces boxed in three regions; FL-13 not applicable, no logo; faces are boxed with front [0.08,0.05,0.28,0.25], three_quarter [0.4,0.05,0.6,0.25], seated [0.72,0.3,0.92,0.55]"}
+ ],
+ "fixes": []
+}

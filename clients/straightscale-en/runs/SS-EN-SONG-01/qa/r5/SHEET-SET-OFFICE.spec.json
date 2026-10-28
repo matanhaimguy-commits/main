@@ -1,0 +1,20 @@
+{"gate": "G-SPEC", "shot_id": "SHEET-SET-OFFICE", "spec_sha256": "531f9357913db4a1c42ad55abfb9f252cd29e8aed719cefb5aaf351b126e4515", "reviewer": "prompt-reviewer (fresh agent)", "independent": true, "status": "FAIL",
+"checks": [
+{"id":"P1","result":"PASS","evidence":"Every subject and prop is named with content: SET-OFFICE empty room; PR-DESK, PR-BIN, PR-WINDOW each have state, content and size_in_frame; no people, so nothing missing."},
+{"id":"P2","result":"N/A","evidence":"Spec mode."},
+{"id":"P3","result":"PASS","evidence":"hands: 'none visible'; must_not: 'no people of any size, no hands'."},
+{"id":"P4","result":"PASS","evidence":"static: true; action_physics: []; 'movement: none (a still sheet)'. No action to write as contact points."},
+{"id":"P5","result":"PASS","evidence":"All three story-critical props have content lines: 'one flat rectangular top on four straight legs, no drawers; ... open silver clay laptop ... one white clay mug'; bin 'empty inside' is the intended content; window 'a soft, simple clay street'. Only targeted negatives, no blanket 'no text' on a story prop."},
+{"id":"P6","result":"PASS","evidence":"text_in_image: none; 'no lettering anywhere'; laptop 'no logo, screen not visible'; window street 'no signs'."},
+{"id":"P7","result":"PASS","evidence":"background_rule: 'nothing else in frame ... no lettering'; must_not: 'no posters, frames, books, signs or shopfronts'; laptop screen hidden; window holds a street, not an empty pane."},
+{"id":"P8","result":"FAIL","evidence":"PR-WINDOW content says 'a single thin straight wooden rod fixed flat to the wall, with five small empty fabric loops hanging from it', but must_not says 'nothing on the rod' and 'no organizer, no fabric scraps, no cloth on the set', and the style line says 'No fabric scraps on this sheet'. The spec both requires and forbids things on the rod, and requires fabric while forbidding cloth."},
+{"id":"P9","result":"PASS","evidence":"continuity: previous_shot null, carry_over []. Regions desk 0.08-0.58 / bin 0.62-0.76 / window 0.55-0.92 do not overlap and match size_in_frame (window box starts at 0.55 to include the rod just left of it)."},
+{"id":"P10","result":"N/A","evidence":"Spec mode."},
+{"id":"P11","result":"FAIL","evidence":"'five small empty fabric loops hanging from it': a model could read this as curtain rings, cloth loops, hooks or empty hangers, and a reviewer cannot check what 'empty fabric loops' look like. Also the palette 'warm ivory and marble, charcoal' lists 'marble', which a model may paint as a marble texture on wall or floor, and omits the silver, white and pale-wood colours the props use."},
+{"id":"P12","result":"PASS","evidence":"FL-02 structure lines present for desk ('four straight legs, no drawers'), bin ('one open cylinder') and window ('one pane swung open inward'); FL-04 props filled; FL-05 'no posters, frames, books, signs or shopfronts'; FL-11 'soft contact shadows', bin 'standing on the floor'; FL-13 no logo requested. (The rod problem is logged under P8 and P11.)"}
+],
+"fixes": [
+"Resolve the rod contradiction. Recommended (simplest, matches the 'simple set, three props' intent): in PR-WINDOW.content change the rod clause to 'just left of the window a single thin straight wooden rod fixed flat to the wall, bare, with nothing hanging from it' and leave must_not 'nothing on the rod' as it is. Update the PR-WINDOW name list in notes if needed.",
+"Alternative if the five loops are needed by later shots: make them clay, not fabric, and say what they are, for example 'five small round clay rings of equal size hanging evenly spaced from the rod, each ring hanging empty'. Then change must_not 'nothing in the bin, nothing on the rod' to 'nothing in the bin, nothing on the rod except its five clay rings', and keep 'no cloth on the set'.",
+"Palette in style: replace 'warm ivory and marble, charcoal' with 'warm ivory, charcoal, silver and white clay, pale wood' (or define marble as a colour only: 'marble-white, no marble texture'), so the model does not paint a marble surface and the prop colours are covered."
+]}

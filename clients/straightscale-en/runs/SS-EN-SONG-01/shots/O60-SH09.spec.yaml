@@ -4,7 +4,8 @@ format: song
 script_lines:
 - O60-L07
 line_text: '"Are your fixes connected?"'
-story_purpose: 'The friend''s question lands: Maya considers whether her fixes are connected, with her fallen scraps beside the laptop.'
+story_purpose: 'The friend''s question lands: Maya considers whether her fixes are connected, with her fallen scraps beside
+  the laptop.'
 must_read_in_1s: Maya, from behind, stares at the friend on screen; the fallen patches lie beside the laptop.
 subjects:
 - id: CH-MAYA
@@ -24,19 +25,20 @@ props:
 - id: PR-SCRAPS
   story_critical: true
   ref: PR-SCRAPS@v1
-  state: four scraps in a loose heap on the desk beside the laptop, the LINKEDIN and COACH scraps lying face down so no letters show on them; EMAIL on top,
-    ADS at the edge, labels face up
-  content: 'Four ragged-edged fabric scraps, each about one pocket wide, each in a different loud clashing pattern with a big stitched label: EMAIL mustard
-    and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes with ivory letters, COACH lime leopard spots with black letters,
-    ADS hot-pink polka dots on blue with white letters; loose thread ends'
+  state: four scraps in a loose heap on the desk beside the laptop, the LINKEDIN and COACH scraps lying face down so no letters
+    show on them; EMAIL on top, ADS at the edge, labels face up
+  content: 'Four ragged-edged fabric scraps, each about one pocket wide, each in a different loud clashing pattern with a
+    big stitched label: EMAIL mustard and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes
+    with ivory letters, COACH lime leopard spots with black letters, ADS hot-pink polka dots on blue with white letters; loose
+    thread ends'
   size_in_frame: heap about 28% of frame width at 50% from the top
   held_by: null
 - id: PR-LAPTOP
   story_critical: true
-  ref: 'SET-OFFICE@v1 panel: laptop front (bottom strip, left)'
+  ref: 'none (no set sheet: the laptop front is drawn from this content line)'
   state: open, screen shows the friend small
-  content: Clay laptop with charcoal bezel, screen showing the friend seated before her calm cream organizer, no icons; the laptop body and bezel match
-    the laptop-front panel, only the screen differs (it shows the friend, not the blank pale blue)
+  content: Clay laptop with charcoal bezel, screen showing the friend seated before her calm cream organizer, no icons; the
+    laptop body and bezel match the laptop-front panel, only the screen differs (it shows the friend, not the blank pale blue)
   size_in_frame: laptop about 35% of frame width
   held_by: null
 text_in_image:
@@ -56,16 +58,20 @@ action_physics:
 - Maya's head is frozen mid-tilt toward the screen; the heap of scraps sits still on the desk.
 static: true
 setting:
-  ref: SET-OFFICE@v1
-  details: 'SET-OFFICE@v1: over-the-shoulder, desk from behind her.'
+  ref: null
+  details: 'Plain ivory paper office: over-the-shoulder, desk from behind her. World (no set sheet, SET-OFFICE fallback, main
+    session 28 Oct): a plain warm-ivory paper wall and floor meeting in a soft curve, soft warm light, soft contact shadows.
+    Of the office items, only those this shot names appear, each looking like this: a simple charcoal clay desk (one flat
+    top on four straight legs, no drawers); an open silver clay laptop with a plain lid; one white clay mug; a small round
+    charcoal clay bin with a thumb-pressed rim; a plain window with a thin pale-wood frame.'
   background_rule: wall behind the laptop is plain; the organizer is out of frame
 camera:
   framing: 'over-the-shoulder medium: Maya''s head and shoulder left, laptop right'
   angle: eye level
   movement: 'edit: slow 100 to 108% push-in'
   aspect: '9:16'
-  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half, 6% side margins; faces and
-    key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+  safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half,
+    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
 timing:
   start_s: 19.56
   end_s: 21.34
@@ -107,9 +113,10 @@ regions:
   - 0.45
   - 0.7
   - 0.55
-style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade
-  set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture. World: a clay home office in warm ivory and
-  marble tones with a charcoal desk; the four fix scraps are the only loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
+style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
+  forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
+  texture. World: a clay home office in warm ivory and marble tones with a charcoal desk; the four fix scraps are the only
+  loud saturated colours in the world; the method cloth is one calm sand-cream colour.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no extra people
@@ -120,4 +127,5 @@ must_not:
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
 hero: false
-notes: 'Spoken line ''Are your fixes connected?'' (19.73 to 20.79) is sung over this shot. No generated clip: a gpt-image-2 still moved by a code push-in.'
+notes: 'Spoken line ''Are your fixes connected?'' (19.73 to 20.79) is sung over this shot. No generated clip: a gpt-image-2
+  still moved by a code push-in.'

@@ -399,7 +399,7 @@ def parse_media(items: list[str] | None) -> list[dict]:
     for it in items or []:
         if ":" not in it:
             raise PipelineError(f"--media wants ID:role, got {it!r}")
-        v, role = it.split(":", 1)
+        v, role = it.rsplit(":", 1)   # the role is last: a URL or prediction:ID:INDEX value keeps its own colons
         out.append({"value": v.strip(), "role": role.strip()})
     return out
 

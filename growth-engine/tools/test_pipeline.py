@@ -587,3 +587,11 @@ class Hook(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class MediaArgs(unittest.TestCase):
+    def test_url_and_prediction_values_keep_their_colons(self):
+        got = P.parse_media(["https://a.example/x.png:edit_source", "prediction:abc:0:image_references", "id1:start"])
+        self.assertEqual(got, [{"value": "https://a.example/x.png", "role": "edit_source"},
+                               {"value": "prediction:abc:0", "role": "image_references"},
+                               {"value": "id1", "role": "start"}])
