@@ -9,7 +9,18 @@
    "status": "active",
    "account_stage": "new",
    "timezone": "America/New_York",
-   "cadence": "3 reels a week: Mon, Wed and Fri at 12:00",
+   "cadence": {
+    "per_week": 3,
+    "days": [
+     "Mon",
+     "Wed",
+     "Fri"
+    ],
+    "time": "12:00",
+    "formats": {
+     "reel": 3
+    }
+   },
    "monthly_usd_cap": 100,
    "vault_folder": "Agency OS/Clients/StraightScale EN"
   },
@@ -22,7 +33,10 @@
    "status_note": "No posts, by Matan's rule of 28 Oct 2026",
    "account_stage": "new",
    "timezone": "Europe/Tirane",
-   "cadence": "paused (was 7 posts a week)",
+   "cadence": {
+    "per_week": 0,
+    "note": "paused (was 7 posts a week)"
+   },
    "monthly_usd_cap": null,
    "vault_folder": "Agency OS/Clients/StraightScale"
   }

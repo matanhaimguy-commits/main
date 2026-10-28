@@ -11,11 +11,11 @@ class SlotCounts(unittest.TestCase):
         self.assertEqual(slot("2026-10-30 12:00", "America/New_York")["at"], "2026-10-30T12:00:00-04:00")
         self.assertIsNone(slot("someday", "America/New_York")["at"])
 
-    def test_counts_leave_the_bank_apart(self):
-        ps = [{"bank": False, "status": "planned", "funnel_stage": "TOF"},
-              {"bank": False, "status": "produced", "funnel_stage": None},
-              {"bank": True, "status": "planned", "funnel_stage": "MOF"}]
-        self.assertEqual(counts(ps), {"pieces": 2, "bank": 1, "status": {"planned": 1, "produced": 1},
+    def test_counts_leave_unslotted_bank_cards_apart(self):
+        ps = [{"slot": "2026-11-02T12:00:00-05:00", "status": "planned", "funnel_stage": "TOF"},
+              {"slot": "2026-11-03T12:00:00-05:00", "status": "produced", "funnel_stage": None},
+              {"slot": None, "status": "planned", "funnel_stage": "MOF"}]
+        self.assertEqual(counts(ps), {"pieces": 2, "unslotted": 1, "status": {"planned": 1, "produced": 1},
                                       "funnel_stage": {"TOF": 1, "none": 1}})
 
 

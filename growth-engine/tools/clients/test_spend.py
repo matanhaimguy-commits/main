@@ -15,6 +15,9 @@ class Spend(ClientsCase):
         s = spend.month(self.root, "nobody", "2026-10", None)
         self.assertEqual((s["usd"], s["left_usd"], s["has_ledger"]), (0, None, False))
 
+    def test_spend_per_post(self):
+        self.assertEqual(spend.by_post(spend.rows(self.root, SLUG)), {"AC-2026-11-W1-01": 1.25, "AC-OLD": 9.0})
+
 
 if __name__ == "__main__":
     unittest.main()

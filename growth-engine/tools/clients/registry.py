@@ -5,7 +5,7 @@ from pathlib import Path
 REGISTRY = Path(__file__).resolve().parent / "registry.json"
 REQUIRED = ("slug", "name", "hub_business", "language", "status", "account_stage", "timezone", "cadence",
             "monthly_usd_cap", "vault_folder")
-STATUSES = ("active", "paused", "onboarding", "archived")
+STATUSES = ("onboarding", "research", "active", "paused")  # the hub's brands.status (C1 docs/client-os.md)
 
 
 class RegistryError(Exception):

@@ -11,7 +11,7 @@ if str(TOOLS) not in sys.path:
 
 SLUG = "acme"
 BRAND = {"slug": SLUG, "name": "Acme", "hub_business": "acme-app", "language": "en", "status": "active",
-         "account_stage": "new", "timezone": "America/New_York", "cadence": "Mon and Thu 12:00", "monthly_usd_cap": 50,
+         "account_stage": "new", "timezone": "America/New_York", "cadence": {"per_week": 2, "days": ["Mon", "Thu"]}, "monthly_usd_cap": 50,
          "vault_folder": "Agency OS/Clients/Acme"}
 BRAIN = {"client": SLUG, "account": "@acme", "updated": "2026-10-28",
          "offer": {"main_offer": "free audit", "next_step": "comment AUDIT", "keyword": "AUDIT", "delivers": "30 min"},

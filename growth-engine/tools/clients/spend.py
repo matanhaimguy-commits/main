@@ -22,3 +22,11 @@ def month(root: Path, slug: str, ym: str, cap) -> dict:
             "minutes": got["minutes"], "pieces": sum(d["pieces"] for d in got["by_format"].values()),
             "by_format": {k: {"pieces": d["pieces"], "usd": round(d["usd"], 2)} for k, d in got["by_format"].items()},
             "has_ledger": bool(all_rows)}
+
+
+def by_post(all_rows: list[dict]) -> dict[str, float]:
+    """Atlas USD spent per post_id over the whole ledger (only posts with a row)."""
+    out: dict[str, float] = {}
+    for r in all_rows:
+        out[r["post_id"]] = round(out.get(r["post_id"], 0.0) + float(r.get("atlas_usd") or 0), 2)
+    return out

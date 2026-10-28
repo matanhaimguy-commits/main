@@ -1,51 +1,63 @@
-"""The snapshot body POSTed to the hub's /api/clients/sync: the one place its shape is defined, so it can follow the
-app's contract (C1's docs/client-os.md in agent-start-spark) by changing this file only.
+"""The body POSTed to the hub's /api/clients/sync: the one place its shape is defined. It follows C1's contract,
+docs/client-os.md in matanhaimguy-commits/agent-start-spark (branch claude/client-os-c1):
 
-Contract client-os.snapshot.v0 (studio side, 28 Oct 2026):
-  {contract, generated_at, business, brand: {slug, name, language, status, status_note, account_stage, timezone,
-   cadence, monthly_usd_cap, vault_folder}, brain: {...}, plan: {...}, pieces: [piece], spend: {...}, counts: {...}}
-  piece: {post_id, title, bank, slot: {local, timezone, at}, funnel_stage, job, belief, format, family, format_tier,
-   status, series, episode, cta_type, usd_budget, hook: {id, text, spoken, source} | null,
-   scores: {card_gates: {name: state}, run_gates: [{gate, label, status, score?, by?, at?, note?}],
-            project_gate_score: int | null},
-   production: {run, current_step, steps_done, steps_total, waiting_on_owner, project_stage} | null,
-   links: {card, project, run, studio_post_id, content_external_key, hub_item_id}}
-"""
+  {brand: {slug, name, status, business, language, account_stage, timezone, cadence, monthly_usd_cap},
+   snapshots: {brain, plan, spend},   (onboarding is the hub's own)
+   pieces: [{post_id, status, slot, funnel_stage, job, belief, format, format_family, title, hook_text, hook_grades,
+             script_score, gates, project, studio_post_id, content_external_key, usd_spent, notes}]}
+
+Pieces are always sent whole (the hub marks the brand's other pieces removed). Snapshot data holds no timestamp, so
+an unchanged brain, plan or spend adds no row on the hub."""
 from organic_os.card_title import title_of
 
-CONTRACT = "client-os.snapshot.v0"
-BRAND_KEYS = ("slug", "name", "language", "status", "status_note", "account_stage", "timezone", "cadence",
-              "monthly_usd_cap", "vault_folder")
+BRAND_KEYS = ("slug", "name", "status", "business", "language", "account_stage", "timezone", "cadence", "monthly_usd_cap")
+PIECE_KEYS = ("post_id", "status", "slot", "funnel_stage", "job", "belief", "format", "format_family", "title",
+              "hook_text", "hook_grades", "script_score", "gates", "project", "studio_post_id", "content_external_key",
+              "usd_spent", "notes")
 
 
 def brand_block(entry: dict) -> dict:
-    return {k: entry.get(k) for k in BRAND_KEYS}
+    b = {k: entry.get(k) for k in BRAND_KEYS if k != "business"}
+    b["business"] = entry.get("hub_business")
+    return {k: b[k] for k in BRAND_KEYS}
 
 
-def piece_block(entry: dict, slot: dict, stage: str | None, family: str | None, run: dict | None, proj: dict) -> dict:
-    card = entry["card"]
-    production = None
-    if run or proj.get("stage"):
-        production = {"run": (run or {}).get("run"), "current_step": (run or {}).get("current_step"),
-                      "steps_done": (run or {}).get("steps_done"), "steps_total": (run or {}).get("steps_total"),
-                      "waiting_on_owner": (run or {}).get("waiting_on_owner", []), "project_stage": proj.get("stage")}
-    return {
-        "post_id": card["post_id"], "title": title_of(card), "bank": entry["bank"], "slot": slot,
-        "funnel_stage": stage, "job": card.get("job"), "belief": card.get("belief"), "format": card.get("format"),
-        "family": (run or {}).get("family") or family, "format_tier": card.get("format_tier"),
-        "status": card.get("status"), "series": card.get("series"), "episode": card.get("episode"),
-        "cta_type": card.get("cta_type"), "usd_budget": card.get("usd_budget"), "hook": proj.get("hook"),
-        "scores": {"card_gates": card.get("gates") or {}, "run_gates": (run or {}).get("gates", []),
-                   "project_gate_score": proj.get("gate_score")},
-        "production": production,
-        "links": {"card": entry["path"], "project": proj.get("project"), "run": (run or {}).get("run"),
-                  "studio_post_id": (run or {}).get("post_id"), "content_external_key": proj.get("content_external_key"),
-                  "hub_item_id": card.get("hub_item_id")},
-    }
+def studio_block(entry: dict) -> dict:
+    """Registry facts the hub's brand row has no column for; they ride in the brain snapshot."""
+    return {k: entry[k] for k in ("vault_folder", "status_note") if entry.get(k)}
 
 
-def snapshot(entry: dict, generated_at: str, brain: dict, plan: dict, pieces: list[dict], spend: dict,
-             counts: dict) -> dict:
-    return {"contract": CONTRACT, "generated_at": generated_at, "business": entry["hub_business"],
-            "brand": brand_block(entry), "brain": brain, "plan": plan, "pieces": pieces, "spend": spend,
-            "counts": counts}
+def card_gates(card: dict) -> list[dict]:
+    return [{"gate": f"card:{g}", "status": str(s).upper(), "by": "Post Card"} for g, s in (card.get("gates") or {}).items()]
+
+
+def script_score(run: dict | None, proj: dict):
+    scores = [g["score"] for g in (run or {}).get("gates", []) if g["gate"] == "G-SCRIPT" and "score" in g]
+    return scores[-1] if scores else proj.get("gate_score")
+
+
+def notes_of(entry: dict) -> str | None:
+    note = entry["card"].get("notes")
+    if entry["bank"]:
+        return "Bank card (spare): no slot until it replaces a piece. " + (note or "")
+    return note
+
+
+def piece_block(entry: dict, slot_at: str | None, stage: str | None, family: str | None, run: dict | None,
+                proj: dict, usd_spent: float | None) -> dict:
+    card, hook = entry["card"], proj.get("hook") or {}
+    run_post = (run or {}).get("post_id")
+    p = {"post_id": card["post_id"], "status": card.get("status"), "slot": None if entry["bank"] else slot_at,
+         "funnel_stage": stage, "job": card.get("job"), "belief": card.get("belief"), "format": card.get("format"),
+         "format_family": (run or {}).get("family") or family, "title": title_of(card),
+         "hook_text": hook.get("text") or hook.get("spoken"), "hook_grades": None, "script_score": script_score(run, proj),
+         "gates": card_gates(card) + (run or {}).get("gates", []), "project": proj.get("project"),
+         "studio_post_id": run_post if run_post and run_post != card["post_id"] else None,
+         "content_external_key": proj.get("content_external_key"), "usd_spent": usd_spent, "notes": notes_of(entry)}
+    return {k: p[k] for k in PIECE_KEYS}
+
+
+def snapshot(entry: dict, brain: dict, plan: dict, spend: dict, pieces: list[dict]) -> dict:
+    return {"brand": brand_block(entry),
+            "snapshots": {"brain": {**brain, "studio": studio_block(entry)}, "plan": plan, "spend": spend},
+            "pieces": pieces}

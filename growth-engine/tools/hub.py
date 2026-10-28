@@ -53,7 +53,8 @@ Client OS (the app's per-brand dashboard; brands in growth-engine/tools/clients/
   hub.py client-sync <slug> [--dry-run] [--json] [--month YYYY-MM]
                                                    build the brand's snapshot (brain, plan, one piece per Post
                                                    Card with its run, project and hook, spend) and POST it to
-                                                   /api/clients/sync; --dry-run only prints the counts
+                                                   /api/clients/sync (contract: agent-start-spark docs/client-os.md);
+                                                   --dry-run builds and checks it, prints the counts, sends nothing
 """
 import json, mimetypes, os, re, sys, urllib.error, urllib.request
 from pathlib import Path
