@@ -5,8 +5,9 @@ title: Post Card
 type: object
 additionalProperties: false
 required: [post_id, client, account_language, pillar, series, job, belief, avatar, awareness, demand_phrase,
-  idea_source, source_ref, narrow_product, format, format_tier, angle_proven, credit_budget, hook_type, emotion,
+  idea_source, source_ref, narrow_product, format, format_tier, angle_proven, hook_type, emotion,
   cta_type, hypothesis, success_metric, target, status, slot]
+anyOf: [{required: [usd_budget]}, {required: [credit_budget]}]
 properties:
   post_id: {type: string, pattern: "^[A-Z]{2,5}-\\d{4}-\\d{2}-W\\d-\\d{2}$"}
   client: {type: string}
@@ -27,7 +28,8 @@ properties:
   format_tier: {enum: [A, B, C]}
   angle_proven: {type: boolean}
   wildcard: {type: boolean, description: "The one untested premium piece allowed per month"}
-  credit_budget: {type: integer, minimum: 0}
+  usd_budget: {type: number, minimum: 0, description: "Atlas USD for the piece, from the format's usd range (config/organic.json; STANDARDS.md 10)"}
+  credit_budget: {type: integer, minimum: 0, description: "History: Higgsfield credits, on cards planned before 28 Oct 2026. A card carries usd_budget or this."}
   length_target_s: {type: [integer, "null"], minimum: 5, maximum: 180, description: "Seconds, fitted to a tier of STANDARDS.md section 8 (O15, O30, O60, O90; podcast C45). card-check fails a reel over 90 s until the owner confirms a longer limit (then 180)."}
   slides: {type: [integer, "null"], minimum: 2, maximum: 20}
   hook_type: {enum: [contrarian, hidden_cause, mistake, never_ever, case_study, comparison, tier_list, question, list, personal_story, teaching, myth, self_check, quote]}

@@ -10,6 +10,7 @@ None: production may run.
 
 | Field | Missing | How to get it |
 |---|---|---|
+| package.monthly_usd_cap | the monthly Atlas generation cap in USD; until it is set G-BUDGET fails every paid generation and the router has no budget filter | owner decision (STANDARDS.md 10 prices each format) |
 | business_model.capacity | how many new clients a month the business can take | ask the owner |
 | lead_magnets[WORDS] | resource or keyword flow not live yet | Conversion Agent builds it; no posts may use the keyword until then |
 | messaging | one-liner, pitch, 3 value props and boilerplate the bot, site and captions reuse, approved | draft from the brain's mechanism and offer; owner approves |
@@ -54,3 +55,28 @@ None: production may run.
 | visual.style_bible | no style bible for the English account | Organic Director, from EN 02 to EN 06 once Matan approves a look |
 | avatars | a second avatar for the agency-burned buyer (research AV-03) is proposed, not added (E7) | Matan |
 | voice.adjectives | only two recorded (calm, direct); no third | owner ramble (E12) |
+
+## Proposed monthly USD cap (28 Oct 2026, for Matan; not set in brain.json)
+
+Budgets moved from Higgsfield credits to Atlas USD (STANDARDS.md 10). `package.monthly_usd_cap` is empty, so G-BUDGET
+fails every paid generation on this slug, and the router plans with no budget filter (it warns). The cap is Matan's
+decision (E9).
+
+Per-piece prices with 25% retakes (`config/organic.json` `usd`, prices of 28 Oct): carousel $0.96 to 1.92, single
+image $0.07 to 0.89, quote reel $0.75 to 1.19, motion reel up to $2.34, animation short $1.35 to 2.05, strategist or
+UGC reel $1.58 to 4.15, narrated story $4.00 to 5.23, song $2.48 to 5.93, drama up to $8.28. A 10 s OmniHuman
+talking-object clip is about $0.90 (+25%).
+
+| Month (about 5 posts a week, 22 pieces) | Pieces | At the top of each range |
+|---|---|---|
+| Carousels | 8 | $15.36 |
+| Single images | 4 | $3.56 |
+| Quote and motion reels | 6 | $10.59 |
+| Tier B story reels (narrated, strategist, animation short) | 3 | $15.69 |
+| Tier A (song, drama or animation, wildcard) | 1 | $8.28 |
+| **Total** | 22 | **$53.48** |
+
+**Proposed cap: $60 a month** (the plan above at the top of every range, plus about $6 for a re-test or a new cast's
+sheets). At 7 posts a week with two tier A pieces it would be about $100. The live Atlas balance on 28 Oct was about
+$7 (shared with every session), so whichever cap is set, the balance needs a top-up first. H3 video is charged at
+30% of its list price today; if that discount ends, the same month costs about $90 at the top of every range.

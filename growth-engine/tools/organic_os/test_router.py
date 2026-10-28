@@ -16,11 +16,26 @@ class RouteTest(unittest.TestCase):
     def test_proven_angle_unlocks_tier_a_and_budget_and_rotation_filter(self):
         opts = o.route(card(job="reach", belief="B1", angle_proven=True), BRAIN, MAP)
         self.assertIn("A", [x["tier"] for x in opts])
-        tight = o.route(card(job="reach", belief="B1", angle_proven=True), BRAIN, MAP, spent=1150)
-        self.assertTrue(all(x["credits"][1] <= 50 for x in tight))
+        tight = o.route(card(job="reach", belief="B1", angle_proven=True), BRAIN, MAP, spent=58)
+        self.assertTrue(tight)
+        self.assertTrue(all(x["usd"][1] <= 2 for x in tight))
         no_reels = o.route(card(job="reach", belief="B1"), BRAIN, MAP, prev_family="reel")
         self.assertNotIn("reel", [x["family"] for x in no_reels])
 
+    def test_budget_is_usd_and_no_cap_routes_without_a_filter(self):
+        opts = o.route(card(job="reach", belief="B1", angle_proven=True), BRAIN, MAP, spent=0)
+        self.assertTrue(all(x["usd"][1] <= 60 for x in opts))
+        self.assertEqual(o.route_issues(BRAIN), [])
+        no_cap = {**BRAIN, "package": {"posts_per_week": 7, "account_stage": "new", "monthly_credit_cap": 1200}}
+        routed = o.route(card(job="reach", belief="B1", angle_proven=True), no_cap, MAP, spent=10_000)
+        self.assertEqual([x["format"] for x in routed],
+                         [x["format"] for x in o.route(card(job="reach", belief="B1", angle_proven=True),
+                                                       {**BRAIN, "package": {**BRAIN["package"], "monthly_usd_cap": 1e9}}, MAP)])
+        self.assertTrue(any(x["usd"][1] > 0 for x in routed))
+        self.assertIn("reel", [x["family"] for x in routed])
+        warn = o.route_issues(no_cap)
+        self.assertEqual([(w["level"], w["code"]) for w in warn], [(o.WARN, "budget")])
+        self.assertIn("no monthly_usd_cap set (Matan)", warn[0]["msg"])
 
 if __name__ == "__main__":
     unittest.main()

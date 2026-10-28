@@ -301,7 +301,7 @@ narrow_product: "Level 4 idea in one line"     # see 7.2
 format: reel_talking_character   # see 7.4 library
 format_tier: B                 # A song/animation | B talking head, UGC, podcast | C motion, carousel, image (7.7)
 angle_proven: false            # true only if this angle beat the median in a cheaper format; Tier A needs true (or the monthly wildcard)
-credit_budget: 110             # from the 7.7 table, checked against the monthly cap
+usd_budget: 4.15              # the format's usd range (organic.json; STANDARDS 10), against the monthly USD cap
 length_target_s: 45
 hook_type: hidden_cause
 emotion: surprise              # one of 6 buckets

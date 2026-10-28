@@ -17,7 +17,8 @@ ledger.json, shots/, prompts/, qa/, assets/, audio/, edit/, final/ and calls.jso
   pipeline.py media <slug> <post_id> <asset>[@v] [--id ID ...] [--file PATH ...]   uploaded/generated ids and files
   pipeline.py record <slug> <post_id> <report.json>                   record a reviewer report (orchestrator only)
   pipeline.py gate <slug> <post_id> <GATE> --status PASS|FAIL --by WHO [--asset A@v] [--note T] [--score N] [--data JSON]
-  pipeline.py budget <slug> <post_id> --planned N --balance B [--el N]   G-BUDGET: monthly cap, live balance, 25% retakes
+  pipeline.py budget <slug> <post_id> --planned USD --balance USD   G-BUDGET in Atlas USD: monthly cap, live balance
+                                                                      (`atlas account balance`), 25% retakes
   pipeline.py ask <slug> <post_id> <CHECKPOINT> --note T [--asset A@v] [--files a,b]   queue a human checkpoint
   pipeline.py approve <slug> <post_id> <CHECKPOINT> --by NAME [--asset A@v] [--note T] [--reject]
   pipeline.py queue [--slug S] [--write]                              the daily human approval queue
@@ -40,6 +41,10 @@ from pathlib import Path
 
 import jsonschema
 import yaml
+
+import atlas_calls
+import atlas_rules
+import budget_usd
 
 GE = Path(__file__).resolve().parents[1]
 PROD = GE / "production"
@@ -672,28 +677,8 @@ def record_gate(slug, post_id, gate, status, by, asset=None, note=None, score=No
 
 
 def budget(slug, post_id, planned: float, balance: float, el: float = 0.0) -> dict:
-    sys.path.insert(0, str(GE / "tools"))
-    from organic_os import files as organic_files, router as organic_router  # noqa: E402
-    organic_files.ROOT = ROOT  # client_dir() reads this module's ROOT
-    brain = organic_files.load_brain(slug)
-    cap = (brain.get("package") or {}).get("monthly_credit_cap")
-    month = now().strftime("%Y-%m")
-    spent = organic_router.month_spend(organic_router.ledger_rows(slug), month)
-    need = planned * (1 + STANDARDS["gate_policy"]["retake_buffer"])
-    notes = []
-    status = PASS
-    if cap is not None and spent.get("credits", 0) + need > cap:
-        status = FAIL
-        notes.append(f"month cap {cap}: spent {spent.get('credits', 0)} + planned {need:.0f} with buffer is over")
-    if need > balance:
-        status = FAIL
-        notes.append(f"live balance {balance} can't cover {need:.0f} (planned + 25% retakes)")
-    data = {"planned": planned, "with_buffer": round(need, 1), "balance": balance, "month_spent": spent.get("credits", 0),
-            "cap": cap, "el_planned": el}
-    led = load_ledger(slug, post_id)
-    add_record(led["run_gates"], "G-BUDGET", {"status": status, "by": "pipeline.py budget", "data": data, "note": "; ".join(notes)})
-    save_ledger(led)
-    return {"status": status, "notes": notes, **data}
+    """G-BUDGET in Atlas USD (budget_usd.py): planned and the live balance in USD. el: ElevenLabs credits, history."""
+    return budget_usd.run(sys.modules[__name__], slug, post_id, planned, balance, el)
 
 
 # ---- steps and status -----------------------------------------------------------------------------
@@ -752,7 +737,7 @@ def budget_after_steps(led: dict, n: int) -> tuple[bool, str]:
               if int(k) < n and st.get("status") == "done" and st.get("at")]
     if closed and parse_ts(b["at"]) < max(closed):
         return False, (f"the last G-BUDGET ({b['at']}) is older than step {n - 1}'s close: re-price the whole piece with "
-                       f"pipeline.py budget {led['slug']} {led['post_id']} --planned N --balance B")
+                       f"pipeline.py budget {led['slug']} {led['post_id']} --planned USD --balance USD")
     return True, ""
 
 
@@ -917,7 +902,7 @@ def generated_before(led: dict, a: dict) -> bool:
             e = json.loads(line)
         except json.JSONDecodeError:
             continue
-        if e.get("decision") == "ALLOW" and not e.get("dry") and e.get("asset") == aref(a):
+        if e.get("decision") == "ALLOW" and not e.get("dry") and not e.get("analysis") and e.get("asset") == aref(a):
             return True
     return False
 
@@ -932,7 +917,8 @@ def attempts(led: dict, asset_id: str) -> int:
             e = json.loads(line)
         except json.JSONDecodeError:
             continue
-        if e.get("decision") == "ALLOW" and not e.get("dry") and (e.get("asset") or "").split("@")[0] == asset_id:
+        if e.get("decision") == "ALLOW" and not e.get("dry") and not e.get("analysis") \
+                and (e.get("asset") or "").split("@")[0] == asset_id:
             seen.add(e["asset"])
     return len(seen)
 
@@ -957,111 +943,17 @@ def _spec_aspect(a: dict, led: dict, p: dict) -> list[str]:
     return []
 
 
-ATLAS_ENTRY_KEYS = {"id", "kind", "use", "params", "params_one_of", "params_if_given", "min_s", "max_s", "text_fields",
-                    "note"}
-
-
-def _atlas_entry_problem(e) -> str | None:
-    if not isinstance(e, dict) or not isinstance(e.get("id"), str) or set(e) - ATLAS_ENTRY_KEYS:
-        return "each entry is an object {id, kind, use, params, params_one_of, params_if_given, min_s, max_s, text_fields}"
-    if e.get("kind") not in ("image", "video", "audio"):
-        return "kind is image, video or audio (no asset type makes 3D)"
-    for k in ("params", "params_one_of", "params_if_given"):
-        if not isinstance(e.get(k, {}), dict):
-            return f"{k} is an object"
-    if any(not isinstance(v, list) for k in ("params_one_of", "params_if_given") for v in (e.get(k) or {}).values()):
-        return "params_one_of and params_if_given map each key to a list of values"
-    for k in ("use", "text_fields"):
-        if not isinstance(e.get(k, []), list) or not all(isinstance(x, str) for x in e.get(k, [])):
-            return f"{k} is a list of names"
-    for k in ("min_s", "max_s"):
-        if k in e and (isinstance(e[k], bool) or not isinstance(e[k], (int, float))):
-            return f"{k} is a number of seconds"
-    if e["kind"] == "video" and not ("min_s" in e and "max_s" in e):
-        return "a video entry sets min_s and max_s (the clip length rules)"
-    return None
-
-
 def _atlas_entry(model, kind: str) -> tuple[dict | None, list[str]]:
-    """The owner's entry for an Atlas model (standards.json models.atlas.allowed). Only that list opens Atlas;
-    G-EXCEPTION does not (STANDARDS.md 1)."""
-    allowed = STANDARDS["models"]["atlas"]["allowed"]
-    for e in allowed:
-        bad = _atlas_entry_problem(e)
-        if bad:
-            return None, [f"growth-engine/production/standards.json models.atlas.allowed has an entry the gate can't read "
-                          f"({json.dumps(e)[:120]}): {bad} (growth-engine/tools/atlas/README.md)"]
-    if kind == "3d":
-        return None, ["Atlas 3d calls are blocked: no asset type in standards.json makes 3D"]
-    named = [e["id"] for e in allowed]
-    e = next((x for x in allowed if x["id"] == model), None)
-    if e is None:
-        return None, [f"Atlas model {model} is not on the owner's list: growth-engine/production/standards.json "
-                      f"models.atlas.allowed ({', '.join(named) if named else 'empty: no Atlas model is named yet'}). "
-                      "Only the owner adds a model there, by its exact id (STANDARDS.md 1)"]
-    if e["kind"] != kind:
-        return None, [f"Atlas model {model} is named for {e['kind']} calls, not {kind}"]
-    return e, []
+    """The owner's entry for an Atlas model (standards.json models.atlas.allowed; atlas_rules.py)."""
+    return atlas_rules.find_entry(STANDARDS["models"]["atlas"]["allowed"], model, kind)
 
 
 def _atlas_text(req: dict, e: dict) -> str:
-    """The text the Prompt Reviewer reviews for an Atlas call: the prompt, then each of the entry's text_fields the call
-    sets, as a `[field]` line and its text, in the entry's order (whitespace does not count: norm_prompt)."""
-    text = req.get("prompt") or ""
-    for k in e.get("text_fields") or []:
-        v = req["params"].get(k)
-        if isinstance(v, str):
-            text += f"\n\n[{k}]\n{v}"
-    return text
-
-
-def _strings(v):
-    if isinstance(v, str):
-        yield v
-    elif isinstance(v, (list, tuple)):
-        for x in v:
-            yield from _strings(x)
-    elif isinstance(v, dict):
-        for k, x in v.items():
-            yield str(k)
-            yield from _strings(x)
+    return atlas_rules.review_text(req, e)
 
 
 def _atlas_checks(req: dict, a: dict, led: dict) -> list[str]:
-    """The owner's entry applied to the call, as models.image / models.video entries are for Higgsfield."""
-    e, model, p, why = req["atlas"], req.get("model"), req["params"], []
-    src = "standards.json models.atlas.allowed"
-    if e.get("use") and a["type"] not in e["use"]:
-        why.append(f"{model} is named for {', '.join(e['use'])}, not a {a['type']} ({src})")
-    for k, v in (e.get("params") or {}).items():
-        if p.get(k) != v:
-            why.append(f"{model}: pass {k}: {v!r} ({src})")
-    for k, opts in (e.get("params_one_of") or {}).items():
-        if p.get(k) not in opts:
-            why.append(f"{model}: pass {k} as one of {opts} ({src}), not {p.get(k)!r}")
-    for k, opts in (e.get("params_if_given") or {}).items():
-        if k in p and p[k] not in opts:
-            why.append(f"{model}: {k} must be one of {opts} ({src})")
-    if "min_s" in e or "max_s" in e:
-        d, lo, hi = p.get("duration"), e.get("min_s", 0), e.get("max_s", float("inf"))
-        if isinstance(d, bool) or not isinstance(d, (int, float)) or not lo <= d <= hi:
-            why.append(f"duration {d!r} outside {lo} to {hi} s ({src}; STANDARDS.md clip rules)")
-    texts = e.get("text_fields") or []
-    for k in texts:
-        if k in p and not isinstance(p[k], str):
-            why.append(f"{model}: {k} is a text field: pass it as text, reviewed with the prompt")
-    listed = set(e.get("params") or {}) | set(e.get("params_one_of") or {}) | set(e.get("params_if_given") or {}) \
-        | set(texts)
-    refs = {m["value"] for m in req.get("medias") or []}
-    for k, v in p.items():
-        loose = [s for s in _strings(v) if s not in refs]
-        if k not in listed and loose:
-            why.append(f"{model}: {k} carries text no review covers ({loose[0][:40]!r}): drop it, or the owner lists {k} "
-                       f"in the model's entry (params, params_one_of, params_if_given, or text_fields, which are reviewed "
-                       f"with the prompt) ({src})")
-    if req["kind"] in ("image", "video"):
-        why += _spec_aspect(a, led, p)
-    return why
+    return atlas_calls.checks(sys.modules[__name__], req, a, led)
 
 
 def _model_checks(req: dict, a: dict, led: dict) -> list[str]:
@@ -1172,6 +1064,8 @@ def _check_request(req: dict) -> tuple[bool, list[str], dict | None, dict | None
         e, why = _atlas_entry(req.get("model"), req["kind"])
         if why:
             return False, why, None, None
+        if e.get("analysis"):
+            return atlas_calls.analysis(sys.modules[__name__], req, e)
         req["atlas"], req["prompt"] = e, _atlas_text(req, e)
     if not norm_prompt(req.get("prompt")):
         return False, ["no prompt: every generation carries the reviewed prompt card"], None, None
@@ -1200,9 +1094,9 @@ def _check_asset(led: dict, a: dict, req: dict, prompt_sha: str | None):
     pol = STANDARDS["gate_policy"]
     b = latest(led["run_gates"].get("G-BUDGET"))
     if not b or b["status"] not in OK_STATES:
-        why.append(f"no G-BUDGET PASS for {led['post_id']} (pipeline.py budget {led['slug']} {led['post_id']} --planned N --balance B)")
+        why.append(f"no G-BUDGET PASS for {led['post_id']} (pipeline.py budget {led['slug']} {led['post_id']} --planned USD --balance USD)")
     elif now() - parse_ts(b["at"]) > dt.timedelta(hours=pol["budget_fresh_hours"]):
-        why.append(f"G-BUDGET is older than {pol['budget_fresh_hours']} h: check the live balance again (credits are shared)")
+        why.append(f"G-BUDGET is older than {pol['budget_fresh_hours']} h: check the live Atlas balance again (it is shared)")
     st9 = led.get("steps", {}).get("9")
     if info["kind"] == "video" and st9 and st9.get("status") != "done" and st9.get("status") != "na":
         why.append(f"step 9 (budget preflight) is not closed for {led['post_id']}: re-price the whole video "
@@ -1316,6 +1210,7 @@ def check_call(tool_name: str, tool_input: dict) -> tuple[bool, list[str]]:
             allowed = False
             reasons += [tag + w for w in why]
         logs.append((led, {"at": stamp(), "tool": tool_name, "asset": aref(a) if a else None, "dry": bool(r.get("dry")),
+                           "analysis": bool(r.get("analysis")),
                            "sha": sha_text(r.get("prompt") or "")[:16] if r.get("prompt") else None, "why": why}))
     decision = "ALLOW" if allowed else "DENY"
     for led, e in logs:
@@ -1424,8 +1319,9 @@ def main(argv=None) -> int:
             print(f"{a.gate}: {rec['status']} by {rec['by']}")
         elif a.cmd == "budget":
             r = budget(a.slug, a.post_id, a.planned, a.balance, a.el)
-            print(f"G-BUDGET {r['status']}: planned {r['planned']} (+25% = {r['with_buffer']}), balance {r['balance']}, "
-                  f"month {r['month_spent']} of {r['cap']}")
+            cap = f"${r['cap']:.2f}" if r["cap"] is not None else "no cap set"
+            print(f"G-BUDGET {r['status']}: planned ${r['planned']:.2f} (+25% = ${r['with_buffer']:.2f}), balance "
+                  f"${r['balance']:.2f}, month ${r['month_spent']:.2f} of {cap}")
             for n in r["notes"]:
                 print(f"  {n}")
             return 0 if r["status"] == PASS else 1

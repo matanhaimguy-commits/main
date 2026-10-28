@@ -44,6 +44,10 @@ def entry(model=IMG_MODEL, kind="image", **kw):
 
 
 IMG_ENTRY = entry(params_one_of={"aspect_ratio": ["4:5", "9:16"]})
+OMNI, STT = "bytedance/avatar-omni-human-v2.0", "xai/stt-v1"
+SB_URL, SLICE_URL = "https://cdn.example.com/acme/sb-phone.png", "https://cdn.example.com/acme/slice-01.mp3"
+OMNI_PROMPT = "The phone on the desk speaks the line, screen glowing on each word; locked camera."
+SHOT = "S30-SEQ01-SH1"
 
 
 class Wrapper(TP.Base):
@@ -53,7 +57,9 @@ class Wrapper(TP.Base):
     def setUpClass(cls):
         cls.repo_tmp = tempfile.TemporaryDirectory()
         r = Path(cls.repo_tmp.name)
-        for rel in ("growth-engine/tools/pipeline.py", "growth-engine/tools/organic.py",
+        for rel in ("growth-engine/tools/pipeline.py", "growth-engine/tools/atlas_rules.py", "growth-engine/tools/atlas_calls.py",
+                    "growth-engine/tools/budget_usd.py",
+                    "growth-engine/tools/organic.py",
                     "growth-engine/tools/atlas/atlas_gate.py", "growth-engine/production/standards.json",
                     "growth-engine/production/schemas", "growth-engine/config"):
             src, dst = REPO / rel, r / rel
@@ -364,6 +370,27 @@ class Wrapper(TP.Base):
         self.assertEqual(r.returncode, 127)
         self.assertIn("setup.sh", r.stderr.decode())
 
+    # ---- the owner's 27 Oct picks (OmniHuman 2.0, xai/stt-v1) through the wrapper ----
+
+    def real_entries(self):
+        std = json.loads((REPO / "growth-engine/production/standards.json").read_text())
+        self.allow([e for e in std["models"]["atlas"]["allowed"] if e["id"] in (OMNI, STT)])
+
+    def test_stt_command_lines(self):
+        self.real_entries()
+        P.init_run(SLUG, POST, "reel_quote_broll")
+        P.new_asset(SLUG, POST, "VO", "voice")
+        P.add_media(SLUG, POST, "VO@v1", ids=[SLICE_URL])
+        args = ("generate", "audio", STT, "--audio", SLICE_URL, "--param", "language=en")
+        self.passed(self.atlas(*args), args)
+        self.blocked(self.atlas("generate", "audio", STT, "--audio", SLICE_URL), "pass language: 'en'")
+        self.blocked(self.atlas(*args, "-p", "hello"), "takes no prompt")
+
+    def test_omnihuman_unregistered_call_is_blocked_before_the_cli(self):
+        self.real_entries()
+        self.blocked(self.atlas("generate", "video", OMNI, "--image", SB_URL, "--audio", SLICE_URL, "-p", OMNI_PROMPT),
+                     "is not registered on any asset")
+
 
 class Parse(TP.Base):
     """What the wrapper hands the gate for a command line (TP.Base: the gate log goes to a temp folder)."""
@@ -480,6 +507,82 @@ class AtlasRules(TP.Base):
         self.assertIn("is not a registered asset with a passed review", " ".join(why))
         ok, why = P.check_call("atlas_generate", {**clone, "medias": []})
         self.assertTrue(ok, why)
+
+
+class OmniAndStt(TP.Base):
+    """The owner's two 27 Oct picks with their real standards.json entries, through check_call."""
+
+    def talking_object_run(self, subjects=("PR-PHONE",), seconds=9.4):
+        P.init_run(SLUG, POST, "reel_animation_short")
+        spec = {**TP.SLIDE, "shot_id": SHOT, "format": "animation_3d", "hero": False,
+                "camera": {**TP.SLIDE["camera"], "aspect": "9:16"},
+                "subjects": [{"id": s, "state": "on the desk", "pose": "upright", "expression": "smug"} for s in subjects]}
+        TP.write(P.spec_path(SLUG, POST, SHOT), spec)
+        P.spec_check(SLUG, POST)
+        P.record_report(SLUG, POST, self.report(gate="G-SPEC", shot_id=SHOT, checks=[],
+                                                spec_sha256=P.sha_file(P.spec_path(SLUG, POST, SHOT))))
+        P.new_asset(SLUG, POST, "SB-SEQ01", "storyboard", [SHOT])
+        P.add_media(SLUG, POST, "SB-SEQ01@v1", ids=[SB_URL])
+        P.record_gate(SLUG, POST, "G-VIS-BOARD", "OVERRIDE", "Matan", asset="SB-SEQ01@v1", note="test")
+        P.record_gate(SLUG, POST, "G-CONTINUITY", "OVERRIDE", "Matan", note="test", covers=["SB-SEQ01@v1"])
+        P.new_asset(SLUG, POST, "SLICE-SEQ01", "audio_slice")
+        P.add_media(SLUG, POST, "SLICE-SEQ01@v1", ids=[SLICE_URL])
+        P.record_gate(SLUG, POST, "G-AUDIO", "PASS", "take check", asset="SLICE-SEQ01@v1", note="words match",
+                      data={"seconds": seconds} if seconds is not None else None)
+        P.new_asset(SLUG, POST, "SEQ01-video", "video_clip", [SHOT])
+        medias = [{"value": SB_URL, "role": "image"}, {"value": SLICE_URL, "role": "audio"}]
+        a = P.set_prompt(SLUG, POST, "SEQ01-video", OMNI_PROMPT, medias)
+        P.record_report(SLUG, POST, self.report(gate="G-PROMPT-VID", asset_id="SEQ01-video", version=1,
+                                                prompt_sha256=a["prompt_sha256"], checks=self.checks("prompt")))
+        P.budget(SLUG, POST, planned=1, balance=8)
+        led = P.load_ledger(SLUG, POST)
+        led["steps"]["9"] = {"status": "done", "at": P.stamp()}   # the step 9 re-price, closed for this test
+        P.save_ledger(led)
+        return medias
+
+    def omni(self, medias, **params):
+        return P.check_call("atlas_generate", {"kind": "video", "model": OMNI, "prompt": OMNI_PROMPT,
+                                               "medias": medias, "params": params})
+
+    def test_omnihuman_runs_a_talking_object_clip_with_no_duration(self):
+        medias = self.talking_object_run()
+        ok, why = self.omni(medias)
+        self.assertTrue(ok, why)
+        ok, why = self.omni(medias, duration=10)
+        self.assertIn("has no duration setting", " ".join(why))
+        calls = (P.run_dir(SLUG, POST) / "calls.jsonl").read_text().splitlines()
+        self.assertEqual([json.loads(c)["decision"] for c in calls], ["ALLOW", "DENY"])
+
+    def test_omnihuman_refuses_people_and_unmeasured_or_long_audio(self):
+        medias = self.talking_object_run(subjects=("PR-PHONE", "CH-ARTA"), seconds=None)
+        why = " ".join(self.omni(medias)[1])
+        self.assertIn("talking-object clips only", why)
+        self.assertIn("has no measured length", why)
+        P.record_gate(SLUG, POST, "G-AUDIO", "PASS", "take check", asset="SLICE-SEQ01@v1", note="re-measured",
+                      data={"seconds": 16.2})
+        self.assertIn("the audio is 16.2 s", " ".join(self.omni(medias)[1]))
+
+    def test_stt_reads_our_registered_audio_with_no_prompt_or_budget(self):
+        P.init_run(SLUG, POST, "reel_quote_broll")
+        P.new_asset(SLUG, POST, "VO", "voice")
+        P.add_media(SLUG, POST, "VO@v1", ids=[SLICE_URL])
+        req = {"kind": "audio", "model": STT, "prompt": "", "medias": [{"value": SLICE_URL, "role": "audio"}],
+               "params": {"language": "en"}}
+        ok, why = P.check_call("atlas_generate", req)
+        self.assertTrue(ok, why)
+        line = json.loads((P.run_dir(SLUG, POST) / "calls.jsonl").read_text())
+        self.assertEqual((line["asset"], line["decision"], line["analysis"]), ("VO@v1", "ALLOW", True))
+        led = P.load_ledger(SLUG, POST)
+        vo = P.get_asset(led, "VO@v1")
+        self.assertFalse(P.generated_before(led, vo), "reading a file is not a generation of it")
+        self.assertEqual(P.attempts(led, "VO"), 0)
+        for bad, needle in ((dict(req, prompt="words"), "takes no prompt"),
+                            (dict(req, params={}), "pass language: 'en'"),
+                            (dict(req, medias=[{"value": "https://elsewhere/x.mp3", "role": "audio"}]),
+                             "not registered on any asset")):
+            ok, why = P.check_call("atlas_generate", bad)
+            self.assertFalse(ok)
+            self.assertIn(needle, " ".join(why))
 
 
 class BashHook(unittest.TestCase):

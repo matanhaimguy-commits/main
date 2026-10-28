@@ -466,6 +466,63 @@
             ]
           },
           "text_fields": []
+        },
+        {
+          "id": "bytedance/avatar-omni-human-v2.0",
+          "kind": "video",
+          "use": [
+            "video_clip"
+          ],
+          "duration_from": "audio",
+          "aspect_from": "image",
+          "prop_subjects_only": true,
+          "min_s": 4,
+          "max_s": 15,
+          "params_if_given": {
+            "watermark": [
+              false
+            ]
+          },
+          "text_fields": [],
+          "note": "Talking-object clips only (every Shot Spec subject is a PR- prop): the object's approved 9:16 start frame, registered as a one-panel storyboard, as --image and its G-AUDIO-passed slice as --audio. No duration setting: the clip is as long as the audio, measured on the slice's G-AUDIO PASS (data.seconds), 4 to 15 s. Owner's pick, 27 Oct 2026."
+        },
+        {
+          "id": "xai/stt-v1",
+          "kind": "audio",
+          "analysis": true,
+          "reads": [
+            "voice",
+            "audio_slice",
+            "song",
+            "music",
+            "video_clip",
+            "final"
+          ],
+          "params": {
+            "language": "en"
+          },
+          "params_if_given": {
+            "audio_format": [
+              "auto"
+            ],
+            "diarize": [
+              true,
+              false
+            ],
+            "filler_words": [
+              true,
+              false
+            ],
+            "text_normalization": [
+              true,
+              false
+            ],
+            "enable_sync_mode": [
+              true,
+              false
+            ]
+          },
+          "note": "Word timings for captions, slices and take checks: English only. Analysis, not generation: no prompt, no budget gate; it reads one file registered on one of our assets (pipeline.py media ... --id URL). Owner's pick, 27 Oct 2026."
         }
       ]
     },
@@ -1185,5 +1242,23 @@
   "disabled_services": {
     "_doc": "Services the generation gate refuses whatever the call. Owner decides.",
     "higgs": "Matan, 28 Oct 2026: never Higgsfield; generation runs on Atlas (much cheaper) through the gated `atlas` command."
+  },
+  "atlas_prices": {
+    "_doc": "Atlas Cloud prices in USD, read 28 Oct 2026 with `atlas models get <id> --json` (pricing), `atlas generate cost ...` (free estimates) and the account's billed costs (`atlas account costs`). STANDARDS.md 10 and its 28 Oct changelog line list every price. Per-piece budgets (config/organic.json formats[].usd) come from these and the format's atlas_units; G-BUDGET and the router count USD.",
+    "as_of": "2026-10-28",
+    "image": 0.059,
+    "image_note": "openai/gpt-image-2 at quality medium, the dearest named route and size (edit at 1152x2048: 0.058694; text-to-image 1152x2048 0.04739, 1024x1536 0.04616, 1024x1024 0.05768; edit 1024x1536 0.057136). Reference count does not change the price.",
+    "video_s": 0.024,
+    "video_note": "minimax/h3-developer image-to-video and reference-to-video at 768P, per second of the duration asked for (estimates: 10 s 0.24, 15 s 0.36; billed 25 Oct: 38 s 0.912 and 41 s 0.984). Discounted: the list price is 0.08/s and Atlas charges 30% of it (estimate origin_price 0.80, discount 30, 28 Oct); without the discount video budgets roughly double to triple.",
+    "omni_s": 0.0896,
+    "omni_note": "bytedance/avatar-omni-human-v2.0 per second of audio. The pricing field says 0.056 at 720p, but the free estimates charge 0.0896/s (a 6.1 s file 0.546922; a 6 min 12 s file, billed at the model's 300 s audio limit, 26.88) and the 25 Oct bill agrees (2 clips, 19 s of video, 1.76245), so budgets use 0.0896. The estimate's origin_price is 0.112/s with discount 80.",
+    "tts_1k_chars": 0.1,
+    "tts_note": "elevenlabs/v3/text-to-speech per 1,000 characters of text (estimates: 200 chars 0.02, 1,000 0.10, 4,000 0.40).",
+    "song": 0.132,
+    "song_note": "suno/chirp-v6 per call, whatever the duration (estimates at 30, 60 and 90 s: 0.132; billed 27 Oct: 2 calls 0.264).",
+    "stt_min": 0.0017,
+    "stt_note": "xai/stt-v1 per minute of audio (estimates: the 6.1 s file 0.000173, the 6 min 12 s file 0.01056). Analysis, about 0.10 an hour.",
+    "chars_per_word": 6,
+    "chars_note": "English words plus the space, to turn the narration's words (STANDARDS 4 pace) into TTS characters."
   }
 }

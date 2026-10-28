@@ -3,12 +3,14 @@
 Atlas Cloud (`atlas`, pinned to 0.1.38) can make images, video, audio and 3D. Every billable call goes through the
 production gate (`growth-engine/tools/pipeline.py check_call`, VISUAL-QA section 9), so nothing is made on Atlas
 without a registered, reviewed prompt, reviewed references and a budget, and only on a model the owner has named with
-its parameters. Today no Atlas model is named, so every Atlas generation is blocked.
+its parameters. The named models are in `standards.json` `models.atlas.allowed` (STANDARDS.md 1); every other
+model is blocked.
 
 | File | What it is |
 |---|---|
 | `setup.sh` | Installs the pinned CLI (sha256 checked before install) and the `atlas` wrapper, signs in, prints a status. Idempotent. |
 | `atlas_gate.py` | The wrapper: reads each command, gates the billable ones, then runs the real CLI. |
+| `../atlas_rules.py` | The owner's entries applied to one call (`pipeline.py` loads the ledger and calls it). Tests: `../test_atlas_rules.py`. |
 | `../test_atlas_gate.py` | Tests: `python3 -m unittest growth-engine/tools/test_atlas_gate.py` |
 
 ## Owner setup
@@ -71,9 +73,17 @@ The gate then checks, for an Atlas call, exactly this:
 6. the Shot Specs are current with G-SPEC, the prompt has its G-PROMPT-IMG or G-PROMPT-VID PASS, and the references
    are the reviewed ones in the same order and roles, each with its own review PASS (the storyboard rule for talking or
    multi-shot clips included);
-7. audio calls also need the released script (G-SCRIPT). Audio asset types have no prompt-review gate (as for
+7. audio generation calls also need the released script (G-SCRIPT). Audio asset types have no prompt-review gate (as for
    ElevenLabs: the words are the released script), but their references are checked as in 6, so a voice clone from an
    unreviewed `--audio URL` is blocked.
+
+An **analysis** entry (`"analysis": true`, today `xai/stt-v1`) makes nothing, so steps 2 and 4 to 7 don't apply: the
+call has no prompt, its one reference (`--audio URL`) is registered on one of our assets of a type the entry `reads`,
+and step 3's parameter rules hold (`language: en`). It needs no G-BUDGET (about $0.10 an hour of audio); the record
+goes to that asset's run. An entry with `"duration_from": "audio"` (OmniHuman 2.0) has no duration setting: the gate
+refuses `duration`, takes the length from the one `--audio` reference's G-AUDIO PASS (`pipeline.py gate ... G-AUDIO
+--data '{"seconds": 9.4}'`) and checks it against `min_s` to `max_s`; `"aspect_from": "image"` skips step 4 (the frame
+follows the image), and `"prop_subjects_only": true` passes only clips whose Shot Specs show nothing but `PR-` props.
 
 G-EXCEPTION does not open Atlas, and none of the Higgsfield model rules (`models.image`, `models.video`) apply: the
 owner's entry is the whole model rule.
@@ -98,7 +108,7 @@ skills are prompt-craft reference only; read them with the Read tool.
 
 Add an entry to `growth-engine/production/standards.json` `models.atlas.allowed`, with a dated line in `STANDARDS.md`'s
 changelog. Only the owner does this. Read the model's fields first with `atlas models get MODEL --json`. Example (the
-shape only; no model is named):
+shape only; this model is not named):
 
 ```json
 { "id": "google/nano-banana-2/edit", "kind": "image", "use": ["slide", "cover"],
@@ -113,6 +123,10 @@ shape only; no model is named):
 | `params` / `params_one_of` / `params_if_given` | A value the call must pass / one of these values it must pass / values allowed when it passes the key. |
 | `min_s`, `max_s` | Duration bounds in seconds; required for video. |
 | `text_fields` | Extra text fields the call may set (`negative_prompt`, `lyrics`, `style`, `title`, `negative_tags`, ...). They are reviewed with the prompt: register the prompt card as the prompt, then for each of these fields the call sets, in this order, a line `[field]` and its text. If a text field has a default in `atlas models get` (some music models have default lyrics), pass it explicitly. |
+| `duration_from` | `"audio"`: the model has no duration; the clip is as long as its audio reference, measured on that audio's G-AUDIO PASS (`data.seconds`), within `min_s` to `max_s`. |
+| `aspect_from` | `"image"`: the frame follows the image reference, so the call passes no aspect ratio. |
+| `prop_subjects_only` | `true`: only for clips whose every Shot Spec subject is a `PR-` prop (a talking object). |
+| `analysis`, `reads` | `true` and the asset types it reads: an analysis call (no prompt, no budget, one registered file). |
 
 Any parameter that carries text and is not listed in the entry blocks the call, so list `aspect_ratio`, `resolution`,
 `quality`, a voice id and the like with their allowed values. A family banned in STANDARDS.md 1 (Seedance, Veo, Sora

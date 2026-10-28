@@ -1,10 +1,12 @@
-"""Format router within the monthly budget, and the credit ledger (ORGANIC-OS 7.7)."""
+"""Format router within the monthly budget, and the spend ledger (ORGANIC-OS 7.7). Budgets are Atlas USD; the
+ledger's Higgsfield and ElevenLabs credit columns stay readable for history."""
 from __future__ import annotations
 
 import csv
 
 from .config import CONFIG
 from .files import client_dir
+from .issues import WARN, issue
 
 
 def ledger_rows(slug: str) -> list[dict]:
@@ -20,18 +22,33 @@ def month_spend(rows: list[dict], month: str) -> dict:
     num = lambda r, k: float(r.get(k) or 0)
     by_fmt: dict[str, dict] = {}
     for r in sel:
-        d = by_fmt.setdefault(r["format"], {"pieces": 0, "credits": 0.0, "minutes": 0.0})
+        d = by_fmt.setdefault(r["format"], {"pieces": 0, "usd": 0.0, "credits": 0.0, "minutes": 0.0})
         d["pieces"] += 1
+        d["usd"] += num(r, "atlas_usd")
         d["credits"] += num(r, "higgsfield_credits")
         d["minutes"] += num(r, "minutes")
-    return {"month": month, "credits": sum(num(r, "higgsfield_credits") for r in sel),
+    return {"month": month, "usd": round(sum(num(r, "atlas_usd") for r in sel), 2),
+            "credits": sum(num(r, "higgsfield_credits") for r in sel),
             "elevenlabs": sum(num(r, "elevenlabs_credits") for r in sel),
             "minutes": sum(num(r, "minutes") for r in sel), "by_format": by_fmt}
 
 
+def usd_cap(brain: dict) -> float | None:
+    """The owner's monthly Atlas cap in USD (brain.json package.monthly_usd_cap); None when not set."""
+    cap = (brain.get("package") or {}).get("monthly_usd_cap")
+    return None if isinstance(cap, bool) or not isinstance(cap, (int, float)) else cap
+
+
+def route_issues(brain: dict) -> list[dict]:
+    if usd_cap(brain) is None:
+        return [issue(WARN, "budget", "no monthly_usd_cap set (Matan): formats are routed with no budget filter")]
+    return []
+
+
 def route(card: dict, brain: dict, cmap: dict, prev_family: str | None = None, spent: float = 0.0) -> list[dict]:
-    cap = brain["package"]["monthly_credit_cap"]
-    remaining = cap - spent
+    """spent: Atlas USD spent this month. With no USD cap set (the owner's), no budget filter: route_issues warns."""
+    cap = usd_cap(brain)
+    remaining = float("inf") if cap is None else cap - spent
     permitted_proof = any(p.get("permission") == "yes" for p in brain.get("proof_bank", []))
     buyer_formats = cmap.get("buyer_formats", [])
     out = []
@@ -47,7 +64,7 @@ def route(card: dict, brain: dict, cmap: dict, prev_family: str | None = None, s
             continue
         if prev_family and f["family"] == prev_family:
             continue
-        if f["credits"][1] > remaining:
+        if f["usd"][1] > remaining:
             continue
         score = 0.0
         if fid in buyer_formats:
@@ -71,6 +88,7 @@ def route(card: dict, brain: dict, cmap: dict, prev_family: str | None = None, s
             score += 0.5; why.append("cheap: test the angle first")
         if f["family"] == "image":
             score -= 2
-        out.append({"format": fid, "tier": f["tier"], "family": f["family"], "credits": f["credits"], "score": score,
+        out.append({"format": fid, "tier": f["tier"], "family": f["family"], "usd": f["usd"], "credits": f["credits"],
+                    "score": score,
                     "why": "; ".join(why) or "fits job and belief", "skill": f.get("skill")})
     return sorted(out, key=lambda r: -r["score"])
