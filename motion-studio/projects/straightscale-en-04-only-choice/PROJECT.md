@@ -35,7 +35,7 @@ motion-reel skill for the build later. Docs: `docs/hook-stacks.md`, `docs/script
 ## Status
 Stage: script & VO (hooks and spines written; recommended spine B taken to a release candidate, 86/100, loop 4)
 Current version: none (no picture, no audio)
-Next step: GATE 4, Matan picks the spine (A, B or C; question in `docs/script-lab.md` section 9); then the master hook
+Next step: rewrite the spines and the script on the approved v2 master hook, then GATE 4 (A, B or C; question in `docs/script-lab.md` section 9); then the master hook
 stack's named fixes go to fresh blind graders on the concept frame
 Blockers / open questions: G-HOOK not passed after 5 blind rounds (best: stack Q, V A-, T A-, S A to B+); the two
 owners meet at about 31 s, not in frame 1 (every split frame lost the visual at phone size); the RC runs 74 s, tight
@@ -44,6 +44,7 @@ against O60's 75 s cap; the readable steps on her page need plain example words 
 ## Decisions (newest first)
 | Date | Decision | Options considered | Why | Who |
 |---|---|---|---|---|
+| 28 Oct | Hooks v2 (master EN04-B) | Matan | "much better and stronger"; next time base hooks on organic breakouts, not ads |
 | 28 Oct | Hooks v1 rejected (Matan: unclear, not the buyers' words, written English, not proven formats). Hooks v2 built only from proven sources (Hook Library HA ads 30+ days or HF outliers 3x+) and verbatim buyer phrases; all pass `organic.py hooks`. Master = the ad-proven stack. The script release candidate is ON HOLD: it was written on the v1 hook and must be rewritten on the v2 master once Matan approves it, with the new "said, not written" rule | v1 kept; more AI grading rounds | an AI grade is opinion; proof is a post or ad that already won with this buyer | Matan (rejection), Claude (v2) |
 | 28 Oct | GATE 4 decided: spine B "Decided before you quoted" (lost deal, the second consultant at 31 s); the hooks it was asked with (v1) were later rejected, see the row above; the script waits for the v2 hooks | A, C, more hook rounds | the writer's recommendation | Matan |
 | 28 Oct | GATE 4: the spine (A "Same question" ST5, B "Decided before you quoted" ST3 on the two_days pair, C "Why you?" ST6); writer recommends B | A, B, C, B with A's split as a trial variant | pending | Matan (pending) |
@@ -67,3 +68,4 @@ against O60's 75 s cap; the readable steps on her page need plain example words 
   fail (two prospects or one), loop 2 78, loop 3 84, loop 4 86 with no critical fail: release candidate, provisional
   until Matan's pick · docs/script.md
 - 28 Oct · hooks v1 rejected by Matan; hooks v2 from proven formats in docs/hook-stacks.md and docs/hooks.json (all PASS) · script on hold
+- 28 Oct · Matan approved hooks v2 (master EN04-B) · script rewrite on it is next

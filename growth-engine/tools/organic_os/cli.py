@@ -8,6 +8,7 @@
   organic.py ledger-add <slug> --post ID --format F --credits N [--el N] [--minutes N] [--note TEXT]
   organic.py outliers <dataset.json> [--days 90] [--out file.csv]   the 4 outlier checks per account (5.1)
   organic.py hooks <slug> <hooks.json> [--library F] [--phrases F]   hook stacks: proven format, buyers' words, plain English
+  organic.py yt-import <@handle> <page.json...> --out items.json   YouTube Shorts pages -> outlier items
   organic.py score <slug> [--write]                scorecard: job metric vs median, candidate/template, diagnosis (9)
 
 Exit code 1 when a blocking check fails, so the daily run can stop on it.
@@ -17,7 +18,7 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 
-from . import cmd_brain, cmd_cards, cmd_hooks, cmd_ledger, cmd_outliers, cmd_score
+from . import cmd_brain, cmd_cards, cmd_hooks, cmd_ledger, cmd_outliers, cmd_score, cmd_yt
 
 COMMANDS = {
     "brain-check": cmd_brain.run,
@@ -29,6 +30,7 @@ COMMANDS = {
     "outliers": cmd_outliers.run,
     "hooks": cmd_hooks.run,
     "score": cmd_score.run,
+    "yt-import": cmd_yt.run,
 }
 
 
@@ -45,6 +47,7 @@ def parser() -> argparse.ArgumentParser:
     la.add_argument("--note", default=""); la.add_argument("--date", default=dt.date.today().isoformat())
     o = sub.add_parser("outliers"); o.add_argument("dataset"); o.add_argument("--days", type=int, default=90); o.add_argument("--out")
     h = sub.add_parser("hooks"); h.add_argument("slug"); h.add_argument("hooks"); h.add_argument("--library"); h.add_argument("--phrases")
+    y = sub.add_parser("yt-import"); y.add_argument("handle"); y.add_argument("pages", nargs="+"); y.add_argument("--out", required=True)
     s = sub.add_parser("score"); s.add_argument("slug"); s.add_argument("--write", action="store_true")
     return ap
 

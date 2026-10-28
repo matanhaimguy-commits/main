@@ -48,3 +48,9 @@ Totals: Reddit 3922 rows (3,817 unique by id; some rows are in two datasets), In
 - Skipped on purpose: runs of 26 Oct 11:57 and later (a dental client) and of 22 Oct (other clients).
 
 Rebuild the outliers: `python3 growth-engine/tools/organic.py outliers clients/straightscale/research/raw/instagram-posts_hAUOxNiKOpKuAA0GS.jsonl --days 0 --out /tmp/out.csv`
+
+## YouTube Shorts (TranscriptAPI, 28 Oct 2026)
+`yt-shorts_<handle>_p1..p4.json`: `list_channel_videos` responses (tab "shorts", no sort), saved verbatim, 48 shorts
+per page, 192 per channel, for AlexHormozi and DanMartell (JeremyHaynes: not found). `_items.json` and
+`_outliers.csv` come from `organic.py yt-import` and `organic.py outliers --days 0`. `yt-shorts_transcripts.jsonl`:
+14 transcripts (`get_youtube_transcript`, text) for HF-10 to HF-18 and HL-07 to HL-11 in `../hook-library-en.md`.
