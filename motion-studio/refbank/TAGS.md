@@ -23,11 +23,15 @@ nothing fits (keep it short, lowercase, hyphenated) and say why in the commit.
 | story-comedy | character animation with a joke, POV or relatable situation |
 | spectacle-world | awe: scale, impossible worlds, rave visuals, liminal spaces |
 | vfx-edit | live action plus VFX/compositing (powers, transformations, effect showcases) |
+| talking-explainer | one expert talks to camera (or as a voice over graphics) and the words carry the film: a claim, a rule, a list, a framework |
+| conversation-scene | two voices: a role-played sales call, a hot seat, a street interview, a question asked off camera and answered |
+| story-reel | one person tells a short story with a turn (rise, fall, the lesson), first person or in an interview |
 
 ## hook (one or two: what stops the thumb in the first 2 s)
 impossible-object · scale-shock · pattern-interrupt · question · bold-claim · relatable-pov · transformation-promise ·
 wait-for-it · guess-challenge · mid-action-start · contrast-split · direct-address · sound-hook · number-ladder ·
-brand-name-drop · series-hook · price-or-value-question · familiar-ip · beautiful-first-frame · text-headline
+brand-name-drop · series-hook · price-or-value-question · familiar-ip · beautiful-first-frame · text-headline ·
+stop-doing · if-i-had-to
 
 ## devices (list every one the film leans on; the first is the signature device)
 Camera and space: one-take-camera · rack-focus · screen-in-frame · zoom-through-scale · pull-back-reveal · orbit · dolly-follow · pov-camera ·
@@ -45,6 +49,8 @@ beat-sync-hits · cutting-slicing · inflate-deflate · giant-product · product
 glass-refraction · clay-plasticine · lego-bricks · minecraft-voxel
 Character: character-host · lip-sync · reaction-shot · pose-to-pose-comedy · creature-reveal · literal-metaphor · thought-bubble
 Sound: asmr-foley · whoosh-transitions · bass-drop · silence-before-hit · voiceover-explainer · trending-audio
+Talk: roleplay-dialogue · street-interview · qa-cold-open · quadrant-matrix · rise-fall-turn · prop-analogy · step-plan ·
+mentor-quote
 
 ## energy (one)
 calm · medium · high · frantic
@@ -61,4 +67,4 @@ gen-image (paid) · gen-video (paid) · gen-3d (paid) · footage (client footage
 
 ## fit (business types this grammar suits; several)
 saas · agency · local-service · ecommerce · restaurant · health · finance · education · real-estate · b2b ·
-personal-brand · events · any
+personal-brand · events · coaching · any

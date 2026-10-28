@@ -20,11 +20,14 @@ already used, so every new film starts from a strong reference and never looks l
 - **What a card is not:** a licence. Third-party reels are for study only. We take structure, timing, devices and
   sound logic, and never their pixels, words, characters, music or marks.
 
-**What's in it** (14 Oct 2026):
-- **92 cards in total.**
+**What's in it** (28 Oct 2026):
+- **107 cards in total.**
   - 81 viral social reels: 75 from TikTok and 6 from Instagram. The median is 8.1M plays and 38 have 10M+.
+  - 15 YouTube Shorts (`yt-`, added 28 Oct): talking explainers, conversation scenes and story reels that sell
+    services or ideas through talk, each a breakout of 3x or more over its own channel's median. Built from
+    transcripts only (no frames), so their cards carry no pacing numbers.
   - 11 onetake craft films (study only).
-- **17 categories**, listed in `TAGS.md`.
+- **20 categories**, listed in `TAGS.md`.
 - **Usefulness:** 60 cards score relevance 4-5 for client marketing, and 48 of those are buildable at difficulty 3
   or less in our stack.
 - **Picking a reference:** `devices.md` sorts the bank by signature device and by business message.
@@ -36,7 +39,7 @@ continuous shots rather than through cuts. Medians by category are in `../HANDOF
 ## Files
 | Path | What |
 |---|---|
-| `cards/<id>.md` | One card per reference (YAML front matter + body). Ids: `tt-` TikTok, `ig-` Instagram, `onetake-` craft films from `references/onetake` (study only, PolyForm NC) |
+| `cards/<id>.md` | One card per reference (YAML front matter + body). Ids: `tt-` TikTok, `ig-` Instagram, `yt-` YouTube Shorts, `onetake-` craft films from `references/onetake` (study only, PolyForm NC) |
 | `index.json` | Built from the cards by `tools/refbank.py build`; searchable without opening cards |
 | `TAGS.md` | Controlled vocabulary: category, hook, devices, energy, palette, sound, engine, fit |
 | `TEMPLATE.md` | The card format |
@@ -46,6 +49,7 @@ continuous shots rather than through cuts. Medians by category are in `../HANDOF
 | `tools/refbank.py` | `build`, `search`, `pick`, `check`, `log`, `history`, `stats` |
 | `tools/frames_metrics.py` | Metrics + contact sheet from a folder of sampled frames |
 | `tools/CARD_BRIEF.md` | The instructions used to write cards (reuse for refreshes) |
+| `tools/test_refbank.py` | Checks every card builds into the index with known tags, and that every `yt-` card states its channel median and a 3x+ multiple: `python3 -m unittest discover -s motion-studio/refbank/tools -p 'test_*.py'` |
 | `frames/` | Sampled frames per reference. Local only, gitignored (third-party media) |
 
 ## Use it in a job (motion-reel stages 3, 4 and 13)
@@ -96,3 +100,21 @@ of being pasted into the conversation.
       product of primes, with the lead changing hands. Instagram returned HTTP 500 on every frame download.
   - **Re-captured with a higher download cap** (40 MB instead of 6 MB): spectrazeeua5, thebioswitch and
     vaporama_vision. The 6 MB cap silently skipped long videos.
+- **2026-10-28:** 15 YouTube Shorts (`yt-` cards), for English StraightScale films. Apify was blocked (unpaid
+  invoices), so everything came through the TranscriptAPI connector, 27 credits at most.
+  - Listings: one Shorts page (48 Shorts) each for thefutur, AlexBerman, JeremyMiner, DanLok, codiesanchezct,
+    PatrickDang, LeilaHormozi, NoahKagan and JordanPlatten; ImanGadzhi returned no Shorts. Saved as
+    `clients/straightscale-en/research/raw/yt-shorts_<handle>_p1.json` (trimmed to id, title and views); JordanPlatten
+    was not saved (no Short above 2.4x).
+  - Proof: `organic.py yt-import` then `organic.py outliers --days 0` (`..._outliers.csv`). Each card lists the
+    channel median and the multiple. A listing has no likes, comments or dates, so only the views check ran, and
+    the median is over those 48 Shorts, not a date window. JeremyMiner and DanLok had no Short at 3x+.
+  - Transcripts: `get_youtube_transcript` for the 15 picks, saved with their timing in
+    `raw/yt-shorts_transcripts.jsonl` (field `timed`).
+  - **Not captured:** frames and thumbnails. i.ytimg.com is refused by the session proxy and YouTube blocks the
+    Higgsfield sandbox, so no card has pacing numbers, palette or a verified first frame. Next step: sample frames
+    from these 15 (the `frames_metrics.py` route) when a downloader works, and fill `pacing` and `palette_hex`.
+  - New slugs in `TAGS.md`: categories talking-explainer, conversation-scene, story-reel (none of the 17 fitted a
+    reel whose words carry the film); hooks stop-doing, if-i-had-to; devices roleplay-dialogue, street-interview,
+    qa-cold-open, quadrant-matrix, rise-fall-turn, prop-analogy, step-plan, mentor-quote; fit coaching. The
+    devices are described in `devices.md` ("Talk").
