@@ -10,9 +10,11 @@ must_read_in_1s: She tugs the cloth band hard and it stays attached.
 subjects:
 - id: CH-MAYA
   ref: CH-MAYA@v1
-  state: arm and shoulder in an olive-green knitted cardigan sleeve over a white blouse cuff
-  pose: pulling the band toward screen right, away from the organizer
-  expression: steady
+  state: standing at the organizer's right side, olive cardigan, the olive-green knitted cardigan sleeve over a white blouse
+    cuff on the pulling arm
+  pose: body front three-quarter toward the camera, head turned to the band, both feet flat on the clay floor, right hand
+    pulling the band end toward screen right
+  expression: quiet, content
   instances: 1
   eyeline: at the band
 - id: PR-ORGANIZER
@@ -23,11 +25,11 @@ subjects:
   instances: 1
 hands:
 - who: Maya
-  left: left hand out of frame
+  left: left hand relaxed at her side
   right: right hand gripping the band end and pulling toward screen right, away from the organizer
   contact: right fingers around the last 3 cm of the fifth piece, beyond the fourth seam; all four seams stay clear of the
     fingers and visible
-  count_check: five fingers on the right hand; left hand not visible
+  count_check: five fingers on each visible hand
   must_not_cover: the band's seams
 props:
 - id: PR-ORGANIZER
@@ -69,12 +71,12 @@ action_physics:
 static: false
 setting:
   ref: null
-  details: 'Plain ivory paper office: close on the April row. World (no set sheet, SET-OFFICE fallback, main session 28 Oct):
-    a plain warm-ivory paper wall and floor meeting in a soft curve, soft warm light, soft contact shadows. Of the office
-    items, only those this shot names appear, each looking like this: a simple charcoal clay desk (one flat top on four straight
-    legs, no drawers); an open silver clay laptop with a plain lid; one white clay mug; a small round charcoal clay bin with
-    a thumb-pressed rim; a plain window with a thin pale-wood frame.'
-  background_rule: plain wall
+  details: 'Plain ivory paper office: wall and organizer, Maya at its right edge. World (no set sheet, SET-OFFICE fallback,
+    main session 28 Oct): a plain warm-ivory paper wall and floor meeting in a soft curve, soft warm light, soft contact shadows.
+    Of the office items, only those this shot names appear, each looking like this: a simple charcoal clay desk (one flat
+    top on four straight legs, no drawers); an open silver clay laptop with a plain lid; one white clay mug; a small round
+    charcoal clay bin with a thumb-pressed rim; a plain window with a thin pale-wood frame.'
+  background_rule: plain wall; no loose scraps in sight
 camera:
   framing: 'the same frame as SH19 (no punch-in): organizer upper half, Maya right'
   angle: eye level
@@ -94,6 +96,8 @@ continuity:
   carry_over:
   - PR-ORGANIZER payoff state
   - CH-MAYA olive cardigan sleeve
+  - CH-MAYA olive cardigan
+  - CH-MAYA position and pose from SH19
 regions:
 - name: organizer
   kind: prop
@@ -127,16 +131,37 @@ regions:
   kind: hand
   box:
   - 0.7
-  - 0.38
-  - 0.82
-  - 0.46
+  - 0.37
+  - 0.86
+  - 0.47
 - name: band_seams
   kind: prop
   box:
-  - 0.1
+  - 0.26
   - 0.34
   - 0.68
   - 0.38
+- name: maya_face
+  kind: face
+  box:
+  - 0.74
+  - 0.2
+  - 0.92
+  - 0.3
+- name: left_hand
+  kind: hand
+  box:
+  - 0.8
+  - 0.52
+  - 0.92
+  - 0.62
+- name: april_clients
+  kind: prop
+  box:
+  - 0.26
+  - 0.38
+  - 0.68
+  - 0.48
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: a clay home office in

@@ -1,0 +1,84 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH20",
+ "spec_sha256": "50f312d94f428013efd2cc180b3cc4cbe883a36ad55ca5e2ada0352ab21e08ce",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"She tugs the cloth band hard and it stays attached\" is covered by hands.right, band content (five pieces, four seams), action_physics, regions right_hand and band_seams. Maya's face has no region: see P8"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "FAIL",
+   "evidence": "hands.left \"left hand out of frame\" and count_check \"left hand not visible\", but camera.framing is \"the same frame as SH19 (no punch-in)\" and SH19 has her left hand \"relaxed at her side\" at region left_hand x 0.8 to 0.92, y 0.52 to 0.62, inside that frame. The right-hand contact (\"right fingers around the last 3 cm of the fifth piece, beyond the fourth seam\") is complete and fine"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: \"pulls the band 3 cm toward screen right, away from the organizer; ... four April clients lean 5 degrees toward screen right (the pull direction) once and settle upright\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-ORGANIZER content: twelve MARCH clients, one per APRIL pocket, \"a calm sand-cream band of five joined pieces (one large, three small, one small) with four seams, the five pieces carry no letters or words at all\""
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "CLIENTS, MARCH and APRIL each have surface, position, case, must_be_exact and occlusion; regions clients_header, march_label, april_label exist; the band carries no text"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"plain wall\"; no frame, screen or sign in the shot (window and laptop are named only as items that do not appear unless named)"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "subjects[CH-MAYA].state \"arm and shoulder in an olive-green knitted cardigan sleeve\" with eyeline \"at the band\" and expression \"steady\", and setting.details \"close on the April row\", against camera.framing \"the same frame as SH19 (no punch-in): organizer upper half, Maya right\". SH19's frame holds Maya's whole body, with her face at region x 0.74 to 0.92, y 0.20 to 0.30. The crop wording was kept from the punch-in version, so the spec says both 'arm only' and 'full SH19 frame'. No face region exists to check her face"
+  },
+  {
+   "id": "P9",
+   "result": "FAIL",
+   "evidence": "continuity carry_over \"CH-MAYA olive cardigan sleeve\" and subject \"arm and shoulder\" do not carry SH19's Maya (\"standing at the organizer's right side, olive cardigan\", body front three-quarter, head turned to the band, face visible). The organizer numbers do match SH19 (62% wide, x 0.06 to 0.68, y 0.15 to 0.48, labels, header and hand boxes), which resolves the r9 crop failure"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "\"lean 5 degrees toward screen right (the pull direction)\"; \"the taut band leaves the organizer's right edge at x 0.68 and runs right to the hand at x 0.70 to 0.82\""
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 prevented by \"all four seams stay clear of the fingers\" and \"the pulling hand and band stay clear of the label\"; FL-03 by contact points; FL-04 not triggered; FL-06 not triggered as only a face-free arm is the stated subject, but see P8"
+  }
+ ],
+ "fixes": [
+  {
+   "check": "P3/P8/P9",
+   "change": "Bring Maya back to SH19's full figure, since the frame is now identical. subjects[CH-MAYA].state: \"standing at the organizer's right side, olive cardigan over a white blouse cuff, as in SH19\"; pose: \"body front three-quarter toward the camera, head turned to the band, both feet flat on the clay floor, right arm out pulling the band toward screen right\"; expression \"steady, calm\" (eyeline at the band stays). hands.left: \"left hand relaxed at her side, empty, fingers loosely curled (as in SH19, x 0.8 to 0.92, y 0.52 to 0.62)\"; count_check: \"five fingers on each visible hand\". Add regions maya_face (kind face, box 0.74 0.20 0.92 0.30) and left_hand (kind hand, box 0.8 0.52 0.92 0.62) copied from SH19. continuity.carry_over: \"CH-MAYA olive cardigan, face and pose as SH19\". Replace setting.details \"close on the April row\" with \"wall and organizer, Maya at its right edge\" (SH19's wording)."
+  }
+ ],
+ "advisories": [
+  "band_seams box x 0.10 to 0.68, y 0.34 to 0.38 overlaps april_label x 0.06 to 0.24, y 0.34 to 0.41, while the label rule says the band stays clear of the label. Start the seams box at x 0.24, or state that the band runs along the row's top edge above the label band.",
+  "The hand pulls 3 cm (about 3% of frame width, going by the organizer's 60 cm over 62%) to the right, so the hand ends near x 0.73 to 0.85, beyond region right_hand x 0.70 to 0.82. Widen the box to x 0.70 to 0.86.",
+  "Two motions at once (pull and the clients' lean) against the style line \"one motion action in the shot\"; keep the lean only if the clip test needs it.",
+  "No region for the four April clients or the MARCH row clients, so the lean cannot be boxed for checking; add a prop region over the April pockets.",
+  "refs say PR-ORGANIZER@v2; an earlier reviewer noted a v3 file in the ledger, confirm the locked version.",
+  "r9 fixes confirmed: the 125% punch-in is gone, and organizer 62% wide, band exit at x 0.68 and hand box now match SH19."
+ ]
+}

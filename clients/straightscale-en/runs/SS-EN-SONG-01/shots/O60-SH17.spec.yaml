@@ -32,7 +32,8 @@ props:
   ref: PR-CLOTH@v1 (bubble panel)
   state: three blank cream clay bubbles resting on the top edge of the ADS piece at frame 1, then leaving it
   content: Three blank cream clay speech bubbles with small tails and thumb-pressed edges, no letters
-  size_in_frame: 6% of frame width each, 18% in a row on the 20% ADS top edge at 28 to 34% from the top, below the rod
+  size_in_frame: 5% of frame width each (about 3.5% of frame height), 15% in a row at x 0.76 to 0.91 on the ADS top edge,
+    30.5 to 34% from the top, below the rod and right of the loop
   held_by: null
 - id: PR-ROD
   story_critical: false
@@ -59,10 +60,10 @@ text_in_image:
   occlusion: not folded
 action_physics:
 - 'From frame 1, the window at the right edge has its lower sash already raised, leaving a clear opening, and three blank
-  clay bubbles rest in a row on the top edge of the ADS piece, below the rod. The ADS piece''s top edge lifts 1 cm and the
-  three bubbles slide up off it, one every 0.5 s: bubble 1 leaves its left end, bubble 2 its middle, bubble 3 its right end;
-  each drifts right and up toward the open window. The camera pans right following them and comes nearer, so they read larger
-  in SH18, and comes to rest on the window view of SH18; the two limp pieces hang still.'
+  clay bubbles rest in a row on the top edge of the ADS piece, below the rod. The ADS piece''s top edge (still sewn on) bows
+  outward 1 cm and the three bubbles slide up off it, one every 0.5 s: bubble 1 leaves its left end, bubble 2 its middle,
+  bubble 3 its right end; each drifts right and up toward the open window. The camera pans right following them and comes
+  nearer, so they read larger in SH18, and comes to rest on the window view of SH18; the two limp pieces hang still.'
 static: false
 setting:
   ref: null
@@ -120,6 +121,13 @@ regions:
   - 0.55
   - 0.14
   - 0.92
+  - 0.34
+- name: bubbles_start
+  kind: prop
+  box:
+  - 0.76
+  - 0.305
+  - 0.91
   - 0.34
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
