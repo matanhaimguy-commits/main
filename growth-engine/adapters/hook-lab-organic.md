@@ -25,7 +25,16 @@ proof is a post that already won with this buyer, and the buyers' own words.
 5. **Graders can fail a hook, never prove it.** The blind fresh-grader read (G-HOOK) stays, but only as a clarity
    check on stacks that already passed 1 to 4: what is this about, would you keep watching, which words were unclear.
    Report their grades as readers' opinions, next to the format's real numbers, never as the reason a hook is good.
-6. **The owner sees the evidence.** Each master stack is shown with its source post (creator, views, breakout, the
+6. **Organic first** (owner, 28 Oct 2026): a hook is proven by organic breakout videos (views far over the creator's
+   own median), not by ads. HA ads (30+ days running) are a fallback only when no organic format fits, and say so.
+   Where the organic proof comes from (Apify is too costly and unreliable; Instagram lists reels only behind a login):
+   - **Views:** the same creators' YouTube Shorts, through TranscriptAPI `list_channel_videos` (`tab: "shorts"`,
+     about 48 shorts and 1 credit per page). Save each page as JSON, then
+     `organic.py yt-import @handle page1.json ... --out items.json` and `organic.py outliers items.json --days 0`.
+   - **What was said:** TranscriptAPI `get_youtube_transcript` for a Short (1 credit), or free for any public reel or
+     short with `growth-engine/tools/reel_transcribe.sh` in the Higgsfield sandbox (yt-dlp audio + faster-whisper).
+   - Library entries from Shorts are `HF-nn` with the breakout, the spoken first sentence verbatim and its formula.
+7. **The owner sees the evidence.** Each master stack is shown with its source post (creator, views, breakout, the
    original spoken line) and the buyer phrases it uses, so the owner can judge the proof, not our grade.
 
 1. **Two jobs in 1 to 3 seconds:** topic clarity and on-target curiosity. Check the 4 S's: Subject, Stakes, Speed
