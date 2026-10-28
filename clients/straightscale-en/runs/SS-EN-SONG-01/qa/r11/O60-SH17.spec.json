@@ -1,0 +1,80 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH17",
+ "spec_sha256": "da38982df89febbd572a6f347c17d5b2b9ff778dcfcec9a5cec9d080d3089be2",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"two droop and one stands firm with an ADS piece sewn on\" is covered by PR-CLOTH state, PR-BUBBLES, PR-ROD, POSTS and ADS strings and regions pieces, labels, ads_piece, bubbles, bubbles_start"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: \"none visible\" and must_not \"no hands, no people\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"bubble 1 leaves its left end, bubble 2 its middle, bubble 3 its right end; each drifts right and up toward the open window\", one every 0.5 s, pan stated"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-BUBBLES content \"Three blank cream clay speech bubbles with small tails and thumb-pressed edges, no letters\"; PR-CLOTH content gives weave, colour and both labels"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "POSTS and ADS each have surface, position, case, must_be_exact, occlusion (\"on the two limp pieces the label sits below the fold, fully visible\"); one word each; regions labels and ads_piece exist"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"the glass shows the plain clay street behind the glass (no signs, no text)\"; wall plain, no frames or screens"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "r10 fix present: bubbles \"5% of frame width each ... 15% in a row at x 0.76 to 0.91\" right of the loop \"x 0.72 to 0.75\", ADS piece x 0.71 to 0.91, rows fit; bubble 5% wide and 3.5% tall (30.5 to 34%) is a bubble with its tail; rod 26% + loops 8% = pieces at 34%"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over \"PR-CLOTH pieces and weave\" matches SH16 (same linen, charcoal POSTS labels); end frame = SH18 window with raised sash and bubbles"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "piece x ranges stated (0.08 to 0.30, 0.39 to 0.61, 0.70 to 0.92); \"lower sash already raised, leaving a clear opening\" from frame 1; ADS \"stays sewn\" (\"still sewn on\") while its top edge \"bows outward 1 cm\""
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-05 prevented by the glass rule; FL-10 by \"no letters or words inside the stitched bubble outlines\" and the lettering must_not; FL-02 by the rod structure line (one rod, two brackets); FL-04 not triggered (PR-BUBBLES and PR-CLOTH filled)"
+  }
+ ],
+ "fixes": [],
+ "advisories": [
+  "r10 fix confirmed: the bubble row now fits right of the loop (5% wide, 15% row, 3.5% tall); the P8 arithmetic is clean.",
+  "Window position in frame 1 is only \"at the right edge\" with no x/y and no region; it could be drawn behind the firm piece. State a box (and that it sits right of x 0.92 or behind the wall rod end) when convenient. Not failed because the start frame is judged from the bubbles and pieces, which are boxed.",
+  "must_not \"no hands, no people\" holds for the start frame, but the pan ends on SH18's window view, which holds Maya and six street figures. Scope the line to \"no people in the start frame\".",
+  "ADS piece \"bows outward 1 cm\": consider \"flexes toward the camera\" and add must_not \"no piece peels, tears or comes loose\" (SH20 has that rule).",
+  "Each piece hangs by one loop at its left end, so the firm piece would swing; \"hangs straight\" is stated, so keep, but a generator may tilt it.",
+  "The three bubbles sit edge to edge (3 x 5% = 15% row); add a hair gap (about 0.5%) so they do not merge.",
+  "Firm piece reaches x 0.92 and y 0.55, slightly into the right-21% lower-half strip; it is the story, so no caption on this clip."
+ ]
+}

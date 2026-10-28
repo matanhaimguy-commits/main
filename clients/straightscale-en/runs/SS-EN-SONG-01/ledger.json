@@ -37,8 +37,9 @@
       "at": "2026-10-28T17:45:22+00:00"
     },
     "6": {
-      "status": "todo",
-      "note": ""
+      "status": "done",
+      "note": "G-PLAN and G-SPEC pass on every spec in shots/ (28 Oct, session 3)",
+      "at": "2026-10-28T19:11:28+00:00"
     },
     "7": {
       "status": "todo",
@@ -205,6 +206,14 @@
         "status": "PASS",
         "by": "Claude (EN 03 production session 2)",
         "note": "Word timings by pocketsphinx forced alignment of the final lyrics (faster-whisper model host blocked here): every word placed in order on both masters; O60 voice in 0.92 s, 18 lines, 6 slices; O30 voice in 0.36 s, 11 lines, 3 slices; BPM 97 / 85 (librosa). audio/words.json, audio/timeline.json, audio/timeline.md"
+      }
+    ],
+    "G-PLAN": [
+      {
+        "at": "2026-10-28T19:11:28+00:00",
+        "status": "PASS",
+        "by": "claude (EN 03 producer session 3)",
+        "note": "24 O60 Shot Specs (O30 reuses them, qa/o30-reuse.md) and 6 sheet specs, all with a current G-SPEC PASS (reports qa/r5 to qa/r11); SET-OFFICE retired to qa/retired (fallback: plain ivory backdrop and a World line per office shot); shot logic qa/shot-logic.md"
       }
     ]
   },
@@ -839,6 +848,13 @@
           "sha256": "3a50c72a0a08e88625929693ba98e65b56ff92c804b07f67a76e963df811132f",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r10/O60-SH17.spec.json"
+        },
+        {
+          "at": "2026-10-28T19:11:27+00:00",
+          "status": "PASS",
+          "sha256": "da38982df89febbd572a6f347c17d5b2b9ff778dcfcec9a5cec9d080d3089be2",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r11/O60-SH17.spec.json"
         }
       ]
     },
@@ -961,6 +977,13 @@
           "sha256": "50f312d94f428013efd2cc180b3cc4cbe883a36ad55ca5e2ada0352ab21e08ce",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r10/O60-SH20.spec.json"
+        },
+        {
+          "at": "2026-10-28T19:11:27+00:00",
+          "status": "PASS",
+          "sha256": "cb89dd2a8fc36a151429c7e0cbd7453461323ec24d646bf97cace93f0f83abfb",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r11/O60-SH20.spec.json"
         }
       ]
     },

@@ -71,6 +71,7 @@ Done:
 - O60 specs: the 8 r2 fixes, the SET-OFFICE fallback, PR-ORGANIZER@v2 refs and the reviewers' round fixes applied to
   all 23 shot specs (`qa/r7` to `qa/r10`). SH20 now keeps SH19's frame (no 125% punch-in: it did not fit SH19's
   layout). SH03/SH04 keep the ivory MARCH desk tag (no sheet holds it now).
+- Step 6 closed (G-PLAN and G-SPEC PASS on every spec in `shots/`). Advisories for the prompt writers (not in the specs, to keep the passes): SH17 give the window a box and scope "no people" to its start frame; SH20 add the right thumb under the band, the left hand "empty, fingers loosely curled", and the pull as about 3% of frame width; SH06/SH07/SH12 the MARCH row height above the frame; SH09/SH11 say whether the headset is on.
 - Tool fix: `pipeline.py prompt --media` now splits the role off the end, so a URL or `prediction:ID:INDEX` value
   works as a reference (test in `test_pipeline.py`). Edit passes use the previous version's Atlas media URL, registered
   on it with `pipeline.py media --id <url>`.

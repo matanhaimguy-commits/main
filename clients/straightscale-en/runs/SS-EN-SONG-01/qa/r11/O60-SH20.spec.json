@@ -1,0 +1,80 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH20",
+ "spec_sha256": "cb89dd2a8fc36a151429c7e0cbd7453461323ec24d646bf97cace93f0f83abfb",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s \"She tugs the cloth band hard and it stays attached\" is covered by hands.right, band content (five pieces, four seams), action_physics, regions right_hand, band_seams, april_clients, maya_face, left_hand"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "left \"left hand relaxed at her side\" (region left_hand); right \"gripping the band end ... right fingers around the last 3 cm of the fifth piece, beyond the fourth seam; all four seams stay clear of the fingers\"; count_check \"five fingers on each visible hand\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"pulls the band 3 cm toward screen right, away from the organizer; the band goes taut, the stitched seams ... stay closed, and the four April clients lean 5 degrees toward screen right ... once and settle upright\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-ORGANIZER content: twelve MARCH clients, one per APRIL pocket, \"a calm sand-cream band of five joined pieces (one large, three small, one small) with four seams, the five pieces carry no letters or words at all\""
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "CLIENTS, MARCH, APRIL each have surface, position, case, must_be_exact and occlusion (\"the pulling hand and band stay clear of the label\"); regions clients_header, march_label, april_label exist"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule \"plain wall; no loose scraps in sight\"; no frame, screen or sign named; items in the World line appear only if the shot names them"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "r10 fix present: framing \"the same frame as SH19 (no punch-in)\" now matches the full-figure Maya state, pose, face region 0.74 to 0.92 x 0.2 to 0.3 and left_hand region; organizer 62% wide, band exit x 0.68 and hand box equal SH19's; Maya's white blouse cuff matches SHEET-CH-MAYA"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over \"CH-MAYA olive cardigan\", \"CH-MAYA position and pose from SH19\", \"PR-ORGANIZER payoff state\"; pose, left hand and right-hand reach continue SH19 (\"right fingertips on the free end of the band\" to \"right fingers around the last 3 cm\"); SH21 carries the same organizer state"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode: no prompt or model call exists yet"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "\"lean 5 degrees toward screen right (the pull direction)\"; \"the taut band leaves the organizer's right edge at x 0.68 and runs right to the hand at x 0.70 to 0.82\"; 3 cm reads as about 3% of frame width on a 60 cm organizer at 62%"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 prevented by \"all four seams stay clear of the fingers\" and label occlusion rules, hand boxes far from text boxes; FL-03 by contact points; FL-06 by named face region and eyeline; FL-11 by \"instances: 1\" and \"both feet flat on the clay floor\"; FL-04 not triggered"
+  }
+ ],
+ "fixes": [],
+ "advisories": [
+  "r10 fixes confirmed in the spec: full-figure Maya, left hand and face regions, setting wording, seams box starting at x 0.26, right_hand box widened to 0.70 to 0.86, april_clients region added.",
+  "Right hand lists fingers only; add \"thumb on the near side of the band\" so a generator does not hide or add a thumb (SH19 gave thumb under it).",
+  "right_hand box ends at x 0.86 while the hand ends near 0.73 to 0.85 after the pull; fine, but the reviewer should check the full box.",
+  "Express the pull as \"about 3% of frame width\" next to \"3 cm\" so the unit is unambiguous in a miniature.",
+  "Two motions (pull and client lean) against the style line \"one motion action in the shot\"; keep the lean only if the clip test needs it.",
+  "left_hand box y 0.52 to 0.62 reaches the caption band (55 to 62%) and the right-21% strip; it is not a key prop, so no failure, but keep captions off it.",
+  "Add \"left hand empty, fingers loosely curled\" as in SHEET-CH-MAYA for the relaxed hand."
+ ]
+}
