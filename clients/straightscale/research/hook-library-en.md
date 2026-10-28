@@ -17,11 +17,15 @@ views); the hook check (`organic_os/hook_sources.py`) reads only `HF` and `HL` i
 - Scored with `python3 growth-engine/tools/organic.py outliers <file> --days 0` (the 4 checks of ORGANIC-OS 5.1:
   views 3x the median, comments above the account's rate, likes in proportion, engagement 2% or more). 85 videos
   have views; 12 are at 3x or more, 10 at 0.5x or less, 63 in between.
-- **No transcripts.** No row has a transcript, so no spoken first sentence could be read. Every hook below is the
+- **No transcripts (Instagram rows).** No Instagram row has a transcript, so no spoken first sentence could be read. Every hook below is the
   caption's first line (text only). The spoken hook of every `HF` and `HL` entry still needs a transcript.
 - **No frames.** The cover images could not be downloaded (Instagram CDN refused by the session proxy), so the text
   on screen and the visual format are unknown. Each entry gives only what the data has: length in seconds and the
   post type.
+- YouTube Shorts (added 28 Oct 2026): TranscriptAPI listings of @AlexHormozi and @DanMartell, 4 pages each, 192
+  shorts each (`raw/yt-shorts_*`). 44 and 17 shorts at 3x+ their channel's median, 53 and 41 at 0.5x or less. 9
+  on-topic breakouts (HF-10 to HF-18) and 5 on-topic losers (HL-07 to HL-11) now have a verbatim spoken first line
+  from a transcript. @JeremyHaynes: not found by handle or name, skipped.
 - Ads: 11 Meta Ad Library datasets (curious_coder/facebook-ads-library-scraper, 25 Oct 2026), 550 ads from 11
   pages, 126 distinct ad texts after merging copies (empty and template texts left out).
 
@@ -118,6 +122,86 @@ outliers at 3x+ are off topic or have no caption and get no id (listed after the
 Off topic or no text at 0.5x or less (no id): jeremy 0.47x "When your motives die, your reasons have to change.";
 siggyvonvoss 0.41x "life by design"; iamcameronengland 0.48x and 0.44x, no caption.
 
+## Organic breakouts from YouTube Shorts (28 Oct 2026)
+Source: TranscriptAPI `list_channel_videos` (tab "shorts", 4 pages per channel) saved as
+`raw/yt-shorts_<handle>_p1..p4.json`, scored with `organic.py yt-import` and `organic.py outliers --days 0`
+(`raw/yt-shorts_<handle>_outliers.csv`); spoken lines from `raw/yt-shorts_transcripts.jsonl` (TranscriptAPI
+`get_youtube_transcript`). A Shorts listing carries no dates, so each median is over the 192 shorts fetched (about the
+latest 192, all ages mixed), not over a date window. View counts are YouTube's rounded figures ("249K views").
+On topic was judged by title only. @JeremyHaynes could not be listed (handle and name both "not found").
+Spoken lines in a hot seat are the guest's, not the creator's: the creator answers from the second line.
+
+- `HF-10` · Hot seat: the owner names a sales problem · AlexHormozi (YouTube Shorts) · 249K views (median 23K over 192 shorts) · 10.83x · **10x+** · https://www.youtube.com/shorts/P1Y82k_ZjXI
+  - spoken (first sentence, verbatim from the transcript): "We do AI SEO." (then: "We went from zero to a million in roughly one year. What's stopping us right now is sales are crap.")
+  - formula: "We do [service]. We went from [start] to [revenue] in [time]. What's stopping us right now is [sales / leads] are [blunt word]." (mad-lib)
+  - checks: views only (a listing carries no likes or comments)
+- `HF-11` · Hot seat: the owner who does not know his ad numbers · AlexHormozi (YouTube Shorts) · 216K views (median 23K over 192 shorts) · 9.39x · https://www.youtube.com/shorts/StctBbhyWFE
+  - spoken (first sentence, verbatim from the transcript): "We sell drywall and plaster repair." (then: "What's revenue?" / "About 1.5 to 1.8. I think that my constraint right now is solid leads.")
+  - formula: "We sell [service]." / "What's revenue?" / "[number]. I think my constraint right now is [solid leads]." (mad-lib)
+  - checks: views only (a listing carries no likes or comments)
+- `HF-12` · The beginner's excuse, answered bluntly · AlexHormozi (YouTube Shorts) · 198K views (median 23K over 192 shorts) · 8.61x · https://www.youtube.com/shorts/XYNw0FlE_xw
+  - spoken (first sentence, verbatim from the transcript): "I see beginning entrepreneurs say they're like, "Well, that's not scalable.""
+  - formula: "I see [buyers at their stage] say, "[the excuse they repeat]." And I'm like, "[two-word blunt truth]."" (mad-lib)
+  - checks: views only (a listing carries no likes or comments)
+- `HF-13` · Named pricing method, then the questions · AlexHormozi (YouTube Shorts) · 193K views (median 23K over 192 shorts) · 8.39x · https://www.youtube.com/shorts/r-9RpAv1P9A
+  - spoken (first sentence, verbatim from the transcript): "There's called the Van Wesson door pricing analysis." (the auto-captions' spelling)
+  - formula: "There's [a named method]. I do this most times when I [launch a new offer]. There's [four] questions you ask." (mad-lib)
+  - checks: views only (a listing carries no likes or comments). The same clip with nearly the same transcript
+    is `HL-10` at 0.27x under another title: the spoken hook did not make the difference here.
+- `HF-14` · Hot seat: the owner names the constraint · AlexHormozi (YouTube Shorts) · 138K views (median 23K over 192 shorts) · 6.0x · https://www.youtube.com/shorts/dzAfAylrd48
+  - spoken (first sentence, verbatim from the transcript): "I run a DTC uh skincare brand e-commerce." (then: "We do actually 10 million. We want to get to 100. The key constraint right now is margins, right?")
+  - formula: "I run a [business]. We do [revenue]. We want to get to [goal]. The key constraint right now is [problem]." (mad-lib)
+  - checks: views only (a listing carries no likes or comments)
+- `HF-15` · "Is that like any good?" question from the audience · DanMartell (YouTube Shorts) · 120K views (median 24K over 192 shorts) · 5.0x · https://www.youtube.com/shorts/ycw9PAdAcbM
+  - spoken (first sentence, verbatim from the transcript): "Do you like make websites for local business owners that don't have one?"
+  - formula: "Do you like [do the service] for [the clients] that don't have one? Is that like any good?" (mad-lib)
+  - checks: views only (a listing carries no likes or comments). Opens with a question, unlike principle 4.
+- `HF-16` · One question, one-word answer · AlexHormozi (YouTube Shorts) · 86K views (median 23K over 192 shorts) · 3.74x · https://www.youtube.com/shorts/hB42tludbw0
+  - spoken (first sentence, verbatim from the transcript): "Where is the moat in content?" (answer: "Reality is the moat.")
+  - formula: "Where is the [edge] in [content / referrals / ads]?" / "[One word] is the [edge]." (mad-lib)
+  - checks: views only (a listing carries no likes or comments). Opens with a question, unlike principle 4.
+- `HF-17` · Hot seat: what the expert sells and to whom · AlexHormozi (YouTube Shorts) · 85K views (median 23K over 192 shorts) · 3.7x · https://www.youtube.com/shorts/qLS7wVGOBvw
+  - spoken (first sentence, verbatim from the transcript): "I sell communication skills to senior leaders." (then: "Last 10 months, 300K.")
+  - formula: "I sell [what the expert teaches] to [who buys]. Last [months], [revenue]." (mad-lib)
+  - checks: views only (a listing carries no likes or comments)
+- `HF-18` · Hot seat: revenue first, then where clients came from · AlexHormozi (YouTube Shorts) · 78K views (median 23K over 192 shorts) · 3.39x · https://www.youtube.com/shorts/n9ut262nmcQ
+  - spoken (first sentence, verbatim from the transcript): "We are at 5.4 million." (then: "A 100% of our clients used to come from organic Tik Tok and Instagram.")
+  - formula: "We are at [revenue]. [All] of our clients used to come from [one channel]." (mad-lib)
+  - checks: views only (a listing carries no likes or comments)
+
+What the 9 share (counts, not a grade): 5 of 9 are hot seats where a business owner speaks first and names the
+business, a number or the constraint (HF-10, HF-11, HF-14, HF-17, HF-18); in 2 more a question opens and the creator
+answers on the next line (HF-15, HF-16; the transcript has no speaker names). 0 of the 5 losers below open with a
+hot seat. Only HF-10 is 10x+.
+
+Off topic at 3x+ (by title, no transcript fetched, no id): AlexHormozi 36 more of his 44 at 3x+, led by "Am I In
+The Wrong Business?" 808K (35.13x), "They Actually Followed Hormozi's Insane Advice" 503K (21.87x), "Which One Of Us
+Is Right?" 467K (20.3x); DanMartell 16 more of his 17, led by "Whats the best AI tool right now?" 258K (10.75x), "Have
+you tried Higgsfield Genjutsu?" 174K (7.25x).
+
+### Losers from YouTube Shorts (0.5x or less, on topic), ranked from the lowest
+- `HL-07` · Client story about an offer · AlexHormozi (YouTube Shorts) · 5.4K views (median 23K over 192 shorts) · 0.23x · https://www.youtube.com/shorts/Co9FC0G3SNM
+  - spoken (first sentence, verbatim from the transcript): "So, I had a lady a couple months ago and so she did hairstyle stuff and so she's like, "Okay, I can teach hairdressers how to do this particular type of cut.""
+  - formula: "So, I had a [client] a couple months ago and so she did [niche] and so she's like, "[what she sells]."" (mad-lib)
+  - checks: views only (a listing carries no likes or comments)
+- `HL-08` · Bare milestone as the first words · AlexHormozi (YouTube Shorts) · 5.5K views (median 23K over 192 shorts) · 0.24x · https://www.youtube.com/shorts/_-dt0VAqbFs
+  - spoken (first sentence, verbatim from the transcript): "Zero to a million."
+  - formula: "[Start] to [milestone]. Really, really simple." (mad-lib)
+  - checks: views only (a listing carries no likes or comments)
+- `HL-09` · If-then rule about better clients · AlexHormozi (YouTube Shorts) · 5.7K views (median 23K over 192 shorts) · 0.25x · https://www.youtube.com/shorts/iIpgcNGAwrA
+  - spoken (first sentence, verbatim from the transcript): "If you increase the quality of your prospects, you will increase the quality of your product."
+  - formula: "If you increase the [quality] of your [prospects], you will increase the [quality] of your [product]." (mad-lib)
+  - checks: views only (a listing carries no likes or comments)
+- `HL-10` · Named pricing method (same clip as HF-13) · AlexHormozi (YouTube Shorts) · 6.2K views (median 23K over 192 shorts) · 0.27x · https://www.youtube.com/shorts/Ij9RfYWzzBk
+  - spoken (first sentence, verbatim from the transcript): "There's called the Van Wesson door pricing analysis."
+  - formula: same as HF-13; the title was "Ask your customers these four questions before you set your price." against
+    HF-13's "How I Price Every New Offer" (the listing has no dates, so which came first is unknown)
+  - checks: views only (a listing carries no likes or comments)
+- `HL-11` · "The worst thing you could say" question · DanMartell (YouTube Shorts) · 7.4K views (median 24K over 192 shorts) · 0.31x · https://www.youtube.com/shorts/Y0yte9zAy6k
+  - spoken (first sentence, verbatim from the transcript): "Do you know the worst thing you could say on a sales call?"
+  - formula: "Do you know the worst thing you could say on a [sales call]?" (mad-lib)
+  - checks: views only (a listing carries no likes or comments)
+
 ## Ads that kept running (proof by run time), ranked by days
 Days = first seen start date to the scrape (25 Oct 2026) or to the end date. Copies = ads in the set with the same
 text. Only pages that sell to coaches, consultants or agency owners get an id.
@@ -187,7 +271,7 @@ cut as a batch, not one by one.
    lines in `buyer-phrases-en.md` (section 2), e.g. `Q-RN-0014` "...but that cannel also dried up".
 
 ## Do not use
-HL-01 to HL-06 structures; hooks that open with a question (principle 4); the banned hook words from the
+HL-01 to HL-11 structures; hooks that open with a question (principle 4); the banned hook words from the
 strategy (Patchwork, agency, done-for-you, funnel, qualified, guaranteed, growth partner, AI); real platform logos
 or names on screen. The 27 Oct entries (Priestley "Cold email?" 12.5x, danmartell "Sales." 11.2x, sabrisuby,
 takimoore, kallawaymarketing) are withdrawn: their rows were not recovered, so they cannot be cited.
@@ -200,6 +284,13 @@ takimoore, kallawaymarketing) are withdrawn: their rows were not recovered, so t
 - Ads: run time shows a page kept paying for an ad, not that it made money. Pages scraped as "active only" show no
   stopped ads, so ad losers come from one page.
 - Dates are post dates; the scrape is 25 Oct 2026.
+- YouTube Shorts (HF-10 to HF-18, HL-07 to HL-11): views only, as YouTube rounds them (no likes, comments or dates in
+  a listing), so none of the 4 checks beyond views could run and the age of each short is unknown. Each median is
+  over the 192 shorts fetched, not a date window. Two creators only, one of them (AlexHormozi) gives 12 of the 14
+  entries. On topic was judged by title. The transcripts are auto-captions (e.g. "Van Wesson door" in HF-13), and a
+  hot seat's first line is the guest's voice. HF-13 and HL-10 carry nearly the same transcript at 8.39x and 0.27x,
+  so for these clips the title or timing, not the spoken words, made the gap. YouTube Shorts are not Instagram reels:
+  the same hook may do differently on @straightscale_.
 
 ## Live results
 (empty: logged by the analyst at 72 h and 7 d after each post)
