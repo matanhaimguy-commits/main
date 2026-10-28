@@ -15,31 +15,32 @@ subjects:
   instances: 1
 - id: PR-SCRAPS
   ref: PR-SCRAPS@v1
-  state: EMAIL and LINKEDIN scraps pinned over pockets 1 and 2; COACH and ADS are not in frame (they lie on the desk edge
-    below the frame)
+  state: EMAIL and LINKEDIN scraps over pockets 1 and 2, held on the felt by a few loose tacking stitches in the same thread
+    colour, no pins, no clips; COACH and ADS are not in frame (they lie on the desk edge below the frame)
   pose: flat on the felt
   expression: n/a
   instances: 1
 hands:
 - who: Maya
-  left: left hand holding the lower-left corner of the EMAIL scrap flat, palm on the felt below the APRIL label
+  left: 'left hand holds the lower-left corner of the EMAIL scrap flat: thumb on the scrap corner (x 0.15 to 0.18, y 0.50
+    to 0.53), palm and fingers on the felt of pocket 1 below the scrap (y 0.53 to 0.59)'
   right: right hand enters from the lower right and draws the needle and thick thread through the seam below the scraps' lettering,
     fingertips below the EMAIL scrap's lower edge at x 0.30 to 0.44 (under the EMAIL scrap's right end, below the seam), y
     0.50 to 0.60, clear space between the fingers and the last letter L of EMAIL
-  contact: left palm on the felt below the row; right hand in a clean thumb-and-index pinch on the needle, the needle shaft
-    visible between the two fingertips, the other three fingers curled loosely below
+  contact: left thumb on the EMAIL corner, left palm on the felt below it; right hand in a clean thumb-and-index pinch on
+    the needle, the needle shaft visible between the two fingertips, the other three fingers curled loosely below
   count_check: five fingers on each visible hand
   must_not_cover: the stitched labels EMAIL and LINKEDIN
 props:
 - id: PR-SCRAPS
   story_critical: true
   ref: PR-SCRAPS@v1
-  state: EMAIL and LINKEDIN pinned over pockets 1 and 2
-  content: 'Four ragged-edged fabric scraps, each about one pocket wide, each in a different loud clashing pattern with a
-    big stitched label: EMAIL mustard and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes
-    with ivory letters, COACH lime leopard spots with black letters, ADS hot-pink polka dots on blue with white letters; loose
-    thread ends'
-  size_in_frame: each scrap about 20% of frame width, row 40 to 52% from the top
+  state: EMAIL and LINKEDIN over pockets 1 and 2, held on the felt by a few loose tacking stitches in the same thread colour,
+    no pins, no clips
+  content: 'Two ragged-edged fabric scraps, each about one pocket wide and covering the top two thirds of its pocket (40 to
+    53% from the top), in loud clashing patterns with big stitched labels: EMAIL mustard and teal gingham with charcoal letters,
+    LINKEDIN orange and purple diagonal stripes with ivory letters; loose thread ends'
+  size_in_frame: each scrap about 20% of frame width, 40 to 53% from the top
   held_by: null
 - id: PR-ORGANIZER
   story_critical: true
@@ -47,8 +48,9 @@ props:
   state: APRIL row, pockets 3 and 4 still empty
   content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row
     above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three
-    small colourful clay clients standing shoulder to shoulder (twelve in all), visible above the APRIL row at 16 to 36% from
-    the top; the CLIENTS header is above the frame; APRIL pockets: pockets 1 and 2 covered by scraps, pockets 3 and 4 empty.'
+    small clay clients in muted navy, green, grey, tan and plum jackets (as on PR-ORGANIZER@v2) standing shoulder to shoulder
+    (twelve in all), visible above the APRIL row at 16 to 36% from the top; the CLIENTS header is above the frame; APRIL pockets:
+    pockets 1 and 2 covered by scraps, pockets 3 and 4 empty: shallow slanted pockets, dark empty interior.'
   size_in_frame: April row spans 84% of frame width
   held_by: null
 text_in_image:
@@ -78,7 +80,7 @@ text_in_image:
   occlusion: no hand, needle or scrap over the label
 action_physics:
 - Maya's right hand, entering from the lower right, draws the needle and thick thread through the seam between the EMAIL and
-  LINKEDIN scraps below the letters (needle at y 0.46 to 0.52, thread trailing to the lower right); thumb and finger stay
+  LINKEDIN scraps below the letters (needle at y 0.50 to 0.53, thread trailing to the lower right); thumb and finger stay
   below the scraps' lower edge, clear of every letter. The left hand holds the EMAIL corner still. The clip ends with the
   EMAIL right edge sewn along the lower half of the seam and the needle at the LINKEDIN lower-left edge. The camera is locked.
 static: false
@@ -102,7 +104,8 @@ camera:
   movement: locked off (the whole clip is one framing)
   aspect: '9:16'
   safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half,
-    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.
+    Accepted: the working hands reach 59 to 60%, so captions may pass over the fingertips; no text sits there.'
 timing:
   start_s: 10.87
   end_s: 13.39
@@ -120,9 +123,9 @@ regions:
   kind: hand
   box:
   - 0.1
-  - 0.52
+  - 0.5
   - 0.26
-  - 0.64
+  - 0.59
 - name: right_hand
   kind: hand
   box:
@@ -169,7 +172,7 @@ style: 'Handmade claymation stop-motion look: plasticine characters with visible
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: warm ivory paper (about
   #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt, knit and linen as real fabric, the
-  four fix scraps the only loud colours, no marble, no other props. The method cloth is one calm sand-cream colour.'
+  four fix scraps the only loud colours, no marble, no other props.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no scraps over the MARCH row
@@ -179,8 +182,9 @@ must_not:
 - no sung mouth movement and no singer on screen
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
+- no COACH or ADS scrap anywhere in frame; pockets 3 and 4 stay empty and uncovered
 hero: true
-notes: 'Own clip CLIP-C (5 s render, picture 2.52 s). Start frame: EMAIL and LINKEDIN pinned over pockets 1 and 2, needle
+notes: 'Own clip CLIP-C (5 s render, picture 2.52 s). Start frame: EMAIL and LINKEDIN tacked over pockets 1 and 2, needle
   at the EMAIL edge. End frame: EMAIL sewn, needle at the LINKEDIN edge. The COACH and ADS scraps lie on the desk edge below
   the frame and are not shown. SH06 is a separate clip (CLIP-C2). Clip: CLIP-C. Prompt line (G-HUMAN-LOOK condition 3): a
   clean thumb-and-index needle pinch, the needle visible (CH-MAYA@v1 minor waived: its needle hand hides the needle in a fist).'

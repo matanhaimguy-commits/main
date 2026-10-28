@@ -1,0 +1,211 @@
+{
+ "gate": "G-VIS-SHEET",
+ "asset_id": "REF-PAPER",
+ "version": 1,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "hero": true,
+ "files_opened": [
+  "full.png",
+  "tile_r1c1.png",
+  "tile_r1c2.png",
+  "tile_r1c3.png",
+  "tile_r2c1.png",
+  "tile_r2c2.png",
+  "tile_r2c3.png",
+  "tile_r3c1.png",
+  "tile_r3c2.png",
+  "tile_r3c3.png",
+  "thumb_200.png",
+  "manifest.json"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "story fit: swatch, no story"
+  },
+  {
+   "id": "V2",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "no script line"
+  },
+  {
+   "id": "V3",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "no story beat"
+  },
+  {
+   "id": "V4",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "no figures"
+  },
+  {
+   "id": "V5",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "no hands"
+  },
+  {
+   "id": "V6",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "no faces"
+  },
+  {
+   "id": "V7",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "no action"
+  },
+  {
+   "id": "V8",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "no physics"
+  },
+  {
+   "id": "V9",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "no text expected; none present"
+  },
+  {
+   "id": "V10",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "no text"
+  },
+  {
+   "id": "V11",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "no text"
+  },
+  {
+   "id": "V12",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "no props"
+  },
+  {
+   "id": "V13",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "no props"
+  },
+  {
+   "id": "V14",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "no props"
+  },
+  {
+   "id": "V15",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "no identity; it matches the Maya sheet background"
+  },
+  {
+   "id": "V16",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "no characters"
+  },
+  {
+   "id": "V17",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "no continuity subject beyond colour (see V21)"
+  },
+  {
+   "id": "V18",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Single flat paper field, no objects, edges, borders, seams, text or shadows in full.png or any of the 9 tiles (r1c1 to r3c3); thumb_200 reads as plain ivory."
+  },
+  {
+   "id": "V19",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "no format spec beyond square swatch"
+  },
+  {
+   "id": "V20",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "no layout"
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full + tiles",
+   "evidence": "Measured mean RGB (250,238,214) = #faeed6, a little lighter than #f6e8d2 (allowed); warm, R>G>B, no grey, pink or green shift. Mean over the source box in CH-MAYA.v1.png is (249.99,237.71,213.59), identical to the swatch, so it matches the sheet's own paper. Quadrant means vary by about 1 level except the bottom-left sixteenth (248.5,235.6,211.0), a barely visible warm drift."
+  },
+  {
+   "id": "V22",
+   "result": "PASS",
+   "severity": "",
+   "region": "tiles",
+   "evidence": "Even soft light, no vignette, banding, seams or blotches. Std dev is 1.2 to 1.9 per channel. Texture is a soft low-frequency mottle from the 3.76x upscale; it reads as gentle paper grain, not a pattern. No fine grain, which is acceptable for a colour reference."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No generation defects: no artefacts, no hatch pattern, no objects. Slight softness is inherent to the crop upscale and is not a defect for a colour swatch."
+  },
+  {
+   "id": "V24",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "no logos, characters or brand marks"
+  },
+  {
+   "id": "V25",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "no before/after, no shaming"
+  },
+  {
+   "id": "V26",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "no people; AI disclosure belongs to the post"
+  }
+ ],
+ "fix": {
+  "route": "none",
+  "prompt_changes": []
+ }
+}

@@ -5,11 +5,11 @@ script_lines:
 - O60-L03
 line_text: then April went quiet, she'd been too busy in March
 story_purpose: 'Stakes: April went quiet because she was too busy in March.'
-must_read_in_1s: Maya looks up at empty April while a big MARCH tag sits on a pile of papers.
+must_read_in_1s: Maya looks up at the empty APRIL row; a big MARCH tag sits on the paper pile below.
 subjects:
 - id: CH-MAYA
   ref: CH-MAYA@v1
-  state: side view (profile), seated, head tilted up toward the wall
+  state: side view (profile), facing frame-right, seated, head tilted up about 30 degrees toward the wall
   pose: seated on the chair at the desk, shoulders slumped, hands out of frame below the desk edge
   expression: worried, brows low (side view)
   instances: 1
@@ -28,19 +28,19 @@ props:
   state: MARCH full, APRIL empty, medium
   content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row
     above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three
-    small colourful clay clients standing shoulder to shoulder (twelve in all); APRIL pockets: all four are empty, shallow
-    slanted pockets, dark empty interior, no clients.'
+    small clay clients in muted navy, green, grey, tan and plum jackets (as on PR-ORGANIZER@v2) standing shoulder to shoulder
+    (twelve in all); APRIL pockets: all four are empty, shallow slanted pockets, dark empty interior, no clients.'
   size_in_frame: organizer 15 to 42% from the top, 85% width
   held_by: null
 - id: PR-MARCHTAG
   story_critical: true
   ref: PR-SCRAPS@v1 (stitched felt label craft only; the tag itself is drawn from this content line)
-  state: propped against a paper pile
-  content: 'PR-MARCHTAG (no sheet, full description): a flat felt tag about the size of Maya''s palm, ivory felt with a soft
-    charcoal blanket-stitched edge, the word MARCH in charcoal stitched capital letters across its middle, no other marks.
-    In this shot: a felt tag the size of a hand, ivory with charcoal stitched letters MARCH, propped against a tall pile of
-    loose clay papers on the desk'
-  size_in_frame: tag about 18% of frame width at 44% from the top
+  state: leaning against the front face of the paper pile, bottom edge on the desk
+  content: 'PR-MARCHTAG (no sheet, full description): a large flat felt tag about as wide as Maya''s head, ivory felt with
+    a soft charcoal blanket-stitched edge, the word MARCH in charcoal stitched capital letters across its middle, no other
+    marks. In this shot: the tag''s bottom edge stands on the desk and its back leans against the front face of a tall pile
+    of loose clay papers at about 10 degrees, centred 47% from the top'
+  size_in_frame: tag about 18% of frame width (about as wide as Maya's head), 44 to 53% from the top
   held_by: null
 text_in_image:
 - string: CLIENTS
@@ -88,9 +88,10 @@ setting:
   background_rule: plain ivory paper wall; desk holds only the laptop, the paper pile with the MARCH tag, a mug. The laptop
     is seen edge-on from the side; any visible screen face is plain flat dark grey, no icons.
 camera:
-  framing: 'medium: organizer upper half, Maya and desk lower half; camera at the side of the desk; the wall with the organizer
-    is on her far side, so she turns her head and eyes up toward it; the organizer is shown face-on at 15 to 42% from the
-    top'
+  framing: 'medium: camera at Maya''s left side; Maya in profile facing frame-right, head tilted up about 30 degrees toward
+    the organizer, which hangs on the wall in front of her and above her eyeline in the upper frame (15 to 42% from the top,
+    shown face-on by the slightly low angle); the desk runs left to right below her, the laptop seen edge-on at its left end,
+    the paper pile with the MARCH tag right of centre, the mug at its right end'
   angle: slightly low, straight-on
   movement: 'edit: slow 100 to 108% push-in over the shot'
   aspect: '9:16'
@@ -108,6 +109,8 @@ continuity:
   carry_over:
   - CH-MAYA olive cardigan
   - PR-ORGANIZER state MARCH full APRIL empty
+  - laptop and mug on the desk as in SH02
+  - paper pile and MARCH tag new on this cut
 regions:
 - name: organizer
   kind: prop
@@ -154,8 +157,7 @@ regions:
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt,
-  knit and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props. The method cloth is
-  one calm sand-cream colour.'
+  knit and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no clients in the APRIL pockets

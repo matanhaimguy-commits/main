@@ -12,7 +12,8 @@ subjects:
   ref: 'CH-FRIEND@v1 (middle panel only: three-quarter standing view, both hands in her jacket pockets; the seated panel is
     not used)'
   state: 'on the laptop screen, three-quarter bust from the waist up: teal-grey canvas jacket with two patch pockets over
-    a cream top, black curly puff, tortoiseshell wire glasses'
+    a cream top, black curly puff, tortoiseshell wire glasses; her head (face 33 to 44% from the top) sits just below the
+    organizer and does not overlap it'
   pose: standing in three-quarter view, body turned about 30 degrees to image-left, head turned toward her call camera, both
     hands in her jacket pockets at the bottom edge of the screen, only the wrists and pocket edges show
   expression: warm kind smile
@@ -20,7 +21,8 @@ subjects:
   eyeline: at the call camera
 - id: PR-LAPTOP
   ref: 'none (no sheet: the full description in the props content line and in setting.details)'
-  state: open laptop, screen fills the frame to the bezel, showing the friend seated in front of her organizer wall
+  state: open on Maya's desk, straight-on, the screen showing the friend standing in three-quarter view in front of her organizer
+    wall
   pose: straight-on
   expression: n/a
   instances: 1
@@ -32,7 +34,8 @@ props:
   state: 'behind the friend on the screen: CLIENTS organizer, one calm cream fabric, clients in both rows'
   content: Wall organizer headed CLIENTS in one single calm sand-cream linen, two rows of four pockets, MARCH row and APRIL
     row; two small clay clients in each of the eight pockets (sixteen in all)
-  size_in_frame: organizer fills the upper part of the screen, 15 to 29% from the top of the frame
+  size_in_frame: organizer about 40% of frame width (x 0.30 to 0.70) and 15 to 31% from the top, its proportions as on SET-FRIEND@v1;
+    its lower edge sits just above the friend's head, which does not overlap it
   held_by: null
 - id: PR-LAPTOP
   story_critical: true
@@ -74,10 +77,12 @@ setting:
   details: 'Maya''s office: the open laptop on her charcoal desk against the plain ivory paper wall, a thin band of wall above
     the screen and the desk edge below. World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay
     with visible fingerprints, felt, knit and linen as real fabric, the four fix scraps the only loud colours, no marble,
-    no other props. On the screen: SET-FRIEND@v1 as a live call image (her ivory paper wall and her calm organizer), no interface
-    icons, no text other than the organizer labels. Of the office items, only the desk and the laptop appear: a simple charcoal
-    clay desk (one flat top on four straight legs, no drawers) and the PR-LAPTOP described in props.'
-  background_rule: screen shows only the friend and her wall; no chat windows; Maya's wall plain ivory paper, no frames
+    no other props. On the screen: SET-FRIEND@v1 as a live call image (her ivory paper wall and her calm organizer only; the
+    shelf and plant of SET-FRIEND@v1 are left out, below the screen''s view), no interface icons, no text other than the organizer
+    labels. Of the office items, only the desk and the laptop appear: a simple charcoal clay desk (one flat top on four straight
+    legs, no drawers) and the PR-LAPTOP described in props.'
+  background_rule: 'screen shows only the friend and her wall; no chat windows; Maya''s wall plain ivory paper, no frames;
+    on the screen only the ivory wall, the CLIENTS organizer and the friend: no shelf, no plant'
 camera:
   framing: 'close on the laptop on the desk: screen 10 to 90% of frame width and 14 to 52% from the top, a thin band of ivory
     wall above, the desk edge below'
@@ -102,31 +107,31 @@ regions:
 - name: friend_face
   kind: face
   box:
-  - 0.4
-  - 0.3
-  - 0.6
   - 0.42
+  - 0.33
+  - 0.58
+  - 0.44
 - name: friend_organizer
   kind: prop
   box:
-  - 0.16
+  - 0.3
   - 0.15
-  - 0.84
-  - 0.29
+  - 0.7
+  - 0.31
 - name: organizer_labels
   kind: text
   box:
-  - 0.16
-  - 0.15
-  - 0.4
-  - 0.29
+  - 0.3
+  - 0.18
+  - 0.42
+  - 0.31
 - name: clients_header
   kind: text
   box:
-  - 0.4
+  - 0.42
   - 0.15
-  - 0.6
-  - 0.19
+  - 0.58
+  - 0.18
 - name: laptop
   kind: prop
   box:
@@ -137,8 +142,7 @@ regions:
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt,
-  knit and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props. The method cloth is
-  one calm sand-cream colour.'
+  knit and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no scraps and no patchwork on the friend's organizer

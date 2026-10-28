@@ -1,0 +1,78 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH17",
+ "spec_sha256": "a85e365e69e69abccf5850a34055e94c4bcdf5fb29639593dd6c441a43d0ec9a",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "three pieces, firm/limp states, ADS piece, three bubbles, rod, window sash, pan all given; 'Maya' appears only in SH18 (see P8)"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible; must_not 'no hands, no people'"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'bows outward 1 cm and the three bubbles slide up off it, one every 0.5 s: bubble 1 leaves its left end, bubble 2 its middle, bubble 3 its right end'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-CLOTH, PR-BUBBLES ('Three blank cream clay speech bubbles with small tails... no letters') and PR-ROD all filled"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "'POSTS' x3 and 'ADS' quoted with surface, position and occlusion; stitched-lettering waiver stated ('never printed'); one word each"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: window glass 'shows the plain clay street behind the glass (no signs, no text)'; plain wall"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "FAIL: the pan to SH18 puts Maya (SH18 x 0.06-0.26, seated at the desk, left of the window) between the pieces and the window, i.e. at about x 0.68-0.88 of frame 1 behind the firm piece, while must_not says 'no hands, no people'; the window's visible extent in frame 1 is not given ('window frame at the right edge'); the firm piece (to y 0.55, x to 0.92) reaches the right 21% of the lower half"
+  },
+  {
+   "id": "P9",
+   "result": "FAIL",
+   "evidence": "FAIL: carry_over lists only 'PR-CLOTH pieces and weave'; the end frame must match SH18 (Maya with headset, desk, window view 30-92% wide) but nothing in SH17 says what the camera passes over during the pan"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "FAIL: PR-BUBBLES uses the 'bubble panel' of PR-CLOTH@v1, which shows a pile of nine bubbles (waived minor), and the spec never says 'exactly three, not the nine of the reference'; also 'top third' fold and 'lower half drooping' overlap"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-03 contact points, FL-09 limp pieces still by design, FL-05 window glass ruled; World line present word for word; 'no marble' only"
+  }
+ ],
+ "suggested_spec_changes": [
+  "Reconcile the pan with SH18: say where Maya and her desk sit relative to the pieces and window, e.g. 'the pan crosses a plain wall gap and a plain charcoal desk with Maya seated, side view, headset on, entering from the right at 65% of the clip', and change must_not to 'no people except Maya as she enters (carry-over CH-MAYA headset)'. Or put the window directly right of the pieces and Maya out of the pan path, then fix her SH18 box.",
+  "Give the window's extent in frame 1 (e.g. 'window frame starts at x 0.94, raised lower sash visible in the right 6%') and its sash height.",
+  "Add to PR-BUBBLES: 'exactly three bubbles; the sheet shows a pile of nine, use only three'; same line in SH18.",
+  "Keep the firm piece out of the right-21% zone below y 0.50: shift the three pieces left (e.g. 0.06-0.28, 0.35-0.57, 0.64-0.78 would be too narrow) or cut piece height so it ends at y 0.50.",
+  "Add carry_over: 'CH-MAYA headset (enters during the pan)', 'window view of SH18'.",
+  "Advisory: three 5%-wide bubbles in a 15% row touch each other; allow 0.5% gaps."
+ ]
+}

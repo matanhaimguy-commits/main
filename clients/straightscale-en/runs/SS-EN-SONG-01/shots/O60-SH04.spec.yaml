@@ -10,15 +10,16 @@ must_read_in_1s: Maya on a phone call with papers piling up; April pockets untou
 subjects:
 - id: CH-MAYA
   ref: CH-MAYA@v1
-  state: wearing a headset (no phone in the frame), side view, seated on a plain charcoal clay chair
+  state: 'side view: Maya faces frame-right toward the pile, her right side to the camera; she wears the black over-ear headset
+    with a thin boom mic from CH-MAYA@v1, no cord visible, no phone in the frame; seated on a plain charcoal clay chair'
   pose: torso leaning forward over the desk
   expression: focused, mouth closed (not singing)
   instances: 1
   eyeline: down at the papers
 hands:
 - who: Maya
-  left: left hand flat on the desk 3 cm from the edge of the sliding sheet, fingers toward the pile, not on any sheet
-  right: right hand pressing the headset earcup
+  left: left hand flat on the desk 3 cm left of the loose sheet, fingers toward the pile, not on any sheet
+  right: right hand raised to her ear, fingertips pressing the headset earcup at ear height (x 0.44 to 0.53, y 0.34 to 0.41)
   contact: left palm on the desk, right fingertips on the earcup
   count_check: five fingers on each visible hand
   must_not_cover: the MARCH tag and the pile's top sheet
@@ -26,21 +27,20 @@ props:
 - id: PR-MARCHTAG
   story_critical: true
   ref: PR-SCRAPS@v1 (stitched felt label craft only; the tag itself is drawn from this content line)
-  state: propped against a taller paper pile
-  content: 'PR-MARCHTAG (no sheet, full description): a flat felt tag about the size of Maya''s palm, ivory felt with a soft
-    charcoal blanket-stitched edge, the word MARCH in charcoal stitched capital letters across its middle, no other marks.
-    In this shot: a felt tag the size of a hand, ivory with charcoal stitched letters MARCH, propped against a very tall pile
-    of loose clay papers on the desk'
-  size_in_frame: tag about 16% of frame width
+  state: leaning against the front face of a taller paper pile, bottom edge on the desk
+  content: 'PR-MARCHTAG (no sheet, full description): a large flat felt tag about as wide as Maya''s head, ivory felt with
+    a soft charcoal blanket-stitched edge, the word MARCH in charcoal stitched capital letters across its middle, no other
+    marks. In this shot: the tag''s bottom edge stands on the desk and its back leans against the front face of a very tall
+    pile of loose clay papers at about 10 degrees, centred 49% from the top'
+  size_in_frame: tag about 18% of frame width (about as wide as Maya's head), 45 to 54% from the top
   held_by: null
 - id: PR-ORGANIZER
   story_critical: true
   ref: PR-ORGANIZER@v2
   state: APRIL row empty, soft focus behind her
-  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row
-    above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three
-    small colourful clay clients standing shoulder to shoulder (twelve in all); APRIL pockets: all four are empty, shallow
-    slanted pockets, dark empty interior, no clients.'
+  content: 'Felt wall organizer in soft focus behind her: two rows of four pockets, the upper row with small clay clients
+    in muted jackets, the lower row empty: shallow slanted pockets, dark empty interior; its sewn labels are blurred and not
+    read'
   size_in_frame: organizer soft focus, top 15 to 40%
   held_by: null
 text_in_image:
@@ -49,10 +49,10 @@ text_in_image:
   position: on the desk, right of centre, 47% from the top
   case: upper
   must_be_exact: true
-  occlusion: hand and headset cord stay clear of the tag
+  occlusion: both hands stay clear of the tag
 action_physics:
-- One clay paper sheet, its leading edge resting on the top sheet of the pile and its trailing edge 2 cm above the desk, held
-  by the paper's own curl; no hand touches it. Maya's left palm rests flat on the desk beside it, 3 cm from its edge.
+- One clay sheet lies on the desk with its right edge tucked under the pile's top sheet; its left edge curls up 2 cm; no hand
+  touches it. Maya's left palm rests flat on the desk 3 cm left of that sheet.
 - 'Maya sits on the plain charcoal clay chair: weight on the seat, both feet flat on the floor. One instance of Maya.'
 static: true
 setting:
@@ -76,7 +76,8 @@ camera:
   movement: 'edit: slow 100 to 108% push-in'
   aspect: '9:16'
   safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half,
-    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.
+    Accepted: the left hand and the base of the pile reach 60%, so captions may pass over them; they carry no text.'
 timing:
   start_s: 8.43
   end_s: 10.87
@@ -101,10 +102,10 @@ regions:
 - name: right_hand
   kind: hand
   box:
-  - 0.55
-  - 0.4
-  - 0.66
-  - 0.47
+  - 0.44
+  - 0.34
+  - 0.53
+  - 0.41
 - name: march_tag
   kind: text
   box:
@@ -129,8 +130,7 @@ regions:
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt,
-  knit and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props. The method cloth is
-  one calm sand-cream colour.'
+  knit and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no phone screen with lettering
@@ -139,6 +139,7 @@ must_not:
 - no sung mouth movement and no singer on screen
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
+- no readable lettering on the blurred organizer
 hero: false
 notes: 'Organizer is background only here; its labels are not read, so no text entry for them. No generated clip: a gpt-image-2
   still moved by a code push-in.'

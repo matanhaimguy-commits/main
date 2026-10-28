@@ -6,7 +6,7 @@ script_lines:
 line_text: a coach and then some ads, and each held a month,
 story_purpose: 'Failed fixes: the coach and the ads are sewn on too (pockets 3 and 4); with SH05 all four April pockets are
   covered.'
-must_read_in_1s: COACH and ADS patches are sewn over the next two April pockets, so the row is nearly covered.
+must_read_in_1s: COACH and ADS patches are sewn over the last two April pockets.
 subjects:
 - id: CH-MAYA
   ref: CH-MAYA@v1
@@ -16,37 +16,43 @@ subjects:
   instances: 1
 - id: PR-SCRAPS
   ref: PR-SCRAPS@v1
-  state: COACH and ADS pinned over pockets 3 and 4 and sewn along their other edges; EMAIL and LINKEDIN are already sewn and
-    outside the frame
+  state: COACH and ADS over pockets 3 and 4, held on the felt by a few loose tacking stitches in the same thread colour, no
+    pins, no clips, and sewn along their other edges; EMAIL and LINKEDIN are already sewn and outside the frame
   pose: flat on the felt
   expression: n/a
   instances: 1
 hands:
 - who: Maya
-  left: left hand holding the left edge of the ADS scrap flat, palm on the felt left of the ADS label
-  right: right hand pulling the last stitch tight at the right edge of the ADS scrap
+  left: 'left hand holds the COACH and ADS seam flat: palm on the felt below the seam (x 0.38 to 0.50, y 0.52 to 0.58), fingertips
+    on the ADS lower-left edge'
+  right: 'right hand pulls the last stitch tight at the ADS right edge: the thread leaves the felt 1 cm inside the ADS right
+    edge (x 0.76, y 0.48) and runs taut to the thumb and index fingertips (x 0.68 to 0.78, y 0.38 to 0.48); the needle has
+    already gone through and hangs on the thread end below the hand, shaft visible; a clear 2 cm gap between the fingers and
+    the S of ADS'
   contact: left palm on the felt; right hand in a clean thumb-and-index pinch on the thread, the other three fingers curled
     loosely
   count_check: five fingers on each visible hand
-  must_not_cover: the stitched labels COACH and ADS
+  must_not_cover: the stitched labels COACH and ADS; no letter touches a hand
 props:
 - id: PR-SCRAPS
   story_critical: true
   ref: PR-SCRAPS@v1
-  state: COACH and ADS pinned over pockets 3 and 4, the ADS right edge being finished
-  content: 'Four ragged-edged fabric scraps, each about one pocket wide, each in a different loud clashing pattern with a
-    big stitched label: EMAIL mustard and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes
-    with ivory letters, COACH lime leopard spots with black letters, ADS hot-pink polka dots on blue with white letters; loose
-    thread ends'
-  size_in_frame: each scrap about 36% of frame width
+  state: COACH and ADS over pockets 3 and 4, held on the felt by a few loose tacking stitches in the same thread colour, no
+    pins, no clips; the ADS right edge being finished
+  content: 'Two ragged-edged fabric scraps, near square as on PR-SCRAPS@v1, each about one pocket wide, in loud clashing patterns
+    with big stitched labels: COACH lime leopard spots with black letters, ADS hot-pink polka dots on blue with white letters;
+    loose thread ends'
+  size_in_frame: each scrap about 34% of frame width and 20% of frame height (near square in 9:16), 32 to 52% from the top;
+    COACH x 0.08 to 0.42, ADS x 0.44 to 0.78
   held_by: null
 - id: PR-ORGANIZER
   story_critical: true
   ref: PR-ORGANIZER@v2
   state: 'right half in frame: APRIL pockets 3 and 4 covered by scraps'
-  content: Felt wall organizer, ivory felt with charcoal stitching; above the scraps (0 to 36% from the top) the right two
-    MARCH pockets, each holding three small colourful clay clients shoulder to shoulder; no row label band and no CLIENTS
-    header in frame
+  content: Felt wall organizer, ivory felt with charcoal stitching; above the scraps the right two MARCH pockets at 15 to
+    30% from the top, each holding three small clay clients in muted navy, green, grey, tan and plum jackets (as on PR-ORGANIZER@v2);
+    above them (0 to 15%) the plain lower edge of the header band, its CLIENTS letters above the frame; no row label band
+    in frame
   size_in_frame: right half of the organizer fills the frame width
   held_by: null
 text_in_image:
@@ -63,7 +69,8 @@ text_in_image:
   must_be_exact: true
   occlusion: no finger or needle over the letters
 action_physics:
-- Maya's right hand pulls the final stitch tight on the ADS scrap; the other scraps are already sewn.
+- Maya's right hand pulls the final stitch tight on the ADS scrap, the thread taut from the felt to her fingertips; the other
+  scraps are already sewn.
 static: false
 setting:
   ref: 'REF-PAPER@v1 (plain-paper crop of CH-MAYA@v1: paper colour, texture and light only)'
@@ -82,12 +89,13 @@ setting:
   background_rule: plain wall
 camera:
   framing: close on pockets 3 and 4 and the hands, rendered (not an edit punch-in); the EMAIL and LINKEDIN labels are outside
-    the frame
+    the frame; framed so the ADS right edge ends at x 0.78
   angle: slightly low, straight-on
   movement: locked off
   aspect: '9:16'
   safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half,
-    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.
+    Accepted: the left palm reaches 58%, so captions may pass over it; no text sits there.'
 timing:
   start_s: 13.39
   end_s: 15.25
@@ -100,57 +108,58 @@ continuity:
   carry_over:
   - PR-SCRAPS four loud patterns
   - CH-MAYA cardigan sleeves
+  - 'scale change from SH05: SH06 is closer, the scraps 34% of frame width here against 20% in SH05'
 regions:
 - name: left_hand
   kind: hand
   box:
+  - 0.38
+  - 0.52
   - 0.5
-  - 0.5
-  - 0.66
-  - 0.62
+  - 0.58
 - name: right_hand
   kind: hand
   box:
-  - 0.74
-  - 0.5
-  - 0.92
-  - 0.62
+  - 0.68
+  - 0.38
+  - 0.78
+  - 0.48
 - name: scrap_coach
   kind: text
   box:
-  - 0.1
-  - 0.38
-  - 0.46
+  - 0.08
+  - 0.32
+  - 0.42
   - 0.52
 - name: scrap_ads
   kind: text
   box:
-  - 0.5
-  - 0.38
-  - 0.88
+  - 0.44
+  - 0.32
+  - 0.78
   - 0.52
 - name: scraps_row
   kind: prop
   box:
-  - 0.08
-  - 0.36
-  - 0.92
+  - 0.06
+  - 0.3
+  - 0.8
   - 0.54
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: warm ivory paper (about
   #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt, knit and linen as real fabric, the
-  four fix scraps the only loud colours, no marble, no other props. The method cloth is one calm sand-cream colour.'
+  four fix scraps the only loud colours, no marble, no other props.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
-- no loose scraps yet
+- no other scrap lying free anywhere in frame
 - no extra, missing or merged fingers
 - no logos, no real platform names, no lettering on walls, laptop or papers other than the listed strings
 - no sung mouth movement and no singer on screen
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
 hero: true
-notes: 'Own clip CLIP-C2 (5 s render, picture 1.86 s) with its own start frame: COACH and ADS pinned over pockets 3 and 4,
+notes: 'Own clip CLIP-C2 (5 s render, picture 1.86 s) with its own start frame: COACH and ADS tacked over pockets 3 and 4,
   the ADS right-edge stitch half pulled. The COACH and ADS scraps were taken from the desk edge below the frame before this
   frame; none waits anywhere in frame. Hard cut from SH05 on the beat. Clip: CLIP-C2. Prompt line (G-HUMAN-LOOK condition
   3): a clean thumb-and-index pinch on the thread.'

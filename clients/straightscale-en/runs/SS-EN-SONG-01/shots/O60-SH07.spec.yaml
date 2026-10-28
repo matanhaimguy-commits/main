@@ -9,9 +9,9 @@ must_read_in_1s: The patches have fallen off and April is empty again.
 subjects:
 - id: PR-SCRAPS
   ref: PR-SCRAPS@v1
-  state: EMAIL, LINKEDIN and COACH lying crumpled on the clay floor; the ADS scrap hanging by one corner thread from the lower
-    edge of pocket 4
-  pose: crumpled flat on the clay floor
+  state: EMAIL, LINKEDIN and COACH lying loosely on the clay floor, ragged edges, gently rumpled, every stitched label flat
+    and fully readable; the ADS scrap hanging by one corner thread from the lower edge of pocket 4
+  pose: lying loosely on the clay floor, ragged edges, gently rumpled, every stitched label flat and fully readable
   expression: n/a
   instances: 1
 hands: none visible
@@ -24,16 +24,17 @@ props:
     big stitched label: EMAIL mustard and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes
     with ivory letters, COACH lime leopard spots with black letters, ADS hot-pink polka dots on blue with white letters; loose
     thread ends'
-  size_in_frame: scraps 15% frame width each, 45 to 58% from the top
+  size_in_frame: floor scraps 15% of frame width each, 45 to 55% from the top; ADS hanging 34 to 42%
   held_by: null
 - id: PR-ORGANIZER
   story_critical: true
   ref: PR-ORGANIZER@v2
   state: APRIL row empty again, loose thread ends on the felt
   content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row
-    above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: (above the frame); APRIL pockets:
-    all four are empty, shallow slanted pockets, dark empty interior, no clients.'
-  size_in_frame: April row 22 to 40% from the top
+    above the APRIL row, each row label sewn on a thick band at its left end; the CLIENTS header and the MARCH row are above
+    the top edge of the frame: none of their lettering or clients shows; the top of the frame (0 to 15%) shows only the plain
+    felt strip between the rows; APRIL pockets: all four are empty, shallow slanted pockets, dark empty interior, no clients.'
+  size_in_frame: APRIL row 15 to 33% from the top, 80% of frame width
   held_by: null
 text_in_image:
 - string: EMAIL
@@ -62,13 +63,14 @@ text_in_image:
   occlusion: not folded over
 - string: APRIL
   surface: row label band at the left end of the APRIL row
-  position: left end of the row, about 26% from the top
+  position: left end of the row, about 24% from the top
   case: upper
   must_be_exact: true
   occlusion: the hanging ADS scrap and thread ends stay clear of the band
 action_physics:
-- 'Frozen moment: the ADS scrap hangs by one thread from the lower edge of the APRIL row, 4 cm above the three scraps lying
-  on the floor.'
+- 'Frozen moment: the ADS scrap hangs by one thread from the lower edge of pocket 4 (the bottom of the APRIL row at 33%),
+  its bottom edge at 42%, about 4 cm above the three scraps lying on the floor (45 to 55%); the wall meets the floor in a
+  soft curve at about 43%.'
 static: true
 setting:
   ref: 'REF-PAPER@v1 (plain-paper crop of CH-MAYA@v1: paper colour, texture and light only)'
@@ -109,42 +111,41 @@ regions:
   kind: prop
   box:
   - 0.12
-  - 0.44
+  - 0.45
   - 0.88
   - 0.55
 - name: scraps_labels
   kind: text
   box:
   - 0.12
-  - 0.44
+  - 0.45
   - 0.88
   - 0.55
 - name: april_row
   kind: prop
   box:
   - 0.1
-  - 0.2
+  - 0.15
   - 0.9
-  - 0.4
+  - 0.33
 - name: april_label
   kind: text
   box:
   - 0.08
-  - 0.22
+  - 0.15
   - 0.3
-  - 0.4
+  - 0.33
 - name: ads_hanging
   kind: text
   box:
   - 0.68
-  - 0.38
+  - 0.34
   - 0.9
-  - 0.48
+  - 0.42
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt,
-  knit and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props. The method cloth is
-  one calm sand-cream colour.'
+  knit and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no people in the frame

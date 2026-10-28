@@ -5,12 +5,12 @@ script_lines:
 - O60-L09
 line_text: 'that''s patchwork marketing: no scrap'
 story_purpose: 'THE PICTURE named in the chorus: patchwork marketing, loose scraps that never hold, empty April behind.'
-must_read_in_1s: Maya holds two unjoined patches in front of an empty April row, more patches on the floor.
+must_read_in_1s: Maya holds two unjoined patches below an empty April row.
 subjects:
 - id: CH-MAYA
   ref: CH-MAYA@v1
-  state: standing, front three-quarter, olive cardigan
-  pose: holding the two scraps apart at chest height, both feet flat on the clay floor, weight on both feet
+  state: standing, front three-quarter, olive cardigan, framed from mid-thigh up
+  pose: holding the two scraps apart at chest height, just below her chin; her legs leave the frame at the bottom edge
   expression: tired, flat mouth
   instances: 1
   eyeline: at the scraps
@@ -22,8 +22,10 @@ subjects:
   instances: 1
 hands:
 - who: Maya
-  left: left hand pinching the top-left corner of the EMAIL scrap
-  right: right hand pinching the top-right corner of the ADS scrap
+  left: hand on image-left (Maya's right hand) pinches the top-left corner of the EMAIL scrap (x 0.355 to 0.395, y 0.45 to
+    0.48)
+  right: hand on image-right (Maya's left hand) pinches the top-right corner of the ADS scrap (x 0.605 to 0.645, y 0.45 to
+    0.48)
   contact: thumb and forefinger on each corner
   count_check: five fingers on each visible hand
   must_not_cover: the scraps' labels
@@ -31,12 +33,13 @@ props:
 - id: PR-SCRAPS
   story_critical: true
   ref: PR-SCRAPS@v1
-  state: two held apart (EMAIL, ADS), two lying crumpled on the floor with their labels face down so no letters show
+  state: two held apart (EMAIL, ADS); LINKEDIN and COACH are out of frame
   content: 'Four ragged-edged fabric scraps, each about one pocket wide, each in a different loud clashing pattern with a
     big stitched label: EMAIL mustard and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes
     with ivory letters, COACH lime leopard spots with black letters, ADS hot-pink polka dots on blue with white letters; loose
     thread ends'
-  size_in_frame: held scraps 18% of frame width each at 37 to 49% from the top
+  size_in_frame: held scraps 12.5% of frame width each, 46 to 53% from the top; EMAIL x 0.36 to 0.485, ADS x 0.515 to 0.64,
+    a 3 cm gap (x 0.485 to 0.515)
   held_by: null
 - id: PR-ORGANIZER
   story_critical: true
@@ -44,9 +47,10 @@ props:
   state: MARCH full, APRIL empty, wide
   content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row
     above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three
-    small colourful clay clients standing shoulder to shoulder (twelve in all); APRIL pockets: all four are empty, shallow
-    slanted pockets, dark empty interior, no clients.'
-  size_in_frame: organizer 14 to 30% from the top
+    small clay clients in muted navy, green, grey, tan and plum jackets (as on PR-ORGANIZER@v2) standing shoulder to shoulder
+    (twelve in all); APRIL pockets: all four are empty, shallow slanted pockets, dark empty interior, no clients.'
+  size_in_frame: 'organizer x 0.305 to 0.695 (39% of frame width) and 14.5 to 31.5% from the top, its proportions as on PR-ORGANIZER@v2:
+    header 15 to 17.5%, MARCH row 18 to 24.5%, APRIL row 25 to 31.5%; its lower edge just above her head'
   held_by: null
 text_in_image:
 - string: CLIENTS
@@ -81,6 +85,7 @@ text_in_image:
   occlusion: hands clear
 action_physics:
 - The dolly-out comes to rest; Maya's hands keep the two scraps still, 3 cm apart.
+- Maya stands with both feet flat on the clay floor, below the frame, weight on both feet.
 static: false
 setting:
   ref: 'REF-PAPER@v1 (plain-paper crop of CH-MAYA@v1: paper colour, texture and light only)'
@@ -98,7 +103,7 @@ setting:
     with a thin pale-wood frame.'
   background_rule: plain wall, nothing else
 camera:
-  framing: 'wide: organizer top, Maya mid, floor scraps lower'
+  framing: 'wide: organizer top, Maya from mid-thigh up in the middle, her held scraps at chest height'
   angle: eye level
   movement: the clip's dolly-out ends here
   aspect: '9:16'
@@ -118,81 +123,81 @@ continuity:
   - PR-SCRAPS
   - PR-ORGANIZER
 regions:
-- name: hands
+- name: hand_image_left
   kind: hand
   box:
-  - 0.28
-  - 0.35
-  - 0.72
-  - 0.4
+  - 0.355
+  - 0.45
+  - 0.395
+  - 0.48
+- name: hand_image_right
+  kind: hand
+  box:
+  - 0.605
+  - 0.45
+  - 0.645
+  - 0.48
 - name: held_scraps
   kind: prop
   box:
-  - 0.26
-  - 0.37
-  - 0.74
-  - 0.5
+  - 0.36
+  - 0.46
+  - 0.64
+  - 0.53
 - name: organizer
   kind: prop
   box:
-  - 0.1
-  - 0.14
-  - 0.9
-  - 0.3
-- name: april_label
-  kind: text
-  box:
-  - 0.1
-  - 0.24
-  - 0.3
-  - 0.3
-- name: maya_face
-  kind: face
-  box:
-  - 0.4
-  - 0.31
-  - 0.6
-  - 0.39
-- name: march_label
-  kind: text
-  box:
-  - 0.1
-  - 0.15
-  - 0.3
-  - 0.21
-- name: email_label
-  kind: text
-  box:
-  - 0.3
-  - 0.41
-  - 0.42
-  - 0.47
-- name: ads_label
-  kind: text
-  box:
-  - 0.58
-  - 0.41
-  - 0.7
-  - 0.47
-- name: floor_scraps
-  kind: prop
-  box:
-  - 0.2
-  - 0.55
-  - 0.8
-  - 0.64
+  - 0.305
+  - 0.145
+  - 0.695
+  - 0.315
 - name: clients_header
   kind: text
   box:
-  - 0.3
-  - 0.12
-  - 0.7
-  - 0.16
+  - 0.42
+  - 0.15
+  - 0.58
+  - 0.175
+- name: march_label
+  kind: text
+  box:
+  - 0.31
+  - 0.18
+  - 0.38
+  - 0.245
+- name: april_label
+  kind: text
+  box:
+  - 0.31
+  - 0.25
+  - 0.38
+  - 0.315
+- name: maya_face
+  kind: face
+  box:
+  - 0.44
+  - 0.33
+  - 0.56
+  - 0.39
+- name: email_label
+  kind: text
+  box:
+  - 0.38
+  - 0.48
+  - 0.465
+  - 0.51
+- name: ads_label
+  kind: text
+  box:
+  - 0.535
+  - 0.48
+  - 0.62
+  - 0.51
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: warm ivory paper (about
   #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt, knit and linen as real fabric, the
-  four fix scraps the only loud colours, no marble, no other props. The method cloth is one calm sand-cream colour.'
+  four fix scraps the only loud colours, no marble, no other props.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no extra, missing or merged fingers
@@ -201,5 +206,6 @@ must_not:
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
 hero: false
-notes: 'Second half of CLIP-D: this is the end frame, so its positions (organizer 14 to 30% from the top, hands at 38 to 47%)
-  are what SH10''s dolly-out must reach. Clip: CLIP-D.'
+notes: 'Second half of CLIP-D: this is the end frame, so its positions (organizer 14.5 to 31.5% from the top, face 33 to 39%,
+  hands 45 to 48%, scraps 46 to 53%) are what SH10''s dolly-out reaches; SH10 is this frame scaled 3x about the point (0.50,
+  0.53). Clip: CLIP-D.'

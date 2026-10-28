@@ -1,0 +1,75 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH07",
+ "spec_sha256": "87029ab5cd4cb89313e8ae56d60d09b1ef0f046127284622023c0a0e32654fa5",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "FAIL",
+   "evidence": "must_read 'April is empty again' but organizer content says 'MARCH pockets: (above the frame)' while April row sits 22 to 40%, so a MARCH row (about 4 to 22%) would be in frame; what shows at 0 to 22% is not stated"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible; no person in frame (must_not 'no people in the frame')"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'the ADS scrap hangs by one thread from the lower edge of the APRIL row, 4 cm above the three scraps lying on the floor'"
+  },
+  {
+   "id": "P5",
+   "result": "FAIL",
+   "evidence": "PR-ORGANIZER content still says 'headed CLIENTS' and 'MARCH row above' with no rule that header and MARCH row are out of frame (SH05 and SH06 state it); APRIL pockets are filled with 'dark empty interior' (good)"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "five strings in quotes with surface, position and occlusion, e.g. 'APRIL ... hanging ADS scrap and thread ends stay clear of the band'"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: 'plain wall and floor, no other objects'"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "size_in_frame 'scraps 15% frame width each, 45 to 58% from the top' vs region box y 0.44 to 0.55 and the 'captions go 55 to 62%' safe zone (key props must not sit there); ADS hanging box y 0.38 to 0.48 overlaps the floor-scrap box from 0.44 although it hangs '4 cm above' them; MARCH 'above the frame' vs April row at 22%"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over 'PR-SCRAPS', 'APRIL row empty'; SH06 shows EMAIL, LINKEDIN, COACH and ADS sewn over the April pockets, consistent with the fall"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "pose 'crumpled flat on the clay floor': crumpled and flat read two ways, and a crumple can fold a label (labels are must_be_exact)"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-05/FL-10 covered by 'plain wall and floor, no other objects'; FL-04 organizer filled; no hands near text"
+  }
+ ],
+ "suggested_spec_changes": [
+  "organizer content: replace 'MARCH pockets: (above the frame)' with 'the CLIENTS header and MARCH row are above the frame or cropped by the top edge; none of their lettering or clients shows', or lower the April row so the framing statement is true. State explicitly what fills 0 to 22%.",
+  "pose: 'lying loosely on the floor, ragged edges, gently rumpled, every stitched label flat and fully readable' (drop 'crumpled').",
+  "size_in_frame and regions: keep the floor scraps within 44 to 55% (or set the region to 45 to 58%) so the boxes agree and nothing key sits in the 55 to 62% caption band; move the ADS hanging box to end above the floor-scrap top (y 0.38 to 0.43) or give the gap in cm and in box terms."
+ ]
+}

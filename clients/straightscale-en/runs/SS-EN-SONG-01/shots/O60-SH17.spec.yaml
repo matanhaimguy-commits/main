@@ -25,16 +25,17 @@ props:
     in deeper tan thread, plus pieces cut from it with the same weave and charcoal stitched labels POSTS and ADS; every letter
     on the cloth and its pieces is stitched in raised charcoal thread, never printed
   size_in_frame: three pieces 22% of frame width each, at x 0.08 to 0.30 (left), 0.39 to 0.61 (centre), 0.70 to 0.92 (right,
-    the firm one), 34 to 55% from the top; the ADS piece 20% of frame width (x 0.71 to 0.91) sewn across the whole top third
+    the firm one), 34 to 50% from the top; the ADS piece 20% of frame width (x 0.71 to 0.91) sewn across the whole top third
     of the firm piece, its top edge at 34%, 8% below the rod
   held_by: null
 - id: PR-BUBBLES
   story_critical: true
   ref: PR-CLOTH@v1 (bubble panel)
   state: three blank cream clay bubbles resting on the top edge of the ADS piece at frame 1, then leaving it
-  content: Three blank cream clay speech bubbles with small tails and thumb-pressed edges, no letters
-  size_in_frame: 5% of frame width each (about 3.5% of frame height), 15% in a row at x 0.76 to 0.91 on the ADS top edge,
-    30.5 to 34% from the top, below the rod and right of the loop
+  content: 'Three blank cream clay speech bubbles with small tails and thumb-pressed edges, no letters; exactly three bubbles
+    (the PR-CLOTH@v1 sheet shows a pile of nine: use only three here)'
+  size_in_frame: 4.5% of frame width each (about 3.5% of frame height) with 0.75% gaps, 15% in a row at x 0.76 to 0.91 on
+    the ADS top edge, 30.5 to 34% from the top, below the rod and right of the loop
   held_by: null
 - id: PR-ROD
   story_critical: false
@@ -60,28 +61,30 @@ text_in_image:
   must_be_exact: true
   occlusion: not folded
 action_physics:
-- 'From frame 1, the window at the right edge has its lower sash already raised, leaving a clear opening, and three blank
-  clay bubbles rest in a row on the top edge of the ADS piece, below the rod. The ADS piece''s top edge (still sewn on) bows
-  outward 1 cm and the three bubbles slide up off it, one every 0.5 s: bubble 1 leaves its left end, bubble 2 its middle,
-  bubble 3 its right end; each drifts right and up toward the open window. The camera pans right following them and comes
-  nearer, so they read larger in SH18, and comes to rest on the window view of SH18; the two limp pieces hang still.'
+- 'From frame 1, three blank clay bubbles rest in a row on the top edge of the ADS piece, below the rod. The ADS piece''s
+  top edge (still sewn on) bows outward 1 cm and the three bubbles slide up off it, one every 0.5 s: bubble 1 leaves its left
+  end, bubble 2 its middle, bubble 3 its right end; each drifts right and up toward the open window beyond the right edge
+  of frame 1. The camera pans right following them, past a plain wall gap and past Maya seated at her desk (she enters from
+  the right at about 65% of the clip) and comes nearer, so they read larger in SH18, and comes to rest on the window view
+  of SH18; the two limp pieces hang still.'
 static: false
 setting:
   ref: 'REF-PAPER@v1 (plain-paper crop of CH-MAYA@v1: paper colour, texture and light only)'
-  details: 'Plain ivory paper office: one thin pale-wood rod fixed to the wall on two small brackets by the window, desk edge
-    below. World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt,
-    knit and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props. Set (no set sheet;
-    SET-OFFICE retired; paper reference REF-PAPER@v1, a plain-paper crop of CH-MAYA@v1): a plain warm-ivory paper wall and
-    floor meeting in a soft curve, soft contact shadows. Of the office items, only those this shot names appear, each looking
-    like this: a simple charcoal clay desk (one flat top on four straight legs, no drawers); PR-LAPTOP (no sheet, full description):
-    a small clay laptop, matte silver-grey clay lid and base with soft rounded corners and visible fingerprints, a plain lid
-    with no logo, sticker or lettering, a narrow charcoal bezel of even width on all four sides, a plain charcoal keyboard
-    with soft square keys and no letters; the screen shows only what this shot names, no icons, no windows, no text; one white
-    clay mug; PR-BIN (no sheet, full description): a small round waste bin of matte charcoal clay, about knee-high to Maya,
-    straight sides widening slightly toward the top, a thick rolled rim pressed with visible thumbprints, no lid, no pattern,
-    no lettering; a plain window with a thin pale-wood frame.'
-  background_rule: plain wall, window frame at the right edge; the lower sash is raised; the glass shows the plain clay street
-    behind the glass (no signs, no text)
+  details: 'Plain ivory paper office: one thin pale-wood rod fixed to the wall on two small brackets on the wall left of Maya''s
+    desk and the window, desk edge below. World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay
+    with visible fingerprints, felt, knit and linen as real fabric, the four fix scraps the only loud colours, no marble,
+    no other props. Set (no set sheet; SET-OFFICE retired; paper reference REF-PAPER@v1, a plain-paper crop of CH-MAYA@v1):
+    a plain warm-ivory paper wall and floor meeting in a soft curve, soft contact shadows. Of the office items, only those
+    this shot names appear, each looking like this: a simple charcoal clay desk (one flat top on four straight legs, no drawers);
+    PR-LAPTOP (no sheet, full description): a small clay laptop, matte silver-grey clay lid and base with soft rounded corners
+    and visible fingerprints, a plain lid with no logo, sticker or lettering, a narrow charcoal bezel of even width on all
+    four sides, a plain charcoal keyboard with soft square keys and no letters; the screen shows only what this shot names,
+    no icons, no windows, no text; one white clay mug; PR-BIN (no sheet, full description): a small round waste bin of matte
+    charcoal clay, about knee-high to Maya, straight sides widening slightly toward the top, a thick rolled rim pressed with
+    visible thumbprints, no lid, no pattern, no lettering; a plain window with a thin pale-wood frame.'
+  background_rule: 'plain wall; the window is not in frame 1: beyond the right edge of frame 1 come a plain wall gap, then
+    Maya seated at her desk (side view, headset on), then the window with its lower sash raised; the glass shows the plain
+    clay street (no signs, no text)'
 camera:
   framing: medium close on the three hanging pieces
   angle: eye level, straight-on
@@ -100,21 +103,9 @@ continuity:
   previous_shot: O60-SH16
   carry_over:
   - PR-CLOTH pieces and weave
+  - CH-MAYA headset (enters during the pan)
+  - window view of SH18
 regions:
-- name: pieces
-  kind: prop
-  box:
-  - 0.08
-  - 0.34
-  - 0.92
-  - 0.55
-- name: labels
-  kind: text
-  box:
-  - 0.08
-  - 0.34
-  - 0.92
-  - 0.52
 - name: ads_piece
   kind: prop
   box:
@@ -136,6 +127,20 @@ regions:
   - 0.305
   - 0.91
   - 0.34
+- name: pieces
+  kind: prop
+  box:
+  - 0.08
+  - 0.34
+  - 0.92
+  - 0.5
+- name: labels
+  kind: text
+  box:
+  - 0.08
+  - 0.34
+  - 0.92
+  - 0.48
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: warm ivory paper (about
@@ -150,7 +155,7 @@ must_not:
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
 - no letters or words inside the stitched bubble outlines on the cloth
-- no hands, no people
+- no people in frame 1; Maya enters from the right during the pan, seated at her desk, hands hidden behind it
 hero: true
 notes: 'CLIP-G 6 s render: one follow-pan on one subject (the three bubbles). Start frame = SH17, end frame = window view
   of SH18. Cause (ADS piece lifts the bubbles off) and result (they reach the buyers) in one clip (test 2). Clip: CLIP-G.

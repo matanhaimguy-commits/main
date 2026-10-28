@@ -22,7 +22,9 @@ props:
   content: One calm sand-cream linen cloth, a single colour, tight weave, with tone-on-tone speech-bubble shapes stitched
     in deeper tan thread, plus pieces cut from it with the same weave and charcoal stitched labels OFFER and POSTS; every
     letter on the cloth and its pieces is stitched in raised charcoal thread, never printed
-  size_in_frame: bigger cloth 40% of frame width, OFFER piece 34% of frame width, POSTS pieces 18% each
+  size_in_frame: bigger cloth 44% of frame width (x 0.06 to 0.50, 16 to 44% from the top) with a hole 34% of frame width and
+    20% of frame height at its centre (20 to 40%), the same outline as the OFFER piece; OFFER piece 34% of frame width and
+    20% of frame height; POSTS pieces 18% each
   held_by: null
 - id: PR-SCISSORS
   story_critical: false
@@ -45,11 +47,12 @@ text_in_image:
   must_be_exact: true
   occlusion: no piece overlaps another's label
 action_physics:
-- 'Frozen: the bigger cloth fills 8 to 48% of the width at 16 to 44% from the top, with a hole 30% of the frame wide at its
-  centre; a bare desk gap of 6% of the width; the OFFER piece lies on the desk at 56 to 90% of the width, 20 to 40% from the
-  top; three POSTS pieces lie in a row below at 46 to 55% from the top, each with its long side horizontal and its label reading
-  left to right, with bare desk between them; the scissors rest open on the bare desk at x 0.62 to 0.77, y 0.41 to 0.45, below
-  the OFFER piece, touching nothing else.'
+- 'Frozen: the bigger cloth fills x 0.06 to 0.50 at 16 to 44% from the top, with a hole at its centre 34% of the frame wide
+  and 20% of the frame tall (20 to 40%), its outline the same as the OFFER piece, which was cut from it; a bare desk gap of
+  6% of the width (x 0.50 to 0.56); the OFFER piece lies on the desk at x 0.56 to 0.90, 20 to 40% from the top; three POSTS
+  pieces lie in a row below at 47 to 55% from the top, at x 0.08 to 0.26, 0.34 to 0.52 and 0.60 to 0.78, each with its long
+  side horizontal and its label reading left to right, with bare desk between them; the scissors rest open on the bare desk
+  at x 0.62 to 0.77, y 0.41 to 0.45, below the OFFER piece, touching nothing else.'
 static: true
 setting:
   ref: 'REF-PAPER@v1 (plain-paper crop of CH-MAYA@v1: paper colour, texture and light only)'
@@ -102,23 +105,23 @@ regions:
 - name: posts_pieces
   kind: prop
   box:
-  - 0.1
-  - 0.46
-  - 0.9
+  - 0.08
+  - 0.47
+  - 0.78
   - 0.55
 - name: posts_labels
   kind: text
   box:
-  - 0.1
-  - 0.48
-  - 0.9
-  - 0.54
+  - 0.08
+  - 0.49
+  - 0.78
+  - 0.53
 - name: cloth_with_hole
   kind: prop
   box:
-  - 0.08
+  - 0.06
   - 0.16
-  - 0.48
+  - 0.5
   - 0.44
 - name: scissors
   kind: prop

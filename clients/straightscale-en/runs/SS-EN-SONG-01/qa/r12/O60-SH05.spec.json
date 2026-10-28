@@ -1,0 +1,78 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH05",
+ "spec_sha256": "f0600fa4be3a2a952f151c3edadef97065897fcab6088c519280a8633c964507",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "FAIL",
+   "evidence": "PR-SCRAPS content lists all four scraps (COACH, ADS too) although COACH and ADS are 'not in frame'; nothing says pockets 3 and 4 stay empty and uncovered, and must_not lacks 'no COACH or ADS scrap in frame'"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "both hands: 'left palm on the felt', 'thumb-and-index pinch on the needle, needle shaft visible', count_check five fingers, 'clear space between the fingers and the last letter L of EMAIL', must_not_cover labels; regions given"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "contact points: 'draws the needle and thick thread through the seam between the EMAIL and LINKEDIN scraps (needle at y 0.46 to 0.52 ...)'; clip start and end states given"
+  },
+  {
+   "id": "P5",
+   "result": "FAIL",
+   "evidence": "pockets 3 and 4 are empty and in frame but the organizer content gives no shape or interior ('pockets 3 and 4 empty'), the same cylinder risk the G-HUMAN-LOOK waiver covers for SH01 and SH02"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "EMAIL, LINKEDIN, APRIL, MARCH each have surface, position, case, occlusion; 'no finger or needle over the letters'"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: 'plain wall; nothing else on the felt'"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "left hand is 'palm on the felt below the APRIL label' and 'palm on the felt below the row', but the organizer ends at the row bottom (about y 0.60) while left_hand box runs to y 0.64; the needle band y 0.46 to 0.52 overlaps the scrap label band y 0.40 to 0.48; the scraps are 12% tall against pockets 22% tall, so lower pocket felt shows below the 'covered' pockets; hands to y 0.64 sit in the caption band"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over: scrap patterns and labels, cardigan sleeves; scraps aspect near square as in the sheet"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call yet"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "'pinned over pockets' introduces pins, a prop the World line forbids ('no other props'), and never says how a scrap hangs on a vertical felt before stitching"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 prevention present: 'clear space between the fingers and the last letter L of EMAIL'; FL-08 needle and thread named; FL-04 scraps filled"
+  }
+ ],
+ "suggested_spec_changes": [
+  "Replace 'pinned' with 'held on the felt by a few loose tacking stitches in the same thread colour, no pins, no clips' in subjects, props and notes.",
+  "Limit PR-SCRAPS content to EMAIL and LINKEDIN for this shot and add must_not: 'no COACH or ADS scrap anywhere in frame; pockets 3 and 4 stay empty and uncovered'.",
+  "Add the pocket line to PR-ORGANIZER state/content: 'pockets 3 and 4: shallow slanted pockets, dark empty interior'.",
+  "Make the geometry consistent: scraps cover the full pocket height (row 40 to 60%) or say 'each scrap covers the top two thirds of its pocket'; set needle y to 0.50 to 0.52 (below the lettering at y 0.40 to 0.48); left palm 'on the felt left of the EMAIL scrap, inside the organizer, y 0.50 to 0.58'.",
+  "Shift the whole composition up about 6% or move hand boxes to end at y 0.58 so the working hands stay inside 15 to 55% (or record the caption overlap).",
+  "Remove the 'method cloth' sentence from style."
+ ]
+}

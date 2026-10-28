@@ -9,17 +9,18 @@ must_read_in_1s: She drops the loud ADS patch into a bin.
 subjects:
 - id: CH-MAYA
   ref: CH-MAYA@v1
-  state: arm and torso, side view, olive cardigan sleeve
-  pose: standing at the left of the bin, facing screen right; the camera sees her right side, her right arm nearest the lens,
-    her left hand on the far rim of the bin
+  state: head, arms and torso, side view, olive cardigan
+  pose: crouching on one knee at the left of the bin, torso leaning forward, facing screen right; her head about 25 cm above
+    the bin rim; the camera sees her right side, her right arm nearest the lens; her left palm flat on the near rim of the
+    bin (the side nearest her), fingers over the edge
   expression: calm, decided (side face)
   instances: 1
   eyeline: down at the bin
 hands:
 - who: Maya
-  left: left hand resting on the bin rim
+  left: left palm flat on the near rim of the bin (the side nearest Maya), fingers over the edge
   right: right hand open just above the bin mouth, the ADS scrap falling from it
-  contact: left palm on the rim, right fingers opened, scrap released
+  contact: left palm on the near rim, right fingers opened, scrap released
   count_check: five fingers on each visible hand
   must_not_cover: the ADS label
 props:
@@ -36,7 +37,8 @@ props:
 - id: PR-SCRAPS
   story_critical: true
   ref: PR-SCRAPS@v1
-  state: ADS scrap falling above the bin
+  state: 'ADS scrap falling above the bin: flat, tilting, label side toward the lens, its hot-pink polka dots on blue fully
+    visible'
   content: 'Four ragged-edged fabric scraps, each about one pocket wide, each in a different loud clashing pattern with a
     big stitched label: EMAIL mustard and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes
     with ivory letters, COACH lime leopard spots with black letters, ADS hot-pink polka dots on blue with white letters; loose
@@ -45,13 +47,15 @@ props:
   held_by: null
 text_in_image:
 - string: ADS
-  surface: stitched label on the falling pink polka-dot scrap
+  surface: stitched label on the falling hot-pink polka dots on blue scrap
   position: scrap, centre
   case: upper
   must_be_exact: true
   occlusion: right hand clear of the letters
 action_physics:
-- 'Frozen: the ADS scrap has just left Maya''s right fingers and is 5 cm above the bin mouth; her left palm rests on the rim.'
+- 'Frozen: the ADS scrap has just left Maya''s right fingers and is 5 cm above the bin mouth; her left palm rests flat on
+  the near rim.'
+- Maya crouches with her right knee on the floor and her left foot flat on the floor, weight between them.
 static: true
 setting:
   ref: 'REF-PAPER@v1 (plain-paper crop of CH-MAYA@v1: paper colour, texture and light only)'
@@ -92,17 +96,17 @@ regions:
 - name: right_hand
   kind: hand
   box:
-  - 0.4
-  - 0.3
+  - 0.42
+  - 0.27
   - 0.58
-  - 0.4
+  - 0.33
 - name: left_hand
   kind: hand
   box:
   - 0.24
-  - 0.44
   - 0.4
-  - 0.52
+  - 0.4
+  - 0.46
 - name: bin
   kind: prop
   box:
@@ -114,21 +118,20 @@ regions:
   kind: text
   box:
   - 0.42
-  - 0.34
+  - 0.33
   - 0.62
-  - 0.45
+  - 0.4
 - name: maya_face
   kind: face
   box:
-  - 0.18
-  - 0.2
-  - 0.4
-  - 0.32
+  - 0.16
+  - 0.26
+  - 0.36
+  - 0.36
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt,
-  knit and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props. The method cloth is
-  one calm sand-cream colour.'
+  knit and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no extra, missing or merged fingers

@@ -6,7 +6,7 @@ script_lines:
 line_text: Lumpy months? It was never where your clients
 story_purpose: 'Hook frame 1: the empty APRIL pockets shown before anything is explained; the text hook asks why. This is
   the approved hook concept frame (H-01) as the clip''s start frame.'
-must_read_in_1s: MARCH row full of clients, every APRIL pocket empty.
+must_read_in_1s: MARCH row full of clients (its right part under the hook text), every APRIL pocket empty.
 subjects:
 - id: PR-ORGANIZER
   ref: PR-ORGANIZER@v2 (label and pocket close-ups)
@@ -23,8 +23,8 @@ props:
   state: MARCH full at 20 to 38%, APRIL empty at 40 to 62%, close
   content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row
     above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three
-    small colourful clay clients standing shoulder to shoulder (twelve in all); APRIL pockets: all four are empty, shallow
-    slanted pockets, dark empty interior, no clients.'
+    small clay clients in muted navy, green, grey, tan and plum jackets (as on PR-ORGANIZER@v2) standing shoulder to shoulder
+    (twelve in all); APRIL pockets: all four are empty, shallow slanted pockets, dark empty interior, no clients.'
   size_in_frame: organizer about 88% of frame width; MARCH row 20 to 38% from the top, APRIL row spans 84% of frame width,
     40 to 62% from the top
   held_by: null
@@ -34,7 +34,8 @@ text_in_image:
   position: top of the organizer, about 15 to 19% from the top
   case: upper
   must_be_exact: true
-  occlusion: the render shows the header whole; only the edit hook overlay may pass over it, never a prop or hand
+  occlusion: the render shows the header whole; in the edit only the hook overlay may pass over its right end, never a prop
+    or hand
 - string: APRIL
   surface: row label band at the left end of the APRIL row
   position: left end of the row, about 44% from the top
@@ -46,28 +47,34 @@ text_in_image:
   position: left end of the upper row, about 24% from the top
   case: upper
   must_be_exact: true
-  occlusion: the hook text never covers the MARCH band or the APRIL band
+  occlusion: the hook text never covers the MARCH band or pocket 1
 - string: Nothing filled April.
   surface: edit overlay (added in the edit, never rendered by the image model or the video model; absent from H-01 and from
     every generated frame)
-  position: top third (over the MARCH row, right of the MARCH band, x 36 to 94%), line 1
+  position: top third, x 36 to 94% and 14 to 27% from the top (over the right end of the CLIENTS header and the tops of MARCH
+    pockets 2 to 4), line 1
   case: as_written
   must_be_exact: true
-  occlusion: may cover MARCH clients in the top third, never the APRIL row or the APRIL band
+  occlusion: may cover the right end of the CLIENTS header and the heads of the MARCH clients in pockets 2 to 4; never the
+    MARCH band, pocket 1, the APRIL row or the APRIL band
 - string: Referrals filled March.
   surface: edit overlay (added in the edit, never rendered by the image model or the video model; absent from H-01 and from
     every generated frame)
-  position: top third (over the MARCH row, right of the MARCH band, x 36 to 94%), line 2
+  position: top third, x 36 to 94% and 14 to 27% from the top (over the right end of the CLIENTS header and the tops of MARCH
+    pockets 2 to 4), line 2
   case: as_written
   must_be_exact: true
-  occlusion: may cover MARCH clients in the top third, never the APRIL row or the APRIL band
+  occlusion: may cover the right end of the CLIENTS header and the heads of the MARCH clients in pockets 2 to 4; never the
+    MARCH band, pocket 1, the APRIL row or the APRIL band
 - string: Why?
   surface: edit overlay (added in the edit, never rendered by the image model or the video model; absent from H-01 and from
     every generated frame)
-  position: top third (over the MARCH row, right of the MARCH band, x 36 to 94%), line 3
+  position: top third, x 36 to 94% and 14 to 27% from the top (over the right end of the CLIENTS header and the tops of MARCH
+    pockets 2 to 4), line 3
   case: as_written
   must_be_exact: true
-  occlusion: may cover MARCH clients in the top third, never the APRIL row or the APRIL band
+  occlusion: may cover the right end of the CLIENTS header and the heads of the MARCH clients in pockets 2 to 4; never the
+    MARCH band, pocket 1, the APRIL row or the APRIL band
 action_physics:
 - The camera pulls back about 30 cm and lowers about 10 cm over the 6 s render, so the organizer slides up the frame to its
   SH02 place; nothing inside the frame moves except the parallax of the felt.
@@ -86,7 +93,9 @@ setting:
     with soft square keys and no letters; the screen shows only what this shot names, no icons, no windows, no text; one white
     clay mug; PR-BIN (no sheet, full description): a small round waste bin of matte charcoal clay, about knee-high to Maya,
     straight sides widening slightly toward the top, a thick rolled rim pressed with visible thumbprints, no lid, no pattern,
-    no lettering; a plain window with a thin pale-wood frame.'
+    no lettering; a plain window with a thin pale-wood frame. Below the organizer (62 to 100% of the start frame): plain ivory
+    paper wall down to the back edge of the charcoal desk entering at about 90%, nothing else. During the pull-back Maya on
+    her chair, the laptop and the mug rise into frame from below; they are specified in SH02, the end frame.'
   background_rule: wall is plain warm-ivory paper, no frames, no posters, no writing
 camera:
   framing: 'tight on the organizer: MARCH row at 20 to 38% from the top, APRIL row at 40 to 62%, straight-on, hook text over
@@ -96,7 +105,10 @@ camera:
     from the APRIL row at 40 to 62% to its SH02 place), ending wide on SH02; no rise (12 fps stepped)
   aspect: '9:16'
   safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half,
-    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
+    6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.
+    Accepted exception for this hook frame: the APRIL row runs to 62% and pocket 4 reaches x 0.92, inside the right 21% of
+    the lower half and the 55 to 62% band; pocket 4 is empty and carries no text, and no captions run during SH01 (the hook
+    text is the only overlay; captions start with SH02).'
 timing:
   start_s: 0.0
   end_s: 2.88
@@ -129,9 +141,9 @@ regions:
   kind: text
   box:
   - 0.36
-  - 0.15
+  - 0.14
   - 0.94
-  - 0.33
+  - 0.27
 - name: march_row
   kind: prop
   box:
@@ -157,7 +169,7 @@ style: 'Handmade claymation stop-motion look: plasticine characters with visible
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: warm ivory paper (about
   #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt, knit and linen as real fabric, the
-  four fix scraps the only loud colours, no marble, no other props. The method cloth is one calm sand-cream colour.'
+  four fix scraps the only loud colours, no marble, no other props.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no clients in the APRIL pockets

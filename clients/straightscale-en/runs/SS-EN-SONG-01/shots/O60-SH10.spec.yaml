@@ -9,9 +9,9 @@ must_read_in_1s: Two different patches held side by side with a gap and no join.
 subjects:
 - id: CH-MAYA
   ref: CH-MAYA@v1
-  state: her two hands and forearms in olive cardigan sleeves and the cardigan front below the collar; her head is above the
-    top edge of the frame, no chin and no face visible
-  pose: holding scraps up at chest height
+  state: her two hands and forearms in olive cardigan sleeves, and her cardigan front and cream top behind the scraps; only
+    her chin shows, soft, at the top edge (0 to 11%); the rest of her face is above the frame
+  pose: holding the scraps up at chest height, just below her chin
   expression: n/a (hands only)
   instances: 1
 - id: PR-SCRAPS
@@ -22,8 +22,10 @@ subjects:
   instances: 1
 hands:
 - who: Maya
-  left: left hand pinching the top-left corner of the EMAIL scrap
-  right: right hand pinching the top-right corner of the ADS scrap
+  left: hand on image-left (Maya's right hand) pinches the top-left corner of the EMAIL scrap (x 0.065 to 0.185, y 0.29 to
+    0.38)
+  right: hand on image-right (Maya's left hand) pinches the top-right corner of the ADS scrap (x 0.815 to 0.935, y 0.29 to
+    0.38)
   contact: thumb and forefinger on each top corner
   count_check: five fingers on each visible hand
   must_not_cover: the stitched labels EMAIL and ADS and the gap between the scraps
@@ -36,17 +38,8 @@ props:
     big stitched label: EMAIL mustard and teal gingham with charcoal letters, LINKEDIN orange and purple diagonal stripes
     with ivory letters, COACH lime leopard spots with black letters, ADS hot-pink polka dots on blue with white letters; loose
     thread ends'
-  size_in_frame: each scrap about 38% of frame width, 28 to 55% from the top
-  held_by: null
-- id: PR-ORGANIZER
-  story_critical: true
-  ref: PR-ORGANIZER@v2
-  state: APRIL row soft behind the scraps, all four pockets empty, dark felt inside
-  content: 'Felt wall organizer headed CLIENTS, ivory felt with charcoal stitching, two rows of four pockets, the MARCH row
-    above the APRIL row, each row label sewn on a thick band at its left end; MARCH pockets: each of the four holds three
-    small colourful clay clients standing shoulder to shoulder (twelve in all); APRIL pockets: all four are empty, shallow
-    slanted pockets, dark empty interior, no clients.'
-  size_in_frame: APRIL row soft behind the scraps
+  size_in_frame: each scrap about 37.5% of frame width, 32 to 53% from the top; EMAIL x 0.08 to 0.455, ADS x 0.545 to 0.92,
+    a 3 cm gap (x 0.455 to 0.545)
   held_by: null
 text_in_image:
 - string: EMAIL
@@ -78,11 +71,13 @@ setting:
     description): a small round waste bin of matte charcoal clay, about knee-high to Maya, straight sides widening slightly
     toward the top, a thick rolled rim pressed with visible thumbprints, no lid, no pattern, no lettering; a plain window
     with a thin pale-wood frame.'
-  background_rule: background soft, plain, no readable text
+  background_rule: behind the scraps only Maya's olive cardigan front and cream top; the organizer is above the frame (it
+    enters at the top as the camera pulls back); no readable text other than EMAIL and ADS
 camera:
-  framing: close on two hands holding two scraps
+  framing: close on two hands holding two scraps against her cardigan front
   angle: eye level, straight-on
-  movement: slow dolly-out over the clip, ends on the wide frame of SH11
+  movement: slow dolly-out over the clip, a straight pull-back centred on the point (0.50, 0.53), about 3x, ending on the
+    wide frame of SH11
   aspect: '9:16'
   safe_zones: '9:16: top 14% and bottom 35% clear of key content, nothing story-critical in the right 21% of the lower half,
     6% side margins; faces and key props sit 15% to 55% from the top; captions go 55 to 62% down, so no key prop is there.'
@@ -99,53 +94,53 @@ continuity:
   - PR-SCRAPS EMAIL and ADS
   - CH-MAYA hands
 regions:
-- name: left_hand
+- name: hand_image_left
   kind: hand
   box:
-  - 0.1
-  - 0.26
-  - 0.32
+  - 0.065
+  - 0.29
+  - 0.185
   - 0.38
-- name: right_hand
+- name: hand_image_right
   kind: hand
   box:
-  - 0.66
-  - 0.26
-  - 0.9
+  - 0.815
+  - 0.29
+  - 0.935
   - 0.38
 - name: scrap_email
   kind: text
   box:
-  - 0.1
+  - 0.08
   - 0.32
-  - 0.46
-  - 0.55
+  - 0.455
+  - 0.53
 - name: scrap_ads
   kind: text
   box:
-  - 0.54
+  - 0.545
   - 0.32
-  - 0.9
-  - 0.55
+  - 0.92
+  - 0.53
 - name: gap
   kind: other
   box:
-  - 0.46
+  - 0.455
   - 0.32
-  - 0.54
-  - 0.55
+  - 0.545
+  - 0.53
 - name: held_scraps
   kind: prop
   box:
-  - 0.08
-  - 0.3
-  - 0.92
-  - 0.56
+  - 0.06
+  - 0.29
+  - 0.94
+  - 0.54
 style: 'Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: warm ivory paper (about
   #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt, knit and linen as real fabric, the
-  four fix scraps the only loud colours, no marble, no other props. The method cloth is one calm sand-cream colour.'
+  four fix scraps the only loud colours, no marble, no other props.'
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - the two scraps are never touching or sewn together
@@ -155,4 +150,5 @@ must_not:
 - no photoreal skin, no glossy CGI plastic
 - no morphing of props between shapes
 hero: true
-notes: 'CLIP-D: 5 s render. Start frame = SH10, end frame = SH11 wide. The O30 uses this whole clip. Clip: CLIP-D.'
+notes: 'CLIP-D: 5 s render. Start frame = SH10, end frame = SH11 wide; SH10 is SH11 scaled 3x about (0.50, 0.53), so the organizer,
+  out of frame here, enters at the top during the pull-back. The O30 uses this whole clip. Clip: CLIP-D.'

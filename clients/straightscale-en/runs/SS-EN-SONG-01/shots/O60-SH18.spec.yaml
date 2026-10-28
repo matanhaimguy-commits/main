@@ -9,17 +9,18 @@ story_purpose: 'Result: the bubbles drift out of the window to tiny clay figures
 must_read_in_1s: Speech bubbles float out the window to small figures looking up.
 subjects:
 - id: PR-BUYERS
-  ref: null
-  state: one group (counted as one instance) of six tiny clay people in six different plain colours of coat, four adults and
-    two children, standing apart in a row on a plain grey-ivory clay street, faces tilted up
+  ref: none (drawn from the PR-BUYERS content line in props)
+  state: one group (counted as one instance) of six tiny clay people, four adults and two children, standing apart in a row
+    on a plain grey-ivory clay street, faces tilted up
   pose: standing still, arms by sides
   expression: curious
   instances: 1
   eyeline: up at the bubbles
 - id: CH-MAYA
   ref: CH-MAYA@v1
-  state: small, inside the room left of the window frame, headset on, side view
-  pose: seated at the desk on a call, both hands hidden behind the desk edge
+  state: small, inside the room, seated on a plain charcoal clay chair at the plain charcoal clay desk left of the window
+    frame (desk edge x 0.04 to 0.28), side view facing screen right, headset on, eyes down at the desk
+  pose: seated on a call, weight on the seat, both feet on the floor below the frame, both hands hidden behind the desk edge
   expression: busy, calm
   instances: 1
 hands: none visible
@@ -28,14 +29,25 @@ props:
   story_critical: true
   ref: PR-CLOTH@v1 (bubble panel)
   state: three clay speech bubbles drifting out of the window
-  content: Three blank cream clay speech bubbles with small tails and thumb-pressed edges drifting upward across the window
+  content: 'Three blank cream clay speech bubbles with small tails and thumb-pressed edges drifting upward across the window;
+    exactly three bubbles (the PR-CLOTH@v1 sheet shows a pile of nine: use only three here)'
   size_in_frame: bubbles 12% of frame width each
+  held_by: null
+- id: PR-BUYERS
+  story_critical: false
+  ref: null
+  state: standing still on the street, faces tilted up
+  content: 'six tiny matte-clay people, each about 5% of frame height, round heads with dot eyes and small mouths, faces visible,
+    coats in six calm muted colours: oat, slate blue, sage, dusty rose, rust and charcoal; four adults and two children standing
+    apart in a row, both feet on the street, heads tilted up'
+  size_in_frame: each figure about 5% of frame height, standing at 49 to 54% from the top inside the glass view
   held_by: null
 text_in_image: none
 action_physics:
-- The camera finishes its follow-pan and rests on the window; the lower sash is raised, leaving a clear opening; the three
-  bubbles already in flight from SH17 rise through the opening about one bubble-width per second; the street figures stay
-  still.
+- The camera finishes its follow-pan and rests on the window; the lower sash is raised to 34% from the top, leaving an opening
+  from 34 to 54%; the three bubbles from SH17 have passed through it and rise outside, seen through the upper glass (16 to
+  34%), about one bubble-width per second; the street figures stay still.
+- Maya sits on the chair, weight on the seat, both feet on the floor; the six figures stand with both feet on the street.
 static: false
 setting:
   ref: 'REF-PAPER@v1 (plain-paper crop of CH-MAYA@v1: paper colour, texture and light only)'
@@ -99,7 +111,7 @@ style: 'Handmade claymation stop-motion look: plasticine characters with visible
   forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion
   texture. 12 fps stepped stop-motion cadence, no motion blur; one motion action in the shot. World: warm ivory paper (about
   #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt, knit and linen as real fabric, the
-  four fix scraps the only loud colours, no marble, no other props. The method cloth is one calm sand-cream colour.'
+  four fix scraps the only loud colours, no marble, no other props.'
 must_not:
 - no text on the window or the street
 - no speech bubbles carrying words
@@ -111,4 +123,4 @@ must_not:
 - no morphing of props between shapes
 hero: false
 notes: 'End of CLIP-G (one follow-pan from SH17); pays ''too busy in March'' with ''while she was busy''. PR-BUYERS is drawn
-  from this spec''s own content line. Clip: CLIP-G.'
+  from its content line in props. Clip: CLIP-G.'

@@ -1,0 +1,78 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH04",
+ "spec_sha256": "e3feb29cd0f15d0dd3875ca2fc0ecb686b5be2d94ec3ea83984693db91519d39",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Maya, headset, pile, sheet, MARCH tag, organizer, both hands all listed"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call yet"
+  },
+  {
+   "id": "P3",
+   "result": "FAIL",
+   "evidence": "right_hand box [0.55,0.4,0.66,0.47] overlaps the tag text box [0.6,0.45,0.78,0.54] at x 0.6 to 0.66, y 0.45 to 0.47, while must_not_cover says the hand and cord stay clear of the tag; the right hand box sits right of the face box (0.4 to 0.62), which only fits if Maya faces left, but the left hand is 'fingers toward the pile' on the right; 'headset cord' is not described anywhere"
+  },
+  {
+   "id": "P4",
+   "result": "FAIL",
+   "evidence": "sheet 'trailing edge 2 cm above the desk, held by the paper's own curl' has one support point and cannot hold in a still; 'sliding sheet' in hands.left names a motion the still does not show"
+  },
+  {
+   "id": "P5",
+   "result": "FAIL",
+   "evidence": "the headset carries the story ('phone call') but has no content line (colour, shape, boom mic); the organizer content lists CLIENTS, MARCH and APRIL labels in soft focus (see P6)"
+  },
+  {
+   "id": "P6",
+   "result": "FAIL",
+   "evidence": "organizer content names 'headed CLIENTS' and row labels MARCH and APRIL, but text_in_image lists only the tag and notes say 'no text entry for them'; must_not forbids lettering other than the listed strings, so the prompt contradicts itself"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: 'background wall plain; organizer blurred'; papers ruled by must_not"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "tag 'about the size of Maya's palm' vs 16% of frame width (Maya's face box is 22% wide); pile and left hand boxes run to y 0.6, inside the 55 to 62% caption band that safe_zones says holds no key prop"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over: olive cardigan plus headset, MARCH tag, 'paper pile grows taller than in SH03'; tag at 47% as in SH03"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call yet"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "'sliding sheet' (never defined), which way Maya faces, 'headset cord', 'colourful' clients behind her"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-11 one instance and seat line; FL-08 hands line gives left and right; FL-04 tag filled"
+  }
+ ],
+ "suggested_spec_changes": [
+  "Add a headset content line from CH-MAYA@v1: 'black over-ear headset with a thin boom mic; no cord visible' and delete 'headset cord' from must_not_cover.",
+  "State facing: 'side view, Maya faces frame-right toward the pile; her right side is to the camera; right fingertips on the earcup at ear height (x 0.46 to 0.52, y 0.35 to 0.4)'. Move the right_hand box to match so it no longer overlaps march_tag; keep left palm at x 0.46 to 0.58.",
+  "Replace the sheet sentence with contact points that hold: 'one clay sheet lies on the desk with its right edge tucked under the pile's top sheet; its left edge is curled up 2 cm; no hand touches it' and drop 'sliding'.",
+  "Organizer: either delete CLIENTS, MARCH and APRIL from this shot's content line ('felt organizer, soft focus, two rows of pockets, upper row with small clients, lower row empty slanted pockets') or add text entries marked 'soft focus, unreadable is acceptable'. Prefer the first.",
+  "Resolve tag size (see SH03): the loop 5 note wants a large tag; remove 'palm' wording and use the same width as SH03 (about 18%).",
+  "Keep the pile and hands inside 15 to 55% from the top or note the caption overlap. Remove the 'method cloth' sentence from style."
+ ]
+}

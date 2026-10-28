@@ -1,0 +1,77 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH03",
+ "spec_sha256": "95f297fe964cc212261a59cf30d94200ff1dcc06816d2edfcd1d9864472a3829",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Maya (side view, eyeline), organizer, MARCH tag with full description, pile, laptop edge-on, mug, text strings all listed"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call yet"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible; 'hands out of frame below the desk edge'"
+  },
+  {
+   "id": "P4",
+   "result": "FAIL",
+   "evidence": "'propped against a tall pile of loose clay papers' is a state noun, with no contact points (which edge of the tag stands on the desk, what it leans on, the lean angle); Maya's head tilt is 'frozen mid-tilt' with no angle given"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-MARCHTAG content line: 'ivory felt with a soft charcoal blanket-stitched edge, the word MARCH in charcoal stitched capital letters'; organizer filled"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "four strings with surface, position, case and occlusion; tag 'no paper, hand or caption over the tag'"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: plain ivory paper wall; papers ruled by must_not 'no lettering ... papers other than the listed strings'"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "tag is 'about the size of Maya's palm / a hand' in content, but size_in_frame is 18% of frame width, about as wide as Maya's head (maya_head box 0.28 to 0.52 is 24% wide) and notes call it 'big'; also 'camera at the side of the desk' with the organizer 'face-on' and 'on the wall behind and above her' while Maya is in profile looking up at it cannot all be true"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over: olive cardigan, organizer state; cut from SH02 (new pile and tag are introduced by a hard cut)"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode: no prompt or model call yet"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "which way Maya faces (left or right in frame) is not stated, so the eyeline 'up at the empty APRIL row' is open; 'the size of a hand' vs 'big'; 'in front of the paper pile' vs 'propped against'"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-11 one instance and seat line; FL-04 tag and organizer filled; FL-05 wall plain"
+  }
+ ],
+ "suggested_spec_changes": [
+  "Resolve the tag size: either 'a felt tag about 18% of frame width, roughly as wide as Maya's head (a large tag, not palm size)' in both content and size_in_frame, or shrink size_in_frame to about 8%. The loop 5 note says it must read at phone size, so choose the large version and delete 'size of Maya's palm / a hand' in this shot.",
+  "Fix the geometry in one line: for example 'camera at Maya's left side; Maya in profile facing frame-right, head tilted up about 30 degrees; the organizer on the far wall at upper frame, in front of and above her eyeline'. State left or right.",
+  "Write the tag as contact points: 'the tag's bottom edge stands on the desk, its back leans against the front face of the pile at about 10 degrees, centred 47% from the top'.",
+  "Make must_read_in_1s one moment ('Maya looks up at the empty APRIL row', with the tag as a secondary read) or keep both and mark the tag as the hero read.",
+  "Add to carry_over: laptop and mug placement from SH02, and state that the pile and tag are new on this cut. Remove the 'method cloth' sentence from style."
+ ]
+}
