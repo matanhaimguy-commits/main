@@ -44,6 +44,7 @@ against O60's 75 s cap; the readable steps on her page need plain example words 
 ## Decisions (newest first)
 | Date | Decision | Options considered | Why | Who |
 |---|---|---|---|---|
+| 28 Oct | Hooks v1 rejected (Matan: unclear, not the buyers' words, written English, not proven formats). Hooks v2 built only from proven sources (Hook Library HA ads 30+ days or HF outliers 3x+) and verbatim buyer phrases; all pass `organic.py hooks`. Master = the ad-proven stack. The script release candidate is ON HOLD: it was written on the v1 hook and must be rewritten on the v2 master once Matan approves it, with the new "said, not written" rule | v1 kept; more AI grading rounds | an AI grade is opinion; proof is a post or ad that already won with this buyer | Matan (rejection), Claude (v2) |
 | 28 Oct | GATE 4: the spine (A "Same question" ST5, B "Decided before you quoted" ST3 on the two_days pair, C "Why you?" ST6); writer recommends B | A, B, C, B with A's split as a trial variant | pending | Matan (pending) |
 | 28 Oct | Spine B taken through WRITE to a release candidate: 185 words, about 74 s, gate 86/100, no critical fail, loop 4 (rewrite 3 of 3); labelled provisional until the pick | stop at the spines | the brief asks for the recommended spine as an RC | Claude |
 | 28 Oct | G-HOOK not passed after 5 rounds of 2 fresh blind graders each; master candidate Q recorded with its untested fixes, taken to GATE 4 | more rounds | the round cap in the brief; the visual held at A- for every grader | Claude, owner to be told |
@@ -64,3 +65,4 @@ against O60's 75 s cap; the readable steps on her page need plain example words 
 - 28 Oct · WRITE on spine B: 4 versions, 8 fresh cold readers (listen-only and sound-off per loop); loop 1 critical
   fail (two prospects or one), loop 2 78, loop 3 84, loop 4 86 with no critical fail: release candidate, provisional
   until Matan's pick · docs/script.md
+- 28 Oct · hooks v1 rejected by Matan; hooks v2 from proven formats in docs/hook-stacks.md and docs/hooks.json (all PASS) · script on hold

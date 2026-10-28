@@ -6,7 +6,8 @@ from .hook_plain import plain_issues, words
 SPOKEN_MAX = 11          # hook-spec 1; the EN library's topic winners have a median of 11 words, losers 13
 TEXT_MIN, TEXT_MAX = 4, 10  # STANDARDS 6
 BANNED_IN_HOOK = ("patchwork", "agency", "done-for-you", "funnel", "qualified", "guaranteed", "growth partner")
-CONTRAST = {"but", "not", "no", "never", "zero", "nothing", "same", "still", "instead", "actually", "yet",
+# "until": the EN library's best-proven ad (HA-07, 45 days, 33 copies) flips on it ("great until they slow down")
+CONTRAST = {"but", "not", "no", "never", "zero", "nothing", "same", "still", "instead", "actually", "yet", "until",
             "without", "only", "vs"}
 PAYOFF = {"here's", "how", "why", "ranked", "fix", "check", "step", "first", "test", "spot", "what"}
 

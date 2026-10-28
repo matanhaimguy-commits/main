@@ -44,6 +44,7 @@ L5 "around" to "built on" (not applied; needs its own gate)
 ## Decisions (newest first)
 | Date | Decision | Options considered | Why | Who |
 |---|---|---|---|---|
+| 28 Oct | Hooks v1 rejected (Matan: unclear, not the buyers' words, written English, not proven formats). Hooks v2 built only from proven sources (Hook Library HA ads 30+ days or HF outliers 3x+) and verbatim buyer phrases; all pass `organic.py hooks`. Master = the ad-proven stack. The script release candidate is ON HOLD: it was written on the v1 hook and must be rewritten on the v2 master once Matan approves it, with the new "said, not written" rule | v1 kept; more AI grading rounds | an AI grade is opinion; proof is a post or ad that already won with this buyer | Matan (rejection), Claude (v2) |
 | 28 Oct | GATE 4: spine A "The post that got paid for" (ST3 on the talking post), B "Two posts" (ST6), or C "The push button" (ST8); riders: text hook, CTA wording, payoff picture | A, B, C (`docs/script-lab.md` 8 and 9) | Claude recommends A: the only spine with a graded opening, written to release candidate at 85 | Matan (pending) |
 | 28 Oct | Spine A taken through WRITE: 4 loops (first draft + 3 rewrites), 85/100 at loop 4, no critical fail; labelled provisional | stop at loop 3 (critical fail) | the skill's 3 rewrite loops; loop 3 failed on "a free test" used before it was explained | Claude |
 | 28 Oct | Master text hook swapped to "Quiet month? She paid to push a post. Nothing." (round 4, T A / A-); "...It wasn't the post." sent back to the Hook Lab | keep the graders' favourite text | Script Lab test 12: on spine A's body it read as a contradiction; one extra fresh sound-off read confirmed the swap (no script word changed) | Claude |
@@ -65,3 +66,4 @@ L5 "around" to "built on" (not applied; needs its own gate)
   through 4 loops with 9 fresh cold readers (listen-only and sound-off per loop, plus one hook-swap check); 85/100,
   release candidate, provisional · `docs/script-lab.md`, `docs/script.md`
 - 28 Oct · no generation, no paid calls, nothing committed (the parent session commits)
+- 28 Oct · hooks v1 rejected by Matan; hooks v2 from proven formats in docs/hook-stacks.md and docs/hooks.json (all PASS) · script on hold

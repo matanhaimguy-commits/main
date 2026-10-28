@@ -9,7 +9,10 @@ from organic_os.hook_sources import library, phrases
 
 LIB = """- `HF-01` · Channel verdict · danielpriestley · 12.5x · spoken: "Cold email?"
 - `HF-02` · Small lift · someone · 2.1x · spoken: "x"
+- `HA-01` · Some coach ads · 45 days, 33 copies, image, active
+- `HA-02` · New ad · 12 days, 1 copy
 - `HL-01` · Accusation · takimoore · 0.18x · spoken: "You don't make content."
+  - formula: as `HA-01`, with no days on this line
 """
 PH = """- `Q-R-0054` "linkedin ... it's lumpy" · r/agency
 - `Q-R-0058` "some months we'd sign 3 clients other months literally nothing" · reddit
@@ -39,6 +42,11 @@ class HookCheckTest(unittest.TestCase):
         self.assertTrue(any("under the 3.0x" in i for i in self.check(format_id="HF-02")))
         self.assertTrue(any("loser" in i for i in self.check(format_id="HL-01")))
         self.assertTrue(any("not in the Hook Library" in i for i in self.check(format_id="HF-99")))
+
+    def test_long_running_ads_count_as_proof(self):
+        self.assertEqual(self.lib["HA-01"], 45)
+        self.assertEqual(self.check(format_id="HA-01"), [])
+        self.assertTrue(any("30-day bar" in i for i in self.check(format_id="HA-02")))
 
     def test_needs_the_buyers_words(self):
         self.assertTrue(any("no buyer phrase" in i for i in self.check(voc_ids=[])))

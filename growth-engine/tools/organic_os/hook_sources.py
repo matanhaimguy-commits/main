@@ -6,19 +6,22 @@ from pathlib import Path
 
 from .hook_plain import words
 
-ENTRY = re.compile(r"`(H[FL]-\d+)`(.*)")
+ENTRY = re.compile(r"^\s*- `(H[FLA]-\d+)`(.*)")  # entry lines only; ids are also cited inside other entries
+DAYS = re.compile(r"(\d+) days")
 BREAKOUT = re.compile(r"(\d+(?:\.\d+)?)x\b")
-PHRASE = re.compile(r"`(Q-[A-Z]+-\d+)`\s*(.*)")
+PHRASE = re.compile(r"^\s*- `(Q-[A-Z]+-\d+)`\s*(.*)")
 MIN_BREAKOUT = 3.0  # STORY-FORMATS / ORGANIC-OS outlier bar; 10x+ for copying a structure
+MIN_DAYS = 30       # Hook Lab H1: an ad still running after 30+ days is a winner
 
 
 def library(path: Path) -> dict[str, float]:
-    """Format id -> breakout over the creator's median. Losers (HL-) are kept so a citation of one fails loudly."""
+    """Format id -> its proof: breakout over the creator's median (HF, HL) or days running (HA, ads).
+    Losers (HL-) are kept so a citation of one fails loudly."""
     out = {}
     for line in path.read_text().splitlines():
         m = ENTRY.search(line)
         if m:
-            b = BREAKOUT.search(m.group(2))
+            b = (DAYS if m.group(1).startswith("HA-") else BREAKOUT).search(m.group(2))
             out[m.group(1)] = float(b.group(1)) if b else 0.0
     return out
 
@@ -46,7 +49,9 @@ def source_issues(stack: dict, lib: dict[str, float], ph: dict[str, str]) -> lis
         out.append(f"format {fmt} is not in the Hook Library")
     elif fmt.startswith("HL-"):
         out.append(f"format {fmt} is a loser in the Hook Library")
-    elif lib[fmt] < MIN_BREAKOUT:
+    elif fmt.startswith("HA-") and lib[fmt] < MIN_DAYS:
+        out.append(f"ad {fmt} ran {lib[fmt]:.0f} days, under the {MIN_DAYS}-day bar")
+    elif fmt.startswith("HF-") and lib[fmt] < MIN_BREAKOUT:
         out.append(f"format {fmt} is {lib[fmt]}x, under the {MIN_BREAKOUT}x outlier bar")
     ids = stack.get("voc_ids") or []
     if not ids:
