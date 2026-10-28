@@ -31,7 +31,7 @@ DEMAND = [{"phrase": "na shkruajne po nuk blejne", "tag": "direct"}, {"phrase": 
 
 def card(**kw):
     c = {"post_id": "AC-2026-10-W3-01", "client": "acme", "account_language": "sq", "slot": "2026-10-19 19:30",
-         "pillar": "Find", "series": None, "episode": None, "job": "reach", "belief": "B1", "avatar": "AV-01",
+         "pillar": "Find", "series": None, "episode": None, "job": "reach", "funnel_stage": "TOF", "belief": "B1", "avatar": "AV-01",
          "awareness": "problem_aware", "demand_phrase": "na shkruajne po nuk blejne", "idea_source": "outlier",
          "source_ref": "@x 3.4x", "narrow_product": "the exact first reply to send", "format": "reel_quote_broll",
          "format_tier": "C", "angle_proven": False, "credit_budget": 30, "length_target_s": 30, "hook_type": "contrarian",

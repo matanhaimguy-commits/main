@@ -17,6 +17,7 @@ properties:
   series: {type: [string, "null"]}
   episode: {type: [integer, "null"], minimum: 1}
   job: {enum: [reach, trust, convert]}
+  funnel_stage: {enum: [TOF, MOF, BOF], description: "Funnel stage. card-check defaults it from the job (reach TOF, trust MOF, convert BOF) and warns when the two disagree"}
   belief: {enum: [B1, B2, B3, B4, B5, B6, B7, B8]}
   avatar: {type: string}
   awareness: {enum: [unaware, problem_aware, solution_aware, product_aware, most_aware]}
@@ -49,6 +50,7 @@ properties:
   story_template: {type: [string, "null"], description: "Narrative shape from config/organic.json story_templates (STORY-FORMATS.md)"}
   animation_style: {type: [string, "null"], description: "Locked look from config/organic.json animation_styles (animated formats only)"}
   series_character: {type: [string, "null"], description: "Recurring character id (CH-...) from the client's LIB run look bible"}
+  project: {type: [string, "null"], description: "The piece's motion-studio/projects/<folder> when one exists (repo-relative)"}
   run: {type: [string, "null"], description: "Production run folder: clients/<slug>/runs/<post_id>/ (growth-engine/tools/pipeline.py)"}
   gates: {type: object, description: "gate name -> pass | fail | n/a, filled by the agents", additionalProperties: {enum: [pass, fail, "n/a", pending]}}
   notes: {type: [string, "null"]}

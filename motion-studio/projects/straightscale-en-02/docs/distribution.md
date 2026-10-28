@@ -1,7 +1,7 @@
 # EN 02 distribution package
 
 Distribution Agent, ORGANIC-OS 8.2 to 8.4, 28 Oct 2026. Account @straightscale_ (English, global). Delivery: `deliver/v1/`
-(9:16, 1080x1920, 42.15 s). Card: `clients/straightscale-en/cards/2026-10-W5/SSEN-2026-10-W5-02.yaml`.
+(9:16, 1080x1920, 42.15 s). Card: `clients/straightscale-en/cards/2026-11-W1/SSEN-2026-10-W5-02.yaml`.
 Hub draft: `hub/item.json` (caption in `hub/caption.txt`). Status: **not pushed yet** (see Blocked).
 
 ## Hub check (28 Oct, read only)
