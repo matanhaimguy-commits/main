@@ -10,6 +10,8 @@ from __future__ import annotations
 import re
 from fractions import Fraction
 
+import yaml
+
 SHAPE_KEYS = ("aspect_ratio", "ratio", "size")
 _PAIR = re.compile(r"\s*(\d+)\s*[:xX]\s*(\d+)\s*$")
 
@@ -38,3 +40,18 @@ def mismatch(params: dict, aspect: str, size_for_aspect: dict | None = None) -> 
         elif ratio(v) is None or ratio(v) != ratio(aspect):
             why.append(f"{k} {v} differs from the Shot Spec ({aspect})")
     return why
+
+
+def spec_mismatch(P, a: dict, led: dict, params: dict, size_for_aspect: dict | None = None) -> list[str]:
+    """The call against the aspect of the Shot Specs the asset serves (P: the pipeline module, for spec_path).
+    Storyboards, style references and sheets have no spec frame to match; specs that disagree or say nothing pass."""
+    if a["type"] in ("storyboard", "style_ref") or a["type"].endswith("_sheet"):
+        return []
+    aspects = set()
+    for s in a["shots"]:
+        sp = P.spec_path(led["slug"], led["post_id"], s)
+        if sp.exists():
+            aspects.add((yaml.safe_load(sp.read_text()) or {}).get("camera", {}).get("aspect"))
+    if len(aspects) == 1 and None not in aspects:
+        return mismatch(params, aspects.pop(), size_for_aspect)
+    return []
