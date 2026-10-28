@@ -72,3 +72,29 @@ Pick: 1, shown as the quote itself, with line 2 as the twist.
 | 27 Oct | Score: original, sampled CC0 instruments, B minor to D major, 104 BPM | audio/score.py, accents from audio/events.json |
 | 27 Oct | v1 delivered: deliver/v1/ (9:16 master, SRT, poster, contact sheet) | review rounds 1-3 in docs/review_log.md |
 
+
+## Lead magnet: WORDS (keyword WORDS)
+The English account has no `brain.json`, so the checks and `delivers` line live here (conversion-agent rule).
+Resource: `resource/WORDS.md` and `resource/WORDS.pdf`. Funnel: `resource/funnel/` (not created yet: hub NO_TOKEN).
+
+- **resource:** The WORDS Sheet: 12 copy-paste searches that find your buyers' exact sentences, in six sources
+  (competitors' Google reviews, review sites, Reddit, newsletter and Substack comments, YouTube comments, public
+  Facebook groups), each with the query pattern, a filled example, what to copy and how to sort it into fear, desire
+  and identity.
+- **delivers:** a 5-page PDF in the DM after one tap; a first run of 6 "Start here" searches, 20 to 30 minutes (2 setup + six
+  sections of about 3 minutes), gives 9 to 15 buyer sentences in three columns and one hook to use word for word.
+- **live:** false until the hub funnel exists and has been tested from a tester account.
+- **checked:** 28 Oct 2026, after the cold read fixes (see `resource/cold-read.md`).
+
+| Check | Pass | Why |
+|---|---|---|
+| main_pain | true | AV-01's pain in EN 02 is content and ads that book no calls ("2 years of posting content, running ads, and praying someone books a call", Q-E-0009); the sheet opens on exactly that and its pain-word list is the avatar's own words (lumpy, feast or famine, sporadic, not predictable: Q-R-0054, Q-R-0094, Q-R-0022) |
+| one_thing | true | one named thing with a shape: "The WORDS Sheet", 12 numbered searches (6 marked "Start here"), three sorting columns with a tie-break |
+| quick_win | true | usable the same evening with a browser only; the person ends with sentences and one hook to post, even if they never buy |
+| leads_to_offer | true | the sheet is step 1 of the EN offer (Research); "Count your columns" surfaces the gap (thin columns = you don't know that part of your buyer), which is what the Research step fixes |
+| low_friction | true | keyword, one tap (`opener.mode: tap`, button before any link), the PDF, then one question; no form, no email, no follow gate |
+
+Proposal (not created): give the English account its own client brain, `clients/straightscale-en/brain.json`, so its
+lead magnets, demand map, proof bank and content log are checked by `organic.py card-check` like any client, instead
+of living in project notes. Recommended, because EN 01 to EN 03 already share one avatar, one offer sheet and now a
+keyword; the Albanian `clients/straightscale/brain.json` is a different offer and buyer. Matan decides.

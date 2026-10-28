@@ -21,7 +21,7 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "mcp__Higgs__(generate_image|generate_image_batch|generate_video|generate_video_batch|generate_audio|generate_audio_batch|execute_preset|outpaint_image|motion_control|ads_studio_generate|shorts_studio_create|ai_influencer_generate)|mcp__ElevenLabs__creative_(generate_speech|generate_image|edit_image|generate_video|generate_in_flow|run_flow_nodes)",
+        "matcher": "mcp__.+__(generate_image|generate_image_batch|generate_video|generate_video_batch|generate_audio|generate_audio_batch|execute_preset|outpaint_image|motion_control|ads_studio_generate|shorts_studio_create|ai_influencer_generate)|mcp__.+__creative_(generate_speech|generate_image|edit_image|generate_video|generate_in_flow|run_flow_nodes)",
         "hooks": [
           {
             "type": "command",
@@ -44,7 +44,7 @@
         ]
       },
       {
-        "matcher": "mcp__Apify__call-actor",
+        "matcher": "mcp__.+__call-actor",
         "hooks": [
           {
             "type": "command",
