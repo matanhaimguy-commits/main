@@ -1,0 +1,215 @@
+{
+ "gate": "G-VIS-SHEET",
+ "asset_id": "PR-SCRAPS",
+ "version": 1,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "hero": true,
+ "files_opened": [
+  "full.png",
+  "tile_r1c1.png",
+  "tile_r1c2.png",
+  "tile_r1c3.png",
+  "tile_r2c1.png",
+  "tile_r2c2.png",
+  "tile_r2c3.png",
+  "tile_r3c1.png",
+  "tile_r3c2.png",
+  "tile_r3c3.png",
+  "region_SHEET-PR-SCRAPS_email.png",
+  "region_SHEET-PR-SCRAPS_linkedin.png",
+  "region_SHEET-PR-SCRAPS_coach.png",
+  "region_SHEET-PR-SCRAPS_ads.png",
+  "region_SHEET-PR-SCRAPS_all_scraps.png",
+  "thumb_200.png"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Four loud labelled scraps."
+  },
+  {
+   "id": "V2",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No script line."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No conflict."
+  },
+  {
+   "id": "V4",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No hands."
+  },
+  {
+   "id": "V5",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No hands."
+  },
+  {
+   "id": "V6",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No faces."
+  },
+  {
+   "id": "V7",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Static."
+  },
+  {
+   "id": "V8",
+   "result": "PASS",
+   "severity": "",
+   "region": "all_scraps",
+   "evidence": "Four scraps, ragged edges, soft shadow, none overlap."
+  },
+  {
+   "id": "V9",
+   "result": "PASS",
+   "severity": "",
+   "region": "email, linkedin, coach, ads",
+   "evidence": "EMAIL, LINKEDIN, COACH, ADS spelled correctly, letter by letter, in the right scraps and positions."
+  },
+  {
+   "id": "V10",
+   "result": "PASS",
+   "severity": "",
+   "region": "labels",
+   "evidence": "Nothing covers letters."
+  },
+  {
+   "id": "V11",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No other lettering."
+  },
+  {
+   "id": "V12",
+   "result": "PASS",
+   "severity": "",
+   "region": "all_scraps",
+   "evidence": "All four patterns as specified: mustard/teal gingham, orange/purple diagonal stripes, lime leopard, hot-pink dots on blue; labels colours EMAIL charcoal, LINKEDIN ivory, COACH black, ADS white; loose threads present."
+  },
+  {
+   "id": "V13",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "This is the prop sheet."
+  },
+  {
+   "id": "V14",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No extra scraps."
+  },
+  {
+   "id": "V15",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "None."
+  },
+  {
+   "id": "V16",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Sheet."
+  },
+  {
+   "id": "V17",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "None."
+  },
+  {
+   "id": "V18",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "1:1 reference sheet, 1024x1024 as specified."
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200.png",
+   "evidence": "Four distinct loud scraps, labels readable at 200px."
+  },
+  {
+   "id": "V20",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Reference sheet on plain backdrop; no live background wanted."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Real fabric weave, felt label patches, stitched letters; same ivory backdrop and light."
+  },
+  {
+   "id": "V22",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Claymation."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "tiles",
+   "evidence": "No smears or seams."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "linkedin, coach",
+   "evidence": "Words LINKEDIN and COACH are spec-mandated text on plain stitched patches with no logos, icons or brand fonts. Flag for the human: both are real brand names in word form only."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No before/after pairing of people, no 'your [condition]', nothing shaming."
+  },
+  {
+   "id": "V26",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Sheet is an internal reference, not a published post; disclosure belongs to the account rule on the final reel."
+  }
+ ],
+ "fix": {
+  "route": "none",
+  "prompt_changes": []
+ }
+}

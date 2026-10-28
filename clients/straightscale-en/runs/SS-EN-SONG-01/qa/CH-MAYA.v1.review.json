@@ -1,0 +1,222 @@
+{
+ "gate": "G-VIS-SHEET",
+ "asset_id": "CH-MAYA",
+ "version": 1,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "hero": true,
+ "files_opened": [
+  "full.png",
+  "tile_r1c1.png",
+  "tile_r1c2.png",
+  "tile_r1c3.png",
+  "tile_r2c1.png",
+  "tile_r2c2.png",
+  "tile_r2c3.png",
+  "tile_r3c1.png",
+  "tile_r3c2.png",
+  "tile_r3c3.png",
+  "region_SHEET-CH-MAYA_front.png",
+  "region_SHEET-CH-MAYA_three_quarter.png",
+  "region_SHEET-CH-MAYA_side.png",
+  "region_SHEET-CH-MAYA_back.png",
+  "region_SHEET-CH-MAYA_head_worried.png",
+  "region_SHEET-CH-MAYA_head_focused.png",
+  "region_SHEET-CH-MAYA_head_relieved.png",
+  "region_SHEET-CH-MAYA_hands.png",
+  "thumb_200.png"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "One clay woman in olive cardigan seen from four sides plus expressions."
+  },
+  {
+   "id": "V2",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No script line."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Nothing contradicts brand facts."
+  },
+  {
+   "id": "V4",
+   "result": "PASS",
+   "severity": "",
+   "region": "hands, front, three_quarter",
+   "evidence": "Left hand five fingers palm out; right hand pinching needle shows thumb plus curled fingers; all four full-body views have two hands each, no extra limbs."
+  },
+  {
+   "id": "V5",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "region_SHEET-CH-MAYA_hands.png",
+   "evidence": "Spec says needle fully visible with thumb and index on the shaft. The lower shaft is hidden inside the curled fist and only the eye end shows above the thumb; thread exits the bottom of the fist. Reads as holding a needle but is not a clean thumb-index pinch; SH11-type needle close-ups may drift."
+  },
+  {
+   "id": "V6",
+   "result": "PASS",
+   "severity": "",
+   "region": "head crops",
+   "evidence": "Worried (brows up, lips pressed), focused (headset, eyes down), relieved (soft smile) all clear, no doubled features, eyes matched."
+  },
+  {
+   "id": "V7",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Static sheet."
+  },
+  {
+   "id": "V8",
+   "result": "PASS",
+   "severity": "",
+   "region": "side/back",
+   "evidence": "Cardigan buttons, cuffs, belt consistent across views."
+  },
+  {
+   "id": "V9",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No text specified or present."
+  },
+  {
+   "id": "V10",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No text."
+  },
+  {
+   "id": "V11",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No lettering, no labels under the views."
+  },
+  {
+   "id": "V12",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No story-critical prop; needle is minor prop (V13)."
+  },
+  {
+   "id": "V13",
+   "result": "PASS",
+   "severity": "",
+   "region": "hands",
+   "evidence": "Silver needle with charcoal thread as specified."
+  },
+  {
+   "id": "V14",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No unexplained props; headset only on the focused head."
+  },
+  {
+   "id": "V15",
+   "result": "PASS",
+   "severity": "",
+   "region": "front, three_quarter, side, back",
+   "evidence": "Same bob, earrings, olive cardigan with three buttons, white blouse, charcoal trousers, tan shoes in all four views; consistent."
+  },
+  {
+   "id": "V16",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Sheet, no previous shot."
+  },
+  {
+   "id": "V17",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No set sheet."
+  },
+  {
+   "id": "V18",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "1:1 reference sheet, 1024x1024 as specified."
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200.png",
+   "evidence": "At 200px the four views, three heads and two hands read; olive cardigan and bob clear."
+  },
+  {
+   "id": "V20",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Reference sheet on plain backdrop; no live background wanted."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Clay skin with thumbprint marks, thread-wrapped hair, real knit cardigan and felt trousers: matches claymation + puppet-craft block. Warm ivory backdrop."
+  },
+  {
+   "id": "V22",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Claymation, not realistic."
+  },
+  {
+   "id": "V23",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "bottom row, region_SHEET-CH-MAYA_head_*.png and hands",
+   "evidence": "Bottom row is cut off by a feathered/faded edge at about y=970-1000 (busts and the two arms dissolve into the backdrop) and sits about 2% from the bottom edge; spec asks every element inside a 4% margin, nothing cropped. Soft fade is a visible artefact, not a physical cut."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No logos."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No before/after pairing of people, no 'your [condition]', nothing shaming."
+  },
+  {
+   "id": "V26",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Sheet is an internal reference, not a published post; disclosure belongs to the account rule on the final reel."
+  }
+ ],
+ "fix": {
+  "route": "edit",
+  "prompt_changes": [
+   "Optional, minor only: regenerate the bottom row with the busts and arms ending in a clean straight clay cut (or full torso) at least 4% above the bottom edge, no feathering.",
+   "Hands panel: 'right thumb and index fingertip pinch the middle of the needle shaft, the whole needle shaft and eye clear above and below the fingertips, other fingers loosely curled behind'.",
+   "Owner may waive the two minors: the sheet carries the character for all 13 shots (face, bob, cardigan, back view, headset, needle hand all usable)."
+  ]
+ }
+}

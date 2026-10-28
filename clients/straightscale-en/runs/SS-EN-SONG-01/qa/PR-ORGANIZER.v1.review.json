@@ -1,0 +1,224 @@
+{
+ "gate": "G-VIS-SHEET",
+ "asset_id": "PR-ORGANIZER",
+ "version": 1,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "hero": true,
+ "files_opened": [
+  "full.png",
+  "tile_r1c1.png",
+  "tile_r1c2.png",
+  "tile_r1c3.png",
+  "tile_r2c1.png",
+  "tile_r2c2.png",
+  "tile_r2c3.png",
+  "tile_r3c1.png",
+  "tile_r3c2.png",
+  "tile_r3c3.png",
+  "region_SHEET-PR-ORGANIZER_state_a.png",
+  "region_SHEET-PR-ORGANIZER_state_b.png",
+  "region_SHEET-PR-ORGANIZER_clients_a.png",
+  "region_SHEET-PR-ORGANIZER_clients_b.png",
+  "region_SHEET-PR-ORGANIZER_labels_a.png",
+  "region_SHEET-PR-ORGANIZER_labels_b.png",
+  "region_SHEET-PR-ORGANIZER_crop_march.png",
+  "region_SHEET-PR-ORGANIZER_crop_april.png",
+  "region_SHEET-PR-ORGANIZER_crop_pocket.png",
+  "thumb_200.png"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Same organizer twice, April empty then April with a few clients."
+  },
+  {
+   "id": "V2",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No script line."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No conflict."
+  },
+  {
+   "id": "V4",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No hands."
+  },
+  {
+   "id": "V5",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No hands."
+  },
+  {
+   "id": "V6",
+   "result": "PASS",
+   "severity": "",
+   "region": "crop_pocket",
+   "evidence": "Client faces simple but clean, no melting."
+  },
+  {
+   "id": "V7",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Static."
+  },
+  {
+   "id": "V8",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "state_b",
+   "evidence": "The grid differs between state A (3 columns) and state B (3 columns above, 4 columns below); structure is inconsistent for a prop that must keep geometry in 12 shots."
+  },
+  {
+   "id": "V9",
+   "result": "PASS",
+   "severity": "",
+   "region": "header, labels, crops",
+   "evidence": "CLIENTS, MARCH, APRIL: every letter correct in both copies and both close-ups. No diacritics."
+  },
+  {
+   "id": "V10",
+   "result": "PASS",
+   "severity": "",
+   "region": "labels",
+   "evidence": "Letters sit on felt bands, nothing over them."
+  },
+  {
+   "id": "V11",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No other lettering; band has no words."
+  },
+  {
+   "id": "V12",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "state_a, state_b, full",
+   "evidence": "Spec and SH01/SH02 shot specs: two rows of FOUR pockets, MARCH four pockets x three clients = twelve, April four pockets. Actual: state A has THREE pockets per row (MARCH 3 pockets, 9 clients, 3 columns), APRIL three empty pockets. State B MARCH again 3 pockets / 9 clients but APRIL has FOUR pockets (4 clients): the two states have different pocket grids, so April does not line up under March. State A April pockets also read as shallow flat flaps with no dark interior (shot spec: 'dark felt inside'). The hook frame depends on 12 vs 4."
+  },
+  {
+   "id": "V13",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "state_b band; clients",
+   "evidence": "Band is a coarse burlap strip between the rows, darker than PR-CLOTH linen and not along the APRIL row top edge; client blazers are muted navy/grey/olive, not 'colourful' (only the scraps are meant to be loud, so muted is arguably fine; flag for the human)."
+  },
+  {
+   "id": "V14",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No scraps on either copy."
+  },
+  {
+   "id": "V15",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No characters (clients are tiny props)."
+  },
+  {
+   "id": "V16",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Sheet."
+  },
+  {
+   "id": "V17",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No set."
+  },
+  {
+   "id": "V18",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "1:1 reference sheet, 1024x1024 as specified."
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200.png",
+   "evidence": "Two organizers, CLIENTS, MARCH, APRIL readable at 200px."
+  },
+  {
+   "id": "V20",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Reference sheet on plain backdrop; no live background wanted."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Felt, stitching and clay clients match the world; lighting same ivory."
+  },
+  {
+   "id": "V22",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Claymation."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No smears; structure clean."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No logos."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No before/after pairing of people, no 'your [condition]', nothing shaming."
+  },
+  {
+   "id": "V26",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Sheet is an internal reference, not a published post; disclosure belongs to the account rule on the final reel."
+  }
+ ],
+ "fix": {
+  "route": "regenerate",
+  "prompt_changes": [
+   "State the grid exactly: 'FOUR columns by TWO rows, eight pockets in each copy; MARCH row four pockets with exactly three clients each (twelve), APRIL row four pockets aligned under the MARCH pockets'.",
+   "State A: 'APRIL pockets empty, opening shows dark brown-grey felt inside'.",
+   "State B: 'APRIL row four pockets, one client in each; the same sand-cream linen as PR-CLOTH (fine linen weave, not burlap) as a flat band stitched along the top edge of the APRIL row'.",
+   "Keep CLIENTS, MARCH, APRIL labels and the three close-ups (they pass)."
+  ]
+ }
+}

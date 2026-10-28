@@ -1,0 +1,216 @@
+{
+ "gate": "G-VIS-SHEET",
+ "asset_id": "CH-FRIEND",
+ "version": 1,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "hero": true,
+ "files_opened": [
+  "full.png",
+  "tile_r1c1.png",
+  "tile_r1c2.png",
+  "tile_r1c3.png",
+  "tile_r2c1.png",
+  "tile_r2c2.png",
+  "tile_r2c3.png",
+  "tile_r3c1.png",
+  "tile_r3c2.png",
+  "tile_r3c3.png",
+  "region_SHEET-CH-FRIEND_front.png",
+  "region_SHEET-CH-FRIEND_three_quarter.png",
+  "region_SHEET-CH-FRIEND_seated.png",
+  "thumb_200.png"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "See above."
+  },
+  {
+   "id": "V2",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No script line."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No conflicts."
+  },
+  {
+   "id": "V4",
+   "result": "PASS",
+   "severity": "",
+   "region": "front, three_quarter",
+   "evidence": "Hands are inside pockets as specified; in the three-quarter view image-left hand is partly visible going into the pocket, correct. No extra limbs."
+  },
+  {
+   "id": "V5",
+   "result": "PASS",
+   "severity": "",
+   "region": "front, three_quarter",
+   "evidence": "Hands in pockets, no risk."
+  },
+  {
+   "id": "V6",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "region_SHEET-CH-FRIEND_seated.png",
+   "evidence": "Spec: seated head-and-shoulders, facing camera as on a video call, curious with one brow raised. Actual: head turned three-quarter to image-right, eyes glancing sideways, a closed-mouth smirk; both brows similar. It reads as sly or sideways, not 'warm and curious, facing the camera'. SH08 and SH22 put this face on a laptop screen, so a front-facing eyeline is needed. Standing views are fine (warm smile)."
+  },
+  {
+   "id": "V7",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Static."
+  },
+  {
+   "id": "V8",
+   "result": "PASS",
+   "severity": "",
+   "region": "jacket",
+   "evidence": "Patch pockets, buttons, collar structure consistent between standing views."
+  },
+  {
+   "id": "V9",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No text."
+  },
+  {
+   "id": "V10",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No text."
+  },
+  {
+   "id": "V11",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No lettering."
+  },
+  {
+   "id": "V12",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No props."
+  },
+  {
+   "id": "V13",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No prop sheet."
+  },
+  {
+   "id": "V14",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No extra props."
+  },
+  {
+   "id": "V15",
+   "result": "PASS",
+   "severity": "",
+   "region": "front vs three_quarter vs seated",
+   "evidence": "Hair puff, tortoiseshell glasses, gold studs, jacket, jeans, white shoes consistent across the three views. Clearly different person from Maya (hair, build, skin, jacket, glasses, no cardigan)."
+  },
+  {
+   "id": "V16",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Sheet."
+  },
+  {
+   "id": "V17",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No set."
+  },
+  {
+   "id": "V18",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "1:1 reference sheet, 1024x1024 as specified."
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200.png",
+   "evidence": "Three figures read; teal-grey jacket, glasses, hair puff are distinct from Maya."
+  },
+  {
+   "id": "V20",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Reference sheet on plain backdrop; no live background wanted."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Clay face with tool marks, thread-wound curly puff, felted jacket, matches the claymation + craft block and Maya's world."
+  },
+  {
+   "id": "V22",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Claymation."
+  },
+  {
+   "id": "V23",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "region_SHEET-CH-FRIEND_seated.png, tile_r3c3",
+   "evidence": "The seated bust ends in a hard horizontal cut with no chair, desk or body, so it reads as a torso sitting on the floor; the right sleeve runs into the right edge of the canvas (cropped, spec requires 4% margin). Seated pose is not legible as 'seated'. Also the left standing figure's face has slightly crossed-looking eyes in glasses (minor)."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No logos."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No before/after pairing of people, no 'your [condition]', nothing shaming."
+  },
+  {
+   "id": "V26",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Sheet is an internal reference, not a published post; disclosure belongs to the account rule on the final reel."
+  }
+ ],
+ "fix": {
+  "route": "regenerate",
+  "prompt_changes": [
+   "Right panel only (edit with the sheet as reference): 'seated head-and-shoulders, head turned straight to the camera, eyes looking directly into the lens, right brow raised higher than the left, small curious closed-mouth smile; shoulders end in a soft clay cut line at least 8% above the bottom edge and at least 4% inside the right edge; add the top of a plain ivory chair back or desk edge so she reads as seated'.",
+   "Keep both standing views unchanged (pass)."
+  ]
+ }
+}

@@ -1,0 +1,220 @@
+{
+ "gate": "G-VIS-SHEET",
+ "asset_id": "PR-CLOTH",
+ "version": 1,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "hero": true,
+ "files_opened": [
+  "full.png",
+  "tile_r1c1.png",
+  "tile_r1c2.png",
+  "tile_r1c3.png",
+  "tile_r2c1.png",
+  "tile_r2c2.png",
+  "tile_r2c3.png",
+  "tile_r3c1.png",
+  "tile_r3c2.png",
+  "tile_r3c3.png",
+  "region_SHEET-PR-CLOTH_bolt.png",
+  "region_SHEET-PR-CLOTH_woven.png",
+  "region_SHEET-PR-CLOTH_offer.png",
+  "region_SHEET-PR-CLOTH_posts.png",
+  "region_SHEET-PR-CLOTH_ads_piece.png",
+  "region_SHEET-PR-CLOTH_bubbles_scissors.png",
+  "thumb_200.png"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "One calm cream cloth with woven speech bubbles and the cut pieces."
+  },
+  {
+   "id": "V2",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No script line."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No conflict."
+  },
+  {
+   "id": "V4",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No hands."
+  },
+  {
+   "id": "V5",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No hands."
+  },
+  {
+   "id": "V6",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "No faces."
+  },
+  {
+   "id": "V7",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Static."
+  },
+  {
+   "id": "V8",
+   "result": "PASS",
+   "severity": "",
+   "region": "scissors",
+   "evidence": "ok"
+  },
+  {
+   "id": "V9",
+   "result": "PASS",
+   "severity": "",
+   "region": "woven, offer, posts, ads_piece",
+   "evidence": "FEAST OR FAMINE, SOME MONTHS NOTHING, OFFER, POSTS x3, ADS: all letters correct (no diacritics)."
+  },
+  {
+   "id": "V10",
+   "result": "PASS",
+   "severity": "",
+   "region": "woven",
+   "evidence": "Phrases sit inside bubble outlines, nothing over them."
+  },
+  {
+   "id": "V11",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No other lettering; the other bubbles are blank."
+  },
+  {
+   "id": "V12",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Bolt, woven piece with two phrased bubbles, OFFER large, three POSTS, one ADS all present."
+  },
+  {
+   "id": "V13",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "This is the prop sheet."
+  },
+  {
+   "id": "V14",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "region_SHEET-PR-CLOTH_bubbles_scissors.png",
+   "evidence": "Spec: a pile of NINE blank clay bubbles. I count eight in the pile (full image, bottom right). Scissors blades are grey, not silver (acceptable clay), handles orange as specified. Count matters only if a shot says nine."
+  },
+  {
+   "id": "V15",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "None."
+  },
+  {
+   "id": "V16",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Sheet."
+  },
+  {
+   "id": "V17",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "None."
+  },
+  {
+   "id": "V18",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "1:1 reference sheet, 1024x1024 as specified."
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200.png",
+   "evidence": "Bolt, woven piece, cut pieces, scissors read; OFFER, POSTS, ADS legible, the two phrases readable."
+  },
+  {
+   "id": "V20",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Reference sheet on plain backdrop; no live background wanted."
+  },
+  {
+   "id": "V21",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "region_SHEET-PR-CLOTH_woven.png, offer, posts",
+   "evidence": "Spec says charcoal STITCHED labels. The letters are flat printed charcoal with no thread relief (compare the thread-twist lettering on PR-SCRAPS and the felt labels on the organizer), and the cloth is a photographic open linen weave. Reads a notch more 'print' than 'puppet craft'; the bubble outlines are stitched. Consistency risk for SH15, SH24 close-ups."
+  },
+  {
+   "id": "V22",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Claymation."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "tiles",
+   "evidence": "Clean weave, no seams or smears."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No logos; ADS piece is cream linen, not the polka-dot scrap."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No before/after pairing of people, no 'your [condition]', nothing shaming."
+  },
+  {
+   "id": "V26",
+   "result": "N/A",
+   "severity": "",
+   "region": "",
+   "evidence": "Sheet is an internal reference, not a published post; disclosure belongs to the account rule on the final reel."
+  }
+ ],
+ "fix": {
+  "route": "edit",
+  "prompt_changes": [
+   "Count: 'a loose pile of exactly nine blank cream clay speech bubbles'.",
+   "Labels: 'charcoal letters stitched in thick twisted thread with visible stitch relief on the cloth, same lettering style as the scraps' (OFFER, POSTS x3, ADS and the two phrases).",
+   "Owner may waive these two minors; text is correct and the sheet works for SH14-SH24."
+  ]
+ }
+}

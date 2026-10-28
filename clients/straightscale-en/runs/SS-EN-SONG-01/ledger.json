@@ -851,6 +851,20 @@
             "report": "qa/r2/CH-MAYA.v1.prompt.json",
             "prompt_sha256": "7c7fa4ef63ba3b10c762146d7917706bfa8d59bc334b5dd0488599149760bc76"
           }
+        ],
+        "G-VIS-SHEET": [
+          {
+            "at": "2026-10-28T18:20:02+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/CH-MAYA.v1.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 0,
+              "minor": 2
+            },
+            "hero": true
+          }
         ]
       },
       "tool": "atlas_generate"
@@ -904,6 +918,20 @@
             "by": "prompt-reviewer (fresh agent)",
             "report": "qa/r2/CH-FRIEND.v1.prompt.json",
             "prompt_sha256": "f4e019329a3cbb5e327e5698b83a6a34a7004ca56c8bb2d3d0847b7fc3b7dc83"
+          }
+        ],
+        "G-VIS-SHEET": [
+          {
+            "at": "2026-10-28T18:20:02+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/CH-FRIEND.v1.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 2,
+              "minor": 0
+            },
+            "hero": true
           }
         ]
       },
@@ -1015,6 +1043,20 @@
             "report": "qa/r2/PR-ORGANIZER.v1.prompt.json",
             "prompt_sha256": "8048a843b929ed1c353c93bc7e8cf25febb536a6da2954cbf2985bbf55ee09a8"
           }
+        ],
+        "G-VIS-SHEET": [
+          {
+            "at": "2026-10-28T18:20:03+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/PR-ORGANIZER.v1.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 2,
+              "minor": 1
+            },
+            "hero": true
+          }
         ]
       },
       "tool": "atlas_generate"
@@ -1069,6 +1111,20 @@
             "report": "qa/r2/PR-SCRAPS.v1.prompt.json",
             "prompt_sha256": "11b82e211de488e97d3091b1942b0e6e8f9af5c55a6bc5ca64ae5dfb73ddc452"
           }
+        ],
+        "G-VIS-SHEET": [
+          {
+            "at": "2026-10-28T18:20:03+00:00",
+            "status": "PASS",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/PR-SCRAPS.v1.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 0,
+              "minor": 0
+            },
+            "hero": true
+          }
         ]
       },
       "tool": "atlas_generate"
@@ -1122,6 +1178,20 @@
             "by": "prompt-reviewer (fresh agent)",
             "report": "qa/r2/PR-CLOTH.v1.prompt.json",
             "prompt_sha256": "7fc912064c288d3dd849bf7d7d90e58f49ad8a32c7935fbdfb7839ab1724364f"
+          }
+        ],
+        "G-VIS-SHEET": [
+          {
+            "at": "2026-10-28T18:20:03+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/PR-CLOTH.v1.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 0,
+              "minor": 2
+            },
+            "hero": true
           }
         ]
       },
@@ -1181,6 +1251,70 @@
           }
         ]
       },
+      "tool": "atlas_generate"
+    },
+    {
+      "asset_id": "PR-ORGANIZER",
+      "version": 2,
+      "type": "prop_sheet",
+      "shots": [
+        "SHEET-PR-ORGANIZER"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-28T18:20:17+00:00",
+      "prompt_sha256": "8f50f748ea5d4a8629603ba4652a81acefb1b449461a39e739ef92103faf5186",
+      "prompt_file": "prompts/PR-ORGANIZER.v2.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:20:17+00:00",
+          "sha256": "8f50f748ea5d4a8629603ba4652a81acefb1b449461a39e739ef92103faf5186",
+          "file": "prompts/PR-ORGANIZER.v2.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [],
+      "files": [],
+      "gates": {},
+      "tool": "atlas_generate"
+    },
+    {
+      "asset_id": "CH-FRIEND",
+      "version": 2,
+      "type": "character_sheet",
+      "shots": [
+        "SHEET-CH-FRIEND"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-28T18:20:17+00:00",
+      "prompt_sha256": "152fd6028da3c8faeec162cb50c500e2cc65e7323b20ec4db0ec529d1071a605",
+      "prompt_file": "prompts/CH-FRIEND.v2.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:20:17+00:00",
+          "sha256": "152fd6028da3c8faeec162cb50c500e2cc65e7323b20ec4db0ec529d1071a605",
+          "file": "prompts/CH-FRIEND.v2.1.txt",
+          "medias": [
+            {
+              "value": "5e9f6fe2fc01468c8d8761e54b17e37f",
+              "role": "edit_source"
+            }
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "value": "5e9f6fe2fc01468c8d8761e54b17e37f",
+          "role": "edit_source"
+        }
+      ],
+      "ids": [],
+      "files": [],
+      "gates": {},
       "tool": "atlas_generate"
     }
   ],
