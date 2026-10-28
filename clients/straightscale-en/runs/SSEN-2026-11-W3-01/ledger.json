@@ -188,9 +188,9 @@
       ]
     },
     "H-01-W908": {
-      "sha256": "0ffbb75a4f8bf87f968e09ef51fa403e186b071836265a893ccc4db3efc1a2c2",
+      "sha256": "9ba484568bebf74058b365305f20c0f00ce1ad076496bf73d38790ecc3e89d67",
       "lint": "PASS",
-      "lint_at": "2026-10-28T20:00:44+00:00",
+      "lint_at": "2026-10-28T20:01:57+00:00",
       "lint_issues": [
         {
           "level": "warn",
@@ -217,6 +217,20 @@
           "at": "2026-10-28T20:00:44+00:00",
           "status": "FAIL",
           "sha256": "44a6364e3beeb231dae9da6031947b81c45c22bce2e22a02db66185a7c7dc357",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-W908.spec.json"
+        },
+        {
+          "at": "2026-10-28T20:01:57+00:00",
+          "status": "FAIL",
+          "sha256": "0ffbb75a4f8bf87f968e09ef51fa403e186b071836265a893ccc4db3efc1a2c2",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-W908.spec.json"
+        },
+        {
+          "at": "2026-10-28T20:02:57+00:00",
+          "status": "PASS",
+          "sha256": "9ba484568bebf74058b365305f20c0f00ce1ad076496bf73d38790ecc3e89d67",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/H-01-W908.spec.json"
         }
@@ -423,6 +437,32 @@
           }
         ]
       }
+    },
+    {
+      "asset_id": "CF-W908",
+      "version": 1,
+      "type": "still",
+      "shots": [
+        "H-01-W908"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": true,
+      "created": "2026-10-28T20:02:57+00:00",
+      "prompt_sha256": "e7b9d4a7c166b46f46e460b65dcceb6fb2af39c8bfb2c8453f2cc1e86949eef7",
+      "prompt_file": "prompts/CF-W908.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T20:02:57+00:00",
+          "sha256": "e7b9d4a7c166b46f46e460b65dcceb6fb2af39c8bfb2c8453f2cc1e86949eef7",
+          "file": "prompts/CF-W908.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [],
+      "files": [],
+      "gates": {}
     }
   ],
   "queue": []

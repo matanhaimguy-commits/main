@@ -18,10 +18,12 @@ subjects:
   ref: 'no sheet yet: first image of the character'
   state: 'a tiny clay person standing still on the top middle card, seen from straight above (the top of the head and the
     shoulders visible): a cap of short charcoal clay hair on top, with only a thin rim of cream clay at the ears and neck;
-    no face, no forehead, no eyes; a mustard #DD9A10 jacket and charcoal #2B2A33 trousers; the arms hang straight down along
-    the outer edge of each shoulder, so each mitten hand shows as one small round bump just beyond the shoulder, one on each
-    side of the frame; about 8% of the frame height and 8% of its width'
-  pose: stands in the centre of the top middle card, x 46% to 54%, y 32% to 40%, both feet hidden under the body from this
+    no face, no forehead, no eyes; the figure faces the bottom of the frame, so the thin cream rim of the neck shows at the
+    top edge of the head, and its left arm is on the right side of the frame and its right arm on the left side of the frame;
+    a mustard #DD9A10 jacket and charcoal #2B2A33 trousers; the arms hang straight down along the outer edge of each shoulder,
+    so each mitten hand shows as one small round bump just beyond the shoulder, one on each side of the frame; about 8% of
+    the frame height and 8% of its width'
+  pose: stands in the centre of the top middle card, x 46% to 54%, y 31% to 39%, both feet hidden under the body from this
     view
   expression: 'none visible: seen from straight above, no face'
   instances: 1
@@ -87,16 +89,16 @@ regions:
   kind: other
   box:
   - 0.46
-  - 0.32
+  - 0.31
   - 0.54
-  - 0.4
+  - 0.39
 - name: client-hands
   kind: hand
   box:
   - 0.44
-  - 0.32
+  - 0.31
   - 0.56
-  - 0.4
+  - 0.39
 style: 'Premium studio claymation scene - everything sculpted from matte plasticine with refined intentional craftsmanship:
   subtle tool marks, controlled texture, soft rounded geometry, slight subsurface warmth, macro lens feel with shallow depth
   of field, soft diffused studio lighting with a gentle rim glow, the scene filling the entire frame with the camera inside
