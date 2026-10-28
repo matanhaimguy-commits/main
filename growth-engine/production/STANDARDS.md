@@ -74,8 +74,8 @@ Any other reference still needs its own passed review.
   image 1"): `standards.json` sets `storyboard.hero: true`. The hook concept frame is frame 1, so it is hero too:
   register it with `--hero` (or as a `start_frame`).
 - Placements: Reels 1080x1920 (9:16); feed images and carousels 1080x1350 (4:5; the publishing API refuses 3:4);
-  carousel 7 to 12 slides (carousel-machine's 12 to 15 slide "Start here" and 4 to 8 slide "Tool or news drop" formats
-  are fitted to 7 to 12). Delivery files: slides JPEG 1080x1350 under 8 MB each (not the skill's 1080x1440 under
+  carousel 7 to 10 slides (the hub takes at most 10 files a post; carousel-machine's 12 to 15 slide "Start here" and
+  4 to 8 slide "Tool or news drop" formats are fitted to 7 to 10). Delivery files: slides JPEG 1080x1350 under 8 MB each (not the skill's 1080x1440 under
   250 KB); reels MP4 H.264 + AAC under 100 MB, 3 to 90 s.
 - Concept frames (hook step) are stills serving the hook shot's Shot Spec (`H-01`).
 

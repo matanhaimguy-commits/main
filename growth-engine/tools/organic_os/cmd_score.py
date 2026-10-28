@@ -4,12 +4,12 @@ from __future__ import annotations
 import csv
 
 from .config import ROOT
-from .files import client_dir
+from .files import client_dir, need
 from .learning import score
 
 
 def run(a) -> int:
-    p = client_dir(a.slug) / "analytics" / "posts.csv"
+    p = need(client_dir(a.slug) / "analytics" / "posts.csv", "pull the post results first (analyst, ORGANIC-OS 9)")
     with p.open(newline="") as f:
         rows = list(csv.DictReader(f))
     if not rows:

@@ -237,7 +237,7 @@ Each account runs **2 to 4 named series**. A series is a fixed format and theme 
 |---|---|---|---|
 | **Reels (30 to 60 s, under 3 min)** | Reach engine and trust | 45 to 60% | readymerce-hook-lab + readymerce-script-lab + video production |
 | **Motion graphic reels** | Explaining mechanisms, numbers, frameworks without a face; series identity | Inside the reel share | motion-reel (HyperFrames) |
-| **Carousels (7 to 12 slides)** | Saves, depth, frameworks, checklists, teardowns | 30 to 45% | carousel-machine |
+| **Carousels (7 to 10 slides; the hub takes 10 files at most)** | Saves, depth, frameworks, checklists, teardowns | 30 to 45% | carousel-machine |
 | **Stories (daily, 3 to 7 frames)** | Selling to followers, DMs, proof, polls | Daily, not counted in posts | Story templates (section 8.4) |
 | **Single images** | Weakest format: only real review quotes, announcements, or a strong self-check question | 1 a week at most | carousel-machine (1 slide) |
 
