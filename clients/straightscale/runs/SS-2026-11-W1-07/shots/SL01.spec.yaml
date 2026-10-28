@@ -6,45 +6,59 @@ script_lines:
 line_text: Pse punonjësi të telefonon për çdo klient?
 story_purpose: 'Opens the want: the phone rings in the middle of the owner''s meal, and it is the shop asking about
   a client.'
-must_read_in_1s: 'The owner''s meal is interrupted: the shop is calling him, again, about a client.'
+must_read_in_1s: A call from Dyqani interrupts the owner's meal.
 subjects:
 - id: PR-PHONE
   ref: null
-  state: the red-case phone lying face up on the table in front of the plate, screen lit with an incoming call
-  pose: portrait, rotated 25 degrees clockwise seen from above, top edge pointing to the upper right, left of centre
-    of the lower half, close
+  state: the red-case phone seated upright in a black phone stand on the table beside a plate, screen lit with an
+    incoming call, facing the camera
+  pose: left of centre of the lower half, close
+  expression: ''
+  instances: 1
+- id: CH-HANDS
+  ref: null
+  state: only the owner's right hand and wrist described in the hands block, in a dark shirt cuff; no body, no face
+    and no head in the frame
+  pose: entering from the frame edge as described in the hands block
   expression: ''
   instances: 1
 hands:
-- who: OWNER (hand only)
+- who: OWNER (right hand only)
   left: not visible
-  right: reaches in from the right edge at 64% to 80% of the height, fingers open, palm down, 3 cm above the right
-    edge of the phone; the hand passes in front of the plate, below the fork and the glass
-  contact: right fingertips 3 cm above the phone's right edge, not touching it; the wrist and a dark shirt cuff
-    enter from the right edge
+  right: 'an adult man''s right hand with light olive skin, short clean nails, no ring and no watch, in the cuff
+    of a dark navy shirt: reaches in from the right edge at 70% to 84% of the height, the forearm in a dark shirt
+    sleeve resting on the table top, the hand open, palm down, 2 cm above the wood; the fingertips stop 2 cm short
+    of the phone''s right side edge, level with the lower half of the phone, not touching it; the forearm enters
+    from the right edge and the dark navy cuff sits at the right edge'
+  contact: right fingertips stop 2 cm short of the phone's right side edge, not touching it
   must_not_cover: the call screen and the caller name
   count_check: 'five fingers: thumb plus four fingers, all visible and slightly spread'
 props:
 - id: PR-PHONE
   story_critical: false
   ref: null
-  state: face up, ringing
-  content: 'a modern smartphone in a deep red #BE0F18 case, black glass front, rounded corners, no logo on the case
-    or the glass'
-  size_in_frame: about 36% of the frame width
+  state: upright in the stand, ringing
+  content: 'a modern smartphone in a deep red #BE0F18 case that shows as a rim around the black glass front, rounded
+    corners, no logo on the case or the glass'
+  size_in_frame: its box is 22% of the frame width and 38% of the frame height
+- id: PR-STAND
+  story_critical: false
+  ref: null
+  state: on the surface, holding the phone upright
+  content: a plain black matte angled phone stand with one groove, no logo; the phone's bottom edge sits in the
+    groove and its back leans against the stand's rear support
 - id: PR-PHONE-SCREEN
   story_critical: true
   ref: PS-CALL-DYQANI (prop sheet to build on SS-LIB-W45W46 before generation)
   state: lit, an incoming call facing the camera
-  content: 'a plain dark incoming-call screen: at the top the single word Dyqani in white bold sans, under it a
-    large plain dark-grey circle as the contact tile with no letter in it, and at the bottom two round buttons side
-    by side, the left one mid-grey and the right one crimson #B31217, no symbols inside them; no digits, no status
-    bar, no app logo'
-  size_in_frame: screen fills most of the phone
+  content: 'a plain dark incoming-call screen: at the top the single word "Dyqani" in white bold sans, under it
+    a large plain dark-grey circle as the contact tile with no letter in it, and at the bottom two round buttons
+    side by side, the left one mid-grey and the right one crimson #B31217, no symbols inside them; no digits, no
+    status bar, no app logo'
 - id: PR-PLATE
   story_critical: false
   ref: null
-  state: on the table beyond the phone, half finished
+  state: on the table at the left edge, only its right part in the frame, half finished
   content: a white round plate with a half-eaten meal of rice and grilled meat, a fork resting on its rim, a glass
     of water beside it
 - id: PR-ARROW
@@ -56,23 +70,23 @@ props:
   size_in_frame: about 8% of the frame width
 text_in_image:
 - string: Pse punonjësi
-  surface: top calm dark wall, left-aligned from the left margin, x 6% to 61%, y 7% to 13% of the frame, heavy bold
-    geometric sans, about 80 px, ivory
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 61%, y 6% to 12% of the frame, heavy bold
+    geometric sans, about 80 px at 1080 px wide, ivory
   position: line 1 of 3 in the top text block
   case: as_written
   must_be_exact: true
   occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
 - string: të telefonon për
-  surface: top calm dark wall, left-aligned from the left margin, x 6% to 74%, y 14% to 21% of the frame, heavy
-    bold geometric sans, about 80 px, ivory
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 74%, y 13% to 20% of the frame, heavy
+    bold geometric sans, about 80 px at 1080 px wide, ivory
   position: line 2 of 3 in the top text block
   case: as_written
   must_be_exact: true
   occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
 - string: çdo klient?
-  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 53%, y 22% to 28% of the frame, heavy
-    bold geometric sans, about 80 px, ivory; the word ''klient?'' sits inside a solid crimson #B31217 highlight
-    rectangle'
+  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 53%, y 21% to 28% of the frame, heavy
+    bold geometric sans, about 80 px at 1080 px wide, ivory; the word ''klient?'' sits inside a solid crimson #B31217
+    highlight rectangle'
   position: line 3 of 3 in the top text block
   case: as_written
   must_be_exact: true
@@ -82,7 +96,7 @@ text_in_image:
   position: on the phone screen
   case: as_written
   must_be_exact: true
-  occlusion: the hand, the plate and any reflection stay off the words on the screen
+  occlusion: no hand, finger or reflection touches the words on the screen
 - string: 1/8
   surface: 'top right, small gold #DD9A10 slide counter'
   position: top right corner, inside the 4% margin
@@ -90,27 +104,33 @@ text_in_image:
   must_be_exact: true
   occlusion: nothing overlaps the counter
 action_physics:
-- The owner's right hand comes in from the right edge below the plate and its fingers stop open 3 cm above the phone,
-  about to pick it up.
-- The phone lies with its whole back flat on the table, screen up.
+- The owner's right hand comes in from the right edge and its fingers stop open 2 cm short of the phone's right
+  side edge, about to pick it up.
+- The phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support; nothing touches
+  it.
 static: false
 setting:
   ref: null
-  details: 'The owner''s restaurant after service, at night: a dark wood corner table, a warm tungsten wall lamp,
-    empty chairs, deep shadows. The phone lies on the table in front of a half-finished plate. A small window at
-    the right edge of the frame at 42% to 62% of the height, below the text wall, slightly out of focus, the Tirana
-    clock tower a small lit silhouette in it.'
+  details: 'The owner''s restaurant after service, at night: a dark wood corner table, warm tungsten light, deep
+    shadows. A warm tungsten wall lamp on the left wall at 58% of the height lights the left edge at 50% to 66%.
+    Camera about 10 degrees above the table: the table top spans from 70% of the frame height (its far edge, measured
+    from the top of the frame) down to the bottom; the wall behind it fills the upper 70%. A half-finished plate
+    stands on the table at the left of the phone. A small window at the right edge of the frame at 42% to 62% of
+    the height, below the text wall, slightly out of focus, the Tirana clock tower a small lit silhouette in it.'
   background_rule: 'No menus, receipts, signs or readable words anywhere; the walls are plain. The call screen shows
-    only the word and the shapes described. The clock tower is a small lit silhouette with a plain clock face: no
-    numerals, no letters; the window glass reflects no text; no shop signs on the street.'
+    only the word and the shapes described. A phone with its screen off is plain black glass with a soft lamp reflection
+    and nothing else. The surface the props stand on is bare apart from the listed props. The clock tower is a small
+    lit silhouette with a plain clock face: no numerals, no letters; the window glass reflects no text; no shop
+    signs on the street.'
 camera:
-  framing: close shot of the table; the phone in the lower left of centre, the plate beyond it, the top 40% is a
-    dark calm wall
-  angle: 45 degrees above the table, centred
+  framing: close shot at the table; the phone in the lower left of centre (x 30% to 52%), the right part of the
+    plate cut by the left frame edge, the top 40% is a calm near-black wall
+  angle: about 10 degrees above the table surface, centred
   lens: 35mm film still, shallow depth of field
   aspect: '4:5'
-  safe_zones: text and arrow inside a 4% margin; top 40% a calm dark wall; bottom-left corner (lowest 9% of the
-    height, left 40% of the width) calm, dark and empty
+  safe_zones: text and arrow inside a 4% margin; top 40% a calm near-black zone with nothing in it except the text
+    block and the slide counter; bottom-left corner (lowest 9% of the height, left 40% of the width) calm, dark
+    and empty
 continuity:
   previous_shot: null
   carry_over: []
@@ -119,30 +139,37 @@ regions:
   kind: text
   box:
   - 0.06
-  - 0.07
+  - 0.06
   - 0.619
-  - 0.138
+  - 0.128
 - name: t02-head
   kind: text
   box:
   - 0.06
-  - 0.146
+  - 0.136
   - 0.748
-  - 0.214
+  - 0.204
 - name: t03-head
   kind: text
   box:
   - 0.06
-  - 0.222
+  - 0.212
   - 0.533
-  - 0.29
+  - 0.28
+- name: t03-highlight
+  kind: text
+  box:
+  - 0.232
+  - 0.212
+  - 0.533
+  - 0.28
 - name: screen-text1
   kind: text
   box:
-  - 0.3
+  - 0.34
+  - 0.56
+  - 0.48
   - 0.6
-  - 0.52
-  - 0.64
 - name: counter
   kind: text
   box:
@@ -174,45 +201,53 @@ regions:
 - name: phone
   kind: prop
   box:
-  - 0.2
-  - 0.56
-  - 0.62
-  - 0.9
+  - 0.3
+  - 0.5
+  - 0.52
+  - 0.88
 - name: phone-screen
   kind: prop
   box:
-  - 0.26
-  - 0.58
-  - 0.56
-  - 0.86
+  - 0.32
+  - 0.54
+  - 0.5
+  - 0.8
+- name: stand
+  kind: prop
+  box:
+  - 0.31
+  - 0.8
+  - 0.51
+  - 0.88
 - name: hand
   kind: hand
   box:
-  - 0.64
-  - 0.64
+  - 0.58
+  - 0.7
   - 1.0
-  - 0.8
+  - 0.84
 - name: plate
   kind: prop
   box:
-  - 0.36
-  - 0.44
-  - 0.78
-  - 0.6
-style: 'Tirana after dark: cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
+  - 0.0
+  - 0.7
+  - 0.28
+  - 0.8
+style: '"Tirana after dark": cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
   the cover''s window. Same light and colour grade on every slide. Thread: a smartphone in a deep red case (#BE0F18),
-  recurring on every slide, changing state with the story. Palette: scene tone near-black (#1F1F1F), type ivory
-  (#F8F6EF), accent crimson #B31217 as solid highlight rectangles behind key words and the swipe arrow button, small
-  gold (#DD9A10) only for the counter. #B31217 is the only saturated colour besides the gold counter and the phone
-  case. Type: heavy bold geometric sans in ivory, left-aligned in the calm dark area; key words in solid crimson
-  #B31217 highlight rectangles. Spell ë and ç out letter by letter in every prompt. Frame: slide counter top right
-  (gold), swipe arrow bottom right on slides 1 to N-1. Bottom-left corner calm, dark and empty.'
+  recurring on every slide, changing state with the story (silent, unread messages piling up, ringing, a booked
+  calendar). Palette: scene tone near-black (#1F1F1F), type ivory (#F8F6EF), accent crimson #B31217 as solid highlight
+  rectangles behind key words and the swipe arrow button, small gold (#DD9A10) only for the counter. #B31217 is
+  the only saturated colour besides the gold counter and the phone case. Type: heavy bold geometric sans in ivory,
+  left-aligned in the calm dark area; key words in solid crimson #B31217 highlight rectangles. Spell ë and ç out
+  letter by letter in every prompt. Frame: slide counter top right (gold), swipe arrow bottom right on slides 1
+  to N-1. Bottom-left corner calm, dark and empty.'
 must_not:
 - no logo or wordmark drawn anywhere
 - no letters or objects in the bottom-left corner
-- no readable words on any phone screen except the strings listed in the text block or the props block
-- no borders, side bars or blurred margins
-- no real platform name or phone interface on the call screen
+- no letters, words, digits or app names on any phone screen except the screen strings listed in the text block
+- no picture-frame borders, side bars or blurred margins around the whole image
+- no real platform name, app name or logo on the call screen
 hero: true
 notes: '''Dyqani'' on the call screen is part of the shipped hook; the screen is readable, so it has a prop sheet.
   Prop sheet PS-CALL-DYQANI (state: the incoming call with the caller name Dyqani) is attached as the last reference

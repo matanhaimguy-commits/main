@@ -5,7 +5,7 @@ script_lines:
 - S8
 line_text: Këto i mban një sistem, jo një njeri. Ndiqe faqen për hapin e radhës.
 story_purpose: 'Payoff (a system carries these, not one person) and the one ask: follow.'
-must_read_in_1s: A calm table; the owner's hand rests easy beside the quiet phone; the line says follow the page.
+must_read_in_1s: 'A calm table: a hand rests beside the quiet phone.'
 subjects:
 - id: PR-PHONE
   ref: null
@@ -13,13 +13,21 @@ subjects:
   pose: lower centre of the frame, medium distance
   expression: ''
   instances: 1
+- id: CH-HANDS
+  ref: null
+  state: only the owner's right hand and wrist described in the hands block, in a dark shirt cuff; no body, no face
+    and no head in the frame
+  pose: entering from the frame edge as described in the hands block
+  expression: ''
+  instances: 1
 hands:
-- who: OWNER (hand only)
+- who: OWNER (right hand only)
   left: not visible
-  right: rests relaxed on the table to the right of the phone at 74% to 88% of the height, palm down, fingers slightly
-    curled
-  contact: right fingertips and palm flat on the wood, 6 cm right of the stand; the wrist and a dark shirt cuff
-    enter from the right edge
+  right: 'an adult man''s right hand with light olive skin, short clean nails, no ring and no watch, in the cuff
+    of a dark navy shirt: lies relaxed on the table to the right of the stand at 74% to 88% of the height, palm
+    down, the fingers pointing left toward the stand'
+  contact: the palm and the pads of the fingers rest on the wood, fingers relaxed with a slight bend at the knuckles,
+    the fingertips 6 cm right of the stand's right side; the wrist and a dark shirt cuff enter from the right edge
   must_not_cover: the phone and the stand
   count_check: 'five fingers: thumb plus four fingers, all resting'
 props:
@@ -27,9 +35,9 @@ props:
   story_critical: false
   ref: null
   state: upright in the stand, screen off
-  content: 'a modern smartphone in a deep red #BE0F18 case, black glass front, rounded corners, no logo on the case
-    or the glass'
-  size_in_frame: about 16% of the frame width
+  content: 'a modern smartphone in a deep red #BE0F18 case that shows as a rim around the black glass front, rounded
+    corners, no logo on the case or the glass'
+  size_in_frame: its box is 14% of the frame width and 24% of the frame height
 - id: PR-STAND
   story_critical: false
   ref: null
@@ -39,41 +47,42 @@ props:
 - id: PR-PLATE
   story_critical: false
   ref: null
-  state: beyond the phone, cleared; a clean white plate and a glass of water
+  state: on the table to the left of the phone, cleared; a clean white plate and a glass of water
   content: a clean white round plate with nothing on it and a glass of water beside it
 text_in_image:
 - string: Këto i mban
-  surface: top calm dark wall, left-aligned from the left margin, x 6% to 53%, y 7% to 13% of the frame, heavy bold
-    geometric sans, about 80 px, ivory
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 53%, y 6% to 12% of the frame, heavy bold
+    geometric sans, about 80 px at 1080 px wide, ivory
   position: line 1 of 5 in the top text block
   case: as_written
   must_be_exact: true
   occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
 - string: një sistem,
-  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 53%, y 14% to 21% of the frame, heavy
-    bold geometric sans, about 80 px, ivory; the word ''sistem,'' sits inside a solid crimson #B31217 highlight
-    rectangle'
+  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 53%, y 13% to 20% of the frame, heavy
+    bold geometric sans, about 80 px at 1080 px wide, ivory; the word ''sistem,'' sits inside a solid crimson #B31217
+    highlight rectangle'
   position: line 2 of 5 in the top text block
   case: as_written
   must_be_exact: true
   occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
 - string: jo një njeri.
-  surface: top calm dark wall, left-aligned from the left margin, x 6% to 48%, y 23% to 28% of the frame, heavy
-    bold geometric sans, about 60 px, ivory
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 48%, y 22% to 27% of the frame, heavy
+    bold geometric sans, about 60 px at 1080 px wide, ivory
   position: line 3 of 5 in the top text block
   case: as_written
   must_be_exact: true
   occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
 - string: Ndiqe faqen
-  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 32%, y 30% to 34% of the frame, bold
-    geometric sans, about 44 px, ivory; the word ''Ndiqe'' sits inside a solid crimson #B31217 highlight rectangle'
+  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 32%, y 29% to 33% of the frame, bold
+    geometric sans, about 44 px at 1080 px wide, ivory; the word ''Ndiqe'' sits inside a solid crimson #B31217 highlight
+    rectangle'
   position: line 4 of 5 in the top text block
   case: as_written
   must_be_exact: true
   occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
 - string: për hapin e radhës.
-  surface: top calm dark wall, left-aligned from the left margin, x 6% to 50%, y 35% to 39% of the frame, bold geometric
-    sans, about 44 px, ivory
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 50%, y 34% to 38% of the frame, bold geometric
+    sans, about 44 px at 1080 px wide, ivory
   position: line 5 of 5 in the top text block
   case: as_written
   must_be_exact: true
@@ -85,68 +94,88 @@ text_in_image:
   must_be_exact: true
   occlusion: nothing overlaps the counter
 action_physics:
-- The owner's right hand rests flat on the table 6 cm to the right of the stand, palm down, fingers slightly curled
-  and still.
-- The phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support.
+- The owner's right hand rests on the table 6 cm to the right of the stand, palm down, fingers relaxed and still.
+- The phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support; nothing touches
+  it.
 static: false
 setting:
   ref: null
-  details: 'The owner''s restaurant after service, at night: a dark wood corner table, a warm tungsten wall lamp,
-    empty chairs, deep shadows. Wide, calm, the lamp on. A small window at the right edge of the frame at 42% to
-    62% of the height, below the text wall, slightly out of focus, the Tirana clock tower a small lit silhouette
-    in it.'
-  background_rule: 'No menus, receipts, signs or readable words anywhere; the walls are plain. The clock tower is
-    a small lit silhouette with a plain clock face: no numerals, no letters; the window glass reflects no text;
-    no shop signs on the street.'
+  details: 'The owner''s restaurant after service, at night: a dark wood corner table, warm tungsten light, deep
+    shadows. A warm tungsten wall lamp on the left wall at 58% of the height lights the left edge at 50% to 66%.
+    Camera about 10 degrees above the table: the table top spans from 70% of the frame height (its far edge, measured
+    from the top of the frame) down to the bottom; the wall behind it fills the upper 70%. Wide, calm. A small window
+    at the right edge of the frame at 42% to 62% of the height, below the text wall, slightly out of focus, the
+    Tirana clock tower a small lit silhouette in it.'
+  background_rule: 'No menus, receipts, signs or readable words anywhere; the walls are plain. A phone with its
+    screen off is plain black glass with a soft lamp reflection and nothing else. The surface the props stand on
+    is bare apart from the listed props. The clock tower is a small lit silhouette with a plain clock face: no numerals,
+    no letters; the window glass reflects no text; no shop signs on the street.'
 camera:
-  framing: medium wide shot of the corner table; the phone in the lower middle, the plate beyond it, the top 40%
-    the dark wall
-  angle: eye level, centred
+  framing: medium wide shot of the corner table; the phone in the lower middle, the plate to the left of it, the
+    top 40% a calm near-black wall
+  angle: about 10 degrees above the table surface, centred
   lens: 35mm film still, shallow depth of field
   aspect: '4:5'
-  safe_zones: text inside a 4% margin; no arrow in this shot; top 40% a calm dark wall; bottom-left corner (lowest
-    9% of the height, left 40% of the width) calm, dark and empty
+  safe_zones: text inside a 4% margin; no arrow in this shot; top 40% a calm near-black zone with nothing in it
+    except the text block and the slide counter; bottom-left corner (lowest 9% of the height, left 40% of the width)
+    calm, dark and empty
 continuity:
   previous_shot: SL07
   carry_over:
-  - The phone stands upright and quiet in its stand, screen off; the owner's hand is back, relaxed, as on slide
-    1 but at rest.
+  - 'Changes from the previous slide: the camera pulls back from a close shot to a medium-wide shot, so the phone
+    is smaller; a window appears at the right edge; the bar chart on the screen is gone and the screen is off; a
+    cleared plate and a glass of water and the owner''s right hand are now on the table; the stand and the table
+    are unchanged.'
 regions:
 - name: t01-head
   kind: text
   box:
   - 0.06
-  - 0.07
+  - 0.06
   - 0.533
-  - 0.138
+  - 0.128
 - name: t02-head
   kind: text
   box:
   - 0.06
-  - 0.146
+  - 0.136
   - 0.533
-  - 0.214
+  - 0.204
+- name: t02-highlight
+  kind: text
+  box:
+  - 0.232
+  - 0.136
+  - 0.533
+  - 0.204
 - name: t03-head2
   kind: text
   box:
   - 0.06
-  - 0.232
+  - 0.222
   - 0.482
-  - 0.284
+  - 0.274
 - name: t04-sub
   kind: text
   box:
   - 0.06
-  - 0.302
+  - 0.292
   - 0.32
-  - 0.342
+  - 0.332
+- name: t04-highlight
+  kind: text
+  box:
+  - 0.06
+  - 0.292
+  - 0.178
+  - 0.332
 - name: t05-sub
   kind: text
   box:
   - 0.06
-  - 0.35
+  - 0.34
   - 0.508
-  - 0.39
+  - 0.38
 - name: counter
   kind: text
   box:
@@ -171,10 +200,17 @@ regions:
 - name: phone
   kind: prop
   box:
-  - 0.44
-  - 0.62
+  - 0.43
   - 0.56
-  - 0.86
+  - 0.57
+  - 0.8
+- name: stand
+  kind: prop
+  box:
+  - 0.43
+  - 0.74
+  - 0.57
+  - 0.82
 - name: hand
   kind: hand
   box:
@@ -185,22 +221,24 @@ regions:
 - name: plate
   kind: prop
   box:
-  - 0.28
-  - 0.48
-  - 0.5
-  - 0.6
-style: 'Tirana after dark: cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
+  - 0.24
+  - 0.64
+  - 0.42
+  - 0.74
+style: '"Tirana after dark": cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
   the cover''s window. Same light and colour grade on every slide. Thread: a smartphone in a deep red case (#BE0F18),
-  recurring on every slide, changing state with the story. Palette: scene tone near-black (#1F1F1F), type ivory
-  (#F8F6EF), accent crimson #B31217 as solid highlight rectangles behind key words and the swipe arrow button, small
-  gold (#DD9A10) only for the counter. #B31217 is the only saturated colour besides the gold counter and the phone
-  case. Type: heavy bold geometric sans in ivory, left-aligned in the calm dark area; key words in solid crimson
-  #B31217 highlight rectangles. Spell ë and ç out letter by letter in every prompt. Frame: slide counter top right
-  (gold), swipe arrow bottom right on slides 1 to N-1. Bottom-left corner calm, dark and empty.'
+  recurring on every slide, changing state with the story (silent, unread messages piling up, ringing, a booked
+  calendar). Palette: scene tone near-black (#1F1F1F), type ivory (#F8F6EF), accent crimson #B31217 as solid highlight
+  rectangles behind key words and the swipe arrow button, small gold (#DD9A10) only for the counter. #B31217 is
+  the only saturated colour besides the gold counter and the phone case. Type: heavy bold geometric sans in ivory,
+  left-aligned in the calm dark area; key words in solid crimson #B31217 highlight rectangles. Spell ë and ç out
+  letter by letter in every prompt. Frame: slide counter top right (gold), swipe arrow bottom right on slides 1
+  to N-1. Bottom-left corner calm, dark and empty.'
 must_not:
 - no logo or wordmark drawn anywhere
 - no letters or objects in the bottom-left corner
-- no readable words on any phone screen except the strings listed in the text block or the props block
-- no borders, side bars or blurred margins
+- no letters, words, digits or app names on any phone screen; screens hold only the shapes described in the props
+  block
+- no picture-frame borders, side bars or blurred margins around the whole image
 - no swipe arrow, no round button, no arrow graphic anywhere
 hero: false

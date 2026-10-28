@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "SL03",
+ "version": 1,
+ "prompt_sha256": "f5bd9d5b0f15918b490fc214495566295e329da8dea73e5f91d44a412aa41fa8",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Notebook with pencil, phone face up, arrow, 5 strings incl. '3/8', 30-degree camera, no window, must_not lines all present"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'Image 1 ... style reference. Image 2 is the approved cover ... Image 3 is the approved slide 2' matches upload order STYLE-TOP, SL01 cover, SL02 slide 2"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'Hands: no hands and no people are visible in the frame.'"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'The notebook lies with its whole back flat on the table and the pencil rests diagonally on its cover; the phone lies flat beside it; nothing is touched by a hand.'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "No story-critical prop; notebook content given: 'closed black hardcover notebook with a plain cover, no title, no label, and one wooden pencil lying diagonally across it'"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "4 strings plus '3/8' quoted with position, size 80/44/60 px, colour and 'nothing overlapping a letter'; each surface 4 words or fewer; spelling given for Çdo, në, kokë, të, kësaj, një, listë ('Në' differs from 'në' only by case)"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "Notebook has a content rule ('plain cover ... no title, no label'); 'No menus, receipts, signs or readable words anywhere; ... No window and no clock tower'"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No conflicting instructions; phone 'face up ... screen off' agrees with 'plain black glass' rule"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'Carry-over: The phone lies face up and quiet beside a new object, the notebook; plate, glass and chair are out of frame' matches spec (change from the stand is the stated new scene)"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Prompt opens 'Instagram carousel slide, portrait 4:5.'; call settings gpt_image_2_5, 4:5, 2k, medium, flare, image_references match standards.json; no video fields apply"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "'beside the notebook' leaves the side open but the spec does not fix it and either side reads correctly; no two-way word"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/10/13 prevented: calm hand-free text zone, contact points, filled screen props, plain walls, 'Bottom-left corner ... no logo, no letters, no objects (a logo is added later)'"
+  }
+ ],
+ "corrected_prompt": null
+}

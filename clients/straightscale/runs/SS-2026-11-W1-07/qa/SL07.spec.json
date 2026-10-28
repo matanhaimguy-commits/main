@@ -1,7 +1,7 @@
 {
  "gate": "G-SPEC",
  "shot_id": "SL07",
- "spec_sha256": "49f7cedbc6a9161600f111dfdeada2f2e68c9a7937e30b7848467d854bbedaad",
+ "spec_sha256": "1b1784a70e2d34e3229dbafeece6ae281f0d8e1244e2d4bac170d12961b4dcaf",
  "reviewer": "prompt-reviewer (fresh agent)",
  "independent": true,
  "status": "PASS",
@@ -9,62 +9,62 @@
   {
    "id": "P1",
    "result": "PASS",
-   "evidence": "line_text 'Faji për një muaj të qetë. Në vend të kësaj: një tabelë mujore.' = 4 strings; phone, chart screen, arrow, counter present with regions."
+   "evidence": "Strings \"Faji për një\" + \"muaj të qetë.\" + \"Në vend të kësaj:\" + \"një tabelë mujore.\" = line_text; phone, stand, chart screen, arrow, counter \"7/8\", regions (phone, phone-screen, stand, texts, logo-zone) present."
   },
   {
    "id": "P2",
    "result": "N/A",
-   "evidence": "N/A in spec mode (no prompt or attachments yet)."
+   "evidence": "Spec mode: no prompt or attached files exist yet; reference order is checked at G-PROMPT-IMG."
   },
   {
    "id": "P3",
    "result": "PASS",
-   "evidence": "hands: none visible; 'with nothing touching it'."
+   "evidence": "\"hands: none visible\"."
   },
   {
    "id": "P4",
    "result": "PASS",
-   "evidence": "'The phone lies with its whole back flat on the table, screen up and lit, with nothing touching it.'"
+   "evidence": "Contact points: \"bottom edge sits in the stand's groove and its back leans on the stand's rear support; nothing touches it\"."
   },
   {
    "id": "P5",
    "result": "PASS",
-   "evidence": "PR-PHONE-SCREEN story_critical with content: 'five vertical ivory bars of different heights standing on a thin ivory baseline, one bar in crimson #B31217; no axis labels, no numbers, no words'; must_not 'no numbers or labels on the chart' is targeted. Prop sheet PS-CHART state BARS must exist and pass before generation."
+   "evidence": "PR-PHONE-SCREEN story_critical with ref \"PS-CHART state BARS\" and content \"exactly five vertical bars in all (four ivory and one crimson #B31217) of different heights standing on a thin ivory baseline; no axis labels, no numbers\"; must_not \"no numbers or labels on the chart\" is targeted."
   },
   {
    "id": "P6",
    "result": "PASS",
-   "evidence": "'Faji për një' / 'muaj të qetë.' / 'Në vend të kësaj:' / 'një tabelë mujore.' / '7/8' exact with surface, size, colour, occlusion; 4 words or fewer each. The 36 px connector is a reels-rule matter, not applied to slides."
+   "evidence": "Four headline lines + \"7/8\" counter with surface, box, size, case, occlusion; \"tabelë\" highlight stated; the chart carries no text by design."
   },
   {
    "id": "P7",
    "result": "PASS",
-   "evidence": "'The phone screen shows only the bars and the baseline'; walls plain; no window."
+   "evidence": "Only screen is the focal chart and is filled; walls plain; no window (\"No window and no clock tower\")."
   },
   {
    "id": "P8",
    "result": "PASS",
-   "evidence": "No conflict found; chart has no numbers and the standards forbid counts on screens."
+   "evidence": "Screen rule \"shows only the bars and the baseline\" matches the content; the style's \"cover's window\" is scoped to the cover. Set: previous_shot chain SL01..SL08 is unbroken, counters read n/8, arrow on slides 1 to 7 only, the single ask only on SL08."
   },
   {
    "id": "P9",
    "result": "PASS",
-   "evidence": "previous_shot SL06; carry_over 'The phone lights up again with a chart; same table and lamp.' Note: no carry_over names a swipe-bridge element (adapter 5 lists 'the bridge element'); confirm against the carousel plan or state 'bridge: none'."
+   "evidence": "previous_shot SL06; carry-over: \"The phone lights up again with a chart, still in its stand; same table and lamp.\" The close framing and missing window are declared in camera and setting."
   },
   {
    "id": "P10",
    "result": "N/A",
-   "evidence": "N/A in spec mode (model and params are checked on the prompt)."
+   "evidence": "Spec mode: model, 4:5, 2k, quality are checked at the prompt and generation gate (spec says aspect \"4:5\")."
   },
   {
    "id": "P11",
    "result": "PASS",
-   "evidence": "No ambiguous word found (which bar is crimson is left to the prop sheet; optionally name it)."
+   "evidence": "\"Exactly five bars (four ivory, one crimson)\" is countable; which bar is crimson is left to the prop sheet PS-CHART state BARS, not a reading ambiguity of the spec."
   },
   {
    "id": "P12",
    "result": "PASS",
-   "evidence": "FL-04 content line + prop sheet; FL-13 logo-zone; FL-10 gibberish prevented by 'no axis labels, no numbers, no words'."
+   "evidence": "FL-04 screen filled with content and sheet; FL-10 no stray text; FL-13 logo-zone and bottom-left rule (stand y<=0.88)."
   }
  ],
  "suggested_spec_changes": []

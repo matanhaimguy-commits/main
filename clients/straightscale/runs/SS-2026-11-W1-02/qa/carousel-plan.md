@@ -15,7 +15,7 @@ One-sentence argument: Clients who compared you on price and still chose you kno
 
 ## Continuity: one world, one thread, one frame
 
-Windows-and-doors shop at night, Tirana: dark wood sales desk with its front edge at 84% of the height, warm tungsten lamps, white and charcoal frame samples on the back wall, the clock tower in a small window on slides 1, 3 and 8. Same grade on every slide.
+Windows-and-doors shop at night, Tirana: dark wood sales desk with its front edge at 84% of the height, warm tungsten lamps, white and charcoal frame samples on the back wall, the clock tower in a small window on slides 1, 3, 7 and 8. Same grade on every slide.
 
 Frame on every slide: gold counter n/N top right, top 40% a calm dark wall for the text, bottom-left corner (lowest 9% of the height, left 40% of the width) empty for the real logo, crimson #B31217 round arrow button bottom right on slides 1 to 7, none on slide 8.
 
@@ -23,18 +23,18 @@ Frame on every slide: gold counter n/N top right, top 40% a calm dark wall for t
 
 | Slide | Phone state | Scene line |
 |---|---|---|
-| 1 | the red-case phone held upright in his left hand at chest height, screen lit and angled toward the camera | medium close shot from behind the customer's right shoulder; the phone and the card reader sit in the lower middle, the top 40% is a dark calm wall |
-| 2 | the red-case phone lying face up on the sales desk, screen off, black glass catching the lamp light | close shot at desk level; the phone fills the lower middle, the top 40% is a dark calm wall |
-| 3 | the red-case phone standing small on the sales desk, leaning on a window-frame sample corner, screen off | wide shot of the whole shop from the door side; the sales desk runs across the lower fifth, the top 40% is the dark back wall |
-| 4 | the red-case phone lying face up on the sales desk, screen lit | close shot from above the sales desk; the phone fills the lower middle, the top 40% is a dark calm wall |
-| 5 | not the subject; lying face up beside the notebook, screen off | medium close shot from slightly above the sales desk; the notebook and the phone in the lower middle, the top 40% is a dark calm wall |
-| 6 | the red-case phone held in a hand, screen lit with an open empty message field | macro close shot of the hands and the phone; the phone sits right of centre (x 42% to 94%), the top 40% is a dark calm out-of-focus wall |
-| 7 | the red-case phone seated upright in a black phone stand on the sales desk, screen off | medium shot; the phone in the lower right half, the sales desk across the lower fifth, the top 40% a dark calm wall |
-| 8 | the red-case phone seated upright in a black phone stand on the sales desk, screen off, calm | wide shot of the shop from the door side; the sales desk across the lower fifth, the top 40% the dark back wall |
+| 1 | the owner's red-case phone lying face up on the sales desk right of the card reader, screen off | close shot from the owner's side of the sales desk: the customer's phone left of centre, the card reader and the card right of centre, the owner's phone small at the right, the top 40% a calm near-black wall |
+| 2 | the red-case phone lying face up on the sales desk, alone, screen off, black glass catching the lamp light | close shot from above the sales desk; the phone fills the lower middle, the card reader and the customer's phone are out of frame, the top 40% is a calm near-black wall |
+| 3 | the red-case phone standing small on the sales desk, its back leaning on a white sample slab, screen off | wide shot of the whole shop from the door side; the sales desk across the lower 30%, the wall with the frame samples behind it, the top 40% a calm near-black wall |
+| 4 | the red-case phone seated upright in a black phone stand on the sales desk, screen lit, facing the camera | close shot at the sales desk; the phone fills the lower middle (x 36% to 64%), the top 40% is a calm near-black wall |
+| 5 | not the subject; lying face up beside the notebook, screen off | medium close shot from above the sales desk; the notebook and the phone in the lower middle, the top 40% is a calm near-black wall |
+| 6 | the red-case phone held in the owner's two hands, screen lit with an open empty message field, seen straight-on as the owner sees it | macro straight-on view of the phone as the owner sees it; the whole phone is in the frame (x 45% to 75%, y 40% to 90%), the top 40% is a calm near-black out-of-focus zone |
+| 7 | the red-case phone seated upright in a black phone stand on the sales desk, screen off | medium shot; the phone in the lower right half (x 54% to 80%), the wall with the frame samples behind it, the top 40% a calm near-black wall |
+| 8 | the red-case phone seated upright in a black phone stand on the sales desk, screen off, calm | wide shot of the shop from the door side; the sales desk across the lower 30%, the wall with the frame samples behind it, the top 40% a calm near-black wall |
 
 ## Swipe bridges (both edges named)
 
-Every slide carries the same two edge elements, so each swipe lines up: a warm lamp-light band touches both the left edge (x 0% to 12%) and the right edge (x 88% to 100%) at 70% to 84% of the height on every slide (on a close or macro slide it is soft warm bokeh), and where the front edge of the sales desk is in frame it sits at 84% of the height.
+Every slide carries the same two edge elements, so each swipe lines up: a warm lamp-light band touches both the left edge (x 0% to 12%) and the right edge (x 88% to 100%) at 70% to 84% of the height on every slide (on a close or macro slide it is soft warm bokeh).
 
 - Slide 1 to 2: right edge of 1 = left edge of 2 = the warm light band at the same height (on a close or macro slide it is soft bokeh); where the front edge of the furniture is in frame it is at the same height.
 - Slide 2 to 3: right edge of 2 = left edge of 3 = the warm light band at the same height (on a close or macro slide it is soft bokeh); where the front edge of the furniture is in frame it is at the same height.

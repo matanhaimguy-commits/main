@@ -3,15 +3,14 @@ post_id: SS-2026-11-W1-02
 format: carousel_slide
 script_lines:
 - S4
-line_text: E ke përgjigjen me fjalët e tyre? Po apo jo?
+line_text: NJIH BLERËSIN E ke përgjigjen me fjalët e tyre? Po apo jo?
 story_purpose: 'Second yes/no check: is the answer in the buyers'' words, or only in his?'
-must_read_in_1s: 'The phone is lit with four messages from clients: are their words the ones he uses?'
+must_read_in_1s: 'The phone stands lit with four messages from clients: are their words the ones he uses?'
 subjects:
 - id: PR-PHONE
   ref: null
-  state: the red-case phone lying face up on the sales desk, screen lit
-  pose: portrait, rotated 15 degrees clockwise seen from above, top edge pointing to the upper right, centre of
-    the lower half, close to the camera
+  state: the red-case phone seated upright in a black phone stand on the sales desk, screen lit, facing the camera
+  pose: centre of the lower half, close to the camera
   expression: ''
   instances: 1
 hands: none visible
@@ -19,24 +18,23 @@ props:
 - id: PR-PHONE
   story_critical: false
   ref: null
-  state: lying face up, screen lit
-  content: 'a modern smartphone in a deep red #BE0F18 case, black glass front, rounded corners, no logo on the case
-    or the glass'
-  size_in_frame: about 45% of the frame width
+  state: upright in the stand, screen lit
+  content: 'a modern smartphone in a deep red #BE0F18 case that shows as a rim around the black glass front, rounded
+    corners, no logo on the case or the glass'
+  size_in_frame: its box is 28% of the frame width and 48% of the frame height
+- id: PR-STAND
+  story_critical: false
+  ref: null
+  state: on the surface, holding the phone upright
+  content: a plain black matte angled phone stand with one groove, no logo; the phone's bottom edge sits in the
+    groove and its back leans against the stand's rear support
 - id: PR-PHONE-SCREEN
   story_critical: true
   ref: PS-CHAT state CHAT-IN-4 (prop sheet to build on SS-LIB-W45W46)
   state: lit, a chat state without words
-  content: 'a plain chat view: four rounded light-grey bubbles aligned to the left edge of the screen, each holding
-    two or three short dark-grey horizontal bars instead of letters, no avatars, no names, no digits, no status
-    bar, no app logo'
-  size_in_frame: screen fills most of the phone
-- id: PR-FRAME-SAMPLES
-  story_critical: false
-  ref: null
-  state: hung on the back wall, out of focus
-  content: three plain corner sections of window frames hung on the wall, two white and one charcoal, no labels,
-    no price tags, no stickers
+  content: 'a plain chat view on a dark charcoal background: four rounded light-grey bubbles aligned to the left
+    edge of the screen, each holding two or three short dark-grey horizontal bars instead of letters, no avatars,
+    no names, no digits, no status bar, no app logo'
 - id: PR-ARROW
   story_critical: false
   ref: null
@@ -46,29 +44,30 @@ props:
   size_in_frame: about 8% of the frame width
 text_in_image:
 - string: NJIH BLERËSIN
-  surface: top calm dark wall, left-aligned from the left margin, x 6% to 33%, y 7% to 10% of the frame, small spaced
-    capitals, about 30 px, ivory
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 46%, y 6% to 9% of the frame, capitals
+    with wide letter-spacing (normal word spaces, no gaps inside words), about 44 px at 1080 px wide, ivory
   position: line 1 of 4 in the top text block
   case: as_written
   must_be_exact: true
   occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
 - string: E ke përgjigjen
   surface: top calm dark wall, left-aligned from the left margin, x 6% to 70%, y 11% to 18% of the frame, heavy
-    bold geometric sans, about 80 px, ivory
+    bold geometric sans, about 80 px at 1080 px wide, ivory
   position: line 2 of 4 in the top text block
   case: as_written
   must_be_exact: true
   occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
 - string: me fjalët e tyre?
-  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 79%, y 19% to 26% of the frame, heavy
-    bold geometric sans, about 80 px, ivory; the word ''tyre?'' sits inside a solid crimson #B31217 highlight rectangle'
+  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 79%, y 18% to 25% of the frame, heavy
+    bold geometric sans, about 80 px at 1080 px wide, ivory; the word ''tyre?'' sits inside a solid crimson #B31217
+    highlight rectangle'
   position: line 3 of 4 in the top text block
   case: as_written
   must_be_exact: true
   occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
 - string: Po apo jo?
-  surface: top calm dark wall, left-aligned from the left margin, x 6% to 29%, y 28% to 32% of the frame, bold geometric
-    sans, about 44 px, ivory
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 29%, y 27% to 31% of the frame, bold geometric
+    sans, about 44 px at 1080 px wide, ivory
   position: line 4 of 4 in the top text block
   case: as_written
   must_be_exact: true
@@ -80,57 +79,69 @@ text_in_image:
   must_be_exact: true
   occlusion: nothing overlaps the counter
 action_physics:
-- The phone lies with its whole back flat on the sales desk, screen up and lit, with nothing touching it.
+- The phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support; nothing touches
+  it.
 static: false
 setting:
   ref: null
-  details: 'A small windows-and-doors shop at night: a long dark wood sales desk across the lower fifth of the frame,
-    a plain card reader on it, sample corner sections of white and charcoal window frames hung on the back wall,
-    warm tungsten lamps, deep shadows. The shop behind is out of focus. No window and no clock tower are visible
-    in this shot.'
-  background_rule: The back wall holds only the plain frame samples; no signs, posters, calendars, screens or readable
-    words anywhere except what the text block and props block list. The phone screen shows only the grey bars and
-    bubbles described; the bars are not letters.
+  details: 'A small windows-and-doors shop at night: a long dark wood sales desk, warm tungsten lamps, deep shadows.
+    Camera about 10 degrees above the sales desk: the sales desk top spans from 70% of the frame height (its far
+    edge, measured from the top of the frame) down to the bottom; the wall behind it fills the upper 70%. The wall
+    behind is plain. No window and no clock tower are visible in this shot.'
+  background_rule: No signs, posters, calendars, screens or readable words anywhere except what the text block and
+    props block list. The phone screen shows only the grey bars and bubbles described; the bars are not letters.
+    A phone with its screen off is plain black glass with a soft lamp reflection and nothing else. The surface the
+    props stand on is bare apart from the listed props.
 camera:
-  framing: close shot from above the sales desk; the phone fills the lower middle, the top 40% is a dark calm wall
-  angle: 35 degrees above the sales desk surface, slightly from the left
+  framing: close shot at the sales desk; the phone fills the lower middle (x 36% to 64%), the top 40% is a calm
+    near-black wall
+  angle: about 10 degrees above the sales desk surface, centred
   lens: 35mm film still, shallow depth of field
   aspect: '4:5'
-  safe_zones: text and arrow inside a 4% margin; top 40% a calm dark wall; bottom-left corner (lowest 9% of the
-    height, left 40% of the width) calm, dark and empty
+  safe_zones: text and arrow inside a 4% margin; top 40% a calm near-black zone with nothing in it except the text
+    block and the slide counter; bottom-left corner (lowest 9% of the height, left 40% of the width) calm, dark
+    and empty
 continuity:
   previous_shot: SL03
   carry_over:
-  - The phone comes forward from the far desk of slide 3 to the front; its screen is now lit.
+  - The phone is now in a stand at the front of the desk and its screen is lit; the camera has moved in, so the
+    wall samples, the white sample slab and the card reader are out of frame and the wall behind is plain.
 regions:
 - name: t01-label
   kind: text
   box:
   - 0.06
-  - 0.07
-  - 0.339
-  - 0.1
+  - 0.06
+  - 0.469
+  - 0.094
 - name: t02-head
   kind: text
   box:
   - 0.06
-  - 0.118
+  - 0.112
   - 0.705
-  - 0.186
+  - 0.18
 - name: t03-head
   kind: text
   box:
   - 0.06
-  - 0.194
+  - 0.188
   - 0.791
-  - 0.262
+  - 0.256
+- name: t03-highlight
+  kind: text
+  box:
+  - 0.576
+  - 0.188
+  - 0.791
+  - 0.256
 - name: t04-sub
   kind: text
   box:
   - 0.06
-  - 0.28
+  - 0.274
   - 0.296
-  - 0.32
+  - 0.314
 - name: counter
   kind: text
   box:
@@ -155,30 +166,39 @@ regions:
 - name: phone
   kind: prop
   box:
-  - 0.2
-  - 0.54
-  - 0.8
-  - 0.86
+  - 0.36
+  - 0.4
+  - 0.64
+  - 0.88
 - name: phone-screen
   kind: prop
   box:
-  - 0.3
-  - 0.56
-  - 0.7
-  - 0.82
-style: 'Tirana after dark: cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
+  - 0.39
+  - 0.44
+  - 0.61
+  - 0.78
+- name: stand
+  kind: prop
+  box:
+  - 0.38
+  - 0.8
+  - 0.62
+  - 0.88
+style: '"Tirana after dark": cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
   the cover''s window. Same light and colour grade on every slide. Thread: a smartphone in a deep red case (#BE0F18),
-  recurring on every slide, changing state with the story. Palette: scene tone near-black (#1F1F1F), type ivory
-  (#F8F6EF), accent crimson #B31217 as solid highlight rectangles behind key words and the swipe arrow button, small
-  gold (#DD9A10) only for the counter. #B31217 is the only saturated colour besides the gold counter and the phone
-  case. Type: heavy bold geometric sans in ivory, left-aligned in the calm dark area; key words in solid crimson
-  #B31217 highlight rectangles. Spell ë and ç out letter by letter in every prompt. Frame: slide counter top right
-  (gold), swipe arrow bottom right on slides 1 to N-1. Bottom-left corner calm, dark and empty.'
+  recurring on every slide, changing state with the story (silent, unread messages piling up, ringing, a booked
+  calendar). Palette: scene tone near-black (#1F1F1F), type ivory (#F8F6EF), accent crimson #B31217 as solid highlight
+  rectangles behind key words and the swipe arrow button, small gold (#DD9A10) only for the counter. #B31217 is
+  the only saturated colour besides the gold counter and the phone case. Type: heavy bold geometric sans in ivory,
+  left-aligned in the calm dark area; key words in solid crimson #B31217 highlight rectangles. Spell ë and ç out
+  letter by letter in every prompt. Frame: slide counter top right (gold), swipe arrow bottom right on slides 1
+  to N-1. Bottom-left corner calm, dark and empty.'
 must_not:
 - no logo or wordmark drawn anywhere
 - no letters or objects in the bottom-left corner
-- no readable words on any phone screen except the strings listed in the text block or the props block
-- no borders, side bars or blurred margins
+- no letters, words, digits or app names on any phone screen; screens hold only the shapes described in the props
+  block
+- no picture-frame borders, side bars or blurred margins around the whole image
 - no window and no clock tower
 - no letters inside the chat bubbles
 hero: false

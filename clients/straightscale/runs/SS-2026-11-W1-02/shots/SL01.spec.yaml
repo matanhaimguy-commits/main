@@ -5,46 +5,62 @@ script_lines:
 - S1
 line_text: Të krahasuan me çmimin, dhe prapë erdhën te ti. Pse?
 story_purpose: 'Opens the want: a client compared on price and still pays at the owner''s sales desk. Why?'
-must_read_in_1s: A customer weighed a cheaper ULJE offer on his phone and is paying at this sales desk anyway.
+must_read_in_1s: A customer's phone lies open on a cheaper ULJE offer while his hand holds a card over the card
+  reader.
 subjects:
 - id: CH-CLIENT
   ref: null
-  state: 'a customer seen from behind and slightly from his right side: dark jacket, short dark hair at the back
-    of the head, back of the neck and right ear visible, no face visible'
-  pose: standing at the sales desk facing it, both feet flat on the floor, weight even
+  state: a customer standing at the right-hand end of the sales desk, outside the frame; only his right hand and
+    dark jacket sleeve enter from the right edge of the frame; no body, head or face in the frame
+  pose: standing upright outside the frame, his right arm stretched out over the sales desk
   expression: ''
   instances: 1
-  eyeline: toward the card reader
+- id: PR-PHONE-2
+  ref: null
+  state: the customer's own phone in a plain black case lying face up on the sales desk, screen lit showing the
+    offer listing
+  pose: portrait, its top edge pointing to the upper right (rotated about 10 degrees on the surface), left of centre
+    of the lower half
+  expression: ''
+  instances: 1
 - id: PR-PHONE
   ref: null
-  state: the red-case phone held upright in his left hand at chest height, screen lit and angled toward the camera
-  pose: about 25 cm in front of his chest, tilted 30 degrees toward the camera
+  state: the owner's red-case phone lying face up on the sales desk right of the card reader, screen off
+  pose: portrait, its top edge pointing to the upper right (rotated about 15 degrees on the surface), small, right
+    of the card reader
   expression: ''
   instances: 1
 hands:
-- who: CH-CLIENT
-  left: holds the phone by its lower edge, thumb on the left edge, four fingers curled behind it
-  right: holds a plain blank bank card flat between thumb and index finger, 5 cm above the card reader's slot
-  contact: left thumb pad on the left edge of the phone; right thumb and index finger pinch the short edge of the
-    card, which has not touched the reader yet
-  must_not_cover: the phone screen and the ULJE tag
-  count_check: 'five fingers on each hand: left thumb on the edge plus four fingers behind the phone; right thumb
-    plus four fingers with the index finger pinching the card'
+- who: CH-CLIENT (right hand only)
+  left: not visible
+  right: holds a plain blank bank card flat, parallel to the desk top, between thumb and index finger 5 cm above
+    the card reader's tap pad, the middle, ring and little fingers curled into the palm, the dark sleeve entering
+    from the right edge
+  contact: right thumb and index finger pinch the short edge of the card, which has not touched the reader yet
+  must_not_cover: the phone screen, the ULJE tag and the tap pad
+  count_check: 'five fingers: thumb and index finger pinching the card plus middle, ring and little fingers curled
+    into the palm'
 props:
-- id: PR-PHONE
+- id: PR-PHONE-2
   story_critical: false
   ref: null
-  state: held upright, lit
-  content: 'a modern smartphone in a deep red #BE0F18 case, black glass front, rounded corners, no logo on the case
-    or the glass'
+  state: lying face up, screen lit
+  content: a modern smartphone in a plain black case, no logo
+  size_in_frame: its box is 26% of the frame width and 34% of the frame height (seen obliquely)
 - id: PR-PHONE-SCREEN
   story_critical: true
   ref: PS-ULJE (prop sheet to build on SS-LIB-W45W46 before generation)
-  state: lit, facing the camera at 30 degrees
+  state: lit, facing up
   content: 'a product listing: a photo of a white window frame filling the top two thirds of the screen, and under
-    it a solid crimson #B31217 tag holding the single word ULJE in ivory capitals; no other text, no digits, no
+    it a solid crimson #B31217 tag holding the single word "ULJE" in ivory capitals; no other text, no digits, no
     logos, no app icons, no status bar'
-  size_in_frame: screen about 22% of the frame width
+- id: PR-PHONE
+  story_critical: false
+  ref: null
+  state: lying face up right of the reader, screen off
+  content: 'a modern smartphone in a deep red #BE0F18 case that shows as a rim around the black glass front, rounded
+    corners, no logo on the case or the glass'
+  size_in_frame: its box is 14% of the frame width and 16% of the frame height (seen obliquely)
 - id: PR-CARD
   story_critical: false
   ref: null
@@ -54,14 +70,8 @@ props:
   story_critical: false
   ref: null
   state: on the sales desk, screen dark
-  content: a plain countertop card reader with a dark blank screen and a plain keypad of blank rubber keys, no brand
-    mark
-- id: PR-FRAME-SAMPLES
-  story_critical: false
-  ref: null
-  state: hung on the back wall, out of focus
-  content: three plain corner sections of window frames hung on the wall, two white and one charcoal, no labels,
-    no price tags, no stickers
+  content: a plain countertop card reader with a dark blank screen, a plain keypad of blank rubber keys and a flat
+    tap pad on its top face, no brand mark
 - id: PR-ARROW
   story_critical: false
   ref: null
@@ -71,32 +81,33 @@ props:
   size_in_frame: about 8% of the frame width
 text_in_image:
 - string: Të krahasuan me
-  surface: top calm dark wall, left-aligned from the left margin, x 6% to 70%, y 7% to 13% of the frame, heavy bold
-    geometric sans, about 80 px, ivory
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 70%, y 6% to 12% of the frame, heavy bold
+    geometric sans, about 80 px at 1080 px wide, ivory
   position: line 1 of 3 in the top text block
   case: as_written
   must_be_exact: true
   occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
 - string: çmimin, dhe prapë
-  surface: top calm dark wall, left-aligned from the left margin, x 6% to 79%, y 14% to 21% of the frame, heavy
-    bold geometric sans, about 80 px, ivory
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 79%, y 13% to 20% of the frame, heavy
+    bold geometric sans, about 80 px at 1080 px wide, ivory
   position: line 2 of 3 in the top text block
   case: as_written
   must_be_exact: true
   occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
 - string: erdhën te ti. Pse?
-  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 83%, y 22% to 28% of the frame, heavy
-    bold geometric sans, about 80 px, ivory; the word ''Pse?'' sits inside a solid crimson #B31217 highlight rectangle'
+  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 83%, y 21% to 28% of the frame, heavy
+    bold geometric sans, about 80 px at 1080 px wide, ivory; the word ''Pse?'' sits inside a solid crimson #B31217
+    highlight rectangle'
   position: line 3 of 3 in the top text block
   case: as_written
   must_be_exact: true
   occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
 - string: ULJE
-  surface: on the crimson tag under the window-frame photo on the phone screen, ivory capitals
+  surface: on the crimson tag under the window-frame photo on the customer's phone screen, ivory capitals
   position: on the phone screen
   case: as_written
   must_be_exact: true
-  occlusion: the hand, the plate and any reflection stay off the words on the screen
+  occlusion: no hand, finger or reflection touches the words on the screen
 - string: 1/8
   surface: 'top right, small gold #DD9A10 slide counter'
   position: top right corner, inside the 4% margin
@@ -104,32 +115,31 @@ text_in_image:
   must_be_exact: true
   occlusion: nothing overlaps the counter
 action_physics:
-- His left hand holds the phone upright in front of his chest with the screen angled toward the camera, thumb pad
-  resting on the phone's left edge.
-- His right hand brings the card between thumb and index finger toward the card reader, stopping 5 cm above its
-  slot.
-- Both his feet stand flat on the shop floor, weight even, body upright and facing the sales desk.
+- His right hand holds the card between thumb and index finger and brings it toward the card reader, stopping 5
+  cm above its tap pad.
+- Both phones lie with their whole backs flat on the sales desk, screens up, untouched.
 static: false
 setting:
   ref: null
-  details: 'A small windows-and-doors shop at night: a long dark wood sales desk across the lower fifth of the frame,
-    a plain card reader on it, sample corner sections of white and charcoal window frames hung on the back wall,
-    warm tungsten lamps, deep shadows. A customer stands at the sales desk, seen from behind. A small window at
-    the right edge of the frame at 42% to 62% of the height, below the text wall, slightly out of focus, the Tirana
-    clock tower a small lit silhouette in it.'
-  background_rule: 'The back wall holds only the plain frame samples; no signs, posters, calendars, screens or readable
-    words anywhere except what the text block and props block list. The clock tower is a small lit silhouette with
-    a plain clock face: no numerals, no letters; the window glass reflects no text; no shop signs on the street.'
-  background_action: At the far end of the shop, out of focus, a staff member in a dark apron, seen from behind,
-    stands at a back bench with his arms at his sides.
+  details: 'A small windows-and-doors shop at night: a long dark wood sales desk, warm tungsten lamps, deep shadows.
+    Camera about 30 degrees above the sales desk: the sales desk top spans from 52% of the frame height (its far
+    edge, measured from the top of the frame) down to the bottom; the wall behind it fills the upper 52%. Only the
+    customer''s right hand and sleeve are in the frame; no one else is in the shop. A small window at the right
+    edge of the frame at 40% to 52% of the height, below the text wall, slightly out of focus, the Tirana clock
+    tower a small lit silhouette in it.'
+  background_rule: 'No signs, posters, calendars, screens or readable words anywhere except what the text block
+    and props block list. A phone with its screen off is plain black glass with a soft lamp reflection and nothing
+    else. The surface the props stand on is bare apart from the listed props. The clock tower is a small lit silhouette
+    with a plain clock face: no numerals, no letters; the window glass reflects no text; no shop signs on the street.'
 camera:
-  framing: medium close shot from behind the customer's right shoulder; the phone and the card reader sit in the
-    lower middle, the top 40% is a dark calm wall
-  angle: eye level, slightly behind and to the right of the customer
+  framing: 'close shot from the owner''s side of the sales desk: the customer''s phone left of centre, the card
+    reader and the card right of centre, the owner''s phone small at the right, the top 40% a calm near-black wall'
+  angle: about 30 degrees above the sales desk surface, centred
   lens: 35mm film still, shallow depth of field
   aspect: '4:5'
-  safe_zones: text and arrow inside a 4% margin; top 40% a calm dark wall; bottom-left corner (lowest 9% of the
-    height, left 40% of the width) calm, dark and empty
+  safe_zones: text and arrow inside a 4% margin; top 40% a calm near-black zone with nothing in it except the text
+    block and the slide counter; bottom-left corner (lowest 9% of the height, left 40% of the width) calm, dark
+    and empty
 continuity:
   previous_shot: null
   carry_over: []
@@ -138,30 +148,37 @@ regions:
   kind: text
   box:
   - 0.06
-  - 0.07
+  - 0.06
   - 0.705
-  - 0.138
+  - 0.128
 - name: t02-head
   kind: text
   box:
   - 0.06
-  - 0.146
+  - 0.136
   - 0.791
-  - 0.214
+  - 0.204
 - name: t03-head
   kind: text
   box:
   - 0.06
-  - 0.222
+  - 0.212
   - 0.834
-  - 0.29
+  - 0.28
+- name: t03-highlight
+  kind: text
+  box:
+  - 0.662
+  - 0.212
+  - 0.834
+  - 0.28
 - name: screen-text1
   kind: text
   box:
-  - 0.44
-  - 0.64
-  - 0.58
-  - 0.69
+  - 0.26
+  - 0.74
+  - 0.4
+  - 0.8
 - name: counter
   kind: text
   box:
@@ -187,57 +204,58 @@ regions:
   kind: other
   box:
   - 0.8
-  - 0.42
-  - 1.0
-  - 0.62
-- name: client
-  kind: other
-  box:
-  - 0.28
   - 0.4
-  - 0.8
-  - 0.9
+  - 1.0
+  - 0.52
+- name: phone-2
+  kind: prop
+  box:
+  - 0.2
+  - 0.54
+  - 0.46
+  - 0.88
 - name: phone-screen
   kind: prop
   box:
-  - 0.4
-  - 0.5
-  - 0.62
-  - 0.7
-- name: hand-left
-  kind: hand
-  box:
-  - 0.38
-  - 0.62
-  - 0.52
-  - 0.72
+  - 0.22
+  - 0.56
+  - 0.44
+  - 0.84
 - name: hand-right
   kind: hand
   box:
-  - 0.58
-  - 0.64
-  - 0.72
-  - 0.74
+  - 0.52
+  - 0.54
+  - 1.0
+  - 0.7
 - name: card-reader
   kind: prop
   box:
-  - 0.52
-  - 0.78
+  - 0.5
+  - 0.7
+  - 0.74
+  - 0.8
+- name: phone
+  kind: prop
+  box:
+  - 0.76
+  - 0.7
+  - 0.9
   - 0.86
-  - 0.89
-style: 'Tirana after dark: cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
+style: '"Tirana after dark": cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
   the cover''s window. Same light and colour grade on every slide. Thread: a smartphone in a deep red case (#BE0F18),
-  recurring on every slide, changing state with the story. Palette: scene tone near-black (#1F1F1F), type ivory
-  (#F8F6EF), accent crimson #B31217 as solid highlight rectangles behind key words and the swipe arrow button, small
-  gold (#DD9A10) only for the counter. #B31217 is the only saturated colour besides the gold counter and the phone
-  case. Type: heavy bold geometric sans in ivory, left-aligned in the calm dark area; key words in solid crimson
-  #B31217 highlight rectangles. Spell ë and ç out letter by letter in every prompt. Frame: slide counter top right
-  (gold), swipe arrow bottom right on slides 1 to N-1. Bottom-left corner calm, dark and empty.'
+  recurring on every slide, changing state with the story (silent, unread messages piling up, ringing, a booked
+  calendar). Palette: scene tone near-black (#1F1F1F), type ivory (#F8F6EF), accent crimson #B31217 as solid highlight
+  rectangles behind key words and the swipe arrow button, small gold (#DD9A10) only for the counter. #B31217 is
+  the only saturated colour besides the gold counter and the phone case. Type: heavy bold geometric sans in ivory,
+  left-aligned in the calm dark area; key words in solid crimson #B31217 highlight rectangles. Spell ë and ç out
+  letter by letter in every prompt. Frame: slide counter top right (gold), swipe arrow bottom right on slides 1
+  to N-1. Bottom-left corner calm, dark and empty.'
 must_not:
 - no logo or wordmark drawn anywhere
 - no letters or objects in the bottom-left corner
-- no readable words on any phone screen except the strings listed in the text block or the props block
-- no borders, side bars or blurred margins
+- no letters, words, digits or app names on any phone screen except the screen strings listed in the text block
+- no picture-frame borders, side bars or blurred margins around the whole image
 hero: true
-notes: 'Prop sheet PS-ULJE (state: the offer listing with the crimson ULJE tag) is attached as the last reference
-  image.'
+notes: 'Prop sheet PS-ULJE (state: the offer listing with the crimson ULJE tag on a plain-black-case phone) is attached
+  as the last reference image.'

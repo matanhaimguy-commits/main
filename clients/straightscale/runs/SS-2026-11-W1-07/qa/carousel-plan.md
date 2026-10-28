@@ -23,18 +23,18 @@ Frame on every slide: gold counter n/N top right, top 40% a calm dark wall for t
 
 | Slide | Phone state | Scene line |
 |---|---|---|
-| 1 | the red-case phone lying face up on the table in front of the plate, screen lit with an incoming call | close shot of the table; the phone in the lower left of centre, the plate beyond it, the top 40% is a dark calm wall |
-| 2 | the red-case phone lying face up on the table, screen off | medium close shot of the table and the empty chair; the phone in the lower middle, the top 40% is a dark calm wall |
-| 3 | not the subject; face up beside the notebook, screen off | medium close shot from above the table; the notebook and the phone in the lower middle, the top 40% is a dark calm wall |
-| 4 | the red-case phone lying face up on the table, screen lit | close shot from above the table; the phone fills the lower middle, the top 40% is a dark calm wall |
-| 5 | not the subject; face up beside it, screen off | medium close shot from above the table; the calculator and the phone in the lower middle, the top 40% is a dark calm wall |
-| 6 | not the subject; face up beside the stack, screen off | wide shot of the corner table; the folders and the phone in the lower middle, the top 40% is the dark wall |
-| 7 | the red-case phone lying face up on the table, screen lit with a bar chart | close shot from above the table; the phone fills the lower middle, the top 40% is a dark calm wall |
-| 8 | the red-case phone seated upright in a black phone stand on the table, screen off, calm | medium wide shot of the corner table; the phone in the lower middle, the plate beyond it, the top 40% the dark wall |
+| 1 | the red-case phone seated upright in a black phone stand on the table beside a plate, screen lit with an incoming call, facing the camera | close shot at the table; the phone in the lower left of centre (x 30% to 52%), the right part of the plate cut by the left frame edge, the top 40% is a calm near-black wall |
+| 2 | the red-case phone seated upright in a black phone stand on the table, screen off | medium shot of the table and the empty chair, the camera farther back than on the cover; the phone in the lower left of centre (x 34% to 50%), the chair at the right, the top 40% is a calm near-black wall |
+| 3 | not the subject; face up beside the notebook, screen off | medium close shot from above the table; the notebook and the phone in the lower middle, the top 40% is a calm near-black wall |
+| 4 | the red-case phone seated upright in a black phone stand on the table, screen lit, facing the camera | close shot at the table; the phone fills the lower middle (x 36% to 64%), the top 40% is a calm near-black wall |
+| 5 | not the subject; face up beside it, screen off | medium close shot from above the table; the calculator and the phone in the lower middle, the top 40% is a calm near-black wall |
+| 6 | not the subject; upright in a stand beside the stack, screen off | wide shot of the corner table; the folders and the phone in the lower middle, the top 40% is a calm near-black wall |
+| 7 | the red-case phone seated upright in a black phone stand on the table, screen lit with a bar chart, facing the camera | close shot at the table; the phone fills the lower middle (x 36% to 64%), the top 40% is a calm near-black wall |
+| 8 | the red-case phone seated upright in a black phone stand on the table, screen off, calm | medium wide shot of the corner table; the phone in the lower middle, the plate to the left of it, the top 40% a calm near-black wall |
 
 ## Swipe bridges (both edges named)
 
-Every slide carries the same two edge elements, so each swipe lines up: a warm wall-lamp glow band touches both the left edge (x 0% to 12%) and the right edge (x 88% to 100%) at 72% to 86% of the height on every slide (on a close slide it is soft warm bokeh), and where the front edge of the table is in frame it sits at 86% of the height.
+Every slide carries the same two edge elements, so each swipe lines up: a warm lamp glow band touches both the left edge (x 0% to 12%) and the right edge (x 88% to 100%) at 50% to 66% of the height on every slide (on a close slide it is soft warm bokeh).
 
 - Slide 1 to 2: right edge of 1 = left edge of 2 = the warm light band at the same height (on a close or macro slide it is soft bokeh); where the front edge of the furniture is in frame it is at the same height.
 - Slide 2 to 3: right edge of 2 = left edge of 3 = the warm light band at the same height (on a close or macro slide it is soft bokeh); where the front edge of the furniture is in frame it is at the same height.

@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "SL01",
+ "version": 1,
+ "prompt_sha256": "8690e1cdfcee6c32badca92e7a5570ebcf4b03406f46b264f7d1afa94aad4517",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Every spec element is present: phone, hand, stand, plate, arrow, 5 strings incl. 'Dyqani' and '1/8', window with clock tower, camera, must_not lines"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'Image 1 is the style reference ... Image 2 is the prop sheet PS-CALL-DYQANI' matches upload order STYLE-TOP then PENDING-PS-CALL-DYQANI-APPROVED; STYLE-TOP opened (type, crimson box, gold 1/7 counter, window and tower) and the 'not its text or scene' rule fits it. Note: the adapter's concept-frame image 2 is not in the packet's media list, so the prop sheet is judged as image 2"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'right hand ... light olive skin, short clean nails, no ring and no watch ... left hand not visible ... must not cover: the call screen and the caller name ... five fingers'"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'fingers stop open 2 cm short of the phone's right side edge'; 'phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support; nothing touches it'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-PHONE-SCREEN filled: 'the single word \"Dyqani\" in white bold sans, under it a large plain dark-grey circle ... two round buttons'; the closing negatives except the listed strings"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "All strings quoted with surface, x/y position, size, colour and occlusion ('nothing overlapping a letter', 'No hand, finger, lamp reflection or glare touches these words'); each surface 3 words or fewer; ë and ç spelled out for punonjësi, të, për, çdo"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'No menus, receipts, signs or readable words anywhere ... The clock tower is a small lit silhouette with a plain clock face: no numerals, no letters; the window glass reflects no text'"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No pair of instructions conflicts; hand 'palm down, 2 cm above the wood' with forearm on the table is physically consistent, the window and the edge glow band can coexist"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'Carry-over: none, first slide.' matches spec previous_shot null"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Prompt opens 'Instagram carousel slide, portrait 4:5.'; call settings gpt_image_2_5, 4:5, 2k, medium, flare, image_references match standards.json; no video fields apply"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "'corner table', '2 cm' and 'about 10 degrees' each have one workable reading in context; no word with two opposite readings"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/10/13 prevented: calm hand-free text zone, contact points, filled screen props, plain walls, 'Bottom-left corner ... no logo, no letters, no objects (a logo is added later)'"
+  }
+ ],
+ "corrected_prompt": null
+}

@@ -23,7 +23,7 @@ Frame on every slide: gold counter n/N top right, top 40% a calm dark wall for t
 
 | Slide | Phone state | Scene line |
 |---|---|---|
-| 1 | the red-case phone lying face up on the sales desk, screen lit with two unread message bubbles, alone | tight crop on the sales desk; the phone large in the lower middle and right (x 44% to 94%), the two people small and soft in the middle band (y 40% to 58%), the top 40% a plain dark calm wall |
+| 1 | the red-case phone seated upright in a black phone stand on the sales desk in the foreground at the left, screen lit with exactly two incoming message bubbles and no reply, alone, facing the camera | tight crop at the sales desk; the phone in the lower left of centre (x 13% to 37%, y 40% to 84%), the two people small and soft beyond the desk in the middle band (y 40% to 70%), the top 40% a calm near-black wall |
 
 ## Swipe bridges (both edges named)
 

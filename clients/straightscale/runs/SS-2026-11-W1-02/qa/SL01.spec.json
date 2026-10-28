@@ -1,78 +1,73 @@
 {
  "gate": "G-SPEC",
  "shot_id": "SL01",
- "spec_sha256": "b15dfd3e5c9b0a24c42feaef08dafa4495697fd4ac13e62c8c49980b23e8e538",
+ "spec_sha256": "38a377568e7f2d23af81e38238e355b63108f51dd8fa4e3c86f65ab2ce64be62",
  "reviewer": "prompt-reviewer (fresh agent)",
  "independent": true,
- "status": "FAIL",
+ "status": "PASS",
  "checks": [
   {
    "id": "P1",
    "result": "PASS",
-   "evidence": "Every element is written: CH-CLIENT (back view), PR-PHONE-SCREEN, PR-CARD, PR-CARD-READER, PR-ARROW, 5 text strings, 3 action lines, camera, setting. line_text 'Të krahasuan me çmimin, dhe prapë erdhën te ti. Pse?' equals the three headline strings joined, punctuation included. Weakness (advisory): must_read_in_1s 'weighed a cheaper ULJE offer on his phone and is paying at this sales desk anyway' is two moments."
+   "evidence": "line_text 'Të krahasuan me çmimin, dhe prapë erdhën te ti. Pse?' equals the three text lines joined; subject CH-CLIENT, hands, 6 props, 5 text strings, action, setting, camera, safe_zones and 17 regions all present."
   },
   {
    "id": "P2",
    "result": "N/A",
-   "evidence": "Spec mode: no prompt and no attached images yet."
+   "evidence": "N/A in spec mode (no prompt or attached files yet)."
   },
   {
    "id": "P3",
-   "result": "FAIL",
-   "evidence": "must_not_cover is 'the phone screen and the ULJE tag', but region hand-left [0.38,0.62,0.52,0.72] sits inside phone-screen [0.4,0.5,0.62,0.7] and overlaps screen-text1 [0.44,0.64,0.58,0.69] (x 0.44 to 0.52, the full tag height); hand-right [0.58,0.64,0.72,0.74] touches the tag's right end at x 0.58. The hand that holds 'the phone by its lower edge' is boxed over the tag it must not cover."
+   "result": "PASS",
+   "evidence": "right: 'holds a plain blank bank card flat, parallel to the desk top, between thumb and index finger 5 cm above the card reader's tap pad, the middle, ring and little fingers curled into the palm'; left 'not visible'; must_not_cover and count_check given; hand-right [0.52,0.54,1.0,0.7] is clear of the phone screen (x<=0.46) and of the text block (y<=0.28)."
   },
   {
    "id": "P4",
    "result": "PASS",
-   "evidence": "Contact points: 'thumb pad resting on the phone's left edge'; 'right thumb and index finger pinch the short edge of the card ... stopping 5 cm above its slot'; 'both feet flat on the shop floor'."
+   "evidence": "'His right hand holds the card between thumb and index finger and brings it toward the card reader, stopping 5 cm above its tap pad.' and 'Both phones lie with their whole backs flat on the sales desk, screens up, untouched.' (contact points, not nouns)."
   },
   {
    "id": "P5",
    "result": "PASS",
-   "evidence": "PR-PHONE-SCREEN (story_critical) has content: 'photo of a white window frame filling the top two thirds ... solid crimson #B31217 tag holding the single word ULJE'. The negative 'no readable words on any phone screen except the strings listed' is targeted. Note: prop sheet PS-ULJE does not exist yet and must pass G-VIS-SHEET before the prompt gate."
+   "evidence": "PR-PHONE-SCREEN story_critical with content 'a photo of a white window frame filling the top two thirds ... a solid crimson #B31217 tag holding the single word \"ULJE\" in ivory capitals'; ref PS-ULJE named (state given in notes); must_not exempts 'the screen strings listed in the text block', so the screen is not emptied."
   },
   {
    "id": "P6",
    "result": "PASS",
-   "evidence": "All 5 strings have exact text, surface, position, case and occlusion; each surface is 4 words or fewer; 'ë' and 'ç' strings are exact ('Të krahasuan me', 'çmimin, dhe prapë', 'erdhën te ti. Pse?'); counter '1/8' gold, top right. Advisory: cover lines are 15, 17 and 18 characters against about 12 in STANDARDS 6."
+   "evidence": "Every string quoted with surface, x/y box, size, colour; occlusion 'nothing covers any letter; no hand, prop or light flare reaches the text block'; 'ULJE' on the phone screen has surface, position and occlusion; counter '1/8' top right; max 4 words per line surface; headline 10 words (cover rule 4 to 10)."
   },
   {
    "id": "P7",
    "result": "PASS",
-   "evidence": "background_rule covers the back wall ('only the plain frame samples; no signs, posters, calendars, screens or readable words'), the clock face ('no numerals, no letters'), the window glass and the street; PR-CARD-READER 'dark blank screen'; PR-FRAME-SAMPLES 'no labels, no price tags, no stickers'."
+   "evidence": "background_rule: 'No signs, posters, calendars, screens or readable words anywhere except what the text block and props block list'; card reader 'dark blank screen'; window glass 'reflects no text', clock face 'no numerals, no letters'; phone screen-off rule."
   },
   {
    "id": "P8",
    "result": "PASS",
-   "evidence": "No pair of instructions contradicts: top 40% calm wall, text y 7% to 28%, window y 42% to 62%, hands y 0.62 to 0.74, reader y 0.78 to 0.89; counter and arrow do not overlap text."
+   "evidence": "No conflicting lines: sleeve enters at the right edge (y 0.54 to 0.7) while the window sits above it (y 0.4 to 0.52) and the reader at x 0.5 to 0.74; top 40% calm and the window starts at 40%; screens are 'off' for the owner's phone and 'lit' only for the customer's."
   },
   {
    "id": "P9",
    "result": "PASS",
-   "evidence": "First slide: previous_shot null, carry_over empty."
+   "evidence": "First slide: previous_shot null, carry_over []. Set: counters 1/8 to 8/8 in order, arrow on 1 to 7 only, hero true on SL01 only, previous_shot chain SL01<-null, SL02..SL08 each point to the one before."
   },
   {
    "id": "P10",
    "result": "N/A",
-   "evidence": "Spec mode: model, resolution, aspect and duration rules are checked on the prompt (the spec has aspect '4:5', as required)."
+   "evidence": "N/A in spec mode (model, resolution, aspect and duration are checked on the prompt; spec aspect is 4:5)."
   },
   {
    "id": "P11",
-   "result": "FAIL",
-   "evidence": "(a) 'screen lit and angled toward the camera' and 'tilted 30 degrees toward the camera', phone 'about 25 cm in front of his chest', while the camera is 'behind the customer's right shoulder': a screen facing a camera behind him faces away from him, so it can be read two ways (screen toward his face and seen obliquely, or screen turned outward). (b) The ULJE occlusion rule says 'the hand, the plate and any reflection'; there is no plate in the spec."
+   "result": "PASS",
+   "evidence": "'sales desk', 'card reader's tap pad', 'ULJE tag', 'window' (a small shop window at the right edge) are each defined once with a box; sizes given as % of frame; 'cheaper' in must_read_in_1s is carried by the headline, not required in the image."
   },
   {
    "id": "P12",
    "result": "PASS",
-   "evidence": "FL-13: logo-zone [0.0,0.91,0.4,1.0] and 'bottom-left corner ... calm, dark and empty'. FL-01: hands at y 0.62 to 0.74, text at y 0.07 to 0.29. FL-06: 'back of the head, back of the neck and right ear visible, no face visible'. FL-11: instances 1, feet flat. FL-04/05: screen filled, background ruled."
+   "evidence": "FL-01: hand at y>=0.54, text at y<=0.28, no overlap; FL-04: screen content line filled; FL-05: reader screen, window and screen-off phones have rules; FL-02: desk, reader, phone structure described; FL-13: logo-zone region [0.0,0.91,0.4,1.0] and must_not 'no logo or wordmark drawn anywhere' / 'no letters or objects in the bottom-left corner'."
   }
  ],
  "suggested_spec_changes": [
-  "P3: lower the left hand so it holds the phone below the screen: phone's lower edge at y 0.71, hand-left box [0.40,0.69,0.54,0.77]; move hand-right box to start at x 0.60 so no finger reaches the ULJE tag region [0.44,0.64,0.58,0.69].",
-  "P11: replace the screen wording with 'the phone is held at chest height, its screen facing up and back toward his eyes, tilted 30 degrees from vertical, so the camera behind his right shoulder sees the screen at an oblique angle; his head is bowed slightly toward it'.",
-  "P11: in the ULJE text_in_image occlusion, replace 'the hand, the plate and any reflection' with 'the hand, the card and any reflection'.",
-  "ADVISORY: simplify must_read_in_1s to one moment, e.g. 'A customer holds a phone showing a ULJE offer while he pays at the sales desk.'",
-  "ADVISORY: cover headline lines are 15/17/18 characters (STANDARDS 6: about 12); readable at 200 px is the real test, so run the 200 px check at the visual gate.",
-  "ADVISORY: background_action 'staff member ... arms at his sides' is a posed figure; give him a named action (e.g. sliding a frame sample into a rack) if he stays in the shot."
+  "non-blocking: put the state token in the ref itself (e.g. 'PS-ULJE state ULJE-LISTING') as SL04 and SL06 do; today it sits only in notes."
  ]
 }

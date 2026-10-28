@@ -7,8 +7,9 @@
   "created": "2026-10-28T09:55:45+00:00",
   "steps": {
     "0": {
-      "status": "todo",
-      "note": ""
+      "status": "done",
+      "note": "G-BRIEF passed",
+      "at": "2026-10-28T10:48:44+00:00"
     },
     "1": {
       "status": "todo",
@@ -71,13 +72,46 @@
       "note": ""
     }
   },
-  "run_gates": {},
+  "run_gates": {
+    "G-BRIEF": [
+      {
+        "at": "2026-10-28T10:48:27+00:00",
+        "status": "PASS",
+        "by": "claude (carousel-agent)",
+        "note": "Brief read from the Post Card, brain.json, brand-kit.md and style-bible.md (job, belief, pillar, ask); no question round (adapter section 1). 28 Oct 2026."
+      }
+    ],
+    "G-PLAN": [
+      {
+        "at": "2026-10-28T10:48:36+00:00",
+        "status": "PASS",
+        "by": "claude (carousel-agent)",
+        "note": "Single image: qa/carousel-plan.md holds the one-picture plan (scene, thread state, text, ask); no bridges."
+      }
+    ]
+  },
   "specs": {
     "IMG01": {
-      "sha256": "3b54a996cf34d55fab014f3df4219404e7a5be615d87f2a1c093d5a3e5047025",
+      "sha256": "7095acf51f25d3fd637f05284bfce830f06a9a797414e2f15618cd074ed479ab",
       "lint": "PASS",
-      "lint_at": "2026-10-28T10:25:34+00:00",
-      "lint_issues": []
+      "lint_at": "2026-10-28T12:59:44+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T12:05:37+00:00",
+          "status": "PASS",
+          "sha256": "1c8ddaf01c60f1053ca0457c646d61e1d1b59e44f3c93b324a12809262a0a5c2",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/IMG01.spec.json"
+        },
+        {
+          "at": "2026-10-28T12:45:32+00:00",
+          "status": "PASS",
+          "sha256": "7095acf51f25d3fd637f05284bfce830f06a9a797414e2f15618cd074ed479ab",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/IMG01.spec.json"
+        }
+      ]
     }
   },
   "assets": [
@@ -92,8 +126,8 @@
       "hero": true,
       "hook": false,
       "created": "2026-10-28T10:06:49+00:00",
-      "prompt_sha256": "aaa04f4553a4f4ae620a8f8785f603325135cfdb844da4c3b47b3101bd8da303",
-      "prompt_file": "prompts/IMG01.v1.4.txt",
+      "prompt_sha256": "5aa8ad407f66c5c719824a624ddf6d660447e8dae4b6fa5068a59b5bb6af99d1",
+      "prompt_file": "prompts/IMG01.v1.25.txt",
       "prompt_history": [
         {
           "at": "2026-10-28T10:06:49+00:00",
@@ -146,6 +180,321 @@
               "role": "image_references"
             }
           ]
+        },
+        {
+          "at": "2026-10-28T10:36:18+00:00",
+          "sha256": "37c4eaf744f63b21a580ed01e42448340db91e10cb1f6506fd87b3da6648b98d",
+          "file": "prompts/IMG01.v1.5.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:44:28+00:00",
+          "sha256": "b7480326e2ba05a315e4b249636247ea2218b74b0f464cd77f2a7cfae0a82dde",
+          "file": "prompts/IMG01.v1.6.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:52:51+00:00",
+          "sha256": "0f81001c5656f426e1946665d11897f5cde1f4ff12c6d911672d3e9a2a92a529",
+          "file": "prompts/IMG01.v1.7.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:05:50+00:00",
+          "sha256": "24f2e6a5979c3fdd55d873f32da3e583eafbb3505fd078513049da46238f36f8",
+          "file": "prompts/IMG01.v1.8.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:15:43+00:00",
+          "sha256": "6872560306f4c46c0e2d79027da178b75f0ad7ec9ad41567bb9a84de74efefe2",
+          "file": "prompts/IMG01.v1.9.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:22:26+00:00",
+          "sha256": "77276dbe05e4b3dc554350799d350a0f9e18819c52c4b26c37a8f011a2728c99",
+          "file": "prompts/IMG01.v1.10.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:30:05+00:00",
+          "sha256": "18b42934c473a66ac75ee244a8ba2b4c8671b8ed6aa23dffd328f501100ab28a",
+          "file": "prompts/IMG01.v1.11.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:39:03+00:00",
+          "sha256": "d1fe2bc60866ca2247c69c692841195302855e6ea40f52ef6fbc2228f5226535",
+          "file": "prompts/IMG01.v1.12.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:46:15+00:00",
+          "sha256": "d97b7a43f85551eba4061b23d3f49eee123fda651b23289c6415269b28336733",
+          "file": "prompts/IMG01.v1.13.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:46:36+00:00",
+          "sha256": "d97b7a43f85551eba4061b23d3f49eee123fda651b23289c6415269b28336733",
+          "file": "prompts/IMG01.v1.14.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:57:34+00:00",
+          "sha256": "de138942ea328715848e6cc9bba98967650a3b3ec73a08306a75de60e52f94e7",
+          "file": "prompts/IMG01.v1.15.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:04:45+00:00",
+          "sha256": "de138942ea328715848e6cc9bba98967650a3b3ec73a08306a75de60e52f94e7",
+          "file": "prompts/IMG01.v1.16.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:14:00+00:00",
+          "sha256": "de138942ea328715848e6cc9bba98967650a3b3ec73a08306a75de60e52f94e7",
+          "file": "prompts/IMG01.v1.17.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:21:35+00:00",
+          "sha256": "eca39c2a32bb6c312a435e7dc07e0f1ddd9b0be75b0f92afa1319a4ab2cbe30b",
+          "file": "prompts/IMG01.v1.18.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:29:16+00:00",
+          "sha256": "b448e930f108e79cd1f72c154fe139663449cf4a4bb10327b89ad8711456a3f6",
+          "file": "prompts/IMG01.v1.19.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:29:38+00:00",
+          "sha256": "b448e930f108e79cd1f72c154fe139663449cf4a4bb10327b89ad8711456a3f6",
+          "file": "prompts/IMG01.v1.20.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:37:33+00:00",
+          "sha256": "5aa8ad407f66c5c719824a624ddf6d660447e8dae4b6fa5068a59b5bb6af99d1",
+          "file": "prompts/IMG01.v1.21.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:44:53+00:00",
+          "sha256": "5aa8ad407f66c5c719824a624ddf6d660447e8dae4b6fa5068a59b5bb6af99d1",
+          "file": "prompts/IMG01.v1.22.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:45:09+00:00",
+          "sha256": "5aa8ad407f66c5c719824a624ddf6d660447e8dae4b6fa5068a59b5bb6af99d1",
+          "file": "prompts/IMG01.v1.23.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:52:31+00:00",
+          "sha256": "5aa8ad407f66c5c719824a624ddf6d660447e8dae4b6fa5068a59b5bb6af99d1",
+          "file": "prompts/IMG01.v1.24.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:59:44+00:00",
+          "sha256": "5aa8ad407f66c5c719824a624ddf6d660447e8dae4b6fa5068a59b5bb6af99d1",
+          "file": "prompts/IMG01.v1.25.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
         }
       ],
       "medias": [
@@ -160,7 +509,24 @@
       ],
       "ids": [],
       "files": [],
-      "gates": {}
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T12:05:37+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/IMG01.v1.prompt.json",
+            "prompt_sha256": "de138942ea328715848e6cc9bba98967650a3b3ec73a08306a75de60e52f94e7"
+          },
+          {
+            "at": "2026-10-28T12:45:33+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/IMG01.v1.prompt.json",
+            "prompt_sha256": "5aa8ad407f66c5c719824a624ddf6d660447e8dae4b6fa5068a59b5bb6af99d1"
+          }
+        ]
+      }
     }
   ],
   "queue": []

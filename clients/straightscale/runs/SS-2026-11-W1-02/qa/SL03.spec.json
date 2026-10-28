@@ -1,75 +1,73 @@
 {
  "gate": "G-SPEC",
  "shot_id": "SL03",
- "spec_sha256": "f5a11f3a37e2b0e69471e0c2c04fd678a95b92e948fc90b18d8a57caca1dd49e",
+ "spec_sha256": "fe3803eab2c68830731ce68e41d2829eb6b791977245395d16a049b5040886e2",
  "reviewer": "prompt-reviewer (fresh agent)",
  "independent": true,
- "status": "FAIL",
+ "status": "PASS",
  "checks": [
   {
    "id": "P1",
-   "result": "FAIL",
-   "evidence": "text_in_image has the label 'NJIH BLERËSIN' (line 1 of 5) but line_text is 'E di pse të zgjodhën klientët e fundit? Po apo jo?' and does not contain it, so a reviewer cannot check the label against the slide copy S3. SL07 shows the convention (line_text includes its '1.' and '2.'). All other elements are present."
+   "result": "PASS",
+   "evidence": "line_text 'NJIH BLERËSIN E di pse të zgjodhën klientët e fundit? Po apo jo?' equals the five lines joined; phone, sample slab, frame samples, card reader, arrow, 6 text strings, action, setting, camera and 13 regions present."
   },
   {
    "id": "P2",
    "result": "N/A",
-   "evidence": "Spec mode: no prompt and no attached images yet."
+   "evidence": "N/A in spec mode (no prompt or attached files yet)."
   },
   {
    "id": "P3",
    "result": "PASS",
-   "evidence": "hands: 'none visible'; 'nothing is touched by a hand' not needed here; phone leaning on a sample."
+   "evidence": "hands: none visible; action_physics 'nothing is touched' consistent."
   },
   {
    "id": "P4",
    "result": "PASS",
-   "evidence": "'The phone leans back against the white corner sample, its bottom edge flat on the sales desk.'"
+   "evidence": "'The phone leans back against the flat face of the white sample slab that faces the camera, its bottom edge flat on the sales desk 3 cm in front of the slab's bottom edge.'"
   },
   {
    "id": "P5",
    "result": "PASS",
-   "evidence": "No story-critical prop; PR-PHONE and PR-FRAME-SAMPLE-CORNER have concrete content ('one plain white window-frame corner section about 30 cm tall ... no label')."
+   "evidence": "No story-critical prop; slab has size, material and 'no label'; phone screen off with the plain-glass rule."
   },
   {
    "id": "P6",
    "result": "PASS",
-   "evidence": "5 strings with surface, position, case, occlusion; 'E di pse' / 'të zgjodhën' / 'klientët e fundit?' / 'Po apo jo?' equal the spoken line; 'klientët' highlight defined; counter '3/8'; headline 7 words; total 12 words (short lane)."
+   "evidence": "Five strings plus '3/8' quoted with surface, x/y box, size, colour and occlusion; highlight on 'klientët'; label 'NJIH BLERËSIN' with 'normal word spaces, no gaps inside words'; each line at most 3 words (headline block of 8 words is split over 3 surfaces)."
   },
   {
    "id": "P7",
    "result": "PASS",
-   "evidence": "Window rule: 'plain clock face: no numerals, no letters; the window glass reflects no text; no shop signs'; PR-CARD-READER 'dark blank screen'; PR-FRAME-SAMPLES 'no labels'."
+   "evidence": "PR-FRAME-SAMPLES 'three plain corner sections of window frames ... no labels, no price tags, no stickers'; card reader 'dark blank screen'; window clock-tower rule 'no numerals, no letters'; general screens/signs rule."
   },
   {
    "id": "P8",
-   "result": "FAIL",
-   "evidence": "Details say 'a long dark wood sales desk across the lower fifth' (starts at 80%) and carry_over says 'Sales desk edge at 84% of the height'; regions phone [0.62,0.66,0.78,0.82] and sample-corner [0.54,0.58,0.66,0.82] end at y 0.82, above the 84% edge, so both objects stand above the desk line."
+   "result": "PASS",
+   "evidence": "Top-40% calm zone vs text block ending at y 0.384 and window/samples starting at 0.42: consistent; slab 14x20 cm and phone boxes (31%x36% vs 15%x27%) are in proportion."
   },
   {
    "id": "P9",
-   "result": "FAIL",
-   "evidence": "carry_over 'Sales desk edge at 84% of the height as on slide 1' is not in SL01 (it says 'across the lower fifth', i.e. 80%), nor in SL02. The claim cannot be checked against the previous specs."
+   "result": "PASS",
+   "evidence": "previous_shot SL02; carry_over 'Same shop and lamp light; the owner's phone is smaller and farther away, screen off, now leaning on a white sample slab'; counter 3/8, arrow present, hero false."
   },
   {
    "id": "P10",
    "result": "N/A",
-   "evidence": "Spec mode: model, resolution, aspect and duration rules are checked on the prompt (the spec has aspect '4:5', as required)."
+   "evidence": "N/A in spec mode (model, resolution, aspect and duration are checked on the prompt; spec aspect is 4:5)."
   },
   {
    "id": "P11",
    "result": "PASS",
-   "evidence": "No two-way reading found; 'every lamp is on, the shop is empty' is clear."
+   "evidence": "'slab', 'corner sections of window frames' and 'window' are defined with size and boxes."
   },
   {
    "id": "P12",
    "result": "PASS",
-   "evidence": "FL-13 logo-zone and corner rule; FL-05 background rules; FL-11 one instance, phone base 'flat on the sales desk'."
+   "evidence": "FL-05: wall samples have a content rule (not empty picture frames); FL-02: slab/reader structure described; FL-09 n/a; FL-13: logo-zone region [0.0,0.91,0.4,1.0] and must_not 'no logo or wordmark drawn anywhere' / 'no letters or objects in the bottom-left corner'."
   }
  ],
  "suggested_spec_changes": [
-  "P1: add the label to line_text (e.g. 'NJIH BLERËSIN. E di pse të zgjodhën klientët e fundit? Po apo jo?') or document it as a non-spoken label field, so every string in text_in_image can be checked against slide copy.",
-  "P9/P8: state the desk once and the same way on SL01 to SL08, e.g. 'far edge of the sales desk at 84% of the height' in setting.details, and say 'across the lower sixth'; or drop 'edge at 84%' from carry_over and write 'same sales desk across the bottom'. Move the phone and sample-corner regions so their bases are at y 0.86 or lower.",
-  "ADVISORY: this slide has the window and clock tower (slides 1, 3 and 8), so the locked style text matches its must_not list."
+  "non-blocking: on SL03/SL07/SL08 say the lamps are desk or wall lamps placed below 42% of the height (none in the top 40%), and call the samples 'solid L-shaped mitred profile offcuts, not picture frames', so the wall cannot read as empty frames (FL-05)."
  ]
 }

@@ -1,74 +1,71 @@
 {
-  "gate": "G-SPEC",
-  "shot_id": "SL04",
-  "spec_sha256": "f7db9104f7efa72894c7ef25e9443a7121df0a306c78087dedc150942fd01ead",
-  "reviewer": "prompt-reviewer (fresh agent)",
-  "independent": true,
-  "status": "FAIL",
-  "checks": [
-    {
-      "id": "P1",
-      "result": "PASS",
-      "evidence": "strings 'PYETJA 2' / 'Thua diçka që s'e' / 'thotë konkurrenti?' / 'Jo? Shkruaj çfarë bën ndryshe.' / '4/8' rebuild line_text; two phones, screens, laptop, arrow present; regions for text, counter, phone, phone-2, arrow, logo-zone (no region for the two screens; acceptable since the phones are boxed)."
-    },
-    {
-      "id": "P2",
-      "result": "N/A",
-      "evidence": "N/A in spec mode (checked at prompt review)."
-    },
-    {
-      "id": "P3",
-      "result": "PASS",
-      "evidence": "hands: 'none visible'; 'with nothing touching them'."
-    },
-    {
-      "id": "P4",
-      "result": "PASS",
-      "evidence": "'Both phones lie with their whole backs flat on the desk, screens up and lit, with nothing touching them.'"
-    },
-    {
-      "id": "P5",
-      "result": "PASS",
-      "evidence": "PR-PHONE-SCREEN.content: 'each screen shows the same three-by-three grid of nine near-identical square photos of finished kitchens in light oak and white; the right grid is an exact copy of the left'. Prop sheet PS-PROFILE (GRID) still to be built."
-    },
-    {
-      "id": "P6",
-      "result": "PASS",
-      "evidence": "4 strings with surface, position, case, exact flag, occlusion; ç, ë present and listed; highlight on 'konkurrenti?' named; longest string 5 words."
-    },
-    {
-      "id": "P7",
-      "result": "PASS",
-      "evidence": "background_rule: 'Both phone screens show only the photo grids.' plus laptop rule."
-    },
-    {
-      "id": "P8",
-      "result": "FAIL",
-      "evidence": "Same geometry fault as SL02: 'angle: 50 degrees above the desk' against 'the top 40% is a dark calm wall'; laptop position unstated. Phone 'about 34% of the frame width' (367 px, about 770 px long, about 590 px after foreshortening plus 10 degrees of rotation = about 47% of the height) against boxes of 40% height; the left phone box [0.08,0.5,0.48,0.9] ends 1% above the logo zone [0,0.91,0.4,1] and x 0.08-0.40 sits straight above it, so a rotated corner will enter the 'calm, dark and empty' corner. The right phone box x to 0.92, y to 0.90 touches the arrow box (x from 0.86, y from 0.89)."
-    },
-    {
-      "id": "P9",
-      "result": "PASS",
-      "evidence": "carry_over: 'The red-case phone is joined by a second phone with the same grid; same desk and light.' SL03's profile header becomes the grid; the change is the story step and SL02 already showed the same grid."
-    },
-    {
-      "id": "P10",
-      "result": "N/A",
-      "evidence": "N/A in spec mode (checked at prompt review)."
-    },
-    {
-      "id": "P11",
-      "result": "PASS",
-      "evidence": "'exact copy' vs 'near-identical' is deliberate: the left grid is near-identical internally, the right copies the left."
-    },
-    {
-      "id": "P12",
-      "result": "PASS",
-      "evidence": "FL-11 cloned object: PR-PHONE-2 named once, must_not 'no third phone'; FL-04, FL-05, FL-10, FL-13 covered. Set check: counter n/8 matches position; previous_shot chain SL01..SL08 is correct; arrow present on slides 1 to 7 and absent on 8; the ask 'Shkruaj ANALIZA në komente.' appears only on SL08; style block identical on all 8 with the logo wording swapped."
-    }
-  ],
-  "suggested_spec_changes": [
-    "Same camera fix as SL02: 'top 40% is the far end of the desk fading into deep shadow and the dark wall behind it'; place the closed laptop at y 42% to 55%, never in the top 40%.",
-    "Shrink the pair so each phone is about 28% of the frame width and set boxes phone [0.10,0.48,0.46,0.84] and phone-2 [0.54,0.48,0.90,0.84]: nothing enters the logo zone (y 0.91+) or the arrow box (x 0.86+, y 0.89+)."
-  ]
+ "gate": "G-SPEC",
+ "shot_id": "SL04",
+ "spec_sha256": "af19db45c3f5091f834360f4e7a3f7d8d7bef2862321c9ee1217e936693bf057",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Both phones, both stands, both screens, arrow, 5 text strings, action, setting, camera, regions (phone, phone-screen, stand, phone-2, phone-2-screen, stand-2, text, counter, logo-zone, arrow, window) are present; schema validates; strings joined equal line_text."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: no prompt or attached files exist yet."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'hands: none visible'; both phones sit in stands."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "Contact points: 'The phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support; nothing touches it. The second phone sits in its own stand the same way.'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-PHONE-SCREEN story_critical, ref 'PS-PROFILE state GRID', content 'each screen shows the same three-by-three grid of nine near-identical square photos of finished kitchens in light oak and white; the right grid is an exact copy of the left; no text, no digits'. Negative is targeted."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "All strings have surface, position and occlusion; highlight 'the word 'konkurrenti?' sits inside a solid crimson #B31217 highlight rectangle' (region t03-highlight [0.318,0.188,0.834,0.256]); headline 'Thua diçka që s'e thotë konkurrenti?' is 5 words; longest surface 5 words; counter '4/8'; right edge 0.834 stays inside the 4% margin."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: 'Nothing on the desk or the walls carries a word, a logo or a sign ... the clock tower is a small lit silhouette with a plain clock face: no numerals, no letters; the window glass reflects no text; no shop signs on the street.' Window has region 'window' [0.0,0.42,0.2,0.62]; no empty frames, books or signs in the scene. Both screens have a content rule: 'Both phone screens show only the photo grids.'"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No conflicts found: two phones are one instance each ('no third phone'); red-case phone [0.22-0.46] and black-case phone [0.54-0.78] do not overlap and stay clear of the window (x<=0.20) and the logo-zone (y>=0.91)."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot SL03 with carry-over 'The red-case phone stays in its stand and is joined by a second phone in a second stand with the same grid; same desk and light.' Camera angle stays 'about 10 degrees above' (centred again). Chain and set rules hold across all 8 specs: previous_shot SL01=null, SL02->SL01, SL03->SL02, SL04->SL03, SL05->SL04, SL06->SL05, SL07->SL06, SL08->SL07; counters 1/8 to 8/8; PR-ARROW on SL01-SL07 only; SL08 has no arrow; hero true on SL01 only; the ask (ANALIZA) appears only on SL08."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution and duration are checked on the prompt at G-PROMPT-IMG (the spec itself sets aspect 4:5)."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "'Second phone in a plain black case', 'left'/'right' and the x boxes remove any doubt about which phone is which; 'exact copy' is paired with 'near-identical' photos so the intent (same grid twice) is clear."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "No FL pattern left without prevention: FL-01 text only in the top wall with occlusion rule, FL-02 'one lamp with one round shade on one stem and one round base' and stand 'with one groove', FL-04 screen has a content line and a targeted negative, FL-05/10 'Nothing on the desk or the walls carries a word, a logo or a sign', FL-13 logo-zone [0.0,0.91,0.4,1.0] plus 'no logo or wordmark drawn anywhere'."
+  }
+ ],
+ "suggested_spec_changes": []
 }

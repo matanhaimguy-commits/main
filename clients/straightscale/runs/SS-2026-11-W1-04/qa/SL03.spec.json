@@ -1,75 +1,71 @@
 {
-  "gate": "G-SPEC",
-  "shot_id": "SL03",
-  "spec_sha256": "b5019c10e7113a164c0f4061c18a79131a41e7d41855669797c774fef163b71f",
-  "reviewer": "prompt-reviewer (fresh agent)",
-  "independent": true,
-  "status": "FAIL",
-  "checks": [
-    {
-      "id": "P1",
-      "result": "PASS",
-      "evidence": "strings 'PYETJA 1' / 'Rreshti i parë' / 'thotë për kë' / 'punon?' / 'Jo? Shkruaj për kë punon.' / '3/8' rebuild line_text; phone, screen, laptop, arrow present; regions for 5 text lines, counter, phone, screen, arrow, logo-zone."
-    },
-    {
-      "id": "P2",
-      "result": "N/A",
-      "evidence": "N/A in spec mode (checked at prompt review)."
-    },
-    {
-      "id": "P3",
-      "result": "PASS",
-      "evidence": "hands: 'none visible'."
-    },
-    {
-      "id": "P4",
-      "result": "FAIL",
-      "evidence": "action_physics: 'The phone leans back against the closed laptop's lid, its bottom edge flat on the desk.' A closed laptop is a flat slab about 2 cm high with a horizontal lid: nothing can lean upright against it, so the phone will float, slide or lie on it. PR-LAPTOP is also 'out of focus at the back edge' while the phone is sharp and in contact with it."
-    },
-    {
-      "id": "P5",
-      "result": "PASS",
-      "evidence": "PR-PHONE-SCREEN.content: 'round mid-grey tile at the top left ... two short light-grey bars ... one long dark-grey bar as the first line; no letters, no digits'. Targeted negatives, content filled. Prop sheet PS-PROFILE (HEADER) still to be built."
-    },
-    {
-      "id": "P6",
-      "result": "PASS",
-      "evidence": "6 strings with surface, position, case, exact flag, occlusion; label 'PYETJA 1' spaced capitals; highlight on 'kë' named; ë present in 'parë', 'thotë', 'për', 'kë'; longest string 5 words."
-    },
-    {
-      "id": "P7",
-      "result": "PASS",
-      "evidence": "background_rule covers walls, desk, laptop and 'The phone screen shows only the round tile and the grey bars.'"
-    },
-    {
-      "id": "P8",
-      "result": "FAIL",
-      "evidence": "Phone 'about 30% of the frame width' (324 px, about 660 px long = about 49% of the height) against phone box [0.54,0.46,0.82,0.88] (42% of the height, 28% wide): box and size disagree. Text block ends at y 0.396 against the 40% wall limit with no spare room. Laptop is 'at the back edge' yet is the phone's support at x 0.54-0.82."
-    },
-    {
-      "id": "P9",
-      "result": "PASS",
-      "evidence": "carry_over: 'The phone stands up now and shows a profile header; same desk and lamp.' Change from SL02's flat grid phone is stated with its story reason."
-    },
-    {
-      "id": "P10",
-      "result": "N/A",
-      "evidence": "N/A in spec mode (checked at prompt review)."
-    },
-    {
-      "id": "P11",
-      "result": "PASS",
-      "evidence": "No further ambiguous words; 'first line' of the profile is defined as the long dark-grey bar."
-    },
-    {
-      "id": "P12",
-      "result": "FAIL",
-      "evidence": "FL-11 floating props / FL-02 object structure: a phone 'standing' on a closed laptop has no physical support line in the spec, and the laptop's structure (flat, closed) is described without the contact. Set check: counter n/8 matches position; previous_shot chain SL01..SL08 is correct; arrow present on slides 1 to 7 and absent on 8; the ask 'Shkruaj ANALIZA në komente.' appears only on SL08; style block identical on all 8 with the logo wording swapped."
-    }
-  ],
-  "suggested_spec_changes": [
-    "Replace the support: use the black matte phone stand already defined in SL06 (PR-STAND, bottom edge in the groove, back on the rear support) in SL03, with action_physics 'The phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support; nothing touches it'. Then change SL06's carry_over to 'The same stand as slide 3; wider shot'. (Alternative: the phone lies flat as in SL02 and the profile header is shown from above.)",
-    "Keep the closed laptop only as an out-of-focus shape at the far edge between y 42% and 55%, never in the top 40%.",
-    "Make size and box agree: phone width about 28% with box [0.54,0.46,0.82,0.90], or widen the box to [0.52,0.44,0.84,0.90]."
-  ]
+ "gate": "G-SPEC",
+ "shot_id": "SL03",
+ "spec_sha256": "c579d77db6291c14d015020f1ec13b95b115969fd818d4ae18483b90e18453e8",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Subject, stand, profile-header screen, arrow, 6 text strings (label + 3 headline lines + sub + counter), action, setting, camera and regions for every line, the 'kë' highlight, window, phone, screen, stand and logo-zone are present; schema validates; strings joined equal line_text."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: no prompt or attached files exist yet."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'hands: none visible'; phone sits in a stand."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "Contact points: 'The phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support; nothing touches it.'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-PHONE-SCREEN story_critical, ref 'PS-PROFILE state HEADER', content 'a round mid-grey tile at the top left, next to it two short light-grey bars ... and below them one long light-grey bar as the first line; no letters, no digits'. Reads without words (4.4 rule 4); negative 'no letters on the grey bars' is targeted."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "Five lines each with surface, size and occlusion; label 'PYETJA 1' has spacing rule '(normal word spaces, no gaps inside words)'; highlight 'the word 'kë' sits inside a solid crimson #B31217 highlight rectangle' (region t03-highlight [0.49,0.188,0.576,0.256]); headline 'Rreshti i parë thotë për kë punon?' is 7 words, sub is 4; counter '3/8'. Text block ends at y 0.39, inside the calm top 40%."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: 'Nothing on the desk or the walls carries a word, a logo or a sign ... the clock tower is a small lit silhouette with a plain clock face: no numerals, no letters; the window glass reflects no text; no shop signs on the street.' Window has region 'window' [0.0,0.42,0.2,0.62]; no empty frames, books or signs in the scene. Screen has a content rule: 'The phone screen shows only the round tile and the grey bars.'"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No conflicts found: text block (y 0.06-0.39) is above the window (y>=0.42) and the phone (y>=0.44); phone box x 0.54-0.80 clears the arrow region (x>=0.86); logo-zone clear."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot SL02 with carry-over 'The phone stays in its stand and now shows a profile header; same desk and lamp.' The move to the right half and medium distance is explained by camera.angle 'slightly from the left'. Chain and set rules hold across all 8 specs: previous_shot SL01=null, SL02->SL01, SL03->SL02, SL04->SL03, SL05->SL04, SL06->SL05, SL07->SL06, SL08->SL07; counters 1/8 to 8/8; PR-ARROW on SL01-SL07 only; SL08 has no arrow; hero true on SL01 only; the ask (ANALIZA) appears only on SL08."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution and duration are checked on the prompt at G-PROMPT-IMG (the spec itself sets aspect 4:5)."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "Positions in percent of the frame; 'first line' of the profile is defined as 'one long light-grey bar'; no ambiguous nouns."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "No FL pattern left without prevention: FL-01 text only in the top wall with occlusion rule, FL-02 'one lamp with one round shade on one stem and one round base' and stand 'with one groove', FL-04 screen has a content line and a targeted negative, FL-05/10 'Nothing on the desk or the walls carries a word, a logo or a sign', FL-13 logo-zone [0.0,0.91,0.4,1.0] plus 'no logo or wordmark drawn anywhere'."
+  }
+ ],
+ "suggested_spec_changes": []
 }

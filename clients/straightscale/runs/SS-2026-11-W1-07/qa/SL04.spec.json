@@ -1,7 +1,7 @@
 {
  "gate": "G-SPEC",
  "shot_id": "SL04",
- "spec_sha256": "399d3c8f2daa762b2b661ea710ed286d992e3304be1b7a545d371a467d53827e",
+ "spec_sha256": "f9d0e74c35ecfb5f567b6cf52a46b09b2d83ae225a9f3a7894ac4c40c8990deb",
  "reviewer": "prompt-reviewer (fresh agent)",
  "independent": true,
  "status": "PASS",
@@ -9,62 +9,62 @@
   {
    "id": "P1",
    "result": "PASS",
-   "evidence": "line_text 'Çdo ofertë pa përgjigje. Në vend të kësaj: një mesazh i dytë.' = 4 strings + counter; phone, chat screen, arrow all present with regions."
+   "evidence": "Strings \"Çdo ofertë pa\" + \"përgjigje.\" + \"Në vend të kësaj:\" + \"një mesazh i dytë.\" = line_text; phone, stand, screen, arrow, counter \"4/8\", regions (phone, phone-screen, stand, texts, logo-zone) present."
   },
   {
    "id": "P2",
    "result": "N/A",
-   "evidence": "N/A in spec mode (no prompt or attachments yet)."
+   "evidence": "Spec mode: no prompt or attached files exist yet; reference order is checked at G-PROMPT-IMG."
   },
   {
    "id": "P3",
    "result": "PASS",
-   "evidence": "hands: none visible; 'with nothing touching it'."
+   "evidence": "\"hands: none visible\"."
   },
   {
    "id": "P4",
    "result": "PASS",
-   "evidence": "'The phone lies with its whole back flat on the table, screen up and lit, with nothing touching it.'"
+   "evidence": "Contact points: \"bottom edge sits in the stand's groove and its back leans on the stand's rear support; nothing touches it\"."
   },
   {
    "id": "P5",
    "result": "PASS",
-   "evidence": "PR-PHONE-SCREEN story_critical with content: 'two crimson #B31217 outgoing bubbles aligned right, the upper one dimmer... the lower one brighter... one or two short ivory bars instead of letters; no grey incoming bubble, no letters, no digits, no names'; must_not 'no letters inside the bubbles' is targeted. Prop sheet PS-CHAT state CHAT-FOLLOWUP must exist and pass before generation."
+   "evidence": "PR-PHONE-SCREEN story_critical with ref \"PS-CHAT state CHAT-FOLLOWUP\" and content \"two crimson #B31217 outgoing bubbles aligned right, the upper one dimmer ..., the lower one brighter ..., each holding one or two short ivory bars instead of letters\"; must_not says \"no letters inside the bubbles\", consistent with the bars, not a blanket \"no text\"."
   },
   {
    "id": "P6",
    "result": "PASS",
-   "evidence": "'Çdo ofertë pa' / 'përgjigje.' / 'Në vend të kësaj:' / 'një mesazh i dytë.' / '4/8' exact with surface, size, colour, occlusion; 4 words or fewer each. The 36 px connector is a reels-rule matter, not applied to slides."
+   "evidence": "Four headline lines + \"4/8\" counter with surface, box, size, case, occlusion; \"dytë.\" highlight stated; the screen carries no text by design."
   },
   {
    "id": "P7",
    "result": "PASS",
-   "evidence": "'The phone screen shows only the two bubbles'; walls plain; no window."
+   "evidence": "The only screen is the focal one and is filled; walls plain; no window (\"No window and no clock tower\")."
   },
   {
    "id": "P8",
    "result": "PASS",
-   "evidence": "No conflict found: 'no letters inside the bubbles' and 'ivory bars instead of letters' agree."
+   "evidence": "Screen rule \"screens hold only the shapes described\" matches the bubbles/bars content; no grey incoming bubble matches \"pa përgjigje\"; the style's \"cover's window\" is scoped to the cover. Set: previous_shot chain SL01..SL08 is unbroken, counters read n/8, arrow on slides 1 to 7 only, the single ask only on SL08."
   },
   {
    "id": "P9",
    "result": "PASS",
-   "evidence": "previous_shot SL03; carry_over 'The phone lights up; the notebook is out of frame.' Note: no carry_over names a swipe-bridge element (adapter 5 lists 'the bridge element'); confirm against the carousel plan or state 'bridge: none'."
+   "evidence": "previous_shot SL03; carry-over: \"The phone is back in its stand and lit; the notebook is out of frame.\""
   },
   {
    "id": "P10",
    "result": "N/A",
-   "evidence": "N/A in spec mode (model and params are checked on the prompt)."
+   "evidence": "Spec mode: model, 4:5, 2k, quality are checked at the prompt and generation gate (spec says aspect \"4:5\")."
   },
   {
    "id": "P11",
    "result": "PASS",
-   "evidence": "No ambiguous word found; dimmer versus brighter bubble is stated."
+   "evidence": "\"Dimmer\" (upper) and \"brighter\" (lower) are anchored to position and meaning (earlier quote vs new follow-up); box 28% x 48% is numeric."
   },
   {
    "id": "P12",
    "result": "PASS",
-   "evidence": "FL-04 content line + prop sheet; FL-13 logo-zone; FL-10 gibberish text on screens prevented by 'no letters, no digits, no names, no status bar, no app logo'."
+   "evidence": "FL-04 screen is filled with a content line and sheet; FL-05/FL-10 no stray text (\"no letters inside the bubbles\"); FL-13 logo-zone and bottom-left rule (phone stand y<=0.88)."
   }
  ],
  "suggested_spec_changes": []

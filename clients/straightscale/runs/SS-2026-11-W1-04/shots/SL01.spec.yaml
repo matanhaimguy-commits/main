@@ -11,40 +11,43 @@ subjects:
 - id: PR-PHONE
   ref: null
   state: the red-case phone held close to the camera, screen lit and facing the camera
-  pose: upright, right of centre (x 40% to 92%), cropped by the lower frame edge, large and close
+  pose: upright, right of centre (x 40% to 84%), cropped by the lower frame edge, large and close
+  expression: ''
+  instances: 1
+- id: CH-HANDS
+  ref: null
+  state: only the visible hand(s) and wrist(s) described in the hands block, in dark shirt sleeves; no body, no
+    face and no head in the frame
+  pose: entering from the frame edge as described in the hands block
   expression: ''
   instances: 1
 hands:
-- who: OWNER (hand only)
+- who: OWNER (right hand only)
   left: not visible
-  right: 'reaches in from the right edge at 54% to 74% of the height: thumb pad on the phone''s right edge near
-    the bottom of the screen, the four fingers behind the case with only their tips showing past its edge; the forearm
-    leaves the frame at the right edge'
-  contact: right thumb pad on the phone's right edge; fingertips against the back of the case
+  right: 'reaches in from the right edge at 54% to 78% of the height and holds the phone from its right side: the
+    thumb pad lies on the phone''s right side edge at 62% of the height, the other four fingers are behind the phone
+    and not visible, the palm rests along the phone''s right side, and the forearm in a dark shirt sleeve enters
+    from the right edge of the frame'
+  contact: right thumb pad on the phone's right side edge (the narrow side of the phone), not on the screen
   must_not_cover: the screen
-  count_check: 'five fingers: the thumb on the edge plus four fingers behind the phone'
+  count_check: 'five fingers in all: the thumb visible along the edge, the other four fingers hidden behind the
+    phone'
 props:
 - id: PR-PHONE
   story_critical: false
   ref: null
   state: held upright, lit
-  content: 'a modern smartphone in a deep red #BE0F18 case, black glass front, rounded corners, no logo on the case
-    or the glass'
-  size_in_frame: about 52% of the frame width
+  content: 'a modern smartphone in a deep red #BE0F18 case that shows as a rim around the black glass front, rounded
+    corners, no logo on the case or the glass'
+  size_in_frame: its box is 44% of the frame width and 56% of the frame height
 - id: PR-PHONE-SCREEN
   story_critical: true
   ref: PS-PROFILE state GRID-BUBBLE (prop sheet to build on SS-LIB-W45W46 before generation)
   state: lit, facing the camera
   content: a three-by-three grid of nine near-identical square photos of finished kitchens, all the same light oak
-    units and white worktops, no people, no text, no digits; over the lower part of the grid a large light ivory
-    message bubble with a dark rounded tail holds the two words Sa kushton? in dark charcoal sans; no names, no
-    avatars, no status bar, no app logo
-  size_in_frame: screen fills most of the phone
-- id: PR-LAPTOP
-  story_critical: false
-  ref: null
-  state: closed, at the back edge of the desk, out of focus
-  content: a closed silver-grey laptop with a plain lid, no logo, no sticker
+    units and white worktops; the photos show no people, no letters and no digits; over the lower part of the grid
+    a large light ivory message bubble with a small ivory tail at its lower left holds the two words "Sa kushton?"
+    in dark charcoal sans; no names, no avatars, no status bar, no app logo
 - id: PR-ARROW
   story_critical: false
   ref: null
@@ -54,31 +57,24 @@ props:
   size_in_frame: about 8% of the frame width
 text_in_image:
 - string: Të krahasojnë
-  surface: top calm dark wall, left-aligned from the left margin, x 6% to 61%, y 7% to 13% of the frame, heavy bold
-    geometric sans, about 80 px, ivory
-  position: line 1 of 4 in the top text block
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 61%, y 6% to 12% of the frame, heavy bold
+    geometric sans, about 80 px at 1080 px wide, ivory
+  position: line 1 of 3 in the top text block
   case: as_written
   must_be_exact: true
   occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
 - string: me çmimin?
-  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 49%, y 14% to 21% of the frame, heavy
-    bold geometric sans, about 80 px, ivory; the word ''çmimin?'' sits inside a solid crimson #B31217 highlight
-    rectangle'
-  position: line 2 of 4 in the top text block
+  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 49%, y 13% to 20% of the frame, heavy
+    bold geometric sans, about 80 px at 1080 px wide, ivory; the word ''çmimin?'' sits inside a solid crimson #B31217
+    highlight rectangle'
+  position: line 2 of 3 in the top text block
   case: as_written
   must_be_exact: true
   occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
-- string: 5 pyetje para se
-  surface: top calm dark wall, left-aligned from the left margin, x 6% to 57%, y 23% to 28% of the frame, heavy
-    bold geometric sans, about 60 px, ivory
-  position: line 3 of 4 in the top text block
-  case: as_written
-  must_be_exact: true
-  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
-- string: ta ulësh.
-  surface: top calm dark wall, left-aligned from the left margin, x 6% to 35%, y 29% to 34% of the frame, heavy
-    bold geometric sans, about 60 px, ivory
-  position: line 4 of 4 in the top text block
+- string: 5 pyetje para se ta ulësh.
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 67%, y 22% to 26% of the frame, bold geometric
+    sans, about 44 px at 1080 px wide, ivory
+  position: line 3 of 3 in the top text block
   case: as_written
   must_be_exact: true
   occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
@@ -88,7 +84,7 @@ text_in_image:
   position: on the phone screen
   case: as_written
   must_be_exact: true
-  occlusion: the hand, the plate and any reflection stay off the words on the screen
+  occlusion: no hand, finger or reflection touches the words on the screen
 - string: 1/8
   surface: 'top right, small gold #DD9A10 slide counter'
   position: top right corner, inside the 4% margin
@@ -96,26 +92,31 @@ text_in_image:
   must_be_exact: true
   occlusion: nothing overlaps the counter
 action_physics:
-- The hand reaches in from the right edge and holds the phone upright, thumb pad on the phone's right edge and four
-  fingertips against the back of the case.
+- The hand reaches in from the right edge and holds the phone upright, thumb pad along the phone's right edge and
+  the other four fingers behind the case.
 static: false
 setting:
   ref: null
-  details: 'A business owner''s dark wood desk at night: a warm tungsten desk lamp, a closed laptop at the back
-    edge, deep shadows. Very shallow depth: the desk and lamp are soft glows behind the hand. A small window at
-    the left edge of the frame at 42% to 62% of the height, below the text wall, slightly out of focus, the Tirana
-    clock tower a small lit silhouette in it.'
-  background_rule: 'Nothing on the desk or the walls carries a word, a logo or a sign; the laptop is closed with
-    a plain lid. The clock tower is a small lit silhouette with a plain clock face: no numerals, no letters; the
-    window glass reflects no text; no shop signs on the street.'
+  details: 'A business owner''s dark wood desk at night: a warm tungsten desk lamp stands at the far left of the
+    desk, its warm glow reaching the left edge at 66% to 82% of the height; deep shadows; the lamp is one lamp with
+    one round shade on one stem and one round base; nothing else stands on the desk except the lamp and what the
+    props block lists. Very shallow depth: the desk top is soft and out of focus in the lowest 20% of the frame,
+    the lamp is a soft glow, the wall behind is plain. A small window at the left edge of the frame at 42% to 62%
+    of the height, below the text wall, slightly out of focus, the Tirana clock tower a small lit silhouette in
+    it.'
+  background_rule: 'Nothing on the desk or the walls carries a word, a logo or a sign. A phone with its screen off
+    is plain black glass with a soft lamp reflection and nothing else. The surface the props stand on is bare apart
+    from the listed props. The clock tower is a small lit silhouette with a plain clock face: no numerals, no letters;
+    the window glass reflects no text; no shop signs on the street.'
 camera:
-  framing: close shot of the hand and phone; the phone fills the right of the lower middle, the top 40% is a dark
-    calm wall
+  framing: close shot of the hand and phone; the phone fills the right of the lower middle, the top 40% is a calm
+    near-black wall
   angle: eye level, the phone facing the camera
   lens: 35mm film still, shallow depth of field
   aspect: '4:5'
-  safe_zones: text and arrow inside a 4% margin; top 40% a calm dark wall; bottom-left corner (lowest 9% of the
-    height, left 40% of the width) calm, dark and empty
+  safe_zones: text and arrow inside a 4% margin; top 40% a calm near-black zone with nothing in it except the text
+    block and the slide counter; bottom-left corner (lowest 9% of the height, left 40% of the width) calm, dark
+    and empty
 continuity:
   previous_shot: null
   carry_over: []
@@ -124,36 +125,36 @@ regions:
   kind: text
   box:
   - 0.06
-  - 0.07
+  - 0.06
   - 0.619
-  - 0.138
+  - 0.128
 - name: t02-head
   kind: text
   box:
   - 0.06
-  - 0.146
+  - 0.136
   - 0.49
-  - 0.214
-- name: t03-head2
+  - 0.204
+- name: t02-highlight
+  kind: text
+  box:
+  - 0.189
+  - 0.136
+  - 0.49
+  - 0.204
+- name: t03-sub
   kind: text
   box:
   - 0.06
-  - 0.232
-  - 0.58
-  - 0.284
-- name: t04-head2
-  kind: text
-  box:
-  - 0.06
-  - 0.292
-  - 0.352
-  - 0.344
+  - 0.222
+  - 0.674
+  - 0.262
 - name: screen-text1
   kind: text
   box:
   - 0.5
   - 0.7
-  - 0.84
+  - 0.76
   - 0.78
 - name: counter
   kind: text
@@ -188,35 +189,36 @@ regions:
   box:
   - 0.4
   - 0.44
-  - 0.92
+  - 0.84
   - 1.0
 - name: phone-screen
   kind: prop
   box:
-  - 0.46
+  - 0.44
   - 0.48
-  - 0.86
+  - 0.8
   - 0.92
 - name: hand
   kind: hand
   box:
-  - 0.84
+  - 0.8
   - 0.54
   - 1.0
-  - 0.74
-style: 'Tirana after dark: cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
+  - 0.78
+style: '"Tirana after dark": cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
   the cover''s window. Same light and colour grade on every slide. Thread: a smartphone in a deep red case (#BE0F18),
-  recurring on every slide, changing state with the story. Palette: scene tone near-black (#1F1F1F), type ivory
-  (#F8F6EF), accent crimson #B31217 as solid highlight rectangles behind key words and the swipe arrow button, small
-  gold (#DD9A10) only for the counter. #B31217 is the only saturated colour besides the gold counter and the phone
-  case. Type: heavy bold geometric sans in ivory, left-aligned in the calm dark area; key words in solid crimson
-  #B31217 highlight rectangles. Spell ë and ç out letter by letter in every prompt. Frame: slide counter top right
-  (gold), swipe arrow bottom right on slides 1 to N-1. Bottom-left corner calm, dark and empty.'
+  recurring on every slide, changing state with the story (silent, unread messages piling up, ringing, a booked
+  calendar). Palette: scene tone near-black (#1F1F1F), type ivory (#F8F6EF), accent crimson #B31217 as solid highlight
+  rectangles behind key words and the swipe arrow button, small gold (#DD9A10) only for the counter. #B31217 is
+  the only saturated colour besides the gold counter and the phone case. Type: heavy bold geometric sans in ivory,
+  left-aligned in the calm dark area; key words in solid crimson #B31217 highlight rectangles. Spell ë and ç out
+  letter by letter in every prompt. Frame: slide counter top right (gold), swipe arrow bottom right on slides 1
+  to N-1. Bottom-left corner calm, dark and empty.'
 must_not:
 - no logo or wordmark drawn anywhere
 - no letters or objects in the bottom-left corner
-- no readable words on any phone screen except the strings listed in the text block or the props block
-- no borders, side bars or blurred margins
+- no letters, words, digits or app names on any phone screen except the screen strings listed in the text block
+- no picture-frame borders, side bars or blurred margins around the whole image
 - no real platform name or interface on the screen
 hero: true
 notes: 'The cover bubble text ''Sa kushton?'' is part of the shipped hook; the screen is readable, so it has a prop

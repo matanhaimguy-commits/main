@@ -1,74 +1,73 @@
 {
  "gate": "G-SPEC",
  "shot_id": "SL08",
- "spec_sha256": "d78d53203bdbd7d54773d218b8d10fbf362d9799f653b94883952a63ef4b3ed0",
+ "spec_sha256": "d18722a4172f486aca124cd7419288fbf831c02919f945e7b348296cfdc2a7a3",
  "reviewer": "prompt-reviewer (fresh agent)",
  "independent": true,
- "status": "FAIL",
+ "status": "PASS",
  "checks": [
   {
    "id": "P1",
    "result": "PASS",
-   "evidence": "Phone, stand, notebook, card reader, frame samples, 5 text strings (4 lines + counter), action, setting, camera; line_text 'Dëgjo ata. Pastaj shkruaj. Ruaje për ditën kur shkruan reklamën e radhës.' equals the four strings joined."
+   "evidence": "line_text 'Dëgjo ata. Pastaj shkruaj. Ruaje për ditën kur shkruan reklamën e radhës.' equals the four lines joined; phone, stand, frame samples, 5 text strings, action, setting, camera and 11 regions present; the arrow is deliberately absent."
   },
   {
    "id": "P2",
    "result": "N/A",
-   "evidence": "Spec mode: no prompt and no attached images yet."
+   "evidence": "N/A in spec mode (no prompt or attached files yet)."
   },
   {
    "id": "P3",
    "result": "PASS",
-   "evidence": "hands: 'none visible'; 'nothing is touched by a hand'."
+   "evidence": "hands: none visible; action 'nothing is touched by a hand'."
   },
   {
    "id": "P4",
    "result": "PASS",
-   "evidence": "'The phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support; the notebook lies flat beside it'."
+   "evidence": "'The phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support; nothing is touched by a hand.'"
   },
   {
    "id": "P5",
    "result": "PASS",
-   "evidence": "No story-critical prop; PR-NOTEBOOK and PR-STAND content filled."
+   "evidence": "No story-critical prop; screen off with the plain-glass rule; stand structure line."
   },
   {
    "id": "P6",
    "result": "PASS",
-   "evidence": "4 strings with surface, position, case, occlusion; 'Ruaje' highlight defined; counter '8/8'; the one ask 'Ruaje ...' appears only here; 12 words."
+   "evidence": "Strings 'Dëgjo ata.' / 'Pastaj shkruaj.' / 'Ruaje për ditën kur shkruan' / 'reklamën e radhës.' / '8/8' with surface, box, size, colour, highlight on 'Ruaje' (the one ask), occlusion; longest line 5 words."
   },
   {
    "id": "P7",
    "result": "PASS",
-   "evidence": "Window rule ('plain clock face: no numerals, no letters; the window glass reflects no text; no shop signs'); PR-CARD-READER 'dark blank screen'; PR-FRAME-SAMPLES 'no labels'."
+   "evidence": "PR-FRAME-SAMPLES content rule; window clock-tower rule; general signs/screens rule."
   },
   {
    "id": "P8",
    "result": "PASS",
-   "evidence": "No arrow: must_not 'no swipe arrow, no round button, no arrow graphic anywhere', safe_zones 'no arrow in this shot', no PR-ARROW prop, no arrow region. Regions do not overlap."
+   "evidence": "No arrow in props, regions, safe_zones ('no arrow in this shot') and must_not ('no swipe arrow, no round button, no arrow graphic anywhere'): consistent with the style line 'on slides 1 to N-1'; window and samples boxes equal SL07/SL03."
   },
   {
    "id": "P9",
-   "result": "FAIL",
-   "evidence": "carry_over 'Sales desk edge at 84% of the height' is not stated in SL07 or SL01 (SL01 says 'across the lower fifth', 80%), and details here say 'across the lower fifth'. Also SL07 has a white corner sample on the desk that is dropped here without a word, and the phone moves from x 0.54 to 0.8 (SL07) to x 0.4 to 0.54 (SL08) with no camera note."
+   "result": "PASS",
+   "evidence": "previous_shot SL07; carry_over 'The phone rests in its stand, screen off ... now stand farther from the camera ... the wall, the window and the frame samples are unchanged'; counter 8/8, no arrow, one ask only here ('Ruaje'), hero false."
   },
   {
    "id": "P10",
    "result": "N/A",
-   "evidence": "Spec mode: model, resolution, aspect and duration rules are checked on the prompt (the spec has aspect '4:5', as required)."
+   "evidence": "N/A in spec mode (model, resolution, aspect and duration are checked on the prompt; spec aspect is 4:5)."
   },
   {
    "id": "P11",
    "result": "PASS",
-   "evidence": "No two-way reading found."
+   "evidence": "'Ruaje' (save) is the single ask; 'farther from the camera' is backed by box 15% x 27% versus 26% x 40% on SL07."
   },
   {
    "id": "P12",
    "result": "PASS",
-   "evidence": "FL-13 corner rule and logo-zone; FL-05 background rules; FL-02 stand and notebook structure described."
+   "evidence": "FL-05: wall samples and window ruled; FL-02: stand structure; FL-10: no signs; FL-13: logo-zone region [0.0,0.91,0.4,1.0] and must_not 'no logo or wordmark drawn anywhere' / 'no letters or objects in the bottom-left corner'."
   }
  ],
  "suggested_spec_changes": [
-  "P9: state the desk the same way in SL01 to SL08 (e.g. 'far edge of the sales desk at 84% of the height' in each setting.details, and drop 'lower fifth'), or remove 'Sales desk edge at 84% ... as on slide 1' from carry_over.",
-  "P9: add to carry_over 'the white corner sample from slide 7 has been removed from the desk' (or add PR-FRAME-SAMPLE-CORNER here) and 'the camera pulls back to a wide shot, so the phone is smaller and nearer the centre'."
+  "non-blocking: same lamp-placement and 'not picture frames' wording as listed on SL03."
  ]
 }

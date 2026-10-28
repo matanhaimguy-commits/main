@@ -1,7 +1,7 @@
 {
  "gate": "G-SPEC",
  "shot_id": "SL03",
- "spec_sha256": "e2f4ee7940c8a61a673a4fc5a961ee072c17953d4f72b44b3df5c1849e2d34c4",
+ "spec_sha256": "7669fd50f14526915299dc9d5943d9d08177ec28d1e72aeb45a057fb5599f5a9",
  "reviewer": "prompt-reviewer (fresh agent)",
  "independent": true,
  "status": "PASS",
@@ -9,62 +9,62 @@
   {
    "id": "P1",
    "result": "PASS",
-   "evidence": "line_text 'Çdo klient në kokë. Në vend të kësaj: një listë e shkruar.' = 4 text strings; notebook+pencil, phone, arrow, counter all present with regions."
+   "evidence": "Strings \"Çdo klient\" + \"në kokë.\" + \"Në vend të kësaj:\" + \"një listë e shkruar.\" = line_text; notebook, pencil, phone, arrow, counter \"3/8\", camera 30 degrees, regions (notebook, phone, texts, logo-zone) present."
   },
   {
    "id": "P2",
    "result": "N/A",
-   "evidence": "N/A in spec mode (no prompt or attachments yet)."
+   "evidence": "Spec mode: no prompt or attached files exist yet; reference order is checked at G-PROMPT-IMG."
   },
   {
    "id": "P3",
    "result": "PASS",
-   "evidence": "hands: none visible; 'nothing is touched by a hand'."
+   "evidence": "\"hands: none visible\" and \"nothing is touched by a hand\"."
   },
   {
    "id": "P4",
    "result": "PASS",
-   "evidence": "'notebook lies with its whole back flat on the table and the pencil rests diagonally on its cover; the phone lies flat beside it'."
+   "evidence": "Contact points: \"whole back flat on the table and the pencil rests diagonally on its cover; the phone lies flat beside it\"."
   },
   {
    "id": "P5",
    "result": "PASS",
-   "evidence": "No story-critical prop; notebook content: 'closed black hardcover notebook with a plain cover, no title, no label, and one wooden pencil lying diagonally across it'."
+   "evidence": "No readable screen: phone \"screen off\"; notebook has a concrete content line (\"black hardcover ... plain cover, no title, no label, and one wooden pencil\"); no blanket \"no text\"."
   },
   {
    "id": "P6",
    "result": "PASS",
-   "evidence": "'Çdo klient' / 'në kokë.' / 'Në vend të kësaj:' / 'një listë e shkruar.' / '3/8' exact with surface, size, colour, occlusion; 4 words or fewer each. The 36 px connector line is under the 44 px reels body minimum, which is a reels rule and is not applied to slides."
+   "evidence": "Four headline lines + \"3/8\" counter, each with surface, box, size (80/44/60 px), case, occlusion; \"shkruar.\" highlight stated; the 44 px line meets the 44 px floor."
   },
   {
    "id": "P7",
    "result": "PASS",
-   "evidence": "'No menus, receipts, signs or readable words anywhere; the walls are plain'; no window."
+   "evidence": "Wall \"plain\", no window or tower (\"No window and no clock tower\"), notebook cover has no label, phone dark with rule."
   },
   {
    "id": "P8",
    "result": "PASS",
-   "evidence": "Style line says 'visible through the cover's window', which is limited to the cover, so it does not conflict with 'No window and no clock tower are visible in this shot'."
+   "evidence": "No conflicts: table far edge at 52% and the text block ending at y 0.332 keep the top 40% calm; the locked style's \"the cover's window\" is scoped to the cover. Set: previous_shot chain SL01..SL08 is unbroken, counters read n/8, arrow on slides 1 to 7 only, the single ask only on SL08."
   },
   {
    "id": "P9",
    "result": "PASS",
-   "evidence": "previous_shot SL02; carry_over 'The phone lies face up and quiet beside a new object, the notebook; plate and glass are out of frame; same table and light.' Note: no carry_over names a swipe-bridge element (adapter 5 lists 'the bridge element'); confirm against the carousel plan or state 'bridge: none'."
+   "evidence": "previous_shot SL02; carry-over names the phone state (face up, quiet), the new object and what leaves frame (\"plate, glass and chair are out of frame; same table and light\")."
   },
   {
    "id": "P10",
    "result": "N/A",
-   "evidence": "N/A in spec mode (model and params are checked on the prompt)."
+   "evidence": "Spec mode: model, 4:5, 2k, quality are checked at the prompt and generation gate (spec says aspect \"4:5\")."
   },
   {
    "id": "P11",
    "result": "PASS",
-   "evidence": "No ambiguous word found."
+   "evidence": "\"Diagonally across\", \"about 30 degrees above the table\", box sizes give one reading each."
   },
   {
    "id": "P12",
    "result": "PASS",
-   "evidence": "FL-13 logo-zone + negative; FL-04 not triggered (closed notebook with explicit no-title content); FL-02 structure lines for notebook and pencil."
+   "evidence": "FL-04 notebook/pencil content is filled; FL-05 no frames or screens; FL-13 logo-zone [0,0.91,0.4,1] and \"no letters or objects in the bottom-left corner\" (notebook y<=0.86)."
   }
  ],
  "suggested_spec_changes": []

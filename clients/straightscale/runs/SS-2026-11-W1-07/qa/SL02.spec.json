@@ -1,74 +1,71 @@
 {
  "gate": "G-SPEC",
  "shot_id": "SL02",
- "spec_sha256": "ba321d03cec44d547bbe29a372dcae529cff30a74bd9a95c8825fec51d7db263",
+ "spec_sha256": "8a8e8b30feea4d994a2873f10548473539c677380338687596a080a2805dc328",
  "reviewer": "prompt-reviewer (fresh agent)",
  "independent": true,
- "status": "FAIL",
+ "status": "PASS",
  "checks": [
   {
    "id": "P1",
-   "result": "FAIL",
-   "evidence": "props lists PR-PLATE ('a clean white round plate with nothing on it and a glass of water beside it') but neither subjects, camera.framing nor regions say where it is in the frame, and no region box exists for it; the prompt cannot place it and the reviewer cannot crop it."
+   "result": "PASS",
+   "evidence": "Strings \"Një ditë pa ty,\" + \"askush s'di çfarë\" + \"i premtove klientit.\" = line_text; phone, stand, chair, plate, arrow, counter \"2/8\", setting, camera and regions (chair, phone, stand, plate, texts, logo-zone) all present."
   },
   {
    "id": "P2",
    "result": "N/A",
-   "evidence": "N/A in spec mode (no prompt or attachments yet)."
+   "evidence": "Spec mode: no prompt or attached files exist yet; reference order is checked at G-PROMPT-IMG."
   },
   {
    "id": "P3",
    "result": "PASS",
-   "evidence": "hands: none visible; no prop is held; setting says 'Nobody is there'."
+   "evidence": "\"hands: none visible\" and the setting states \"Nobody is there\"; no hand regions needed."
   },
   {
    "id": "P4",
    "result": "PASS",
-   "evidence": "'phone lies with its whole back flat on the table... nothing touching it'; 'chair stands with all four legs flat on the floor, pushed back 40 cm from the table'."
+   "evidence": "Contact points: \"all four legs flat on the floor\" (chair) and \"bottom edge sits in the stand's groove ... nothing touches it\"; no action nouns."
   },
   {
    "id": "P5",
    "result": "PASS",
-   "evidence": "No story-critical prop; PR-PHONE, PR-CHAIR, PR-PLATE, PR-ARROW all have content lines."
+   "evidence": "No readable screen here: the phone is \"screen off\" (\"plain black glass with a soft lamp reflection and nothing else\"); the empty chair has a concrete content line (\"woven seat, four straight legs and an upright back ... nothing on it\"); no blanket \"no text\"."
   },
   {
    "id": "P6",
    "result": "PASS",
-   "evidence": "'Një ditë pa ty,' / 'askush s'di çfarë' / 'i premtove klientit.' / '2/8' exact with surface, size, colour, occlusion; max 4 words per line. Joined they equal line_text. (Apostrophe in s'di is the straight ' as in line_text; keep it straight.)"
+   "evidence": "Three headline lines and the \"2/8\" counter each have surface, x/y box, size, case and occlusion; \"askush\" highlight stated; apostrophe in \"s'di\" given exactly; each string 3 words or fewer."
   },
   {
    "id": "P7",
    "result": "PASS",
-   "evidence": "'No menus, receipts, signs or readable words anywhere; the walls are plain'; 'No window and no clock tower'."
+   "evidence": "No frames, screens or signs apart from the dark phone, which has a rule; \"no window and no clock tower\" stated in setting and must_not; walls plain."
   },
   {
    "id": "P8",
-   "result": "FAIL",
-   "evidence": "subjects[PR-CHAIR].state says 'in soft focus but its whole silhouette, seat and four legs, clearly readable': soft focus and clearly readable legs pull against each other, and from 'slightly from the left' at 30 degrees one leg may be hidden."
+   "result": "PASS",
+   "evidence": "The style block says the tower is seen through \"the cover's window\", and this is not the cover, so \"No window and no clock tower are visible in this shot\" does not clash; the chair \"pulled out 40 cm\" and \"to the right of the table's right end\" can both hold. Set: previous_shot chain SL01..SL08 is unbroken, counters read n/8, arrow on slides 1 to 7 only, the single ask only on SL08."
   },
   {
    "id": "P9",
    "result": "PASS",
-   "evidence": "previous_shot SL01; carry_over 'The phone is quiet now, screen off; the plate is cleared; the owner is gone. Same table and lamp.' matches SL01's state change."
+   "evidence": "previous_shot SL01 and the carry-over lists every change with its reason: \"the camera is farther back, so the window and the hand are out of frame ... the phone is dark and the plate is cleared; same table and lamp\"."
   },
   {
    "id": "P10",
    "result": "N/A",
-   "evidence": "N/A in spec mode (model and params are checked on the prompt)."
+   "evidence": "Spec mode: model, 4:5, 2k, quality are checked at the prompt and generation gate (spec says aspect \"4:5\")."
   },
   {
    "id": "P11",
    "result": "PASS",
-   "evidence": "No ambiguous word found beyond the items under P8."
+   "evidence": "\"Pulled out 40 cm\", \"turned three-quarters toward the camera\" and the table end at \"66% of the frame width\" are measurable; empty/cleared states are explicit."
   },
   {
    "id": "P12",
    "result": "PASS",
-   "evidence": "FL-13 logo-zone + negative; FL-02 chair structure line ('woven seat, all four legs on the floor'); FL-11 floating-leg prevention 'all four legs flat on the floor'."
+   "evidence": "FL-02 chair structure is described and FL-11 \"all four legs flat on the floor\", one instance; FL-05 plain walls; FL-13 logo-zone and bottom-left rule; no hands near text."
   }
  ],
- "suggested_spec_changes": [
-  "Add the plate's position, e.g. props[PR-PLATE].size_in_frame 'about 18% of the frame width, right of the phone, in front of the chair', and a region {name: plate, kind: prop, box: [x0,y0,x1,y1]} that does not overlap the phone box or the logo-zone.",
-  "subjects[PR-CHAIR].state: replace 'in soft focus but its whole silhouette... clearly readable' with 'slightly softer than the phone but sharp enough that the seat and at least three legs can be counted; all legs touch the floor'."
- ]
+ "suggested_spec_changes": []
 }

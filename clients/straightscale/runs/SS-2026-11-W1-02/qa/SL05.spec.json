@@ -1,76 +1,71 @@
 {
  "gate": "G-SPEC",
  "shot_id": "SL05",
- "spec_sha256": "cefd433b13dce4ec2a7304b10594b3a5d81ec9122862fc1426012bab0a603928",
+ "spec_sha256": "a6b77dcd2dcbb3835764c424327b1c4416394016f04083ae4c88b279dca34953",
  "reviewer": "prompt-reviewer (fresh agent)",
  "independent": true,
- "status": "FAIL",
+ "status": "PASS",
  "checks": [
   {
    "id": "P1",
-   "result": "FAIL",
-   "evidence": "Label 'NJIH BLERËSIN' (line 1 of 5) is in text_in_image but not in line_text 'E ke shkruar diku? Po apo jo? Një jo mjafton për të vazhduar.'; it cannot be checked against slide copy S5. Everything else is present."
+   "result": "PASS",
+   "evidence": "line_text 'NJIH BLERËSIN E ke shkruar diku? Po apo jo? Një jo mjafton për të vazhduar.' equals the five lines joined; notebook with pencil, phone, arrow, 6 text strings, action, setting, camera and 11 regions present."
   },
   {
    "id": "P2",
    "result": "N/A",
-   "evidence": "Spec mode: no prompt and no attached images yet."
+   "evidence": "N/A in spec mode (no prompt or attached files yet)."
   },
   {
    "id": "P3",
    "result": "PASS",
-   "evidence": "hands: 'none visible'; 'nothing is touched by a hand'."
+   "evidence": "hands: none visible; action 'nothing is touched by a hand'."
   },
   {
    "id": "P4",
    "result": "PASS",
-   "evidence": "'The notebook lies with its whole back flat on the sales desk and the pencil rests diagonally on its cover; the phone lies flat beside it.'"
+   "evidence": "'The notebook lies with its whole back flat on the sales desk and the pencil rests diagonally on its cover; the phone lies flat beside it; nothing is touched by a hand.'"
   },
   {
    "id": "P5",
    "result": "PASS",
-   "evidence": "PR-NOTEBOOK content: 'closed black hardcover notebook with a plain cover, no title, no label, and one wooden pencil lying diagonally across it'; negatives are targeted. It is the slide's subject but marked story_critical false; its content is filled, so nothing is empty."
+   "evidence": "Notebook (the shot's subject) has a content line 'closed black hardcover notebook with a plain cover, no title, no label' and the pencil 'unpainted natural-wood ... no printing'; no negative empties it; marked non-critical but nothing needs filling."
   },
   {
    "id": "P6",
    "result": "PASS",
-   "evidence": "5 strings with surface, position, case, occlusion; 'E ke shkruar' / 'diku?' / 'Po apo jo?' / 'Një jo mjafton për të vazhduar.' equal the spoken line; 'diku?' highlight defined; counter '5/8'; 14 words (short lane)."
+   "evidence": "Six strings with surface, box, size, colour, highlight on 'diku?' and occlusion; longest surface 'Një jo mjafton për të vazhduar.' is 6 words (limit about 6)."
   },
   {
    "id": "P7",
-   "result": "FAIL",
-   "evidence": "setting.details says 'a plain card reader on it' but props has no PR-CARD-READER entry, so nothing says its screen stays dark and blank (SL02, SL03 and SL08 list it with 'a dark blank screen and a plain keypad of blank rubber keys, no brand mark'). A lit reader screen with numbers is a background trap (FL-05, STANDARDS 6 numbers and screens)."
+   "result": "PASS",
+   "evidence": "Notebook cover 'no title, no label' (book trap ruled); wall 'plain'; no window; general signs/screens rule; screen-off phone rule."
   },
   {
    "id": "P8",
    "result": "PASS",
-   "evidence": "Notebook region [0.24,0.58,0.64,0.84] and phone region [0.66,0.66,0.8,0.82] do not overlap; text ends at y 0.368, wall zone is 40%."
+   "evidence": "No conflicts: notebook box 0.22 to 0.62 x vs phone 0.66 to 0.82 do not overlap; text block ends y 0.362. Style line's 'clock tower visible through the cover's window' is scoped by setting.details 'No window and no clock tower are visible in this shot', must_not 'no window and no clock tower' and notes."
   },
   {
    "id": "P9",
    "result": "PASS",
-   "evidence": "previous_shot SL04; carry_over 'The phone lies beside the notebook, screen off, as quiet as on slide 2' states the change from the lit screen of SL04."
+   "evidence": "previous_shot SL04; carry_over 'The phone has left its stand and lies dark beside a new object, the notebook; the lit stand scene of slide 4 is gone'; counter 5/8, arrow present, hero false."
   },
   {
    "id": "P10",
    "result": "N/A",
-   "evidence": "Spec mode: model, resolution, aspect and duration rules are checked on the prompt (the spec has aspect '4:5', as required)."
+   "evidence": "N/A in spec mode (model, resolution, aspect and duration are checked on the prompt; spec aspect is 4:5)."
   },
   {
    "id": "P11",
    "result": "PASS",
-   "evidence": "No two-way reading found; 'closed' notebook and 'diagonally across it' pencil are specific."
+   "evidence": "'notebook' = black hardcover, closed; 'pencil' = unpainted wood, diagonal across the cover; size 'about 35% of the frame width' vs box 0.40 allows for the pencil overhang."
   },
   {
    "id": "P12",
    "result": "PASS",
-   "evidence": "FL-13 corner rule and logo-zone; FL-04 notebook has a content line; FL-05 background rule; FL-11 one instance of each object."
+   "evidence": "FL-04: no blank story prop (a closed plain notebook is the point); FL-05: no frames or screens; FL-13: logo-zone region [0.0,0.91,0.4,1.0] and must_not 'no logo or wordmark drawn anywhere' / 'no letters or objects in the bottom-left corner'."
   }
  ],
- "suggested_spec_changes": [
-  "P1: add the label to line_text (e.g. 'NJIH BLERËSIN. E ke shkruar diku? Po apo jo? Një jo mjafton për të vazhduar.') or document it as a non-spoken label field.",
-  "P7: Add props entry PR-CARD-READER (story_critical false, state 'on the sales desk, screen dark', content 'a plain countertop card reader with a dark blank screen and a plain keypad of blank rubber keys, no brand mark'), as SL02/SL03/SL08 do; or delete 'a plain card reader on it' from setting.details.",
-  "ADVISORY: phone size_in_frame 'about 20% of the frame width' against region phone [0.66,0.66,0.8,0.82] (14% wide); align them.",
-  "ADVISORY (not a fail): the locked style text says 'the Tirana clock tower visible through the cover's window' while must_not says 'no window and no clock tower'. The notes line resolves it; the prompt must carry the same resolution (clock tower only on slides 1, 3 and 8) so the pasted style block and the negatives do not contradict."
- ]
+ "suggested_spec_changes": []
 }

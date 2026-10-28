@@ -1,74 +1,71 @@
 {
  "gate": "G-SPEC",
  "shot_id": "SL08",
- "spec_sha256": "42845d973473588a5071894f2e63a79d6270f36820c63a55821f2814faebf193",
+ "spec_sha256": "64462fb6454546a00e6483d0788fe6505a8f56d989e8cc7e8822d4aecf33db99",
  "reviewer": "prompt-reviewer (fresh agent)",
  "independent": true,
- "status": "FAIL",
+ "status": "PASS",
  "checks": [
   {
    "id": "P1",
    "result": "PASS",
-   "evidence": "line_text 'Këto i mban një sistem, jo një njeri. Ndiqe faqen për hapin e radhës.' = 5 strings + counter; phone, stand, plate, hand, window, counter present. Arrow absent on purpose (last slide)."
+   "evidence": "Strings \"Këto i mban\" + \"një sistem,\" + \"jo një njeri.\" + \"Ndiqe faqen\" + \"për hapin e radhës.\" = line_text; phone, stand, plate, hand, window, counter \"8/8\", regions (phone, stand, hand, plate, window, texts, logo-zone) present."
   },
   {
    "id": "P2",
    "result": "N/A",
-   "evidence": "N/A in spec mode (no prompt or attachments yet)."
+   "evidence": "Spec mode: no prompt or attached files exist yet; reference order is checked at G-PROMPT-IMG."
   },
   {
    "id": "P3",
    "result": "PASS",
-   "evidence": "hands[0]: 'right fingertips and palm flat on the wood, 6 cm right of the stand'; must_not_cover 'the phone and the stand'; count_check present; region 'hand' [0.64, 0.74, 1.0, 0.88] holds it and is far from the text block."
+   "evidence": "Right hand: \"lies relaxed on the table to the right of the stand at 74% to 88% of the height, palm down, the fingers pointing left toward the stand\"; contact \"palm and the pads of the fingers rest on the wood ... fingertips 6 cm right of the stand's right side\"; must_not_cover \"the phone and the stand\"; five-finger count_check; hand region [0.64,0.74,1.0,0.88] is clear of the text block."
   },
   {
    "id": "P4",
    "result": "PASS",
-   "evidence": "'The phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support'; 'hand rests flat on the table 6 cm to the right of the stand, palm down'."
+   "evidence": "Contact points: \"palm and the pads of the fingers rest on the wood\" and \"phone's bottom edge sits in the stand's groove\"."
   },
   {
    "id": "P5",
    "result": "PASS",
-   "evidence": "No story-critical prop; stand content: 'plain black matte angled phone stand with one groove, no logo'."
+   "evidence": "No readable screen: phone \"screen off\"; plate has a content line (\"clean white round plate with nothing on it and a glass of water beside it\"); the ask text is overlay text, not a prop."
   },
   {
    "id": "P6",
    "result": "PASS",
-   "evidence": "'Këto i mban' / 'një sistem,' / 'jo një njeri.' / 'Ndiqe faqen' / 'për hapin e radhës.' / '8/8' exact with surface, size, colour, occlusion; 4 words or fewer each. One ask only ('Ndiqe faqen'), on this last slide; sublines at 44 px."
+   "evidence": "Five lines + \"8/8\" with surface, box, size (80/60/44 px), case, occlusion; \"sistem,\" and \"Ndiqe\" highlights stated; single ask \"Ndiqe faqen për hapin e radhës.\" only here; 44 px lines meet the floor; block ends y 0.38."
   },
   {
    "id": "P7",
    "result": "PASS",
-   "evidence": "'No menus, receipts, signs or readable words anywhere... clock tower: no numerals, no letters; window glass reflects no text'."
+   "evidence": "Window has a rule (\"plain clock face: no numerals ... no shop signs\"); plate and glass are plain; phone dark with rule."
   },
   {
    "id": "P8",
    "result": "PASS",
-   "evidence": "No conflict found: safe_zones 'no arrow in this shot', no PR-ARROW, no arrow region, and must_not 'no swipe arrow, no round button, no arrow graphic anywhere' all agree; counter 8/8 follows 7/8."
+   "evidence": "\"no arrow\" is stated three times (props omit it, safe_zones, must_not \"no swipe arrow, no round button\") and the style block's \"slides 1 to N-1\" agrees; hand \"6 cm right of the stand\" and region start 0.64 are consistent. Set: previous_shot chain SL01..SL08 is unbroken, counters read n/8, arrow on slides 1 to 7 only, the single ask only on SL08."
   },
   {
    "id": "P9",
    "result": "PASS",
-   "evidence": "previous_shot SL07; carry_over 'The phone stands upright and quiet in its stand, screen off; the owner's hand is back, relaxed, as on slide 1 but at rest.' (same dark shirt cuff as SL01). Note: no carry_over names a swipe-bridge element (adapter 5 lists 'the bridge element'); confirm against the carousel plan or state 'bridge: none'."
+   "evidence": "previous_shot SL07 and carry-over lists every change: \"camera pulls back ... a window appears ... bar chart gone and the screen is off; a cleared plate and a glass of water and the owner's right hand are now on the table\"; hand matches SL01 (right hand, light olive skin, dark navy cuff)."
   },
   {
    "id": "P10",
    "result": "N/A",
-   "evidence": "N/A in spec mode (model and params are checked on the prompt)."
+   "evidence": "Spec mode: model, 4:5, 2k, quality are checked at the prompt and generation gate (spec says aspect \"4:5\")."
   },
   {
    "id": "P11",
-   "result": "FAIL",
-   "evidence": "camera.angle 'eye level, centred' for a tabletop with the hand and phone seen on the table surface: eye level can mean level with the table (surface edge-on, hand and stand hidden) or a standing person's eye height. Same wording as SL06."
+   "result": "PASS",
+   "evidence": "\"6 cm right of the stand\", \"74% to 88% of the height\" and \"fingers pointing left\" leave one reading; the glass of water sits \"beside\" the plate, a minor non-blocking looseness."
   },
   {
    "id": "P12",
    "result": "PASS",
-   "evidence": "FL-13 logo-zone; FL-05 window rule; FL-02 stand structure line; FL-01 hand is at 74 to 88% height, text ends at 39%."
+   "evidence": "FL-01 hand far from text; FL-06 hand named with wrist and cuff; FL-08 nothing held; FL-11 hand rests on the table; FL-05 window rule; FL-13 logo-zone and bottom-left rule (hand y<=0.88 at the right)."
   }
  ],
- "suggested_spec_changes": [
-  "camera.angle: replace 'eye level, centred' with 'about 25 degrees above the table surface (a standing person's eye height), centred, looking slightly down'.",
-  "(optional) regions[phone].box is 0.12 wide but props[PR-PHONE].size_in_frame says about 16% of the frame width; widen to about [0.42, 0.60, 0.58, 0.88] and add a region for PR-STAND."
- ]
+ "suggested_spec_changes": []
 }

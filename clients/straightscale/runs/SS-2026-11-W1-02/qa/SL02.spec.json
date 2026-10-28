@@ -1,25 +1,25 @@
 {
  "gate": "G-SPEC",
  "shot_id": "SL02",
- "spec_sha256": "d6c13ff6716d52ec9dd8099355a24b70cb85b48358c0f8330c7b0f5314c2f1b9",
+ "spec_sha256": "c2fa99f3b55459bf8c58270eec7c97af608a5c7328304cbf08eedb936439e86d",
  "reviewer": "prompt-reviewer (fresh agent)",
  "independent": true,
- "status": "FAIL",
+ "status": "PASS",
  "checks": [
   {
    "id": "P1",
    "result": "PASS",
-   "evidence": "Phone, card reader, frame samples, arrow, 4 text strings, action, setting, camera all present; line_text 'Pse ty, e jo dikë më të lirë? Pyeti ata.' equals 'Pse ty,' + 'e jo dikë më të lirë?' + 'Pyeti ata.'. Advisory: must_read_in_1s has three clauses."
+   "evidence": "line_text 'Pse ty, e jo dikë më të lirë? Pyeti ata.' equals the three lines joined; PR-PHONE, PR-ARROW, 4 text strings, action, setting, camera and 8 regions present; hands 'none visible'."
   },
   {
    "id": "P2",
    "result": "N/A",
-   "evidence": "Spec mode: no prompt and no attached images yet."
+   "evidence": "N/A in spec mode (no prompt or attached files yet)."
   },
   {
    "id": "P3",
    "result": "PASS",
-   "evidence": "hands: 'none visible'; action: 'with nothing touching it'."
+   "evidence": "hands: none visible; action_physics 'nothing touching it' and camera 'the card reader and the customer's phone are out of frame' agree."
   },
   {
    "id": "P4",
@@ -29,48 +29,43 @@
   {
    "id": "P5",
    "result": "PASS",
-   "evidence": "No story-critical prop; PR-PHONE content is concrete ('deep red #BE0F18 case, black glass front'); no blanket text ban."
+   "evidence": "No story-critical prop (phone is the thread, screen off); screen rule 'plain black glass with a soft lamp reflection and nothing else' means nothing to fill; no blanket 'no text' next to a story prop."
   },
   {
    "id": "P6",
    "result": "PASS",
-   "evidence": "4 strings with surface, position, case and occlusion; each 2 to 5 words; 'dikë më të lirë' exact; counter '2/8'; highlight on 'ata.' defined."
+   "evidence": "Strings 'Pse ty,' / 'e jo dikë më të lirë?' / 'Pyeti ata.' / '2/8' quoted with surface, x/y box, size, colour, highlight on 'ata.'; occlusion on each; each at most 5 words."
   },
   {
    "id": "P7",
    "result": "PASS",
-   "evidence": "Back wall rule, PR-CARD-READER 'dark blank screen', PR-FRAME-SAMPLES 'no labels'; 'No window and no clock tower' in details and must_not."
+   "evidence": "background_rule: 'No signs, posters, calendars, screens or readable words anywhere ...'; 'No one is in the shop now. No window and no clock tower are visible'; surface 'bare apart from the listed props'."
   },
   {
    "id": "P8",
-   "result": "FAIL",
-   "evidence": "(a) Pose is 'portrait, rotated 20 degrees clockwise seen from above, top edge pointing to the upper right' but the camera is 'low, just above the sales desk surface': from desk level a lying phone cannot be seen from above. (b) size_in_frame 'about 40% of the frame width' against region phone [0.22,0.58,0.8,0.86], which is 58% wide and 28% tall (a landscape box) for a 'portrait' phone."
+   "result": "PASS",
+   "evidence": "No conflicting lines. Style line's 'clock tower visible through the cover's window' is scoped by setting.details 'No window and no clock tower are visible in this shot', must_not 'no window and no clock tower' and notes."
   },
   {
    "id": "P9",
-   "result": "FAIL",
-   "evidence": "must_read_in_1s says 'the owner's phone lies quiet', but carry_over says 'The red-case phone moves from his hand to the sales desk', and 'his' is the customer, whose phone in SL01 shows the competing ULJE offer. SL04 to SL06 use the same phone as the owner's (messages from clients, OWNER hands). The thread phone changes owner with no bridge. Also: SL01 has a staff member at the back bench; SL02 says 'No one is in the shop now' and carry_over mentions only the customer leaving."
+   "result": "PASS",
+   "evidence": "previous_shot SL01; carry_over: owner's phone 'where it lay on slide 1, screen still off; the camera has moved in', customer's hands and phone gone; counter 2/8, arrow present, hero false."
   },
   {
    "id": "P10",
    "result": "N/A",
-   "evidence": "Spec mode: model, resolution, aspect and duration rules are checked on the prompt (the spec has aspect '4:5', as required)."
+   "evidence": "N/A in spec mode (model, resolution, aspect and duration are checked on the prompt; spec aspect is 4:5)."
   },
   {
    "id": "P11",
    "result": "PASS",
-   "evidence": "'rotated 20 degrees clockwise ... top edge pointing to the upper right' is internally consistent; no two-way word found."
+   "evidence": "'sales desk' and 'phone' single-meaning; phone pose 'top edge pointing to the upper right (rotated about 15 degrees on the surface)' and box 34% x 34% given."
   },
   {
    "id": "P12",
    "result": "PASS",
-   "evidence": "FL-13 logo-zone and corner rule present; FL-11 one instance; no hands, so FL-01/03 do not apply; FL-04 no empty story prop."
+   "evidence": "FL-05/FL-10: no screens, signs or windows, rule present; FL-04 n/a (no story prop); FL-13: logo-zone region [0.0,0.91,0.4,1.0] and must_not 'no logo or wordmark drawn anywhere' / 'no letters or objects in the bottom-left corner'."
   }
  ],
- "suggested_spec_changes": [
-  "P9: decide whose phone it is. Recommended: in SL01 the customer holds a plain dark-case phone and the red-case owner's phone lies on the sales desk (screen off) beside the card reader, so the thread phone stays the owner's from SL01 to SL08; then SL02 carry_over reads 'the customer and his phone are gone; the owner's red-case phone stays on the desk'. Alternative: reword SL02 must_read and carry_over to say the customer left his phone, and change SL04 to SL06 so the phone is not the owner's.",
-  "P9: add to carry_over that the staff member from SL01 has left, or remove the staff member from SL01.",
-  "P8: set the camera to 'low, about 15 degrees above the desk surface, slightly from the right' and the pose to 'portrait phone lying flat, top edge pointing away from the camera and turned 20 degrees to the right, foreshortened'; make the phone region match 40% of the width, e.g. [0.30,0.60,0.70,0.86].",
-  "ADVISORY (not a fail): the locked style text says 'the Tirana clock tower visible through the cover's window' while must_not says 'no window and no clock tower'. The notes line resolves it; the prompt must carry the same resolution (clock tower only on slides 1, 3 and 8) so the pasted style block and the negatives do not contradict."
- ]
+ "suggested_spec_changes": []
 }

@@ -3,9 +3,9 @@ post_id: SS-2026-11-W1-04
 format: carousel_slide
 script_lines:
 - S6
-line_text: Shihet çfarë ndodh pasi të shkruajnë? Jo? Shkruaj hapin pas mesazhit.
+line_text: PYETJA 4 Shihet çfarë ndodh pasi të shkruajnë? Jo? Shkruaj hapin pas mesazhit.
 story_purpose: 'Item 4 with its fix: a profile should show the step that follows a first message.'
-must_read_in_1s: 'A chat on the phone: a message came in and a reply sits under it: is the next step visible?'
+must_read_in_1s: 'A chat on the phone: a message and a reply under it.'
 subjects:
 - id: PR-PHONE
   ref: null
@@ -19,9 +19,9 @@ props:
   story_critical: false
   ref: null
   state: upright in the stand, screen lit
-  content: 'a modern smartphone in a deep red #BE0F18 case, black glass front, rounded corners, no logo on the case
-    or the glass'
-  size_in_frame: about 24% of the frame width
+  content: 'a modern smartphone in a deep red #BE0F18 case that shows as a rim around the black glass front, rounded
+    corners, no logo on the case or the glass'
+  size_in_frame: its box is 20% of the frame width and 34% of the frame height
 - id: PR-STAND
   story_critical: false
   ref: null
@@ -32,15 +32,9 @@ props:
   story_critical: true
   ref: PS-CHAT state CHAT-REPLY (prop sheet to build on SS-LIB-W45W46)
   state: lit, a two-bubble chat
-  content: 'a plain chat view: a light-grey bubble aligned left near the top holding two short dark-grey bars, and
-    under it a crimson #B31217 bubble aligned right holding one short ivory bar; no letters, no digits, no names,
-    no status bar, no app logo'
-  size_in_frame: screen fills most of the phone
-- id: PR-LAPTOP
-  story_critical: false
-  ref: null
-  state: closed, at the back edge of the desk, out of focus
-  content: a closed silver-grey laptop with a plain lid, no logo, no sticker
+  content: 'a plain chat view on a dark charcoal background: a light-grey bubble aligned left near the top holding
+    two short dark-grey bars, and under it a crimson #B31217 bubble aligned right holding one short ivory bar; no
+    letters, no digits, no names, no status bar, no app logo'
 - id: PR-ARROW
   story_critical: false
   ref: null
@@ -50,29 +44,30 @@ props:
   size_in_frame: about 8% of the frame width
 text_in_image:
 - string: PYETJA 4
-  surface: top calm dark wall, left-aligned from the left margin, x 6% to 23%, y 7% to 10% of the frame, small spaced
-    capitals, about 30 px, ivory
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 31%, y 6% to 9% of the frame, capitals
+    with wide letter-spacing (normal word spaces, no gaps inside words), about 44 px at 1080 px wide, ivory
   position: line 1 of 4 in the top text block
   case: as_written
   must_be_exact: true
   occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
 - string: Shihet çfarë ndodh
   surface: top calm dark wall, left-aligned from the left margin, x 6% to 83%, y 11% to 18% of the frame, heavy
-    bold geometric sans, about 80 px, ivory
+    bold geometric sans, about 80 px at 1080 px wide, ivory
   position: line 2 of 4 in the top text block
   case: as_written
   must_be_exact: true
   occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
 - string: pasi të shkruajnë?
-  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 83%, y 19% to 26% of the frame, heavy
-    bold geometric sans, about 80 px, ivory; the word ''pasi'' sits inside a solid crimson #B31217 highlight rectangle'
+  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 83%, y 18% to 25% of the frame, heavy
+    bold geometric sans, about 80 px at 1080 px wide, ivory; the word ''pasi'' sits inside a solid crimson #B31217
+    highlight rectangle'
   position: line 3 of 4 in the top text block
   case: as_written
   must_be_exact: true
   occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
 - string: Jo? Shkruaj hapin pas mesazhit.
-  surface: top calm dark wall, left-aligned from the left margin, x 6% to 79%, y 28% to 32% of the frame, bold geometric
-    sans, about 44 px, ivory
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 79%, y 27% to 31% of the frame, bold geometric
+    sans, about 44 px at 1080 px wide, ivory
   position: line 4 of 4 in the top text block
   case: as_written
   must_be_exact: true
@@ -89,53 +84,68 @@ action_physics:
 static: false
 setting:
   ref: null
-  details: 'A business owner''s dark wood desk at night: a warm tungsten desk lamp, a closed laptop at the back
-    edge, deep shadows. Wide: the whole desk and the desk lamp are visible. A small window at the right edge of
-    the frame at 42% to 62% of the height, below the text wall, slightly out of focus, the Tirana clock tower a
-    small lit silhouette in it.'
-  background_rule: 'Nothing on the desk or the walls carries a word, a logo or a sign; the laptop is closed with
-    a plain lid. The phone screen shows only the two bubbles. The clock tower is a small lit silhouette with a plain
-    clock face: no numerals, no letters; the window glass reflects no text; no shop signs on the street.'
+  details: 'A business owner''s dark wood desk at night: a warm tungsten desk lamp stands at the far left of the
+    desk, its warm glow reaching the left edge at 66% to 82% of the height; deep shadows; the lamp is one lamp with
+    one round shade on one stem and one round base; nothing else stands on the desk except the lamp and what the
+    props block lists. Camera about 10 degrees above the desk: the desk top spans from 70% of the frame height (its
+    far edge, measured from the top of the frame) down to the bottom; the wall behind it fills the upper 70%. Medium
+    distance: the whole width of the desk is visible. A small window at the left edge of the frame at 42% to 62%
+    of the height, below the text wall, slightly out of focus, the Tirana clock tower a small lit silhouette in
+    it.'
+  background_rule: 'Nothing on the desk or the walls carries a word, a logo or a sign. The phone screen shows only
+    the two bubbles. A phone with its screen off is plain black glass with a soft lamp reflection and nothing else.
+    The surface the props stand on is bare apart from the listed props. The clock tower is a small lit silhouette
+    with a plain clock face: no numerals, no letters; the window glass reflects no text; no shop signs on the street.'
 camera:
-  framing: wide shot of the desk from the front; the phone in the lower middle, the top 40% is the dark wall
-  angle: eye level, centred
+  framing: medium shot of the desk from the front; the phone in the lower middle (x 40% to 60%), the top 40% is
+    a calm near-black wall
+  angle: about 10 degrees above the desk surface, centred
   lens: 35mm film still, shallow depth of field
   aspect: '4:5'
-  safe_zones: text and arrow inside a 4% margin; top 40% a calm dark wall; bottom-left corner (lowest 9% of the
-    height, left 40% of the width) calm, dark and empty
+  safe_zones: text and arrow inside a 4% margin; top 40% a calm near-black zone with nothing in it except the text
+    block and the slide counter; bottom-left corner (lowest 9% of the height, left 40% of the width) calm, dark
+    and empty
 continuity:
   previous_shot: SL05
   carry_over:
-  - The phone stands in the middle of the desk, lit, in a stand; wider than slides 3 to 5; same lamp.
+  - The phone is back in a stand on the desk after slide 5's hand, lit; farther from the camera than slide 5; same
+    lamp.
 regions:
 - name: t01-label
   kind: text
   box:
   - 0.06
-  - 0.07
-  - 0.232
-  - 0.1
+  - 0.06
+  - 0.312
+  - 0.094
 - name: t02-head
   kind: text
   box:
   - 0.06
-  - 0.118
+  - 0.112
   - 0.834
-  - 0.186
+  - 0.18
 - name: t03-head
   kind: text
   box:
   - 0.06
-  - 0.194
+  - 0.188
   - 0.834
-  - 0.262
+  - 0.256
+- name: t03-highlight
+  kind: text
+  box:
+  - 0.06
+  - 0.188
+  - 0.232
+  - 0.256
 - name: t04-sub
   kind: text
   box:
   - 0.06
-  - 0.28
+  - 0.274
   - 0.792
-  - 0.32
+  - 0.314
 - name: counter
   kind: text
   box:
@@ -160,43 +170,45 @@ regions:
 - name: window
   kind: other
   box:
-  - 0.8
+  - 0.0
   - 0.42
-  - 1.0
+  - 0.2
   - 0.62
 - name: phone
   kind: prop
   box:
   - 0.4
-  - 0.52
+  - 0.46
   - 0.6
-  - 0.88
+  - 0.8
 - name: phone-screen
   kind: prop
   box:
-  - 0.43
-  - 0.55
-  - 0.57
-  - 0.8
+  - 0.42
+  - 0.49
+  - 0.58
+  - 0.72
 - name: stand
   kind: prop
   box:
-  - 0.4
-  - 0.78
-  - 0.6
-  - 0.88
-style: 'Tirana after dark: cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
+  - 0.41
+  - 0.74
+  - 0.59
+  - 0.82
+style: '"Tirana after dark": cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
   the cover''s window. Same light and colour grade on every slide. Thread: a smartphone in a deep red case (#BE0F18),
-  recurring on every slide, changing state with the story. Palette: scene tone near-black (#1F1F1F), type ivory
-  (#F8F6EF), accent crimson #B31217 as solid highlight rectangles behind key words and the swipe arrow button, small
-  gold (#DD9A10) only for the counter. #B31217 is the only saturated colour besides the gold counter and the phone
-  case. Type: heavy bold geometric sans in ivory, left-aligned in the calm dark area; key words in solid crimson
-  #B31217 highlight rectangles. Spell ë and ç out letter by letter in every prompt. Frame: slide counter top right
-  (gold), swipe arrow bottom right on slides 1 to N-1. Bottom-left corner calm, dark and empty.'
+  recurring on every slide, changing state with the story (silent, unread messages piling up, ringing, a booked
+  calendar). Palette: scene tone near-black (#1F1F1F), type ivory (#F8F6EF), accent crimson #B31217 as solid highlight
+  rectangles behind key words and the swipe arrow button, small gold (#DD9A10) only for the counter. #B31217 is
+  the only saturated colour besides the gold counter and the phone case. Type: heavy bold geometric sans in ivory,
+  left-aligned in the calm dark area; key words in solid crimson #B31217 highlight rectangles. Spell ë and ç out
+  letter by letter in every prompt. Frame: slide counter top right (gold), swipe arrow bottom right on slides 1
+  to N-1. Bottom-left corner calm, dark and empty.'
 must_not:
 - no logo or wordmark drawn anywhere
 - no letters or objects in the bottom-left corner
-- no readable words on any phone screen except the strings listed in the text block or the props block
-- no borders, side bars or blurred margins
+- no letters, words, digits or app names on any phone screen; screens hold only the shapes described in the props
+  block
+- no picture-frame borders, side bars or blurred margins around the whole image
 hero: false
 notes: 'Prop sheet PS-CHAT (state: CHAT-REPLY) is attached as the last reference image.'

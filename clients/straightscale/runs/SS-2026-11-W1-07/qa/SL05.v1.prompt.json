@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "SL05",
+ "version": 1,
+ "prompt_sha256": "0c9a9998f1ad1d68a99c65f918eb2768c43b1e5506db9a89cfa246653687e82d",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Calculator, phone, arrow, 6 strings incl. '5/8', 30-degree camera, no window, 'No digits, symbols or letters on the calculator keys or display' all present"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'Image 1 ... style reference. Image 2 is the approved cover ... Image 3 is the approved slide 2' matches upload order"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'Hands: no hands and no people are visible in the frame.'"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'The calculator and the phone lie with their whole backs flat on the table; nothing is touched by a hand.'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Calculator content given: 'blank dark display strip ... four columns by five rows of identical blank rubber keys ... no digits and no symbols'; not story-critical and no blanket negative empties it"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "5 strings plus '5/8' quoted with position, size, colour, occlusion; each surface 3 words or fewer; spelling covers reklamë, Në, të, kësaj, një, numër, çdo"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "Blank keys and display carry an explicit rule; 'No menus, receipts, signs or readable words anywhere'; 'No window and no clock tower'"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Blank-key calculator is consistent with 'No other words, letters or numbers anywhere'; text block ends at y 39%, inside the 40% calm zone"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'Carry-over: The phone is dark and quiet again beside a new object, the calculator.' matches spec"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Prompt opens 'Instagram carousel slide, portrait 4:5.'; call settings gpt_image_2_5, 4:5, 2k, medium, flare, image_references match standards.json; no video fields apply"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "'a regular grid of four columns by five rows' and 'about 12 cm by 18 cm' are concrete"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/10/13 prevented: calm hand-free text zone, contact points, filled screen props, plain walls, 'Bottom-left corner ... no logo, no letters, no objects (a logo is added later)'"
+  }
+ ],
+ "corrected_prompt": null
+}
