@@ -7,9 +7,12 @@ from __future__ import annotations
 
 import json
 
+import atlas_conditions as C
+
 SRC = "standards.json models.atlas.allowed"
 ENTRY_KEYS = {"id", "kind", "use", "params", "params_one_of", "params_if_given", "min_s", "max_s", "text_fields",
-              "note", "duration_from", "aspect_from", "size_for_aspect", "prop_subjects_only", "analysis", "reads"}
+              "note", "duration_from", "aspect_from", "size_for_aspect", "prop_subjects_only", "analysis", "reads",
+              "params_when", "test_only"}
 SHAPE = "each entry is an object {id, kind, use, params, params_one_of, params_if_given, min_s, max_s, text_fields}"
 
 
@@ -30,9 +33,17 @@ def entry_problem(e) -> str | None:
     for k in ("min_s", "max_s"):
         if k in e and (isinstance(e[k], bool) or not isinstance(e[k], (int, float))):
             return f"{k} is a number of seconds"
-    for k in ("prop_subjects_only", "analysis"):
+    for k in ("prop_subjects_only", "analysis", "test_only"):
         if k in e and not isinstance(e[k], bool):
             return f"{k} is true or false"
+    pw = e.get("params_when", {})
+    bad = C.when_problem(pw)
+    if bad:
+        return bad
+    for k, vals in pw.items():
+        opts = (e.get("params_one_of") or {}).get(k, []) + (e.get("params_if_given") or {}).get(k, [])
+        if any(v not in opts for v in vals):
+            return f"params_when {k} values are also in params_one_of or params_if_given (the values it may pass)"
     if e.get("duration_from", "audio") != "audio":
         return "duration_from is \"audio\" (the length is the audio reference's)"
     sfa = e.get("size_for_aspect", {})
@@ -187,7 +198,7 @@ def entry_checks(req: dict, a: dict, specs: list[dict], audio_seconds) -> list[s
     why += param_checks(req, e)
     if "min_s" in e or "max_s" in e or e.get("duration_from"):
         why += length_checks(req, e, audio_seconds)
-    return why + subject_checks(e, specs)
+    return why + subject_checks(e, specs) + C.when_checks(req, e, a, specs) + C.test_only_checks(e, a)
 
 
 def analysis_checks(req: dict, e: dict, read_type) -> list[str]:

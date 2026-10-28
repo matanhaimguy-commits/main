@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "command": "generate.audio",
+  "outcome": "succeeded",
+  "data": {
+    "operation_id": "op_4221488e467043348c7ead0657aa193a",
+    "kind": "audio",
+    "model": "xai/stt-v1",
+    "submission_state": "accepted",
+    "prediction": {
+      "id": "4fffc9d19e004d778a5916d1cd1b2103",
+      "status": "completed",
+      "terminal": true,
+      "observed_at": "2026-10-28T18:20:15.911334417Z",
+      "model": "xai/stt-v1",
+      "outputs": [
+        {}
+      ]
+    },
+    "wait": {
+      "status": "completed"
+    },
+    "artifacts": [
+      {
+        "index": 0,
+        "local": {
+          "status": "skipped"
+        }
+      }
+    ],
+    "resume": "atlas generate wait '4fffc9d19e004d778a5916d1cd1b2103' '--timeout' '10m0s'",
+    "resume_argv": [
+      "atlas",
+      "generate",
+      "wait",
+      "4fffc9d19e004d778a5916d1cd1b2103",
+      "--timeout",
+      "10m0s"
+    ]
+  },
+  "errors": [],
+  "warnings": []
+}

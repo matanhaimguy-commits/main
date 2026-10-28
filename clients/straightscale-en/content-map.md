@@ -19,9 +19,10 @@ pending the organic-director review, then the main session.
 ## Cadence and defaults
 3 reels a week, Mon, Wed, Fri, 12:00 America/New_York, from Mon 2 Nov (main session plan of 28 Oct). Owner defaults:
 AV-01 only, method unnamed, no prices, no proof numbers, no AI host (E8: no HeyGen twin; the strategist faces the camera
-only as the presenter in his staged whiteboard set, AI label on; other AI people from behind, hands only, at a distance
-or stylized until D1, STANDARDS 7; the main session confirms), keyword CTAs only on trust and convert posts, Funnel
-before Paid ads. Blocked this month (`blocked_formats`): `reel_ugc_talking`, `reel_lived_authority` (face-on AI people).
+only as the presenter in his staged whiteboard set, AI label on; since D1 (Matan, 28 Oct) other face-on AI people
+may appear as staged characters with the AI label, never a client, customer or the owner, STANDARDS 7), keyword CTAs
+only on trust and convert posts, Funnel before Paid ads. `reel_ugc_talking` and `reel_lived_authority` are unblocked
+(D1); talking formats wait on the F2 lip-sync result (FORMATS.md 5) before a piece is scheduled.
 
 ## Pillars
 | Pillar | Scope | Covers |

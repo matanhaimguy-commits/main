@@ -392,6 +392,11 @@ non-developer `minimax/h3/reference-to-video` offers 2K at $1.30 (no discount) a
 *Recommendation:* keep 768P for drafts and silent B-roll; add `1440p-sr` on the developer entry for final clips with a
 face or a mouth (about 1.9x the 768P price), after one G-HUMAN-TEST of the same 10 s talking clip at 768P, `1440p-sr`
 and full H3 2K (about $1.99 for all three). Name full H3 2K only if the test shows `1440p-sr` falls short.
+*Decided (Matan, 28 Oct, "Sharper face clips"), tested 28 Oct (`clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS`):* the same 10 s talking clip at 768P ($0.24),
+`1440p-sr` ($0.45) and full H3 2K ($1.30). Fresh visual reviewer at phone size: 768P 6/10 (upscaled, crunchy beard,
+teeth one white band), `1440p-sr` 7/10 (cleaner, faint halos on beard edges), 2K 7.5/10 (not visibly sharper than
+`1440p-sr`). The gate allows `1440p-sr` on both H3 developer entries only for a Shot Spec with a face or mouth region.
+Matan's eye: Studio decision #3.
 
 **F2. Lip-sync with an audio reference on Atlas H3.** The `reference-to-video` schema takes `refers`: any mix of image,
 video and audio URLs, at least one image or video (audio alone is refused). The gate already reads audio as a reference
@@ -399,12 +404,23 @@ kind (`atlas_rules.py`). Not yet shown: that H3-developer moves the mouth to the
 whether the drift check (G6) holds. Every talking format here (2.2 to 2.9, 2.13) depends on it.
 *Recommendation:* one 10 s G-HUMAN-TEST clip ($0.24 at 768P) with a known slice, transcript and drift check, before any
 talking piece is scheduled. If it fails, talking formats wait; talking objects keep OmniHuman 2.0.
+*Tested 28 Oct (`clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS`, $0.24): PARTIAL.* An 8.2 s ElevenLabs-v3-on-Atlas slice (voice Chris, word check 25/25) as
+the audio reference with a gpt-image-2 face frame. H3 developer does not play the slice: it voices the words itself,
+matching the slice for the first sentence (0 to 4.2 s, drift lag 0.0 s, correlation 0.99), then garbles them ("A
+business made that. Business owner did. A business week, we were third.") and keeps talking 0.5 s past the slice's
+end. The fresh take reviewer: the mouth syncs to the slice only in 0 to about 4.2 s; after that it follows its own words,
+so laying the slice over it shows. *Recommendation:* talking formats wait, as the decision said. Next cheapest test
+(about $0.24 each): a 4 s slice in a 5 s clip, since one short line may hold, and OmniHuman 2.0 (now talking objects only)
+on a person.
 
 **F3. Music beds.** No Atlas model is named; STANDARDS 1 says no bed until one is. The catalog has
 `minimax/music-3.0` (`is_instrumental: true` ignores lyrics; estimate $0.15 a call), `minimax/music-2.6`, and the Suno
 family (`suno/chirp-v6` is named for songs with `instrumental: false` locked).
 *Recommendation:* name `minimax/music-3.0` with `is_instrumental: true` for beds (2 takes, about $0.30 a piece), or
 allow `suno/chirp-v6` with `instrumental: true` as a second entry; first a G-HUMAN-TEST listen of 2 beds.
+*Decided (Matan, 28 Oct, "Music beds"); named in the gate.* Two test beds ($0.30, `clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS`): A, calm lo-fi house, 122 s,
+quiet 10 s intro and two breakdowns, steady 10 to 50 s; B, upbeat corporate-pop, 165 s, even throughout. The word
+check heard no vocals in either. Matan's ears: Studio decision #3.
 
 **F4. Sound effects.** No model in the Atlas audio catalog makes effects: its 18 audio models are TTS, speech-to-text,
 lyrics and music (`bytedance/seed-audio-1.0` takes text, speech rate, pitch and loudness: a voice model).
@@ -416,6 +432,8 @@ $0.149 at medium and $0.276 at high (1.9x).
 *Recommendation:* allow `quality: high` on `/edit` only for the asset types of realistic people (`character_sheet`,
 `start_frame`, `still` when the Shot Spec is ugc, talking_head, podcast or drama); keep medium for everything else.
 About 4 hero stills a piece, so roughly +$0.50 a talking piece.
+*Decided (Matan, 28 Oct, "Real-looking people"):* in the gate as `params_when` `realistic_people` on `/edit` only
+(text-to-image stays medium). Nothing to test.
 
 **F6. Stylized sheets and storyboards.** STANDARDS 1 names Nano Banana 2 for stylized sheets (animation, song, clay,
 crochet), but it is not on the Atlas list, so every animated format is limited to GPT Image 2 (which the claymation
@@ -423,6 +441,14 @@ skill found flatter for clay). Atlas has `google/nano-banana-2/edit` (2k estimat
 *Recommendation:* run re-test R1 (STANDARDS 14) on Atlas, one character sheet and one 3-panel storyboard per style on
 both models (about $1.50), then name the winner for `character_sheet`, `prop_sheet`, `set_sheet` and `storyboard` in
 stylized formats.
+*Tested 28 Oct (`clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS`, about $1.65), blind, two fresh visual reviewers:* one sheet
+(from the same face photo) and one 3-panel storyboard (from its own sheet) per style. **3D family-film: Nano Banana 2**
+(sheet 8 vs 4, board 8 vs 6: gpt-image-2 drifts to photoreal). **2D storybook: Nano Banana 2** (8 vs 3, 9 vs 4: gpt-image-2
+looks like a filtered photo). **Clay: gpt-image-2** (real hand-modelled clay, set holds across panels; Nano Banana 2 is
+smoother and render-like). **Crochet: gpt-image-2, narrowly** (cleaner stitches, no stray text; Nano Banana 2's board had
+gibberish laptop text). Nano Banana 2 stays test-only in the gate until Matan names it. *Proposed entry:*
+`google/nano-banana-2/edit` at 2k for `character_sheet`, `prop_sheet`, `set_sheet` and `storyboard` when the Shot Specs
+served are `animation_3d` or `animation_2d`; gpt-image-2 `/edit` keeps clay and crochet.
 
 **F7. Start-to-end transformations.** The hub's G2 fallback (Kling 3.0) is not on Atlas's list. Atlas has
 `kwaivgi/kling-v3.0-pro/image-to-video` with `end_image` ($0.1428/s at 1080p).
@@ -434,6 +460,9 @@ are blocked on the StraightScale EN map because STANDARDS 7 shows AI people only
 distance or stylized until D1 (the strategist presenter is the one exception).
 *Recommendation:* decide D1 for the EN page: allow face-on AI creators and lived-authority people as clearly staged
 characters with the AI label, never as clients or owners, or keep them blocked.
+*Decided (Matan, 28 Oct, "Yes, staged + AI label"):* STANDARDS 7, the EN brain (E8) and the content map are
+updated; `reel_ugc_talking` and `reel_lived_authority` are unblocked; `organic.py card-check` fails a card that casts an
+AI person as a real client, customer, the owner or Matan.
 
 **F9. Downloading Atlas outputs.** Generated media is served from `atlas-media.oss-us-west-1.aliyuncs.com`. The main
 session reports (28 Oct) that this environment's network blocks it, so no session can download or review an Atlas
@@ -441,6 +470,8 @@ output (G-TAKE, G-VIS and G-FINAL all need the file). Checked from session F1 on
 reached the server and got its own `403 Forbidden` (`Server: AliyunOSS`, bucket listing refused), so the block on
 object downloads is not confirmed or ruled out from here. *Recommendation:* Matan allows the host in the cloud
 environment's network settings, then one session downloads one finished output to confirm before any paid batch.
+*Checked 28 Oct (session F2):* a finished Atlas output (the Chris audition mp3) downloaded from
+`atlas-media.oss-us-west-1.aliyuncs.com` with HTTP 200 and played (13.0 s). Every later output in the F2 run downloaded too.
 
 ---
 

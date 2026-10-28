@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "command": "generate.audio",
+  "outcome": "succeeded",
+  "data": {
+    "operation_id": "op_e72e8ed2ebc740c0a814ee2cbe631d48",
+    "kind": "audio",
+    "model": "xai/stt-v1",
+    "submission_state": "accepted",
+    "prediction": {
+      "id": "3636ad2aeddd46d0a15a093fbead24c1",
+      "status": "completed",
+      "terminal": true,
+      "observed_at": "2026-10-28T18:06:22.086067134Z",
+      "model": "xai/stt-v1",
+      "outputs": [
+        {
+          "text": "Two years of posting content, running ads, and praying someone books a call. And we didn't write that. A business made that. Business owner did. A business week, we were third."
+        }
+      ]
+    },
+    "wait": {
+      "status": "completed"
+    },
+    "artifacts": [
+      {
+        "index": 0,
+        "local": {
+          "status": "skipped"
+        }
+      }
+    ],
+    "resume": "atlas generate wait '3636ad2aeddd46d0a15a093fbead24c1' '--timeout' '10m0s'",
+    "resume_argv": [
+      "atlas",
+      "generate",
+      "wait",
+      "3636ad2aeddd46d0a15a093fbead24c1",
+      "--timeout",
+      "10m0s"
+    ]
+  },
+  "errors": [],
+  "warnings": []
+}

@@ -28,6 +28,15 @@ class CardFormatTest(unittest.TestCase):
         iss = self.check(cmap={**MAP, "blocked_formats": ["reel_quote_broll"]})
         self.assertIn("format", codes(iss, o.ERROR))
 
+    def test_ai_people_are_staged_never_clients_or_the_owner(self):
+        ugc = dict(format="reel_ugc_talking", usd_budget=2.0, credit_budget=None)
+        self.assertNotIn("ai_person", codes(self.check(**ugc, notes="staged UGC creator, AI label on")))
+        for bad in ("a real client tells her story", "Testimonial from the creator", "the host plays the owner",
+                    "Matan's twin explains"):
+            with self.subTest(bad=bad):
+                self.assertIn("ai_person", codes(self.check(**ugc, notes=bad), o.ERROR))
+        self.assertNotIn("ai_person", codes(self.check(notes="a real client review on screen")))
+
 
 if __name__ == "__main__":
     unittest.main()
