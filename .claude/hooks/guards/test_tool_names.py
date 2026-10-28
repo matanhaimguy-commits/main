@@ -16,6 +16,10 @@ class ToolNamesTest(unittest.TestCase):
         self.assertEqual(canonical(ID + "generate_image", GATED), "mcp__Higgs__generate_image")
         self.assertEqual(canonical(ID + "creative_generate_speech", GATED), "mcp__ElevenLabs__creative_generate_speech")
 
+    def test_a_named_server_matches_without_case(self):
+        self.assertEqual(canonical("mcp__heygen__create_speech", GATED), "mcp__HeyGen__create_speech")
+        self.assertEqual(canonical("mcp__higgs__upscale_video", GATED), "mcp__Higgs__upscale_video")
+
     def test_named_and_unrelated_tools_keep_their_name(self):
         for t in ["mcp__Higgs__generate_image", "mcp__Figma__generate_image", ID + "list_projects", "Bash"]:
             self.assertEqual(canonical(t, GATED), t)
