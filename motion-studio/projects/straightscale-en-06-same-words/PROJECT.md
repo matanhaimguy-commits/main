@@ -33,17 +33,18 @@ motion-reel skill for the build later. Docs: `docs/hook-stacks.md`, `docs/script
 - CTA: follow for the next part (reach job).
 
 ## Status
-Stage: script & VO (hooks and spines written; recommended spine A taken to a release candidate at both tiers)
-Current version: none (no picture, no audio)
-Next step: rewrite the spines and the script on the approved v2 master hook, then GATE 4 (A, B or C) and answers the hook question; then the concept frame
-(G-HUMAN-HOOKBOARD), the voice (Voice 1 the page, Voice 2 the narrator) and the build through the motion-reel skill
-Blockers / open questions: G-HOOK not passed after 5 blind rounds (master stack best: text A- and A-, spoken A- and A-,
-visual A- in round 4, B and B+ in round 5); tier A needs `wildcard` or `angle_proven`; every cold reader asked "do my
-clients even reach a page?" (GATE 4 question in `docs/script-lab.md` 9)
+Stage: script & VO (scripts v2 on the approved v2 master hook EN06-A: escalated to Matan after Script Lab)
+Current version: script v2 final drafts (loop 4): O60 172 words, about 69 s, gate 77; O30 87 words, about 34.8 s, gate 76; no critical fail (`docs/script.md`); no picture, no audio
+Next step: Matan answers the escalation question (`docs/script-v2-loops.md`, "Escalation"); then one more gated loop on both tiers
+Blockers / open questions: Hook Lab v3 (Matan's A/A+ bar) did not reach the bar in 3 rounds; the best stack and its fix await the master decision (`docs/hook-lab-v3.md`); the method question every reader asked ("one page for every post?"; the repo does not
+say); the approved text hook ("hit") vs spoken hook ("land on"); tier A needs `wildcard` or `angle_proven`; part five
+Funnel vs Paid ads
 
 ## Decisions (newest first)
 | Date | Decision | Options considered | Why | Who |
 |---|---|---|---|---|
+| 28 Oct | **Hook Lab v3** (Matan: "only A and A+ hooks, clarity above all"): 10 new stacks from organic breakouts (HF) in buyer words, code check, 3 rounds of 2 fresh blind graders; **no stack reached A/A+ on all channels from both graders**. Best: EN06-R2b: text "Likes, no bookings? Don't post more.", spoken "Don't post more. Your website is why nobody books." (round 2: V A- / A-, T A- / A, S A- / A-). Graders' named fix, not yet graded: spoken "The problem isn't your posts. It's what happens after someone clicks." (no web-agency smell). The v2 master is unchanged (`docs/hook-lab-v3.md`, `docs/hooks-v3.json`) | take the best stack; one more round on the named fix; keep the v2 master | Matan's bar; the main session's 3-round limit | Claude (proposal); Matan or the main session for him (pending) |
+| 28 Oct | **Escalated** (scripts v2): spine A rewritten on the master v2 hook EN06-A, spoken hook word for word, both tiers; Script Lab 4 loops each, 24 fresh cold readers; O60 critical fails in loops 1 to 3 (the one-page-for-many-posts line), final 77; O30 79, fail, 77, final 76; not released (under 85). Recommended: A, Matan answers "one page per offer?", the text hook matches the spoken hook, then one more loop | A: answer the page question + text hook = spoken hook + one loop; B: accept at 77 / 76; C: O60 only for now | Script Lab cap reached | Claude (escalation), Matan (pending) |
 | 28 Oct | Hooks v2 (master EN06-A) | Matan | "much better and stronger"; next time base hooks on organic breakouts, not ads |
 | 28 Oct | Hooks v1 rejected (Matan: unclear, not the buyers' words, written English, not proven formats). Hooks v2 built only from proven sources (Hook Library HA ads 30+ days or HF outliers 3x+) and verbatim buyer phrases; all pass `organic.py hooks`. Master = the ad-proven stack. The script release candidate is ON HOLD: it was written on the v1 hook and must be rewritten on the v2 master once Matan approves it, with the new "said, not written" rule | v1 kept; more AI grading rounds | an AI grade is opinion; proof is a post or ad that already won with this buyer | Matan (rejection), Claude (v2) |
 | 28 Oct | GATE 4 decided: spine A "The page that changed the subject" (the page is the villain); the hooks it was asked with (v1) were later rejected, see the row above; the scripts wait for the v2 hooks. Still open: the month's wildcard slot for tier A, and whether part five is Funnel or Paid ads (the song sings Paid ads) | B, C, more hook rounds | the writer's recommendation | Matan |
@@ -68,3 +69,6 @@ clients even reach a page?" (GATE 4 question in `docs/script-lab.md` 9)
   (`docs/script.md`) · waiting on Matan
 - 28 Oct · hooks v1 rejected by Matan; hooks v2 from proven formats in docs/hook-stacks.md and docs/hooks.json (all PASS) · script on hold
 - 28 Oct · Matan approved hooks v2 (master EN06-A) · script rewrite on it is next
+- 28 Oct · scripts v2 on hook EN06-A: Script Lab 4 loops per tier, 24 fresh cold readers, final O60 77, O30 76, escalated · `docs/script.md`, `docs/script-v2-loops.md`; v1 scripts moved to `docs/script-v1.md`
+- 28 Oct · Hook Lab v3 on Matan's A/A+ bar: 10 stacks, 3 blind rounds, 6 fresh graders; best stack recorded, bar not reached · `docs/hook-lab-v3.md`
+- 28 Oct · Hook Lab v3 round 4 (the graders' named fixes, 2 new graders): `EN06-R4b` V A- / A-, T A / A, S A- / A; the A/A+ bar not met, v2 master unchanged · `docs/hook-lab-v3.md`
