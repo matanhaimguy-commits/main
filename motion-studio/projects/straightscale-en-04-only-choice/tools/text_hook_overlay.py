@@ -11,8 +11,8 @@ from PIL import Image, ImageDraw, ImageFont
 
 FONT = Path(__file__).resolve().parents[2] / "straightscale-en-01/assets/fonts/Montserrat/montserrat-latin-800-normal.woff2"
 W, H = 1080, 1920
-TOP, SIDE, RIGHT = 250, 80, 140      # motion-studio safe zone: top 250 px, right 140 px
-SIZE = 84                            # display type, about 1/13 of the width
+TOP, SIDE, RIGHT = 269, 65, 65       # STANDARDS 6 reels safe zone: top 269 px, 6% sides (text sits in the upper half)
+SIZE = 80                            # display type; 3 lines end by y 557 (29%)
 MAX_W = W - SIDE - RIGHT
 
 

@@ -10,30 +10,30 @@ must_read_in_1s: Three identical sheets lie side by side and a hand picks the on
 subjects:
 - id: PR-SHEETS
   ref: null
-  state: three identical white A4 sheets in a row on a desk, seen from straight above, each with the same three big
-    headings and one red round price sticker in its lower right corner
-  pose: the three sheets fill the middle band (x 3% to 97%, y 36% to 80%), side by side with small gaps
+  state: three identical plain white tall narrow paper sheets in a row on a desk, seen from straight above, each with the same three big
+    headings and one red round price sticker in its top right corner
+  pose: the three sheets fill the key band (x 6% to 94%, y 30% to 62%), side by side with small gaps
   expression: ''
   instances: 1
   eyeline: ''
 hands:
 - who: the buyer (POV from above, no face), mustard-yellow knit sleeve
   left: not in frame
-  right: enters from the bottom edge, index finger and thumb pinching the bottom corner of the right-hand sheet and
-    lifting it about 2 cm off the desk
+  right: enters from the bottom edge, index finger and thumb pinching the bottom LEFT corner of the right-hand sheet (the corner away
+    from its sticker), at about y 62% of the frame and lifting that corner about 2 cm off the desk, seen as a small curl and a soft shadow under it
   contact: only the right hand's finger and thumb touch the right-hand sheet
-  must_not_cover: any heading letter
+  must_not_cover: any heading letter and any part of any sticker
   count_check: one hand, five fingers, no extra hand or finger
 props:
 - id: PR-SHEETS
   story_critical: false
   ref: null
   state: three copies, identical in layout, words and type; only the price stickers differ in size
-  content: 'plain white A4 sheets; on each, the same three headings stacked in heavy black block capitals, very large
-    for the sheet (each heading about 9% of the sheet height): PROGRAM, WEEKLY CALLS, A PROMISE; grey lines of
-    unreadable body text under each heading; one round red sticker in the lower right corner of each sheet with no
+  content: 'plain white tall narrow sheets; on each, the same three headings stacked in heavy black block capitals, each on one
+    single line filling about 85% of the sheet width (letters about 4% of the sheet height): PROGRAM, WEEKLY CALLS, A PROMISE; plain grey bars (not letters) under each
+    heading; one round red sticker in the top right corner of each sheet with no
     writing on it, the left sticker largest, the middle smaller, the right smallest'
-  size_in_frame: each sheet is about 30% of the frame width and 44% of the frame height
+  size_in_frame: each sheet is about 28% of the frame width and 32% of the frame height
 text_in_image:
 - string: PROGRAM
   surface: heading 1 on each of the three sheets, heavy black block capitals
@@ -54,8 +54,8 @@ text_in_image:
   must_be_exact: true
   occlusion: nothing covers any letter
 action_physics:
-- The three sheets lie flat on the desk; the right hand pinches the bottom corner of the right-hand sheet and lifts that
-  corner about 2 cm, the sheet bending slightly.
+- The three sheets lie flat on the desk; the right hand pinches the bottom left corner of the right-hand sheet (away from its
+  sticker) and lifts that corner about 2 cm; the lift reads as a small curl of the paper and a soft shadow under it.
 static: false
 setting:
   ref: null
@@ -65,34 +65,39 @@ setting:
     letters.
   background_action: none
 camera:
-  framing: flat lay; the top 32% of the frame bare dark walnut wood with nothing on it (the text hook is laid there in
+  framing: flat lay; the top 30% of the frame bare dark walnut wood with nothing on it (the text hook is laid there in
     the edit); the sheets in the middle band; the hand enters from the bottom
   angle: straight down, 90 degrees
   lens: 35mm photo, everything sharp
   aspect: '9:16'
-  safe_zones: top 32% calm and empty for the text hook; bottom 12% holds only the hand and wood
+  safe_zones: 'reels safe zone (STANDARDS 6): the sheets, headings and stickers sit between 30% and 62% from the top
+    and inside 6% side margins (the sheet bottom edges and the pinch at 55% to 62% are not key); the top 30% holds
+    nothing; below 62% only the hand and wood'
 continuity:
   previous_shot: null
   carry_over: []
 regions:
 - name: text-hook-zone
   kind: other
-  box: [0.0, 0.0, 1.0, 0.32]
+  box: [0.0, 0.0, 1.0, 0.30]
 - name: sheets
   kind: prop
-  box: [0.03, 0.36, 0.97, 0.80]
+  box: [0.06, 0.30, 0.94, 0.62]
 - name: headings-left
   kind: text
-  box: [0.05, 0.38, 0.33, 0.66]
+  box: [0.07, 0.36, 0.33, 0.56]
 - name: headings-middle
   kind: text
-  box: [0.36, 0.38, 0.64, 0.66]
+  box: [0.37, 0.36, 0.63, 0.56]
 - name: headings-right
   kind: text
-  box: [0.67, 0.38, 0.95, 0.66]
+  box: [0.67, 0.36, 0.93, 0.56]
 - name: hand
   kind: hand
-  box: [0.66, 0.74, 0.96, 1.0]
+  box: [0.60, 0.60, 0.90, 1.0]
+- name: stickers
+  kind: prop
+  box: [0.20, 0.31, 0.93, 0.36]
 style: 'EN 04 look: photoreal POV dramatization, hands only, never a face; warm evening home office, tungsten desk
   lamp, soft shadows, natural skin; the hand always in a mustard-yellow knit sleeve; muted warm palette (walnut, warm
   grey, mustard, paper white), red only on the price stickers.'

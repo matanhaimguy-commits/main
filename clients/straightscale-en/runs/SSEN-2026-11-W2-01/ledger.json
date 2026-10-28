@@ -92,46 +92,28 @@
   },
   "specs": {
     "H-01-V1": {
-      "sha256": "64f290b1af675a3170f3130fb4ada7cbd3ffa15e170837a9e441a2e94d14f723",
+      "sha256": "550802f7e95c2db924fdbee9eb5a3abb8e8671e6bb997b79284cc4bdbc9dc71a",
       "lint": "PASS",
-      "lint_at": "2026-10-28T17:10:04+00:00",
-      "lint_issues": [
-        {
-          "level": "warn",
-          "code": "P6",
-          "msg": "text 'We can get it done cheaper from someone else.' is over 6 words on one surface: split or simplify"
-        }
-      ]
+      "lint_at": "2026-10-28T17:15:36+00:00",
+      "lint_issues": []
     },
     "H-01-V10": {
-      "sha256": "8c55e492eea59da681f46cf7dfb9ab74dc4778f558d14bfa6642aacf09f47ed5",
+      "sha256": "9a465e62a7ee922970ac1ca60945f2541a8cf5d06e900eaad91ad1953ed15f2f",
       "lint": "PASS",
-      "lint_at": "2026-10-28T17:10:04+00:00",
-      "lint_issues": [
-        {
-          "level": "warn",
-          "code": "P6",
-          "msg": "text 'We can get it done cheaper from someone else.' is over 6 words on one surface: split or simplify"
-        }
-      ]
+      "lint_at": "2026-10-28T17:15:36+00:00",
+      "lint_issues": []
     },
     "H-01-V3": {
-      "sha256": "4b04816f193099f29642b9e69ec82e62c4f894304f7ac6d24985c3dc2e8ef028",
+      "sha256": "95e4493402889d667674485a2fbebebb5efd2174a2c6b0c637716eedd403a836",
       "lint": "PASS",
-      "lint_at": "2026-10-28T17:10:04+00:00",
+      "lint_at": "2026-10-28T17:15:36+00:00",
       "lint_issues": []
     },
     "H-01-V7": {
-      "sha256": "afff89a834a57269603137da30ec06aa0e4f818db13cd17f11a3df9d9e3d286b",
+      "sha256": "b3e702b754f2766c5128bfd99f9b90a7c8e16a694dc8c88037e4a478c62c9f6d",
       "lint": "PASS",
-      "lint_at": "2026-10-28T17:10:04+00:00",
-      "lint_issues": [
-        {
-          "level": "warn",
-          "code": "P6",
-          "msg": "text 'We can get it done cheaper from someone else.' is over 6 words on one surface: split or simplify"
-        }
-      ]
+      "lint_at": "2026-10-28T17:15:36+00:00",
+      "lint_issues": []
     }
   },
   "assets": [
@@ -146,13 +128,19 @@
       "hero": true,
       "hook": true,
       "created": "2026-10-28T17:10:50+00:00",
-      "prompt_sha256": "8963d081360e86df0f3eb23771e7fcded401b8f86390b75d668cf87fe47fde65",
-      "prompt_file": "prompts/CF-V1.v1.1.txt",
+      "prompt_sha256": "22d9ae13173848aaab2178ceba1665bc72235e6f5716dcabee5f8a59cae74800",
+      "prompt_file": "prompts/CF-V1.v1.2.txt",
       "prompt_history": [
         {
           "at": "2026-10-28T17:10:50+00:00",
           "sha256": "8963d081360e86df0f3eb23771e7fcded401b8f86390b75d668cf87fe47fde65",
           "file": "prompts/CF-V1.v1.1.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:15:36+00:00",
+          "sha256": "22d9ae13173848aaab2178ceba1665bc72235e6f5716dcabee5f8a59cae74800",
+          "file": "prompts/CF-V1.v1.2.txt",
           "medias": []
         }
       ],
@@ -172,13 +160,19 @@
       "hero": true,
       "hook": true,
       "created": "2026-10-28T17:10:51+00:00",
-      "prompt_sha256": "aef07c524bf1fd5499caa6784d660d0a9eb08988fd1288b4e803d92106ea5c92",
-      "prompt_file": "prompts/CF-V10.v1.1.txt",
+      "prompt_sha256": "32119c212338e5113e0c96dbf3a813c6c88af0c808558dd1dfe0c1e3d514b680",
+      "prompt_file": "prompts/CF-V10.v1.2.txt",
       "prompt_history": [
         {
           "at": "2026-10-28T17:10:51+00:00",
           "sha256": "aef07c524bf1fd5499caa6784d660d0a9eb08988fd1288b4e803d92106ea5c92",
           "file": "prompts/CF-V10.v1.1.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:15:36+00:00",
+          "sha256": "32119c212338e5113e0c96dbf3a813c6c88af0c808558dd1dfe0c1e3d514b680",
+          "file": "prompts/CF-V10.v1.2.txt",
           "medias": []
         }
       ],
@@ -198,13 +192,19 @@
       "hero": true,
       "hook": true,
       "created": "2026-10-28T17:10:51+00:00",
-      "prompt_sha256": "099e96f60821546eb980d25bd7049c13f6b6c85a1e5771d2de1b0b9fcd0053f2",
-      "prompt_file": "prompts/CF-V7.v1.1.txt",
+      "prompt_sha256": "ba08aaca0090dd972edf9aa8737bbd33a440b9211fa0b0170f36d1913ec706fd",
+      "prompt_file": "prompts/CF-V7.v1.2.txt",
       "prompt_history": [
         {
           "at": "2026-10-28T17:10:51+00:00",
           "sha256": "099e96f60821546eb980d25bd7049c13f6b6c85a1e5771d2de1b0b9fcd0053f2",
           "file": "prompts/CF-V7.v1.1.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:15:36+00:00",
+          "sha256": "ba08aaca0090dd972edf9aa8737bbd33a440b9211fa0b0170f36d1913ec706fd",
+          "file": "prompts/CF-V7.v1.2.txt",
           "medias": []
         }
       ],
@@ -224,13 +224,25 @@
       "hero": true,
       "hook": true,
       "created": "2026-10-28T17:10:52+00:00",
-      "prompt_sha256": "cbc933e9ecb5dcab2fe9de25876ac7e7c72ced852368f0d9e5c659aba870a747",
-      "prompt_file": "prompts/CF-V3.v1.1.txt",
+      "prompt_sha256": "983d8a82cec1f6b15c2e86ccaa2eb95e86292931dc99d4895f4e97242cd6d376",
+      "prompt_file": "prompts/CF-V3.v1.3.txt",
       "prompt_history": [
         {
           "at": "2026-10-28T17:10:52+00:00",
           "sha256": "cbc933e9ecb5dcab2fe9de25876ac7e7c72ced852368f0d9e5c659aba870a747",
           "file": "prompts/CF-V3.v1.1.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:13:50+00:00",
+          "sha256": "139d75d3a73541fdab985e599308f0956de6a69f7ebcb51e16618de56fc3f523",
+          "file": "prompts/CF-V3.v1.2.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:15:37+00:00",
+          "sha256": "983d8a82cec1f6b15c2e86ccaa2eb95e86292931dc99d4895f4e97242cd6d376",
+          "file": "prompts/CF-V3.v1.3.txt",
           "medias": []
         }
       ],
