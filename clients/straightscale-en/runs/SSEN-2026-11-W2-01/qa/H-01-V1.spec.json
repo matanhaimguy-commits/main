@@ -1,0 +1,75 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "H-01-V1",
+ "spec_sha256": "620159011ff7172dbe9f3584a76d05dec07c8248582f05951ba824045ddd0d11",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Every subject, hand, prop, text, action, setting present: 'subjects PR-PHONE', hands left+right+count_check, props PR-PHONE-SCREEN content, text_in_image 'We can get it done cheaper.'"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands.right: 'thumb hovers about 1 cm above the empty lower part of the screen ... none reaching past x 79%, touching nothing'; left: 'thumb lies along the phone's left edge ... four fingers wrap around the lower back'; must_not_cover and count_check given."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: 'The left thumb rests along the phone's left edge and its four hidden fingers grip the phone's lower back; the right thumb hovers about 1 cm above the glass, frozen, touching nothing.'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "props PR-PHONE-SCREEN content: 'plain chat view on a white background with exactly one large light-grey incoming bubble ... holding the text'; story_critical false is deliberate (no prop sheet before the look bible) and the content line is filled anyway."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "text_in_image: string 'We can get it done cheaper.' (5 words), surface 'inside the one grey bubble ... only the W is a capital letter', position 'centred in the bubble', occlusion 'no hand, finger, sleeve reaches above y 62%'."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "setting.background_rule: 'No other screens, papers, posters or readable words anywhere except the message in the bubble; the wall is plain; the desk is bare.'"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Right hand fingers 'none reaching past x 79%' agrees with regions.right-hand box 0.55 to 0.79 and safe_zones 'hands never in the right 21% of the lower half'; hands below y 62% agrees with bubble ending y 54%."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "continuity: previous_shot null, carry_over [] (frame 1 of the hook shot)."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "'tall letters (the W and the ascenders) about 60 px high on a frame 1152 px wide' with 'sentence case: only the W is a capital letter, not all capitals' reads one way; all percentages stated as measured from the top-left corner."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 prevention present: 'no letter touches anything', hands below y 62%, 'every line ending well inside the bubble edge'; FL-05/FL-10: background rule fills or removes screens and signs; no logo asked (FL-13 n/a)."
+  }
+ ],
+ "suggested_spec_changes": [],
+ "optional_notes": [
+  "must_read_in_1s says 'one huge message'; the letters are about 60 px tall, so 'huge' is loose. Optional: 'one large grey message bubble'.",
+  "regions.left-hand box x 0.12 to 0.5 is wider than the visible left thumb and cuff (about x 12% to 26%); optional tighten to 0.12 to 0.30."
+ ]
+}

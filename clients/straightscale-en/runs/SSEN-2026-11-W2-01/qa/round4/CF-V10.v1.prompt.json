@@ -1,0 +1,73 @@
+{
+  "gate": "G-PROMPT-IMG",
+  "asset_id": "CF-V10",
+  "version": 1,
+  "prompt_sha256": "f734c88df20a15deca84a8b13bc9c302bdafa8bf33970a5afa6971795102364b",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "FAIL",
+  "checks": [
+    {
+      "id": "P1",
+      "result": "PASS",
+      "evidence": "Subject, hand, action, props, text, setting, camera, continuity and negatives all present, e.g. \"One modern black smartphone held by the viewer, tilted back about 20 degrees\"; hash recomputed matches the packet"
+    },
+    {
+      "id": "P2",
+      "result": "PASS",
+      "evidence": "\"Reference images: none attached; this prompt is the only input.\" Media: none"
+    },
+    {
+      "id": "P3",
+      "result": "PASS",
+      "evidence": "\"its thumb lies along the phone's left edge and is its only visible finger; its other four fingers wrap around the phone's lower back, out of sight\"; \"No letter touches a thumb, a finger, a hand or a sleeve\""
+    },
+    {
+      "id": "P4",
+      "result": "PASS",
+      "evidence": "\"The left thumb rests along the phone's left edge and its four hidden fingers grip the phone's lower back; the phone is still.\""
+    },
+    {
+      "id": "P5",
+      "result": "PASS",
+      "evidence": "\"a plain chat view on a white background with exactly one large light-grey incoming message bubble\"; negatives targeted, no blanket \"no text\"; props not story-critical by design (no prop sheet before look bible)"
+    },
+    {
+      "id": "P6",
+      "result": "PASS",
+      "evidence": "\"We can get it done cheaper.\" (5 words) \"inside the one grey bubble, centred\", charcoal sans, sentence case, 2 or 3 lines; \"No hand, finger, sleeve rises above the line 62%...\""
+    },
+    {
+      "id": "P7",
+      "result": "PASS",
+      "evidence": "\"No other screens, papers, posters or readable words anywhere except the message in the bubble; the desk is bare.\"; the one screen has its content rule"
+    },
+    {
+      "id": "P8",
+      "result": "PASS",
+      "evidence": "Desk only in side strips, wall only above the phone, hand below 62%, bubble y 33-54% inside the 15-55% band; no hard contradiction (the 'Both hands' wording is logged under P11)"
+    },
+    {
+      "id": "P9",
+      "result": "PASS",
+      "evidence": "\"Continuity: none, this is the first frame of the reel.\" Spec previous_shot null, carry_over []"
+    },
+    {
+      "id": "P10",
+      "result": "PASS",
+      "evidence": "openai/gpt-image-2/text-to-image is in models.atlas.allowed for still; quality medium; size 1152x2048 = 9:16 size_for_aspect; no text fields; \"vertical 9:16\"; photo with real skin texture; hero registration is stricter than the still default, allowed"
+    },
+    {
+      "id": "P11",
+      "result": "FAIL",
+      "evidence": "Prompt Hands: \"Both hands and the sleeves stay below the line 62%\" sits beside \"The other hand is out of frame\" and \"Exactly one hand\"; 'both hands' can be read as a second hand in frame. Fix: \"The hand and the sleeve stay below the line 62%...\""
+    },
+    {
+      "id": "P12",
+      "result": "PASS",
+      "evidence": "FL-01 \"No letter touches a thumb...\"; FL-03 contact points; FL-05/FL-10 \"No other screens, papers, posters or readable words\"; FL-06 thumb, wrist, sleeve named; FL-13 no logo asked (concept frame, no overlay planned)"
+    }
+  ],
+  "corrected_prompt": "Candid iPhone 15 Pro photo, vertical 9:16, shallow depth of field, real skin texture. Look: a POV dramatization with hands only and never a face; a warm evening home office lit by a tungsten desk lamp from the left (the lamp itself is out of frame), soft shadows; the wrists always in mustard-yellow knit sleeves; muted warm palette of walnut, warm grey and mustard, the phone screen the brightest thing in the frame.\nReference images: none attached; this prompt is the only input.\nSubject: all positions in this prompt are measured down from the top edge and across from the left edge of the frame. One modern black smartphone held by the viewer, tilted back about 20 degrees from upright with its lit screen facing the camera, centred (x 16% to 84%), running from y 30% down past the bottom edge, close to the camera; it appears once and is the only device in the picture.\nHands: seen from the viewer's own point of view. The left hand, in the lower left (x 12% to 50%, y 72% to 100%), holds the phone from below: its thumb lies along the phone's left edge and is its only visible finger; its other four fingers wrap around the phone's lower back, out of sight behind the phone, with no fingertips showing past the phone's edges; its wrist and mustard-yellow knit sleeve come up from the bottom edge of the frame behind the phone and are out of sight behind it, except the sleeve cuff showing left of the phone's left edge (x 12% to 16%). The other hand is out of frame. The hand and the sleeve stay below the line 62% of the way down from the top of the frame, well below the bubble. No letter touches a thumb, a finger, a hand or a sleeve. Exactly one hand; of its fingers only the thumb shows, plus the sleeve cuff.\nAction: The left thumb rests along the phone's left edge and its four hidden fingers grip the phone's lower back; the phone is still.\nProps: the phone is a plain black smartphone with thin bezels and rounded corners, no logo on the case or the glass, one lit screen. The screen shows a plain chat view on a white background with exactly one large light-grey incoming message bubble at the top of the screen (x 22% to 78%, y 33% to 54%), and empty white space below it; no names, no avatars, no status bar, no time, no app logo.\nText: inside the one grey bubble, centred, in dark charcoal plain sans-serif, sentence case: only the W is a capital letter, not all capitals; the tall letters (the W and the ascenders) about 60 px high on a frame 1152 px wide; on 2 or 3 lines, each line ending well inside the bubble's edge: \"We can get it done cheaper.\" Sentence case: only the W is a capital letter, not all capitals; exactly these words and this punctuation. No hand, finger, sleeve rises above the line 62% of the way down from the top, so no letter touches anything.\nSetting: a home office in the evening seen over the hands: a warm walnut desk visible only in the strips left and right of the phone, soft and out of focus; above the phone's top edge there is only the wall, plain dark warm grey and out of focus. No other screens, papers, posters or readable words anywhere except the message in the bubble; the desk is bare.\nCamera: first person looking down at the phone at about 30 degrees, phone screen sharp, 9:16. The top 30% of the frame is a calm, plain, out-of-focus dark wall with nothing in it. The bubble sits at y 33% to 54%, inside the 15% to 55% key band, and inside 6% side margins; below y 55% there is only the phone body, the hands and the desk strips, and the hands stay out of the right 21% of the frame's lower half (only the phone's right edge and the desk strip are there).\nContinuity: none, this is the first frame of the reel.\nNegatives: no face and no reflection of a face in the screen; no logo, brand or app name; no numbers, no clock, no status bar; no words other than the message; nothing in the top 30% except the plain wall; no second hand.",
+  "corrected_prompt_sha256": "504e3539ce2a6a5da95cb0e0f9a57e63a53dedbb028f293480aeb972ab4f9ce2"
+}

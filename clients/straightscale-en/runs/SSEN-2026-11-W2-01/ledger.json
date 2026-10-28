@@ -95,12 +95,21 @@
       "sha256": "620159011ff7172dbe9f3584a76d05dec07c8248582f05951ba824045ddd0d11",
       "lint": "PASS",
       "lint_at": "2026-10-28T17:23:09+00:00",
-      "lint_issues": []
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T17:26:23+00:00",
+          "status": "PASS",
+          "sha256": "620159011ff7172dbe9f3584a76d05dec07c8248582f05951ba824045ddd0d11",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-V1.spec.json"
+        }
+      ]
     },
     "H-01-V10": {
-      "sha256": "a8458d8ab0e133ee07f192e8f12de8365ba54d76af9f18b4cdec6c9ea5e3933c",
+      "sha256": "0afb32c23f8f640c19df811f399359ffcc4ff3b3fee7d5067bd402d20faa5168",
       "lint": "PASS",
-      "lint_at": "2026-10-28T17:23:09+00:00",
+      "lint_at": "2026-10-28T17:29:51+00:00",
       "lint_issues": [
         {
           "level": "warn",
@@ -110,16 +119,25 @@
       ]
     },
     "H-01-V3": {
-      "sha256": "c661ba72fbf2302cc5ff42d12374c73dffed3a04ed16a1717b9dd653d5842bcb",
+      "sha256": "a731bb305e066e043a715f381e0f79475f4481f22d3d3c8c13ea04897da3ede1",
       "lint": "PASS",
-      "lint_at": "2026-10-28T17:23:48+00:00",
+      "lint_at": "2026-10-28T17:25:42+00:00",
       "lint_issues": []
     },
     "H-01-V7": {
       "sha256": "c0983a566a0e967f22b5db0df7fe3cea3514b6f994cdcbba5d65b347cad4f368",
       "lint": "PASS",
       "lint_at": "2026-10-28T17:23:10+00:00",
-      "lint_issues": []
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T17:26:23+00:00",
+          "status": "PASS",
+          "sha256": "c0983a566a0e967f22b5db0df7fe3cea3514b6f994cdcbba5d65b347cad4f368",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-V7.spec.json"
+        }
+      ]
     }
   },
   "assets": [
@@ -165,7 +183,17 @@
       "medias": [],
       "ids": [],
       "files": [],
-      "gates": {}
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T17:26:23+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-V1.v1.prompt.json",
+            "prompt_sha256": "2867b72715ec62813d34bbdd902e7b2d1ae40ae347fcc4bb5992661534709626"
+          }
+        ]
+      }
     },
     {
       "asset_id": "CF-V10",
@@ -178,8 +206,8 @@
       "hero": true,
       "hook": true,
       "created": "2026-10-28T17:10:51+00:00",
-      "prompt_sha256": "f734c88df20a15deca84a8b13bc9c302bdafa8bf33970a5afa6971795102364b",
-      "prompt_file": "prompts/CF-V10.v1.4.txt",
+      "prompt_sha256": "504e3539ce2a6a5da95cb0e0f9a57e63a53dedbb028f293480aeb972ab4f9ce2",
+      "prompt_file": "prompts/CF-V10.v1.5.txt",
       "prompt_history": [
         {
           "at": "2026-10-28T17:10:51+00:00",
@@ -203,6 +231,12 @@
           "at": "2026-10-28T17:23:42+00:00",
           "sha256": "f734c88df20a15deca84a8b13bc9c302bdafa8bf33970a5afa6971795102364b",
           "file": "prompts/CF-V10.v1.4.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T17:29:52+00:00",
+          "sha256": "504e3539ce2a6a5da95cb0e0f9a57e63a53dedbb028f293480aeb972ab4f9ce2",
+          "file": "prompts/CF-V10.v1.5.txt",
           "medias": []
         }
       ],
@@ -253,7 +287,17 @@
       "medias": [],
       "ids": [],
       "files": [],
-      "gates": {}
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T17:26:23+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-V7.v1.prompt.json",
+            "prompt_sha256": "4c9289f126dc5f4daa0520d66675a7011dcc91bff26dbeae8c83e37d4e7aff20"
+          }
+        ]
+      }
     },
     {
       "asset_id": "CF-V3",
@@ -303,7 +347,17 @@
       "medias": [],
       "ids": [],
       "files": [],
-      "gates": {}
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T17:25:42+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-V3.v1.prompt.json",
+            "prompt_sha256": "8ea2e31099a455adb617298dc2b3beafe25a305e72a6e9e5f2b15344fa05885d"
+          }
+        ]
+      }
     }
   ],
   "queue": []
