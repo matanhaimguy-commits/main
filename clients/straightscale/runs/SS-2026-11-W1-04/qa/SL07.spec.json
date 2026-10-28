@@ -1,0 +1,76 @@
+{
+  "gate": "G-SPEC",
+  "shot_id": "SL07",
+  "spec_sha256": "6b7e2d593f828f9e673d02330fc8ad33545f5cde9a92d583f189674624c25e86",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "FAIL",
+  "checks": [
+    {
+      "id": "P1",
+      "result": "FAIL",
+      "evidence": "setting.details and background_rule mention 'a closed laptop at the back edge' / 'the laptop is closed with a plain lid', but props has no PR-LAPTOP (SL01 to SL06 and SL08 all list it), so the laptop has no content line. Other elements covered: strings 'PYETJA 5' / 'Ka arsye tjetër,' / 'përveç çmimit?' / 'Jo? Shkruaj një arsye pa çmim.' / '7/8' rebuild line_text; phone, hand, screen, arrow boxed."
+    },
+    {
+      "id": "P2",
+      "result": "N/A",
+      "evidence": "N/A in spec mode (checked at prompt review)."
+    },
+    {
+      "id": "P3",
+      "result": "FAIL",
+      "evidence": "Same hand block as SL01 and SL05: 'near the bottom of the screen' vs hand box y 0.54-0.74; hand box x 0.84-1.0 overlaps screen box x 0.48-0.86 against must_not_cover 'the screen'; 'tips showing past its edge' names no edge, visible fingertips in no hand region."
+    },
+    {
+      "id": "P4",
+      "result": "PASS",
+      "evidence": "'thumb pad on the phone's right edge and four fingertips against the back of the case'."
+    },
+    {
+      "id": "P5",
+      "result": "PASS",
+      "evidence": "PR-PHONE-SCREEN.content: nine kitchen photos 'the centre photo has a thin ivory frame around it and sits slightly larger than the rest'. Prop sheet PS-PROFILE (GRID-FRAMED) still to be built."
+    },
+    {
+      "id": "P6",
+      "result": "PASS",
+      "evidence": "5 strings with surface, position, case, exact flag, occlusion; highlight on 'arsye' named; ë, ç present ('tjetër', 'përveç', 'çmimit', 'çmim'); longest string 6 words."
+    },
+    {
+      "id": "P7",
+      "result": "PASS",
+      "evidence": "background_rule: 'The phone screen shows only the photo grid.' The framed photo is inside the screen with its content stated."
+    },
+    {
+      "id": "P8",
+      "result": "FAIL",
+      "evidence": "Arrow box [0.86,0.89,0.96,0.96] overlaps phone box [0.42,0.44,0.92,1.0]: crimson button on the red case. Hand/screen overlap as in P3."
+    },
+    {
+      "id": "P9",
+      "result": "PASS",
+      "evidence": "carry_over: 'The phone is held up close again like the cover, but one photo in the grid now stands out; same light.' Matches SL06 (stand) to hand with a reason."
+    },
+    {
+      "id": "P10",
+      "result": "N/A",
+      "evidence": "N/A in spec mode (checked at prompt review)."
+    },
+    {
+      "id": "P11",
+      "result": "FAIL",
+      "evidence": "'tips showing past its edge' (which edge?). 'sits slightly larger than the rest' in a 3x3 grid: by how much is open, and the grid could break its alignment."
+    },
+    {
+      "id": "P12",
+      "result": "PASS",
+      "evidence": "FL-01 hand far from text; FL-04 content filled; FL-10 'no text, no digits'; FL-13 logo-zone. Set check: counter n/8 matches position; previous_shot chain SL01..SL08 is correct; arrow present on slides 1 to 7 and absent on 8; the ask 'Shkruaj ANALIZA në komente.' appears only on SL08; style block identical on all 8 with the logo wording swapped."
+    }
+  ],
+  "suggested_spec_changes": [
+    "props: add PR-LAPTOP {story_critical false, state 'closed, at the back edge of the desk, out of focus', content 'a closed silver-grey laptop with a plain lid, no logo, no sticker'}.",
+    "Hand block (SL01, SL05, SL07 identically): (a) say which edge shows the fingertips: 'thumb pad on the front of the phone at its right edge; the palm against the right edge; the four fingers wrap behind the case and only their tips show past the phone's LEFT edge at 58% to 72% of the height'; (b) replace 'near the bottom of the screen' with 'at the height of the screen's middle (about 60% of the frame height)'; (c) add a second hand region kind hand for the visible fingertips [0.36,0.56,0.46,0.74]; (d) make the hand box and the phone-screen box disjoint (hand x from 0.80, screen x to 0.79) so must_not_cover 'the screen' holds.",
+    "Move the phone clear of the arrow: phone box x 0.40 to 0.84 (about 44% of the frame width, size_in_frame updated), screen box x 0.45 to 0.79, hand box x from 0.80. The arrow box [0.86,0.89,0.96,0.96] then sits on dark desk, not on the red case. Also state in the prop: 'the arrow button sits on the dark desk, never on the phone case'.",
+    "PR-PHONE-SCREEN.content: 'the centre photo has a thin ivory frame around it and is about 10% larger than the other eight, which stay in their grid cells'."
+  ]
+}

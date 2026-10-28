@@ -1,0 +1,74 @@
+{
+  "gate": "G-SPEC",
+  "shot_id": "SL06",
+  "spec_sha256": "30c87ddf1ecd3066a3619cd85e16c64af53b6a8bffe3c92aac19f7170369136f",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "FAIL",
+  "checks": [
+    {
+      "id": "P1",
+      "result": "PASS",
+      "evidence": "strings 'PYETJA 4' / 'Shihet çfarë ndodh' / 'pasi të shkruajnë?' / 'Jo? Shkruaj hapin pas mesazhit.' / '6/8' rebuild line_text; phone, stand, screen, laptop, arrow, window all present and boxed."
+    },
+    {
+      "id": "P2",
+      "result": "N/A",
+      "evidence": "N/A in spec mode (checked at prompt review)."
+    },
+    {
+      "id": "P3",
+      "result": "PASS",
+      "evidence": "hands: 'none visible'; 'nothing touches it'."
+    },
+    {
+      "id": "P4",
+      "result": "PASS",
+      "evidence": "'The phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support; nothing touches it.' PR-STAND structure described in one line."
+    },
+    {
+      "id": "P5",
+      "result": "PASS",
+      "evidence": "PR-PHONE-SCREEN.content: 'a light-grey bubble aligned left near the top holding two short dark-grey bars, and under it a crimson #B31217 bubble aligned right holding one short ivory bar; no letters, no digits'. Prop sheet PS-CHAT (CHAT-REPLY) still to be built."
+    },
+    {
+      "id": "P6",
+      "result": "PASS",
+      "evidence": "4 strings with surface, position, case, exact flag, occlusion; ç, ë present; highlight on 'pasi' named; longest string 5 words."
+    },
+    {
+      "id": "P7",
+      "result": "PASS",
+      "evidence": "background_rule: 'The phone screen shows only the two bubbles. The clock tower is a small lit silhouette with a plain clock face: no numerals, no letters; the window glass reflects no text; no shop signs'."
+    },
+    {
+      "id": "P8",
+      "result": "PASS",
+      "evidence": "No two instructions conflict; window box [0.8,0.42,1.0,0.62] is clear of the arrow and the text."
+    },
+    {
+      "id": "P9",
+      "result": "PASS",
+      "evidence": "carry_over: 'The phone stands in the middle of the desk, lit, in a stand; wider than slides 3 to 5; same lamp.' The stand is new and named; hand to stand change is a story step."
+    },
+    {
+      "id": "P10",
+      "result": "N/A",
+      "evidence": "N/A in spec mode (checked at prompt review)."
+    },
+    {
+      "id": "P11",
+      "result": "FAIL",
+      "evidence": "setting.details: 'Wide: the whole desk and the desk lamp are visible' but the lamp and the 'closed laptop at the back edge' have no position, and the top 40% must be a calm text wall; in a front-on wide shot the back-edge laptop sits straight behind the phone and the lamp can rise into the text zone. Phone 'about 24% of the frame width' (259 px) vs box width 20% (216 px)."
+    },
+    {
+      "id": "P12",
+      "result": "PASS",
+      "evidence": "FL-02 stand structure given; FL-04, FL-05, FL-10, FL-13 covered. Set check: counter n/8 matches position; previous_shot chain SL01..SL08 is correct; arrow present on slides 1 to 7 and absent on 8; the ask 'Shkruaj ANALIZA në komente.' appears only on SL08; style block identical on all 8 with the logo wording swapped."
+    }
+  ],
+  "suggested_spec_changes": [
+    "setting.details: add 'the desk lamp stands at the left end of the desk at y 48% to 80%, x 2% to 20%, its shade below the text wall; the closed laptop is a dark out-of-focus shape behind the desk at y 50% to 60%, x 62% to 85%, never behind the phone and never in the top 40%'; add a lamp region of kind other [0.02,0.48,0.2,0.8].",
+    "Make size and box agree: phone box x 0.38 to 0.62, or phone width 20%."
+  ]
+}

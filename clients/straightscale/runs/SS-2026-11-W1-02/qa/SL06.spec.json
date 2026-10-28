@@ -1,0 +1,77 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "SL06",
+ "spec_sha256": "ed2f306c4b30b30d258223785d6e94318cf1aabe45a125fcb30c2b8cf8e2c594",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "FAIL",
+   "evidence": "Label 'NJË PYETJE' (line 1 of 5) is in text_in_image but not in line_text 'Çfarë të bëri gati të zgjidhje dikë tjetër? Dërgoja klientëve të fundit.'; it cannot be checked against slide copy S6. The hands belong to 'OWNER (hands only)', which has no subject entry; its visible wrists and sleeves are not described."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: no prompt and no attached images yet."
+  },
+  {
+   "id": "P3",
+   "result": "FAIL",
+   "evidence": "The right thumb 'hovers 2 cm above the lower part of the screen' while the empty message field is 'at the bottom' of the screen and must_not_cover is 'the empty message field and the top of the screen'. Regions agree with the conflict: hand-right [0.62,0.66,0.86,0.9] and hand-left [0.42,0.62,0.6,0.9] both sit over the lower part of phone-screen [0.48,0.5,0.88,0.86]. count_check says 'four fingers curled below' for the right hand but `right` names only the index finger."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'left thumb pad on the left edge of the phone; right thumb tip 2 cm above the glass, not touching it'."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-PHONE-SCREEN (story_critical) content: 'one short light-grey bubble aligned left near the top, and at the bottom an empty rounded white message field with a thin dark cursor bar inside it; no letters'. 'no text typed in the message field' is targeted. Note: prop sheet PS-COMPOSER must pass G-VIS-SHEET first."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "5 strings with surface, position, case, occlusion; 'Çfarë' / 'bëri' / 'zgjidhje' / 'dikë' / 'tjetër?' / 'Dërgoja klientëve të fundit.' equal the spoken line; 'gati' highlight defined; counter '6/8'; headline 7 words."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: 'Behind the hands only soft lamp lights and the dark sales desk; no frame samples, signs or readable words'; no window."
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "size_in_frame 'about 50% of the frame width' and phone region [0.42,0.46,0.94,0.9]: a portrait phone 50% of the width (about 560 px) is about 1,150 px tall, but the region is 44% of the height (about 590 px), so it is nearly square. The region also reaches y 0.9 at x up to 0.94, over the arrow [0.86,0.89,0.96,0.96]."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot SL05; carry_over 'The same phone, now lit and in a hand; the sales desk edge is only a soft line'."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution, aspect and duration rules are checked on the prompt (the spec has aspect '4:5', as required)."
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "'eye level, from the front-left, the phone tilted toward the camera' for the OWNER who is about to type: if the screen faces the camera in front of him, he cannot see it and his fingers are behind the phone; if it faces him, the camera sees its back. Who sees the screen is ambiguous."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-13 corner rule and logo-zone; FL-01 text y 0.07 to 0.374, hands from y 0.62; FL-06 'hands only' with fingers counted; FL-04 screen filled."
+  }
+ ],
+ "suggested_spec_changes": [
+  "P1: add the label to line_text (e.g. 'NJË PYETJE. Çfarë të bëri gati ...') or document it as a non-spoken label field; add a CH-OWNER-HANDS subject (or a note) naming the visible parts: 'both hands and about 5 cm of wrist in a dark jacket cuff; no face, no torso'.",
+  "P3: move the contact so the message field stays visible: 'right thumb hovers 2 cm above the screen's lower-right corner, beside the field, which stays visible across its left 70%'; right: 'index to little finger curled under the phone's right edge'; add a region composer-field (kind prop) e.g. [0.50,0.78,0.84,0.84] and keep both hand boxes off it (left hand below the screen, right thumb over x 0.74 to 0.86 only).",
+  "P8: size the phone to the frame: a portrait phone about 27% of the frame width (about 290 px wide, 590 px tall), e.g. phone region [0.50,0.46,0.77,0.90], screen [0.52,0.49,0.75,0.86]; keep every box clear of the arrow [0.86,0.89,0.96,0.96].",
+  "P11: fix the viewpoint: 'over-the-shoulder macro from behind and slightly left of the owner's hands; the phone's screen faces up toward his eyes, tilted 20 degrees toward the lens so the screen is visible to the camera'.",
+  "ADVISORY (not a fail): the locked style text says 'the Tirana clock tower visible through the cover's window' while must_not says 'no window and no clock tower'. The notes line resolves it; the prompt must carry the same resolution (clock tower only on slides 1, 3 and 8) so the pasted style block and the negatives do not contradict."
+ ]
+}

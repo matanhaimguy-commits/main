@@ -1,0 +1,82 @@
+{
+  "gate": "G-SPEC",
+  "shot_id": "IMG01",
+  "spec_sha256": "3b54a996cf34d55fab014f3df4219404e7a5be615d87f2a1c093d5a3e5047025",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "FAIL",
+  "checks": [
+    {
+      "id": "P1",
+      "result": "FAIL",
+      "evidence": "must_read_in_1s: 'A lit phone with new messages sits alone on the sales desk while the owner is busy with a client.' The second half is not checkable in the picture: the people are two small, soft figures seen from behind (CH-OWNER 'dark shirt', CH-CLIENT 'grey jacket') with no face, tool or cue that marks one as the owner or says he is busy. A sound-off stranger sees a phone and two backs. All required schema fields, the 3 text surfaces, the phone, screen, people, rack and logo-zone regions are present; only the 1-second line is not one verifiable moment."
+    },
+    {
+      "id": "P2",
+      "result": "N/A",
+      "evidence": "Spec mode: no prompt or media list yet. (Spec says PS-CHAT is the last reference image; the reference map is judged at G-PROMPT-IMG.)"
+    },
+    {
+      "id": "P3",
+      "result": "PASS",
+      "evidence": "hands: 'none visible'; both people have 'both hands in his trouser pockets' / 'both hands in his jacket pockets'; action_physics: 'with no hand or object touching it' (phone). No hand is near any text surface (no FL-01 risk)."
+    },
+    {
+      "id": "P4",
+      "result": "FAIL",
+      "evidence": "action_physics bullet 2: 'the customer's head bowed toward one door sample, the owner's head turned slightly toward it' gives a direction, not a contact point or distance, and PR-SAMPLE-RACK says 'far behind the people, out of focus' while the people 'face the sample rack' and one bows 'toward a door sample'. How far the people stand from the rack and how far the bowed head is from the sample is not written. The phone line ('whole back flat on the sales desk, screen up') and the feet line ('both feet flat on the showroom floor') are good contact points."
+    },
+    {
+      "id": "P5",
+      "result": "FAIL",
+      "evidence": "PR-PHONE-SCREEN (story_critical true) has a content line (grey incoming bubble with two dark-grey bars, smaller bubble with one bar) but (a) the screen/chat background colour is not stated, so light-grey bubbles on 'black glass front' are undefined, and (b) ref: 'PS-CHAT state CHAT-IN-2 (prop sheet to build on SS-LIB-W45W46)' is unversioned and says 'to build': a reviewer cannot confirm the sheet exists or passed G-VIS-SHEET (style adapter 5: a readable screen needs a prop sheet on the LIB run first). Also PR-PHONE, the thread and the focal object, is story_critical false with ref null although the red case must read."
+    },
+    {
+      "id": "P6",
+      "result": "PASS",
+      "evidence": "Three strings with quotes, surface, position, case as_written, must_be_exact true and occlusion: 'Kush u përgjigjet' (3 words), 'mesazheve kur je' (3), 'me klient?' (2); joined they equal line_text 'Kush u përgjigjet mesazheve kur je me klient?'; 8 words total (4 to 10), each surface 6 words or fewer, inside the 4% margin (x from 6%), regions t01-head, t02-head, t03-head match the stated y bands. Ivory #F8F6EF on crimson #B31217 is about 6.5:1. Advisory only: lines are 17, 16, 10 characters against the 'about 12' cover guideline, and 80 px on a 1080 frame is modest at 200 px wide; the visual reviewer should check V19."
+    },
+    {
+      "id": "P7",
+      "result": "PASS",
+      "evidence": "setting.background_rule: 'The sample rack holds only plain colour samples; no price tags, signs, posters, clocks, screens or readable words anywhere; the walls are plain.' Rack content 'unlabelled'; window and clock tower excluded. No frame, book or sign is left without a rule."
+    },
+    {
+      "id": "P8",
+      "result": "FAIL",
+      "evidence": "(1) must_not: 'no readable words on any phone screen except the strings listed in the text block or the props block' lets the model repeat the headline strings on the phone screen, which contradicts PR-PHONE-SCREEN content 'two short dark-grey bars instead of letters ... no names, no digits'. (2) CH-OWNER pose says 'facing the sample rack' with no head turn, but action_physics and background_action say 'the owner's head turned slightly toward it', which risks a profile and contradicts must_not 'no faces or profiles on the people' and state 'no face or profile visible'. (3) PR-PHONE state 'black glass front' vs 'screen lit' with no stated lit-screen colours."
+    },
+    {
+      "id": "P9",
+      "result": "PASS",
+      "evidence": "continuity.previous_shot: null, carry_over: [] on a single static; the shots folder holds only IMG01, so counters n/N, the one ask on the last slide and the last-slide arrow rule are N/A (style: 'a single image with no slide counter and no swipe arrow'; camera.safe_zones 'no arrow in this shot'). Note for the Director, not a spec fail: notes say the card's hook gate shipped a daytime showroom with a tight crop and this spec changes it to a night look with 'Director to confirm'; style also drops the style-bible clock tower and gold counter for this image."
+    },
+    {
+      "id": "P10",
+      "result": "N/A",
+      "evidence": "Spec mode. (camera.aspect '4:5' is consistent with STANDARDS 1 for feed images.)"
+    },
+    {
+      "id": "P11",
+      "result": "FAIL",
+      "evidence": "(1) 'to the owner's left' (CH-CLIENT) and 'far end of the showroom' / 'far behind the phone' / 'far behind the people' give no distances or image side; say 'on the left side of the image'. (2) 'screen lit' with 'black glass front' does not say what colour the chat background is. (3) 'a lit phone ... alone' does not say the desk surface is otherwise bare (papers, laptop, second phone, mug would add readable words or screens). (4) 'the word 'klient?' sits inside a solid crimson highlight rectangle' does not say the rectangle covers only 'klient?' and not 'me'."
+    },
+    {
+      "id": "P12",
+      "result": "FAIL",
+      "evidence": "FL-04 (empty or wrong story props): prevention needs the prop sheet attached and a content line; the sheet is 'to build' and unversioned, and the screen background is unspecified. FL-06 (faceless or blob anatomy in close-ups): named visible parts are good ('back of the head, back of the neck and collar visible') but the owner's turned head invites a profile. FL-13 (model-drawn logo) is handled: 'bottom-left corner (lowest 9% of the height, left 40% of the width) calm, dark and empty', 'no logo or wordmark drawn anywhere', logo-zone region [0.0, 0.91, 0.4, 1.0]. FL-05, FL-11 ('instances: 1', 'both feet flat on the floor') and FL-01 are handled."
+    }
+  ],
+  "suggested_spec_changes": [
+    "must_read_in_1s: replace with one checkable moment, e.g. 'A lit phone showing two unanswered messages lies alone on the desk in the foreground while two people stand with their backs turned at the far end of the showroom.' If the owner must read as busy, the headline carries that, not the picture.",
+    "action_physics[1] and subjects CH-OWNER/CH-CLIENT: write distances, e.g. 'both stand about 1.5 m in front of the sample rack; the customer's head is bowed forward, his face about 40 cm from one door sample without touching it; the owner stands level with him, head and shoulders square to the rack.' Make PR-SAMPLE-RACK state 'directly behind the people, out of focus' instead of 'far behind the people'.",
+    "CH-OWNER, action_physics and background_action: drop 'the owner's head turned slightly toward it'; use 'the back of the owner's head squarely to the camera, only the back of the head, neck and collar visible, no cheek, ear-front or profile'.",
+    "must_not: replace 'no readable words on any phone screen except the strings listed in the text block or the props block' with 'no letters, words, digits or app names on the phone screen; the two bubbles hold only grey bars'.",
+    "PR-PHONE-SCREEN content: add the chat background, e.g. 'on a dark charcoal chat background, the incoming bubbles light grey, a faint warm glow on the desk around the phone'. Also state PR-PHONE case visibility: 'the deep red #BE0F18 case shows as a rim around the black glass front'.",
+    "PR-PHONE-SCREEN ref: build PS-CHAT on SS-LIB-W45W46, pass G-VIS-SHEET, then set ref to the versioned asset (e.g. 'PS-CHAT@v1 state CHAT-IN-2') and keep it as the last reference image. Set PR-PHONE story_critical true with the same ref (or a phone state on the sheet), since the red case is the thread.",
+    "setting.details/background_rule: add 'the desk surface is bare apart from the phone: no papers, catalogues, laptop, monitor, pen, mug or second device'.",
+    "CH-CLIENT state: change 'to the owner's left' to 'on the left side of the image, shoulder to shoulder with the owner'.",
+    "text_in_image[2].surface: add 'the crimson rectangle covers only the word klient? and its question mark, not 'me''; add a region (kind text) for the highlight box.",
+    "Optional: lengthen headline legibility (type larger than about 80 px or a cover-style break nearer 12 characters per line) so it holds at 200 px wide; the visual reviewer will check V19."
+  ]
+}

@@ -1,0 +1,71 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "SL04",
+ "spec_sha256": "399d3c8f2daa762b2b661ea710ed286d992e3304be1b7a545d371a467d53827e",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "line_text 'Çdo ofertë pa përgjigje. Në vend të kësaj: një mesazh i dytë.' = 4 strings + counter; phone, chat screen, arrow all present with regions."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode (no prompt or attachments yet)."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible; 'with nothing touching it'."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'The phone lies with its whole back flat on the table, screen up and lit, with nothing touching it.'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-PHONE-SCREEN story_critical with content: 'two crimson #B31217 outgoing bubbles aligned right, the upper one dimmer... the lower one brighter... one or two short ivory bars instead of letters; no grey incoming bubble, no letters, no digits, no names'; must_not 'no letters inside the bubbles' is targeted. Prop sheet PS-CHAT state CHAT-FOLLOWUP must exist and pass before generation."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "'Çdo ofertë pa' / 'përgjigje.' / 'Në vend të kësaj:' / 'një mesazh i dytë.' / '4/8' exact with surface, size, colour, occlusion; 4 words or fewer each. The 36 px connector is a reels-rule matter, not applied to slides."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'The phone screen shows only the two bubbles'; walls plain; no window."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No conflict found: 'no letters inside the bubbles' and 'ivory bars instead of letters' agree."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot SL03; carry_over 'The phone lights up; the notebook is out of frame.' Note: no carry_over names a swipe-bridge element (adapter 5 lists 'the bridge element'); confirm against the carousel plan or state 'bridge: none'."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode (model and params are checked on the prompt)."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No ambiguous word found; dimmer versus brighter bubble is stated."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 content line + prop sheet; FL-13 logo-zone; FL-10 gibberish text on screens prevented by 'no letters, no digits, no names, no status bar, no app logo'."
+  }
+ ],
+ "suggested_spec_changes": []
+}

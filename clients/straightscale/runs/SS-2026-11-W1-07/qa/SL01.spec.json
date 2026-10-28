@@ -1,0 +1,75 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "SL01",
+ "spec_sha256": "c2c5c9a2e36ab26d14c73c6c83c7b06fd4ade9dad720a41cbbf22ec44ab37c72",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "line_text 'Pse punonjësi të telefonon për çdo klient?' = the three headline strings; phone, call screen, plate, hand, window, arrow, counter all have entries and regions."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode (no prompt or attachments yet)."
+  },
+  {
+   "id": "P3",
+   "result": "FAIL",
+   "evidence": "Contact line puts the fingertips '3 cm above the phone's right edge', but region 'hand' box [0.64, 0.64, 1.0, 0.8] starts at x 0.64, right of the phone box's right edge (0.62), so a 2x hand crop cuts off the fingertips and the zone over the phone that must not cover the call screen."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'right fingers stop open 3 cm above the phone, about to pick it up'; 'phone lies with its whole back flat on the table, screen up' (distance and contact stated)."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-PHONE-SCREEN story_critical with content: 'the single word Dyqani in white bold sans... large plain dark-grey circle... two round buttons'; no blanket 'no text' (must_not is targeted). Prop sheet PS-CALL-DYQANI is still to be built on SS-LIB-W45W46; it must exist and pass before generation."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "'Pse punonjësi' / 'të telefonon për' / 'çdo klient?' / 'Dyqani' / '1/8': each has surface, position, size, colour, occlusion; all 3 words or fewer; cover headline 7 words (STANDARDS 6: 4 to 10)."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: 'No menus, receipts, signs or readable words anywhere... window glass reflects no text; the clock tower is a small lit silhouette with a plain clock face: no numerals, no letters'."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No conflict found: style 'clock tower visible through the cover's window' matches the window in this cover shot; bottom-left corner empty and phone box (to y 0.90) stay apart."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot null, carry_over [] (first slide); hero true on SL01 only."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode (model and params are checked on the prompt)."
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "'3 cm above the phone's right edge' can be read as higher in the frame or as hovering over the table; 'passes in front of the plate, below the fork and the glass' mixes depth and frame position. A cover with zero tolerance needs one reading."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-13 logo-zone region + 'no logo or wordmark drawn anywhere'; FL-04 prop sheet + content line; FL-05 window rule; FL-01 'the hand, the plate and any reflection stay off the words on the screen'; FL-02 phone structure line."
+  }
+ ],
+ "suggested_spec_changes": [
+  "hands[0].contact: write 'the fingertips hover 3 cm over the table-level surface of the phone's right edge, pointing left toward the phone, the palm facing down; the hand is in the air, not on the table'.",
+  "hands[0].right: replace 'passes in front of the plate, below the fork and the glass' with 'the forearm lies on the table nearer the camera than the plate; the plate, fork and glass are all higher in the frame than the hand'.",
+  "regions[hand].box: widen to [0.54, 0.62, 1.0, 0.8] so the fingertips over the phone's right edge are inside the crop."
+ ]
+}

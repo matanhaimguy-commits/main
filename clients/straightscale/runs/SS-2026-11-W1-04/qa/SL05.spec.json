@@ -1,0 +1,75 @@
+{
+  "gate": "G-SPEC",
+  "shot_id": "SL05",
+  "spec_sha256": "b186242ad349028c9a4a0c02fc51b2373ef4134f819a48e8030312bfddbb1f46",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "FAIL",
+  "checks": [
+    {
+      "id": "P1",
+      "result": "PASS",
+      "evidence": "strings 'PYETJA 3' / 'Fjalët e' / 'klientëve,' / 'apo të tuat?' / 'Jo? Kopjo fjalët e tyre.' / '5/8' rebuild line_text; phone, hand, screen, laptop, arrow present and boxed."
+    },
+    {
+      "id": "P2",
+      "result": "N/A",
+      "evidence": "N/A in spec mode (checked at prompt review)."
+    },
+    {
+      "id": "P3",
+      "result": "FAIL",
+      "evidence": "Same hand block as SL01: 'thumb pad on the phone's right edge near the bottom of the screen' vs hand box y 0.54-0.74 and screen box y 0.48-0.92; hand box x 0.84-1.0 overlaps phone-screen box x 0.48-0.86 against must_not_cover 'the screen'; 'tips showing past its edge' names no edge and the visible fingertips are in no hand region."
+    },
+    {
+      "id": "P4",
+      "result": "PASS",
+      "evidence": "'thumb pad on the phone's right edge and four fingertips against the back of the case'."
+    },
+    {
+      "id": "P5",
+      "result": "PASS",
+      "evidence": "PR-PHONE-SCREEN.content: 'four rounded light-grey bubbles aligned to the left edge, each holding two or three short dark-grey bars instead of letters'; must_not 'no letters inside the chat bubbles' is targeted at the bars design. Prop sheet PS-CHAT (CHAT-IN-4) still to be built."
+    },
+    {
+      "id": "P6",
+      "result": "PASS",
+      "evidence": "6 strings with surface, position, case, exact flag, occlusion; ë present in 'Fjalët', 'klientëve', 'të', 'fjalët'; highlight on 'tuat?' named; longest string 5 words."
+    },
+    {
+      "id": "P7",
+      "result": "PASS",
+      "evidence": "background_rule: 'The phone screen shows only the grey bubbles and bars.' plus laptop rule."
+    },
+    {
+      "id": "P8",
+      "result": "FAIL",
+      "evidence": "Arrow box [0.86,0.89,0.96,0.96] overlaps phone box [0.42,0.44,0.92,1.0]: the crimson button lands on the red case (see SL01). Hand/screen overlap as in P3."
+    },
+    {
+      "id": "P9",
+      "result": "FAIL",
+      "evidence": "SL04 introduced PR-PHONE-2 (second phone, black case); carry_over of SL05 says only 'The phone is in a hand again, as on slide 1' and must_not has no 'no second phone', so the second phone's disappearance has no stated reason and SL04 is an image reference (leak risk)."
+    },
+    {
+      "id": "P10",
+      "result": "N/A",
+      "evidence": "N/A in spec mode (checked at prompt review)."
+    },
+    {
+      "id": "P11",
+      "result": "FAIL",
+      "evidence": "'tips showing past its edge' (which edge?) as in P3."
+    },
+    {
+      "id": "P12",
+      "result": "PASS",
+      "evidence": "FL-01 hand far from text; FL-08 contact stated; FL-10 gibberish in chat guarded by 'no letters inside the chat bubbles'; FL-13 logo-zone. Set check: counter n/8 matches position; previous_shot chain SL01..SL08 is correct; arrow present on slides 1 to 7 and absent on 8; the ask 'Shkruaj ANALIZA në komente.' appears only on SL08; style block identical on all 8 with the logo wording swapped."
+    }
+  ],
+  "suggested_spec_changes": [
+    "Hand block (SL01, SL05, SL07 identically): (a) say which edge shows the fingertips: 'thumb pad on the front of the phone at its right edge; the palm against the right edge; the four fingers wrap behind the case and only their tips show past the phone's LEFT edge at 58% to 72% of the height'; (b) replace 'near the bottom of the screen' with 'at the height of the screen's middle (about 60% of the frame height)'; (c) add a second hand region kind hand for the visible fingertips [0.36,0.56,0.46,0.74]; (d) make the hand box and the phone-screen box disjoint (hand x from 0.80, screen x to 0.79) so must_not_cover 'the screen' holds.",
+    "Move the phone clear of the arrow: phone box x 0.40 to 0.84 (about 44% of the frame width, size_in_frame updated), screen box x 0.45 to 0.79, hand box x from 0.80. The arrow box [0.86,0.89,0.96,0.96] then sits on dark desk, not on the red case. Also state in the prop: 'the arrow button sits on the dark desk, never on the phone case'.",
+    "continuity.carry_over: add 'The second black-case phone from slide 4 is gone; one phone only.' and must_not: 'no second phone'."
+  ]
+}
