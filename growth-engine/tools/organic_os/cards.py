@@ -50,9 +50,7 @@ def card_check(card: dict, brain: dict, cmap: dict, demand: list[dict]) -> list[
             issues.append(issue(WARN, "format_job", f"{card['format']} is not a usual {job} format"))
         if card["belief"] not in fmt["beliefs"]:
             issues.append(issue(WARN, "format_belief", f"{card['format']} is not a usual format for {card['belief']}"))
-        lo, hi = fmt["credits"]
-        if card["credit_budget"] > hi * 1.25:
-            issues.append(issue(WARN, "budget", f"budget {card['credit_budget']} is above {card['format']}'s range {lo}-{hi} plus 25%"))
+        issues += budget_issues(card, fmt)
         if fmt.get("needs_real_human") and not brain["visual"].get("real_footage"):
             issues.append(issue(ERROR, "format", f"{card['format']} needs real photos or footage of real people; the brain has none yet"))
         if fmt.get("needs_proof") and not card.get("proof_used"):
@@ -118,3 +116,12 @@ def length_issues(fmt: str, n: int) -> list[dict]:
         return []
     names = ", ".join(f"{k} {lo}-{hi}" for k, (lo, hi) in tiers.items())
     return [issue(WARN, "length", f"{n} s fits no STANDARDS 8 tier ({names} s): pick the tier, the script gate checks against it")]
+
+
+def budget_issues(card: dict, fmt: dict) -> list[dict]:
+    """usd_budget against the format's Atlas USD range; a card from before 28 Oct with only credit_budget is read
+    against the old credit range (history)."""
+    unit, key, (lo, hi) = ("$", "usd_budget", fmt["usd"]) if "usd_budget" in card else ("", "credit_budget", fmt["credits"])
+    if card.get(key) is None or card[key] <= hi * 1.25:
+        return []
+    return [issue(WARN, "budget", f"budget {unit}{card[key]} is above {card['format']}'s range {unit}{lo}-{hi} plus 25%")]

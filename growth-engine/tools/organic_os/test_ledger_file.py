@@ -44,6 +44,14 @@ class LedgerFileTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             ledger_file.append_row(self.p, {"date": "2026-10-28"})
 
+    def test_a_malformed_old_row_leaves_the_ledger_untouched(self):
+        bad = OLD + "2026-10-16,SS-2,image_question,C,1.0,0,10.0,note,an extra field\n"
+        self.p.write_text(bad)
+        with self.assertRaises(ValueError):
+            ledger_file.append_row(self.p, {"date": "2026-10-28", "post_id": "A", "format": "x", "atlas_usd": 2})
+        self.assertEqual(self.p.read_text(), bad)
+        self.assertEqual([x.name for x in self.p.parent.iterdir()], ["ledger.csv"])
+
     def test_usd_cap(self):
         self.assertEqual(router.usd_cap({"package": {"monthly_usd_cap": 40}}), 40)
         for pkg in ({}, {"monthly_usd_cap": None}, {"monthly_usd_cap": True}, {"monthly_credit_cap": 1300}):

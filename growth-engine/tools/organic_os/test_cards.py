@@ -23,6 +23,16 @@ class CardTest(unittest.TestCase):
         self.assertEqual(codes(self.check(job="trust", belief="B3", cta_type="keyword", cta_keyword="AUDIT",
                                           format="carousel_self_check", credit_budget=10), o.ERROR), [])
 
+    def test_budget_is_usd_and_old_credit_cards_still_read(self):
+        def budget_warns(c):
+            return [i["msg"] for i in o.card_check(c, BRAIN, MAP, DEMAND) if i["code"] == "budget"]
+        usd = {k: v for k, v in card().items() if k != "credit_budget"}
+        self.assertEqual(codes(o.card_check({**usd, "usd_budget": 1.19}, BRAIN, MAP, DEMAND), o.ERROR), [])
+        self.assertEqual(budget_warns({**usd, "usd_budget": 1.19}), [])
+        self.assertIn("budget $3.0 is above reel_quote_broll's range $0.75-1.19 plus 25%", budget_warns({**usd, "usd_budget": 3.0}))
+        self.assertIn("budget 90 is above", budget_warns(card(credit_budget=90))[0])
+        self.assertIn("schema", codes(o.card_check(usd, BRAIN, MAP, DEMAND), o.ERROR))
+
     def test_cta_must_fit_the_job(self):
         self.assertIn("cta", codes(self.check(cta_type="book"), o.ERROR))
 

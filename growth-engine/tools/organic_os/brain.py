@@ -45,7 +45,7 @@ def brain_check(brain: dict, demand: list[dict]) -> tuple[list[dict], list[dict]
     cap = get("package.monthly_usd_cap")
     if isinstance(cap, bool) or not isinstance(cap, (int, float)):
         gap("package.monthly_usd_cap", "the monthly Atlas generation cap in USD; until it is set G-BUDGET fails every "
-            "paid generation and only free formats route", "owner decision (STANDARDS.md 10 prices each format)")
+            "paid generation and the router has no budget filter", "owner decision (STANDARDS.md 10 prices each format)")
     if unknown(get("business_model.capacity")):
         gap("business_model.capacity", "how many new clients a month the business can take", "ask the owner")
     good = [r for r in demand if (r.get("tag") or "").strip() in ("direct", "bridge")]

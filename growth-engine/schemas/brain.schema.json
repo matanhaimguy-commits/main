@@ -575,7 +575,7 @@
       "null"
      ],
      "minimum": 0,
-     "description": "The owner's monthly Atlas Cloud generation cap in USD (G-BUDGET and the router count it; STANDARDS.md 10). null or missing: not set, so G-BUDGET fails every paid generation and only free formats route. Only the owner sets it."
+     "description": "The owner's monthly Atlas Cloud generation cap in USD (G-BUDGET and the router count it; STANDARDS.md 10). null or missing: not set, so G-BUDGET fails every paid generation and the router routes with no budget filter, with a warning. Only the owner sets it."
     },
     "monthly_credit_cap": {
      "type": "integer",

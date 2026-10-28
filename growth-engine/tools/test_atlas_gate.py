@@ -57,7 +57,8 @@ class Wrapper(TP.Base):
     def setUpClass(cls):
         cls.repo_tmp = tempfile.TemporaryDirectory()
         r = Path(cls.repo_tmp.name)
-        for rel in ("growth-engine/tools/pipeline.py", "growth-engine/tools/atlas_rules.py", "growth-engine/tools/budget_usd.py",
+        for rel in ("growth-engine/tools/pipeline.py", "growth-engine/tools/atlas_rules.py", "growth-engine/tools/atlas_calls.py",
+                    "growth-engine/tools/budget_usd.py",
                     "growth-engine/tools/organic.py",
                     "growth-engine/tools/atlas/atlas_gate.py", "growth-engine/production/standards.json",
                     "growth-engine/production/schemas", "growth-engine/config"):
@@ -569,7 +570,12 @@ class OmniAndStt(TP.Base):
                "params": {"language": "en"}}
         ok, why = P.check_call("atlas_generate", req)
         self.assertTrue(ok, why)
-        self.assertEqual(json.loads((P.run_dir(SLUG, POST) / "calls.jsonl").read_text())["asset"], "VO@v1")
+        line = json.loads((P.run_dir(SLUG, POST) / "calls.jsonl").read_text())
+        self.assertEqual((line["asset"], line["decision"], line["analysis"]), ("VO@v1", "ALLOW", True))
+        led = P.load_ledger(SLUG, POST)
+        vo = P.get_asset(led, "VO@v1")
+        self.assertFalse(P.generated_before(led, vo), "reading a file is not a generation of it")
+        self.assertEqual(P.attempts(led, "VO"), 0)
         for bad, needle in ((dict(req, prompt="words"), "takes no prompt"),
                             (dict(req, params={}), "pass language: 'en'"),
                             (dict(req, medias=[{"value": "https://elsewhere/x.mp3", "role": "audio"}]),

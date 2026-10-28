@@ -6,6 +6,7 @@ import csv
 
 from .config import CONFIG
 from .files import client_dir
+from .issues import WARN, issue
 
 
 def ledger_rows(slug: str) -> list[dict]:
@@ -38,9 +39,16 @@ def usd_cap(brain: dict) -> float | None:
     return None if isinstance(cap, bool) or not isinstance(cap, (int, float)) else cap
 
 
+def route_issues(brain: dict) -> list[dict]:
+    if usd_cap(brain) is None:
+        return [issue(WARN, "budget", "no monthly_usd_cap set (Matan): formats are routed with no budget filter")]
+    return []
+
+
 def route(card: dict, brain: dict, cmap: dict, prev_family: str | None = None, spent: float = 0.0) -> list[dict]:
-    """spent: Atlas USD spent this month. With no USD cap set, only formats that cost nothing route."""
-    remaining = (usd_cap(brain) or 0) - spent
+    """spent: Atlas USD spent this month. With no USD cap set (the owner's), no budget filter: route_issues warns."""
+    cap = usd_cap(brain)
+    remaining = float("inf") if cap is None else cap - spent
     permitted_proof = any(p.get("permission") == "yes" for p in brain.get("proof_bank", []))
     buyer_formats = cmap.get("buyer_formats", [])
     out = []

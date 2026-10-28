@@ -42,6 +42,7 @@ from pathlib import Path
 import jsonschema
 import yaml
 
+import atlas_calls
 import atlas_rules
 import budget_usd
 
@@ -677,19 +678,7 @@ def record_gate(slug, post_id, gate, status, by, asset=None, note=None, score=No
 
 def budget(slug, post_id, planned: float, balance: float, el: float = 0.0) -> dict:
     """G-BUDGET in Atlas USD (budget_usd.py): planned and the live balance in USD. el: ElevenLabs credits, history."""
-    sys.path.insert(0, str(GE / "tools"))
-    from organic_os import files as organic_files, router as organic_router  # noqa: E402
-    organic_files.ROOT = ROOT  # client_dir() reads this module's ROOT
-    brain = organic_files.load_brain(slug)
-    spent = organic_router.month_spend(organic_router.ledger_rows(slug), now().strftime("%Y-%m"))
-    r = budget_usd.check(organic_router.usd_cap(brain), spent["usd"], planned, balance,
-                         STANDARDS["gate_policy"]["retake_buffer"])
-    data = {**r["data"], "el_planned": el}
-    led = load_ledger(slug, post_id)
-    add_record(led["run_gates"], "G-BUDGET", {"status": r["status"], "by": "pipeline.py budget", "data": data,
-                                              "note": "; ".join(r["notes"])})
-    save_ledger(led)
-    return {"status": r["status"], "notes": r["notes"], **data}
+    return budget_usd.run(sys.modules[__name__], slug, post_id, planned, balance, el)
 
 
 # ---- steps and status -----------------------------------------------------------------------------
@@ -913,7 +902,7 @@ def generated_before(led: dict, a: dict) -> bool:
             e = json.loads(line)
         except json.JSONDecodeError:
             continue
-        if e.get("decision") == "ALLOW" and not e.get("dry") and e.get("asset") == aref(a):
+        if e.get("decision") == "ALLOW" and not e.get("dry") and not e.get("analysis") and e.get("asset") == aref(a):
             return True
     return False
 
@@ -928,7 +917,8 @@ def attempts(led: dict, asset_id: str) -> int:
             e = json.loads(line)
         except json.JSONDecodeError:
             continue
-        if e.get("decision") == "ALLOW" and not e.get("dry") and (e.get("asset") or "").split("@")[0] == asset_id:
+        if e.get("decision") == "ALLOW" and not e.get("dry") and not e.get("analysis") \
+                and (e.get("asset") or "").split("@")[0] == asset_id:
             seen.add(e["asset"])
     return len(seen)
 
@@ -962,45 +952,8 @@ def _atlas_text(req: dict, e: dict) -> str:
     return atlas_rules.review_text(req, e)
 
 
-def _asset_specs(a: dict, led: dict) -> list[dict]:
-    out = []
-    for s in a["shots"]:
-        sp = spec_path(led["slug"], led["post_id"], s)
-        out.append((yaml.safe_load(sp.read_text()) or {}) if sp.exists() else {"shot_id": s})
-    return out
-
-
-def _audio_seconds(led: dict, value: str):
-    """The measured length on the G-AUDIO PASS of the audio asset registered with this id (None when not recorded)."""
-    _, ra = find_by_id(led["slug"], value)
-    rec = latest(ra["gates"].get("G-AUDIO")) if ra else None
-    return (rec.get("data") or {}).get("seconds") if rec and rec["status"] in OK_STATES else None
-
-
 def _atlas_checks(req: dict, a: dict, led: dict) -> list[str]:
-    """The owner's entry applied to the call, as models.image / models.video entries are for Higgsfield."""
-    why = atlas_rules.entry_checks(req, a, _asset_specs(a, led), lambda v: _audio_seconds(led, v))
-    if req["kind"] in ("image", "video") and not req["atlas"].get("aspect_from"):
-        why += _spec_aspect(a, led, req["params"])
-    return why
-
-
-def find_media(value: str):
-    """The run and asset any client's ledger registered with this id or URL."""
-    for led in all_ledgers():
-        for a in led["assets"]:
-            if value in a.get("ids", []):
-                return led, a
-    return None, None
-
-
-def _check_analysis(req: dict, e: dict):
-    """An Atlas analysis call (word timings): it makes nothing, so no prompt, budget or review; it reads one of our
-    registered files. The record goes to that file's run."""
-    found = {m["value"]: find_media(m["value"]) for m in req.get("medias") or []}
-    why = atlas_rules.analysis_checks(req, e, lambda v: (found.get(v) or (None, None))[1] and found[v][1]["type"])
-    led, a = next(iter(found.values()), (None, None))
-    return (not why), why, led, a
+    return atlas_calls.checks(sys.modules[__name__], req, a, led)
 
 
 def _model_checks(req: dict, a: dict, led: dict) -> list[str]:
@@ -1112,7 +1065,7 @@ def _check_request(req: dict) -> tuple[bool, list[str], dict | None, dict | None
         if why:
             return False, why, None, None
         if e.get("analysis"):
-            return _check_analysis(req, e)
+            return atlas_calls.analysis(sys.modules[__name__], req, e)
         req["atlas"], req["prompt"] = e, _atlas_text(req, e)
     if not norm_prompt(req.get("prompt")):
         return False, ["no prompt: every generation carries the reviewed prompt card"], None, None
@@ -1257,6 +1210,7 @@ def check_call(tool_name: str, tool_input: dict) -> tuple[bool, list[str]]:
             allowed = False
             reasons += [tag + w for w in why]
         logs.append((led, {"at": stamp(), "tool": tool_name, "asset": aref(a) if a else None, "dry": bool(r.get("dry")),
+                           "analysis": bool(r.get("analysis")),
                            "sha": sha_text(r.get("prompt") or "")[:16] if r.get("prompt") else None, "why": why}))
     decision = "ALLOW" if allowed else "DENY"
     for led, e in logs:

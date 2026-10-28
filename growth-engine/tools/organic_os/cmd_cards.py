@@ -9,7 +9,7 @@ import yaml
 from .cards import card_check
 from .files import load_brain, load_cards, load_demand, load_map
 from .issues import has_errors
-from .router import ledger_rows, month_spend, route, usd_cap
+from .router import ledger_rows, month_spend, route, route_issues, usd_cap
 from .show import print_issues
 from .week import week_check
 
@@ -41,8 +41,8 @@ def route_cmd(a) -> int:
     spent = month_spend(ledger_rows(a.slug), month)["usd"]
     opts = route(card, brain, cmap, a.prev_family, spent)
     cap = usd_cap(brain)
-    print(f"budget {month}: ${spent:.2f} of " + (f"${cap:.2f} Atlas USD spent" if cap is not None else
-          "no USD cap (brain.json package.monthly_usd_cap is the owner's): only free formats route"))
+    print(f"budget {month}: ${spent:.2f}" + (f" of ${cap:.2f} Atlas USD spent" if cap is not None else " spent"))
+    print_issues("route", route_issues(brain))
     for o_ in opts[:3]:
         print(f"- {o_['format']} (tier {o_['tier']}, ${o_['usd'][0]:.2f}-{o_['usd'][1]:.2f}): {o_['why']} · {o_['skill']}")
     return 0 if opts else 1
