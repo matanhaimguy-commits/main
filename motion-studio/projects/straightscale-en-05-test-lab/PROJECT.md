@@ -33,17 +33,16 @@ motion-reel skill for the build later. Docs: `docs/hook-stacks.md`, `docs/script
 - CTA: follow for the next part (reach job).
 
 ## Status
-Stage: script & VO (hooks and spines written; recommended spine taken to a release candidate)
-Current version: script loop 4, spine A, 86 words, about 34 s; 85/100, no critical fail ("Release candidate,
-provisional until Matan picks the spine"). No picture, no audio.
-Next step: rewrite the spines and the script on the approved v2 master hook, then GATE 4 (question in `docs/script-lab.md` section 9)
-Blockers / open questions: G-HOOK not passed after 5 blind rounds (master V A-, T A to A-, S A to A-; re-grade on a real
-concept frame before any storyboard) · text hook, "the next part" vs "part five", process-only payoff (GATE 4 riders) ·
-L5 "around" to "built on" (not applied; needs its own gate)
+Stage: script & VO (script v2 on the approved v2 master hook EN05-B: escalated to Matan after Script Lab)
+Current version: script v2 final draft (loop 4), 87 words, about 34.8 s, gate 80/100 (best loop 2: 82), no critical fail (`docs/script.md`); no picture, no audio
+Next step: Matan answers the escalation question (`docs/script-v2-loops.md`, "Escalation"); then one more gated loop or the concept frame
+Blockers / open questions: the approved text hook ("it's shouting") and spoken hook ("you're shouting") differ by one
+word; process-only payoff (no proof files); the series numbering ("the next part")
 
 ## Decisions (newest first)
 | Date | Decision | Options considered | Why | Who |
 |---|---|---|---|---|
+| 28 Oct | **Escalated** (script v2): spine A rewritten on the master v2 hook EN05-B, spoken hook word for word; Script Lab 4 loops (draft + 3 rewrites), 12 fresh cold readers (listen-only, skeptic, sound-off); scores 73, 82, 78, 80; no critical fail; not released (under 85). Recommended: A, the text hook matches the spoken hook word for word, then one more loop on the loop 2 draft | A: text hook = spoken hook + one loop; B: accept at 80; C: a narrator instead of the talking post (spine change) | Script Lab cap reached | Claude (escalation), Matan (pending) |
 | 28 Oct | Hooks v2 (master EN05-B) | Matan | "much better and stronger"; next time base hooks on organic breakouts, not ads |
 | 28 Oct | Hooks v1 rejected (Matan: unclear, not the buyers' words, written English, not proven formats). Hooks v2 built only from proven sources (Hook Library HA ads 30+ days or HF outliers 3x+) and verbatim buyer phrases; all pass `organic.py hooks`. Master = the ad-proven stack. The script release candidate is ON HOLD: it was written on the v1 hook and must be rewritten on the v2 master once Matan approves it, with the new "said, not written" rule | v1 kept; more AI grading rounds | an AI grade is opinion; proof is a post or ad that already won with this buyer | Matan (rejection), Claude (v2) |
 | 28 Oct | GATE 4 decided: spine A "The post that got paid for" (the boosted post explains why nothing happened), no result shown; the hooks it was asked with (v1) were later rejected, see the row above; the script waits for the v2 hooks | B, C, more hook rounds | the writer's recommendation | Matan |
@@ -70,3 +69,4 @@ L5 "around" to "built on" (not applied; needs its own gate)
 - 28 Oct · no generation, no paid calls, nothing committed (the parent session commits)
 - 28 Oct · hooks v1 rejected by Matan; hooks v2 from proven formats in docs/hook-stacks.md and docs/hooks.json (all PASS) · script on hold
 - 28 Oct · Matan approved hooks v2 (master EN05-B) · script rewrite on it is next
+- 28 Oct · script v2 on hook EN05-B: Script Lab 4 loops, 12 fresh cold readers, final 80/100 (best 82), escalated · `docs/script.md`, `docs/script-v2-loops.md`; v1 script moved to `docs/script-v1.md`

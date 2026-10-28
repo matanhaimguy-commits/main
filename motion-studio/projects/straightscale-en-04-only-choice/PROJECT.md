@@ -33,17 +33,16 @@ motion-reel skill for the build later. Docs: `docs/hook-stacks.md`, `docs/script
 - CTA: follow for the next part (reach job).
 
 ## Status
-Stage: script & VO (hooks and spines written; recommended spine B taken to a release candidate, 86/100, loop 4)
-Current version: none (no picture, no audio)
-Next step: rewrite the spines and the script on the approved v2 master hook, then GATE 4 (A, B or C; question in `docs/script-lab.md` section 9); then the master hook
-stack's named fixes go to fresh blind graders on the concept frame
-Blockers / open questions: G-HOOK not passed after 5 blind rounds (best: stack Q, V A-, T A-, S A to B+); the two
-owners meet at about 31 s, not in frame 1 (every split frame lost the visual at phone size); the RC runs 74 s, tight
-against O60's 75 s cap; the readable steps on her page need plain example words that are not StraightScale's method
+Stage: script & VO (script v2 on the approved v2 master hook EN04-B: escalated to Matan after Script Lab)
+Current version: script v2 final draft (loop 4), 165 words, about 66 s, gate 76/100, no critical fail (`docs/script.md`); no picture, no audio
+Next step: Matan answers the escalation question (`docs/script-v2-loops.md`, "Escalation"); then one more gated loop or the concept frame
+Blockers / open questions: the approved spoken hook tripped all 12 cold readers (owner call: option A swaps in EN04-A's
+approved spoken line); the series order (part six, Paid ads) is still an owner question
 
 ## Decisions (newest first)
 | Date | Decision | Options considered | Why | Who |
 |---|---|---|---|---|
+| 28 Oct | **Escalated** (script v2): spine B rewritten on the master v2 hook EN04-B, spoken hook word for word; Script Lab 4 loops (draft + 3 rewrites), 12 fresh cold readers (listen-only, skeptic, sound-off); scores 79, 72, 75, 76; no critical fail; not released (under 85). Recommended: A, the spoken hook becomes EN04-A's approved line, then one more loop | A: EN04-A spoken hook + one loop; B: accept at 76; C: a real named-steps example from a client case | Script Lab cap reached; the locked hook line is the top confusion | Claude (escalation), Matan (pending) |
 | 28 Oct | Hooks v2 (master EN04-B) | Matan | "much better and stronger"; next time base hooks on organic breakouts, not ads |
 | 28 Oct | Hooks v1 rejected (Matan: unclear, not the buyers' words, written English, not proven formats). Hooks v2 built only from proven sources (Hook Library HA ads 30+ days or HF outliers 3x+) and verbatim buyer phrases; all pass `organic.py hooks`. Master = the ad-proven stack. The script release candidate is ON HOLD: it was written on the v1 hook and must be rewritten on the v2 master once Matan approves it, with the new "said, not written" rule | v1 kept; more AI grading rounds | an AI grade is opinion; proof is a post or ad that already won with this buyer | Matan (rejection), Claude (v2) |
 | 28 Oct | GATE 4 decided: spine B "Decided before you quoted" (lost deal, the second consultant at 31 s); the hooks it was asked with (v1) were later rejected, see the row above; the script waits for the v2 hooks | A, C, more hook rounds | the writer's recommendation | Matan |
@@ -69,3 +68,4 @@ against O60's 75 s cap; the readable steps on her page need plain example words 
   until Matan's pick · docs/script.md
 - 28 Oct · hooks v1 rejected by Matan; hooks v2 from proven formats in docs/hook-stacks.md and docs/hooks.json (all PASS) · script on hold
 - 28 Oct · Matan approved hooks v2 (master EN04-B) · script rewrite on it is next
+- 28 Oct · script v2 on hook EN04-B: Script Lab 4 loops, 12 fresh cold readers, final 76/100, escalated · `docs/script.md`, `docs/script-v2-loops.md`; v1 script moved to `docs/script-v1.md`
