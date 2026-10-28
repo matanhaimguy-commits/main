@@ -17,6 +17,8 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import pipeline as P  # noqa: E402
 import vqa_crops as V  # noqa: E402
+from test_call_aspect import Mismatch, Ratio  # noqa: E402,F401  (call_aspect.py runs with this suite)
+from test_gate_auth import Budget as GateAuthBudget, Checkpoints  # noqa: E402,F401  (gate_auth.py too)
 
 SLUG, POST, LIB = "acme", "AC-2026-10-W3-01", "AC-LIB-STYLE"
 REF = "11111111-2222-3333-4444-555555555555"
