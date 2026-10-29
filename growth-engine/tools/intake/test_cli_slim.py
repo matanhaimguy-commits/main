@@ -52,6 +52,21 @@ class SlimPull(IntakeCase):
         _, bad, _ = self.run_pull(call=self.hub().call, get=get)
         self.assertEqual([m["id"] for m in bad], ["doc:brand-guide.pdf", "doc:../prices.xlsx"])
 
+    def test_one_unsigned_doc_does_not_lose_the_others_and_the_gate_names_it(self):
+        row = slim_row()
+        row["docs"][0]["signed_url"] = None
+        h = Recorder()
+        h.replies[("GET", "intakes")] = row
+        _, bad, _ = self.run_pull(call=h.call)
+        self.assertEqual([m["id"] for m in bad], ["doc:brand-guide.pdf"])
+        self.assertIn("no signed link", bad[0]["why"])
+        self.assertTrue((self.root / "clients" / "sample-bakery" / "foundation" / "prices.xlsx").exists())
+
+    def test_a_404_says_there_is_no_submitted_intake(self):
+        h = Recorder()  # no reply set and missing_ok: answers None, like a 404
+        with self.assertRaisesRegex(SystemExit, "no submitted intake for sample-bakery"):
+            self.run_pull(call=h.call)
+
     def test_the_hub_token_is_never_sent_to_the_storage_host(self):
         seen = []
         self.run_pull(call=self.hub().call, get=lambda u: seen.append(u) or b"x")

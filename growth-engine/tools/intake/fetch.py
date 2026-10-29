@@ -17,7 +17,10 @@ from . import shape, slim
 
 
 def from_hub(call, slug: str) -> dict:
-    return call("GET", "intakes?" + urllib.parse.urlencode({"brand": slug}), api="clients")
+    resp = call("GET", "intakes?" + urllib.parse.urlencode({"brand": slug}), api="clients", missing_ok=True)
+    if resp is None:  # 404: the hub has no intake for this brand yet. Any other HTTP error still stops in hub.call.
+        sys.exit(f"NOT_SUBMITTED: no submitted intake for {slug}")
+    return resp
 
 
 def from_fixture(path: str) -> dict:

@@ -39,9 +39,16 @@ class Normalize(IntakeCase):
             with self.assertRaisesRegex(SystemExit, "BAD_INTAKE"):
                 slim.normalize(bad)
         bad = copy.deepcopy(slim_row())
-        del bad["docs"][0]["signed_url"]
+        del bad["docs"][0]["name"]
         with self.assertRaisesRegex(SystemExit, "BAD_INTAKE"):
             slim.normalize(bad)
+
+    def test_a_doc_with_a_null_signed_url_is_kept(self):
+        row = copy.deepcopy(slim_row())
+        row["docs"][0]["signed_url"] = None
+        s = slim.normalize(row)
+        self.assertEqual(len(s["docs"]), 2)
+        self.assertIsNone(s["docs"][0]["signed_url"])
 
     def test_gate_ready_and_not(self):
         s = slim.normalize(slim_row())

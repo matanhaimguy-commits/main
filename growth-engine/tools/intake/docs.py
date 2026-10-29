@@ -40,6 +40,10 @@ def download(docs: list[dict], dest: Path, get=fetch_bytes) -> list[dict]:
     taken, out = set(), []
     for d in docs:
         rec = {"name": d["name"], "saved_as": None, "mime": d.get("mime"), "size": d.get("size"), "bytes": None, "error": None}
+        if not d.get("signed_url"):
+            rec["error"] = "no signed link (the app could not sign this file), pull again"
+            out.append(rec)
+            continue
         try:
             data = get(d["signed_url"])
             rec["saved_as"] = safe_name(d["name"], taken)

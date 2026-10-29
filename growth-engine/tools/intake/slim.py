@@ -13,8 +13,8 @@ def normalize(row: dict) -> dict:
     if not isinstance(comps, list) or not isinstance(docs, list) or not isinstance(cons, dict):
         sys.exit("BAD_INTAKE: competitors and docs must be lists and consents an object")
     for d in docs:
-        if not isinstance(d, dict) or not d.get("name") or not d.get("signed_url"):
-            sys.exit("BAD_INTAKE: every doc needs a name and a signed_url")
+        if not isinstance(d, dict) or not d.get("name"):
+            sys.exit("BAD_INTAKE: every doc needs a name")
     return {
         "brand": _text(row.get("brand")),
         "business_name": _text(row.get("business_name")),
@@ -23,7 +23,7 @@ def normalize(row: dict) -> dict:
         "offer_line": _text(row.get("offer_line")),
         "competitors": [_text(c) for c in comps if _text(c)],
         "consents": {"ai_people": cons.get("ai_people"), "proof": cons.get("proof")},
-        "docs": [{"name": d["name"], "mime": d.get("mime"), "size": d.get("size"), "signed_url": d["signed_url"]} for d in docs],
+        "docs": [{"name": d["name"], "mime": d.get("mime"), "size": d.get("size"), "signed_url": d.get("signed_url") or None} for d in docs],
         "submitted_at": row.get("submitted_at") or row.get("created_at"),
     }
 

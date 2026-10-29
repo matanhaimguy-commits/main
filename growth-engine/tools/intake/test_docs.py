@@ -38,6 +38,13 @@ class Download(IntakeCase):
         self.assertIsNone(out[0]["saved_as"])
         self.assertTrue((self.root / "f" / "good.pdf").exists())
 
+    def test_an_unsigned_doc_is_skipped_with_an_error_and_the_others_are_saved(self):
+        unsigned = {"name": "x.pdf", "mime": None, "size": 3, "signed_url": None}
+        out = docs.download([unsigned, self.doc("good.pdf")], self.root / "f", get=lambda u: self.assertNotIn("x.pdf", u) or b"ok")
+        self.assertIn("no signed link", out[0]["error"])
+        self.assertIsNone(out[0]["saved_as"])
+        self.assertTrue((self.root / "f" / "good.pdf").exists())
+
     def test_a_size_mismatch_is_flagged_but_kept(self):
         out = docs.download([self.doc("a.pdf", 99)], self.root / "f", get=lambda u: b"abc")
         self.assertIn("the intake said 99", out[0]["error"])
