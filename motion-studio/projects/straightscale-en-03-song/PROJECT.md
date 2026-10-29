@@ -127,8 +127,10 @@ Open (main session):
   SH03 (simplified: no laptop or mug in the SH01 to SH02 frame, no mug in SH03) and SH10 (its background now names the
   belt, trousers, floor and the paper wall that the 3x zoom of SH11 shows). Their fixes are applied and lint passes; no
   4th round was run (main session rule).
-- Advisory for the prompt writer, SH08: mirror CH-FRIEND v1's three-quarter panel horizontally so she faces image-left
-  (left out of the spec to keep its PASS).
+- Prompt stage, SH08 (main session, 29 Oct): the prompt must say CH-FRIEND v1's three-quarter panel is mirrored
+  horizontally so she faces image-left (kept out of the spec to keep its PASS).
+- Main session accepted the SH01, SH02, SH03 and SH10 simplifications; one fresh review of the four (`qa/r15`, same
+  scope). A fail there is simplified in place, not reviewed again.
 - Paper reference: no upload. CH-MAYA@v1 now carries its Atlas URL; office prompts attach it with the line "use only the
   plain ivory paper background of this reference". REF-PAPER@v1 stays as the local check copy (specs still name it).
 - Owner question: `G-VIS-SHEET-OVERRIDE` queued in the ledger and asked on the Studio page as decision #4 (run #1,
