@@ -259,9 +259,9 @@
   },
   "specs": {
     "O60-SH01": {
-      "sha256": "25b5bf493ad88d449690fa34c933fa45c801cb3b9716b4da53d9008250d3580e",
+      "sha256": "637dbaf4c9812553cd002d9e856a67f6faf3a88c4469d2d52c444286226c550c",
       "lint": "PASS",
-      "lint_at": "2026-10-28T23:15:44+00:00",
+      "lint_at": "2026-10-29T02:35:18+00:00",
       "lint_issues": [],
       "G-SPEC": [
         {
@@ -305,13 +305,20 @@
           "sha256": "d50d06e2bd4dcffcb5b0b79bb3c878825e1771403304cc091e958ea7218c72ce",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r13/O60-SH01.spec.json"
+        },
+        {
+          "at": "2026-10-29T02:35:00+00:00",
+          "status": "FAIL",
+          "sha256": "25b5bf493ad88d449690fa34c933fa45c801cb3b9716b4da53d9008250d3580e",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r14/O60-SH01.spec.json"
         }
       ]
     },
     "O60-SH02": {
-      "sha256": "cc624598dfc5be4fc7ac64815fdc35b953d1b36a2c5d99292efe02e8d8bc257c",
+      "sha256": "db50a1f425357a394250390a8ad532d82587cc3beb9cf76a5a8c7d0933870845",
       "lint": "PASS",
-      "lint_at": "2026-10-28T23:15:44+00:00",
+      "lint_at": "2026-10-29T02:35:18+00:00",
       "lint_issues": [],
       "G-SPEC": [
         {
@@ -355,13 +362,20 @@
           "sha256": "035e40456379ecd50b3435bc130edf46711284f529980ceb9a187b25e70fce1f",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r13/O60-SH02.spec.json"
+        },
+        {
+          "at": "2026-10-29T02:35:00+00:00",
+          "status": "FAIL",
+          "sha256": "cc624598dfc5be4fc7ac64815fdc35b953d1b36a2c5d99292efe02e8d8bc257c",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r14/O60-SH02.spec.json"
         }
       ]
     },
     "O60-SH03": {
-      "sha256": "0127f4bef2d04a1117ab5e8f00222a69f2dc9cf617881dfe215ff1f09c50ce97",
+      "sha256": "7948d127cdf07a0133f59c9e1b6325c70fa7c0345b2a05039cd6d1464955fe46",
       "lint": "PASS",
-      "lint_at": "2026-10-28T23:15:44+00:00",
+      "lint_at": "2026-10-29T02:35:18+00:00",
       "lint_issues": [],
       "G-SPEC": [
         {
@@ -405,6 +419,13 @@
           "sha256": "1511f1220b75bbbe80bc0ac442ce49febf08738806d0c025f3c60b372911fc0f",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r13/O60-SH03.spec.json"
+        },
+        {
+          "at": "2026-10-29T02:35:00+00:00",
+          "status": "FAIL",
+          "sha256": "0127f4bef2d04a1117ab5e8f00222a69f2dc9cf617881dfe215ff1f09c50ce97",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r14/O60-SH03.spec.json"
         }
       ]
     },
@@ -455,6 +476,13 @@
           "sha256": "59b2a4f3a0272efdabd5789ca1ee97faa659b7acc3f2cf4b3cb69e0d95605297",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r13/O60-SH04.spec.json"
+        },
+        {
+          "at": "2026-10-29T02:35:00+00:00",
+          "status": "PASS",
+          "sha256": "c3205e080ce6237aa0741f2c445a3ef22f979cf5b37052e730563269b8f5b18e",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r14/O60-SH04.spec.json"
         }
       ]
     },
@@ -512,6 +540,13 @@
           "sha256": "b21e586c5507b22146a6487552beb5ea4500c1201c80443d0fb281015aff2d55",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r13/O60-SH05.spec.json"
+        },
+        {
+          "at": "2026-10-29T02:35:00+00:00",
+          "status": "PASS",
+          "sha256": "ae0280d745ac0ebd2b3c742f1b31ea41c07d3d6452bae20154ed851c2626f28d",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r14/O60-SH05.spec.json"
         }
       ]
     },
@@ -562,6 +597,13 @@
           "sha256": "08eacbd75665a1513e4979ab0af8be0f618a5c58c8ab5ae337447fcd41c99c32",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r13/O60-SH06.spec.json"
+        },
+        {
+          "at": "2026-10-29T02:35:01+00:00",
+          "status": "PASS",
+          "sha256": "c9c8dbc51379734f16688c6f092dc183da1043076d3d34f6cf0f64638af9bf4f",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r14/O60-SH06.spec.json"
         }
       ]
     },
@@ -612,6 +654,13 @@
           "sha256": "4259a88dbf371cc3a7692b3fd38bbccd51872046c4018a3d9e68fa4642be88fe",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/r13/O60-SH07.spec.json"
+        },
+        {
+          "at": "2026-10-29T02:35:01+00:00",
+          "status": "PASS",
+          "sha256": "c2baf19f984c1620535db420d4cbcf7b5c32d3b25efe0917fbd4bd5012dcf577",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/r14/O60-SH07.spec.json"
         }
       ]
     },

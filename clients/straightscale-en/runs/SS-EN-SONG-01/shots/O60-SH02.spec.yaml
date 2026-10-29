@@ -59,23 +59,17 @@ action_physics:
 static: false
 setting:
   ref: 'REF-PAPER@v1 (plain-paper crop of CH-MAYA@v1: paper colour, texture and light only)'
-  details: 'Plain ivory paper office: organizer on the wall, charcoal desk with a small clay laptop standing centred on it
-    beyond Maya (x 0.45 to 0.60), lid up, its screen facing Maya and the camera; one white clay mug on the desk to the right
-    of the laptop (about x 0.70, y 0.66). World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay
-    with visible fingerprints, felt, knit and linen as real fabric, the four fix scraps the only loud colours, no marble,
-    no other props. Set (no set sheet; SET-OFFICE retired; paper reference REF-PAPER@v1, a plain-paper crop of CH-MAYA@v1):
-    a plain warm-ivory paper wall and floor meeting in a soft curve, soft contact shadows. The office items in this shot,
-    and only these, each looking like this: a simple charcoal clay desk (one flat top on four straight legs, no drawers);
-    PR-LAPTOP (no sheet, full description): a small clay laptop, matte silver-grey clay lid and base with soft rounded corners
-    and visible fingerprints, a plain lid with no logo, sticker or lettering, a narrow charcoal bezel of even width on all
-    four sides, a plain charcoal keyboard with soft square keys and no letters; the screen shows only what this shot names,
-    no icons, no windows, no text; one white clay mug; a plain charcoal clay chair (one flat seat, one low back, four straight
-    legs).'
-  background_rule: ivory paper wall, charcoal desk, nothing else on the wall. The laptop screen faces Maya and the camera
-    and shows a plain flat dark-grey panel, no icons, no light, no text.
+  details: 'Plain ivory paper office: organizer on the wall, a bare charcoal desk in front of her, nothing on it in view.
+    World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt, knit
+    and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props. Set (no set sheet; SET-OFFICE
+    retired; paper reference REF-PAPER@v1, a plain-paper crop of CH-MAYA@v1): a plain warm-ivory paper wall and floor meeting
+    in a soft curve, soft contact shadows. The office items in this shot, and only these, each looking like this: a simple
+    charcoal clay desk (one flat top on four straight legs, no drawers); a plain charcoal clay chair (one flat seat, one low
+    back, four straight legs).'
+  background_rule: ivory paper wall, bare charcoal desk, nothing else on the wall or on the desk in view.
 camera:
   framing: 'wide: organizer top half, Maya and desk lower half; the lower 35% is desk top and floor; camera behind Maya''s
-    shoulders; the laptop stands on the desk beyond her, its screen facing her and the camera'
+    shoulders'
   angle: eye level, straight-on
   movement: the clip's pull-back ends here
   aspect: '9:16'
@@ -139,7 +133,7 @@ style: 'Handmade claymation stop-motion look: plasticine characters with visible
 must_not:
 - no speech bubbles anywhere in the frame (they appear only on the line 'that cloth is the words')
 - no clients in the APRIL pockets
-- no lettering on the laptop
+- no laptop, mug or paper on the desk in view
 - no extra, missing or merged fingers
 - no logos, no real platform names, no lettering on walls, laptop or papers other than the listed strings
 - no sung mouth movement and no singer on screen
