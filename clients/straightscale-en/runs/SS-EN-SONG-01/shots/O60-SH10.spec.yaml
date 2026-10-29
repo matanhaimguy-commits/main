@@ -9,8 +9,10 @@ must_read_in_1s: Two different patches held side by side with a gap and no join.
 subjects:
 - id: CH-MAYA
   ref: CH-MAYA@v1
-  state: her two hands and forearms in olive cardigan sleeves, and her cardigan front and cream top behind the scraps; only
-    her chin shows, soft, at the top edge (0 to 11%); the rest of her face is above the frame
+  state: her two hands and forearms in olive cardigan sleeves; behind the scraps her cardigan front and cream top (torso about
+    0.6 of the frame wide, centred); below the scraps (53 to 95%) her brown belt, charcoal trousers and the clay floor, her
+    feet near 95%; plain ivory paper wall on both sides of her torso, behind the outer parts of the scraps and both hands;
+    only her chin shows, soft, at the top edge (0 to 11%); the rest of her face is above the frame
   pose: holding the scraps up at chest height, just below her chin
   expression: n/a (hands only)
   instances: 1
@@ -59,15 +61,18 @@ action_physics:
 static: false
 setting:
   ref: 'REF-PAPER@v1 (plain-paper crop of CH-MAYA@v1: paper colour, texture and light only)'
-  details: 'Plain ivory paper office: Maya''s cardigan front behind the scraps; the organizer is above the frame. World: warm
-    ivory paper (about #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt, knit and linen
-    as real fabric, the four fix scraps the only loud colours, no marble, no other props. Set (no set sheet; SET-OFFICE retired;
-    paper reference REF-PAPER@v1, a plain-paper crop of CH-MAYA@v1): a plain warm-ivory paper wall and floor meeting in a
-    soft curve, soft contact shadows. No office furniture or objects appear in this shot.'
-  background_rule: behind the scraps only Maya's olive cardigan front and cream top; the organizer is above the frame (it
-    enters at the top as the camera pulls back); no readable text other than EMAIL and ADS
+  details: 'Plain ivory paper office: Maya''s cardigan front behind the middle of the scraps, plain ivory paper wall on both
+    sides of her torso, her belt, charcoal trousers and the clay floor below the scraps; the organizer is above the frame.
+    World: warm ivory paper (about #f6e8d2), soft warm light from one side, matte clay with visible fingerprints, felt, knit
+    and linen as real fabric, the four fix scraps the only loud colours, no marble, no other props. Set (no set sheet; SET-OFFICE
+    retired; paper reference REF-PAPER@v1, a plain-paper crop of CH-MAYA@v1): a plain warm-ivory paper wall and floor meeting
+    in a soft curve, soft contact shadows. No office furniture or objects appear in this shot.'
+  background_rule: behind the scraps Maya's olive cardigan front and cream top in the middle and plain ivory paper wall at
+    the sides; below them her belt, charcoal trousers and the clay floor; the organizer is above the frame (it enters at the
+    top as the camera pulls back); no readable text other than EMAIL and ADS
 camera:
-  framing: close on two hands holding two scraps against her cardigan front
+  framing: close on two hands holding two scraps against her cardigan front, paper wall at the sides, her trousers and the
+    floor in the lower part
   angle: eye level, straight-on
   movement: slow dolly-out over the clip, a straight pull-back centred on the point (0.50, 0.53), about 3x, ending on the
     wide frame of SH11

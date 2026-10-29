@@ -1,0 +1,75 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH10",
+ "spec_sha256": "90c7c9c28621f7397293998f9510ce667269a32ed79e9d542d689b94007d9357",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s 'Two different patches held side by side with a gap and no join' covered by PR-SCRAPS EMAIL and ADS, hands, 3 cm gap"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "each hand 'thumb and forefinger on each top corner', 'five fingers on each visible hand', boxed in regions hand_image_left/right"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'thumb and forefinger on each top corner'; 'the two scraps hang still; the camera dollies back slowly'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-SCRAPS content line gives patterns, colours and label letters for all four scraps"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "EMAIL and ADS quoted, surface, position, 'no finger over the letters'; label boxes inside scrap regions"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "no frame, screen or sign; 'no readable text other than EMAIL and ADS'"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "background_rule: 'behind the scraps only Maya's olive cardigan front and cream top' and state 'her cardigan front and cream top behind the scraps', but the spec locks SH10 to SH11 scaled 3x about (0.50, 0.53): SH11 feet at 0.67 land at y 0.95 here, so the lower 53 to 95% shows her belt, charcoal trousers and the floor, and her torso (about 0.2 wide in SH11) is about 0.6 wide here, so the outer thirds of both scraps and both hands (x 0.065 to 0.185 and 0.815 to 0.935) sit over plain paper wall, not cardigan"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "carry_over 'PR-SCRAPS EMAIL and ADS', 'CH-MAYA hands'; SH10 equals SH11 scaled 3x about (0.50, 0.53): hands, scraps, labels and chin all check out numerically"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No two-way reading beyond the P8 item"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 prevented by occlusion rule; FL-06: chin named. World line present word for word in setting.details and style; 'no marble' only"
+  }
+ ],
+ "suggested_spec_changes": [
+  "FIX: make the P8 text consistent with the 3x lock. In subjects[CH-MAYA].state, setting.details and setting.background_rule replace 'only Maya's olive cardigan front and cream top' with: 'Maya's olive cardigan front, cream top and brown belt behind the centre of the scraps; below the scraps her belt, charcoal trousers and the clay floor down to her shoes at about 95% from the top (SH11 scaled 3x); plain ivory paper wall on both sides of her body, beyond her sleeves'. Update camera.framing to 'close on two hands holding two scraps in front of her torso, trousers and floor in the lower part' and keep 'no other props' as is.",
+  "ADVISORY: only her chin shows at 0 to 11% (inside the top 14% band, no accepted-exception note, no face region); add a face region for the chin box x 0.40 to 0.60, y 0 to 0.11 and one line in safe_zones saying it is a chin only.",
+  "ADVISORY: ADS label at 38 to 47% from the top is near the right-hand hand box (y 0.29 to 0.38); fine as boxed, keep the occlusion rule in the prompt."
+ ]
+}

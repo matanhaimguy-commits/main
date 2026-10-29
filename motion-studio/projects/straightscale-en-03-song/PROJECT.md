@@ -122,6 +122,24 @@ Open (main session):
 4. Step 9: whole piece $2.37 ($2.96 with buffer) against $2.03: gap $0.93. Clips wait for the top-up.
 5. G-HUMAN-ESCALATE PR-ORGANIZER@v3 stays queued and unsent (v3 abandoned).
 
+## Production handoff (29 Oct, EN 03 production session 4, after the main session's decisions)
+- G-SPEC round 3 (`qa/r14`, scope in `qa/r14/scope.md`): 20 of 24 specs PASS on their current files. Open: SH01, SH02,
+  SH03 (simplified: no laptop or mug in the SH01 to SH02 frame, no mug in SH03) and SH10 (its background now names the
+  belt, trousers, floor and the paper wall that the 3x zoom of SH11 shows). Their fixes are applied and lint passes; no
+  4th round was run (main session rule).
+- Advisory for the prompt writer, SH08: mirror CH-FRIEND v1's three-quarter panel horizontally so she faces image-left
+  (left out of the spec to keep its PASS).
+- Paper reference: no upload. CH-MAYA@v1 now carries its Atlas URL; office prompts attach it with the line "use only the
+  plain ivory paper background of this reference". REF-PAPER@v1 stays as the local check copy (specs still name it).
+- Owner question: `G-VIS-SHEET-OVERRIDE` queued in the ledger and asked on the Studio page as decision #4 (run #1,
+  business straightscale). Not answered yet, so nothing was generated. On "Override all five", record five
+  `pipeline.py gate ... G-VIS-SHEET --status OVERRIDE --by Matan --asset <sheet> --note "<his answer>"` and mark the
+  answer with `hub.py studio-synced 4`.
+- The queued PR-ORGANIZER@v3 escalation is marked WITHDRAWN in the ledger (never sent, no owner answer recorded), so the
+  Studio push does not show it as waiting.
+- Studio push: storage uploads stay blocked (lovable.cloud host), so the run was pushed with the files already on the
+  page plus SET-FRIEND v1 by its Atlas URL.
+
 ## Decisions (newest first)
 | Date | Decision | Options considered | Why | Who |
 |---|---|---|---|---|
