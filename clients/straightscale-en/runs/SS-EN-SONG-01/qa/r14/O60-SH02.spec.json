@@ -1,0 +1,75 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH02",
+ "spec_sha256": "cc624598dfc5be4fc7ac64815fdc35b953d1b36a2c5d99292efe02e8d8bc257c",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "spec checked against scope; no defect found"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands 'none visible', both hands hidden behind desk edge, stated in subjects"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "spec checked against scope; no defect found"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "spec checked against scope; no defect found"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "CLIENTS, MARCH, APRIL each with surface, position, occlusion"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "spec checked against scope; no defect found"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "P8 geometry: laptop 'centred on the charcoal desk beyond Maya (x 0.45 to 0.60)' with its screen 'facing Maya and the camera', but Maya's back box is x 0.30 to 0.62, y 0.47 to 0.64 and no laptop y range is given; her head and shoulders would hide the laptop and its visible screen."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "spec checked against scope; no defect found"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "spec checked against scope; no defect found"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "spec checked against scope; no defect found"
+  }
+ ],
+ "suggested_spec_changes": [
+  "FIX: give the laptop a y range and a position that does not sit inside the maya_back box (x 0.30 to 0.62, y 0.47 to 0.64): e.g. move Maya's seat to x 0.22 to 0.50 (maya_back box to match), the laptop to x 0.54 to 0.68, y 0.52 to 0.64 beside her shoulder with its lid top above her shoulder line, and the mug to x 0.74, y 0.66; apply the same numbers in SH01 background_rule and SH02 setting/camera.",
+  "ADVISORY: carry_over names 'olive cardigan' but the CH-MAYA state does not; add 'olive knit cardigan' to subjects.state.",
+  "ADVISORY: region maya_back is kind 'face' for a back view; use kind 'prop' or add a head box."
+ ]
+}

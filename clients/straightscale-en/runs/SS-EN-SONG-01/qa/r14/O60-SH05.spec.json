@@ -1,0 +1,75 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH05",
+ "spec_sha256": "ae0280d745ac0ebd2b3c742f1b31ea41c07d3d6452bae20154ed851c2626f28d",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "spec checked against scope; no defect found"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "left thumb on EMAIL corner (x 0.15 to 0.18, y 0.50 to 0.53); right thumb-and-index pinch on the needle, needle shaft visible, five fingers each"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "spec checked against scope; no defect found"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "spec checked against scope; no defect found"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "EMAIL, LINKEDIN, APRIL, MARCH each with surface, position, occlusion; EMAIL letters box x 0.19 to 0.33, y 0.42 to 0.49"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "spec checked against scope; no defect found"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "spec checked against scope; no defect found"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "spec checked against scope; no defect found"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "spec checked against scope; no defect found"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 text over hands prevented: 'clear space between the fingers and the last letter L of EMAIL'; FL-04 scraps carry content"
+  }
+ ],
+ "suggested_spec_changes": [
+  "ADVISORY: right-hand box starts at y 0.50 while email_letters ends at y 0.49 (0.01 gap, fingers x 0.30 to 0.44 under the letters); raise the right-hand top to y 0.53 (below the scrap edge) except the needle tip.",
+  "ADVISORY: 'below the seam' is read two ways (seam is vertical at x 0.37); write 'below the lower end of the EMAIL/LINKEDIN seam'.",
+  "ADVISORY: scraps are inconsistent in size_in_frame (20% width) against region width 0.22 each; align."
+ ]
+}
