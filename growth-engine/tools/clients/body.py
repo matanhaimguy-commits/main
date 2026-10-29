@@ -10,6 +10,8 @@ Pieces are always sent whole (the hub marks the brand's other pieces removed). S
 an unchanged brain, plan or spend adds no row on the hub."""
 from organic_os.card_title import title_of
 
+from . import hook_grades
+
 BRAND_KEYS = ("slug", "name", "status", "business", "language", "account_stage", "timezone", "cadence", "monthly_usd_cap")
 PIECE_KEYS = ("post_id", "status", "slot", "funnel_stage", "job", "belief", "format", "format_family", "title",
               "hook_text", "hook_grades", "script_score", "gates", "project", "studio_post_id", "content_external_key",
@@ -50,7 +52,7 @@ def piece_block(entry: dict, slot_at: str | None, stage: str | None, family: str
     p = {"post_id": card["post_id"], "status": card.get("status"), "slot": None if entry["bank"] else slot_at,
          "funnel_stage": stage, "job": card.get("job"), "belief": card.get("belief"), "format": card.get("format"),
          "format_family": (run or {}).get("family") or family, "title": title_of(card),
-         "hook_text": hook.get("text") or hook.get("spoken"), "hook_grades": None, "script_score": script_score(run, proj),
+         "hook_text": hook.get("text") or hook.get("spoken"), "hook_grades": hook_grades.of(proj.get("hook")), "script_score": script_score(run, proj),
          "gates": card_gates(card) + (run or {}).get("gates", []), "project": proj.get("project"),
          "studio_post_id": run_post if run_post and run_post != card["post_id"] else None,
          "content_external_key": proj.get("content_external_key"), "usd_spent": usd_spent, "notes": notes_of(entry)}

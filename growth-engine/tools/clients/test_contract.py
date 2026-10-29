@@ -47,6 +47,10 @@ class Contract(unittest.TestCase):
         self.assertIn("funnel_stage", self.changed(lambda b: b["pieces"][0].update(funnel_stage="TOP"))[0])
         self.assertIn("status", self.changed(lambda b: b["pieces"][0].update(status="drafted"))[0])
         self.assertIn("not in the contract", self.changed(lambda b: b["pieces"][0].update(bank=True))[0])
+        self.assertIn("hook_grades", self.changed(lambda b: b["pieces"][0].update(hook_grades=None))[0])
+        self.assertIn("hook_grades", self.changed(lambda b: b["pieces"][0].update(hook_grades=["A"]))[0])
+        self.assertIn("gates", self.changed(lambda b: b["pieces"][0].update(gates=None))[0])
+        self.assertEqual(self.changed(lambda b: b["pieces"][1].update(hook_grades=[], gates=[])), [])
         self.assertEqual(self.changed(lambda b: b["pieces"][0].update(slot=None, funnel_stage=None)), [])
 
 

@@ -39,7 +39,8 @@ def hook(proj: Path | None, card: dict) -> dict | None:
     if isinstance(hooks, list) and hooks:
         m = MASTER.search(card.get("source_ref") or "")
         h = next((h for h in hooks if m and h.get("id") == m.group(1)), hooks[0])
-        return {"id": h.get("id"), "text": h.get("text"), "spoken": h.get("spoken"), "source": "docs/hooks.json"}
+        out = {"id": h.get("id"), "text": h.get("text"), "spoken": h.get("spoken"), "source": "docs/hooks.json"}
+        return {**out, "grade": h["grade"]} if h.get("grade") else out
     m = NOTE_HOOK.search(card.get("notes") or "")
     if m:
         key = "text" if m.group(1) == "Text hook" else "spoken"

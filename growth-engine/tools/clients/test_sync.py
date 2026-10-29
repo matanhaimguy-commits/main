@@ -36,6 +36,7 @@ class Sync(ClientsCase):
                          ("AC-2026-11-W1-01", "Title AC-2026-11-W1-01", "TOF", "motion"))
         self.assertEqual((p["slot"], p["hook_text"], p["script_score"], p["usd_spent"]),
                          ("2026-11-02T12:00:00-05:00", "second", 88, 1.25))
+        self.assertEqual(p["hook_grades"], [])
         self.assertEqual([(g["gate"], g["status"]) for g in p["gates"]], [("card:idea", "PASS"), ("G-SCRIPT", "PASS")])
         self.assertEqual((p["project"], p["studio_post_id"], p["content_external_key"]),
                          ("motion-studio/projects/acme-01", None, "AC-2026-11-W1-01"))
@@ -45,6 +46,7 @@ class Sync(ClientsCase):
         self.assertEqual((second["funnel_stage"], second["project"], second["script_score"], second["usd_spent"]),
                          ("BOF", None, None, None))
         self.assertEqual(second["hook_text"], "Here's the one test.")
+        self.assertTrue(all(x["hook_grades"] == [] for x in (second, bank)))
         self.assertIsNone(bank["slot"])
         self.assertTrue(bank["notes"].startswith("Bank card (spare)"))
 

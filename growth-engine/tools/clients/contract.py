@@ -10,7 +10,7 @@ SLUG = re.compile(r"^[a-z0-9][a-z0-9-]{0,63}$")
 BRAND_STATUS = ("onboarding", "research", "active", "paused")
 PIECE_STATUS = ("planned", "scripted", "produced", "approved", "scheduled", "live", "scored", "killed")
 SNAPSHOT_KINDS = ("brain", "plan", "onboarding", "spend")
-MAX_SNAPSHOT, MAX_PIECES = 500_000, 1000
+MAX_SNAPSHOT, MAX_PIECES, MAX_GRADES, MAX_GATES = 500_000, 1000, 50, 100
 
 
 def iso_with_offset(v) -> bool:
@@ -60,6 +60,16 @@ def piece_problems(i: int, p: dict) -> list[str]:
         out.append(f"{at}.slot: ISO date-time with offset, or null")
     if p.get("funnel_stage") not in (None, "TOF", "MOF", "BOF"):
         out.append(f"{at}.funnel_stage: TOF, MOF, BOF or null")
+    return out + grade_problems(at, p)
+
+
+def grade_problems(at: str, p: dict) -> list[str]:
+    """hook_grades and gates are lists of objects, never null (the hub's `z.array(z.record(...)).default([])`)."""
+    out = []
+    for k, cap in (("hook_grades", MAX_GRADES), ("gates", MAX_GATES)):
+        v = p.get(k, [])
+        if not isinstance(v, list) or len(v) > cap or not all(isinstance(x, dict) for x in v):
+            out.append(f"{at}.{k}: a list of at most {cap} objects (use [] for none, not null)")
     return out
 
 
