@@ -114,3 +114,31 @@ What the three rounds show, for the main session to weigh (this session changed 
 ## Not done
 The re-grade of W9-11 R3c, W9-10 R4a, W1-02 R3c, W9-04 R3a, W9-02's best and the EN 06 page idea's best. The brief
 says not to run it when calibration fails.
+
+## Re-grade with packet-v2 (done at the main session's request, after the verdict above)
+Main session (29 Oct, after reading this file) asked for the re-grade anyway: Matan decides how the bar maps onto these
+graders. Packet-v2 unchanged. Words only (no frames), no new writing, no edits to the stacks. 2 fresh sonnet graders
+(7 and 8), 8 shuffled stacks: the six best plus anchors B1 and B6 from round 3. `hook-calibration/regrade_set.py`
+builds the set. No G-HOOK or other checkpoint recorded. Grades are Text / Spoken, gates failed in brackets.
+
+| Stack (text / spoken) | Grader 7 | Grader 8 | At A on both channels, both graders? |
+|---|---|---|---|
+| W9-11 R3c "Offer not selling? Fix its first line before the price." / "Cutting your price because nobody buys? Fix your offer's first line." | B / A- [] | B / B+ [] | FAIL |
+| W9-10 R4a "Still no replies? It's the first line, not the volume." / "Doubled your cold emails? The first line is why nobody answers." | B / A- [] | A- / A- [] | FAIL (closest) |
+| W1-02 R3c "Your next post's first line? A buyer already wrote it." / "A buyer already wrote it. Here's where to find your own." | B- / C [1,3,4] | C / C [1,3,4] | FAIL |
+| W9-04 R3a "Months of posting, few leads? Use buyers' exact words instead." / "Few leads after months of posting? Use your buyers' exact words." | B- / B- [6] | B+ / B+ [] | FAIL |
+| W9-02 best "Referrals aren't your problem. The timing is." / "Some months you sign three clients. Some months, literally nothing." | B+ / A- [] | B+ / A- [] | FAIL |
+| EN 06 page best "Likes, no bookings? Don't fix the post. Fix the page." / "Your post asks about slow months. Your page never answers it." | B+ / B+ [] | B+ / B- [2] | FAIL |
+| Anchor B1 (skill winner, kidneys) | D / C [8,9] | D / C [1,8,9] | FAIL |
+| Anchor B6 (skill winner, "not gaining weight, swollen") | B+ / B [] | B / B [1,4] | FAIL |
+
+What the anchors say:
+- The same two anchors scored A- / A- (B1) and A- / A- (B6) in round 3. In this run B1 fell to D / C (both graders) and B6
+  to B+ / B and B / B. The spread on one unchanged stack is two to four grades. Single reads of one grader are not a
+  stable measure, and a pass needs both graders at A on both channels.
+- Packet-v2 gives no stack an A on either channel anywhere in this run. Spoken reached A- in five reads (W9-11 once, W9-10
+  twice, W9-02 twice; none for the anchors); text reached A- once (W9-10, grader 8).
+- Ranking (grader 7 | grader 8): W9-10 first | W9-02 first; W9-02 and W9-10 are the top two for both graders; W1-02 R3c is
+  last of our six for both (gates 1, 3 and 4: "it" is never named).
+- By the skill's own definition, the six best stacks sit at B to A- on spoken and B- to B+ on text. Nothing here meets
+  "A or A+ on text and spoken from both graders". Whether the bar should map to A- on these graders is Matan's call.
