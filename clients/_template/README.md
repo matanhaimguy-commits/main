@@ -5,9 +5,10 @@ through `growth-engine/ONBOARDING.md`. Do not put real client data in `_template
 
 | File or folder | What it holds | Filled in |
 |---|---|---|
-| `brain.json` | The Client Brain. Every value starts as `unknown: ...`. Facts about the brand change only here. | O3 (Strategy), checked by `organic.py brain-check <slug>` |
+| `brain.json` | The Client Brain. Every value starts as `unknown: ...`; the draft gives each fact a source in `field_sources`. Facts about the brand change only here. | O1 draft (`draft.py`), Brand card (`hub.py brand-pull`), O3; checked by `organic.py brain-check <slug>` and `draft.py check <slug>` |
 | `content-map.json` | The month's Content Map: theme, mix, pillars, series. | O4 (Plan) |
-| `intake/` | `answers.json` and `files.json`, written by `hub.py intake-pull <slug>`. | O1 (Intake) |
+| `intake/` | `slim.json` (quick intake) or `answers.json` and `files.json` (old shape), written by `hub.py intake-pull <slug>`. | O1 (Intake) |
+| `foundation/` | The client's uploaded documents, downloaded by `intake-pull`. **Gitignored: private, never committed.** Not part of the starter folder; created on the first pull. | O1 (Intake) |
 | `research/` | Foundation steps 01 to 03: voice of the customer, competitors and ads, outliers, page facts, demand map, Hook Library. | O2 (Research) |
 | `cards/` | Post Cards, one folder per week (`cards/2026-11-W1/`). | O4 (Plan) |
 

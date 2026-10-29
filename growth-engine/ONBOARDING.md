@@ -26,35 +26,43 @@ the producer's reasoning and checks the files cold), a **gate** (the check that 
 Start of every onboarding: `cp -r clients/_template clients/<slug>`, add the brand to `tools/clients/registry.json` with
 status `onboarding`, and add `Agency OS/Clients/<Name>/` in the vault (`tools/brain_note.py <slug>` writes its profile).
 
-## O1 Intake
+## O1 Intake and draft (docs first)
+
+Quick onboarding, approved by Matan on 29 Oct 2026. The client is not asked 50 questions. They upload the documents they
+already have, the machine drafts the brain from them, and Matan edits about 10 important fields by hand (O3).
 
 | | |
 |---|---|
-| **Inputs** | The client's name and contact. The intake link: the hub app's `/intake/$token`, built from `onboarding/intake-questions.json`. |
-| **Outputs** | `clients/<slug>/intake/answers.json` (every answer, by question id, and the list of required ones still missing) and `clients/<slug>/intake/files.json` (the files the client attached, with their links). |
-| **Producer** | The main session, with `hub.py intake-pull <slug>`. The client fills the form. |
-| **Evaluator** | None. The check is code: `intake-pull` lists every required question that has no usable answer. |
-| **Gate** | **Required fields complete.** `hub.py intake-pull <slug>` prints `O1 gate: ready` and exits 0. Otherwise it prints the missing ids and exits 1, and the main session asks the client for those. "I don't know" is accepted only where the question allows it (B2). |
+| **Inputs** | The client's name and contact. The intake link (the hub app's `/intake/$token`): business name, website, Instagram, one offer line, up to 5 competitors, two consents (AI-made people and faces, public use of proof) and the foundation documents (brand guide, price list, decks, past posts, reviews export, anything they have). |
+| **Outputs** | `clients/<slug>/intake/slim.json` (the form, with no signed links). `clients/<slug>/foundation/` with the client's documents and `manifest.json` (**gitignored: private client documents never go into git**). A drafted `clients/<slug>/brain.json` where **every field has a source** in `field_sources` (document name and page, website URL, Instagram post, review) or says `unknown: <what is missing>`. `research/seeds.json` and, after the draft check, `research/o2-queue.json`. |
+| **Producer** | The main session pulls the intake (`hub.py intake-pull <slug>`, right away: the document links expire after 10 minutes), then `braindraft` seeds it (`draft.py seed <slug>`) and `brain-builder` drafts the rest (see its agent file). The 38 old questions are the drafter's internal checklist (`draft.py checklist <slug>`), never asked of the client. |
+| **Evaluator** | A fresh session. It opens 5 fields chosen by it, not by the producer, and checks that the cited page or URL says what the brain says. It also checks that no number, result, client or review appears without a source, and that every `unknown:` says what is missing. It writes `intake/draft-review.md`, ending with `PASS` or `FAIL`. |
+| **Gate** | **Sourced draft.** `hub.py intake-pull <slug>` prints `O1 gate: ready`, `draft.py check <slug>` prints `PASS` (every drafted field has a source or `unknown: <what>`, the schema passes), and the evaluator's report ends with `PASS`. The check also queues O2: research starts automatically after the draft. |
 | **Decides** | The main session. |
 
 Notes:
-- `hub.py intake-pull <slug> --fixture file.json --dry-run` runs the same checks from a saved intake with no network and
-  writes nothing. `tools/intake/fixtures/sample-intake.json` is the made-up sample.
-- The question set is data: `onboarding/intake-questions.json` (schema beside it). The 30 questions A1 to F5 are Client
-  Foundation v3's questionnaire, same ids and wording. G (offer economics, competitors, review sources, brand files) and
-  H (consent for AI people and faces, proof permissions, approver, language and tone) were added for the research and the
-  production rules. The app reads this file; ids never change.
-- `intake-pull` calls the app's `GET /api/clients/intakes?brand=<brand slug>` with the studio token and takes the newest
-  submitted intake (`intakes[0]`). No submitted intake stops with NOT_SUBMITTED; an HTTP error is an error. Files are a
-  flat list. The call lives in one file, `tools/intake/fetch.py`.
+- **Slim intake shape.** `intake-pull` calls `GET /api/clients/intakes?brand=<slug>` with the studio token and reads
+  `{brand, business_name, website, instagram, offer_line, competitors, consents: {ai_people, proof}, docs: [{name, mime,
+  size, signed_url}], submitted_at}`. It downloads each document into `foundation/` at once (no token goes to the storage
+  host) and lists any that failed, so the gate says which document to ask for again. The old 38-question shape is still
+  read (`answers.json` and `files.json`), for brands that already used it.
+- `hub.py intake-pull <slug> --fixture file.json --dry-run` runs the same checks from a saved response with no network
+  and writes nothing.
+- **The draft reads, in this order:** the foundation documents, the website, the Instagram account, public reviews. A fact
+  that only the client's own words can give (price, capacity, who approves) and that no document holds is written
+  `unknown: <what>`; it is never guessed and never asked of the client in a form. Matan fills the few that matter in O3.
+- **Consents set rules.** `ai_people` false: `visual.face` is `faceless`. `proof` false: no proof line is made public
+  (permission stays `pending`).
+- `onboarding/intake-questions.json` stays as the checklist data (ids never change); the app no longer shows it to new
+  clients.
 
 ## O2 Research
 
 | | |
 |---|---|
-| **Inputs** | `intake/answers.json`. The client's website, Instagram, competitors, review sources (G1 to G3). |
+| **Inputs** | The drafted `brain.json` and `research/seeds.json` (website, Instagram, competitors, consents) from O1; `research/o2-queue.json` says it is queued. For a brand on the old shape: `intake/answers.json` (G1 to G3). |
 | **Outputs** | In `clients/<slug>/research/`: the voice of the customer (`voc-master.csv`, with a source on every row), competitors and their ads (`competitors.csv`, `ads.csv`), the outlier set (`outliers.csv` from `organic.py outliers`), page facts (`page-facts.md`), the demand map (`demand-map.csv`, 20 to 40 buyer phrases tagged direct, bridge or off_map) and the Hook Library (`hook-library.md`). These are Client Foundation v3 steps 01 (business snapshot and research map), 02 (VOC harvest) and 03 (competitors and market messages). |
-| **Producer** | `research-scout`, running Foundation steps 01 to 03. Scrapers only through `config/apify-actors.json`: Instagram, Facebook posts, Meta Ad Library (`apify/facebook-ads-scraper`, counts only unless more is needed), Google reviews, Trustpilot (`memo23/trustpilot-scraper-ppe`). Each call must carry `maxTotalChargeUsd`, which the gate enforces. The actor's `max_items` is the item cap to put in the input; the gate does not check it, so the USD cap is the hard limit. YouTube Shorts come from TranscriptAPI and carry views only (see below). |
+| **Producer** | `research-scout`, running Foundation steps 01 to 03, **started automatically once `draft.py check` passes**. Scrapers only through `config/apify-actors.json`: Instagram, Facebook posts, Meta Ad Library (`apify/facebook-ads-scraper`, counts only unless more is needed), Google reviews, Trustpilot (`memo23/trustpilot-scraper-ppe`). Each call must carry `maxTotalChargeUsd`, which the gate enforces. The actor's `max_items` is the item cap to put in the input; the gate does not check it, so the USD cap is the hard limit. YouTube Shorts come from TranscriptAPI and carry views only (see below). |
 | **Evaluator** | A fresh session. It opens the files and checks evidence and counts: every VOC row has a quote, a source URL and a date; rows are real quotes, not summaries; at least 80 coded VOC rows per problem lane on `standard` budget (50 on `lean`) and at least 3 lanes; at least 8 competitors with their ad counts, or the reason an Ad Library scan was not possible; the outlier file has at least 10 trusted outliers or says why not; the demand map has 20 or more direct or bridge phrases; the Hook Library has at least 20 hooks with a source each. It re-computes three counts by hand and compares. |
 | **Gate** | **Evidence and counts.** The evaluator's report `research/review.md` ends with `PASS`. A FAIL names the missing counts and the producer fills only those. |
 | **Decides** | The main session. |
@@ -72,12 +80,37 @@ Notes:
 
 | | |
 |---|---|
-| **Inputs** | O2's research folder and the intake. |
-| **Outputs** | `research/strategy.md`: 2 or 3 offer directions, each with its evidence (VOC row ids, competitor gaps, the price and margin from G1), ICP avatars (1 to 3), awareness stage and sophistication, the mechanism (problem name and solution name), the belief ladder B1 to B8, the voice, and the items the client must confirm. A filled `clients/<slug>/brain.json`, `brain.md` and the first `decisions_open`. This is Foundation steps 04 (desire, identity, sophistication), 05 (avatars, objections), 06 (mechanism), 07 (offer), 08 (brand and messaging) and 09 (beliefs and proof). |
-| **Producer** | `brain-builder`, running Foundation steps 04 to 09. Never guesses: a missing fact is written `unknown: <what>` and listed in `decisions_open`. |
-| **Evaluator** | A fresh session. It reads `brain.json` cold and checks: `organic.py brain-check <slug>` has no errors (the six blocking fields are filled and the schema passes); every avatar phrase, fear and desire traces to a VOC row; each offer direction has at least 3 pieces of evidence; no number, result, client or review appears that is not in the intake or the proof bank; no claim breaks `constraints.cannot_say`. |
-| **Gate** | `brain-check` passes **and** the evaluator's report ends with `PASS` **and** the owner and client steps below are done. |
-| **Decides** | **Matan picks the direction** (checkpoint **G-HUMAN-OFFER**, new, see STANDARDS 9). **The client confirms the items** on the confirm link (names, claims, the one next step, what may be said). The main session records the answers in the brain and in `decisions_open`. |
+| **Inputs** | O2's research folder and the drafted brain. |
+| **Outputs** | `research/strategy.md`: 2 or 3 offer directions, each with its evidence (VOC row ids, competitor gaps, the price and margin when known), ICP avatars (1 to 3), awareness stage and sophistication, the mechanism (problem name and solution name), the belief ladder B1 to B8, the voice, and the few claims the client must approve. A filled `clients/<slug>/brain.json`, `brain.md` and the first `decisions_open`. This is Foundation steps 04 (desire, identity, sophistication), 05 (avatars, objections), 06 (mechanism), 07 (offer), 08 (brand and messaging) and 09 (beliefs and proof). |
+| **Producer** | `brain-builder`, running Foundation steps 04 to 09 on top of the O1 draft. Never guesses: a missing fact is written `unknown: <what>` with its source field kept, and listed in `decisions_open`. |
+| **Evaluator** | A fresh session. It reads `brain.json` cold and checks: `organic.py brain-check <slug>` has no errors (the six blocking fields are filled and the schema passes); `draft.py check <slug>` still passes; every avatar phrase, fear and desire traces to a VOC row; each offer direction has at least 3 pieces of evidence; no number, result, client or review appears that is not in a foundation document, the website or the proof bank; no claim breaks `constraints.cannot_say`. |
+| **Gate** | `brain-check` passes **and** the evaluator's report ends with `PASS` **and** the owner steps below are done (and the client's, if the optional step ran). |
+| **Decides** | **Matan edits the Brand card** (about 10 fields) and **picks the direction** (checkpoint **G-HUMAN-OFFER**, STANDARDS 9). The client confirms only the claims in the optional step. The main session records the answers in the brain and in `decisions_open`. |
+
+**The Brand card (Matan, by hand).** In the hub, Matan edits about 10 fields: `offer`, `icp`, `promise`, `mechanism`,
+`voice`, `never_say`, `proof_bank`, `cta_keyword`, `monthly_cap_usd`, `cadence`. Then the main session runs
+`hub.py brand-pull <slug>` (read-only `GET /api/clients/brand-overrides?brand=<slug>`). Each field is written into
+`brain.json` with the source `Matan (Brand card, <date>)` in `field_sources`, the result must pass the brain schema or
+nothing is written, and the vault note is regenerated with `tools/brain_note.py` when the vault exists. **`brain.json`
+stays the source of truth**: the card is an input form, and a field Matan did not touch is not changed.
+
+| Brand card field | Lands in `brain.json` |
+|---|---|
+| `offer` | `offer.main_offer` |
+| `icp` | `avatars[0].situation` (AV-01 is created if there is no avatar) |
+| `promise` | `offer.delivers` |
+| `mechanism` | `mechanism.ums` |
+| `voice` | `voice.adjectives` (split on commas or lines) |
+| `never_say` | `constraints.cannot_say` (one per line) |
+| `proof_bank` | `proof_bank` (each line gets a P-id; permission is the card's, else `pending`; document proof is kept) |
+| `cta_keyword` | `offer.keyword` |
+| `monthly_cap_usd` | `package.monthly_usd_cap` (this is also the O5 cap, set only by Matan) |
+| `cadence` | `package.posts_per_week` |
+
+**Client confirm (optional).** Skip it when the drafted brain has nothing the client must approve. When it runs, the
+confirm link carries only the claims that need the client's yes: names they will be called by, results and numbers to be
+published, testimonials and proof permissions, and anything the brain says about them that no document backs. It never
+repeats the intake questions.
 
 How G-HUMAN-OFFER is asked: the pipeline has no per-brand run to hang it on (its runs are per post, and the look bible's
 run is per series), so it has no step wiring. It is a Studio question: the main session pushes the brand's onboarding
@@ -134,10 +167,11 @@ decisions and content log. Client facts change only in `clients/<slug>/brain.jso
 
 | Stage | Checkpoint | Who |
 |---|---|---|
-| O1 | Required fields complete | code (`intake-pull`) |
+| O1 | Sourced draft | code (`intake-pull`, `draft.py check`) and a fresh evaluator |
 | O2 | Evidence and counts | fresh evaluator, main session decides |
 | O3 | **G-HUMAN-OFFER** (new): the offer direction | Matan, on the Studio page |
-| O3 | Items confirmed | the client, on the confirm link |
+| O3 | Brand card (about 10 fields) | Matan, in the hub, pulled with `brand-pull` |
+| O3 | Claims confirmed (optional) | the client, on the confirm link |
 | O4 | card-check and week-check | code, main session decides |
 | O5 | G-HUMAN-VOICE | Matan only |
 | O5 | G-HUMAN-LOOK | delegated after a fresh evaluator |
@@ -145,6 +179,7 @@ decisions and content log. Client facts change only in `clients/<slug>/brain.jso
 
 ## Files this kit added
 
-`onboarding/intake-questions.json` (and `.schema.json`, `test_intake_questions.py`), `tools/intake/` (the
-`intake-pull` command), `clients/_template/`, the YouTube views-only handling in `tools/organic_os/`, the Trustpilot and
+`onboarding/intake-questions.json` (and `.schema.json`, `test_intake_questions.py`; now the drafter's checklist), `tools/intake/` (the
+`intake-pull` command, slim and old shapes), `tools/braindraft/` and `tools/draft.py` (seed, checklist, check), `tools/brand/` (the
+`brand-pull` command), `tools/brainio/` (brain.json paths, saving, schema check), `clients/_template/`, the YouTube views-only handling in `tools/organic_os/`, the Trustpilot and
 Ad Library entries in `config/apify-actors.json`, and G-HUMAN-OFFER in `production/STANDARDS.md` and `standards.json`.

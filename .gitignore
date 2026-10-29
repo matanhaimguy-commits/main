@@ -22,3 +22,6 @@ clients/*/runs/*/qa/frames/
 clients/*/runs/*/audio/takes/
 # agent worktrees (temporary copies of the repo)
 .claude/worktrees/
+
+# private client documents from the quick intake (never in git)
+clients/*/foundation/

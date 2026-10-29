@@ -1,5 +1,8 @@
 """Reads a submitted intake from the hub app (agent-start-spark src/server/clients/api-intakes.server.ts).
 
+Slim shape (docs-first, Quick onboarding): GET clients/intakes?brand=<slug> -> {brand, business_name, website, instagram,
+offer_line, competitors: [str], consents: {ai_people, proof}, docs: [{name, mime, size, signed_url}], submitted_at}.
+Old shape (38 questions):
 GET clients/intakes?brand=<brand slug> (studio token) ->
   {"intakes": [{id, brand, answers: {<question id>: value}, files: [{name, url, type?, size?}], status: "submitted",
                 submits, submitted_at, expires_at, created_at}], "confirmations": [...]}
@@ -9,6 +12,8 @@ import json
 import sys
 import urllib.parse
 from pathlib import Path
+
+from . import shape, slim
 
 
 def from_hub(call, slug: str) -> dict:
@@ -23,11 +28,15 @@ def from_fixture(path: str) -> dict:
 
 
 def latest(resp: dict) -> dict:
-    """The newest submitted intake, as {answers, files, submitted_at}."""
-    rows = resp.get("intakes") if isinstance(resp, dict) else None
-    if not rows:
+    """The newest submitted intake. Old shape: {shape: "legacy", answers, files, submitted_at}. Slim shape:
+    {shape: "slim", slim: {...}, submitted_at} (see slim.py)."""
+    row = shape.row_of(resp)
+    if not row:
         sys.exit("NOT_SUBMITTED: the client has not submitted the intake yet (the hub has no submitted intake for this brand)")
-    row = rows[0]
+    if shape.kind(row) == "slim":
+        s = slim.normalize(row)
+        return {"shape": "slim", "slim": s, "submitted_at": s["submitted_at"]}
     if not isinstance(row.get("answers"), dict) or not isinstance(row.get("files") or [], list):
         sys.exit("BAD_INTAKE: answers must be an object and files a list")
-    return {"answers": row["answers"], "files": row.get("files") or [], "submitted_at": row.get("submitted_at") or row.get("created_at")}
+    return {"shape": "legacy", "answers": row["answers"], "files": row.get("files") or [],
+            "submitted_at": row.get("submitted_at") or row.get("created_at")}

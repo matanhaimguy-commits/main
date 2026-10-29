@@ -46,6 +46,14 @@
   "updated": {
    "type": "string"
   },
+  "field_sources": {
+   "type": "object",
+   "description": "Where each fact came from, by dotted path into this brain (offer.main_offer, avatars[0].situation, voice.language). Value: a foundation doc with page, a website URL, an Instagram post, a review, 'Matan (Brand card, <date>)', or 'client intake'. A field with no source must hold 'unknown: <what is missing>'. Checked by tools/draft.py check.",
+   "additionalProperties": {
+    "type": "string",
+    "minLength": 3
+   }
+  },
   "refresh_due": {
    "type": "string"
   },
