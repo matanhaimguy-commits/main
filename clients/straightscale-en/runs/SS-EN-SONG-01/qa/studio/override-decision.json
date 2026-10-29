@@ -1,0 +1,12 @@
+{
+ "checkpoint": "G-VIS-SHEET-OVERRIDE",
+ "key": "G-VIS-SHEET-OVERRIDE",
+ "step": 7,
+ "question": "Override the review fails on the five locked sheets (CH-MAYA, PR-CLOTH, PR-ORGANIZER v2, SET-FRIEND, CH-FRIEND) so keyframes can use them?",
+ "context_file": "override-context.md",
+ "recommendation": "Override all five",
+ "options": [
+  {"label": "Override all five", "description": "Recommended. The waived flaws are handled in the prompts; keyframes can start after this."},
+  {"label": "Redo the sheets first", "description": "New versions of the five sheets before any keyframe (about $0.30, plus reviews)."}
+ ]
+}

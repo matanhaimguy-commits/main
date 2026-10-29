@@ -1789,7 +1789,8 @@
       ],
       "medias": [],
       "ids": [
-        "1dcba34f960749439cd3c8c9db723354"
+        "1dcba34f960749439cd3c8c9db723354",
+        "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-eb7701371474ae91404d7679a1d867caee1da7e103613f4b826183efb37adb34/1dcba34f960749439cd3c8c9db723354-51b0cb02ce3c1e42.png"
       ],
       "files": [
         "assets/sheets/CH-MAYA.v1.png"
@@ -2582,12 +2583,14 @@
       "id": "G-HUMAN-ESCALATE:PR-ORGANIZER@v3",
       "checkpoint": "G-HUMAN-ESCALATE",
       "asset": "PR-ORGANIZER@v3",
-      "status": "PENDING",
+      "status": "WITHDRAWN",
       "note": "PR-ORGANIZER: failed 3 attempts at G-VIS-SHEET; best version and its report go to the owner (VISUAL-QA 5.5)",
       "files": [
         "assets/sheets/PR-ORGANIZER.v3.png"
       ],
-      "asked_at": "2026-10-28T18:42:21+00:00"
+      "asked_at": "2026-10-28T18:42:21+00:00",
+      "withdrawn_at": "2026-10-29T02:32:45+00:00",
+      "withdrawn_note": "v3 abandoned; PR-ORGANIZER v2 locked with minors waived (main session, delegated by Matan, plan 28 Oct). Never sent to the owner; no owner answer recorded."
     },
     {
       "id": "G-HUMAN-LOOK:",
@@ -2597,6 +2600,22 @@
       "note": "FYI (delegated): clients/straightscale-en/runs/SS-EN-SONG-01/qa/look-evaluator-report.md: LOOK PASS WITH CONDITIONS 1-5 (World line pinned with a paper crop reference; laptop, bin and March tag described or one prop sheet; SH01/SH02 organizer pockets stated; AI label on; SH08/SH22 re-staged). Locked: PR-SCRAPS v1; CH-MAYA v1, PR-CLOTH v1, PR-ORGANIZER v2, SET-FRIEND v1 with minors waived; CH-FRIEND v1 standing views; SET-OFFICE retired. The conditions are met in step 7 before any clip.",
       "files": [],
       "asked_at": "2026-10-28T22:48:46+00:00"
+    },
+    {
+      "id": "G-VIS-SHEET-OVERRIDE:",
+      "checkpoint": "G-VIS-SHEET-OVERRIDE",
+      "asset": null,
+      "status": "PENDING",
+      "note": "Owner only: record an OVERRIDE for the G-VIS-SHEET fails on the locked sheets CH-MAYA@v1, PR-CLOTH@v1, PR-ORGANIZER@v2, SET-FRIEND@v1, CH-FRIEND@v1 (fresh evaluator: LOOK PASS with conditions, qa/look-evaluator-report.md; minors waived). Recommended: Override all five. Options: Override all five / Redo the sheets first. On 'Override all five': pipeline.py gate ... G-VIS-SHEET --status OVERRIDE --by Matan --asset <each> --note <his answer>.",
+      "files": [
+        "assets/sheets/CH-MAYA.v1.png",
+        "assets/sheets/PR-CLOTH.v1.png",
+        "assets/sheets/PR-ORGANIZER.v2.png",
+        "assets/sheets/SET-FRIEND.v1.png",
+        "assets/sheets/CH-FRIEND.v1.png",
+        "qa/look-evaluator-report.md"
+      ],
+      "asked_at": "2026-10-29T02:32:45+00:00"
     }
   ]
 }
