@@ -41,7 +41,17 @@ STACKS = [
   "A burnt-out business owner who is tired, stressed, behind on everything and out of ideas."),
 ]
 
-def write(folder, seed=11):
+BUYER = {
+ "A1":"Ambitious small-business owners and aspiring founders on Instagram or YouTube Shorts.",
+ "A2":"People who sell services (consultants, agencies, coaches) and lose deals on price.",
+ "A3":"Creatives and small-business owners who want to learn marketing.",
+ "A4":"Employees with a full-time job who want a side income using AI.",
+ "A5":"Managers and business owners who have employees.",
+ "A6":"Aspiring entrepreneurs who like founder stories.",
+}
+OURS = "Owners of one-person or small service businesses (consultants, coaches, small agencies), late 30s to mid 40s, who get clients by referral and LinkedIn, with lumpy months and no predictable way to get the next client."
+
+def write(folder, seed=11, buyer=False):
     folder = pathlib.Path(folder); folder.mkdir(parents=True, exist_ok=True)
     order = STACKS[:]; random.Random(seed).shuffle(order)
     lines = ["# Stacks to grade (words only: the visual was not made for any of them, write \"n/a\" for visual)\n"]
@@ -49,10 +59,10 @@ def write(folder, seed=11):
     for i,(sid,kind,src,t,s) in enumerate(order,1):
         label = f"S{i:02d}"
         key[label] = {"id":sid,"kind":kind,"source":src,"text":t,"spoken":s}
-        lines.append(f"## {label}\n- VISUAL: frame not made yet\n- TEXT: \"{t}\"\n- SPOKEN: \"{s}\"\n")
+        lines.append(f"## {label}\n" + (f"- TARGET BUYER: {BUYER.get(sid, OURS)}\n" if buyer else "") + f"- VISUAL: frame not made yet\n- TEXT: \"{t}\"\n- SPOKEN: \"{s}\"\n")
     (folder/"stacks.md").write_text("\n".join(lines))
     return key
 
 if __name__ == "__main__":
-    key = write(sys.argv[1])
+    key = write(sys.argv[1], buyer=len(sys.argv)>3)
     pathlib.Path(sys.argv[2]).write_text(json.dumps(key, indent=1))
