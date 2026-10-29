@@ -1,0 +1,75 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "O60-SH10",
+ "spec_sha256": "2fa722290830e3e6b48a8e11483206630d95ae6aa0a26577a75e2070eb7d151a",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read 'Two different patches held side by side with a gap and no join' covered by PR-SCRAPS EMAIL/ADS, both hands, 3 cm gap; CH-MAYA torso, belt, trousers, floor and chin specified"
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "left/right hands by image side, 'thumb and forefinger on each top corner', 'five fingers on each visible hand', boxes x 0.065-0.185 and 0.815-0.935, y 0.29-0.38"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'pinches the top-left corner of the EMAIL scrap'; 'The two scraps hang still; the camera dollies back slowly (the clip's one motion)'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-SCRAPS content line gives all four patterns and stitched labels; state names EMAIL gingham and ADS polka dots"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "EMAIL and ADS quoted, surface 'stitched label on the gingham/polka-dot scrap', occlusion 'no finger over the letters'; label boxes inside scrap boxes"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: 'no readable text other than EMAIL and ADS'; organizer 'above the frame'; 'No office furniture or objects appear in this shot'"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "3x about (0.50,0.53) checked against SH11: EMAIL 0.36-0.485 -> 0.08-0.455, ADS 0.515-0.64 -> 0.545-0.92, y 0.46-0.53 -> 0.32-0.53, hands 0.355-0.395/0.45-0.48 -> 0.065-0.185/0.29-0.38, feet 0.67 -> 0.95, chin 0.39 -> 0.11, organizer 0.145-0.315 -> above frame"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot O60-SH09, carry_over 'PR-SCRAPS EMAIL and ADS', 'CH-MAYA hands'; end frame SH11 numbers match"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "hand sides given by image side with Maya's own side in brackets; gap 3 cm = x 0.455-0.545 stated"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "no marble; World line verbatim; stitched-label lettering and clean pinch stated ('thumb and forefinger on each top corner')"
+  }
+ ],
+ "suggested_spec_changes": [
+  "ADVISORY (P3/P8): the chin shows at 0-11% from the top (inside the top 14% band) with no face region and no accepted-exception line; add a face region x 0.40-0.60, y 0-0.11 and one line in safe_zones that it is a chin only.",
+  "ADVISORY (P8): the accepted exception says the image-right hand reaches x 0.79-0.94 'at y 0.50 to 0.53'; the hand is at y 0.29-0.38 (only the scrap corner is at 0.50-0.53). Reword so the exception names the scrap corner only.",
+  "ADVISORY (P5/P8): the content line lists LINKEDIN and COACH scraps and their lettering; add 'LINKEDIN and COACH are out of frame' as in SH11, and keep them out of the lettering rule."
+ ]
+}

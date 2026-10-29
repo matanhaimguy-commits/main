@@ -131,6 +131,11 @@ Open (main session):
   horizontally so she faces image-left (kept out of the spec to keep its PASS).
 - Main session accepted the SH01, SH02, SH03 and SH10 simplifications; one fresh review of the four (`qa/r15`, same
   scope). A fail there is simplified in place, not reviewed again.
+- r15: SH01, SH02, SH03, SH10 PASS, so all 24 specs pass G-SPEC on their current files. Prompt-stage notes from its
+  advisories: SH01 the hook overlay covers most of CLIENTS in the edit (not just its right end), and the three overlay
+  strings are never rendered; SH01 check the organizer's proportions by eye against H-01; SH02 both hands out of view
+  in front of her body; SH03 the pile is blank loose clay papers, the hero read is Maya looking up at April; SH10 her
+  chin at the top edge is soft and not key, LINKEDIN and COACH are out of frame.
 - Paper reference: no upload. CH-MAYA@v1 now carries its Atlas URL; office prompts attach it with the line "use only the
   plain ivory paper background of this reference". REF-PAPER@v1 stays as the local check copy (specs still name it).
 - Owner question: `G-VIS-SHEET-OVERRIDE` queued in the ledger and asked on the Studio page as decision #4 (run #1,
