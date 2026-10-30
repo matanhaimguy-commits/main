@@ -5,7 +5,7 @@
   organic.py week-check <slug> <dir|cards> ...     weekly rules: format and job rotation, mix, B7, contrarian, CTAs (6.2, 6.6)
   organic.py route <slug> <card> [--prev-family F] [--plan DIR...]   format router: L19 beat, funnel, variety, USD cap (FORMATS.md 1)
   organic.py ledger <slug> [--month YYYY-MM]       Atlas USD and minutes spent vs the monthly USD cap (7.7)
-  organic.py ledger-add <slug> --post ID --format F --usd N [--minutes N] [--note TEXT]   (--credits, --el: history)
+  organic.py ledger-add <slug> --post ID --format F --usd N [--heygen CREDITS] [--minutes N] [--note TEXT]   (--credits, --el: history)
   organic.py outliers <dataset.json> [--days 90] [--out file.csv]   the 4 outlier checks per account (5.1)
   organic.py hooks <slug> <hooks.json> [--library F] [--phrases F]   hook stacks: proven format, buyers' words, plain English
   organic.py yt-import <@handle> <page.json...> --out items.json [--counts c.json]   YouTube Shorts pages -> outlier items
@@ -49,6 +49,7 @@ def parser() -> argparse.ArgumentParser:
     la = sub.add_parser("ledger-add"); la.add_argument("slug"); la.add_argument("--post", required=True); la.add_argument("--format", required=True)
     la.add_argument("--usd", type=float, required=True); la.add_argument("--minutes", type=float, default=0)
     la.add_argument("--credits", type=float, default=0); la.add_argument("--el", type=float, default=0)
+    la.add_argument("--heygen", type=float, default=0, help="HeyGen credits the twin used (D-T5)")
     la.add_argument("--note", default=""); la.add_argument("--date", default=dt.date.today().isoformat())
     o = sub.add_parser("outliers"); o.add_argument("dataset"); o.add_argument("--days", type=int, default=90); o.add_argument("--out")
     h = sub.add_parser("hooks"); h.add_argument("slug"); h.add_argument("hooks"); h.add_argument("--library"); h.add_argument("--phrases")

@@ -40,6 +40,7 @@ properties:
   cta_keyword: {type: [string, "null"]}
   lead_magnet: {type: [string, "null"]}
   hard_offer: {type: boolean, default: false, description: "A convert-job post about the client's one free offer, about 3% of output; no link, price, discount, guarantee or urgency (config/organic.json stage_mix note)"}
+  twin_host: {type: boolean, default: false, description: "The client's own digital twin (brain host block) hosts this piece, speaking as the owner (D-T1, D-T2). Only these cards may show the owner as the twin; the HeyGen gate refuses any other run (STANDARDS 7)"}
   proof_used: {type: array, items: {type: string}}
   hypothesis: {type: string, minLength: 10}
   success_metric: {enum: [sends_per_reach, saves_per_reach, follows_per_1k_reach, skip_rate, avg_watch_s, profile_visits, keyword_comments, dms, qualified_dms, booked, comments_per_reach]}

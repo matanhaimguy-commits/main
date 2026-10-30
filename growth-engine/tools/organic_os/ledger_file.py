@@ -1,17 +1,19 @@
-"""clients/<slug>/ledger.csv: one row per finished piece. atlas_usd is what Atlas charged; the Higgsfield and
-ElevenLabs credit columns are kept for the pieces made before the move to Atlas (owner, 28 Oct 2026)."""
+"""clients/<slug>/ledger.csv: one row per finished piece. atlas_usd is what Atlas charged and heygen_credits what HeyGen
+charged for the twin (D-T5); the Higgsfield and ElevenLabs credit columns are kept for the pieces made before the move
+to Atlas (owner, 28 Oct 2026)."""
 from __future__ import annotations
 
 import csv
 import os
 from pathlib import Path
 
-HEADER = ["date", "post_id", "format", "tier", "atlas_usd", "higgsfield_credits", "elevenlabs_credits", "minutes", "note"]
+HEADER = ["date", "post_id", "format", "tier", "atlas_usd", "heygen_credits", "higgsfield_credits", "elevenlabs_credits",
+          "minutes", "note"]
 
 
 def append_row(path: Path, row: dict) -> None:
-    """Appends one row. A ledger from before atlas_usd is rewritten once with the new header (old rows keep their
-    values; their atlas_usd stays empty), through a temp file, so a row that can't be written leaves it untouched."""
+    """Appends one row. A ledger from before a column (atlas_usd, heygen_credits) is rewritten once with the new header
+    (old rows keep their values; the new column stays empty), through a temp file, so a row that can't be written leaves it untouched."""
     rows: list[dict] = []
     if path.exists():
         with path.open(newline="") as f:

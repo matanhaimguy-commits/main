@@ -293,6 +293,21 @@ note names the evaluator's report by its repo path, and the file must exist.
   cap set G-BUDGET fails): step 9 closes only on a G-BUDGET recorded after the earlier steps closed, and the
   gate refuses every video call until step 9 is closed. Re-check the balance right before every submit (`atlas
   account balance`): it is shared with every other session. G-PROMPT-IMG sits at steps 7 and 8 (sheets, storyboards), G-PROMPT-VID at step 10.
+- **HeyGen credits (the twin, D-T5).** A piece with the twin is also priced in HeyGen credits: `pipeline.py budget ...
+  --heygen CREDITS [--heygen-balance CREDITS]` (budget_heygen.py) adds the credits + 25% against brain.json
+  `package.monthly_heygen_credit_cap` and the month's `heygen_credits` in the ledger. With no cap set it warns and logs
+  the credits on the G-BUDGET record instead of failing; with a cap, going over fails. Every HeyGen call needs a
+  G-BUDGET from the last 24 h that plans credits. Log what HeyGen charged with `organic.py ledger-add ... --heygen N`.
+- **The twin route (D-T4).** Only `create_speech` and `create_video_from_avatar` open (service `heygen_twin`,
+  `standards.json` `models.heygen`; heygen_gate.py). Speech: a voice asset registered with `--tool
+  mcp__HeyGen__create_speech` whose prompt is the released script, a G-SCRIPT PASS carrying `--data
+  '{"script_sha256": "<sha256 of that text>"}'`, a voice from the brain's `host` block. Video: a `video_clip` asset with
+  `--tool mcp__HeyGen__create_video_from_avatar` and the voice's audio id or URL as its only `--media <id>:audio`; the
+  voice made by create_speech with G-AUDIO PASS; a look from `host`; `aspectRatio` 9:16; `fit` cover for the landscape
+  look; no script, voice, motion prompt or burned captions on the call; step 9 closed. Both need a card marked
+  `twin_host`. `pipeline.py check-call --explain <tool> <input.json>` shows the hook's answer without logging a call.
+  Bash calls to HeyGen's API or the heygen CLI, and the media-use audio scripts that call it, are denied
+  (`.claude/hooks/heygen_bash_guard.py`).
 - Tier A pieces only with a proven angle or the month's wildcard (Organic Growth OS 7.7).
 
 ## 11. QA methods
@@ -409,3 +424,11 @@ fetched from a URL at run time and isn't in any skill folder.
   about $4.30 of $6.71.
 - 2026-10-28, onboarding (session C4): new owner checkpoint G-HUMAN-OFFER (`human_checkpoints`, mode `per_brand`, Matan only): the offer direction for a new brand, asked on the Studio page at stage O3 of `growth-engine/ONBOARDING.md`. The pipeline has no per-brand run to hang it on (runs are per post; a LIB run is per look bible), so it is a standards entry only: the Studio question asks it, Matan answers on the page, and a session records the answer with `pipeline.py gate ... G-HUMAN-OFFER --by Matan` on any run of the brand. No step waits on it; ONBOARDING.md O3 does.
 - 2026-10-30, twin step 0 (Twin reel machine plan): D-T1 to D-T3 recorded in section 7 and D1; E8 reversed in `clients/straightscale-en/brain.json` (new `host` block, `visual.ai_label: off`); GATES `originality` reworded. The gate code that enforces `twin_host` (card_people, HeyGen checks) is session T1, not done here.
+- 2026-10-30, twin route in the gate (session T1): `create_speech` and `create_video_from_avatar` open as service
+  `heygen_twin` with real checks (`models.heygen`; section 10); every other HeyGen tool stays off. HeyGen credits: ledger
+  column `heygen_credits`, cap `package.monthly_heygen_credit_cap`, G-BUDGET `--heygen` (warns and logs with no cap).
+  Kind-`other` test calls now need a G-BUDGET from the last 24 h. `card_people`: `reel_strategist_prop` and
+  `reel_talking_head_real` are on-camera formats; the owner's twin is allowed only on cards marked `twin_host` (new card
+  field), and a `twin_host` card needs the brain's `host` block. New Bash guard for HeyGen outside the gate. Network
+  (probe 30 Oct, no credentials, no generation): api, upload, files, files2, resource, resource2, dynamic and static
+  HeyGen hosts all refused by this environment's network policy.

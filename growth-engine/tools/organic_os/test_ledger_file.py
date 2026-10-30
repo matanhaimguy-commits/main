@@ -4,7 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from organic_os import ledger_file, router
+from organic_os import ledger_file, router, spend
 
 OLD = ("date,post_id,format,tier,higgsfield_credits,elevenlabs_credits,minutes,note\n"
        "2026-10-15,SS-1,reel_quote_broll,C,26.75,708.0,45.0,old run\n")
@@ -51,6 +51,17 @@ class LedgerFileTest(unittest.TestCase):
             ledger_file.append_row(self.p, {"date": "2026-10-28", "post_id": "A", "format": "x", "atlas_usd": 2})
         self.assertEqual(self.p.read_text(), bad)
         self.assertEqual([x.name for x in self.p.parent.iterdir()], ["ledger.csv"])
+
+    def test_heygen_credits_column_and_cap(self):
+        self.p.write_text(OLD)
+        ledger_file.append_row(self.p, {"date": "2026-10-30", "post_id": "T", "format": "x", "atlas_usd": 1,
+                                        "heygen_credits": 120})
+        rows = self.rows()
+        self.assertEqual((rows[0]["heygen_credits"], rows[1]["heygen_credits"]), ("", "120"))
+        self.assertEqual(router.month_spend(rows, "2026-10")["heygen"], 120.0)
+        self.assertEqual(spend.heygen_cap({"package": {"monthly_heygen_credit_cap": 900}}), 900)
+        for pkg in ({}, {"monthly_heygen_credit_cap": None}, {"monthly_heygen_credit_cap": True}):
+            self.assertIsNone(spend.heygen_cap({"package": pkg}))
 
     def test_usd_cap(self):
         self.assertEqual(router.usd_cap({"package": {"monthly_usd_cap": 40}}), 40)

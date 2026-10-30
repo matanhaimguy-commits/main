@@ -61,7 +61,9 @@ class Wrapper(TP.Base):
         for rel in ("growth-engine/tools/pipeline.py", "growth-engine/tools/atlas_rules.py", "growth-engine/tools/atlas_calls.py",
                     "growth-engine/tools/atlas_conditions.py",
                     "growth-engine/tools/budget_usd.py", "growth-engine/tools/call_aspect.py", "growth-engine/tools/gate_auth.py",
-                    "growth-engine/tools/organic.py",
+                    "growth-engine/tools/organic.py", "growth-engine/tools/budget_heygen.py",
+                    "growth-engine/tools/gate_budget.py", "growth-engine/tools/gate_other.py",
+                    "growth-engine/tools/heygen_gate.py", "growth-engine/tools/heygen_rules.py",
                     "growth-engine/tools/atlas/atlas_gate.py", "growth-engine/production/standards.json",
                     "growth-engine/production/schemas", "growth-engine/config"):
             src, dst = REPO / rel, r / rel

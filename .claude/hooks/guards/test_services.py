@@ -11,6 +11,7 @@ from guards.services import off_reason  # noqa: E402
 HOOKS = Path(__file__).resolve().parents[1]
 STANDARDS = json.loads((HOOKS.parents[1] / "growth-engine" / "production" / "standards.json").read_text())
 ID = "mcp__6f1c2a9e-3b4d-4e5f-8a7b-0c1d2e3f4a5b__"
+TWIN = ("mcp__HeyGen__create_speech", "mcp__HeyGen__create_video_from_avatar")   # D-T4: the twin route, gated by checks
 
 
 def gate(tool: str, tool_input: dict | None = None) -> str:
@@ -20,12 +21,26 @@ def gate(tool: str, tool_input: dict | None = None) -> str:
 
 
 class ServicesTest(unittest.TestCase):
-    def test_every_higgsfield_elevenlabs_and_heygen_tool_is_off(self):
-        tools = [k for k in STANDARDS["gated_tools"] if k.startswith(("mcp__Higgs__", "mcp__ElevenLabs__", "mcp__HeyGen__"))]
-        self.assertGreaterEqual(len(tools), 70)
+    def test_every_higgsfield_elevenlabs_and_heygen_tool_is_off_but_the_twin_route(self):
+        tools = [k for k in STANDARDS["gated_tools"] if k.startswith(("mcp__Higgs__", "mcp__ElevenLabs__", "mcp__HeyGen__"))
+                 and k not in TWIN]
+        self.assertGreaterEqual(len(tools), 69)
         for t in tools:
             with self.subTest(tool=t):
                 self.assertIn("Atlas", off_reason(t, STANDARDS))
+
+    def test_only_the_two_twin_tools_are_open(self):
+        heygen = {k: v for k, v in STANDARDS["gated_tools"].items() if k.startswith("mcp__HeyGen__")}
+        self.assertEqual(sorted(k for k, v in heygen.items() if off_reason(k, STANDARDS) is None), sorted(TWIN))
+        self.assertEqual({heygen[t]["service"] for t in TWIN}, {"heygen_twin"})
+        self.assertNotIn("other", {heygen[t]["kind"] for t in TWIN})
+
+    def test_the_twin_tools_are_checked_not_waved_through(self):
+        for tool in (ID + "create_speech", ID + "create_video_from_avatar", "mcp__heygen__create_speech"):
+            with self.subTest(tool=tool):
+                why = gate(tool, {"text": "x", "voiceId": "v", "avatarId": "a"})
+                self.assertIn("GENERATION BLOCKED", why)
+                self.assertNotIn("SERVICE OFF", why)
 
     def test_the_tools_that_were_missed_are_gated(self):
         for name in ("generate_3d", "upscale_image", "upscale_video", "remove_background", "reframe", "create_voice",
@@ -38,7 +53,7 @@ class ServicesTest(unittest.TestCase):
         for tool in ("mcp__Higgs__upscale_video", ID + "upscale_video", ID + "sandbox_exec", ID + "generate_3d",
                      "mcp__ElevenLabs__creative_generate_speech", ID + "creative_generate_speech",
                      ID + "creative_design_voice", ID + "creative_transcribe_audio", ID + "text_to_video",
-                     ID + "create_video_from_avatar", ID + "create_speech", ID + "create_photo_avatar",
+                     ID + "create_speech_without_player", ID + "create_photo_avatar",
                      ID + "create_lipsync", "mcp__heygen__create_video_agent"):
             with self.subTest(tool=tool):
                 self.assertIn("SERVICE OFF", gate(tool, {"prompt": "x"}))

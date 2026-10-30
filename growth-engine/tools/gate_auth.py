@@ -7,6 +7,8 @@ import math
 import re
 from pathlib import Path
 
+import budget_heygen
+
 # A delegated owner checkpoint names the fresh evaluator's report: a review file in the note.
 REPORT = re.compile(r"[\w./-]+\.(?:json|md)\b")
 BUDGET_KEYS = ("planned", "with_buffer", "balance", "month_spent", "cap")
@@ -83,7 +85,7 @@ def budget_problem(data) -> str | None:
         return "G-BUDGET data: with_buffer is below planned"
     if data["month_spent"] + data["with_buffer"] > data["cap"] or data["with_buffer"] > data["balance"]:
         return "G-BUDGET data doesn't pass: month spend + planned with buffer is over the cap, or over the balance"
-    return None
+    return budget_heygen.data_problem(data)
 
 
 def budget_ok(rec: dict | None, ok_states=("PASS", "OVERRIDE")) -> bool:

@@ -17,13 +17,18 @@ ledger.json, shots/, prompts/, qa/, assets/, audio/, edit/, final/ and calls.jso
   pipeline.py media <slug> <post_id> <asset>[@v] [--id ID ...] [--file PATH ...]   uploaded/generated ids and files
   pipeline.py record <slug> <post_id> <report.json>                   record a reviewer report (orchestrator only)
   pipeline.py gate <slug> <post_id> <GATE> --status PASS|FAIL --by WHO [--asset A@v] [--note T] [--score N] [--data JSON]
-  pipeline.py budget <slug> <post_id> --planned USD --balance USD   G-BUDGET in Atlas USD: monthly cap, live balance
+  pipeline.py budget <slug> <post_id> --planned USD --balance USD [--heygen CREDITS [--heygen-balance CREDITS]]
+                                                                    G-BUDGET in Atlas USD (monthly cap, live balance)
+                                                                    and HeyGen credits for the twin (credit cap)
                                                                       (`atlas account balance`), 25% retakes
   pipeline.py ask <slug> <post_id> <CHECKPOINT> --note T [--asset A@v] [--files a,b]   queue a human checkpoint
   pipeline.py approve <slug> <post_id> <CHECKPOINT> --by NAME [--asset A@v] [--note T] [--reject]
   pipeline.py queue [--slug S] [--write]                              the daily human approval queue
   pipeline.py check-call <tool_name> <tool_input.json|->              what the PreToolUse hook runs (atlas_generate:
                                                                       what the atlas wrapper in tools/atlas/ runs)
+  pipeline.py check-call --explain <tool_name> <tool_input.json|->    the hook's whole answer (a connector id like
+                                                                      mcp__<id>__create_speech, services off), the rule
+                                                                      that applied, and nothing written to calls.jsonl
 
 Only this tool changes gate status (VISUAL-QA 9.3): reviewers return JSON, the orchestrator records it here.
 Exit code 1 on a blocking problem.
@@ -47,6 +52,8 @@ import atlas_rules
 import budget_usd
 import call_aspect
 import gate_auth
+import gate_other
+import heygen_gate
 
 GE = Path(__file__).resolve().parents[1]
 PROD = GE / "production"
@@ -399,7 +406,7 @@ def parse_media(items: list[str] | None) -> list[dict]:
     for it in items or []:
         if ":" not in it:
             raise PipelineError(f"--media wants ID:role, got {it!r}")
-        v, role = it.split(":", 1)
+        v, role = it.rsplit(":", 1)   # the value may be a URL (https://...); a role has no colon
         out.append({"value": v.strip(), "role": role.strip()})
     return out
 
@@ -676,9 +683,11 @@ def record_gate(slug, post_id, gate, status, by, asset=None, note=None, score=No
     return rec
 
 
-def budget(slug, post_id, planned: float, balance: float, el: float = 0.0) -> dict:
-    """G-BUDGET in Atlas USD (budget_usd.py): planned and the live balance in USD. el: ElevenLabs credits, history."""
-    return budget_usd.run(sys.modules[__name__], slug, post_id, planned, balance, el)
+def budget(slug, post_id, planned: float, balance: float, el: float = 0.0, heygen: float = 0.0,
+           heygen_balance: float | None = None) -> dict:
+    """G-BUDGET in Atlas USD (budget_usd.py): planned and the live balance in USD; heygen: planned HeyGen credits for the
+    twin, against the brain's credit cap (budget_heygen.py). el: ElevenLabs credits, history."""
+    return budget_usd.run(sys.modules[__name__], slug, post_id, planned, balance, el, heygen, heygen_balance)
 
 
 # ---- steps and status -----------------------------------------------------------------------------
@@ -1167,12 +1176,15 @@ def _check_asset(led: dict, a: dict, req: dict, prompt_sha: str | None):
     return (not why), why, led, a
 
 
-def check_call(tool_name: str, tool_input: dict) -> tuple[bool, list[str]]:
+def check_call(tool_name: str, tool_input: dict, log: bool = True) -> tuple[bool, list[str]]:
+    """log=False (check-call --explain) decides without writing calls.jsonl, so a dry check never counts as a call."""
     spec = STANDARDS["gated_tools"].get(tool_name)
     if not spec:
         return True, ["not a gated tool"]
     if spec["kind"] == "other":
-        return _check_other(tool_name, tool_input)
+        return _check_other(tool_name, tool_input, log)
+    if spec["service"] == "heygen_twin":
+        return heygen_gate.check(sys.modules[__name__], tool_name, tool_input or {}, spec, log)
     reqs = extract_requests(tool_name, tool_input or {}, spec)
     if not reqs:
         return False, ["no requests in the call"]
@@ -1187,7 +1199,7 @@ def check_call(tool_name: str, tool_input: dict) -> tuple[bool, list[str]]:
                            "analysis": bool(r.get("analysis")),
                            "sha": sha_text(r.get("prompt") or "")[:16] if r.get("prompt") else None, "why": why}))
     decision = "ALLOW" if allowed else "DENY"
-    for led, e in logs:
+    for led, e in (logs if log else []):
         if e["dry"] and led is None:
             continue
         e["decision"] = decision
@@ -1196,20 +1208,8 @@ def check_call(tool_name: str, tool_input: dict) -> tuple[bool, list[str]]:
     return allowed, reasons
 
 
-def _check_other(tool_name: str, ti: dict) -> tuple[bool, list[str]]:
-    for led in all_ledgers():
-        for a in led["assets"]:
-            if a["type"] == "test" and a.get("tool") == tool_name and gate_ok(a["gates"].get("G-HUMAN-TEST")) \
-                    and not generated_before(led, a):
-                b = latest(led["run_gates"].get("G-BUDGET"))
-                if gate_auth.budget_ok(b, OK_STATES):
-                    with calls_log(led).open("a") as f:
-                        f.write(json.dumps({"at": stamp(), "tool": tool_name, "asset": aref(a), "decision": "ALLOW",
-                                            "dry": False}) + "\n")
-                    return True, []
-    return False, [f"{tool_name} makes content outside the production pipeline. If the owner asked for it, register a "
-                   f"test asset (pipeline.py asset <slug> <TEST-run> <ID> --type test --tool {tool_name}), record "
-                   "G-HUMAN-TEST with the owner's words, and G-BUDGET"]
+def _check_other(tool_name: str, ti: dict, log: bool = True) -> tuple[bool, list[str]]:
+    return gate_other.check(sys.modules[__name__], tool_name, ti, log)
 
 
 # ---- CLI ---------------------------------------------------------------------------------------------
@@ -1235,12 +1235,15 @@ def main(argv=None) -> int:
     p.add_argument("--note"); p.add_argument("--score", type=float); p.add_argument("--data"); p.add_argument("--covers", default="")
     p = sub.add_parser("budget"); p.add_argument("slug"); p.add_argument("post_id")
     p.add_argument("--planned", type=float, required=True); p.add_argument("--balance", type=float, required=True); p.add_argument("--el", type=float, default=0)
+    p.add_argument("--heygen", type=float, default=0); p.add_argument("--heygen-balance", type=float)
     p = sub.add_parser("ask"); p.add_argument("slug"); p.add_argument("post_id"); p.add_argument("checkpoint")
     p.add_argument("--note", required=True); p.add_argument("--asset"); p.add_argument("--files", default="")
     p = sub.add_parser("approve"); p.add_argument("slug"); p.add_argument("post_id"); p.add_argument("checkpoint")
     p.add_argument("--by", required=True); p.add_argument("--asset"); p.add_argument("--note", default="approved"); p.add_argument("--reject", action="store_true")
     p = sub.add_parser("queue"); p.add_argument("--slug"); p.add_argument("--write", action="store_true")
     p = sub.add_parser("check-call"); p.add_argument("tool_name"); p.add_argument("input")
+    p.add_argument("--explain", action="store_true", help="decide as the hook does (connector ids, services off), "
+                   "say which rule applied, and write nothing to calls.jsonl")
     a = ap.parse_args(argv)
     try:
         if a.cmd == "init":
@@ -1292,11 +1295,15 @@ def main(argv=None) -> int:
                               json.loads(a.data) if a.data else None, [c for c in a.covers.split(",") if c] or None)
             print(f"{a.gate}: {rec['status']} by {rec['by']}")
         elif a.cmd == "budget":
-            r = budget(a.slug, a.post_id, a.planned, a.balance, a.el)
+            r = budget(a.slug, a.post_id, a.planned, a.balance, a.el, a.heygen, a.heygen_balance)
             cap = f"${r['cap']:.2f}" if r["cap"] is not None else "no cap set"
             print(f"G-BUDGET {r['status']}: planned ${r['planned']:.2f} (+25% = ${r['with_buffer']:.2f}), balance "
                   f"${r['balance']:.2f}, month ${r['month_spent']:.2f} of {cap}")
-            for n in r["notes"]:
+            if r.get("heygen_planned"):
+                hcap = f"{r['heygen_cap']:.0f}" if r["heygen_cap"] is not None else "no cap set"
+                print(f"  HeyGen: planned {r['heygen_planned']:.0f} credits (+25% = {r['heygen_with_buffer']:.0f}), "
+                      f"month {r['heygen_month_spent']:.0f} of {hcap}")
+            for n in r["notes"] + [f"warning: {w}" for w in r["warnings"]]:
                 print(f"  {n}")
             return 0 if r["status"] == PASS else 1
         elif a.cmd == "ask":
@@ -1323,6 +1330,11 @@ def main(argv=None) -> int:
                 print(f"wrote {p.relative_to(ROOT)}")
         elif a.cmd == "check-call":
             raw = sys.stdin.read() if a.input == "-" else Path(a.input).read_text()
+            if a.explain:
+                import check_explain
+                ok, text = check_explain.explain(sys.modules[__name__], a.tool_name, json.loads(raw))
+                print(text)
+                return 0 if ok else 1
             ok, why = check_call(a.tool_name, json.loads(raw))
             print("ALLOW" if ok else "DENY")
             for w in why:

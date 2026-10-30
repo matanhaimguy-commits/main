@@ -1,5 +1,5 @@
-"""The spend ledger and the owner's monthly USD cap (ORGANIC-OS 7.7). Budgets are Atlas USD; the ledger's Higgsfield
-and ElevenLabs credit columns stay readable for history."""
+"""The spend ledger, the owner's monthly USD cap and the HeyGen credit cap (ORGANIC-OS 7.7). Budgets are Atlas USD, plus
+HeyGen credits for the twin (D-T5); the ledger's Higgsfield and ElevenLabs credit columns stay readable for history."""
 from __future__ import annotations
 
 import csv
@@ -29,12 +29,19 @@ def month_spend(rows: list[dict], month: str) -> dict:
     return {"month": month, "usd": round(sum(num(r, "atlas_usd") for r in sel), 2),
             "credits": sum(num(r, "higgsfield_credits") for r in sel),
             "elevenlabs": sum(num(r, "elevenlabs_credits") for r in sel),
+            "heygen": sum(num(r, "heygen_credits") for r in sel),
             "minutes": sum(num(r, "minutes") for r in sel), "by_format": by_fmt}
 
 
 def usd_cap(brain: dict) -> float | None:
     """The owner's monthly Atlas cap in USD (brain.json package.monthly_usd_cap); None when not set."""
     cap = (brain.get("package") or {}).get("monthly_usd_cap")
+    return None if isinstance(cap, bool) or not isinstance(cap, (int, float)) else cap
+
+
+def heygen_cap(brain: dict) -> float | None:
+    """The owner's monthly HeyGen credit cap (brain.json package.monthly_heygen_credit_cap); None when not set."""
+    cap = (brain.get("package") or {}).get("monthly_heygen_credit_cap")
     return None if isinstance(cap, bool) or not isinstance(cap, (int, float)) else cap
 
 

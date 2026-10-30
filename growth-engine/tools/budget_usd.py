@@ -22,22 +22,33 @@ def check(cap: float | None, month_spent: float, planned: float, balance: float,
     return {"status": "FAIL" if notes else "PASS", "notes": notes, "data": data}
 
 
-def run(P, slug: str, post_id: str, planned: float, balance: float, el: float = 0.0) -> dict:
+def run(P, slug: str, post_id: str, planned: float, balance: float, el: float = 0.0, heygen: float = 0.0,
+        heygen_balance: float | None = None) -> dict:
     """Records G-BUDGET on the run (P: the pipeline module): the brain's monthly_usd_cap, the ledger's atlas_usd this
-    month, the live balance. el: ElevenLabs credits, kept on the record for history."""
+    month, the live balance; with heygen (planned HeyGen credits) also the credit cap and the month's credits
+    (budget_heygen.py). el: ElevenLabs credits, kept on the record for history."""
     import sys
     sys.path.insert(0, str(P.GE / "tools"))
-    from organic_os import files as organic_files, router as organic_router  # noqa: E402
+    import budget_heygen
+    from organic_os import files as organic_files, router as organic_router, spend  # noqa: E402
     organic_files.ROOT = P.ROOT  # client_dir() reads this module's ROOT
     brain = organic_files.load_brain(slug)
+    buffer = P.STANDARDS["gate_policy"]["retake_buffer"]
     spent = organic_router.month_spend(organic_router.ledger_rows(slug), P.now().strftime("%Y-%m"))
-    r = check(organic_router.usd_cap(brain), spent["usd"], planned, balance, P.STANDARDS["gate_policy"]["retake_buffer"])
+    r = check(organic_router.usd_cap(brain), spent["usd"], planned, balance, buffer)
     data = {**r["data"], "el_planned": el, "source": SOURCE}
+    notes, warnings = list(r["notes"]), []
+    if heygen:
+        h = budget_heygen.check(spend.heygen_cap(brain), spent["heygen"], heygen, heygen_balance, buffer)
+        data.update(h["data"])
+        notes += h["notes"]
+        warnings = h["warnings"]
+    status = "FAIL" if notes else "PASS"
     led = P.load_ledger(slug, post_id)
-    P.add_record(led["run_gates"], "G-BUDGET", {"status": r["status"], "by": "pipeline.py budget", "data": data,
-                                                "note": "; ".join(r["notes"])})
+    P.add_record(led["run_gates"], "G-BUDGET", {"status": status, "by": "pipeline.py budget", "data": data,
+                                                "note": "; ".join(notes + [f"warning: {w}" for w in warnings])})
     P.save_ledger(led)
-    return {"status": r["status"], "notes": r["notes"], **data}
+    return {"status": status, "notes": notes, "warnings": warnings, **data}
 
 
 def after_steps(P, led: dict, n: int) -> tuple[bool, str]:

@@ -681,7 +681,60 @@
       "talking_head",
       "podcast",
       "drama"
-    ]
+    ],
+    "heygen": {
+      "_doc": "The twin route (D-T4, Twin reel machine plan T1). Only these two HeyGen tools generate; every other HeyGen tool is service heygen, which disabled_services refuses. Checks: growth-engine/tools/heygen_rules.py (pure) and heygen_gate.py (ledger lookups). Real tool names in a cloud session are mcp__<connector id>__create_speech and mcp__<connector id>__create_video_from_avatar; the hook maps them here (guards/tool_names.py).",
+      "speech": {
+        "tool": "mcp__HeyGen__create_speech",
+        "asset_types": [
+          "voice"
+        ],
+        "voice_from": "brain host.voices",
+        "text": "the registered prompt of a voice asset whose tool is this one, equal to the released script: G-SCRIPT PASS with data.script_sha256 = sha256 of the text (whitespace-normalized)",
+        "input_types": [
+          "text"
+        ],
+        "refused_keys": []
+      },
+      "avatar_video": {
+        "tool": "mcp__HeyGen__create_video_from_avatar",
+        "asset_types": [
+          "video_clip"
+        ],
+        "look_from": "brain host.looks",
+        "aspect_ratio": "9:16",
+        "fit_by_orientation": {
+          "landscape": [
+            "cover"
+          ],
+          "portrait": [
+            null,
+            "cover"
+          ]
+        },
+        "audio_keys": [
+          "audioAssetId",
+          "audioUrl"
+        ],
+        "audio_gate": "G-AUDIO",
+        "refused_keys": [
+          "script",
+          "voiceId",
+          "voiceSettings",
+          "brandGlossaryId",
+          "motionPrompt",
+          "callbackUrl",
+          "callbackId"
+        ],
+        "caption_style": "none: captions are made in the edit, so caption.style stays unset",
+        "output_formats": [
+          "mp4",
+          "webm"
+        ]
+      },
+      "card_flag": "twin_host",
+      "budget": "a fresh G-BUDGET (gate_policy.budget_fresh_hours) whose data prices the piece in HeyGen credits (heygen_planned above 0); the monthly credit cap is brain package.monthly_heygen_credit_cap"
+    }
   },
   "gated_tools": {
     "mcp__Higgs__generate_image": {
@@ -872,8 +925,8 @@
       "kind": "other"
     },
     "mcp__HeyGen__create_video_from_avatar": {
-      "service": "heygen",
-      "kind": "other"
+      "service": "heygen_twin",
+      "kind": "heygen_avatar_video"
     },
     "mcp__HeyGen__create_video_from_cinematic_avatar": {
       "service": "heygen",
@@ -944,8 +997,8 @@
       "kind": "other"
     },
     "mcp__HeyGen__create_speech": {
-      "service": "heygen",
-      "kind": "other"
+      "service": "heygen_twin",
+      "kind": "heygen_speech"
     },
     "mcp__HeyGen__create_speech_without_player": {
       "service": "heygen",
@@ -1617,7 +1670,7 @@
     "_doc": "Services the generation gate (.claude/hooks/generation_gate.py) refuses whatever the call, for every gated_tools entry with that service. Owner decides.",
     "higgs": "Matan, 28 Oct 2026: never Higgsfield; generation runs on Atlas (much cheaper) through the gated `atlas` command.",
     "elevenlabs": "Matan, 28 Oct 2026: generation runs on Atlas only. Speech, music, sound effects and images come through the gated `atlas` command (elevenlabs/v3/text-to-speech on Atlas stays allowed); word timings run on Atlas xai/stt-v1. The ElevenLabs connector's creative_* generation and transcription tools are off.",
-    "heygen": "Matan, 28 Oct 2026: generation runs on Atlas only. HeyGen's paid tools (video, avatar, lip-sync, translation, image and speech generation, voice cloning) are off."
+    "heygen": "Matan, 28 Oct 2026: generation runs on Atlas only. HeyGen's paid tools (video, avatar, lip-sync, translation, image and speech generation, voice cloning) are off. Exception (Matan, 29 Oct, D-T4): create_speech and create_video_from_avatar are service heygen_twin, open only for the brain's twin through the checks in models.heygen (heygen_gate.py)."
   },
   "atlas_prices": {
     "_doc": "Atlas Cloud prices in USD, read 28 Oct 2026 with `atlas models get <id> --json` (pricing), `atlas generate cost ...` (free estimates) and the account's billed costs (`atlas account costs`). STANDARDS.md 10 and its 28 Oct changelog line list every price. Per-piece budgets (config/organic.json formats[].usd) come from these and the format's atlas_units; G-BUDGET and the router count USD.",

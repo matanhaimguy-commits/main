@@ -41,6 +41,13 @@
             "timeout": 10,
             "onFailure": "block",
             "statusMessage": "Checking for Atlas calls outside the gate"
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/heygen_bash_guard.py\"",
+            "timeout": 10,
+            "onFailure": "block",
+            "statusMessage": "Checking for HeyGen calls outside the gate"
           }
         ]
       },
