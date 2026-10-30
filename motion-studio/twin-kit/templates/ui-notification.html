@@ -64,9 +64,9 @@
             var at = 0.12 + k * step;
             tl.fromTo(c, { y: -260, opacity: 0, scale: 0.94 }, { y: 0, opacity: 1, scale: 1, duration: 0.34, ease: "back.out(1.4)" }, at);
             for (var j = 0; j < k; j++) {
-              var below = 0;
-              for (var m = j + 1; m <= k; m++) below += heights[m] + gap;
-              tl.to(cards[j], { y: below, duration: 0.3, ease: "expo.out" }, at);
+              var before = 0, below = 0;
+              for (var m = j + 1; m <= k; m++) { below += heights[m] + gap; if (m < k) before += heights[m] + gap; }
+              tl.fromTo(cards[j], { y: before }, { y: below, duration: 0.3, ease: "expo.out", immediateRender: false }, at);
             }
           });
           window.__timelines["kit-notification"] = tl;

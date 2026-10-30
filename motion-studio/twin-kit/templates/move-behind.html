@@ -23,7 +23,7 @@
     <template>
       <style>
         #root { position: absolute; inset: 0; overflow: hidden; }
-        .bw-line { position: absolute; left: 0; right: 0; display: flex; justify-content: center; }
+        .bw-line { position: absolute; left: 0; right: 0; display: flex; justify-content: center; will-change: transform, opacity; }
         .bw-word { display: inline-block; font-family: var(--kit-display); font-weight: 900; line-height: 0.86;
                    letter-spacing: -0.02em; white-space: nowrap; text-transform: uppercase; }
       </style>
@@ -48,7 +48,8 @@
           var tl = gsap.timeline({ paused: true });
           tl.fromTo(word, { scale: 1.06, opacity: 1, y: -16 }, { scale: 1, opacity: 1, y: 0, duration: 0.26, ease: "expo.out" }, 0);
           tl.fromTo(word, { scale: 1 }, { scale: 1.05, duration: Math.max(0.1, dur - 0.5), ease: "none", immediateRender: false }, 0.26);
-          tl.to(word, { y: 80, opacity: 0, duration: 0.16, ease: "power2.in" }, Math.max(0.3, dur - 0.18));
+          // the exit moves the line, never the word (one owner per transform; see move-twotone.html)
+          tl.fromTo(line, { y: 0, opacity: 1 }, { y: 80, opacity: 0, duration: 0.16, ease: "power2.in", immediateRender: false }, Math.max(0.3, dur - 0.18));
           window.__timelines["kit-behind"] = tl;
         })();
       </script>

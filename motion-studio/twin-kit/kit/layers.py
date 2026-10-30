@@ -140,6 +140,9 @@ def index_html(edl, face, twin_src, fonts):
     <meta charset="UTF-8" />
     <meta name="viewport" content="width={edl['width']}, height={edl['height']}" />
     <script src="assets/vendor/gsap.min.js"></script>
+    <!-- 2D transforms everywhere: GSAP's default force3D switches between translate3d (mid-tween) and 2D (at rest),
+         which rasterizes text differently depending on the seek history; tools/seekcheck.mjs --hf caught it -->
+    <script>gsap.config({{ force3D: false }});</script>
     <script src="assets/vendor/motion-blur.js"></script>
     <style>
 {font_faces(fonts)}
@@ -147,7 +150,9 @@ def index_html(edl, face, twin_src, fonts):
       #root {{ position: relative; width: 100%; height: 100%; overflow: hidden; background: {brand['bg']};
         --kit-bg: {brand['bg']}; --kit-fg: {brand['fg']}; --kit-accent: {brand['accent']};
         --kit-display: "{brand['display_font']}", serif; --kit-ui: "{brand['ui_font']}", sans-serif; }}
-      #frame {{ position: absolute; inset: 0; overflow: hidden; }}
+      /* the whip tweens filter and scale here; start with the same values so a frame never depends on whether the
+         whip has rendered before (a filter, even blur(0px), changes how text rasterizes) */
+      #frame {{ position: absolute; inset: 0; overflow: hidden; filter: blur(0px); transform: translate(0px, 0px) scale(1); }}
       .clip {{ position: absolute; inset: 0; }}
       .broll {{ width: 100%; height: 100%; object-fit: cover; }}
       #twin-wrap {{ position: absolute; left: 0; top: 0; width: {src_w}px; height: {src_h}px; transform-origin: 0 0;

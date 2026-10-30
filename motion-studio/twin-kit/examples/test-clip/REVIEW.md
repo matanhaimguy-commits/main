@@ -45,6 +45,15 @@ CRF 16 master is rebuilt by `python3 twinkit.py compose examples/test-clip/edl.j
 | Chin 13 px past the 55% band | chin estimate lowered (114% of head height), stage twin up 80 px: chin at 993 px (51.7%); the face-band rule checks the chin at 52% |
 | Hook text 4 to 10 words | b1 is a two-tone hook "Two years of / POSTING" at double entrance speed (fully up by 0.3 s); "OWNER" became the behind-the-head word in b5; the rule checks the frame-1 hook |
 
+Determinism findings while making v4 (tools/seekcheck.mjs --hf), all fixed in the kit:
+- the whip wrote `filter: blur(0px)` onto the frame, so frames before and after the first whip rasterized text
+  differently: `#frame` now starts with the same filter and transform;
+- exit tweens wrote the same transform the entrance owned: exits now move the parent (two-tone block, behind-word
+  line), every template uses `fromTo` only (a test enforces it), and those parents are layers from frame 0;
+- what remains is Chrome re-rastering one glyph's antialiased edge after a layer is rebuilt (one "S", about 400 px,
+  0.02% of the frame, nothing moved). seekcheck `--hf` now passes a frame whose changed pixels stay under `--tol`
+  (default 0.1% of the frame) and lists it as glyph jitter; `--tol 0` is the exact check.
+
 ## Automatic checks on v3 (STANDARDS 9, G-MOTION-FRAMES list)
 | Check | Result |
 |---|---|

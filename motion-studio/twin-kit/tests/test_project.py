@@ -24,6 +24,11 @@ class ProjectTest(unittest.TestCase):
             self.assertNotIn("cdn.jsdelivr", t.read_text(), t.name)
             self.assertNotIn("font:", t.read_text().replace("font: ", "font:"), t.name)
 
+    def test_templates_use_fromto_only(self):
+        # a .to() records its start state at whatever time first renders it, so the frame depends on seek order
+        for t in (project.KIT / "templates").glob("*.html"):
+            self.assertNotIn("tl.to(", t.read_text(), t.name)
+
 
 if __name__ == "__main__":
     unittest.main()

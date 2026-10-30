@@ -23,7 +23,10 @@
     <template>
       <style>
         #root { position: absolute; inset: 0; overflow: hidden; }
-        .tt-block { position: absolute; left: 65px; right: 65px; display: flex; flex-direction: column; align-items: center; }
+        /* a layer from the first frame: Chrome keeps an opacity-animated block composited afterwards, which changes text
+           antialiasing, so promote it up front and every frame rasterizes the same way whatever the seek history */
+        .tt-block { position: absolute; left: 65px; right: 65px; display: flex; flex-direction: column; align-items: center;
+                    will-change: transform, opacity; }
         .tt-row { display: flex; justify-content: center; gap: 0.25em; overflow: hidden; padding: 0.04em 0.1em 0.1em; }
         .tt-mask { display: inline-block; overflow: hidden; padding: 0 0.12em 0.14em; margin: 0 -0.12em -0.14em; }
         .tt-w { display: inline-block; }
@@ -62,7 +65,9 @@
           var tl = gsap.timeline({ paused: true });
           tl.fromTo(leads, { yPercent: 110 }, { yPercent: 0, duration: 0.32 / sp, ease: "expo.out", stagger: 0.06 / sp }, 0);
           tl.fromTo(keys, { yPercent: 115, rotation: 4 }, { yPercent: 0, rotation: 0, duration: 0.42 / sp, ease: "back.out(1.6)", stagger: 0.07 / sp }, 0.14 / sp);
-          tl.to(leads.concat(keys), { yPercent: -110, duration: 0.18, ease: "power2.in", stagger: 0.03 }, Math.max(0.6, dur - 0.24));
+          // the exit moves the block, never the words: one owner per element's transform, or the frame drawn after a
+          // seek back from the exit differs by a few antialiased pixels (tools/seekcheck.mjs --hf caught it)
+          tl.fromTo(block, { y: 0, opacity: 1 }, { y: -60, opacity: 0, duration: 0.18, ease: "power2.in", immediateRender: false }, Math.max(0.6, dur - 0.22));
           window.__timelines["kit-twotone"] = tl;
         })();
       </script>

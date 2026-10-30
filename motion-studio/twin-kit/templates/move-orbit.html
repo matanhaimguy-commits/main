@@ -77,7 +77,7 @@
           var tl = gsap.timeline({ paused: true, onUpdate: place });
           tl.fromTo(state, { show: 0 }, { show: 1, duration: 0.12, ease: "none", onUpdate: place }, 0);
           tl.fromTo(state, { p: -0.1 }, { p: turns - 0.1, duration: dur, ease: "power1.inOut", onUpdate: place, immediateRender: false }, 0);
-          tl.to(state, { show: 0, duration: 0.12, ease: "none", onUpdate: place }, Math.max(0.3, dur - 0.14));
+          tl.fromTo(state, { show: 1 }, { show: 0, duration: 0.12, ease: "none", onUpdate: place, immediateRender: false }, Math.max(0.3, dur - 0.14));
           place();
           window.__timelines["kit-orbit"] = tl;
         })();

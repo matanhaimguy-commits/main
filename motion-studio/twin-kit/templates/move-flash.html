@@ -31,7 +31,7 @@
           var peak = Number(v.peak == null ? 0.92 : v.peak);
           var tl = gsap.timeline({ paused: true });
           tl.fromTo(fl, { opacity: 0 }, { opacity: peak, duration: 0.05, ease: "none" }, 0);
-          tl.to(fl, { opacity: 0, duration: 0.2, ease: "power2.out" }, 0.08);
+          tl.fromTo(fl, { opacity: peak }, { opacity: 0, duration: 0.2, ease: "power2.out", immediateRender: false }, 0.08);
           window.__timelines["kit-flash"] = tl;
         })();
       </script>

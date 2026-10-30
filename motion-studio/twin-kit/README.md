@@ -17,13 +17,13 @@ python3 twinkit.py align voice.mp3 script.txt --out words.json   # $0 word timin
 python3 twinkit.py check edl.json                           # the edit rules, no render
 python3 twinkit.py compose edl.json --out out/              # final.mp4, picture.mp4, stems, report.json
 python3 twinkit.py compose edl.json --out out/ --keep-picture   # redo the sound only (seconds)
-python3 -m unittest discover -s tests                       # 97 tests, one file per module
+python3 -m unittest discover -s tests                       # 98 tests, one file per module
 ```
 
 Checks on a render (STANDARDS 9, G-MOTION-FRAMES), from `out/build/`:
 
 ```bash
-node ../../../../../tools/seekcheck.mjs --hf --dur 10.6                      # same pixels after any seek
+node ../../../../../tools/seekcheck.mjs --hf --dur 10.6 --n 24              # same frame after any seek (--tol: glyph jitter)
 node ../../../../../tools/safezone.mjs --hf --top 269 --bottom 672 --right 227 --left 65   # no text in the UI zones
 npx -y hyperframes@0.8.150 check . --caption-zone "x0=0.06;y0=0.55;x1=0.79;y1=0.62;severity=error" --at-transitions
 python3 ../../../../../tools/pacing.py ../final.mp4
