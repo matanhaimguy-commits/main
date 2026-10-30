@@ -25,8 +25,9 @@ MOVES = {
                  "text": ["lead", "key"]},
     "orbit": {"template": "move-orbit.html", "layer": "split", "sfx": "whoosh-cinematic", "sfx_at": 0.0,
               "text": ["words"]},
+    # disabled 30 Oct (kit review round 3: the blurred extrusion broke on landing); the template stays for its own test
     "pop3d": {"template": "move-pop3d.html", "layer": "words-front", "sfx": "pop", "sfx_at": 0.12,
-              "text": ["label"]},
+              "text": ["label"], "disabled": True},
     "bw-grain": {"template": "move-bwgrain.html", "layer": "grade", "sfx": "glitch-3", "sfx_at": 0.0, "text": []},
     "end-card": {"template": "end-card.html", "layer": "end", "sfx": "impact-bass-2", "sfx_at": 0.05,
                  "text": ["line"]},

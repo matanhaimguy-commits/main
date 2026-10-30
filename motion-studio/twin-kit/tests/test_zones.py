@@ -18,7 +18,8 @@ class ZonesTest(unittest.TestCase):
         self.assertIn("lower half", zones.breaches([100, 1000, 900, 1100])[0])
 
     def test_face_band(self):
-        self.assertIsNone(zones.face_band_breach([0, 400, 10, 1000]))
+        self.assertIsNone(zones.face_band_breach([0, 400, 10, 990]))
+        self.assertIn("chin", zones.face_band_breach([0, 400, 10, 1010]))
         self.assertIsNotNone(zones.face_band_breach([0, 250, 10, 1000]))
         self.assertIsNotNone(zones.face_band_breach([0, 400, 10, 1100]))
 

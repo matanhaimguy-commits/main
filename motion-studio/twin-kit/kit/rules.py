@@ -10,12 +10,13 @@
    (kit/text_rules.py)
 Returns a list of findings: (level, rule, message), level FAIL or WARN.
 """
-from . import sfx, stage, text_rules, zones
+from . import caption_rules, sfx, stage, text_rules, zones
 from .moves import MOVES, SCENES, CUTS
 
 MAX_GAP = 3.0
 MAX_TWIN_SHARE = 0.5
 MAX_HERO_WORDS = 4
+HOOK_WORDS = (4, 10)     # STANDARDS 6: the text hook on frame 1 is 4 to 10 words
 MIN_HERO_TIME = 1.0
 FRONT_LAYERS = ("words-front", "split")
 
@@ -52,6 +53,7 @@ def check(edl, face=None):
             add("FAIL", "size", f"captions {size:.0f} px (want {zones.CAPTION_MIN}-{zones.CAPTION_MAX})")
         for why in zones.breaches(cap_box):
             add("FAIL", "safe-zone", f"captions: {why}")
+        out += caption_rules.card_findings(edl)
         y = float(cap.get("y", 1130)) / zones.H
         if not zones.CAPTION_TOP <= y <= zones.CAPTION_BOTTOM:
             add("WARN", "safe-zone", f"captions centred {y:.0%} down (want 55-62%)")
@@ -114,7 +116,11 @@ def hero_findings(edl, b, mode, fbox, face):
             out.append(("FAIL", "readable", f"orbit items over 2 words: {long_items}"))
     else:
         n = sum(words_in(v[k]) for k in spec["text"] if k in v)
-        if n > MAX_HERO_WORDS:
+        if b is edl["beats"][0]:
+            lo, hi = HOOK_WORDS
+            if not lo <= n <= hi:
+                out.append(("FAIL", "hook", f"the frame-1 hook has {n} words (STANDARDS 6: {lo} to {hi})"))
+        elif n > MAX_HERO_WORDS:
             out.append(("FAIL", "readable", f"{kind} has {n} words (max {MAX_HERO_WORDS})"))
     on_screen = b["end"] - hero_at(b)
     if on_screen < MIN_HERO_TIME - 1e-6:

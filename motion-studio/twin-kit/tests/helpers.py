@@ -8,7 +8,7 @@ KIT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(KIT))
 EXAMPLE = KIT / "examples" / "test-clip"
 
-FACE = {"src_w": 1080, "src_h": 1890, "head": [240, 184, 844, 996], "face": [240, 407, 844, 1059], "samples": 20}
+FACE = {"src_w": 1080, "src_h": 1890, "head": [240, 184, 844, 996], "face": [240, 407, 844, 1106], "samples": 20}
 
 
 def example_edl():
@@ -25,11 +25,11 @@ def small_edl(**over):
         "voice": {"src": "media/vo.mp3", "start": 0.3, "words": "words.json"},
         "beats": [
             {"id": "a", "start": 0.0, "end": 2.0, "twin": "stage",
-             "hero": {"move": "behind-word", "vars": {"text": "HELLO", "y": 460, "size": 200}}},
+             "hero": {"move": "two-tone", "vars": {"lead": "Two years of", "key": "WORK", "y": 405, "size": 140}}},
             {"id": "b", "start": 2.0, "end": 4.0, "twin": "off", "cut_in": "whip",
              "scene": {"move": "ui-prompt", "vars": {"text": "hi"}}},
             {"id": "c", "start": 4.0, "end": 6.0, "twin": "stage",
-             "hero": {"move": "two-tone", "vars": {"lead": "A", "key": "WORD", "y": 560, "size": 180}}},
+             "hero": {"move": "behind-word", "vars": {"text": "HELLO", "y": 395, "size": 200}}},
             {"id": "d", "start": 6.0, "end": 8.0, "twin": "off", "cut_in": "flash",
              "hero": {"move": "end-card", "vars": {"line": "Comment PLAN"}}},
         ],

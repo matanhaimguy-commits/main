@@ -73,7 +73,7 @@ def clips(edl, face):
     if cap:
         words = timings.shift(timings.load(Path(edl["_dir"]) / edl["voice"]["words"])["words"],
                               float(edl["voice"].get("start", 0)))
-        hide = [[b["start"], b["end"]] for b in edl["beats"] if b.get("no_captions")]
+        hide = [[b["start"], b["end"]] for b in edl["beats"] if b.get("no_captions")] + whip_windows(edl)
         vals = dict({k: v for k, v in cap.items() if k != "enabled"}, words=json.dumps(words), hide=json.dumps(hide),
                     dur=dur)
         out.append((LAYERS["captions"], host("captions", FIXED["captions"]["template"], 0, dur, LAYERS["captions"],
@@ -98,18 +98,25 @@ def twin_track(edl, face):
 
 
 def whip_track(edl):
-    """The whip: the whole frame slides out with blur, cuts, and the next beat slides in from the other side."""
+    """The whip: the frame pushes in and slides sideways with blur, cuts, and the next beat arrives from the other side.
+    The push-in (scale 1.25) is larger than the slide (110 px), so no edge of the frame ever shows: no seam."""
     lines = []
     for i, b in enumerate(edl["beats"]):
         if b.get("cut_in") != "whip":
             continue
         t, h = b["start"], CUTS["whip"]["half"]
         d = -1 if i % 2 == 0 else 1
-        lines.append(f'tl.fromTo("#frame", {{x: 0, filter: "blur(0px)"}}, {{x: {d * 760}, filter: "blur(22px)", '
-                     f'duration: {h}, ease: "power3.in", immediateRender: false}}, {t - h:.3f});')
-        lines.append(f'tl.fromTo("#frame", {{x: {-d * 760}, filter: "blur(22px)"}}, {{x: 0, filter: "blur(0px)", '
-                     f'duration: {h + 0.06:.3f}, ease: "power3.out", immediateRender: false}}, {t:.3f});')
+        lines.append(f'tl.fromTo("#frame", {{x: 0, scale: 1, filter: "blur(0px)"}}, {{x: {d * 110}, scale: 1.25, '
+                     f'filter: "blur(24px)", duration: {h}, ease: "power3.in", immediateRender: false}}, {t - h:.3f});')
+        lines.append(f'tl.fromTo("#frame", {{x: {-d * 110}, scale: 1.25, filter: "blur(24px)"}}, {{x: 0, scale: 1, '
+                     f'filter: "blur(0px)", duration: {h + 0.06:.3f}, ease: "power3.out", immediateRender: false}}, {t:.3f});')
     return lines
+
+
+def whip_windows(edl):
+    """[start, end] of every whip, when captions stay off screen."""
+    h = CUTS["whip"]["half"]
+    return [[round(b["start"] - h, 3), round(b["start"] + h + 0.06, 3)] for b in edl["beats"] if b.get("cut_in") == "whip"]
 
 
 def font_faces(fonts):

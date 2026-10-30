@@ -1,14 +1,14 @@
 """Where the twin stands in each mode, and where its face lands on the 1080x1920 frame.
 
-stage: cut out and small, the set around it, the face 15-55% from the top (STANDARDS 6) and the clip's edges faded
+stage: cut out and small, the set around it, the face 15-55% from the top and the chin at 52% or higher and the clip's edges faded
 into the set (fade_x, fade_y: share of the clip's width and height) so its box edges never show. full: the clip at full width (a punch-in on the
 host). off: not on screen (B-roll, UI or end card carry the frame). Modes can be tuned per EDL in twin.modes.
 """
 
 DEFAULT_MODES = {
     # scale of the clip, the frame y where the clip's top edge sits (x is centred), and the soft-edge shares
-    "stage": {"scale": 0.5, "top": 520, "fade_x": 0.16, "fade_y": 0.24},
-    "full": {"scale": 1.0, "top": -40, "fade_x": 0.0, "fade_y": 0.0},
+    "stage": {"scale": 0.5, "top": 440, "fade_x": 0.16, "fade_y": 0.24},
+    "full": {"scale": 1.0, "top": -118, "fade_x": 0.0, "fade_y": 0.0},
 }
 
 

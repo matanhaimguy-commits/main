@@ -10,7 +10,7 @@ import subprocess
 import numpy as np
 
 SCALE_W = 270          # analyse at this width (fast, accurate to a few px at 1080)
-FACE_TOP, FACE_BOTTOM = 0.28, 1.08   # share of head height (top of hair to narrowest row): brows to chin
+FACE_TOP, FACE_BOTTOM = 0.28, 1.14   # share of head height (top of hair to narrowest row): brows to chin
 
 
 def alpha_frames(path, every=0.5):

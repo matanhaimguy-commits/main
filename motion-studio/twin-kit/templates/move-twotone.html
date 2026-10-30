@@ -14,6 +14,7 @@
     {"id":"key","type":"string","label":"Key word (heavy)","default":"OWNER"},
     {"id":"y","type":"number","label":"Centre y (px)","default":520},
     {"id":"size","type":"number","label":"Key word size (px)","default":190},
+    {"id":"speed","type":"number","label":"Entrance speed (2 = twice as fast, for a hook on frame 1)","default":1},
     {"id":"dur","type":"number","label":"On screen (s)","default":2}
   ]'
 >
@@ -44,7 +45,7 @@
           var v = (window.__hyperframes && window.__hyperframes.getVariables()) || {};
           var block = root.querySelector(".tt-block");
           var leadRow = root.querySelector(".tt-lead"), keyRow = root.querySelector(".tt-key");
-          var size = Number(v.size) || 190, dur = Number(v.dur) || 2;
+          var size = Number(v.size) || 190, dur = Number(v.dur) || 2, sp = Number(v.speed) || 1;
           function fill(row, text) {
             return String(text || "").split(/\s+/).filter(Boolean).map(function (t) {
               var m = document.createElement("span"); m.className = "tt-mask";
@@ -59,8 +60,8 @@
           keyRow.style.fontSize = size + "px";
           block.style.top = (Number(v.y) || 520) - size * 0.8 + "px";
           var tl = gsap.timeline({ paused: true });
-          tl.fromTo(leads, { yPercent: 110 }, { yPercent: 0, duration: 0.32, ease: "expo.out", stagger: 0.06 }, 0);
-          tl.fromTo(keys, { yPercent: 115, rotation: 4 }, { yPercent: 0, rotation: 0, duration: 0.42, ease: "back.out(1.6)", stagger: 0.07 }, 0.14);
+          tl.fromTo(leads, { yPercent: 110 }, { yPercent: 0, duration: 0.32 / sp, ease: "expo.out", stagger: 0.06 / sp }, 0);
+          tl.fromTo(keys, { yPercent: 115, rotation: 4 }, { yPercent: 0, rotation: 0, duration: 0.42 / sp, ease: "back.out(1.6)", stagger: 0.07 / sp }, 0.14 / sp);
           tl.to(leads.concat(keys), { yPercent: -110, duration: 0.18, ease: "power2.in", stagger: 0.03 }, Math.max(0.6, dur - 0.24));
           window.__timelines["kit-twotone"] = tl;
         })();

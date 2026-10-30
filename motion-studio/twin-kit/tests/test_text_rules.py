@@ -11,7 +11,7 @@ def names(e):
 class TextRulesTest(unittest.TestCase):
     def test_behind_word_on_the_hair_fails(self):
         e = example_edl()
-        e["beats"][0]["hero"]["vars"].update(y=560, size=280)      # the v2 placement: hair over the letters
+        e["beats"][4]["hero"]["vars"].update(y=480, size=280)      # hair over the letters
         self.assertIn("head", names(e))
 
     def test_behind_word_clear_of_the_head_passes(self):
@@ -50,6 +50,13 @@ class TextRulesTest(unittest.TestCase):
         e = small_edl(captions={"y": 1130, "size": 88})
         e["beats"][1]["scene"] = {"move": "ui-prompt", "vars": {"y": 880}, "overlap_ok": True}
         self.assertNotIn("overlap", names(e))
+
+    def test_pop3d_is_disabled(self):
+        from kit import edl
+        e = small_edl()
+        e["beats"][2]["hero"] = {"move": "pop3d", "vars": {}}
+        with self.assertRaises(edl.EDLError):
+            edl.validate(e)
 
     def test_example_has_no_overlap(self):
         self.assertNotIn("overlap", names(example_edl()))

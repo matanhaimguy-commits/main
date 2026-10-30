@@ -9,6 +9,7 @@ import json
 W, H = 1080, 1920
 TOP, BOTTOM, SIDE, RIGHT_LOWER = 269, 672, 65, 227
 FACE_TOP, FACE_BOTTOM = 0.15, 0.55
+CHIN_MAX = 0.52          # the chin (bottom of the face box) sits at 52% of the height or higher (main session, 30 Oct)
 CAPTION_TOP, CAPTION_BOTTOM = 0.55, 0.62
 CAPTION_MIN, CAPTION_MAX = 80, 100
 MIN_TEXT = 44
@@ -40,6 +41,8 @@ def face_band_breach(face_box):
     lo, hi = FACE_TOP * H, FACE_BOTTOM * H
     if face_box[1] < lo or face_box[3] > hi:
         return f"face {face_box[1]:.0f}-{face_box[3]:.0f} px, must sit inside {lo:.0f}-{hi:.0f} (15-55% from the top)"
+    if face_box[3] > CHIN_MAX * H:
+        return f"chin at {face_box[3]:.0f} px ({face_box[3] / H:.1%}), must be {CHIN_MAX * H:.0f} px (52%) or higher"
     return None
 
 

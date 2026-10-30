@@ -29,7 +29,7 @@ class FaceTest(unittest.TestCase):
     def test_face_band_is_inside_the_head_span(self):
         f = face.face_from_head([0, 100, 50, 200])
         self.assertAlmostEqual(f[1], 128)
-        self.assertAlmostEqual(f[3], 208)
+        self.assertAlmostEqual(f[3], 214)
 
     def test_union(self):
         self.assertEqual(face.union([[0, 0, 5, 5], [2, -1, 9, 3]]), [0, -1, 9, 5])

@@ -29,7 +29,9 @@ class LayersTest(unittest.TestCase):
 
     def test_captions_hide_the_end_card(self):
         cap = next(h for _, h in layers.clips(example_edl(), FACE) if 'id="captions"' in h)
-        self.assertIn("[[8.5, 10.6]]", cap.replace("&quot;", '"').replace('\\"', '"'))
+        hide = cap.replace("&quot;", '"').replace('\\"', '"')
+        self.assertIn("[8.5, 10.6]", hide)                         # the end card
+        self.assertIn("[1.64, 2.02]", hide)                        # the whip into b2 (out 0.16 s, in 0.22 s)
 
     def test_twin_track_sets_each_beat(self):
         e = small_edl()
@@ -44,7 +46,7 @@ class LayersTest(unittest.TestCase):
     def test_whip_alternates_direction(self):
         e = small_edl()
         e["beats"][2]["cut_in"] = "whip"
-        xs = [re.findall(r"x: (-?\d+), filter", l)[1] for l in layers.whip_track(e) if '"power3.in"' in l]
+        xs = [re.findall(r"x: (-?\d+), scale", l)[1] for l in layers.whip_track(e) if '"power3.in"' in l]
         self.assertEqual(len(xs), 2)
         self.assertNotEqual(xs[0], xs[1])
 

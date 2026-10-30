@@ -27,12 +27,12 @@ class RulesTest(unittest.TestCase):
 
     def test_long_hero_text_fails(self):
         e = small_edl()
-        e["beats"][0]["hero"]["vars"]["text"] = "far too many words here now"
+        e["beats"][2]["hero"]["vars"]["text"] = "far too many words here now"
         self.assertIn("readable", rule_names(e))
 
     def test_two_tone_counts_both_lines(self):
         e = small_edl()
-        e["beats"][2]["hero"]["vars"].update(lead="a b c", key="d e")
+        e["beats"][2]["hero"] = {"move": "two-tone", "vars": {"lead": "a b c", "key": "d e", "y": 400, "size": 120}}
         self.assertIn("readable", rule_names(e))
 
     def test_short_hero_fails(self):
@@ -58,17 +58,17 @@ class RulesTest(unittest.TestCase):
 
     def test_front_text_on_face_fails(self):
         e = small_edl()
-        e["beats"][2]["hero"]["vars"].update(y=900, size=120)   # stage mode face is about 723-1050
+        e["beats"][0]["hero"]["vars"].update(y=820, size=120)   # stage mode face is about 645-993
         self.assertIn("face", rule_names(e))
 
     def test_behind_word_may_cross_the_face(self):
         e = small_edl()
-        e["beats"][0]["hero"]["vars"]["y"] = 700        # behind the twin: the twin covers it
+        e["beats"][2]["hero"]["vars"]["y"] = 700        # behind the twin: the twin covers it
         self.assertNotIn("face", rule_names(e))
 
     def test_captions_on_the_chin_fail(self):
         e = example_edl()
-        e["captions"]["y"] = 1040                      # stage mode chin reaches about 1050
+        e["captions"]["y"] = 1000                      # stage mode chin reaches about 993
         self.assertIn("face", rule_names(e))
 
     def test_captions_outside_safe_zone_fail(self):
@@ -85,7 +85,7 @@ class RulesTest(unittest.TestCase):
 
     def test_behind_word_is_held_to_the_safe_zone(self):
         e = small_edl()
-        e["beats"][0]["hero"]["vars"]["y"] = 280       # behind the twin, but in the top 269 px
+        e["beats"][2]["hero"]["vars"]["y"] = 280       # behind the twin, but in the top 269 px
         self.assertIn("safe-zone", rule_names(e))
 
     def test_ui_scene_is_held_to_the_safe_zone(self):
@@ -100,6 +100,21 @@ class RulesTest(unittest.TestCase):
 
     def test_no_face_data_warns(self):
         self.assertIn("face", rule_names(small_edl(), face=None, level="WARN"))
+
+    def test_hook_needs_four_to_ten_words(self):
+        e = small_edl()
+        e["beats"][0]["hero"]["vars"].update(lead="Two", key="YEARS")
+        self.assertIn("hook", rule_names(e))
+        self.assertNotIn("hook", rule_names(small_edl()))
+
+    def test_chin_must_sit_at_52_percent(self):
+        e = small_edl(twin={"src": "x", "modes": {"stage": {"top": 480}}})   # chin about 1033 px (53.8%)
+        self.assertIn("face-band", rule_names(e))
+
+    def test_long_caption_card_fails(self):
+        e = example_edl()
+        e["captions"]["max_chars"] = 20                # "SOMEONE BOOKS A" would need a second line
+        self.assertIn("captions", rule_names(e))
 
     def test_summary(self):
         s = rules.summary(small_edl())

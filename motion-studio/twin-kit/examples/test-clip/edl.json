@@ -21,11 +21,11 @@
   "twin": {"src": "media/twin-cut.webm", "face": "face.json"},
   "voice": {"src": "media/vo.mp3", "start": 0.0, "words": "words.json"},
   "music": {"src": "media/bed.mp3", "gain_db": -8, "fade_in": 0.3, "fade_out": 1.4},
-  "captions": {"y": 1130, "size": 88, "max_words": 3},
+  "captions": {"y": 1130, "size": 88, "max_words": 3, "max_chars": 11},
   "set": {"light_x": 540, "light_y": 1200, "drift": 70},
   "beats": [
     {"id": "b1", "start": 0.0, "end": 1.8, "twin": "stage",
-     "hero": {"move": "behind-word", "vars": {"text": "2 YEARS", "y": 460, "size": 260}}},
+     "hero": {"move": "two-tone", "vars": {"lead": "Two years of", "key": "POSTING", "y": 405, "size": 140, "speed": 2}}},
     {"id": "b2", "start": 1.8, "end": 3.4, "twin": "off", "cut_in": "whip",
      "scene": {"move": "ui-notification", "vars": {"y": 380, "time": "",
        "items": "[{\"app\":\"Posts\",\"title\":\"Your post is live\",\"body\":\"Example card\"},{\"app\":\"Ads\",\"title\":\"Your ad is running\",\"body\":\"Example card\"}]"}}},
@@ -36,9 +36,9 @@
      "hero": {"move": "orbit", "vars": {"words": "NOT US|NO SCRIPT|NO AGENCY", "size": 60, "min_scale": 0.8, "turns": 0.5}}},
     {"id": "b5", "start": 6.1, "end": 7.4, "twin": "stage",
      "grade": {"move": "bw-grain"},
-     "hero": {"move": "two-tone", "vars": {"lead": "A business", "key": "OWNER", "y": 450, "size": 170}}},
-    {"id": "b6", "start": 7.4, "end": 8.5, "twin": "off",
-     "hero": {"move": "pop3d", "vars": {"shape": "star", "y": 560, "size": 300}}},
+     "hero": {"move": "behind-word", "vars": {"text": "OWNER", "y": 395, "size": 240}}},
+    {"id": "b6", "start": 7.4, "end": 8.5, "twin": "off", "no_captions": true,
+     "hero": {"move": "two-tone", "vars": {"lead": "in a", "key": "REVIEW", "y": 560, "size": 190}}},
     {"id": "b7", "start": 8.5, "end": 10.6, "twin": "off", "cut_in": "flash", "no_captions": true,
      "hero": {"move": "end-card", "vars": {"logo": "media/wordmark-white.png", "line": "Comment PLAN", "logo_w": 600}}}
   ]

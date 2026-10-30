@@ -57,6 +57,8 @@ def validate(edl):
         hero = b.get("hero")
         if hero is not None and hero.get("move") not in MOVES:
             raise EDLError(f"{bid}: unknown hero move {hero.get('move')!r}")
+        if hero is not None and MOVES[hero["move"]].get("disabled"):
+            raise EDLError(f"{bid}: {hero['move']} is disabled in this kit (README, 'Moves')")
         scene = b.get("scene")
         if scene is not None and scene.get("move") not in SCENES:
             raise EDLError(f"{bid}: unknown scene {scene.get('move')!r}")

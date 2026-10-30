@@ -1,6 +1,6 @@
 # Kit test: review log (producer self-check; G-MOTION-FRAMES is the fresh reviewer's)
 
-Renders: `deliver/kit-test-v3.mp4` (current), `deliver/kit-test-v2.mp4` (round 2), `deliver/kit-test-v1.mp4` (round 1), viewing copies at CRF 24. The
+Renders: `deliver/kit-test-v4.mp4` (current), `deliver/kit-test-v3.mp4` (round 3), `deliver/kit-test-v2.mp4` (round 2), `deliver/kit-test-v1.mp4` (round 1), viewing copies at CRF 24. The
 CRF 16 master is rebuilt by `python3 twinkit.py compose examples/test-clip/edl.json --out examples/test-clip/out`.
 
 ## Inputs (all $0 today)
@@ -35,6 +35,15 @@ CRF 16 master is rebuilt by `python3 twinkit.py compose examples/test-clip/edl.j
 | Text under 44 px at its smallest scale | orbit depth scale floored at 0.8 (60 px words never under 48 px); UI text 50 px or more (app labels 52, titles 56, bodies 50, chat 50); test-card line removed; rules check the scaled size |
 | Pop-in overshoot past the 65 px margin | behind-word fits to 890 px so its 1.06 slam stays 943 px wide; rules size every box at its move's biggest scale |
 | No overlap rule | `text_rules.overlap_findings`: hero (each orbit lane), UI scene and captions never overlap in a beat unless an item sets `overlap_ok` |
+
+## Round 3 (G-MOTION-FRAMES FAIL on v3, four points; main session: simplify, no more look tuning) and what changed in v4
+| Finding | Fix |
+|---|---|
+| Two-line caption "SOMEONE BOOKS" 19 px into the bottom zone | one line per card: the template splits any card wider than the band, max 11 characters; `kit/caption_rules.py` groups cards the same way and fails one that would wrap |
+| pop3d star broken at 7.4-7.6 s | pop3d disabled (kept on file, refused by the EDL); b6 is a two-tone "in a / REVIEW" with captions off |
+| Seam and cut caption in the whip at 1.8 s | the whip now pushes in (scale 1.25) while it slides 110 px, so no frame edge shows; captions are hidden over each whip and a card that starts inside one waits for its end |
+| Chin 13 px past the 55% band | chin estimate lowered (114% of head height), stage twin up 80 px: chin at 993 px (51.7%); the face-band rule checks the chin at 52% |
+| Hook text 4 to 10 words | b1 is a two-tone hook "Two years of / POSTING" at double entrance speed (fully up by 0.3 s); "OWNER" became the behind-the-head word in b5; the rule checks the frame-1 hook |
 
 ## Automatic checks on v3 (STANDARDS 9, G-MOTION-FRAMES list)
 | Check | Result |
