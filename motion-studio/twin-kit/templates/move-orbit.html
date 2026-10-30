@@ -1,27 +1,30 @@
 <!doctype html>
 <!--
   Twin kit move 1: words orbiting the head and passing behind it. Built after the registry's locked-nucleus-orbit
-  (a fixed centre with deterministic satellites); here the nucleus is the twin's head. The film mounts this template
-  twice: layer "back" under the twin (z 30) shows the words on the far half of the ring, layer "front" over the twin
-  (z 50) shows the near half. The twin's matte hides the far words, so they pass behind the head. A near word whose
-  box would touch the face box (the composer passes it in) is not drawn, so no word crosses the eyes or mouth.
-  Variables: words ("A|B|C", 2 words max each), cx, cy (ring centre, px), rx, ry (radii), tilt (deg), turns, size,
-  layer (back|front), face ("x0,y0,x1,y1"), dur. Sound: whoosh-cinematic.
+  (a fixed centre with deterministic satellites); here the nucleus is the twin's head. Each word has its own lane:
+  lane 0 circles at crown height, every next lane sits lane_gap higher, so no two words ever touch (lane_gap is at
+  least two radii plus the word height). The film mounts this template twice: layer "back" under the twin (z 30) shows
+  the far half of each lane, which the twin's matte hides as it passes behind the head; layer "front" over the twin
+  (z 50) shows the near half, and a near word is not drawn while it would touch the head box, so no letter ever sits
+  on the forehead or face. Depth reads from scale, floored at min_scale so the smallest word stays 44 px or more.
+  Variables: words ("A|B|C", 2 words max each), cx, cy (lane 0 centre, px), rx, ry, lane_gap, size, min_scale, turns,
+  layer (back|front), head ("x0,y0,x1,y1"), dur. Sound: whoosh-cinematic.
 -->
 <html
   data-composition-id="kit-orbit"
   data-composition-duration="3"
   data-composition-variables='[
-    {"id":"words","type":"string","label":"Words (| separated)","default":"WE|DIDN&apos;T|WRITE|THAT"},
-    {"id":"cx","type":"number","label":"Ring centre x","default":540},
-    {"id":"cy","type":"number","label":"Ring centre y","default":1200},
-    {"id":"rx","type":"number","label":"Ring radius x","default":360},
-    {"id":"ry","type":"number","label":"Ring radius y","default":120},
-    {"id":"tilt","type":"number","label":"Ring tilt (deg)","default":-8},
-    {"id":"turns","type":"number","label":"Turns over the move","default":0.6},
-    {"id":"size","type":"number","label":"Word size (px)","default":64},
+    {"id":"words","type":"string","label":"Words (| separated)","default":"NOT US|NO SCRIPT|NO AGENCY"},
+    {"id":"cx","type":"number","label":"Lane centre x","default":540},
+    {"id":"cy","type":"number","label":"Lane 0 centre y","default":640},
+    {"id":"rx","type":"number","label":"Lane radius x","default":300},
+    {"id":"ry","type":"number","label":"Lane radius y","default":16},
+    {"id":"lane_gap","type":"number","label":"Lane spacing (px, 0 = automatic)","default":0},
+    {"id":"size","type":"number","label":"Word size (px)","default":58},
+    {"id":"min_scale","type":"number","label":"Smallest depth scale","default":0.8},
+    {"id":"turns","type":"number","label":"Turns over the move","default":0.5},
     {"id":"layer","type":"enum","label":"Layer","default":"front","options":[{"value":"back","label":"Back"},{"value":"front","label":"Front"}]},
-    {"id":"face","type":"string","label":"Face box x0,y0,x1,y1","default":""},
+    {"id":"head","type":"string","label":"Head box x0,y0,x1,y1","default":""},
     {"id":"dur","type":"number","label":"On screen (s)","default":2}
   ]'
 >
@@ -42,38 +45,39 @@
           var v = (window.__hyperframes && window.__hyperframes.getVariables()) || {};
           var items = String(v.words || "").split("|").map(function (s) { return s.trim(); }).filter(Boolean);
           var n = Math.max(1, items.length);
-          var cx = Number(v.cx) || 540, cy = Number(v.cy) || 1200, rx = Number(v.rx) || 360, ry = Number(v.ry) || 120;
-          var tilt = (Number(v.tilt) || 0) * Math.PI / 180, turns = Number(v.turns == null ? 0.6 : v.turns);
-          var size = Number(v.size) || 64, dur = Number(v.dur) || 2, front = v.layer !== "back";
-          var face = String(v.face || "").split(",").map(Number);
-          var hasFace = face.length === 4 && face.every(function (x) { return isFinite(x); });
+          var cx = Number(v.cx) || 540, cy = Number(v.cy) || 640, rx = Number(v.rx) || 300, ry = Number(v.ry == null ? 16 : v.ry);
+          var size = Number(v.size) || 58, minS = Number(v.min_scale) || 0.8, dur = Number(v.dur) || 2;
+          var turns = Number(v.turns == null ? 0.5 : v.turns), front = v.layer !== "back";
+          var gap = Number(v.lane_gap) || (2 * ry + size + 12);
+          var head = String(v.head || "").split(",").map(Number);
+          var hasHead = head.length === 4 && head.every(function (x) { return isFinite(x); });
+          var PAD = 10;
           var els = items.map(function (t, i) {
             var e = document.createElement("div");
-            e.className = "ob-word" + (i === n - 1 ? " ob-key" : "");
+            e.className = "ob-word" + (i === 0 ? " ob-key" : "");
             e.setAttribute("data-layout-allow-occlusion", "");   // the far side passes behind the head on purpose
             e.textContent = t; e.style.fontSize = size + "px"; root.appendChild(e); return e;
           });
           var widths = els.map(function (e) { return e.getBoundingClientRect().width || size * e.textContent.length * 0.62; });
-          var state = { p: 0, grow: 0 };
+          var state = { p: 0, show: 0 };
           function place() {
             for (var i = 0; i < n; i++) {
               var th = (i / n + state.p) * Math.PI * 2;
-              var ex = rx * Math.cos(th), ey = ry * Math.sin(th);
-              var x = cx + ex * Math.cos(tilt) - ey * Math.sin(tilt);
-              var y = cy + ex * Math.sin(tilt) + ey * Math.cos(tilt);
+              var x = cx + rx * Math.cos(th), y = cy - i * gap + ry * Math.sin(th);
               var depth = Math.sin(th);                 // +1 nearest the camera, -1 behind the head
-              var s = (0.82 + 0.22 * depth) * state.grow;
+              var s = minS + (1 - minS) * (depth + 1) / 2;
               var w = widths[i] * s, h = size * s;
               var mine = front ? depth >= 0 : depth < 0;
-              var onFace = hasFace && front && x + w / 2 > face[0] && x - w / 2 < face[2] && y + h / 2 > face[1] && y - h / 2 < face[3];
-              els[i].style.opacity = mine && !onFace ? "1" : "0";   // depth reads from scale; a faded word fails contrast
+              var onHead = hasHead && front && x + w / 2 > head[0] - PAD && x - w / 2 < head[2] + PAD &&
+                           y + h / 2 > head[1] - PAD && y - h / 2 < head[3] + PAD;
+              els[i].style.opacity = mine && !onHead ? String(state.show) : "0";
               els[i].style.transform = "translate(" + (x - widths[i] / 2).toFixed(1) + "px," + (y - size / 2).toFixed(1) + "px) scale(" + s.toFixed(3) + ")";
             }
           }
           var tl = gsap.timeline({ paused: true, onUpdate: place });
-          tl.fromTo(state, { grow: 0 }, { grow: 1, duration: 0.35, ease: "back.out(1.8)", onUpdate: place }, 0);
-          tl.fromTo(state, { p: -0.12 }, { p: turns - 0.12, duration: dur, ease: "power1.inOut", onUpdate: place, immediateRender: false }, 0);
-          tl.to(state, { grow: 0, duration: 0.18, ease: "power2.in", onUpdate: place }, Math.max(0.4, dur - 0.2));
+          tl.fromTo(state, { show: 0 }, { show: 1, duration: 0.12, ease: "none", onUpdate: place }, 0);
+          tl.fromTo(state, { p: -0.1 }, { p: turns - 0.1, duration: dur, ease: "power1.inOut", onUpdate: place, immediateRender: false }, 0);
+          tl.to(state, { show: 0, duration: 0.12, ease: "none", onUpdate: place }, Math.max(0.3, dur - 0.14));
           place();
           window.__timelines["kit-orbit"] = tl;
         })();

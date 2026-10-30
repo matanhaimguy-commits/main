@@ -17,7 +17,7 @@ python3 twinkit.py align voice.mp3 script.txt --out words.json   # $0 word timin
 python3 twinkit.py check edl.json                           # the edit rules, no render
 python3 twinkit.py compose edl.json --out out/              # final.mp4, picture.mp4, stems, report.json
 python3 twinkit.py compose edl.json --out out/ --keep-picture   # redo the sound only (seconds)
-python3 -m unittest discover -s tests                       # 83 tests, one file per module
+python3 -m unittest discover -s tests                       # 93 tests, one file per module
 ```
 
 Checks on a render (STANDARDS 9, G-MOTION-FRAMES), from `out/build/`:

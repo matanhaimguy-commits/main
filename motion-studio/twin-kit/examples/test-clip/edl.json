@@ -25,7 +25,7 @@
   "set": {"light_x": 540, "light_y": 1200, "drift": 70},
   "beats": [
     {"id": "b1", "start": 0.0, "end": 1.8, "twin": "stage",
-     "hero": {"move": "behind-word", "vars": {"text": "2 YEARS", "y": 560, "size": 280}}},
+     "hero": {"move": "behind-word", "vars": {"text": "2 YEARS", "y": 460, "size": 260}}},
     {"id": "b2", "start": 1.8, "end": 3.4, "twin": "off", "cut_in": "whip",
      "scene": {"move": "ui-notification", "vars": {"y": 380, "time": "",
        "items": "[{\"app\":\"Posts\",\"title\":\"Your post is live\",\"body\":\"Example card\"},{\"app\":\"Ads\",\"title\":\"Your ad is running\",\"body\":\"Example card\"}]"}}},
@@ -33,13 +33,13 @@
      "scene": {"move": "ui-chat", "vars": {"y": 440, "name": "Example lead",
        "messages": "[{\"from\":\"me\",\"text\":\"Free for a quick call this week?\"},{\"from\":\"me\",\"text\":\"Just checking in\"}]"}}},
     {"id": "b4", "start": 5.0, "end": 6.1, "twin": "stage", "cut_in": "flash",
-     "hero": {"move": "orbit", "vars": {"words": "NOT US|NO SCRIPT|NO AGENCY", "size": 58, "turns": 0.5, "tilt": 0}}},
+     "hero": {"move": "orbit", "vars": {"words": "NOT US|NO SCRIPT|NO AGENCY", "size": 60, "min_scale": 0.8, "turns": 0.5}}},
     {"id": "b5", "start": 6.1, "end": 7.4, "twin": "stage",
      "grade": {"move": "bw-grain"},
      "hero": {"move": "two-tone", "vars": {"lead": "A business", "key": "OWNER", "y": 450, "size": 170}}},
     {"id": "b6", "start": 7.4, "end": 8.5, "twin": "off",
      "hero": {"move": "pop3d", "vars": {"shape": "star", "y": 560, "size": 300}}},
     {"id": "b7", "start": 8.5, "end": 10.6, "twin": "off", "cut_in": "flash", "no_captions": true,
-     "hero": {"move": "end-card", "vars": {"logo": "media/wordmark-white.png", "line": "Comment PLAN", "sub": "kit test card", "logo_w": 600}}}
+     "hero": {"move": "end-card", "vars": {"logo": "media/wordmark-white.png", "line": "Comment PLAN", "logo_w": 600}}}
   ]
 }

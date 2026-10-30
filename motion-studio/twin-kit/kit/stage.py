@@ -57,17 +57,16 @@ def fades(edl, mode):
 
 
 def orbit_geometry(edl, beat, v, face):
-    """Orbit variables with the ring centred on the head and the face box passed in (EDL values win)."""
+    """Orbit variables: lane 0 circles the crown, the head box is passed in so near words skip it (EDL values win)."""
     out = dict(v)
     mode = beat.get("twin", "off")
-    head, fbox = head_on_frame(edl, mode, face), face_on_frame(edl, mode, face)
+    head = head_on_frame(edl, mode, face)
     if head:
-        # a halo at forehead height: the far side passes behind the crown, the near side stays above the brows
+        # lane 0 at crown height: its far side passes behind the head; higher lanes stack above it
         hh = head[3] - head[1]
         out.setdefault("cx", round((head[0] + head[2]) / 2))
-        out.setdefault("cy", round(head[1] + hh * 0.11))
+        out.setdefault("cy", round(head[1] + hh * 0.07))
         out.setdefault("rx", round((head[2] - head[0]) * 0.95))
-        out.setdefault("ry", round(hh * 0.09))
-    if fbox:
-        out["face"] = ",".join(str(round(x)) for x in fbox)
+        out.setdefault("ry", 16)
+        out["head"] = ",".join(str(round(x)) for x in head)
     return out

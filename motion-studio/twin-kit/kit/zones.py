@@ -13,6 +13,10 @@ CAPTION_TOP, CAPTION_BOTTOM = 0.55, 0.62
 CAPTION_MIN, CAPTION_MAX = 80, 100
 MIN_TEXT = 44
 CHAR_W = 0.68            # width of an average capital, in font sizes (bold sans and display serif)
+HEAD_CLEAR = 20          # a word behind the head keeps its letters this far above the head (the head covers no letter)
+MAX_SCALE = {"behind-word": 1.06, "two-tone": 1.0, "orbit": 1.0, "pop3d": 1.04}   # the biggest the move ever draws
+# smallest text each scene template draws (CSS px), for the 44 px floor
+SCENE_TEXT = {"ui-notification": 50, "ui-chat": 50, "ui-prompt": 50}
 
 
 def breaches(box):
@@ -52,25 +56,50 @@ def caption_box(cap):
     return [float(cap.get("left", SIDE)), y - size * 0.75, W - float(cap.get("right", RIGHT_LOWER)), y + size * 0.75]
 
 
+def behind_px(v):
+    """The behind-word's font size after the template shrinks it to max_w (an upper bound: narrow glyphs assumed,
+    so the head-clearance check errs on the safe side)."""
+    size = float(v.get("size", 300))
+    w = len(str(v.get("text", ""))) * size * 0.45
+    return size * min(1.0, float(v.get("max_w", 890)) / w) if w else size
+
+
+def letters_bottom(v):
+    """Lowest pixel of the behind-word's letters at its biggest scale."""
+    return float(v.get("y", 540)) + behind_px(v) * 0.40 * MAX_SCALE["behind-word"]
+
+
+def orbit_lanes(v):
+    """One box per orbit word: its whole lane, at full scale."""
+    size = float(v.get("size", 60))
+    words = [s for s in str(v.get("words", "")).split("|") if s]
+    cx, cy = float(v.get("cx", W / 2)), float(v.get("cy", 640))
+    rx, ry = float(v.get("rx", 300)), float(v.get("ry", 16))
+    gap = float(v.get("lane_gap", 0)) or 2 * ry + size + 12
+    out = []
+    for i, word in enumerate(words):
+        half, y = text_width(word, size) / 2, cy - i * gap
+        out.append([cx - rx - half, y - ry - size / 2, cx + rx + half, y + ry + size / 2])
+    return out
+
+
 def move_box(kind, v, beat=None, head=None):
-    """The text or object box of a move or scene, or None when it carries none."""
+    """The text or object box of a move or scene at its biggest scale, or None when it carries none."""
+    k = MAX_SCALE.get(kind, 1.0)
     if kind == "behind-word":
-        size, y = float(v.get("size", 300)), float(v.get("y", 540))
-        w = min(float(v.get("max_w", 950)), text_width(v.get("text", ""), size))
-        return centred(w, y - size * 0.45, y + size * 0.45)
+        px, y = behind_px(v), float(v.get("y", 540))
+        w = min(float(v.get("max_w", 890)), text_width(v.get("text", ""), float(v.get("size", 300))))
+        return centred(w * k, y - px * 0.45 * k, y + px * 0.45 * k)
     if kind == "two-tone":
         size, y = float(v.get("size", 190)), float(v.get("y", 520))
         w = max(text_width(v.get("lead", ""), size * 0.42), text_width(v.get("key", ""), size))
         return centred(min(w, W - 2 * SIDE), y - size * 0.95, y + size * 0.75)
     if kind == "orbit":
-        size = float(v.get("size", 58))
-        words = [s for s in str(v.get("words", "")).split("|") if s]
-        half = max([text_width(s, size) for s in words] or [0]) / 2
-        cx, cy = float(v.get("cx", W / 2)), float(v.get("cy", 800))
-        rx, ry = float(v.get("rx", 300)), float(v.get("ry", 110))
-        return [cx - rx - half, cy - ry - size, cx + rx + half, cy + ry + size]
+        lanes = orbit_lanes(v)
+        return [min(b[0] for b in lanes), min(b[1] for b in lanes), max(b[2] for b in lanes),
+                max(b[3] for b in lanes)] if lanes else None
     if kind == "pop3d":
-        size, x, y = float(v.get("size", 300)), float(v.get("x", W / 2)), float(v.get("y", 600))
+        size, x, y = float(v.get("size", 300)) * k, float(v.get("x", W / 2)), float(v.get("y", 600))
         return [x - size / 2, y - size / 2, x + size / 2, y + size / 2 + (90 if v.get("label") else 0)]
     if kind == "end-card":
         top = float(v.get("top", 420))
@@ -90,9 +119,17 @@ def move_box(kind, v, beat=None, head=None):
 
 
 def text_sizes(kind, v):
-    """(name, px) of every text size a move sets, for the 44 px floor."""
+    """(name, px) of the smallest text a move or scene draws on screen (after depth scale and fit), for the floor."""
     if kind == "orbit":
-        return [("orbit words", float(v.get("size", 58)))]
+        return [("orbit words at their smallest depth scale", float(v.get("size", 60)) * float(v.get("min_scale", 0.8)))]
     if kind == "two-tone":
         return [("two-tone lead", float(v.get("size", 190)) * 0.42)]
+    if kind == "behind-word":
+        return [("behind-word after fit", behind_px(v))]
+    if kind == "pop3d" and v.get("label"):
+        return [("pop3d label", 54.0)]
+    if kind == "end-card":
+        return [("end-card line", 96.0)] + ([("end-card small line", 50.0)] if v.get("sub") else [])
+    if kind in SCENE_TEXT:
+        return [(kind, float(SCENE_TEXT[kind]))]
     return []

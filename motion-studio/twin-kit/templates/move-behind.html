@@ -13,7 +13,7 @@
     {"id":"text","type":"string","label":"Word","default":"2 YEARS"},
     {"id":"y","type":"number","label":"Centre y (px)","default":620},
     {"id":"size","type":"number","label":"Font size (px)","default":360},
-    {"id":"max_w","type":"number","label":"Max width (px, inside the side margins)","default":950},
+    {"id":"max_w","type":"number","label":"Max width (px, inside the side margins)","default":890},
     {"id":"color","type":"color","label":"Colour","default":"#F8F6EF"},
     {"id":"dur","type":"number","label":"On screen (s)","default":2}
   ]'
@@ -42,7 +42,7 @@
           var px = size;
           word.style.fontSize = px + "px";
           var w = word.getBoundingClientRect().width;
-          var maxW = Number(v.max_w) || 950;
+          var maxW = Number(v.max_w) || 890;
           if (w > maxW) { px = Math.floor(px * maxW / w); word.style.fontSize = px + "px"; }
           line.style.top = (Number(v.y) || 620) - px * 0.43 + "px";
           var tl = gsap.timeline({ paused: true });

@@ -19,7 +19,7 @@ class LayersTest(unittest.TestCase):
         clips = layers.clips(example_edl(), FACE)
         orbit = [(z, h) for z, h in clips if 'id="b4-hero-' in h]
         self.assertEqual(sorted(z for z, _ in orbit), [LAYERS["words-back"], LAYERS["words-front"]])
-        self.assertTrue(all("&quot;face&quot;" in h for _, h in orbit))
+        self.assertTrue(all("&quot;head&quot;" in h for _, h in orbit))
 
     def test_clip_times_follow_the_edl(self):
         html = dict((h.split('"')[1], h) for _, h in layers.clips(example_edl(), FACE))
@@ -32,7 +32,9 @@ class LayersTest(unittest.TestCase):
         self.assertIn("[[8.5, 10.6]]", cap.replace("&quot;", '"').replace('\\"', '"'))
 
     def test_twin_track_sets_each_beat(self):
-        lines = layers.twin_track(small_edl(), FACE)
+        e = small_edl()
+        e["beats"][0]["twin"] = "full"
+        lines = layers.twin_track(e, FACE)
         self.assertEqual(len(lines), 4)
         self.assertIn("opacity: 0", lines[1])
         self.assertIn("scale: 1.0000", lines[0])

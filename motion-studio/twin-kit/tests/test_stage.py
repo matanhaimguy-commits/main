@@ -21,7 +21,7 @@ class StageTest(unittest.TestCase):
         v = stage.orbit_geometry(e, {"twin": "stage"}, {"words": "A"}, FACE)
         head = stage.head_on_frame(e, "stage", FACE)
         self.assertTrue(head[1] < v["cy"] < head[3])
-        self.assertEqual(len(v["face"].split(",")), 4)
+        self.assertEqual(len(v["head"].split(",")), 4)
         self.assertEqual(stage.orbit_geometry(e, {"twin": "stage"}, {"cx": 9}, FACE)["cx"], 9)
 
     def test_edl_can_tune_a_mode(self):

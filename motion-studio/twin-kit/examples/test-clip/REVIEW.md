@@ -1,6 +1,6 @@
 # Kit test: review log (producer self-check; G-MOTION-FRAMES is the fresh reviewer's)
 
-Renders: `deliver/kit-test-v2.mp4` (current) and `deliver/kit-test-v1.mp4` (round 1), viewing copies at CRF 24. The
+Renders: `deliver/kit-test-v3.mp4` (current), `deliver/kit-test-v2.mp4` (round 2), `deliver/kit-test-v1.mp4` (round 1), viewing copies at CRF 24. The
 CRF 16 master is rebuilt by `python3 twinkit.py compose examples/test-clip/edl.json --out examples/test-clip/out`.
 
 ## Inputs (all $0 today)
@@ -26,6 +26,15 @@ CRF 16 master is rebuilt by `python3 twinkit.py compose examples/test-clip/edl.j
 | Ghost on the star at 8.0 s | no sway after landing; landing 0.36 s; shutter 180 degrees |
 | "BOOKS A CALL" held over silence | a card leaves 0.35 s after its last word, and before a hidden range (the end card's flash) |
 | Italic N in "PLAN" | key words upright (end card and two-tone) |
+
+## Round 2 (G-MOTION-FRAMES FAIL on v2: M2, M3) and what changed in v3
+| Finding | Fix |
+|---|---|
+| "2 YEARS" cut about 40 px by the hair | the head may cover only space behind or between words: new rule (`kit/text_rules.py`, letters 20 px clear of the head top, with an upper-bound font estimate); word at y 460, 260 px, letters end about 545 px, head top 612 px |
+| Orbit words collide; NOT US on the forehead | every word has its own lane (lane 0 at the crown, the next lanes 104 px higher: two radii plus the word height), so no two words can touch; a near word is not drawn while it would touch the head box (not only the face box) |
+| Text under 44 px at its smallest scale | orbit depth scale floored at 0.8 (60 px words never under 48 px); UI text 50 px or more (app labels 52, titles 56, bodies 50, chat 50); test-card line removed; rules check the scaled size |
+| Pop-in overshoot past the 65 px margin | behind-word fits to 890 px so its 1.06 slam stays 943 px wide; rules size every box at its move's biggest scale |
+| No overlap rule | `text_rules.overlap_findings`: hero (each orbit lane), UI scene and captions never overlap in a beat unless an item sets `overlap_ok` |
 
 ## Automatic checks on v2 (STANDARDS 9, G-MOTION-FRAMES list)
 | Check | Result |

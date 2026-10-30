@@ -6,9 +6,11 @@
 4. a visual change at least every MAX_GAP s
 6. no front word, object or caption on the face; the face sits 15-55% from the top
 7. every text layer (behind-twin words, UI and captions too) inside the safe zone; captions 80-100 px; text >= 44 px
+   at its smallest on-screen scale; no two text layers overlap; a word behind the head never has a letter covered
+   (kit/text_rules.py)
 Returns a list of findings: (level, rule, message), level FAIL or WARN.
 """
-from . import sfx, stage, zones
+from . import sfx, stage, text_rules, zones
 from .moves import MOVES, SCENES, CUTS
 
 MAX_GAP = 3.0
@@ -80,12 +82,15 @@ def check(edl, face=None):
             if item:
                 events.append(b["start"] + float(item.get("vars", {}).get("at", 0)))
         if scene:
-            box = zones.move_box(scene["move"], scene.get("vars", {}))
-            for why in zones.breaches(box) if box else []:
-                add("FAIL", "safe-zone", f"{bid}: {scene['move']}: {why}")
+            out += [(lv, r, f"{bid}: {m}") for lv, r, m in text_rules.scene_findings(scene)]
+        hv = hero_vars(edl, b, face) if hero else {}
         if hero:
             events.append(hero_at(b))
             out += [(lv, r, f"{bid}: {m}") for lv, r, m in hero_findings(edl, b, mode, fbox, face)]
+            if hero["move"] == "behind-word":
+                out += [(lv, r, f"{bid}: {m}") for lv, r, m in text_rules.head_clear_findings(edl, b, hv, face)]
+        layers = text_rules.text_layers(edl, b, hv, cap_box)
+        out += [(lv, r, f"{bid}: {m}") for lv, r, m in text_rules.overlap_findings(layers)]
         if cap_box and fbox and not b.get("no_captions") and stage.overlaps(cap_box, fbox):
             add("FAIL", "face", f"{bid}: captions cover the face in twin mode {mode!r}")
 
