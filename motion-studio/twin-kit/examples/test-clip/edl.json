@@ -1,0 +1,45 @@
+{
+  "_note": "Kit test at $0. Twin: an Atlas H3 take already paid for on 28 Oct (SSEN-LIB-ATLAS-TESTS T-H3-1440, an AI test character, not Matan), cut out here. Voice: SLICE-CHRIS (same run). Bed: T-BED-A, 14 s from 20 s in. UI copy is example copy.",
+  "width": 1080,
+  "height": 1920,
+  "fps": 30,
+  "duration": 10.6,
+  "brand": {
+    "bg": "#1F1F1F",
+    "fg": "#F8F6EF",
+    "accent": "#DD9A10",
+    "display_font": "Playfair Display",
+    "ui_font": "Montserrat",
+    "fonts": [
+      {"family": "Playfair Display", "src": "../../../projects/straightscale-02/assets/fonts/PlayfairDisplay/playfair-display-latin-900-normal.woff2", "weight": 900},
+      {"family": "Playfair Display", "src": "../../../projects/straightscale-02/assets/fonts/PlayfairDisplay/playfair-display-latin-900-italic.woff2", "weight": 900, "style": "italic"},
+      {"family": "Montserrat", "src": "../../../projects/straightscale-02/assets/fonts/Montserrat/montserrat-latin-300-normal.woff2", "weight": 300},
+      {"family": "Montserrat", "src": "../../../projects/straightscale-02/assets/fonts/Montserrat/montserrat-latin-500-normal.woff2", "weight": 500},
+      {"family": "Montserrat", "src": "../../../projects/straightscale-02/assets/fonts/Montserrat/montserrat-latin-700-normal.woff2", "weight": 700}
+    ]
+  },
+  "twin": {"src": "media/twin-cut.webm", "face": "face.json"},
+  "voice": {"src": "media/vo.mp3", "start": 0.0, "words": "words.json"},
+  "music": {"src": "media/bed.mp3", "gain_db": -8, "fade_in": 0.3, "fade_out": 1.4},
+  "captions": {"y": 1130, "size": 88, "max_words": 3, "max_chars": 11},
+  "set": {"light_x": 540, "light_y": 1200, "drift": 70},
+  "beats": [
+    {"id": "b1", "start": 0.0, "end": 1.8, "twin": "stage",
+     "hero": {"move": "two-tone", "vars": {"lead": "Two years of", "key": "POSTING", "y": 405, "size": 140, "speed": 2}}},
+    {"id": "b2", "start": 1.8, "end": 3.4, "twin": "off", "cut_in": "whip",
+     "scene": {"move": "ui-notification", "vars": {"y": 380, "time": "",
+       "items": "[{\"app\":\"Posts\",\"title\":\"Your post is live\",\"body\":\"Example card\"},{\"app\":\"Ads\",\"title\":\"Your ad is running\",\"body\":\"Example card\"}]"}}},
+    {"id": "b3", "start": 3.4, "end": 5.0, "twin": "off",
+     "scene": {"move": "ui-chat", "vars": {"y": 440, "name": "Example lead",
+       "messages": "[{\"from\":\"me\",\"text\":\"Free for a quick call this week?\"},{\"from\":\"me\",\"text\":\"Just checking in\"}]"}}},
+    {"id": "b4", "start": 5.0, "end": 6.1, "twin": "stage", "cut_in": "flash",
+     "hero": {"move": "orbit", "vars": {"words": "NOT US|NO SCRIPT|NO AGENCY", "size": 60, "min_scale": 0.8, "turns": 0.5}}},
+    {"id": "b5", "start": 6.1, "end": 7.4, "twin": "stage",
+     "grade": {"move": "bw-grain"},
+     "hero": {"move": "behind-word", "vars": {"text": "OWNER", "y": 395, "size": 240}}},
+    {"id": "b6", "start": 7.4, "end": 8.5, "twin": "off", "no_captions": true,
+     "hero": {"move": "two-tone", "vars": {"lead": "in a", "key": "REVIEW", "y": 560, "size": 190}}},
+    {"id": "b7", "start": 8.5, "end": 10.6, "twin": "off", "cut_in": "flash", "no_captions": true,
+     "hero": {"move": "end-card", "vars": {"logo": "media/wordmark-white.png", "line": "Comment PLAN", "logo_w": 600}}}
+  ]
+}
