@@ -10,6 +10,7 @@ from .cards import card_check
 from .files import load_brain, load_cards, load_demand, load_map, need
 from .issues import has_errors
 from .router import route
+from .twin_route import reroute
 from .spend import ledger_rows, month_spend, route_issues, usd_cap
 from .show import print_issues
 from .week import week_check
@@ -47,4 +48,7 @@ def route_cmd(a) -> int:
     print_issues("route", route_issues(brain))
     for o_ in opts[:3]:
         print(f"- {o_['format']} ({o_['format_family']}, tier {o_['tier']}, score {o_['score']}, ${o_['usd'][0]:.2f}-{o_['usd'][1]:.2f}): {o_['why']} · {o_['skill']}")
+    twin = reroute(card, brain, lambda c: route(c, brain, cmap, a.prev_family, spent, plan))
+    if twin:
+        print(f"- twin ranks first with twin_host: true: {twin['format']} (score {twin['score']}); re-route the slot only if you want the twin there")
     return 0 if opts else 1

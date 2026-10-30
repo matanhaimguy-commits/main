@@ -11,7 +11,7 @@ from .issues import ERROR, issue
 # formats that put an AI person on camera (FORMATS.md 2), plus reel_strategist_prop (an on-camera presenter) and
 # reel_talking_head_real (the owner's own footage, so an AI stand-in there would pass as him)
 AI_PEOPLE = {"reel_ugc_talking", "reel_lived_authority", "reel_ugc_pov", "reel_podcast", "reel_drama_pov", "reel_skit",
-             "reel_whiteboard", "reel_strategist_prop", "reel_talking_head_real"}
+             "reel_whiteboard", "reel_strategist_prop", "reel_talking_head_real", "reel_twin_stage"}
 FIELDS = ("series_character", "notes", "hypothesis", "story_template")
 CLIENT = re.compile(r"\b(?:real|actual|our|my|happy|satisfied|paying) (?:client|customer)s?\b|\btestimonials?\b"
                     r"|\b(?:as|plays?|playing) (?:the |a |our )?(?:client|customer)\b", re.I)
@@ -48,7 +48,11 @@ def people_issues(card: dict) -> list[dict]:
 
 def twin_issues(card: dict, brain: dict) -> list[dict]:
     """A twin_host card needs the brain's host block (the looks and voices the HeyGen gate allows)."""
+    out = []
     if card.get("twin_host") is True and not (brain.get("host") or {}).get("looks"):
-        return [issue(ERROR, "twin_host", "twin_host card, but the brain has no host block with looks and voices: "
-                                          "only a client with an approved twin may use it (D-T1)")]
-    return []
+        out.append(issue(ERROR, "twin_host", "twin_host card, but the brain has no host block with looks and voices: "
+                                             "only a client with an approved twin may use it (D-T1)"))
+    if card.get("format") == "reel_twin_stage" and card.get("twin_host") is not True:
+        out.append(issue(ERROR, "twin_host", "reel_twin_stage is the owner's twin: mark the card twin_host: true "
+                                             "(FORMATS.md 2.18, D-T1)"))
+    return out

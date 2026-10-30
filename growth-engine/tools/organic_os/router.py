@@ -8,6 +8,7 @@ from __future__ import annotations
 from . import l19
 from .config import CONFIG
 from .rank import score
+from .twin_route import twin_allowed, twin_only
 from .spend import ledger_rows, month_spend, route_issues, usd_cap  # noqa: F401  (re-exported for older imports)
 from .variety import MOTION, blocked_by_plan, format_family
 
@@ -33,6 +34,8 @@ def route(card: dict, brain: dict, cmap: dict, prev_family: str | None = None, s
 
 def excluded(fid: str, f: dict, card: dict, brain: dict, cmap: dict, prev_family: str | None, remaining: float,
              plan: list[dict]) -> str | None:
+    if twin_only(fid) and not twin_allowed(card, brain):
+        return "the twin hosts only on a card marked twin_host, for a brain with a host block"
     if card["job"] not in f["jobs"] or card["belief"] not in f["beliefs"]:
         return "job or belief"
     if f["tier"] == "A" and not (card.get("angle_proven") or card.get("wildcard")):

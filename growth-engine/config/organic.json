@@ -640,7 +640,7 @@
         "B8"
       ],
       "skill": "hook-lab + script-lab + H3 via growth-engine/adapters/ugc-talking-head-organic.md",
-      "note": "Proven paid winner format; rotate the props. The strategist faces the camera only as a presenter in his clearly staged studio set (the whiteboard), AI label on, never as a client, owner or customer (STANDARDS 7). O30 or O60 (ugc-talking-head-organic.md 4).",
+      "note": "Proven paid winner format; rotate the props. The strategist faces the camera only as a presenter in his clearly staged studio set (the whiteboard), AI label on, never as a client, owner or customer (STANDARDS 7). O30 or O60 (ugc-talking-head-organic.md 4). The twin may be the presenter instead (presenter_identities), only on a card marked twin_host: Matan's HeyGen twin as the founder, AI label per the brain, adapters/twin-host-organic.md.",
       "production": "ai_video",
       "format_family": "presenter",
       "funnel": [
@@ -655,7 +655,11 @@
         "sound": 2,
         "attention": 1,
         "person": 1
-      }
+      },
+      "presenter_identities": [
+        "staged_strategist",
+        "twin"
+      ]
     },
     "reel_ugc_pov": {
       "family": "reel",
@@ -1281,7 +1285,7 @@
         "B5"
       ],
       "skill": "hook-lab + script-lab + H3 presenter (growth-engine/adapters/ugc-talking-head-organic.md) with drawn board inserts (lemo-opuscar Whiteboard Explainer style or gpt-image-2 draw-in states)",
-      "note": "An H3 presenter at a whiteboard or chalkboard, cut with full-frame drawn board inserts that build the mechanism one stroke at a time (FORMATS.md 2). The presenter is a staged presenter in a clearly staged set, AI label on, never a client, owner or customer (STANDARDS 7).",
+      "note": "An H3 presenter at a whiteboard or chalkboard, cut with full-frame drawn board inserts that build the mechanism one stroke at a time (FORMATS.md 2). The presenter is a staged presenter in a clearly staged set, AI label on, never a client, owner or customer (STANDARDS 7). The twin may be the presenter instead (presenter_identities), only on a card marked twin_host: Matan's HeyGen twin as the founder, AI label per the brain, adapters/twin-host-organic.md.",
       "production": "ai_video",
       "format_family": "presenter",
       "funnel": [
@@ -1300,6 +1304,10 @@
       "usd": [
         2.02,
         4.74
+      ],
+      "presenter_identities": [
+        "staged_strategist",
+        "twin"
       ]
     },
     "reel_lived_authority": {
@@ -1466,6 +1474,70 @@
       "usd": [
         3.14,
         5.97
+      ]
+    },
+    "reel_twin_stage": {
+      "family": "reel",
+      "tier": "B",
+      "credits": null,
+      "atlas_units": {
+        "images": [
+          6,
+          12
+        ],
+        "video_s": [
+          20,
+          45
+        ],
+        "voice_s": [
+          0,
+          0
+        ]
+      },
+      "heygen_credits": [
+        30,
+        150
+      ],
+      "heygen_credits_status": "unmeasured until the pilot reel; a planning placeholder, not a HeyGen price",
+      "twin_only": true,
+      "presenter_identities": [
+        "twin"
+      ],
+      "jobs": [
+        "trust",
+        "convert",
+        "reach"
+      ],
+      "beliefs": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7",
+        "B8"
+      ],
+      "skill": "hook-lab + script-lab + HeyGen twin (create_speech, then audio-driven create_video_from_avatar) + the twin kit edit (motion-studio/twin-kit) via growth-engine/adapters/twin-host-organic.md",
+      "note": "The founder's HeyGen twin hosts in a designed stage edit: cut out in the lower third, a set above, a visual change every 2 to 3 s (words behind the head, UI scenes, B-roll, flash cuts). Only on a card marked twin_host, only where the brain has a host block. The twin speaks as Matan, the founder, in his cloned voice; it never claims a result, number or client that is not in the proof bank (STANDARDS 7). USD is the Atlas part (set, B-roll); the voice and the twin are HeyGen credits, not measured until the pilot.",
+      "production": "ai_video",
+      "format_family": "presenter",
+      "funnel": [
+        "TOF",
+        "MOF",
+        "BOF"
+      ],
+      "l19": {
+        "face": 2,
+        "invisible": 2,
+        "order": 2,
+        "sound": 2,
+        "attention": 2,
+        "person": 2
+      },
+      "usd": [
+        1.04,
+        2.23
       ]
     }
   },

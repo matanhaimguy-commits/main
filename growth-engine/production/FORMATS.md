@@ -126,6 +126,7 @@ these don't cover yet.
 - **Blocked on the StraightScale EN map until D1:** a face-on AI creator reads as a real owner or client (STANDARDS 7).
 
 ### 2.3 Strategist with a prop (`reel_strategist_prop`, family presenter, tier B)
+- **Presenter identity:** the staged strategist, or the founder's twin on a `twin_host` card (2.18, `adapters/twin-host-organic.md`).
 - **For:** the proven paid winner. A presenter explains one idea with one real prop (a sheet, an org chart, a phone);
   MOF and BOF first, TOF too; trust, convert, reach.
 - **L19:** face 2, invisible 1 (the prop shows part of it), order 2, sound 2, attention 1, person 1. Best beat:
@@ -141,6 +142,7 @@ these don't cover yet.
   Seedance 2.0) made the strategist identity reused later.
 
 ### 2.4 Talking head at a whiteboard or chalkboard (`reel_whiteboard`, family presenter, tier B)
+- **Presenter identity:** the staged strategist, or the founder's twin on a `twin_host` card (2.18, `adapters/twin-host-organic.md`).
 - **What it is:** an **H3 presenter with drawn board inserts.** The strategist stands at a whiteboard or chalkboard in
   his staged set (H3 reference mode, his voice slice), cut every 3 to 6 s with full-frame inserts of the board itself:
   the mechanism drawn one stroke at a time (a box, an arrow, a crossed-out fix, the buyer's sentence written word for
@@ -311,6 +313,25 @@ these don't cover yet.
   Matan: "boring, too much text, no voice"); EN 01 (killed: "generic advice, off-offer"); EN 02 (kinetic type, retired
   28 Oct: its beat was a mechanism).
 
+### 2.18 Twin stage (`reel_twin_stage`, family presenter, tier B)
+- **What it is:** the founder's HeyGen twin hosts a designed edit: the twin cut out in the lower third, a set above it,
+  a visual change every 2 to 3 s (words behind the head, UI scenes, B-roll, flash cuts). Voice first (HeyGen speech in
+  his cloned voice), then audio-driven video, then the twin kit edit.
+- **For:** any belief and job; the founder's own explanation, mechanism and offer posts. TOF to BOF.
+- **L19:** face 2, invisible 2, order 2, sound 2, attention 2, person 2. Best beat: mechanism, offer, proof (only with a
+  proof-bank entry).
+- **Only on a card marked `twin_host: true`, for a brain with a `host` block** (STANDARDS 7, D-T1 to D-T3). The router
+  excludes it otherwise; `card-check` refuses the format without the flag. The slot is re-routed to the twin only where
+  it ranks first with the flag on. The twin is also a `presenter_identities` entry for `reel_whiteboard` (2.4) and
+  `reel_strategist_prop` (2.3), on the same condition.
+- **Skill and gates:** Hook Lab + Script Lab + `adapters/twin-host-organic.md` (steps 0 to 15, the HeyGen route, the
+  traps); edit in `motion-studio/twin-kit`.
+- **Cost:** USD is the Atlas part only (set still, B-roll keyframes and H3 clips; the voice is HeyGen's). HeyGen credits
+  `[30, 150]` are a planning placeholder, **unmeasured until the pilot reel**; replace them from the ledger's measured
+  `heygen_credits` and the pilot's seconds.
+- **USD:** $1.04 to $2.23 (Atlas only).
+- **StraightScale:** none yet; the pilot is the Fri 6 Nov slot (Twin reel machine plan 2026-10-29).
+
 ---
 
 ## 3. The library at a glance
@@ -322,6 +343,7 @@ these don't cover yet.
 | `reel_strategist_prop` | presenter | B | 1.58 to 4.15 | mechanism, offer | MOF, BOF, TOF |
 | `reel_whiteboard` | presenter | B | 2.02 to 4.74 | mechanism, list, offer | MOF, BOF, TOF |
 | `reel_lived_authority` | presenter | B | 1.58 to 4.15 | proof | TOF, MOF |
+| `reel_twin_stage` (`twin_host` cards only) | presenter | B | 1.04 to 2.23 Atlas + HeyGen credits (unmeasured) | mechanism, offer, proof | TOF, MOF, BOF |
 | `reel_podcast` | podcast | B | 3.49 to 5.12 | offer, proof | MOF, BOF |
 | `reel_drama_pov` | drama | A | 3.21 to 8.28 | proof, offer | TOF, MOF |
 | `reel_skit` | drama | B | 1.64 to 3.25 | proof, offer | TOF |
@@ -506,3 +528,4 @@ is allowed by STANDARDS 7; the podcast hosts and the POV owner are shown from be
   `reel_lived_authority`, `reel_skit`, `reel_talking_object`; new styles `skeleton_xray`, `anime_2d`; every format
   carries `format_family`, `funnel` and `l19`; `beats` in `organic.json`; the router ranks by L19 fit, funnel and
   variety, and cost only filters; `week-check` enforces the variety rules; Post Cards name `load_bearing_beat`.
+- 2026-10-30 (twin, T2): new format `reel_twin_stage` (2.18, `twin_only`, USD is the Atlas part, `heygen_credits` unmeasured until the pilot); the twin is a `presenter_identities` entry for `reel_whiteboard` and `reel_strategist_prop`; the router offers the twin only on `twin_host` cards; `adapters/twin-host-organic.md`.
