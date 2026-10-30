@@ -95,6 +95,23 @@ For the exact prompt text (whitespace aside) it finds the registered asset versi
 - a song run: no image or video call before the owner's G-HUMAN-SONG;
 - a version is generated once (a retake is a new version, so attempts are counted). After 3 attempts the asset goes
   to the owner (G-HUMAN-ESCALATE); a prompt that fails 2 review loops goes to the Organic Director first (STANDARDS 9).
+
+**The twin route (HeyGen, D-T4; STANDARDS 10).** Only `create_speech` and `create_video_from_avatar` generate; every
+other HeyGen tool is refused (generation tools by the service, writes and account changes by the HeyGen tools hook);
+reads (`list_*`, `get_*`, `lookup_*`, `bulk_*_statuses`) pass. Both calls need a card marked `twin_host` and a G-BUDGET
+from the last 24 h with `--heygen CREDITS`. The flow:
+1. voice asset: `pipeline.py asset <slug> <post> VO --type voice --tool mcp__HeyGen__create_speech`, then `pipeline.py
+   prompt ... VO --file <the spoken script>` (it prints the sha256);
+2. G-SCRIPT PASS with `--data '{"script_sha256": "<that sha256>"}'` (the text, whitespace-normalised);
+3. `create_speech`: a `host.voices` id and exactly that text; no `engine`, `settings` or `forceRegenerate`;
+4. `pipeline.py media ... VO@v<n> --id <the returned audio URL or asset id>`, then G-AUDIO PASS on `VO@v<n>`;
+5. clip asset: `pipeline.py asset ... AROLL --type video_clip --shots S.. --tool mcp__HeyGen__create_video_from_avatar`,
+   `pipeline.py prompt ... AROLL --file <note> --media <the same id>:audio`; step 9 closed;
+6. `create_video_from_avatar`: a `host.looks` id, `aspectRatio` 9:16, `fit` cover for the landscape look, that audio
+   only; no script, voice, motion prompt, burned captions, background, background removal, webm or 4k.
+The gate trusts the registered audio id or URL (it can't see the bytes behind it): register only what `create_speech`
+returned. `pipeline.py check-call --explain <tool> <input.json>` shows the answer without logging a call.
+
 Cost preflights (`get_cost`, `estimate_only`) always pass. `GATE-SELFTEST` as a prompt is always blocked (proves the
 gate is live). The Higgsfield credit-spending tools (presets, Marketing Studio, influencer builder, upscale, 3D,
 sandbox and the rest) are refused with the service, whatever the test asset.

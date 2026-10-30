@@ -33,6 +33,18 @@
         ]
       },
       {
+        "matcher": "mcp__(HeyGen|heygen|Heygen|HEYGEN)__.+|mcp__49562e34-e2bd-4bfe-95e6-8f2f8287878e__.+",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/heygen_tools_gate.py\"",
+            "timeout": 10,
+            "onFailure": "block",
+            "statusMessage": "Checking the HeyGen tool"
+          }
+        ]
+      },
+      {
         "matcher": "Bash",
         "hooks": [
           {

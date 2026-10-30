@@ -28,8 +28,20 @@ class Commands(unittest.TestCase):
                     "python3 -c \"import urllib.request as u; u.urlopen('https://api.heygen.com/v2/video/generate')\"",
                     "echo $HEYGEN_API_KEY", "HEYGEN_API_BASE=https://x.example node run.mjs",
                     "h=api.hey; curl https://${h}gen.com/v3/x", "curl \"https://api.\"'heygen'\".com/v3/x\"",
-                    "echo YXBpLmhleWdlbi5jb20= | base64 -d", "heygen auth login", "npx -y @heygen/cli resolve bgm",
-                    "cd /tmp && heygen video create"):
+                    "echo YXBpLmhleWdlbi5jb20= | base64 -d | xargs curl", "heygen auth login",
+                    "npx -y @heygen/cli resolve bgm", "cd /tmp && heygen video create", "x=$(heygen video list)",
+                    # any heygen.com or heygen.ai host with a network tool or a code runner
+                    "curl -sS https://files2.heygen.ai/x.mp4 -o a.mp4", "wget https://resource.heygen.ai/v.mp4",
+                    "python3 -c \"import requests; requests.get('https://app.heygen.com/x')\"",
+                    "node -e \"fetch('https://api2.heygen.com/v1')\"", "echo 'curl api.heygen.com' | sh",
+                    # credentials
+                    "env | grep -i heygen", "printenv HEYGEN_API_KEY", "printenv | grep HEYGEN",
+                    "cat ~/.heygen/credentials", "HEYGEN_API_URL=https://x.example npx hyperframes cloud render",
+                    "echo $HYPERFRAMES_API_KEY", "cat /proc/self/environ",
+                    # HeyGen-hosted hyperframes
+                    "npx hyperframes render --cloud", "npx hyperframes render ./proj --quality high --cloud",
+                    "hyperframes cloud render", "npx hyperframes publish", "npx -y hyperframes auth login",
+                    "cd proj && npx hyperframes@0.4.1 cloud status"):
             with self.subTest(cmd=cmd):
                 self.assertEqual(bash(cmd), "deny")
 
@@ -53,7 +65,13 @@ class Commands(unittest.TestCase):
         for cmd in ("ls .claude/skills/media-use/audio/scripts", "git status", "grep -n speech README.md",
                     "python3 growth-engine/tools/pipeline.py status acme AC-2026-10-W3-01",
                     "node .claude/skills/media-use/scripts/transcribe.mjs a.wav", "echo the heygen twin",
-                    "ls ~/.heygen-notes"):
+                    "ls ~/.heygen-notes",
+                    # text that only mentions HeyGen
+                    "git commit -m 'Deny api.heygen.com; heygen video create is off (curl too)'",
+                    "git log --grep='heygen video'", "grep -rn api.heygen.com .claude/skills | head",
+                    "grep -rn HEYGEN_API_KEY .claude/skills/media-use", "echo \"(heygen video)\"",
+                    "echo '; heygen video create'", "npx hyperframes render ./proj -o out.mp4",
+                    "npx hyperframes lint", "python3 x.py --note 'see https://docs.heygen.com'"):
             with self.subTest(cmd=cmd):
                 self.assertEqual(bash(cmd, cwd=str(REPO)), "allow")
 

@@ -694,7 +694,12 @@
         "input_types": [
           "text"
         ],
-        "refused_keys": []
+        "refused_keys": [
+          "forceRegenerate",
+          "engine",
+          "settings"
+        ],
+        "refused_note": "forceRegenerate re-bills a cached take; engine and settings switch the voice's saved default engine or model (unplanned credits and a different sound than G-HUMAN-VOICE approved)"
       },
       "avatar_video": {
         "tool": "mcp__HeyGen__create_video_from_avatar",
@@ -724,13 +729,21 @@
           "brandGlossaryId",
           "motionPrompt",
           "callbackUrl",
-          "callbackId"
+          "callbackId",
+          "background",
+          "removeBackground"
         ],
         "caption_style": "none: captions are made in the edit, so caption.style stays unset",
         "output_formats": [
-          "mp4",
-          "webm"
-        ]
+          "mp4"
+        ],
+        "resolutions": [
+          null,
+          "720p",
+          "1080p"
+        ],
+        "refused_note": "4k, background replacement, background removal and webm (matting) cost unplanned credits; the cutout is made in the edit (Twin reel machine plan T3)",
+        "audio_trust": "The gate trusts the registered audio id or URL: it checks that the value is registered on the twin's voice asset with G-AUDIO PASS, not the bytes behind it. Register only what create_speech returned."
       },
       "card_flag": "twin_host",
       "budget": "a fresh G-BUDGET (gate_policy.budget_fresh_hours) whose data prices the piece in HeyGen credits (heygen_planned above 0); the monthly credit cap is brain package.monthly_heygen_credit_cap"
@@ -1689,5 +1702,24 @@
     "stt_note": "xai/stt-v1 per minute of audio (estimates: the 6.1 s file 0.000173, the 6 min 12 s file 0.01056). Analysis, about 0.10 an hour.",
     "chars_per_word": 6,
     "chars_note": "English words plus the space, to turn the narration's words (STANDARDS 4 pace) into TTS characters."
+  },
+  "heygen_connector": {
+    "_doc": "Every HeyGen connector tool not in gated_tools (Twin reel machine plan T1, evaluator round 1): the HeyGen tools hook (.claude/hooks/heygen_tools_gate.py, rules in guards/heygen_tools.py) lets through only reads, and denies every other tool (writes, deletes, subscriptions, uploads, templates). The two twin tools are in gated_tools and go through the generation gate.",
+    "server_names": [
+      "HeyGen"
+    ],
+    "connector_ids": [
+      "49562e34-e2bd-4bfe-95e6-8f2f8287878e"
+    ],
+    "read_only": {
+      "prefixes": [
+        "list_",
+        "get_",
+        "lookup_"
+      ],
+      "patterns": [
+        "^bulk_\\w+_statuses$"
+      ]
+    }
   }
 }

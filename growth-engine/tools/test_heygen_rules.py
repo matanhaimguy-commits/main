@@ -23,6 +23,15 @@ class Speech(unittest.TestCase):
         self.assertIn("not one of the twin's voices",
                       R.speech_checks({"voiceId": "someone-else", "text": "Hi."}, HOST, RULES["speech"])[0])
 
+    def test_no_unplanned_credits(self):
+        base = {"voiceId": VOICE, "text": "Hi."}
+        for k, v in (("forceRegenerate", True), ("engine", "elevenlabs"), ("engine", "heygen_voice"),
+                     ("settings", {"model_id": "eleven_v4"})):
+            with self.subTest(k=k, v=v):
+                self.assertIn(k, " ".join(R.speech_checks({**base, k: v}, HOST, RULES["speech"])))
+        self.assertEqual(R.speech_checks({**base, "forceRegenerate": False, "engine": None, "speed": 1}, HOST,
+                                         RULES["speech"]), [])
+
     def test_plain_text_only(self):
         self.assertIn("no text", R.speech_checks({"voiceId": VOICE, "text": " "}, HOST, RULES["speech"])[0])
         self.assertIn("inputType", R.speech_checks({"voiceId": VOICE, "text": "<speak>x</speak>", "inputType": "ssml"},
@@ -34,6 +43,8 @@ class Video(unittest.TestCase):
         self.assertEqual(R.video_checks(video(), HOST, RULES["avatar_video"]), ([], "https://f.example/vo.mp3"))
         self.assertEqual(R.video_checks(video(avatarId=PORTRAIT, fit=None, audioUrl=None, audioAssetId="A1"), HOST,
                                         RULES["avatar_video"]), ([], "A1"))
+        self.assertEqual(R.video_checks(video(resolution="1080p", removeBackground=False, outputFormat="mp4"), HOST,
+                                        RULES["avatar_video"])[0], [])
 
     def test_refusals(self):
         cases = {
@@ -48,6 +59,10 @@ class Video(unittest.TestCase):
             "caption.style": video(caption={"style": "default"}),
             "outputFormat": video(outputFormat="mov"),
             "reference_look_id": video(engine={"type": "avatar_v", "reference_look_id": "someone-else"}),
+            "resolution '4k'": video(resolution="4k"),
+            "background": video(background={"type": "color", "value": "#000000"}),
+            "removeBackground": video(removeBackground=True),
+            "outputFormat 'webm'": video(outputFormat="webm"),
         }
         for needle, ti in cases.items():
             with self.subTest(needle=needle):

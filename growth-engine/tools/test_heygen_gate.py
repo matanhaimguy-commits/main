@@ -211,6 +211,13 @@ class Explain(Twin):
                 code, out = self.explain(CONNECTOR + name, {"text": SCRIPT, "voiceId": VOICE})
                 self.assertEqual(code, 1, out)
                 self.assertIn("SERVICE OFF", out)
+        for name in ("cancel_subscription", "delete_video", "create_asset_upload", "create_brand_kit"):
+            with self.subTest(name=name):
+                code, out = self.explain(CONNECTOR + name, {})
+                self.assertEqual(code, 1, out)
+                self.assertIn("HEYGEN TOOL OFF", out)
+        code, out = self.explain(CONNECTOR + "list_avatar_looks", {})
+        self.assertEqual((code, out.splitlines()[-1]), (0, "ALLOW"))
 
 
 if __name__ == "__main__":

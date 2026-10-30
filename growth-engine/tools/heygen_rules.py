@@ -30,6 +30,9 @@ def speech_checks(ti: dict, host: dict, rule: dict) -> list[str]:
         why.append("no text: the speech is the released script, word for word")
     if (ti.get("inputType") or "text") not in rule["input_types"]:
         why.append(f"inputType {ti.get('inputType')!r}: only {rule['input_types']} (the text must match the script)")
+    refused = [k for k in rule["refused_keys"] if _set(ti.get(k)) and ti.get(k) is not False]
+    if refused:
+        why.append(f"{', '.join(refused)} on the call: {rule['refused_note']}")
     return why
 
 
@@ -57,10 +60,12 @@ def video_checks(ti: dict, host: dict, rule: dict) -> tuple[list[str], str | Non
     ref = (ti.get("engine") or {}).get("reference_look_id") if isinstance(ti.get("engine"), dict) else None
     if _set(ref) and not look_for(host, ref):
         why.append(f"engine.reference_look_id {ref!r} is not one of the twin's looks")
-    refused = [k for k in rule["refused_keys"] if _set(ti.get(k))]
+    refused = [k for k in rule["refused_keys"] if _set(ti.get(k)) and ti.get(k) is not False]
     if refused:
         why.append(f"{', '.join(refused)} on the call: the video is driven only by the gated voice asset, with no "
-                   "script text or other prompt")
+                   f"script text or other prompt, and no extras ({rule['refused_note']})")
+    if ti.get("resolution") not in rule["resolutions"]:
+        why.append(f"resolution {ti.get('resolution')!r}: at most 1080p ({rule['refused_note']})")
     audio = [k for k in rule["audio_keys"] if _set(ti.get(k))]
     if len(audio) != 1:
         why.append(f"name exactly one audio source ({' or '.join(rule['audio_keys'])}): the twin's voice asset with "

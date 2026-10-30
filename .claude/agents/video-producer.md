@@ -13,6 +13,21 @@ stills, 2-3 story frames, an ad version. Check the Atlas balance (`atlas account
 minutes with `organic.py ledger-add --usd`. Every reel is voiced, captioned, inside the safe zones, motion in the first second. Set
 `gates.sound_off`, `gates.visual`, `gates.budget`.
 
+Twin cards (`twin_host: true`, the brain's `host` block): the twin speaks and moves only through the two gated HeyGen
+tools, in this order (STANDARDS 10, the twin route; `growth-engine/production/README.md`):
+1. Budget: `pipeline.py budget <slug> <post> --planned USD --balance USD --heygen CREDITS` (within 24 h of each call).
+2. Voice: the VO asset and G-SCRIPT with `script_sha256` (the Script Agent does this), then `create_speech` with a
+   voice id from `host.voices` and exactly the registered text; no `engine`, `settings` or `forceRegenerate`.
+3. Register what it returned: `pipeline.py media <slug> <post> VO@v<n> --id <the audio URL or HeyGen asset id>`, then
+   the take check: `pipeline.py gate <slug> <post> G-AUDIO --status PASS --by "take check" --asset VO@v<n> --note ...`.
+4. Clip: `pipeline.py asset <slug> <post> AROLL --type video_clip --shots <S..> --tool
+   mcp__HeyGen__create_video_from_avatar`, `pipeline.py prompt <slug> <post> AROLL --file <a one-line note> --media
+   <the same id>:audio`; close step 9.
+5. `create_video_from_avatar` with a look id from `host.looks`, `aspectRatio: "9:16"`, `fit: "cover"` for the landscape
+   look, and only that `audioUrl` or `audioAssetId`. No script, voice, motion prompt, captions, background,
+   background removal, webm or 4k. Check first with `pipeline.py check-call --explain <tool> <input.json>`.
+6. Log what HeyGen charged: `organic.py ledger-add ... --heygen <credits>`.
+
 Read first: `growth-engine/ORGANIC-OS.md` (the spec), the client's `clients/<slug>/brain.json`, `content-map.json`
 and `analytics/learnings.md`. Facts only from the brain and its proof bank; never invent numbers, results, clients,
 reviews or prices; no em dashes, no hype words. Never publish, approve or message customers: a person approves in the

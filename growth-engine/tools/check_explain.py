@@ -11,17 +11,21 @@ def _guards(P):
     hooks = str(P.GE.parent / ".claude" / "hooks")
     if hooks not in sys.path:
         sys.path.insert(0, hooks)
+    from guards.heygen_tools import deny_reason
     from guards.services import off_reason
     from guards.tool_names import canonical
-    return canonical, off_reason
+    return canonical, off_reason, deny_reason
 
 
 def explain(P, tool_name: str, tool_input: dict) -> tuple[bool, str]:
-    canonical, off_reason = _guards(P)
+    canonical, off_reason, heygen_off = _guards(P)
     gated = P.STANDARDS["gated_tools"]
     tool = canonical(tool_name, gated)
     spec = gated.get(tool)
     lines = [f"tool: {tool_name}" + (f" (gated as {tool})" if tool != tool_name else "")]
+    hg = heygen_off(tool_name, P.STANDARDS)
+    if hg:
+        return False, "\n".join(lines + ["rule: HeyGen connector catch-all", "DENY", f"  HEYGEN TOOL OFF: {hg}"])
     if not spec:
         return True, "\n".join(lines + ["rule: not a gated tool", "ALLOW"])
     lines.append(f"rule: service {spec['service']}, kind {spec['kind']}")

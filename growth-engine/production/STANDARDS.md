@@ -305,7 +305,13 @@ note names the evaluator's report by its repo path, and the file must exist.
   `--tool mcp__HeyGen__create_video_from_avatar` and the voice's audio id or URL as its only `--media <id>:audio`; the
   voice made by create_speech with G-AUDIO PASS; a look from `host`; `aspectRatio` 9:16; `fit` cover for the landscape
   look; no script, voice, motion prompt or burned captions on the call; step 9 closed. Both need a card marked
-  `twin_host`. `pipeline.py check-call --explain <tool> <input.json>` shows the hook's answer without logging a call.
+  `twin_host`. No unplanned credits: speech refuses `forceRegenerate`, `engine` and `settings` (the voice's saved
+  default only); video refuses 4k, `background`, `removeBackground` and webm (the cutout is made in the edit). The gate
+  trusts the registered audio id or URL: it checks that the value is registered on the twin's voice asset with G-AUDIO
+  PASS, not the bytes behind it, so register only what create_speech returned. Every other HeyGen connector tool is
+  refused except reads (`list_*`, `get_*`, `lookup_*`, `bulk_*_statuses`): `.claude/hooks/heygen_tools_gate.py`,
+  `standards.json` `heygen_connector`. `pipeline.py check-call --explain <tool> <input.json>` shows the hook's answer
+  without logging a call.
   Bash calls to HeyGen's API or the heygen CLI, and the media-use audio scripts that call it, are denied
   (`.claude/hooks/heygen_bash_guard.py`).
 - Tier A pieces only with a proven angle or the month's wildcard (Organic Growth OS 7.7).
