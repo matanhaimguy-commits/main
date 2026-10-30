@@ -1,0 +1,229 @@
+{
+ "gate": "G-VIS",
+ "asset_id": "CF-W102",
+ "version": 1,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "hero": true,
+ "status_note": "PASS under the hook-frame position rule: the only defect is position and width of the writing group, fixable in the edit.",
+ "files_opened": [
+  "full.png",
+  "tile_r1c1.png",
+  "tile_r1c2.png",
+  "tile_r1c3.png",
+  "tile_r2c1.png",
+  "tile_r2c2.png",
+  "tile_r2c3.png",
+  "tile_r3c1.png",
+  "tile_r3c2.png",
+  "tile_r3c3.png",
+  "region_H-01-W102_text-hook-zone.png",
+  "region_H-01-W102_line-1.png",
+  "region_H-01-W102_line-2.png",
+  "region_H-01-W102_highlight.png",
+  "thumb_200.png"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Whiteboard with the quoted words; reads as the buyer sentence end."
+  },
+  {
+   "id": "V2",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Last word highlighted yellow, readable in thumb_200.png."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Frame serves line 'best first line is already written' as a board insert; no contradiction."
+  },
+  {
+   "id": "V4",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No people or body parts."
+  },
+  {
+   "id": "V5",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No hands visible."
+  },
+  {
+   "id": "V6",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No hands."
+  },
+  {
+   "id": "V7",
+   "result": "PASS",
+   "severity": "",
+   "region": "highlight",
+   "evidence": "Ink and highlighter lie flat on the board, nothing touching."
+  },
+  {
+   "id": "V8",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "Static."
+  },
+  {
+   "id": "V9",
+   "result": "PASS",
+   "severity": "",
+   "region": "line-1, line-2",
+   "evidence": "Read letter by letter: opening quote, 'feeling completely' / 'invisible' closing quote. Lowercase, exact, no diacritics, nothing covers a letter."
+  },
+  {
+   "id": "V10",
+   "result": "PASS",
+   "severity": "",
+   "region": "line-2",
+   "evidence": "Words sharp in thumb_200 and 2x tiles; yellow lies behind black letters, all letters stay black."
+  },
+  {
+   "id": "V11",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No digits, logos, platform names or other words anywhere."
+  },
+  {
+   "id": "V12",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Board surface with faint grey wipe marks, glossy, window reflection on left as specified."
+  },
+  {
+   "id": "V13",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No markers, tray, magnets or frame edges in shot."
+  },
+  {
+   "id": "V14",
+   "result": "PASS",
+   "severity": "",
+   "region": "highlight",
+   "evidence": "Highlighter stroke one broad translucent band with streaky edges, behind line 2 only."
+  },
+  {
+   "id": "V15",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No characters."
+  },
+  {
+   "id": "V16",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No sheets locked (concept frame)."
+  },
+  {
+   "id": "V17",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "Single frame, no previous shot."
+  },
+  {
+   "id": "V18",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "full",
+   "evidence": "Group about 4 points too low and about 4% too wide (see measurements). Line 2 highlight bottom at 54.5% and text bottom 53.5% intrude toward the caption zone starting 55%; line 1 right edge at 92.4% is outside 10%-90%. Measured on full.png (1125x2000 display): line 1 glyph band y 40.7%-47.5% (spec 37-43), line 2 text y 48-53.5% and highlight y 47.7%-54.5% (spec 44.5-50). Whole group sits about 4 points of frame height too low (line 1 centre 44.1% vs 40%, line 2 centre 50.8% vs 47.3%). Line 2 text bottom 53.5% and highlight bottom 54.5% exceed the 51% limit and touch the 55% caption start. Horizontal: line 1 spans x 8.4%-92.4% (spec 10-90), 2.4 points over on the right and 1.6 on the left, so the group is about 4% too wide.",
+   "edit_fixable": true,
+   "shift_points": 4
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "text-hook-zone",
+   "evidence": "Top 36% plain board with soft grey gradient and left window sheen, no writing or objects."
+  },
+  {
+   "id": "V20",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200",
+   "evidence": "9:16 1152x2048; hook reads at 200 px."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Looks like a real iPhone whiteboard photo with marker texture, no printed font."
+  },
+  {
+   "id": "V22",
+   "result": "PASS",
+   "severity": "",
+   "region": "line-1",
+   "evidence": "Strokes have slight ink edges and beading, no melted letters."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "tiles",
+   "evidence": "Clean surface, no artefacts; lower tiles only faint wipe marks."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No brand, logo or trademark."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No before/after, no 'your condition', nothing shaming."
+  },
+  {
+   "id": "V26",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "Disclosure rule is a post-level setting; nothing in the image conflicts."
+  }
+ ],
+ "edit_fixable_defects": [
+  {
+   "defect": "writing group too low and slightly wide",
+   "edit_fixable": true,
+   "shift_points": 4,
+   "detail": "Measured on full.png (1125x2000 display): line 1 glyph band y 40.7%-47.5% (spec 37-43), line 2 text y 48-53.5% and highlight y 47.7%-54.5% (spec 44.5-50). Whole group sits about 4 points of frame height too low (line 1 centre 44.1% vs 40%, line 2 centre 50.8% vs 47.3%). Line 2 text bottom 53.5% and highlight bottom 54.5% exceed the 51% limit and touch the 55% caption start. Horizontal: line 1 spans x 8.4%-92.4% (spec 10-90), 2.4 points over on the right and 1.6 on the left, so the group is about 4% too wide."
+  }
+ ],
+ "fix": {
+  "route": "edit",
+  "prompt_changes": [
+   "Reframe on canvas: move the writing group up about 4 points of frame height (about 82 px of 2048) so line 1 sits y 37-43% and line 2 (text and highlight) ends by 50-51%.",
+   "Scale the group down about 4-5% around its centre so line 1 spans x 10%-90%; extend the plain board background at the edges and bottom to fill the canvas.",
+   "Keep the left window sheen; do not touch text."
+  ]
+ }
+}

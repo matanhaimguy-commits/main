@@ -1,0 +1,35 @@
+{
+  "gate": "G-SPEC",
+  "shot_id": "H-01-W908",
+  "spec_sha256": "5fc0061589a7e20822daf068733295c4177151943363ba9a6d8cd67cb815212f",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "FAIL",
+  "files_opened": [
+    "clients/straightscale-en/runs/SSEN-2026-11-W3-01/shots/H-01-W908.spec.yaml",
+    "growth-engine/production/failure-library.md",
+    "growth-engine/production/STANDARDS.md (section 6)"
+  ],
+  "checks": [
+    {"id": "P1", "result": "PASS", "evidence": "Every subject, hand, prop and action in the spec is stated and boxed: 'six flat clay cards ... in a grid of 3 columns and 2 rows', 'a tiny clay person seen from straight above', 'its left foot flat on the top middle card'. Text is 'none'."},
+    {"id": "P2", "result": "N/A", "evidence": "Spec mode; no references ('ref: no sheet yet')."},
+    {"id": "P3", "result": "PASS", "evidence": "'two mitten hands, no fingers, one at the end of each arm'; 'neither hand touches anything'; a client-hands region is boxed. The spec-check finger-count warning is covered by the mitten-hand rule in notes."},
+    {"id": "P4", "result": "PASS", "evidence": "Contact points are written: 'left foot flat on the top middle card, its right toe over the card's bottom edge above the 2% gap'; 'its shadow falls on the card'."},
+    {"id": "P5", "result": "PASS", "evidence": "PR-POSTS content is filled: 'six identical flat cream #F3E9D8 clay slabs ... terracotta #C8553D clay rim ... one small heart red #D64545 clay heart pressed in its lower left corner'. The blanket negative is 'no letters, words, digits or logos anywhere', which does not empty the cards because their content is hearts. Advisory: the cards are the story prop, so story_critical false is questionable, but the content is filled, so no failure."},
+    {"id": "P6", "result": "PASS", "evidence": "'text_in_image: none'; must_not 'no letters, words, digits or logos anywhere'; the hook is laid in the edit over an empty top 30%."},
+    {"id": "P7", "result": "PASS", "evidence": "'background_rule: no signs, frames, posters, screens or writing anywhere'; 'from the top edge to 30% and everywhere lower than 52% only plain ground'; 'no workbench, table edge or room'."},
+    {"id": "P8", "result": "FAIL", "evidence": "The figure's pose says 'one foot lifted over its edge' with the right toe 'over the card's bottom edge above the 2% gap', yet the figure box is 'y 33% to 40%' and the client region is [0.46,0.33,0.54,0.40]. The card's bottom edge is at y 40%, so a toe over the edge falls outside the stated box and region. A reviewer cannot check the toe inside its own box. Minor advisory, not a fail: the 2% x 13% sliver of the lower-right card (y 50% to 52%, x 79% to 92%) sits in the right 21% of the lower half (STANDARDS 6). The spec rules it as 'plain right edge', and no hook, face or figure is there."},
+    {"id": "P9", "result": "PASS", "evidence": "'previous_shot: null', 'carry_over: []'; first image of the prop and the character, stated in 'ref'."},
+    {"id": "P10", "result": "N/A", "evidence": "Spec mode. Format and aspect noted: '9:16', claymation, hero still."},
+    {"id": "P11", "result": "FAIL", "evidence": "Two ambiguous readings. (a) 'left foot', 'right toe', 'left arm swinging back', 'right arm swinging forward' do not say whether left and right are the figure's or the frame's. With the figure facing the bottom of the frame, its left is the frame's right, and a model reads the frame's left. (b) The view is 'straight from above (head top and shoulders visible, no face)', yet the contact points are two feet. A pure top view hides the feet under the body, and the spec never says how the feet and toe show."},
+    {"id": "P12", "result": "PASS", "evidence": "FL-11: 'instances: 1' + 'no second figure' + a foot-on-card physics line. FL-06: 'head top and shoulders visible, no face'. FL-01/FL-10: no text anywhere. FL-02: each card's structure is described. FL-13: 'everywhere lower than 52% only plain ground' leaves the bottom corner empty."}
+  ],
+  "suggested_spec_changes": [
+    "P8: in subjects CH-CLIENT, state: change 'about 7% of the frame height and 8% of its width' to 'about 8% of the frame height (y 33% to 41%) and 8% of its width'.",
+    "P8: in subjects CH-CLIENT, pose: change 'x 46% to 54%, y 33% to 40%' to 'x 46% to 54%, y 33% to 41%' (the toe ends inside the 2% gap, y 40% to 42%, and does not touch the lower card).",
+    "P8: regions 'client' box -> [0.46, 0.33, 0.54, 0.41]; regions 'client-hands' box -> [0.44, 0.33, 0.56, 0.41].",
+    "P11: in CH-CLIENT state, replace 'its left foot flat on the top middle card, its right toe over the card's bottom edge' with 'its left foot (on the right side of the frame) flat on the top middle card, its right foot (on the left side of the frame) stepping forward, only the right toe over the card's bottom edge; both feet show as two small round clay shapes poking out below the front of the body toward the bottom of the frame'. Make the same wording change in action_physics.",
+    "P11: in hands, left: 'the left arm (on the right side of the frame) swinging back at its side'; right: 'the right arm (on the left side of the frame) swinging forward at its side'.",
+    "Optional: set PR-POSTS story_critical to true (content already filled), so later shots must keep the same card sheet."
+  ]
+}

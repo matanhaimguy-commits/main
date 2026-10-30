@@ -1,0 +1,38 @@
+{
+  "gate": "G-SPEC",
+  "asset_id": "H-01",
+  "shot_id": "H-01",
+  "version": 1,
+  "spec_sha256": "b48dfa1aa77a30e0e16f1dbdf0bbcd86733ecb19e14ff5a938abb5d9945dc444",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "FAIL",
+  "files_opened": [
+    "clients/straightscale-en/runs/SSEN-2026-11-W9-01/shots/H-01.spec.yaml",
+    "growth-engine/production/failure-library.md",
+    "growth-engine/production/VISUAL-QA.md (sections 2, 4)",
+    "growth-engine/production/STANDARDS.md (section 6 grep)"
+  ],
+  "checks": [
+    {"id": "P1", "result": "PASS", "evidence": "Every element has a line: subjects [] / hands 'none visible', two props with content and size, text_in_image 'BIG CLIENT', action_physics, setting, camera, regions for hook zone, month blocks, client block."},
+    {"id": "P2", "result": "N/A", "evidence": "Spec mode; no prompt and no references (ref: null everywhere)."},
+    {"id": "P3", "result": "PASS", "evidence": "hands: 'none visible' and must_not 'no people, faces or hands'; no prop or text conflicts."},
+    {"id": "P4", "result": "FAIL", "evidence": "'the lowest cream block's left half still rests on the terracotta block's top, its right half already dropping': the terracotta box (x 30-82) lies under the whole cream stack (x 22-62) except its leftmost 8%, so nothing is missing under the right half, and the part that has lost support is the LEFT. A block pulled out to the right cannot make a stack fall right. The model cannot draw a contact the geometry forbids."},
+    {"id": "P5", "result": "PASS", "evidence": "PR-BLOCK-CLIENT content: 'one wide terracotta clay block, the words \"BIG CLIENT\" pressed into its front face'; month blocks 'four plain cream clay blocks ... no marks or letters'. Note: the BIG CLIENT block is the story's subject but is marked story_critical: false only because no prop sheet exists; suggest true or a note that spec-check accepts this."},
+    {"id": "P6", "result": "PASS", "evidence": "string 'BIG CLIENT' (2 words), surface 'front face of the terracotta block', position 'centred on the block's visible front face', must_be_exact true, occlusion 'nothing covers any letter'."},
+    {"id": "P7", "result": "PASS", "evidence": "background_rule: 'Nothing on the wall or floor except the blocks; no calendar, frames, posters, signs or other writing.'"},
+    {"id": "P8", "result": "FAIL", "evidence": "(a) state says the terracotta block is 'still under the tower's left half' but its box x 30-82 sits under about 32 of the tower's 40 percentage points (most of the tower). (b) the terracotta block runs to x 82% while safe_zones says 'the right 21% of the lower half is plain' (plain from x 79%), so it breaches the zone by 3%. (c) lean right contradicts the support geometry (see P4)."},
+    {"id": "P9", "result": "PASS", "evidence": "previous_shot: null, carry_over: [] (frame 1 of the hook shot)."},
+    {"id": "P10", "result": "N/A", "evidence": "Spec mode. For the packet: gpt-image-2 at 1152x2048, 9:16, matches 'aspect: 9:16' in the spec."},
+    {"id": "P11", "result": "FAIL", "evidence": "camera framing 'slightly above the floor' versus angle 'eye level with the tower's middle' are two different camera heights; 'half slid out' does not say half of the block or of the tower; 'lean ... together, each touching the one below along one edge' can be read as one rigid tilted stack or as four blocks each shifted sideways."},
+    {"id": "P12", "result": "PASS", "evidence": "FL-04/05/10/13 prevented: content lines, background_rule, targeted must_not, bottom-left corner is plain floor ('nothing below y 55% except plain floor', 'no logo'). FL-03 is covered in form (contact points) but see P4 for its content."}
+  ],
+  "suggested_spec_changes": [
+    "Make the support geometry match the fall. Simplest: keep the terracotta block pulled out to the RIGHT and make the stack lean LEFT. Terracotta block x 28% to 79% (51% wide, y 47-54%, ends at the 21% plain margin). Bottom cream block x 24% to 58%, so its left 4% and left part hang past the terracotta's left edge. Stack leans about 15 degrees to the left, stack box x 10% to 50%, y 31% to 47% (keeps the 6% side margin). Update PR-BLOCKS-MONTH state, size_in_frame, region month-blocks, client-block region and the text position.",
+    "Rewrite action_physics with matching contacts, e.g. 'the terracotta block's left edge now sits under the middle of the lowest cream block; the cream block's left third has no block under it and is dropping; the four cream blocks tilt left together, the lowest touching the terracotta top only along its right two thirds'. Rewrite the terracotta state to match: 'pulled out to the right, its left edge under the middle of the tower'.",
+    "Say 'one rigid stack of four blocks tilted about 15 degrees as one piece, each block's edge flush on the one below' (or state per-block offsets) to remove the P11 ambiguity.",
+    "Use one camera height: 'camera at the height of the tower's middle, looking straight on' in framing and angle, and drop 'slightly above the floor'.",
+    "Optional: set PR-BLOCK-CLIENT story_critical true (or keep false and keep the note), since it carries the must_read_in_1s text.",
+    "Optional: add a text region box for the full visible face only, and keep a floor-shadow rule ('soft contact shadows only, nothing below y 55% but floor') so the shadow is not read as an object."
+  ]
+}

@@ -1,0 +1,95 @@
+shot_id: H-01-W102
+post_id: SSEN-2026-11-W1-02
+format: realistic_photo
+script_lines:
+- L1
+line_text: Your best first line is already written. Here's where to look.
+story_purpose: 'Concept frame for the W1-02 hook stacks (Hook Lab v7): frame 1 is the first board insert, the end of one
+  buyer sentence (Q-RN-0011) handwritten word for word on the whiteboard, the words that stop her.'
+must_read_in_1s: The board says "feeling completely invisible" in big black marker, the last word highlighted yellow.
+subjects:
+- id: PR-BOARD
+  ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
+    step 2); the prop sheet is cut from the approved frame at step 7'
+  state: a whiteboard seen square on, its white surface filling the frame
+  pose: the white surface fills the whole frame edge to edge; its frame edges are out of shot
+  expression: ''
+  instances: 1
+hands: none visible
+props:
+- id: PR-BOARD
+  story_critical: true
+  ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
+    step 2); the prop sheet is cut from the approved frame at step 7'
+  state: clean white surface with faint grey wipe marks, three handwritten words on it
+  content: 'a plain glossy white whiteboard surface filling the frame; on it, in the key band y 37% to 50%, three words
+    handwritten in big thick black marker in two lines inside quote marks; one broad translucent yellow highlighter stroke
+    lies behind line 2 only (the word invisible)'
+  size_in_frame: the writing spans x 10% to 90% and y 37% to 50%
+text_in_image:
+- string: '"feeling completely'
+  surface: whiteboard, line 1, thick black marker handwriting, lowercase, left-aligned, its first character a black
+    handwritten opening quote mark
+  position: x 10% to 90%, y 37% to 43%
+  case: lower
+  must_be_exact: true
+  occlusion: nothing covers any letter
+- string: invisible"
+  surface: whiteboard, line 2, thick black marker handwriting, lowercase, left-aligned, its last character a black
+    handwritten closing quote mark, a broad translucent yellow highlighter stroke behind the word
+  position: x 10% to 70%, y 44.5% to 50%
+  case: lower
+  must_be_exact: true
+  occlusion: the translucent yellow stroke lies behind the letters; every letter stays black and readable
+action_physics:
+- The marker ink and the highlighter stroke lie flat on the board surface; nothing touches the board.
+static: true
+setting:
+  ref: null
+  details: 'the whiteboard surface is the whole frame; from the top edge down to 36% and everywhere lower than 51% only plain
+    white board with faint grey wipe marks'
+  background_action: none (a board insert; the board fills the frame, so no background is in shot)
+  background_rule: no other writing, drawings, magnets, markers, tray, frame edges, people or objects; the only writing is
+    the quoted words
+camera:
+  framing: 'square on to the board, the writing in the key band y 37% to 50% and x 10% to 90%; all x and y percentages are
+    measured from the top-left corner of the frame (y 0% is the top edge, y 100% the bottom edge)'
+  angle: straight on, the lens perpendicular to the board at the height of the writing
+  lens: candid iPhone 15 Pro photo, every letter sharp, soft window light from the left giving a gentle sheen on the board
+  aspect: '9:16'
+  safe_zones: 'Layout (STANDARDS 6): the top 36% of the frame is plain board (the text hook is set at 14% to 30% in the
+    edit); every key element sits between 37% and 50% of the frame height and inside 10% to 90% of the width; lower than
+    51% only plain board (captions start at 55%).'
+continuity:
+  previous_shot: null
+  carry_over: []
+regions:
+- name: text-hook-zone
+  kind: other
+  box: [0.0, 0.0, 1.0, 0.31]
+- name: line-1
+  kind: text
+  box: [0.1, 0.37, 0.9, 0.43]
+- name: line-2
+  kind: text
+  box: [0.1, 0.445, 0.7, 0.5]
+- name: highlight
+  kind: prop
+  box: [0.1, 0.445, 0.7, 0.5]
+style: 'EN 02 and W1-02 look: a candid iPhone 15 Pro photo of a real whiteboard in the strategist''s staged studio, soft
+  daylight from a window on the left, true whites, the black marker crisp, the yellow highlighter the only colour; real
+  marker texture with slight ink edges, no illustration look, no printed font.'
+must_not:
+- no hands, no people, no face
+- no logo, brand, app or platform name anywhere
+- no digits or numbers anywhere
+- no words other than "feeling completely invisible"
+- no board frame, tray, markers, magnets or wall visible
+- nothing in the top 36% except plain board
+hero: true
+notes: 'Concept frame for Hook Lab v7 (W1-02, EN 02''s idea in reel_whiteboard). Buyer phrase Q-RN-0011, full text "working
+  harder than ever and feeling completely invisible" (r/consulting, 16 Oct 2026); the board shows its last three words
+  exactly, inside quote marks (a verbatim substring, 6 words or fewer per surface, P6). The text hook is laid on top in
+  the edit, not drawn by the model. Gate decision for hook frames (main session, delegated by Matan, plan 28 Oct): a G-VIS
+  defect that is only position or offset of up to 10% of the frame, with content, text and layout otherwise right, is
+  fixed in the edit (reframe on the canvas, extend the plain background) and does not fail the frame.'
