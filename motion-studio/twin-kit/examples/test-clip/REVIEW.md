@@ -36,16 +36,16 @@ CRF 16 master is rebuilt by `python3 twinkit.py compose examples/test-clip/edl.j
 | Pop-in overshoot past the 65 px margin | behind-word fits to 890 px so its 1.06 slam stays 943 px wide; rules size every box at its move's biggest scale |
 | No overlap rule | `text_rules.overlap_findings`: hero (each orbit lane), UI scene and captions never overlap in a beat unless an item sets `overlap_ok` |
 
-## Automatic checks on v2 (STANDARDS 9, G-MOTION-FRAMES list)
+## Automatic checks on v3 (STANDARDS 9, G-MOTION-FRAMES list)
 | Check | Result |
 |---|---|
 | `twinkit.py check` (edit rules incl. STANDARDS 6) | PASS, no findings. Twin on screen 39.6%, 7 beats, 5 heroes, 11 sound cues |
 | `tools/seekcheck.mjs --hf` (10 samples, each re-seeked after a different time) | PASS |
 | `tools/safezone.mjs --hf --top 269 --bottom 672 --right 227 --left 65` | PASS (see note) |
-| HyperFrames `check --caption-zone "x0=0.06;y0=0.55;x1=0.79;y1=0.62;severity=error" --at-transitions` | ok: lint, runtime, layout, motion, contrast all 0 errors; 4 layout warnings (the set's oversize wall and light, the two-tone mask edges, the grain canvas at the frame edge: all intended) |
-| `tools/pacing.py` | PASS all: 13% still, longest quiet run 1.33 s, no frozen stretch, beat CV 0.45, spread 5.0x |
+| HyperFrames `check --caption-zone "x0=0.06;y0=0.55;x1=0.79;y1=0.62;severity=error" --at-transitions` | ok: lint, runtime, layout, motion, contrast all 0 errors; 4 layout warnings, all intended: the set's oversize wall and light, the grain canvas at the frame edge, and text leaving the canvas only while the whip slides the whole frame (1.74 to 1.86 s) |
+| `tools/pacing.py` | PASS all: 13% still, longest quiet run 1.5 s, no frozen stretch, beat CV 0.44, spread 5.0x |
 | `tools/audio_qa.py` (with stems) | PASS all: -13.9 LUFS, true peak -1.9 dBTP, no dropouts, no mud, music 13.2 dB under the voice |
-| Unit tests | 83 pass |
+| Unit tests | 93 pass |
 
 Note on safezone `--hf`: HyperFrames' zone check skips text it counts as occluded, so behind-twin words are not seen
 by it; `kit/rules.py` checks those from the EDL instead. A positive control (band = top 40%) caught the end card's
