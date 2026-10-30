@@ -17,8 +17,10 @@ GRADERS = 2
 def grader_problems(n: int, g: dict, ids: list[str]) -> list[str]:
     """Why grader n's read does not clear the rule (empty: it clears it)."""
     hook, anchors, why = g.get("hook") or {}, g.get("anchors") or {}, []
-    if hook.get("gates_failed"):
-        why.append(f"grader {n}: the hook fails check(s) {list(hook['gates_failed'])}")
+    if not isinstance(hook.get("gates_failed"), list):
+        why.append(f"grader {n}: no list of failed checks for the hook (an empty list means none failed)")
+    elif hook["gates_failed"]:
+        why.append(f"grader {n}: the hook fails check(s) {hook['gates_failed']}")
     for ch in CHANNELS:
         mine = rank(hook.get(ch))
         if mine is None:
@@ -40,6 +42,8 @@ def judge(run: dict, ids: list[str] | None = None) -> dict:
         why.append(f"the run did not use {PACKET}")
     if len(graders) != GRADERS:
         why.append(f"the rule needs {GRADERS} fresh graders in one run, got {len(graders)}")
+    if len(graders) == GRADERS and graders[0] == graders[1]:
+        why.append("the 2 graders' reads are identical: one read counted twice is not 2 fresh graders")
     for n, g in enumerate(graders, 1):
         why += grader_problems(n, g, ids)
     return {"pass": not why, "why": why}

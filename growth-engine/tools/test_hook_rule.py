@@ -14,7 +14,7 @@ def read(v, t, s, gates=()):
     return {"visual": v, "text": t, "spoken": s, "gates_failed": list(gates)}
 
 
-def run(hook1, hook2, anchors1=("B+", "B+", "B+"), anchors2=("B+", "B+", "B+"), packet="packet-v2"):
+def run(hook1, hook2, anchors1=("B+", "B+", "B+"), anchors2=("B+", "B+", "B"), packet="packet-v2"):
     def g(hook, a):
         return {"hook": hook, "anchors": {A1: read(*a), A2: read(*a)}}
     return {"packet": packet, "graders": [g(hook1, anchors1), g(hook2, anchors2)]}
@@ -81,6 +81,22 @@ class Rule(unittest.TestCase):
     def test_anchor_without_a_grade_cannot_be_beaten(self):
         r = hook_rule.judge(run(read("A", "A", "A"), read("A", "A", "A"), anchors1=("n/a", "B", "B")))
         self.assertFalse(r["pass"])
+
+    def test_missing_gates_list_fails_not_zero_failed(self):
+        bad = read("A", "A", "A")
+        del bad["gates_failed"]
+        r = hook_rule.judge(run(bad, read("A", "A", "A")))
+        self.assertFalse(r["pass"])
+        self.assertTrue(any("failed checks" in w for w in r["why"]))
+        bad["gates_failed"] = None
+        self.assertFalse(hook_rule.judge(run(bad, read("A", "A", "A")))["pass"])
+
+    def test_one_read_counted_twice_is_not_two_graders(self):
+        same = read("A", "A", "A")
+        g = {"hook": same, "anchors": {A1: read("B+", "B+", "B+"), A2: read("B+", "B+", "B+")}}
+        r = hook_rule.judge({"packet": "packet-v2", "graders": [g, dict(g)]})
+        self.assertFalse(r["pass"])
+        self.assertTrue(any("identical" in w for w in r["why"]))
 
     def test_needs_two_graders_and_packet_v2(self):
         one = run(read("A", "A", "A"), read("A", "A", "A"))

@@ -88,7 +88,7 @@ Each step lists: what it does, the skill and tools, the gate (pass criteria), wh
     7. No product, brand, price or offer in the first 3 s.
     8. Every fact is the brand's own.
     9. Meta check.
-  - **Every channel grades A or A+.** An A- always goes back for a rewrite.
+  - **Paid ads: every channel grades A or A+;** an A- always goes back for a rewrite. Organic posts use the twin hook rule instead (`GATES.md`, `adapters/hook-lab-organic.md`).
   - Text hook 4 to 10 words in the top third.
   - Spoken: first word at 0.0 s, problem in the first 6 words, sentence 1 of 8 to 14 words.
 - **Who:** Claude grades. **Human:** you pick the master stack together with the script spine (step 3).
@@ -280,7 +280,7 @@ Every item must pass. Never deliver with a known failure.
    - Pitch spread and pace band on every voice take.
    - Loudness on every master.
    - Text checked letter by letter.
-5. **Every rule has a number:** clip 5 to 15 s, 30 to 35 words per clip, 2 to 4 shots per take, picture change every 2 to 4.5 s, A or A+ hooks, 85/100 scripts.
+5. **Every rule has a number:** clip 5 to 15 s, 30 to 35 words per clip, 2 to 4 shots per take, picture change every 2 to 4.5 s, A or A+ hooks (paid ads; organic: the twin hook rule), 85/100 scripts.
 6. **Retake only what the edit can't fix.** Drift steps get cut at pauses; only drift inside a word is retaken.
 7. **References in the same order on every retake;** storyboard always image 1.
 8. **One speaker per clip, one voice per character, locked for the whole series.**

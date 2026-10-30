@@ -44,7 +44,9 @@ class Packet(unittest.TestCase):
     def test_graders_output_becomes_a_run_the_rule_judges(self):
         top = {"visual": "A", "text": "A", "spoken": "A", "gates_failed": []}
         out = {"stacks": [dict(top, id=label) for label in self.key]}
-        r = hook_rule.judge(hook_packet.to_run(self.key, "H1", [out, out]))
+        out2 = {"stacks": [dict(s, spoken="A-") if s["id"] in self.key and self.key[s["id"]] != "H1" else s
+                           for s in out["stacks"]]}
+        r = hook_rule.judge(hook_packet.to_run(self.key, "H1", [out, out2]))
         self.assertTrue(r["pass"], r["why"])
         low = {"stacks": [dict(top, id=label, text="C") if v == "H1" else dict(top, id=label)
                           for label, v in self.key.items()]}

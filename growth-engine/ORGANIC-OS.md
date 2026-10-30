@@ -334,7 +334,7 @@ The Hook Lab and Script Lab were built for paid ads. For organic, run them with 
 - The hook must do two jobs in the first 1 to 3 seconds: **topic clarity** and **on-target curiosity**. Check the **4 S's**: Subject, Stakes, Speed (compression), Super clear. (Kallaway)
 - Kill the 4 hook mistakes: **delay** (topic arrives late), **confusion** (two readings, big words), **irrelevance** ("I/people" instead of "you/your"; nice-to-have instead of need-to-have pain), **disinterest** (no contrast between belief A and our B). (Kallaway)
 - **Triple hook:** visual, text and spoken hook all say the same thing (redundancy of meaning). Text hook: max 2 lines, specific number or power word, top third of the screen, on screen about 3 s. (Kallaway; Kane)
-- Write **10 hooks per post**, grade them, ship only A or A+. (Watch Time doc; Hook Lab bar)
+- Write **10 hooks per post**, grade them, ship only a hook that passes the twin hook rule (GATES.md; the A or A+ bar is paid ads only). (Watch Time doc; Hook Lab)
 - Hook types to rotate: contrarian, hidden cause / secret reveal, mistake ("never ever"), case study, comparison (X vs Y, tier list), question, list, personal story, teaching. Plus Kallaway's 6 archetypes (fortune teller, experimenter, teacher, magician, investigator, contrarian).
 - Negativity aimed at the **mistake**, not the viewer, is the strongest framing.
 
@@ -384,7 +384,7 @@ podcast, drama, song, animation and the rest, with their skills, gates, Atlas ro
 |---|---|---|
 | **Map** | Post Card complete; belief, job, pillar, CTA fit | Strategist |
 | **Idea** | 7.2 all pass | Idea agent |
-| **Hook** | A or A+ on the 3-channel stack; 4 S's; no 4 mistakes | Hook agent |
+| **Hook** | The twin hook rule on the 3-channel stack (GATES.md); 4 S's; no 4 mistakes | Hook agent |
 | **Script/story** | Value per second; lock-in zone; loops; payoff; facts-feelings-fun; length 30 to 60 s for reach | Script agent |
 | **Sound-off** | Understandable with no audio (captions, text, visuals) | Producer |
 | **Visual** | Safe zones (top 14%, bottom 20%), no watermarks, no borders, readable captions, first-second motion | Producer |
@@ -611,7 +611,7 @@ Every agent has one job, clear inputs and outputs, and a gate it can block on. A
 | 2 | **Research Scout** | Outlier mining, GSB compares, weekly scout, own-account audit | Handle lists, brain | `outliers.csv`, `format-rules.md`, idea bank entries | ig-competitor-research, viral-format-scout, Apify | No |
 | 3 | **Strategist / Planner** | Builds the monthly Content Map and 2-week slate; writes Post Cards | Brain, research, analytics | `content-map.md`, Post Cards | This document | No |
 | 4 | **Idea Agent** | Turns slate slots into level-4 narrow ideas; runs the idea gate | Post Card, idea bank | Approved ideas with shock score and key visual | Hebrew drill-down method | Yes (idea gate) |
-| 5 | **Hook Agent** | 10 hooks per post, graded; triple hook stack | Approved idea | A/A+ hook stack + 2 variants for trial | readymerce-hook-lab (organic mode) | Yes (hook gate) |
+| 5 | **Hook Agent** | 10 hooks per post, graded; triple hook stack | Approved idea | Hook stack that passes the twin hook rule + 2 variants for trial | readymerce-hook-lab (organic mode) | Yes (hook gate) |
 | 6 | **Script Agent** | Reel scripts with organic CTA ladder | Hook stack, Post Card | Gated script, line table | readymerce-script-lab (organic adapter) | Yes (script gate) |
 | 7 | **Carousel Agent** | Full carousels from Post Cards | Post Card, brand kit, style bible | Slides, caption, alt text | carousel-machine | Yes (its own gates) |
 | 8 | **Video and Motion Producer** | Turns scripts into reels (AI character, motion graphics, B-roll), captions, safe zones | Script, brand look | MP4 + cover frame, plus the 6 derived assets for Tier A | motion-reel (HyperFrames, reference bank); readymerce-ads-machine routes for UGC, podcast, animation and song (organic CTA ending); MiniMax H3; ElevenLabs | Yes (sound-off and visual gates) |

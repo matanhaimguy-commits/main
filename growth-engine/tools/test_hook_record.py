@@ -16,7 +16,8 @@ def read(v, t, s, gates=()):
 
 def run(hook=("A", "A", "A"), anchors=("B+", "B+", "B+"), gates=()):
     g = {"hook": read(*hook, gates=gates), "anchors": {i: read(*anchors) for i in IDS}}
-    return {"packet": "packet-v2", "graders": [g, g]}
+    g2 = {"hook": read(*hook, gates=gates), "anchors": {i: read("B+", "B+", "B") for i in IDS}}  # a second, different read
+    return {"packet": "packet-v2", "graders": [g, g2]}
 
 
 class Data(unittest.TestCase):
