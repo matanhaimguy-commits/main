@@ -57,3 +57,8 @@ one-shot keyframe clip (STANDARDS 2), so the keyframes carry the look.
 Recorded 28 Oct (session 4), live balance $2.03 (shared account, falling): G-BUDGET FAIL on the whole piece ($2.37,
 $2.96 with buffer; gap $0.93), then G-BUDGET PASS on what the balance covers: the stills and keyframes ($1.48, $1.85
 with buffer). The clips ($0.89) wait for Matan's Atlas top-up; step 9 closes only on a whole-piece PASS after step 8.
+
+30 Oct: Matan's override of the five sheets is recorded (main session, 9017e61). Live Atlas balance $0.005 (the shared
+account was drawn down by other sessions), so G-BUDGET FAIL on the 13 keyframes ($0.77, $0.96 with buffer). Nothing
+generated. Keyframes and clips wait for Matan's Atlas top-up: about $0.96 (keyframes) + $1.11 (clips with buffer), plus
+the $1.50 floor kept by the plan.

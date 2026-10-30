@@ -208,6 +208,21 @@
           "el_planned": 0
         },
         "note": ""
+      },
+      {
+        "at": "2026-10-30T15:55:54+00:00",
+        "status": "FAIL",
+        "by": "pipeline.py budget",
+        "data": {
+          "unit": "usd",
+          "planned": 0.77,
+          "with_buffer": 0.96,
+          "balance": 0.005,
+          "month_spent": 0,
+          "cap": 100,
+          "el_planned": 0
+        },
+        "note": "live Atlas balance $0.01 can't cover $0.96 (planned + 25% retakes)"
       }
     ],
     "G-AUDIO-MASTER": [
