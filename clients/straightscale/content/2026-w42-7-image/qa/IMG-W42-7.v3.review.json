@@ -1,0 +1,90 @@
+{
+ "gate": "G-VIS",
+ "asset_id": "IMG-W42-7",
+ "version": 3,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "hero": true,
+ "reviewed_file": {
+  "sandbox_path": "/home/user/drafts/fixed/ebd54bc2_v3.jpg",
+  "hosted_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/3525e9b0-2663-47b8-a32d-8423ed29b233.jpg",
+  "media_id": "3525e9b0-2663-47b8-a32d-8423ed29b233",
+  "md5": "5190cc4493b394b9bc7fb53c8a893a7c",
+  "note": "Downloaded from the CDN inside the sandbox: md5 identical to the sandbox file (editor claim confirmed). 1080x1350 RGB JPEG. Compared pixel by pixel with v2 (/home/user/drafts/fixed/ebd54bc2.jpg) and the original (/home/user/drafts/ebd54bc2-4295-4a39-8392-b776d3c06d08.jpg)."
+ },
+ "crop_dir": "sandbox /home/user/qa/IMG-W42-7.v3/crops (vqa_crops.py, md5 551f012424bb4ea8da270d528c3df808 = repo) + /home/user/qa/IMG-W42-7.v3/extra; manifest copy: clients/straightscale/content/2026-w42-7-image/qa/crops/IMG-W42-7.v3/manifest.json",
+ "files_opened": [
+  "full.jpg", "thumb_200.jpg",
+  "tile_r1c1.jpg", "tile_r1c2.jpg", "tile_r1c3.jpg", "tile_r2c1.jpg", "tile_r2c2.jpg", "tile_r2c3.jpg", "tile_r3c1.jpg", "tile_r3c2.jpg", "tile_r3c3.jpg",
+  "region_IMG-W42-7_text_kicker.jpg", "region_IMG-W42-7_text_headline_l1.jpg", "region_IMG-W42-7_text_headline_l2.jpg", "region_IMG-W42-7_text_headline_l3.jpg", "region_IMG-W42-7_text_line.jpg",
+  "region_IMG-W42-7_logo_zone.jpg",
+  "region_IMG-W42-7_edit1_desk_edge_strip.jpg", "region_IMG-W42-7_edit2_wall_cross.jpg", "region_IMG-W42-7_edit3a_status_clock.jpg", "region_IMG-W42-7_edit3b_input_placeholder.jpg", "region_IMG-W42-7_edit3c_ledger_cover.jpg",
+  "region_IMG-W42-7_phone_screen.jpg",
+  "src.jpg",
+  "extra/word_pergjigje_3x.jpg", "extra/cross_orig_v3_3x.jpg", "extra/cross_orig_v3_3x_boost.jpg", "extra/cross_context_1x.jpg", "extra/sign_5x_v3_normal_left_stretched_right.jpg",
+  "extra/fix1_orig_v2_v3_2x.jpg", "extra/fix1_orig_v2_v3_2x_boost.jpg", "extra/fix1_wordmark_L_4x_o_v3_o_v3boost.jpg", "extra/fix1_wordmark_R_4x_o_v3_o_v3boost.jpg",
+  "extra/logo_ref_top_v3_bottom_3x.jpg", "extra/logozone_boost_orig_top_v3_bottom_2x.jpg", "extra/under_mark_4x_o_v3_o_v3boost.jpg",
+  "extra/ledger_4x_orig_left_v3_right_boost_below.jpg", "extra/clock_5x_orig_top_v3_bottom.jpg", "extra/input_5x_orig_top_v3_bottom.jpg",
+  "extra/bar_vs_B31217_swatch_below.jpg", "extra/wall_frame_3x.jpg", "extra/wall_mid_3x.jpg", "extra/spot_483_823_v2_left_v3_right_6x.jpg"
+ ],
+ "spec_used": "No Shot Spec file exists for this post. Judged against the review packet (on-image text, logo rule, brand rules: crimson #B31217, no invented numbers, no other organisations' logos or emblems, no em dashes, hero rule), the alt text scene, style-bible.md, brand-kit.md and failure-library.md (FL-05, FL-10, FL-13). The packet was written to sandbox spec.json with region boxes.",
+ "checks": [
+  {"id": "V1", "result": "PASS", "severity": "", "region": "full", "evidence": "full.jpg: the question 'Sa mesazhe mbetën / pa përgjigje / këtë javë?' fills the calm upper third, and a red-cased phone with a stack of incoming grey bubbles lies on an empty reception desk at night. Sound off, it reads in one second as 'messages nobody answered'."},
+  {"id": "V2", "result": "PASS", "severity": "", "region": "full", "evidence": "Matches the hook and the self-check line 'Numëroji para se të paguash për më shumë reklama.': empty clinic reception, unanswered messages, nobody at the desk."},
+  {"id": "V3", "result": "PASS", "severity": "", "region": "full, phone", "evidence": "No counts, prices, results, client names or reviews; no platform names; the status-bar clock digits are gone (clock_5x_orig_top_v3_bottom.jpg), so no number appears on any screen or paper. No em dash in any on-image string."},
+  {"id": "V4", "result": "N/A", "severity": "", "region": "full", "evidence": "No people or hands (the alt text asks for an empty reception)."},
+  {"id": "V5", "result": "N/A", "severity": "", "region": "full", "evidence": "No hands."},
+  {"id": "V6", "result": "N/A", "severity": "", "region": "full", "evidence": "No faces."},
+  {"id": "V7", "result": "PASS", "severity": "", "region": "tile_r2c2, tile_r2c3, tile_r3c2", "evidence": "Phone lies flat with its red reflection under the edge; bell stands on its base with a reflection; pen rests on the ledger cover. Nothing floats."},
+  {"id": "V8", "result": "PASS", "severity": "", "region": "region_IMG-W42-7_phone_screen, tile_r3c1, fix1_orig_v2_v3_2x", "evidence": "Phone: one case, side buttons on one edge, one port with speaker holes, one home indicator, back chevron, status icons. Desk front edge: the highlight ridge is one continuous straight line again; measured ridge x position per row (blurred luminance max) is identical to the original for every row y 1150 to 1216 (e.g. y 1192 x 255, y 1216 x 285), and it runs on below the wordmark (y 1288 x 362, y 1300 x 372, same as original). The v2 stub is gone."},
+  {"id": "V9", "result": "PASS", "severity": "", "region": "region_IMG-W42-7_text_* crops, word_pergjigje_3x.jpg", "evidence": "Read letter by letter. Kicker: P-Y-E-T-J-A / E / J-A-V-Ë-S, Ë with two dots ('PYETJA E JAVËS'). Line 1: S-a / m-e-s-a-z-h-e / m-b-e-t-ë-n. Line 2 on the crimson bar: p-a / p-ë-r-g-j-i-g-j-e, confirmed by connected components (x 108-576, y 244-318): p, a, p, ë (body + 2 dots), r, g (descender), j (descender + dot), i (no descender, ends y 304 + dot), g, j (descender + dot), e; nine letters 'përgjigje', no doubled j. Line 3: k-ë-t-ë / j-a-v-ë-?. Line: N-u-m-ë-r-o-j-i / p-a-r-a / s-e / t-ë / p-a-g-u-a-s-h / p-ë-r / m-ë / s-h-u-m-ë / r-e-k-l-a-m-a-. (full stop). All match the packet exactly. No ç occurs in the required strings and none appears. Text colour ivory, median (249,246,241)."},
+  {"id": "V10", "result": "PASS", "severity": "", "region": "tile_r1c1, tile_r1c2, tile_r2c1", "evidence": "All copy sits on the calm dark upper wall and on its own crimson bar; nothing passes in front of or through letters; no text on objects or skin."},
+  {"id": "V11", "result": "FAIL", "severity": "minor", "region": "wall sign paper above and below the cross: x 38-62, y 330-341 and x 33-67, y 417-428 (inside the sign at x 10-95, y 318-440)", "evidence": "sign_5x_v3_normal_left_stretched_right.jpg and cross_orig_v3_3x.jpg: two faint text-like marks remain on the sign, a short dark mark above the cross and a row of small vertical strokes below it that reads as a blurred word (9 to 13 levels darker than the paper). Illegible and only visible zoomed (3x and up), so minor; pre-existing and kept on purpose by the editor ('the faint sign lettering are kept'), same class as the ledger pseudo-lettering that v2 failed (FL-10). The three v2 V11 items are fixed: clock_5x_orig_top_v3_bottom.jpg shows the '0101' clock gone with the back chevron kept; input_5x_orig_top_v3_bottom.jpg shows 'Mesisetan' gone and the pill plain; ledger_4x_orig_left_v3_right_boost_below.jpg shows the embossed lettering gone even with levels raised, the pen untouched."},
+  {"id": "V12", "result": "PASS", "severity": "", "region": "region_IMG-W42-7_phone_screen", "evidence": "The story prop has its content: 8 grey incoming bubbles with tails at lower left, no replies, plain input pill, send arrow and + button. Not an empty screen."},
+  {"id": "V13", "result": "PASS", "severity": "", "region": "region_IMG-W42-7_phone_screen", "evidence": "Smartphone in a glossy deep red case, matching the style bible's recurring hero object. No prop sheet supplied."},
+  {"id": "V14", "result": "PASS", "severity": "", "region": "tiles", "evidence": "Bell, ledger, pen, waiting chairs, plant, sconces, framed pictures (wall_frame_3x.jpg: dark blurred picture, no text or emblem) all belong to a clinic reception. The wall sign is logged under V21/V24."},
+  {"id": "V15", "result": "N/A", "severity": "", "region": "full", "evidence": "No characters."},
+  {"id": "V16", "result": "N/A", "severity": "", "region": "full", "evidence": "Single-image post; no previous shot."},
+  {"id": "V17", "result": "PASS", "severity": "", "region": "tile_r1c3", "evidence": "Tirana after dark: the lit clock tower through the reception window, wet street lights, a parked car. No set sheet supplied."},
+  {"id": "V18", "result": "PASS", "severity": "", "region": "full, region_IMG-W42-7_logo_zone", "evidence": "1080x1350 (4:5). Kicker top y about 63, text left x about 100, headline right edge about x 872. Real logo at x 100-390, y 1220-1273: inside the bottom-left zone (lowest 15%, left 50%), 77 px bottom margin, 100 px left margin. Headline does not cover the phone."},
+  {"id": "V19", "result": "PASS", "severity": "", "region": "thumb_200.jpg", "evidence": "At 200 px wide the three headline lines are readable, the crimson bar reads, the red phone with bubbles is recognisable, and the logo is legible as a mark plus wordmark. Note: the wall-sign cross shows at this size as a small blue cross at the left edge beside 'këtë' (logged under V21/V24)."},
+  {"id": "V20", "result": "PASS", "severity": "", "region": "full", "evidence": "The alt text asks for an empty ('bosh') reception at night, so no people is correct; the background has depth (lit window, street lights, sconces, chairs)."},
+  {"id": "V21", "result": "FAIL", "severity": "minor", "region": "(a) crimson bar x 93-591, y 239-324; (b) wall-sign cross x 21-79, y 344-413", "evidence": "(a) bar_vs_B31217_swatch_below.jpg: the highlight bar measures median (160,12,23), about #A00C17, against the brand crimson #B31217 (179,18,23): dE2000 4.2, visibly darker next to the swatch. The overlay is not graded (the ivory text measures (249,246,241), on spec), so the bar should be on spec too. Pre-existing (v2 measured (162,11,22) and left it advisory); the packet now lists #B31217 as a rule, so it counts. (b) cross_context_1x.jpg, tile_r1c1.jpg, cross_orig_v3_3x.jpg: the recoloured cross reads at 1x and in the thumbnail as a clear blue cross on a white sign, the only cool accent in an all-warm frame, right beside the headline; the style bible allows crimson as the only saturated colour besides the gold counter and the phone case. Measured: core (pixels changed more than 30 levels, n 1,676) mean (55,62,58), Lab L 25.6 C 4.4 h 159; the sign paper beside it (121,76,38) sets the eye's white point, so the near-neutral grey is seen as blue. It is neither the requested #3E5A5C (Lab L 36.2 C 10.8 h 205, dE76 13.5 from the core) nor, to a viewer, 'muted dark teal-grey'. Answer to the editor's question: do not switch to the literal #3E5A5C; by the editor's own test it reads even more cyan."},
+  {"id": "V22", "result": "PASS", "severity": "", "region": "tile_r2c2, tile_r2c3, tile_r3c3", "evidence": "Real material textures: brushed brass bell, leather ledger grain, lacquered desk with uneven reflections, phone glass and case gloss."},
+  {"id": "V23", "result": "PASS", "severity": "", "region": "edited boxes and the logo zone", "evidence": "Fix 1 (fix1_orig_v2_v3_2x.jpg, fix1_wordmark_L/R_4x_o_v3_o_v3boost.jpg, logozone_boost_orig_top_v3_bottom_2x.jpg): highlight continuous, no stub, no seam, no halo, no blur patch at normal or boosted levels; strip under the wordmark has desk grain (relative high-pass grain 0.05-0.09 at y 1284-1296, neighbouring untouched desk 0.04-0.06). Fix 2 (cross_orig_v3_3x(_boost).jpg, sign_5x...): soft edges kept, no rim, no blotch, frame and paper untouched. Fix 3: no ghost digits or letters, no visible smooth patch (clock patch lum 12.1 sd 1.3 vs screen 9.3 sd 2.4). Remnant check in the bottom-left zone: no white pixel outside the real logo box, no red except the real mark, gold only in the real mark's square (x 140-152, y 1220-1232) and in the desk-edge highlight specks that are also in the original (colour about (178,121,72)); the drawn gold square (orig x 149-159, y 1237-1247) is gone; under the mark (x 95-160, y 1277-1300) luminance is 0 to 9 at normal levels, no fragment. Outside the claimed boxes (+8 px) v3 differs from v2 by at most 22 levels, only on the red mark's edges and a phone-corner specular at x 483-491, y 823-831 (spot_483_823_v2_left_v3_right_6x.jpg: visually identical): re-encode noise, editor claim confirmed."},
+  {"id": "V24", "result": "FAIL", "severity": "minor", "region": "wall sign cross x 21-79, y 344-413 (tile_r1c1); logo itself passes", "evidence": "cross_context_1x.jpg, cross_orig_v3_3x.jpg: the red cross is gone, but the sign now reads as a plain blue cross on a white sign, which is the mark of the Blue Cross health insurers (and the Blue Cross animal charity): still another organisation's emblem in a medical setting, visible at 1x but generic-looking to most viewers, so minor. THE LOGO PASSES (logo_ref_top_v3_bottom_3x.jpg, region_IMG-W42-7_logo_zone.jpg): real StraightScale file, red rounded square with the S-shaped channel, gold square in the top-right notch, ivory wordmark; best-fit placement x 100, y 1220, 291x54 px, aspect 5.389 vs the file's 5.380 (unstretched); against the file resized to 291x54, opaque pixels MAE 5.5, median 3 (JPEG only); v3 vs v2 on those pixels mean 1.75, max 21; mark red (175,17,28) vs file (194,8,23), gold (219,171,45) vs (226,171,26), JPEG chroma loss only; edges crisp, no dark halo (edge residual mean +0.5 levels)."},
+  {"id": "V25", "result": "PASS", "severity": "", "region": "full", "evidence": "No before/after, no 'your [condition]', no shaming: a neutral self-check question."},
+  {"id": "V26", "result": "PASS", "severity": "", "region": "full", "evidence": "No AI person. Publishing note (not a pixel check): the scene is photoreal AI, so apply the account's AI label rule (STANDARDS 7) when posting."}
+ ],
+ "editor_claims_verified": {
+  "cdn_md5_matches_sandbox": "confirmed (5190cc4493b394b9bc7fb53c8a893a7c)",
+  "fix1_V23": "confirmed: highlight restored and continuous, strip has grain, no drawn letters, red or gold came back",
+  "fix2_V24": "partly: the red cross is gone and the edit is clean, but the result reads as a blue cross, not a muted teal-grey; core is near-neutral (55,62,58), hue 159 deg, not #3E5A5C's hue (205 deg)",
+  "fix3_V11": "confirmed for the clock, the input placeholder and the ledger embossing",
+  "logo_unchanged": "confirmed within JPEG re-encode (mean 1.75, max 21 levels vs v2)",
+  "outside_boxes_only_reencode_noise": "confirmed (max 22 levels, p99.9 9)"
+ },
+ "defects_summary": {
+  "critical": 0,
+  "major": 0,
+  "minor": 3,
+  "items": [
+   "V24 minor: wall-sign cross now reads as a blue cross on white (Blue Cross mark), x 21-79, y 344-413",
+   "V21 minor: (a) crimson bar (160,12,23) is dE2000 4.2 off #B31217; (b) the blue-reading cross is an off-palette cool accent beside the headline",
+   "V11 minor: faint text-like marks on the wall sign above and below the cross, x 38-62 y 330-341 and x 33-67 y 417-428"
+  ],
+  "caused_by_v3": ["V24 and V21(b): the cross recolour"],
+  "pre_existing": ["V21(a) bar colour", "V11 sign marks"],
+  "pass_rule": "hero: zero defects of any severity, so FAIL"
+ },
+ "fix": {
+  "route": "edit",
+  "prompt_changes": [
+   "Code-only edit on v3 (no generation), same method as v3_edit.py fix 2 (paper/ink unmix). Wall sign x 8-92, y 330-430: recolour the cross ink to a warm dark umber close to the sign frame (target about (58,38,24) at the sign's light, so its Lab hue sits 50-70 deg like the scene and it reads dark brown, never blue or red); keep the soft edges and shading. Check cross_context at 1x and the 200 px thumbnail: it must read dark brown/charcoal, not blue. If it still reads as an emblem, replace the cross with a plain warm abstract print (muted beige and brown shapes), not blank paper (FL-05).",
+   "Same sign: paint the two faint text-like marks out with plain paper (harmonic fill + matched grain): x 36-64, y 328-343 and x 31-69, y 415-430.",
+   "Crimson bar x 93-591, y 239-324: set the bar to #B31217 exactly. Unmix each pixel between the measured bar colour (160,12,23) and the ivory text (249,246,241) to get the text coverage, then recompose with #B31217 as the bar colour, so the letter edges keep their anti-aliasing and the text stays byte-identical where coverage is 1. Re-read 'pa përgjigje' after the edit. Target: bar median within dE2000 1.5 of #B31217.",
+   "Do not touch the logo, the desk edge, the phone or the ledger: they pass. Save as v4 (q93), upload, confirm md5 on the CDN, and send to a fresh reviewer."
+  ]
+ }
+}

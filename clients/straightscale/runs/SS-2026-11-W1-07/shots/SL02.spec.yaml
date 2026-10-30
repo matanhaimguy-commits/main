@@ -1,0 +1,212 @@
+shot_id: SL02
+post_id: SS-2026-11-W1-07
+format: carousel_slide
+script_lines:
+- S2
+line_text: Një ditë pa ty, askush s'di çfarë i premtove klientit.
+story_purpose: 'Pays the cover: without the owner, nobody knows what he told the client.'
+must_read_in_1s: The owner's chair is empty and his phone is quiet.
+subjects:
+- id: PR-PHONE
+  ref: null
+  state: the red-case phone seated upright in a black phone stand on the table, screen off
+  pose: left of centre of the lower half, medium distance
+  expression: ''
+  instances: 1
+- id: PR-CHAIR
+  ref: null
+  state: the owner's empty wooden chair, fully visible with its four legs, seat and upright back
+  pose: standing on its four legs on the open dark wood floor to the right of the table's right end, turned three-quarters
+    toward the camera
+  expression: ''
+  instances: 1
+hands: none visible
+props:
+- id: PR-PHONE
+  story_critical: false
+  ref: null
+  state: upright in the stand, screen off
+  content: 'a modern smartphone in a deep red #BE0F18 case that shows as a rim around the black glass front, rounded
+    corners, no logo on the case or the glass'
+  size_in_frame: its box is 16% of the frame width and 30% of the frame height
+- id: PR-STAND
+  story_critical: false
+  ref: null
+  state: on the surface, holding the phone upright
+  content: a plain black matte angled phone stand with one groove, no logo; the phone's bottom edge sits in the
+    groove and its back leans against the stand's rear support
+- id: PR-CHAIR
+  story_critical: false
+  ref: null
+  state: empty, pulled out 40 cm from the table
+  content: 'a dark wooden restaurant chair: a woven seat, four straight legs and an upright back, standing on its
+    four legs, nothing on it'
+- id: PR-PLATE
+  story_critical: false
+  ref: null
+  state: at the left end of the table, cleared; only a clean white plate and a glass of water
+  content: a clean white round plate with nothing on it and a glass of water beside it
+- id: PR-ARROW
+  story_critical: false
+  ref: null
+  state: bottom right, inside the 4% margin
+  content: 'a small crimson #B31217 round button with a white arrow pointing right, flat graphic, nothing else on
+    it'
+  size_in_frame: about 8% of the frame width
+text_in_image:
+- string: Një ditë pa ty,
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 70%, y 6% to 12% of the frame, heavy bold
+    geometric sans, about 80 px at 1080 px wide, ivory
+  position: line 1 of 3 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: askush s'di çfarë
+  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 61%, y 14% to 19% of the frame, heavy
+    bold geometric sans, about 60 px at 1080 px wide, ivory; the word ''askush'' sits inside a solid crimson #B31217
+    highlight rectangle'
+  position: line 2 of 3 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: i premtove klientit.
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 71%, y 20% to 25% of the frame, heavy
+    bold geometric sans, about 60 px at 1080 px wide, ivory
+  position: line 3 of 3 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: 2/8
+  surface: 'top right, small gold #DD9A10 slide counter'
+  position: top right corner, inside the 4% margin
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing overlaps the counter
+action_physics:
+- The phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support; nothing touches
+  it.
+- The chair stands on its four legs on the open dark wood floor to the right of the table's right end, all four
+  legs flat on the floor.
+static: false
+setting:
+  ref: null
+  details: 'The owner''s restaurant after service, at night: a dark wood corner table, warm tungsten light, deep
+    shadows. A warm tungsten wall lamp on the left wall at 58% of the height lights the left edge at 50% to 66%.
+    Camera about 10 degrees above the table: the table top spans from 70% of the frame height (its far edge, measured
+    from the top of the frame) down to the bottom; the wall behind it fills the upper 70%. The table''s right end
+    is at 66% of the frame width; right of it is open dark wood floor. Nobody is there. No window and no clock tower
+    are visible in this shot.'
+  background_rule: No menus, receipts, signs or readable words anywhere; the walls are plain. A phone with its screen
+    off is plain black glass with a soft lamp reflection and nothing else. The surface the props stand on is bare
+    apart from the listed props.
+camera:
+  framing: medium shot of the table and the empty chair, the camera farther back than on the cover; the phone in
+    the lower left of centre (x 34% to 50%), the chair at the right, the top 40% is a calm near-black wall
+  angle: about 10 degrees above the table surface, centred
+  lens: 35mm film still, shallow depth of field
+  aspect: '4:5'
+  safe_zones: text and arrow inside a 4% margin; top 40% a calm near-black zone with nothing in it except the text
+    block and the slide counter; bottom-left corner (lowest 9% of the height, left 40% of the width) calm, dark
+    and empty
+continuity:
+  previous_shot: SL01
+  carry_over:
+  - 'Changes from the previous slide: the camera is farther back, so the window and the hand are out of frame and
+    the table''s right end is visible with open floor and the chair to its right; the phone is dark and the plate
+    is cleared; same table and lamp.'
+regions:
+- name: t01-head
+  kind: text
+  box:
+  - 0.06
+  - 0.06
+  - 0.705
+  - 0.128
+- name: t02-head2
+  kind: text
+  box:
+  - 0.06
+  - 0.146
+  - 0.613
+  - 0.198
+- name: t02-highlight
+  kind: text
+  box:
+  - 0.06
+  - 0.146
+  - 0.255
+  - 0.198
+- name: t03-head2
+  kind: text
+  box:
+  - 0.06
+  - 0.206
+  - 0.71
+  - 0.258
+- name: counter
+  kind: text
+  box:
+  - 0.86
+  - 0.04
+  - 0.96
+  - 0.08
+- name: logo-zone
+  kind: other
+  box:
+  - 0.0
+  - 0.91
+  - 0.4
+  - 1.0
+- name: arrow
+  kind: other
+  box:
+  - 0.86
+  - 0.89
+  - 0.96
+  - 0.96
+- name: phone
+  kind: prop
+  box:
+  - 0.34
+  - 0.54
+  - 0.5
+  - 0.84
+- name: stand
+  kind: prop
+  box:
+  - 0.34
+  - 0.76
+  - 0.5
+  - 0.84
+- name: chair
+  kind: prop
+  box:
+  - 0.7
+  - 0.44
+  - 0.94
+  - 0.88
+- name: plate
+  kind: prop
+  box:
+  - 0.02
+  - 0.68
+  - 0.24
+  - 0.8
+style: '"Tirana after dark": cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
+  the cover''s window. Same light and colour grade on every slide. Thread: a smartphone in a deep red case (#BE0F18),
+  recurring on every slide, changing state with the story (silent, unread messages piling up, ringing, a booked
+  calendar). Palette: scene tone near-black (#1F1F1F), type ivory (#F8F6EF), accent crimson #B31217 as solid highlight
+  rectangles behind key words and the swipe arrow button, small gold (#DD9A10) only for the counter. #B31217 is
+  the only saturated colour besides the gold counter and the phone case. Type: heavy bold geometric sans in ivory,
+  left-aligned in the calm dark area; key words in solid crimson #B31217 highlight rectangles. Spell ë and ç out
+  letter by letter in every prompt. Frame: slide counter top right (gold), swipe arrow bottom right on slides 1
+  to N-1. Bottom-left corner calm, dark and empty.'
+must_not:
+- no logo or wordmark drawn anywhere
+- no letters or objects in the bottom-left corner
+- no letters, words, digits or app names on any phone screen; screens hold only the shapes described in the props
+  block
+- no picture-frame borders, side bars or blurred margins around the whole image
+- no window and no clock tower
+hero: false
+notes: The style line's clock tower belongs to window shots only; this shot has no window, so none is drawn.

@@ -1,0 +1,8 @@
+[
+  {"path": "film/assets/brand/wordmark-white.png", "type": "logo", "source": "owner's Google Drive, 5 Oct 2026, via projects/straightscale-03/assets/brand/", "retrieved": "2026-10-20", "license": "client-owned", "used_in": "logo reveal 19.2-24.0 s (clip-path and opacity only)"},
+  {"path": "film/assets/fonts/PlayfairDisplay/", "type": "font", "source": "projects/straightscale-03/assets/fonts/", "license": "SIL OFL 1.1", "license_file": "film/assets/fonts/PlayfairDisplay/LICENSE.txt", "used_in": "headline, system line, Comment"},
+  {"path": "film/assets/fonts/Montserrat/", "type": "font", "source": "projects/straightscale-03/assets/fonts/", "license": "SIL OFL 1.1", "license_file": "film/assets/fonts/Montserrat/LICENSE.txt", "used_in": "note, clock, labels, math, list, ANALIZA, body"},
+  {"path": "film/assets/vendor/gsap.min.js", "type": "script", "source": "npm gsap@3.14.2 (motion-studio/vendor)", "license": "GreenSock standard no-charge licence", "used_in": "the paused timeline"},
+  {"path": "film/assets/bg-9x16.jpg, film/assets/bg-4x5.jpg", "type": "texture", "source": "tools/make_bg.py (seeded)", "license": "own", "used_in": "ground"},
+  {"path": "audio/music.wav, audio/sfx.wav, audio/mix.wav", "type": "music+sfx", "source": "audio/score.py: VSCO 2 CE + VCSL samples via the Lemo-Opuscar sampler; effects synthesized", "license": "CC0 1.0 samples; own composition", "used_in": "whole film"}
+]

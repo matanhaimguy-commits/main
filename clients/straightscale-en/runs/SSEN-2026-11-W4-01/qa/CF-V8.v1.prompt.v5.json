@@ -1,0 +1,17 @@
+{"gate": "G-PROMPT-IMG", "asset_id": "CF-V8", "version": 1, "prompt_sha256": "c18b9279cb71b4e5972f6bcef1e412af0e720a9a565a7898f73dfd334bad389e",
+ "reviewer": "prompt-reviewer (fresh agent)", "independent": true, "status": "PASS",
+ "checks": [
+  {"id":"P1","result":"PASS","evidence":"All 11 blocks present; both cards, hearts, arrow, four text strings and the sage ground appear (\"Three small clay hearts in heart red #D64545 are pressed onto the post card\"; \"one short thick terracotta #C8553D clay arrow pointing down\")."},
+  {"id":"P2","result":"PASS","evidence":"\"References: none attached (text to image).\" matches the call (no media)."},
+  {"id":"P3","result":"PASS","evidence":"\"Hands: no hands visible.\" matches spec hands: none visible."},
+  {"id":"P4","result":"PASS","evidence":"\"Both cards and the arrow lie flat on the sage clay ground; the three hearts are pressed into the post card's surface to the right of line 2; nothing else rests on the cards.\""},
+  {"id":"P5","result":"PASS","evidence":"Post card: cream #F3E9D8 slab, terracotta #C8553D rim; page card: grey-blue #9AA3AD slab; both letter lines given in the Text block; hearts filled. Only targeted negatives (\"no words other than the quoted ones\"), no blanket 'no text'."},
+  {"id":"P6","result":"PASS","evidence":"Four quoted strings, each with surface, position, colour, and \"nothing covers any letter\"; 4 words per card. Lines sit inside their cards, centred (post line centres 50%, page line centres 42.5% = card centre), and hearts x 74-88% are clear of MONTHS? (x 32-68%)."},
+  {"id":"P7","result":"PASS","evidence":"\"no signs, frames, posters or screens; the only writing is the quoted text\"; lower than 55% and the top 30% are plain ground."},
+  {"id":"P8","result":"PASS","evidence":"No contradictions found: 'shallow depth of field' is scoped by 'the whole card area in sharp focus'; all heights are measured from the top; every box sits inside the 6%-94% / 6%-79% safe rules."},
+  {"id":"P9","result":"PASS","evidence":"\"Continuity: first frame of the reel; nothing carried over.\" matches previous_shot null."},
+  {"id":"P10","result":"PASS","evidence":"openai/gpt-image-2/text-to-image is allowed for still with quality medium; size 1152x2048 is the listed size for 9:16; no text fields; no media. Prompt says \"Vertical 9:16 frame\"."},
+  {"id":"P11","result":"PASS","evidence":"Position words are all numeric boxes measured from the top edge; \"hearts ... to the right of its second line\" with x 74-88% leaves no second reading. Note only (not a fail): arrow 'pointing down' is given with an overhead camera and an explicit box; it reads as down the frame between the two cards."},
+  {"id":"P12","result":"PASS","evidence":"FL-04 content lines present; FL-05/FL-10 \"no signs, frames, posters or screens\" and \"No other text anywhere\"; FL-13 \"no logo, wordmark or real app name or app icon anywhere\"; FL-02 structure \"one layer\" and \"one flat ... slab\"; FL-03 contact points given."}
+ ],
+ "corrected_prompt": null}

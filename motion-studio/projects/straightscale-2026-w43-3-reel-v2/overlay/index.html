@@ -1,0 +1,9 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:transparent}canvas{display:block}</style>
+<script src="logos.js"></script><script src="overlay.js"></script></head>
+<body><canvas id="c" width="1080" height="1920"></canvas>
+<script>
+const canvas=document.getElementById('c');const ctx=canvas.getContext('2d');
+window.ready=(async()=>{await loadImages();await document.fonts.load('800 60px Montserrat');await document.fonts.load('48px "Noto Color Emoji"');return true;})();
+window.render=(t)=>{ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,1080,1920);draw(ctx,t);return canvas.toDataURL('image/png');};
+</script></body></html>

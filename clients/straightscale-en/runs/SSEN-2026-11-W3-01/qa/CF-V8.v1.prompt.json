@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CF-V8",
+ "version": 1,
+ "prompt_sha256": "e3a5fb20342119ce745a4f68e21baa61895ad0ac8b38c5672291f9bb6baeb2b4",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "All spec elements present: 'Seesaw: a clay seesaw tipped hard to the left ... right end up at y 0.32', 'ten little clay client figures ... calm and pleased, chatting' (the earlier 'chatting' gap is fixed), full prop content line, 'TEXT: none', setting with background rule, camera and safe zones, six regions, carry-over, all must_not negatives. All 11 card blocks present in order."
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'REFERENCE MAP: no images are attached; this is a text-to-image call.' Attached media: none."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'HANDS: no human hands, fingers or arms anywhere in the picture.' Matches 'hands: none visible'."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'the plank rests on the pivot's top point; the plank's left end touches the floor at y 0.55'; 'the ten figures stand with both feet on the left page, their weight holding that end down'; 'the right page lies flat on the plank's raised right end, nothing on it'."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PROPS WITH CONTENT gives full content for the pages ('stitched grid of empty day squares (no numbers, no month name)') and the bare right page by design; the TEXT line bans letters and numbers but the pages need none, so it does not empty a story prop."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "'TEXT: none. No text, letters, numbers or words anywhere in the picture: not on the calendar, the wall, the floor or any object.' Hook space reserved: 'the top 27% of the frame is plain clay wall with nothing on it (words are added there later)'."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'No window, shelf, desk or other objects. Background rule: nothing but the plain wall and floor around the seesaw.'"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No conflicting instructions: floor line 56%, left end 55%, right end 32%, 'below 56% only the plain clay floor and wall continue, empty' (pivot base sits on the floor line); 'no figure off the seesaw' agrees with the figures on the left page."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'CONTINUITY: the series look: claymation with fabric and thread details, the song's cloth world. This is the first frame of the reel.' Spec previous_shot is null."
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Call openai/gpt-image-2/text-to-image, size 1152x2048 (9:16, size_for_aspect), quality medium: all in standards.json models.atlas.allowed for a 'still'; prompt says 'one vertical 9:16 image'; no references needed; no video or speaker rules apply."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "'page' is defined as 'a calendar month page sculpted from flat cream clay'; positions are fractions from the top-left. Optional polish only: 'a group of extras' (copied from the spec) could be dropped as it adds nothing for a picture model; not a defect."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-02 'a terracotta clay plank on a mustard clay triangle pivot' and 'one seesaw only'; FL-03 contact points; FL-05 background rule; FL-06 'simple eyes with white sclera and dark pupils'; FL-11 'each figure once' and 'both feet on the left page'; FL-13 not triggered (no logo asked)."
+  }
+ ],
+ "corrected_prompt": null
+}

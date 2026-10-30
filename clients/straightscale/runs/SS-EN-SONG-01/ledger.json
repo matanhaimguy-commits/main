@@ -1,0 +1,257 @@
+{
+  "post_id": "SS-EN-SONG-01",
+  "slug": "straightscale",
+  "format": "reel_song",
+  "family": "song",
+  "card": null,
+  "created": "2026-10-27T18:32:42+00:00",
+  "steps": {
+    "0": {
+      "status": "done",
+      "note": "",
+      "at": "2026-10-27T18:33:08+00:00"
+    },
+    "1": {
+      "status": "done",
+      "note": "",
+      "at": "2026-10-27T18:33:08+00:00"
+    },
+    "2": {
+      "status": "done",
+      "note": "",
+      "at": "2026-10-27T18:33:09+00:00"
+    },
+    "3": {
+      "status": "done",
+      "note": "",
+      "at": "2026-10-27T18:33:09+00:00"
+    },
+    "4": {
+      "status": "done",
+      "note": "masters approved by Matan on the Studio page (decision #1)",
+      "at": "2026-10-28T17:24:52+00:00"
+    },
+    "5": {
+      "status": "todo",
+      "note": ""
+    },
+    "6": {
+      "status": "todo",
+      "note": ""
+    },
+    "7": {
+      "status": "todo",
+      "note": ""
+    },
+    "8": {
+      "status": "todo",
+      "note": ""
+    },
+    "9": {
+      "status": "todo",
+      "note": ""
+    },
+    "10": {
+      "status": "todo",
+      "note": ""
+    },
+    "11": {
+      "status": "todo",
+      "note": ""
+    },
+    "12": {
+      "status": "todo",
+      "note": ""
+    },
+    "13": {
+      "status": "todo",
+      "note": ""
+    },
+    "14": {
+      "status": "todo",
+      "note": ""
+    },
+    "15": {
+      "status": "todo",
+      "note": ""
+    }
+  },
+  "run_gates": {
+    "G-BRIEF": [
+      {
+        "at": "2026-10-27T18:33:06+00:00",
+        "status": "PASS",
+        "by": "Matan",
+        "note": "GATE 1 (27 Oct): avatar AV-01; brief card in motion-studio/projects/straightscale-en-03-song/docs/script-lab.md section 1; offer sheet: vault StraightScale EN offer"
+      }
+    ],
+    "G-IDEA": [
+      {
+        "at": "2026-10-27T18:33:07+00:00",
+        "status": "PASS",
+        "by": "Matan",
+        "note": "GATE 2 indie folk, O60 + O30; GATE 3 angle 'Steady months, without adding one more tactic', solution aware, picture Patchwork (DIY form)"
+      }
+    ],
+    "G-HOOK": [
+      {
+        "at": "2026-10-27T18:33:07+00:00",
+        "status": "FAIL",
+        "by": "hook graders (6 fresh agents)",
+        "note": "6 blind rounds; master stack best: visual A-, text A to A-, sung A (docs/hook-stacks.md). The visual's A- was the crochet style itself"
+      },
+      {
+        "at": "2026-10-27T18:33:07+00:00",
+        "status": "OVERRIDE",
+        "by": "Matan",
+        "note": "GATE 4 (27 Oct): took the master stack (text 'Nothing filled April. Referrals filled March. Why?', sung 'Lumpy months? It was never where your clients came from') and switched the look to claymation"
+      }
+    ],
+    "G-HUMAN-SPINE": [
+      {
+        "at": "2026-10-27T18:33:07+00:00",
+        "status": "PASS",
+        "by": "Matan",
+        "note": "GATE 4: spine A 'Maya's quilt' (ST3 hidden cause, named-person story) with its O30 short"
+      }
+    ],
+    "G-SCRIPT": [
+      {
+        "at": "2026-10-27T18:33:08+00:00",
+        "status": "PASS",
+        "by": "script-lab gate",
+        "note": "Speech O60 86/100 and O30 87/100 (loop 5, 20 fresh cold readers; an owner-approved extra loop after the 3-loop escalation); lyrics passed the lyric gate on loop 2 (docs/script.md, docs/lyrics.md)",
+        "score": 86.0
+      }
+    ],
+    "G-BUDGET": [
+      {
+        "at": "2026-10-27T18:33:34+00:00",
+        "status": "PASS",
+        "by": "pipeline.py budget",
+        "data": {
+          "planned": 0.0,
+          "with_buffer": 0.0,
+          "balance": 1196.32,
+          "month_spent": 36.75,
+          "cap": 1300,
+          "el_planned": 0
+        },
+        "note": ""
+      },
+      {
+        "at": "2026-10-27T18:33:34+00:00",
+        "status": "PASS",
+        "by": "pipeline.py budget",
+        "note": "Atlas only: suno/chirp-v6 at about $0.13 a call, 2 calls (O60, O30), 2 takes each; no Higgsfield credits planned for step 4"
+      }
+    ],
+    "G-AUDIO-MASTER": [
+      {
+        "at": "2026-10-27T18:39:04+00:00",
+        "status": "PASS",
+        "by": "song take check",
+        "note": "Masters: SONG-O60@v1 take 2 (0.956, 59.6 s) and SONG-O30@v1 take 2 (0.896, 32.4 s), both over the 0.88 floor with the hook sung by about 1.5 s"
+      }
+    ],
+    "G-HUMAN-SONG": [
+      {
+        "at": "2026-10-28T17:24:44+00:00",
+        "status": "PASS",
+        "by": "Matan",
+        "note": "Studio page decision #1 (run #1): 'Both approved', answered 28 Oct 2026 17:12:59 UTC; O60 take 2 and O30 take 2 are the masters"
+      }
+    ]
+  },
+  "specs": {},
+  "assets": [
+    {
+      "asset_id": "SONG-O60",
+      "version": 1,
+      "type": "song",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-27T18:33:33+00:00",
+      "prompt_sha256": "503dc2afaf7da5b0bcce68b7efca18054569d203b613786046b3433a375b1242",
+      "prompt_file": "prompts/SONG-O60.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-27T18:33:33+00:00",
+          "sha256": "503dc2afaf7da5b0bcce68b7efca18054569d203b613786046b3433a375b1242",
+          "file": "prompts/SONG-O60.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "8f0741beaf4346989948dbc2cecbd25d"
+      ],
+      "files": [],
+      "gates": {
+        "G-AUDIO": [
+          {
+            "at": "2026-10-27T18:39:03+00:00",
+            "status": "PASS",
+            "by": "song take check (faster-whisper small.en)",
+            "note": "take 2 of 2: 59.6 s, lyric match 0.956 (floor 0.88), voice at 0.8 s, 'lumpy months' by 1.5 s, every line incl. the spoken question and CTA heard. Take 1: 82.8 s, over the O60 75 s ceiling, not used",
+            "score": 0.956
+          }
+        ]
+      },
+      "tool": "atlas"
+    },
+    {
+      "asset_id": "SONG-O30",
+      "version": 1,
+      "type": "song",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-27T18:33:34+00:00",
+      "prompt_sha256": "48fe7b54e8e589fdf51a56ea28102bbe18e0f931e09d834aee089555c8562f4a",
+      "prompt_file": "prompts/SONG-O30.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-27T18:33:34+00:00",
+          "sha256": "48fe7b54e8e589fdf51a56ea28102bbe18e0f931e09d834aee089555c8562f4a",
+          "file": "prompts/SONG-O30.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "298342acc20f468497b7dd16efe3ef1a"
+      ],
+      "files": [],
+      "gates": {
+        "G-AUDIO": [
+          {
+            "at": "2026-10-27T18:39:04+00:00",
+            "status": "PASS",
+            "by": "song take check (faster-whisper small.en)",
+            "note": "take 2 of 2: 32.4 s, lyric match 0.896, voice at 0.0 s, 'lumpy months' by 1.1 s; Whisper heard 'a lawn' for 'alone' and 'As last' for 'ads last' (diction for the owner's listen; captions carry the words). Take 1: 0.892, voice at 2.3 s (intro to trim)",
+            "score": 0.896
+          }
+        ]
+      },
+      "tool": "atlas"
+    }
+  ],
+  "queue": [
+    {
+      "id": "G-HUMAN-SONG:",
+      "checkpoint": "G-HUMAN-SONG",
+      "asset": null,
+      "status": "APPROVED",
+      "note": "Listen to both masters before any picture: O60 take 2 (59.6 s) and O30 take 2 (32.4 s), male baritone, Atlas suno/chirp-v6. Check words, the 'lumpy months' hook, 'patchwork marketing', the spoken question and CTA; Whisper heard 'a lawn' for 'alone' and 'As last' for 'ads last' in the O30",
+      "files": [],
+      "asked_at": "2026-10-27T18:39:30+00:00",
+      "answered_at": "2026-10-28T17:24:44+00:00",
+      "by": "Matan",
+      "answer": "Studio page decision #1 (run #1): 'Both approved', answered 28 Oct 2026 17:12:59 UTC; O60 take 2 and O30 take 2 are the masters"
+    }
+  ]
+}

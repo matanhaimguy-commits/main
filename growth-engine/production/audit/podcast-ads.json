@@ -1,0 +1,757 @@
+{
+ "skill": "readymerce-podcast-ads",
+ "version": "v5.0 (changelog dated 2026-10-08; says \"MiniMax H3 replaces FLUX 3 (hub v13.3)\", but the hub is now v13.4)",
+ "purpose": "Role skill for realistic AI podcast-clip ads (two or more hosts at mics, cold-open pain line, peer referral, product as a friend's recommendation) and a solo UGC talking-to-camera variant (section 13). It runs autonomously from the Script Lab-gated conversation, through Pinterest-referenced casting, a master two-shot plus one start frame per character on GPT Image 2, locked ElevenLabs voices, a conversation master and packed stems, then MiniMax H3 2K lip-sync clips with one character per clip. It ends with a cut-and-interleave edit, burned captions, title bar, AI DRAMATIZATION tag and end card, and frame-by-frame QA with pitch, loudness and gap tables. It is built for cold Meta ads: offer, cost line, URL and a 3-word CTA on the end card, plus primary text and headlines.",
+ "phases": [
+  {
+   "step": "0",
+   "name": "Before you start (Module 0 + hard gates + autonomy)",
+   "does": "Runs hub Module 0 (A1 brief, A2 research/VOC, A3 concept memo, B1 Voice Card, B2 Conviction Map), applies hub Section G gates, reads Copy Laws (Appendix M in Script Lab), sets the autonomy rule, and requires an AI DRAMATIZATION tag.",
+   "gate": "Script written only from Module 0 material, never from memory. The skill stops only when a brand fact is missing, the budget can't cover the whole ad, or every Pinterest route fails (line 32).",
+   "human_checkpoint": "None numbered. Autonomy rule (line 32): 'It does not ask the user to pick references.'",
+   "tools_models": "readymerce-ads-machine (Module 0, Section G), readymerce-script-lab Appendix M"
+  },
+  {
+   "step": "0b / Step 1 (section 2)",
+   "name": "Write the conversation (Script Lab, podcast adapter 18c, C45)",
+   "does": "Script Lab WRITE or GRADE/FIX: belief ladder with the because test, script bible, reveal plan, 2-3 spines of about 80 words, the 10-beat podcast template, a numbered line list (L1..Ln) with speaker tags, numbers written as words with a noun between them.",
+   "gate": "Release at 85 or more out of 100 with no critical fail: 16 mechanical tests, a cold read by a fresh agent hearing 'Voice 1' and 'Voice 2', up to 3 rewrite loops. Length is 8 to 12 turns, 80 to 110 words, 35 to 45 s. Turns are 20 words or fewer (one turn may reach 25). The listener speaks every other turn and at least every 8 s, and no host carries more than 60% of the words. The brand line is 25 words or fewer, the payoff ends on 6 words or fewer, line 1 is the pain line (ICP clear within 3 s), and core lines are under 12 words, none over 17, grade 7.",
+   "human_checkpoint": "Only after 3 failed rewrite loops: 'then the user decides' (line 43).",
+   "tools_models": "readymerce-script-lab (WRITE/GRADE/FIX), optional Hook Lab stacks (hub C5), fresh-agent cold reader"
+  },
+  {
+   "step": "Step 2 (section 3)",
+   "name": "Casting and set brief",
+   "does": "One casting card per character (role, age band, gender/region, build, hair, grooming, wardrobe, energy, voice description, contrast) and one set card (room, light, mics, table, props, what is NOT in the room).",
+   "gate": "Characters visibly different. The voice description holds only timbre, age, gender, accent and pace, with no emotion words. The set card lists 3 to 5 real props and no logos, neon show sign or screens with text.",
+   "human_checkpoint": "None",
+   "tools_models": "None (writing)"
+  },
+  {
+   "step": "Step 3 (section 4)",
+   "name": "Source references from Pinterest (autonomous)",
+   "does": "Builds 3-5 searches per character and 3 per set, pulls 15-30 image URLs each (Apify scraper, then built-in browser or Claude in Chrome, then Firecrawl site:pinterest.com), downloads them, tiles numbered contact sheets of about 12, scores each candidate and picks one, logs a reference board and imports the picks with media_import_url.",
+   "gate": "8-point score (0-2 each), keep only 13 or more out of 16. Exactly one photo per character plus one backup that is never attached with it. The set photo has no people. If all three routes fail, stop and never generate people without a reference.",
+   "human_checkpoint": "None (the skill picks references itself)",
+   "tools_models": "Apify Pinterest scraper, built-in browser / Claude in Chrome, Firecrawl, Higgsfield media_import_url"
+  },
+  {
+   "step": "Step 4 (section 5)",
+   "name": "Master two-shot (F0) and one start frame per character",
+   "does": "F0: a 16:9 wide frame of every character in the recreated set, made from the empty set photo plus one Pinterest photo per character, with the 'Create new, different people' line. F1/F2: a 9:16 medium close-up per character made with F0 as the only attachment (calm, neutral, gaze on the friend, hands resting). Optional product image on the table.",
+   "gate": "5.4 frame QA at full size, 8 checks: same person as in the F0 crop, one image per person, F0 faces are not the Pinterest people, skin texture and five fingers, props and light match with no logos, characters look different, reads as a real small podcast, gaze and expression and hands right with room for the title bar. Retake with one fix ('Most frames pass in one to three tries'). Drift twice means using the upscaled crop from F0.",
+   "human_checkpoint": "None",
+   "tools_models": "GPT Image 2 (gpt_image_2, quality high, 2k), per hub G7; GPT Image 2.5 rejected"
+  },
+  {
+   "step": "Step 5 (section 6)",
+   "name": "Frame plan F0..F2",
+   "does": "Table of every reference frame (F0 two-shot as reference only, F1 Host A used by every A clip, F2 Host B used by every B clip).",
+   "gate": "'Two hosts means exactly three images: F0, F1, F2. Three hosts means four.' More than one start frame per person means the plan is wrong.",
+   "human_checkpoint": "None",
+   "tools_models": "None"
+  },
+  {
+   "step": "Step 5b (section 6b)",
+   "name": "Voices and the conversation master (before any video)",
+   "does": "Casts one ElevenLabs voice per character (library or designed), writes lines for talking with at most one low-intensity tag per line, generates beats of 2-7 lines with 4 takes each, picks takes by the checks, builds the conversation master with the line table, then cuts one packed stem per character per clip.",
+   "gate": "Scribe transcript word for word. Natural pauses with a spread of 0.1 s or more, never tightened. Turn gaps 0.08-0.3 s with occasional 0.1-0.2 s overlaps. About -16 LUFS. Stems use 0.8-1.0 s listening beats and about 1 s of tail, padded to a whole number of seconds between 5 and 15.",
+   "human_checkpoint": "None",
+   "tools_models": "ElevenLabs connector: creative_list_voices, creative_design_voice + creative_save_designed_voice, creative_generate_speech (eleven_v4 default). Method and checker/builder delegated to readymerce-animation-ads Phase 5 (vo_build2.py)."
+  },
+  {
+   "step": "Step 9 (section 10), runs here",
+   "name": "Transcript check of the conversation master",
+   "does": "Transcribes the master with ElevenLabs Scribe (word timestamps) and compares it with the script for dropped, swapped or extra words, brand pronunciation, swallowed negations, cut-off last words and merged numbers.",
+   "gate": "'Never generate video on a master with known wrong word.' Bad lines are regenerated on ElevenLabs, then the master and stems are rebuilt. Clip audio is never transcribed.",
+   "human_checkpoint": "None",
+   "tools_models": "ElevenLabs Scribe (creative_transcribe_audio)"
+  },
+  {
+   "step": "Step 6 (section 7 + 7.5)",
+   "name": "Speaker map and budget preflight",
+   "does": "Packs each character's lines in script order into clips of 15 s or less (one character per clip, never splitting a line), folds short pull lines into other clips, and prices video plus images.",
+   "gate": "Every clip is 5-15 s, about 30-35 words (2-3 lines). A line over about 35 words goes back to the script. Usually 4-6 generations for two hosts, 5-8 for three. Budget = clip seconds × 2 credits per second + one retake of the longest clip + images with about 2 retakes per frame. Check the balance right before submitting.",
+   "human_checkpoint": "Only if the budget can't cover the ad: 'say so and agree scope first' (line 360).",
+   "tools_models": "Higgsfield cost check / balance"
+  },
+  {
+   "step": "Step 7 (section 8)",
+   "name": "Generation prompt per clip",
+   "does": "H3 reference-mode prompt: realism, references by token, scene lock with hands, one continuous shot, behaviour lock, background, static camera, lip-sync block with pause times, context, line time spans with tone notes, constraints.",
+   "gate": "Exactly one image (the start frame) plus one audio (the packed stem). minimax_h3, 2K, 9:16, declined_preset_id. Duration = padded stem length (5-15 s). One tone phrase per line, at most 5 words, softened. No gesture words outside the behaviour lock. A laugh only where the script writes '(small laugh)'. Numbers as words.",
+   "human_checkpoint": "None",
+   "tools_models": "MiniMax H3 (minimax_h3) via Higgsfield"
+  },
+  {
+   "step": "Step 8 (section 9)",
+   "name": "Generate and check every clip",
+   "does": "Submits all clips as one batch, builds a take sheet per clip, applies the reject list, measures pitch and runs the drift check.",
+   "gate": "Take sheet: a frame every 1 s plus the first and last 0.1 s, face crops at least 190 px. Reject a used line on lens look, profile, looking down or closing eyes for more than 1 s, leaving frame, gestures, smiling on a problem line, a frozen pose for more than 4 s, or drift from the start frame. Pitch within 1.5 semitones per character. Drift check in 2-second windows every 0.25 s, offset recorded per line, retake only when the drift sits inside a used word. Retake only the failing clip, with the same prompt plus one fix.",
+   "human_checkpoint": "None",
+   "tools_models": "ffmpeg frame extraction, pitch and envelope analysis (tools unnamed)"
+  },
+  {
+   "step": "Step 10 (section 11)",
+   "name": "Edit the conversation (cut and interleave)",
+   "does": "The master is the timeline and the only audio. Cut map per line (clip, in, out, angle A or B punch-in, reaction overlay), audio-based cut points, reaction shots, per-line levelling, native crop, captions, title bar, end card, AI tag, then ffmpeg assembly.",
+   "gate": "In point 0.08 s before onset, out point 0.12-0.2 s after. Turn gaps 0.08-0.2 s, never over 0.35. A reaction shot of 0.8-1.5 s at least every 10 s. Loudness spread under 2 dB, then about -16 LUFS. Fades of 20-80 ms. Punch-in 112-118%. Captions of 1-3 words, clamped to their segment, no gap over 0.4 s. Title bar 8 words or fewer, 2 lines at most, about 44-50 px at 1080 wide, covering no head. End card about 3 s. AI DRAMATIZATION top-left. Output 1080x1920 at 30 fps, TP -1.5.",
+   "human_checkpoint": "None",
+   "tools_models": "ffmpeg (Higgsfield sandbox or any shell), ASS subtitles, pink-noise room tone; ElevenLabs creative_generate_speech for clipped-word patches"
+  },
+  {
+   "step": "Section 12",
+   "name": "Hook variants (3 per ad)",
+   "does": "Main (cold-open line 1 + title bar A), same open with title bar B, and a later start (drop 1-2 turns, open on e.g. the aha line + title bar C), all cut from the same clips.",
+   "gate": "Seam test (hub L1, Script Lab test 12). A later start re-runs Script Lab tests 3, 5 to 10, 13 and 14. No line ever plays twice. No extra generations.",
+   "human_checkpoint": "None",
+   "tools_models": "Script Lab tests"
+  },
+  {
+   "step": "Section 13 (optional)",
+   "name": "Solo creator UGC variant",
+   "does": "One character talking to the phone in 1-3 real settings from the avatar's day: a master frame in setting 1 and one start frame per extra setting, a locked voice, stems packed per setting, jump-cut edit.",
+   "gate": "Script Lab UGC adapter (18d) at D30, C45 or S60, released at 85 or more. Same Pinterest, likeness, voice, gap, loudness and caption rules. Line 1 is still the cold-open pain line.",
+   "human_checkpoint": "None",
+   "tools_models": "Same as the main pipeline"
+  },
+  {
+   "step": "Section 14",
+   "name": "QA before delivery (rendered file)",
+   "does": "Final frame sheet, final transcript, pitch table, loudness table, gap table, hook check, conversation check, read-aloud, reference and likeness audit, H3 compliance, phone-size watch, Copy Laws check.",
+   "gate": "Frames every 1.5 s or less plus the first and last frame of every cut. Pitch within 1.5 semitones. Loudness spread under 2 dB. Seam gaps 0.08-0.35 s. First 3 s name the ICP and the pain. Listener heard or seen every 8-10 s. No host over 60% of the words. Brand turn 25 words or fewer. Every clip H3 2K, 15 s or less. 'never deliver with a known failure and a note.'",
+   "human_checkpoint": "None",
+   "tools_models": "ffmpeg, transcription, pitch and loudness analysis"
+  },
+  {
+   "step": "Section 15",
+   "name": "Deliverable package",
+   "does": "Concept memo, numbered script, casting and set cards, reference board, frames and frame plan, speaker map with voice IDs and stem map, prompts, take sheets with drift results, cut map, finished ad plus 3 hook variants, primary text and 2 headlines, Script Lab release, credits against the preflight, QA tables.",
+   "gate": "Primary text 80-250 words, opening with the hook line and ending with the 3-word CTA.",
+   "human_checkpoint": "None",
+   "tools_models": "None"
+  }
+ ],
+ "numbers": [
+  {
+   "key": "video_model_and_mode",
+   "value": "MiniMax H3 (minimax_h3) at 2K, reference mode (start frame as image_references + packed stem as audio_references); no other model, no model tests",
+   "quote": "**MiniMax H3 (`minimax_h3`) at 2K (hub G1)**, reference mode: the character's one start frame as `image_references` plus that character's packed voice stem as `audio_references`, `declined_preset_id` set. No other video model (never FLUX 3, Seedance, Veo or any other for a human), no model tests.",
+   "line": 23
+  },
+  {
+   "key": "video_call_params (resolution, aspect, declined_preset_id, duration)",
+   "value": "minimax_h3, 2K, 9:16, declined_preset_id per hub G1, duration = padded stem length 5 to 15 s",
+   "quote": "Model `minimax_h3`, `resolution: 2K`, `aspect_ratio: 9:16`, `declined_preset_id` per hub G1, duration = the padded stem length from the speaker map (5 to 15 seconds).",
+   "line": 364
+  },
+  {
+   "key": "declined_preset_id",
+   "value": "Required, but the value is NOT given in this skill (hub line 84 has 24bae836-2c4a-48e0-89b6-49fcc0b21612)",
+   "quote": "`declined_preset_id` per hub G1",
+   "line": 364
+  },
+  {
+   "key": "attachments_per_generation",
+   "value": "Exactly 1 image (start frame = <<<image_1>>>) + 1 audio (packed stem = <<<audio_1>>>), nothing else",
+   "quote": "Attach the character's one start frame as `image_references` (it is `<<<image_1>>>`) and that character's packed voice stem for this clip as `audio_references` (`<<<audio_1>>>`), and nothing else: never a Pinterest photo, never a second image of the person.",
+   "line": 364
+  },
+  {
+   "key": "clip_min_max_seconds",
+   "value": "5 to 15 s; 15 s is the H3 maximum",
+   "quote": "Clip length 5 to 15 seconds. 15 seconds is the H3 maximum.",
+   "line": 306
+  },
+  {
+   "key": "clip_min_balancing",
+   "value": "Move a line back so no clip is under 5 s",
+   "quote": "Balance the clips: if the last clip would be under 5 seconds, move a line back so every clip sits between 5 and 15 seconds.",
+   "line": 340
+  },
+  {
+   "key": "H3_duration_rule_vs_audio",
+   "value": "Duration = packed stem length (lines + 0.8 to 1.0 s listening beat after each + about 1 s tail, padded up to a whole second). The tail is inside the stem, so duration equals the audio file length.",
+   "quote": "**Clip seconds = the packed stem length:** the character's lines as voiced on the master + 0.8 to 1.0 seconds of listening beat after each + about 1 second of tail, padded up to a whole second (section 6b).",
+   "line": 336
+  },
+  {
+   "key": "packed_stem_construction",
+   "value": "Lines joined by 0.8 to 1.0 s silence, about 1 s tail, padded to whole seconds (5 to 15)",
+   "quote": "that character's lines cut from the master in script order, joined by 0.8 to 1.0 seconds of silence (the listening beat), plus about 1 second of tail, padded with silence to a whole number of seconds (5 to 15).",
+   "line": 300
+  },
+  {
+   "key": "words_per_clip",
+   "value": "About 30 to 35 words per 15 s clip, usually 2 or 3 short lines",
+   "quote": "In practice one 15-second clip holds about 30 to 35 words, usually 2 or 3 short lines.",
+   "line": 337
+  },
+  {
+   "key": "max_line_length",
+   "value": "A line over about 35 words must be split into two turns",
+   "quote": "A single line that can't fit in one clip on its own (over about 35 words) is a script problem",
+   "line": 341
+  },
+  {
+   "key": "characters_per_clip",
+   "value": "1",
+   "quote": "One start frame and one character's voice stem per generation, so each clip is one character. Never two characters in one clip.",
+   "line": 305
+  },
+  {
+   "key": "shots_per_take",
+   "value": "1 (one continuous shot, no cuts); static camera",
+   "quote": "Shots: one continuous shot, no cuts.",
+   "line": 373
+  },
+  {
+   "key": "camera",
+   "value": "Static, locked to the start frame",
+   "quote": "Camera: static, locked to match <<<image_1>>> throughout. No camera movement or angle changes.",
+   "line": 379
+  },
+  {
+   "key": "generations_per_ad",
+   "value": "Two hosts 4 to 6; three hosts 5 to 8",
+   "quote": "A two-host ad of 90 to 150 words usually lands at 4 to 6 generations total. Three hosts, 5 to 8.",
+   "line": 342
+  },
+  {
+   "key": "picture_change_cadence (reaction shots)",
+   "value": "At least one reaction shot every 10 s, each 0.8 to 1.5 s",
+   "quote": "**Reaction shots are required, at least one every 10 seconds.** Take 0.8 to 1.5 seconds of the listening character",
+   "line": 455
+  },
+  {
+   "key": "picture_change_cadence (punch-in second camera)",
+   "value": "Alternate lines punched in to about 112 to 118%",
+   "quote": "give alternate lines a punch-in (scale to about 112 to 118% and re-centre on the face)",
+   "line": 459
+  },
+  {
+   "key": "listener_cadence (script)",
+   "value": "Listener speaks at least every other turn and at least every 8 s",
+   "quote": "The listener speaks at least every other turn and at least every 8 seconds. No host has two turns in a row.",
+   "line": 67
+  },
+  {
+   "key": "image_model_frames",
+   "value": "GPT Image 2 (gpt_image_2), quality high, 2k; GPT Image 2.5 rejected (plastic skin)",
+   "quote": "Image model: GPT Image 2 (`gpt_image_2`, quality high, 2k), per hub G7. GPT Image 2.5 smooths skin into a plastic look (Oct 2026).",
+   "line": 219
+  },
+  {
+   "key": "master_frame_aspect",
+   "value": "16:9 wide, reference only, never shown",
+   "quote": "One wide 16:9 frame with every character in the recreated set.",
+   "line": 233
+  },
+  {
+   "key": "start_frame_aspect",
+   "value": "9:16 medium close-up per character, made only from the master",
+   "quote": "From the master two-shot, make each character's 9:16 medium close-up in the same room. **Attach only the master two-shot.**",
+   "line": 251
+  },
+  {
+   "key": "storyboard_layout / frame plan",
+   "value": "No storyboard; frame plan of F0 + one start frame per character. Two hosts = 3 images.",
+   "quote": "Two hosts means exactly three images: F0, F1, F2. Three hosts means four.",
+   "line": 291
+  },
+  {
+   "key": "frame_retakes",
+   "value": "Same prompt plus one fix; usually 1 to 3 tries",
+   "quote": "Retake with the same prompt plus one fix. Most frames pass in one to three tries.",
+   "line": 279
+  },
+  {
+   "key": "start_frame_drift_cap",
+   "value": "After 2 drifts, use the upscaled crop from the master frame",
+   "quote": "If it drifts twice, crop that character out of the master frame, upscale the crop, and attach the crop as the only image.",
+   "line": 228
+  },
+  {
+   "key": "pinterest_scoring",
+   "value": "8 checks scored 0 to 2; keep 13 or more out of 16",
+   "quote": "**Score each candidate 0 to 2 on these eight points; keep only 13 or more out of 16:**",
+   "line": 191
+  },
+  {
+   "key": "pinterest_search_volume",
+   "value": "3 to 5 searches per character, 3 per set",
+   "quote": "Per character, 3 to 5 searches built from the casting card",
+   "line": 166
+  },
+  {
+   "key": "pinterest_candidates",
+   "value": "15 to 30 image URLs per character and per set",
+   "quote": "take 15 to 30 image URLs per character and per set (use the largest image size the results offer)",
+   "line": 181
+  },
+  {
+   "key": "contact_sheet_size",
+   "value": "About 12 per sheet",
+   "quote": "tile them into numbered contact sheets (about 12 per sheet), and view the sheets",
+   "line": 189
+  },
+  {
+   "key": "set_props",
+   "value": "3 to 5 real props",
+   "quote": "3 to 5 real props (mug, notebook, plant)",
+   "line": 160
+  },
+  {
+   "key": "voice_model",
+   "value": "ElevenLabs eleven_v4 by default, one locked voice ID per character",
+   "quote": "Same voice ID and model (`eleven_v4` by default) for every line of that character.",
+   "line": 296
+  },
+  {
+   "key": "voice_takes",
+   "value": "Beats of 2 to 7 lines, 4 takes each",
+   "quote": "Generate each character's lines in beats of 2 to 7 lines, 4 takes each,",
+   "line": 298
+  },
+  {
+   "key": "pause_rules",
+   "value": "Natural pauses, spread of 0.1 s or more, never tightened",
+   "quote": "natural pauses (spread of 0.1 seconds or more, never tightened: hub G8), pitch range that moves like a person talking",
+   "line": 298
+  },
+  {
+   "key": "audio_tags",
+   "value": "At most one low-intensity tag at the start of a line",
+   "quote": "at most one low-intensity audio tag at the start of a line that needs it ([quietly], [a little tired], [laughs softly] only where the script writes a laugh)",
+   "line": 297
+  },
+  {
+   "key": "turn_gaps_master",
+   "value": "0.08 to 0.3 s, occasional 0.1 to 0.2 s overlap",
+   "quote": "turn gaps of 0.08 to 0.3 seconds, now and then a 0.1 to 0.2 second overlap where the next speaker jumps in, one loudness pass (about -16 LUFS)",
+   "line": 299
+  },
+  {
+   "key": "turn_gaps_edit",
+   "value": "0.08 to 0.2 s, never more than 0.35 s",
+   "quote": "Gaps between turns: 0.08 to 0.2 seconds, never more than 0.35.",
+   "line": 453
+  },
+  {
+   "key": "turn_gaps_QA",
+   "value": "0.08 to 0.35 s",
+   "quote": "Silence at every seam: 0.08 to 0.35 seconds, none longer.",
+   "line": 500
+  },
+  {
+   "key": "cut_in_out_points",
+   "value": "In 0.08 s before onset; out 0.12 to 0.2 s after the last word's energy drops",
+   "quote": "In point: 0.08 seconds before speech onset. Out point: 0.12 to 0.2 seconds after the last word's energy drops.",
+   "line": 452
+  },
+  {
+   "key": "pitch_range",
+   "value": "Median pitch per line within 1.5 semitones per character",
+   "quote": "Still measure each line's median pitch on the conversation master: within 1.5 semitones per character.",
+   "line": 425
+  },
+  {
+   "key": "loudness_LUFS_and_spread",
+   "value": "Per-line spread under 2 dB, then about -16 LUFS; 20 to 80 ms fades",
+   "quote": "Normalise each cut segment to the same loudness first (the spread between lines must be under 2 dB), then run one loudness pass on the whole edit (about -16 LUFS), a very low room-tone bed under everything, and 20 to 80 ms fades at each cut.",
+   "line": 457
+  },
+  {
+   "key": "true_peak_resolution_fps_audio_format",
+   "value": "loudnorm I=-16, TP=-1.5; 1080x1920; 30 fps; 48 kHz stereo",
+   "quote": "`ffmpeg -ss IN -to OUT -i clip.mp4 -vf \"scale=1080:1920:flags=lanczos,fps=30\" -af \"loudnorm=I=-16:TP=-1.5,aresample=48000,aformat=channel_layouts=stereo,afade=t=in:d=0.02,afade=t=out:st=DUR-0.06:d=0.06\"`",
+   "line": 470
+  },
+  {
+   "key": "music_SFX",
+   "value": "No music in clips; only a very low pink-noise room tone in the edit (no dB value given); no SFX",
+   "quote": "Constraints: No captions. No background music. No text on screen. No other people appear.",
+   "line": 389
+  },
+  {
+   "key": "captions",
+   "value": "Bold white, black outline, 1 to 3 words per card, lower middle of frame; no gap over 0.4 s; clamped to segment",
+   "quote": "Bold white, black outline, 1 to 3 words per card, lower middle of frame.",
+   "line": 461
+  },
+  {
+   "key": "caption_gap",
+   "value": "No caption gap over 0.4 s while someone talks",
+   "quote": "No caption gap longer than 0.4 seconds while someone is talking.",
+   "line": 464
+  },
+  {
+   "key": "title_bar_safe_zone",
+   "value": "8 words or fewer, 2 lines at most, about 44 to 50 px at 1080 wide, top safe area, never over a head (no % safe zone given)",
+   "quote": "**Title bar (the hook super):** 8 words or fewer, 2 lines at most, small (about 44 to 50 px on a 1080 px wide frame), placed in the top safe area.",
+   "line": 466
+  },
+  {
+   "key": "end_card",
+   "value": "About 3 s: 3-word CTA, offer, cost line, URL",
+   "quote": "**End card (about 3 seconds):** the 3-word CTA, the offer, the cost line the brand requires, the URL.",
+   "line": 467
+  },
+  {
+   "key": "AI_label_disclosure",
+   "value": "Small 'AI DRAMATIZATION' tag, top-left, through the talking section, burned in",
+   "quote": "Keep the \"AI DRAMATIZATION\" tag top-left through the talking section.",
+   "line": 468
+  },
+  {
+   "key": "AI_label_disclosure (origin)",
+   "value": "Tag required because the characters are AI composites",
+   "quote": "Put a small \"AI DRAMATIZATION\" tag on screen for the talking section.",
+   "line": 33
+  },
+  {
+   "key": "credits_per_item",
+   "value": "H3 2K = 2 credits/s; 15 s clip = 30 credits; ElevenLabs priced separately",
+   "quote": "Price one clip with a cost check (H3 at 2K is 2 credits per second, so a 15-second clip is 30 credits). The voices are ElevenLabs credits, priced separately.",
+   "line": 357
+  },
+  {
+   "key": "retake_allowance_budget",
+   "value": "One retake of the longest clip; about 2 retakes per image",
+   "quote": "Video total = every clip's seconds × the per-second price, plus one retake of the longest clip.",
+   "line": 358
+  },
+  {
+   "key": "retake_allowance_images",
+   "value": "About two retakes per frame",
+   "quote": "Add the images: the master two-shot, one start frame per character, and about two retakes per frame.",
+   "line": 359
+  },
+  {
+   "key": "QA_take_sheet_rate",
+   "value": "A frame every 1 s plus the first and last 0.1 s; face crop at least 190 px",
+   "quote": "Extract a frame every 1 second (and the first and last 0.1 second) and tile them, labelled with clip, line and time, face crop large enough to read the expression (at least 190 px wide per face at the size you view it).",
+   "line": 416
+  },
+  {
+   "key": "QA_final_frame_sheet_rate",
+   "value": "A frame every 1.5 s or less plus the first and last frame of every cut",
+   "quote": "From the finished video, extract a frame every 1.5 seconds or less, plus the first and last frame of every cut",
+   "line": 496
+  },
+  {
+   "key": "QA_drift_method",
+   "value": "Envelope comparison in 2 s windows every 0.25 s; risk in clips over about 7 s",
+   "quote": "Compare the clip's audio envelope with its stem in 2-second windows every 0.25 seconds. H3 often adds or drops a pause inside clips longer than about 7 seconds (Oct 2026: 9 of 13 clips drifted 0.1 to 1.1 seconds, usually as one clean step).",
+   "line": 426
+  },
+  {
+   "key": "QA_take_reject_thresholds",
+   "value": "Looking down or eyes closed over 1 s; frozen pose over 4 s",
+   "quote": "looks down for more than 1 second, closes their eyes for more than 1 second, or leaves the frame (head cut off, ducking);",
+   "line": 419
+  },
+  {
+   "key": "QA_frozen_pose",
+   "value": "Over 4 s rejected",
+   "quote": "holds one frozen pose for more than 4 seconds;",
+   "line": 422
+  },
+  {
+   "key": "QA_transcript_check",
+   "value": "ElevenLabs Scribe on the master before any video; final transcript of the finished file",
+   "quote": "Transcribe the conversation master (ElevenLabs Scribe, word timestamps) before any video is generated.",
+   "line": 431
+  },
+  {
+   "key": "tone_note_limit",
+   "value": "One tone phrase per line, at most 5 words, softened",
+   "quote": "One tone phrase per line, at most five words, always softened (\"a little\", \"slightly\", \"quietly\").",
+   "line": 405
+  },
+  {
+   "key": "listening_tail",
+   "value": "1 to 2 s of reaction footage after the last line",
+   "quote": "protects the final word from being cut off and gives 1 to 2 seconds of clean reaction footage.",
+   "line": 409
+  },
+  {
+   "key": "human_checkpoints",
+   "value": "No numbered GATE n checkpoints; fully autonomous except a missing brand fact, a budget shortfall, Pinterest failure, or Script Lab failing 3 loops",
+   "quote": "It does not ask the user to pick references. It stops only when: a brand fact the script needs is missing, the budget can't cover the whole ad, or every Pinterest route in section 4 fails.",
+   "line": 32
+  },
+  {
+   "key": "script_gate_score",
+   "value": "85 or more out of 100, no critical fail, up to 3 rewrite loops",
+   "quote": "Release at 85 or more with no critical fail (a core rung the readers can't follow, a missing rung, a speaker or timeline break, an invented fact). Up to 3 rewrite loops, then the user decides.",
+   "line": 43
+  },
+  {
+   "key": "length_tier_router (card)",
+   "value": "D15 10-15 s, D30 25-35 s, C45 40-50 s, S60 55-65 s, S90 80-100 s, L150 2-3 min, V300 3-6 min",
+   "quote": "C45 (40 to 50 s, conversation or problem demo)",
+   "line": 40
+  },
+  {
+   "key": "length_podcast_C45_budget",
+   "value": "8 to 12 turns, 80 to 110 words, 35 to 45 s",
+   "quote": "**Length:** 8 to 12 turns, 80 to 110 spoken words, 35 to 45 seconds: the podcast C45 budget (Script Lab router rule 5), which its test 14 counts against.",
+   "line": 75
+  },
+  {
+   "key": "length_L150_long_cut",
+   "value": "2 to 3 min, its own script in its own Script Lab call",
+   "quote": "A long cut (L150, 2 to 3 minutes) is its own script, written in its own Script Lab call (2b, L20).",
+   "line": 75
+  },
+  {
+   "key": "turn_word_budget",
+   "value": "20 words or fewer per turn; one turn may reach 25",
+   "quote": "Every turn is one or two short sentences, 20 words or fewer. One turn per ad (the fix and brand turn) may reach 25 words.",
+   "line": 66
+  },
+  {
+   "key": "host_share",
+   "value": "No host over 60% of the words",
+   "quote": "Neither host carries more than 60% of the words.",
+   "line": 68
+  },
+  {
+   "key": "brand_line",
+   "value": "One casual sentence, 25 words or fewer",
+   "quote": "The brand line is one casual sentence, 25 words or fewer:",
+   "line": 71
+  },
+  {
+   "key": "payoff_line",
+   "value": "6 words or fewer",
+   "quote": "End on the lived payoff, six words or fewer",
+   "line": 73
+  },
+  {
+   "key": "ear_rules",
+   "value": "Core lines under 12 words, none over 17, grade 7",
+   "quote": "write for the ear (core lines under 12 words, none over 17, grade 7)",
+   "line": 42
+  },
+  {
+   "key": "hook_window",
+   "value": "ICP and pain clear within 3 s",
+   "quote": "A stranger in the ICP must know within 3 seconds who this is for and what hurts.",
+   "line": 64
+  },
+  {
+   "key": "hook_variants",
+   "value": "3 per ad",
+   "quote": "## 12. Hook variants (3 per ad)",
+   "line": 472
+  },
+  {
+   "key": "primary_text",
+   "value": "80 to 250 words, 2 headlines, ends with the 3-word CTA",
+   "quote": "Primary text (80 to 250 words, opens with the hook line, ends with the 3-word CTA), 2 headlines, all at the concept's awareness stamp.",
+   "line": 525
+  },
+  {
+   "key": "solo_variant_settings",
+   "value": "1 to 3 real settings",
+   "quote": "pick 1 to 3 real settings from the avatar's day (bathroom counter, car front seat, kitchen, bedroom)",
+   "line": 486
+  },
+  {
+   "key": "historic_voice_drift (native audio)",
+   "value": "3 to 5 semitones between clips on native video audio",
+   "quote": "the first Mardyos run on native video audio moved one character 3 to 5 semitones between clips",
+   "line": 425
+  }
+ ],
+ "claims": [
+  {
+   "claim": 1,
+   "verdict": "TRUE",
+   "quote": "Image model: GPT Image 2 (`gpt_image_2`, quality high, 2k), per hub G7. GPT Image 2.5 smooths skin into a plastic look (Oct 2026).",
+   "line": 219,
+   "note": "The podcast part is confirmed: frames use GPT Image 2 (quality high, 2k), and 2.5 is rejected for plastic skin. Hub G7 agrees (hub line 109). A grep of readymerce-animation-ads line 27 confirms 'Sheets and storyboards on Nano Banana 2', with GPT Image 2 for realistic humans. The carousel claim (GPT Image 2.5) was not checked here."
+  },
+  {
+   "claim": 2,
+   "verdict": "TRUE",
+   "quote": "duration = the padded stem length from the speaker map (5 to 15 seconds).",
+   "line": 364,
+   "note": "The podcast uses duration = padded stem. The stem already contains 'about 1 second of tail' of silence (line 300), so the audio file length equals the duration and no extra second is added on top. A unified rule must say whether the 1 s of headroom sits inside the audio (podcast) or is added beyond it (drama 'stem + 1 s')."
+  },
+  {
+   "claim": 3,
+   "verdict": "TRUE",
+   "quote": "Clip length 5 to 15 seconds. 15 seconds is the H3 maximum.",
+   "line": 306,
+   "note": "Also line 340 ('every clip sits between 5 and 15 seconds') and the speaker map row 'A2 ... 5 (minimum clip)' (line 349). The skill gives no reason for the 5 s floor; hub G1 line 83 says 'a 4-second render failed in testing'."
+  },
+  {
+   "claim": 4,
+   "verdict": "TRUE",
+   "quote": "In practice one 15-second clip holds about 30 to 35 words, usually 2 or 3 short lines.",
+   "line": 337,
+   "note": "Also line 341: a line 'over about 35 words is a script problem'. Hub G4 (hub line 101) gives the same 30 to 35."
+  },
+  {
+   "claim": 9,
+   "verdict": "TRUE",
+   "quote": "then run one loudness pass on the whole edit (about -16 LUFS)",
+   "line": 457,
+   "note": "The podcast says -16 LUFS in three places: master build (line 299), the edit (line 457), and the ffmpeg recipe 'loudnorm=I=-16:TP=-1.5' (line 470). True peak is -1.5 dBTP. The animation, drama, motion and song parts are not in this skill."
+  },
+  {
+   "claim": 12,
+   "verdict": "TRUE",
+   "quote": "Keep the \"AI DRAMATIZATION\" tag top-left through the talking section.",
+   "line": 468,
+   "note": "It is burned in via the ASS file (line 470: 'burn captions, title, tag and end-card text from one ASS file') and required at line 33. A grep of readymerce-drama-ads line 127 confirms X9: 'No AI tag burned into the video. Use Meta's own AI disclosure setting'. This is a real cross-skill conflict."
+  },
+  {
+   "claim": 18,
+   "verdict": "TRUE",
+   "quote": "C45 (40 to 50 s, conversation or problem demo)",
+   "line": 40,
+   "note": "Inside this same skill, the Script Lab card (line 40) says C45 is 40 to 50 s, while the podcast adapter (line 75) says '35 to 45 seconds: the podcast C45 budget'. Script Lab treats this as a deliberate format override (Script Lab line 150: 'podcast C45 (35 to 45 s)'; line 741: 'Test 14 counts against this budget, not the general C45 range'). The word budgets differ too: router C45 is 100 to 140 words (Script Lab line 136), podcast is 80 to 110 (line 75). A length checker using the router would fail correct podcast scripts."
+  },
+  {
+   "claim": 5,
+   "verdict": "PARTIAL",
+   "quote": "Shots: one continuous shot, no cuts.",
+   "line": 373,
+   "note": "The claim's list leaves out the podcast, which is a fourth value: 1 shot per take with a static camera (line 379). That contradicts the hub G1 prompt card the podcast says it follows ('2 to 4 shots per clip', hub line 90). The song, animation and hub values were not verified from this skill."
+  },
+  {
+   "claim": 8,
+   "verdict": "PARTIAL",
+   "quote": "natural pauses (spread of 0.1 seconds or more, never tightened: hub G8)",
+   "line": 298,
+   "note": "The podcast itself follows hub G8 (also fail-table line 573: 'Natural pauses from the voice model, never tightened'). But line 295 hands the method and 'the checker and builder' to Phase 5 of readymerce-animation-ads. Its vo_build2.py 'caps every pause inside a line at 0.4s (`CAP`)' and joins lines with fixed gap codes where 'Nothing overlaps' (animation line 295). An agent following the delegation would cap pauses and drop the podcast's 0.1 to 0.2 s overlaps."
+  },
+  {
+   "claim": 10,
+   "verdict": "TRUE",
+   "quote": "scale=1080:1920:flags=lanczos,fps=30",
+   "line": 470,
+   "note": "The podcast part is 30 fps. The drama 24 fps part is not in this skill."
+  },
+  {
+   "claim": 11,
+   "verdict": "PARTIAL",
+   "quote": "Bold white, black outline, 1 to 3 words per card, lower middle of frame.",
+   "line": 461,
+   "note": "The podcast gives no percentage safe zone. Captions sit at 'lower middle of frame' and the title bar in 'the top safe area' (line 466); the AI tag is top-left (line 468). It neither states nor contradicts 'bottom 20% clear'. Animation line 517 has 'top 14% and bottom 20% clear'."
+  },
+  {
+   "claim": 7,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "No other video model (never FLUX 3, Seedance, Veo or any other for a human), no model tests.",
+   "line": 23,
+   "note": "The podcast repeats the hub ban. It neither mentions nor allows the drama X5 exceptions. Hub line 78 lists only X1 to X4 (checked in the hub, not this skill)."
+  },
+  {
+   "claim": 16,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "After launch, LEARN maps drop-offs to lines and adds the lesson to the list.",
+   "line": 44,
+   "note": "The podcast only inherits LEARN through the Script Lab card and names no data source. Script Lab line 31 gives LEARN's input as 'Ad IDs and the line tables with voice timestamps', which supports the paid-only claim, but that evidence lives in Script Lab."
+  }
+ ],
+ "story_structures": [
+  {
+   "code": "PC-2H",
+   "name": "Two-host cold-open discovery (podcast beat template, C45)",
+   "shape": "1 A: cold-open accommodation, first person, the viewer's world named → 2 B: a short question showing she knows the pain → 3 A: escalation in the buyer's words → 4 B: the real cause in one plain picture line (aha) → 5 A: echo question or disbelief → 6 B: 'We had the same thing' + the wrong fix tried → 7 A: one-word pull ('And?') → 8 B: the fix + casual brand name + one thing it showed them (25 words max) → 9 A: pull for the result or the objection → 10 B: lived payoff, 6 words or fewer",
+   "organic_fit": "Very strong. The approved worked example is already an Albanian B2B services piece: two business owners in Tirana, a clinic owner answering WhatsApps at 11 pm, the cause 'whoever answers first gets them', then the agency (Mardyos, here in Tirana). For organic, beat 8 becomes the mechanism or insight (e.g. 'we set an auto-reply that answers in minutes and books the call') instead of 'a free session with X'. The agency is the account itself, so the brand name can drop or become a light 'our team showed us'. The end card's offer, cost line and URL are replaced by a spoken or super CTA such as 'Comment PËRGJIGJE and we'll send the 3-message reply script', 'Save this for your front desk' or 'Send this to the clinic owner who answers at midnight'. Keep the 35 to 45 s length, the cold-open pain line and the 6-word payoff; the series value comes from recurring hosts, since locked voices and one start frame per host make a weekly show possible."
+  },
+  {
+   "code": "PC-3P",
+   "name": "Three-person panel (host + problem guest + fix guest)",
+   "shape": "The host asks the questions (beats 2, 5, 9); guest 1 carries the problem beats (1, 3, 7); guest 2 carries the cause, failed fix, fix and payoff (4, 6, 8, 10)",
+   "organic_fit": "Works as an organic 'roundtable' episode for an agency: the agency strategist as host, a local business owner with the pain, and another owner who fixed it. It costs one more casting brief, reference photo, start frame and set of generations (line 114). Good for a recurring 'Biznes Talk' series format, with the CTA to follow for the next episode or comment a keyword for the checklist."
+  },
+  {
+   "code": "PC-HV",
+   "name": "Hook variants: main / new title bar / later start",
+   "shape": "V1: cold-open line 1 + title bar A; V2: same open + title bar B naming the ICP another way (a question or the accommodation in their words); V3: drop the first 1-2 turns and start on a later line that works cold (e.g. the aha line) + title bar C; no line ever plays twice",
+   "organic_fit": "Organic can't A/B test the way ads do, but V2 and V3 can run as Instagram trial reels or be reposted on other surfaces at no generation cost. V3 (open on the aha 'Whoever answers first gets them') is a strong organic hook for save-and-share. Re-run the seam tests on V3."
+  },
+  {
+   "code": "PC-SOLO",
+   "name": "Solo creator UGC across the buyer's day (section 13)",
+   "shape": "Line 1 cold-open pain to the phone camera in setting 1 → the accommodation and escalation as she moves through 1 to 3 real settings from her day (car, desk, bed at 11 pm) → the cause/aha → the failed fix → what changed (mechanism, product or service) → lived payoff; jump cuts between lines",
+   "organic_fit": "This is the closest match to the 'POV day in the life of the buyer with their pains, then the revelation of the mechanism' format: the settings come from the avatar's day and each carries a pain moment. For a B2B services client: a clinic or showroom owner's day (morning DMs unanswered in the car, a lost lead at the desk, WhatsApps in bed at 11 pm), then the reveal that speed of reply is the mechanism. Close on the payoff plus an organic CTA (comment keyword for the DM funnel, save, send). Script it in Script Lab with the UGC adapter (18d) at D30, C45 or S60, and drop the end card's offer and URL."
+  },
+  {
+   "code": "PC-L150",
+   "name": "Long cut conversation (L150, 2 to 3 min)",
+   "shape": "Loops problem → promise → mechanism → objection → proof, repeated; can carry a second guest story; covers more of the six objections in L13 order; written as its own script, never trimmed into the short one",
+   "organic_fit": "Fits organic as a longer Reel or a YouTube/Facebook video 'episode' where the agency teaches. Each loop can be cut into a standalone 30 to 45 s clip if each is written with its own cold open. Needs a stated reason under Script Lab rules; for organic, the reason is 'education / series episode'."
+  }
+ ],
+ "organic_adaptation": [
+  "CTA: replace the ad CTA ('3-word CTA' on the end card, line 467; primary text 'ends with the 3-word CTA', line 525) with an organic CTA: comment keyword (wired to the lovable-app comment-to-DM funnel), follow for part 2, save, or send to a colleague. Script Lab scores 'offer and CTA ... on the end card, supers and primary text' (line 60), so it needs an organic scoring profile.",
+  "Offer close: remove 'the offer, the cost line the brand requires, the URL' from the end card (line 467) and the 12-rule 'offer before the CTA' (line 42). The L6 guarantee line in a friend's mouth (line 124) has no place in organic. The brand turn (beat 8, 'We did a free session with Mardyos') becomes the mechanism or insight; on the agency's own account the brand is the handle, so naming it in speech is optional.",
+  "Product reveal timing: the ad rule is 'promise before mechanism, name after the promise' at beat 8 of 10 (about 70% through). For organic, the save-worthy value (the cause in one picture line, beat 4) must land early and the 'product' can be a method, not a purchase. Keep 'the mechanism explains why the old fixes failed'.",
+  "Length: the podcast C45 of 35 to 45 s (line 75) works for Reels; also allow a D30-style 20 to 30 s two-host cut, and an L150 as a series episode. Fix the router conflict (C45 40 to 50 s vs 35 to 45 s) in the shared standards file.",
+  "Hook rules: keep the cold-open pain line, the 3-second ICP rule (line 64) and the title bar of 8 words or fewer. The 3 hook variants become trial reels or cross-posts, not ad-set tests. Hook Lab is optional here ('the hook stacks if the Hook Lab ran', line 60), but the hub says every hook goes through Hook Lab, so decide one rule for organic.",
+  "Compliance: keep 'Only verified claims' (line 76) and 'Facts, prices, proof and results come only from what the brand supplies' (line 33). Keep the likeness rule (4.5): it is framed as a 'paid ad' risk but applies equally to organic posts. Drop 'cost line the brand requires'.",
+  "AI label: the podcast burns in 'AI DRAMATIZATION' top-left (line 468) while drama bans a burned tag (drama X9). For organic Instagram, choose one rule in the shared standards (e.g. a burned tag plus the platform's AI-content label toggle when publishing) and resolve the top-area collision between the title bar ('top safe area') and the top-left tag.",
+  "Metrics/learning: LEARN takes 'Ad IDs and the line tables' (Script Lab line 31), so it is paid-only. Organic needs IG Insights retention, saves, shares, comments-keyword counts and DM-funnel conversions (e.g. via Supermetrics instagram_insights or the hub) mapped to the line table.",
+  "Deliverables: replace 'Primary text (80 to 250 words ...), 2 headlines' with an IG caption (hook line first, value, CTA keyword), cover frame and keyword funnel config, sent to the hub as a draft (CLAUDE.md: nothing posted without approval).",
+  "Human checkpoint: the skill is fully autonomous with no numbered GATE before spending credits (line 32). The organic pipeline needs at least an approval gate before render (script + frames) and before posting.",
+  "Language: for Albanian clients, apply hub G8 negation rules ('nuk ju' not 's'ju'), check the eleven_v4 Albanian pause behaviour, and run the Scribe check in Albanian. The worked example is written in English though set in Tirana.",
+  "Recurring characters: organic gains from a recurring host cast. Store each host's F-frame, voice ID and casting card per client so a series reuses the same people (the one-reference rule makes this safe) instead of re-casting from Pinterest each week.",
+  "Framing for organic surfaces: keep captions out of the Reels UI zone (the skill gives no % safe zone, only 'lower middle'). The 'letterboxed 16:9 inside 9:16' native crop (line 458) needs an explicit step, because the ffmpeg recipe only scales to 1080x1920."
+ ],
+ "visual_qa_overlap": "What the skill already does. (1) Reference stage: numbered Pinterest contact sheets of about 12, each candidate scored 0-2 on 8 checks, keep 13 or more out of 16, a reject-on-sight list, and a reference board log. (2) Frame stage (5.4): 8 checks at full size: same person (start frame next to its master-frame crop), one image per person, likeness (master faces vs Pinterest faces), skin, hands and five fingers, props, light and no logos, characters distinct, real-podcast look at phone size, and gaze/expression/hands plus title-bar clearance. Retake with one fix; drift twice means using the upscaled crop. (3) Frame plan F0..F2 as a structural check (images = hosts + 1). (4) Prompt: a fixed template (section 8) with a tone table and a behaviour lock, but no prompt review step. 'Every prompt follows the hub G1 prompt card' is asserted, not checked, and the podcast template actually diverges from the G1 card (1 shot vs 2-4, static tripod vs handheld micro-shake, no background people vs 2-3 named background people). (5) Takes: a take sheet per clip with a frame every 1 s plus the first and last 0.1 s, face crops at least 190 px, a 6-item reject list (lens look, looking down or eyes closed over 1 s, gestures, smiling on a problem line, frozen over 4 s, drift from the start frame), a pitch check within 1.5 semitones, and a drift check (2 s windows every 0.25 s). (6) Final: a frame sheet every 1.5 s or less plus every cut boundary, caption-face match, pose snaps, title bar over a head, final transcript, pitch, loudness and gap tables, a hook check and a conversation check. There are no storyboards in this format: the frame plan replaces them. All of these reviews are self-reviews by the generating agent. The only fresh-agent check in the chain is Script Lab's cold read of the script.\n\nWhat a fresh-agent reviewer set would replace or add. A Visual Reviewer, given only the casting cards, Pinterest picks and generated frames, would take over the 5.4 frame QA and the likeness check: the generator is biased toward passing its own frames, and the likeness 'would a stranger say it's the same person' test needs a stranger. It would also check the master-frame crop against the start frame, and, added, the title bar plus AI tag layout at the top. A Prompt Reviewer would lint every clip prompt before spend against a podcast-specific card: exactly 1 image + 1 audio, minimax_h3 / 2K / 9:16, declined_preset_id value present, duration = stem length within 5-15 s, one continuous shot, static camera, no gesture verbs outside the behaviour lock, tone of 5 words or fewer and softened, a laugh only when the script has '(small laugh)', numbers as words, the listening-beat times matching the stem map, and no Pinterest attachment. A Take Reviewer would read each take sheet blind against the 9.3 reject list and the drift table, deciding retakes per used line. A Final Reviewer would read the rendered-file sheet for caption-on-wrong-face, pose snaps and reaction-shot cadence (one every 10 s or less). Shared needs to add: a labelled frame-sheet tiler (crop size 190 px or more), pitch, loudness and gap table scripts (none exist locally), and a machine-readable record of each verdict.",
+ "costs": [
+  {
+   "item": "MiniMax H3 at 2K, per second of clip",
+   "credits": "2 credits per second (line 357)"
+  },
+  {
+   "item": "One 15-second H3 clip",
+   "credits": "30 credits (line 357)"
+  },
+  {
+   "item": "Video budget formula",
+   "credits": "every clip's seconds × 2 + one retake of the longest clip (line 358)"
+  },
+  {
+   "item": "Images (master two-shot + one start frame per character)",
+   "credits": "not priced in this skill; budget about two retakes per frame (line 359). Hub G3 (not this skill): 'a GPT Image still is 1 to 3 credits'"
+  },
+  {
+   "item": "ElevenLabs voices",
+   "credits": "'ElevenLabs credits, priced separately' (line 357); no number given. Hub G8 (not this skill): voice changer 'about 17 credits a second per take'"
+  }
+ ],
+ "other_issues": [
+  "Step order trap: the transcript check is 'Step 9' (section 10), titled 'before any video', but it sits after 'Step 8: Generate and check the clips' (section 9). The changelog says 'section 10 moved before video', but it was only renumbered in prose. An agent executing sections in order would generate video before the master transcript check.",
+  "Stale ffmpeg recipe (line 470): it cuts per line from `-i clip.mp4` and runs `-af loudnorm ...` on the clip's own audio. This contradicts 11.0 ('The conversation master is the timeline and the only audio ... Mute every clip.', line 439) and QA item 12 ('the conversation master is the only audio'). It is a v4 leftover, and an automated agent would ship H3 clip audio.",
+  "Stale v4 edit logic around audio: 11.2 'Whisper often stretches a clip's first word back to 0.0 seconds' (line 450) assumes clip transcription, but 10.5 says 'The clips' own audio is not transcribed' and 10.1 uses ElevenLabs Scribe. Hub G6 says 'Transcribe every generated speaking clip (Whisper with word timestamps)', which conflicts with podcast 10.5. 11.7 per-line normalisation and 11.6 clipped-last-word patch also assume clip audio.",
+  "Four different turn-gap ranges: master 0.08 to 0.3 s with 0.1 to 0.2 s overlaps (line 299); edit 0.08 to 0.2 s, never over 0.35 (line 453); QA gap table 0.08 to 0.35 (line 500); fail table 'trim to 0.08 to 0.2 seconds' (line 579). With the master as the only audio, it is unclear whether the edit is allowed to retime the master.",
+  "Frame-sheet rate inconsistency: section 0 says every take AND every finished ad uses 'one frame every 1.5 seconds or less' (line 28), but the section 9 take sheet says 'a frame every 1 second' (line 416).",
+  "Claims to follow the hub G1 prompt card (lines 23, 364, 572) but deviates from it. Podcast: one continuous shot, tripod 'phone or small vlog camera', 'No other people appear', no gestures. Hub card: '2 to 4 shots per clip', 'Real iPhone 15 Pro footage ... natural micro-shake', 'Background line in every shot: 2 or 3 named people', 'one per shot at most' gestures. A validator built on the hub card would fail correct podcast prompts. The solo variant (line 489) asks for 'background action in every shot' and 'an optional cutaway shot', which conflicts with section 8's 'one continuous shot'.",
+  "declined_preset_id value missing from this skill: it says only '`declined_preset_id` set' / 'per hub G1'. The value '24bae836-2c4a-48e0-89b6-49fcc0b21612' lives only in hub line 84.",
+  "Delegated voice tooling is not local and conflicts. Line 295 sends 'the checker and builder' to readymerce-animation-ads Phase 5, where vo_build2.py is curled from a CloudFront URL (animation line 279) and needs praat-parselmouth. No vo_build2.py exists in /home/user/main or on disk. Its build step caps pauses at 0.4 s, uses fixed S/B/H gaps of 0.15/0.4/0.8 s, allows no overlaps, and builds 'one stem per speaker', not the podcast's per-clip packed stems with 0.8 to 1.0 s listening beats.",
+  "Line 295 lists 'the 15-second pilot' as part of the voice method, but no podcast step runs a pilot.",
+  "Broken internal cross-reference: line 341 says to split a long line 'into two turns (section 2, rule 12)', but rule 12 is 'Number every line'; the turn-length rule is rule 4. The v3.2 changelog cites '11.7b', which does not exist (the punch-in is section 11 item 9).",
+  "Stale word range: line 342 'A two-host ad of 90 to 150 words usually lands at 4 to 6 generations' vs the C45 budget '80 to 110 spoken words' (line 75).",
+  "Speaker-map example does not add up. Per line 336, each line is followed by a 0.8 to 1.0 s beat (3 lines = 2.4 to 3.0 s), yet A1 shows '11 + 2 + 1 = 14'. Word counts don't match the worked example: A1 = L1+L3+L5 = 27 words in the Mardyos script vs '33' in the table. Line 300 ('joined by') and line 336 ('after each') disagree on whether the last line gets a listening beat as well as the tail.",
+  "Router conflict inside the skill: the card says C45 is 40 to 50 s (line 40), the adapter says 35 to 45 s (line 75). Script Lab's router C45 is 100 to 140 words vs the podcast's 80 to 110.",
+  "Hub version reference is stale: the changelog says 'hub v13.3', the hub is v13.4 (hub line 6). v13.4 only added drama, so there is no functional change for the podcast.",
+  "Hook Lab is optional here ('the hook stacks if the Hook Lab ran (hub C5)', line 60), while the hub says 'Every hook (video, static, story) is made and graded in the Hook Lab' (hub line 25).",
+  "Native framing (line 458) asks for a tight crop or 'letterboxed 16:9 inside 9:16', but the ffmpeg recipe only scales to 1080:1920, and the title bar is checked against start frames, not the final crop.",
+  "Title bar ('top safe area', line 466) and AI tag ('top-left', line 468) share the top region with no collision rule. No numeric safe zones are given at all.",
+  "A setting change makes a new start frame 'from the character's existing start frame plus that empty room' (line 262), while the solo variant makes it 'from the master frame plus that setting's empty-room reference' (line 487): two different sources for the same operation, and both break 'exactly one start frame per character'.",
+  "AI DRAMATIZATION burned tag (lines 33, 468) conflicts system-wide with drama X9 ('No AI tag burned into the video'), with no shared policy.",
+  "No tool or script is named for pitch tables, loudness tables, gap tables, the envelope drift check or frame-sheet tiling. An automated agent must improvise in the Higgsfield sandbox ('wiped between sessions', line 470) or locally.",
+  "No numbered human GATEs and full autonomy (line 32) conflict with the repo rule that nothing is posted without approval. An organic pipeline must add approval checkpoints.",
+  "Section 0 says hard gates include 'Budget preflight before the first render (section 7.5)', but 7.5 sits before the prompt step and after the speaker map. That is fine, but it depends on stem lengths from 6b, so 6b and section 10 must complete first.",
+  "Appendix M is only a pointer. The full Copy Laws live in readymerce-script-lab Appendix M (verified present at Script Lab line 1055), and the skill requires reading it before any copy."
+ ]
+}

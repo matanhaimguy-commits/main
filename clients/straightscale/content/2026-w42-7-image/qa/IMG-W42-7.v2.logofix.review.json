@@ -1,0 +1,76 @@
+{
+ "gate": "G-VIS",
+ "asset_id": "IMG-W42-7",
+ "version": 2,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "hero": true,
+ "reviewed_file": {
+  "sandbox_path": "/home/user/drafts/fixed/ebd54bc2.jpg",
+  "hosted_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/a9955a24-0a7b-4d68-897e-3a79da875c7e.jpg",
+  "md5": "be30d2a7d7a796fdc368ec3da5504726",
+  "note": "The hosted file was downloaded in the sandbox and is byte-identical (same md5) to the sandbox file. Compared against the original /home/user/drafts/ebd54bc2-4295-4a39-8392-b776d3c06d08.jpg: outside the logo zone the largest pixel difference is 24/255 (JPEG re-encode only); all real changes sit in x 95-393, y 1190-1296."
+ },
+ "crop_dir": "sandbox /home/user/qa/IMG-W42-7.v2/crops (manifest copy: clients/straightscale/content/2026-w42-7-image/qa/crops/IMG-W42-7.v2/manifest.json)",
+ "files_opened": [
+  "full.jpg", "orig_full.jpg", "thumb_200.jpg",
+  "tile_r1c1.jpg", "tile_r1c2.jpg", "tile_r1c3.jpg", "tile_r2c1.jpg", "tile_r2c2.jpg", "tile_r2c3.jpg", "tile_r3c1.jpg", "tile_r3c2.jpg", "tile_r3c3.jpg",
+  "region_logo_zone_orig_top_fixed_bottom_2x.jpg", "ref_logo_light_on_dark.jpg", "region_logo_3x.jpg",
+  "region_logo_zone_boosted_orig_top_fixed_bottom_2x.jpg", "region_inpaint_mask_outline_boosted_2x.jpg",
+  "region_logo_zone_3x_orig_top_fixed_bottom_normal.jpg", "region_under_wordmark_4x_orig_fixed_normal_then_boosted.jpg",
+  "region_logo_context_fixed_2x.jpg", "region_edge_above_wordmark_5x_orig_left_fixed_right.jpg",
+  "region_edge_highlight_2x_orig_left_fixed_right.jpg", "region_edge_highlight_1x_orig_left_fixed_right.jpg",
+  "region_gold_px_check_5x.jpg",
+  "region_text_kicker_2x.jpg", "region_text_headline_l1_2x.jpg", "region_text_headline_l2_2x.jpg", "region_text_word_pergjigje_3x.jpg",
+  "region_text_headline_l3_2x.jpg", "region_text_subline_a_2x.jpg", "region_text_subline_b_2x.jpg",
+  "region_phone_screen_2x.jpg", "region_phone_statusbar_4x.jpg", "region_phone_inputfield_4x.jpg",
+  "region_ledger_cover_3x.jpg", "region_ledger_emboss_5x_boosted.jpg"
+ ],
+ "spec_used": "No Shot Spec exists for this post. Judged against the packet: alt text (scene + on-image text), style-bible.md, brand-kit.md, STANDARDS.md section 6, failure-library.md (FL-04, FL-05, FL-10, FL-13).",
+ "checks": [
+  {"id": "V1", "result": "PASS", "severity": "", "region": "full", "evidence": "full.jpg: the question 'Sa mesazhe mbetën pa përgjigje këtë javë?' sits in the top third over a calm dark wall, and a red-cased phone with a stack of incoming message bubbles lies on an empty reception desk at night. Sound off, it reads in one second as 'messages left unanswered'."},
+  {"id": "V2", "result": "PASS", "severity": "", "region": "full", "evidence": "Matches the plan hook 'Sa mesazhe mbetën pa përgjigje këtë javë?' and the self-check ask ('Numëroji para se të paguash për më shumë reklama'): empty clinic reception, phone full of messages, nobody answering."},
+  {"id": "V3", "result": "PASS", "severity": "", "region": "full, phone", "evidence": "No counts, prices, results, client names or reviews; no platform names or logos on the phone (region_phone_screen_2x.jpg); no em dash in any on-image string. The garbled clock digits in the status bar are logged under V11."},
+  {"id": "V4", "result": "N/A", "severity": "", "region": "full", "evidence": "No people or hands in the image (the alt text asks for an empty reception)."},
+  {"id": "V5", "result": "N/A", "severity": "", "region": "full", "evidence": "No hands."},
+  {"id": "V6", "result": "N/A", "severity": "", "region": "full", "evidence": "No faces."},
+  {"id": "V7", "result": "PASS", "severity": "", "region": "tile_r3c2, tile_r2c2, tile_r2c3", "evidence": "The phone lies flat on the lacquered desk with a matching red reflection under its edge; the brass bell stands on its base with a reflection; the pen rests on the ledger cover. Nothing floats."},
+  {"id": "V8", "result": "PASS", "severity": "", "region": "region_phone_screen_2x, tile_r2c2, tile_r2c3", "evidence": "Phone: one case, side buttons on one edge, one port with speaker holes, one home indicator. Bell: base, dome, plunger. Ledger: one cover and one page block. Window frames and the desk front edge are straight; background chairs stand on the floor."},
+  {"id": "V9", "result": "PASS", "severity": "", "region": "region_text_* crops", "evidence": "Read letter by letter at 2x/3x. Line 1 'Sa mesazhe mbetën' (ë with two dots). Line 2 on the crimson bar 'pa përgjigje': glyphs counted as separate components p, ë, r, g, j, i, g, j, e (region_text_word_pergjigje_3x.jpg; the j has a descender, the i does not). Line 3 'këtë javë?' (three ë). Subline 'Numëroji para se të paguash për më shumë reklama.' (ë in Numëroji, të, për, më, shumë; full stop). All match the alt text exactly. The extra kicker 'PYETJA E JAVËS' (Ë correct) is the optional label of 6 words or fewer that STANDARDS 6 allows; it is not in the alt text, so add it there ('Pyetja e javës') for accessibility. No ç occurs in the image text."},
+  {"id": "V10", "result": "PASS", "severity": "", "region": "tile_r1c1, tile_r1c2, tile_r2c1", "evidence": "All copy sits on the calm dark upper wall and on its own crimson bar; nothing passes in front of or through the letters; no text on objects except the phone UI (V11)."},
+  {"id": "V11", "result": "FAIL", "severity": "minor", "region": "phone input field (x~455-700, y~1050-1090); phone status bar (x~235-270, y~850-865); ledger cover (x~1000-1050, y~755-775)", "evidence": "Pre-existing (identical in the original; not caused by the logo fix). region_phone_inputfield_4x.jpg: the message field's placeholder is gibberish, reading roughly 'Mesisetan' (not 'Mesazh' or any word). region_phone_statusbar_4x.jpg: the status-bar clock is malformed digits ('0101' / '10:10' with no colon), which is also an invented number on a screen. region_ledger_emboss_5x_boosted.jpg: faint embossed pseudo-lettering on the ledger cover (only visible with levels raised). All three are tiny and only legible zoomed, so minor; FL-10 pattern."},
+  {"id": "V12", "result": "PASS", "severity": "", "region": "region_phone_screen_2x", "evidence": "The story prop has its content: 8 grey incoming bubbles (tails at lower left), no outgoing replies, so the screen shows the state 'unanswered messages' without counts, as STANDARDS 6 asks. Not an empty screen (FL-04/FL-05)."},
+  {"id": "V13", "result": "PASS", "severity": "", "region": "region_phone_screen_2x", "evidence": "The recurring hero object is a smartphone in a glossy deep red case (measured median (132,21,20) in shade under warm light, consistent with #BE0F18). No prop sheet was supplied; matches the style bible's description."},
+  {"id": "V14", "result": "PASS", "severity": "", "region": "tiles", "evidence": "Bell, ledger, pen, waiting chairs, potted plant, wall sconces and framed pictures all belong to a clinic reception. No unexplained objects. (The red cross sign is logged under V24.)"},
+  {"id": "V15", "result": "N/A", "severity": "", "region": "full", "evidence": "No characters."},
+  {"id": "V16", "result": "N/A", "severity": "", "region": "full", "evidence": "Single image post; no previous shot."},
+  {"id": "V17", "result": "PASS", "severity": "", "region": "tile_r1c3", "evidence": "No set sheet in the packet. Setting matches the style bible world 'Tirana after dark': the Tirana clock tower is visible lit through the reception window, wet street lights and a parked car outside."},
+  {"id": "V18", "result": "PASS", "severity": "", "region": "full", "evidence": "1080x1350 (4:5). Inside the 4% margin (43 px sides, 54 px top/bottom): kicker top y=63, text left x=103, headline right edge ~x=880, logo x 98-393 and y 1218-1275 (75 px bottom margin). The logo sits in the bottom-left corner zone (left 40%; its top edge is 10 px above the lowest-9% line, which is fine). Headline does not cover the phone."},
+  {"id": "V19", "result": "PASS", "severity": "", "region": "thumb_200.jpg", "evidence": "At 200 px wide the three headline lines 'Sa mesazhe mbetën / pa përgjigje / këtë javë?' are readable, the crimson bar reads, and the red phone with bubbles is recognisable. The subline is small at 200 px, which the rule allows (it applies to the headline)."},
+  {"id": "V20", "result": "PASS", "severity": "", "region": "full", "evidence": "The alt text asks for an empty ('bosh') reception at night, so no people is correct; the background has depth and life (lit window, street lights, sconces, chairs)."},
+  {"id": "V21", "result": "PASS", "severity": "", "region": "full", "evidence": "Tirana at night, warm tungsten sconces and desk reflections, near-black tone, ivory heavy geometric sans left-aligned, crimson highlight rectangle behind 'pa përgjigje', red-cased phone. Advisory, not counted: the bar measures median (162,11,22) against #B31217 (179,18,23), dE2000 3.7, slightly darker under the night grade; check it on the next version. The red cross sign is a second saturated red outside the palette; logged under V24."},
+  {"id": "V22", "result": "PASS", "severity": "", "region": "tile_r2c2, tile_r2c3, tile_r3c3", "evidence": "Real material textures: brushed brass bell with specular highlights, leather ledger grain, lacquered desk with uneven reflections, phone glass and case gloss. No plastic look."},
+  {"id": "V23", "result": "FAIL", "severity": "minor", "region": "logo zone: desk-edge highlight at x~255-300, y~1190-1222; strip under the wordmark x~180-390, y~1275-1292", "evidence": "Caused by the logo fix (not in the original). region_edge_highlight_2x_orig_left_fixed_right.jpg and region_edge_above_wordmark_5x_orig_left_fixed_right.jpg: in the original the bright highlight along the desk's front edge runs unbroken down to the wordmark; in the fixed file it ends in a hard pointed stub about 22 px above 'ght' and the edge below it is a soft blurred smear (mean luminance there fell from 65 to 52; the drawn logo never covered this spot, so the fill reached outside the logo footprint). region_under_wordmark_4x_orig_fixed_normal_then_boosted.jpg: the strip under the wordmark is a smooth texture-less fill where the desk grain should continue (visible with levels raised; at normal levels it reads as a soft shadow). Visible at 2x and zoomed, barely at 1x, so minor; hero rule allows none. No ghost letters, no white 'S', no red or gold square fragments remain (see V24)."},
+  {"id": "V24", "result": "FAIL", "severity": "minor", "region": "framed red cross sign on the left wall, x~5-100, y~300-445 (tile_r1c1)", "evidence": "Pre-existing (identical in the original). The wall sign is a red cross on a white ground, the protected emblem of the Red Cross movement (Geneva Conventions; reserved for the movement and military medical services, not private clinics), i.e. another organisation's emblem. Visible at full size but reads as generic clinic signage to most viewers, so minor. THE LOGO ITSELF PASSES: region_logo_3x.jpg and ref_logo_light_on_dark.jpg show the real mark (red rounded square, S-shaped channel, gold square in the top-right notch) and the real ivory 'StraightScale' wordmark. Measured: pasted logo 295x57 px at (98,1218); the file's alpha box ratio 5.38 vs pasted 5.39 (undistorted); against the file resized to 295x57, mean abs error on opaque pixels 7.5/255, median 5 (JPEG only); mark red (188,10,25) vs file (192,8,23); gold (222,171,29) vs file (224,170,25). Edges crisp at 3x. Remnants check on region_logo_zone_orig_top_fixed_bottom_2x.jpg: the drawn logo (red square with white 'S', separate gold square, wordmark lower at y~1254-1280) is gone; zero red, zero white and zero gold pixels in the zone outside the pasted logo except a warm desk-edge highlight at x 232-249, y 1172-1186 that is also in the original (region_gold_px_check_5x.jpg); under the mark luminance is 2.0 vs 0.0 beside it, no fragment."},
+  {"id": "V25", "result": "PASS", "severity": "", "region": "full", "evidence": "No before/after, no 'your [condition]', no shaming: a neutral self-check question."},
+  {"id": "V26", "result": "PASS", "severity": "", "region": "full", "evidence": "No AI person in the image. Note for publishing (not a pixel check): STANDARDS 7 asks for Instagram's AI label on single images with a photoreal AI scene; this is one."}
+ ],
+ "defects_summary": {
+  "critical": 0,
+  "major": 0,
+  "minor": 3,
+  "caused_by_fix": ["V23"],
+  "pre_existing": ["V11", "V24"],
+  "pass_rule": "hero: zero defects of any severity, so FAIL"
+ },
+ "fix": {
+  "route": "edit",
+  "prompt_changes": [
+   "Logo zone (V23, no model needed): redo the cleanup from the ORIGINAL file with the fill mask limited to the drawn logo's footprint (mark x~100-155, y~1237-1296; wordmark x~182-390, y~1250-1290) plus 3 px; keep every original pixel outside it, in particular the desk-edge highlight at x 230-300, y 1170-1225. Fill only the footprint pixels the real logo will not cover, by cloning desk texture from the same diagonal band (not a blur or flat fill), so the highlight line continues straight into the wordmark. Or move the real logo down so it covers the drawn footprint (top ~1238, bottom ~1295 keeps the 54 px margin) and less fill is needed. Then paste the real file again with brand_overlay.py and check at 2x that the highlight is unbroken and the strip under the wordmark keeps the desk grain.",
+   "Pre-existing defects (V11, V24): one edit pass (STANDARDS 1: the clean, pre-logo version as the single edit_source reference) with these narrow lines: 'Keep everything else identical, including all text, the crimson bar and the phone. 1) The phone's message input field is a plain dark rounded field with no letters in it. 2) The phone's status bar shows no clock digits: only the signal, wi-fi and battery icons on the right. 3) The framed sign on the left wall is a plain warm abstract print in muted beige and brown: no cross, no emblem, no text. 4) The ledger's leather cover is plain, with no embossed lettering. 5) The bottom-left corner stays calm, dark and empty: no logo, no text there.'",
+   "After the edit pass, re-read every letter of the headline, the kicker and the subline (an edit pass can re-render text), then paste the real logo with brand_overlay.py and send the result to a fresh reviewer as v3.",
+   "Alt text: add the kicker 'Pyetja e javës' so the alt text lists all on-image text."
+  ]
+ }
+}

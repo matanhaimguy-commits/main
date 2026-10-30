@@ -1,0 +1,1234 @@
+{
+ "skill": "readymerce-drama-ads",
+ "version": "v2.2 (the director's workflow, retention pass), dated 2026-10-11; file /root/.claude/skills/synced/ecbb512e-baad-4579-8fb7-650b733b4f86_5b0c7e87-40d3-427d-b2a8-b08eea6731f4/readymerce-drama-ads/SKILL.md (1742 lines, the only file in the folder: no scripts/, no references/)",
+ "purpose": "Role skill of the Readymerce paid-ads system that directs and produces cinematic AI drama ads (short films, 25 to 120 s, vertical 9:16) from story through screenplay, treatment, shot list, set bible and frames, animatic, multi-model video generation, sound, music, edit, grade, captions, loudness and a scored film test. The hub (readymerce-ads-machine) owns research and hard gates; Hook Lab owns the hook; Script Lab gates the words; this skill owns the film. Its exceptions table (0b, X1 and X3 to X10) relaxes hub Section G for drama only.",
+ "phases": [
+  {
+   "step": "0 / 1",
+   "name": "Module 0 research and the concept card (sections 0, 2, 3)",
+   "does": "Runs hub Module 0 (brief A1, research and VOC A2, concept memo A3, Voice Card B1, Conviction Map B2). Uses the 8-question picker to choose a template (T1 to T13), then fills every concept-card field: template, hero, want, outside and inside problem, reacting person, dramatic question, stakes and clock, device, scene turns, product arc (plant, echo, fire), motif, failed fixes, cause line, payoff on a face, emotional shape, identity and button, comment test. Then writes a 6 to 8 line 'because of that' beat list.",
+   "gate": "Every field is filled. Kill the concept if the conflict could happen with any product, nobody but the hero is in the scene, it fails the no-logo test, nothing changes, or it fails the comment test. Batch rules: no two ads share template and angle, at least 2 templates per concept, T6 and T9 never lead a first test.",
+   "human_checkpoint": "Stop only if a brand fact the script needs is missing (0.6). No numbered GATE.",
+   "tools_models": "readymerce-ads-machine (Module 0); Appendix B and C as structural models"
+  },
+  {
+   "step": "2",
+   "name": "Hook Lab, drama-adapted (7.4, X7, X8)",
+   "does": "Runs readymerce-hook-lab. The visual hook is the opening shot sequence (7.2 opening recipe), graded on concept frames. The spoken hook is the first line wherever it lands inside 4 s. The text channel is optional and off by default. Writes 3 hook variants that change only the first 3 to 4 s.",
+   "gate": "Hook Lab gates still apply: buyer lock by 2 s sound-off, one claim, problem readable by 2 s, a seam into the next beat, an open question at 10 s, no product or brand in the first 3 s. X8: first line by 1.5 s by default (up to 4.0 s only after a strong readable action), a real sound by 0.3 s, a story event by 1.0 s.",
+   "human_checkpoint": "None",
+   "tools_models": "readymerce-hook-lab"
+  },
+  {
+   "step": "3",
+   "name": "Screenplay and the Script Lab gate (section 5)",
+   "does": "Script Lab WRITE with the drama adapter: SCENE headers, V# visual beats, S# sound cues, L# lines with gap codes (S 0.15 s, B 0.4 s, H 0.8 s). Dialogue rules (core lines 3 to 10 words, none over 17, one turn up to 25; doubter questions of 6 words or fewer). Adds 12 drama checks. Runs two cold reads by fresh agents: a listen read (spoken lines only) and a picture read (V-beats and S-cues only).",
+   "gate": "Release at 85 or more with no critical fail. Up to 3 rewrite loops, then the user decides. Both cold reads pass (X10). The short tier (C45) is written and gated on its own, never trimmed from the S90.",
+   "human_checkpoint": "The user decides after 3 failed rewrite loops.",
+   "tools_models": "readymerce-script-lab (WRITE, GRADE, FIX); fresh agents for the cold reads"
+  },
+  {
+   "step": "4",
+   "name": "Voices, the scene master and the transcript check (section 10)",
+   "does": "Casts one locked ElevenLabs voice per character (eleven_v3 or eleven_v4) with one audio tag per line and auditions 3 to 4 takes. Rejects takes with no energy above 8 kHz, a wrong word or a rushed line. Builds the scene master: turn gaps 0.08 to 0.3 s, occasional 0.1 to 0.2 s overlaps, planned silences at animatic length, and a line table. Transcribes the master. Cuts per-character packed stems with listening gaps (0.8 to 3 s), padded to a whole second (4 to 15 s) with a 0.3 s head handle, and converts them to MP3.",
+   "gate": "Every wrong word is fixed before any video. The scene master sets the real timing for everything after it.",
+   "human_checkpoint": "None",
+   "tools_models": "ElevenLabs creative_generate_speech (eleven_v3 / eleven_v4); Scribe or faster-whisper"
+  },
+  {
+   "step": "5",
+   "name": "Director's treatment (section 6)",
+   "does": "Writes a one-page treatment: logline, tone, visual arc, light plan per scene (warm 2700 to 3200K practicals vs cool 5600K+; contrast 4:1, 8:1 at the low point; the light change at the turn), palette per act, face-light patterns, lens package, camera philosophy, performance notes, texture (24 fps, 35mm grain), sound world, music concept, caption style.",
+   "gate": "One page per ad, included in the deliverable.",
+   "human_checkpoint": "None",
+   "tools_models": "Text"
+  },
+  {
+   "step": "6",
+   "name": "Floor plans and the set bible (8.1, 8.2)",
+   "does": "Makes casting cards and set cards using the podcast reference pipeline (Pinterest sourcing, 8-point score, likeness rule). Per setting it builds: a floor plan with the 180-degree line; a 16:9 location master; character sheets made only from the master; anchor lines; a prop and wardrobe lock; a lighting bible; coverage plates; a hero still.",
+   "gate": "Identity rule: a person's identity comes only from the location master plus their sheet. No frame-from-frame chains, except one match-on-action hop checked against the sheet.",
+   "human_checkpoint": "None",
+   "tools_models": "GPT Image 2 at 2K (location master); GPT Image 2 or Nano Banana Pro (sheets); 3D Jutsu location-new-angles or an image model (coverage plates); readymerce-podcast-ads v5.0 sections 3 to 5"
+  },
+  {
+   "step": "7",
+   "name": "The shot list, timed on the scene master (7.1 to 7.7)",
+   "does": "One row per shot with 17 columns: time, beat, job, size, angle, lens, motivated move, timed blocking, eyeline and screen side, light, continuity state, line and sound, lip-sync, model route, frames, takes. Applies the tension ladder, turn marking, power angles, the opening recipe, dialogue coverage and vertical rules. Writes a retention map with one line per 10 s window.",
+   "gate": "15 hard rules. Examples: no adjacent same size and angle; 50% or more moving shots, each motivated; S90 size mix; listener on screen 35 to 50%; visible lip-sync on 60% of lines or fewer; geography by 8 s; adjacent shot lengths differ by 25% or more; 30-degree rule; something changes every 2 to 4 s (every 1 to 1.5 s in the first 5 s); continuity state column filled; the product's person never faces the lens; runtime inside the tier (S90 at 100 s or less). Retention rules 7.7: proof on screen at each claim line, a payoff insert held 1.5 to 2.5 s, no 10 s window without a new event. A window with nothing new is redesigned.",
+   "human_checkpoint": "None",
+   "tools_models": "Text"
+  },
+  {
+   "step": "8",
+   "name": "Shot frames (storyboard) and frame QA (8.3)",
+   "does": "One 9:16 start frame per shot, made from the location master, character sheets and coverage plate. Each prompt carries size, angle, lens, positions and eyelines, world-source light, time of day, continuity state, and 'no text'. Composition-bleed rule: inserts and close-ups get a crop of the master or no set image. An end frame is made when a move or reveal must land. Inserts use the real product image.",
+   "gate": "Frame QA on every frame: same person as the sheet, right screen side and eyeline, right light source, prop in the right hand, no extra fingers, nothing important in the bottom 35%, words spelled exactly, the size asked for, nobody extra in frame, continuity state, the product's person not facing the lens, adjacent frames of the same person visibly different. A crossed eyeline is regenerated, not flipped.",
+   "human_checkpoint": "None",
+   "tools_models": "Image model with references (GPT Image 2 / Nano Banana Pro per 8.2)"
+  },
+  {
+   "step": "9",
+   "name": "Animatic gate (section 9)",
+   "does": "Lays shot frames on the voice master at real timing, with temp sound cues, music-map markers and still pushes where the shot list has a move. Renders a low-res MP4 plus a labelled frame sheet (one frame per shot with number, time and line). Says plainly that it is still frames.",
+   "gate": "Reviewed against the 7.6 rules, the opening recipe, the tension ladder, the 35 to 50% listener share, turn marking, shot-length variety and the vertical safe band. Watched once on mute (story clear) and once with eyes closed (selling facts clear).",
+   "human_checkpoint": "The only creative human gate: if the user is present, send the animatic and the cost preflight and wait for 'go' or notes. If the user is away, state which reading was taken and continue. (Not numbered as GATE n.)",
+   "tools_models": "ffmpeg (Higgs sandbox)"
+  },
+  {
+   "step": "10",
+   "name": "Cost preflight (11.5)",
+   "does": "Prices every model with generate_video get_cost: true and checks balance right before submitting. Plans S90 at about 3,000 to 4,500 credits and C45 at about 1,500 to 2,500, including drafts and a 30% contingency. On a new account or model mix, runs a 3-shot pilot first.",
+   "gate": "The balance or budget covers the whole ad, or the scope is agreed first (shoot the C45 first, cut a setting, or move inserts to stills).",
+   "human_checkpoint": "Stop and agree the scope with the user if the budget cannot cover the whole ad.",
+   "tools_models": "Higgs generate_video (get_cost), balance"
+  },
+  {
+   "step": "11",
+   "name": "Generation: drafts, then finals, then Sync 3 passes (11.1 to 11.5)",
+   "does": "Routes each shot by type with the routing card. One prompt per row in a fixed order: format, reference jobs, camera, size, angle, subject anchor, action timeline, setting layers, light, palette, texture, dialogue or silent, then 2 to 5 locks and negatives. Drafts at cheap tiers and finalizes only winners. Takes per shot follow the takes table.",
+   "gate": "Model limits respected: H3 never gets audio_references with start/end images; H3 clip = stem + 1 s; silent shots go to Kling; veo3_1 takes a start frame only; Kling end frame must match wardrobe. On a preset recommendation, resubmit with declined_preset_id. One camera move per clip (two compatible at most).",
+   "human_checkpoint": "Stop if every route for a needed shot has failed twice.",
+   "tools_models": "minimax_h3 (2K), minimax_h3_max, kling3_0, kling_o3_*, seedance_2_5, cinematic_studio_video_4_0 / 3_5, veo3_1 / veo3_1_lite, gemini_omni_flash_1_1, kling_video_edit, sync_so (Sync Lipsync 3), ElevenLabs audio_isolation, 3D Jutsu"
+  },
+  {
+   "step": "12",
+   "name": "Per-take QA (11.6)",
+   "does": "Makes a frame sheet per clip: one frame every 0.5 s for clips under 6 s, else every 1 s, plus the first and last frames. Lip-synced clips: cross-correlates clip audio with the stem, measures the lag, and transcribes. Picks and logs the usable window (best 1.5 to 4 s), trims 4 to 10 warm-up and tail frames, and keeps a generation log (shot, model, takes, kept seconds, credits).",
+   "gate": "Same face as the sheet, no morphing hands or props, eyeline and screen side kept, move obeyed, no text artifacts, nothing frozen. Retake when correlation is under about 0.5 with no clear lag, or a word is wrong. Edit in-point = handle + measured lag.",
+   "human_checkpoint": "None",
+   "tools_models": "ffmpeg, cross-correlation, Whisper-type transcription"
+  },
+  {
+   "step": "13",
+   "name": "Rough cut on the scene master, then picture lock (section 14)",
+   "does": "Cuts for emotion first (Murch). Rhythm: 2 to 4 shots of 0.8 to 1.5 s in the first 3 s, 2 to 3 s average in the body, accelerating 15 to 30% per beat into the turn, then one held shot of 3 to 6 s. J/L cuts on half or more of dialogue cuts. An insert every 3 to 4 dialogue cuts. 70 to 90% of cuts land on an audio event. Fixed ending sequence. All native clip audio stripped. ffmpeg assembly from a cut map.",
+   "gate": "No same-framing cuts on the same person (14.9b): a full size step or 30 degrees, re-checked after every edit change.",
+   "human_checkpoint": "None",
+   "tools_models": "ffmpeg in the Higgs sandbox (nohup, polled in calls under 60 s)"
+  },
+  {
+   "step": "14",
+   "name": "Score the locked cut (section 13)",
+   "does": "Draws a cue sheet (entry, drop, re-entry, swell, stinger, end). Route (a): eleven_video_to_music_v1 on a 540x960 proxy of the locked cut, 3 to 4 takes. Route (b): eleven_music_v2_5 composition plan with sections matched to the cue sheet, 3 to 4 variations each. Edits music on bar lines.",
+   "gate": "Entry where tension builds (default 0:02 to 0:08). Only a low tension bed under the hook, 20 dB or more under dialogue. Drop 0.5 to 2 s before the key line. 2 to 4 sync points. Music 10 to 18 dB under the voice. No accidental dropout. Final chord on the end card.",
+   "human_checkpoint": "Tell the user which generated-clip music was kept and why.",
+   "tools_models": "ElevenLabs creative_create_flow, creative_create_asset_upload / creative_finalize_asset_upload (needed for route a), creative_generate_in_flow (music, video-to-music), creative_get_flow_run_status"
+  },
+  {
+   "step": "15",
+   "name": "Sound design (section 12)",
+   "does": "Builds D/M/E stems. One continuous ambience bed per location (2 to 3 layers, 20 to 30 s loops) via eleven_text_to_sound_v2, with duration_seconds set explicitly because the sfx node defaults to about 2 s. Adds foley on every touch, hard effects, sparing designed sound, 1 to 2 silences of 1 to 3 s, 2 to 3 off-screen sounds per scene, and matched room reverb.",
+   "gate": "Featured foley peaks 3 to 6 dB under dialogue peaks; touch foley 10 to 16 dB under. Print a per-event peak table and a stem RMS table. Featured effects more than 8 dB under, or touch effects more than 18 dB under, get raised. Never white or pink noise as room tone.",
+   "human_checkpoint": "None",
+   "tools_models": "ElevenLabs creative_generate_in_flow (node sfx, eleven_text_to_sound_v2), creative_update_node / creative_add_flow_node, creative_run_flow_nodes"
+  },
+  {
+   "step": "16",
+   "name": "Upscale (15.1)",
+   "does": "After picture lock, upscales only the kept window plus 12 frames of handle on each side, to 1080x1920, with moderate noise reduction, moderate to high detail recovery and low grain (15 to 20 of 100).",
+   "gate": "Warped faces are regenerated, not fixed.",
+   "human_checkpoint": "None",
+   "tools_models": "topaz_video or bytedance_video_upscale"
+  },
+  {
+   "step": "17",
+   "name": "Grade and grain (15.3)",
+   "does": "Normalizes each clip, applies one film look per act at 60 to 80%, matches every shot to the hero still (skin first), adds a 0.3 to 0.6 px blur and 35mm grain at 8 to 15% on every shot, and deflickers.",
+   "gate": "Phone shadow floor: an average frame luma under about 0.10 (25 of 255), or a lit face under about 0.25, gets lifted.",
+   "human_checkpoint": "None",
+   "tools_models": "ffmpeg / LUT (Kodak 2383 or Fuji 3510 style), video_deflicker"
+  },
+  {
+   "step": "18",
+   "name": "Mix and loudness (15.5)",
+   "does": "Two-pass loudnorm. Dialogue at -16 to -12 LUFS short-term. Music ducked 6 to 12 dB under lines. Ambience 15 to 25 dB under. Foley 10 to 20 dB under during lines. Hard effects 6 to 15 dB under. Checked on a phone speaker.",
+   "gate": "-14 LUFS integrated (-15 to -13), true peak -1 dBTP or lower, LRA 6 to 11 LU, short-term never above about -9 LUFS.",
+   "human_checkpoint": "None",
+   "tools_models": "ffmpeg loudnorm, sidechaincompress"
+  },
+  {
+   "step": "19",
+   "name": "Captions (15.4)",
+   "does": "Clean sans or serif with a soft shadow, no box, sentence case. 1 to 4 words per card, white, 80 to 100 px at 1080x1920. 1 to 2 keywords per ad in warm yellow. Placed 55 to 62% down, word-matched to the master.",
+   "gate": "Never over a face, a key prop or readable in-frame text. No captions over the silent opening. Supers follow X7.",
+   "human_checkpoint": "None",
+   "tools_models": "ffmpeg overlays"
+  },
+  {
+   "step": "20",
+   "name": "Export (15.6)",
+   "does": "H.264 high profile, 1080x1920, 24 fps, AAC 48 kHz at 192 kbps or more, faststart. Uploads to Higgs (media upload, PUT, confirm) for a link.",
+   "gate": "Spec met",
+   "human_checkpoint": "None",
+   "tools_models": "ffmpeg, Higgs media_upload / media_confirm"
+  },
+  {
+   "step": "21",
+   "name": "Film-test QA and the score card (section 16)",
+   "does": "Runs on the rendered file: a frame sheet at 1 frame per second plus every cut's first and last frame; shot, opening, story, sound and music audits; a transcript of the final file; loudness and gap tables; a facts check; two watches (mute, eyes closed); the film test; a continuity audit plus an automatic jump-cut scan (90x160 grey correlation, pairs above about 0.6 reviewed); a retention audit; the 100-point score card.",
+   "gate": "Release at 85 or more. Below 85, fix the lowest areas and re-render. Never deliver with a known failure. Score areas: Hook 15, Story 15, Picture 10, Continuity 10, Pacing and retention 15, Proof and payoff 10, Sound and music 10, Captions 5, Ending and CTA 10.",
+   "human_checkpoint": "Tell the user the score and what was fixed. For high-stakes work only, a fresh agent runs checks 2 to 6.",
+   "tools_models": "ffmpeg, transcription, loudnorm print_format=json"
+  },
+  {
+   "step": "22",
+   "name": "Deliver, series and test plan (17, 18)",
+   "does": "Delivers the package: concept card, hook stacks, screenplay and both cold reads, short tier, treatment, set bible, shot list, frame sheet, animatic, voices, stem map, prompts, generation log, cue sheet, cut map, the ad plus 3 hook variants, primary text, headline, credits against preflight, QA tables. Primary text is 80 to 150 words; headline is 8 words or fewer. Launches the story tier and short tier as separate ads.",
+   "gate": "After about 1,000 impressions per ad: hook rate floor 30% (target 40%); hold rate floor 25% (target 35%). Judged on new-customer cost at ad-set level over 7 to 14 days.",
+   "human_checkpoint": "None",
+   "tools_models": "Meta Ads (paid only)"
+  }
+ ],
+ "numbers": [
+  {
+   "key": "video_model.lipsync_closeup_route",
+   "value": "minimax_h3 at 2K; start frame as image_references plus the stem as audio_references; never start_image with audio on Higgs; clip = stem + 1 s",
+   "quote": "`minimax_h3` 2K, the start frame as `image_references` + the character's stem as `audio_references` (no `start_image` with audio on Higgs), clip = stem + 1 s",
+   "line": 552
+  },
+  {
+   "key": "video_model.routing_exception_X5",
+   "value": "H3 first for lip-synced close-ups; Kling 3.0, Omni, Seedance 2.5, Cinema Studio 4.0, Veo 3.1 and Gemini Omni Flash for moving, silent, establishing and insert shots; Sync 3 adds lip-sync after the move",
+   "quote": "H3 stays first choice for lip-synced close-ups. Kling 3.0 and Omni, Seedance 2.5, Cinema Studio 4.0, Veo 3.1 and Gemini Omni Flash cover moving, silent, establishing and insert shots. Sync Lipsync 3 adds lip-sync after the move",
+   "line": 123
+  },
+  {
+   "key": "video_model.H3_mode_limit",
+   "value": "H3 on Higgs cannot mix audio_references with start_image/end_image (422 error)",
+   "quote": "H3 on Higgs cannot combine `audio_references` with `start_image` or `end_image`",
+   "line": 566
+  },
+  {
+   "key": "video_model.silent_shots",
+   "value": "Silent shots go to Kling; H3 with image refs and no audio failed",
+   "quote": "An H3 job with only image references and no audio also failed in testing; route silent shots to Kling.",
+   "line": 567
+  },
+  {
+   "key": "video_model.veo_frames",
+   "value": "veo3_1 takes a start frame only; veo3_1_lite for start + end",
+   "quote": "`veo3_1` on Higgs takes a start frame only; use `veo3_1_lite` for start and end frames.",
+   "line": 563
+  },
+  {
+   "key": "video_model.seedance_draft",
+   "value": "Seedance draft at 480p, finalized with draft_job_id within 7 days",
+   "quote": "A Seedance draft is `draft: true` at 480p, finalized with `draft_job_id` within 7 days.",
+   "line": 577
+  },
+  {
+   "key": "video_model.draft_tiers",
+   "value": "Draft cheap: Seedance 480p, H3 Max, Kling 720p, Veo Lite, Omni 360p; saves 30 to 40%",
+   "quote": "Draft at cheap tiers and finalize only the winners: Seedance `draft` at 480p, H3 Max (`minimax_h3_max`), Kling 720p, Veo Lite, Omni 360p. This saves 30 to 40%.",
+   "line": 649
+  },
+  {
+   "key": "declined_preset_id",
+   "value": "Reactive: resubmit with the id Higgs names (no fixed id, unlike hub G1)",
+   "quote": "Resubmit the same request with `declined_preset_id` set to the id it names.",
+   "line": 568
+  },
+  {
+   "key": "resolution.H3_output",
+   "value": "H3: 4 to 15 s, 2K, 24 fps",
+   "quote": "| `minimax_h3` | 4 to 15 s | 2K, 24 fps |",
+   "line": 1490
+  },
+  {
+   "key": "resolution.H3_max",
+   "value": "minimax_h3_max: 15 s, 480p/768p, no references",
+   "quote": "| `minimax_h3_max` | 15 s | 480p, 768p | Yes | None |",
+   "line": 1491
+  },
+  {
+   "key": "resolution.upscale",
+   "value": "Topaz (or bytedance upscale) to 1080x1920 on kept windows plus 12 frames of handle each side",
+   "quote": "Use Topaz (`topaz_video`, or `bytedance_video_upscale`) to 1080x1920.",
+   "line": 798
+  },
+  {
+   "key": "resolution.export",
+   "value": "H.264 high, 1080x1920, 24 fps, AAC 48 kHz at 192 kbps or more, faststart",
+   "quote": "H.264 high profile, 1080x1920, 24 fps, AAC 48 kHz 192 kbps or more, with faststart.",
+   "line": 824
+  },
+  {
+   "key": "resolution.music_proxy",
+   "value": "540x960 proxy for video-to-music",
+   "quote": "Export a 540x960 proxy of the locked cut with the dialogue track.",
+   "line": 743
+  },
+  {
+   "key": "aspect",
+   "value": "9:16 vertical; ad length 25 to 120 s",
+   "quote": "is a short film, 25 to 120 seconds, vertical 9:16.",
+   "line": 14
+  },
+  {
+   "key": "aspect.location_master",
+   "value": "Location master is 16:9; shot frames are 9:16",
+   "quote": "One 16:9 wide frame of the set with every character in it",
+   "line": 461
+  },
+  {
+   "key": "clip.stem_length",
+   "value": "Stems padded to a whole second, 4 to 15 s, with a 0.3 s head handle",
+   "quote": "Pad to a whole second, 4 to 15 s, with a 0.3 s handle before the first word.",
+   "line": 541
+  },
+  {
+   "key": "clip.H3_duration_rule",
+   "value": "H3 clip = stem + 1 s; duration equal to the audio fails",
+   "quote": "Generate the H3 clip at the stem length plus 1 s. An H3 job whose duration equals the audio length fails (refunded, but it costs a round trip).",
+   "line": 542
+  },
+  {
+   "key": "clip.generate_vs_use",
+   "value": "Generate 5 to 8 s, use the best 2 to 4 s",
+   "quote": "generate 5 to 8 s and use the best 2 to 4 s (inserts can be shorter).",
+   "line": 424
+  },
+  {
+   "key": "clip.usable_window",
+   "value": "Usable window 1.5 to 4 s; trim 4 to 10 frames at head and tail",
+   "quote": "the best 1.5 to 4 s) and log it. Trim 4 to 10 frames of warm-up at the head and drift at the tail.",
+   "line": 672
+  },
+  {
+   "key": "clip.reaction_length",
+   "value": "Reaction clips 4 to 5 s",
+   "quote": "`minimax_h3` or `kling3_0` sound off, 4 to 5 s, one micro-beat",
+   "line": 555
+  },
+  {
+   "key": "clip.establishing_length",
+   "value": "Establishing 6 to 8 s",
+   "quote": "6 to 8 s with a slow move",
+   "line": 557
+  },
+  {
+   "key": "words_per_clip",
+   "value": "About 20 words per lip-synced clip, 10 per line at most",
+   "quote": "About 20 words per clip, 10 per line at most.",
+   "line": 552
+  },
+  {
+   "key": "words_per_clip.H3_limit",
+   "value": "H3 dialogue rushes past about 20 words",
+   "quote": "Dialogue rushes past about 20 words a clip.",
+   "line": 566
+  },
+  {
+   "key": "words_per_line",
+   "value": "Core lines 3 to 10 words, none over 17; one turn up to 25",
+   "quote": "Core lines are 3 to 10 words; none over 17. One turn per ad may reach 25 words.",
+   "line": 274
+  },
+  {
+   "key": "words_per_line.lipsync_cap",
+   "value": "Lines over 10 words never go to visible H3 lip-sync",
+   "quote": "Lines over 10 words never go to visible H3 lip-sync",
+   "line": 275
+  },
+  {
+   "key": "shots_per_take",
+   "value": "Kling Omni multi-shot up to 6 shots, montage only; otherwise one camera move per clip",
+   "quote": "`kling_o3_*` multi-shot (up to 6 shots)",
+   "line": 558
+  },
+  {
+   "key": "moves_per_clip",
+   "value": "One camera move per clip, two compatible at most",
+   "quote": "two compatible ones at most (push-in plus rack focus)",
+   "line": 597
+  },
+  {
+   "key": "picture_change_cadence",
+   "value": "Change every 2 to 4 s; every 1 to 1.5 s in the first 5 s; new beat and sonic state about every 15 s",
+   "quote": "Something changes every 2 to 4 s (a cut, a move starting, a new sound, a new piece of information), and every 1 to 1.5 s in the first 5 s. A new story beat and a new sonic state come roughly every 15 s.",
+   "line": 426
+  },
+  {
+   "key": "picture_change_cadence.window",
+   "value": "A new event in every 10 s window",
+   "quote": "In any 10 s window there is at least one new event",
+   "line": 437
+  },
+  {
+   "key": "picture_change_cadence.explainer",
+   "value": "Insert at least every 6 s in explainer stretches",
+   "quote": "Explainer stretches (the product's person explaining how it works) get an insert at least every 6 s.",
+   "line": 437
+  },
+  {
+   "key": "average_shot_length",
+   "value": "S90 2 to 3 s; first 3 s: 2 to 4 shots of 0.8 to 1.5 s; C45 1.8 to 2.5 s",
+   "quote": "2 to 3 s (first 3 s: 2 to 4 shots of 0.8 to 1.5 s)",
+   "line": 234
+  },
+  {
+   "key": "shot_count",
+   "value": "S90 30 to 45 shots; C45 16 to 24",
+   "quote": "| Shots | 30 to 45 (a 20 s scene usually holds 6 to 10; an opening scene may run denser) | 16 to 24 |",
+   "line": 233
+  },
+  {
+   "key": "shot_list.moving_share",
+   "value": "50% or more of shots move",
+   "quote": "At least 50% of shots have a camera move",
+   "line": 416
+  },
+  {
+   "key": "shot_list.size_mix",
+   "value": "S90: wides 15 to 20%, mediums/OTS 25 to 30%, CU/ECU about 30%, inserts 20 to 25%",
+   "quote": "Size mix for S90: wides and medium-wides 15 to 20%, mediums and over-the-shoulders 25 to 30%, close-ups and extreme close-ups about 30%, inserts and cutaways 20 to 25%.",
+   "line": 417
+  },
+  {
+   "key": "shot_list.listener_and_lipsync",
+   "value": "Listener 35 to 50% of dialogue time; visible lip-sync on 60% of lines or fewer",
+   "quote": "Listener on screen 35 to 50% of dialogue time. Visible lip-sync on at most 60% of lines.",
+   "line": 418
+  },
+  {
+   "key": "shot_list.length_variety",
+   "value": "Adjacent shots differ by 25% or more",
+   "quote": "adjacent shots differ by at least 25%",
+   "line": 422
+  },
+  {
+   "key": "image_model.location_master",
+   "value": "GPT Image 2 at 2K",
+   "quote": "GPT Image 2 at 2K (podcast 5.1)",
+   "line": 461
+  },
+  {
+   "key": "image_model.character_sheets",
+   "value": "GPT Image 2 or Nano Banana Pro, made from the location master only",
+   "quote": "Made from the location master only (never the Pinterest photo again), GPT Image 2 or Nano Banana Pro",
+   "line": 462
+  },
+  {
+   "key": "image_model.stills_gate",
+   "value": "Stills on GPT Image 2 or another image model with references (hub G7)",
+   "quote": "stills on GPT Image 2 or another image model with references (G7);",
+   "line": 66
+  },
+  {
+   "key": "storyboard.frames",
+   "value": "One 9:16 start frame per shot from master + sheets + coverage plate",
+   "quote": "9:16, made from the location master, the relevant character sheets and the right coverage plate",
+   "line": 476
+  },
+  {
+   "key": "storyboard.layout",
+   "value": "Animatic: low-res MP4 plus a labelled frame sheet (one frame per shot with number, time, line)",
+   "quote": "Render it as an MP4 at low resolution plus a labelled frame sheet (one frame per shot with its number, time and line).",
+   "line": 508
+  },
+  {
+   "key": "prompt.negatives",
+   "value": "2 to 5 locks and negatives per shot prompt",
+   "quote": "[LOCKS and NEGATIVES, 2 to 5:",
+   "line": 593
+  },
+  {
+   "key": "prompt.length_limits",
+   "value": "Kling under 300 words; Omni 1 or 2 sentences of motion",
+   "quote": "**Kling:** under 300 words. **Omni:** 1 or 2 sentences of motion.",
+   "line": 602
+  },
+  {
+   "key": "voice.model",
+   "value": "eleven_v3 or eleven_v4 (no default named)",
+   "quote": "Use `eleven_v3` or `eleven_v4`, plus one narrator voice if the close uses one.",
+   "line": 528
+  },
+  {
+   "key": "voice.takes",
+   "value": "One audio tag per line; 3 to 4 takes",
+   "quote": "One tag per line, auditioned across 3 to 4 takes.",
+   "line": 529
+  },
+  {
+   "key": "voice.reject",
+   "value": "Reject: no energy above 8 kHz or a phone band, a wrong word, a rushed line",
+   "quote": "no energy above 8 kHz, or a \"phone call\" band;",
+   "line": 531
+  },
+  {
+   "key": "voice.pace_band",
+   "value": "About 2.5 words per second; S90 about 135 to 170 words, C45 70 to 90",
+   "quote": "about 135 to 170 at 2.5 words a second",
+   "line": 236
+  },
+  {
+   "key": "voice.gap_codes",
+   "value": "S 0.15 s, B 0.4 s, H 0.8 s",
+   "quote": "Gap codes: S = 0.15 s, B = 0.4 s, H = 0.8 s.",
+   "line": 269
+  },
+  {
+   "key": "voice.turn_gaps",
+   "value": "0.08 to 0.3 s turn gaps",
+   "quote": "Turn gaps are 0.08 to 0.3 s, except marked B and H beats.",
+   "line": 536
+  },
+  {
+   "key": "voice.turn_gaps_after_reveal",
+   "value": "0.08 to 0.2 s after the product's world enters",
+   "quote": "turn gaps tighten to 0.08 to 0.2 s",
+   "line": 438
+  },
+  {
+   "key": "voice.overlap",
+   "value": "0.1 to 0.2 s overlaps in arguments",
+   "quote": "An overlap of 0.1 to 0.2 s now and then in arguments.",
+   "line": 537
+  },
+  {
+   "key": "voice.pad_after_line",
+   "value": "Default pad after a line 0.15 s (not 0.25 s)",
+   "quote": "default pad after a line 0.15 s, not 0.25 s",
+   "line": 429
+  },
+  {
+   "key": "voice.breaths",
+   "value": "A 0.2 to 0.4 s breath before emotional lines",
+   "quote": "add one 0.2 to 0.4 s before",
+   "line": 534
+  },
+  {
+   "key": "voice.listening_gaps",
+   "value": "Silent gaps in a stem equal to the other character's lines, 0.8 to 3 s",
+   "quote": "leave a silent gap equal to the other character's lines in between (0.8 to 3 s)",
+   "line": 541
+  },
+  {
+   "key": "voice.stem_format",
+   "value": "Stems uploaded as MP3",
+   "quote": "Upload stems as MP3 (media upload names them .mp3 and expects audio/mpeg bytes); convert before the PUT.",
+   "line": 543
+  },
+  {
+   "key": "music.model_video_to_music",
+   "value": "eleven_video_to_music_v1 on the locked cut; 3 to 4 takes",
+   "quote": "Use `eleven_video_to_music_v1` with the picture-locked edit as input",
+   "line": 730
+  },
+  {
+   "key": "music.model_composition",
+   "value": "eleven_music_v2_5 composition plan; sections 3,000 to 120,000 ms",
+   "quote": "Use `eleven_music_v2_5` with sections matched to the cue sheet",
+   "line": 731
+  },
+  {
+   "key": "music.level_under_voice",
+   "value": "10 to 18 dB under the voice",
+   "quote": "10 to 18 dB under the voice;",
+   "line": 726
+  },
+  {
+   "key": "music.hook_bed_level",
+   "value": "A tension bed under the hook 20 dB or more under dialogue, no melody",
+   "quote": "kept under the ambience and 20 dB or more under dialogue, with no melody",
+   "line": 716
+  },
+  {
+   "key": "music.ducking",
+   "value": "Ducks 6 to 12 dB under lines; attack 5 to 20 ms; release 250 to 500 ms",
+   "quote": "ducks 6 to 12 dB under lines: attack 5 to 20 ms, release 250 to 500 ms",
+   "line": 818
+  },
+  {
+   "key": "music.entry",
+   "value": "Default entry 0:02 to 0:08",
+   "quote": "The research default is between 0:02 and 0:08",
+   "line": 715
+  },
+  {
+   "key": "music.drop",
+   "value": "Drop 0.5 to 2 s before the key line, fade 100 to 300 ms",
+   "quote": "Drop it 0.5 to 2 s before the key line,** with a fast fade (100 to 300 ms)",
+   "line": 721
+  },
+  {
+   "key": "music.sync_points",
+   "value": "2 to 4 sync points",
+   "quote": "Sync points: 2 to 4 in total",
+   "line": 722
+  },
+  {
+   "key": "sfx.model",
+   "value": "eleven_text_to_sound_v2; beds loop 20 to 30 s; prompt influence 0.4 to 0.6",
+   "quote": "Generate beds with `eleven_text_to_sound_v2`",
+   "line": 685
+  },
+  {
+   "key": "sfx.default_duration_trap",
+   "value": "The sfx node defaults to about 2 s, so set duration_seconds (0.5 to 30)",
+   "quote": "The sfx node defaults to about 2 s whatever the prompt says.",
+   "line": 685
+  },
+  {
+   "key": "sfx.foley_levels",
+   "value": "Featured foley peaks 3 to 6 dB under dialogue peaks; touch foley 10 to 16 dB under",
+   "quote": "Featured foley (the opening slash, the payoff cap click, a door) peaks 3 to 6 dB under the dialogue peaks; touch foley (steps, paper, cloth) peaks 10 to 16 dB under.",
+   "line": 702
+  },
+  {
+   "key": "sfx.ambience_level",
+   "value": "Ambience 15 to 25 dB under dialogue",
+   "quote": "sits 15 to 25 dB under the dialogue, ducked 2 to 4 dB at most, rising 3 to 6 dB in pauses.",
+   "line": 819
+  },
+  {
+   "key": "sfx.hard_effects_level",
+   "value": "Hard effects 6 to 15 dB under during lines",
+   "quote": "sit 6 to 15 dB under during lines and can peak at dialogue level in gaps.",
+   "line": 822
+  },
+  {
+   "key": "sfx.designed_sound_cap",
+   "value": "Per 45 s: 1 riser at most, 2 to 3 soft impacts, 1 sub-drop",
+   "quote": "Per 45 s: at most 1 riser (it must resolve on an impact or on silence), 2 to 3 soft impacts with long tails, 1 sub-drop.",
+   "line": 701
+  },
+  {
+   "key": "loudness",
+   "value": "-14 LUFS integrated (-15 to -13), true peak -1 dBTP or lower, LRA 6 to 11 LU, short-term -9 LUFS max",
+   "quote": "Deliver -14 LUFS integrated (-15 to -13), true peak -1 dBTP or lower, LRA 6 to 11 LU, short-term never above about -9 LUFS.",
+   "line": 816
+  },
+  {
+   "key": "loudness.dialogue",
+   "value": "Dialogue -16 to -12 LUFS short-term, 2:1 to 3:1, HPF 70 to 120 Hz",
+   "quote": "sits at -16 to -12 LUFS short-term, compressed gently 2:1 to 3:1, high-passed at 70 to 120 Hz.",
+   "line": 817
+  },
+  {
+   "key": "loudness.room_tone",
+   "value": "Room tone -50 to -60 dBFS RMS",
+   "quote": "sits at about -50 to -60 dBFS RMS on its own.",
+   "line": 1606
+  },
+  {
+   "key": "frame_rate",
+   "value": "24 fps (or 23.976); dialogue never interpolated",
+   "quote": "Conform every clip to 24 (or 23.976). Never interpolate dialogue shots.",
+   "line": 799
+  },
+  {
+   "key": "captions.size_words",
+   "value": "1 to 4 words per card, 4.5 to 5.5% of frame height = 80 to 100 px at 1080x1920",
+   "quote": "1 to 4 words per card, white, about 4.5 to 5.5% of frame height (at 1080x1920 that is a font size of 80 to 100 px; check the render, never assume).",
+   "line": 810
+  },
+  {
+   "key": "captions.position",
+   "value": "55 to 62% down",
+   "quote": "Placed at about 55 to 62% down: above the UI band, below the faces, inside the side margins.",
+   "line": 812
+  },
+  {
+   "key": "captions.keywords",
+   "value": "1 or 2 keywords per ad in warm yellow",
+   "quote": "One or two keywords per ad in an accent colour (warm yellow)",
+   "line": 811
+  },
+  {
+   "key": "captions.text_super_X7",
+   "value": "Text hook off by default; if used, 6 words max, gone by 3 s",
+   "quote": "at most 6 words, small cinematic type with no box, never over a face, gone by 3 s.",
+   "line": 125
+  },
+  {
+   "key": "captions.end_card_words",
+   "value": "End card readable at 5 to 7 words",
+   "quote": "**End card:** readable at 5 to 7 words.",
+   "line": 1600
+  },
+  {
+   "key": "safe_zones",
+   "value": "Top 14% and bottom 35 to 40% are UI; right 21% of the lower half; 6% side margins; eyes 30 to 40% down; faces and props in the band 15% to 60% from the top",
+   "quote": "The top 14% and bottom 35 to 40% are UI. So is the right 21% of the width in the lower half (like, comment and share buttons). Keep 6% side margins. Eyes go about 30 to 40% down.",
+   "line": 398
+  },
+  {
+   "key": "safe_zones.frame_QA",
+   "value": "Nothing important in the bottom 35%",
+   "quote": "nothing on the bottom 35% that matters;",
+   "line": 492
+  },
+  {
+   "key": "safe_zones.usable_center",
+   "value": "About 950 x 980 px box in the upper middle at 1080x1920",
+   "quote": "a box of about 950 x 980 px in the upper middle.",
+   "line": 1596
+  },
+  {
+   "key": "ai_label",
+   "value": "No AI tag burned in; use Meta's AI disclosure setting when Meta asks; never claim footage is real",
+   "quote": "**No AI tag burned into the video.** Use Meta's own AI disclosure setting when Meta asks for it",
+   "line": 127
+  },
+  {
+   "key": "credits.H3",
+   "value": "2 credits per second at 2K",
+   "quote": "H3 2K: 2 credits per second, measured.",
+   "line": 652
+  },
+  {
+   "key": "credits.budget_per_ad",
+   "value": "S90 3,000 to 4,500; C45 1,500 to 2,500 Higgs credits",
+   "quote": "An S90 lands at about 3,000 to 4,500 Higgs credits with drafts and a 30% contingency for hero re-rolls; a C45 at about 1,500 to 2,500.",
+   "line": 656
+  },
+  {
+   "key": "credits.value",
+   "value": "$0.033 to $0.07 per credit, no rollover",
+   "quote": "A credit is worth about $0.033 to $0.07 depending on the plan, and credits do not roll over.",
+   "line": 656
+  },
+  {
+   "key": "credits.yield",
+   "value": "3 to 4x footage generated; about 3 generations per usable shot; about 25% used",
+   "quote": "Plan to generate 3 to 4 times the footage you keep: about 3 generations per usable shot, and about 25% of generated footage making the cut.",
+   "line": 1572
+  },
+  {
+   "key": "takes.hero_dialogue",
+   "value": "Hero dialogue: 4 to 8 drafts, 1 to 2 finals",
+   "quote": "| Hero dialogue (the turn, the last line) | 4 to 8 | 1 to 2 |",
+   "line": 640
+  },
+  {
+   "key": "takes.sync3",
+   "value": "Moving shot for Sync 3: 2 to 3 drafts, 1 final plus 1 (sometimes 2) sync passes",
+   "quote": "| Moving shot for Sync 3 | 2 to 3 | 1, plus 1 sync pass (sometimes 2) |",
+   "line": 642
+  },
+  {
+   "key": "retake_cap.route",
+   "value": "Stop when every route for a shot has failed twice",
+   "quote": "Every route for a needed shot has failed twice.",
+   "line": 72
+  },
+  {
+   "key": "retake_cap.3d_angles",
+   "value": "One retry per 3D Jutsu angle",
+   "quote": "give one retry per angle, then stop and report.",
+   "line": 573
+  },
+  {
+   "key": "retake_cap.script",
+   "value": "Up to 3 Script Lab rewrite loops",
+   "quote": "Up to 3 rewrite loops, then the user decides.",
+   "line": 111
+  },
+  {
+   "key": "qa.per_take_sampling",
+   "value": "1 frame per 0.5 s for clips under 6 s, else per 1 s, plus first and last",
+   "quote": "one frame per 0.5 s for clips under 6 s, else per second) plus the first and last frames",
+   "line": 662
+  },
+  {
+   "key": "qa.drift_method",
+   "value": "Cross-correlate clip audio with the stem; in-point = handle + lag; H3 shifted 1 to 2 s in 2 of 21 clips (corr below 0.75)",
+   "quote": "Measure the lag on every clip and set the edit in-point to handle + lag.",
+   "line": 670
+  },
+  {
+   "key": "qa.lipsync_retake",
+   "value": "Correlation under about 0.5 with no clear lag, or a wrong word, means a retake",
+   "quote": "A correlation under about 0.5 with no clear lag, or a wrong word, means a retake.",
+   "line": 671
+  },
+  {
+   "key": "qa.final_sampling",
+   "value": "Final frame sheet: 1 frame per second plus every cut's first and last frame",
+   "quote": "one frame per second plus every cut's first and last frame",
+   "line": 830
+  },
+  {
+   "key": "qa.jump_cut_scan",
+   "value": "90x160 grey correlation at each cut; pairs above about 0.6 reviewed",
+   "quote": "scale both to about 90x160 grey, and compute their correlation. Look at every pair above about 0.6 side by side.",
+   "line": 870
+  },
+  {
+   "key": "qa.phone_shadow_floor",
+   "value": "Lift if average luma is under 0.10 (25/255) or a lit face is under 0.25",
+   "quote": "Average frame luma under about 0.10 (25 of 255), or a lit face under about 0.25, gets lifted",
+   "line": 807
+  },
+  {
+   "key": "qa.transcript_check",
+   "value": "Transcribe the master before any video (Scribe or faster-whisper); transcript of the final file at QA",
+   "quote": "Transcribe the master and fix every wrong word before any video.",
+   "line": 540
+  },
+  {
+   "key": "human_checkpoint.animatic",
+   "value": "Animatic plus cost preflight sent to the user for 'go' when present (no GATE numbering)",
+   "quote": "and wait for \"go\" or notes. This is the cheapest moment to fix the film.",
+   "line": 522
+  },
+  {
+   "key": "gate.script_release",
+   "value": "Script Lab release at 85 or more, no critical fail, before any frame",
+   "quote": "No frame is made until it releases at 85 or more with no critical fail.",
+   "line": 62
+  },
+  {
+   "key": "gate.film_test_release",
+   "value": "Film score of 85 or more out of 100",
+   "quote": "Release at 85 or more. Below 85, fix the lowest areas first and re-render",
+   "line": 886
+  },
+  {
+   "key": "length_tiers",
+   "value": "D15 10 to 15; D30 25 to 35; C45 40 to 50; S60 55 to 65; S90 80 to 100 (default); L150 and V300 only with a reason",
+   "quote": "D15 (10 to 15 s, demo), D30 (25 to 35 s, demo), C45 (40 to 50 s, conversation or problem demo), S60 (55 to 65 s, short story), S90 (80 to 100 s, story: the default first test)",
+   "line": 108
+  },
+  {
+   "key": "length_tiers.no_dialogue_share",
+   "value": "S90 25 to 40% no dialogue; C45 20 to 35%",
+   "quote": "| Runtime with no dialogue (picture, reaction, sound, music) | 25 to 40% | 20 to 35% |",
+   "line": 235
+  },
+  {
+   "key": "length_tiers.S90_cap",
+   "value": "S90 over 100 s is cut at the shot-list stage",
+   "quote": "If an S90 runs past 100 s, cut pads",
+   "line": 429
+  },
+  {
+   "key": "hook.first_line",
+   "value": "First spoken line by 1.5 s by default (up to 4.0 s after a strong action)",
+   "quote": "First spoken line by 1.5 s by default (v2.1).",
+   "line": 126
+  },
+  {
+   "key": "ending.end_card",
+   "value": "End card held 2.5 to 3 s",
+   "quote": "The end card holds 2.5 to 3 s.",
+   "line": 442
+  },
+  {
+   "key": "grade.grain",
+   "value": "Film look 60 to 80%; blur 0.3 to 0.6 px; 35mm grain 8 to 15% on every shot",
+   "quote": "35mm grain at 8 to 15% on every shot, inserts included.",
+   "line": 805
+  },
+  {
+   "key": "metrics.paid",
+   "value": "Hook rate floor 30% (target 40%); hold rate floor 25% (target 35%) after about 1,000 impressions",
+   "quote": "a hook rate floor of 30% (target 40%), and a hold rate (15 s plays ÷ 3 s plays) floor of 25% (target 35%).",
+   "line": 918
+  },
+  {
+   "key": "copy.primary_text",
+   "value": "Primary text 80 to 150 words; headline 8 words or fewer",
+   "quote": "**Primary text** (80 to 150 words).",
+   "line": 911
+  }
+ ],
+ "claims": [
+  {
+   "claim": 2,
+   "verdict": "TRUE",
+   "quote": "Generate the H3 clip at the stem length plus 1 s. An H3 job whose duration equals the audio length fails (refunded, but it costs a round trip).",
+   "line": 542,
+   "note": "Drama also says 'H3 duration must exceed the audio (stem length + 1 s)' (line 567), and the v2.1 changelog is dated 2026-10-11 (line 1712: 'clips at stem + 1 s'). On the other side: hub G1 (readymerce-ads-machine line 81) says 'duration` = that padded length'; podcast line 364 says 'duration = the padded stem length'; song line 338 says 'Render duration = that padded length'; animation line 465 says 'Render duration = the padded slice length'. The conflict is confirmed. Extra trap: drama allows stems up to 15 s (line 541), so stem + 1 s gives a 16 s clip, past H3's 15 s maximum (line 1490). The shared standard should cap lip-sync stems at 14 s."
+  },
+  {
+   "claim": 3,
+   "verdict": "PARTIAL",
+   "quote": "Pad to a whole second, 4 to 15 s, with a 0.3 s handle before the first word.",
+   "line": 541,
+   "note": "Drama's 4 s floor is on the stem. The lip-synced H3 clip is stem + 1 s, so it is 5 s or more, which matches hub G1 (line 83: 'Clip length 5 to 15 seconds... a 4-second render failed in testing, so pad any shorter slice to 5 seconds') and podcast line 306. The real conflicts are elsewhere: drama's model table gives `minimax_h3` as '4 to 15 s' (line 1490), and reaction clips run '4 to 5 s' on minimax_h3 or kling3_0 (line 555). Per the hub, a 4 s H3 render fails."
+  },
+  {
+   "claim": 4,
+   "verdict": "TRUE",
+   "quote": "About 20 words per clip, 10 per line at most.",
+   "line": 552,
+   "note": "Repeated in drama at line 566 ('Dialogue rushes past about 20 words a clip.') and line 1502 ('about 20 words a clip'). Hub G4 (ads-machine line 101) says 'about 30 to 35 words (2 or 3 short lines) per 15-second clip'; podcast line 337 says 'one 15-second clip holds about 30 to 35 words'."
+  },
+  {
+   "claim": 7,
+   "verdict": "TRUE",
+   "quote": "H3 stays first choice for lip-synced close-ups. Kling 3.0 and Omni, Seedance 2.5, Cinema Studio 4.0, Veo 3.1 and Gemini Omni Flash cover moving, silent, establishing and insert shots. Sync Lipsync 3 adds lip-sync after the move",
+   "line": 123,
+   "note": "Hub G1 (line 85) says 'Never FLUX 3, Seedance, Veo, Sora, Grok, Gemini/Omni, Wan or Hailuo, for any clip, take, test or fix, unless the user names the model', and G2 (line 97) says 'Kling 3.0 is the fallback, never Seedance'. Hub line 78 still lists only 'X1 to X4', describing X2 as 'silent story-action clips', which drama v2 removed ('they replace v1's X2', line 116). The hub v13.4 changelog (line 1978) and module row D (line 23, 'multi-character MiniMax H3 production') are both stale. Drama approved X5 to X10 itself: 'saving v2 is his approval' (line 116)."
+  },
+  {
+   "claim": 9,
+   "verdict": "TRUE",
+   "quote": "Deliver -14 LUFS integrated (-15 to -13), true peak -1 dBTP or lower, LRA 6 to 11 LU, short-term never above about -9 LUFS.",
+   "line": 816,
+   "note": "Animation line 297: 'Loudness is normalized to about -16 LUFS, peaks under -1.5 dB'. Podcast lines 299 and 457: 'about -16 LUFS'. Motion-video-director line 328: '−14 LUFS integrated for social/YouTube, true peak ≤ −1.5 dBTP'. No LUFS string in song-ads. True peak also differs: drama -1 dBTP vs motion and animation -1.5."
+  },
+  {
+   "claim": 10,
+   "verdict": "TRUE",
+   "quote": "Conform every clip to 24 (or 23.976). Never interpolate dialogue shots.",
+   "line": 799,
+   "note": "Export is also at 24 fps (line 824). 30 fps appears in animation line 512 and song line 370 ('Normalize to 1080x1920, 30 fps') and in hub line 1818 (creator capture '9:16 4K, 30fps'). Drama contradicts itself: its own beat-math table is headed 'frames at 30 fps' (line 1419)."
+  },
+  {
+   "claim": 11,
+   "verdict": "TRUE",
+   "quote": "The top 14% and bottom 35 to 40% are UI. So is the right 21% of the width in the lower half (like, comment and share buttons). Keep 6% side margins. Eyes go about 30 to 40% down.",
+   "line": 398,
+   "note": "Hub line 1622, Hook Lab line 124, animation line 517 and song line 373 all say 'top 14% and bottom 20% clear'. Drama adds frame QA 'nothing on the bottom 35% that matters' (line 492) and captions 'at about 55 to 62% down' (line 812)."
+  },
+  {
+   "claim": 12,
+   "verdict": "TRUE",
+   "quote": "**No AI tag burned into the video.** Use Meta's own AI disclosure setting when Meta asks for it",
+   "line": 127,
+   "note": "Repeated in the fail table at line 931 ('No tag (X9); Meta's own disclosure setting; never claim real'). Podcast line 33 says 'Put a small \"AI DRAMATIZATION\" tag on screen for the talking section' and line 468 says 'Keep the \"AI DRAMATIZATION\" tag top-left through the talking section.'"
+  },
+  {
+   "claim": 17,
+   "verdict": "TRUE",
+   "quote": "Send this adapter with the Script Lab call, together with the brief card, tier, hook stacks, cast, template and concept card.",
+   "line": 248,
+   "note": "Drama calls Script Lab with its own adapter. But Script Lab's 'Who calls it' table (readymerce-script-lab lines 35 to 42) lists animation, song, podcast, ads-machine, hook-lab, and strategy-scripts / daily-video-factory / ad-video-factory / ugc designer. Neither readymerce-drama-ads nor any motion skill appears. Script Lab's adapter enum (line 50: 'animation / song / podcast / ugc / text / vsl') and section 18 (18a to 18f) also have no drama adapter."
+  },
+  {
+   "claim": 1,
+   "verdict": "PARTIAL",
+   "quote": "Made from the location master only (never the Pinterest photo again), GPT Image 2 or Nano Banana Pro",
+   "line": 462,
+   "note": "Drama is not named in the claim, but it adds a fourth variant: the location master is 'GPT Image 2 at 2K' (line 461), sheets are 'GPT Image 2 or Nano Banana Pro', and 'A Nano Banana Pro still: about 2' (line 1569). Verified elsewhere: animation line 27 ('Sheets and storyboards on Nano Banana 2'), song line 105 (Nano Banana 2 concept frame), podcast line 219 (GPT Image 2 per hub G7), and hub G7 rejecting 2.5 as plastic. The carousel part was not checked."
+  },
+  {
+   "claim": 5,
+   "verdict": "TRUE",
+   "quote": "H3 handles 2 to 3 shots per take reliably",
+   "line": 549,
+   "note": "Quote is from readymerce-animation-ads line 549. Song line 222 says 'sequences of 3 to 6 shots'; hub G1 line 90 says '2 to 4 shots per clip'. Drama itself uses one camera move per clip (line 597) and multi-shot only for montage (kling_o3 'up to 6 shots', line 558)."
+  },
+  {
+   "claim": 8,
+   "verdict": "TRUE",
+   "quote": "caps every pause inside a line at 0.4s",
+   "line": 295,
+   "note": "Quote is from readymerce-animation-ads line 295 (the vo_build2.py description). Hub G8 line 120 says 'Natural pauses, never tightened. Never compress or cap the pauses of a human voice'. Drama does not cap pauses inside a take, but it does tighten gaps between turns: 0.08 to 0.3 s (line 536), 0.08 to 0.2 s after the reveal (line 438), and a default pad of 0.15 s instead of 0.25 s (line 429). It does not carry G8's pause-spread check."
+  },
+  {
+   "claim": 16,
+   "verdict": "TRUE",
+   "quote": "a hook rate floor of 30% (target 40%), and a hold rate (15 s plays ÷ 3 s plays) floor of 25% (target 35%).",
+   "line": 918,
+   "note": "Drama's own learning loop is paid-only too: 'Judge on new-customer cost at ad-set level over 7 to 14 days' (line 921), with iteration in the hub C13 order (line 922). Script Lab LEARN (line 709) pulls 'with the Facebook Ads connector'. Hook Lab H8 (lines 218 to 227) reads impressions, hook and hold rates, and cost per purchase at ad-set level."
+  },
+  {
+   "claim": 15,
+   "verdict": "TRUE",
+   "quote": "frame 1 is the problem, big, where it lives on the body",
+   "line": 246,
+   "note": "Quote is from readymerce-hook-lab line 246 (hook card item 5). Gate 9 (line 75) bans medical severity. Drama inherits this ('No medical severity', X3, line 121). Drama is the most B2B-ready source: T12 is 'strong for B2B and services' (line 155), and its worked examples are an Albanian kitchen workshop and furniture workshop."
+  },
+  {
+   "claim": 18,
+   "verdict": "TRUE",
+   "quote": "C45 (40 to 50 s, conversation or problem demo)",
+   "line": 108,
+   "note": "Drama's Script Lab card has the router's C45 as 40 to 50 s. Podcast line 75 says '80 to 110 spoken words, 35 to 45 seconds: the podcast C45 budget', which contradicts its own card at line 40 (C45 40 to 50 s)."
+  },
+  {
+   "claim": 6,
+   "verdict": "PARTIAL",
+   "quote": "the user makes it in Suno at GATE 4",
+   "line": 105,
+   "note": "Quote is from readymerce-song-ads line 105. Verified that song-ads has no 'declined_preset' string (0 matches) and no '2K' string, and that the user generates Suno songs. The hub is v13.4, not v13.3. The prompt card, sync check and StraightScale ElevenLabs Music points were not verified here."
+  },
+  {
+   "claim": 13,
+   "verdict": "PARTIAL",
+   "quote": "−14 LUFS integrated for social/YouTube, true peak ≤ −1.5 dBTP",
+   "line": 328,
+   "note": "Quote is from motion-video-director line 328, which also names Freesound as a source. That skill folder holds only SKILL.md, yet it references scripts/preflight.sh, preview.mjs, create_env.sh, normalize_env.py, fetch_freesound.mjs, fetch_pixabay.mjs and analyze_ref.sh, none of which exist. Result-first hooks, em-dash pauses and hand-made MP3s were not checked."
+  }
+ ],
+ "story_structures": [
+  {
+   "code": "T1",
+   "name": "The result causes trouble",
+   "shape": "The hero's visible change → an official or stranger refuses to believe she is the person in the old photo → roll call of failed fixes → the product carried in as the price of proof → the doubter converts → button",
+   "organic_fit": "An Albanian workshop owner who used to beg for jobs is now booked out. A supplier or old friend refuses to believe it is the same shop and asks what changed. The reveal is the mechanism (one specific promise in his posts instead of 'cilësi'), not the agency's price. CTA: 'save this' or 'comment HOW for the breakdown'. Needs a documented client result (hub B15d)."
+  },
+  {
+   "code": "T2",
+   "name": "Someone else notices first",
+   "shape": "A partner, kid or stranger spots the problem before the hero admits it → private embarrassment (only after 3 s) → a peer who 'had that happen' names the fix → payoff on the hero's face",
+   "organic_fit": "Best POV day-in-the-life fit. The owner's wife or accountant notices the quiet phone or the 14 missed calls before he does. A fellow business owner explains what he changed. Buyer pains are shown, then the mechanism is revealed. CTA: 'send this to a business owner who does this'."
+  },
+  {
+   "code": "T3",
+   "name": "The viewer is the exhibit",
+   "shape": "Future or past setting → the viewer's present on display → mockery by kids or visitors → a guide gives the cause → the product in the next room",
+   "organic_fit": "'The 2035 museum of Albanian ads': kids laugh at a wall of 'cilësi dhe çmime të mira' posts while a guide explains why everyone sounding the same forced price wars. Shareable comedy that teaches the cause. CTA: follow for part 2 / comment keyword. Low lip-sync need."
+  },
+  {
+   "code": "T4",
+   "name": "The old-school archetype",
+   "shape": "Four 1 s shots of the modern routine → the archetype does easily what the modern man can't, with one-word answers → the cause in the archetype's mouth → the archetype approves the product",
+   "organic_fit": "A grandfather craftsman who sold by one sentence of reputation, beside the grandson drowning in boosted posts. Fits Albanian family-business identity. Organic close: the grandfather's one line becomes the save-worthy lesson; no offer."
+  },
+  {
+   "code": "T5",
+   "name": "The family dare",
+   "shape": "A kid challenges a parent in front of the family with a stake named in the first 6 s → comic wrong answers in quick close-ups → a silent stretch of research → the kid teaches the cause → the payoff",
+   "organic_fit": "A daughter dares her father to name one thing only his ads say (the seed of 'The Bet'). Teaches a fact (sameness leads to price comparison) through a game. CTA: 'comment your one thing' drives comments, a native organic signal."
+  },
+  {
+   "code": "T6",
+   "name": "The old habit as a person",
+   "shape": "The competitor or routine played as a partner → the relationship sours → a breakup scene → the new partner (the product)",
+   "organic_fit": "The '€400 a month for likes' habit, or the boost button, played as a clingy ex. Comedy works organically. Must not depict a real competitor. The skill bars it from leading a paid first test; organically it can be a series episode."
+  },
+  {
+   "code": "T7",
+   "name": "Dramatic irony",
+   "shape": "Side characters mock the hero, thinking she doesn't understand → the viewer knows more → one calm line flips it → power reversal",
+   "organic_fit": "Competitors at a café mock the owner's 'lucky' full calendar; he calmly answers with the mechanism line. Strong for B2B status and pride. CTA: save/follow; the flip line becomes the caption hook."
+  },
+  {
+   "code": "T8",
+   "name": "The villain's point of view",
+   "shape": "The problem itself narrates → it wins and wins → it fails because of the product → it finds the product (usually stylized, produced in readymerce-animation-ads)",
+   "organic_fit": "The 'Sa kushton?' DM as a narrator who kills every sale until it meets a post that already answered why this shop is different. Animated, so no lip-sync risk and cheap. CTA: comment keyword."
+  },
+  {
+   "code": "T9",
+   "name": "The moral dilemma",
+   "shape": "A situation viewers argue about → an authority reverses the expected judgment → tied to the product's identity promise",
+   "organic_fit": "'Should he drop the price a third time to keep the client?' Built for comments and reach, which is an organic goal. The skill bans it as a paid first test; organically it is a good engagement post with 'comment YES/NO'."
+  },
+  {
+   "code": "T10",
+   "name": "The quiet monologue",
+   "shape": "One voice on a universal feeling over lived moments → no dialogue lip-sync → a soft product presence",
+   "organic_fit": "The owner's voice over night quotes, the marker, the empty phone, then the morning he stops dropping his price. Cheapest to produce (voiceover plus silent shots). Very savable and shareable for founders. CTA: 'send to someone who needs this'."
+  },
+  {
+   "code": "T11",
+   "name": "Fall, then rebuild",
+   "shape": "The worst moment → the decision → the win, seen through the doubter's eyes",
+   "organic_fit": "A client case study as drama: the month he almost closed, the decision, the turnaround told through his daughter's eyes. Needs real documented facts. Good for a series. CTA: follow for the next client story."
+  },
+  {
+   "code": "T12",
+   "name": "The secret plan / the bet",
+   "shape": "The viewer is let in on a plan or bet in the first seconds (bribe, dare, hidden motive) → it plays out → rule-of-three escalation → backfire or payoff → a last line that flips power",
+   "organic_fit": "The skill calls it 'strong for B2B and services, because a bet turns an argument into a game'. 'The Bet' (Era vs Arben, StraightScale) is a ready organic POV story: the owner's pain (dropping the price), the bet, the reveal that his customers fear delays, not price. Drop the price/offer close and end on 'Çmimi s'ulet' plus a comment-keyword CTA."
+  },
+  {
+   "code": "T13",
+   "name": "The misjudgment",
+   "shape": "The viewer judges a character (lazy, rude, wasting money) → the reveal that they were wrong → the product is the reason",
+   "organic_fit": "We see an owner on his phone at his kid's dinner and judge him, then learn the phone is answering leads for him while he is present. Teaches the mechanism through surprise. CTA: save/share."
+  },
+  {
+   "code": "BS11",
+   "name": "Drama beat sheet (S90 timings)",
+   "shape": "1 question opening (0 to 4 s) → 2 geography and want (4 to 10) → 3 friction, stakes, clock (8 to 25) → 4 turn 1 (15 to 30) → 5 search and the cause line (25 to 45) → 6 low point (40 to 55) → 7 product as the answer (45 to 75, never before 40%) → 8 mechanism and proof → 9 payoff on a face → 10 conversion and offer (70 to 80) → 11 CTA, identity close, button and end card",
+   "organic_fit": "The backbone for an organic POV reel: keep beats 1 to 9 and 11. Delete beat 10 (price, guarantee, scarcity). Compress to 30 to 45 s (C45 shape: question, geography, friction, turn with the mechanism carried in, payoff on a face, organic CTA). The mechanism reveal is the value and stays."
+  },
+  {
+   "code": "SHAPE",
+   "name": "Emotional shapes",
+   "shape": "Man in a hole (down, then up) by default; Cinderella from 60 s up; never end falling",
+   "organic_fit": "Use Man in a hole for 20 to 45 s organic reels: pain-down for 60%, the insight turn, ending higher than the start. Cinderella for longer series episodes."
+  },
+  {
+   "code": "C1",
+   "name": "The snowball (reference reel, 25 s, 8 shots)",
+   "shape": "The viewer is let in on the plan (two-shot in depth) → the plan executes → the apology/meet → rule-of-three escalation (one snowball, many, kids demand money) → the planted object pays off → a last line that flips power",
+   "organic_fit": "Ideal organic length and density (8 shots at about 3.1 s, variety from size, depth and staging, few lip-sync shots). Template for a 25 s agency skit with a planted object (a flyer, a price sheet). Music out during setup and comedy, in on the emotional beat."
+  },
+  {
+   "code": "C2",
+   "name": "The card in the book (reference reel, 30 s)",
+   "shape": "Start in motion → a fast collision montage (6 cuts in 1.2 s) → one hero close-up → a long depth take where a background entrance is the obstacle → an insert reveals the hidden plant → an ambiguous open last beat",
+   "organic_fit": "The open last beat 'drives comments' and part-2 asks, which are native organic signals. Template for a 30 s story whose last insert reveals what the agency changed (a new ad line on the phone), ending unresolved for an episode series."
+  },
+  {
+   "code": "E17",
+   "name": "The Missed Call (worked example, 45 s)",
+   "shape": "Sound-first hook (phone buzzing on a bench, 3 shots in 3 s, no music) → partner finds 14 missed calls → argument in short lines → lost-lead insert → low point and confession ('I can't do this alone') with silence → touch and resolution cue → time cut by pre-lap and match cut to morning → answering calls, bookings insert (the product), a van loaded → payoff on her face → button joke → end card",
+   "organic_fit": "The closest ready-made POV day-in-the-life of the buyer: a furniture-workshop owner in Tirana with his pains, then the mechanism (a system that answers leads) revealed through a time cut. Swap the end card offer for 'comment CALLS' or 'follow for part 2'. 24 shots at about 1.9 s; about 40% listener time."
+  },
+  {
+   "code": "E16-8",
+   "name": "The 8-shot dialogue template (vertical, 6 lines, about 20 s)",
+   "shape": "1 medium-wide geography, slow push → 2 OTS on A, lip-synced → 3 B reaction (A's line over him) → 4 ECU key-object insert with rack focus, B's line J-cut → 5 B MCU low angle with orbit + Sync 3 → 6 A reaction, silence → 7 A close-up push, the turn line → 8 wide, A leaves, B's last line off-screen + door",
+   "organic_fit": "A reusable building block for a 20 s organic scene: only 3 visible lip-sync shots, so cheap and low-risk. Good for a weekly episodic format with recurring characters (series cast file, section 18)."
+  },
+  {
+   "code": "E11-A",
+   "name": "Slow burn (restraint)",
+   "shape": "Top-down phone insert → wide entrance freeze → MCU short-sided creep → matched MCU swallow → CU slides the evidence → insert stops at hand → CU high short-sided, mouth opens with nothing (turn) → wide pull-back aftermath",
+   "organic_fit": "A treatment option for a tense founder moment (an unpaid invoice, a bad review). 8 shots, minimal dialogue, cheap. The evidence insert is the 'proof on screen' rule."
+  },
+  {
+   "code": "E11-B",
+   "name": "Emotional reveal (start close, then reveal)",
+   "shape": "ECU eyes → CU hearing the door → entrance gimbal follow → OTS eyes lift → CU question → tilt-down reveal of the object → rack focus to his face (turn) → high wide sit-down → profile two-shot",
+   "organic_fit": "A hook pattern for organic: open on a face receiving something unseen; the reveal object is the client's real problem (a stack of unanswered DMs)."
+  },
+  {
+   "code": "E11-C",
+   "name": "Confrontation (handheld, line cross at the turn)",
+   "shape": "Mid-shout CU entering → depth two-shot, back turned → OTS profile → clean single push → hand-stops insert → 90-degree arc across the line (turn) → low CU → high CU → locked profile silence → walk-out wide",
+   "organic_fit": "High-energy hook for business partners arguing over the marketing budget. Use sparingly organically; the comment test (who is right?) drives replies."
+  },
+  {
+   "code": "E11-D",
+   "name": "Comic beat (the confrontation that deflates)",
+   "shape": "Centered symmetric wide → creep-in freeze → quick push 'Explain.' → darting eyes → insert → long excuse → whip to raised eyebrow → whip back reveal (turn) → shared symmetric wide",
+   "organic_fit": "The most organic-native: high-key, static, symmetric comedy that is cheap to generate (few moves, short lines). Good for weekly relatable-pain skits for SME owners."
+  },
+  {
+   "code": "E11-E",
+   "name": "Quiet decision (internal)",
+   "shape": "ECU fidget (ring) → high wide through the doorway → MCU slow 45-degree orbit → rack focus to the other person and back → CU still eyes, small nod (turn) → insert object set down → stand with pedestal → silhouette exit",
+   "organic_fit": "Dialogue-free, so no lip-sync cost. For a T10-style founder reel: the night he decides to stop competing on price. Pair with captions or a VO line."
+  },
+  {
+   "code": "OPEN-7",
+   "name": "Opening types (7.2)",
+   "shape": "In the middle of the moment / start close then reveal / start on the reaction / the strange detail / sound first / the overheard line / flash forward (1 to 2 s of the payoff, then back)",
+   "organic_fit": "A hook menu for organic reels. Keep the X8 timing (a real sound by 0.3 s, a story event by 1 s, the first line by 1.5 s) since organic retention is front-loaded the same way. Test openings as separate posts or trial reels instead of ad variants."
+  }
+ ],
+ "organic_adaptation": [
+  "Delete beat 10 'Conversion, offer' (line 226: 'One real price line, the guarantee, real scarcity') and the S90 rule 'The doubter converts on screen' with a price. Replace it with a non-commercial resolution: the payoff on a face plus the insight.",
+  "Rewrite the end card rule (7.7.5, line 441: 'a warm image of the story's final world (softened) with the offer in large type and a visible action cue (for a lead form...)'). Organic end card = the final-world image plus an organic action cue (follow / save / send to a friend / 'comment KEYWORD' wired to the hub's keyword DM funnel). No offer and no lead-form cue.",
+  "Re-weight the score card: 'Ending and CTA | 10 | The L-cut CTA, a warm end card with the offer and the action cue' becomes an organic CTA (keyword or follow, readable, 3 s or less). 'Proof and payoff' stays.",
+  "The CTA's 'four jobs (L15)' and section 18's 'End with the 3-word CTA' come from paid copy laws. Swap them for the organic CTA set, and replace 'Primary text (80 to 150 words)' and 'Headline: 8 words or fewer' with an IG caption (first line as a hook, keyword instruction, no offer) plus a pinned comment.",
+  "Length: the drama default S90 (80 to 100 s, 30 to 45 shots, 3,000 to 4,500 credits) is too long and costly for weekly organic posts. Make the organic default a 20 to 45 s scene (C1 at 25 s and C2 at 30 s are the reference reels; the E16 8-shot template is about 20 s) and treat longer stories as multi-part series (section 18 series cast file). Script Lab's 'No story under 55 s' needs an organic exception.",
+  "Product reveal timing: 'never before 40%' and 'shown before it is named' (5.3.4) can stay as the mechanism reveal. But for an agency, the 'product' should be the mechanism or insight (what to say instead of 'cilësi'), not the agency's name. Brand mention is optional and at most a soft handle on the end card. Keep the no-logo test as an 'insight test'.",
+  "Hook rules: keep X8 timing and the visual-first opening. Keep Hook Lab gates 1 to 8. Gate 9 'Meta check' (no 'your [condition]', no age label, never ashamed, no medical severity) is ad-policy and DTC-health tuned; for B2B organic keep only 'never mock the hero' and 'shame private and resolved' (X3). Text super stays off by default, or a 6-word max super for sound-off feed viewing.",
+  "Compliance: keep hub B15d (facts only from the client) and 'never claim the footage is real, live or a real customer' (X9). Replace 'Use Meta's own AI disclosure setting when Meta asks for it' with one fixed organic rule (e.g. always toggle Instagram's AI label for photoreal generated people). Keep no burned-in tag unless the shared standards decide otherwise.",
+  "Captions: '(Meta ads need them...)' becomes 'organic viewers watch on mute'. Sizes, 55 to 62% placement and the 35 to 40% bottom UI band stay, because the organic Reels UI (caption text, audio label) is at least as tall.",
+  "Metrics: replace section 18 'Read the results' (hook rate 3 s plays ÷ impressions, hold rate 15 s ÷ 3 s, 'new-customer cost at ad-set level over 7 to 14 days') and the hub C13 iteration order with IG organic insights: 3 s hold / skip rate, average watch time, completion, saves, shares and sends, comments (incl. keyword triggers), follows from the reel, profile visits, DM funnel starts. Script Lab LEARN and Hook Lab H8 need an organic data source.",
+  "Hook variants: '3 hook variants (only the first 3 to 4 s change)' launched as separate ads cannot be A/B tested organically. Use trial reels or repost the winning opening later; keep one primary per post.",
+  "Launch: 'the story tier and the short tier as separate ads in the concept's ad set' becomes episode 1 and a cut-down teaser, or a carousel and reel pair.",
+  "Budget: cut cost for weekly cadence by preferring T10 / E11-E / E11-D shapes (VO or few lines, silent coverage), capping visible lip-sync well below 60%, moving inserts to stills with an edit push (11.5 already allows this), and running the 3-shot pilot once per client.",
+  "Templates T6 and T9 are banned from leading a paid first test; organically they are useful engagement formats (T9 comments). Lift that batch rule for organic.",
+  "Concept card: keep the 'Comment test' field. For organic it becomes the primary success criterion (what viewers would argue about, tag, or ask part 2 for).",
+  "Remove the Meta-ads-specific stop 'The budget cannot cover the whole ad' wording and the lead-form language ('Lini numrin më poshtë'); keep the animatic gate as the organic human review before spend."
+ ],
+ "visual_qa_overlap": "What the skill already does: (1) A set bible with an identity rule. Identity comes only from the location master plus character sheets, never frame-from-frame, with one match-on-action hop allowed (8.2). (2) Frame QA on every storyboard frame (8.3.4): 12 checks covering identity vs sheet, screen side and eyeline, light source, prop hand, extra fingers, bottom 35%, spelled text, the size asked for, bleed-in characters from the master, the continuity state, the product's person not facing the lens, and adjacent frames of the same person visibly different. Plus the composition-bleed rule (crop the master for inserts). (3) The animatic review against the shot-list rules, watched on mute and eyes closed (9). (4) A prompt template per shot row with fixed order and rules (11.2: one move, end states, 2 to 5 negatives, restraint words, gesture-word ban, Kling under 300 words, Omni 1 to 2 sentences, Veo positive exclusions), plus phrase banks and anchor lines reused verbatim. (5) Per-take QA (11.6): a frame sheet at 0.5 s / 1 s plus first and last frames; checks for face vs sheet, morphing, eyeline, move obeyed, text artifacts, frozen; audio cross-correlation lag and transcript for lip-sync; a generation log. (6) Film test (16): a 1 fps frame sheet plus cut frames; shot, opening, story, sound and music audits; a continuity audit of last-frame vs first-frame at each cut; an automatic jump-cut scan (90x160 grey correlation above about 0.6); a phone shadow-floor luma check; and the 100-point score card. Fresh agents are already used for the two script cold reads (5.4). For the film, 'For high-stakes work' only, a fresh agent runs checks 2 to 6 on the frame sheet and audio tables. Gaps a fresh-agent Visual / Prompt / Take Reviewer would fill: the same agent currently generates and grades every frame, prompt and take (self-review, which is how 'The Bet' scored 68/100 with continuity breaks). A Prompt Reviewer should lint each prompt against its shot-list row before any credit is spent: continuity-state words present, anchor line verbatim, reference jobs stated, one move with an end state, negatives 2 to 5, per-model limits (no audio_references with start_image on H3; clip = stem + 1 s and 15 s or less; ~20 words; declined_preset_id handling), and banned emotion and gesture words. A Visual Reviewer should run the 8.3.4 checklist on frames at full size, including the adjacent-frame comparison, which the skill admits image models ignore ('close-up, 85mm' vs 'medium close-up, 50mm'). It should also check 9:16 safe zones with overlays, because the skill's numbers (14% top, 35 to 40% bottom, right 21% lower half, captions 55 to 62%) are only described, with no overlay tool. A Take Reviewer should independently re-run per-take QA (frame sheet, morph and hand checks, lag and correlation, transcript) and the post-edit neighbour or jump-cut re-check after every edit change (14.9b), which today depends on the editor remembering. Also needed: helper scripts for the frame sheets, correlation, jump-cut scan, loudness tables and luma floor, since the skill ships none.",
+ "costs": [
+  {
+   "item": "MiniMax H3 at 2K, per generated second (measured on this account, Oct 2026)",
+   "credits": "2"
+  },
+  {
+   "item": "Kling 3.0 per second (11.5 range)",
+   "credits": "about 1.4 to 2.5"
+  },
+  {
+   "item": "Kling 3.0 720p silent per second",
+   "credits": "about 1.4"
+  },
+  {
+   "item": "Kling 3.0 1080p with audio per second",
+   "credits": "1.6 to 2.5"
+  },
+  {
+   "item": "Kling 3.0 4K per second",
+   "credits": "about 6"
+  },
+  {
+   "item": "Seedance 2.5 480p draft per second",
+   "credits": "3"
+  },
+  {
+   "item": "Seedance 2.5 720p per second",
+   "credits": "7"
+  },
+  {
+   "item": "Seedance 2.5 1080p per second",
+   "credits": "12"
+  },
+  {
+   "item": "Veo 3.1 on Higgs per second",
+   "credits": "about 7"
+  },
+  {
+   "item": "Nano Banana Pro still",
+   "credits": "about 2"
+  },
+  {
+   "item": "Sync 3 (sync_so) lip-sync",
+   "credits": "about $0.11 to $0.13 a second (dollars, not credits)"
+  },
+  {
+   "item": "Cinema Studio 4.0, Topaz, Omni, gpt-image-2",
+   "credits": "read live (not stated)"
+  },
+  {
+   "item": "Full S90 ad incl. drafts and 30% contingency",
+   "credits": "about 3,000 to 4,500 Higgs credits"
+  },
+  {
+   "item": "Full C45 ad",
+   "credits": "about 1,500 to 2,500 Higgs credits"
+  },
+  {
+   "item": "Value of one credit",
+   "credits": "about $0.033 to $0.07 depending on plan; credits do not roll over"
+  },
+  {
+   "item": "Saving from drafting cheap and finalizing winners",
+   "credits": "30 to 40% less"
+  },
+  {
+   "item": "Footage multiplier",
+   "credits": "generate 3 to 4x the footage kept; about 3 generations per usable shot; about 25% of footage used"
+  },
+  {
+   "item": "Reference video billing",
+   "credits": "a 5 s clip with a 3 s reference can bill as 8 s"
+  },
+  {
+   "item": "ElevenLabs music / video-to-music",
+   "credits": "price first with estimate_only (no number given)"
+  }
+ ],
+ "other_issues": [
+  "STALE FIRST-LINE TIMING (internal contradiction). Law 2 (line 44), X8 (line 126), the score card (line 876) and the retention audit (line 871) say the first line by 1.5 s. Five places still carry the v2.0 '4 s' rule: beat sheet beat 1 (line 217: 'The first spoken line by 4.0 s'), 5.3 check 1 (line 283), 7.4 (line 391: 'wherever it lands inside 4 s'), the 16.3 opening audit (line 842: 'the first line by 4 s;') and fail-table row line 929. An automated gate will pass 3.9 s openings in some steps and fail them in others.",
+  "STEM + 1 s vs H3 MAX. Stems may be '4 to 15 s' (line 541) while the clip must be 'stem length plus 1 s' (line 542) and H3 maxes at 15 s (line 1490). A 15 s stem produces an impossible 16 s job. Cap stems at 14 s.",
+  "FOLEY LEVEL CONTRADICTION. 15.5 says 'Foley** sits 10 to 20 dB under during lines' (line 821), but 12.4b says 'a touch effect more than 18 dB under, is too quiet for a phone; raise it' (line 702). The 18 to 20 dB band is both allowed and failed.",
+  "FOLEY VARIATIONS CONTRADICTION. Line 685 says 'Use `generations_count` 1 or 2 for foley to keep spend low.' Line 699 says 'Generate short dry one-shots, 3 to 4 variations each'.",
+  "FRAME RATE. The skill is 24 fps everywhere, but the beat-math table is '**Beat math** (frames at 30 fps):' (line 1419). Frames-per-beat values are wrong for a 24 fps timeline.",
+  "SFX prompt influence: '0.4 to 0.6' (line 685) vs 'prompt influence 0.3 by default' (line 1448).",
+  "END CARD LENGTH. Three different rules: 'The end card holds 2.5 to 3 s.' (line 442), 'then a 2 to 3 s end card' (lines 227, 784), and '3 s or less' (lines 871, 884). Usable clip window is also inconsistent: 'use the best 2 to 4 s' (line 424) vs 'the best 1.5 to 4 s' (line 672).",
+  "EXCEPTIONS TABLE NUMBERING. 0b lists X1, X3 to X10 with no X2 ('they replace v1's X2', line 116). The hub (ads-machine line 78) still names exactly 'X1 to X4' including X2 'silent story-action clips', and hub G1/G2 forbid Seedance, Veo and Gemini/Omni that X5 now routes to. Hub row D (line 23) and the v13.4 changelog still describe a MiniMax-H3-only drama skill. X5 to X10 approval is self-asserted: 'saving v2 is his approval' (line 116). An agent reading the hub first will block drama's routing.",
+  "HOOK LAB OVERRIDE NOT DECLARED. 0b says 'nothing else in Section G, the Hook Lab, Script Lab or Part B is relaxed' (line 116). Yet X8 overrides Hook Lab rule 5b.1 and hook card item 7 ('first word at 0.0 s'), labelled only as a 'v1 rule'. X7's 6-word, top-optional super contradicts Hook Lab 5c ('4 to 10 words', 'On screen from frame 1 until about 3 s'). The Hook Lab has no drama adapter, so a loaded Hook Lab will push 0.0 s first words and a frame-1 super.",
+  "STYLE CONFLICT WITH G7 AND PODCAST PIPELINE. Drama says hub G7 applies (line 66) and to 'Use the podcast skill's reference pipeline' (line 449). But G7 says 'Never cinematic, studio, bokeh, film grain', and podcast 5.1 says 'Never use: cinematic, film grain, dramatic lighting, bokeh, lens flare, color grade'. Drama demands 35mm grain, halation, named contrast ratios and a 'shot on 35mm film' phrase bank (line 1265). The master-frame prompt an agent copies from the podcast skill will fight the drama look.",
+  "declined_preset_id handling differs. Drama: 'Resubmit the same request with `declined_preset_id` set to the id it names.' (line 568). Hub G1: pass the fixed id \"24bae836-2c4a-48e0-89b6-49fcc0b21612\" on every H3 and Kling call (ads-machine line 84).",
+  "H3 SILENT SHOTS AMBIGUOUS. 11.1 says 'An H3 job with only image references and no audio also failed in testing; route silent shots to Kling.' (line 567). But the reaction route lists '`minimax_h3` or `kling3_0` sound off' first (line 555), Appendix D routes shots to 'H3 keyframe' / 'H3 silent' (lines 1082, 1094), and E15 says H3 audio is 'Always on'.",
+  "E15 spec table says minimax_h3 start/end frames 'Both (with references on Higgs)' (line 1490), which reads as permitted. 11.1 (line 566) and E16 (line 1625) say reference mode cannot be combined with start or end frames on Higgs. Misleading for a router.",
+  "H3 MAX AS DRAFT TIER. 11.5 lists 'H3 Max (`minimax_h3_max`)' as a cheap draft tier (line 649), but E15 gives it 480p/768p and 'References: None' (line 1491). It cannot draft a lip-synced (audio-reference) or identity-referenced shot. The name 'Max' for the cheaper tier is a trap.",
+  "UPSCALE TARGET. 15.1 upscales kept windows 'to 1080x1920' (line 798), but H3 output is 2K (line 1490), so this is a downscale for H3 shots. The rule only makes sense for Kling 720p, Seedance or Omni footage. Unspecified.",
+  "Overlapping vertical bands. Faces and props sit '15% to 60% from the top' (line 398) while captions sit '55 to 62% down... below the faces' (line 812). The 55 to 60% overlap needs a rule (faces end at 55%?).",
+  "VOICE MODEL DEFAULT. Drama says '`eleven_v3` or `eleven_v4`' (line 528) with no default. Hub G8 defaults to eleven_v4 and notes 'eleven_v3 ran Albanian lines together with almost no pauses'. Drama's examples are Albanian. Drama also lacks G8's pause-spread check (pause standard deviation 0.1 s or more, some pauses of 0.45 s or more), and it tightens turn gaps and pads (0.08 to 0.2 s; pad 0.15 s), which an automated G8 checker may flag.",
+  "MISSING FILES. The skill folder contains only SKILL.md (no scripts/ or references/). The 'Cinematic Storytelling Ads Playbook' and the 'three research files' (01, 02, 03, Oct 2026) it is built from are not on disk (find returned nothing). Every measurement it requires (frame sheets, audio cross-correlation and lag, the 90x160 jump-cut scan, loudnorm tables, the per-event foley peak table, the luma floor, the cut-map ffmpeg assembly) must be hand-written per run.",
+  "TOOL AVAILABILITY. 13.8b route (a) needs ElevenLabs `creative_create_asset_upload` and `creative_finalize_asset_upload`. Neither is in this session's ElevenLabs tool list (only creative_attach_reference_file etc.), so video-to-music falls back to the composition plan. The skill anticipates this at line 748. It also names `audio_isolation`, `video_deflicker`, `topaz_video`, `bytedance_video_upscale` and 3D Jutsu `location-new-angles` as models or presets rather than tools; an agent must map them to Higgs apps, presets or upscale_video. It says to 'Download the `content_url` inside the Higgs sandbox, because the workspace cannot reach those hosts' (line 747), an environment-specific assumption.",
+  "SCRIPT LAB WIRING. Script Lab's caller table and adapter enum ('animation / song / podcast / ugc / text / vsl') have no drama entry, so the drama adapter (section 5) exists only on the drama side. The drama Script Lab card cites 'readymerce-script-lab v1' while Script Lab is v1.1. The drama skill also has no Hook Lab card, though the Hook Lab says its card is copied into 'the three ad skills'.",
+  "TIER vs FORMAT. The drama ad is defined as '25 to 120 seconds' (line 14), but the Script Lab router says 'No story under 55 s' (line 108) and C45 is 40 to 50 s. Both reference reels in Appendix C (25 s, 30 s) fall below any story tier. The size-mix rule (7.6 rule 3) is given for S90 only, with no C45 mix.",
+  "Appendix D (worked example) is self-flagged as breaking v2.1 rules (shot 1 hovers, shot 6 is a fidget insert, first line at 3.2 s, line 1067). Its audit text still reports 'The first line comes at 3.2 s (X8)' (line 1101) as if compliant. An agent copying the table inherits rejected openings.",
+  "Paid-only assumptions throughout: Meta lead-form end-card cue ('Lini numrin më poshtë', line 441), 'Meta ads need them' for captions (line 808), launch as separate ads in an ad set, judging on new-customer cost at ad-set level, and hub C13 iteration. None of it maps to organic posting without an adapter."
+ ]
+}

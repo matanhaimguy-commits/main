@@ -1,0 +1,58 @@
+{
+ "asset": "SL05-W43-1b",
+ "version": 2,
+ "label": "logofix",
+ "source": "/home/user/drafts/fixed/177e27a4.jpg",
+ "source_md5": "ef3a5c5969e44bf7be5fe408ccbdf55e",
+ "original": "/home/user/drafts/177e27a4-fb75-455e-8ddc-8e5c37e6a305.jpg",
+ "original_md5": "318bc99caadb891fc96fe9160751dc05",
+ "real_logo": "/home/user/brand/straightscale-logo-light.png",
+ "size": [
+  1080,
+  1350
+ ],
+ "built_with": "PIL and OpenCV in the Higgsfield sandbox (/home/user/qa/W43-1b-set.v2/SL05), by the reviewer",
+ "logo_fit": {
+  "box": [
+   98,
+   1189,
+   393,
+   1246
+  ],
+  "size": [
+   295,
+   57
+  ],
+  "mean_abs_diff_opaque_px": 7.13
+ },
+ "hosted_json_url_md5_equals": "v1 original (not the fixed file)",
+ "must_open": [
+  "full_720.jpg",
+  "tile_r1c1.jpg",
+  "tile_r1c2.jpg",
+  "tile_r1c3.jpg",
+  "tile_r2c1.jpg",
+  "tile_r2c2.jpg",
+  "tile_r2c3.jpg",
+  "tile_r3c1.jpg",
+  "tile_r3c2.jpg",
+  "tile_r3c3.jpg",
+  "diffmap_orig_vs_fixed.jpg",
+  "region_logozone_orig_vs_fixed_2x.jpg",
+  "region_logozone_clahe_orig_top_fixed_bottom_2x.jpg",
+  "region_logozone_band_orig_top_fixed_bottom_3x_gamma07.jpg",
+  "thumb_200.jpg",
+  "../SET/ref_logo_vs_pasted_all_slides_3x.jpg",
+  "region_logo_changezone_3x_4views.jpg",
+  "region_SL05_kicker_2x.jpg",
+  "region_SL05_headline_2x.jpg",
+  "region_SL05_subline_2x.jpg",
+  "region_SL05_calculator_2x.jpg",
+  "region_SL05_hand_2x.jpg",
+  "region_SL05_phone_2x.jpg",
+  "region_SL05_counter_3x.jpg",
+  "region_SL05_arrow_3x.jpg",
+  "../SET/set_swipe_4_5_6_guide.jpg",
+  "../SET/set_bottom_band_logo_arrow_guides.jpg"
+ ]
+}

@@ -1,0 +1,108 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "WEB-EXT",
+ "spec_sha256": "c9edc056c0249017ce56733dd1d31f533727de3f3c201c5ce3d65684dbacfc63",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "files_opened": [
+  "growth-engine/production/standards.json",
+  "growth-engine/production/STANDARDS.md",
+  "growth-engine/production/failure-library.md",
+  "growth-engine/production/VISUAL-QA.md (sections 2 and 4)",
+  "clients/straightscale/runs/SS-LIB-WEB/shots/WEB-EXT.spec.yaml",
+  "clients/straightscale/runs/SS-LIB-STYLE/assets/STYLE-TOP.v1.png (full frame, 2x crop of the tower, pixel measurements of shaft width, roof tip and sky tone)",
+  "clients/straightscale/runs/SS-LIB-WEB/shots/WEB-HERO-D.spec.yaml (carry-over check)",
+  "clients/straightscale/runs/SS-LIB-WEB/shots/WEB-HERO-M.spec.yaml (carry-over check)",
+  "scrollcraft/builds/straightscale-site/BUILD-SPEC.md (act 1 layer table)",
+  "/home/user/straight-scale/src/styles/home/hero.css and src/components/sections/hero.tsx (far plane is placed by its own manifest box)",
+  "growth-engine/tools/pipeline.py spec-check straightscale SS-LIB-WEB WEB-EXT: PASS"
+ ],
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Every block is present and checkable: subject with state and pose, 'hands: none visible', 'props: []', 'text_in_image: none', 'static: true', setting details plus background_rule, camera framing/angle/lens/aspect '16:9'/safe_zones, continuity, regions for the tower, sky, square lights and all four margins, style, must_not. One clear moment: must_read_in_1s 'The lit Tirana clock tower over the square at night'. Lint (spec-check) PASS."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode. For the prompt stage: notes name one reference, 'image 1 STYLE-TOP@v1 (the tower, lights and grade only; its window frame, wall, baked text, second spire and salmon-lit facade must not be copied)'. Opened image 1: each of those excluded items is really there (window frame left and right of the view, the Albanian headline and gold '1/7', a dark spire with a red tip left of the tower, a salmon-lit facade at the lower left), so the exclusion list is accurate."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'hands: none visible' and 'no people, faces, figures or silhouettes anywhere in the square'; the only hands in the spec are named as clock hands: 'each showing only two dark clock hands'."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'action_physics: []', 'static: true'; the only physical relation is an occlusion, given as positions: 'only the square's soft lamp bokeh and dark tree tops cover the lowest part of its shaft and its base, from about y 0.72 down'."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "'props: []'. The clock faces, the one element that could come back blank, have content: 'softly glowing discs, each showing only two dark clock hands and no numerals'. The negative is targeted ('no readable numerals on the clock faces'), so it does not empty them."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "'text_in_image: none', with a targeted rule naming what to keep out: 'no text, letters, numbers, signage, shop names or billboards anywhere ... (image 1's gold '1/7' counter and headline are not copied)'. line_text is explained in notes: 'No words in this plate; all copy is HTML over the masters'."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: 'No signs, shop names, lettering, billboards or readable numerals'; the facade windows have a rule ('the lit windows of the facades across the square ... are wanted', shown as soft bokeh); there are no frames, screens or books in the scene; the window frame and interior from image 1 are ruled out."
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "pose: 'its shaft about 0.12 of the frame wide (its left and right edges at about x 0.44 and 0.56), the tip of its small pointed roof at about y 0.24 ... its base at about y 0.80' contradicts setting: 'a slender square stone shaft seen corner-on as in image 1'. At 16:9, the tower spans 0.56 x 9/16 = 0.315 of the frame width from tip to base, so at 0.12 wide it is only about 2.6 widths tall, and about 2.25 widths from the roof tip down to y 0.72, where the spec hides the shaft. Measured on image 1 (1080x608): the shaft is about 92 px wide (x 868 to 960, 0.085 of the width), the roof tip is at about y 0.20, and the shaft is still visible at about y 0.90. That is about 4.7 widths, and the base is beyond the frame. So the numbers ask for a tower roughly half as slender as the reference and the real landmark. The model either draws a squat, off-model tower (the FL-02 structure pattern) or a true slender tower that misses the stated edges, and on a hero asset the visual reviewer fails it either way. The height can't grow (tip kept below y 0.20, base at 0.80), so the width has to shrink to about 0.06 (x 0.47 to 0.53), about five widths from tip to base. Nothing else in the spec contradicts: the horizon at y 0.80 matches the hidden base (a 1.2 m eye height puts the base about 0.02 H below it), and tree tops at y 0.72 are consistent with 'rise a little above the horizon'."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot: null. Carry-over 'the tower, the square's lights and the grade of the window view in STYLE-TOP@v1' and 'the same lens language and film grain as WEB-HERO-D and WEB-HERO-M' are kept: the style line 'photorealistic cinematic 35mm film still, shallow depth of field, fine film grain' is the masters' line; the floodlit amber tower, the hands-only clock faces, the cream and ochre facades and the empty square match both masters' window views. The sky tone 'about #0A0E14 at the top edge' matches image 1 (measured #0C0F14). The tower's proportions against STYLE-TOP are the P8 item."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode. For the prompt stage: notes say 'gpt_image_2_5, aspect_ratio 16:9, resolution 2k, quality medium, variant flare'. The gate checks aspect against the Shot Spec's camera.aspect '16:9'."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "The words a model could read two ways are pinned down: 'two dark clock hands' (not human hands), 'a dark sky tone, not a blue light', 'camera level and shifted up, as in architectural photography ... verticals kept vertical', and 'square stone shaft' versus 'the square' is clear from context. Optional, not a fail: 'lens: 35mm film look, about f/2' can be read as a 35mm focal length (WEB-HERO-M writes '(film stock, not a focal length)'), but either reading gives the same wide view."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-02: there is a one-line structure description ('a slender square stone shaft seen corner-on ... one round clock face on each visible face, both at the same height near the top; above the clocks one storey of small arched openings, then a small pointed four-sided roof'); only the P8 width numbers undercut it. FL-11: one instance ('one clock tower, the only tower in the frame'; 'no second tower, spire, minaret or dome'). FL-05 and FL-10: signs are ruled out. FL-13: no logo is requested, and 'no logos or brand marks anywhere'. V23 side bands: 'no hard-edged strip or flat-filled band along any edge'. FL-04: not applicable (no text props)."
+  }
+ ],
+ "suggested_spec_changes": [
+  {
+   "check": "P8",
+   "required": true,
+   "field": "subjects[0].pose (SET-CLOCK-TOWER)",
+   "replace": "its shaft about 0.12 of the frame wide (its left and right edges at about x 0.44 and 0.56),",
+   "with": "as slender as in image 1: its shaft about 0.06 of the frame wide (its left and right edges at about x 0.47 and 0.53), its height from roof tip to base about five times that width;"
+  },
+  {
+   "check": "P11",
+   "required": false,
+   "field": "camera.lens",
+   "replace": "35mm film look, about f/2 focused nearer than the square:",
+   "with": "35mm film look (film stock, not a focal length), about f/2 focused nearer than the square:",
+   "why": "Optional. Matches WEB-HERO-M's wording."
+  },
+  {
+   "check": "P11",
+   "required": false,
+   "field": "notes (append)",
+   "with": " The image prompt never uses the build words plate, far plane, master, keyed, window opening, parallax, build or phone; the reason clause at the end of camera.safe_zones and the parenthetical '(there is no phone in this plate)' in style are build context only, never prompt text.",
+   "why": "Optional. Keeps 'window openings' and 'phone' out of a prompt whose main risk is copying image 1's window frame. Checked again at G-PROMPT-IMG."
+  }
+ ],
+ "notes": "The packet gave one line of context: this is the far plane behind the keyed window glass, so the wide margins and plain night sky are intentional. The spec's own story_purpose says the same. I saw no producer reasoning, and I did not read the existing report in qa/ before deciding (this file overwrites it). The margins, the plain sky and the 20% margin bands were not counted against the spec."
+}

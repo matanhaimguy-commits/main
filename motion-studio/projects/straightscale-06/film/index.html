@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en" data-resolution="portrait">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1080, height=1920" />
+    <title>StraightScale 06 · The 108-hour week</title>
+    <script src="assets/vendor/gsap.min.js"></script>
+    <style>
+      @font-face { font-family: "Playfair Display"; font-weight: 700; font-style: normal; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-700-normal.woff2) format("woff2"); }
+      @font-face { font-family: "Playfair Display"; font-weight: 700; font-style: italic; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-700-italic.woff2) format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 500; font-style: normal; src: url(assets/fonts/Montserrat/montserrat-latin-500-normal.woff2) format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 600; font-style: normal; src: url(assets/fonts/Montserrat/montserrat-latin-600-normal.woff2) format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 700; font-style: normal; src: url(assets/fonts/Montserrat/montserrat-latin-700-normal.woff2) format("woff2"); }
+      @font-face { font-family: "Montserrat"; font-weight: 800; font-style: normal; src: url(assets/fonts/Montserrat/montserrat-latin-800-normal.woff2) format("woff2"); }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #1f1f1f; }
+      #root { position: relative; width: 100%; height: 100%; overflow: hidden; background: #1f1f1f; }
+      #bg { position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; }
+      #chartwrap { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+      #chart { position: absolute; left: 0; top: 0; overflow: visible; }
+      .mask { position: absolute; overflow: hidden; white-space: nowrap; }
+      .in { display: block; white-space: nowrap; }
+      .serif { font-family: "Playfair Display", serif; font-weight: 700; color: #f8f6ef; letter-spacing: -0.01em; }
+      .serif em { font-family: "Playfair Display", serif; font-style: italic; font-weight: 700; color: #dd9a10; }
+      .sans { font-family: "Montserrat", sans-serif; color: #f8f6ef; }
+      .grey { color: #9b958d; } /* marble #EDE4D6 at 60 % over charcoal #1F1F1F (derived, see C.grey) */
+      .gold { color: #dd9a10; }
+      .num { font-family: "Montserrat", sans-serif; font-weight: 800; font-variant-numeric: tabular-nums lining-nums; }
+      .slot { visibility: hidden; display: inline-block; line-height: 1; }
+      #label { position: absolute; left: 0; top: 0; white-space: nowrap; }
+      #label .inner { display: block; white-space: nowrap; font-family: "Montserrat", sans-serif; color: #dd9a10; }
+      #label .unit { font-family: "Montserrat", sans-serif; font-weight: 600; }
+      #flyer { position: absolute; left: 0; top: 0; white-space: nowrap; font-family: "Montserrat", sans-serif; font-weight: 800; color: #dd9a10; transform-origin: 0 0; }
+      #tip { position: absolute; left: 0; top: 0; width: 1px; height: 1px; background: #dd9a10; }
+      .clockrow { position: absolute; white-space: nowrap; }
+      #chip { display: flex; align-items: center; gap: 16px; font-family: "Montserrat", sans-serif; font-weight: 800; letter-spacing: 0.14em; }
+      #chipbox { display: block; width: 22px; height: 22px; border: 3px solid #9b958d; }
+      #clock { font-family: "Montserrat", sans-serif; font-weight: 800; color: #f8f6ef; font-variant-numeric: tabular-nums lining-nums; letter-spacing: -0.01em; }
+      #clockday { display: inline-block; overflow: hidden; vertical-align: top; width: 2.45em; height: 1em; }
+      #clockday .roll { display: block; }
+      #clockday .roll span { display: block; height: 1em; line-height: 1; }
+      #logo { position: absolute; left: 0; top: 0; width: 640px; height: 213px; display: block; }
+      .caretprobe { display: inline-block; width: 0; height: 0.7em; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-duration="24" data-width="1080" data-height="1920">
+      <img id="bg" src="assets/bg-9x16.jpg" alt="" />
+      <div id="chartwrap"><svg id="chart" xmlns="http://www.w3.org/2000/svg"></svg></div>
+      <div id="texts"></div>
+      <img id="logo" src="assets/brand/wordmark-white.png" alt="StraightScale" />
+      <div id="tip"></div>
+    </div>
+    <script>
+      (function () {
+        window.__timelines = window.__timelines || {};
+        const root = document.getElementById("root");
+        const W = Number(root.dataset.width), H = Number(root.dataset.height);
+        const FMT = H / W > 1.5 ? "9x16" : "4x5";
+        const DUR = Number(root.dataset.duration);
+        const NS = "http://www.w3.org/2000/svg";
+        // brand kit colours; the secondary-text grey is not a new colour: it is marble at 60 % over charcoal (= #9B958D,
+        // the same value hard-coded in the CSS above), computed here so it can never drift from the kit
+        const mixHex = (a, b, u) => "#" + [1, 3, 5].map((i) => Math.round(parseInt(a.slice(i, i + 2), 16) * u + parseInt(b.slice(i, i + 2), 16) * (1 - u)).toString(16).padStart(2, "0")).join("").toUpperCase();
+        const C = { red: "#BE0F18", gold: "#DD9A10", ivory: "#F8F6EF", marble: "#EDE4D6", char: "#1F1F1F" };
+        C.grey = mixHex(C.marble, C.char, 0.6);
+
+        // ---------- copy (facts only from clients/straightscale/brand-kit.md; the arithmetic is the stated example) ----------
+        const COPY = {
+          head: ["Hours a week your", "business is <em>closed</em> while", "clients still write."],
+          note: ["Example: open 09:00 to 19:00,", "Monday to Saturday."],
+          math: ["168 hours in a week.", "You are open <b class=\"num\">60</b>.", "<span class=\"gold\">Closed <span class=\"num slot\" id=\"slot\">108</span>.</span>"],
+          sys: ["A system answers", "in those hours:"],
+          list: ["instant replies,", "follow-up,", "booking."],
+          comment: "Comment",
+          key: "ANALIZA.",
+          body: ["The booking button for the", "free 45-minute analysis", "comes in the DM."],
+        };
+
+        // ---------- layout per format (px on the format's own canvas) ----------
+        const LAY = {
+          "9x16": {
+            mx: 96, head: { y: 300, size: 80, lh: 88 }, note: { gap: 24, size: 44, lh: 54 },
+            lane: { y: 730, h: 82 }, plot: { x0: 160, x1: 920, y0: 838, y1: 1218 }, days: { y: 1258, size: 27 },
+            chip: { y: 1300, size: 38 }, clock: { y: 1346, size: 116 }, math: { y: 1302, size: 50, lh: 62, big: 80, bigGap: 8 },
+            sys: { y: 300, size: 80, lh: 88 }, list: { gap: 28, size: 52, lh: 64 },
+            cta: { comment: { y: 470, size: 100 }, key: { y: 596, size: 124 }, body: { y: 800, size: 50, lh: 66 } },
+            logo: { x: 80, y: 1180 }, label: 56, tip: 22,
+          },
+          "4x5": {
+            mx: 80, head: { y: 80, size: 72, lh: 78 }, note: { gap: 18, size: 42, lh: 50 },
+            lane: { y: 468, h: 82 }, plot: { x0: 150, x1: 990, y0: 576, y1: 900 }, days: { y: 938, size: 27 },
+            chip: { y: 978, size: 36 }, clock: { y: 1020, size: 104 }, math: { y: 980, size: 48, lh: 58, big: 76, bigGap: 8 },
+            sys: { y: 80, size: 72, lh: 78 }, list: { gap: 22, size: 50, lh: 60 },
+            cta: { comment: { y: 300, size: 96 }, key: { y: 422, size: 120 }, body: { y: 610, size: 48, lh: 62 } },
+            logo: { x: 64, y: 950 }, label: 56, tip: 22,
+          },
+        }[FMT];
+        document.getElementById("bg").src = "assets/bg-" + FMT + ".jpg";
+
+        // ---------- motion helpers (closed-form springs from motion-studio/lib/motion.js) ----------
+        function spring(t, k = 170, d = 26) {
+          if (t <= 0) return 0;
+          const w0 = Math.sqrt(k), z = d / (2 * w0);
+          if (z < 1) {
+            const wd = w0 * Math.sqrt(1 - z * z);
+            return 1 - Math.exp(-z * w0 * t) * (Math.cos(wd * t) + ((z * w0) / wd) * Math.sin(wd * t));
+          }
+          return 1 - Math.exp(-w0 * t) * (1 + w0 * t);
+        }
+        function track(t, keys, k, d) {
+          let v = keys[0][1];
+          for (let i = 1; i < keys.length; i++) v += (keys[i][1] - keys[i - 1][1]) * spring(t - keys[i][0], k, d);
+          return v;
+        }
+        const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+        const lerp = (a, b, u) => a + (b - a) * u;
+        const easeIn3 = (u) => { u = clamp(u); return u * u * u; };
+        const easeOut3 = (u) => { u = clamp(u); return 1 - Math.pow(1 - u, 3); };
+        const r2 = (x) => Math.round(x * 100) / 100;
+        const lerpHex = (a, b, u) => "#" + [1, 3, 5].map((i) => Math.round(lerp(parseInt(a.slice(i, i + 2), 16), parseInt(b.slice(i, i + 2), 16), clamp(u))).toString(16).padStart(2, "0")).join("");
+
+        // ---------- the clock: the music grid is the film's clock (90 BPM, one day = one 2/4 bar) ----------
+        const BPM = 90, BEAT = 60 / BPM, DAY = 2 * BEAT, RATE = 24 / DAY;   // 18 hours per second
+        const B = (j) => 10 / RATE + j * BEAT;                              // beat j; B(0) = Mon 19:00 = first closing
+        const T_SUN19 = 154 / RATE, T_LAND = T_SUN19 + DAY, P = (RATE * DAY) / 14;  // last 14 h decelerate onto a downbeat
+        function hoursAt(t) {
+          if (t <= 0) return 0;
+          if (t < T_SUN19) return t * RATE;
+          if (t < T_LAND) return 154 + 14 * (1 - Math.pow(1 - (t - T_SUN19) / DAY, P));
+          return 168;
+        }
+        function tAtHour(h) {
+          if (h <= 154) return h / RATE;
+          return T_SUN19 + DAY * (1 - Math.pow(1 - (h - 154) / 14, 1 / P));
+        }
+        // Example week: open 09:00-19:00 Mon-Sat. h = hours since Mon 09:00.
+        const OPEN = [[0, 10], [24, 34], [48, 58], [72, 82], [96, 106], [120, 130]];
+        const CLOSED = [[10, 24], [34, 48], [58, 72], [82, 96], [106, 120], [130, 168]];
+        const BREAKS = [0, 10, 24, 34, 48, 58, 72, 82, 96, 106, 120, 130, 168];
+        function cum(h) { let c = 0; for (const [a, b] of CLOSED) if (h > a) c += Math.min(h, b) - a; return c; }
+        const isClosed = (h) => CLOSED.some(([a, b]) => h >= a - 1e-9 && h < b - 1e-9);
+        const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+        const clockAt = (h) => { const Hh = 9 + Math.floor(h + 1e-6); return { day: DAYS[Math.floor(Hh / 24) % 7], dayN: Math.floor(Hh / 24), hh: String(Hh % 24).padStart(2, "0") }; };
+
+        // ---------- cue sheet (every later beat sits on the same grid) ----------
+        const CUES = {
+          land: T_LAND, rest: T_LAND + 0.3, math1: B(16), math2: B(17), math3: B(18), headOut: B(19.25), sysIn: B(19.5),
+          list1: B(20.5), list2: B(21), list3: B(21.5), sweep0: B(20.5), sweep1: B(23.17), cta: B(25.5), type0: B(26),
+          body: B(26), hop: B(27.25), logo: B(28), under: B(31), end: DUR,
+        };
+        const KEY_STEP = BEAT / 8;   // ANALIZA typed on 32nd notes
+        const axisKeys = [[0, 40], [tAtHour(58), 80], [tAtHour(106), 140]];
+        const axisMax = (t) => track(t, axisKeys, 140, 19);
+        const BUBBLES = [12, 36.5, 61, 84.5, 109, 132, 142, 151, 160].map((h, i) => ({ h, row: i % 2, t: tAtHour(h) }));
+        const front = (t) => 168 * (0.5 - 0.5 * Math.cos(Math.PI * clamp((t - CUES.sweep0) / (CUES.sweep1 - CUES.sweep0))));
+        BUBBLES.forEach((b) => { b.ta = CUES.sweep0 + (Math.acos(1 - (2 * b.h) / 168) / Math.PI) * (CUES.sweep1 - CUES.sweep0); });
+
+        // ---------- geometry ----------
+        const PL = LAY.plot, PH = PL.y1 - PL.y0;
+        const X = (h) => PL.x0 + (h / 168) * (PL.x1 - PL.x0);
+        const Y = (v, m) => PL.y1 - (v / m) * PH;
+
+        // ---------- build the chart (SVG) ----------
+        const svg = document.getElementById("chart");
+        svg.setAttribute("width", W); svg.setAttribute("height", H); svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+        const mk = (tag, attrs, parent = svg) => { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; };
+        const bandTop = LAY.lane.y - 10;
+        const bands = OPEN.map(([a, b]) => mk("rect", { x: X(a), y: bandTop, width: X(b) - X(a), height: PL.y1 - bandTop, fill: C.ivory, opacity: 0.075 }));
+        const gaps = CLOSED.map(([a]) => mk("rect", { x: X(a), y: bandTop, width: 0, height: PL.y1 - bandTop, fill: C.ivory, opacity: 0 }));
+        const grid = [20, 40, 60, 80, 100, 120, 140].map((v) => ({
+          v, line: mk("line", { x1: PL.x0, x2: PL.x1, y1: 0, y2: 0, stroke: C.ivory, "stroke-width": 2, opacity: 0 }),
+          text: v % 40 === 0 ? mk("text", { x: PL.x0 - 16, y: 0, fill: C.grey, "font-family": "Montserrat", "font-weight": 700, "font-size": 34, "text-anchor": "end", "dominant-baseline": "middle", opacity: 0 }) : null,
+        }));
+        grid.forEach((g) => g.text && (g.text.textContent = String(g.v)));
+        mk("line", { x1: PL.x0, x2: PL.x1, y1: PL.y1, y2: PL.y1, stroke: C.ivory, "stroke-width": 3, opacity: 0.38 });
+        mk("text", { x: PL.x0 - 16, y: PL.y1, fill: C.grey, "font-family": "Montserrat", "font-weight": 700, "font-size": 34, "text-anchor": "end", "dominant-baseline": "middle" }).textContent = "0";
+        for (let h = 15; h < 168; h += 24) mk("line", { x1: X(h), x2: X(h), y1: PL.y1, y2: PL.y1 + 12, stroke: C.ivory, "stroke-width": 2, opacity: 0.38 });
+        const dayCentres = [[7.5, "MON"], [27, "TUE"], [51, "WED"], [75, "THU"], [99, "FRI"], [123, "SAT"], [145, "SUN"], [164, "MON"]];
+        const dayLabels = dayCentres.map(([h, s], i) => {
+          const e = mk("text", { x: X(h), y: LAY.days.y, fill: C.grey, "font-family": "Montserrat", "font-weight": 700, "font-size": LAY.days.size, "letter-spacing": "2", "text-anchor": "middle", "dominant-baseline": "middle" });
+          e.textContent = s; e.__i = i; return e;
+        });
+        const dayIndexOfH = (h) => (h < 15 ? 0 : h >= 159 ? 7 : 1 + Math.floor((h - 15) / 24));
+        const sweep = mk("line", { x1: PL.x0, x2: PL.x0, y1: PL.y1, y2: PL.y1, stroke: C.ivory, "stroke-width": 6, "stroke-linecap": "round", opacity: 0 });
+        const flatPath = mk("path", { d: "", fill: "none", stroke: C.grey, "stroke-width": 5, "stroke-linecap": "round", "stroke-linejoin": "round" });
+        const climbPath = mk("path", { d: "", fill: "none", stroke: C.gold, "stroke-width": 7, "stroke-linecap": "round", "stroke-linejoin": "round" });
+        // message bubbles in the lane above the plot (ivory, three dots, no counts, no names) and their answer badges
+        const BW = 54, BH = 38;
+        const bubblePath = `M ${-BW / 2 + 14} ${-BH} H ${BW / 2 - 14} Q ${BW / 2} ${-BH} ${BW / 2} ${-BH + 14} V ${-14} Q ${BW / 2} 0 ${BW / 2 - 14} 0 H ${-BW / 2 + 22} L ${-BW / 2 + 6} 10 L ${-BW / 2 + 10} 0 Q ${-BW / 2} 0 ${-BW / 2} -14 V ${-BH + 14} Q ${-BW / 2} ${-BH} ${-BW / 2 + 14} ${-BH} Z`;
+        BUBBLES.forEach((b) => {
+          b.x = X(b.h); b.y = LAY.lane.y + (b.row ? 92 : 40);
+          b.g = mk("g", { opacity: 0 });
+          b.body = mk("path", { d: bubblePath, fill: C.ivory }, b.g);
+          b.dots = mk("g", {}, b.g);
+          [-11, 0, 11].forEach((dx) => mk("circle", { cx: dx, cy: -BH / 2, r: 3.6, fill: C.char }, b.dots));
+          b.check = mk("path", { d: "M -9 -19 L -3 -12.5 L 9.5 -26", fill: "none", stroke: C.char, "stroke-width": 4.6, "stroke-linecap": "round", "stroke-linejoin": "round", opacity: 0 }, b.g);
+        });
+
+        // ---------- build the type (every line sits in its own mask) ----------
+        const texts = document.getElementById("texts");
+        const lines = [];
+        function line(html, x, y, size, cls, opts = {}) {
+          const m = document.createElement("div");
+          m.className = "mask"; m.setAttribute("data-layout-allow-overflow", "");
+          const pad = Math.round(size * 0.18);
+          m.style.left = x + "px"; m.style.top = y - pad + "px";
+          m.style.padding = `${pad}px ${opts.padR ?? 12}px ${pad}px 0`;
+          const inner = document.createElement("div");
+          inner.className = "in " + cls;
+          inner.style.fontSize = size + "px"; inner.style.lineHeight = "1";
+          inner.innerHTML = html;
+          m.appendChild(inner); texts.appendChild(m);
+          const L = { m, inner, x, y, size, html, tin: opts.tin ?? 0, tout: opts.tout ?? 1e9, outDir: opts.outDir ?? -1, outDur: opts.outDur ?? 0.3, read: opts.read !== false, id: opts.id || "" };
+          lines.push(L); return L;
+        }
+        const mx = LAY.mx;
+        const headLines = COPY.head.map((s, i) => line(s, mx, LAY.head.y + i * LAY.head.lh, LAY.head.size, "serif", { tin: -1, tout: CUES.headOut + i * 0.05, id: "head" }));
+        const noteY = LAY.head.y + COPY.head.length * LAY.head.lh + LAY.note.gap;
+        const noteLines = COPY.note.map((s, i) => line(s, mx, noteY + i * LAY.note.lh, LAY.note.size, "sans grey", { tin: -1, tout: CUES.headOut + 0.2 + i * 0.05, id: "note" }));
+        noteLines.forEach((l) => (l.inner.style.fontWeight = 500));
+        const mathLines = COPY.math.map((s, i) => line(s, mx, LAY.math.y + i * LAY.math.lh + (i === 2 ? LAY.math.bigGap : 0), i === 2 ? LAY.math.big : LAY.math.size, "sans", { tin: [CUES.math1, CUES.math2, CUES.math3][i] + 0.06, tout: CUES.cta + 0.22 + 0.03 * i, outDir: 1, outDur: 0.24, id: "math" + i }));
+        mathLines.forEach((l) => (l.inner.style.fontWeight = 700));
+        const sysLines = COPY.sys.map((s, i) => line(s, mx, LAY.sys.y + i * LAY.sys.lh, LAY.sys.size, "serif", { tin: CUES.sysIn + i * 0.07, tout: CUES.cta - 0.14 + i * 0.03, outDur: 0.22, id: "sys" }));
+        const listY = LAY.sys.y + COPY.sys.length * LAY.sys.lh + LAY.list.gap;
+        const listLines = COPY.list.map((s, i) => line(s, mx, listY + i * LAY.list.lh, LAY.list.size, "sans gold", { tin: [CUES.list1, CUES.list2, CUES.list3][i], tout: CUES.cta - 0.1 + i * 0.03, outDur: 0.22, id: "list" + i }));
+        listLines.forEach((l) => (l.inner.style.fontWeight = 700));
+        const commentLine = line(COPY.comment, mx, LAY.cta.comment.y, LAY.cta.comment.size, "serif", { tin: CUES.cta + 0.16, id: "comment" });
+        commentLine.inner.innerHTML = `<em style="color:${C.ivory}">${COPY.comment}</em>`;
+        const keyLine = line(COPY.key.split("").map((ch, i) => `<span class="k" data-i="${i}">${ch}</span>`).join("") + '<span class="caretprobe"></span>', mx, LAY.cta.key.y, LAY.cta.key.size, "sans gold", { tin: -1, id: "key", padR: 80 });
+        keyLine.inner.style.fontWeight = 800; keyLine.inner.style.letterSpacing = "0.02em";
+        const keyLetters = [...keyLine.inner.querySelectorAll(".k")];
+        const caretProbe = keyLine.inner.querySelector(".caretprobe");
+        const bodyLines = COPY.body.map((s, i) => line(s, mx, LAY.cta.body.y + i * LAY.cta.body.lh, LAY.cta.body.size, "sans", { tin: CUES.body + i * 0.07, id: "body" }));
+        bodyLines.forEach((l) => (l.inner.style.fontWeight = 600));
+
+        // the clock row: chip (OPEN / CLOSED) and the big day-and-time counter
+        const chipRow = document.createElement("div"); chipRow.className = "mask"; chipRow.setAttribute("data-layout-allow-overflow", ""); texts.appendChild(chipRow);
+        chipRow.style.left = mx + "px"; chipRow.style.top = LAY.chip.y - 8 + "px"; chipRow.style.padding = "8px 12px 8px 0";
+        chipRow.innerHTML = `<div class="in" id="chip" style="font-size:${LAY.chip.size}px;line-height:1"><span id="chipbox"></span><span id="chiptext">OPEN</span></div>`;
+        const clockRow = document.createElement("div"); clockRow.className = "mask"; clockRow.setAttribute("data-layout-allow-overflow", ""); texts.appendChild(clockRow);
+        const cpad = Math.round(LAY.clock.size * 0.14);
+        clockRow.style.left = mx + "px"; clockRow.style.top = LAY.clock.y - cpad + "px"; clockRow.style.padding = `${cpad}px 12px ${cpad}px 0`;
+        clockRow.innerHTML = `<div class="in" id="clock" style="font-size:${LAY.clock.size}px;line-height:1"><span id="clockday" data-layout-allow-overflow><span class="roll"><span class="d0">Mon</span><span class="d1">Mon</span></span></span> <span id="clocktime">09:00</span></div>`;
+        const chipInner = chipRow.firstChild, clockInner = clockRow.firstChild;
+        const chipBox = document.getElementById("chipbox"), chipText = document.getElementById("chiptext");
+        const clockDayRoll = clockRow.querySelector(".roll"), clockTime = document.getElementById("clocktime");
+
+        // value label riding the tip, the flyer that carries "108" into the math line, the tip square, the logo
+        const label = document.createElement("div"); label.id = "label"; label.setAttribute("data-layout-allow-overflow", ""); texts.appendChild(label);
+        label.innerHTML = `<span class="inner"><span class="num" id="labnum" style="font-size:${LAY.label}px;display:inline-block;line-height:1">0</span><span class="unit" style="font-size:${Math.round(LAY.label * 0.6)}px"> h</span></span>`;
+        const labInner = label.firstChild, labNum = document.getElementById("labnum"), labUnit = label.querySelector(".unit");
+        const flyer = document.createElement("div"); flyer.id = "flyer"; flyer.textContent = "108"; flyer.style.fontSize = LAY.label + "px"; flyer.style.lineHeight = "1"; texts.appendChild(flyer);
+        flyer.className = "num";
+        const under = document.createElement("div"); under.id = "under"; texts.appendChild(under);
+        under.style.cssText = "position:absolute;left:0;top:0;height:8px;background:" + C.gold + ";transform-origin:0 50%;";
+        const tip = document.getElementById("tip");
+        const logo = document.getElementById("logo");
+        const slot = document.getElementById("slot");
+        const LOGO_SQ = { x: LAY.logo.x + 108, y: LAY.logo.y + 48, s: 29 };   // the gold square inside wordmark-white.png (measured)
+
+        // ---------- per-frame state: a pure function of t ----------
+        let geo = null;   // positions measured once after fonts load (deterministic)
+        function setLine(L, t) {
+          let y = 0;
+          if (t < L.tin) y = 160;
+          else y = (1 - spring(t - L.tin, 230, 27)) * 160;
+          if (t >= L.tout) y = L.outDir * 160 * easeIn3((t - L.tout) / L.outDur);
+          L.inner.style.transform = `translateY(${r2(y)}%)`;
+          L.inner.style.visibility = Math.abs(y) >= 140 ? "hidden" : "visible";   // fully outside its mask: not painted at all
+          L.vis = Math.abs(y) < 0.6 ? 1 : 0;
+        }
+        function tipAt(t) {
+          const h = hoursAt(t), m = axisMax(t);
+          return { h, m, x: X(h), y: Y(cum(h), m) };
+        }
+        function frame(t) {
+          const h = hoursAt(t), m = axisMax(t), v = cum(h);
+          // grid
+          for (const g of grid) {
+            const y = Y(g.v, m), a = clamp((y - (PL.y0 - 24)) / 40) * clamp((m * 1.02 - g.v) / 6 + 1);
+            g.line.setAttribute("y1", r2(y)); g.line.setAttribute("y2", r2(y)); g.line.setAttribute("opacity", r2(0.1 * a));
+            if (g.text) { g.text.setAttribute("y", r2(y)); g.text.setAttribute("opacity", r2(a)); }
+          }
+          // line: flats and climbs drawn up to the tip
+          let fd = "", cd = "";
+          for (let i = 0; i < BREAKS.length - 1; i++) {
+            const a = BREAKS[i]; if (a >= h) break;
+            const b = Math.min(BREAKS[i + 1], h);
+            const seg = `M ${r2(X(a))} ${r2(Y(cum(a), m))} L ${r2(X(b))} ${r2(Y(cum(b), m))} `;
+            if (isClosed(a + 0.001)) cd += seg; else fd += seg;
+          }
+          flatPath.setAttribute("d", fd || "M 0 0"); climbPath.setAttribute("d", cd || "M 0 0");
+          flatPath.setAttribute("visibility", fd ? "visible" : "hidden"); climbPath.setAttribute("visibility", cd ? "visible" : "hidden");
+          // math beat annotations
+          const flatIv = spring(t - CUES.math2, 200, 28);
+          flatPath.setAttribute("stroke", flatIv > 0.5 ? C.ivory : C.grey);
+          flatPath.setAttribute("stroke-width", r2(5 + 1.5 * flatIv));
+          const climbPulse = Math.max(0, Math.sin(Math.PI * clamp((t - CUES.math3) / 0.5)));
+          climbPath.setAttribute("stroke-width", r2(7 + 3.5 * climbPulse));
+          const su = (t - CUES.math1) / 0.55;
+          if (su > 0 && su < 1.2) {
+            const xa = lerp(PL.x0, PL.x1, easeOut3(su) ), xb = lerp(PL.x0, PL.x1, easeOut3(su - 0.25));
+            sweep.setAttribute("x1", r2(Math.max(PL.x0, xb))); sweep.setAttribute("x2", r2(Math.min(PL.x1, xa)));
+            sweep.setAttribute("opacity", r2(0.9 * clamp((1.2 - su) / 0.4)));
+          } else sweep.setAttribute("opacity", 0);
+          // open-hour bands: brighter while the clock is inside them, brighter after "You are open 60", then lit everywhere
+          const fr = front(t);
+          OPEN.forEach(([a, b], i) => {
+            const ta = tAtHour(a), tb = tAtHour(b);
+            const inside = a === 0 ? 1 - spring(t - tb, 200, 28) : spring(t - ta, 200, 28) - spring(t - tb, 200, 28);
+            const mathHi = spring(t - CUES.math2, 200, 28) - 0.6 * spring(t - CUES.math2 - 0.45, 120, 22);
+            bands[i].setAttribute("opacity", r2(0.075 + 0.07 * inside * (t < CUES.land ? 1 : 0) + 0.08 * mathHi));
+          });
+          CLOSED.forEach(([a, b], i) => {
+            const w = clamp(fr, a, b) - a;
+            gaps[i].setAttribute("width", r2(Math.max(0, X(a + w) - X(a))));
+            gaps[i].setAttribute("opacity", w > 0 ? 0.107 : 0);
+          });
+          // day labels: the current day lights up while the clock runs
+          const di = t < CUES.math1 ? dayIndexOfH(Math.min(h, 167.9)) : -1;
+          dayLabels.forEach((e, i) => e.setAttribute("fill", i === di ? C.ivory : C.grey));
+          // bubbles pop when the clock passes them; answered when the light front passes them
+          for (const b of BUBBLES) {
+            const p = spring(t - b.t, 300, 16), a = clamp((t - b.t) / 0.06);
+            const k = clamp((t - b.ta) / 0.1), q = spring(t - b.ta, 320, 15);
+            const ans = 1 + 0.16 * Math.sin(Math.PI * clamp((t - b.ta) / 0.28));   // a small punch as it is answered
+            b.g.setAttribute("opacity", r2(a));
+            b.g.setAttribute("transform", `translate(${r2(b.x)} ${r2(b.y)}) scale(${r2((0.35 + 0.65 * p) * ans)})`);
+            b.body.setAttribute("fill", k > 0 ? lerpHex(C.ivory, C.gold, k) : C.ivory);
+            b.dots.setAttribute("opacity", r2(1 - k));
+            b.check.setAttribute("opacity", t >= b.ta ? 1 : 0);
+            b.check.setAttribute("transform", `translate(0 -19) scale(${r2(Math.max(0.001, q))}) translate(0 19)`);
+          }
+          // the chart folds down onto its baseline for the call to action
+          const fold = easeIn3((t - CUES.cta + 0.06) / 0.32);
+          const wrap = document.getElementById("chartwrap");
+          wrap.style.transformOrigin = `0px ${PL.y1}px`;
+          wrap.style.transform = `scaleY(${r2(Math.max(0.001, 1 - fold))})`;
+          wrap.style.opacity = r2(1 - clamp((t - CUES.cta - 0.14) / 0.12));
+
+          // type
+          for (const L of lines) setLine(L, t);
+          // ANALIZA typed letter by letter
+          keyLetters.forEach((e, i) => (e.style.visibility = t >= CUES.type0 + i * KEY_STEP ? "visible" : "hidden"));
+
+          // clock row and chip
+          const ck = clockAt(Math.min(h, 168));
+          clockTime.textContent = ck.hh + ":00";
+          // the day name rolls: today leaves upward while tomorrow arrives from below (one line = 1 em). The roll runs in
+          // the last 0.05 s (3 frames at 60 fps) before midnight, inside the 23:00 hour, so 00:00 already reads the new day
+          const ROLL = 0.05, tNext = ck.dayN < 7 ? tAtHour(15 + 24 * ck.dayN) : Infinity;
+          const ru = (t - (tNext - ROLL)) / ROLL, rolling = ru > 0 && ru < 1;
+          clockDayRoll.children[0].textContent = ck.day;
+          clockDayRoll.children[1].textContent = rolling ? DAYS[(ck.dayN + 1) % 7] : ck.day;
+          const dayRoll = rolling ? (ru < 0.5 ? 4 * ru * ru * ru : 1 - Math.pow(-2 * ru + 2, 3) / 2) : 1;
+          clockDayRoll.style.transform = `translateY(${r2(-dayRoll)}em)`;
+          clockDayRoll.children[0].style.visibility = dayRoll > 0.97 ? "hidden" : "inherit";
+          clockDayRoll.children[1].style.visibility = dayRoll < 0.03 ? "hidden" : "inherit";
+          const closedNow = t < CUES.land && isClosed(h);
+          chipText.textContent = closedNow ? "CLOSED" : "OPEN";
+          chipInner.style.color = closedNow ? C.gold : C.grey;
+          chipBox.style.background = closedNow ? C.gold : "transparent";
+          chipBox.style.borderColor = closedNow ? C.gold : C.grey;
+          const rowOut = easeIn3((t - CUES.math1) / 0.26) * -160;
+          chipInner.style.transform = `translateY(${r2(rowOut)}%)`;
+          chipInner.style.visibility = rowOut <= -140 ? "hidden" : "visible";
+          const clockOut = easeIn3((t - CUES.math1 + 0.04) / 0.28) * -160;
+          clockInner.style.transform = `translateY(${r2(clockOut)}%)`;
+          clockInner.style.visibility = clockOut <= -140 ? "hidden" : "visible";
+
+          // tip square: rides the line, punches on landing, then becomes the caret and finally the logo's gold square
+          const tp = tipAt(Math.min(t, CUES.land));
+          let sx = tp.x, sy = tp.y, ss = LAY.tip;
+          const landPunch = spring(t - CUES.land, 380, 14) * (1 - spring(t - CUES.land - 0.05, 160, 26));
+          ss *= 1 + 0.45 * landPunch;
+          if (geo && t >= CUES.cta) {
+            // hop 1: from the end of the line to the caret position before the first letter
+            const c0 = geo.caret[0];
+            const u1 = spring(t - CUES.cta, 120, 19);
+            const typed = Math.max(-1, Math.min(keyLetters.length - 1, Math.floor((t - CUES.type0) / KEY_STEP + 1e-6)));
+            const cp = typed < 0 ? c0 : geo.caret[typed + 1];
+            const arc = Math.sin(Math.PI * clamp((t - CUES.cta) / 0.45)) * -90;
+            let cx = lerp(tp.x, cp.x, t < CUES.type0 ? u1 : 1), cy = lerp(tp.y, cp.y, t < CUES.type0 ? u1 : 1) + (t < CUES.type0 ? arc : 0);
+            let cs = lerp(LAY.tip, geo.caretSize, u1);
+            if (t >= CUES.hop) {
+              const u = clamp((t - CUES.hop) / (CUES.logo - CUES.hop)), u2 = u * u * (3 - 2 * u);   // smoothstep: peak speed 1.5x the mean
+              const [P0, P1, P2, P3] = geo.hop, v = 1 - u2;
+              cx = v * v * v * P0.x + 3 * v * v * u2 * P1.x + 3 * v * u2 * u2 * P2.x + u2 * u2 * u2 * P3.x;
+              cy = v * v * v * P0.y + 3 * v * v * u2 * P1.y + 3 * v * u2 * u2 * P2.y + u2 * u2 * u2 * P3.y;
+              cs = lerp(geo.caretSize, LOGO_SQ.s, u2);
+            }
+            sx = cx; sy = cy; ss = cs;
+          }
+          tip.style.width = r2(ss) + "px"; tip.style.height = r2(ss) + "px";
+          tip.style.transform = `translate(${r2(sx - ss / 2)}px, ${r2(sy - ss / 2)}px)`;
+          tip.style.opacity = r2(1 - clamp((t - CUES.logo - 0.05) / 0.12));
+
+          // after the logo: a gold rule draws under ANALIZA (the one thing to type), the film's last move
+          if (geo) {
+            const uu = spring(t - CUES.under, 160, 24);
+            under.style.width = geo.under.w + "px";
+            under.style.transform = `translate(${r2(geo.under.x)}px, ${r2(geo.under.y)}px) scaleX(${r2(Math.max(0.0001, uu))})`;
+            under.style.opacity = t >= CUES.under ? 1 : 0;
+          }
+          // logo: the real file, revealed by a clip that grows out of its own gold square
+          const lp = spring(t - CUES.logo, 95, 18);
+          const ins = [48, 640 - 137, 213 - 77, 108].map((s) => r2(s * (1 - lp)));
+          logo.style.transform = `translate(${LAY.logo.x}px, ${LAY.logo.y}px)`;
+          logo.style.clipPath = `inset(${ins[0]}px ${ins[1]}px ${ins[2]}px ${ins[3]}px)`;
+          logo.style.opacity = t >= CUES.logo ? 1 : 0;
+
+          // value label riding the tip; on landing it punches, at "Closed 108." it flies into the sentence
+          const lt = tipAt(Math.min(t, CUES.land));
+          const aa = clamp((lt.x - PL.x0) / (PL.x1 - PL.x0));
+          labNum.textContent = String(Math.floor(cum(lt.h) + 1e-6));
+          const lpunch = 1 + 0.22 * spring(t - CUES.land, 260, 13);
+          label.style.transform = `translate(${r2(lt.x + lerp(-LAY.tip / 2, LAY.tip / 2, aa))}px, ${r2(lt.y - LAY.tip / 2 - 12)}px)`;
+          labInner.style.transformOrigin = `${r2(aa * 100)}% 100%`;
+          labInner.style.transform = `translate(${r2(-aa * 100)}%, -100%) scale(${r2(lpunch)})`;
+          const flying = geo && t >= CUES.math3;
+          label.style.opacity = flying ? 0 : 1;
+          if (geo) {
+            const fv = spring(t - CUES.math3, 240, 27), fu = spring(t - CUES.math3 - 0.16, 200, 25);
+            const fx = lerp(geo.from.x, geo.to.x, fu), fy = lerp(geo.from.y, geo.to.y, fv);
+            const fs = lerp(geo.from.s, geo.to.s, fv);
+            const landed = t >= CUES.math3 + 0.75;
+            flyer.style.opacity = flying && !landed ? 1 : 0;
+            flyer.style.transform = `translate(${r2(fx)}px, ${r2(fy)}px) scale(${r2(fs)})`;
+            slot.style.visibility = landed ? "inherit" : "hidden";
+          } else flyer.style.opacity = 0;
+        }
+
+        // ---------- measure once (fonts loaded), then register the single paused timeline ----------
+        function measure() {
+          const rr = root.getBoundingClientRect();
+          const rel = (r) => ({ x: r.left - rr.left, y: r.top - rr.top, w: r.width, h: r.height });
+          // where the riding "108" sits at the landing, and where the sentence's "108" slot sits once its line is up
+          frame(CUES.land + 1.0);
+          const a = rel(labNum.getBoundingClientRect());
+          frame(CUES.math3 + 1.5);
+          const b = rel(slot.getBoundingClientRect());
+          // flyer is a copy of the label text at font LAY.label; scale it so it matches each end
+          const f = rel(flyer.getBoundingClientRect());
+          const baseW = flyer.offsetWidth || f.w, baseH = flyer.offsetHeight || f.h;
+          const from = { x: a.x, y: a.y, s: a.w / baseW };
+          const to = { x: b.x, y: b.y, s: b.w / baseW };
+          // caret positions after each typed letter (the probe sits after the visible letters)
+          frame(CUES.cta + 2.5);
+          const caret = [];
+          const kr = rel(keyLine.inner.getBoundingClientRect());
+          const size = Math.round(LAY.cta.key.size * 0.34);
+          for (let i = 0; i <= keyLetters.length; i++) {
+            keyLetters.forEach((e, j) => (e.style.display = j < i ? "inline" : "none"));
+            const p = rel(caretProbe.getBoundingClientRect());
+            // Montserrat: baseline at 0.858 em from the top of a line-height-1 box, cap height 0.70 em -> centre on the caps
+            caret.push({ x: p.x + size / 2 + LAY.cta.key.size * 0.06, y: kr.y + LAY.cta.key.size * (0.858 - 0.35) });
+          }
+          keyLetters.forEach((e) => (e.style.display = "inline"));
+          const l0 = rel(keyLetters[0].getBoundingClientRect()), l6 = rel(keyLetters[keyLetters.length - 2].getBoundingClientRect());
+          const underG = { x: l0.x + LAY.cta.key.size * 0.02, w: l6.x + l6.w - l0.x - LAY.cta.key.size * 0.04, y: kr.y + LAY.cta.key.size * 0.98 };
+          // the hop path: out to the right of the body copy, down past it, then in under it to the logo's gold square
+          const bodyR = Math.max(...bodyLines.map((l) => rel(l.inner.getBoundingClientRect()).x + rel(l.inner.getBoundingClientRect()).w));
+          const bodyB = Math.max(...bodyLines.map((l) => { const q = rel(l.m.getBoundingClientRect()); return q.y + q.h; }));
+          const last = caret[keyLetters.length], side = Math.max(last.x, bodyR) + 80;
+          const hop = [last, { x: side, y: last.y + 60 }, { x: side, y: bodyB + 170 }, { x: LOGO_SQ.x + LOGO_SQ.s / 2, y: LOGO_SQ.y + LOGO_SQ.s / 2 }];
+          geo = { from, to, caret, caretSize: size, under: underG, hop };
+        }
+
+        const tl = gsap.timeline({ paused: true });
+        const clock = { t: 0 };
+        tl.to(clock, { t: DUR, duration: DUR, ease: "none", onUpdate: () => frame(clock.t) }, 0);
+
+        // sound cue list for audio/score.py, exported by tools/events.mjs (times come from the same functions as the picture)
+        function events() {
+          const ev = [];
+          let lastTick = -1;
+          for (let hh = 1; hh <= 168; hh++) {
+            const t = tAtHour(hh), Hh = (9 + hh) % 24;
+            const onGrid = (((Hh - 19) % 3) + 3) % 3 === 0;
+            if ((t < T_SUN19 && onGrid) || (t >= T_SUN19 - 1e-6 && t - lastTick >= 0.15)) { ev.push({ t, kind: "tick", v: hh === 168 ? 1 : 0.5, x: X(hh) / W }); lastTick = t; }
+          }
+          CLOSED.forEach(([a], i) => ev.push({ t: tAtHour(a), kind: "step", i, x: X(a) / W, weekend: i === 5 }));
+          OPEN.slice(1).forEach(([a]) => ev.push({ t: tAtHour(a), kind: "open", x: X(a) / W }));
+          axisKeys.slice(1).forEach(([t]) => ev.push({ t, kind: "rescale" }));
+          for (let d = 1; d <= 7; d++) ev.push({ t: tAtHour(15 + 24 * (d - 1)), kind: "midnight", d });
+          BUBBLES.forEach((b, i) => ev.push({ t: b.t, kind: "bubble", i, x: b.x / W, row: b.row }));
+          BUBBLES.forEach((b, i) => ev.push({ t: b.ta, kind: "answer", i, x: b.x / W }));
+          ev.push({ t: CUES.land, kind: "land" });
+          ["math1", "math2", "math3"].forEach((k, i) => ev.push({ t: CUES[k], kind: "math", i }));
+          ev.push({ t: CUES.math3, kind: "fly" });
+          ev.push({ t: CUES.headOut, kind: "swap" });
+          ["list1", "list2", "list3"].forEach((k, i) => ev.push({ t: CUES[k], kind: "list", i }));
+          ev.push({ t: CUES.cta, kind: "fold" });
+          for (let i = 0; i < COPY.key.length; i++) ev.push({ t: CUES.type0 + i * KEY_STEP, kind: "key", i });
+          ev.push({ t: CUES.hop, kind: "hop" });
+          ev.push({ t: CUES.logo, kind: "logo" });
+          ev.push({ t: CUES.under, kind: "under" });
+          return ev.sort((a, b) => a.t - b.t).map((e) => ({ ...e, t: Math.round(e.t * 10000) / 10000 }));
+        }
+        window.DURATION = DUR;
+        window.CUES = Object.fromEntries(Object.entries(CUES).map(([k, v]) => [k, Math.round(v * 10000) / 10000]));
+        window.EVENTS = events();
+        // text blocks for the reading-time and safe-zone checks: [{id, text, full, x0, y0, x1, y1}]
+        window.TEXTS = (t) => {
+          frame(t);
+          const rr = root.getBoundingClientRect();
+          const out = [];
+          for (const L of lines) {
+            if (!L.read) continue;
+            const r = L.inner.getBoundingClientRect(), mr = L.m.getBoundingClientRect();
+            const vis = L.vis && getComputedStyle(L.inner).visibility !== "hidden";
+            if (L.id === "key") { const shown = keyLetters.filter((e) => e.style.visibility !== "hidden").length; if (shown < keyLetters.length) continue; }
+            if (!vis) continue;
+            out.push({ id: L.id.replace(/\d$/, (d) => (L.id.startsWith("math") || L.id.startsWith("list") ? d : "")), text: L.inner.textContent, full: true, x0: Math.max(r.left, mr.left) - rr.left, y0: Math.max(r.top, mr.top) - rr.top, x1: Math.min(r.right, mr.right) - rr.left, y1: Math.min(r.bottom, mr.bottom) - rr.top });
+          }
+          return out;
+        };
+
+        // every painted text box at time t (lines clipped by their masks, clock row, chip, riding label, flyer, chart labels)
+        window.BOXES = (t) => {
+          frame(t);
+          const rr = root.getBoundingClientRect(), out = [];
+          const add = (id, el, clipEl) => {
+            if (!el || getComputedStyle(el).visibility === "hidden") return;
+            let op = 1; for (let e = el; e && e !== root; e = e.parentElement) op *= Number(getComputedStyle(e).opacity);
+            if (op < 0.05) return;
+            const r = el.getBoundingClientRect(), c = clipEl ? clipEl.getBoundingClientRect() : r;
+            const x0 = Math.max(r.left, c.left), y0 = Math.max(r.top, c.top), x1 = Math.min(r.right, c.right), y1 = Math.min(r.bottom, c.bottom);
+            if (x1 - x0 < 2 || y1 - y0 < 2) return;
+            const fs = parseFloat(getComputedStyle(el).fontSize);
+            out.push({ id, text: el.textContent.trim(), x0: x0 - rr.left, y0: y0 - rr.top, x1: x1 - rr.left, y1: y1 - rr.top, fs });
+          };
+          for (const L of lines) add(L.id || "line", L.inner, L.m);
+          add("chip", chipInner, chipRow); add("clock", clockInner, clockRow);
+          if (Number(label.style.opacity) > 0) add("label", labInner);
+          if (Number(flyer.style.opacity) > 0) add("flyer", flyer);
+          if (Number(document.getElementById("chartwrap").style.opacity || 1) > 0.05) { grid.forEach((g) => g.text && Number(g.text.getAttribute("opacity")) > 0.05 && add("axis", g.text)); dayLabels.forEach((e) => add("day", e)); }
+          if (logo.style.opacity === "1") { const r = logo.getBoundingClientRect(); out.push({ id: "logo", text: "logo", x0: r.left - rr.left + 16, y0: r.top - rr.top + 47, x1: r.left - rr.left + 627, y1: r.top - rr.top + 175, fs: 0 }); }
+          return out;
+        };
+
+        function ready() {
+          measure();
+          frame(0);
+          window.__timelines["main"] = tl;
+          tl.totalTime(0, false);
+          window.__hfReady = true;
+          window.seek = (t) => { tl.totalTime(Math.min(t, DUR - 1e-4), false); };
+        }
+        if (document.fonts && document.fonts.ready) document.fonts.ready.then(ready); else ready();
+      })();
+    </script>
+  </body>
+</html>

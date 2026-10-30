@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "SL04",
+ "version": 1,
+ "prompt_sha256": "3bc9397f670694e04c6594ca8c86c4a3e733bd139b7f127c335f40a1426f7739",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Phone in stand, chat screen, arrow, 5 strings incl. '4/8', no window, 'No letters inside the bubbles' all present"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'Image 4 is the prop sheet PS-CHAT: copy the phone screen state \"CHAT-FOLLOWUP\"' follows images 1 style, 2 cover, 3 slide 2 and matches upload order incl. PENDING-PS-CHAT-APPROVED last"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'Hands: no hands and no people are visible in the frame.'"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'The phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support; nothing touches it.'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Screen filled: 'two crimson #B31217 outgoing bubbles aligned right, the upper one dimmer ..., the lower one brighter ..., each holding one or two short ivory bars instead of letters'; negatives are targeted"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "Strings 'Çdo ofertë pa', 'përgjigje.', 'Në vend të kësaj:', 'një mesazh i dytë.', '4/8' quoted with position, size, colour, occlusion; spelling lists Çdo, ofertë, përgjigje, Në, të, kësaj, një, dytë"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'The phone screen shows only the two bubbles'; 'No window and no clock tower'; plain walls rule present"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Bubbles 'instead of letters' agrees with 'No letters inside the bubbles'; phone box starts at 40% height, level with the calm-zone limit, not inside it"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'Carry-over: The phone is back in its stand and lit; the notebook is out of frame.' matches spec"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Prompt opens 'Instagram carousel slide, portrait 4:5.'; call settings gpt_image_2_5, 4:5, 2k, medium, flare, image_references match standards.json; no video fields apply"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "'outgoing' bubbles = sent, defined by 'the quote sent earlier' and 'the new follow-up'; no two-way word"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/10/13 prevented: calm hand-free text zone, contact points, filled screen props, plain walls, 'Bottom-left corner ... no logo, no letters, no objects (a logo is added later)'"
+  }
+ ],
+ "corrected_prompt": null
+}

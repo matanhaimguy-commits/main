@@ -1,0 +1,95 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "WEB-HERO-D",
+ "spec_sha256": "9b48eaa12800ccc545304c391aba18d016c407bfeb6c1c2e4a33cb06a8a86dbf",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "files_opened": [
+  "growth-engine/production/standards.json",
+  "growth-engine/production/STANDARDS.md",
+  "growth-engine/production/failure-library.md",
+  "growth-engine/production/VISUAL-QA.md (sections 2, 4, 5.2, 5.3)",
+  "clients/straightscale/runs/SS-LIB-WEB/shots/WEB-HERO-D.spec.yaml",
+  "clients/straightscale/runs/SS-LIB-WEB/shots/WEB-CUP.spec.yaml (cross-layer light and angle)",
+  "clients/straightscale/runs/SS-LIB-WEB/shots/WEB-EXT.spec.yaml (cross-layer window view)",
+  "clients/straightscale/runs/SS-LIB-WEB/shots/WEB-HERO-M.spec.yaml (lines 1 to 45, phone carry-over)",
+  "clients/straightscale/runs/SS-LIB-STYLE/assets/STYLE-TOP.v1.png (image 1, plus a 2x crop of its window)",
+  "clients/straightscale/runs/SS-LIB-STYLE/assets/STYLE.v1.jpg (design source of the phone, not attached)",
+  "clients/straightscale/runs/SS-LIB-STYLE/ledger.json (STYLE-TOP@v1 G-VIS-SHEET PASS, STYLE@v1 FAIL)",
+  "clients/straightscale/style-bible.md",
+  "scrollcraft/builds/straightscale-site/BUILD-SPEC.md (section 0 and act 1)",
+  "growth-engine/tools/pipeline.py spec_lint (run read-only on this file: no issues)"
+ ],
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Every schema block is filled (subjects, hands, props, text, action_physics, setting, camera, continuity, style, must_not, regions); must_read_in_1s is one moment: 'A red phone lies quiet on a café table in Tirana at night'; the story prop is boxed: '{name: phone, kind: prop, box: [0.52, 0.66, 0.74, 0.86]}' plus 'phone-screen'. No hands, text or faces, so no boxes are owed for them."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode. For the later prompt: notes name one attachment, 'image 1 STYLE-TOP@v1 (look only; its baked text must not be copied)'; STYLE-TOP@v1 holds a G-VIS-SHEET PASS."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'hands: none visible' and must_not 'no hands or fingers'."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "Written as contact points: 'the case's back rim touches the wood along all four edges, no edge raised, a thin soft contact shadow hugging its outline'; 'nothing touches or overlaps the phone'."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "The story-critical phone has a full content line: 'a thin raised red case lip runs evenly round the screen, then a very thin black bezel; the screen is one continuous pure black glass rectangle with evenly rounded corners, all four corners visible and crisp'. The screen is off on purpose because 'an HTML lock-screen notification [is] mapped with matrix3d to its four screen corners', and the negatives name only the screen states they rule out. No PR-PHONE prop sheet exists (VISUAL-QA 4.4 step 1). This is advisory, see suggested_spec_changes 1."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "'text_in_image: none'. The negative is targeted, not blanket: 'no text, letters, numbers or signage on the wall, the window glass, the tower, the facades, the table or the phone (all words on this page are HTML)'. The clock faces are 'softly glowing discs with hands only'."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "Wall: 'no lamps, sconces, art, frames, shelves, mirrors, posters, plants or chair backs'. Window: 'The opening is filled with the night square and the lit tower, never blank or black'. Signs: 'No signs, shop names, lettering or readable numerals anywhere'. The phone screen has its own content rule."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "The numbers agree. Phone right edge x 0.74 + 'at least 6%' = bare corner at x 0.80. Window bottom y 0.60 < table edge y 0.63 < phone top y 0.66 ('nothing in front of the window'). The phone (x 0.52 to 0.74) and the tower (x 0.74 to 0.85) sit inside the safe area (x 0.125 to 0.875). The phone bottom at y 0.86 meets 'at least 10% above the bottom edge'. A 2:1 phone turned 20 degrees fills the 0.22 x 0.20 box at about 44 degrees, which fits 'about 40 degrees'. Viewing the phone from above while keeping 'the window frame and the tower stay vertical' is the same compromise as the approved 15 Oct cover, and the spec defines the angle by the phone box."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'previous_shot: null'. The carry-over matches its sources: STYLE-TOP@v1 shows the dark wall on the left, the night window and the lit tower; the style bible has 'a smartphone in a deep red case (#BE0F18)'; WEB-CUP has 'the same warm tungsten key as the masters, from out of frame upper right'."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode. For the later prompt: 'gpt_image_2_5, aspect_ratio 16:9, resolution 2k, quality medium, variant flare' fits standards.json (static is in gpt_image_2_5's use list; the model has no aspect list; the gate checks the 16:9 against this spec)."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "Every place word has coordinates: 'BARE CORNER ... (x 0.80 to 1.00, y 0.70 to 1.00)', 'HEADLINE-SAFE WALL ... (x 0.00 to 0.55, y 0.00 to 0.60)'. Two minor phrasings need care when the prompt is written: '35mm film still' (film stock or focal length) and internal words like 'thread phone', 'plate', 'key' and 'cup spot'. See suggested_spec_changes 3."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-02 has its structure line: 'a single rectangular opening in a thin dark frame with four straight inner edges, no mullions or bars crossing it'. FL-03 actions are written as contact points. FL-04 has the content line and targeted negatives, and the blank screen is the specified state. FL-05 and FL-10 have background rules. FL-11: 'no second phone'. FL-13: 'no StraightScale mark drawn in any corner (FL-13)'. FL-08: no unneeded objects, the cup is its own layer. FL-09 does not apply (static format, no people)."
+  }
+ ],
+ "suggested_spec_changes": [
+  "Advisory 1 (non-blocking), PR-PHONE prop sheet: VISUAL-QA 4.4 and STANDARDS 3 ask for a prop sheet for every story-critical prop. Here both 'ref' lines hold a sentence ('no PR-PHONE prop sheet exists'), so the lint's prop-sheet check passes on text alone. Not blocking here: the screen is off by design and the content line fully defines the visible phone. WEB-HERO-M carries over 'the same ... phone as WEB-HERO-D', so before the phone appears in more shots, either make and review a PR-PHONE prop sheet (then attach it as image 2 in both masters) or have the Director record that this LIB run uses the phone described in words only.",
+  "Advisory 2 (non-blocking), window view against image 1: STYLE-TOP@v1 has a dark spire with a red-lit tip left of the tower and a thick double post at the window's left edge. Add to setting.details or must_not: 'one tower only; image 1's dark spire beside the tower and its thick post at the window's left edge are not copied (thin frame)'. WEB-EXT already says this. The stakes are low because the glass is keyed and replaced by WEB-EXT.",
+  "Advisory 3 (non-blocking), wording for the prompt: change camera.lens '35mm film still' to '35mm film look (film stock, not a focal length)', as WEB-HERO-M has it. In the prompt, call the phone 'a smartphone in a deep red #BE0F18 case' and not 'the thread phone' (a model can read 'thread' as a cord). Keep 'plate', 'key/keyed', 'cup spot' and 'WEB-CUP' out of the prompt, and mention the cup only in the negatives.",
+  "Advisory 4 (non-blocking), must_not colour line: change it to 'no saturated colour other than the phone case and the warm amber and tungsten light: ...', to match the style line ('the only saturated colour besides the warm light'), so a literal read cannot fault the amber-floodlit tower.",
+  "Cross-layer, for WEB-CUP and not this file: this master sees the phone from about 40 to 44 degrees above the table. The cup spot at the bottom edge is nearer the camera, so it is seen more steeply (roughly 45 to 55 degrees). WEB-CUP specifies 20 to 25 degrees 'matching the masters', which would give a flatter rim ellipse than the table it sits on. Reconcile this in WEB-CUP (WEB-HERO-M is at about 30 degrees, so its near corner is about 40).",
+  "Build note (BUILD-SPEC act 1): the 'safe-4x3' box assumes a centred crop, but the desktop focal point is x 0.62. With that focal point the phone and the tower stay in frame down to about a 1:1 viewport. Between 1:1 and 3:4, where the portrait set takes over, the tower's right side (x 0.85) is cut and the HTML column comes close to the phone's left end. Check the hero at those viewport ratios."
+ ],
+ "notes": "Independence: I never saw the producer's reasoning. The task text carried one orchestrator context line (a layered hero, so the empty areas, the bare table and the cup on a plain background are intentional). I did not take it on trust; I checked it against BUILD-SPEC act 1 and the spec's own notes. I did not open the earlier G-SPEC reports for this shot. The ledger shows two earlier FAILs on older hashes (267b7cbe, 17ece57c). This review covers hash 9b48eaa1, whose lint is PASS."
+}

@@ -1,0 +1,244 @@
+{
+ "gate": "G-VIS-SLIDE",
+ "asset_id": "SL07-W43-1b",
+ "version": 2,
+ "label": "logofix",
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "hero": false,
+ "reviewed_file": "sandbox /home/user/drafts/fixed/78eb641f.jpg (1080x1350 JPEG, md5 935d9daa14edf19f5a5d89147a71ecea)",
+ "compared_with": "v1 original /home/user/drafts/78eb641f-0675-43ce-a218-5d044c794616.jpg (md5 3012cf93364e2c9cf60f3a1b3c054713, drawn logo); real logo /home/user/brand/straightscale-logo-light.png",
+ "spec_used": "Slide 7 of 7, the ask (Mon 19 Oct), alt text 7: 'Fletorja me pesë rreshta të shkruar. Teksti: Ruaje këtë postim.' House slide frame and brand rules as for slide 2; last slide carries no swipe arrow (style bible: arrow on slides 1 to N-1).",
+ "crops_dir": "/home/user/qa/W43-1b-set.v2/SL07 (Higgsfield sandbox, built by the reviewer with PIL/OpenCV)",
+ "crops_manifest": "clients/straightscale/content/2026-w43-1b-carousel/qa/crops/SL07.v2.logofix/manifest.json",
+ "files_opened": [
+  "full_720.jpg",
+  "tile_r1c1.jpg",
+  "tile_r1c2.jpg",
+  "tile_r1c3.jpg",
+  "tile_r2c1.jpg",
+  "tile_r2c2.jpg",
+  "tile_r2c3.jpg",
+  "tile_r3c1.jpg",
+  "tile_r3c2.jpg",
+  "tile_r3c3.jpg",
+  "diffmap_orig_vs_fixed.jpg",
+  "region_logozone_orig_vs_fixed_2x.jpg",
+  "region_logozone_clahe_orig_top_fixed_bottom_2x.jpg",
+  "region_logozone_band_orig_top_fixed_bottom_3x_gamma07.jpg",
+  "thumb_200.jpg",
+  "../SET/ref_logo_vs_pasted_all_slides_3x.jpg",
+  "region_SL07_kicker_2x.jpg",
+  "region_SL07_headline_2x.jpg",
+  "region_SL07_subline_2x.jpg",
+  "region_SL07_subline_3x.jpg",
+  "region_SL07_notebook_2x.jpg",
+  "region_SL07_handwriting_3x.jpg",
+  "region_SL07_lamp_2x.jpg",
+  "region_SL07_counter_3x.jpg"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "1-second read: 'Ruaje këtë postim.' with 'Ruaje' in a crimson box, over a spiral notebook with handwritten lines and a pen, phone beside it. Sound off it reads 'save this post'."
+  },
+  {
+   "id": "V2",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Matches the ask and alt text 7's text 'Ruaje këtë postim.'; the written notebook closes the 'write your 5 numbers' story. The line count is covered under V12."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "notebook, subline",
+   "evidence": "No invented number: the handwriting has no figures; the '5' in 'këta 5 numra' counts the list. No em dash."
+  },
+  {
+   "id": "V4",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No people, hands or limbs in any of the 9 tiles."
+  },
+  {
+   "id": "V5",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No hands; still life."
+  },
+  {
+   "id": "V6",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No faces."
+  },
+  {
+   "id": "V7",
+   "result": "PASS",
+   "severity": "",
+   "region": "notebook, pen, lamp",
+   "evidence": "The notebook lies flat with its spiral binding and page stack; the pen rests on the page with a shadow; the lamp stands on its weighted base (region_SL07_notebook_2x.jpg, region_SL07_lamp_2x.jpg)."
+  },
+  {
+   "id": "V8",
+   "result": "PASS",
+   "severity": "",
+   "region": "notebook, pen, lamp, phone",
+   "evidence": "Spiral notebook with continuous wire loops, ruled lines and a page stack; pen with tip, barrel bands and end cap; lamp with dome shade, bulb, stem and base; phone with port and grilles on the bottom edge (tile_r3c3.jpg)."
+  },
+  {
+   "id": "V9",
+   "result": "PASS",
+   "severity": "",
+   "region": "kicker, headline, subline",
+   "evidence": "Read at 2x and 3x. Kicker: H-A-P-I / I / R-A-D-H-Ë-S. Headline: [crimson box] R-u-a-j-e // k-ë-t-ë / p-o-s-t-i-m-. = 'Ruaje këtë postim.' as in the alt text. Subline (region_SL07_subline_3x.jpg): P-l-o-t-ë-s-o-j-i / k-ë-t-a / 5 / n-u-m-r-a / n-ë / f-u-n-d // t-ë / ç-d-o / m-u-a-j-i. / D-o / t-ë / s-h-o-h-ë-s-h / k-u // h-u-m-b-e-t / p-a-r-a / d-h-e / k-u / t-ë / r-r-i-t-e-s-h. Every ë has two dots, ç has its cedilla; two full stops. No misspelling, no em dash."
+  },
+  {
+   "id": "V10",
+   "result": "PASS",
+   "severity": "",
+   "region": "subline over lamp shade",
+   "evidence": "Overlay text sits in the dark area; lines 2 and 3 of the subline start over the dark top of the lamp shade (region_SL07_lamp_2x.jpg) with full contrast, nothing in front of the letters, no text on a prop."
+  },
+  {
+   "id": "V11",
+   "result": "PASS",
+   "severity": "",
+   "region": "notebook handwriting",
+   "evidence": "The handwriting is illegible cursive with no figures (region_SL07_handwriting_3x.jpg); it reads as notes, as a written notebook should at this size, and spells nothing wrong because it spells nothing. No other text in the frame."
+  },
+  {
+   "id": "V12",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "notebook page (x150-560, y860-1000)",
+   "evidence": "Pre-existing (same in v1). The spec asks for five written lines ('pesë rreshta të shkruar', one per number); the page shows four handwritten lines (region_SL07_handwriting_3x.jpg: lines 1 to 3 full, line 4 short with a second fragment, and the line below is blank to the left of the pen, so no fifth line hides under it). A viewer who counts against '5 numra' would notice; at a glance it reads 'notebook filled in'."
+  },
+  {
+   "id": "V13",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone",
+   "evidence": "Deep red case, dark screen."
+  },
+  {
+   "id": "V14",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Notebook, pen, lamp, phone, chair: nothing unexplained."
+  },
+  {
+   "id": "V15",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No characters, so no character sheet applies."
+  },
+  {
+   "id": "V16",
+   "result": "PASS",
+   "severity": "",
+   "region": "notebook, phone",
+   "evidence": "Payoff state: the cover's blank notebook is now written in; phone lies dark beside it. The continuity thread closes."
+  },
+  {
+   "id": "V17",
+   "result": "PASS",
+   "severity": "",
+   "region": "set",
+   "evidence": "Same set as the cover: lamp at left, table, window with the clock tower."
+  },
+  {
+   "id": "V18",
+   "result": "PASS",
+   "severity": "",
+   "region": "frame",
+   "evidence": "1080x1350 (4:5). Kicker y63-80; headline y156-358; subline three lines y379-493, left margin ~100 px; counter '7/7' x935-981, y52-77; no swipe arrow (correct for the last slide); logo x98-393, y1221-1278. All content inside the frame."
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200.jpg",
+   "evidence": "At 200 px 'Ruaje këtë postim.' and the crimson box read; notebook, pen and phone are clear."
+  },
+  {
+   "id": "V20",
+   "result": "N/A",
+   "severity": "",
+   "region": "background",
+   "evidence": "Still life with no people in the scene; the window background is alive enough for the format (street lamps, lit facades, wet plaza with reflections, out-of-focus cars), the same on every slide."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Tirana at night, warm tungsten from the desk lamp, ivory type (#F9F4EE), crimson box (#A91D20 mean over the anti-aliased box), gold only in the counter (#D19B50) and the logo's square, red-cased phone."
+  },
+  {
+   "id": "V22",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Photoreal night interior: wood grain with specular highlights, bokeh street lights, wet plaza, fine grain (tiles r2c3, r3c2). No plastic or CG look."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "logo zone",
+   "evidence": "No artefacts: the real logo lands on v1's drawn footprint (66 px refilled outside it); grain continuous at 2x and CLAHE (region_logozone_orig_vs_fixed_2x.jpg, region_logozone_clahe_orig_top_fixed_bottom_2x.jpg, region_logozone_band_orig_top_fixed_bottom_3x_gamma07.jpg); no seam, smear or blotch. Outside the zone only JPEG noise (max 29, mean 1.16)."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "bottom-left logo zone, props",
+   "evidence": "Logo is the real file (../SET/ref_logo_vs_pasted_all_slides_3x.jpg, region_logozone_orig_vs_fixed_2x.jpg): red rounded square with the S-shaped channel, gold square in the top-right notch, white 'StraightScale' wordmark, identical to /home/user/brand/straightscale-logo-light.png. Fitting the real file at 295x57 at (98,1221) gives a mean absolute difference of 7.14 levels over its opaque pixels (the same 7.1 to 7.2 on all seven slides, i.e. one file at one scale); the opaque extent measures 291x54 px (aspect 5.39) vs the file's alpha bbox 1501x279 (5.38), so it is undistorted; edges crisp at 3x. No remnant of the v1 drawn logo: the plain white 'S' block and the drawn wordmark are gone, no ghost letters, no red or gold fragment in the cleared area (0 red and 0 gold pixels outside the pasted logo in the change zone; boosted and CLAHE views show only wood grain). No other brand's mark anywhere: the notebook, pen or phone carries no maker logo."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No before and after, no 'your [condition]', nothing that shames; the copy is a neutral instruction."
+  },
+  {
+   "id": "V26",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No AI person in the frame. Photoreal AI scene: STANDARDS.md section 7 asks for Instagram's own AI label on the post (a posting setting, not visible in the image); no burned-in AI tag is present, which is correct."
+  }
+ ],
+ "defects_summary": {
+  "critical": 0,
+  "major": 0,
+  "minor": 1,
+  "items": [
+   "V12 minor, notebook page (x150-560, y860-1000): notebook shows four written lines, spec says five (pre-existing)"
+  ]
+ },
+ "fix": {
+  "route": "none",
+  "prompt_changes": [],
+  "optional_edits": [
+   "Edit pass on the notebook (the image as its only reference): 'add a fifth short handwritten line in the same pen and hand below the fourth, left of the pen; no figures'. Or change the alt text to 'katër rreshta' if the image stays."
+  ]
+ },
+ "notes": [
+  "Set-level finding (see SET.v2.logofix.review.json): the real logo is the same file and size on every slide but its vertical position varies by 50 px across the set (y1189 to y1239). The G-SET fix re-places the logo at one fixed box on every slide; each re-placed file is a new version and needs its own review.",
+  "No new hosted URLs for slides 2 to 7 were in the packet or the repo. hosted.json still lists the v1 originals: in the sandbox, each hosted.json URL downloads byte-identical to the v1 original (md5 match), not to the fixed file. Point the hub at the fixed files' URLs and md5-check them against reviewed_file before posting."
+ ]
+}

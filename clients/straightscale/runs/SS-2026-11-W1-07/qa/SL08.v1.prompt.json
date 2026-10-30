@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "SL08",
+ "version": 1,
+ "prompt_sha256": "f454dca985933e471e7cea23910217dce5e5c0144b9718fbb2605e403595274e",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Phone in stand, hand, plate, 6 strings incl. '8/8', window with clock tower, 'No arrow button on this last slide' and must_not lines all present"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'Image 1 ... style reference. Image 2 is the approved cover ... Image 3 is the approved slide 2' matches upload order"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'right hand an adult man's right hand ... no ring and no watch ... must not cover: the phone and the stand; five fingers: thumb plus four fingers, all resting'; left hand not visible"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'The owner's right hand rests on the table 6 cm to the right of the stand, palm down'; 'the palm and the pads of the fingers rest on the wood'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "No story-critical prop; plate content given: 'a clean white round plate with nothing on it and a glass of water beside it'"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "Strings 'Këto i mban', 'një sistem,', 'jo një njeri.', 'Ndiqe faqen', 'për hapin e radhës.', '8/8' quoted with position, size, colour, occlusion; spelling covers Këto, një, për, radhës"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "Window and tower rule: 'plain clock face: no numerals, no letters; the window glass reflects no text'; plain walls rule"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Style block's 'swipe arrow bottom right on slides 1 to N-1' agrees with 'No swipe arrow, no round button, no arrow graphic anywhere' on slide 8 of 8"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'Carry-over: Changes from the previous slide: the camera pulls back ... the bar chart on the screen is gone and the screen is off ... the owner's right hand are now on the table' matches spec"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Prompt opens 'Instagram carousel slide, portrait 4:5.'; call settings gpt_image_2_5, 4:5, 2k, medium, flare, image_references match standards.json; no video fields apply"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "'Wide, calm' and 'medium wide' describe one framing; no two-way word"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/10/13 prevented: calm hand-free text zone, contact points, filled screen props, plain walls, 'Bottom-left corner ... no logo, no letters, no objects (a logo is added later)'"
+  }
+ ],
+ "corrected_prompt": null
+}

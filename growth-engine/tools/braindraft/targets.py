@@ -1,0 +1,46 @@
+"""The 38 intake questions as the drafter's internal checklist: where each answer lands, and where to look for it.
+
+A target is a brain.json path, or a research file (research/...) when the answer is not a brain field. The questions are
+never asked of the client. onboarding/intake-questions.json keeps the ids; test_targets.py fails if one has no line here."""
+DOCS, WEB, IG, REV = "foundation docs", "website", "Instagram", "public reviews"
+
+TARGETS = {
+    "A1": (["client"], [DOCS, WEB]),
+    "A2": (["market.city", "market.country"], [WEB, REV]),
+    "A3": (["account"], [WEB, IG]),
+    "A4": (["business_model.sells", "business_model.price_notes"], [DOCS, WEB]),
+    "A5": (["business_model.sells"], [DOCS, WEB, REV]),
+    "A6": (["messaging.boilerplate"], [DOCS, WEB]),
+    "A7": (["business_model.price_notes", "business_model.margin"], [DOCS]),
+    "B1": (["research/strategy.md"], [DOCS]),
+    "B2": (["offer.main_offer"], [DOCS, WEB]),
+    "B3": (["offer.main_offer", "offer.delivers"], [DOCS, WEB]),
+    "B4": (["business_model.capacity"], [DOCS]),
+    "B5": (["research/strategy.md"], [DOCS]),
+    "C1": (["avatars[0].role", "avatars[0].situation"], [DOCS, WEB, REV]),
+    "C2": (["avatars[0].words", "avatars[0].desires"], [REV, IG, DOCS]),
+    "C3": (["avatars[0].false_beliefs", "belief_ladder"], [REV, IG]),
+    "C4": (["avatars[0].fears", "belief_ladder"], [REV, DOCS]),
+    "C5": (["avatars[0].identity"], [DOCS, WEB]),
+    "D1": (["contrarian_vault"], [DOCS, WEB]),
+    "D2": (["mechanism.ump", "mechanism.ums"], [DOCS, WEB]),
+    "D3": (["proof_bank"], [DOCS, WEB, REV]),
+    "D4": (["voice.adjectives"], [DOCS, WEB, IG]),
+    "D5": (["constraints.cannot_say", "constraints.will_not_show"], [DOCS]),
+    "D6": (["visual.face"], [DOCS, IG]),
+    "E1": (["research/competitors.csv"], [WEB, IG]),
+    "E2": (["research/competitors.csv"], [DOCS]),
+    "F1": (["business_model.sales_process"], [WEB, DOCS]),
+    "F2": (["business_model.sales_process"], [WEB, DOCS, IG]),
+    "F3": (["market.language", "market.country", "voice.language"], [WEB, IG]),
+    "F4": (["baseline.client_sources"], [DOCS, IG]),
+    "F5": (["visual.logo_files"], [DOCS]),
+    "G1": (["business_model.price_notes", "business_model.margin"], [DOCS]),
+    "G2": (["research/competitors.csv"], [DOCS]),
+    "G3": (["research/voc-master.csv"], [WEB, REV]),
+    "G4": (["visual.colors", "visual.fonts"], [DOCS, WEB]),
+    "H1": (["visual.face", "visual.ai_label"], ["quick intake consent"]),
+    "H2": (["proof_bank"], ["quick intake consent", DOCS]),
+    "H3": (["constraints.approver", "constraints.turnaround_hours"], [DOCS]),
+    "H4": (["voice.language", "voice.register"], [DOCS, IG]),
+}

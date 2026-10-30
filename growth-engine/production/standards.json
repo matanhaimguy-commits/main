@@ -1,0 +1,1725 @@
+{
+  "_doc": "Production standards: the one numbers file every production skill, reviewer and the generation gate read. Prose and reasons: STANDARDS.md (same folder). Change a number here and in STANDARDS.md together, with a dated line in STANDARDS.md's changelog.",
+  "version": "1.2 (18 Oct 2026)",
+  "humans": [
+    "Matan"
+  ],
+  "gate_policy": {
+    "budget_fresh_hours": 24,
+    "retake_buffer": 0.25,
+    "max_image_attempts": 3,
+    "max_video_attempts": 3,
+    "max_prompt_loops": 2,
+    "script_release_score": 85,
+    "visual_pass": {
+      "hero": {
+        "critical": 0,
+        "major": 0,
+        "minor": 0
+      },
+      "other": {
+        "critical": 0,
+        "major": 0,
+        "minor": 2
+      }
+    },
+    "take_pass": {
+      "critical": 0,
+      "major": 0
+    },
+    "budget_scope": "A G-BUDGET PASS from the last 24 h before every gated generation (the first one at step 4 for voiced pieces, before step 7 on a LIB run). A video call also needs step 9 closed with a G-BUDGET recorded after the steps before it closed (the whole video re-priced).",
+    "image_ref_roles": [
+      "image_references",
+      "image"
+    ],
+    "edit_source_role": "edit_source",
+    "edit_pass": "An image asset's own previous version (same asset id, registered with an id, any gate status) may be the single image reference, registered with role edit_source and passed in the call as image_references (or image). The new version gets its own full review (VISUAL-QA 5.5 route 1).",
+    "prompt_loop_owner": "organic-director"
+  },
+  "asset_types": {
+    "character_sheet": {
+      "kind": "image",
+      "prompt_gate": "G-PROMPT-IMG",
+      "visual_gate": "G-VIS-SHEET",
+      "hero": true,
+      "look": true
+    },
+    "prop_sheet": {
+      "kind": "image",
+      "prompt_gate": "G-PROMPT-IMG",
+      "visual_gate": "G-VIS-SHEET",
+      "hero": true,
+      "look": true
+    },
+    "set_sheet": {
+      "kind": "image",
+      "prompt_gate": "G-PROMPT-IMG",
+      "visual_gate": "G-VIS-SHEET",
+      "hero": true,
+      "look": true
+    },
+    "style_ref": {
+      "kind": "image",
+      "prompt_gate": "G-PROMPT-IMG",
+      "visual_gate": "G-VIS-SHEET",
+      "hero": true,
+      "look": true
+    },
+    "storyboard": {
+      "kind": "image",
+      "prompt_gate": "G-PROMPT-IMG",
+      "visual_gate": "G-VIS-BOARD",
+      "hero": true,
+      "note": "Every storyboard is image 1 in its H3 call, so every storyboard is hero (VISUAL-QA 5.3 'storyboard image 1'): zero defects."
+    },
+    "start_frame": {
+      "kind": "image",
+      "prompt_gate": "G-PROMPT-IMG",
+      "visual_gate": "G-VIS",
+      "hero": true
+    },
+    "still": {
+      "kind": "image",
+      "prompt_gate": "G-PROMPT-IMG",
+      "visual_gate": "G-VIS",
+      "hero": false
+    },
+    "slide": {
+      "kind": "image",
+      "prompt_gate": "G-PROMPT-IMG",
+      "visual_gate": "G-VIS-SLIDE",
+      "hero": false
+    },
+    "cover": {
+      "kind": "image",
+      "prompt_gate": "G-PROMPT-IMG",
+      "visual_gate": "G-VIS-SLIDE",
+      "hero": true
+    },
+    "static": {
+      "kind": "image",
+      "prompt_gate": "G-PROMPT-IMG",
+      "visual_gate": "G-VIS",
+      "hero": true
+    },
+    "video_clip": {
+      "kind": "video",
+      "prompt_gate": "G-PROMPT-VID",
+      "visual_gate": "G-TAKE"
+    },
+    "motion_render": {
+      "kind": "code",
+      "text_gate": "G-MOTION-TEXT",
+      "visual_gate": "G-MOTION-FRAMES",
+      "note": "G-MOTION-TEXT (fresh prompt-reviewer: the code's text constants against the spec and the released script, VISUAL-QA 7.2) on the same version before any render is reviewed at G-MOTION-FRAMES."
+    },
+    "voice": {
+      "kind": "audio",
+      "audio_gate": "G-AUDIO",
+      "note": "G-AUDIO: per audio asset, the take check (transcript against the script, take score) PASS. Needed before the asset is used as a reference and before step 11 (G-ASSETS) closes."
+    },
+    "audio_slice": {
+      "kind": "audio",
+      "audio_gate": "G-AUDIO",
+      "note": "G-AUDIO: per audio asset, the take check (transcript against the script, take score) PASS. Needed before the asset is used as a reference and before step 11 (G-ASSETS) closes."
+    },
+    "song": {
+      "kind": "audio",
+      "audio_gate": "G-AUDIO",
+      "note": "G-AUDIO: per audio asset, the take check (transcript against the script, take score) PASS. Needed before the asset is used as a reference and before step 11 (G-ASSETS) closes."
+    },
+    "music": {
+      "kind": "audio",
+      "audio_gate": "G-AUDIO",
+      "note": "G-AUDIO: per audio asset, the take check (transcript against the script, take score) PASS. Needed before the asset is used as a reference and before step 11 (G-ASSETS) closes."
+    },
+    "sfx": {
+      "kind": "audio",
+      "audio_gate": "G-AUDIO",
+      "note": "G-AUDIO: per audio asset, the take check (transcript against the script, take score) PASS. Needed before the asset is used as a reference and before step 11 (G-ASSETS) closes."
+    },
+    "final": {
+      "kind": "final",
+      "visual_gate": "G-FINAL",
+      "note": "G-FINAL on the cut; also recorded as the run gate."
+    },
+    "test": {
+      "kind": "test"
+    }
+  },
+  "models": {
+    "image": {
+      "gpt_image_2_5": {
+        "use": [
+          "slide",
+          "cover",
+          "static",
+          "style_ref",
+          "still",
+          "start_frame"
+        ],
+        "params": {
+          "resolution": "2k"
+        },
+        "params_one_of": {
+          "quality": [
+            "medium",
+            "high"
+          ]
+        },
+        "params_if_given": {
+          "variant": [
+            "flare"
+          ]
+        },
+        "refuse_people_for": [
+          "still",
+          "start_frame"
+        ],
+        "media_role": "image_references",
+        "note": "Carousels, statics, the style reference, and stills or start frames with no person in the client's style. Pass aspect_ratio 4:5 for feed, resolution 2k, quality medium (high only to polish an approved cover), variant flare. Faces of realistic people in reels: gpt_image_2. Stylized sheets and storyboards only inside the R1 test (G-HUMAN-TEST)."
+      },
+      "gpt_image_2": {
+        "use": [
+          "character_sheet",
+          "still",
+          "start_frame",
+          "storyboard",
+          "prop_sheet",
+          "set_sheet"
+        ],
+        "params": {
+          "quality": "high",
+          "resolution": "2k"
+        },
+        "min_image_refs": 1,
+        "media_role": "image",
+        "aspect_ratios": [
+          "1:1",
+          "4:3",
+          "3:4",
+          "16:9",
+          "21:9",
+          "9:16",
+          "3:2",
+          "2:3"
+        ],
+        "note": "Realistic people, always with a reference photo (hub G7). No 4:5 output: a feed slide with a photoreal person is made in gpt_image_2_5 with the person's approved gpt_image_2 still as a reference (STANDARDS 1). The 3:4 fallback for such a slide needs a G-EXCEPTION (model gpt_image_2) on the asset."
+      },
+      "nano_banana_2": {
+        "use": [
+          "character_sheet",
+          "prop_sheet",
+          "set_sheet",
+          "storyboard",
+          "still",
+          "start_frame"
+        ],
+        "params": {
+          "resolution": "2k"
+        },
+        "media_role": "image_references",
+        "note": "Stylized sheets and storyboards (animation, song, clay, crochet). Pending the side-by-side test against gpt_image_2_5 (STANDARDS.md R1)."
+      }
+    },
+    "video": {
+      "minimax_h3": {
+        "resolution": "2K",
+        "aspect_ratio": "9:16",
+        "declined_preset_id": "24bae836-2c4a-48e0-89b6-49fcc0b21612",
+        "min_s": 5,
+        "max_s": 15,
+        "credits_per_s": 2
+      },
+      "kling3_0": {
+        "needs_gate": "G-FALLBACK",
+        "declined_preset_id": "24bae836-2c4a-48e0-89b6-49fcc0b21612",
+        "credits_per_5s": 10,
+        "note": "Silent start-to-end transformation only, after an H3 keyframe take failed the frame check (hub G2)."
+      }
+    },
+    "elevenlabs": {
+      "tts": [
+        "eleven_v4",
+        "eleven_v3"
+      ],
+      "music": [
+        "eleven_music_v2_5"
+      ],
+      "sfx": [
+        "eleven_text_to_sound_v2"
+      ],
+      "image": [],
+      "video": [],
+      "note": "History: the ElevenLabs connector is off (disabled_services, 28 Oct 2026). Voices now come from Atlas elevenlabs/v3/text-to-speech (models.atlas.allowed); music beds and sound effects have no Atlas model named yet, so none is made until the owner names one.",
+      "video_fallback": {
+        "sync-lipsync-v3": "G-FALLBACK"
+      },
+      "song_notes": "Songs: eleven_music_v2_5 with the released lyrics as custom lyrics, run as a flow node; read creative_get_model_schema for the lyrics and length fields first; never repeat a call to retry."
+    },
+    "higgs_audio": {
+      "allowed": [],
+      "note": "Higgsfield is off (disabled_services). Voices come from Atlas elevenlabs/v3/text-to-speech (models.atlas.allowed)."
+    },
+    "atlas": {
+      "_doc": "Atlas Cloud models (atlas generate image, video, audio) the owner has named for production. Only the owner adds an entry here. Each entry is an object: {id: exact model id, kind: image|video|audio, use: [asset types] (optional), params: {key: required value}, params_one_of: {key: [allowed values]}, params_if_given: {key: [allowed values]}, min_s and max_s (duration bounds; required for video), text_fields: [extra text fields such as negative_prompt or lyrics, reviewed with the prompt]}. The gate blocks any parameter carrying text that the entry does not list. Empty: the gate blocks every Atlas generation. 3d stays blocked (no asset type makes 3D). A family banned in STANDARDS.md 1 stays banned on Atlas unless the owner names that exact model here; G-EXCEPTION does not open Atlas. growth-engine/tools/atlas/README.md has an example.",
+      "allowed": [
+        {
+          "id": "suno/chirp-v6",
+          "kind": "audio",
+          "use": [
+            "song"
+          ],
+          "params": {
+            "custom": true,
+            "auto_lyrics": false,
+            "instrumental": false
+          },
+          "params_one_of": {
+            "vocal_gender": [
+              "Male",
+              "Female"
+            ]
+          },
+          "params_if_given": {
+            "variety": [
+              "off",
+              "normal",
+              "high",
+              "extra",
+              "max"
+            ]
+          },
+          "min_s": 20,
+          "max_s": 90,
+          "text_fields": [
+            "style",
+            "title",
+            "negative_tags"
+          ]
+        },
+        {
+          "id": "minimax/h3-developer/image-to-video",
+          "kind": "video",
+          "use": [
+            "video_clip"
+          ],
+          "params": {
+            "prompt_expansion": false
+          },
+          "params_one_of": {
+            "resolution": [
+              "768P",
+              "1440p-sr"
+            ]
+          },
+          "params_when": {
+            "resolution": {
+              "1440p-sr": "face_or_mouth"
+            }
+          },
+          "params_if_given": {
+            "ratio": [
+              "adaptive"
+            ]
+          },
+          "min_s": 4,
+          "max_s": 15,
+          "text_fields": [],
+          "aspect_from": "image",
+          "note": "Schema (atlas models get, 28 Oct 2026): ratio takes only adaptive, so the clip's frame is the start frame's (a 9:16 start frame makes a 9:16 clip): aspect_from image, no --aspect-ratio. Matan, 28 Oct 2026 (F1, \"Sharper face clips\"): 1440p-sr ($0.045/s, 10 s $0.45, about 1.9x 768P) only for clips whose Shot Spec has a face or mouth region; 768P for drafts and silent B-roll."
+        },
+        {
+          "id": "minimax/h3-developer/reference-to-video",
+          "kind": "video",
+          "use": [
+            "video_clip"
+          ],
+          "params": {
+            "prompt_expansion": false
+          },
+          "params_one_of": {
+            "resolution": [
+              "768P",
+              "1440p-sr"
+            ]
+          },
+          "params_when": {
+            "resolution": {
+              "1440p-sr": "face_or_mouth"
+            }
+          },
+          "params_if_given": {
+            "ratio": [
+              "9:16",
+              "1:1"
+            ],
+            "aspect_ratio": [
+              "9:16",
+              "1:1"
+            ]
+          },
+          "min_s": 4,
+          "max_s": 15,
+          "text_fields": [],
+          "note": "Schema (28 Oct 2026): ratio takes adaptive, 21:9, 16:9, 4:3, 1:1, 3:4, 9:16 (no 4:5); the CLI maps --aspect-ratio to ratio. Listed: the ratios we use that it makes (9:16 reels, 1:1). The gate checks the ratio against the Shot Spec, so adaptive never passes. Matan, 28 Oct 2026 (F1, \"Sharper face clips\"): 1440p-sr ($0.045/s, 10 s $0.45, about 1.9x 768P) only for clips whose Shot Spec has a face or mouth region; 768P for drafts and silent B-roll."
+        },
+        {
+          "id": "openai/gpt-image-2/text-to-image",
+          "kind": "image",
+          "use": [
+            "start_frame",
+            "still",
+            "slide",
+            "cover",
+            "static",
+            "storyboard",
+            "style_ref",
+            "character_sheet",
+            "prop_sheet",
+            "set_sheet"
+          ],
+          "params": {
+            "quality": "medium"
+          },
+          "params_one_of": {
+            "size": [
+              "1152x2048",
+              "1024x1536",
+              "1024x1024"
+            ]
+          },
+          "params_if_given": {
+            "output_format": [
+              "jpeg",
+              "png"
+            ],
+            "moderation": [
+              "low"
+            ],
+            "enable_sync_mode": [
+              true,
+              false
+            ],
+            "enable_base64_output": [
+              false
+            ]
+          },
+          "text_fields": [],
+          "size_for_aspect": {
+            "9:16": [
+              "1152x2048"
+            ],
+            "4:5": [
+              "1024x1536"
+            ],
+            "1:1": [
+              "1024x1024"
+            ]
+          },
+          "note": "Schema (28 Oct 2026): shape is set by size (the CLI refuses --aspect-ratio); the listed sizes have no 4:5 (the CLI refuses 1024x1280). size_for_aspect: a 9:16 spec at 1152x2048, 1:1 at 1024x1024, and a 4:5 slide, cover or static at 1024x1536 (2:3), cropped to 4:5 (the middle 1024x1280, never stretched) before the 1080x1350 export; the Shot Spec keeps text and faces inside that crop."
+        },
+        {
+          "id": "openai/gpt-image-2/edit",
+          "kind": "image",
+          "use": [
+            "start_frame",
+            "still",
+            "slide",
+            "cover",
+            "static",
+            "storyboard",
+            "style_ref",
+            "character_sheet",
+            "prop_sheet",
+            "set_sheet"
+          ],
+          "params_one_of": {
+            "quality": [
+              "medium",
+              "high"
+            ],
+            "size": [
+              "1152x2048",
+              "1024x1536",
+              "1024x1024"
+            ]
+          },
+          "params_if_given": {
+            "output_format": [
+              "jpeg",
+              "png"
+            ],
+            "moderation": [
+              "low"
+            ],
+            "enable_sync_mode": [
+              true,
+              false
+            ],
+            "enable_base64_output": [
+              false
+            ]
+          },
+          "text_fields": [],
+          "size_for_aspect": {
+            "9:16": [
+              "1152x2048"
+            ],
+            "4:5": [
+              "1024x1536"
+            ],
+            "1:1": [
+              "1024x1024"
+            ]
+          },
+          "note": "Schema (28 Oct 2026): shape is set by size (the CLI refuses --aspect-ratio); the listed sizes have no 4:5 (the CLI refuses 1024x1280). size_for_aspect: a 9:16 spec at 1152x2048, 1:1 at 1024x1024, and a 4:5 slide, cover or static at 1024x1536 (2:3), cropped to 4:5 (the middle 1024x1280, never stretched) before the 1080x1350 export; the Shot Spec keeps text and faces inside that crop. Matan, 28 Oct 2026 (F5, \"Real-looking people\"): quality high ($0.276 at 1152x2048, 1.9x medium) only for realistic-people assets: a character_sheet, start_frame or still whose Shot Specs are ugc, talking_head, podcast, drama or presenter (a character sheet is registered with the people shots it serves); medium for everything else.",
+          "params_when": {
+            "quality": {
+              "high": "realistic_people"
+            }
+          }
+        },
+        {
+          "id": "elevenlabs/v3/text-to-speech",
+          "kind": "audio",
+          "use": [
+            "voice",
+            "audio_slice"
+          ],
+          "params_if_given": {
+            "voice": [
+              "hpp4J3VqNfWAUOO0d1Us",
+              "CwhRBWXzGAHq8TQ4Fs17",
+              "EXAVITQu4vr4xnSDxMaL",
+              "FGY2WhTYpPnrIDTdsKH5",
+              "IKne3meq5aSn9XLyUdCD",
+              "JBFqnCBsd6RMkjVDRZzb",
+              "N2lVS1w4EtoT3dr4eOWO",
+              "SAz9YHcvj6GT2YYXdXww",
+              "SOYHLrjzK2X1ezoPC6cr",
+              "TX3LPaxmHKxFdv7VOQHJ",
+              "Xb7hH8MSUJpSbSDYk0k2",
+              "XrExE9yKIg1WjnnlVkGX",
+              "bIHbv24MWmeRgasZH58o",
+              "cgSgspJ2msm6clMCkdW9",
+              "cjVigY5qzO86Huf0OWal",
+              "iP95p4xoKVk53GoZ742B",
+              "nPczCjzI2devNBz1zQrb",
+              "onwK4e9ZLuTAKqWW03F9",
+              "pFZP5JQG7iQjIQuC4Bku",
+              "pNInz6obpgDQGcFmaJgB",
+              "pqHfZKP75CvOlQylNhV4"
+            ],
+            "language_code": [
+              "en"
+            ],
+            "apply_text_normalization": [
+              "auto",
+              "on",
+              "off"
+            ]
+          },
+          "text_fields": []
+        },
+        {
+          "id": "bytedance/avatar-omni-human-v2.0",
+          "kind": "video",
+          "use": [
+            "video_clip"
+          ],
+          "duration_from": "audio",
+          "aspect_from": "image",
+          "prop_subjects_only": true,
+          "min_s": 4,
+          "max_s": 15,
+          "params_if_given": {
+            "watermark": [
+              false
+            ]
+          },
+          "text_fields": [],
+          "note": "Talking-object clips only (every Shot Spec subject is a PR- prop): the object's approved 9:16 start frame, registered as a one-panel storyboard, as --image and its G-AUDIO-passed slice as --audio. No duration setting: the clip is as long as the audio, measured on the slice's G-AUDIO PASS (data.seconds), 4 to 15 s. Owner's pick, 27 Oct 2026."
+        },
+        {
+          "id": "minimax/h3/reference-to-video",
+          "kind": "video",
+          "use": [
+            "video_clip"
+          ],
+          "test_only": true,
+          "params": {
+            "resolution": "2K",
+            "prompt_expansion": false
+          },
+          "params_if_given": {
+            "ratio": [
+              "9:16"
+            ]
+          },
+          "min_s": 10,
+          "max_s": 10,
+          "text_fields": [],
+          "note": "Test only (F1, Matan 28 Oct 2026): the full H3 2K clip of the 10 s resolution comparison (768P, 1440p-sr, 2K; $1.30, no discount). Named for production only if the test shows 1440p-sr falls short."
+        },
+        {
+          "id": "google/nano-banana-2/edit",
+          "kind": "image",
+          "use": [
+            "character_sheet",
+            "prop_sheet",
+            "set_sheet",
+            "storyboard"
+          ],
+          "test_only": true,
+          "params_one_of": {
+            "resolution": [
+              "2k"
+            ],
+            "aspect_ratio": [
+              "9:16",
+              "1:1"
+            ]
+          },
+          "params_if_given": {
+            "output_format": [
+              "png",
+              "jpeg"
+            ],
+            "enable_sync_mode": [
+              true,
+              false
+            ],
+            "enable_base64_output": [
+              false
+            ],
+            "enable_web_search": [
+              false
+            ],
+            "enable_image_search": [
+              false
+            ]
+          },
+          "text_fields": [],
+          "note": "Test only (F6, Matan 28 Oct 2026, \"Run the test\"): stylized sheets and 3-panel storyboards against gpt-image-2 /edit, one character sheet and one storyboard per style ($0.12 at 2k). The gate allows it only on test assets with G-HUMAN-TEST until the owner names the winner for character_sheet, prop_sheet, set_sheet and storyboard in stylized formats."
+        },
+        {
+          "id": "minimax/music-3.0",
+          "kind": "audio",
+          "use": [
+            "music"
+          ],
+          "params": {
+            "is_instrumental": true,
+            "lyrics_optimizer": false
+          },
+          "params_if_given": {
+            "format": [
+              "mp3",
+              "wav"
+            ],
+            "bitrate": [
+              256000
+            ],
+            "sample_rate": [
+              44100
+            ],
+            "enable_sync_mode": [
+              true,
+              false
+            ],
+            "enable_base64_output": [
+              false
+            ]
+          },
+          "text_fields": [],
+          "note": "Music beds (asset type music): instrumental only, is_instrumental locked true, no lyrics field (any lyrics text blocks the call). $0.15 a call (estimate 28 Oct 2026), 2 takes a piece. Matan, 28 Oct 2026 (F3, \"Music beds\"), named after 2 G-HUMAN-TEST beds."
+        },
+        {
+          "id": "xai/stt-v1",
+          "kind": "audio",
+          "analysis": true,
+          "reads": [
+            "voice",
+            "audio_slice",
+            "song",
+            "music",
+            "video_clip",
+            "final",
+            "test"
+          ],
+          "params": {
+            "language": "en"
+          },
+          "params_if_given": {
+            "audio_format": [
+              "auto"
+            ],
+            "diarize": [
+              true,
+              false
+            ],
+            "filler_words": [
+              true,
+              false
+            ],
+            "text_normalization": [
+              true,
+              false
+            ],
+            "enable_sync_mode": [
+              true,
+              false
+            ]
+          },
+          "note": "Word timings for captions, slices and take checks: English only. Analysis, not generation: no prompt, no budget gate; it reads one file registered on one of our assets (pipeline.py media ... --id URL). Owner's pick, 27 Oct 2026. Also reads test assets (28 Oct 2026, F2: the lip-sync test's transcript check)."
+        }
+      ]
+    },
+    "image_people_spec_formats": [
+      "ugc",
+      "talking_head",
+      "podcast",
+      "drama"
+    ],
+    "heygen": {
+      "_doc": "The twin route (D-T4, Twin reel machine plan T1). Only these two HeyGen tools generate; every other HeyGen tool is service heygen, which disabled_services refuses. Checks: growth-engine/tools/heygen_rules.py (pure) and heygen_gate.py (ledger lookups). Real tool names in a cloud session are mcp__<connector id>__create_speech and mcp__<connector id>__create_video_from_avatar; the hook maps them here (guards/tool_names.py).",
+      "speech": {
+        "tool": "mcp__HeyGen__create_speech",
+        "asset_types": [
+          "voice"
+        ],
+        "voice_from": "brain host.voices",
+        "text": "the registered prompt of a voice asset whose tool is this one, equal to the released script: G-SCRIPT PASS with data.script_sha256 = sha256 of the text (whitespace-normalized)",
+        "input_types": [
+          "text"
+        ],
+        "refused_keys": [
+          "forceRegenerate",
+          "engine",
+          "settings"
+        ],
+        "refused_note": "forceRegenerate re-bills a cached take; engine and settings switch the voice's saved default engine or model (unplanned credits and a different sound than G-HUMAN-VOICE approved)"
+      },
+      "avatar_video": {
+        "tool": "mcp__HeyGen__create_video_from_avatar",
+        "asset_types": [
+          "video_clip"
+        ],
+        "look_from": "brain host.looks",
+        "aspect_ratio": "9:16",
+        "fit_by_orientation": {
+          "landscape": [
+            "cover"
+          ],
+          "portrait": [
+            null,
+            "cover"
+          ]
+        },
+        "audio_keys": [
+          "audioAssetId",
+          "audioUrl"
+        ],
+        "audio_gate": "G-AUDIO",
+        "refused_keys": [
+          "script",
+          "voiceId",
+          "voiceSettings",
+          "brandGlossaryId",
+          "motionPrompt",
+          "callbackUrl",
+          "callbackId",
+          "background",
+          "removeBackground"
+        ],
+        "caption_style": "none: captions are made in the edit, so caption.style stays unset",
+        "output_formats": [
+          "mp4"
+        ],
+        "resolutions": [
+          null,
+          "720p",
+          "1080p"
+        ],
+        "refused_note": "4k, background replacement, background removal and webm (matting) cost unplanned credits; the cutout is made in the edit (Twin reel machine plan T3)",
+        "audio_trust": "The gate trusts the registered audio id or URL: it checks that the value is registered on the twin's voice asset with G-AUDIO PASS, not the bytes behind it. Register only what create_speech returned."
+      },
+      "card_flag": "twin_host",
+      "budget": "a fresh G-BUDGET (gate_policy.budget_fresh_hours) whose data prices the piece in HeyGen credits (heygen_planned above 0); the monthly credit cap is brain package.monthly_heygen_credit_cap"
+    }
+  },
+  "gated_tools": {
+    "mcp__Higgs__generate_image": {
+      "service": "higgs",
+      "kind": "image"
+    },
+    "mcp__Higgs__generate_image_batch": {
+      "service": "higgs",
+      "kind": "image",
+      "batch": true
+    },
+    "mcp__Higgs__generate_video": {
+      "service": "higgs",
+      "kind": "video"
+    },
+    "mcp__Higgs__generate_video_batch": {
+      "service": "higgs",
+      "kind": "video",
+      "batch": true
+    },
+    "mcp__Higgs__generate_audio": {
+      "service": "higgs",
+      "kind": "audio"
+    },
+    "mcp__Higgs__generate_audio_batch": {
+      "service": "higgs",
+      "kind": "audio",
+      "batch": true
+    },
+    "mcp__Higgs__execute_preset": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__outpaint_image": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__motion_control": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__ads_studio_generate": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__shorts_studio_create": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__ai_influencer_generate": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__generate_3d": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__upscale_image": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__upscale_video": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__remove_background": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__reframe": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__relight_image": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__create_voice": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__create_voice_from_confirmed_audio": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__voice_change": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__dubbing": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__apps_invoke": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__sandbox_exec": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__scene_builder_3d_generate_video": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__scene_builder_3d_generate_angles": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__scene_builder_3d_run_python": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__video_analysis_create": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__virality_predictor": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__build_ai_influencer": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__animation_actions": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__create_website": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__Higgs__deploy_website": {
+      "service": "higgs",
+      "kind": "other"
+    },
+    "mcp__ElevenLabs__creative_generate_speech": {
+      "service": "elevenlabs",
+      "kind": "tts"
+    },
+    "mcp__ElevenLabs__creative_generate_image": {
+      "service": "elevenlabs",
+      "kind": "image"
+    },
+    "mcp__ElevenLabs__creative_edit_image": {
+      "service": "elevenlabs",
+      "kind": "image"
+    },
+    "mcp__ElevenLabs__creative_generate_video": {
+      "service": "elevenlabs",
+      "kind": "video"
+    },
+    "mcp__ElevenLabs__creative_generate_in_flow": {
+      "service": "elevenlabs",
+      "kind": "by_node_type"
+    },
+    "mcp__ElevenLabs__creative_run_flow_nodes": {
+      "service": "elevenlabs",
+      "kind": "nodes"
+    },
+    "mcp__ElevenLabs__creative_design_voice": {
+      "service": "elevenlabs",
+      "kind": "other"
+    },
+    "mcp__ElevenLabs__creative_transcribe_audio": {
+      "service": "elevenlabs",
+      "kind": "other"
+    },
+    "mcp__HeyGen__text_to_video": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__image_to_video": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__reference_to_video": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_video_agent": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__send_video_agent_message": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_video_from_avatar": {
+      "service": "heygen_twin",
+      "kind": "heygen_avatar_video"
+    },
+    "mcp__HeyGen__create_video_from_cinematic_avatar": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_video_from_image": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_video_from_studio": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_video_batch": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__generate_from_template": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_video_translation": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_video_translation_batch": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_lipsync": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_lipsync_batch": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_ai_clipping": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_filler_word_removal": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_image_generation": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_digital_twin": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_photo_avatar": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_prompt_avatar": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_look_pack_looks": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_template_looks": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_speech": {
+      "service": "heygen_twin",
+      "kind": "heygen_speech"
+    },
+    "mcp__HeyGen__create_speech_without_player": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__convert_model_speech": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__clone_voice": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__design_voice": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_instant_audio_voice": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "mcp__HeyGen__create_model_audio_voice": {
+      "service": "heygen",
+      "kind": "other"
+    },
+    "atlas_generate": {
+      "service": "atlas",
+      "kind": "from_call"
+    }
+  },
+  "families": {
+    "_doc": "Which pipeline steps (AI-VIDEO-PIPELINE.md section 1) apply to which production family. Formats in config/organic.json name their family in 'production'.",
+    "still": {
+      "na_steps": [
+        4,
+        5,
+        8,
+        12
+      ],
+      "note": "Single images and carousels: step 3 is the slide copy, step 10 the slide generation, step 11 G-VIS-SLIDE, step 13 G-SET."
+    },
+    "motion": {
+      "na_steps": [],
+      "note": "Code-rendered reels (HyperFrames): step 8 = G-MOTION-TEXT on the code's text constants, then preview frames and the hook styleframe; step 10 = render; step 11 = G-MOTION-FRAMES."
+    },
+    "keyframe_reel": {
+      "na_steps": [
+        8
+      ],
+      "note": "Tier C quote reel: one silent H3 keyframe shot from a passed start frame, voice and captions in the edit. No storyboard: one shot, no mouth. Step 4 needs G-HUMAN-VOICE until the narrator's record exists (per voice)."
+    },
+    "ai_video": {
+      "na_steps": [],
+      "note": "Talking head, UGC, narrated story, animation, song, podcast, drama: every step."
+    },
+    "real": {
+      "na_steps": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "note": "Real footage (the owner films): no look bible, storyboard, credits or generation; steps 11 to 13 still check the takes, words and final cut."
+    },
+    "song": {
+      "na_steps": [],
+      "formats": [
+        "reel_song"
+      ],
+      "note": "Song pieces (format reel_song): every step; step 4 adds G-HUMAN-SONG, the owner's listen to every song master before any picture. A format may also name this family in organic.json 'production'."
+    }
+  },
+  "steps": [
+    {
+      "n": 0,
+      "name": "Foundation and brief",
+      "gates": [
+        "G-BRIEF"
+      ]
+    },
+    {
+      "n": 1,
+      "name": "Idea, angle and THE PICTURE",
+      "gates": [
+        "G-IDEA"
+      ]
+    },
+    {
+      "n": 2,
+      "name": "Hook",
+      "gates": [
+        "G-HOOK"
+      ]
+    },
+    {
+      "n": 3,
+      "name": "Script",
+      "gates": [
+        "G-SCRIPT",
+        "G-HUMAN-SPINE"
+      ]
+    },
+    {
+      "n": 4,
+      "name": "Audio",
+      "gates": [
+        "G-AUDIO-MASTER",
+        "G-HUMAN-VOICE"
+      ]
+    },
+    {
+      "n": 5,
+      "name": "Audio analysis and timeline",
+      "gates": [
+        "G-TIMELINE"
+      ]
+    },
+    {
+      "n": 6,
+      "name": "Visual plan and Shot Specs",
+      "gates": [
+        "G-PLAN",
+        "G-SPEC"
+      ]
+    },
+    {
+      "n": 7,
+      "name": "Look bible: characters, settings, props",
+      "gates": [
+        "G-HUMAN-LOOK"
+      ]
+    },
+    {
+      "n": 8,
+      "name": "Storyboards",
+      "gates": [
+        "G-CONTINUITY",
+        "G-HUMAN-HOOKBOARD"
+      ]
+    },
+    {
+      "n": 9,
+      "name": "Budget preflight",
+      "gates": [
+        "G-BUDGET"
+      ]
+    },
+    {
+      "n": 10,
+      "name": "Generation",
+      "gates": []
+    },
+    {
+      "n": 11,
+      "name": "Per-take QA",
+      "gates": [
+        "G-ASSETS"
+      ]
+    },
+    {
+      "n": 12,
+      "name": "Edit",
+      "gates": []
+    },
+    {
+      "n": 13,
+      "name": "Final QA",
+      "gates": [
+        "G-FINAL",
+        "G-DIRECTOR"
+      ]
+    },
+    {
+      "n": 14,
+      "name": "Package and approval",
+      "gates": [
+        "G-HUMAN-FINAL"
+      ]
+    },
+    {
+      "n": 15,
+      "name": "Learn",
+      "gates": [
+        "G-LEARN"
+      ]
+    }
+  ],
+  "step_gate_by_family": {
+    "still": {
+      "3": [
+        "G-SCRIPT"
+      ],
+      "13": [
+        "G-SET",
+        "G-DIRECTOR"
+      ]
+    },
+    "keyframe_reel": {
+      "3": [
+        "G-SCRIPT"
+      ],
+      "4": [
+        "G-AUDIO-MASTER",
+        "G-HUMAN-VOICE"
+      ],
+      "7": []
+    },
+    "motion": {
+      "7": [],
+      "8": [
+        "G-MOTION-TEXT",
+        "G-HUMAN-HOOKBOARD"
+      ]
+    },
+    "song": {
+      "4": [
+        "G-AUDIO-MASTER",
+        "G-HUMAN-SONG"
+      ]
+    }
+  },
+  "human_checkpoints": {
+    "G-HUMAN-SPINE": {
+      "mode": "delegable",
+      "what": "Pick the script spine and the master hook stack (Script Lab 12C). The owner said to run without stopping, so Claude picks, says which and why, and it shows in the queue as FYI."
+    },
+    "G-HUMAN-VOICE": {
+      "mode": "per_voice",
+      "what": "Listen once when a voice is cast for a client or series (audition and 15 s pilot); later spoken pieces with the locked voice pass on the measured take checks. For a non-English voice the note records the pace band measured on the approved audition (STANDARDS 4). Matan only (never delegated; plan 28 Oct)."
+    },
+    "G-HUMAN-SONG": {
+      "mode": "required",
+      "what": "The owner listens to every song master before any picture is made (per piece): words, brand and keyword pronunciation, a slow hook. Sung Albanian can't be fully measured by Whisper. Matan only (never delegated; plan 28 Oct)."
+    },
+    "G-HUMAN-LOOK": {
+      "mode": "per_series",
+      "what": "Approve the look bible (style, character, set and prop sheets) once per client or series; recorded on the client's LIB run. Delegated (plan 28 Oct, A1): also 'claude (delegated by Matan, plan 28 Oct)' with a note naming the fresh evaluator's report.",
+      "delegate": {
+        "by": "claude (delegated by Matan, plan 28 Oct)",
+        "note": "Matan, plan of 28 Oct (A1): Claude may record this checkpoint after a fresh evaluator session's report; --note names that report's file and what it found. The owner sees it as FYI in the queue."
+      }
+    },
+    "G-HUMAN-HOOKBOARD": {
+      "mode": "required",
+      "what": "Hook storyboards always go to the owner (VISUAL-QA 6). Drama: the animatic and the cost preflight ride with the hook board. Podcast: the line-1 speaker's start frame with the title bar. Motion: the hook styleframe (the first 2 s at phone size with the text hook). Delegated (plan 28 Oct, A1): also 'claude (delegated by Matan, plan 28 Oct)' with a note naming the fresh evaluator's report.",
+      "delegate": {
+        "by": "claude (delegated by Matan, plan 28 Oct)",
+        "note": "Matan, plan of 28 Oct (A1): Claude may record this checkpoint after a fresh evaluator session's report; --note names that report's file and what it found. The owner sees it as FYI in the queue."
+      }
+    },
+    "G-HUMAN-OFFER": {
+      "mode": "per_brand",
+      "what": "Onboarding stage O3 (ONBOARDING.md): Matan picks the offer direction for a new brand from 2 or 3 evidence-backed directions. Asked once per brand on the Studio page (the brand's onboarding run), before the Client Brain is finished and any plan is made. The client confirms the items on the confirm link as well; that is not this gate. Matan only (never delegated; plan 28 Oct)."
+    },
+    "G-HUMAN-ESCALATE": {
+      "mode": "required",
+      "what": "An asset that failed 3 attempts (VISUAL-QA 5.5, 7.1): the best version and its report. Or a script (speech or lyrics) that failed 3 FIX loops with new readers (STANDARDS 9 G-SCRIPT): the best draft and its reports. A prompt that failed 2 review loops goes to the Organic Director first, who may send it here."
+    },
+    "G-HUMAN-FINAL": {
+      "mode": "required",
+      "what": "Approval on the hub's Content page; nothing posts without it. Every Albanian string (script, lyrics, supers, captions, slides, caption text) is marked for a native read in the hub notes. Matan only (never delegated; plan 28 Oct)."
+    },
+    "G-HUMAN-TEST": {
+      "mode": "required",
+      "what": "A test generation outside a post (a model re-test), with its reason."
+    },
+    "G-FALLBACK": {
+      "mode": "director",
+      "what": "Kling 3.0 fallback for one shot after an H3 frame-check fail."
+    },
+    "G-EXCEPTION": {
+      "mode": "required",
+      "what": "A model outside the standards for one asset (drama exception X5 routing). X6 to X10 need no G-EXCEPTION."
+    }
+  },
+  "clips": {
+    "min_s": 5,
+    "max_s": 15,
+    "slice_s": [
+      4,
+      14
+    ],
+    "duration_plus_s": 1,
+    "duration_rule_interim": "slice 4 to 14 s; duration = ceil(slice) + 1, within 5..15; the +1 s comes on top of any tail already in the file (re-test R2)",
+    "words_per_15s_monologue": [
+      30,
+      35
+    ],
+    "podcast_stem_words": [
+      27,
+      30
+    ],
+    "podcast_stem_words_note": "proposed, confirm on first run: (14 s minus about 2 s of beats and 1 s of tail) x 2.5 words/s; Script Lab's 30 to 35 is the ceiling",
+    "words_per_clip_drama": 20,
+    "words_per_line_lipsync_max": 10,
+    "shots_per_take": [
+      1,
+      3
+    ],
+    "shots_per_take_max": 4,
+    "silent_keyframe_shots": 1,
+    "takes_hook_and_talking": 2,
+    "takes_other_silent": 1,
+    "max_attempts": 3
+  },
+  "audio": {
+    "pace_words_per_s_default": 2.5,
+    "storyteller_syllables_per_s": [
+      4.3,
+      5.5
+    ],
+    "pitch_range_semitones_min": 7,
+    "takes_per_beat": 4,
+    "max_speed_up": 1.05,
+    "pause_sd_min_s": 0.1,
+    "long_pause_s": 0.45,
+    "cap_pauses": false,
+    "animation_gap_codes_min_s": {
+      "S": 0.15,
+      "B": 0.4,
+      "H": 0.8
+    },
+    "turn_gap_s": [
+      0.08,
+      0.3
+    ],
+    "overlap_s": [
+      0.1,
+      0.2
+    ],
+    "bed_under_voice_db": [
+      14,
+      18
+    ],
+    "loudness_lufs": -14,
+    "loudness_tolerance": 1,
+    "true_peak_dbtp_max": -1.0,
+    "storyteller_syllables_per_s_lang": "en",
+    "storyteller_band_other_languages": "measured on the approved audition, written in the voice's G-HUMAN-VOICE note",
+    "long_pauses_min_per_3_sentence_ends": 1,
+    "long_pauses_note": "proposed, confirm on first run",
+    "turn_gap_podcast_s": [
+      0.08,
+      0.2
+    ],
+    "turn_gap_drama_after_mechanism_s": [
+      0.08,
+      0.2
+    ],
+    "seam_gap_max_s": 0.35,
+    "line_loudness_spread_max_db": 2,
+    "bed_hook_tension_under_db_min": 20,
+    "duck_db": [
+      6,
+      12
+    ],
+    "duck_attack_ms": [
+      5,
+      20
+    ],
+    "duck_release_ms": [
+      250,
+      500
+    ],
+    "sfx_featured_under_dialogue_db": [
+      3,
+      6
+    ],
+    "sfx_touch_under_dialogue_db": [
+      10,
+      16
+    ],
+    "loudness_range_lu_max": 11,
+    "loudness_range_lu_drama": [
+      6,
+      11
+    ],
+    "short_term_max_lufs": -9,
+    "loudnorm_passes": 2,
+    "song_takes": [
+      2,
+      3
+    ],
+    "song_whisper_match_min": 0.88,
+    "song_whisper_match_note": "proposed floor (the low end of the 0.88 to 0.95 band seen in our runs), confirm on the first run",
+    "song_prompt_words_max": 25,
+    "lyrics_syllables_per_line": [
+      8,
+      14
+    ],
+    "lyrics_lines": {
+      "O60": [
+        23,
+        37
+      ],
+      "40_to_50_s": [
+        18,
+        27
+      ],
+      "O30": [
+        11,
+        19
+      ],
+      "O30_note": "proposed (scaled from the 40 to 50 s row), check on the first run"
+    },
+    "audio_tags_per_line_max": 1
+  },
+  "picture": {
+    "fps": 30,
+    "fps_drama_optional": 24,
+    "export": "H.264 High 1080x1920, AAC 48 kHz",
+    "change_every_s": [
+      2,
+      4.5
+    ],
+    "change_every_s_song": [
+      1.5,
+      3.5
+    ],
+    "change_every_s_ugc_broll": [
+      1.5,
+      3
+    ],
+    "first_5s_change_every_s": [
+      1,
+      1.5
+    ],
+    "end_card_s": [
+      2.5,
+      3
+    ],
+    "fps_motion": [
+      30,
+      60
+    ],
+    "fps_code_styles": 24,
+    "conform": "repeat frames (ffmpeg fps=30), never interpolate a dialogue shot",
+    "silent_speedup_max": 2.5,
+    "song_shot_s": [
+      1.5,
+      3.5
+    ],
+    "song_sequence_s": [
+      4,
+      10.5
+    ],
+    "hook_timing": {
+      "spoken_first_word_s": 0.1,
+      "song_voice_after_trim_s": 0.3,
+      "song_first_sung_word_s": 1,
+      "song_problem_sung_s": 3,
+      "drama_first_line_s": 1.5,
+      "drama_first_line_after_action_s": 4.0,
+      "drama_real_sound_s": 0.3,
+      "drama_story_event_s": 1.0,
+      "motion_hook_text_s": 0.3
+    },
+    "podcast_cut": {
+      "in_before_onset_s": 0.08,
+      "out_after_energy_s": [
+        0.12,
+        0.2
+      ],
+      "jcut_s": [
+        0.1,
+        0.2
+      ],
+      "reaction_s": [
+        0.8,
+        1.5
+      ],
+      "reaction_every_s_max": 10,
+      "punch_in_pct": [
+        112,
+        118
+      ],
+      "fade_ms": [
+        20,
+        80
+      ]
+    }
+  },
+  "text": {
+    "hook_words": [
+      4,
+      10
+    ],
+    "hook_label_words_max": 6,
+    "caption_words": [
+      1,
+      4
+    ],
+    "super_words": [
+      2,
+      6
+    ],
+    "contrast_min": 4.5,
+    "reels_safe_zone": {
+      "top": 0.14,
+      "bottom": 0.35,
+      "right_lower_half": 0.21,
+      "sides": 0.06,
+      "px_1080x1920": {
+        "top": 269,
+        "bottom": 672,
+        "right_lower_half": 227,
+        "sides": 65
+      }
+    },
+    "feed_margin": 0.04,
+    "thumbnail_test_px": 200,
+    "em_dashes": false,
+    "caption_words_song_podcast": [
+      1,
+      3
+    ],
+    "caption_px": [
+      80,
+      100
+    ],
+    "caption_band_from_top": [
+      0.55,
+      0.62
+    ],
+    "caption_gap_max_s_podcast": 0.4,
+    "caption_tail_s_song": 0.3,
+    "faces_band_from_top": [
+      0.15,
+      0.55
+    ],
+    "eyes_from_top": [
+      0.3,
+      0.4
+    ],
+    "body_text_min_px": 44,
+    "check_width_px": 360,
+    "podcast_title_bar": {
+      "words": [
+        4,
+        8
+      ],
+      "lines_max": 2,
+      "px": [
+        44,
+        50
+      ]
+    },
+    "carousel": {
+      "cover_lines": [
+        2,
+        3
+      ],
+      "cover_line_chars": 12,
+      "slide_headline_words_max": 7,
+      "list_item_words_max": 5,
+      "short_lane_words": [
+        5,
+        15
+      ],
+      "dense_lane_words_max": 30,
+      "dense_lane_lines_max": 5
+    }
+  },
+  "placements": {
+    "reel": [
+      1080,
+      1920
+    ],
+    "feed": [
+      1080,
+      1350
+    ],
+    "carousel": [
+      1080,
+      1350
+    ],
+    "carousel_slides": [
+      7,
+      12
+    ],
+    "slide_file": "JPEG 1080x1350, under 8 MB each",
+    "reel_file": "MP4 H.264 + AAC, under 100 MB, 3 to 90 s",
+    "reel_file_max_s": 90
+  },
+  "ai_label": {
+    "photoreal_ai_person": true,
+    "ai_voice_as_person": true,
+    "voiced_motion_narrator": true,
+    "stylized_animation": "on per STANDARDS 7 (D1 decides whether to extend it)",
+    "burned_in_tag": false,
+    "ai_people_interim": "AI people are only shown from behind or as clearly staged scenes; no AI person is presented as a real client."
+  },
+  "lengths": {
+    "O15": [
+      10,
+      20
+    ],
+    "O30": [
+      20,
+      35
+    ],
+    "O60": [
+      45,
+      75
+    ],
+    "O90": [
+      75,
+      90
+    ],
+    "podcast_C45": {
+      "s": [
+        35,
+        45
+      ],
+      "turns": [
+        8,
+        12
+      ],
+      "words": [
+        80,
+        110
+      ],
+      "turn_words_max": 20,
+      "one_turn_words_max": 25,
+      "listener_every_s_max": 8,
+      "host_words_share_max": 0.6,
+      "payoff_words_max": 6
+    },
+    "story_min_s": 45,
+    "max_s": 90,
+    "max_s_if_owner_confirms": 180,
+    "_doc": "STANDARDS.md section 8 is the single source for lengths; other docs point there."
+  },
+  "credits": {
+    "h3_per_s": 2,
+    "kling_per_5s": 10,
+    "gpt_image_2_5_2k_medium": 1,
+    "still_range": [
+      1,
+      6.5
+    ],
+    "elevenlabs_vo_beat_4_takes": 177,
+    "gpt_image_2_5_2k_high": 2.75,
+    "carousel_7_to_12_slides": [
+      16,
+      33
+    ]
+  },
+  "open": {
+    "R1": "stylized image model side-by-side",
+    "R2": "H3 duration rule re-test",
+    "D1": "AI label policy",
+    "D9": "drama model routing",
+    "H1": "human listens reduced to G-HUMAN-VOICE per voice and G-HUMAN-SONG per song (owner may restore the four listens)"
+  },
+  "review_gates_extra": {
+    "G-MOTION-TEXT": {
+      "reviewer": "prompt-reviewer (fresh agent)",
+      "checks": [
+        "M1",
+        "M3",
+        "M4",
+        "M6"
+      ],
+      "what": "The code's text constants, layout positions, timing table and brand colours against the Shot Spec and the released script, before any render (VISUAL-QA 7.2)."
+    }
+  },
+  "disabled_services": {
+    "_doc": "Services the generation gate (.claude/hooks/generation_gate.py) refuses whatever the call, for every gated_tools entry with that service. Owner decides.",
+    "higgs": "Matan, 28 Oct 2026: never Higgsfield; generation runs on Atlas (much cheaper) through the gated `atlas` command.",
+    "elevenlabs": "Matan, 28 Oct 2026: generation runs on Atlas only. Speech, music, sound effects and images come through the gated `atlas` command (elevenlabs/v3/text-to-speech on Atlas stays allowed); word timings run on Atlas xai/stt-v1. The ElevenLabs connector's creative_* generation and transcription tools are off.",
+    "heygen": "Matan, 28 Oct 2026: generation runs on Atlas only. HeyGen's paid tools (video, avatar, lip-sync, translation, image and speech generation, voice cloning) are off. Exception (Matan, 29 Oct, D-T4): create_speech and create_video_from_avatar are service heygen_twin, open only for the brain's twin through the checks in models.heygen (heygen_gate.py)."
+  },
+  "atlas_prices": {
+    "_doc": "Atlas Cloud prices in USD, read 28 Oct 2026 with `atlas models get <id> --json` (pricing), `atlas generate cost ...` (free estimates) and the account's billed costs (`atlas account costs`). STANDARDS.md 10 and its 28 Oct changelog line list every price. Per-piece budgets (config/organic.json formats[].usd) come from these and the format's atlas_units; G-BUDGET and the router count USD.",
+    "as_of": "2026-10-28",
+    "image": 0.059,
+    "image_note": "openai/gpt-image-2 at quality medium, the dearest named route and size (edit at 1152x2048: 0.058694; text-to-image 1152x2048 0.04739, 1024x1536 0.04616, 1024x1024 0.05768; edit 1024x1536 0.057136). Reference count does not change the price.",
+    "video_s": 0.024,
+    "video_note": "minimax/h3-developer image-to-video and reference-to-video at 768P, per second of the duration asked for (estimates: 10 s 0.24, 15 s 0.36; billed 25 Oct: 38 s 0.912 and 41 s 0.984). Discounted: the list price is 0.08/s and Atlas charges 30% of it (estimate origin_price 0.80, discount 30, 28 Oct); without the discount video budgets roughly double to triple.",
+    "omni_s": 0.0896,
+    "omni_note": "bytedance/avatar-omni-human-v2.0 per second of audio. The pricing field says 0.056 at 720p, but the free estimates charge 0.0896/s (a 6.1 s file 0.546922; a 6 min 12 s file, billed at the model's 300 s audio limit, 26.88) and the 25 Oct bill agrees (2 clips, 19 s of video, 1.76245), so budgets use 0.0896. The estimate's origin_price is 0.112/s with discount 80.",
+    "tts_1k_chars": 0.1,
+    "tts_note": "elevenlabs/v3/text-to-speech per 1,000 characters of text (estimates: 200 chars 0.02, 1,000 0.10, 4,000 0.40).",
+    "song": 0.132,
+    "song_note": "suno/chirp-v6 per call, whatever the duration (estimates at 30, 60 and 90 s: 0.132; billed 27 Oct: 2 calls 0.264).",
+    "stt_min": 0.0017,
+    "stt_note": "xai/stt-v1 per minute of audio (estimates: the 6.1 s file 0.000173, the 6 min 12 s file 0.01056). Analysis, about 0.10 an hour.",
+    "chars_per_word": 6,
+    "chars_note": "English words plus the space, to turn the narration's words (STANDARDS 4 pace) into TTS characters."
+  },
+  "heygen_connector": {
+    "_doc": "Every HeyGen connector tool not in gated_tools (Twin reel machine plan T1, evaluator round 1): the HeyGen tools hook (.claude/hooks/heygen_tools_gate.py, rules in guards/heygen_tools.py) lets through only reads, and denies every other tool (writes, deletes, subscriptions, uploads, templates). The two twin tools are in gated_tools and go through the generation gate.",
+    "server_names": [
+      "HeyGen"
+    ],
+    "connector_ids": [
+      "49562e34-e2bd-4bfe-95e6-8f2f8287878e"
+    ],
+    "read_only": {
+      "prefixes": [
+        "list_",
+        "get_",
+        "lookup_"
+      ],
+      "patterns": [
+        "^bulk_\\w+_statuses$"
+      ]
+    }
+  }
+}

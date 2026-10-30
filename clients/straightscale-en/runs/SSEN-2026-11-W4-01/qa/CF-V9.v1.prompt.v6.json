@@ -1,0 +1,73 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CF-V9",
+ "version": 1,
+ "prompt_sha256": "3559b60751fe8d1b2e7d6bedb70123e8c062365b5f8fb96e30c64b2add89f1b1",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Every spec item present: 'One subject: the booking page... the magnifying glass on the calendar'; PR-SCREEN, PR-GLASS, 'BOOK A CALL', 'Hands: no hands visible.', setting, safe zones, style, negatives. All 11 still-card blocks present (style, references, camera, subject/props, hands, action, text, setting, layout, continuity, negatives + closing line)."
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'References: none attached (text to image).' matches attached media: none."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'Hands: no hands visible.' matches spec 'hands: none visible'; 'no people, no hands, no faces'."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'the magnifying glass lies flat against the screen surface over the calendar, its rim and its horizontal handle touching the calendar tiles; nothing touches the band or the letters'."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-SCREEN and PR-GLASS both filled: 'every tile empty: no digits, no names, no marks'; 'the lens face is a solid matte clay disc with no shine, carrying the same empty cream tiles modelled larger on it'. Negatives are targeted, no blanket 'no text'."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "'exactly: \"BOOK A CALL\" on the cream band at the top of the screen, deep ink #2B2A33 letters, centred, at x 14% to 86%, y 31.5% to 36%; nothing covers any letter' (3 words, in quotes, surface, position, occlusion)."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'no signs, frames, posters or other screens; the only writing is the quoted text'; the screen itself has a content rule."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Geometry is consistent: 4 tiles x 16% + 3 gaps x 2% = 70% (8% to 78%); 3 rows x 4% + 2 gaps x 1.5% = 15% (39% to 54%); lens 24% of 1152 px = 276 px = 13.5% of 2048 px, round; handle at y 46.75% matches lens centre; band 30.5% to 37% holds text y 31.5% to 36% and ends above the calendar at 39%. v5 square/box and transparency conflicts are fixed ('wide flat rounded cream clay tiles', 'solid matte clay disc')."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'Continuity: first frame of the reel; nothing carried over.' matches previous_shot null, carry_over []."
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Call openai/gpt-image-2/text-to-image, --size 1152x2048 (9:16 via size_for_aspect), --quality medium match the standards.json atlas entry; still/static allowed; no extra text fields; no reference needed (text to image); 'Vertical 9:16 frame.' Video rules N/A."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "v5 ambiguity fixed: 'the magnifying glass on the calendar' (not 'the lens') and 'tiles' (not 'squares'); 'viewer's left' stated for the handle direction. Remaining 'macro lens feel' is a style phrase, clearly the camera."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 n/a (no hands); FL-03 contact points; FL-04 content lines, no blanket 'no text'; FL-05/10 background rule and only quoted text; FL-13 no logo asked, 'no logo, wordmark or real app name or app icon anywhere', bottom-left is plain sage field."
+  }
+ ],
+ "corrected_prompt": null,
+ "notes": "Reviewed prompts/CF-V9.v1.6.txt and shots/H-01-V9.spec.yaml. No producer reasoning was in the packet. Raw file sha256 is 9debd88a... (ledger hash used as instructed)."
+}

@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CF-V7",
+ "version": 1,
+ "prompt_sha256": "4c9289f126dc5f4daa0520d66675a7011dcc91bff26dbeae8c83e37d4e7aff20",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Prompt blocks follow the 11-block card in order. Covers phone ('tilted back about 20 degrees', 'x 16% to 84%', 'y 30% down past the bottom edge'), both hands with boxes, pen ('about 22% of the frame height'), bubble content, text, setting ('walnut desk ... strips left and right'), camera (top 30% empty), continuity, negatives."
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'Reference images: none attached; this prompt is the only input.' The packet lists no media (text-to-image)."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "Left: 'its thumb lies along the phone's left edge and is its only visible finger; its other four fingers wrap around the phone's lower back'; right: 'holds one red ballpoint pen upright between thumb and index finger, the other three fingers curled into the palm'; 'Exactly two hands: the right hand with five visible fingers, the left hand with only its thumb visible; and one pen.'"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "Action: 'the right thumb and index finger pinch the red pen's barrel, the pen upright with its tip at y 62%, in front of the phone, touching nothing.'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Props: 'a plain chat view on a white background with exactly one large light-grey incoming message bubble at the top of the screen (x 22% to 78%, y 33% to 54%) ... empty white space below it'; the negatives are targeted ('no words other than the message'), so the bubble is not emptied."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "Text: '\"We can get it done cheaper.\"' inside the grey bubble, centred, dark charcoal plain sans-serif, sentence case, 6 words, ~60 px tall letters on a 1152 px frame, 'each line ending well inside the bubble's edge'; occlusion 'No hand, finger, sleeve or pen rises above the line 62% of the way down from the top, so no letter touches anything.'"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'No other screens, papers, posters or readable words anywhere except the message in the bubble; the desk is bare'; wall 'plain dark warm grey and out of focus'; the phone screen has its content rule."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Bubble is 'y 33% to 54%, inside the 15% to 55% key band' and 'The top 30% ... nothing in it' agree (33 to 54 is inside both); the left wrist is 'behind the phone', the right is 'in front of the phone'; the pen is 'in front of' the phone with 'a visible gap of soft out-of-focus air' to the screen, which are different axes. The pen tip at y 62% sits on the line hands stay 'below', a rounding difference of one pen tip only."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'Continuity: none, this is the first frame of the reel.' Spec previous_shot null, carry_over []."
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "standards.json models.atlas.allowed: openai/gpt-image-2/text-to-image, use includes still, params quality medium (packet: --quality medium), size 1152x2048 is in params_one_of and is the size_for_aspect for 9:16 (prompt and spec: 9:16). No text_fields used (negatives live inside the prompt). Hands only, no person, so no reference photo rule. Video rules (declined_preset_id, durations, speakers) N/A for a still. Packet hash 4c9289f1...7aff20 matches the normalised file hash."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "Positions are anchored ('measured down from the top edge and across from the left edge'); 'the line 62% of the way down from the top' is explicit; sentence case stated against 'tall letters ... 60 px'; wrists' depth order stated; the pen cap is 'not in the frame'."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 prevention present (letters kept above and apart from hands, 'No letter touches the pen, a thumb, a finger, a hand or a sleeve', lines end inside the bubble); FL-02 structure line ('appears once and is the only device'); FL-03 contact points; FL-04/05/10 screen content and background rule; FL-06 hand parts named; FL-11 'one pen', 'Exactly two hands'; FL-13 not triggered (no logo requested)."
+  }
+ ],
+ "corrected_prompt": null
+}

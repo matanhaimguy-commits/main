@@ -1,0 +1,72 @@
+{
+  "gate": "G-PROMPT-IMG",
+  "asset_id": "SL08",
+  "version": 1,
+  "prompt_sha256": "ff54bc3678d9f1d00d2dbbe644da2b35b512aff2de3a23c950092d0f7b4bf03d",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "P1",
+      "result": "PASS",
+      "evidence": "Phone 'screen off, calm' 14% x 25%, PR-STAND, 6 text strings incl. \"8/8\", 'No arrow button on this last slide.', 'No swipe arrow, no round button, no arrow graphic anywhere.' (spec must_not), 'Wide, calm, nobody there.'"
+    },
+    {
+      "id": "P2",
+      "result": "PASS",
+      "evidence": "'Image 1 is the style reference ... Image 2 is the approved cover ... Image 3 is the approved slide 2'; three images match the three uploads (STYLE-TOP, PENDING-SL01-APPROVED-COVER, PENDING-SL02-APPROVED-SLIDE2); no prop sheet is needed because the screen is off"
+    },
+    {
+      "id": "P3",
+      "result": "PASS",
+      "evidence": "'Hands: no hands and no people are visible in the frame.'"
+    },
+    {
+      "id": "P4",
+      "result": "PASS",
+      "evidence": "'The phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support; nothing touches it.'"
+    },
+    {
+      "id": "P5",
+      "result": "N/A",
+      "evidence": "No story-critical prop in the spec (props PR-PHONE and PR-STAND are story_critical false); the screen is off: 'A phone with its screen off is plain black glass with a soft lamp reflection and nothing else.'"
+    },
+    {
+      "id": "P6",
+      "result": "PASS",
+      "evidence": "\"Çdo jo është një\" / \"rresht që mungon.\" / \"Shkruaj ANALIZA në komente.\" / \"Falas, 45 minuta, pa detyrim,\" / \"në Tiranë ose te biznesi yt.\" / \"8/8\" with surface, position, size, colour, highlight on \"ANALIZA\"; ç/ë words spelled (Çdo, është, një, që, në, Tiranë); 5 words or fewer per surface"
+    },
+    {
+      "id": "P7",
+      "result": "PASS",
+      "evidence": "'Nothing on the desk or the walls carries a word, a logo or a sign.' plus 'the window glass reflects no text; no shop signs on the street'; window content given: 'the Tirana clock tower a small lit silhouette'"
+    },
+    {
+      "id": "P8",
+      "result": "PASS",
+      "evidence": "No two instructions conflict: 'no hands and no people are visible in the frame' agrees with the stand holding the phone; top 40% calm wall agrees with phone box top at 40% or lower; 'No arrow button on this last slide.' agrees with the Avoid line"
+    },
+    {
+      "id": "P9",
+      "result": "PASS",
+      "evidence": "'The phone rests upright in its stand, screen off, after slide 7's lit phone in a hand; same desk and lamp.' equals spec carry_over"
+    },
+    {
+      "id": "P10",
+      "result": "PASS",
+      "evidence": "Packet settings match STANDARDS 1: gpt_image_2_5, 4:5 ('Instagram carousel slide, portrait 4:5'), 2k, medium, flare, role image_references, count 1; counter 'N/8' within 7 to 12 slides; ë and ç spelled out; no em dashes; headline 7 words or fewer; last slide has no arrow and carries the one ask 'Shkruaj ANALIZA në komente.'"
+    },
+    {
+      "id": "P11",
+      "result": "PASS",
+      "evidence": "Terms are concrete ('three-by-three grid of nine', 'one groove', 'message bubble with a small ivory tail'). Non-blocking note: the template line 'If this scene describes no window, no window and no clock tower is drawn.' has a false condition here because the Setting describes the window."
+    },
+    {
+      "id": "P12",
+      "result": "PASS",
+      "evidence": "FL-01 text is on the top wall (y 6-39%), nothing near it; FL-02 'one lamp with one round shade on one stem and one round base', stand 'with one groove'; FL-03 contact points; FL-04/05 every screen and the window have a content line; FL-10 'No other words, letters or numbers anywhere, including screens, signs, papers and labels'; FL-13 'Bottom-left corner ... calm, dark, empty ... no logo, no letters, no objects (a logo is added later)'"
+    }
+  ],
+  "corrected_prompt": null
+}

@@ -1,0 +1,287 @@
+{
+  "gate": "G-VIS",
+  "asset_id": "IMG-W43-2",
+  "version": 4,
+  "reviewer": "visual-reviewer (fresh agent)",
+  "independent": true,
+  "status": "PASS",
+  "hero": true,
+  "media_id": "a2620224-d926-4914-9d8a-d2f69df85a39",
+  "reviewed_file": "https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/a2620224-d926-4914-9d8a-d2f69df85a39.jpg (fetched in the Higgsfield sandbox; 1080x1350 JPEG, md5 20db09a8ada732524fa97e5cca409649, byte-identical to sandbox /home/user/drafts/fixed/be2672d8_v4.jpg)",
+  "compared_with": "v3 /home/user/drafts/fixed/be2672d8_v3.jpg (md5 a0d9aabf9de3f586e3f8b85dd8c639cb); v4 pre-JPEG array /home/user/drafts/fixed/be2672d8_v4_prejpeg.npy; real logo /home/user/brand/straightscale-logo-light.png (1517x295 RGBA, md5 ccde74aa7d650ed410be173d215dea57)",
+  "spec_used": "Packet text (no Shot Spec file exists for this post): single-image hero post, 4:5, 1080x1350. On-image text exactly: kicker 'PËR PRONARËT E BIZNESEVE'; 'Një video virale është fat.' / 'Klientët çdo muaj janë sistem.' / 'Shkruaj ANALIZA në komente.'. Scene from item.json alt text. Brand: crimson highlight #B31217, no invented numbers on screens or paper, no other organisations' logos or emblems, no em dashes, bottom-left logo = the real straightscale-logo-light.png. style-bible.md and brand-kit.md for V21 and V24. The reviewer wrote spec.json in the sandbox with regions for the text, props, logo zone and the v4 edit area.",
+  "crops_manifest": "clients/straightscale/content/2026-w43-2-image/qa/crops/IMG-W43-2.v4/manifest.json",
+  "files_opened": [
+    "full.jpg",
+    "tile_r1c1.jpg",
+    "tile_r1c2.jpg",
+    "tile_r1c3.jpg",
+    "tile_r2c1.jpg",
+    "tile_r2c2.jpg",
+    "tile_r2c3.jpg",
+    "tile_r3c1.jpg",
+    "tile_r3c2.jpg",
+    "tile_r3c3.jpg",
+    "region_IMG-W43-2_kicker.jpg",
+    "region_IMG-W43-2_headline1.jpg",
+    "region_IMG-W43-2_headline2.jpg",
+    "region_IMG-W43-2_cta.jpg",
+    "region_IMG-W43-2_window_tower.jpg",
+    "region_IMG-W43-2_lamp.jpg",
+    "region_IMG-W43-2_shelf_left.jpg",
+    "region_IMG-W43-2_agenda.jpg",
+    "region_IMG-W43-2_phone.jpg",
+    "region_IMG-W43-2_logo_zone.jpg",
+    "region_IMG-W43-2_edit_line4_full.jpg",
+    "region_IMG-W43-2_edit_jane.jpg",
+    "region_IMG-W43-2_edit_box_left.jpg",
+    "region_IMG-W43-2_edit_box_right.jpg",
+    "region_IMG-W43-2_edit_cedilla.jpg",
+    "thumb_200.jpg",
+    "extra/cedilla_v3_v4_6x.jpg",
+    "extra/cedilla_v3_v4_6x_boost.jpg",
+    "extra/cedilla_corner_12x_nearest.jpg",
+    "extra/boxtop_v3_v4_3x.jpg",
+    "extra/boxtop_v3_v4_3x_boost.jpg",
+    "extra/boxbottom_v3_v4_3x.jpg",
+    "extra/boxbottom_v3_v4_3x_boost.jpg",
+    "extra/box_edges_v4_5x_plain_boost.jpg",
+    "extra/jane_v3_v4_3x.jpg",
+    "extra/jane_v3_v4_3x_boost.jpg",
+    "extra/jane_v3_v4_3x_clahe.jpg",
+    "extra/jhook_v3_v4_6x_plain_boost.jpg",
+    "extra/line4_v3_v4_2x_clahe.jpg",
+    "extra/diff_x10_editwin_2x.jpg",
+    "extra/diff_x10_full_half.jpg",
+    "extra/table_maxdiff_v3_v4_4x.jpg",
+    "extra/down540.jpg",
+    "extra/down540_text_v3_v4.jpg",
+    "extra/agenda_header_4x.jpg",
+    "extra/agenda_header_4x_clahe.jpg",
+    "extra/hdrL_6x.jpg",
+    "extra/hdrL_6x_clahe.jpg",
+    "extra/hdrM_6x.jpg",
+    "extra/hdrM_6x_clahe.jpg",
+    "extra/tick_speck_8x.jpg",
+    "extra/logo_4x.jpg",
+    "/home/user/brand/view_straightscale-logo-light.jpg"
+  ],
+  "extra_crops_note": "extra/ crops live in sandbox /home/user/qa/IMG-W43-2.v4/extra/, made by cmp.py there. Files named v3_v4 put v3 and v4 of the same box side by side or stacked, upscaled with Lanczos. '_boost' is (v-6)x4 or (v-6)x5 gain, '_clahe' is CLAHE on L, and 'nearest' is a nearest-neighbour upscale. diff_x10 is |v4-v3| x 10.",
+  "measurements": {
+    "edit_scope": "Pre-JPEG v4 vs v3.jpg: 43,188 changed pixels, bbox x 96-596, y 426-535, 0 outside. v4.jpg vs v3.jpg outside x 86-596, y 418-535: max 23, mean 0.584, p99.9 6, 153 px >= 10, 7 px >= 16. The max is at x 639, y 1031 (v3 54,29,9 to v4 50,30,32: chroma only). Text blocks (re-encode only): kicker max 3, line 1 max 4, line 2 max 4, line 3 max 6, CTA max 5. Logo: median 1, p99 5, max 13.",
+    "cedilla_clearance": "x 444-466, max luma per row: 435 = 227 (last bright cedilla row), 436 = 48 (its AA edge), 437 = 26, 438 = 18, 439 = 24, 440 = 60 with mean R 118 (first red box row). In v3, rows 436-439 had max luma 69-91 and mean R 153-178, so the cedilla sat on the rim.",
+    "geometry_v3_to_v4": "Box rows with > 150 red px: 435-517 to 440-523; the 50% top edge at x 288-292 moves from 435 to 440. Box columns 284-583 are unchanged. 'janë' white rows 441-518 to 446-523, columns 100-265 unchanged. The 'anë' and 'sistem.' bottom row is 508 for both. Line 3 bottom 417 and CTA rows 543-568 are unchanged. Line 1/2 bottoms 221/302 (pitch 81); line 3/4 bottoms 417/508 (pitch 91).",
+    "box_colour": "Interior median (G < 70) 179,19,23 in both v3 and v4 (#B31217 = 179,18,23).",
+    "refill": "Vacated rows 426-435 at x 284-584 (cedilla columns excluded): 14.8/12.9/8.4 against 14.6/13.2/8.8 for rows 420-425.",
+    "seams": "Mean |column difference| at the zone borders: 94/95 0.85 (neighbours 3.3), 95/96 2.34 (3.51), 271/272 1.70 (4.99), 272/273 1.08 (4.35), 595/596 0.34 (0.87), 596/597 0.27 (0.73).",
+    "logo_fit": "Real file alpha box 1501x279 resized to 291x54, best fit offset 0,0 at x 100, y 1193, core mean error 5.57. Ivory 248,245,239 = file; gold 219,171,35 vs 224,170,25; red 180,13,28 (v3 180,14,27) vs file 192,8,23."
+  },
+  "checks": [
+    {
+      "id": "V1",
+      "result": "PASS",
+      "severity": "",
+      "region": "full, thumb_200, down540",
+      "evidence": "The 1-second read works at full size, at 540 px and at 200 px: kicker, 'Një video virale është fat.', 'Klientët çdo muaj janë sistem.' with 'sistem.' in the crimson box, the CTA, then the open agenda with red-marked days, the red-cased phone and the lit clock tower in the window (full.jpg, extra/down540.jpg, thumb_200.jpg)."
+    },
+    {
+      "id": "V2",
+      "result": "PASS",
+      "severity": "",
+      "region": "full, agenda, phone, window_tower",
+      "evidence": "The scene matches the line and the alt text: open agenda with 9 red-marked day boxes (the system of regular clients), red-cased phone, window with the clock tower at night (region_agenda.jpg, region_phone.jpg, region_window_tower.jpg). v4 changes only the position of line 4, not the story."
+    },
+    {
+      "id": "V3",
+      "result": "PASS",
+      "severity": "",
+      "region": "full, agenda, phone, window_tower",
+      "evidence": "No numbers, prices, results or client names anywhere. The phone screen is black glass with no UI (region_phone.jpg, tile_r3c3.jpg). The agenda pages hold only rules, dividers and red squares, no digits (region_agenda.jpg, extra/agenda_header_4x.jpg). The tower's clock faces are blurred white discs with no readable numerals (region_window_tower.jpg). ANALIZA is the real live keyword from brand-kit.md."
+    },
+    {
+      "id": "V4",
+      "result": "N/A",
+      "severity": "",
+      "region": "full",
+      "evidence": "No people, hands or limbs in any of the 9 tiles."
+    },
+    {
+      "id": "V5",
+      "result": "N/A",
+      "severity": "",
+      "region": "full",
+      "evidence": "No hands; no hand action in the spec."
+    },
+    {
+      "id": "V6",
+      "result": "N/A",
+      "severity": "",
+      "region": "full",
+      "evidence": "No faces."
+    },
+    {
+      "id": "V7",
+      "result": "PASS",
+      "severity": "",
+      "region": "agenda, phone, lamp",
+      "evidence": "Nothing floats: the phone lies flat with its contact shadow (tile_r3c3.jpg), the agenda rests on the table with its red ribbon over the front edge (tile_r3c1.jpg), and the lamp base stands on the table (region_lamp.jpg)."
+    },
+    {
+      "id": "V8",
+      "result": "PASS",
+      "severity": "",
+      "region": "agenda, phone, lamp, window",
+      "evidence": "One agenda with two pages, one ribbon and a page block; one phone with one port between two speaker grilles and buttons on one long side (region_phone.jpg); one lamp shade and base; a straight window mullion and one tower (region_window_tower.jpg, tile_r2c3.jpg)."
+    },
+    {
+      "id": "V9",
+      "result": "PASS",
+      "severity": "",
+      "region": "kicker, headline1, headline2, cta, edit crops, logo",
+      "evidence": "Read letter by letter at 2x and above (region_kicker, region_headline1, region_headline2, region_cta, region_edit_line4_full, region_edit_cedilla, extra/cedilla_v3_v4_6x). Kicker: P-Ë-R / P-R-O-N-A-R-Ë-T / E / B-I-Z-N-E-S-E-V-E, both Ë with two dots. Line 1: N-j-ë / v-i-d-e-o / v-i-r-a-l-e. Line 2: ë-s-h-t-ë / f-a-t-'.'. Line 3: K-l-i-e-n-t-ë-t / ç-d-o / m-u-a-j; the ç has its complete cedilla, now free-standing. Line 4: j-a-n-ë / s-i-s-t-e-m-'.', with the period inside the box. CTA: S-h-k-r-u-a-j / A-N-A-L-I-Z-A / n-ë / k-o-m-e-n-t-e-'.'. Every ë has two dots and every i and j has its dot. No extra or missing characters and no em dashes. 'janë' and 'sistem.' still share one baseline (bottom row 508 for both). The kicker, lines 1 to 3 and the CTA differ from v3 by at most 3, 4, 4, 6 and 5 levels (re-encode only). The wordmark reads S-t-r-a-i-g-h-t-S-c-a-l-e."
+    },
+    {
+      "id": "V10",
+      "result": "PASS",
+      "severity": "",
+      "region": "headline2: cedilla of 'ç' (x 444-466, rows 418-436) over the crimson box (x 284-583, rows 440-523)",
+      "evidence": "The v3 defect is fixed. Column profile x 444-466 in the delivered JPEG: row 435 is the cedilla's last bright row (max luma 227); row 436 is its own anti-alias edge (max luma 48, mean R 29); rows 437, 438 and 439 are dark (max luma 26, 18 and 24, against a wall at about 13 and the box at 67); row 440 is the first red row of the box (mean R 118). That is 4 rows from the cedilla's last bright row to the box's first red row and 3 clean dark rows, at least the 3 px required. The gap is plainly open at 1x, 2x, 6x and under a 5x contrast boost (region_edit_cedilla.jpg, extra/cedilla_v3_v4_6x.jpg, extra/cedilla_v3_v4_6x_boost.jpg, extra/boxtop_v3_v4_3x.jpg). The cedilla's shape is unchanged and its lower edge is neutral ivory, with no pink fringe: row 435 now reads 221-231, 216-226, 213-223. Everything else in V10 also passes: the text sits on the dark wall and glass, 'muaj' ends over the dark window frame, there is no text on the phone, lamp or table, and the 'muaj' j descender (x about 760-780) lies outside the moved zone."
+    },
+    {
+      "id": "V11",
+      "result": "PASS",
+      "severity": "",
+      "region": "agenda, both pages and header strip (x 180-420, y 806-846), right-page tick, left-page speck",
+      "evidence": "v4 leaves the agenda unchanged (0 pixels pre-JPEG). I checked it independently: no letters, words or digits on either page at 2x (region_agenda.jpg). The header strip, at 4x and 6x plain and with CLAHE (extra/agenda_header_4x*.jpg, hdrL_6x*.jpg, hdrM_6x*.jpg), shows a dotted printed rule at y about 824, a dashed curved rule near the gutter at x 375-405 and one dot at x 338, y 826. Two faint smudges at x 195-227, y 815-821 show only under CLAHE and have no letter shapes. A small slanted tick sits where the right-page divider meets its rule, and there is a 4x1 px paper speck at x 88-91, y 928 (extra/tick_speck_8x.jpg). All of these read as planner print and paper grain, not as text or logos."
+    },
+    {
+      "id": "V12",
+      "result": "PASS",
+      "severity": "",
+      "region": "agenda, phone",
+      "evidence": "The story props are present, well sized and full: the agenda with 9 red-marked days and the red-cased phone, lower right, with its screen off (region_agenda.jpg, region_phone.jpg)."
+    },
+    {
+      "id": "V13",
+      "result": "PASS",
+      "severity": "",
+      "region": "phone",
+      "evidence": "It matches the style bible's thread prop: a modern smartphone in a deep red case, black glass, no icons (region_phone.jpg, tile_r3c3.jpg)."
+    },
+    {
+      "id": "V14",
+      "result": "PASS",
+      "severity": "",
+      "region": "shelf_left, lamp",
+      "evidence": "The only other objects are quiet desk dressing: a plant in a copper pot, a pencil cup, stacked books and the desk lamp. There is no second phone or agenda and nothing unexplained (region_shelf_left.jpg, region_lamp.jpg, tile_r2c1.jpg)."
+    },
+    {
+      "id": "V15",
+      "result": "N/A",
+      "severity": "",
+      "region": "full",
+      "evidence": "No characters."
+    },
+    {
+      "id": "V16",
+      "result": "N/A",
+      "severity": "",
+      "region": "full",
+      "evidence": "Single-image post with no previous shot. The props are consistent within the frame (phone screen off, agenda open)."
+    },
+    {
+      "id": "V17",
+      "result": "PASS",
+      "severity": "",
+      "region": "window_tower",
+      "evidence": "No set sheet is locked. The scene matches the style bible's 'Tirana after dark': the lit clock tower through the window above a wet square with street lights (region_window_tower.jpg, tile_r1c3.jpg, tile_r2c3.jpg)."
+    },
+    {
+      "id": "V18",
+      "result": "PASS",
+      "severity": "",
+      "region": "full, logo_zone",
+      "evidence": "1080x1350, 4:5. The text column runs from x 100 to about 780 and from the kicker at y about 68 to the CTA at y 568. That is inside the 3:4 grid crop (about 34 px lost per side) with a wide margin. The real logo sits at x 100-391, y 1193-1247, aligned with the text column in the bottom-left zone on calm dark wood (region_logo_zone.jpg). Line 4 spacing after the move: line 3 baseline 417 to box top 440 is 23 px, box bottom 523 to CTA cap top 543 is 20 px, and the 'j' descender ends at 523 with 19 clear rows to the CTA. Baseline pitch is 81 for lines 1 to 2 and 91 for lines 3 to 4. The extra leading belongs to the boxed line and looks even at 1x and at 540 px (full.jpg, extra/down540_text_v3_v4.jpg). The CTA stays clearly separate."
+    },
+    {
+      "id": "V19",
+      "result": "PASS",
+      "severity": "",
+      "region": "thumb_200",
+      "evidence": "At 200 px wide both headline sentences read, the crimson 'sistem.' box pops, and the agenda with red squares, the red phone and the lit tower are recognisable. The logo reads as a red mark plus a white word. The kicker and CTA are small there, as expected for secondary text (thumb_200.jpg)."
+    },
+    {
+      "id": "V20",
+      "result": "N/A",
+      "severity": "",
+      "region": "window_tower",
+      "evidence": "A still-life desk scene with no people by spec. The street beyond the glass has lit lamps, tail lights and wet reflections, so it does not read as empty."
+    },
+    {
+      "id": "V21",
+      "result": "PASS",
+      "severity": "",
+      "region": "headline2 box, full",
+      "evidence": "The highlight box behind 'sistem.' is #B31217: flat interior median 179,19,23 against 179,18,23, the same as v3, with no change in colour from the move. Its soft rim is unchanged and shows no fringe at the corners at 5x (extra/box_edges_v4_5x_plain_boost.jpg). The rest matches the style bible: Tirana at night, warm tungsten light, heavy ivory sans, the red-cased phone, and gold only inside the real logo file."
+    },
+    {
+      "id": "V22",
+      "result": "PASS",
+      "severity": "",
+      "region": "full, tiles",
+      "evidence": "Photographic realism holds: wood grain with specular highlights, paper texture and page curl, glass reflections on the phone, depth of field on the tower (tile_r2c2, tile_r2c3, tile_r3c1, tile_r3c2, tile_r3c3). The re-encode left the table and agenda visually identical to v3 at 4x (extra/table_maxdiff_v3_v4_4x.jpg)."
+    },
+    {
+      "id": "V23",
+      "result": "PASS",
+      "severity": "",
+      "region": "edit area x 96-596, y 426-535 (janë, box band, vacated rows, cedilla, box bottom and the CTA gap); whole image via tiles and diff map",
+      "evidence": "Pre-JPEG v4 vs v3: 43,188 changed pixels, all inside x 96-596, y 426-535, and 0 outside (verified independently from the saved pre-JPEG array). Seams: no visible seam, ghost or halo at 2x, at 3-6x, or under 4-5x gain and CLAHE around 'janë', along the vacated band above the box, below the box, or on the box's left and right edges (region_edit_*.jpg, extra/jane_v3_v4_3x*.jpg, boxtop_*, boxbottom_*, box_edges_*, line4_v3_v4_2x_clahe.jpg). Adjacent-column differences at the zone borders x 95/96, 272/273 and 596/597 are 0.3-2.3 levels, below the 0.7-5.0 of neighbouring columns. Vacated rows 426-435: 14.8/12.9/8.4 against the wall above (rows 420-425) at 14.6/13.2/8.8, a match within 0.4 levels. The plant next to the 'j' keeps continuous leaves around the moved hook, with no smear (extra/jhook_v3_v4_6x_plain_boost.jpg). The box's dark-red under-halo now fades out by row 532, and rows 533-542 are clean wall above the CTA. Outside the edit window, v4.jpg differs from v3.jpg by mean 0.58 and max 23, the 4:2:0 to 4:4:4 re-encode only. The max is chroma-only at x 639, y 1031 on the table and is invisible at 4x (extra/table_maxdiff_v3_v4_4x.jpg, diff_x10_full_half.jpg)."
+    },
+    {
+      "id": "V24",
+      "result": "PASS",
+      "severity": "",
+      "region": "logo_zone",
+      "evidence": "The logo is the real straightscale-logo-light.png. The file, cropped to its alpha box (1501x279, aspect 5.38) and resized to 291x54, fits best at offset 0,0 from x 100, y 1193 (core mean error 5.6 levels). Ivory matches exactly (248,245,239), gold is 219,171,35 against 224,170,25, and red is 180,13,28, the same as in v3. Against v3 the logo changed by median 1 and max 13 levels (re-encode only, 0 pixels pre-JPEG). It is crisp and unstretched at 4x, with the same shape as the file view (extra/logo_4x.jpg, view_straightscale-logo-light.jpg). The strip under it has 0 red pixels and max luma 33, so no drawn-logo remnants. No other organisations' logos or emblems: no maker logo on the phone, and the lamp, books and agenda are unbranded. No real people."
+    },
+    {
+      "id": "V25",
+      "result": "PASS",
+      "severity": "",
+      "region": "full",
+      "evidence": "No before and after, no 'your [condition]', nothing that shames. The line is a neutral contrast between luck and a system."
+    },
+    {
+      "id": "V26",
+      "result": "N/A",
+      "severity": "",
+      "region": "full",
+      "evidence": "No AI person in the image. The account's AI label is a posting setting, not an on-image element."
+    }
+  ],
+  "editor_claims_verified": {
+    "media_and_md5": "CONFIRMED: the CDN bytes and the sandbox file both have md5 20db09a8ada732524fa97e5cca409649, 1080x1350.",
+    "shift_5px_and_scope": "CONFIRMED: line 4 ('janë' and the box with 'sistem.') moved down exactly 5 rows; 43,188 changed pixels pre-JPEG, all in x 96-596, y 426-535; the line above, the cedilla shape, the plant and the wall outside are unchanged.",
+    "clearance": "CONFIRMED: rows 437-439 are dark (max luma 26/18/24) and row 440 is the first red row. That is 4 px by the v3 reviewer's measure, with 3 clean dark rows.",
+    "pink_fringe": "CONFIRMED: no pink left on the cedilla's lower edge (row 435 is neutral ivory-grey).",
+    "refill_within_0_4": "CONFIRMED for rows 426-435 against rows 420-425 (0.2-0.4 levels).",
+    "spacing_numbers": "CONFIRMED: 23 px above the box and 20 px below it to the CTA; 19 clear rows under the 'j'; pitch 86 to 91 against 81 for the first pair.",
+    "outside_diff_and_logo": "CONFIRMED: max 23 at x 639, y 1031 (chroma only), mean 0.58; logo 0 px pre-JPEG, median 1 and max 13 after."
+  },
+  "defects_summary": {
+    "critical": 0,
+    "major": 0,
+    "minor": 0,
+    "rule": "Hero asset: PASS only with zero defects of any severity. None found. The v3 defect (V10 cedilla tangency) is fixed and the move introduced no new defect."
+  },
+  "fix": {
+    "route": "",
+    "prompt_changes": []
+  },
+  "notes": [
+    "Not counted, below the defect threshold: a 1x3 px near-black pixel group at x 444, y 432-434, at the cedilla's left dark ring, is slightly green (11,24,15 against the wall's 14,13,8). It is a by-product of the ivory re-composite. It shows only under a 5x contrast boost and is invisible plain at 2x, 6x and 12x (extra/cedilla_v3_v4_6x.jpg, extra/cedilla_corner_12x_nearest.jpg).",
+    "The optional v3 suggestion to paint out the 4x1 px LF speck at x 88-91, y 928 was not done. Checked again: at 8x it reads only as paper grain, not text (V11).",
+    "Copy-gate note, not a visual defect: the alt text in item.json leaves out the on-image kicker 'PËR PRONARËT E BIZNESEVE'. The qa.md native Albanian read is still unchecked."
+  ]
+}

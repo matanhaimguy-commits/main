@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>StraightScale: Your buyers already wrote your hooks</title>
+<style>
+@font-face { font-family: "Playfair Display"; font-weight: 700; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-700-normal.woff2); }
+@font-face { font-family: "Playfair Display"; font-weight: 900; font-style: italic; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-900-italic.woff2); }
+@font-face { font-family: "Playfair Display"; font-weight: 900; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-900-normal.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 600; src: url(assets/fonts/Montserrat/montserrat-latin-600-normal.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 700; src: url(assets/fonts/Montserrat/montserrat-latin-700-normal.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 800; src: url(assets/fonts/Montserrat/montserrat-latin-800-normal.woff2); }
+html, body { margin: 0; background: #1F1F1F; }
+canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script type="module">
+// StraightScale EN reel 02 "Your buyers already wrote your hooks". Clock: audio/vo.wav (assets/data.js from audio/words.json).
+// Real buyer sentences on paper slips; a gold highlighter lifts the exact words (signature device). Every frame is a
+// pure function of t (window.seek). Quotes are verbatim from the research corpus (PROJECT.md, "Facts and quotes").
+import { spring, clamp, track } from '../../lib/motion.js';
+import { CAPTIONS, LINES, WORDS } from './assets/data.js';
+
+const cv = document.getElementById('c');
+const ctx = cv.getContext('2d');
+const W = 1080, H = 1920, X0 = 96, XR = 940, CX = W / 2, MAXW = 800;
+const C = {
+  char: '#1F1F1F', ivory: '#F8F6EF', marble: '#EDE4D6', gold: '#DD9A10', red: '#BE0F18',
+  grey: '#6E685F', dim: '#B9B2A5', card: '#2A2826', edge: '#4A4540',
+};
+const HL = 'rgba(221,154,16,0.62)';
+const PF = (w, s, it = false) => `${it ? 'italic ' : ''}${w} ${s}px "Playfair Display"`;
+const MS = (w, s) => `${w} ${s}px Montserrat`;
+const POP = [320, 23], TYPE = [190, 27], SOFT = [90, 19], SLIDE = [120, 22];
+const sp = (t, t0, k = TYPE) => spring(t - t0, k[0], k[1]);
+const mix = (a, b, p) => a + (b - a) * p;
+const smooth = (x) => { x = clamp(x); return x * x * x * (x * (x * 6 - 15) + 10); };
+const win = (t, a, b, fi = 0.18, fo = 0.18) => clamp((t - a) / fi) * (1 - clamp((t - (b - fo)) / fo));
+const gauss = (t, c, w) => Math.exp(-Math.pow((t - c) / w, 2));
+const DEG = Math.PI / 180;
+function rng(seed) { let s = seed >>> 0; return () => { s = (s + 0x6D2B79F5) >>> 0; let x = s; x = Math.imul(x ^ (x >>> 15), x | 1); x ^= x + Math.imul(x ^ (x >>> 7), x | 61); return ((x ^ (x >>> 14)) >>> 0) / 4294967296; }; }
+
+function wt(word, line, nth = 0) {
+  const hits = WORDS.filter((w) => w[3] === line && w[0].toLowerCase().replace(/[^a-z0-9'-]/g, '') === word.toLowerCase());
+  if (!hits.length) throw new Error('no word ' + word + ' in line ' + line);
+  return hits[Math.min(nth, hits.length - 1)][1];
+}
+const LS = (i) => LINES[i][0], LE = (i) => LINES[i][1];
+const T = {
+  l2: LS(2), review: wt('review', 2), l3: LS(3), sounds: wt('sounds', 3), buyers: wt('buyers', 3), own: wt('own', 3),
+  l4: LS(4), three: wt('three', 4), l5: LS(5), worst: wt('worst', 5), paid: wt('paid', 5), never: wt('never', 5),
+  l6: LS(6), reddit: wt('reddit', 6), problem: wt('problem', 6), exist: wt('exist', 6), l7: LS(7), news: wt('newsletters', 7),
+  worstm: wt('worst', 7), l8: LS(8), copy: wt('copy', 8), dont: wt("don't", 8), once: wt('once', 8), ad: wt('ad', 8),
+  l9: LS(9), five: wt('five', 9), sixty: wt('sixty-seven', 9), single: wt('single', 9), l10: LS(10), comment: wt('comment', 10),
+  words: wt('words', 10), searches: wt('searches', 10), end: LE(10),
+};
+T.brand = T.end + 0.25;
+T.film = T.brand + 2.0;
+
+// ---------- text ----------
+let FINE = false;   // texture-size text (slips seen small) is held to the fine-print size in safezone.mjs
+function setFont(f) { ctx.font = f; }
+function tw(s, f) { setFont(f); return ctx.measureText(s).width; }
+function text(s, x, y, f, col, align = 'left', a = 1) {
+  if (a <= 0.01) return;
+  setFont(f); const ga = ctx.globalAlpha; ctx.globalAlpha = ga * a; ctx.fillStyle = col; ctx.textAlign = align; ctx.textBaseline = 'alphabetic'; ctx.fillText(s, x, y); ctx.globalAlpha = ga;
+  const w = ctx.measureText(s).width, size = parseFloat(f.match(/(\d+(\.\d+)?)px/)[1]), m = ctx.getTransform();
+  const bx = align === 'center' ? x - w / 2 : align === 'right' ? x - w : x, by = y - size * 0.8, k = Math.hypot(m.a, m.b);
+  window.__boxes && window.__boxes.push({ x: m.a * bx + m.c * by + m.e, y: m.b * bx + m.d * by + m.f, w: w * k, h: size * k, text: s, fine: FINE });
+}
+function fitMS(s, weight, size, maxW = MAXW) { const w = tw(s, MS(weight, size)); return MS(weight, w <= maxW ? size : Math.floor(size * maxW / w)); }
+function rowSegs(segs, x, y, f, a = 1) {
+  const ws = segs.map((g) => tw(g.s, f)), total = ws.reduce((p, q) => p + q, 0);
+  let cx = x - total / 2;
+  segs.forEach((g, i) => { text(g.s, cx, y, f, g.col, 'left', a); cx += ws[i]; });
+}
+function layoutCaption(cap, size) {
+  const f = MS(800, size), words = cap.text.split(' ');
+  const hi = new Set(cap.hi.map((h) => h.toLowerCase()));
+  const segsOf = (arr) => arr.map((w, i) => ({ s: (i ? ' ' : '') + w, col: hi.has(w.toLowerCase()) ? C.gold : C.ivory }));
+  if (tw(cap.text, f) <= MAXW) return [segsOf(words)];
+  let best = 1, bd = 1e9;
+  for (let k = 1; k < words.length; k++) { const d = Math.abs(tw(words.slice(0, k).join(' '), f) - tw(words.slice(k).join(' '), f)); if (d < bd) { bd = d; best = k; } }
+  return [segsOf(words.slice(0, best)), segsOf(words.slice(best))];
+}
+const CAP_Y = 400, CAP_SIZE = 80;
+function captions(t) {
+  CAPTIONS.forEach((cap, i) => {
+    if (cap.line === 9) return;   // the 567 card says these words
+    const next = CAPTIONS[i + 1], end = next ? Math.min(cap.t1 + 0.12, next.t0) : cap.t1 + 0.12, cut = end <= cap.t1;
+    if (t < cap.t0 - 0.01 || t >= end) return;
+    const pin = sp(t, cap.t0, POP), a = clamp((t - cap.t0) / 0.07) * (cut ? 1 : 1 - clamp((t - cap.t1) / 0.12));
+    const rows = layoutCaption(cap, CAP_SIZE), dy = (1 - pin) * 26, y0 = CAP_Y - (rows.length - 1) * 47 + dy;
+    const widest = Math.max(...rows.map((segs) => tw(segs.map((g) => g.s).join(''), MS(800, CAP_SIZE))));
+    const f = MS(800, widest > MAXW ? Math.floor(CAP_SIZE * MAXW / widest) : CAP_SIZE);   // a long row shrinks to fit
+    rows.forEach((segs, r) => rowSegs(segs, CX, y0 + r * 94, f, a));
+  });
+}
+
+// ---------- slips: real buyer sentences on paper ----------
+function layoutQuote(str, f, maxW) {
+  const words = str.split(' '), sw = tw(' ', f), lines = [[]];
+  let x = 0;
+  words.forEach((w, i) => {
+    const ww = tw(w, f);
+    if (x > 0 && x + sw + ww > maxW) { lines.push([]); x = 0; }
+    if (x > 0) x += sw;
+    lines[lines.length - 1].push({ s: w, x, w: ww, i });
+    x += ww;
+  });
+  return lines;
+}
+const SLIP_W = 840, PADX = 56, PADY = 58;
+const Q = {
+  hook: { q: '2 years of posting content, running ads, and praying someone books a call.', size: 72, tag: 'A review · Aug 2025' },
+  r1: { q: 'I paid $15,000 for appointment-setting services and, over four-plus months, received zero sales.', size: 60, tag: 'Review · Sep 2026', stars: 1 },
+  r2: { q: 'I already tried everything in this space, from working with other coaches to Ads, cold DMs… I guess that’s it.', size: 58, tag: 'r/lifecoaching · Sep 2026' },
+  r3: { q: 'I was in a race to the bottom on pricing, and I knew it.', size: 66, tag: 'Newsletter · Jan 2026' },
+  raw: { q: 'praying someone books a call.', size: 70, tag: 'A buyer wrote this' },
+};
+for (const k in Q) Q[k].lines = null;   // laid out after the fonts load
+function prepSlip(o) {
+  const f = PF(700, o.size), lh = o.size * 1.26;
+  o.f = f; o.lh = lh; o.lines = layoutQuote(o.q, f, SLIP_W - 2 * PADX);
+  o.h = PADY * 2 + (o.stars ? 64 : 0) + o.lines.length * lh + 72;
+}
+// draw a slip at (x, y) centre, rotation r (deg), scale s, alpha a; hl(i) -> [sweep 0..1, alpha]
+function drawSlip(o, x, y, r, s, a, hl) {
+  if (a <= 0.01) return;
+  const w = SLIP_W, h = o.h;
+  if (x - w / 2 * s > W + 40 || x + w / 2 * s < -40) return;   // fully off the frame
+  ctx.save(); ctx.translate(x, y); ctx.rotate(r * DEG); ctx.scale(s, s); ctx.globalAlpha *= a;
+  ctx.save(); ctx.shadowColor = 'rgba(0,0,0,0.5)'; ctx.shadowBlur = 46; ctx.shadowOffsetY = 18;
+  ctx.fillStyle = C.ivory; ctx.fillRect(-w / 2, -h / 2, w, h); ctx.restore();
+  ctx.fillStyle = C.gold; ctx.fillRect(-w / 2, -h / 2, w, 8);                                   // the gold top edge
+  FINE = s < 0.8;
+  let y0 = -h / 2 + PADY;
+  if (o.stars) {   // a review's rating: filled stars in charcoal, empty in grey outline
+    for (let k = 0; k < 5; k++) star(-w / 2 + PADX + 22 + k * 52, y0 + 20, 20, k < o.stars);
+    y0 += 64;
+  }
+  o.lines.forEach((ln, li) => {
+    const by = y0 + li * o.lh + o.size * 0.95;
+    ln.forEach((wd) => {                                                                  // highlighter under the words
+      const [p, ha] = hl ? hl(wd.i) : [0, 0];
+      if (p <= 0.001 || ha <= 0.01) return;
+      const nx = ln.find((z) => z.i === wd.i + 1), ext = nx && hl(wd.i + 1)[0] > 0.999 ? nx.x - wd.x - wd.w : 0;
+      const x0 = -w / 2 + PADX + wd.x - 8, ww = (wd.w + 16 + ext) * p;
+      ctx.save(); ctx.globalAlpha *= ha; ctx.fillStyle = HL;
+      ctx.beginPath(); ctx.roundRect(x0, by - o.size * 0.74, ww, o.size * 0.92, 6); ctx.fill(); ctx.restore();
+    });
+    ln.forEach((wd) => text(wd.s, -w / 2 + PADX + wd.x, by, o.f, C.char, 'left', 1));
+  });
+  text(o.tag, -w / 2 + PADX, h / 2 - PADY + 10, MS(600, 52), C.grey, 'left', 1);
+  FINE = false;
+  ctx.restore();
+}
+function star(x, y, r, filled) {
+  ctx.beginPath();
+  for (let k = 0; k < 10; k++) { const rr = k % 2 ? r * 0.45 : r, an = -Math.PI / 2 + k * Math.PI / 5; ctx.lineTo(x + rr * Math.cos(an), y + rr * Math.sin(an)); }
+  ctx.closePath();
+  if (filled) { ctx.fillStyle = C.char; ctx.fill(); } else { ctx.lineWidth = 3; ctx.strokeStyle = C.grey; ctx.stroke(); }
+}
+// sweep words [from..to] across [t0, t1]
+const sweep = (t, from, to, t0, t1) => (i) => {
+  if (i < from || i > to) return 0;
+  const n = to - from + 1, k = i - from, d = (t1 - t0) / n;
+  return smooth((t - (t0 + k * d)) / Math.max(0.06, d * 1.2));
+};
+
+// ---------- camera: one slow push on the hook slip, eased back as it leaves ----------
+function camS(t) { return 1 + 0.04 * smooth(t / 4.4) * (1 - smooth((t - T.l3) / 1.0)); }
+
+// ---------- scenes ----------
+const HOOK_W = WORDS.filter((w) => w[3] === 1);   // the spoken hook, word by word: same 13 words as the quote
+function hookSlip(t, S) {
+  if (t > T.l4 + 0.9) return;
+  const x = track(t, [[-1, CX], [T.l4 - 0.2, -700]], ...SLIDE);
+  const y = track(t, [[-1, 1000], [-0.35, 960], [T.sounds - 0.1, 760]], 320, 26);
+  const s = track(t, [[-1, 1.08], [T.sounds - 0.1, 0.86]], ...TYPE) * S;
+  const r = track(t, [[-1, -4], [-0.35, -1.5], [T.l4 - 0.2, -8]], ...TYPE);
+  const a = clamp((t + 0.35) / 0.12);
+  const narrow = smooth((t - T.sounds) / 0.4);   // "sounds like you": only "praying someone books a call" stays lit
+  const qa = a * (1 - smooth((t - (T.sounds - 0.2)) / 0.3));
+  if (qa > 0.01) { ctx.save(); ctx.translate(x - 380 * s, y - Q.hook.h / 2 * s - 10); ctx.rotate(r * DEG); text('\u201c', 0, 0, PF(900, 220), C.gold, 'left', qa); ctx.restore(); }
+  drawSlip(Q.hook, x, y, r, s, a, (i) => {
+    const wd = HOOK_W[i], p = wd ? smooth((t - wd[1] + 0.04) / Math.max(0.12, (wd[2] - wd[1]) * 0.9)) : 0;
+    return [p, i >= 8 ? 1 : 1 - narrow];
+  });
+  // the reveal: "we didn't write that" stamps the slip as a buyer's sentence
+  const st = sp(t, T.review - 0.15, POP);
+  if (st > 0.01 && t < T.l4 + 0.2) {
+    const sf = MS(800, 52), sw = tw("BUYER'S WORDS", sf) + 52;
+    ctx.save(); ctx.translate(x + 60 * s, y - Q.hook.h / 2 * s); ctx.rotate((r + 4) * DEG); const k = (1.15 - 0.15 * clamp(st)) * s; ctx.scale(k, k);
+    ctx.globalAlpha = clamp(st * 2); ctx.fillStyle = C.gold; ctx.beginPath(); ctx.roundRect(-sw / 2, -46, sw, 88, 10); ctx.fill();
+    text("BUYER'S WORDS", 0, 18, sf, C.char, 'center', 1); ctx.restore();
+  }
+}
+
+// the three sources: a fan behind the hook, a row of three, then one at a time
+const SRC = ['r1', 'r2', 'r3'];
+const srcKeys = (i) => {
+  const fanX = [300, 540, 780][i], rowX = [250, 540, 830][i];
+  const enter = T.buyers + i * 0.12, row = T.l4 + 0.05 + i * 0.08, mine = [T.l5, T.l6, T.l7][i] - 0.1;
+  const out = i < 2 ? [T.l6, T.l7][i] - 0.1 : T.l8 - 0.1;
+  return {
+    x: [[-1, 1500], [enter, fanX], [row, rowX], ...(i > 0 ? [[T.l5 - 0.1, 1500]] : []), [mine, CX], [out, -720]],
+    y: [[-1, 1260], [row, 1060], [mine, 900]],
+    s: [[-1, 0.4], [row, 0.36], [mine, 1]],
+    r: [[-1, [-7, 3, 9][i]], [row, [-3, 1, 4][i]], [mine, [-1.2, 1, -1.5][i]], [out, -9]],
+  };
+};
+function sources(t, S) {
+  if (t < T.buyers - 0.1 || t > T.l8 + 1.0) return;
+  // the current one draws last
+  const order = t < T.l6 - 0.1 ? [2, 1, 0] : t < T.l7 - 0.1 ? [0, 2, 1] : [0, 1, 2];
+  order.forEach((i) => {
+    const o = Q[SRC[i]], k = srcKeys(i);
+    const x = track(t, k.x, ...SLIDE), y = track(t, k.y, ...SLIDE), s = track(t, k.s, ...SLIDE) * S, r = track(t, k.r, ...SLIDE);
+    const hl = [
+      (w) => Math.max(sweep(t, 0, 2, T.paid - 0.05, T.paid + 0.45)(w), sweep(t, 10, 12, T.never - 0.1, T.never + 0.5)(w)),
+      (w) => Math.max(sweep(t, 0, 3, T.problem - 0.1, T.problem + 0.5)(w), sweep(t, 16, 19, T.exist - 0.15, T.exist + 0.45)(w)),
+      (w) => sweep(t, 3, 9, T.worstm - 0.2, T.worstm + 0.7)(w),
+    ][i];
+    drawSlip(o, x, y, r, s, 1, (w) => [hl(w), 1]);
+    // the number over each slip in the row of three
+    const na = win(t, T.l4 + 0.1 + i * 0.08, T.l5 + 0.1, 0.15, 0.25);
+    if (na > 0.01) {
+      const ny = y - o.h / 2 * s - 40, pp = sp(t, T.l4 + 0.1 + i * 0.08, POP);
+      text(String(i + 1), x, ny + (1 - pp) * 20, MS(800, 72), C.gold, 'center', na);
+    }
+  });
+}
+// which source is on: three numbered dots under the slip
+function progressDots(t) {
+  const a = win(t, T.l5 - 0.1, T.l8 + 0.1, 0.2, 0.3);
+  if (a <= 0.01) return;
+  const cur = t < T.l6 - 0.1 ? 0 : t < T.l7 - 0.1 ? 1 : 2;
+  [0, 1, 2].forEach((i) => {
+    const x = CX + (i - 1) * 110, y = 1430, on = i === cur, done = i < cur, b = on ? gauss(t, [T.l5, T.l6, T.l7][i] - 0.05, 0.12) : 0;
+    ctx.save(); ctx.globalAlpha = a; ctx.translate(x, y); ctx.scale(1 + 0.15 * b, 1 + 0.15 * b);
+    ctx.beginPath(); ctx.arc(0, 0, 32, 0, Math.PI * 2);
+    if (on) { ctx.fillStyle = C.gold; ctx.fill(); } else { ctx.lineWidth = 3; ctx.strokeStyle = done ? C.gold : C.edge; ctx.stroke(); }
+    ctx.restore();
+    text(String(i + 1), x, y + 16, MS(800, 44), on ? C.char : done ? C.gold : C.grey, 'center', a);
+  });
+}
+
+// "Copy the sentence. Don't polish it.": the buyer's words against the polished line
+const POL = 'Struggling with inconsistent lead generation?';
+function polish(t) {
+  const a = win(t, T.copy - 0.15, T.l9 + 0.05, 0.2, 0.3);
+  if (a <= 0.01) return;
+  const p1 = sp(t, T.copy - 0.1, POP), x1 = track(t, [[-1, 1400], [T.copy - 0.15, CX]], ...SLIDE);
+  const rawHl = sweep(t, 0, 4, T.copy + 0.1, T.copy + 0.8);
+  drawSlip(Q.raw, x1, 760, -1.2, 1, a * clamp(p1 * 2), (i) => [rawHl(i), 1]);
+  // the polished version: a slick card, then struck
+  const p2 = sp(t, T.dont - 0.05, POP), gone = smooth((t - (T.ad + 0.45)) / 0.4);
+  if (p2 > 0.01) {
+    const f = MS(700, 48), lines = layoutQuote(POL, f, 700), ch = 70 + lines.length * 62 + 70, y = 1150 + (1 - p2) * 30 + gone * 20;
+    ctx.save(); ctx.globalAlpha = a * clamp(p2 * 2) * (1 - 0.65 * gone);
+    ctx.fillStyle = C.card; ctx.strokeStyle = C.edge; ctx.lineWidth = 2;
+    ctx.beginPath(); ctx.roundRect(CX - 420, y - ch / 2, 840, ch, 22); ctx.fill(); ctx.stroke();
+    text('POLISHED', CX - 364, y - ch / 2 + 62, MS(700, 44), C.grey, 'left', 1);
+    lines.forEach((ln, li) => ln.forEach((wd) => text(wd.s, CX - 364 + wd.x, y - ch / 2 + 140 + li * 62, f, C.dim, 'left', 1)));
+    const k = smooth((t - (T.ad - 0.25)) / 0.35);   // "sounds like an ad": a red strike through it
+    if (k > 0) {
+      ctx.strokeStyle = C.red; ctx.lineWidth = 8; ctx.lineCap = 'round';
+      lines.forEach((ln, li) => { const yy = y - ch / 2 + 140 + li * 62 - 17, lw = ln[ln.length - 1].x + ln[ln.length - 1].w;
+        const kk = clamp(k * lines.length - li); if (kk > 0) { ctx.beginPath(); ctx.moveTo(CX - 374, yy); ctx.lineTo(CX - 374 + (lw + 20) * kk, yy); ctx.stroke(); } });
+    }
+    ctx.restore();
+  }
+}
+
+// 567 buyer sentences before the first video: one mini slip for each
+const NCOL = 27, NROW = 21, GX = 31.2, GY = 30;
+const MINI = (() => { const r = rng(5); return Array.from({ length: NCOL * NROW }, (_, i) => ({ c: i % NCOL, r: Math.floor(i / NCOL), hl: 0.25 + r() * 0.55, o: r() * 0.4, rot: (r() - 0.5) * 6 })); })();
+const count567 = (t) => Math.round(567 * smooth((t - (T.l9 + 0.05)) / (T.sixty + 0.55 - T.l9)));
+function wall(t) {
+  const a = win(t, T.l9 - 0.05, T.brand + 0.2, 0.2, 0.4), dimCta = 1 - 0.88 * smooth((t - (T.l10 - 0.2)) / 0.4);
+  if (a <= 0.01) return;
+  const n = count567(t), x0 = CX - (NCOL - 1) * GX / 2, y0 = 770;
+  ctx.save(); ctx.globalAlpha = a * dimCta;
+  MINI.forEach((m, i) => {
+    if (i >= n) return;
+    const x = x0 + m.c * GX, y = y0 + m.r * GY, pop = clamp((n - i) / 30);
+    ctx.save(); ctx.translate(x, y); ctx.rotate(m.rot * DEG); const k = 0.6 + 0.4 * pop; ctx.scale(k, k);
+    ctx.fillStyle = C.ivory; ctx.fillRect(-12, -9, 24, 18);
+    ctx.fillStyle = HL; ctx.fillRect(-9 + m.o * 6, -2, 16 * m.hl, 5);
+    ctx.restore();
+  });
+  ctx.restore();
+  const pa = a * win(t, T.l9, T.l10 - 0.1, 0.12, 0.3);
+  if (pa > 0.01) {
+    const b = gauss(t, T.sixty + 0.55, 0.12);
+    ctx.save(); ctx.translate(CX, 580); ctx.scale(1 + 0.06 * b, 1 + 0.06 * b);
+    text(String(n), 0, 0, PF(900, 230), C.gold, 'center', pa); ctx.restore();
+    text('buyer sentences collected', CX, 670, MS(700, 52), C.ivory, 'center', pa * clamp(sp(t, T.l9 + 0.1, POP) * 2));
+    const q = sp(t, T.single - 0.35, POP);
+    if (q > 0.01) text('before our first video', CX, 1480 + (1 - q) * 20, MS(800, 56), C.gold, 'center', pa * clamp(q * 2));
+  }
+}
+
+// the CTA
+function cta(t) {
+  const a = win(t, T.l10 - 0.1, T.brand + 0.1, 0.15, 0.3);
+  if (a <= 0.01) return;
+  const p1 = sp(t, T.comment - 0.05, POP), p2 = sp(t, T.words - 0.08, POP), p3 = sp(t, T.searches - 0.2, POP);
+  text('Comment', CX, 440 + (1 - p1) * 24, MS(800, 64), C.ivory, 'center', a * clamp(p1 * 2));
+  ctx.save(); ctx.translate(CX, 640); const sc = 1.18 - 0.18 * clamp(p2); ctx.scale(sc, sc);
+  text('WORDS', 0, 0, PF(900, 190, true), C.gold, 'center', a * clamp(p2 * 2)); ctx.restore();
+  text('for the exact searches we use', CX, 760 + (1 - p3) * 20, fitMS('for the exact searches we use', 700, 54), C.ivory, 'center', a * clamp(p3 * 2));
+  const chips = ['Reviews', 'Reddit', 'Newsletters'], f = MS(700, 44), ws = chips.map((c) => tw(c, f) + 56), gap = 20;
+  let x = CX - (ws.reduce((p, q) => p + q, 0) + gap * 2) / 2;
+  chips.forEach((c, i) => {
+    const p = sp(t, T.searches + 0.1 + i * 0.12, POP), aa = a * clamp(p * 2), y = 880 + (1 - p) * 18;
+    if (aa > 0.01) {
+      ctx.save(); ctx.globalAlpha = aa; ctx.lineWidth = 3; ctx.strokeStyle = C.gold; ctx.beginPath(); ctx.roundRect(x, y - 50, ws[i], 72, 36); ctx.stroke(); ctx.restore();
+      text(c, x + 28, y + 2, f, C.ivory, 'left', aa);
+    }
+    x += ws[i] + gap;
+  });
+}
+
+function closing(t) {
+  const b = sp(t, T.brand, SOFT);
+  if (b <= 0.01 || !LOCK) return;
+  const w = 560, h = w * LOCK.height / LOCK.width;
+  ctx.save(); ctx.globalAlpha = clamp(b * 1.5); ctx.drawImage(LOCK, CX - w / 2, 900 - h / 2 + (1 - b) * 20, w, h); ctx.restore();
+  text('@straightscale_', CX, 900 + h / 2 + 90, MS(600, 48), C.dim, 'center', clamp(b * 1.5));
+}
+
+// ---------- texture ----------
+let GRAIN, VIGNETTE, LOCK;
+function makeGrain() {
+  const g = document.createElement('canvas'); g.width = g.height = 256;
+  const gx = g.getContext('2d'), img = gx.createImageData(256, 256), r = rng(11);
+  for (let i = 0; i < img.data.length; i += 4) { const v = r() * 255; img.data[i] = img.data[i + 1] = img.data[i + 2] = v; img.data[i + 3] = 255; }
+  gx.putImageData(img, 0, 0); return g;
+}
+function makeVignette() {   // smoothstep falloff in many stops: no ring where a linear ramp would start
+  const v = document.createElement('canvas'); v.width = W; v.height = H;
+  const vx = v.getContext('2d'), g = vx.createRadialGradient(W / 2, H * 0.5, 0, W / 2, H * 0.5, H * 0.8);
+  for (let i = 0; i <= 32; i++) { const r = i / 32, u = clamp((r - 0.3) / 0.7); g.addColorStop(r, `rgba(0,0,0,${(0.42 * u * u * (3 - 2 * u)).toFixed(4)})`); }
+  vx.fillStyle = g; vx.fillRect(0, 0, W, H); return v;
+}
+function grain(t, alpha) {
+  const r = rng(Math.floor(t * 24) + 1);
+  ctx.save(); ctx.globalAlpha = alpha; ctx.globalCompositeOperation = 'overlay';
+  const ox = -Math.floor(r() * 256), oy = -Math.floor(r() * 256);
+  for (let y = oy; y < H; y += 256) for (let x = ox; x < W; x += 256) ctx.drawImage(GRAIN, x, y);
+  ctx.restore();
+}
+
+// ---------- sound events (read by the score; never retyped) ----------
+function buildEvents() {
+  const E = [{ t: -0.35 + 0.18, kind: 'drop' }];
+  HOOK_W.forEach((w) => E.push({ t: w[1], kind: 'mark' }));
+  E.push({ t: T.review - 0.15, kind: 'stamp' }, { t: T.sounds, kind: 'narrow' });
+  [0, 1, 2].forEach((i) => E.push({ t: T.buyers + i * 0.12, kind: 'paper' }));
+  E.push({ t: T.l4 - 0.2, kind: 'swipe' });
+  [0, 1, 2].forEach((i) => E.push({ t: T.l4 + 0.1 + i * 0.08, kind: 'num' }));
+  [T.l5, T.l6, T.l7].forEach((x) => E.push({ t: x - 0.1, kind: 'slide' }));
+  [[T.paid - 0.05, 'mark'], [T.never - 0.1, 'mark'], [T.problem - 0.1, 'mark'], [T.exist - 0.15, 'mark'], [T.worstm - 0.2, 'mark']].forEach(([x, k]) => E.push({ t: x, kind: k }));
+  E.push({ t: T.copy - 0.15, kind: 'slide' }, { t: T.dont - 0.05, kind: 'card' }, { t: T.ad - 0.25, kind: 'strike' });
+  E.push({ t: T.l9 + 0.05, kind: 'count0' }, { t: T.sixty + 0.55, kind: 'count1' }, { t: T.single - 0.35, kind: 'label' });
+  E.push({ t: T.words - 0.08, kind: 'cta' }, { t: T.brand, kind: 'brand' });
+  return E.sort((a, b) => a.t - b.t);
+}
+
+function seek(t) {
+  window.__boxes = window.__boxes || [];
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1;
+  ctx.fillStyle = C.char; ctx.fillRect(0, 0, W, H);
+  const S = camS(t);
+  wall(t);
+  sources(t, S);
+  hookSlip(t, S);
+  polish(t);
+  progressDots(t);
+  ctx.drawImage(VIGNETTE, 0, 0);
+  grain(t, 0.06);
+  captions(t);
+  cta(t);
+  closing(t);
+}
+
+const faces = ['700 10px "Playfair Display"', 'italic 900 10px "Playfair Display"', '900 10px "Playfair Display"', '600 10px Montserrat', '700 10px Montserrat', '800 10px Montserrat'];
+await Promise.all(faces.map((f) => document.fonts.load(f, 'AaZz09$’…')));
+LOCK = await new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = no; i.src = 'assets/brand/wordmark-white.png'; });
+GRAIN = makeGrain(); VIGNETTE = makeVignette();
+for (const k in Q) prepSlip(Q[k]);
+window.T = T;
+window.CUES = Object.fromEntries(Object.entries(T).map(([k, v]) => [k, Math.round(v * 1000) / 1000]));
+window.EVENTS = buildEvents();
+window.DURATION = T.film;
+window.seek = (t) => { window.__boxes = []; seek(t); };
+window.seek(0);
+</script>
+</body>
+</html>

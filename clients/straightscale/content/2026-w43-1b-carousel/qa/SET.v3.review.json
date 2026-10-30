@@ -1,0 +1,476 @@
+{
+ "gate": "G-SET",
+ "asset_id": "SET-W43-1b",
+ "version": 3,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "set_status": "PASS",
+ "hero": false,
+ "pass_rule": "Set review is not a hero asset: zero critical, zero major, at most 2 minor (VISUAL-QA 5.3). Found 0 critical, 0 major, 2 minor (C2, C4), both pre-existing in v1.",
+ "covers": [
+  "SL01-W43-1b@v3 (/home/user/drafts/fixed/5d6ecdb0_v3.jpg, md5 94ecf69b1026d60fde81f8971b826b72, CDN https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/44f2b217-6413-454e-ba7c-8ed4a29caccc.jpg md5-matched)",
+  "SL02-W43-1b@v3 (/home/user/drafts/fixed/7e155c0b_v3.jpg, md5 46f876745c4ab90313e4f48ecdb47c58, CDN https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/30695814-37ef-40b4-ae13-5bad1ce7eb8f.jpg md5-matched)",
+  "SL03-W43-1b@v3 (/home/user/drafts/fixed/3cdfd95e_v3.jpg, md5 63bf7465e8368b680e5d813477d0e502, CDN https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/e81f23be-52b9-498d-ab80-52e8ea6be90a.jpg md5-matched)",
+  "SL04-W43-1b@v3 (/home/user/drafts/fixed/26e094bc_v3.jpg, md5 5deecc139586b04f7ea287905c4a48e4, CDN https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/7ce22a7e-e7c4-403c-a660-9c65a79ea2ef.jpg md5-matched)",
+  "SL05-W43-1b@v3 (/home/user/drafts/fixed/177e27a4_v3.jpg, md5 c1f3d580be4a2e226769d38c7fd8ba27, CDN https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/95c233f5-42c4-4b88-8417-8c2df46e2772.jpg md5-matched)",
+  "SL06-W43-1b@v3 (/home/user/drafts/fixed/b6ed170a_v3.jpg, md5 d200e2d6d0485f2767300b0a58922651, CDN https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/c7e2d786-32cc-4cf6-ae68-97775a73bfc7.jpg md5-matched)",
+  "SL07-W43-1b@v3 (/home/user/drafts/fixed/78eb641f_v3.jpg, md5 a11922fbbb42b7561402c810fe6ba24b, CDN https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/047c9dd6-26cc-4139-9682-8dd095e861cf.jpg md5-matched)"
+ ],
+ "spec_used": "Task packet (slide text, brand rules, accepted pre-existing minors), alt-text.txt, style-bible.md (one world: Tirana after dark, red-cased phone thread, crimson boxes, gold counter top right, arrow bottom right on slides 1 to N-1, real logo bottom left in the lowest 9%), brand-kit.md, VISUAL-QA.md 10.7 (G-SET).",
+ "crops_dir": "/home/user/qa/SET-W43-1b.v3 (Higgsfield sandbox; set sheets built by the reviewer) plus /home/user/qa/w43v3rev (measurements and zooms) and /home/user/qa/SL0n-W43-1b.v3/crops",
+ "crops_manifest": "clients/straightscale/content/2026-w43-1b-carousel/qa/crops/SET.v3/manifest.json",
+ "files_opened": [
+  "set_row_in_order.jpg",
+  "set_grid_4x2.jpg",
+  "set_bottom_band_guides.jpg",
+  "set_logo_ref_vs_slides_3x.jpg",
+  "set_counters_2x.jpg",
+  "set_kicker_margin.jpg",
+  "../w43v3rev/prev/5d6ecdb0.jpg",
+  "../w43v3rev/prev/7e155c0b.jpg",
+  "../w43v3rev/prev/3cdfd95e.jpg",
+  "../w43v3rev/prev/26e094bc.jpg",
+  "../w43v3rev/prev/177e27a4.jpg",
+  "../w43v3rev/prev/b6ed170a.jpg",
+  "../w43v3rev/prev/78eb641f.jpg",
+  "../w43v3rev/lz/SL01_lz.jpg",
+  "../w43v3rev/lz/SL02_lz.jpg",
+  "../w43v3rev/lz/SL03_lz.jpg",
+  "../w43v3rev/lz/SL04_lz.jpg",
+  "../w43v3rev/lz/SL05_lz.jpg",
+  "../w43v3rev/lz/SL06_lz.jpg",
+  "../w43v3rev/lz/SL07_lz.jpg",
+  "../w43v3rev/z4/SL02_z4_0.jpg",
+  "../w43v3rev/z4/SL02_z4_1.jpg",
+  "../w43v3rev/z4/SL03_z4_0.jpg",
+  "../w43v3rev/z4/SL03_z4_1.jpg",
+  "../w43v3rev/z4/SL04_z4_0.jpg",
+  "../w43v3rev/z4/SL04_z4_1.jpg",
+  "../w43v3rev/z4/SL05_z4_0.jpg",
+  "../w43v3rev/z4/SL05_z4_1.jpg",
+  "../w43v3rev/z4/SL06_z4_0.jpg",
+  "../w43v3rev/z4/SL06_z4_1.jpg",
+  "../w43v3rev/z4/SL07_z4_0.jpg",
+  "../w43v3rev/z4/SL07_z4_1.jpg",
+  "../w43v3rev/z6/SL01_edge.jpg",
+  "../w43v3rev/z6/SL02_edge.jpg",
+  "../w43v3rev/z6/SL03_edge.jpg",
+  "../w43v3rev/z6/SL04_edge.jpg",
+  "../w43v3rev/z6/SL05_edge.jpg",
+  "../w43v3rev/z6/SL06_edge.jpg",
+  "../w43v3rev/z6/SL07_edge.jpg",
+  "../w43v3rev/dm/SL02_diff.jpg",
+  "../w43v3rev/dm/SL05_diff.jpg",
+  "../w43v3rev/dm/SL07_diff.jpg",
+  "../w43v3rev/edges.jpg",
+  "../SL02-W43-1b.v3/crops/full.jpg",
+  "../SL03-W43-1b.v3/crops/full.jpg",
+  "../SL04-W43-1b.v3/crops/full.jpg",
+  "../SL05-W43-1b.v3/crops/full.jpg",
+  "../SL06-W43-1b.v3/crops/full.jpg",
+  "../SL07-W43-1b.v3/crops/full.jpg"
+ ],
+ "measurements": {
+  "logo_box_measured": {
+   "SL01": [
+    98,
+    1233,
+    393,
+    1288
+   ],
+   "SL02": [
+    98,
+    1233,
+    393,
+    1288
+   ],
+   "SL03": [
+    98,
+    1233,
+    393,
+    1288
+   ],
+   "SL04": [
+    98,
+    1233,
+    393,
+    1288
+   ],
+   "SL05": [
+    98,
+    1233,
+    393,
+    1288
+   ],
+   "SL06": [
+    98,
+    1233,
+    393,
+    1288
+   ],
+   "SL07": [
+    98,
+    1233,
+    393,
+    1288
+   ]
+  },
+  "logo_box_method": "template fit of the real file (alpha box 1501x279) over widths 291-299 and positions x92-104, y1225-1241 on each v3 file; best fit is the same 295x55 box on all 7",
+  "logo_fit_mean_abs_error": {
+   "SL01": 2.57,
+   "SL02": 2.54,
+   "SL03": 2.56,
+   "SL04": 2.57,
+   "SL05": 2.55,
+   "SL06": 2.56,
+   "SL07": 2.56
+  },
+  "logo_colour_on_slide_vs_file": {
+   "red": "194/8/23 on all 7 = file 194/8/23",
+   "gold": "227/172/25-26 on all 7 = file 227/172/26",
+   "white": "248-249/247/241"
+  },
+  "logo_centre_y": 1260.5,
+  "arrow_bbox": {
+   "SL01": [
+    932,
+    1211,
+    991,
+    1271
+   ],
+   "SL02": [
+    930,
+    1232,
+    990,
+    1293
+   ],
+   "SL03": [
+    928,
+    1232,
+    988,
+    1291
+   ],
+   "SL04": [
+    929,
+    1232,
+    988,
+    1291
+   ],
+   "SL05": [
+    930,
+    1226,
+    989,
+    1286
+   ],
+   "SL06": [
+    928,
+    1232,
+    987,
+    1291
+   ],
+   "SL07": null
+  },
+  "arrow_centre": {
+   "SL01": [
+    961.4,
+    1241.0
+   ],
+   "SL02": [
+    960.0,
+    1262.5
+   ],
+   "SL03": [
+    957.8,
+    1261.7
+   ],
+   "SL04": [
+    958.1,
+    1261.8
+   ],
+   "SL05": [
+    958.8,
+    1256.1
+   ],
+   "SL06": [
+    957.2,
+    1261.6
+   ],
+   "SL07": null
+  },
+  "arrow_minus_logo_centre_y": {
+   "SL01": -19.5,
+   "SL02": 2.0,
+   "SL03": 1.2,
+   "SL04": 1.3,
+   "SL05": -4.4,
+   "SL06": 1.1,
+   "SL07": null
+  },
+  "counter_bbox": {
+   "SL01": [
+    942,
+    52,
+    984,
+    77
+   ],
+   "SL02": [
+    932,
+    52,
+    979,
+    78
+   ],
+   "SL03": [
+    936,
+    52,
+    981,
+    77
+   ],
+   "SL04": [
+    922,
+    52,
+    972,
+    78
+   ],
+   "SL05": [
+    934,
+    52,
+    981,
+    78
+   ],
+   "SL06": [
+    934,
+    52,
+    980,
+    76
+   ],
+   "SL07": [
+    935,
+    51,
+    981,
+    77
+   ]
+  },
+  "crimson_box_bbox": {
+   "SL01": [
+    89,
+    171,
+    452,
+    261
+   ],
+   "SL02": [
+    96,
+    167,
+    171,
+    251
+   ],
+   "SL03": [
+    97,
+    155,
+    186,
+    249
+   ],
+   "SL04": [
+    90,
+    183,
+    169,
+    267
+   ],
+   "SL05": [
+    82,
+    169,
+    171,
+    249
+   ],
+   "SL06": [
+    99,
+    168,
+    177,
+    251
+   ],
+   "SL07": [
+    92,
+    156,
+    393,
+    257
+   ]
+  },
+  "kicker_bbox": {
+   "SL01": [
+    106,
+    63,
+    547,
+    80
+   ],
+   "SL02": [
+    103,
+    62,
+    324,
+    80
+   ],
+   "SL03": [
+    104,
+    63,
+    312,
+    80
+   ],
+   "SL04": [
+    102,
+    63,
+    330,
+    80
+   ],
+   "SL05": [
+    82,
+    63,
+    341,
+    79
+   ],
+   "SL06": [
+    103,
+    63,
+    332,
+    80
+   ],
+   "SL07": [
+    104,
+    63,
+    335,
+    80
+   ]
+  },
+  "changed_area_vs_plain_reencode_of_v1": {
+   "SL01": "x88-399, y1200-1287",
+   "SL02": "x88-399, y1232-1303",
+   "SL03": "x88-399, y1232-1303",
+   "SL04": "x88-399, y1232-1303",
+   "SL05": "x88-399, y1200-1287",
+   "SL06": "x88-399, y1232-1303",
+   "SL07": "x88-399, y1216-1287",
+   "outside x0-568, y1112-1350": "0 pixels differ on all 7"
+  }
+ },
+ "editor_claims_verified": {
+  "all_7_saved_uploaded": "confirmed: 7 files at /home/user/drafts/fixed/<id8>_v3.jpg, 1080x1350, q93, 4:4:4; each CDN URL downloaded in the sandbox is byte-identical (md5)",
+  "same_logo_box": "confirmed [98,1233,393,1288] on all 7",
+  "outside_zone_jpeg_noise_only": "confirmed and tightened: 0 pixels differ from a plain q93 4:4:4 re-encode of v1 outside x0-568, y1112-1350; max diff vs v1 outside the zone 20-25 = the re-encode's own",
+  "arrow_offsets": "confirmed within 0.4-0.6 px: -19.5, +2.0, +1.2, +1.3, -4.4, +1.1 (logo centre taken as y1260.5)",
+  "crescent_edge_specks_fixed": "confirmed visually at 3.3x-4x on SL05 and SL07; no crescent, edge continuous, speck density in the fill at or below the untouched ring",
+  "texture": "independently re-measured with a different mask (v1 drawn-logo footprint +8 px, minus 6 px around the new logo): fill/ring high-pass std 0.92 (SL02), 0.95 (SL03), 0.70 (SL04), 1.01 (SL06); SL05 same-surface 0.84, SL07 1.06; means within 2.9 levels. No visible smooth patch on any slide."
+ },
+ "checks": [
+  {
+   "id": "C1",
+   "result": "PASS",
+   "severity": "",
+   "region": "all 7, set_row_in_order.jpg, set_grid_4x2.jpg",
+   "evidence": "One visual world: every slide is the same night interior, a varnished wooden table by a tall window with Tirana's plaza and clock tower in the right third (same tower position on all 7), warm tungsten grade, near-black wall behind the type, soft blurred pillar edges at left and right. Props change per slide (notebook, POS and receipt, message phone, planner, calculator and hand, coin, written notebook) while light and grade stay the same."
+  },
+  {
+   "id": "C2",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "kicker and number box, slide 5 (set_kicker_margin.jpg)",
+   "evidence": "Type system is consistent: spaced ivory caps kicker at y62-81 on every slide (PËR PRONARËT E BIZNESEVE, NUMRI I PARË / DYTË / TRETË / KATËRT / PESTË, HAPI I RADHËS), heavy ivory headline with a solid crimson box (number boxes 75-89 x 80-94 px, medians #A4 to #B4 red vs #B31217), lighter ivory subline. One drift: slide 5's kicker and number box start at x82 while the others start at x89-106 (kicker x102-106), about 20 px further left. Pre-existing (identical in v1, outside the logo edit); visible when slides are compared side by side or on the 4-5-6 swipe, not at a glance."
+  },
+  {
+   "id": "C3",
+   "result": "PASS",
+   "severity": "",
+   "region": "counter, top right (set_counters_2x.jpg)",
+   "evidence": "Gold counter on every slide in order 1/7 to 7/7, y51-78, RGB about 204-214/150-160/55-68 (gold family). Left edge varies x922 (4/7, the widest glyphs) to x942 (1/7), right edge x972-984; not visible in the swipe. Gold appears nowhere else except the real logo's gold square."
+  },
+  {
+   "id": "C4",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "swipe arrow, bottom right, slide 1 vs 2-6 (set_bottom_band_guides.jpg)",
+   "evidence": "Same crimson round arrow with a white arrow on slides 1 to 6, none on slide 7 (correct). Radius 30.2-30.8 px, colour #A00616 to #AC1118. Slides 2 to 6 sit together: centres y1262.5, 1261.7, 1261.8, 1256.1, 1261.6, i.e. +2.0, +1.2, +1.3, -4.4, +1.1 px from the logo centre line (y1260.5). The cover's arrow (bbox [932,1211,991,1271], centre y1241.0) sits 21 px higher than on slides 2-4 and 6, so on the cover the logo centre is 19.5 px below the arrow centre and the bottom row is not level. Pre-existing arrow position (v1); it became visible against the logo when the logo moved to the shared box. Seen on the cover and on the 1 to 2 swipe."
+  },
+  {
+   "id": "C5",
+   "result": "PASS",
+   "severity": "",
+   "region": "real logo, bottom left, all 7 (set_bottom_band_guides.jpg, set_logo_ref_vs_slides_3x.jpg)",
+   "evidence": "The logo sits in exactly the same box on every slide. Measured by template fit of the real file on each v3 file: SL01 [98,1233,393,1288], SL02 [98,1233,393,1288], SL03 [98,1233,393,1288], SL04 [98,1233,393,1288], SL05 [98,1233,393,1288], SL06 [98,1233,393,1288], SL07 [98,1233,393,1288]; size 295x55 (file aspect 1501:279 kept); mean abs error 2.54-2.57 levels; opaque red 194/8/23 and gold 227/172/26 identical to the file on all 7. The v2 defect (top edge varying y1189 to y1239) is fixed: the guide lines at y1233, y1260.5 and y1288 touch the same logo pixels on every row."
+  },
+  {
+   "id": "C6",
+   "result": "PASS",
+   "severity": "",
+   "region": "sequence, set_row_in_order.jpg",
+   "evidence": "The story reads in order: hook (5 numbers to know every month), numbers 1 to 5 in order (spend, requests, booked, cost per client, return per euro), then the ask (save this post). Kicker ordinals, number boxes and counters agree; no slide could swap with another."
+  },
+  {
+   "id": "C7",
+   "result": "PASS",
+   "severity": "",
+   "region": "slide 2",
+   "evidence": "Slide 2 works alone: 'NUMRI I PARË / 1 Sa shpenzove / Reklama, video, njerëz, mjete: gjithçka që pagove për klientë të rinj.' over a POS and receipt states the first number and what it covers without the cover."
+  },
+  {
+   "id": "C8",
+   "result": "PASS",
+   "severity": "",
+   "region": "slide 7",
+   "evidence": "The turn looks different: the crimson box moves from a number to the verb 'Ruaje', the kicker becomes HAPI I RADHËS, the arrow is gone, and the cover's blank notebook returns written in."
+  },
+  {
+   "id": "C9",
+   "result": "PASS",
+   "severity": "",
+   "region": "red-cased phone, all 7",
+   "evidence": "The thread holds: the deep red-cased phone is on every slide and changes state with the story (face down on the cover, dark on 2, messages arriving on 3, dark beside the planner on 4, beside the owner's hand on 5, out of focus behind the coin on 6, dark beside the written notebook on 7)."
+  },
+  {
+   "id": "C10",
+   "result": "PASS",
+   "severity": "",
+   "region": "brand rules across the set",
+   "evidence": "No em dash in any on-image text; no invented numbers on screens or paper (screens dark or wordless, receipt and calculator display blank; the only figures are list indices, counters, the coin's own '1', the planner's specified hour labels, the '5' that counts the list on slide 7 and a 6 px phone status-bar clock on slide 3); no other organisation's logo or emblem (the coin is the specified currency prop); crimson family for boxes and arrows; gold only for the counter and the real logo's square. All on-image Albanian read letter by letter in the slide reviews; every ë and ç is right."
+  },
+  {
+   "id": "C11",
+   "result": "PASS",
+   "severity": "",
+   "region": "logo zone, all 7 (../w43v3rev/lz, z4, z6, dm)",
+   "evidence": "No slide keeps any part of the model-drawn logo (no ghost letters, no red or gold fragments) and none shows a seam, smooth patch, dark crescent or halo speck around the logo at 2x, 3.3x, 4x or in boosted views. The beaded lit table edge continues past the gold square on every slide, including SL05 and SL07 where the editor fixed a crescent and specks. Outside x0-568, y1112-1350 every file is pixel-identical to a plain q93 4:4:4 re-encode of its v1 original."
+  },
+  {
+   "id": "C12",
+   "result": "N/A",
+   "severity": "",
+   "region": "per-slide gates (reference)",
+   "evidence": "Per-slide v3 results: SL02 PASS (1 minor), SL03 PASS (0), SL04 PASS (2 minor), SL05 PASS (1 minor), SL06 PASS (1 minor), SL07 PASS (1 minor), all pre-existing accepted minors (this reviewer, SL0n.v3.review.json). SL01 v3 is reviewed separately as a hero: SL01.v3.review.json (another fresh reviewer) is FAIL with one minor, the same cover logo-to-arrow offset logged here as C4. Listed for reference, not counted twice."
+  },
+  {
+   "id": "C13",
+   "result": "PASS",
+   "severity": "",
+   "region": "swipe bridges",
+   "evidence": "No element is designed to run across a slide boundary; each slide is its own frame of the same set. The fixed frame lines up from slide to slide: kicker y62-81, counter y51-78, logo box identical, arrows on slides 2-6 within 6 px. The cover's arrow is the exception (C4)."
+  }
+ ],
+ "defects_summary": {
+  "critical": 0,
+  "major": 0,
+  "minor": 2,
+  "items": [
+   "C2 minor: slide 5's kicker and number box start at x82, about 20 px left of the other slides (pre-existing).",
+   "C4 minor: the cover's swipe arrow (centre y1241.0) sits 21 px higher than on slides 2-6, so on the cover the shared logo box is 19.5 px below the arrow line (pre-existing arrow; the same issue fails SL01's own hero gate)."
+  ]
+ },
+ "fix": {
+  "route": "edit",
+  "prompt_changes": [
+   "No generation needed. Code-only edit of the cover: move its swipe arrow (disc bbox [932,1211,991,1271]) down 21 px so its centre lands at about (960, 1262), matching slides 2-4 and 6 (bbox about [929-932,1232,988-990,1292]); refill the vacated top crescent of wood with the same texture-preserving fill used for the logo, keep the logo box [98,1233,393,1288] unchanged. That clears C4 here and SL01's V18 together. The result is SL01 v4 and needs its own hero review; the set then only needs C4 re-checked.",
+   "Optional, not required to pass: slide 5's text block is 20 px left of the others; leave it unless slide 5 is regenerated for another reason."
+  ]
+ },
+ "notes": [
+  "G-SET passes on its own terms, but the carousel is not ready to post: SL01 v3 failed its separate hero review (SL01.v3.review.json) on the cover's logo-to-arrow offset. Fix as above, then re-review SL01.",
+  "hosted.json still lists the v1 originals (5d6ecdb0-..., 7e155c0b-..., etc.). Point the hub at the v3 media_ids listed in covers and md5-check them before posting.",
+  "AI label: photoreal AI scenes, so STANDARDS.md 7 asks for Instagram's AI label at posting.",
+  "Failure Library candidate (repeat from v2): garbled small printed labels on props (POS keypad, planner hours, calculator keys)."
+ ]
+}

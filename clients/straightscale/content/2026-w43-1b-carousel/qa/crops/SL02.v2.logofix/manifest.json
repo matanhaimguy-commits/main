@@ -1,0 +1,59 @@
+{
+ "asset": "SL02-W43-1b",
+ "version": 2,
+ "label": "logofix",
+ "source": "/home/user/drafts/fixed/7e155c0b.jpg",
+ "source_md5": "6617cb5a18774e14abfef4c92df9d62f",
+ "original": "/home/user/drafts/7e155c0b-3f7a-4e1c-9235-b2b9746f6b9a.jpg",
+ "original_md5": "fee279ffa575796ac89f75e4fba5fae9",
+ "real_logo": "/home/user/brand/straightscale-logo-light.png",
+ "size": [
+  1080,
+  1350
+ ],
+ "built_with": "PIL and OpenCV in the Higgsfield sandbox (/home/user/qa/W43-1b-set.v2/SL02), by the reviewer",
+ "logo_fit": {
+  "box": [
+   96,
+   1217,
+   391,
+   1274
+  ],
+  "size": [
+   295,
+   57
+  ],
+  "mean_abs_diff_opaque_px": 7.18
+ },
+ "hosted_json_url_md5_equals": "v1 original (not the fixed file)",
+ "must_open": [
+  "full_720.jpg",
+  "tile_r1c1.jpg",
+  "tile_r1c2.jpg",
+  "tile_r1c3.jpg",
+  "tile_r2c1.jpg",
+  "tile_r2c2.jpg",
+  "tile_r2c3.jpg",
+  "tile_r3c1.jpg",
+  "tile_r3c2.jpg",
+  "tile_r3c3.jpg",
+  "diffmap_orig_vs_fixed.jpg",
+  "region_logozone_orig_vs_fixed_2x.jpg",
+  "region_logozone_clahe_orig_top_fixed_bottom_2x.jpg",
+  "region_logozone_band_orig_top_fixed_bottom_3x_gamma07.jpg",
+  "thumb_200.jpg",
+  "../SET/ref_logo_vs_pasted_all_slides_3x.jpg",
+  "orig_full_720.jpg",
+  "region_logozone_boosted_orig_vs_fixed_2x.jpg",
+  "region_logo_changezone_3x_4views.jpg",
+  "region_logozone_fixed_2x_plain_and_inpaint_outline.jpg",
+  "region_speck_1200_orig_left_fixed_right_8x.jpg",
+  "region_SL02_kicker_2x.jpg",
+  "region_SL02_headline_2x.jpg",
+  "region_SL02_subline_2x.jpg",
+  "region_SL02_pos_keypad_3x.jpg",
+  "region_SL02_receipt_2x.jpg",
+  "region_SL02_counter_3x.jpg",
+  "region_SL02_arrow_3x.jpg"
+ ]
+}

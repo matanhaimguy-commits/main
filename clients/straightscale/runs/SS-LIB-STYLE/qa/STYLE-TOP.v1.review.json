@@ -1,0 +1,225 @@
+{
+ "gate": "G-VIS-SHEET",
+ "asset_id": "STYLE-TOP",
+ "version": 1,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "hero": true,
+ "files_opened": [
+  "full.png",
+  "tile_r1c1.png",
+  "tile_r1c2.png",
+  "tile_r1c3.png",
+  "tile_r2c1.png",
+  "tile_r2c2.png",
+  "tile_r2c3.png",
+  "tile_r3c1.png",
+  "tile_r3c2.png",
+  "tile_r3c3.png",
+  "region_SHEET-STYLE-TOP_label.png",
+  "region_SHEET-STYLE-TOP_headline.png",
+  "region_SHEET-STYLE-TOP_subline.png",
+  "region_SHEET-STYLE-TOP_counter.png",
+  "region_SHEET-STYLE-TOP_window.png",
+  "thumb_200.png",
+  "clients/straightscale/runs/SS-LIB-STYLE/qa/crops/STYLE-TOP.v1/manifest.json",
+  "clients/straightscale/runs/SS-LIB-STYLE/assets/STYLE-TOP.v1.png",
+  "clients/straightscale/runs/SS-LIB-STYLE/shots/SHEET-STYLE-TOP.spec.yaml",
+  "clients/straightscale/style-bible.md",
+  "clients/straightscale/brand-kit.md",
+  "growth-engine/production/VISUAL-QA.md (sections 5 and 6)",
+  "growth-engine/production/failure-library.md",
+  ".claude/agents/visual-reviewer.md",
+  "reviewer zooms (scratchpad, not in repo): tower_top_4x, tower_low_3x, jave_4x, box_4x, wall_grain_4x, bottom_strip_2x, left_edge_3x, right_edge_3x"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full; thumb_200.png",
+   "evidence": "The 1-second read is there: small label 'PËR PRONARËT E BIZNESEVE' (for business owners) over the heavy headline '7 gjëra që po të kushtojnë klientë çdo javë', with 'klientë' in the red box. Matches must_read_in_1s 'Business owners: seven things cost you clients every week'. It still reads at 200 px (thumb_200.png)."
+  },
+  {
+   "id": "V2",
+   "result": "PASS",
+   "severity": "",
+   "region": "full; region_SHEET-STYLE-TOP_headline.png, region_SHEET-STYLE-TOP_subline.png",
+   "evidence": "The headline and subline together are script line S1 word for word: '7 gjëra që po të kushtojnë klientë çdo javë.' / 'Numëro sa prej tyre i bën.' The headline drops the full stop, as the spec string does. Tone is calm and direct, as the brand voice asks."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "full; region_SHEET-STYLE-TOP_window.png",
+   "evidence": "No prices, results, client names or claims. '7' counts the tips, not a result. The tower is a square stone clock tower with one clock per face, seen corner-on, and a pyramidal cap, lit warm at night. That agrees with published descriptions of the Tirana Clock Tower (square stone shaft, clocks on all four sides, pyramid/Venetian roof), so it does not contradict 'City: Tirana'."
+  },
+  {
+   "id": "V4",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No people, hands or limbs in the image (spec: hands none visible). Checked every tile: none present."
+  },
+  {
+   "id": "V5",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No hands; the spec has no hand action."
+  },
+  {
+   "id": "V6",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No faces. The packet confirms there are no people, and the tiles show none."
+  },
+  {
+   "id": "V7",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "Static style reference (static: true, action_physics: []), so there is no action to verify. Nothing floats: the tower base continues behind the trees at the bottom crop (tile_r3c3.png)."
+  },
+  {
+   "id": "V8",
+   "result": "PASS",
+   "severity": "",
+   "region": "region_SHEET-STYLE-TOP_window.png; tile_r2c3.png",
+   "evidence": "Structures are correct. At 4x the two clocks sit on two adjacent faces with a vertical corner edge between them; the cornices meet at that corner and the pyramid roof's ridge runs down to it, so there is one clock per face. The window frame has straight vertical members at the left (dark jamb plus a bronze-lit stile) and the right edge. No doubled tower and no warped frame."
+  },
+  {
+   "id": "V9",
+   "result": "PASS",
+   "severity": "",
+   "region": "region_SHEET-STYLE-TOP_label.png; region_SHEET-STYLE-TOP_headline.png; region_SHEET-STYLE-TOP_subline.png; region_SHEET-STYLE-TOP_counter.png",
+   "evidence": "Read letter by letter. Label: P-Ë-R / P-R-O-N-A-R-Ë-T / E / B-I-Z-N-E-S-E-V-E = 'PËR PRONARËT E BIZNESEVE'. Headline: '7' / g-j-ë-r-a / q-ë / p-o // t-ë / k-u-s-h-t-o-j-n-ë // k-l-i-e-n-t-ë (inside the red box) / ç-d-o (cedilla clear under the c, tile_r3c2.png) / j-a-v-ë. Subline: N-u-m-ë-r-o / s-a / p-r-e-j / t-y-r-e / i / b-ë-n + '.'. Counter: '1/7'. Every ë has two dots, every j and i its single dot, and there are no extra or missing characters."
+  },
+  {
+   "id": "V10",
+   "result": "PASS",
+   "severity": "",
+   "region": "region_SHEET-STYLE-TOP_headline.png; region_SHEET-STYLE-TOP_window.png",
+   "evidence": "Nothing covers any letter. Text is a clean overlay on the dark wall. The last letters 'vë' of 'javë' end at x≈759 over the dark window jamb (pixel values 0-34). That is inside the spec's own headline box (to 0.72), stays fully legible, and the clock tower starts at x≈860, right of the text as the spec requires. The counter sits on dark sky, clear of the window frame."
+  },
+  {
+   "id": "V11",
+   "result": "PASS",
+   "severity": "",
+   "region": "all tiles; region_SHEET-STYLE-TOP_window.png",
+   "evidence": "No text besides the four listed strings. The blurred city (lit windows, street lamps, a red-lit dome or minaret tip) has no signs, screens or readable letters."
+  },
+  {
+   "id": "V12",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "The spec lists props: []. The only subject is SET-WINDOW, and it carries its content: the lit tower with lit clock faces. No empty frames, screens or signs (FL-05 checked)."
+  },
+  {
+   "id": "V13",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No prop sheet and no props in this spec."
+  },
+  {
+   "id": "V14",
+   "result": "PASS",
+   "severity": "",
+   "region": "all tiles",
+   "evidence": "No unexplained objects: no logo, table, cup, phone or side bands, which matches story_purpose and must_not."
+  },
+  {
+   "id": "V15",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No characters."
+  },
+  {
+   "id": "V16",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No previous shot (continuity.previous_shot: null)."
+  },
+  {
+   "id": "V17",
+   "result": "PASS",
+   "severity": "",
+   "region": "full; region_SHEET-STYLE-TOP_window.png",
+   "evidence": "The setting matches spec.setting.details. A dark cafe wall fills the left ~60% plus the dark jamb (to x≈715, about two thirds). On the right is a window showing the Tirana clock tower, warm street lights and warm-lit buildings."
+  },
+  {
+   "id": "V18",
+   "result": "PASS",
+   "severity": "",
+   "region": "full; bottom edge",
+   "evidence": "1080x608 = 16:9 (1.776). Text is inside the 4% margin: label at x=73, y=65; counter right edge ≈1015 (65 px clear) and top ≈55; subline bottom ≈545 (63 px above the crop line). No borders or side bars: the left edge is plain wall and the right edge is the window's own frame with bokeh reflections. Nothing is cut at the bottom crop line. The text column is empty there, and only blurred photographic elements are cut (tower base, building arches), so no half-letters could mislead a model."
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200.png",
+   "evidence": "At 200 px wide the headline reads, the red 'klientë' box pops, and the counter and lit tower are visible. The label and subline are small but resolvable as secondary text."
+  },
+  {
+   "id": "V20",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "Not a realistic people scene. A static look reference with no people; the city outside is lit, so it is not a dead background."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full; region crops",
+   "evidence": "Matches the locked style bible. 'Tirana after dark', warm tungsten light, clock tower through the window. The heavy bold sans is left-aligned in the calm dark area, the key word sits in a solid red rectangle, and the gold counter is top right. Sampled palette: wall ≈ #0E0B08 (near-black); headline core mean (252,249,246), a warm off-white close to ivory #F8F6EF; highlight box ≈ #AD0D14, within ~6 levels of crimson #B31217; counter core ≈ #DCA537, the gold #DD9A10 with anti-aliasing. The only other saturated hues are amber tungsten street lights, which the spec asks for. The image is a photoreal, shallow-depth-of-field 35mm look. Grain is very fine: visible as texture in the sky (tile_r1c3.png), almost none on the near-black wall. That fits 'fine film grain' and is not visible at phone size."
+  },
+  {
+   "id": "V22",
+   "result": "PASS",
+   "severity": "",
+   "region": "region_SHEET-STYLE-TOP_window.png",
+   "evidence": "The photo part is realistic: optical bokeh on the street lights, natural falloff of light on the stone tower, a believable window jamb. No plastic or CG look. There is no skin to judge."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "all tiles; 4x zooms of wall, tower, 'javë' and the red box",
+   "evidence": "No smears, seams, doubled objects or half-rendered areas. Window members are straight. The dark wall gradient is smooth with no banding steps: column means change by 0.2-0.4 levels and there is no striping. The red box has clean, even padding (~17 px each side of 'klientë'). Letter edges are clean, with no halos or JPEG ringing visible at 4x."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No brand logos, trademarks or characters. The Tirana Clock Tower is a public landmark. No people."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No before/after and no personal-attribute 'your [condition]'. It addresses business owners by occupation and invites them to count habits ('Numëro sa prej tyre i bën'): a challenge, not shaming."
+  },
+  {
+   "id": "V26",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No AI person in the image, so the AI-person disclosure rule does not apply."
+  }
+ ],
+ "fix": {
+  "route": "none",
+  "prompt_changes": []
+ },
+ "notes": "Zero defects found at any severity. When this is used as a style_ref, the prompt should still spell out the per-post strings and counter (the reference carries '1/7' and this post's headline), so a model does not copy the literal words. That is a usage note, not a defect in the asset."
+}

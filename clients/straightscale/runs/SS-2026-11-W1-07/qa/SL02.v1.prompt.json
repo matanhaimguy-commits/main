@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "SL02",
+ "version": 1,
+ "prompt_sha256": "1a994d2b9614e29ccefac127dd525be6c1f543ac99f5a228e0fb1a94ef224a27",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Phone, stand, chair, plate, arrow, 4 strings incl. '2/8', setting with no window, camera and must_not (window and tower) are all in the prompt"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'Image 1 is the style reference ... Image 2 is the approved cover' matches upload order STYLE-TOP then PENDING-SL01-APPROVED-COVER; the cover's window is excluded by 'not its scene'"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'Hands: no hands and no people are visible in the frame.' matches spec hands: none visible"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'The chair stands on its four legs ... all four legs flat on the floor'; 'phone's bottom edge sits in the stand's groove ... nothing touches it'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "No story-critical prop in the spec; chair has content ('woven seat, four straight legs and an upright back ... nothing on it') and no negative empties it"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "Strings 'Një ditë pa ty,', 'askush s'di çfarë', 'i premtove klientit.', '2/8' quoted with position, size, colour, occlusion; 'Spell exactly' covers Një, ditë, çfarë; 'Apostrophes are straight apostrophes.'"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'No menus, receipts, signs or readable words anywhere; the walls are plain'; 'No window and no clock tower are visible in this shot.'"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "The locked style line's 'clock tower visible through the cover's window' is overridden by the explicit 'No window and no clock tower' in setting and Avoid; chair 'pulled out 40 cm' and 'right of the table's right end' are compatible"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'Carry-over: Changes from the previous slide: the camera is farther back ... the phone is dark and the plate is cleared; same table and lamp.' matches spec"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Prompt opens 'Instagram carousel slide, portrait 4:5.'; call settings gpt_image_2_5, 4:5, 2k, medium, flare, image_references match standards.json; no video fields apply"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No word with two readings; 'turned three-quarters toward the camera' and 'the table's right end is at 66% of the frame width' are concrete"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/10/13 prevented: calm hand-free text zone, contact points, filled screen props, plain walls, 'Bottom-left corner ... no logo, no letters, no objects (a logo is added later)'"
+  }
+ ],
+ "corrected_prompt": null
+}

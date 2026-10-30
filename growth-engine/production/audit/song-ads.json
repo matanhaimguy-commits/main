@@ -1,0 +1,779 @@
+{
+ "skill": "readymerce-song-ads",
+ "version": "No version number in the skill. The last changelog entry is 2026-10-04 (Script Lab and Hook Lab wiring), which is before hub v13.3 (2026-10-08) and v13.4 (2026-10-11).",
+ "purpose": "Builds a paid song ad from start to finish, \"a sales letter set to music, not a jingle\", sung by a person, character or object in a stylized look (Pixar-style 3D, clay, felt, yarn). The steps are: brand research, the Hook Lab (3 graded hook stacks with Nano Banana 2 concept frames), the argument written and gated as speech by Script Lab, then lyrics graded read flat. The user generates the song in Suno by hand. Then the skill re-times on the vocal stem (BPM, Whisper, UVR stem), plans shots with the 10 shot-logic tests, makes a style bible and Nano Banana 2 2K sheets, builds storyboards per sequence and renders lip-synced multi-shot clips on MiniMax H3 (reference mode with the vocal-stem slice). The edit is done in the Higgsfield sandbox, with a frame check, a cross-correlation sync check, 1080x1920 at 30 fps, captions, a hook super and an end card with the offer. There are 6 human GATEs. Appendix S holds 9 transcribed DTC song swipes (47 to 189 s) with beat maps.",
+ "phases": [
+  {
+   "step": "0",
+   "name": "Preconditions: the Hook card and the Script Lab card",
+   "does": "Load readymerce-hook-lab and readymerce-script-lab with the Skill tool (if either fails to load, use its card and say so). Read Appendix S in full before every Phase 4. Read the Copy Laws (Appendix M, in Script Lab) before the first line of copy.",
+   "gate": "Hook bar: all 9 gates pass and every channel grades A or A+ (A+ 10, A 9, A- 8, B+ 7); an A- is rewritten. Script Lab: 16 mechanical tests plus a cold read and a 100-point score; release at 85 or more with no critical fail; up to 3 rewrite loops, then the user decides.",
+   "human_checkpoint": "none",
+   "tools_models": "Skill tool; readymerce-hook-lab v1 card; readymerce-script-lab v1 card"
+  },
+  {
+   "step": "1",
+   "name": "Inputs",
+   "does": "Ask for brand research (avatar doc, VOC, product truth, mechanism doc, offer) and the product URL. Read the avatars, VOC quotes, failed fixes and why each failed, the UMP and UMS, proof and reviews. Confirm the brand in one sentence plus 2 to 3 findings. One avatar per song.",
+   "gate": "The URL is the minimum. With neither research nor a URL, stop and ask.",
+   "human_checkpoint": "GATE 1: avatar confirmed",
+   "tools_models": "none"
+  },
+  {
+   "step": "2",
+   "name": "Genre and length",
+   "does": "Pick the genre from the demographic map (2 to 3 suggestions with reasons). Length follows the Script Lab router: an S60 or S90 story tier (55 to 100 s) as the first test plus a C45 short tier (40 to 50 s, the Penrose 47 s problem-rap model). L150 only with a stated reason. Aim at the tier's lower end because Suno runs 10 to 25 s long.",
+   "gate": "No story under 55 s. Both tiers are written, even if only the short tier is rendered.",
+   "human_checkpoint": "GATE 2: genre and the tiers (a story tier and a short tier)",
+   "tools_models": "none"
+  },
+  {
+   "step": "3",
+   "name": "Angle and awareness",
+   "does": "One angle in customer language, one awareness stage with a reason, and THE PICTURE (the plain contrast that makes the cause obvious), named as the UMP. The chorus repeats that name.",
+   "gate": "Promise as strong and specific as the research allows.",
+   "human_checkpoint": "GATE 3: angle and picture confirmed",
+   "tools_models": "none"
+  },
+  {
+   "step": "3b",
+   "name": "Hook Lab (H0 to H6, before any lyric)",
+   "does": "Check the category Hook Library (under 60 days old). Generate stacks: a visual shot spec, the text hook, the sung hook (lyric line 1 or 2) and the seam line. Song rules: problem on screen at 0 s, text hook held from frame 1, first sung word by about 1 s, problem sung by about 3 s, and the line passes the gates read flat. Keep 3 per format (a master and 2 variants, at least 2 hook types), each with a Nano Banana 2 concept frame (about 2 credits) checked at phone size with the text hook laid on top. A variant with a new sung line needs its own Suno opening (Replace Section).",
+   "gate": "All 9 Hook Lab gates, every channel A or A+. A stack that fails Script Lab test 12 (the seam) goes back to H6.",
+   "human_checkpoint": "Stacks shown and picked at GATE 4",
+   "tools_models": "readymerce-hook-lab; Nano Banana 2 (concept frames)"
+  },
+  {
+   "step": "4a-4b",
+   "name": "Swipe study and Script Lab WRITE (the argument as speech)",
+   "does": "Read Appendix S in full and pick the 2 closest swipe ads per spine (MODELED ON). Send Script Lab the brief card, the song format adapter (18b), the tiers, the hook stacks and the cast. It returns 2 or 3 spines of about 80 words. After the pick it returns the released speech script per tier: line table, pre-write pack, gate report and length ladder. Song moves menu: H, SC, FF, T, promise, M (chorus), D, ING, TL/PO, PR, OF, G, U, ID.",
+   "gate": "Script Lab gate (16 tests plus a cold read; 85/100 with no critical fail).",
+   "human_checkpoint": "Spines go to GATE 4",
+   "tools_models": "readymerce-script-lab (WRITE)"
+  },
+  {
+   "step": "4c-4f",
+   "name": "Formats, lyric rules and the lyric gate",
+   "does": "Each spine uses a different 4c format. Lyrics keep every rung in order; 8 to 14 syllables a line; the chorus carries the picture and its name and repeats at least twice; the turn, named problem, guarantee and CTA are spoken; the brand is sung or spoken at least twice, first only after the product is shown; Suno-safe spellings; vocal tags. Lines per tier: 35 to 55 for 90 s, 23 to 37 for an S60, 18 to 27 for a C45. A Suno style prompt under 25 words that includes 'clear lead vocal, lyrics up front'.",
+   "gate": "4f: Script Lab GRADE on the lyrics read flat (tests 3, 5, 7, 8, 9, 12, 13) plus a fresh-agent cold read; tests 1, 6 and 16 checked against the speech script; master stack passes the 9 gates at A or A+; chorus repeats at least twice; spoken lines present; line count fits the tier; full selling strength; as specific as the 2 swipe models. Rewrite until every answer is yes.",
+   "human_checkpoint": "GATE 4: the user picks a spine and its master hook stack (plus 2 variants). The user then generates each song in Suno (and any variant openings), uploads to Higgsfield and sends share links. If told to run without stopping, Claude picks the spine, but Suno stays manual.",
+   "tools_models": "Suno (run by the user, by hand); Script Lab GRADE/FIX"
+  },
+  {
+   "step": "5",
+   "name": "Get the song into a workable place",
+   "does": "Work in the Higgsfield sandbox (sandbox_exec), which can reach Higgsfield files and has ffmpeg, sox, python3 and faster-whisper. It is wiped about 10 s after each call, so chain the work and upload in one command. Resolve share links with curl -L. Publish with media_upload, a PUT with If-None-Match, then media_confirm.",
+   "gate": "none",
+   "human_checkpoint": "User must put the song on Higgsfield or send a Suno link",
+   "tools_models": "Higgsfield sandbox_exec, media_upload, media_confirm"
+  },
+  {
+   "step": "6",
+   "name": "Audio analysis (the timing backbone)",
+   "does": "librosa beat_track for BPM and the beat grid (snap every cut to a beat). Word-timed transcript (faster-whisper word_timestamps, or sherpa-onnx in overlapping windows). UVR MDX-Net vocal stem. Re-time on the stem (RMS above about -38 dB). Report the length, a slow hook, misheard words, changed lyrics and brand pronunciation. Trim the intro so the voice arrives within 0.3 s.",
+   "gate": "The stem sits about 30 dB below the mix in instrumental parts. Slow hook (more than 3 s before the first problem line): the user regenerates that opening in Suno before any visuals, and a slow hook never ships. A sung change that alters meaning goes back through Script Lab FIX (tests 3, 5 to 10, 13, 14, or the full gate for a core rung) and is re-sung with Replace Section.",
+   "human_checkpoint": "No numbered gate; the user regenerates openings or lines in Suno",
+   "tools_models": "librosa; faster-whisper (small.en/medium.en) or sherpa-onnx-whisper-small.en int8; UVR-MDX-NET-Voc_FT.onnx"
+  },
+  {
+   "step": "7/7a",
+   "name": "Visual plan and shot logic",
+   "does": "Show what is sung: every line gets its own picture, changing every 1.5 to 3.5 s. Group lines into sequences of 3 to 6 shots, each up to 15 s, that share one audio slice (2-minute song: 8 to 10 sequences; S90: 6 to 8; C45: 3 to 5). The hook shows the problem from frame 1 and the failed attempt by about 3 s. Write each shot as 'who does what to what, and what visibly changes'. Run the 10 shot-logic tests: one-second read; cause and visible result in the same shot; contrast, not stunt, for abstract lines; narrator asides set up the next idea; real-world logic; edit effects stay in the edit; one panel = one moment = one state per character; the prop that carries the line is exact; the thing that carries the line is the subject; a blocked or simplified shot must still carry its line. List the characters, states, props and settings.",
+   "gate": "Shot logic table (line | who does what | what visibly changes | what a stranger reads in 1 second | pass/fail). Only passing shots go to Phase 9.",
+   "human_checkpoint": "none (table shown at GATE 6)",
+   "tools_models": "none"
+  },
+  {
+   "step": "8",
+   "name": "Style bible, character bible and sheets",
+   "does": "8a: style block (9:16 for scenes), closing line, motion guard, a palette of 4 to 6 named colours, character rules (the product is never a character). 8b: a locked character bible pasted word for word into prompts. 8c sheets in order on Nano Banana 2 at 2K: hero sheet (16:9 or 1:1, four views plus three expressions), human sheet, group sheet, product sheet (label checked letter by letter), setting sheets, key prop sheet with the exact reading. 8d: state and variant sheets. 8e: optional Higgsfield reference elements (H3 does not read them). 8f: the reference flow table. 8g: consistency checks after every image and every clip.",
+   "gate": "Each sheet is checked at full size before the next. 8g: face, details and outfit match; body matches the sheet or state sheet; sidekicks keep size and order; label single and readable; no clones, nobody floats, props match. A character that drifts is retaken with its sheet moved earlier.",
+   "human_checkpoint": "GATE 5: the user approves every sheet before any storyboard or video",
+   "tools_models": "Nano Banana 2 (2K); Higgsfield reference elements"
+  },
+  {
+   "step": "9",
+   "name": "Storyboard image per sequence",
+   "does": "One image holds every shot as panels: 3 shots on a 16:9 canvas of three 9:16 panels; 4 to 6 shots on a 4:5 canvas in a 2 x 3 grid. Thin white gutters, no text. References are the sheets, the setting, the prop sheet and the previous storyboard. Each panel is one frozen moment with people counted and exact prop readings. The hook storyboard is made and checked first.",
+   "gate": "Storyboard check: open at full size, fill the shot-logic row for every panel, and check clones, floating, props and subject size. Any fail means regenerate. Never send a storyboard to H3 that has not been looked at. The hook storyboard is checked at phone size with the text hook, sound off.",
+   "human_checkpoint": "GATE 6: the user approves the storyboards with the shot logic table, hook storyboard first",
+   "tools_models": "Image model not named in Phase 9 (sheets and concept frames are Nano Banana 2)"
+  },
+  {
+   "step": "10",
+   "name": "Video generation (MiniMax H3 on Higgsfield)",
+   "does": "Reference mode (up to 9 images and up to 3 audio clips of 15 s max, no start or end frame) for every singing sequence. Keyframe mode (start frame, optional end frame, no references or audio) for non-singing shots. The two modes are never mixed. The audio reference is the vocal-only stem slice from the sequence's first frame, with a 0.03 s fade, padded to whole seconds; duration = the padded length. Tokens <<<image_1>>> and <<<audio_1>>> in upload order. The 7-part prompt: style block, references, timeline with one action per shot, transitions ('exactly N shots'), lip-sync block, camera, motion guard. Aspect 9:16 set explicitly. Batch 2 on singing and hook sequences. Fallbacks: split into 2 clips, then a keyframe render plus Sync Lipsync 3. An NSFW block means redesigning the shot. Budget preflight before rendering.",
+   "gate": "The cross-correlation of the clip audio with the reference should peak at 0 ms lag. Budget: price per second times seconds times takes, plus about 30% retakes, with the balance checked right before submitting.",
+   "human_checkpoint": "none",
+   "tools_models": "MiniMax H3 (Higgsfield; no model id, resolution or declined_preset_id given); Sync Lipsync 3 (fallback)"
+  },
+  {
+   "step": "11",
+   "name": "Deliverables before rendering",
+   "does": "Per sequence: a timing table (shot, seconds, lyric, what you see, one-second read), the storyboard prompt with its ordered refs, the video prompt with refs and audio, slices named SEQ_vocal_<start>-<end>_pad<N>s.mp3 plus fallback splits, and the edit placement. All of it saved in the project doc with the style and character bibles and the sheet ID table.",
+   "gate": "none",
+   "human_checkpoint": "none",
+   "tools_models": "project doc"
+  },
+  {
+   "step": "12",
+   "name": "Edit and assembly (Higgsfield sandbox)",
+   "does": "Find renders with show_generations and download them. Mandatory frame check: one middle frame per shot on contact sheets. Sync check by cross-correlation; trim with faster-whisper if the lag is not 0. Normalize to 1080x1920 at 30 fps (crop square clips to 810x1440 by motion). Fit clips with trim or setpts speed-ups up to about 2.7x. Concat in song order over the master song from the trim point, with clip audio muted and a 1 s fade at the end. Edit effects are added here. Captions are the words as sung, 1 to 3 per card. Then the hook super, other supers, an end card with the CTA, offer, guarantee and fine print, the upload, and a 9:16 export (4:5 if asked).",
+   "gate": "Frame check: run the 7a tests and 8g checks on every frame, list failing shots with fixes, and retake before the final edit. If frames can't be viewed, say so plainly. Caption safe zone: top 14% and bottom 20% clear.",
+   "human_checkpoint": "The user sees the list of failing shots",
+   "tools_models": "ffmpeg, faster-whisper medium.en plus difflib alignment; Higgsfield show_generations, media_upload, media_confirm"
+  },
+  {
+   "step": "13",
+   "name": "QA and policy",
+   "does": "Sound-off watch (do the supers tell the story; one-second read per shot). Hook check on the first 3 s at phone size, sound off, then sound on (first sung word by about 1 s, problem by about 3 s). Sheets match (8g); lip-sync stays on its picture; product shown before its name; no generated text; Meta ad review risk on an exaggerated before-and-after (keep a fallback hook with a normal figure); watch at phone size.",
+   "gate": "Any shot that looks pretty but means nothing is replaced.",
+   "human_checkpoint": "The user decides on the Meta fallback hook",
+   "tools_models": "none"
+  }
+ ],
+ "numbers": [
+  {
+   "key": "video model",
+   "value": "MiniMax H3 on Higgsfield",
+   "quote": "lip-synced multi-shot storyboard clips on MiniMax H3, and the final edit",
+   "line": 3
+  },
+  {
+   "key": "video modes (cannot mix)",
+   "value": "Reference mode vs keyframe mode, never mixed in one generation",
+   "quote": "H3 has two modes that **cannot be mixed in one generation**",
+   "line": 330
+  },
+  {
+   "key": "reference mode inputs and use",
+   "value": "Up to 9 images + up to 3 audio clips (15 s max each), no start/end frame; every singing or talking sequence",
+   "quote": "| Reference mode | Up to 9 images + up to 3 audio clips (each 15s max); no start or end frame | Every sequence with singing or talking on screen (lip sync) |",
+   "line": 334
+  },
+  {
+   "key": "keyframe mode inputs and use",
+   "value": "Start frame, optional end frame, no refs, no audio; non-singing shots",
+   "quote": "| Keyframe mode | Start frame, optional end frame; no references, no audio | Non-singing shots that need exact framing |",
+   "line": 335
+  },
+  {
+   "key": "H3 reference order",
+   "value": "Image 1 = storyboard, then character/state sheets, then setting; max 9; drop the setting first",
+   "quote": "Image 1 = the storyboard, then every character and state sheet that appears, then the setting | Up to 9 images; drop the setting before dropping a character sheet",
+   "line": 301
+  },
+  {
+   "key": "H3 elements",
+   "value": "H3 does not read Higgsfield elements; attach sheet images directly",
+   "quote": "MiniMax H3 does not read elements, so for H3 always attach the sheet images directly as image references.",
+   "line": 294
+  },
+  {
+   "key": "clip max seconds",
+   "value": "15 s per sequence (H3 limit)",
+   "quote": "each up to 15 seconds (H3's limit), that share one audio slice",
+   "line": 222
+  },
+  {
+   "key": "H3 duration rule vs audio",
+   "value": "Duration = vocal-stem slice padded with silence to a whole number of seconds; 0.03 s fade-out; no +1 s margin, no 5 s minimum",
+   "quote": "cut to start exactly on the sequence's first frame (in song time), faded out over 0.03s, padded with silence to a whole number of seconds. Render duration = that padded length.",
+   "line": 338
+  },
+  {
+   "key": "aspect ratio",
+   "value": "9:16 set explicitly ('auto' in keyframe mode returns square 2048)",
+   "quote": "\"auto\" in keyframe mode returns square 2048 video that then has to be cropped.",
+   "line": 348
+  },
+  {
+   "key": "aspect (style block)",
+   "value": "9:16 for scenes",
+   "quote": "(look, materials, lighting, palette mood, 9:16 for scenes)",
+   "line": 258
+  },
+  {
+   "key": "export formats",
+   "value": "9:16, plus 4:5 if asked",
+   "quote": "Export 9:16, plus 4:5 if asked.",
+   "line": 376
+  },
+  {
+   "key": "final resolution and frame rate",
+   "value": "1080x1920, 30 fps; square clips cropped 810x1440 toward the motion",
+   "quote": "Normalize to 1080x1920, 30 fps. For square clips, crop 810x1440 toward where the motion is",
+   "line": 370
+  },
+  {
+   "key": "shots per H3 take (plan)",
+   "value": "3 to 6 shots per sequence",
+   "quote": "of 3 to 6 shots, each up to 15 seconds (H3's limit)",
+   "line": 222
+  },
+  {
+   "key": "shots per H3 take (lesson)",
+   "value": "3 reliable, 6 possible with the split fallback ready",
+   "quote": "H3 handles 3 shots per take reliably; 6 is possible but keep the split fallback ready.",
+   "line": 395
+  },
+  {
+   "key": "sequences per tier",
+   "value": "2-min song 8 to 10; S90 6 to 8; C45 3 to 5",
+   "quote": "A 2-minute song is about 8 to 10 sequences, an S90 song about 6 to 8, a C45 about 3 to 5; budget for it.",
+   "line": 222
+  },
+  {
+   "key": "picture-change cadence",
+   "value": "Every 1.5 to 3.5 s; one line, one picture",
+   "quote": "Every line gets its own picture, and the picture changes every 1.5 to 3.5 seconds. Ten seconds of one character singing in one place will be scrolled past.",
+   "line": 211
+  },
+  {
+   "key": "picture-change cadence (lesson)",
+   "value": "1.5 to 3.5 s per picture",
+   "quote": "Ten seconds of one shot loses the viewer; 1.5 to 3.5 seconds per picture holds them.",
+   "line": 394
+  },
+  {
+   "key": "takes per sequence",
+   "value": "Batch 2 on singing and hook sequences; batch 1 on other keyframe clips if credits are tight",
+   "quote": "on singing sequences and always on the hook sequence (keep the take whose frame 1 reads best at phone size); batch 1 on other keyframe clips if credits are tight.",
+   "line": 349
+  },
+  {
+   "key": "hook sequence renders",
+   "value": "Hook sequence rendered twice",
+   "quote": "The hook sequence is rendered twice.",
+   "line": 30
+  },
+  {
+   "key": "budget and retake allowance",
+   "value": "Price per second x rendered seconds x takes + about 30% retakes; check the shared balance right before submitting",
+   "quote": "price per second times total rendered seconds times takes, plus about 30% retakes. Check the balance right before submitting (it is shared with other sessions).",
+   "line": 353
+  },
+  {
+   "key": "retake rule",
+   "value": "Same references in the same order; change one thing",
+   "quote": "Change one thing in the prompt, never rebuild it from scratch",
+   "line": 302
+  },
+  {
+   "key": "image model: concept frames + credits",
+   "value": "Nano Banana 2, about 2 credits each, checked at phone size with the text hook",
+   "quote": "Nano Banana 2 in the look planned for the ad (it becomes the 8a style block), about 2 credits each, checked at phone size with the text hook laid on top.",
+   "line": 105
+  },
+  {
+   "key": "image model: sheets + quality",
+   "value": "Nano Banana 2 at 2K",
+   "quote": "### 8c. Sheet types and prompt templates (Nano Banana 2, 2K)",
+   "line": 272
+  },
+  {
+   "key": "hero sheet layout",
+   "value": "16:9 or 1:1, plain soft background, four views plus three expression close-ups",
+   "quote": "Character reference sheet on a plain soft cream background showing [character bible] in four views side by side (front, three-quarter, side, back) plus three expression close-ups",
+   "line": 276
+  },
+  {
+   "key": "palette",
+   "value": "4 to 6 named colours",
+   "quote": "4 to 6 named colors, from the brand if it has them.",
+   "line": 261
+  },
+  {
+   "key": "storyboard layout (3 shots)",
+   "value": "16:9 canvas, three 9:16 panels",
+   "quote": "3 shots: 16:9 canvas, three 9:16 panels side by side.",
+   "line": 317
+  },
+  {
+   "key": "storyboard layout (4 to 6 shots)",
+   "value": "4:5 canvas, 2 x 3 grid of 9:16 panels",
+   "quote": "4 to 6 shots: 4:5 canvas, a 2 x 3 grid of 9:16 panels, read left to right, top row first.",
+   "line": 318
+  },
+  {
+   "key": "storyboard text",
+   "value": "Thin white gutters, no text, numbers or speech bubbles",
+   "quote": "Thin white gutters. No text, numbers or speech bubbles.",
+   "line": 319
+  },
+  {
+   "key": "song/vocal model",
+   "value": "Suno, generated by the user by hand (no ElevenLabs anywhere in the skill)",
+   "quote": "the user gets the released lyrics with their Suno style prompts and generates each song in Suno.",
+   "line": 187
+  },
+  {
+   "key": "Suno style prompt",
+   "value": "Under 25 words, always 'clear lead vocal, lyrics up front'",
+   "quote": "under 25 words (always include \"clear lead vocal, lyrics up front\" so every word is understood)",
+   "line": 176
+  },
+  {
+   "key": "Suno overrun",
+   "value": "Suno runs 10 to 25 s longer than planned; aim low in the tier",
+   "quote": "Suno tracks usually run 10 to 25 seconds longer than planned (Phase 6), so aim at the tier's lower end.",
+   "line": 57
+  },
+  {
+   "key": "lyric lines per tier (word budget)",
+   "value": "35 to 55 lines for 90 s; 23 to 37 for S60; 18 to 27 for C45",
+   "quote": "about 35 to 55 lyric lines for 90 seconds, 23 to 37 for an S60, 18 to 27 for a C45.",
+   "line": 166
+  },
+  {
+   "key": "syllables per lyric line",
+   "value": "8 to 14",
+   "quote": "Lines can be long (8 to 14 syllables); clarity beats singability.",
+   "line": 158
+  },
+  {
+   "key": "chorus repeats",
+   "value": "At least twice, carries the picture and its name",
+   "quote": "The chorus carries the picture and its name, teaches the mechanism and repeats at least twice.",
+   "line": 161
+  },
+  {
+   "key": "brand mentions",
+   "value": "At least twice, first only after the product is shown",
+   "quote": "Brand name sung or spoken at least twice, the first time only after the product is shown.",
+   "line": 163
+  },
+  {
+   "key": "length tiers (router)",
+   "value": "D15 10-15 s; D30 25-35 s; C45 40-50 s; S60 55-65 s; S90 80-100 s; L150 2-3 min; V300 3-6 min; no story under 55 s",
+   "quote": "D15 (10 to 15 s, demo), D30 (25 to 35 s, demo), C45 (40 to 50 s, conversation or problem demo), S60 (55 to 65 s, short story), S90 (80 to 100 s, story: the default first test); L150 (2 to 3 min) and V300 (3 to 6 min) only with a stated reason. No story under 55 s.",
+   "line": 38
+  },
+  {
+   "key": "song first test tiers",
+   "value": "S60 or S90 (55 to 100 s) story tier plus a C45 (40 to 50 s) short tier",
+   "quote": "a C45 (40 to 50 seconds) problem song with one plain mechanism line (the Penrose model, 47 s)",
+   "line": 57
+  },
+  {
+   "key": "swipe song lengths",
+   "value": "47 to 189 s, median 113",
+   "quote": "The swipe songs run 47 to 189 seconds (median 113).",
+   "line": 8
+  },
+  {
+   "key": "Script Lab ear rule",
+   "value": "Core lines under 12 words, none over 17, grade 7",
+   "quote": "write for the ear (core lines under 12 words, none over 17, grade 7).",
+   "line": 40
+  },
+  {
+   "key": "spines",
+   "value": "2 or 3 spines of about 80 words",
+   "quote": "2 or 3 spines of about 80 words, one picked.",
+   "line": 39
+  },
+  {
+   "key": "Script Lab release and retake cap",
+   "value": "85/100 with no critical fail; up to 3 rewrite loops",
+   "quote": "Release at 85 or more with no critical fail (a core rung the readers can't follow, a missing rung, a speaker or timeline break, an invented fact). Up to 3 rewrite loops, then the user decides.",
+   "line": 41
+  },
+  {
+   "key": "hook bar",
+   "value": "9 gates; every channel A or A+; A- rewritten",
+   "quote": "all 9 gates pass and every channel grades A or A+ (A+ 10, A 9, A- 8, B+ 7). An A- goes back for a rewrite.",
+   "line": 25
+  },
+  {
+   "key": "hook stacks per ad",
+   "value": "3 (a master and 2 variants, at least 2 hook types)",
+   "quote": "3 stacks (a master and 2 variants, at least 2 hook types), each with a concept frame, picked at the script gate.",
+   "line": 30
+  },
+  {
+   "key": "spoken/sung hook words",
+   "value": "Problem in first 6 words; sentence 1 is 8 to 14 words",
+   "quote": "first word at 0.0 s; the problem, its cause or the failed fix in the first 6 words; sentence 1 is 8 to 14 words",
+   "line": 29
+  },
+  {
+   "key": "song hook timing",
+   "value": "First sung word by about 1 s; problem sung by about 3 s",
+   "quote": "the first sung word lands by about 1 s and the problem is sung by about 3 s",
+   "line": 103
+  },
+  {
+   "key": "song hook timing (lyric rule)",
+   "value": "Hook in the first 2 s of vocal",
+   "quote": "The hook lands in the first 2 seconds of vocal, and the problem is sung by about 3 seconds (Phase 3b).",
+   "line": 157
+  },
+  {
+   "key": "slow hook threshold",
+   "value": "More than 3 s before the first problem line: regenerate in Suno; never ships",
+   "quote": "a slow hook (more than 3 seconds before the first problem line: the user regenerates that opening in Suno before any visuals; a slow hook never ships)",
+   "line": 206
+  },
+  {
+   "key": "intro trim",
+   "value": "Voice arrives within 0.3 s of the ad start",
+   "quote": "start the ad on a beat just before the first vocal (for example 1.23s) so the voice arrives within 0.3s.",
+   "line": 207
+  },
+  {
+   "key": "text hook",
+   "value": "4 to 10 words, top third, from frame 1",
+   "quote": "4 to 10 words from frame 1, top third, never over the subject.",
+   "line": 28
+  },
+  {
+   "key": "hook super and other supers",
+   "value": "Hook super from frame 1 to about 3 s, 4 to 10 words; other supers 2 to 6 words",
+   "quote": "Other supers (2 to 6 words) at the awareness stage",
+   "line": 374
+  },
+  {
+   "key": "captions size/words and safe zones",
+   "value": "1 to 3 words per card, about 0.3 s tail; top 14% and bottom 20% clear",
+   "quote": "1 to 3 words per card, timed to the word timestamps with about 0.3s tail, inside the safe zone (top 14% and bottom 20% clear).",
+   "line": 373
+  },
+  {
+   "key": "BPM / beat grid",
+   "value": "librosa beat_track; snap every cut to the nearest beat",
+   "quote": "`librosa.beat.beat_track` gives the BPM and beat times. Snap every cut to the nearest beat.",
+   "line": 202
+  },
+  {
+   "key": "transcript windows (sherpa-onnx)",
+   "value": "8 s every 2 s, then 2.5 to 3 s every 0.5 s; faster-whisper word_timestamps preferred in the sandbox",
+   "quote": "run overlapping windows (8s every 2s, then 2.5 to 3s every 0.5s)",
+   "line": 203
+  },
+  {
+   "key": "vocal stem model and check",
+   "value": "UVR-MDX-NET-Voc_FT.onnx, input [1,4,3072,256], n_fft 6144, hop 1024, compensation 1.021; stem about 30 dB below the mix in instrumentals",
+   "quote": "input shape [1,4,3072,256], n_fft 6144, hop 1024, compensation 1.021; librosa STFT works if torch is unavailable). Check it: the stem should sit about 30 dB below the mix in instrumental parts.",
+   "line": 204
+  },
+  {
+   "key": "re-time threshold",
+   "value": "RMS above about -38 dB on the stem; expect 1 to 2 s shifts",
+   "quote": "energy segments on the vocal stem (RMS above about -38 dB) give clean phrase starts and pauses.",
+   "line": 205
+  },
+  {
+   "key": "QA: sync check method",
+   "value": "Cross-correlate clip audio with the reference slice; peak at 0 ms lag; otherwise faster-whisper trim",
+   "quote": "Check sync: cross-correlate each singing clip's audio with its reference slice. Lag 0 means place at its song time. If the lag is not 0 or H3 re-sang the line slower, find the words with faster-whisper and trim the clip start so the first word lands on its song time.",
+   "line": 369
+  },
+  {
+   "key": "QA: frame sampling",
+   "value": "One frame from the middle of every shot; contact sheets about 180x320 per frame, WebP q40, one sheet per 6 to 8 clips, base64 under 19,000 characters",
+   "quote": "grab one frame from the middle of every shot (from the card's shot times) and build small contact sheets (about 180x320 per frame, WebP quality 40, one sheet per 6 to 8 clips; keep each base64 output under 19,000 characters or split it).",
+   "line": 368
+  },
+  {
+   "key": "QA: caption word timing",
+   "value": "faster-whisper medium.en on the full mix aligned to lyrics with difflib",
+   "quote": "faster-whisper medium.en with word timestamps on the full mix, aligned to the known lyrics with difflib; interpolate the few unmatched words.",
+   "line": 378
+  },
+  {
+   "key": "max speed-up",
+   "value": "About 2.7x with setpts",
+   "quote": "speed up with setpts when the line is shorter than the action (up to about 2.7x reads fine for a quick action).",
+   "line": 371
+  },
+  {
+   "key": "audio mix",
+   "value": "Master song is the only audio; clip audio muted; 1 s fade at the end; no LUFS/true-peak target",
+   "quote": "Lay the master song (instruments plus vocals) from the trim point. Mute all clip audio. Fade picture and audio over the last second.",
+   "line": 372
+  },
+  {
+   "key": "fine print (no AI label rule exists)",
+   "value": "'Results vary' plus any FDA line for US traffic",
+   "quote": "the fine print (\"Results vary\" plus any FDA line for US traffic)",
+   "line": 375
+  },
+  {
+   "key": "lip-sync fallback",
+   "value": "Keyframe render + Sync Lipsync 3",
+   "quote": "keyframe render, then Sync Lipsync 3 with the vocal slice (test it first; it may not detect a non-human face).",
+   "line": 351
+  },
+  {
+   "key": "audio slice naming",
+   "value": "SEQ_vocal_<start>-<end>_pad<N>s.mp3",
+   "quote": "named `SEQ_vocal_<start>-<end>_pad<N>s.mp3`, plus fallback splits.",
+   "line": 361
+  },
+  {
+   "key": "sandbox lifetime",
+   "value": "Wiped about 10 s after each call",
+   "quote": "It is wiped about 10 seconds after each call, so chain work and upload results in the same command.",
+   "line": 193
+  },
+  {
+   "key": "Hook Library freshness",
+   "value": "Under 60 days old",
+   "quote": "check the brand category's Hook Library in the project (under 60 days old, covering song ads).",
+   "line": 101
+  },
+  {
+   "key": "live read metrics (paid)",
+   "value": "About 1,000 impressions per stack; hook rate floor 30%/target 40%/stretch 50%; hold rate floor 25%/target 35%; cost per purchase at ad-set level decides",
+   "quote": "(about 1,000 impressions per stack): hook rate (3-second plays ÷ impressions) floor 30%, target 40%, stretch 50%; hold rate (15-second plays ÷ 3-second plays) floor 25%, target 35%.",
+   "line": 31
+  },
+  {
+   "key": "human checkpoint GATE 1",
+   "value": "Avatar confirmed",
+   "quote": "**GATE 1: avatar confirmed.**",
+   "line": 53
+  },
+  {
+   "key": "human checkpoint GATE 2",
+   "value": "Genre and tiers",
+   "quote": "**GATE 2: genre and the tiers (a story tier and a short tier).**",
+   "line": 84
+  },
+  {
+   "key": "human checkpoint GATE 3",
+   "value": "Angle and picture",
+   "quote": "**GATE 3: angle and picture confirmed.**",
+   "line": 96
+  },
+  {
+   "key": "human checkpoint GATE 4",
+   "value": "Spine + master hook stack; then the user makes the songs in Suno",
+   "quote": "GATE 4: the user picks a spine and its master hook stack (plus the 2 variants), from the concept frames and the graded table.",
+   "line": 187
+  },
+  {
+   "key": "human checkpoint GATE 5",
+   "value": "Every sheet approved",
+   "quote": "**GATE 5: the user approves every sheet before any storyboard or video is generated.**",
+   "line": 312
+  },
+  {
+   "key": "human checkpoint GATE 6",
+   "value": "Storyboards + shot logic table, hook first",
+   "quote": "**GATE 6: show the user the storyboards with the shot logic table, the hook storyboard first. Video starts only after they approve.**",
+   "line": 326
+  }
+ ],
+ "claims": [
+  {
+   "claim": 1,
+   "verdict": "TRUE",
+   "quote": "### 8c. Sheet types and prompt templates (Nano Banana 2, 2K)",
+   "line": 272,
+   "note": "Song part confirmed: sheets use Nano Banana 2 at 2K (L272), and concept frames use Nano Banana 2 at about 2 credits each (L105). Caveat: Phase 9 storyboards name no image model or resolution; Nano Banana 2 for storyboards is only implied (8e lists it among models that read elements). Cross-check in the hub (readymerce-ads-machine L109): 'Realistic people: GPT Image 2 (`gpt_image_2`, quality high, 2k)' and 'GPT Image 2.5 smoothed the skin into a plastic look'. The hub also says 'Stylized work keeps the style skill's model', so Nano Banana 2 in the song skill does not break the hub. Podcast and carousel were not checked here."
+  },
+  {
+   "claim": 2,
+   "verdict": "TRUE",
+   "quote": "padded with silence to a whole number of seconds. Render duration = that padded length.",
+   "line": 338,
+   "note": "The song skill uses '= padded slice'. Drama confirms the other side (readymerce-drama-ads L542: 'Generate the H3 clip at the stem length plus 1 s. An H3 job whose duration equals the audio length fails'). Risk in the song rule: no +1 s margin and no 5 s floor, so a slice that already ends on a whole second renders at exactly the audio length, the case drama says fails."
+  },
+  {
+   "claim": 5,
+   "verdict": "TRUE",
+   "quote": "of 3 to 6 shots, each up to 15 seconds (H3's limit)",
+   "line": 222,
+   "note": "The song's own lessons log (L395) hedges: 'H3 handles 3 shots per take reliably; 6 is possible but keep the split fallback ready.' Animation L549 says '2 to 3 shots per take reliably; 4 is possible'. The hub G1 card (ads-machine L90) says '2 to 4 shots per clip'. Internal tension: a 15 s sequence of 3 shots gives 5 s per picture, which breaks the skill's own 1.5 to 3.5 s cadence (L211)."
+  },
+  {
+   "claim": 6,
+   "verdict": "PARTIAL",
+   "quote": "the user gets the released lyrics with their Suno style prompts and generates each song in Suno.",
+   "line": 187,
+   "note": "Checked part by part. Suno, generated by the user: TRUE (L187, L105, L206). Lags the hub: TRUE (last changelog 2026-10-04; hub v13.3 is 2026-10-08 and the hub is now v13.4). No 2K: TRUE for H3 (2K appears only on sheets, L272; Phase 10 sets no resolution). No declined_preset_id: TRUE (the string is absent). Old sync check: TRUE (a single cross-correlation 'should peak at 0 ms lag', L338 and L369, not the hub G6 windowed drift check). 'No prompt card': PARTIAL. Phase 10 has its own 7-part reference-mode prompt (L340-347: style block, references, timeline, transitions, lip-sync block, camera, motion guard) but lacks the G1 card's hands-and-props line and background-action line. 'StraightScale runs used ElevenLabs Music': not in this skill (no ElevenLabs mention at all). The hub itself says 'Song ads keep Suno for the song itself (`readymerce-song-ads`)' (ads-machine L122). In the repo, StraightScale CREDITS.md (motion-studio/projects/straightscale-2026-w43-3-reel-v2/CREDITS.md L21) shows eleven_music_v2_5 only as a music bed for a narrated reel. A song run with custom lyrics is asserted only in growth-engine/production/AI-VIDEO-PIPELINE.md L127; I found no run files for it."
+  },
+  {
+   "claim": 9,
+   "verdict": "TRUE",
+   "quote": "Lay the master song (instruments plus vocals) from the trim point. Mute all clip audio. Fade picture and audio over the last second.",
+   "line": 372,
+   "note": "No LUFS, true-peak or loudness rule anywhere in the song skill (grep for LUFS/dBTP/loud/normaliz: none). Cross-checks: animation L297 'about -16 LUFS, peaks under -1.5 dB'; podcast L299 'one loudness pass (about -16 LUFS)'; drama L816 '-14 LUFS integrated (-15 to -13), true peak -1 dBTP'. The motion skill was not checked."
+  },
+  {
+   "claim": 3,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "padded with silence to a whole number of seconds",
+   "line": 338,
+   "note": "The song skill has no minimum clip length. Hub G1 says 5 to 15 s and 'a 4-second render failed in testing'. A short C45 sequence or a split fallback clip could be padded to only 3 or 4 s. This is a gap to close in the shared standard."
+  },
+  {
+   "claim": 4,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "Lines can be long (8 to 14 syllables); clarity beats singability.",
+   "line": 158,
+   "note": "Songs budget lyric lines per tier (L166) and syllables per line, not words per clip. There is no words-per-15-s rule for sung clips."
+  },
+  {
+   "claim": 7,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "keyframe render, then Sync Lipsync 3 with the vocal slice (test it first; it may not detect a non-human face).",
+   "line": 351,
+   "note": "Not about this skill, but checked while here. Hub L78 lists only X1 to X4. Drama L116 and L123 add X5 (Kling 3.0 and Omni, Seedance 2.5, Cinema Studio 4.0, Veo 3.1, Gemini Omni Flash, Sync Lipsync 3). Hub G1 bans Seedance, Veo and Gemini/Omni, but G2 ALLOWS Kling 3.0 as a fallback, so 'hub says never' is wrong for Kling. The song skill itself uses Sync Lipsync 3 as a second fallback (L351) and lists Seedance 2.0 and Kling 3.0 as element readers (L294)."
+  },
+  {
+   "claim": 10,
+   "verdict": "TRUE",
+   "quote": "Normalize to 1080x1920, 30 fps.",
+   "line": 370,
+   "note": "The song skill is on the 30 fps side. Drama L799 says '24 fps. Conform every clip to 24 (or 23.976).'"
+  },
+  {
+   "claim": 11,
+   "verdict": "TRUE",
+   "quote": "inside the safe zone (top 14% and bottom 20% clear)",
+   "line": 373,
+   "note": "The song skill is on the bottom-20% side. Drama L398 says 'The top 14% and bottom 35 to 40% are UI.'"
+  },
+  {
+   "claim": 12,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "the fine print (\"Results vary\" plus any FDA line for US traffic)",
+   "line": 375,
+   "note": "The song skill has no AI tag or disclosure rule either way; the end card carries only 'Results vary' and an FDA line."
+  },
+  {
+   "claim": 15,
+   "verdict": "TRUE",
+   "quote": "frame 1 is the problem, big, where it lives on the body, odd or exaggerated and funny, already moving, readable alone at phone size; a peer of the buyer; in a cartoon, one real-looking body part.",
+   "line": 27,
+   "note": "The Hook card carried word for word here is DTC-health tuned: body-part rules (L27) and a Meta check of 'no \"your [condition]\" or age label in the text, the person annoyed or comic, never ashamed, never medical severity' (L26). The song visual rules repeat it ('on the body where it lives', L220). There is no B2B/services profile."
+  },
+  {
+   "claim": 16,
+   "verdict": "PARTIAL",
+   "quote": "Cost per purchase at ad-set level decides.",
+   "line": 31,
+   "note": "The card's live read uses only paid metrics: impressions, hook rate, hold rate, CTR and cost per purchase at ad-set level (L31). The Script Lab card's LEARN line (L42, 'After launch, LEARN maps drop-offs to lines') names no data source, and H8 is in the Hook Lab, not checked here. No organic metric appears anywhere in the song skill."
+  },
+  {
+   "claim": 18,
+   "verdict": "TRUE",
+   "quote": "C45 (40 to 50 s, conversation or problem demo)",
+   "line": 38,
+   "note": "The router side is confirmed in the song skill's Script Lab card (L38, and L57 'a C45 (40 to 50 seconds)'). The podcast side is confirmed in readymerce-podcast-ads L75: '35 to 45 seconds: the podcast C45 budget'."
+  }
+ ],
+ "story_structures": [
+  {
+   "code": "4c-NP (swipe 06 levelfifty)",
+   "name": "Named-person story: one person, three tiny scenes",
+   "shape": "H name + age or role -> SC1, SC2, SC3 (tiny concrete scenes with times, places, objects) -> FF shelf of failed fixes, each killed with WHY -> T 'Here's what nobody told X' + the cause in one plain line, named -> M chorus teaches the picture and repeats its name -> D the fix shown before it is named -> TL 'three weeks in' -> PO scene 3 reversed exactly -> ID close",
+   "organic_fit": "The closest match to 'POV, a day in the buyer's life, then the mechanism revealed'. Example: 'This is Erion, he runs a dental clinic in Durres': filming a reel at 11 pm, 4 likes, an unanswered DM at lunch, a boosted post that brought likes and no bookings. Failed fixes (posting daily, the nephew, boosting) each get a reason. The chorus names the picture (for example, the shop window with nobody at the till). The payoff reverses scene 1: the phone buzzes with a booked consult. Close on identity plus a spoken organic CTA ('Comment SISTEM and we'll send the 3 steps' / 'Send this to an owner who needs it'). Runs S60 (55 to 65 s); no price, offer or guarantee. Strongest default for a story post."
+  },
+  {
+   "code": "4c-CF (swipes 08 MERODA, 01 RYZE)",
+   "name": "Confession (first person), with a count or an honest dip",
+   "shape": "H bold result others noticed, or an admission with a number -> FF precise failures ('orange by noon, cakey by 3pm') -> SC low point ('maybe this is just my age') -> D + objection killed -> demo/PO -> M reframe chorus that removes blame ('It was never the skin, it was never the age') -> count payoff + name ('47 tries... 48 was the one'); RYZE variant: TL day 1 nothing, 'you kind of feel scammed', then early results",
+   "organic_fit": "An owner's or founder's first-person song: 'I posted 300 times last year and got 4 clients.' The reframe chorus ('It was never the posting, it was never the algorithm') removes blame, which fits organic well and earns comments and shares. The count payoff and the honest dip (week 1 nothing) build trust. Needs a real person and real numbers (facts list). CTA: follow for part 2, or a comment keyword."
+  },
+  {
+   "code": "4c-AS (swipe 04 YURI)",
+   "name": "Antagonist story",
+   "shape": "H age + confession -> SC antagonist + deadline -> FF + why -> D a friend brings the fix + objection -> demo -> M vs the failed fixes -> ING -> PO social win (the antagonist asks 'what's that?') -> callback to the hook -> late brand reveal -> ID",
+   "organic_fit": "A rival business across the street that is always booked, a deadline (the slow season, a launch), and a friend who shows the method. The payoff is the rival asking 'who does your content?'. It is quotable, comic and earns sends. Never name a real competitor. The brand is said at most once, late (or only on the handle). CTA: comment keyword."
+  },
+  {
+   "code": "4c-CE (swipe 09 True Nutra)",
+   "name": "Characters explain: each part sings its own job",
+   "shape": "H conditional ('If a X took this...') -> each character walks on and sings one job paired with one visible symptom -> PO social ('friends ask...') -> PR -> U + CTA calling back the hook's person",
+   "organic_fit": "Recurring characters for a series. The culprits (the boosted post, the unanswered DM, the dead 'link in bio') or the method's parts (Hook, Script, Funnel, Follow-up) each sing one job tied to one visible business symptom. Save-worthy, because it teaches the system. The skill's 'the product is never a character' rule is about physical products, so for a service the steps can be characters. CTA: 'Save this so you remember the 4 jobs' or a comment keyword."
+  },
+  {
+   "code": "4c-TF (swipe 03 True Nutra)",
+   "name": "Two futures / 'if you took this'",
+   "shape": "H two futures ('the difference between... is one easy thing') -> SC told as the two futures -> T the one thing -> FF + why x2 -> M a picture (the dam) -> ING 'if you did X, it would...' -> PR -> routine + brand -> vs the failed fixes -> PO -> OF + G + U",
+   "organic_fit": "'The difference between a salon that posts and prays and one whose DMs book themselves is one thing.' Each 'if you did step N, it would...' line teaches one move. Drop OF, G and U urgency and end on save or follow. Makes the viewer pick a side, which drives comments."
+  },
+  {
+   "code": "4c-FB (swipe 07 Bioblade, 53 s)",
+   "name": "Fable",
+   "shape": "H 'Once was a soul who...' -> FF x2 -> T wrong cause (blame the tools, not the person) -> D -> each function as a visible action -> PO -> ID 'you're not broken, you never once were'",
+   "organic_fit": "'Once was a baker in Tirana who posted every dawn...' A gentle, shareable, blame-free story with a stylized mascot (felt or clay, one material). The skill rates it a story, so S60 or longer. The identity close is ideal for organic. CTA: follow, or send to a friend."
+  },
+  {
+   "code": "4c-PR (swipe 02 Penrose, 47 s)",
+   "name": "Problem rap (the natural C45 short tier)",
+   "shape": "H problem in their words -> promise ('what if one thing...') -> FF + why in one line of everyday physics -> M one plain line -> the fix keeps the current habit -> PO social -> price anchor vs money already spent -> OF -> brand + promise -> U + ID",
+   "organic_fit": "The cheapest song format (C45 is 3 to 5 sequences). 'Your page looks fire but your DMs are dead by noon.' One-line cause, then 'keep posting what you post, add one thing'. Replace the price anchor with a time anchor (hours already spent filming) and drop the offer. Spoken CTA with a comment keyword. Best default for a first organic song test or a hook-plus-chorus cut."
+  },
+  {
+   "code": "S05 / S01-TL",
+   "name": "Transformation timeline (result + timeframe, honest dip)",
+   "shape": "H result + timeframe ('hid X for 15 years... here's what happened after 30 days') -> TL first days / weeks / day 30, each part's job in time order -> FF killed in one line ('unlike creams on the surface') -> PO -> U -> OF -> ID",
+   "organic_fit": "A real client case study as a song: day 1, week 1 (nothing yet, the honest dip), day 30 (the calendar fills). Only with a real client's permission and real numbers from the facts list. CTA: 'Follow to see day 60' (a series hook)."
+  },
+  {
+   "code": "4b-MOVES",
+   "name": "The song moves menu (beat codes mapped to the belief ladder)",
+   "shape": "H (rung 0-1) -> SC (1-2) -> FF (3) -> T (4) -> promise (5) -> M taught in the chorus (6) -> D + ING (7) -> TL + PO + PR (8) -> OF, G, U (9-12) -> ID (13)",
+   "organic_fit": "Keep H through PR and ID. Replace rungs 9 to 12 (offer, guarantee, urgency, 'link below') with one organic spoken CTA. PR only as real social proof (client count or reviews as shown). The tier still decides how many moves fit."
+  },
+  {
+   "code": "7-VIS",
+   "name": "Visual treatments from the swipe file",
+   "shape": "Draw the claim on the body or object -> competitor products rendered playfully in yarn or clay -> genre or style switch where viewers usually drop -> one material for the whole ad -> a counter that climbs with the lyrics -> ingredients walk on as characters -> callbacks (an early object returns) -> flashback for 'like you used to'",
+   "organic_fit": "Series look for an agency account: one material (felt or clay) used every month so the brand is recognized; a climbing counter (posts made, DMs missed, hours spent); a genre switch at the mechanism verse to hold retention; competitors' tactics shown playfully (never real names). These work unchanged for organic."
+  }
+ ],
+ "organic_adaptation": [
+  "Close: replace rungs 9 to 12 (OF offer, G guarantee, U urgency and 'link below') and the Phase 12.9 end card ('CTA, the offer exactly as the page shows it, the guarantee, and the fine print') with one spoken organic CTA tied to the hub keyword funnel (comment KEYWORD, save, send to a friend, follow for part 2). No price, price anchor, guarantee or scarcity. Keep lyric rule 7 (the CTA is a spoken line so it can't be misheard).",
+  "Script Lab gate: its 12 rules include 'offer before the CTA' and the 100-point score expects offer and CTA rungs. Add an organic format adapter (or a song-organic variant of 18b) so a missing offer is not scored as a missing rung.",
+  "Length: the skill's first test is S60/S90 (55 to 100 s), 'No story under 55 s', and Suno adds 10 to 25 s. For organic, default to the C45 problem rap (40 to 50 s, 3 to 5 sequences) or a hook-plus-chorus cut of about 20 to 35 s. Keep S60 for series episodes. Add a sub-C45 row to the lines-per-tier rule (4d.11). Trim Suno intros and outros harder.",
+  "Hook rules: keep the 9 gates and 'no product, brand, mechanism name, price or offer in the first 3 s'. Replace the DTC-health parts ('where it lives on the body', 'in a cartoon, one real-looking body part', 'no \"your [condition]\" or age label', 'never medical severity', the before-and-after Meta check) with a B2B/services profile: the problem where it lives in the business (an empty DM inbox, an unbooked calendar, a phone face down, a post with 4 likes), the owner annoyed, never ashamed.",
+  "Metrics and learning: the live read is paid only (about 1,000 impressions per stack, hook rate, hold rate, CTR, 'Cost per purchase at ad-set level decides'). Replace with organic Insights: 3-second hold and skip rate, average watch time and completion, sends per reach, saves, follows per reach, keyword comments and funnel DMs, non-follower reach. 3 stacks per post can't be split-tested organically, so use Instagram Trial Reels or run the variants on different days. LEARN must read organic data.",
+  "Compliance and claims: 'Write at full selling strength... the brand's legal team reviews every script' does not apply to an agency's organic post (there is no legal team). Keep 'Facts stay real', and allow only real, permitted client results. Drop the 'Results vary'/FDA fine print and the Phase 13.6 Meta ad review fallback. Check Instagram community guidelines instead.",
+  "AI label: the skill has none. Add the shared rule (Instagram 'AI info' label for AI-generated characters and scenes, including stylized 3D, clay or felt) and a matching caption line if the house standard requires it.",
+  "Product reveal timing: the rules 'product shown before its name' and 'Brand name sung or spoken at least twice' are hard-sell for organic. The 'product' is the agency's method. Name the method (the UMP picture) in the chorus, say the brand at most once (end card or handle), turn discovery (D) into 'how the owner found the fix', and teach enough of the mechanism that the post is useful without buying (save-worthy).",
+  "Song generation: GATE 4 makes the user generate each song in Suno by hand, which blocks an automated weekly pipeline. Add an ElevenLabs Music route (eleven_music_v2_5 with lyrics, 2 to 3 takes, picked by a Whisper match to the lyrics) as an option, keep Suno as the alternative (the hub currently says 'Song ads keep Suno'), and keep a human listen gate before any video.",
+  "Language: lyrics in Albanian need the Suno-safe spelling rule extended (numbers as words, brand phonetics, the hub's G8 Albanian negation lesson 'nuk' vs 's''), and a word-by-word Whisper check of the sung lyrics. Captions in Albanian. The genre map has no Albanian or B2B-owner rows.",
+  "Swipe file: Appendix S is 9 US DTC consumer songs (supplements, skincare, cologne). Organic B2B needs its own reference set (refbank cards) with the same beat maps, and the 'MODELED ON' step should point there.",
+  "Human gates and cost: 6 numbered gates plus a manual Suno step is too heavy for a weekly organic cadence. Batch them into one approval queue (spine+hook, song listen, sheets, storyboards, final). Build the world once (style bible, character and prop sheets saved as Higgsfield elements, 8e) and run songs as a monthly series to reuse sheets.",
+  "Cover and caption: organic needs a cover frame (the text hook doubles as the reel title or cover) plus the post caption with the keyword; the skill delivers only the video. Send it to hub.py as a draft.",
+  "Exports and safe zones: keep 9:16 at 1080x1920. Unify caption and CTA safe zones with the shared standard (the song uses top 14% and bottom 20%; drama uses bottom 35 to 40% for Reels UI)."
+ ],
+ "visual_qa_overlap": "What the skill already does: (1) Concept frames per hook stack are checked at phone size with the text hook laid on top (3b.5). (2) The 10 shot-logic tests in Phase 7a run as a written table before any image (line | who does what | what visibly changes | 1-second read | pass/fail). (3) Sheets: each is checked at full size before the next; the product label is checked letter by letter; the 8g consistency checks run after every image and clip (face, details, outfit, body vs sheet or state sheet, sidekick size and order, single readable label, no clones, nobody floating, props match their reading); a drifting character is retaken with its sheet moved earlier; human GATE 5. (4) Storyboard check after every storyboard: every panel at full size, the shot-logic row filled, counts and clones, floating, impossible poses, props with a reason and matching the prop sheet, subject big enough at phone size. The hook storyboard is first, at phone size with the text hook, sound off, keeping the concept frame's subject and scale. Human GATE 6. (5) Prompts: a fixed 7-part H3 reference-mode structure, the motion guard and closing line, one action per shot, people counted, no edit effects in prompts (7a.6), one state per character (7a.7), exact prop readings (7a.8), and NSFW rewrites re-run through tests 1 to 9. There is NO prompt review step: the same agent writes and approves prompts. (6) Takes: Phase 12.2 grabs ONE frame from the middle of every shot at about 180x320, WebP q40, 6 to 8 clips per sheet, and runs the 7a and 8g tests; sync is a single cross-correlation; Phase 13 checks sound-off, the hook, sheet match, lip-sync on picture, product before name, no generated text. A fresh-agent Visual/Prompt/Take Reviewer would REPLACE self-review with an independent cold check: test 1 literally asks for 'a stranger', but today the author of the shot judges it (Script Lab already does this for words with its cold read). It would ADD: (a) a Prompt Reviewer that lints every storyboard and H3 prompt before spend against the hub G1 card (reference tokens in upload order, hands and props line, background-action line, one action per shot, the 'exactly N shots' transition line, the lip-sync block with pause list, negatives) and the job parameters the song skill lacks (minimax_h3, resolution 2K, aspect 9:16, declined_preset_id, duration of at least 5 s and longer than the audio); (b) a Visual Reviewer for sheets and storyboards that sees only the shot spec plus the image and scores the one-second read, counts and clones, and the prop reading and label, with full-resolution crops (growth-engine/tools/vqa_crops.py exists) instead of a 180x320 thumbnail; (c) a Take Reviewer that samples several frames per shot (first, middle, last, plus every cut) rather than one mid-frame, so it catches mid-shot morphs, clones, vanishing props and generated text; checks the mouth of the singer against the stem; runs the hub G6 windowed drift check (2 s windows every 0.25 s) instead of a single lag; and transcribes the re-sung audio against the lyrics; (d) a Failure Library seeded from the skill's lessons log (the Pillow Pool slop list: two Danas from 'sits up, groans and flops back', the wrong digital clock, the floating 'frozen mid-flop', the duvet spotlight after the NSFW rewrite); (e) logged pass/fail per shot so GATE 5 and 6 humans see a pre-screened set.",
+ "costs": [
+  {
+   "item": "Concept frame per hook stack (Nano Banana 2), Phase 3b.5",
+   "credits": "about 2 credits each (L105)"
+  },
+  {
+   "item": "H3 render budget (Phase 10)",
+   "credits": "No per-second price stated. The formula is price per second x total rendered seconds x takes, plus about 30% retakes, with the shared balance checked right before submitting (L353). The hub G3 price (H3 2K = 2 credits per second) is not carried into this skill."
+  }
+ ],
+ "other_issues": [
+  "Manual step blocks automation: GATE 4 (L187) has the user generate every song (and every variant opening, and every slow-hook or mis-sung fix via Replace Section, L105 and L206) in Suno by hand, then upload to Higgsfield and send share links. There is no Suno tool and no ElevenLabs Music route; the hub (ads-machine L122) still says 'Song ads keep Suno'. An automated agent stalls at GATE 4 and again in Phase 6.",
+  "Missing H3 job parameters versus hub G1 v13.3: no model id (`minimax_h3`), no `resolution: \"2K\"`, no `declined_preset_id` (the hub says that without it 'the API recommends a preset instead of submitting the job'), and no 5 s minimum (hub: 'a 4-second render failed in testing'). The song skill pads only 'to a whole number of seconds' (L338), so a short C45 sequence or a split fallback can come out at 3 or 4 s, or exactly equal to the audio length (drama L542 says that fails).",
+  "The prompt structure is older than the hub G1 card: there is no hands-and-props line and no background-action line (the hub says H3 freezes everyone but the speaker without it), and nothing on H3 skipping written cuts.",
+  "Old sync check: a single cross-correlation that 'should peak at 0 ms lag' (L338, L369) instead of the hub G6 windowed drift check with re-cuts at step points; the animation skill (v3.6) already switched. Drift inside long sung clips goes undetected.",
+  "Shots per take conflict inside the skill and across skills: Phase 7 plans 'sequences of 3 to 6 shots' (L222) and the 2 x 3 storyboard grid serves 4 to 6, while the skill's own lesson says 3 is reliable (L395); the hub card says 2 to 4 and animation 2 to 3. 4 or 5 shots in a 2 x 3 grid leaves empty panels, and nothing says how to lay that out.",
+  "Cadence vs sequence conflict: a 15 s sequence of 3 shots means 5 s per picture, breaking the skill's own 'picture changes every 1.5 to 3.5 seconds' (L211).",
+  "Hook timing thresholds differ: 3b.3 'first sung word lands by about 1 s and the problem is sung by about 3 s' (L103); 4d.2 'The hook lands in the first 2 seconds of vocal' (L157); Phase 6.5 'slow hook (more than 3 seconds before the first problem line)' (L206); Phase 6.6 trims so 'the voice arrives within 0.3s' (L207). An agent needs one rule per measure.",
+  "No loudness target (LUFS or true peak) and no limiter step: the Suno master is laid as delivered (L372).",
+  "No AI disclosure rule; the end card fine print is only 'Results vary' plus FDA (L375).",
+  "Phase 9 storyboards name no image model or resolution; only sheets (Nano Banana 2, 2K) and concept frames (Nano Banana 2) do.",
+  "Paid-only learning: the hook card's live read is impressions, CTR and 'Cost per purchase at ad-set level decides' (L31). No organic metrics exist.",
+  "External references not on disk: 'doc 44' and 'doc 45' (L402), the per-ad 'project doc' (L363), the category 'Hook Library in the project' (L101) and the Higgsfield reference table IDs are claude.ai project documents; none are in the repo. The swipe videos at f.starpop.org (L416) and the UVR model at GitHub `TRvlvr/model_repo` (L204) are external downloads.",
+  "Environment assumptions may be stale: 'This workspace usually cannot reach Higgsfield's file servers... and cannot reach Hugging Face' (L192) describes one past workspace. The current cloud session uses a proxy, so an agent may skip working local tools or assume the sandbox is the only route. The sandbox is 'wiped about 10 seconds after each call' (L193), so long ffmpeg chains must be one command.",
+  "Model routing outside the hub's allowed set: the second fallback 'Sync Lipsync 3' (L351) is not in hub G1/G2. The 8e elements list names 'Seedance 2.0 and Kling 3.0' (L294) while hub G2 says 'Seedance is never used'. An agent could read L294 as permission to use Seedance.",
+  "Card versions: the Hook card says 'from readymerce-hook-lab v1' and the Script Lab card 'v1', while those skills are v1.1. Both changelogs say the cards are unchanged, so the cards are in sync, but Phase 4 never mentions Script Lab v1.1's structure step (ST1 to ST18); it only runs when Script Lab is loaded.",
+  "Phase 6 has no numbered human gate for listening to the song (wrong words, brand pronunciation, slow hook), even though it can send the user back to Suno; the human listen is implicit.",
+  "Phase 7 says 'Each sequence gets a storyboard image and one video generation' (L222), but Phase 10 batches 2 takes on every singing and hook sequence (L349), which doubles the budget for most sequences.",
+  "Appendix S cross-reference checked: the three song ads with run data (78365922, 94469105, 90903267) exist in readymerce-animation-ads Appendix A4b (lines 746, 766, 768), as S4 says.",
+  "Every helper the skill calls exists as a Higgsfield MCP tool in this session (sandbox_exec, media_upload, media_confirm, show_generations, deferred). There are no local scripts to go missing, but also no reusable script: every step (UVR stem, windowed whisper, contact sheets, cross-correlation, cropping by motion) is described in prose and must be rewritten each run."
+ ]
+}

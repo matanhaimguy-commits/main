@@ -1,0 +1,8 @@
+[
+  {"path": "assets/brand/logo-full.png", "type": "logo", "source": "owner's Google Drive (via projects/straightscale-03/assets/brand/)", "retrieved": "2026-10-05", "license": "client-owned", "used_in": "hero mark (symbol region, masked and scaled)"},
+  {"path": "assets/brand/wordmark-white.png", "type": "logo", "source": "owner's Google Drive (via projects/straightscale-03/assets/brand/)", "retrieved": "2026-10-05", "license": "client-owned", "used_in": "lockup letters (mask and fade)"},
+  {"path": "assets/brand/symbol.png", "type": "logo", "source": "owner's Google Drive (via projects/straightscale-03/assets/brand/)", "retrieved": "2026-10-05", "license": "client-owned", "used_in": "not on screen (too small for the hero; see PROJECT.md)"},
+  {"path": "assets/fonts/PlayfairDisplay/", "type": "font", "source": "projects/straightscale-03/assets/fonts/", "license": "SIL OFL 1.1", "license_file": "assets/fonts/PlayfairDisplay/LICENSE.txt", "used_in": "question, end lines"},
+  {"path": "assets/fonts/Montserrat/", "type": "font", "source": "projects/straightscale-03/assets/fonts/", "license": "SIL OFL 1.1", "license_file": "assets/fonts/Montserrat/LICENSE.txt", "used_in": "labels, CTA"},
+  {"path": "audio/score.py", "type": "music+sfx", "source": "our score: VSCO 2 CE and VCSL samples via the Lemo-Opuscar sampler, numpy-synthesized effects", "license": "CC0 1.0 samples; our code", "used_in": "audio/mix.wav (rebuilt by audio/score.py + finish.sh, not in git)"}
+]

@@ -1,0 +1,918 @@
+{
+ "skill": "motion-reel (.claude/skills/motion-reel/SKILL.md, with motion-studio/CLAUDE.md, knowledge/README.md and knowledge/our-pipeline.md) plus growth-engine (.claude/skills/growth-engine/SKILL.md, growth-engine/GATES.md, growth-engine/config/organic.json)",
+ "version": "motion-reel: no version string (knowledge base written 12 Oct 2026). growth-engine: Organic Growth OS and production layer \"since 15 Oct 2026\". Both ARE installed in this repo.",
+ "purpose": "motion-reel is the studio's 14-stage A-to-Z workflow (stages 0-13) for code-rendered video (HyperFrames by default, plus the motion-studio canvas engine, Lemo-Opuscar styles, Claude Animation Base and collage B-roll). Its aim is \"$10,000\" client work from real brand material, references and a measured sound mix. It writes its own script (hook in 2 s, about 2.4 words per second, one alternative hook line) and does NOT call Hook Lab or Script Lab. It generates the voice itself with ElevenLabs. It reviews by self-scored contact sheets plus automatic checks (seekcheck, pacing, audio_qa, safezone, HyperFrames check --caption-zone, Lemo readcheck). Storyboard and preview approval happens only in Guided mode (pauses after stages 4, 5, 7 and 10); Autopilot decides at every gate itself and stops only for paid generation. growth-engine is the weekly organic content engine. Organic OS layers (Brain, Research, Map, Post Cards, Make, Ship, Learn) decide what to make. Every post is a pipeline.py run with Shot Specs and fresh-agent reviews, and a PreToolUse hook blocks Higgsfield and ElevenLabs generation until the gates pass. The GATES.md gates (map ... human) are written into the Post Card; reels are routed to motion-reel in autopilot and finished posts go to the hub as drafts for Matan to approve. config/organic.json holds 21 formats (tier, credits, production family), 8 story_templates and 4 animation_styles. Recommendation: motion-reel should replace motion-video-director, which STANDARDS.md section 12 already retires. To do that, motion-reel must adopt: Hook Lab (organic adapter) for the hook stack, Script Lab (organic adapter) for words and gate, Visual QA M1..M7 with fresh reviewers, the pipeline.py run and prompt registration, and the STANDARDS.md numbers (30 fps, the 35% bottom safe zone, music bed 14-18 dB under the voice, no em dashes anywhere, and a transcript check).",
+ "phases": [
+  {
+   "step": "MR-0",
+   "name": "Setup (every session; containers are wiped)",
+   "does": "Runs `bash motion-studio/setup.sh` (renderer deps, Python audio libs, references/ repos, vendored GSAP, HyperFrames CLI; optional tiers lemo, voice, music), copies motion-studio/templates/project to motion-studio/projects/<client>-<piece>, reads motion-studio/CLAUDE.md house rules.",
+   "gate": "No numeric gate. One folder per deliverable; \"Never let two sessions build the same piece in parallel\" (SKILL L29-30).",
+   "human_checkpoint": "none",
+   "tools_models": "setup.sh (tiers verified in setup.sh L4-6, L98); template files PROJECT.md, brand.md, manifest.json, docs/treatment.md, docs/review_log.md all exist"
+  },
+  {
+   "step": "MR-1",
+   "name": "Intake",
+   "does": "Asks one round of questions, only for what the prompt leaves open: purpose and CTA, audience, platform, length, languages, voiceover yes/no and which voice, brand material, references, must/must-not-say, paid generation and budget. Writes answers and defaults into PROJECT.md.",
+   "gate": "Defaults: 9:16 master, 30-45 s, plus 4:5, 1:1 and 16:9 re-layouts (L36). VO must always be asked, never decided silently (L37).",
+   "human_checkpoint": "One question round. Autopilot then stops only \"to approve paid generation or when something is truly blocked\" (L19).",
+   "tools_models": "PROJECT.md"
+  },
+  {
+   "step": "MR-2",
+   "name": "Research and asset capture",
+   "does": "Brand capture via HyperFrames `capture <url>` or Firecrawl branding/screenshot; official logo via the HyperFrames logo resolver or the client's file; self-hosted fonts; assets logged with source and licence in manifest.json; competitor ads (Facebook Ads ads_library_search, Apify), customer words; writes brand.md (colour roles, type for 1080x1920, safe zones, voice).",
+   "gate": "Never redraw a logo. Every on-screen number has a source and a date in PROJECT.md; no invented numbers, reviews, clients, testimonials or deadlines; examples labelled (L50-51).",
+   "human_checkpoint": "none",
+   "tools_models": "HyperFrames CLI capture, Firecrawl firecrawl_scrape, Facebook Ads ads_library_search, Apify"
+  },
+  {
+   "step": "MR-3",
+   "name": "References and art direction",
+   "does": "`refbank.py pick --client <client> --fit <type> --n 6`, opens 2-3 cards, collects 3-6 references in total, and measures each with tools/pacing.py (rest share, quiet runs, transitions, beat rhythm, energy map) plus palette and type sizes. Browses the style menu (447 HyperFrames registry items, Lemo-Opuscar's 43 styles and 98 prompts, Claude Animation Base, collage routes, awesome-design-md). Fills treatment §3 (design read, palette by role, type in motion, layout, ONE signature device, motion vocabulary, texture, sound world, banned list).",
+   "gate": "3-6 measured references; one signature device chosen.",
+   "human_checkpoint": "none",
+   "tools_models": "refbank.py pick/search, tools/pacing.py"
+  },
+  {
+   "step": "MR-4",
+   "name": "Three concepts",
+   "does": "Writes three concepts with different central visual ideas. Each gets: the picture in one line, the first 2 s, what survives each transition, how the message is physically in the image, style and engine, risk and render cost. Picks the strongest (autopilot) or presents them (guided).",
+   "gate": "`refbank.py check` must pass. It \"fails if the film repeats a used reference, the previous film's category, a signature device from the client's last 3 films, or shares more than one device with the last film\" (L82-83). Never reuse the previous client's concept, palette or camera language.",
+   "human_checkpoint": "Guided mode only: pause after concepts (stage 4) (L20-21)",
+   "tools_models": "refbank.py check; onetake-principles P3; HyperFrames product-launch-video pitch round"
+  },
+  {
+   "step": "MR-5",
+   "name": "Script and voice",
+   "does": "Script in the client's language with an English check line; hook in the first 2 s; teach or show one thing before the CTA; one idea per line; word budget about 2.4 words/s; one alternative hook line. Voice: ElevenLabs creative_list_voices, then pick or design a voice, then creative_generate_speech, several takes, pick the best; Kokoro only for scratch timing. Word timings go to audio/words.json; pauses go into measured silences. Music plan: ElevenLabs music, the Lemo sampler, the score.py synth or a licensed track; beat grid from beats.py.",
+   "gate": "Word budget about 2.4 w/s; hook within 2 s; the approved voice is the master clock. There is NO Hook Lab grade, NO Script Lab gate or cold read, NO take cap and NO transcript-vs-script diff.",
+   "human_checkpoint": "Guided mode only: pause after script and voice (stage 5) (L21)",
+   "tools_models": "ElevenLabs creative_list_voices / creative_design_voice / creative_generate_speech / creative_transcribe_audio (Scribe); Kokoro (setup.sh voice); motion-studio/beats.py. creative_generate_speech is blocked by the repo PreToolUse generation gate unless the prompt is registered in a pipeline.py run."
+  },
+  {
+   "step": "MR-6",
+   "name": "Treatment and beat sheet",
+   "does": "Finishes docs/treatment.md: script table and a beat sheet on the voice or beat grid with columns time | beat | voice | on screen | moving | still | link to next | audio.",
+   "gate": "\"beat lengths vary (CV ≥ 0.25, longest ≥ 4x shortest), a real rest after the hook\"; every transition names what survives it; every reaction has a visible cause; \"nothing important sits frozen > 4 s\"; the idea reads with the sound off (L99-101). Optional anthropic-skills:storyboard-qa for claims and timing math.",
+   "human_checkpoint": "none",
+   "tools_models": "anthropic-skills:storyboard-qa (if available)"
+  },
+  {
+   "step": "MR-7",
+   "name": "Styleframes",
+   "does": "Builds 3-4 key frames in the real engine (hook, a middle beat, the proof or product moment, the end card), renders them with `node motion-studio/stills.mjs --at ...` or HyperFrames snapshot, views them at phone size and scores them with the review_log rubric.",
+   "gate": "\"Fix until every axis is 8+\" (L107)",
+   "human_checkpoint": "Guided mode only: \"the approval gate before the expensive part\" (L107-108)",
+   "tools_models": "stills.mjs, HyperFrames snapshot"
+  },
+  {
+   "step": "MR-8",
+   "name": "Build (engine by look)",
+   "does": "HyperFrames is the master timeline (one sub-composition per scene, client copy as variables, `--batch` for variants). Other engines: the canvas engine (60 fps, 4 subframes); Lemo-Opuscar ported into 9:16 pages, never cropped; Claude Animation Base with the client's own character, never Clawd; collage Route C (free) or Route B (paid). Photoreal comes from client footage first, otherwise ElevenLabs/Higgs generation only with approved spend.",
+   "gate": "Deterministic pure function of time and `seekcheck.mjs` passes; springs, not easing curves; layouts from brand.md with platform safe zones (house rule: top 250 px, bottom 400 px, right 140 px); body text ≥ 44 px on a 1080-wide frame; a focal point in every frame; the signature device throughout; banned list.",
+   "human_checkpoint": "Approval for any paid generation",
+   "tools_models": "HyperFrames (init --resolution portrait), motion-studio render.mjs, Lemo-Opuscar engines, Claude Animation Base (p5.brush), collage method; ElevenLabs/Higgs image, video and 3D generation only with approved spend"
+  },
+  {
+   "step": "MR-9",
+   "name": "Sound",
+   "does": "Voice, music and effects placed from the composition's own event times; fewer sounds than beats; planned silences; a real ending. Music is arranged to the voice, then ducked with a sidechain or the HyperFrames voiceover carve. Master with two-pass loudnorm, then measure.",
+   "gate": "Voice 10-20 dB above the music; \"two-pass loudnorm to -14 LUFS, true peak -1.5 dBTP before encoding\" (L137); audio_qa.py (loudness, dropouts, mud, voice-over-music gap) and a spectrogram.",
+   "human_checkpoint": "\"ask the user to listen before final delivery\" (L139)",
+   "tools_models": "projects/straightscale/finish.sh pattern (ffmpeg loudnorm I=-14 TP=-1.5 LRA=11), tools/audio_qa.py, ElevenLabs music, Lemo sampler, score.py"
+  },
+  {
+   "step": "MR-10",
+   "name": "Review (gated, at least 3 rounds, logged)",
+   "does": "Each round goes into docs/review_log.md: a phone-size contact sheet (one frame per beat), strips around every fast moment and transition, the 9-axis scored rubric (hook, readability, motion, continuity, pacing, composition, brand, sound, message with sound off) and the automatic checks; then fix the three worst problems.",
+   "gate": "\"Ship only when every axis is 8+ and every automatic check passes\" (L148), or the remaining issue is logged and told to the user. Checks: seekcheck.mjs, pacing.py vs the references, audio_qa.py, safezone.mjs (canvas), HyperFrames check --caption-zone, Lemo readcheck.mjs. Gate list: onetake-principles §8.",
+   "human_checkpoint": "Guided mode only: pause after the draft cut (stage 10) (L22)",
+   "tools_models": "same agent self-scores; no fresh reviewer"
+  },
+  {
+   "step": "MR-11",
+   "name": "Render and master",
+   "does": "Drafts: HyperFrames `render --quality draft` or `render.mjs --fps 15 --sub 1`. Final: `render --quality delivery` (`--fps 60` for slick motion) or `render.mjs --fps 60 --sub 4` in 2-3 parallel `--from` segments joined with ffmpeg concat. Then mix, master and mux.",
+   "gate": "Check frame count, duration, loudness and seams on the final file.",
+   "human_checkpoint": "none",
+   "tools_models": "HyperFrames render, render.mjs, ffmpeg"
+  },
+  {
+   "step": "MR-12",
+   "name": "Deliver",
+   "does": "deliver/vN/ (never overwritten): the 9:16 master plus native 4:5, 1:1 and 16:9 re-layouts (never a crop), cutdowns if asked, a viewing copy under 30 MB, poster frame, SRT, contact sheet, CREDITS.md, changelog. Sends files with SendUserFile, commits and pushes, reports what was and wasn't checked, offers the two unused concepts, then runs `refbank.py log` and commits refbank/ledger.json.",
+   "gate": "Ledger logged before reporting done.",
+   "human_checkpoint": "User told what nobody has listened to or checked yet (e.g. native-speaker check pending)",
+   "tools_models": "SendUserFile, git, refbank.py log"
+  },
+  {
+   "step": "MR-13",
+   "name": "Revisions",
+   "does": "Feedback goes into the PROJECT.md decision table; changes are made in the source; the next version renders to deliver/vN+1/ with its changelog.",
+   "gate": "Re-run the review checks on what changed.",
+   "human_checkpoint": "Client feedback",
+   "tools_models": "same as MR-10/11"
+  },
+  {
+   "step": "GE-0",
+   "name": "Client kit (once per client)",
+   "does": "`hub.py client <slug>` (single source of truth for facts); brand capture; brand-kit.md (carousel-machine Step 0) and the motion brand.md with the same palette and type; style-bible.md locked once; competitors.md with 6-10 accounts; list the real free resources behind keywords.",
+   "gate": "Only handles seen written on a page tied to the account; unconfirmed ones marked; a keyword CTA needs a real resource.",
+   "human_checkpoint": "client input on competitors",
+   "tools_models": "hub.py, hyperframes capture / Firecrawl"
+  },
+  {
+   "step": "GE-1",
+   "name": "Research (weekly) / OS layer 2",
+   "does": "OS base set: the last 3 months scored on views with the 4 outlier checks (`organic.py outliers`), plus a weekly refresh and adjacent niches. Runs ig-competitor-research: Apify instagram-scraper (resultsLimit 20), then `rank_and_select.py --days 7 --per-creator 3 --top 12 --rank-by breakout`, sub-agent analysis per pick, and a report.",
+   "gate": "Ideas adapted to the client's angle, never copied.",
+   "human_checkpoint": "none",
+   "tools_models": "Apify connector, ig-competitor-research scripts, organic.py outliers"
+  },
+  {
+   "step": "GE-2",
+   "name": "Learn (weekly) / OS layer 7",
+   "does": "`hub.py results <slug> --days 14`, appended to results-log.md. A post beating the client's baseline 2x becomes templates/<name>/. OS layer 7 adds the scorecard, flags, diagnosis, learnings and budget (`organic.py score`, `ledger`).",
+   "gate": "Baseline 2x for a template (organic.json: candidate_x 2.0, template_x 3.0).",
+   "human_checkpoint": "Director weekly memo",
+   "tools_models": "hub.py results, organic.py score/ledger, analyst agent"
+  },
+  {
+   "step": "GE-3",
+   "name": "Map and Post Cards (replaces 'Plan the week')",
+   "does": "Content Map (belief focus, pillars, series, mix by stage, calendar, live keywords), then one Post Card per slot (job, belief, pillar, series, avatar, demand phrase, format, hypothesis, target) in cards/<yyyy-mm>-W<n>/*.yaml. Default mix for 7 posts: 3 reels, 3 carousels, 1 image. Asks rotate across the week.",
+   "gate": "`organic.py card-check`, `week-check`, `route`; week_rules: max_images 1, max_same_job_in_a_row 1, min_contrarian 1, min_human_b7 1, conversion_cta_every 5, mix_tolerance 0.2, max_tier_a_per_week 1, story_reels_per_week 1.",
+   "human_checkpoint": "director approval of the map",
+   "tools_models": "content-strategist, organic-director agents"
+  },
+  {
+   "step": "GE-4",
+   "name": "Make (produce)",
+   "does": "Each post is a run (`pipeline.py init`) through the 16 steps of production/AI-VIDEO-PIPELINE.md: Shot Spec, fresh prompt review, fresh visual or take review. Reel: motion-reel in autopilot, templates first; copy the final 9:16 MP4 (H.264, AAC, under 100 MB, 3-90 s) as reel.mp4 plus cover.jpg. Carousel: carousel-machine, 1080x1350 JPEG under 8 MB per slide. Caption: under 2,200 characters, 3-5 hashtags. funnel.json for keyword asks.",
+   "gate": "PreToolUse hook (.claude/hooks/generation_gate.py) denies any Higgs/ElevenLabs generation whose prompt is not registered on a run asset with passed gates; it fails closed.",
+   "human_checkpoint": "none (stop only for spend beyond the brand-kit budget)",
+   "tools_models": "pipeline.py, idea/hook/script/carousel agents, video-producer, visual-planner, prompt/visual/take reviewers; adapters hook-lab-organic, script-lab-organic, carousel-machine-organic, animation-organic, ugc-talking-head-organic"
+  },
+  {
+   "step": "GE-5",
+   "name": "QA: pre-publish gates and Director batch review",
+   "does": "The owner of each gate writes pass/fail into the Post Card `gates:` map (map, idea, hook, script, sound_off, visual, originality, truth, conversion, language, budget, human). The Director answers questions 0-6 per post plus a batch check, written to reviews/<week>.md. Reels also get motion-reel stage 10 checks; carousels get carousel-machine step 9.",
+   "gate": "idea: shock score 5+ and a key visual for the first 3 s. hook: A or A+ on the 3-channel stack, 10 hooks written. script: 30 to 60 s for reach. visual: all ledger gates PASS; safe zones top 14%, bottom 35%, right 21% of the lower half; motion in the first second. budget: 25% retake buffer, premium pieces have 6 assets. Any fail means the post does not go to the hub.",
+   "human_checkpoint": "language: non-English copy flagged for a native read",
+   "tools_models": "organic.py card-check/week-check, pipeline.py status"
+  },
+  {
+   "step": "GE-6",
+   "name": "Ship to the hub",
+   "does": "item.json, then `hub.py push` (uploads media and creates the draft); `hub.py funnel` for new keywords. Re-pushing with the same external_key updates the draft.",
+   "gate": "Never post, never switch a business to live.",
+   "human_checkpoint": "GATES `human`: \"Matan approves on the hub's Content page\"",
+   "tools_models": "hub.py, distribution-agent, conversion-agent"
+  },
+  {
+   "step": "GE-7",
+   "name": "Hand over",
+   "does": "Commit and push the client folder (no secrets, no raw scraped media). Report the research, the week's posts and asks, what needs a person, the spend, and anything blocked.",
+   "gate": "none",
+   "human_checkpoint": "approvals on the Content page, native read",
+   "tools_models": "git"
+  }
+ ],
+ "numbers": [
+  {
+   "key": "aspect + default length (motion-reel)",
+   "value": "9:16 master, 30-45 s, plus native 4:5, 1:1, 16:9 re-layouts",
+   "quote": "Default: 9:16 master, 30-45 s, plus 4:5, 1:1 and 16:9 re-layouts.",
+   "line": 36
+  },
+  {
+   "key": "resolution + HyperFrames frame rate (knowledge/README.md)",
+   "value": "1080x1920, 30 fps; about 3.3 s render per second of video",
+   "quote": "HyperFrames DOM/GSAP, 1080x1920, 30 fps | ≈ 3.3 s per second of video (WebGL scenes ≈ 16 s per second)",
+   "line": 48
+  },
+  {
+   "key": "shipped StraightScale reel spec (our-pipeline.md)",
+   "value": "1080x1920, 60 fps, -14.0 LUFS, -1.0 dBTP",
+   "quote": "1080x1920, 60 fps, -14.0 LUFS, -1.0 dBTP) in about an hour of wall time.",
+   "line": 17
+  },
+  {
+   "key": "HyperFrames project resolution preset (motion-reel)",
+   "value": "portrait",
+   "quote": "`hyperframes init film --non-interactive --resolution portrait`",
+   "line": 121
+  },
+  {
+   "key": "frame rate, canvas engine (motion-reel)",
+   "value": "60 fps with 4 subframes of motion blur",
+   "quote": "(`window.seek(t)` + `render.mjs`, 60 fps, 4 subframes)",
+   "line": 115
+  },
+  {
+   "key": "frame rate, final render (motion-reel)",
+   "value": "HyperFrames delivery, optional --fps 60; canvas --fps 60 --sub 4 in 2-3 parallel segments",
+   "quote": "`render --quality delivery` (`--fps 60` for slick motion) or `render.mjs --fps 60 --sub 4` in 2-3 parallel",
+   "line": 153
+  },
+  {
+   "key": "draft render settings (motion-reel)",
+   "value": "render --quality draft, or 15 fps with 1 subframe",
+   "quote": "Drafts small and fast (HyperFrames `render --quality draft`, or `render.mjs --fps 15 --sub 1`).",
+   "line": 152
+  },
+  {
+   "key": "frame rate, 24 fps engines (knowledge/README.md)",
+   "value": "Lemo impasto 24 fps (about 20 min per 15 s); Claude Animation Base 24 fps (README L53)",
+   "quote": "Lemo-Opuscar impasto (WebGL oil paint), 24 fps | ≈ 20 min per 15 s",
+   "line": 51
+  },
+  {
+   "key": "frame rate, straightscale-reel / motion-video-director engine (our-pipeline.md)",
+   "value": "30 fps, no blur",
+   "quote": "No motion blur, 30 fps.",
+   "line": 232
+  },
+  {
+   "key": "loudness + true peak (motion-reel)",
+   "value": "-14 LUFS, -1.5 dBTP, two-pass, before encoding",
+   "quote": "Master: two-pass loudnorm to -14 LUFS, true peak -1.5 dBTP before encoding",
+   "line": 137
+  },
+  {
+   "key": "loudness (motion-studio/CLAUDE.md)",
+   "value": "-14 LUFS, -1.5 dBTP",
+   "quote": "Master to -14 LUFS, true peak -1.5 dBTP",
+   "line": 41
+  },
+  {
+   "key": "voice over music level (motion-reel)",
+   "value": "voice 10-20 dB above music",
+   "quote": "voice sits 10-20 dB above",
+   "line": 137
+  },
+  {
+   "key": "voice over music level rule (our-pipeline.md)",
+   "value": "10-15 dB (conflicts with 10-20 dB in SKILL and with STANDARDS 14-18 dB)",
+   "quote": "check the VO-to-music gap numerically (10-15 dB)",
+   "line": 174
+  },
+  {
+   "key": "measured VO-music gap (our-pipeline.md)",
+   "value": "12-14 dB",
+   "quote": "voice ~-20 dBFS RMS vs ducked music ~-33/-34 (12-14 dB gap)",
+   "line": 134
+  },
+  {
+   "key": "mix gains and sidechain (finish.sh, our-pipeline.md)",
+   "value": "music x0.3 sidechained by voice; threshold 0.02, ratio 6, attack 15 ms, release 350 ms; SFX x0.4",
+   "quote": "(threshold 0.02, ratio 6, attack 15 ms, release 350 ms), SFX x0.4, voice, `amix normalize=0`,",
+   "line": 131
+  },
+  {
+   "key": "loudnorm params as documented (our-pipeline.md, stale)",
+   "value": "I=-14 TP=-1 LRA=11 (finish.sh itself now uses TP=-1.5)",
+   "quote": "Two-pass `loudnorm` I=-14 TP=-1 LRA=11",
+   "line": 132
+  },
+  {
+   "key": "true peak before AAC (our-pipeline.md)",
+   "value": "-1.5 dBTP",
+   "quote": "Rule: master to -1.5 dBTP before AAC.",
+   "line": 182
+  },
+  {
+   "key": "OpenMontage loudness (our-pipeline.md)",
+   "value": "-16.1 LUFS, judged wrong",
+   "quote": "loudness -16.1 LUFS (not",
+   "line": 294
+  },
+  {
+   "key": "hook timing (motion-reel)",
+   "value": "hook within the first 2 s",
+   "quote": "Hook in the first 2 s;",
+   "line": 87
+  },
+  {
+   "key": "pace band / word budget (motion-reel)",
+   "value": "about 2.4 words per second",
+   "quote": "word budget ≈ 2.4 words",
+   "line": 87
+  },
+  {
+   "key": "alternative hooks (motion-reel)",
+   "value": "1 alternative hook line (GATES requires 10 hooks)",
+   "quote": "an alternative hook line",
+   "line": 88
+  },
+  {
+   "key": "word budget example (our-pipeline.md)",
+   "value": "119 words for about 49 s at 2.4 w/s",
+   "quote": "word budget (119 words ~ 49 s at 2.4 w/s)",
+   "line": 201
+  },
+  {
+   "key": "motion-video-director word budget table (our-pipeline.md)",
+   "value": "15 s = 30-38 words ... 60 s = 135-150; the user makes the MP3",
+   "quote": "budget table 15 s = 30-38 words ... 60 s = 135-150) -> user sends MP3",
+   "line": 348
+  },
+  {
+   "key": "voice model and takes, rule (motion-reel)",
+   "value": "ElevenLabs; several takes, pick the best (no number)",
+   "quote": "Voice: ElevenLabs (`creative_list_voices` → pick or design a voice → `creative_generate_speech`; several",
+   "line": 89
+  },
+  {
+   "key": "voice model and takes, as used (our-pipeline.md)",
+   "value": "eleven_v4, 4 takes, about 3.1k ElevenLabs credits, about $0.56",
+   "quote": "eleven_v4, 4 takes (~3.1k credits,",
+   "line": 204
+  },
+  {
+   "key": "pause rule (motion-reel)",
+   "value": "pauses only at measured silences; no cap stated",
+   "quote": "Pauses go into measured silences.",
+   "line": 92
+  },
+  {
+   "key": "max speed-up (our-pipeline.md, OpenMontage precedent, not a rule)",
+   "value": "atempo 1.08",
+   "quote": "`atempo 1.08` to land 45.3 s ($0.55)",
+   "line": 281
+  },
+  {
+   "key": "music sources (motion-reel)",
+   "value": "ElevenLabs music, Lemo sampler, score.py synth, or a licensed track",
+   "quote": "Music plan: generated (ElevenLabs music), sampler score (Lemo `music` tier), our synth (`audio/score.py`",
+   "line": 93
+  },
+  {
+   "key": "music model used (our-pipeline.md)",
+   "value": "eleven_music_v2_5, 4 takes, $1.20",
+   "quote": "music eleven_music_v2_5",
+   "line": 281
+  },
+  {
+   "key": "picture-change cadence, house rule (motion-studio/CLAUDE.md)",
+   "value": "something new every 2-4 s at the latest; rests ≥ 1 s",
+   "quote": "Every 2 to 4 seconds at the latest something new must happen on screen, and real rests (≥ 1 s) are planned, not",
+   "line": 24
+  },
+  {
+   "key": "picture-change cadence, social reels (motion-studio/CLAUDE.md)",
+   "value": "something big every 0.5-1.5 s (median of 81 viral reels)",
+   "quote": "0.5-1.5 s (median), mostly inside continuous shots, with rests as short freezes on a payoff.",
+   "line": 26
+  },
+  {
+   "key": "max freeze (motion-reel)",
+   "value": "nothing important frozen more than 4 s",
+   "quote": "nothing important sits frozen > 4 s",
+   "line": 100
+  },
+  {
+   "key": "beat variety (motion-reel)",
+   "value": "CV ≥ 0.25; longest beat ≥ 4x the shortest",
+   "quote": "beat lengths vary (CV ≥ 0.25, longest ≥ 4x shortest), a real rest after the hook",
+   "line": 99
+  },
+  {
+   "key": "safe zones (motion-studio/CLAUDE.md)",
+   "value": "top 250 px (13.0%), bottom 400 px (20.8%), right 140 px of a 1080x1920 frame",
+   "quote": "top 250 px, bottom 400 px, right 140 px.",
+   "line": 27
+  },
+  {
+   "key": "caption/text size (motion-studio/CLAUDE.md)",
+   "value": "body ≥ 44 px on 1080 wide; check at 360 px wide",
+   "quote": "body never under 44 px on a 1080-wide frame; check every beat at 360 px wide.",
+   "line": 28
+  },
+  {
+   "key": "QA: safe-zone sampling rate (motion-studio/CLAUDE.md)",
+   "value": "every 0.1 s (canvas engine only)",
+   "quote": "seeks a canvas-engine page every 0.1 s and flags text outside the safe zones or under 44 px",
+   "line": 66
+  },
+  {
+   "key": "motion-video-director safe zones / words on screen (our-pipeline.md)",
+   "value": "on-screen text ≤ 6-8 words; top ~220, bottom ~420, right ~140 px (line 353)",
+   "quote": "CTA; on-screen text <= 6-8 words;",
+   "line": 352
+  },
+  {
+   "key": "caption grouping (straightscale-reel engine, our-pipeline.md)",
+   "value": "groups at punctuation or 4 words",
+   "quote": "words grouped at punctuation or 4 words",
+   "line": 236
+  },
+  {
+   "key": "QA: frame sampling for review (motion-reel)",
+   "value": "one frame per beat plus strips around fast moments and transitions",
+   "quote": "phone-size contact sheet (one frame per beat), strips around every fast",
+   "line": 142
+  },
+  {
+   "key": "QA: stills sampling (motion-studio/CLAUDE.md)",
+   "value": "every 0.5 s",
+   "quote": "`node stills.mjs --from 0.25 --step 0.5 --dur 20`",
+   "line": 59
+  },
+  {
+   "key": "review rounds (motion-reel)",
+   "value": "at least 3",
+   "quote": "Review (gated, at least 3 rounds, logged)",
+   "line": 141
+  },
+  {
+   "key": "review pass threshold (motion-reel)",
+   "value": "every axis 8+ and all automatic checks pass",
+   "quote": "Ship only when every axis is 8+ and every automatic check passes",
+   "line": 148
+  },
+  {
+   "key": "styleframes / storyboard layout (motion-reel)",
+   "value": "3-4 key frames: hook, middle beat, proof/product, end card",
+   "quote": "Build 3-4 key frames in the real engine",
+   "line": 105
+  },
+  {
+   "key": "references (motion-reel)",
+   "value": "3-6 references; refbank pick --n 6 (L57)",
+   "quote": "Collect 3-6 references in total",
+   "line": 62
+  },
+  {
+   "key": "refbank no-repeat rule (motion-reel)",
+   "value": "no used reference, no previous category, no signature device from the last 3 films, at most 1 shared device with the last film",
+   "quote": "it fails if the film repeats a used reference, the previous film's category, a signature device from the client's",
+   "line": 82
+  },
+  {
+   "key": "render codec (motion-studio/CLAUDE.md)",
+   "value": "H.264 yuv420p, CRF 16",
+   "quote": "(H.264 yuv420p, CRF 16)",
+   "line": 15
+  },
+  {
+   "key": "viewing copy (motion-reel)",
+   "value": "under 30 MB",
+   "quote": "a viewing copy under 30 MB for chat",
+   "line": 159
+  },
+  {
+   "key": "QA: transcript check precedent (our-pipeline.md, motion-video-director process)",
+   "value": "Scribe forced alignment, 119/119 words matched; motion-reel itself has no transcript diff step",
+   "quote": "(119/119 words match the script)",
+   "line": 206
+  },
+  {
+   "key": "clip length / timing math (storyboard-qa as summarised in our-pipeline.md)",
+   "value": "Kling 3-5 s, Sora 12 s, Seedance up to 15 s; per shot within 0.5 s; total within 10%",
+   "quote": "(Kling 3-5 s, Sora 12 s, Seedance up to 15 s), per shot within 0.5 s, total within 10 % and the",
+   "line": 360
+  },
+  {
+   "key": "retake/iteration cap (storyboard-qa, our-pipeline.md)",
+   "value": "max 2 iterations",
+   "quote": "max 2 iterations, never soften a FAIL",
+   "line": 367
+  },
+  {
+   "key": "video/image model rule (motion-reel)",
+   "value": "no named model; ElevenLabs/Higgs generation only with approved spend; prompts and terms logged in CREDITS.md",
+   "quote": "only with approved spend",
+   "line": 119
+  },
+  {
+   "key": "image model (organic.json animation_styles)",
+   "value": "deferred to STANDARDS.md R1",
+   "quote": "Image model per STANDARDS.md R1.",
+   "line": 808
+  },
+  {
+   "key": "human checkpoints, guided mode (motion-reel)",
+   "value": "after stages 4, 5, 7 and 10 (Guided only)",
+   "quote": "pause after concepts (stage 4), after script and",
+   "line": 20
+  },
+  {
+   "key": "human checkpoint, listening (motion-reel)",
+   "value": "human listens before final delivery",
+   "quote": "ask the user to listen before final delivery",
+   "line": 139
+  },
+  {
+   "key": "hub reel file spec (growth-engine SKILL)",
+   "value": "H.264, AAC, under 100 MB, 3-90 s",
+   "quote": "(H.264, AAC, under 100 MB, 3-90 s)",
+   "line": 126
+  },
+  {
+   "key": "carousel slide spec (growth-engine SKILL)",
+   "value": "1080x1350 JPEG, 4:5, under 8 MB",
+   "quote": "1080x1350 JPEG, 4:5, under 8 MB each",
+   "line": 129
+  },
+  {
+   "key": "caption (growth-engine SKILL)",
+   "value": "3-5 hashtags, under 2,200 characters",
+   "quote": "3-5 relevant hashtags, under 2,200 characters",
+   "line": 137
+  },
+  {
+   "key": "weekly mix (growth-engine SKILL)",
+   "value": "7 posts: 3 reels, 3 carousels, 1 image; new accounts reach 50%, trust 35%, convert 15% (L46)",
+   "quote": "Weekly mix for a 7-post account: 3 reels, 3 carousels,",
+   "line": 45
+  },
+  {
+   "key": "week rules (organic.json)",
+   "value": "max_tier_a_per_week 1; story_reels_per_week 1 (L165)",
+   "quote": "\"max_tier_a_per_week\": 1,",
+   "line": 164
+  },
+  {
+   "key": "safe zones (GATES.md visual gate)",
+   "value": "top 14%, bottom 35%, right 21% of the lower half",
+   "quote": "reels: top 14%, bottom 35%, right 21% of the lower half",
+   "line": 17
+  },
+  {
+   "key": "first-second motion (GATES.md)",
+   "value": "motion in the first second",
+   "quote": "motion in the first second",
+   "line": 17
+  },
+  {
+   "key": "length tier for reach (GATES.md script gate)",
+   "value": "30 to 60 s",
+   "quote": "30 to 60 s for reach",
+   "line": 15
+  },
+  {
+   "key": "hook gate (GATES.md)",
+   "value": "A or A+, 3-channel stack, 10 hooks written",
+   "quote": "A or A+ on the 3-channel stack; 4 S's; none of the 4 mistakes; 10 hooks written",
+   "line": 14
+  },
+  {
+   "key": "idea gate (GATES.md)",
+   "value": "shock score 5+; key visual for the first 3 s",
+   "quote": "shock score 5+ (write it); the $5 test; a key visual for the first 3 s",
+   "line": 13
+  },
+  {
+   "key": "retake buffer / premium assets (GATES.md)",
+   "value": "25% retake buffer; 6 assets for premium pieces",
+   "quote": "month under the cap with a 25% retake buffer; premium pieces have their 6 assets",
+   "line": 22
+  },
+  {
+   "key": "AI label / disclosure (GATES.md)",
+   "value": "AI people labelled per D1, never shown as real clients",
+   "quote": "AI people labeled per D1 and never presented as real clients",
+   "line": 18
+  },
+  {
+   "key": "AI label, drama format (organic.json)",
+   "value": "AI label per D1",
+   "quote": "Realistic AI people: AI label per decision D1.",
+   "line": 568
+  },
+  {
+   "key": "credits definition (organic.json)",
+   "value": "Higgsfield credits per finished piece including about 25% retakes",
+   "quote": "Credits are Higgsfield credits per finished piece incl. ~25% retakes.",
+   "line": 2
+  },
+  {
+   "key": "reel_motion voice rule (organic.json)",
+   "value": "always voiced",
+   "quote": "\"note\": \"Always voiced (owner rule, 15 Oct 2026).\"",
+   "line": 330
+  },
+  {
+   "key": "length tier, reel_animation (organic.json)",
+   "value": "45 to 75 s",
+   "quote": "45 to 75 s story in one locked style",
+   "line": 480
+  },
+  {
+   "key": "length tier, reel_animation_short (organic.json)",
+   "value": "20 to 35 s, 1 character, 2 sequences",
+   "quote": "20 to 35 s, one character, 2 sequences",
+   "line": 599
+  },
+  {
+   "key": "template thresholds (organic.json)",
+   "value": "candidate_x 2.0 (L626), template_x 3.0",
+   "quote": "\"template_x\": 3.0",
+   "line": 627
+  },
+  {
+   "key": "premium assets (organic.json)",
+   "value": "6",
+   "quote": "\"premium_assets_required\": 6,",
+   "line": 629
+  },
+  {
+   "key": "song_day hook timing (organic.json)",
+   "value": "first sung line by 1 s, problem by 3 s",
+   "quote": "first sung line by 1 s, the problem sung by 3 s",
+   "line": 776
+  },
+  {
+   "key": "pov_day cold open (organic.json)",
+   "value": "0 to 3 s",
+   "quote": "cold open on the pain moment, in the buyer's words (0 to 3 s)",
+   "line": 648
+  },
+  {
+   "key": "research ranking (growth-engine SKILL)",
+   "value": "7 days, 3 per creator, top 12, by breakout",
+   "quote": "--days 7 --per-creator 3 --top 12 --rank-by breakout",
+   "line": 92
+  },
+  {
+   "key": "template promotion (growth-engine SKILL)",
+   "value": "2x the client's baseline",
+   "quote": "client's baseline 2x becomes `templates/<name>/`",
+   "line": 103
+  }
+ ],
+ "claims": [
+  {
+   "claim": 9,
+   "verdict": "TRUE",
+   "quote": "Master: two-pass loudnorm to -14 LUFS, true peak -1.5 dBTP before encoding",
+   "line": 137,
+   "note": "motion-reel SKILL.md L137 and motion-studio/CLAUDE.md L41 both say -14 LUFS / -1.5 dBTP, which confirms the \"motion = -14\" part. finish.sh now really uses TP=-1.5 (finish.sh L14, L18), but our-pipeline.md L132 still documents TP=-1 (stale). OpenMontage shipped at -16.1 LUFS (our-pipeline L294). STANDARDS.md L76 now sets -14 LUFS ±1, TP -1 dBTP or lower, so motion-reel's -1.5 complies."
+  },
+  {
+   "claim": 10,
+   "verdict": "PARTIAL",
+   "quote": "`render --quality delivery` (`--fps 60` for slick motion) or `render.mjs --fps 60 --sub 4` in 2-3 parallel",
+   "line": 153,
+   "note": "motion-reel is not simply \"30 fps\". Its canvas engine is 60 fps with 4 subframes (SKILL L115) and finals may be 60 fps (L153). HyperFrames speeds were measured at 30 fps (README L48), and Lemo impasto and Claude Animation Base run at 24 fps (README L51, L53). straightscale-reel/MVD was 30 fps (our-pipeline L232). So a third value (60 fps) exists. STANDARDS.md L81 \"30 fps for everything\" now conflicts with motion-reel's 60 fps final."
+  },
+  {
+   "claim": 11,
+   "verdict": "TRUE",
+   "quote": "Keep text and logos out of the platform UI on 9:16: top 250 px, bottom 400 px, right 140 px.",
+   "line": 27,
+   "note": "motion-studio/CLAUDE.md L27: 400/1920 = 20.8% bottom (about 20%), top 250 px = 13%, right 140 px = 13%. growth-engine GATES.md L17 already uses the strict zone (\"reels: top 14%, bottom 35%, right 21% of the lower half\"), as does STANDARDS.md L101, so the motion house rule and safezone.mjs contradict the organic visual gate. MVD (our-pipeline L353) and straightscale-reel SAFE (L225) use about 220/420 px."
+  },
+  {
+   "claim": 13,
+   "verdict": "TRUE",
+   "quote": "budget table 15 s = 30-38 words ... 60 s = 135-150) -> user sends MP3",
+   "line": 348,
+   "note": "our-pipeline.md L348 shows MVD's own word budgets and the hand-made MP3. Checked in the synced skill /root/.claude/skills/synced/.../motion-video-director/SKILL.md: L267 \"Hook devices: bold claim, pattern interrupt, question, result-first\"; L333 \"`—` short pause\" and L353 \"`—` = short beat\" (em dashes as pause marks); L241 \"The user generates the MP3 and sends it back\"; L35/L154/L328 Freesound SFX; L16 \"Run `scripts/preflight.sh`\" and L20 \"Copy `scripts/preview.mjs`, `scripts/create_env.sh` and `scripts/normalize_env.py`\". The skill folder holds only SKILL.md, so all those scripts are missing (also analyze_ref.sh at L433). preview.mjs exists only in straightscale-reel/scripts/. Freesound and Hugging Face (faster-whisper) are blocked here (our-pipeline L410, L195). Recommendation: motion-reel replaces MVD (STANDARDS L170 already says so). It already keeps MVD's useful parts (PROJECT.md, approval gates in Guided mode, VO as master clock, native re-layouts) with in-repo scripts. It should still take from MVD: PROGRESS.md/LOG.md resume files, the VO transcript diff against the script, timestamped per-range preview sheets, the reading-time rule and the caption contrast ≥ 4.5:1 check."
+  },
+  {
+   "claim": 16,
+   "verdict": "PARTIAL",
+   "quote": "| 7 Learn | scorecard, flags, diagnosis, learnings, budget | `analytics/posts.csv`, `ledger.csv`, `analytics/learnings.md` | analyst, organic-director | `organic.py score`, `ledger` |",
+   "line": 34,
+   "note": "TRUE for the base labs. readymerce-hook-lab H8 (L218-226) reads impressions, hook and hold rate and says \"Cost per purchase at ad-set level decides\". Script Lab LEARN (L709) says \"Pull, read only, with the Facebook Ads connector\". But growth-engine has its own organic learning: SKILL L34 layer 7, Step 2 `hub.py results`, and organic.json job metrics (sends_per_reach, saves_per_reach, qualified_dms). Its adapters override the labs: hook-lab-organic.md L21 \"Organic metrics replace ad metrics in H8\" and script-lab-organic.md L55 \"Organic LEARN\". motion-reel has no performance loop at all (the refbank ledger logs usage only; our-pipeline gap 16)."
+  },
+  {
+   "claim": 1,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "else ElevenLabs/Higgs image, video or 3D generation **only with approved spend**",
+   "line": 119,
+   "note": "motion-reel names no image model or quality setting; it is code-rendered and generation is optional. organic.json L808 defers: \"Image model per STANDARDS.md R1.\""
+  },
+  {
+   "claim": 6,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "Music plan: generated (ElevenLabs music), sampler score (Lemo `music` tier), our synth (`audio/score.py`",
+   "line": 93,
+   "note": "The song-skill specifics are not here. Related evidence: motion-reel defaults to ElevenLabs music (no Suno). The first motion-studio StraightScale reel used a synthesized score.py, not ElevenLabs Music (our-pipeline L122-128). The w42-6 reel recipe used ElevenLabs music (clients/straightscale/content/2026-w42-6-reel/script.md L16 \"music = the unused take (music2) from the w43 reel's ElevenLabs session\")."
+  },
+  {
+   "claim": 8,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "Pauses go into measured silences.",
+   "line": 92,
+   "note": "motion-reel never caps pauses. It inserts them only at measured silences (also our-pipeline L170-171), which is compatible with the hub G8 no-cap rule."
+  },
+  {
+   "claim": 12,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "AI people labeled per D1 and never presented as real clients",
+   "line": 18,
+   "note": "The podcast/drama tag rules are not here. motion-reel has NO AI-disclosure rule at all. growth-engine GATES.md L18 and organic.json L568 require a label per D1, and STANDARDS §7 retires the burned-in tag. An ElevenLabs narrator in a voiced reel_motion may count as \"an AI voice speaking as a person\" (STANDARDS L108), which needs a decision."
+  },
+  {
+   "claim": 14,
+   "verdict": "PARTIAL",
+   "quote": "\"skill\": \"carousel-machine\",",
+   "line": 221,
+   "note": "organic.json routes every carousel format to carousel-machine alone, while AI reels name \"hook-lab + script-lab\" (L370). GATES.md L14's hook gate applies to every post (L3 \"Every post passes all gates\"). But adapters/carousel-machine-organic.md (13 lines) mentions neither Hook Lab nor a cold read, although STANDARDS §13 #14 says it now does."
+  },
+  {
+   "claim": 17,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "Hook in the first 2 s; teach or show one thing before the CTA; one idea per line; word budget ≈ 2.4 words",
+   "line": 87,
+   "note": "The caller table lives in Script Lab. Consistent evidence: motion-reel writes its own script and never calls Script Lab or Hook Lab. STANDARDS L196 says \"adapters say how drama and motion-reel call Script Lab\", but no drama adapter exists and script-lab-organic.md never mentions motion-reel."
+  }
+ ],
+ "story_structures": [
+  {
+   "code": "pov_day",
+   "name": "POV: a day in the buyer's life (organic.json L632-656)",
+   "shape": "cold open on the pain moment in the buyer's words (0-3 s) > the day so far: 2-3 accommodations, each a picture > the failed fix and why it failed > the breaking point > the revelation: hidden cause as THE PICTURE, then the mechanism in one line > the same moment lived differently > organic CTA (follow for part 2, save, send, comment keyword)",
+   "organic_fit": "The exact shape asked for (POV of the buyer's pains, then the mechanism revealed). For an Albanian marketing agency: an owner's evening of answering price DMs and boosting posts, the boost that brought likes but no customers, then the hidden cause as one picture. Mapped to beliefs B1-B3 and the reach/trust jobs. Already slotted under reel_ugc_pov, reel_story_narrated, reel_animation, reel_song, reel_drama_pov and reel_animation_short. NOT slotted under reel_motion: it could be rendered at 0-30 credits in motion-reel with Claude Animation Base or a Lemo style. No price or offer; CTA from the job."
+  },
+  {
+   "code": "two_days",
+   "name": "Same morning, two owners (L657-678)",
+   "shape": "split: two owners, same moment > their days diverge on one decision > the one difference named (the mechanism) > where each is at night > organic CTA",
+   "organic_fit": "B2/B3/B5, reach and trust. Natural for motion-reel's \"before/after split\" concept device and HyperFrames split-screen; works with no faces, so no AI label needed if stylized. CTA: save or send to a partner."
+  },
+  {
+   "code": "hidden_villain",
+   "name": "The problem is a character (L679-699)",
+   "shape": "the villain (unanswered DM, dead boost button) speaks from where it lives > mocks the failed fix > brags about what it costs the owner > the mechanism arrives and the villain loses > organic CTA",
+   "organic_fit": "B1/B2, reach. Comic and never shaming the owner. Best as a recurring series character, which motion-reel's Claude Animation Base could draw for free (\"Redraw the client's own character in brand colours\"). The refbank check must allow the series device to repeat."
+  },
+  {
+   "code": "object_speaks",
+   "name": "An object in the business tells its story (L700-719)",
+   "shape": "the phone, calendar or shop sign introduces itself > what it sees every day (the pains) > the day it saw the change (the mechanism) > organic CTA",
+   "organic_fit": "B1/B3, reach and trust. The phone of a Tirana business owner narrates. Fits motion-reel kinetic type plus a character insert; ElevenLabs voice as the object (an AI label decision is needed if it sounds human)."
+  },
+  {
+   "code": "overheard",
+   "name": "Witness or overheard line (L720-740)",
+   "shape": "someone else noticed > the surprising detail > the cause > the lesson as the mechanism > organic CTA",
+   "organic_fit": "B2/B3. A strong curiosity hook for B2B with no product reveal until the lesson. Can be a quote-card motion reel or reel_quote_broll (25-40 credits)."
+  },
+  {
+   "code": "confession_pov",
+   "name": "Owner confession (L741-761)",
+   "shape": "first person, an edge: what I got wrong > what it cost > what I saw that changed it (the mechanism) > what I do now > organic CTA",
+   "organic_fit": "B3/B7, trust. needs_real_or_labelled: best as reel_talking_head_real (0-10 credits, the agency owner on a phone). As AI it must carry the label and never pose as a real client."
+  },
+  {
+   "code": "song_day",
+   "name": "Song of the buyer's day (L762-782)",
+   "shape": "first sung line by 1 s, problem sung by 3 s > verse: the day's pains > chorus: THE PICTURE (at least twice) > turn (spoken line): the mechanism > outro: organic CTA spoken",
+   "organic_fit": "B1/B2/B7, reach; judged on sends and follows. Could pair with motion-reel's music-to-video and kinetic lyrics at near-zero credits (music only) instead of 190-300 credits of AI video."
+  },
+  {
+   "code": "podcast_disagreement",
+   "name": "Two hosts disagree (L783-805)",
+   "shape": "a real disagreement in line 1 > host A's case (the common belief) > host B's case (the hidden cause) > the moment A gets it > organic CTA",
+   "organic_fit": "B3/B4/B5/B8, trust and convert. Suits a services firm explaining a mechanism. Needs a real disagreement and an AI label if the hosts are AI; a real two-person recording would be tier C."
+  },
+  {
+   "code": "motion-reel stage 4 concept devices (SKILL L74-76)",
+   "name": "Central visual ideas for code-rendered films",
+   "shape": "one element that transforms through everything | a dive through scale | a chain reaction | a before/after split | a world built from the brand's material; each with picture in one line, first 2 s, what survives each transition",
+   "organic_fit": "These are visual carriers, not story beats. Pair one with a story_template (e.g. pov_day carried by one element transforming). They give the 0-30 credit reel_motion format a story layer, which organic.json currently lacks (reel_motion has no story_templates)."
+  },
+  {
+   "code": "StraightScale v1 shape (our-pipeline L100-101, L116-119)",
+   "name": "Teach one thing, then keyword CTA",
+   "shape": "hook in 2 s > problem (minor-key score) > turn \"Ja çfarë bën\" (17.3 s) > the fix > sourced proof > offer (39.22 s) > CTA (44.92 s) \"Shkruaj ANALIZA në komente\"",
+   "organic_fit": "Already organic in intent (an IG/FB organic reel, no prices). For the OS: delete the offer beat (Script Lab organic drops rungs 10-12) and end on the job's CTA. Keep the sourced-data-on-screen discipline (\"Burimi: Meta Ad Library, 11.10.2026\")."
+  },
+  {
+   "code": "straightscale-reel v2 two worlds (our-pipeline L213-218)",
+   "name": "Problem world vs solution world with one signature device",
+   "shape": "World 1 ransom-note collage (the problem, noise) > Droste pull-back to many identical boards > World 2 marble and one gold line words rise out of (the mechanism) > logo built on the line",
+   "organic_fit": "A series identity for B1-B3 explainers: the same two worlds and gold line every episode. That needs a refbank exemption for series signature devices."
+  },
+  {
+   "code": "motion-video-director structure (our-pipeline L351-352; MVD SKILL L266)",
+   "name": "Hook > Problem > Solution > Proof > CTA",
+   "shape": "Hook (0-3 s) > Problem > Solution > Proof > CTA; plus four recipes: talking-head caption reel, documentary storyteller edit, Slack-style SaaS launch, Frontify-style kinetic promo",
+   "organic_fit": "A generic explainer spine for B4 (method) posts. Its \"result-first\" hook device conflicts with the organic rule of no product or mechanism in the first 3 s, so only the problem-first variants fit."
+  },
+  {
+   "code": "animation_styles (organic.json L807-826) + motion-reel engines (SKILL L116-118)",
+   "name": "Locked looks for animated stories",
+   "shape": "AI styles: claymation, crochet, pixar_style_3d (\"3D family-film\"), disney_style_2d (\"hand-drawn 2D storybook\"). Code styles in motion-reel: Lemo-Opuscar's 43 styles (watercolour, ink wash, impasto oil, whiteboard, iso-infographic, mid-century toon, dark keynote, swiss motion, art deco, silkscreen...), a Claude Animation Base character, collage Route C",
+   "organic_fit": "The AI styles cost 60-300 credits (reel_animation / reel_animation_short). The code styles cost build time only, so a new zero-credit format (e.g. reel_story_coded under production 'motion' with story_templates pov_day, hidden_villain, object_speaks, two_days) would let the weekly story reel run without spending the tier A slot."
+  }
+ ],
+ "organic_adaptation": [
+  "Words: replace motion-reel stage 5's own script rules (\"Hook in the first 2 s ... an alternative hook line\") with Hook Lab in the organic adapter (GATES hook gate: A or A+ on the 3-channel stack, 10 hooks written, fresh grader) and Script Lab in the organic adapter (G-SCRIPT 85+ with no critical fail, organic tiers, cold read). Today motion-reel uses neither.",
+  "CTA: motion-reel asks \"what should the viewer do (CTA)\" at intake. For organic the CTA comes from the Post Card job (organic.json: reach = follow/save/send/comment/keyword; trust = keyword/save/comment/follow/send; convert = keyword/dm/book). A keyword CTA needs a live funnel and a real resource (GATES `conversion`).",
+  "Offer close: drop the offer beat the StraightScale v1 reel had (\"charcoal rising from the bottom for the offer (39.22 s)\", our-pipeline L118). No price or guarantee; at most stage_mix new hard_offer_per_month 1.",
+  "Length: motion-reel defaults to 30-45 s. Organic reach scripts are 30 to 60 s (GATES L15); STANDARDS L125 says \"No full discovery story under 45 s (organic)\"; the hub accepts 3-90 s. Set the length from the card's format and tier instead of the 30-45 s default.",
+  "Hook timing: tighten from \"hook in the first 2 s\" to VISUAL-QA M5 (motion in the first second, hook text on screen by 0.3 s) and GATES idea (a key visual for the first 3 s). No product, brand, mechanism or price in the first 3 s.",
+  "Product/mechanism reveal timing: follow the story_template beat order (e.g. pov_day reveals the mechanism only after the breaking point; hidden_villain at the end). No logo intro.",
+  "Compliance and facts: keep motion-reel's sourced-number rule (it matches the GATES `truth` gate). Facts only from the brain/proof bank and hub profile; no guarantees; non-English copy flagged for a native read in the hub notes.",
+  "AI label: motion-reel has none. Add STANDARDS §7: the Instagram AI label when there is an AI person, an AI voice speaking as a person, or realistic AI footage, and for stylized animation until D1 is decided. An AI person is never presented as a client. Decide whether an ElevenLabs narrator in reel_motion (\"Always voiced\") triggers the label.",
+  "Metrics: no Meta-ads metrics (hook rate, CTR, CPA). Judge on the job metric: sends_per_reach (reach), saves_per_reach (trust), qualified_dms (convert), plus skip_rate, avg_watch_s, follows_per_1k_reach. Feed results back to the card via the analyst at 72 h and 7 d; motion-reel itself has no learn loop.",
+  "Gating: run motion-reel inside a pipeline.py run. Register every ElevenLabs VO text, music prompt and generated image as an asset prompt with a Prompt Reviewer PASS before calling the tool, otherwise the PreToolUse hook denies it.",
+  "Numbers: switch motion-reel's house numbers to STANDARDS.md: 30 fps (not 60), the safe zone of top 14%, bottom 35% and right 21% of the lower half (not 250/400/140 px), music 14-18 dB under the voice (not 10-20), no em dashes anywhere (not \"if asked\"), -14 LUFS ±1 with TP ≤ -1 dBTP (motion-reel's -1.5 is fine).",
+  "Human stops: inside growth-engine, skip Guided pauses and the per-film \"approve paid generation\" stop. Stop only beyond the brand-kit budget; the human gate is Matan's Approve on the hub. The VO yes/no question is answered by the card (reel_motion is always voiced).",
+  "Delivery: organic needs only reel.mp4 (9:16, H.264, AAC, under 100 MB) plus cover.jpg in clients/<slug>/content/<key>/ and a hub.py push. Make the 4:5/1:1/16:9 re-layouts optional (or use them for feed and carousel covers).",
+  "Concepts: three concepts per post is too heavy for daily or weekly cadence. Inside a named series, reuse the locked series template (ORGANIC-OS item 7) and only fill the variables; run the 3-concept round only for a new series.",
+  "Story layer: add story_templates to reel_motion (or a new code-rendered story format) so pov_day, hidden_villain, object_speaks and two_days can be made at 0-30 credits with Claude Animation Base or Lemo styles."
+ ],
+ "visual_qa_overlap": "What motion-reel already does: styleframes (3-4 key frames rendered in the real engine, viewed at phone size, scored to 8+ on the review_log rubric). Contact sheets with one frame per beat plus strips around every fast moment and transition. stills.mjs pre-render sheets (step 0.5 s). review.sh (contact, strip, phone 360 px, loop). The 9-axis rubric, at least 3 logged rounds, fixing the three worst each round. Automatic checks: seekcheck.mjs (determinism), pacing.py against references, audio_qa.py plus a spectrogram, safezone.mjs (every 0.1 s, text outside zones or under 44 px, canvas engine only), HyperFrames check --caption-zone (and its layout/contrast audits), Lemo readcheck.mjs (reading time). Plus the onetake §8 gate list and the optional storyboard-qa (timing math, causal links, claim tracing). There are no prompt cards: it only logs prompts and terms for paid generation in CREDITS.md. What a fresh-agent reviewer would replace: self-grading (the same agent builds, scores and picks the voice take). What it would add: (a) Visual Reviewer running M1..M7 on motion renders. M1 is a letter-by-letter spelling check including Albanian diacritics; motion-reel only checked glyph coverage. M2 is overlaps and clipping. M3 is safe zones at the STANDARDS zone plus contrast 4.5:1; motion-reel uses a different zone and has no contrast number. M4 checks each text appears on or just before its spoken word, against the words.json timing table; motion-reel follows the VO clock but never verifies it. M5 is motion in the first second and hook text by 0.3 s; motion-reel uses 2 s. M6 is brand colours and fonts only. M7 is G-VIS on any generated image inside the piece. The sampling also changes: frames every 0.5 s plus each cut's start, middle and end (vqa_crops.py motion), and for the final cut every 1.5 s plus every cut, a sound-off watch, transcript and loudness. Motion-reel samples one frame per beat. (b) Prompt Reviewer: needed for every gated generation motion-reel makes (ElevenLabs VO text, ElevenLabs music, Higgs/ElevenLabs plates, collage Route B), because the hook refuses unregistered prompts. (c) Take Reviewer for VO takes: a transcript diff against the approved script (STANDARDS: Scribe or multilingual faster-whisper with language=\\\"sq\\\" for Albanian), pace, pauses, pronunciation. Today motion-reel just says \\\"several takes, pick the best\\\". (d) A G-FINAL equivalent replacing \\\"ask the user to listen\\\" as the only audio sign-off. Keep a human listen as advice, since no agent can hear.",
+ "costs": [
+  {
+   "item": "image_question / image_review_quote (tier C, still), organic.json L168/L188",
+   "credits": "1 to 15"
+  },
+  {
+   "item": "carousel_framework / self_check / mistakes / teardown / comparison / opinion (tier C, still), L207-L277, L523",
+   "credits": "7 to 90"
+  },
+  {
+   "item": "carousel_bts (tier C, real photos), L294",
+   "credits": "0 to 30"
+  },
+  {
+   "item": "reel_motion = motion-reel HyperFrames (tier C, production motion), L311; ORGANIC-OS L380: \"0 to 30 | $0 to $1.50\", costs build time, not credits",
+   "credits": "0 to 30"
+  },
+  {
+   "item": "reel_quote_broll (tier C, keyframe_reel), L333: \"measured 25 credits on 15 Oct 2026\"",
+   "credits": "25 to 40"
+  },
+  {
+   "item": "reel_strategist_prop (tier B, ai_video), L351",
+   "credits": "80 to 110"
+  },
+  {
+   "item": "reel_ugc_pov (tier B), L374",
+   "credits": "100 to 150"
+  },
+  {
+   "item": "reel_podcast (tier B), L399",
+   "credits": "120 to 170"
+  },
+  {
+   "item": "reel_story_narrated (tier B), L423",
+   "credits": "120 to 200"
+  },
+  {
+   "item": "reel_animation (tier A), L450; series episode 2 on \"costs about a third less\" (L480)",
+   "credits": "150 to 300"
+  },
+  {
+   "item": "reel_song (tier A), L482",
+   "credits": "190 to 300"
+  },
+  {
+   "item": "reel_drama_pov (tier A), L543",
+   "credits": "170 to 300"
+  },
+  {
+   "item": "reel_animation_short (tier B), L570",
+   "credits": "60 to 110"
+  },
+  {
+   "item": "reel_bts_real / reel_talking_head_real (tier C, real), L506/L601",
+   "credits": "0 to 10"
+  },
+  {
+   "item": "Credit definition (organic.json L2)",
+   "credits": "Higgsfield credits per finished piece incl. ~25% retakes"
+  },
+  {
+   "item": "ElevenLabs VO, 4 takes, eleven_v4 (straightscale-reel, our-pipeline L204-205)",
+   "credits": "~3.1k ElevenLabs credits (~$0.56)"
+  },
+  {
+   "item": "OpenMontage VO 4 takes / music eleven_music_v2_5 4 takes (our-pipeline L281-282)",
+   "credits": "$0.55 / $1.20 (dollars, not credits)"
+  },
+  {
+   "item": "motion-reel itself",
+   "credits": "States no credit costs; paid generation \"only with approved spend\" (L119)"
+  }
+ ],
+ "other_issues": [
+  "BLOCKER for automated runs: motion-reel stage 5 calls `creative_generate_speech`, and ElevenLabs music runs through flows (creative_generate_in_flow / run_flow_nodes). .claude/settings.json gates all of these plus Higgs generate_* with a PreToolUse hook. pipeline.check_call denies any prompt \"not registered on any asset\" and fails closed. motion-reel never mentions pipeline.py, Shot Specs or the gate, so every motion-reel VO is blocked, even for non-growth-engine client videos, until it registers prompts in a run.",
+  "motion-reel has not been updated for STANDARDS.md, although STANDARDS L10 says it \"wins over any skill file\" and L171 lists motion-reel's overrides (Hook Lab + Script Lab, M1 to M7, loudness). Live conflicts: 60 fps finals vs \"30 fps for everything\"; safe zone 250/400/140 px vs 14%/35%/21% of the lower half; ducking 10-20 dB vs music bed 14-18 dB; \"no em dashes if asked\" vs \"No em dashes anywhere\"; default 30-45 s vs \"No full discovery story under 45 s (organic)\"; no transcript check vs STANDARDS L77's word-for-word check on every take.",
+  "refbank check vs series: stage 4 fails a film that repeats \"the previous film's category\" or \"a signature device from the client's last 3 films\". ORGANIC-OS item 7 requires a locked series template recognisable in the first second, growth-engine Step 4 says \"Reuse the client's templates first\", and DAILY.md posts one per day. Series episodes would fail the check; it needs a series/template exemption.",
+  "VO question vs owner rule: motion-reel says \"Voiceover: yes or no (always ask; never decide this silently)\" while organic.json reel_motion says \"Always voiced (owner rule, 15 Oct 2026).\" An autopilot agent may stop to ask.",
+  "Stop conditions differ: motion-reel autopilot stops \"to approve paid generation\"; growth-engine stops \"only for paid generation beyond the budget in brand-kit.md\".",
+  "Delivery mismatch: motion-reel stage 12 makes 4 aspect ratios, uses SendUserFile, commit/push and refbank log. growth-engine needs reel.mp4 plus cover.jpg in clients/<slug>/content/<key>/ and hub.py push. Neither file says which wins for the extra formats.",
+  "Missing files referenced by growth-engine: growth-engine/production/STORY-FORMATS.md (SKILL L41; organic.json L631 \"Narrative shapes (STORY-FORMATS.md)\"); adapters drama-organic.md (organic.json L567), song-organic.md (L498) and podcast-organic.md (L416). SKILL L43 lists drama/song/podcast adapters, but only 5 adapters exist (animation, carousel-machine, hook-lab, script-lab, ugc-talking-head). STANDARDS L184 cites `audit/skill-audit-2026-10-15.md`, which exists nowhere in the repo. STANDARDS L196 says adapters explain how drama and motion-reel call Script Lab, but no adapter mentions motion-reel.",
+  "reel_quote_broll's skill field is \"content/2026-w42-6-reel/script.md recipe\", a client-relative path that resolves only for StraightScale (clients/straightscale/content/2026-w42-6-reel/script.md).",
+  "Stale our-pipeline.md: L43 calls motion-reel \"Works, thin\" and L316-321 describe its old steps. L62 says \"there is no root CLAUDE.md pointing at it\", but the root CLAUDE.md now points there. L132 documents finish.sh as TP=-1, but finish.sh L14/L18 use TP=-1.5. L337's routing conflict is resolved in the hyperframes skill description. L408 \"no SessionStart hook exists yet\" is still true (settings.json has only PreToolUse), so setup.sh must run every session.",
+  "Ducking numbers disagree across the motion docs: SKILL L137 and CLAUDE.md L41 say 10-20 dB; our-pipeline L174 rule says 10-15 dB; MVD says 10-15 dB; measured 12-14 dB; STANDARDS says 14-18 dB.",
+  "Safe-zone numbers disagree: CLAUDE.md 250/400/140 px; straightscale-reel SAFE top 220, bottom 1500 (420 px); MVD ~220/~420/~140; GATES and STANDARDS 14%/35%/21% of the lower half. safezone.mjs enforces the old zone.",
+  "Hook timing disagrees: motion-reel 2 s; MVD 0-3 s; GATES idea key visual in 3 s; VISUAL-QA M5 hook text by 0.3 s; pov_day 0-3 s; song_day first sung line by 1 s.",
+  "Cadence disagrees: the house rule and review_log template say \"something new every 2-4 s\", while the refbank median for social reels is 0.5-1.5 s. The review rubric would pass slower cuts than the reference bank shows working.",
+  "Self-grading: the building agent scores its own styleframes and review rounds and picks its own VO take, with no take cap and no transcript-vs-script diff (MVD had one: 119/119 words). A fresh reviewer is needed for organic gates (GATES `visual` requires G-VIS/G-TAKE \"by fresh reviewers\").",
+  "GATES `visual` needs G-SPEC/G-PROMPT/G-VIS or G-TAKE for every asset, but a code-rendered HyperFrames reel has no generated assets. It is unclear what G-SPEC means per scene; VISUAL-QA L609 says to use M1 to M7 for motion renders, but motion-reel never mentions them.",
+  "growth-engine SKILL Step 3 says it is \"Superseded by the OS\" (Post Cards YAML) yet still specifies plans/<week>.json with \"format\": \"Kinetic Type Listicle\", which is not an organic.json format id. An agent may write both formats.",
+  "production/AI-VIDEO-PIPELINE.md contradicts itself: L6 says motion-reel and growth-engine \"ARE installed\", while L11 says they \"are not installed in this environment\".",
+  "Minor drift: motion-reel L66 says \"447 registry items\", while the installed hyperframes-registry skill says \"roughly 400 hosted items\". storyboard-qa is optional (\"if available\") in stage 6, so automated runs may skip claim tracing."
+ ]
+}

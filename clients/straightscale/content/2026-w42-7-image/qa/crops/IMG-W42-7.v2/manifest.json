@@ -1,0 +1,36 @@
+{
+ "asset_id": "IMG-W42-7",
+ "version": 2,
+ "made_by": "visual-reviewer (fresh agent), PIL in the Higgsfield sandbox (vqa_crops.py not used: crops built by hand per the packet)",
+ "src": {
+  "sandbox_path": "/home/user/drafts/fixed/ebd54bc2.jpg",
+  "hosted_url": "https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/a9955a24-0a7b-4d68-897e-3a79da875c7e.jpg",
+  "md5": "be30d2a7d7a796fdc368ec3da5504726",
+  "hosted_md5": "be30d2a7d7a796fdc368ec3da5504726",
+  "size": [1080, 1350]
+ },
+ "original": {
+  "sandbox_path": "/home/user/drafts/ebd54bc2-4295-4a39-8392-b776d3c06d08.jpg",
+  "md5": "616e9ca19d631e451e4706a2419772a6"
+ },
+ "reference_logo": "/home/user/brand/straightscale-logo-light.png (1517x295 RGBA)",
+ "crop_dir": "/home/user/qa/IMG-W42-7.v2/crops",
+ "must_open": [
+  "full.jpg", "orig_full.jpg", "thumb_200.jpg",
+  "tile_r1c1.jpg", "tile_r1c2.jpg", "tile_r1c3.jpg", "tile_r2c1.jpg", "tile_r2c2.jpg", "tile_r2c3.jpg", "tile_r3c1.jpg", "tile_r3c2.jpg", "tile_r3c3.jpg",
+  "region_logo_zone_orig_top_fixed_bottom_2x.jpg", "ref_logo_light_on_dark.jpg", "region_logo_3x.jpg",
+  "region_logo_zone_boosted_orig_top_fixed_bottom_2x.jpg", "region_inpaint_mask_outline_boosted_2x.jpg",
+  "region_logo_zone_3x_orig_top_fixed_bottom_normal.jpg", "region_under_wordmark_4x_orig_fixed_normal_then_boosted.jpg",
+  "region_logo_context_fixed_2x.jpg", "region_edge_above_wordmark_5x_orig_left_fixed_right.jpg",
+  "region_edge_highlight_2x_orig_left_fixed_right.jpg", "region_edge_highlight_1x_orig_left_fixed_right.jpg",
+  "region_gold_px_check_5x.jpg",
+  "region_text_kicker_2x.jpg", "region_text_headline_l1_2x.jpg", "region_text_headline_l2_2x.jpg", "region_text_word_pergjigje_3x.jpg",
+  "region_text_headline_l3_2x.jpg", "region_text_subline_a_2x.jpg", "region_text_subline_b_2x.jpg",
+  "region_phone_screen_2x.jpg", "region_phone_statusbar_4x.jpg", "region_phone_inputfield_4x.jpg",
+  "region_ledger_cover_3x.jpg", "region_ledger_emboss_5x_boosted.jpg"
+ ],
+ "notes": {
+  "region_text_kicker_2x.jpg": "made at 3x",
+  "boosted": "files named *boosted* have levels raised (gamma 0.45-0.5, gain 1.5-1.6) to expose fills in dark areas; severity was judged on the normal-level crops"
+ }
+}

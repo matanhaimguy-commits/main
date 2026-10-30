@@ -1,0 +1,29 @@
+{
+  "kind": "image",
+  "source": "src.jpg = https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/ef65dc0b-44c1-45e1-a553-f81f4b9b38f9.jpg (md5 28f4a50d3a011c1c988d7c0def8f829c, identical to /home/user/drafts/fixed/dd845791.jpg); original v1 /home/user/drafts/dd845791-e322-4bc7-a53d-11c66de474db.jpg",
+  "size": [1080, 1350],
+  "hero": true,
+  "files": [
+    "full.jpg", "tile_r1c1.jpg", "tile_r1c2.jpg", "tile_r1c3.jpg", "tile_r2c1.jpg", "tile_r2c2.jpg", "tile_r2c3.jpg",
+    "tile_r3c1.jpg", "tile_r3c2.jpg", "tile_r3c3.jpg", "region_IMG-W42-5_kicker.jpg", "region_IMG-W42-5_headline.jpg",
+    "region_IMG-W42-5_phone.jpg", "region_IMG-W42-5_logo_zone.jpg", "region_IMG-W42-5_doorway_street.jpg",
+    "region_IMG-W42-5_shelves_left.jpg", "thumb_200.jpg"
+  ],
+  "must_open": [
+    "full.jpg", "tile_r1c1.jpg", "tile_r1c2.jpg", "tile_r1c3.jpg", "tile_r2c1.jpg", "tile_r2c2.jpg", "tile_r2c3.jpg",
+    "tile_r3c1.jpg", "tile_r3c2.jpg", "tile_r3c3.jpg", "region_IMG-W42-5_kicker.jpg", "region_IMG-W42-5_headline.jpg",
+    "region_IMG-W42-5_phone.jpg", "region_IMG-W42-5_logo_zone.jpg", "region_IMG-W42-5_doorway_street.jpg",
+    "region_IMG-W42-5_shelves_left.jpg", "thumb_200.jpg"
+  ],
+  "panels": 0,
+  "ocr": null,
+  "built_by": "inline PIL script mirroring growth-engine/tools/vqa_crops.py image mode (same names, jpg q88), run in the Higgsfield sandbox",
+  "extra_opened": [
+    "view_full_fixed_540.jpg", "view_full_orig_540.jpg", "logozone_orig_vs_fixed_2x.jpg", "logozone_diff_x4.jpg",
+    "logo_4x_left_orig_top_fixed_bottom.jpg", "logo_4x_right_orig_top_fixed_bottom.jpg", "logozone_inpaint_mask.jpg",
+    "logozone_enhanced_2x_orig_top_fixed_bottom.jpg", "edge_highlight_6x_orig_left_fixed_right.jpg", "inpaint_mask_ring.jpg",
+    "labels_boxes_4x.jpg", "labels_redpacks_3x.jpg", "rightwall_posters_2x.jpg", "logozone_fixed_native_3x.jpg",
+    "logo_pasted_vs_realfile_3x.jpg"
+  ],
+  "sandbox_dir": "/home/user/qa/IMG-W42-5.v2/crops"
+}

@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>StraightScale: Three things, one system</title>
+<style>
+@font-face { font-family: "Playfair Display"; font-weight: 900; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-900-normal.woff2); }
+@font-face { font-family: "Playfair Display"; font-weight: 900; font-style: italic; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-900-italic.woff2); }
+@font-face { font-family: "Playfair Display"; font-weight: 700; font-style: italic; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-700-italic.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 600; src: url(assets/fonts/Montserrat/montserrat-latin-600-normal.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 700; src: url(assets/fonts/Montserrat/montserrat-latin-700-normal.woff2); }
+html, body { margin: 0; background: #1F1F1F; }
+canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script type="module">
+// StraightScale reel 05 "Three things, one system" (no voice; the on-screen words carry the message).
+// One pure function of time: window.seek(t). Formats: index.html (9:16 master) and index.html?fmt=4x5 (native 4:5 layout).
+// The logo is only ever the real files: assets/brand/logo-full.png (its symbol region, 367 px native, for the hero mark)
+// and assets/brand/wordmark-white.png (the lockup). They are masked, scaled and faded, never redrawn or recoloured.
+import { spring, clamp } from '../../lib/motion.js';
+
+const FMT = new URLSearchParams(location.search).get('fmt') === '4x5' ? '4x5' : '9x16';
+const cv = document.getElementById('c');
+const ctx = cv.getContext('2d');
+
+// ---------- brand ----------
+const C = { char: '#1F1F1F', ivory: '#F8F6EF', marble: '#EDE4D6', gold: '#DD9A10', crimson: '#B31217', red: '#BE0F18' };
+const PF = (w, s, it = false) => `${it ? 'italic ' : ''}${w} ${s}px "Playfair Display"`;
+const MS = (w, s) => `${w} ${s}px Montserrat`;
+
+// ---------- layout per format (native re-layout, not a crop) ----------
+// v2, 9:16: STANDARDS section 6 zone (top 269, bottom 672, right 227, sides 65): all text inside x 96-853, y 269-1248.
+// Each label now hangs under its own dot (labGap px below it) and turns with it, so a label never crosses a dot and
+// the lowest label (a dot passing the bottom of its circle mid-step) still ends above 1248.
+const L = FMT === '9x16' ? {
+  W: 1080, H: 1920, X0: 96, XR: 853, cx: 500,
+  hlTop: 290, hlSize: 104, hlMaxW: 757, blockGap: 26,
+  triY: 980, R0: 170, rd: 21, lab: 50, labGap: 10, grow: 0.04,
+  rb: 100, HS: 272,
+  lockS: 1.27, lockCY: 515,
+  one: { y: 792, size: 128 }, built: { y: [892, 982], size: 86 }, cta: { y: [1136, 1212], size: 56 },
+} : {
+  W: 1080, H: 1350, X0: 92, XR: 988, cx: 540,
+  hlTop: 104, hlSize: 92, hlMaxW: 896, blockGap: 18,
+  triY: 800, R0: 170, rd: 19, lab: 46, labGap: 10, grow: 0.04,
+  rb: 92, HS: 250,
+  lockS: 1.27, lockCY: 360,
+  one: { y: 632, size: 120 }, built: { y: [728, 812], size: 80 }, cta: { y: [952, 1020], size: 52 },
+};
+cv.width = L.W; cv.height = L.H;
+const W = L.W, H = L.H;
+
+// ---------- timeline (seconds). 120 BPM grid: one beat = 0.5 s ----------
+// v2 hook (STANDARDS M5): "Still running / your business" is set on frame 0 (its words rise across the loop seam, from
+// -0.44 s, so the end of the film rises straight into frame 0); "on three / separate things?" is in by 0.94 s.
+const T = {
+  dots: [0.06, 0.2, 0.34],
+  labels: [0.9, 1.02, 1.14],
+  hl1: -0.44, word1: 0.06,                    // block 1 starts before frame 0 (it is drawn again at the end, rising into the loop)
+  hlB: 0.48, word: 0.1,                       // block 2, per-word stagger
+  steps: [1.5, 2.0, 2.5, 3.0],                // spinner ticks (120 deg each)
+  labOut: 3.4,
+  spin: 3.5, merge: 4.5,                      // continuous spin and collapse, then the merge
+  ant: 5.05, launch: 5.3, flight: 0.78,       // anticipation squash, launch, time in the air
+  rise: 6.8, slide: 7.0, let0: 7.18, letGap: 0.052,   // the mark lands where it took off, rises, then slides into the lockup
+  one: 8.2, built: 8.7, cta: 9.3, under: 10.65, stepsN: 3,
+  exit: 13.45, dur: 14.0,
+};
+T.loopIn = T.dur + T.hl1 - 0.06;              // from here block 1 is drawn on (t - dur): the loop seam
+T.land = T.launch + T.flight;
+T.rev = T.land + 0.09;
+window.DURATION = T.dur;
+
+// ---------- springs and helpers ----------
+const sp = (t, t0, k = 170, d = 26) => spring(t - t0, k, d);
+const mix = (a, b, p) => a + (b - a) * p;
+const smooth = (x) => { x = clamp(x); return x * x * x * (x * (x * 6 - 15) + 10); };
+const ramp = (t, t0, d) => clamp((t - t0) / d);
+const hexRgb = (h) => [1, 3, 5].map((i) => parseInt(h.slice(i, i + 2), 16));
+const lerpCol = (a, b, p, al = 1) => { const A = hexRgb(a), B = hexRgb(b); return `rgba(${A.map((v, i) => Math.round(v + (B[i] - v) * p)).join(',')},${al})`; };
+function rng(seed) {
+  let s = seed >>> 0;
+  return () => { s = (s + 0x6D2B79F5) >>> 0; let x = s; x = Math.imul(x ^ (x >>> 15), x | 1); x ^= x + Math.imul(x ^ (x >>> 7), x | 61); return ((x ^ (x >>> 14)) >>> 0) / 4294967296; };
+}
+// damped oscillation that starts at 0 with unit velocity (impact responses)
+const ring = (tau, w, z) => (tau <= 0 ? 0 : Math.exp(-z * w * tau) * Math.sin(w * Math.sqrt(1 - z * z) * tau) / (w * Math.sqrt(1 - z * z)));
+
+// ---------- assets ----------
+const load = (src) => new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = rej; i.src = src; });
+const [LOGO, WM] = await Promise.all([load('assets/brand/logo-full.png'), load('assets/brand/wordmark-white.png')]);
+// symbol region of logo-full.png (alpha bbox 93..459 x 185..551, padded 2 px for the antialiased edge)
+const SYM_SRC = { x: 91, y: 183, w: 371, h: 371, inner: 367 };
+// wordmark-white.png: symbol bbox 16..137 x 47..167 (122 x 121), white letters 153..627 x 77..160
+const WMB = { symX: 16, symY: 47, symW: 122, symH: 121, txtY0: 64, txtY1: 176 };
+// letter columns in wordmark-white.png px (S t r a i g h t S c a l e), mapped from the logo-full.png column profile
+const LETTERS = [509, 675, 757, 853, 976, 1026, 1168, 1300, 1384, 1528, 1652, 1784, 1833, 1978].map((x) => 153 + (x - 509) * (474 / 1469));
+
+const faces = [PF(900, 40), PF(900, 40, true), PF(700, 40, true), MS(600, 40), MS(700, 40)];
+await Promise.all(faces.map((f) => document.fonts.load(f, 'Aa?,.-')));
+
+// static film grain (seeded, one layer for the whole film, so held frames stay bit-identical)
+const GRAIN = (() => {
+  const g = document.createElement('canvas'); g.width = W; g.height = H;
+  const gx = g.getContext('2d'), im = gx.createImageData(W, H), r = rng(505);
+  for (let i = 0; i < im.data.length; i += 4) {
+    const v = r() < 0.5 ? 0 : 255;
+    im.data[i] = im.data[i + 1] = im.data[i + 2] = v; im.data[i + 3] = Math.round(r() * 7);
+  }
+  gx.putImageData(im, 0, 0);
+  return g;
+})();
+
+// ---------- the three dots: pop in, step like a loading spinner, then spiral into one ----------
+const BASE = -Math.PI / 2;
+function spinner(t) {
+  let a = BASE;
+  for (const s of T.steps) a += (2 * Math.PI / 3) * sp(t, s, 700, 44);
+  let R = L.R0 * (1 + L.grow * smooth(ramp(t, T.steps[0], T.spin - T.steps[0])));   // the spacing grows while it waits
+  let k = 0;
+  if (t > T.spin) {
+    const tau = clamp((t - T.spin) / (T.merge - T.spin));
+    a += 2.4 * 2 * Math.PI * tau * tau * tau;          // accelerate: 2.4 extra turns, angular speed grows with tau^2
+    k = Math.pow(tau, 2.3);
+    R *= 1 - k;
+  }
+  return { a, R, k };
+}
+function dotPos(t, i) {
+  const s = spinner(t), a = s.a + i * 2 * Math.PI / 3;
+  return [L.cx + s.R * Math.cos(a), L.triY + s.R * Math.sin(a), a, s];
+}
+
+// ---------- the ball: merge, wobble, anticipation, flight, landing ----------
+const yLaunch0 = L.triY;
+const yLand = L.triY;                         // v2: it lands on the floor it took off from (near frame centre), not at the lockup
+const Hg = (yLaunch0 + yLand) / 2 + 300;      // apex well above the top edge
+function flight(u) {
+  const x = L.cx - 64 * Math.sin(Math.PI * u);
+  const y = yLaunch0 + 22 + (yLand - yLaunch0 - 22) * u - 4 * Hg * u * (1 - u);
+  return [x, y];
+}
+const vLand = (() => { const e = 1e-4, a = flight(1 - e), b = flight(1); return (b[1] - a[1]) / (e * T.flight); })();
+const LANDW = 36, LANDZ = 0.5;
+const ringPeak = (() => { let m = 0; for (let s = 0; s < 0.3; s += 0.001) m = Math.max(m, ring(s, LANDW, LANDZ)); return m; })();
+
+// returns {x, y, r, along, across, phi, col, alpha, glow}
+function ball(t) {
+  if (t < T.merge) return null;
+  const tm = t - T.merge;
+  let r = L.rb * sp(t, T.merge, 330, 15);
+  let x = L.cx, y = L.triY, along = 1, across = 1, phi = Math.PI / 2;
+  // jelly wobble after the merge (squash-stretch on the vertical axis, volume kept)
+  const q = 0.17 * Math.exp(-tm * 5.2) * Math.sin(2 * Math.PI * 6.2 * tm);
+  along = 1 + q; across = 1 / Math.sqrt(1 + q);
+  if (t >= T.ant && t < T.launch) {               // crouch: squash down, bottom stays put
+    const a = smooth((t - T.ant) / (T.launch - T.ant));
+    along = mix(along, 0.72, a); across = mix(across, 1.24, a);
+    y += r * (1 - along);
+  }
+  if (t >= T.launch && t < T.land) {
+    const u = (t - T.launch) / T.flight;
+    [x, y] = flight(u);
+    const e = 1e-3, b = flight(Math.min(1, u + e)), a0 = flight(Math.max(0, u - e));
+    const vx = (b[0] - a0[0]) / (2 * e * T.flight), vy = (b[1] - a0[1]) / (2 * e * T.flight);
+    const v = Math.hypot(vx, vy);
+    phi = Math.atan2(vy, vx);
+    const st = 0.5 * clamp(v / 5200);             // stretch along the velocity
+    const snap = smooth((t - T.launch) / 0.06);   // squash releases into the stretch in 60 ms
+    along = mix(0.72, 1 + st, snap); across = mix(1.24, 1 / Math.sqrt(1 + st), snap);
+  }
+  if (t >= T.land) {
+    const tau = t - T.land;
+    const d = vLand * ring(tau, LANDW, LANDZ);    // the impact response (a damped spring)
+    const c = 0.34 * (d / (vLand * ringPeak));    // impact squash follows it
+    along = 1 - c; across = 1 / Math.sqrt(Math.max(0.3, 1 - c));
+    x = L.cx; y = yLand + r * (1 - along);        // v2: the bottom stays on the floor it took off from (no sinking through it)
+    phi = Math.PI / 2;
+  }
+  const col = lerpCol(C.ivory, C.crimson, smooth(tm / 0.16));
+  const glow = Math.exp(-tm / 0.38) * (tm >= 0 ? 1 : 0);
+  const alpha = t < T.rev ? 1 : 1 - smooth((t - T.rev) / 0.13);
+  return { x, y, r, along, across, phi, col, alpha, glow };
+}
+// the circular mask that grows out of the ball and reveals the real symbol
+const HALF_DIAG = (L.HS / 2) * Math.SQRT2 * 1.02;
+const maskR = (t) => mix(L.rb, HALF_DIAG, spring(t - T.rev, 150, 24));
+// hero symbol -> lockup symbol (FLIP: centre and size on one spring)
+const WMX = L.X0 - WMB.symX * L.lockS;                        // wordmark-white.png drawn so its content starts at X0
+const WMY = L.lockCY - (WMB.symY + WMB.symH / 2) * L.lockS;
+const LOCK = { cx: WMX + (WMB.symX + WMB.symW / 2) * L.lockS, cy: L.lockCY, size: WMB.symW * L.lockS };
+function symbol(t) {
+  const py = sp(t, T.rise, 220, 26);          // up first (a stiffer spring that starts 0.2 s earlier) ...
+  const p = sp(t, T.slide, 190, 23);          // ... then left and down to the lockup size: one curved FLIP
+  const pop = 0.93 + 0.07 * sp(t, T.rev, 260, 17);
+  const size = Math.exp(mix(Math.log(L.HS * pop), Math.log(LOCK.size), p));
+  return { cx: mix(L.cx, LOCK.cx, p), cy: mix(yLand, L.lockCY, py), size, p };
+}
+
+// ---------- text ----------
+const boxes = (b) => window.__boxes && window.__boxes.push(b);
+const texts = [];   // filled per frame for window.TEXTS (reading-time check)
+// a line of words: each word rises on its own spring; exit() gives 0..1 per word
+function wordsLine(t, id, segs, x, y, size, t0, gap, opt = {}) {
+  let cx = x, minA = 1, full = '';
+  const placed = [];
+  segs.forEach((g) => g.s.split(' ').filter(Boolean).forEach((w) => placed.push({ w, f: g.f, c: g.c })));
+  placed.forEach((p, i) => {
+    ctx.font = p.f;
+    const ww = ctx.measureText(p.w).width, space = ctx.measureText(' ').width;
+    const tw = t0 + i * gap, pr = sp(t, tw, 260, 22), a = clamp((t - tw) / 0.16);
+    const ex = opt.exit ? opt.exit(t, cx + ww / 2) : 0;
+    const al = a * (1 - ex) * (opt.alpha ?? 1);
+    minA = Math.min(minA, a * (1 - ex));
+    if (al > 0.003) {
+      ctx.save();
+      ctx.globalAlpha = al;
+      ctx.fillStyle = p.c;
+      const dx = opt.push ? opt.push(t, cx + ww / 2) : 0;
+      const by = opt.bump ? opt.bump(i, t) : 0;
+      ctx.fillText(p.w, cx + dx, y + (1 - pr) * 0.42 * size - ex * 0.55 * size + by);
+      ctx.restore();
+    }
+    p.x = cx; p.wd = ww;
+    cx += ww + space;
+    full += (i ? ' ' : '') + p.w;
+  });
+  const w = cx - x - (placed.length ? (ctx.measureText(' ').width) : 0);
+  if (t >= t0 && minA * (opt.alpha ?? 1) > 0.02) boxes({ x, y: y - size * 0.72, w, h: size, text: full });
+  if (t >= t0) texts.push({ id, text: full, full: minA * (opt.alpha ?? 1) > 0.98, x0: x, y0: y - size * 0.8, x1: x + w, y1: y + size * 0.25 });
+  return placed;
+}
+// fit a set of lines to a max width at a common size
+function fitSize(lines, size, maxW) {
+  let s = size;
+  for (const segs of lines) {
+    let w = 0;
+    segs.forEach((g) => { ctx.font = g.f(s); w += ctx.measureText(g.s).width; });
+    if (w > maxW) s = Math.floor(s * maxW / w);
+  }
+  return s;
+}
+
+// headline: "Still running / your business" + "on three / separate things?"
+const HL = (() => {
+  const I = C.ivory, G = C.gold;
+  const lines = [
+    [{ s: 'Still running', f: (s) => PF(900, s), c: I }],
+    [{ s: 'your business', f: (s) => PF(900, s), c: I }],
+    [{ s: 'on ', f: (s) => PF(900, s), c: I }, { s: 'three', f: (s) => PF(900, s, true), c: G }],
+    [{ s: 'separate things?', f: (s) => PF(900, s), c: I }],
+  ];
+  const size = fitSize(lines, L.hlSize, L.hlMaxW);
+  const lh = size * 1.04;
+  const ys = [0, 1, 2, 3].map((i) => L.hlTop + size * 0.74 + i * lh + (i >= 2 ? L.blockGap : 0));
+  return { lines: lines.map((segs) => segs.map((g) => ({ s: g.s, f: g.f(size), c: g.c }))), size, ys };
+})();
+// the headline leaves where the ball passes it on the way up (cause and effect)
+function crossTime(yLine) {
+  for (let u = 0; u <= 0.5; u += 0.002) if (flight(u)[1] < yLine) return T.launch + u * T.flight;
+  return T.launch + 0.2;
+}
+const HL_OUT = HL.ys.map((y) => crossTime(y - HL.size * 0.35));
+const HL_START = [T.hl1, T.hl1 + 2 * T.word1, T.hlB, T.hlB + 2 * T.word];
+const HL_GAP = [T.word1, T.word1, T.word, T.word];
+function headline(t) {
+  HL.lines.forEach((segs, i) => {
+    const out = HL_OUT[i];
+    wordsLine(t, i < 2 ? 'question-1' : 'question-2', segs, L.X0, HL.ys[i], HL.size, HL_START[i], HL_GAP[i], {
+      exit: (tt) => smooth((tt - out + 0.02) / 0.2),
+      push: (tt, wx) => 70 * Math.sign(wx - L.cx) * smooth((tt - out) / 0.25),
+    });
+  });
+}
+// the loop seam: at the end of the film block 1 rises in again on (t - dur), so the last frame flows into frame 0
+function headlineLoopIn(t) {
+  for (let i = 0; i < 2; i++) wordsLine(t - T.dur, 'question-1', HL.lines[i], L.X0, HL.ys[i], HL.size, HL_START[i], HL_GAP[i]);
+}
+
+// v2: each label hangs under its own dot and stays upright, so it turns with the triangle and never crosses a dot
+// (v1 rode a wider ring and passed over the dots mid-step). Two labels can never touch: dots are 2R x sin 60 apart.
+const LABELS = ['Posts', 'Replies', 'Follow-ups'];
+function labelAt(t, i) {
+  const t0 = T.labels[i], a = clamp((t - t0) / 0.14) * (1 - smooth((t - T.labOut - i * 0.05) / 0.2));
+  const [x, y] = dotPos(t, i);
+  const pr = sp(t, t0, 300, 22);
+  return { x, yb: y + L.rd + L.labGap + 0.72 * L.lab + (1 - pr) * 10, a };
+}
+// v2: in-page motion blur for the labels. The renderer averages SUB subframes per frame, each standing for SHUTTER
+// seconds; during a 120 degree step a label moves up to about 15 px in that time, which left 5 to 8 stacked copies of
+// each word. Here each subframe adds its own samples across its slice, as many as the speed needs (one per 1.5 px),
+// summed with 'lighter' at 1/n each on a side canvas: an exact average, then composited once.
+const SHUTTER = Number(new URLSearchParams(location.search).get('sh')) || 1 / 480;   // 1 / (fps x sub); 60 fps x 8 = 1/480
+const LB = document.createElement('canvas'); LB.width = W; LB.height = H;
+const lbx = LB.getContext('2d');
+function labels(t) {
+  ctx.font = MS(600, L.lab);
+  LABELS.forEach((txt, i) => {
+    const t0 = T.labels[i];
+    if (t < t0) return;
+    const p0 = labelAt(t, i);
+    if (p0.a <= 0.003) return;
+    const w = ctx.measureText(txt).width;
+    const p1 = labelAt(t + SHUTTER, i);
+    const n = Math.min(24, Math.max(1, Math.ceil(Math.hypot(p1.x - p0.x, p1.yb - p0.yb) / 1.5)));
+    if (n === 1) {
+      ctx.save();
+      ctx.textAlign = 'center'; ctx.globalAlpha = p0.a * 0.92; ctx.fillStyle = C.ivory;
+      ctx.fillText(txt, p0.x, p0.yb);
+      ctx.restore();
+    } else {
+      const xs = [], ys = [];
+      lbx.font = MS(600, L.lab); lbx.textAlign = 'center'; lbx.textBaseline = 'alphabetic'; lbx.fillStyle = C.ivory;
+      const smp = [];
+      for (let j = 0; j < n; j++) { const q = labelAt(t + SHUTTER * j / n, i); smp.push(q); xs.push(q.x); ys.push(q.yb); }
+      const bx = Math.max(0, Math.floor(Math.min(...xs) - w / 2 - 8)), by = Math.max(0, Math.floor(Math.min(...ys) - L.lab * 1.1));
+      const bw = Math.min(W - bx, Math.ceil(Math.max(...xs) + w / 2 + 8) - bx), bh = Math.min(H - by, Math.ceil(Math.max(...ys) + L.lab * 0.5) - by);
+      lbx.globalCompositeOperation = 'source-over'; lbx.globalAlpha = 1;
+      lbx.clearRect(bx, by, bw, bh);
+      lbx.globalCompositeOperation = 'lighter';
+      for (const q of smp) { lbx.globalAlpha = q.a / n; lbx.fillText(txt, q.x, q.yb); }
+      lbx.globalCompositeOperation = 'source-over'; lbx.globalAlpha = 1;
+      ctx.save(); ctx.globalAlpha = 0.92;
+      ctx.drawImage(LB, bx, by, bw, bh, bx, by, bw, bh);
+      ctx.restore();
+    }
+    const { x, yb, a } = p0;
+    if (a > 0.02) boxes({ x: x - w / 2, y: yb - L.lab * 0.72, w, h: L.lab, text: txt });
+    texts.push({ id: 'label-' + i, text: txt, full: a > 0.98, x0: x - w / 2, y0: yb - L.lab * 0.8, x1: x + w / 2, y1: yb + L.lab * 0.25 });
+  });
+}
+
+// end card lines
+const END = (() => {
+  const I = C.ivory, G = C.gold;
+  const built = [[{ s: 'Built around', f: (s) => PF(700, s, true), c: G }], [{ s: 'your business.', f: (s) => PF(700, s, true), c: G }]];
+  const cta = [[{ s: 'Follow for the build,', f: (s) => MS(600, s), c: I }], [{ s: 'step by step.', f: (s) => MS(600, s), c: I }]];   // v2: no weekly promise
+  const oneS = fitSize([[{ s: 'One system.', f: (s) => PF(900, s) }]], L.one.size, L.XR - L.X0);
+  const bS = fitSize(built, L.built.size, L.XR - L.X0), cS = fitSize(cta, L.cta.size, L.XR - L.X0);
+  const fix = (lines, s) => lines.map((segs) => segs.map((g) => ({ s: g.s, f: g.f(s), c: g.c })));
+  return { one: [{ s: 'One system.', f: PF(900, oneS), c: I }], oneS, built: fix(built, bS), bS, cta: fix(cta, cS), cS };
+})();
+let ctaPlaced = null;
+function endCard(t, fade) {
+  const ex = (tt) => smooth((tt - T.exit) / 0.38);
+  wordsLine(t, 'one-system', END.one, L.X0, L.one.y, END.oneS, T.one, 0.13, { exit: ex });
+  wordsLine(t, 'built', END.built[0], L.X0, L.built.y[0], END.bS, T.built, 0.1, { exit: ex });
+  wordsLine(t, 'built', END.built[1], L.X0, L.built.y[1], END.bS, T.built + 0.2, 0.1, { exit: ex });
+  wordsLine(t, 'cta', END.cta[0], L.X0, L.cta.y[0], END.cS, T.cta, 0.09, { exit: ex });
+  const hop = (tau) => (tau > 0 && tau < 0.3 ? -0.22 * END.cS * Math.sin(Math.PI * tau / 0.3) : 0);
+  ctaPlaced = wordsLine(t, 'cta', END.cta[1], L.X0, L.cta.y[1], END.cS, T.cta + 4 * 0.09, 0.09, { exit: ex, bump: (i, tt) => hop(tt - T.under - i * 0.5) });
+  // a gold rule steps under "step by step." one word per beat; each word hops as the rule reaches it
+  if (t >= T.under && ctaPlaced.length) {
+    const x0 = ctaPlaced[0].x;
+    let xe = x0, prev = x0;
+    for (let k = 0; k < Math.min(T.stepsN, ctaPlaced.length); k++) {
+      const r = ctaPlaced[k].x + ctaPlaced[k].wd;
+      xe += (r - prev) * sp(t, T.under + k * 0.5, 520, 30); prev = r;
+    }
+    ctx.save();
+    ctx.globalAlpha = 1 - ex(t);
+    ctx.strokeStyle = C.gold; ctx.lineWidth = 6; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.moveTo(x0, L.cta.y[1] + 22); ctx.lineTo(Math.max(x0 + 0.01, xe), L.cta.y[1] + 22); ctx.stroke();
+    ctx.restore();
+  }
+}
+
+// ---------- the mark ----------
+function drawSymbol(cx, cy, size, alpha) {
+  const k = size / SYM_SRC.inner;
+  ctx.save();
+  ctx.globalAlpha = alpha;
+  ctx.imageSmoothingQuality = 'high';
+  ctx.drawImage(LOGO, SYM_SRC.x, SYM_SRC.y, SYM_SRC.w, SYM_SRC.h, cx - SYM_SRC.w * k / 2, cy - SYM_SRC.h * k / 2, SYM_SRC.w * k, SYM_SRC.h * k);
+  ctx.restore();
+}
+function lockupLetters(t, symRight, alpha) {
+  const S = L.lockS;
+  if (t >= T.let0 + 12 * T.letGap + 0.12) {   // all letters in: one clip, so no seams between letter columns
+    ctx.save();
+    ctx.beginPath(); ctx.rect(Math.max(WMX + LETTERS[0] * S - 4, symRight + 2), WMY + WMB.txtY0 * S, (LETTERS[13] - LETTERS[0]) * S + 8, (WMB.txtY1 - WMB.txtY0) * S); ctx.clip();
+    ctx.globalAlpha = alpha;
+    ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(WM, WMX, WMY, WM.width * S, WM.height * S);
+    ctx.restore();
+    return;
+  }
+  LETTERS.slice(0, -1).forEach((a0, i) => {
+    const t0 = T.let0 + i * T.letGap, p = smooth((t - t0) / 0.1);
+    if (p <= 0) return;
+    const b0 = LETTERS[i + 1];
+    const xa = WMX + a0 * S, xb = WMX + b0 * S;
+    const left = Math.max(xa, symRight + 2), right = mix(xa, xb, p);
+    if (right <= left) return;
+    ctx.save();
+    ctx.beginPath(); ctx.rect(left, WMY + WMB.txtY0 * S, right - left, (WMB.txtY1 - WMB.txtY0) * S); ctx.clip();
+    ctx.globalAlpha = alpha * clamp(p * 1.4);
+    ctx.imageSmoothingQuality = 'high';
+    ctx.drawImage(WM, WMX, WMY, WM.width * S, WM.height * S);
+    ctx.restore();
+  });
+}
+
+// ---------- sound events (exported to audio/events.json by tools/events.mjs) ----------
+const EV = [];
+T.dots.forEach((t, i) => EV.push({ t, kind: 'pop', i, x: (dotPos(t + 0.3, i)[0] - L.cx) / 400 }));
+T.labels.forEach((t, i) => EV.push({ t, kind: 'label', i, x: (labelAt(t + 0.2, i).x - L.cx) / 400 }));
+T.steps.forEach((t, i) => EV.push({ t, kind: 'tick', i }));
+EV.push({ t: T.spin, kind: 'riser', dur: T.merge - T.spin });
+EV.push({ t: T.merge, kind: 'merge' });
+EV.push({ t: T.merge + 0.02, kind: 'wobble' });
+EV.push({ t: T.ant, kind: 'crouch', dur: T.launch - T.ant });
+EV.push({ t: T.launch, kind: 'whoosh', dir: 'up' });
+const reentry = (() => { for (let u = 0.5; u <= 1; u += 0.001) { const [, y] = flight(u); if (y > -L.rb) return T.launch + u * T.flight; } return T.land - 0.2; })();
+const exitTop = (() => { for (let u = 0; u <= 0.5; u += 0.001) { const [, y] = flight(u); if (y < -L.rb * 1.6) return T.launch + u * T.flight; } return T.launch + 0.2; })();
+EV.push({ t: reentry, kind: 'whoosh', dir: 'down' });
+EV.push({ t: T.land, kind: 'thud' });
+EV.push({ t: T.rev, kind: 'reveal' });
+const goldT = (() => { const gd = Math.hypot(0.42, 0.42) * L.HS * 0.98; for (let t = T.rev; t < T.rev + 1; t += 0.002) if (maskR(t) > gd) return t; return T.rev + 0.2; })();
+EV.push({ t: goldT, kind: 'glint' });
+EV.push({ t: T.rise, kind: 'rise' });
+EV.push({ t: T.slide, kind: 'slide' });
+for (let i = 0; i < 13; i++) EV.push({ t: T.let0 + i * T.letGap, kind: 'letter', i });
+T.lock = T.let0 + 12 * T.letGap + 0.07;
+EV.push({ t: T.lock, kind: 'chord' });
+EV.push({ t: T.one, kind: 'line', i: 0 });
+EV.push({ t: T.built, kind: 'line', i: 1 });
+EV.push({ t: T.cta, kind: 'cta' });
+for (let k = 0; k < T.stepsN; k++) EV.push({ t: T.under + k * 0.5, kind: 'step', i: k });
+EV.push({ t: T.exit, kind: 'exit' });
+window.EVENTS = EV;
+window.CUES = { ...T, reentry, exitTop, goldT, hlOut: HL_OUT };
+
+// ---------- frame ----------
+function seek(t) {
+  texts.length = 0;
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.globalAlpha = 1;
+  ctx.fillStyle = C.char;
+  ctx.fillRect(0, 0, W, H);
+  ctx.textBaseline = 'alphabetic';
+  ctx.textAlign = 'left';
+  const fade = 1 - smooth((t - T.exit) / 0.38);
+
+  // headline (and, at the end, block 1 rising into the loop seam)
+  if (t < T.land) headline(t);
+  if (t >= T.loopIn) headlineLoopIn(t);
+
+  // dots and labels
+  if (t < T.merge + 0.02) {
+    const s = spinner(t);
+    labels(t);
+    for (let i = 0; i < 3; i++) {
+      const t0 = T.dots[i];
+      if (t < t0) continue;
+      // v2: the same speed-driven in-page samples as the labels, so a dot in a step smears instead of stacking copies
+      const at = (tt) => { const [x, y] = dotPos(tt, i); return { x, y, r: Math.max(0, L.rd * sp(tt, t0, 420, 15) * (1 - 0.35 * spinner(tt).k)) }; };
+      const q0 = at(t), q1 = at(t + SHUTTER);
+      const n = Math.min(24, Math.max(1, Math.ceil(Math.hypot(q1.x - q0.x, q1.y - q0.y) / 1.5)));
+      if (n === 1) {
+        ctx.fillStyle = C.ivory;
+        ctx.beginPath(); ctx.arc(q0.x, q0.y, q0.r, 0, 2 * Math.PI); ctx.fill();
+        continue;
+      }
+      const smp = Array.from({ length: n }, (_, j) => at(t + SHUTTER * j / n));
+      const pad = L.rd + 4;
+      const bx = Math.max(0, Math.floor(Math.min(...smp.map((q) => q.x)) - pad)), by = Math.max(0, Math.floor(Math.min(...smp.map((q) => q.y)) - pad));
+      const bw = Math.min(W - bx, Math.ceil(Math.max(...smp.map((q) => q.x)) + pad) - bx), bh = Math.min(H - by, Math.ceil(Math.max(...smp.map((q) => q.y)) + pad) - by);
+      lbx.globalCompositeOperation = 'source-over'; lbx.globalAlpha = 1;
+      lbx.clearRect(bx, by, bw, bh);
+      lbx.globalCompositeOperation = 'lighter'; lbx.fillStyle = C.ivory; lbx.globalAlpha = 1 / n;
+      for (const q of smp) { lbx.beginPath(); lbx.arc(q.x, q.y, q.r, 0, 2 * Math.PI); lbx.fill(); }
+      lbx.globalCompositeOperation = 'source-over'; lbx.globalAlpha = 1;
+      ctx.drawImage(LB, bx, by, bw, bh, bx, by, bw, bh);
+    }
+  }
+
+  // ball, glow, reveal
+  const b = ball(t);
+  if (b && t < T.rev + 0.4) {
+    if (b.glow > 0.004) {
+      const gr = ctx.createRadialGradient(b.x, b.y, b.r * 0.6, b.x, b.y, b.r * 2.6);
+      gr.addColorStop(0, `rgba(214,52,46,${0.5 * b.glow})`);
+      gr.addColorStop(0.45, `rgba(179,18,23,${0.18 * b.glow})`);
+      gr.addColorStop(1, 'rgba(179,18,23,0)');
+      ctx.fillStyle = gr;
+      ctx.fillRect(b.x - b.r * 2.7, b.y - b.r * 2.7, b.r * 5.4, b.r * 5.4);
+    }
+    if (t >= T.rev) {
+      // the real symbol, seen through a circle that grows out of the ball (the circle keeps the ball's squash)
+      ctx.save();
+      ctx.translate(b.x, b.y); ctx.rotate(b.phi); ctx.scale(b.along, b.across);
+      ctx.beginPath(); ctx.arc(0, 0, maskR(t), 0, 2 * Math.PI);
+      ctx.restore();
+      ctx.save(); ctx.clip();
+      const s = symbol(t);
+      drawSymbol(s.cx, s.cy, s.size, 1);
+      ctx.restore();
+    }
+    if (b.alpha > 0.003) {
+      ctx.save();
+      ctx.globalAlpha = b.alpha;
+      ctx.translate(b.x, b.y); ctx.rotate(b.phi); ctx.scale(b.along, b.across);
+      ctx.fillStyle = b.col;
+      ctx.beginPath(); ctx.arc(0, 0, Math.max(0, b.r), 0, 2 * Math.PI); ctx.fill();
+      // a hot core at the moment of the merge
+      const core = Math.exp(-(t - T.merge) / 0.09);
+      if (core > 0.01 && b.r > 1) {
+        const cg = ctx.createRadialGradient(0, 0, 0, 0, 0, b.r);
+        cg.addColorStop(0, `rgba(248,246,239,${0.9 * core})`); cg.addColorStop(0.55, `rgba(248,246,239,${0.35 * core})`); cg.addColorStop(1, 'rgba(248,246,239,0)');
+        ctx.fillStyle = cg; ctx.beginPath(); ctx.arc(0, 0, b.r, 0, 2 * Math.PI); ctx.fill();
+      }
+      ctx.restore();
+    }
+  }
+
+  // symbol after the reveal, slide, letters
+  if (t >= T.rev + 0.4) {
+    const s = symbol(t);
+    const sc = 1 - 0.03 * smooth((t - T.exit) / 0.38);
+    ctx.save();
+    ctx.translate(L.cx, L.lockCY); ctx.scale(sc, sc); ctx.translate(-L.cx, -L.lockCY);
+    lockupLetters(t, s.cx + s.size / 2, fade);
+    drawSymbol(s.cx, s.cy, s.size, fade);
+    ctx.restore();
+  }
+
+  if (t >= T.one) endCard(t, fade);
+
+  ctx.globalAlpha = 1;
+  ctx.drawImage(GRAIN, 0, 0);
+}
+window.TEXTS = (t) => { seek(t); return texts.slice(); };
+window.seek = seek;
+seek(0);
+</script>
+</body>
+</html>

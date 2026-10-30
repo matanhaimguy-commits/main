@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "SL06",
+ "version": 1,
+ "prompt_sha256": "2828d71acbd22386bb76dab7b4a43f92d35a7de10d56e485b66a235166ec0733",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "All 5 text lines, counter \"6/8\", PR-PHONE, CH-HANDS, PR-PHONE-SCREEN (composer), PR-ARROW, hands block, camera, carry-over present (string check clean)"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "\"Image 3 is the approved slide 2 ... Image 4 is the prop sheet PS-COMPOSER: copy the phone screen state \"COMPOSER-EMPTY\" from it exactly\" matches upload order"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"left thumb pad on the phone's left side edge; right thumb tip 2 cm above the glass, not touching it; must not cover: the empty message field ... and the top of the screen\"; eight fingers hidden accounted for"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"The left hand holds the phone from below with four fingers behind the case and the thumb pad on its left side edge. The right thumb hovers 2 cm above the screen's bottom-right corner\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-PHONE-SCREEN filled: \"one short light-grey bubble ... an empty rounded white message field with a thin dark cursor bar\"; negative \"No text typed in the message field\" is targeted"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"NJË PYETJE\" / \"Çfarë të bëri gati\" / \"të zgjidhje dikë\" / \"tjetër?\" / \"Dërgoja klientëve të fundit.\" with box, size, colour; \"gati\" in a crimson rectangle; \"6/8\"; Ë, ë, Ç spelled for 8 words; 6 words or fewer per surface"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "\"Behind the phone only soft lamp lights; no frame samples, signs or readable words.\"; \"No window and no clock tower\"; composer screen content ruled"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Hands, phone box (x 45% to 75%) and forearm positions agree; the edge-light sentence needs the fix under P11. Note: \"left hand the left hand holds\" is a harmless duplicate"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "Carry-over: \"The same red-case phone, now lit and in two hands; the sales desk is only soft bokeh.\" matches the spec"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "gpt_image_2_5 slide card, 4:5, locked block, counter \"6/8\", arrow present; headline 7 words (the turn, 14 words total)"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "Template leftovers a model must resolve: \"(on a close or macro slide it is soft warm bokeh)\" and \"on every slide\" (band or bokeh? this slide is a macro view) and \"If this scene describes no window, no window and no clock tower is drawn.\"; the edge \"warm lamp-light band touches both the left edge ... and the right edge\" can also read as a side bar, against \"no picture-frame borders, side bars or blurred margins\""
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 composer screen filled with prop sheet image 4; FL-01 hands far from the text block; FL-03 contact points; FL-13 corner rule (left forearm starts at x 44%)"
+  }
+ ],
+ "corrected_prompt": "Instagram carousel slide, portrait 4:5. \"Tirana after dark\": cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through the cover's window. Same light and colour grade on every slide. Thread: a smartphone in a deep red case (#BE0F18), recurring on every slide, changing state with the story (silent, unread messages piling up, ringing, a booked calendar). Palette: scene tone near-black (#1F1F1F), type ivory (#F8F6EF), accent crimson #B31217 as solid highlight rectangles behind key words and the swipe arrow button, small gold (#DD9A10) only for the counter. #B31217 is the only saturated colour besides the gold counter and the phone case. Type: heavy bold geometric sans in ivory, left-aligned in the calm dark area; key words in solid crimson #B31217 highlight rectangles. Spell ë and ç out letter by letter in every prompt. Frame: slide counter top right (gold), swipe arrow bottom right on slides 1 to N-1. Bottom-left corner calm, dark and empty.\n\nImage 1 is the style reference: match its type, highlight box, counter, light and grade, not its text or scene. Image 2 is the approved cover: keep the same world, light, grade and type system, not its scene or text. Image 3 is the approved slide 2: keep the same type system and counter style, not its scene or text. Image 4 is the prop sheet PS-COMPOSER: copy the phone screen state \"COMPOSER-EMPTY\" from it exactly (shapes, colours and layout) and nothing else from it. Slide 6 of 8. Continue the exact same visual system.\n\nSubject and pose: PR-PHONE: the red-case phone held in the owner's two hands, screen lit with an open empty message field, seen straight-on as the owner sees it; portrait, upright, fully inside the frame (x 45% to 75%, y 40% to 90%), seen straight-on as the owner sees it. CH-HANDS: only the two hands and wrists described in the hands block, in dark shirt sleeves; no body, no face and no head in the frame; entering from the frame edge as described in the hands block.\n\nHands: OWNER (hands only): left hand the left hand holds the phone from below: the palm under its bottom edge, the thumb on the left side edge and the index, middle, ring and little fingers behind the phone; right hand supports the phone's right side edge: the index, middle, ring and little fingers wrap behind the phone's right side, the thumb hovers 2 cm above the screen's bottom-right corner, below the message field; contact: both forearms in dark shirt sleeves enter from the bottom edge of the frame, the left one between x 44% and 60%, the right one between x 66% and 82%; left thumb pad on the phone's left side edge; right thumb tip 2 cm above the glass, not touching it; must not cover: the empty message field (at 70% down the screen) and the top of the screen; five fingers on each hand, two thumbs visible and eight fingers hidden: the left thumb is visible on the phone's left side edge and its four fingers are behind the phone; the right thumb is visible above the screen's bottom-right corner and its four fingers are behind the phone's right side.\n\nAction as contact points: The left hand holds the phone from below with four fingers behind the case and the thumb pad on its left side edge. The right thumb hovers 2 cm above the screen's bottom-right corner, below the empty message field, without touching the glass.\n\nProps with content: PR-PHONE (held in both hands, screen lit): a modern smartphone in a deep red #BE0F18 case that shows as a rim around the black glass front, rounded corners, no logo on the case or the glass. Size in frame: its box is 30% of the frame width and 50% of the frame height. PR-PHONE-SCREEN (lit, message composer open and empty, facing the camera): a plain message view on a dark charcoal background: one short light-grey bubble aligned left near the top holding two short dark-grey bars instead of letters, and at 70% down the screen an empty rounded white message field with a thin dark cursor bar inside it; below the field the screen is empty dark charcoal, with no on-screen keyboard; no letters, no digits, no names, no app logo, no status bar. PR-ARROW (bottom right, inside the 4% margin): a small crimson #B31217 round button with a white arrow pointing right, flat graphic, nothing else on it. Size in frame: about 8% of the frame width.\n\nText block, all left-aligned at x 6% in the calm top area, every letter inside a 4% margin, nothing overlapping a letter. Line 1 (label, capitals with wide letter-spacing (normal word spaces, no gaps inside words), about 44 px at 1080 px wide, ivory, left-aligned from the left margin, x 6% to 37%, y 6% to 9% of the frame): \"NJË PYETJE\" Line 2 (head, heavy bold geometric sans, about 80 px at 1080 px wide, ivory, left-aligned from the left margin, x 6% to 83%, y 11% to 18% of the frame), with the word \"gati\" inside a solid crimson #B31217 highlight rectangle: \"Çfarë të bëri gati\" Line 3 (head2, heavy bold geometric sans, about 60 px at 1080 px wide, ivory, left-aligned from the left margin, x 6% to 57%, y 19% to 25% of the frame): \"të zgjidhje dikë\" Line 4 (head2, heavy bold geometric sans, about 60 px at 1080 px wide, ivory, left-aligned from the left margin, x 6% to 28%, y 25% to 31% of the frame): \"tjetër?\" Line 5 (sub, bold geometric sans, about 44 px at 1080 px wide, ivory, left-aligned from the left margin, x 6% to 72%, y 32% to 36% of the frame): \"Dërgoja klientëve të fundit.\" Small gold #DD9A10 slide counter, top right: \"6/8\". Spell exactly, letter by letter: \"NJË\" = N, J, Ë (E with two dots); \"Çfarë\" = Ç (C with a cedilla), f, a, r, ë (e with two dots); \"të\" = t, ë (e with two dots); \"bëri\" = b, ë (e with two dots), r, i; \"dikë\" = d, i, k, ë (e with two dots); \"tjetër\" = t, j, e, t, ë (e with two dots), r; \"Dërgoja\" = D, ë (e with two dots), r, g, o, j, a; \"klientëve\" = k, l, i, e, n, t, ë (e with two dots), v, e.\n\nSetting: The same windows-and-doors shop at night, very close: only warm out-of-focus lamp bokeh behind the phone and the hands. No window and no clock tower are visible in this shot. Background rule: Behind the phone only soft lamp lights; no frame samples, signs or readable words. A phone with its screen off is plain black glass with a soft lamp reflection and nothing else. The surface the props stand on is bare apart from the listed props. The top 40% of the frame is a calm near-black zone for the text (a dark wall, or the dark out-of-focus space beyond the table), with nothing in it except the text block and the slide counter. Bottom-left corner (the lowest 9% of the height, the left 40% of the width): calm, dark, empty background with nothing in it: no logo, no letters, no objects (a logo is added later). Bottom right, a small crimson #B31217 round button with a white arrow.\n\nCamera: macro straight-on view of the phone as the owner sees it; the whole phone is in the frame (x 45% to 75%, y 40% to 90%), the top 40% is a calm near-black out-of-focus zone; straight-on, the screen facing the camera, hands entering from the bottom edge of the frame; 35mm film still, shallow depth of field; 4:5; text inside a 4% margin. Swipe bridge: soft warm out-of-focus lamp bokeh from the shop's lamps glows at the left edge (x 0% to 12%) and the right edge (x 88% to 100%) at 70% to 84% of the height; it is part of the lit scene, not a bar, stripe, border or margin.\n\nCarry-over: The same red-case phone, now lit and in two hands; the sales desk is only soft bokeh. Warm lamp light and the same grade.\n\nAvoid: No logo or wordmark drawn anywhere. No letters or objects in the bottom-left corner. No letters, words, digits or app names on any phone screen; screens hold only the shapes described in the props block. No picture-frame borders, side bars or blurred margins around the whole image. No window and no clock tower. No text typed in the message field. Render all text exactly as written, letter for letter. No other words, letters or numbers anywhere, including screens, signs, papers and labels, except the strings listed in the text block. Crimson #B31217 is the only saturated colour besides the small gold counter and the deep red phone case. No logos, wordmarks, app names or app screens anywhere: a phone screen shows only what the props block describes. Full-bleed photograph edge to edge: no picture-frame borders, no side bars, no blurred margins around the whole image."
+}

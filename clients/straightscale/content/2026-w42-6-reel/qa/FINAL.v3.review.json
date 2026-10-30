@@ -1,0 +1,217 @@
+{
+ "gate": "G-FINAL",
+ "asset_id": "FINAL",
+ "version": 3,
+ "post": "2026-w42-6-reel",
+ "reviewer": "take-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "status_note": "The cut itself has zero critical and zero major defects and every measured v2 defect in the cut is fixed (head under the super, LRA, the 0.27 s card). The FAIL is the cover: a hero asset (zero defects of any severity, VISUAL-QA 5.3 and STANDARDS 9) that still carries the known FL-10 shelf pseudo-text, visible only zoomed. Edit-only fix, 0 credits. The new audio minor (bed lifted 5.6 dB in every pause) should be fixed in the same pass.",
+ "reviewed": {
+  "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/984c3211-0887-432b-8022-fd572b7f1a60.mp4",
+  "video_sha256": "afcecb7790a12a06a60cdf56ce92e00606b6fd093a44f30a1a563cc1a1ae6a7f",
+  "cover": "https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/d036ff61-284e-460b-bda1-8b067f704927.jpg",
+  "cover_sha256": "9531979c1bd92b8047b6a484ae2f8bcc978c4e01f3901ce3328ef26a88422a38",
+  "probe": "H.264 High 1080x1920 yuv420p 30 fps, 408 frames, 13.600 s; AAC LC 48 kHz mono 13.572 s; cover JPEG 1080x1920 q94",
+  "against": [
+   "clients/straightscale/content/2026-w42-6-reel/script.md",
+   "growth-engine/production/STANDARDS.md sections 4, 5, 6, 7 (and 2, 8, 9, 11)",
+   "growth-engine/production/VISUAL-QA.md 5.2-5.3 (cover as hero)",
+   "clients/straightscale/content/2026-w42-6-reel/qa/FINAL.v2.review.json (each defect re-measured)",
+   "clients/straightscale/brand/wordmark-white.png",
+   "the v2 render (sha256 c8235747...) for an A/B of audio and picture"
+  ],
+  "packet": "clients/straightscale/content/2026-w42-6-reel/qa/frames/FINAL.v3/ (manifest.json, loudness.json, whisper_small_sq.json, whisper_medium_sq.json, captions.json) and qa/crops/FINAL.v3/manifest.json (cover); sandbox /home/user/qa/w42-6-reel.v3-review/"
+ },
+ "files_opened": [
+  "frames/contact_1.jpg",
+  "full/f_0000.00_full.jpg (1080x1920 JPEG of must_open f_0000.00.png)",
+  "full/f_0013.50_full.jpg (1080x1920 JPEG of must_open f_0013.50.png)",
+  "topsheets/top_1.jpg",
+  "topsheets/top_2.jpg",
+  "topsheets/top_3.jpg",
+  "topsheets/top_4.jpg",
+  "topsheets/hz_a.jpg",
+  "topsheets/hz_b.jpg",
+  "capchk/crown_4x.jpg",
+  "full/n019_full.jpg",
+  "full/n020_full.jpg",
+  "full/n212_full.jpg",
+  "full/n213_full.jpg",
+  "full/n326_full.jpg",
+  "full/f_0004.50_full.jpg",
+  "full/f_0006.00_full.jpg",
+  "view/f_0001.50.jpg",
+  "view/f_0003.00.jpg",
+  "view/f_0009.00.jpg",
+  "view/f_0010.50.jpg",
+  "cards/all_cards_1x.jpg",
+  "cards/wordmark_3x.jpg",
+  "cards/endtext_1x.jpg",
+  "capchk/lower_sheet.jpg",
+  "capchk/hands_zoom.jpg",
+  "capchk/hands_seq.jpg",
+  "cover.jpg (full size)",
+  "coverchk/small_views.jpg (200 px thumbnail, 3:4 grid crop at 200 and 360 px)",
+  "coverchk/window_2x.jpg",
+  "coverchk/cans_4x.jpg",
+  "crops/full.jpg",
+  "crops/thumb_200.jpg",
+  "crops/tile_r1c1.jpg",
+  "crops/tile_r1c2.jpg",
+  "crops/tile_r1c3.jpg",
+  "crops/tile_r2c1.jpg",
+  "crops/tile_r2c2.jpg",
+  "crops/tile_r2c3.jpg",
+  "crops/tile_r3c1.jpg",
+  "crops/tile_r3c2.jpg",
+  "crops/tile_r3c3.jpg",
+  "repo: clients/straightscale/brand/wordmark-white.png"
+ ],
+ "checks": [
+  {
+   "id": "F1",
+   "result": "FAIL",
+   "severity": "minor (blocking only because the cover is a hero asset)",
+   "at_s": "cover; minors in the cut 0.0-6.9, 4.5-6.9, 9.0-10.87",
+   "evidence": "Frames checked: 0.00, 0.633 (n019), 0.667 (n020, cut), 1.50, 3.00, 4.50, 6.00, 7.067 (n212), 7.10 (n213, cut), 7.50, 9.00, 10.50, 10.867 (n326), 10.90 (cut to end card), 12.00, 13.50, at full size for 0.00, 0.633, 0.667, 4.50, 6.00, 7.067, 7.10, 10.867, 13.50, plus the top 600 px every 0.1 s from 0.6 to 3.0 s. The picture is the v2 footage unchanged (caption-free regions PSNR 42 to 51 dB against v2 at 0.0, 1.5, 4.5, 7.1, 9.0 s; end card identical), so the edit changed only text and sound. Clean: no morphing, melting, flicker, extra limbs or duplicate people; fingers right on the shutter bar at 0.0, 0.67 and in the cover tile r2c1; the red phone stays in his left jacket pocket; the two walkers stay two 7.1-10.9 s; clock faces carry no numerals. Known minors still present (accepted): (a) FL-10 pseudo-text: lit shop window lower left, red cans with a white script-like mark and boxes with fake lettering (0.0-6.9 s; at 4.5 s cans at x 0-60, y 1620-1840), and kiosk posters with blurred pseudo-text at x 10-150, y 860-1240 (9.0-10.87 s), legible only zoomed; (b) the shutter stops about 70% down (bottom edge near y 1340-1440, lit window open below) while he turns away 4.5-6.9 s on 'Mbylle për sot'; (c) three shots inside the one silent H3 keyframe clip (cuts 0.667 and 7.1 s, STANDARDS 2 one-shot rule), with the 0.633/0.667 continuity jump (shutter height, phone position) reading as a cut. COVER (hero): at full size, at 200 px wide and in the 3:4 grid crop (y 240-1680) it reads cleanly: 9-word headline 'Kjo javë e vështirë / është për tani, / jo përgjithmonë.' spelled right, readable at 200 px and in the grid crop at 200 and 360 px; plates end at y 703 and the crown is at y 785 (82 px clear); hand, phone and walker correct; no head or phone covered. But the cover carries the same FL-10 shelf packaging (tile_r3c1, window_2x, cans_4x: a red can with white script-like lettering at about x 30-90, y 1470-1530, boxes with fake letters at x 0-200, y 1560-1760), visible only at 2x to 4x zoom. That is one minor defect (V11), and a hero asset passes only with zero. Not counted: the headline plates start at x 60, 5 px inside the 65 px side margin (ink starts at x 73); the third line ends at y 703 (36.6% down), past the 640 px top third of the 9:16 frame but inside the top third of the 3:4 grid crop (y 720)."
+  },
+  {
+   "id": "F2",
+   "result": "PASS",
+   "severity": "",
+   "at_s": "0.0-13.6",
+   "evidence": "Sound-off: the hook reads from frame 1 ('Kjo javë e vështirë' top super 0.0-3.0 s, then 'është për tani,' 1.067 s and 'jo përgjithmonë.' on red 2.1 s in the lower band, so the sentence runs top to bottom); the picture tells the story (owner pulls his shutter down at night, turns, looks down the wet street to the clock tower); every spoken word is on screen; the end card carries the send ask 10.9-13.6 s."
+  },
+  {
+   "id": "F3",
+   "result": "PASS",
+   "severity": "",
+   "at_s": "0.0-13.6",
+   "evidence": "v2 D1 FIXED. The hook super is now one line, 'Kjo javë e vështirë' (4 words, top third, 0.000-3.000 s): box 80,274-757,371 (top 5 px inside the 269 px line), ink 101,290-739,354, about 66 px Montserrat ExtraBold, contrast 9.6:1 worst frame. Every 0.1 s frame 0.6-3.0 s (top 600 px) and 4x crown zooms at 0.67, 2.33, 2.40, 2.80, 2.93, 2.97 s: the box never overlaps the head; hair strand tips at y 379-383 and the solid crown at y 381-387, so 8 to 12 px clear of the box bottom (tightest 2.93-2.97 s, about 8 px to the stray strands, as he rises about 5 px over the shot). Spelling checked letter by letter, every ë right: 'Kjo javë e vështirë', 'është për tani,', 'jo përgjithmonë.', 'Ke kaluar', 'edhe të tjera.', 'Mbylle për sot,', 'pusho,', 'dhe nesër', 'fillo nga një', 'gjë e vogël.', end card 'Dërgoja një pronari / që ka nevojë / ta dëgjojë sot.' (exactly the script), no em dashes. Cards 1 to 3 words, 79 to 80 px by ink width. Timing (card on / word onset small, medium): 1.067 / 0.98, 1.08; 2.100 / 2.16, 2.24; 3.600 / 3.58, 3.64; 4.067 / 4.12, 4.16; 5.733 / 5.70, 5.88; 6.900 / 6.90, 7.06; 7.867 / 7.86, 7.96; 8.433 / 8.44, 8.62; 9.200 / 9.20; last card held to 10.867, one empty frame before each change. v2 D6 FIXED: 'dhe nesër' 0.567 s, 'fillo nga një' 0.767 s, 'gjë e vogël.' 1.667 s; the shortest card is 'Ke kaluar' 0.467 s (unchanged from v2, a fast 2-word phrase). Position: every lower box y 1032-1155 (53.8% to 60.2%), x 82 to 835 (right limit 853 in the lower half, side limit 65), bottom 1155 above 1248. Contrast worst frame 4.9:1 ('është për tani,' over the lit window) to 14.6:1; ivory on red 6.6:1. The red phone (top edge y 1170-1210 in 1.2-6.6 s) is never under a box; his hands pass behind the red box only in transit at about 2.3-2.45 s while pulling the shutter. End card text x 74-836, y 640-945; wordmark 96,1040-495,1117 matches wordmark-white.png; end card 2.7 s (rule 2.5 to 3)."
+  },
+  {
+   "id": "F4",
+   "result": "PASS",
+   "severity": "",
+   "at_s": "0.00-10.34",
+   "evidence": "faster-whisper small (sq): 'Kjo jave vë shtir është përtani, jopër gjithmon. Ke kaluar edhe të tjera. Mbule për sot, pësho, dhe nesër filonganjë gjë e vogel.' medium (sq): 'Kjo jave vështir është për tani, jo për gjithmon, ke kaluar edhe të tjera. Mbu le për sotë, pusho, dhe nesër filonga një djøje vogelj.' 25 of the 26 scripted words are found in order with no extra words; the 'e' in 'javë e' is merged into 'jave' by both models (the same merge as v2's medium run), a Whisper limit on Albanian ë + e, not a missing word: the voice is the same take as v2 (waveform correlation 0.983 over 0-10 s, identical timing). Spelling slips are Whisper's (STANDARDS 4). The native Albanian listen in script.md's QA list is still open (G-HUMAN-FINAL)."
+  },
+  {
+   "id": "F5",
+   "result": "FAIL",
+   "severity": "minor",
+   "at_s": "1.80-2.14, 4.86-5.68 (bed); loudness 0.0-13.6",
+   "evidence": "v2 D3 FIXED on the numbers. ebur128 (peak=true): I -13.9 LUFS, true peak -1.8 dBTP, LRA 3.2 LU (low -15.8, high -12.5), short-term max -12.5 LUFS. loudnorm (print_format=json): input_i -14.27 LUFS, input_tp -1.83 dBTP, input_lra 4.20 LU. All four STANDARDS 4 numbers pass on both meters. How it was fixed: v3 is the v2 mix through a broadband time-varying gain (the v3/v2 ratio is identical in the 60-250 Hz, 250-1000 Hz, 1-4 kHz and 4-10 kHz bands in every 40 ms window: about 0 dB on speech peaks, +5.6 dB on every quiet passage from 1.6 s, +9.5 to +18 dB on the end card), the signature of dynamic-mode loudnorm or a compressor with make-up gain. That lifted the music in every pause by 5.6 dB against the voice. Music-only pauses (no energy above 1 kHz, 50 ms RMS) against the voice median -9.4 dBFS: 1.80-2.14 s, inside the spoken hook line: -26.4 dBFS median, -22.5 max, so 17.0 dB under (13 dB at its peak) against the hook rule of 20 dB or more (v2: -32.0, 22.6 dB under); 4.86-5.68 s: -22.6 median, -16.5 max, 13.2 dB under (7 dB at its peak) against 14 to 18 dB (v2: -28.3, 18.9 dB). Other pauses pass (2.96-3.54 s 19.1 dB, 7.44-7.80 s 23.4 dB). Melody under the hook could not be judged without a listen; the 1.80-2.14 s bed has no energy above 1 kHz (a low pad). The sound-on watch and voice-alone listen are for the human pass."
+  },
+  {
+   "id": "F6",
+   "result": "PASS",
+   "severity": "",
+   "at_s": "0.00-0.10",
+   "evidence": "First word 'Kjo' at 0.00 s in both Whisper runs; 10 ms RMS -68 dBFS at 0.00 s, -36 at 0.04 s, -13 at 0.08 s, so speech starts within 0.1 s of frame 1 (narrator rule). The hook super is on from frame 1 and the picture moves from frame 1 (camera drift, cut at 0.667 s)."
+  },
+  {
+   "id": "F7",
+   "result": "PASS",
+   "severity": "",
+   "at_s": "0.0-13.6 (video); packaging listed in edit_fixes",
+   "evidence": "On the video: no side-by-side before and after, no 'your [condition]', no burned-in AI tag (retired, correct), no link, price, discount or urgency; the AI owner is shown from behind or in lost profile (cheek and ear at 0.67-3.0 s and on the cover, never the face or eyes to camera), never as a client and with no result; the walkers are at distance; one CTA (send). Realistic AI footage plus an ElevenLabs narrator means Instagram's AI label must be on and the hub notes must say 'AI label: on' (STANDARDS 7). Packaging as found (not a FAIL of the cut, per the orchestrator's note): item.json has no notes field, and item.json and hosted.json still point at the v1 reel (dc28c10d...) and v1 cover (9c2c812f...)."
+  },
+  {
+   "id": "F8",
+   "result": "N/A",
+   "severity": "",
+   "at_s": "",
+   "evidence": "Edit-only version, 0 credits. The H3 clip (job c0ad3a32), the GPT Image 2.5 still and the eleven_v4 voice were made on 15 Oct before the run ledger existed, so there is no preflight or calls.jsonl to check. Models named in script.md are all on the STANDARDS 1 list."
+  }
+ ],
+ "defects": [
+  {
+   "id": "D1",
+   "check": "F1 (cover, hero)",
+   "severity": "minor",
+   "blocking": true,
+   "at_s": "cover",
+   "fix": "edit (or an owner G-VIS OVERRIDE extending the accepted FL-10 minor to the cover)",
+   "what": "The cover shows the lit shop window's FL-10 packaging pseudo-text (red can with a white script-like mark, boxes with fake letters, x 0-300, y 1030-1760), legible only zoomed; a hero asset passes only with zero defects."
+  },
+  {
+   "id": "D2",
+   "check": "F5 (STANDARDS 4 music bed)",
+   "severity": "minor",
+   "blocking": false,
+   "at_s": "1.80-2.14, 4.86-5.68",
+   "fix": "edit (remix)",
+   "what": "The LRA fix was a broadband dynamic gain that lifts every pause 5.6 dB: the music-only pause inside the hook line sits 17 dB under the voice (rule 20 dB or more) and the 4.86-5.68 s pause 13 dB under (rule 14 to 18)."
+  },
+  {
+   "id": "D3",
+   "check": "F1",
+   "severity": "minor (known, accepted)",
+   "blocking": false,
+   "at_s": "0.0-6.9, 9.0-10.87",
+   "fix": "edit (optional) or accept",
+   "what": "FL-10 pseudo-text in the cut: shop packaging lower left 0.0-6.9 s (frame 1 included) and kiosk posters 9.0-10.87 s, legible only zoomed."
+  },
+  {
+   "id": "D4",
+   "check": "F1",
+   "severity": "minor (known, accepted)",
+   "blocking": false,
+   "at_s": "4.5-6.9",
+   "fix": "accept (only a retake fixes it)",
+   "what": "The shutter stops about 70% down with the lit window open below while he turns away on 'Mbylle për sot'."
+  },
+  {
+   "id": "D5",
+   "check": "F1 (STANDARDS 2)",
+   "severity": "minor (known, accepted)",
+   "blocking": false,
+   "at_s": "0.667, 7.1",
+   "fix": "accept",
+   "what": "Three shots inside the one silent H3 keyframe clip (one-shot rule for silent keyframe clips)."
+  }
+ ],
+ "v2_defects_followup": [
+  {
+   "v2_id": "D1",
+   "what": "hook super over the owner's head 0.67-3.0 s and on the cover",
+   "now": "FIXED: one-line super box 80,274-757,371, hair at y 379 or lower in every frame 0.667-2.967 s (8 to 12 px clear); the new cover uses the wide frame-1 shot with the crown 82 px under the headline."
+  },
+  {
+   "v2_id": "D2",
+   "what": "AI label note and v1 URLs in item.json/hosted.json",
+   "now": "STILL OPEN as packaging (no notes field; both files still carry dc28c10d... and 9c2c812f...): listed in edit_fixes, not a FAIL of the cut."
+  },
+  {
+   "v2_id": "D3",
+   "what": "loudness range over 11 LU",
+   "now": "FIXED: LRA 3.2 LU (ebur128) and 4.2 LU (loudnorm); the method introduced D2."
+  },
+  {
+   "v2_id": "D4",
+   "what": "FL-10 packaging and kiosk pseudo-text",
+   "now": "STILL PRESENT (accepted minor in the cut, D3); also on the new cover (D1)."
+  },
+  {
+   "v2_id": "D5",
+   "what": "shutter about 70% down",
+   "now": "STILL PRESENT (accepted minor, D4)."
+  },
+  {
+   "v2_id": "D6",
+   "what": "'nga një' card 0.27 s",
+   "now": "FIXED: re-split to 'dhe nesër' 0.567 s, 'fillo nga një' 0.767 s, 'gjë e vogël.' 1.667 s."
+  }
+ ],
+ "edit_fixes": [
+  "D1 (blocking): on the cover only, soften the lit window's shelves: Gaussian blur about 6 to 8 px plus a 15 to 20% darken over x 0-300, y 1030-1760 with a 20 px feather, keeping the hand on the shutter (x 150-230, y 970-1040) and the window frame sharp; re-export 1080x1920 JPEG and re-check at 2x and 4x that no letter-like marks remain, then at full size, 200 px wide and in the 3:4 grid crop. Apply the same mask to the cut (wide shot 0.0-0.667 s same region; close shot 0.667-7.1 s lower-left shelves x 0-220, y 1380-1920) so frame 1 matches the cover. Alternative: the owner records a G-VIS OVERRIDE on the cover accepting the FL-10 minor.",
+  "D2 (same pass): rebuild the sound from the v2 mix or the stems instead of a whole-mix dynamic gain: keep the voice section as v2 (bed about -32 dBFS in the 1.80-2.14 s pause), lift only the end-card bed 10.9-13.6 s to about -15 to -17 LUFS short-term with the fade only over the last 0.4 to 0.5 s, then two-pass loudnorm with linear=true from the measured values. Confirm on both meters: I -14 +/-1 LUFS, TP -1 dBTP or lower, LRA 11 LU or less, short-term max -9 or lower; and the music-only pauses: 1.80-2.14 s 20 dB or more under the voice, 4.86-5.68 s 14 to 18 dB under.",
+  "Packaging (not a cut fail): before the hub push set item.json notes to 'AI label: on (realistic AI footage, ElevenLabs narrator)', point media[0].url (item and hosted.json) at the passing reel and cover_url at the passing cover, and switch on Instagram's AI label when posting.",
+  "D3, D4, D5: accept as minor (D3 is covered by the D1 mask if it is applied to the cut too).",
+  "After the fixes: new version (v4), re-run vqa_crops.py final and image (cover), both loudness meters, the pause-level check and Whisper, and a fresh take-reviewer pass."
+ ],
+ "retake_needed": false,
+ "retake_prompt_changes": []
+}

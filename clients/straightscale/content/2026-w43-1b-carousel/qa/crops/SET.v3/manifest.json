@@ -1,0 +1,32 @@
+{
+  "kind": "set",
+  "gate": "G-SET",
+  "sandbox_dir": "/home/user/qa/SET-W43-1b.v3 (Higgsfield sandbox, built by the reviewer with PIL from the 7 v3 files)",
+  "files": [
+    "set_row_in_order.jpg",
+    "set_grid_4x2.jpg",
+    "set_bottom_band_guides.jpg",
+    "set_logo_ref_vs_slides_3x.jpg",
+    "set_counters_2x.jpg",
+    "set_kicker_margin.jpg"
+  ],
+  "must_open": [
+    "set_row_in_order.jpg",
+    "set_grid_4x2.jpg",
+    "set_bottom_band_guides.jpg",
+    "set_logo_ref_vs_slides_3x.jpg",
+    "set_counters_2x.jpg",
+    "set_kicker_margin.jpg"
+  ],
+  "aux_dir": "/home/user/qa/w43v3rev (reviewer's own measurement scripts and views: measure.py, setmeas.py, lz/, z4/, z6/, dm/, prev/, edges.jpg)",
+  "aux_files": [
+    "prev/<id8>.jpg x7",
+    "lz/SL01..SL07_lz.jpg",
+    "z4/SL01..SL07_z4_0.jpg and _1.jpg",
+    "z6/SL01..SL07_edge.jpg",
+    "dm/SL02_diff.jpg",
+    "dm/SL05_diff.jpg",
+    "dm/SL07_diff.jpg",
+    "edges.jpg"
+  ]
+}

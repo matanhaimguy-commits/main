@@ -1,0 +1,253 @@
+{
+ "gate": "G-VIS-SLIDE",
+ "asset_id": "SL05-W43-1b",
+ "version": 3,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "hero": false,
+ "reviewed_file": "sandbox /home/user/drafts/fixed/177e27a4_v3.jpg (1080x1350, JPEG q93, sampling 1x1,1x1,1x1, md5 c1f3d580be4a2e226769d38c7fd8ba27); CDN copy https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/95c233f5-42c4-4b88-8417-8c2df46e2772.jpg downloaded in the sandbox and byte-identical (md5 match)",
+ "compared_with": "v1 original /home/user/drafts/177e27a4-fb75-455e-8ddc-8e5c37e6a305.jpg (model-drawn logo); real logo /home/user/brand/straightscale-logo-light.png",
+ "spec_used": "Task packet: slide text, alt-text.txt line, style-bible.md (house slide frame, Tirana at night, red-cased phone thread, crimson #B31217 boxes, gold counter, swipe arrow bottom right on slides 1-6, real logo bottom left), brand-kit.md (real logo files only, no invented numbers on screens or paper, no other organisations' logos or emblems, no em dashes). Spec JSON with regions written to the sandbox as spec.json.",
+ "crops_dir": "/home/user/qa/SL05-W43-1b.v3/crops (Higgsfield sandbox, vqa_crops.py image src.jpg --spec spec.json --ext jpg); extra views in /home/user/qa/w43v3rev and /home/user/qa/SET-W43-1b.v3",
+ "crops_manifest": "clients/straightscale/content/2026-w43-1b-carousel/qa/crops/SL05.v3/manifest.json",
+ "files_opened": [
+  "full.jpg",
+  "tile_r1c1.jpg",
+  "tile_r1c2.jpg",
+  "tile_r1c3.jpg",
+  "tile_r2c1.jpg",
+  "tile_r2c2.jpg",
+  "tile_r2c3.jpg",
+  "tile_r3c1.jpg",
+  "tile_r3c2.jpg",
+  "tile_r3c3.jpg",
+  "region_SL05_kicker.jpg",
+  "region_SL05_counter.jpg",
+  "region_SL05_arrow.jpg",
+  "region_SL05_logozone.jpg",
+  "region_SL05_headline.jpg",
+  "region_SL05_subline.jpg",
+  "region_SL05_calculator.jpg",
+  "region_SL05_phone.jpg",
+  "region_SL05_hand.jpg",
+  "thumb_200.jpg",
+  "../../w43v3rev/lz/SL05_lz.jpg",
+  "../../w43v3rev/z4/SL05_z4_0.jpg",
+  "../../w43v3rev/z4/SL05_z4_1.jpg",
+  "../../w43v3rev/z6/SL05_edge.jpg",
+  "../../SET-W43-1b.v3/set_logo_ref_vs_slides_3x.jpg",
+  "../../SET-W43-1b.v3/set_bottom_band_guides.jpg",
+  "../../w43v3rev/dm/SL05_diff.jpg",
+  "../../w43v3rev/edges.jpg"
+ ],
+ "editor_claims_verified": {
+  "file_and_cdn_md5": "confirmed",
+  "logo_box": "confirmed [98,1233,393,1288], 295x55, fit error 2.5 levels, colours identical to the file",
+  "outside_zone_unchanged": "confirmed: 0 pixels differ from a plain q93 4:4:4 re-encode of v1 outside x0-568, y1112-1350; all differences lie inside x88-399, y1200-1287",
+  "arrow_vs_logo": "confirmed: arrow centre minus logo centre -4.4 px (editor -4.0; 0.5 px is the centre convention)",
+  "fill_quality": "no ghost, crescent, seam or speck found at 2x, 3.3x, 4x and boosted views"
+ },
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full, thumb_200.jpg",
+   "evidence": "'4 Sa të kushton një klient' reads at once over a calculator, the red phone and an owner's hand: 'number 4: what one client costs you'."
+  },
+  {
+   "id": "V2",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Matches alt text 5 ('Makinë llogaritëse pranë telefonit. Numri 4: Sa të kushton një klient.'): calculator beside the phone (region_SL05_calculator.jpg, region_SL05_phone.jpg)."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "calculator display, phone",
+   "evidence": "No invented number: calculator display blank, phone screen dark. Key labels under V11. No em dash."
+  },
+  {
+   "id": "V4",
+   "result": "PASS",
+   "severity": "",
+   "region": "hand, x730-1040, y730-930",
+   "evidence": "One hand entering from the right in a dark sleeve (region_SL05_hand.jpg): back of the hand up, index finger along the table edge, thumb in front with its nail, the other fingers curled under out of view. Knuckle, creases and wrist plausible; no extra or missing visible digits."
+  },
+  {
+   "id": "V5",
+   "result": "PASS",
+   "severity": "",
+   "region": "hand",
+   "evidence": "The hand rests relaxed on the table beside the phone; no grip needed, none faked."
+  },
+  {
+   "id": "V6",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No face (hands only, allowed for this account)."
+  },
+  {
+   "id": "V7",
+   "result": "PASS",
+   "severity": "",
+   "region": "props, hand",
+   "evidence": "Calculator and phone flat with contact shadows and reflections; the fingertips touch the table surface (tile_r2c3.jpg, region_SL05_hand.jpg)."
+  },
+  {
+   "id": "V8",
+   "result": "PASS",
+   "severity": "",
+   "region": "calculator, phone",
+   "evidence": "Calculator body, display window and key grid well formed; phone with port, grilles and side buttons. Key labels under V11."
+  },
+  {
+   "id": "V9",
+   "result": "PASS",
+   "severity": "",
+   "region": "kicker, headline, subline, counter",
+   "evidence": "Kicker (region_SL05_kicker.jpg): N-U-M-R-I / I / K-A-T-Ë-R-T. Headline (region_SL05_headline.jpg): [4 in crimson box] S-a / t-ë / k-u-s-h-t-o-n // n-j-ë / k-l-i-e-n-t = 'Sa të kushton një klient' as specified ('Numri 4: Sa të kushton një klient.'). Subline (region_SL05_subline.jpg): S-h-p-e-n-z-i-m-i / p-j-e-s-ë-t-u-a-r / m-e / k-l-i-e-n-t-ë-t / e / r-e-z-e-r-v-u-a-r. Every ë has two dots; final full stop. Counter '5/7'. No misspelling, no em dash."
+  },
+  {
+   "id": "V10",
+   "result": "PASS",
+   "severity": "",
+   "region": "text block",
+   "evidence": "Type on the calm dark wall; no letter touches the hand or a prop."
+  },
+  {
+   "id": "V11",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "calculator keys, about x130-520, y900-1050",
+   "evidence": "Pre-existing and on the accepted list. Key labels are pseudo-symbols (region_SL05_calculator.jpg): rows read roughly 'x, ‡, ‡, blank, ‡ / +, ⅄, +, x, x / 1, ?, ÷, x, - / 1, 1, ⁒, +, + / ='; digits 2 to 9 missing, operators repeat. Visible only zoomed; at phone size it reads as a calculator."
+  },
+  {
+   "id": "V12",
+   "result": "PASS",
+   "severity": "",
+   "region": "calculator, phone",
+   "evidence": "Both story props present and prominent; display blank by the no-invented-numbers rule."
+  },
+  {
+   "id": "V13",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone",
+   "evidence": "Deep red case, dark screen; same thread prop."
+  },
+  {
+   "id": "V14",
+   "result": "PASS",
+   "severity": "",
+   "region": "hand",
+   "evidence": "The hand is the only person element; hands-only is allowed and it adds no prop."
+  },
+  {
+   "id": "V15",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "Hands-only; no character sheet for this account. The sleeve is plain dark, no identifiable person."
+  },
+  {
+   "id": "V16",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone",
+   "evidence": "Phone dark beside the owner's hand and the calculator."
+  },
+  {
+   "id": "V17",
+   "result": "PASS",
+   "severity": "",
+   "region": "window, table",
+   "evidence": "Same set as the rest of the carousel: varnished wooden table by the tall window, Tirana plaza at night with the clock tower in the right third, near-black wall behind the type (tile_r1c3.jpg, tile_r2c3.jpg)."
+  },
+  {
+   "id": "V18",
+   "result": "PASS",
+   "severity": "",
+   "region": "frame",
+   "evidence": "1080x1350 (4:5), JPEG q93 4:4:4. Kicker bbox [82, 63, 341, 79]; crimson box [82, 169, 171, 249]; counter '5/7' bbox [934, 52, 981, 78]; swipe arrow bbox [930, 1226, 989, 1286], centre y1256.1; real logo box [98,1233,393,1288] (295x55, bottom margin 62 px, inside the lowest-9% band); logo centre y1260.5, so arrow minus logo centre = -4.4 px. All key content inside the 4:5 frame and the 3:4 grid crop. The text block (kicker and box) starts at x82, about 20 px left of the other six slides (their kickers start at x102-106, their boxes at x89-99): a set-level note, logged in SET.v3.review.json C2."
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200.jpg",
+   "evidence": "At 200 px wide the headline and crimson box read, and the props, red phone and clock tower are recognisable. Not a hero slide; checked anyway."
+  },
+  {
+   "id": "V20",
+   "result": "N/A",
+   "severity": "",
+   "region": "background",
+   "evidence": "Still life; the window background is alive enough for the format (street lamps, lit facades, wet plaza reflections, out-of-focus cars), the same on every slide."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Matches the style bible: Tirana at night through the window, warm tungsten grade, near-black wall, ivory type, crimson box median #B00F17 (crimson family, target #B31217), crimson arrow #AC1118, gold only in the counter (#D59E43) and the real logo's gold square, red-cased phone."
+  },
+  {
+   "id": "V22",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Photoreal night interior: wood grain with specular beads, bokeh street lights, wet plaza, fine grain. No plastic or CG look."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "logo zone and full frame",
+   "evidence": "Logo zone (x88-399, y1200-1287 is the only area that differs from a plain q93 4:4:4 re-encode of the v1 original: 0 pixels differ outside x0-568, y1112-1350, checked pixel by pixel). v1's drawn logo sat at red square x102-154, y1212-1265; wordmark x183-385, y1225-1254 (21 to 29 px higher than the new logo, so most of the fill is visible above it). In the before/after at 2x (SL05_lz.jpg), the 4x plain and boosted zooms (SL05_z4_0.jpg, SL05_z4_1.jpg) and the 3.3x edge crop (SL05_edge.jpg) the wood grain and the beaded lit table edge run continuously past the logo: no ghost letters, no smooth or darker patch, no seam, no crescent, no stray speck beyond the wood's own flecks. Here most of the fill is visible above the new logo (y1204-1233), where v1's drawn logo sat. The lit, beaded table edge is continued along its own direction past the gold square: at 3.3x and 4x (SL05_edge.jpg, SL05_z4_0.jpg) there is no dark crescent beside the gold square and no break in the glow. Fill mean 16.3 vs ring 18.4 levels; same-surface high-pass std ratio 0.84, robust (MAD) 1.10. Speck density in the fill 0.94 per 1000 px vs 0.98 in the untouched ring; the brightest blobs in the fill lie on the continued edge line, like the beads in the original."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "logo zone, props",
+   "evidence": "Logo is the real file. Template fit of /home/user/brand/straightscale-logo-light.png (alpha box 1501x279, resized to 295x55) gives best position (98,1233), box [98,1233,393,1288], mean abs error 2.5 levels over its opaque pixels; the opaque red measures RGB 194/8/23 and the gold 227/172/26 on the slide, identical to the file's own values; white 249/247/241. Edges crisp at 3x (set_logo_ref_vs_slides_3x.jpg), the S channel shows the wood through it as it should. No remnant of the model-drawn logo (plain white 'S' block, drawn wordmark, its red or gold) in region_SL05_logozone.jpg, the 4x zooms or the boosted views. No other organisation's logo, emblem or maker mark anywhere on the props."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No before and after, no \"your [condition]\", nothing that shames; neutral instruction copy."
+  },
+  {
+   "id": "V26",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No AI person in the frame (hands only). Photoreal AI scene: STANDARDS.md section 7 asks for Instagram's own AI label at posting (a posting setting); no burned-in tag, which is correct."
+  }
+ ],
+ "defects_summary": {
+  "critical": 0,
+  "major": 0,
+  "minor": 1,
+  "items": [
+   "V11 minor, calculator keys, about x130-520, y900-1050: pre-existing (outside the logo zone the file is a plain re-encode of v1)"
+  ]
+ },
+ "fix": {
+  "route": "none",
+  "prompt_changes": [],
+  "optional_edits": [
+   "If regenerated: calculator keys 7 8 9 / 4 5 6 / 1 2 3 / 0 . = with + - x ÷; keep the display blank."
+  ]
+ },
+ "notes": [
+  "hosted.json still lists the v1 originals; point the hub at the v3 media_id 95c233f5-42c4-4b88-8417-8c2df46e2772 (md5 c1f3d580be4a2e226769d38c7fd8ba27) before posting."
+ ]
+}

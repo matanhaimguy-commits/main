@@ -1,0 +1,7 @@
+[
+  {"path": "assets/brand/wordmark-white.png", "type": "logo", "source": "clients/straightscale/brand/wordmark-white.png (client file)", "retrieved": "2026-10-26", "license": "client-owned", "used_in": "end card 41.3-43.25 s"},
+  {"path": "assets/fonts/", "type": "font", "source": "Playfair Display, Montserrat (Google Fonts, woff2)", "license": "OFL-1.1", "license_file": "assets/fonts/*/LICENSE.txt", "used_in": "all text"},
+  {"path": "audio/vo.wav", "type": "voice", "source": "Kokoro-82M v1.0 onnx, voice af_heart, audio/tts_kokoro.py", "license": "Apache-2.0", "used_in": "voiceover 0.12-41.05 s"},
+  {"path": "audio/music.wav", "type": "music", "source": "audio/score.py with VSCO 2 CE + VCSL samples (Lemo-Opuscar sampler)", "license": "CC0-1.0 samples; original composition", "used_in": "score"},
+  {"path": "audio/sfx.wav", "type": "sfx", "source": "procedural foley, Lemo-Opuscar sfx.py", "license": "MIT code; generated audio", "used_in": "effects from audio/events.json"}
+]

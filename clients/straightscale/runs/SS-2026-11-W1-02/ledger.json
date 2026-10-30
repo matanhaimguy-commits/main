@@ -1,0 +1,4541 @@
+{
+  "post_id": "SS-2026-11-W1-02",
+  "slug": "straightscale",
+  "format": "carousel_framework",
+  "family": "still",
+  "card": "clients/straightscale/cards/2026-11-W1/SS-2026-11-W1-02.yaml",
+  "created": "2026-10-28T09:55:39+00:00",
+  "steps": {
+    "0": {
+      "status": "done",
+      "note": "G-BRIEF passed",
+      "at": "2026-10-28T10:48:36+00:00"
+    },
+    "1": {
+      "status": "todo",
+      "note": ""
+    },
+    "2": {
+      "status": "todo",
+      "note": ""
+    },
+    "3": {
+      "status": "todo",
+      "note": ""
+    },
+    "4": {
+      "status": "na",
+      "note": "family"
+    },
+    "5": {
+      "status": "na",
+      "note": "family"
+    },
+    "6": {
+      "status": "todo",
+      "note": ""
+    },
+    "7": {
+      "status": "todo",
+      "note": ""
+    },
+    "8": {
+      "status": "na",
+      "note": "family"
+    },
+    "9": {
+      "status": "todo",
+      "note": ""
+    },
+    "10": {
+      "status": "todo",
+      "note": ""
+    },
+    "11": {
+      "status": "todo",
+      "note": ""
+    },
+    "12": {
+      "status": "na",
+      "note": "family"
+    },
+    "13": {
+      "status": "todo",
+      "note": ""
+    },
+    "14": {
+      "status": "todo",
+      "note": ""
+    },
+    "15": {
+      "status": "todo",
+      "note": ""
+    }
+  },
+  "run_gates": {
+    "G-BRIEF": [
+      {
+        "at": "2026-10-28T10:48:27+00:00",
+        "status": "PASS",
+        "by": "claude (carousel-agent)",
+        "note": "Brief read from the Post Card, brain.json, brand-kit.md and style-bible.md (job, belief, pillar, ask); no question round (adapter section 1). 28 Oct 2026."
+      }
+    ],
+    "G-PLAN": [
+      {
+        "at": "2026-10-28T10:48:28+00:00",
+        "status": "PASS",
+        "by": "claude (carousel-agent)",
+        "note": "qa/carousel-plan.md: six positions each with a line, thread state per slide, one shared edge band for the swipe bridges (both edges named), rhythm and turn."
+      }
+    ]
+  },
+  "specs": {
+    "SL01": {
+      "sha256": "38a377568e7f2d23af81e38238e355b63108f51dd8fa4e3c86f65ab2ce64be62",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T12:59:47+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T11:39:27+00:00",
+          "status": "PASS",
+          "sha256": "3034ac75d3ae76fd08a586272a72394bd2d85d9a59630d08b63cf30f69697910",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL01.spec.json"
+        },
+        {
+          "at": "2026-10-28T12:05:31+00:00",
+          "status": "PASS",
+          "sha256": "3034ac75d3ae76fd08a586272a72394bd2d85d9a59630d08b63cf30f69697910",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL01.spec.json"
+        },
+        {
+          "at": "2026-10-28T12:45:30+00:00",
+          "status": "PASS",
+          "sha256": "38a377568e7f2d23af81e38238e355b63108f51dd8fa4e3c86f65ab2ce64be62",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL01.spec.json"
+        },
+        {
+          "at": "2026-10-28T12:53:13+00:00",
+          "status": "PASS",
+          "sha256": "38a377568e7f2d23af81e38238e355b63108f51dd8fa4e3c86f65ab2ce64be62",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL01.spec.json"
+        }
+      ]
+    },
+    "SL02": {
+      "sha256": "c2fa99f3b55459bf8c58270eec7c97af608a5c7328304cbf08eedb936439e86d",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T12:59:47+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T12:05:31+00:00",
+          "status": "PASS",
+          "sha256": "c64c27e306942e300a955ab369e649d62efa81590d57197982043b7558bec786",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL02.spec.json"
+        },
+        {
+          "at": "2026-10-28T12:45:30+00:00",
+          "status": "PASS",
+          "sha256": "c2fa99f3b55459bf8c58270eec7c97af608a5c7328304cbf08eedb936439e86d",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL02.spec.json"
+        },
+        {
+          "at": "2026-10-28T12:53:13+00:00",
+          "status": "PASS",
+          "sha256": "c2fa99f3b55459bf8c58270eec7c97af608a5c7328304cbf08eedb936439e86d",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL02.spec.json"
+        }
+      ]
+    },
+    "SL03": {
+      "sha256": "fe3803eab2c68830731ce68e41d2829eb6b791977245395d16a049b5040886e2",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T12:59:47+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T12:05:31+00:00",
+          "status": "PASS",
+          "sha256": "78fad9f362985d8868eba4cf83e71b1784ed21b088ca91ef615743f1d9a58856",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL03.spec.json"
+        },
+        {
+          "at": "2026-10-28T12:45:30+00:00",
+          "status": "PASS",
+          "sha256": "fe3803eab2c68830731ce68e41d2829eb6b791977245395d16a049b5040886e2",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL03.spec.json"
+        },
+        {
+          "at": "2026-10-28T12:53:13+00:00",
+          "status": "PASS",
+          "sha256": "fe3803eab2c68830731ce68e41d2829eb6b791977245395d16a049b5040886e2",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL03.spec.json"
+        }
+      ]
+    },
+    "SL04": {
+      "sha256": "dfcbbc073ab8569b0426322841442e7ebb4c0b35c9724b58b13f6ea4503d696b",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T12:59:47+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T12:05:32+00:00",
+          "status": "PASS",
+          "sha256": "babbb4d8a9a677744f909ff43b9a38fb5267200f9467e52ade51d88215544990",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL04.spec.json"
+        },
+        {
+          "at": "2026-10-28T12:45:30+00:00",
+          "status": "PASS",
+          "sha256": "dfcbbc073ab8569b0426322841442e7ebb4c0b35c9724b58b13f6ea4503d696b",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL04.spec.json"
+        },
+        {
+          "at": "2026-10-28T12:53:13+00:00",
+          "status": "PASS",
+          "sha256": "dfcbbc073ab8569b0426322841442e7ebb4c0b35c9724b58b13f6ea4503d696b",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL04.spec.json"
+        }
+      ]
+    },
+    "SL05": {
+      "sha256": "a6b77dcd2dcbb3835764c424327b1c4416394016f04083ae4c88b279dca34953",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T12:59:47+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T12:05:32+00:00",
+          "status": "PASS",
+          "sha256": "4e48243b85f7418e8a722e93951fd5e0afa3dcec927cba1366e403ecbdd8918f",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL05.spec.json"
+        },
+        {
+          "at": "2026-10-28T12:45:30+00:00",
+          "status": "PASS",
+          "sha256": "a6b77dcd2dcbb3835764c424327b1c4416394016f04083ae4c88b279dca34953",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL05.spec.json"
+        },
+        {
+          "at": "2026-10-28T12:53:13+00:00",
+          "status": "PASS",
+          "sha256": "a6b77dcd2dcbb3835764c424327b1c4416394016f04083ae4c88b279dca34953",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL05.spec.json"
+        }
+      ]
+    },
+    "SL06": {
+      "sha256": "cb284b785426811740535feb577799ff66669fd52e36e4ec7fc41f145be4762c",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T12:59:47+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T12:53:14+00:00",
+          "status": "PASS",
+          "sha256": "cb284b785426811740535feb577799ff66669fd52e36e4ec7fc41f145be4762c",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL06.spec.json"
+        },
+        {
+          "at": "2026-10-28T12:59:48+00:00",
+          "status": "PASS",
+          "sha256": "cb284b785426811740535feb577799ff66669fd52e36e4ec7fc41f145be4762c",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL06.spec.json"
+        }
+      ]
+    },
+    "SL07": {
+      "sha256": "380264a6b854039e770b1b42dbf9da2e5b72de83a3acd2850bcf6e402da24d75",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T12:59:47+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T12:05:32+00:00",
+          "status": "PASS",
+          "sha256": "3e4c13f9dbe0599a9dab09fc37542b5b0723f7a760d55b91b4ab8652530ba70d",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL07.spec.json"
+        },
+        {
+          "at": "2026-10-28T12:45:31+00:00",
+          "status": "PASS",
+          "sha256": "380264a6b854039e770b1b42dbf9da2e5b72de83a3acd2850bcf6e402da24d75",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL07.spec.json"
+        },
+        {
+          "at": "2026-10-28T12:53:14+00:00",
+          "status": "PASS",
+          "sha256": "380264a6b854039e770b1b42dbf9da2e5b72de83a3acd2850bcf6e402da24d75",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL07.spec.json"
+        }
+      ]
+    },
+    "SL08": {
+      "sha256": "d18722a4172f486aca124cd7419288fbf831c02919f945e7b348296cfdc2a7a3",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T12:59:47+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T12:05:32+00:00",
+          "status": "PASS",
+          "sha256": "e349b04285ff62b7b9cacfc73092da84f844d3abc8e963dc241d51093b322718",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL08.spec.json"
+        },
+        {
+          "at": "2026-10-28T12:45:31+00:00",
+          "status": "PASS",
+          "sha256": "1ae88bc3a5fb7f68e31605124a70ed284b8b526df2e47f8c363935da31ad5ee1",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/SL08.spec.json"
+        }
+      ]
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "SL01",
+      "version": 1,
+      "type": "cover",
+      "shots": [
+        "SL01"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-28T10:06:43+00:00",
+      "prompt_sha256": "b14deb8d37e106f64d218ea92f407978516e7ba9a32c6ec4fd45fdcae22117a5",
+      "prompt_file": "prompts/SL01.v1.25.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T10:06:43+00:00",
+          "sha256": "0d26edfa367e65c94954693c6471b1c599b527251e32f48d74935349e21ca15b",
+          "file": "prompts/SL01.v1.1.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:11:16+00:00",
+          "sha256": "305e9ac93315d63b861feb4d9fb9a87f2c39d34e201800d15c6ac4183a698ff7",
+          "file": "prompts/SL01.v1.2.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:24:51+00:00",
+          "sha256": "eb0b6bd3f01e65e8187793db498ac401020eaec16a14432501ab50d15aedf9a0",
+          "file": "prompts/SL01.v1.3.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:25:31+00:00",
+          "sha256": "eb0b6bd3f01e65e8187793db498ac401020eaec16a14432501ab50d15aedf9a0",
+          "file": "prompts/SL01.v1.4.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:36:14+00:00",
+          "sha256": "301e3c59e1de96a7d8014221ff4bcd45b2440b6381dba9b74df09cff3adf8681",
+          "file": "prompts/SL01.v1.5.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:44:24+00:00",
+          "sha256": "12b184a8159adfe4d98581af33593dc59dbcce69e5e0c570c3f162991f936eb3",
+          "file": "prompts/SL01.v1.6.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:52:47+00:00",
+          "sha256": "8956fcbb3dbe8eb138dafe7246580fcb1f3d6390cbafc6d13fb288efda1e176e",
+          "file": "prompts/SL01.v1.7.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:05:47+00:00",
+          "sha256": "6d3d8da3bedfda9dca57666e585b6d113cf0630c8ad1980e70bbf64fac2b8583",
+          "file": "prompts/SL01.v1.8.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:15:39+00:00",
+          "sha256": "e7a9d25fa951fb6e94983268f965495dd05d94f905b1cd350b0243064900851f",
+          "file": "prompts/SL01.v1.9.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:22:22+00:00",
+          "sha256": "6741f763e26fbe51eab855e10ceab3d8906c786292ce38c252e5e9ddccf190e4",
+          "file": "prompts/SL01.v1.10.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:30:02+00:00",
+          "sha256": "6459c0e251f09e05059aac3d08fb3ee507a36c37b01811830a272a559a04c1e8",
+          "file": "prompts/SL01.v1.11.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:39:00+00:00",
+          "sha256": "6459c0e251f09e05059aac3d08fb3ee507a36c37b01811830a272a559a04c1e8",
+          "file": "prompts/SL01.v1.12.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:46:11+00:00",
+          "sha256": "6459c0e251f09e05059aac3d08fb3ee507a36c37b01811830a272a559a04c1e8",
+          "file": "prompts/SL01.v1.13.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:46:32+00:00",
+          "sha256": "6459c0e251f09e05059aac3d08fb3ee507a36c37b01811830a272a559a04c1e8",
+          "file": "prompts/SL01.v1.14.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:57:29+00:00",
+          "sha256": "6459c0e251f09e05059aac3d08fb3ee507a36c37b01811830a272a559a04c1e8",
+          "file": "prompts/SL01.v1.15.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:04:41+00:00",
+          "sha256": "6459c0e251f09e05059aac3d08fb3ee507a36c37b01811830a272a559a04c1e8",
+          "file": "prompts/SL01.v1.16.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:13:56+00:00",
+          "sha256": "6459c0e251f09e05059aac3d08fb3ee507a36c37b01811830a272a559a04c1e8",
+          "file": "prompts/SL01.v1.17.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:21:32+00:00",
+          "sha256": "55201c32a48b4fe66fd0a48636891d86889b8a78a52082b3e1a1f14e0c1317a2",
+          "file": "prompts/SL01.v1.18.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:29:12+00:00",
+          "sha256": "55201c32a48b4fe66fd0a48636891d86889b8a78a52082b3e1a1f14e0c1317a2",
+          "file": "prompts/SL01.v1.19.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:29:35+00:00",
+          "sha256": "55201c32a48b4fe66fd0a48636891d86889b8a78a52082b3e1a1f14e0c1317a2",
+          "file": "prompts/SL01.v1.20.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:37:30+00:00",
+          "sha256": "b14deb8d37e106f64d218ea92f407978516e7ba9a32c6ec4fd45fdcae22117a5",
+          "file": "prompts/SL01.v1.21.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:44:49+00:00",
+          "sha256": "b14deb8d37e106f64d218ea92f407978516e7ba9a32c6ec4fd45fdcae22117a5",
+          "file": "prompts/SL01.v1.22.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:45:05+00:00",
+          "sha256": "b14deb8d37e106f64d218ea92f407978516e7ba9a32c6ec4fd45fdcae22117a5",
+          "file": "prompts/SL01.v1.23.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:52:27+00:00",
+          "sha256": "b14deb8d37e106f64d218ea92f407978516e7ba9a32c6ec4fd45fdcae22117a5",
+          "file": "prompts/SL01.v1.24.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:59:40+00:00",
+          "sha256": "b14deb8d37e106f64d218ea92f407978516e7ba9a32c6ec4fd45fdcae22117a5",
+          "file": "prompts/SL01.v1.25.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-ULJE-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-PS-ULJE-APPROVED",
+          "role": "image_references"
+        }
+      ],
+      "ids": [],
+      "files": [],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T11:39:27+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/SL01.v1.prompt.json",
+            "prompt_sha256": "6459c0e251f09e05059aac3d08fb3ee507a36c37b01811830a272a559a04c1e8"
+          },
+          {
+            "at": "2026-10-28T12:05:32+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/SL01.v1.prompt.json",
+            "prompt_sha256": "6459c0e251f09e05059aac3d08fb3ee507a36c37b01811830a272a559a04c1e8"
+          },
+          {
+            "at": "2026-10-28T12:45:31+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/SL01.v1.prompt.json",
+            "prompt_sha256": "b14deb8d37e106f64d218ea92f407978516e7ba9a32c6ec4fd45fdcae22117a5"
+          },
+          {
+            "at": "2026-10-28T12:53:14+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/SL01.v1.prompt.json",
+            "prompt_sha256": "b14deb8d37e106f64d218ea92f407978516e7ba9a32c6ec4fd45fdcae22117a5"
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "SL02",
+      "version": 1,
+      "type": "slide",
+      "shots": [
+        "SL02"
+      ],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T10:06:43+00:00",
+      "prompt_sha256": "89a99a74174b4f10b16252ff0db2c73da140020765ecbca3682a0e58a1c2978b",
+      "prompt_file": "prompts/SL02.v1.25.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T10:06:43+00:00",
+          "sha256": "fc53fa681072624abffbee9790e854ffdb0768f7cb41fb3d9743c0a2add734e8",
+          "file": "prompts/SL02.v1.1.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:11:16+00:00",
+          "sha256": "1d0d68d08367ef92d02c3f0d2f35f0e74a5fec77744f8fbcf7c6a9096b108c69",
+          "file": "prompts/SL02.v1.2.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:24:51+00:00",
+          "sha256": "178cf2ab61a67bc7a5d7ef6378a906ecd298a86f94a3d746633b372f815435a0",
+          "file": "prompts/SL02.v1.3.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:25:31+00:00",
+          "sha256": "178cf2ab61a67bc7a5d7ef6378a906ecd298a86f94a3d746633b372f815435a0",
+          "file": "prompts/SL02.v1.4.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:36:14+00:00",
+          "sha256": "ed1a47b0293d48e10eb0f0af77c4d6ec593bc754172721488867989c502d1a54",
+          "file": "prompts/SL02.v1.5.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:44:24+00:00",
+          "sha256": "961bca12914c953341206094f323ed31377f997cc549ce8122884e8fa4b83263",
+          "file": "prompts/SL02.v1.6.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:52:47+00:00",
+          "sha256": "e7e113b230275e5caa7a76b4893d9cb21644ba2da88f9afe43de167999993687",
+          "file": "prompts/SL02.v1.7.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:05:47+00:00",
+          "sha256": "2a50d48b861746b9313b7e073da9a4fd92b46c4ebcb8351c8505cfbd70f16c61",
+          "file": "prompts/SL02.v1.8.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:15:39+00:00",
+          "sha256": "aeb759c21d37fcf057cce0738f001cb74841f4f73e28454119ca61b9fbf1d889",
+          "file": "prompts/SL02.v1.9.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:22:23+00:00",
+          "sha256": "af710266fb417c34f3f65a5e198fde951d0ec2a65c4063c639356de00db0fe19",
+          "file": "prompts/SL02.v1.10.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:30:02+00:00",
+          "sha256": "30eae5198046216fd83900a596658ec5a67ba9bf16a3f57eddc01a07183bbc7d",
+          "file": "prompts/SL02.v1.11.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:39:00+00:00",
+          "sha256": "30eae5198046216fd83900a596658ec5a67ba9bf16a3f57eddc01a07183bbc7d",
+          "file": "prompts/SL02.v1.12.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:46:11+00:00",
+          "sha256": "30eae5198046216fd83900a596658ec5a67ba9bf16a3f57eddc01a07183bbc7d",
+          "file": "prompts/SL02.v1.13.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:46:32+00:00",
+          "sha256": "30eae5198046216fd83900a596658ec5a67ba9bf16a3f57eddc01a07183bbc7d",
+          "file": "prompts/SL02.v1.14.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:57:30+00:00",
+          "sha256": "30eae5198046216fd83900a596658ec5a67ba9bf16a3f57eddc01a07183bbc7d",
+          "file": "prompts/SL02.v1.15.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:04:42+00:00",
+          "sha256": "30eae5198046216fd83900a596658ec5a67ba9bf16a3f57eddc01a07183bbc7d",
+          "file": "prompts/SL02.v1.16.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:13:56+00:00",
+          "sha256": "30eae5198046216fd83900a596658ec5a67ba9bf16a3f57eddc01a07183bbc7d",
+          "file": "prompts/SL02.v1.17.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:21:32+00:00",
+          "sha256": "89a99a74174b4f10b16252ff0db2c73da140020765ecbca3682a0e58a1c2978b",
+          "file": "prompts/SL02.v1.18.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:29:13+00:00",
+          "sha256": "89a99a74174b4f10b16252ff0db2c73da140020765ecbca3682a0e58a1c2978b",
+          "file": "prompts/SL02.v1.19.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:29:35+00:00",
+          "sha256": "89a99a74174b4f10b16252ff0db2c73da140020765ecbca3682a0e58a1c2978b",
+          "file": "prompts/SL02.v1.20.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:37:30+00:00",
+          "sha256": "89a99a74174b4f10b16252ff0db2c73da140020765ecbca3682a0e58a1c2978b",
+          "file": "prompts/SL02.v1.21.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:44:49+00:00",
+          "sha256": "89a99a74174b4f10b16252ff0db2c73da140020765ecbca3682a0e58a1c2978b",
+          "file": "prompts/SL02.v1.22.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:45:05+00:00",
+          "sha256": "89a99a74174b4f10b16252ff0db2c73da140020765ecbca3682a0e58a1c2978b",
+          "file": "prompts/SL02.v1.23.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:52:27+00:00",
+          "sha256": "89a99a74174b4f10b16252ff0db2c73da140020765ecbca3682a0e58a1c2978b",
+          "file": "prompts/SL02.v1.24.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:59:41+00:00",
+          "sha256": "89a99a74174b4f10b16252ff0db2c73da140020765ecbca3682a0e58a1c2978b",
+          "file": "prompts/SL02.v1.25.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            }
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL01-APPROVED-COVER",
+          "role": "image_references"
+        }
+      ],
+      "ids": [],
+      "files": [],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T12:05:33+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/SL02.v1.prompt.json",
+            "prompt_sha256": "30eae5198046216fd83900a596658ec5a67ba9bf16a3f57eddc01a07183bbc7d"
+          },
+          {
+            "at": "2026-10-28T12:45:31+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/SL02.v1.prompt.json",
+            "prompt_sha256": "89a99a74174b4f10b16252ff0db2c73da140020765ecbca3682a0e58a1c2978b"
+          },
+          {
+            "at": "2026-10-28T12:53:14+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/SL02.v1.prompt.json",
+            "prompt_sha256": "89a99a74174b4f10b16252ff0db2c73da140020765ecbca3682a0e58a1c2978b"
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "SL03",
+      "version": 1,
+      "type": "slide",
+      "shots": [
+        "SL03"
+      ],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T10:06:44+00:00",
+      "prompt_sha256": "5bcdeacaf69f02ec99593f24876d32853e9adedbb875b14f412d8b1d1b954b0a",
+      "prompt_file": "prompts/SL03.v1.25.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T10:06:44+00:00",
+          "sha256": "a00a0b01c61481972c17ecfb3b1b2cc8454069e5bae8803591baca4209281fd2",
+          "file": "prompts/SL03.v1.1.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:11:16+00:00",
+          "sha256": "11b89d6d9cf1b42455d8dddd5385d2be8468a2e6733ee7b468299d9a41085067",
+          "file": "prompts/SL03.v1.2.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:24:51+00:00",
+          "sha256": "33d34ec222a20b758ee9f06ef7fec0ea711e90b9038e25373edfd465925c08dc",
+          "file": "prompts/SL03.v1.3.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:25:31+00:00",
+          "sha256": "33d34ec222a20b758ee9f06ef7fec0ea711e90b9038e25373edfd465925c08dc",
+          "file": "prompts/SL03.v1.4.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:36:15+00:00",
+          "sha256": "7f8f8c802545032f54225f7963a23344505347a85ae125ff247078b5ab5aadbc",
+          "file": "prompts/SL03.v1.5.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:44:24+00:00",
+          "sha256": "9086fdaf5606c610ff251273b508ff0fbe6171bc08eb4ed6cef955b09135fa08",
+          "file": "prompts/SL03.v1.6.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:52:48+00:00",
+          "sha256": "5f27bb31bd9103df72d413a9b6c4866bd8c03266f94cff2a060fd20d67fac7b3",
+          "file": "prompts/SL03.v1.7.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:05:47+00:00",
+          "sha256": "6f9ad5514417d0b0b7ca6d1db567b0a844014ead24f70a5574a7b6aca32ed549",
+          "file": "prompts/SL03.v1.8.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:15:40+00:00",
+          "sha256": "04c9706fccdadfc921632a98c831bd7585e76ba15d9db690074bfc60f9884722",
+          "file": "prompts/SL03.v1.9.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:22:23+00:00",
+          "sha256": "e03bb695384ae0ac6758124806b3e5d099631e9ccb1d78e7634b071043396397",
+          "file": "prompts/SL03.v1.10.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:30:02+00:00",
+          "sha256": "55436da0ea9c38db3f7c3b29c3ea517b58b13a29d08cf9370934a6a99f03c768",
+          "file": "prompts/SL03.v1.11.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:39:00+00:00",
+          "sha256": "55436da0ea9c38db3f7c3b29c3ea517b58b13a29d08cf9370934a6a99f03c768",
+          "file": "prompts/SL03.v1.12.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:46:11+00:00",
+          "sha256": "5824179f0ae4097a91eac25b0aa4f40b77ea2ef8d2a81bc8aa83b58e245c7530",
+          "file": "prompts/SL03.v1.13.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:46:32+00:00",
+          "sha256": "5824179f0ae4097a91eac25b0aa4f40b77ea2ef8d2a81bc8aa83b58e245c7530",
+          "file": "prompts/SL03.v1.14.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:57:30+00:00",
+          "sha256": "5824179f0ae4097a91eac25b0aa4f40b77ea2ef8d2a81bc8aa83b58e245c7530",
+          "file": "prompts/SL03.v1.15.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:04:42+00:00",
+          "sha256": "5824179f0ae4097a91eac25b0aa4f40b77ea2ef8d2a81bc8aa83b58e245c7530",
+          "file": "prompts/SL03.v1.16.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:13:56+00:00",
+          "sha256": "5824179f0ae4097a91eac25b0aa4f40b77ea2ef8d2a81bc8aa83b58e245c7530",
+          "file": "prompts/SL03.v1.17.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:21:32+00:00",
+          "sha256": "f861640fbde5dce4b8c977a020ce29680b2db3147b83d301f0ae3d56481c9220",
+          "file": "prompts/SL03.v1.18.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:29:13+00:00",
+          "sha256": "3738d02c3ffb6e0ff72b3224d2db12d22c827632019a8bb59c37a98f4f527399",
+          "file": "prompts/SL03.v1.19.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:29:35+00:00",
+          "sha256": "3738d02c3ffb6e0ff72b3224d2db12d22c827632019a8bb59c37a98f4f527399",
+          "file": "prompts/SL03.v1.20.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:37:30+00:00",
+          "sha256": "5bcdeacaf69f02ec99593f24876d32853e9adedbb875b14f412d8b1d1b954b0a",
+          "file": "prompts/SL03.v1.21.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:44:49+00:00",
+          "sha256": "5bcdeacaf69f02ec99593f24876d32853e9adedbb875b14f412d8b1d1b954b0a",
+          "file": "prompts/SL03.v1.22.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:45:05+00:00",
+          "sha256": "5bcdeacaf69f02ec99593f24876d32853e9adedbb875b14f412d8b1d1b954b0a",
+          "file": "prompts/SL03.v1.23.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:52:28+00:00",
+          "sha256": "5bcdeacaf69f02ec99593f24876d32853e9adedbb875b14f412d8b1d1b954b0a",
+          "file": "prompts/SL03.v1.24.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:59:41+00:00",
+          "sha256": "5bcdeacaf69f02ec99593f24876d32853e9adedbb875b14f412d8b1d1b954b0a",
+          "file": "prompts/SL03.v1.25.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL01-APPROVED-COVER",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL02-APPROVED-SLIDE2",
+          "role": "image_references"
+        }
+      ],
+      "ids": [],
+      "files": [],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T12:05:33+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/SL03.v1.prompt.json",
+            "prompt_sha256": "5824179f0ae4097a91eac25b0aa4f40b77ea2ef8d2a81bc8aa83b58e245c7530"
+          },
+          {
+            "at": "2026-10-28T12:45:31+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/SL03.v1.prompt.json",
+            "prompt_sha256": "5bcdeacaf69f02ec99593f24876d32853e9adedbb875b14f412d8b1d1b954b0a"
+          },
+          {
+            "at": "2026-10-28T12:53:14+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/SL03.v1.prompt.json",
+            "prompt_sha256": "5bcdeacaf69f02ec99593f24876d32853e9adedbb875b14f412d8b1d1b954b0a"
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "SL04",
+      "version": 1,
+      "type": "slide",
+      "shots": [
+        "SL04"
+      ],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T10:06:44+00:00",
+      "prompt_sha256": "788a8dc6bb43c80146bc7a7e661adaee005fe099e39bfe8c4126efb96b9f2f3c",
+      "prompt_file": "prompts/SL04.v1.25.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T10:06:44+00:00",
+          "sha256": "6a679caf80b726c20c7e647c20624e110b5afa8d4273609993d8bf8d924f889b",
+          "file": "prompts/SL04.v1.1.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:11:16+00:00",
+          "sha256": "cb5b59eff40b7a5f6ab903e0fcd4611b98f247d85b66faa2e4091cafd33722a2",
+          "file": "prompts/SL04.v1.2.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:24:52+00:00",
+          "sha256": "f4db33b080eb1b2e95d90ac0adaee074213d9b48f8d3fd3cb5eaa2aadc7cbcf4",
+          "file": "prompts/SL04.v1.3.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:25:32+00:00",
+          "sha256": "f4db33b080eb1b2e95d90ac0adaee074213d9b48f8d3fd3cb5eaa2aadc7cbcf4",
+          "file": "prompts/SL04.v1.4.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:36:15+00:00",
+          "sha256": "49b047d94beeb84ea91056aa0a104b42693784706eadfacc975864ec4666d702",
+          "file": "prompts/SL04.v1.5.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:44:24+00:00",
+          "sha256": "d7a6b9084470c298e968b824133ae8a602dc7aa0d0b253324714767e7474c226",
+          "file": "prompts/SL04.v1.6.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:52:48+00:00",
+          "sha256": "6f8ae1e9227839bb928eedfd0a33769043b921993c9f5758bda839f02d881052",
+          "file": "prompts/SL04.v1.7.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:05:47+00:00",
+          "sha256": "22998c2add4f860788f26ff33dd5de66dcd48f5ddd4f608cd7281ab3c9719326",
+          "file": "prompts/SL04.v1.8.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:15:40+00:00",
+          "sha256": "e25d88d74be23245ae472b11aa473989a1a92f8b54e193d0f4bc52250e75771c",
+          "file": "prompts/SL04.v1.9.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:22:23+00:00",
+          "sha256": "14e24f2df65bc4bfbeff1370b1fe03de4def5192a481ed54eb949edd2b7f8db1",
+          "file": "prompts/SL04.v1.10.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:30:02+00:00",
+          "sha256": "b13e4a8b4ceeef1d792b7471f61d1f6fa87c0f4c0c9a5f76b59392d4d1f1f4c8",
+          "file": "prompts/SL04.v1.11.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:39:00+00:00",
+          "sha256": "b13e4a8b4ceeef1d792b7471f61d1f6fa87c0f4c0c9a5f76b59392d4d1f1f4c8",
+          "file": "prompts/SL04.v1.12.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:46:12+00:00",
+          "sha256": "b13e4a8b4ceeef1d792b7471f61d1f6fa87c0f4c0c9a5f76b59392d4d1f1f4c8",
+          "file": "prompts/SL04.v1.13.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:46:32+00:00",
+          "sha256": "b13e4a8b4ceeef1d792b7471f61d1f6fa87c0f4c0c9a5f76b59392d4d1f1f4c8",
+          "file": "prompts/SL04.v1.14.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:57:30+00:00",
+          "sha256": "b13e4a8b4ceeef1d792b7471f61d1f6fa87c0f4c0c9a5f76b59392d4d1f1f4c8",
+          "file": "prompts/SL04.v1.15.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:04:42+00:00",
+          "sha256": "b13e4a8b4ceeef1d792b7471f61d1f6fa87c0f4c0c9a5f76b59392d4d1f1f4c8",
+          "file": "prompts/SL04.v1.16.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:13:56+00:00",
+          "sha256": "0ac6967903f6c586394a07b52e3048c49a49e4a26545f04578aa5a491b1619bd",
+          "file": "prompts/SL04.v1.17.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:21:32+00:00",
+          "sha256": "f31a89c7f24403ccca145997c85eafb84ecaa55e4d8263c6d210a6f122774726",
+          "file": "prompts/SL04.v1.18.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:29:13+00:00",
+          "sha256": "f31a89c7f24403ccca145997c85eafb84ecaa55e4d8263c6d210a6f122774726",
+          "file": "prompts/SL04.v1.19.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:29:35+00:00",
+          "sha256": "f31a89c7f24403ccca145997c85eafb84ecaa55e4d8263c6d210a6f122774726",
+          "file": "prompts/SL04.v1.20.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:37:30+00:00",
+          "sha256": "788a8dc6bb43c80146bc7a7e661adaee005fe099e39bfe8c4126efb96b9f2f3c",
+          "file": "prompts/SL04.v1.21.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:44:50+00:00",
+          "sha256": "788a8dc6bb43c80146bc7a7e661adaee005fe099e39bfe8c4126efb96b9f2f3c",
+          "file": "prompts/SL04.v1.22.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:45:06+00:00",
+          "sha256": "788a8dc6bb43c80146bc7a7e661adaee005fe099e39bfe8c4126efb96b9f2f3c",
+          "file": "prompts/SL04.v1.23.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:52:28+00:00",
+          "sha256": "788a8dc6bb43c80146bc7a7e661adaee005fe099e39bfe8c4126efb96b9f2f3c",
+          "file": "prompts/SL04.v1.24.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:59:41+00:00",
+          "sha256": "788a8dc6bb43c80146bc7a7e661adaee005fe099e39bfe8c4126efb96b9f2f3c",
+          "file": "prompts/SL04.v1.25.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-CHAT-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL01-APPROVED-COVER",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL02-APPROVED-SLIDE2",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-PS-CHAT-APPROVED",
+          "role": "image_references"
+        }
+      ],
+      "ids": [],
+      "files": [],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T12:05:33+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/SL04.v1.prompt.json",
+            "prompt_sha256": "b13e4a8b4ceeef1d792b7471f61d1f6fa87c0f4c0c9a5f76b59392d4d1f1f4c8"
+          },
+          {
+            "at": "2026-10-28T12:45:32+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/SL04.v1.prompt.json",
+            "prompt_sha256": "788a8dc6bb43c80146bc7a7e661adaee005fe099e39bfe8c4126efb96b9f2f3c"
+          },
+          {
+            "at": "2026-10-28T12:53:15+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/SL04.v1.prompt.json",
+            "prompt_sha256": "788a8dc6bb43c80146bc7a7e661adaee005fe099e39bfe8c4126efb96b9f2f3c"
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "SL05",
+      "version": 1,
+      "type": "slide",
+      "shots": [
+        "SL05"
+      ],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T10:06:44+00:00",
+      "prompt_sha256": "0285c4c42dbd06fab5158e4fbab1b60251259366dc9087453ba960477750e22d",
+      "prompt_file": "prompts/SL05.v1.25.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T10:06:44+00:00",
+          "sha256": "d975e0e69c652301455ddf4f31d573fc4a41c4891c5c91861ea38477f765915d",
+          "file": "prompts/SL05.v1.1.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:11:17+00:00",
+          "sha256": "8b53dffb8f925b9c04ce5502def0311aa7ff50ebee82b30dab197c5c3f7a6a2b",
+          "file": "prompts/SL05.v1.2.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:24:52+00:00",
+          "sha256": "7b638000c1f95d1bbb1babef76e3dc3f2a47f4bffffd64dc719738d090b7e5a3",
+          "file": "prompts/SL05.v1.3.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:25:32+00:00",
+          "sha256": "7b638000c1f95d1bbb1babef76e3dc3f2a47f4bffffd64dc719738d090b7e5a3",
+          "file": "prompts/SL05.v1.4.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:36:15+00:00",
+          "sha256": "8c88bc2b0a3f60f9b3f6f946c9a686fee8e5d6b3171a71a9a2c97631cffe70ac",
+          "file": "prompts/SL05.v1.5.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:44:24+00:00",
+          "sha256": "1cbb8ff8083d46093cbd1c19a54ab0c436c57a5817f0b5fe69902c01d8dafbfe",
+          "file": "prompts/SL05.v1.6.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:52:48+00:00",
+          "sha256": "24eb5ca24121d1afa6eec04bedb07b6e3a8afbb270b7ab52c27dcb084e155812",
+          "file": "prompts/SL05.v1.7.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:05:47+00:00",
+          "sha256": "f20878d7240ea1574c404403ed1554734acedfddf174174159930036ce849866",
+          "file": "prompts/SL05.v1.8.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:15:40+00:00",
+          "sha256": "f20878d7240ea1574c404403ed1554734acedfddf174174159930036ce849866",
+          "file": "prompts/SL05.v1.9.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:22:23+00:00",
+          "sha256": "c8b09b9c36b1288a37df6d1756aeaca228fa3474ef28590a0a20f959b696e59c",
+          "file": "prompts/SL05.v1.10.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:30:02+00:00",
+          "sha256": "51842ff757c689fcc2fd2f2ee8c8e0dcdde705974afacf152250abfddddb2406",
+          "file": "prompts/SL05.v1.11.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:39:01+00:00",
+          "sha256": "51842ff757c689fcc2fd2f2ee8c8e0dcdde705974afacf152250abfddddb2406",
+          "file": "prompts/SL05.v1.12.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:46:12+00:00",
+          "sha256": "70c6746a53493bbac3ab184c8f7c13c07fe6b3a7355801b9381cbe8b808b0595",
+          "file": "prompts/SL05.v1.13.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:46:33+00:00",
+          "sha256": "70c6746a53493bbac3ab184c8f7c13c07fe6b3a7355801b9381cbe8b808b0595",
+          "file": "prompts/SL05.v1.14.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:57:30+00:00",
+          "sha256": "70c6746a53493bbac3ab184c8f7c13c07fe6b3a7355801b9381cbe8b808b0595",
+          "file": "prompts/SL05.v1.15.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:04:42+00:00",
+          "sha256": "70c6746a53493bbac3ab184c8f7c13c07fe6b3a7355801b9381cbe8b808b0595",
+          "file": "prompts/SL05.v1.16.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:13:57+00:00",
+          "sha256": "70c6746a53493bbac3ab184c8f7c13c07fe6b3a7355801b9381cbe8b808b0595",
+          "file": "prompts/SL05.v1.17.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:21:33+00:00",
+          "sha256": "0285c4c42dbd06fab5158e4fbab1b60251259366dc9087453ba960477750e22d",
+          "file": "prompts/SL05.v1.18.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:29:13+00:00",
+          "sha256": "0285c4c42dbd06fab5158e4fbab1b60251259366dc9087453ba960477750e22d",
+          "file": "prompts/SL05.v1.19.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:29:35+00:00",
+          "sha256": "0285c4c42dbd06fab5158e4fbab1b60251259366dc9087453ba960477750e22d",
+          "file": "prompts/SL05.v1.20.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:37:30+00:00",
+          "sha256": "0285c4c42dbd06fab5158e4fbab1b60251259366dc9087453ba960477750e22d",
+          "file": "prompts/SL05.v1.21.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:44:50+00:00",
+          "sha256": "0285c4c42dbd06fab5158e4fbab1b60251259366dc9087453ba960477750e22d",
+          "file": "prompts/SL05.v1.22.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:45:06+00:00",
+          "sha256": "0285c4c42dbd06fab5158e4fbab1b60251259366dc9087453ba960477750e22d",
+          "file": "prompts/SL05.v1.23.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:52:28+00:00",
+          "sha256": "0285c4c42dbd06fab5158e4fbab1b60251259366dc9087453ba960477750e22d",
+          "file": "prompts/SL05.v1.24.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:59:41+00:00",
+          "sha256": "0285c4c42dbd06fab5158e4fbab1b60251259366dc9087453ba960477750e22d",
+          "file": "prompts/SL05.v1.25.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL01-APPROVED-COVER",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL02-APPROVED-SLIDE2",
+          "role": "image_references"
+        }
+      ],
+      "ids": [],
+      "files": [],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T12:05:33+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/SL05.v1.prompt.json",
+            "prompt_sha256": "70c6746a53493bbac3ab184c8f7c13c07fe6b3a7355801b9381cbe8b808b0595"
+          },
+          {
+            "at": "2026-10-28T12:45:32+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/SL05.v1.prompt.json",
+            "prompt_sha256": "0285c4c42dbd06fab5158e4fbab1b60251259366dc9087453ba960477750e22d"
+          },
+          {
+            "at": "2026-10-28T12:53:15+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/SL05.v1.prompt.json",
+            "prompt_sha256": "0285c4c42dbd06fab5158e4fbab1b60251259366dc9087453ba960477750e22d"
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "SL06",
+      "version": 1,
+      "type": "slide",
+      "shots": [
+        "SL06"
+      ],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T10:06:45+00:00",
+      "prompt_sha256": "2828d71acbd22386bb76dab7b4a43f92d35a7de10d56e485b66a235166ec0733",
+      "prompt_file": "prompts/SL06.v1.25.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T10:06:45+00:00",
+          "sha256": "ed7b19c41cd6c5fbdfead1aa3d8b985003c487de2dbf3b9a8c50012ab5bee6c5",
+          "file": "prompts/SL06.v1.1.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:11:17+00:00",
+          "sha256": "f09f31dcbf1e599a7c1122288be1a58e79bcf6fe554dcb963a0368ed6f7205cc",
+          "file": "prompts/SL06.v1.2.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:24:52+00:00",
+          "sha256": "2815ccb4e9f04929bfaf2953534cd4c7172f8673ef0f7afda2b6ec7f12710615",
+          "file": "prompts/SL06.v1.3.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:25:32+00:00",
+          "sha256": "2815ccb4e9f04929bfaf2953534cd4c7172f8673ef0f7afda2b6ec7f12710615",
+          "file": "prompts/SL06.v1.4.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:36:15+00:00",
+          "sha256": "21ac6474cc944a2954f344eef22ae2d7190916adc3cd9699d988c4d25b8a284c",
+          "file": "prompts/SL06.v1.5.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:44:25+00:00",
+          "sha256": "89a1c21b4c53653cb67eb39b5599f8fbf6fb05aaa939ae2f80e34b475ddb2b8b",
+          "file": "prompts/SL06.v1.6.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:52:48+00:00",
+          "sha256": "89711fde952235ccbc8f3f27e6b90d13c7d3ac6b68898f2f8f1532683b6d6306",
+          "file": "prompts/SL06.v1.7.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:05:48+00:00",
+          "sha256": "ed0652f0b7df413708eb46bbfea4684a7a898da628bdb3bd9a1362bd972a7354",
+          "file": "prompts/SL06.v1.8.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:15:40+00:00",
+          "sha256": "ed0652f0b7df413708eb46bbfea4684a7a898da628bdb3bd9a1362bd972a7354",
+          "file": "prompts/SL06.v1.9.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:22:23+00:00",
+          "sha256": "b8e27cff12e956ba8c9aaf39efb33369e8dcd162afdb187dcf64ec22788dd95d",
+          "file": "prompts/SL06.v1.10.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:30:02+00:00",
+          "sha256": "beb1aa818fd4be31dea9f9507038da43e47a5fae6767f56cf467e32ef3f9ac1b",
+          "file": "prompts/SL06.v1.11.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:39:01+00:00",
+          "sha256": "beb1aa818fd4be31dea9f9507038da43e47a5fae6767f56cf467e32ef3f9ac1b",
+          "file": "prompts/SL06.v1.12.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:46:12+00:00",
+          "sha256": "beb1aa818fd4be31dea9f9507038da43e47a5fae6767f56cf467e32ef3f9ac1b",
+          "file": "prompts/SL06.v1.13.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:46:33+00:00",
+          "sha256": "beb1aa818fd4be31dea9f9507038da43e47a5fae6767f56cf467e32ef3f9ac1b",
+          "file": "prompts/SL06.v1.14.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:57:30+00:00",
+          "sha256": "44c5f04edb891f7bc5dae01e4a00b8b9ada05dd9026d4a01d8bcca1aa6ee7f9c",
+          "file": "prompts/SL06.v1.15.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:04:42+00:00",
+          "sha256": "16573d9ba621e2fc932564517d4a33b87cd1fc3c220145b077c3819ecc4e0557",
+          "file": "prompts/SL06.v1.16.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:13:57+00:00",
+          "sha256": "e13b3ee0419562fc94431b4fc3b3d0c9c2ff6733bb936618c09b7ac09b7a9e26",
+          "file": "prompts/SL06.v1.17.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:21:33+00:00",
+          "sha256": "b49700372b27a5ec26ef8f94e4d2fb80da1ec2a498ff2f821a437c1801168ef6",
+          "file": "prompts/SL06.v1.18.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:29:13+00:00",
+          "sha256": "71e4e78fe99f2d2c60ef49df24c88dd386d5c27288af38244df481e93346d931",
+          "file": "prompts/SL06.v1.19.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:29:36+00:00",
+          "sha256": "71e4e78fe99f2d2c60ef49df24c88dd386d5c27288af38244df481e93346d931",
+          "file": "prompts/SL06.v1.20.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:37:31+00:00",
+          "sha256": "71e4e78fe99f2d2c60ef49df24c88dd386d5c27288af38244df481e93346d931",
+          "file": "prompts/SL06.v1.21.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:44:50+00:00",
+          "sha256": "2828d71acbd22386bb76dab7b4a43f92d35a7de10d56e485b66a235166ec0733",
+          "file": "prompts/SL06.v1.22.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:45:06+00:00",
+          "sha256": "2828d71acbd22386bb76dab7b4a43f92d35a7de10d56e485b66a235166ec0733",
+          "file": "prompts/SL06.v1.23.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:52:28+00:00",
+          "sha256": "2828d71acbd22386bb76dab7b4a43f92d35a7de10d56e485b66a235166ec0733",
+          "file": "prompts/SL06.v1.24.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:59:41+00:00",
+          "sha256": "2828d71acbd22386bb76dab7b4a43f92d35a7de10d56e485b66a235166ec0733",
+          "file": "prompts/SL06.v1.25.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-PS-COMPOSER-APPROVED",
+              "role": "image_references"
+            }
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL01-APPROVED-COVER",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL02-APPROVED-SLIDE2",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-PS-COMPOSER-APPROVED",
+          "role": "image_references"
+        }
+      ],
+      "ids": [],
+      "files": [],
+      "gates": {}
+    },
+    {
+      "asset_id": "SL07",
+      "version": 1,
+      "type": "slide",
+      "shots": [
+        "SL07"
+      ],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T10:06:45+00:00",
+      "prompt_sha256": "a7567c8c8b02ad246ce6b07ed5c56b9d3e90700d57eb542bf7f39886178798bd",
+      "prompt_file": "prompts/SL07.v1.25.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T10:06:45+00:00",
+          "sha256": "bc9769f77d375a83a9dad64a22fe860ff11a95bfaa72ffc8e67f8e415b9b3a71",
+          "file": "prompts/SL07.v1.1.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:11:17+00:00",
+          "sha256": "e511fff5b05052fda10409e8ae4b808886aa8e7ab11ee46c631b113be89af539",
+          "file": "prompts/SL07.v1.2.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:24:52+00:00",
+          "sha256": "19f4f9b427f221b0956e66726cd01cfd7d6eeef6f535e9d3fb14864d724780b5",
+          "file": "prompts/SL07.v1.3.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:25:32+00:00",
+          "sha256": "19f4f9b427f221b0956e66726cd01cfd7d6eeef6f535e9d3fb14864d724780b5",
+          "file": "prompts/SL07.v1.4.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:36:15+00:00",
+          "sha256": "cccb0b65535db707f9e3fb6aad440ecc1230f1be2f419d3ff2406bb79763c8b7",
+          "file": "prompts/SL07.v1.5.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:44:25+00:00",
+          "sha256": "38dcebfccc848a745c045c68efa3299220e6bafee07fc5b1667546b410dbe005",
+          "file": "prompts/SL07.v1.6.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:52:48+00:00",
+          "sha256": "c0eacfffb48ed46d189b78c175abbe27c3b87cba0a455b317f1fcda8c9e3c35b",
+          "file": "prompts/SL07.v1.7.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:05:48+00:00",
+          "sha256": "3422e9eb67b8a66936764b7a2d7500f0bc7eb5238518635f2070835fc0165296",
+          "file": "prompts/SL07.v1.8.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:15:40+00:00",
+          "sha256": "bdd72457897c3ed3050e3fafcf6e58027e5716e20e20dddbf708825a5825c46e",
+          "file": "prompts/SL07.v1.9.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:22:23+00:00",
+          "sha256": "87bebaf51c987c682e2a37ecc102ddf0297ccf5ecfee9f29499f3d47b316bb8c",
+          "file": "prompts/SL07.v1.10.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:30:03+00:00",
+          "sha256": "34e03be75de2dc4369190ab87dc3a32f48fc8313c322e4ab9afdc5e11a19344c",
+          "file": "prompts/SL07.v1.11.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:39:01+00:00",
+          "sha256": "34e03be75de2dc4369190ab87dc3a32f48fc8313c322e4ab9afdc5e11a19344c",
+          "file": "prompts/SL07.v1.12.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:46:12+00:00",
+          "sha256": "34e03be75de2dc4369190ab87dc3a32f48fc8313c322e4ab9afdc5e11a19344c",
+          "file": "prompts/SL07.v1.13.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:46:33+00:00",
+          "sha256": "34e03be75de2dc4369190ab87dc3a32f48fc8313c322e4ab9afdc5e11a19344c",
+          "file": "prompts/SL07.v1.14.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:57:31+00:00",
+          "sha256": "34e03be75de2dc4369190ab87dc3a32f48fc8313c322e4ab9afdc5e11a19344c",
+          "file": "prompts/SL07.v1.15.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:04:43+00:00",
+          "sha256": "34e03be75de2dc4369190ab87dc3a32f48fc8313c322e4ab9afdc5e11a19344c",
+          "file": "prompts/SL07.v1.16.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:13:57+00:00",
+          "sha256": "34e03be75de2dc4369190ab87dc3a32f48fc8313c322e4ab9afdc5e11a19344c",
+          "file": "prompts/SL07.v1.17.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:21:33+00:00",
+          "sha256": "a7567c8c8b02ad246ce6b07ed5c56b9d3e90700d57eb542bf7f39886178798bd",
+          "file": "prompts/SL07.v1.18.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:29:14+00:00",
+          "sha256": "a7567c8c8b02ad246ce6b07ed5c56b9d3e90700d57eb542bf7f39886178798bd",
+          "file": "prompts/SL07.v1.19.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:29:36+00:00",
+          "sha256": "a7567c8c8b02ad246ce6b07ed5c56b9d3e90700d57eb542bf7f39886178798bd",
+          "file": "prompts/SL07.v1.20.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:37:31+00:00",
+          "sha256": "a7567c8c8b02ad246ce6b07ed5c56b9d3e90700d57eb542bf7f39886178798bd",
+          "file": "prompts/SL07.v1.21.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:44:50+00:00",
+          "sha256": "a7567c8c8b02ad246ce6b07ed5c56b9d3e90700d57eb542bf7f39886178798bd",
+          "file": "prompts/SL07.v1.22.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:45:06+00:00",
+          "sha256": "a7567c8c8b02ad246ce6b07ed5c56b9d3e90700d57eb542bf7f39886178798bd",
+          "file": "prompts/SL07.v1.23.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:52:28+00:00",
+          "sha256": "a7567c8c8b02ad246ce6b07ed5c56b9d3e90700d57eb542bf7f39886178798bd",
+          "file": "prompts/SL07.v1.24.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:59:42+00:00",
+          "sha256": "a7567c8c8b02ad246ce6b07ed5c56b9d3e90700d57eb542bf7f39886178798bd",
+          "file": "prompts/SL07.v1.25.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL01-APPROVED-COVER",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL02-APPROVED-SLIDE2",
+          "role": "image_references"
+        }
+      ],
+      "ids": [],
+      "files": [],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T12:05:33+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/SL07.v1.prompt.json",
+            "prompt_sha256": "34e03be75de2dc4369190ab87dc3a32f48fc8313c322e4ab9afdc5e11a19344c"
+          },
+          {
+            "at": "2026-10-28T12:45:32+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/SL07.v1.prompt.json",
+            "prompt_sha256": "a7567c8c8b02ad246ce6b07ed5c56b9d3e90700d57eb542bf7f39886178798bd"
+          },
+          {
+            "at": "2026-10-28T12:53:15+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/SL07.v1.prompt.json",
+            "prompt_sha256": "a7567c8c8b02ad246ce6b07ed5c56b9d3e90700d57eb542bf7f39886178798bd"
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "SL08",
+      "version": 1,
+      "type": "slide",
+      "shots": [
+        "SL08"
+      ],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-28T10:06:45+00:00",
+      "prompt_sha256": "cadbb20193b702ed62571e0bf3ae9a48db0bf64590d9c4ddbc2158cb2ae9e5d4",
+      "prompt_file": "prompts/SL08.v1.25.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T10:06:46+00:00",
+          "sha256": "6113cf15f83aedfefb33f15ff81f2aecfd9f3595c860e2def6b32b8625e1e009",
+          "file": "prompts/SL08.v1.1.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:11:17+00:00",
+          "sha256": "779493076316ee38f0fbc74714d90f782c7b8f8d94aa070fea4d3af13ce114c4",
+          "file": "prompts/SL08.v1.2.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:24:52+00:00",
+          "sha256": "5bfb3df326a0b6903ef7fbd3e4938d79bdb75e1fe58125e0f3cadbda3ffa8f24",
+          "file": "prompts/SL08.v1.3.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:25:32+00:00",
+          "sha256": "5bfb3df326a0b6903ef7fbd3e4938d79bdb75e1fe58125e0f3cadbda3ffa8f24",
+          "file": "prompts/SL08.v1.4.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:36:16+00:00",
+          "sha256": "aaa86a6f8f692580c06261fe221aef95e2a5cd432e5d4001f91c88e276d837c4",
+          "file": "prompts/SL08.v1.5.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:44:25+00:00",
+          "sha256": "1f826d5af4255f2cc0165af3b9cce3960e7517790a5c816b8c1f4848a9cad42f",
+          "file": "prompts/SL08.v1.6.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T10:52:48+00:00",
+          "sha256": "a57bd3eb6a2a62cef646f11fa7585dcf7adf83ced09a9bdb7d27f8ca36a4a11c",
+          "file": "prompts/SL08.v1.7.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:05:48+00:00",
+          "sha256": "8cfa96bb0fa86330e953bf7924c46db729e287cb043b7369d05a873ed7c42772",
+          "file": "prompts/SL08.v1.8.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:15:40+00:00",
+          "sha256": "cf12e3b053d880a26d5776bf1a09a3af19ba15536b0159bb1c0aa7906e52ea42",
+          "file": "prompts/SL08.v1.9.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:22:24+00:00",
+          "sha256": "b9cfc7783920f3b5b561d4242cc199c3ace49aa58c16becc74f4b056c004febd",
+          "file": "prompts/SL08.v1.10.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:30:03+00:00",
+          "sha256": "2ef18dbb995bfe287a9537ca32b66a0a041ab600113e3bd25f17b16360d73827",
+          "file": "prompts/SL08.v1.11.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:39:01+00:00",
+          "sha256": "2ef18dbb995bfe287a9537ca32b66a0a041ab600113e3bd25f17b16360d73827",
+          "file": "prompts/SL08.v1.12.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:46:12+00:00",
+          "sha256": "da584e2dd557d56aa165acc3b0bde3c52c099adacbeefbbedf08c2e8f5e89916",
+          "file": "prompts/SL08.v1.13.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:46:33+00:00",
+          "sha256": "da584e2dd557d56aa165acc3b0bde3c52c099adacbeefbbedf08c2e8f5e89916",
+          "file": "prompts/SL08.v1.14.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T11:57:31+00:00",
+          "sha256": "da584e2dd557d56aa165acc3b0bde3c52c099adacbeefbbedf08c2e8f5e89916",
+          "file": "prompts/SL08.v1.15.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:04:43+00:00",
+          "sha256": "da584e2dd557d56aa165acc3b0bde3c52c099adacbeefbbedf08c2e8f5e89916",
+          "file": "prompts/SL08.v1.16.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:13:57+00:00",
+          "sha256": "da584e2dd557d56aa165acc3b0bde3c52c099adacbeefbbedf08c2e8f5e89916",
+          "file": "prompts/SL08.v1.17.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:21:33+00:00",
+          "sha256": "7c0116dd4d694cfba22a8374c39a62ee504604c39da17e9e5b53d8cdab404dc3",
+          "file": "prompts/SL08.v1.18.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:29:14+00:00",
+          "sha256": "7c0116dd4d694cfba22a8374c39a62ee504604c39da17e9e5b53d8cdab404dc3",
+          "file": "prompts/SL08.v1.19.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:29:36+00:00",
+          "sha256": "7c0116dd4d694cfba22a8374c39a62ee504604c39da17e9e5b53d8cdab404dc3",
+          "file": "prompts/SL08.v1.20.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:37:31+00:00",
+          "sha256": "2eba90df6ab6b02ea240ec8ec66d376db88c4b229d977056d56c3cebffc6c399",
+          "file": "prompts/SL08.v1.21.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:44:50+00:00",
+          "sha256": "2eba90df6ab6b02ea240ec8ec66d376db88c4b229d977056d56c3cebffc6c399",
+          "file": "prompts/SL08.v1.22.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:45:06+00:00",
+          "sha256": "2eba90df6ab6b02ea240ec8ec66d376db88c4b229d977056d56c3cebffc6c399",
+          "file": "prompts/SL08.v1.23.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:52:29+00:00",
+          "sha256": "e96fd4648d8647ef7a4a86cac85bb8291eb0f3da7ba366373e2144bc0ddc0543",
+          "file": "prompts/SL08.v1.24.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-28T12:59:42+00:00",
+          "sha256": "cadbb20193b702ed62571e0bf3ae9a48db0bf64590d9c4ddbc2158cb2ae9e5d4",
+          "file": "prompts/SL08.v1.25.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL01-APPROVED-COVER",
+              "role": "image_references"
+            },
+            {
+              "value": "PENDING-SL02-APPROVED-SLIDE2",
+              "role": "image_references"
+            }
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL01-APPROVED-COVER",
+          "role": "image_references"
+        },
+        {
+          "value": "PENDING-SL02-APPROVED-SLIDE2",
+          "role": "image_references"
+        }
+      ],
+      "ids": [],
+      "files": [],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T12:05:34+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/SL08.v1.prompt.json",
+            "prompt_sha256": "da584e2dd557d56aa165acc3b0bde3c52c099adacbeefbbedf08c2e8f5e89916"
+          },
+          {
+            "at": "2026-10-28T12:45:32+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/SL08.v1.prompt.json",
+            "prompt_sha256": "2eba90df6ab6b02ea240ec8ec66d376db88c4b229d977056d56c3cebffc6c399"
+          }
+        ]
+      }
+    }
+  ],
+  "queue": [
+    {
+      "id": "G-HUMAN-ESCALATE:SL06@v1",
+      "checkpoint": "G-HUMAN-ESCALATE",
+      "asset": "SL06@v1",
+      "status": "PENDING",
+      "note": "SL06 prompt review did not converge (stopped at round 17, over the 3-round limit set 28 Oct). Options: (a) simplify SL06 to type over the shared scene of SL05 and re-review once (recommended); (b) cut the slide (7 slides). Findings: runs/SS-2026-11-W1-02/qa/.",
+      "files": [],
+      "asked_at": "2026-10-28T13:05:46+00:00"
+    }
+  ]
+}

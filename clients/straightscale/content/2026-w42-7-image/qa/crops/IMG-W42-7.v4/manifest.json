@@ -1,0 +1,29 @@
+{
+ "kind": "image",
+ "source": "src.jpg",
+ "size": [1080, 1350],
+ "hero": true,
+ "files": ["full.jpg", "tile_r1c1.jpg", "tile_r1c2.jpg", "tile_r1c3.jpg", "tile_r2c1.jpg", "tile_r2c2.jpg", "tile_r2c3.jpg", "tile_r3c1.jpg", "tile_r3c2.jpg", "tile_r3c3.jpg", "region_IMG-W42-7_text_kicker.jpg", "region_IMG-W42-7_text_headline_l1.jpg", "region_IMG-W42-7_text_headline_l2.jpg", "region_IMG-W42-7_text_headline_l3.jpg", "region_IMG-W42-7_text_line.jpg", "region_IMG-W42-7_logo_zone.jpg", "region_IMG-W42-7_edit1_wall_sign_box.jpg", "region_IMG-W42-7_edit1_bar_corner.jpg", "region_IMG-W42-7_edit2_bar_box.jpg", "region_IMG-W42-7_phone_screen.jpg", "thumb_200.jpg"],
+ "must_open": ["full.jpg", "tile_r1c1.jpg", "tile_r1c2.jpg", "tile_r1c3.jpg", "tile_r2c1.jpg", "tile_r2c2.jpg", "tile_r2c3.jpg", "tile_r3c1.jpg", "tile_r3c2.jpg", "tile_r3c3.jpg", "region_IMG-W42-7_text_kicker.jpg", "region_IMG-W42-7_text_headline_l1.jpg", "region_IMG-W42-7_text_headline_l2.jpg", "region_IMG-W42-7_text_headline_l3.jpg", "region_IMG-W42-7_text_line.jpg", "region_IMG-W42-7_logo_zone.jpg", "region_IMG-W42-7_edit1_wall_sign_box.jpg", "region_IMG-W42-7_edit1_bar_corner.jpg", "region_IMG-W42-7_edit2_bar_box.jpg", "region_IMG-W42-7_phone_screen.jpg", "thumb_200.jpg"],
+ "panels": 0,
+ "ocr": null,
+ "ocr_note": "tesseract is not installed in the sandbox; every letter was read by eye at 2x to 5x and the bar word was also checked by connected components",
+ "_made_by": "visual-reviewer (fresh agent): growth-engine/tools/vqa_crops.py (md5 551f012424bb4ea8da270d528c3df808, same as the repo; copied from the md5-identical sandbox copy in /home/user/qa/IMG-W42-7.v3/) run in the Higgsfield sandbox: python3 vqa_crops.py image src.jpg --out crops --spec spec.json --ext jpg",
+ "src": {
+  "downloaded_from": "https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/5fe3368b-1e13-4655-b201-87baf256b0b3.jpg",
+  "media_id": "5fe3368b-1e13-4655-b201-87baf256b0b3",
+  "md5": "4ab6e4957ae66263c4e892eef5c0ccb7",
+  "sandbox_file_md5": "4ab6e4957ae66263c4e892eef5c0ccb7 (/home/user/drafts/fixed/ebd54bc2_v4.jpg, identical)",
+  "format": "1080x1350 RGB JPEG, 4:4:4 (all components 1x1 sampling)"
+ },
+ "compared_with": {
+  "v3": "/home/user/drafts/fixed/ebd54bc2_v3.jpg (md5 5190cc4493b394b9bc7fb53c8a893a7c)",
+  "v2": "/home/user/drafts/fixed/ebd54bc2.jpg",
+  "original": "/home/user/drafts/ebd54bc2-4295-4a39-8392-b776d3c06d08.jpg (md5 616e9ca19d631e451e4706a2419772a6)",
+  "reference_logo": "/home/user/brand/straightscale-logo-light.png (md5 ccde74aa7d650ed410be173d215dea57)",
+  "editor_script_rerun": "v4_edit.py (md5 d28c79de89365e5959a48eeb726cf335, same in repo and sandbox) re-run with only OUT/DBG redirected: output md5 4ab6e4957ae66263c4e892eef5c0ccb7 (bit-identical) and pre-JPEG array identical to /home/user/v4work/v4_prejpeg.npy"
+ },
+ "crop_dir": "sandbox /home/user/qa/IMG-W42-7.v4/crops (extra reviewer crops in /home/user/qa/IMG-W42-7.v4/extra)",
+ "spec_used": "sandbox /home/user/qa/IMG-W42-7.v4/spec.json (md5 85ee32723bc2d9e385b560006387d2bf): built from the review packet (on-image text, logo rule, brand rules, alt-text scene, the editor's two v4 boxes); region boxes are fractions of 1080x1350 for the 5 text blocks, the bottom-left zone (lowest 15% height, left 50% width), edit 1 (wall sign box x 0-100, y 303-465 and the bar corner), edit 2 (bar box x 86-597, y 233-330) and the phone screen",
+ "extra_crops_opened": ["word_pergjigje_3x.jpg", "word_gjigje_5x.jpg", "bar_je_6x_nearest.jpg", "bar_je_6x_boost.jpg", "bar_left_pa_5x_nearest.jpg", "bar_je_6x_v3_nearest.jpg", "bar_left_4x.jpg", "bar_full_2x_boost.jpg", "sign_v3_left_v4_right_2x.jpg", "sign_v3_left_v4_right_2x_boost.jpg", "sign_v4_3x_strongboost.jpg", "sign_context_1x.jpg", "sign_rightedge_4x_boost.jpg", "sign_topedge_5x_boost.jpg", "logo_ref_top_v4_bottom_3x.jpg", "wall_frame_right_3x.jpg", "street_car_3x.jpg", "ledger_pen_2x.jpg", "bell_2x.jpg"]
+}

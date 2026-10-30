@@ -1,0 +1,74 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CF-V3",
+ "version": 1,
+ "prompt_sha256": "ceede21bb8dd65bd4ae382d980664090d59e35a940f70c5a1a3948a8a032efc5",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Every spec element present in the 11 blocks in order: 'three identical plain white tall narrow paper sheets', 'one adult hand ... mustard-yellow knit sleeve', 'PROGRAM' / 'WEEKLY CALLS' / 'A PROMISE', 'The top 30% of the frame is bare dark walnut wood'. Advisory: 'third heading of the right sheet at or above y 52%' is not stated (the 30% to 56% band is)."
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'Reference images: none attached; this prompt is the only input.' Packet media: none (text-to-image)."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'entering from the bottom edge at the lower right (x 60% to 90%, y 60% to 100%). Its index finger and thumb pinch the bottom left corner ... Exactly one hand with five fingers; no other hand.'"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'thumb and index finger pinch the right-hand sheet's bottom left corner; the corner lifts 2 cm, seen as a small curl of the paper and a soft shadow under it; the other two sheets lie flat.'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Props block gives full content: 'heavy black block capitals ... a few plain grey bars (not letters) ... one plain round red sticker ... with no writing on it'; the only negatives are targeted ('the stickers stay blank'), none empties the headings."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "'\"WEEKLY CALLS\" in the middle' on 'each of the three sheets', 'Upper case, exactly these words', 'Nothing covers any heading letter.'; every string 3 words or fewer."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'nothing else on the desk' and 'no words other than the three headings'; no frames, screens or signs in the scene."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Band 30% to 62% for the sheets and 30% to 56% for headings and stickers are consistent; 85% line cap fits 4% letters on a 28%-wide sheet; sticker above the first heading; no instruction conflicts."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'Continuity: none, this is the first frame of the reel.'"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "atlas openai/gpt-image-2/text-to-image is in models.atlas.allowed for type 'still' with quality medium; size 1152x2048 is the listed size for 9:16 (size_for_aspect); no text_fields used (negatives are inline in the prompt); no face, so no person reference rule applies; prompt says '9:16'."
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "(a) 'One adult hand, the viewer's own' does not say which hand, while the spec says right hand entering from the lower right; a left hand there crosses the frame. (b) 'the right-hand sheet' sits next to 'adult hand' in the Hands and Action lines: 'right-hand' can be read as the sheet in the hand. Corrected prompt names the right hand and says 'rightmost sheet'. Advisory: 'about 2 cm' has no scale in a flat-lay; the curl and shadow carry the read."
+  },
+  {
+   "id": "P12",
+   "result": "FAIL",
+   "evidence": "FL-01 (text over hands): Hands says 'The hand covers no heading letter' but not the FL-01 prevention 'no letter touches the hand or sleeve', and does not say the hand stays below the last word with clear space. Fixed in the corrected prompt. FL-13 (logo): not triggered, a reel frame with no brand overlay and 'no logo, brand or app name'. FL-02, FL-05, FL-10: sheets described as flat single objects, no frames or screens, grey bars 'not letters'."
+  }
+ ],
+ "corrected_prompt": "Candid iPhone 15 Pro photo, vertical 9:16, real skin texture, everything sharp. Look: a POV dramatization with hands only and never a face; a warm evening home office lit by a tungsten desk lamp from the upper left, soft shadows, natural skin; the hand always in a mustard-yellow knit sleeve; muted warm palette of walnut, warm grey, mustard and paper white, red only on the price stickers.\nReference images: none attached; this prompt is the only input. All positions are measured down from the top edge and across from the left edge of the frame.\nSubject: three identical plain white tall narrow paper sheets lying flat in a row on a desk, seen from straight above, side by side with small gaps, filling the band from 30% to 62% of the frame height (x 6% to 94%); each sheet about 28% of the frame width and 32% of the frame height; the set appears once.\nHands: one adult right hand, the viewer's own, wrist in a mustard-yellow knit sleeve, entering from the bottom edge at the lower right (x 60% to 90%, y 60% to 100%). Its index finger and thumb pinch the bottom left corner of the rightmost sheet, the corner away from its sticker, and lift that corner about 2 cm off the desk. The hand stays below the last heading with clear paper between them; no letter touches the hand, fingers or sleeve; the hand covers no heading letter and no part of any sticker. Exactly one hand with five fingers; no other hand.\nAction: thumb and index finger pinch the rightmost sheet's bottom left corner; the corner lifts 2 cm, seen as a small curl of the paper and a soft shadow under it; the other two sheets lie flat.\nProps: the three sheets are copies, identical in layout, words and type. On each, three headings stacked in heavy black block capitals below the sticker row, each on one single line that is never wrapped and never wider than 85% of the sheet's width (letters about 4% of the sheet height, the same size for all three headings), with a few plain grey bars (not letters) under each heading. Each sheet has one plain round red sticker in its top right corner, above the first heading so that it touches no heading letter, with no writing on it: the left sheet's sticker is the largest (about 9% of the frame width), the middle one smaller (about 6.5%), the right one the smallest (about 4%). That sticker size is the only difference between the sheets.\nText: on each of the three sheets, the same three headings, top to bottom, all below the sticker: \"PROGRAM\" at the top of the text area, then \"WEEKLY CALLS\" in the middle, then \"A PROMISE\" in the lower middle. Upper case, exactly these words, spelled the same on all three sheets. The bars under them are plain grey bars, not letters. Nothing covers any heading letter.\nSetting: a warm walnut desk seen from straight above in the evening; nothing else on the desk.\nCamera: flat lay, straight down at 90 degrees, 9:16. The top 30% of the frame is bare dark walnut wood with nothing on it. The headings and stickers sit between 30% and 56% from the top, inside 6% side margins; below 62% there is only the hand and wood.\nContinuity: none, this is the first frame of the reel.\nNegatives: no face; no logo, brand or app name; no digits, prices or currency signs anywhere, the stickers stay blank; no words other than the three headings; no fourth sheet; no pens, phones or cups on the desk; no second hand.",
+ "corrected_prompt_sha256": "8ea2e31099a455adb617298dc2b3beafe25a305e72a6e9e5f2b15344fa05885d",
+ "note": "Corrected prompt changes only the Hands line (right hand, rightmost sheet, FL-01 line) and the Action line ('rightmost sheet's'). Packet media: none."
+}

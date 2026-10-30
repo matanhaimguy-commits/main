@@ -1,0 +1,121 @@
+shot_id: H-01A
+post_id: SSEN-2026-11-W3-01
+format: claymation
+script_lines:
+- H1
+line_text: Some months clients, other months nothing? Your posts know why.
+story_purpose: 'Concept frame for stack EN05-V1 (HF-06): the lumpy months, the main pain, as one picture: one month full of
+  clients, the next month empty.'
+must_read_in_1s: One month crowded with clients, the next month empty
+subjects:
+- id: PR-CALENDAR
+  ref: null
+  state: a clay wall calendar open to two month pages side by side
+  pose: flat on the wall, square to the camera, centred, spanning x 0.06 to 0.94 and y 0.28 to 0.56
+  expression: ''
+- id: CH-CLIENTS
+  ref: null
+  state: twelve little clay client figures, a group of extras, each figure once
+  pose: standing on the left page's three ledges, four per row, facing the camera or each other
+  expression: calm and pleased, chatting
+hands: none visible
+props:
+- id: PR-CALENDAR
+  story_critical: false
+  ref: null
+  state: two month pages side by side, the left one full, the right one bare
+  content: 'two pages, each a calendar month page sculpted from flat cream clay, edged with a stitched terracotta fabric border,
+    with a stitched grid of empty day squares (no numbers, no month name), joined by a stitched seam down the middle; each
+    page has three narrow clay ledges running across it, one under each row of squares; the LEFT page carries twelve clay
+    client figures, simple adult business people in tiny fabric jackets and trousers, thread-wrapped hair, simple eyes with
+    white sclera and dark pupils, mixed skin tones, standing and chatting, calm and pleased; the RIGHT page is completely
+    bare: empty squares and empty ledges'
+  size_in_frame: the two pages together 88% of the frame width and 28% of its height; each page 44% wide; each figure about
+    6% of the frame height
+  held_by: null
+text_in_image: none
+action_physics:
+- each client figure stands with both feet on one of the left page's ledges, four figures per ledge
+- the right page's ledges and squares carry nothing at all
+- the calendar hangs flat against the wall from a stitched loop at its top centre
+static: true
+setting:
+  ref: null
+  details: One plain warm cream clay wall fills the background edge to edge, softly lit by warm amber light from the upper
+    left, a gentle deep teal shadow low down. No window, shelf, desk or other objects.
+  background_rule: nothing but the plain clay wall around the calendar
+camera:
+  framing: medium shot of the calendar, square to the camera
+  angle: camera at eye level with the calendar's centre, inside the miniature set, facing it straight on
+  lens: macro miniature-set look, about 50mm, the whole calendar and every figure sharp
+  aspect: '9:16'
+  safe_zones: 'STANDARDS 6 reels zone: the top 14% is plain wall; the text hook (added in the edit) sits from 14% to 27% down
+    on plain wall; all key content sits from 28% to 56% down and inside 6% side margins; below 56% only the plain clay floor
+    and wall continue, with nothing on them (the bottom 35% and the right 21% of the lower half hold no key content)'
+continuity:
+  previous_shot: null
+  carry_over:
+  - 'the series look: claymation with fabric and thread details, the song''s cloth world (EN 03)'
+regions:
+- name: text-hook-space
+  kind: other
+  box:
+  - 0.06
+  - 0.14
+  - 0.94
+  - 0.27
+- name: calendar
+  kind: prop
+  box:
+  - 0.06
+  - 0.28
+  - 0.94
+  - 0.56
+- name: full-month
+  kind: prop
+  box:
+  - 0.06
+  - 0.28
+  - 0.5
+  - 0.56
+- name: client-faces
+  kind: face
+  box:
+  - 0.08
+  - 0.29
+  - 0.48
+  - 0.54
+- name: empty-month
+  kind: prop
+  box:
+  - 0.5
+  - 0.28
+  - 0.94
+  - 0.56
+- name: empty-lower-zone
+  kind: other
+  box:
+  - 0.0
+  - 0.56
+  - 1.0
+  - 1.0
+style: 'Stop-motion clay puppet scene - clay characters detailed with tiny craft materials: thread-wrapped hair, fabric details,
+  wire accents, on a fully sculpted clay set, cinematic stop-motion film lighting with gentle shadows, the scene filling the
+  entire frame with the camera inside the puppet world. Palette: warm cream, terracotta and mustard clay with deep teal shadows,
+  warm amber light; one bright subject against a calm, plain clay wall. Everything in frame is real modeling clay, photographed
+  - visible fingerprints and tool marks, real cast shadows, soft studio lighting, the clay scene filling the entire frame.'
+must_not:
+- no text, letters, numbers or words anywhere in the picture (the text hook is added later in the edit)
+- no hearts, likes, thumbs-up, follower counts, notification badges, social media icons or logos
+- no real platform names, logos, phones or app screens
+- no objects on the floor or wall below 56% down
+- no smooth, glossy or CGI-looking surfaces; no motion blur
+- no picture border or frame around the whole image, no split-screen panels, no visible set edges, workbench or room around
+  the miniature set
+- no figure, object or mark on the right page
+- exactly two calendar pages
+- no figure off the calendar
+hero: true
+notes: 'Stack EN05-V1 text hook (edit, 14% to 27% down): One month full, the next month nothing. Here''s why. Model: openai/gpt-image-2/text-to-image,
+  size 1152x2048, quality medium, no references. Sub-style: claymation skill lane 3 (stop-motion puppet), for the song''s
+  cloth world.'

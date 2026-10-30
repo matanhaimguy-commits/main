@@ -1,0 +1,71 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "SL07",
+ "spec_sha256": "db37b34f56b2c1100c792b23c2c526bd9001c9e97ded1d0f9ad7e02cc3bbd978",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Subject, hand, phone, framed-grid screen, arrow, 5 text strings, action, setting, camera and regions (text lines, 'arsye' highlight, counter, logo-zone, arrow, window, phone, phone-screen, bordered-photo, hand) are present; schema validates; strings joined equal line_text."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: no prompt or attached files exist yet."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "Right hand identical to SL01/SL05: thumb pad on the right side edge at 62%, 'the other four fingers are behind the phone and not visible', must_not_cover 'the screen', count_check given; region 'hand' [0.8,0.54,1.0,0.78] is clear of the bordered photo [0.55,0.64,0.69,0.76]."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "Contact points: 'thumb pad along the phone's right edge and the other four fingers behind the case'."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-PHONE-SCREEN story_critical, ref 'PS-PROFILE state GRID-FRAMED', content 'the centre photo has a bold ivory border about 12 px thick at 1080 px wide around it and is the same size as the others'. Region 'bordered-photo' boxes the centre cell. Negative is targeted."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "All strings carry surface, position and occlusion; highlight 'the word 'arsye' sits inside a solid crimson #B31217 highlight rectangle' (region t02-highlight [0.189,0.112,0.404,0.18]); headline 'Ka arsye tjetër, përveç çmimit?' is 4 words; sub 6 words; counter '7/8'."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: 'Nothing on the desk or the walls carries a word, a logo or a sign ... the clock tower is a small lit silhouette with a plain clock face: no numerals, no letters; the window glass reflects no text; no shop signs on the street.' Window has region 'window' [0.0,0.42,0.2,0.62]; no empty frames, books or signs in the scene. Screen has a content rule: 'The phone screen shows only the photo grid.'"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No conflicts found: the border is ivory (not an extra saturated colour); 'same size as the others' keeps the grid even; hand clear of the screen text and the bordered photo."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot SL06 with carry-over 'The phone is held up close again like the cover, but one photo in the grid now has a bold ivory border; same light.' Hand block repeats SL01 and SL05. Chain and set rules hold across all 8 specs: previous_shot SL01=null, SL02->SL01, SL03->SL02, SL04->SL03, SL05->SL04, SL06->SL05, SL07->SL06, SL08->SL07; counters 1/8 to 8/8; PR-ARROW on SL01-SL07 only; SL08 has no arrow; hero true on SL01 only; the ask (ANALIZA) appears only on SL08."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution and duration are checked on the prompt at G-PROMPT-IMG (the spec itself sets aspect 4:5)."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "'Bold ivory border about 12 px thick at 1080 px wide' and 'centre photo' are measurable; the must_read line is one thing (one framed photo)."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "No FL pattern left without prevention: FL-01 text only in the top wall with occlusion rule, FL-02 'one lamp with one round shade on one stem and one round base' and stand 'with one groove', FL-04 screen has a content line and a targeted negative, FL-05/10 'Nothing on the desk or the walls carries a word, a logo or a sign', FL-13 logo-zone [0.0,0.91,0.4,1.0] plus 'no logo or wordmark drawn anywhere'."
+  }
+ ],
+ "suggested_spec_changes": []
+}

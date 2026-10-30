@@ -1,0 +1,23 @@
+{
+ "gate": "G-TAKE",
+ "asset": "T-H3-768@v1",
+ "reviewer": "take-reviewer (fresh agent)",
+ "files_opened": ["frames-T-H3-768/contact_1.jpg","frames-T-H3-768/contact_2.jpg","frames-T-H3-768/contact_3.jpg","frames-T-H3-768/contact_4.jpg","assets/T-FACE.v1.png"],
+ "checks": [
+  {"id":"T1","result":"PASS","note":"Talking-head, man at desk, matches start frame framing."},
+  {"id":"T2","result":"PASS","note":"Same man, beard, sweater, room and bookshelf as T-FACE across 0-10 s; no identity drift seen on contact sheets. Camera framing drifts slightly (zoom in) but stays consistent."},
+  {"id":"T3","result":"FAIL","note":"Minor: a hand/fingers enter the bottom of the frame at 0.10, 0.25 and 0.50 s, then vanish (unrequested prop). Fixable by trimming the first ~0.6 s."},
+  {"id":"T4","result":"PASS","note":"No morphing, flicker or duplicate people seen at contact-sheet resolution; teeth look natural. Not checked on full-size mouth crops."},
+  {"id":"T5","result":"PASS","note":"No text or signs visible."},
+  {"id":"T6","result":"NA","note":"Static room; no background life specified."},
+  {"id":"T7","result":"FAIL","note":"Mouth follows the clip's own audio, not the slice. Pause 1 (2.26-2.57): mouth stays open with teeth at 2.25 and 2.50 s (blink at 2.25). From 4.2 s the closed-mouth frames are at 4.25-4.50 (clip pause 4.20-4.96), 6.00-6.25 (clip pause 5.86-6.23) and 7.25 (clip pause 7.01-7.33), not at the slice pauses 5.07, 5.72-6.23 start, 7.16-7.57 (7.50 s open while slice is silent)."},
+  {"id":"T8","result":"FAIL","note":"Clip audio garbles the script after 'We didn't write that' and adds words to 10 s. With the slice laid over, words are all present, but the mouth does not match them from about 4.2 s."},
+  {"id":"T9","result":"PASS","note":"Action reads as a person talking to camera, eyes on lens throughout."}
+ ],
+ "sync_0_4s": "Mostly good. Mouth opens and closes with syllables and rhythm looks plausible and eyes are on lens. One miss: during the 2.26-2.57 pause the mouth does not close (open at 2.25 and 2.50). Judged from 4 fps frames, so tight phase cannot be proven; drift report (lag 0.0, corr 0.99) agrees the clip audio equals the slice here.",
+ "sync_after_4s": "Mouth follows the clip's own garbled speech, not the slice. Closures land on clip pauses (4.25-4.5, 6.0-6.25, 7.25) which are 0.1-0.2 s off the slice pauses, and the slice pause at 7.16-7.57 is shown with an open mouth at 7.5. Replacing audio with the slice would give a visible, drifting mismatch (up to ~0.3 s, mouth shapes of different words).",
+ "mouth_after_8_2s": "Yes. Closed 8.25-8.75, then speaking 9.0-9.75 (teeth at 9.0, open at 9.5-9.75), closed at 10.0 s, while the slice is silent from 8.20 s. Must be cut at 8.2 s.",
+ "verdict": "PARTIAL",
+ "usable_span_s": "about 0.6-4.2 s (hand gone, audio equals slice, mouth plausible). Optionally to about 4.9 s with slice laid over, but not beyond. Not usable 4.2-10.1 s with the slice.",
+ "summary": "Atlas H3-developer with an audio reference lip-syncs well in the first 4 s, where its own audio reproduces the slice: mouth opens on syllables and eyes stay on the lens, though the mouth did not fully close in the 2.26-2.57 pause. After about 4.2 s the model drifts into its own garbled words and the mouth follows those, not the slice; it also keeps talking 8.7-9.9 s after the slice ends. Identity, background and teeth are stable, but a hand appears at 0.1-0.5 s. Verdict PARTIAL: reliable only for roughly 4 s sentences, so slices should be kept to about 4 s or shorter, with the first 0.6 s trimmed. Review was from contact sheets only (4 fps), not mouth crops."
+}

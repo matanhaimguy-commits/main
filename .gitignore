@@ -1,3 +1,27 @@
 OpenMontage/
 # the five reference repos are downloaded by references/fetch.sh, not committed
 references/*/
+
+# Growth Engine secrets
+growth-engine/.env
+
+# scratch renders and review sheets
+motion-studio/projects/*/out/
+
+# generation-gate decisions that matched no run (per-run decisions live in runs/<post>/calls.jsonl)
+growth-engine/production/logs/
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# review packets are regenerable (vqa_crops.py); the reports in qa/*.json are kept
+clients/*/runs/*/qa/crops/
+clients/*/runs/*/qa/frames/
+# song and audio takes: large files and media URLs with account hashes (kept in the session, sent to the owner directly)
+clients/*/runs/*/audio/takes/
+# agent worktrees (temporary copies of the repo)
+.claude/worktrees/
+
+# private client documents from the quick intake (never in git)
+clients/*/foundation/

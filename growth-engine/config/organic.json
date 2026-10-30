@@ -1,0 +1,1811 @@
+{
+  "_doc": "Defaults from ORGANIC-OS.md (sections 6.1, 6.2, 6.6, 7.4, 7.7). Edit here, not in code. Budgets are Atlas USD (owner, 28 Oct 2026: generation runs on Atlas): each format's usd range is its atlas_units (images, H3 video seconds, OmniHuman seconds, voiced seconds, Suno songs per piece, before retakes) at growth-engine/production/standards.json atlas_prices plus 25% retakes (organic_os/usd.py; STANDARDS.md 10); the router and G-BUDGET count usd. The older credits field (Higgsfield credits per finished piece with the cast already built, incl. ~25% retakes, from each adapter's own math at growth-engine/production/STANDARDS.md section 10 prices (16 Oct 2026)) stays for the history in the ledger; a series' first episode adds the adapter's one-off cast cost, and lengths come from STANDARDS.md section 8. Story layer (15 Oct 2026): story_templates, animation_styles and each format's production family (growth-engine/production/STANDARDS.md families) feed the router and the production pipeline (growth-engine/tools/pipeline.py). Format families (28 Oct 2026, FORMATS.md): each format's format_family (the creative family the variety rules count), funnel (TOF, MOF, BOF) and l19 (the six L19 properties, 0 no, 1 partly, 2 yes) feed the router with beats.",
+  "beliefs": {
+    "B1": {
+      "label": "This problem is real, and it is costing me.",
+      "jobs": [
+        "reach"
+      ],
+      "awareness": [
+        "unaware",
+        "problem_aware"
+      ]
+    },
+    "B2": {
+      "label": "It isn't my fault. The real cause is X.",
+      "jobs": [
+        "reach",
+        "trust"
+      ],
+      "awareness": [
+        "problem_aware"
+      ]
+    },
+    "B3": {
+      "label": "This can actually be solved.",
+      "jobs": [
+        "trust",
+        "reach"
+      ],
+      "awareness": [
+        "problem_aware"
+      ]
+    },
+    "B4": {
+      "label": "This method is how it gets solved.",
+      "jobs": [
+        "trust"
+      ],
+      "awareness": [
+        "solution_aware"
+      ]
+    },
+    "B5": {
+      "label": "It's better than the alternatives I know.",
+      "jobs": [
+        "trust",
+        "convert"
+      ],
+      "awareness": [
+        "solution_aware"
+      ]
+    },
+    "B6": {
+      "label": "It works for a business like mine.",
+      "jobs": [
+        "convert"
+      ],
+      "awareness": [
+        "product_aware"
+      ]
+    },
+    "B7": {
+      "label": "I trust and like these people.",
+      "jobs": [
+        "trust",
+        "reach"
+      ],
+      "awareness": [
+        "unaware",
+        "problem_aware",
+        "solution_aware",
+        "product_aware",
+        "most_aware"
+      ]
+    },
+    "B8": {
+      "label": "The next step is easy, safe and worth doing now.",
+      "jobs": [
+        "convert"
+      ],
+      "awareness": [
+        "most_aware",
+        "product_aware"
+      ]
+    }
+  },
+  "jobs": {
+    "reach": {
+      "ctas": [
+        "follow",
+        "save",
+        "send",
+        "comment",
+        "keyword"
+      ],
+      "metric": "sends_per_reach",
+      "also": [
+        "follows_per_1k_reach",
+        "skip_rate",
+        "avg_watch_s"
+      ]
+    },
+    "trust": {
+      "ctas": [
+        "keyword",
+        "save",
+        "comment",
+        "follow",
+        "send"
+      ],
+      "metric": "saves_per_reach",
+      "also": [
+        "profile_visits",
+        "keyword_comments",
+        "avg_watch_s"
+      ]
+    },
+    "convert": {
+      "ctas": [
+        "keyword",
+        "dm",
+        "book"
+      ],
+      "metric": "qualified_dms",
+      "also": [
+        "dms",
+        "booked",
+        "link_clicks"
+      ]
+    }
+  },
+  "conversion_ctas": [
+    "keyword",
+    "dm",
+    "book"
+  ],
+  "cta_types": {
+    "_doc": "What each cta_type means (ORGANIC-OS 6.2, owner's spec). One organic ask per post that fits the card's job; never a link, price, discount, guarantee or urgency.",
+    "follow": "Follow for the series (part 2).",
+    "save": "Save it to use later.",
+    "send": "Send it to a business-owner friend or partner.",
+    "comment": "Comment an answer to a question the post asks (not a keyword; a keyword is cta_type keyword).",
+    "keyword": "Comment a keyword that is live in brain.json lead_magnets (StraightScale: ANALIZA).",
+    "dm": "Send us a DM.",
+    "book": "Convert job only. Said as the keyword or DM path, never a link, price, discount, guarantee or urgency (StraightScale brand kit 'One path': \"comment ANALIZA; the booking button comes in the DM\")."
+  },
+  "stage_mix": {
+    "note": "A hard offer post is a convert-job post about the client's one free offer (brain.json offer.main_offer; StraightScale: the free analysis), with the same limits as every convert post: said as the keyword or DM path, never a link, price, discount, guarantee or urgency. About 3% of output (ORGANIC-OS 1 and 6.2): hard_offer_per_month caps new accounts, hard_offer_share sets the monthly cap for the others. It explains only facts the brain holds: no 'what happens in the analysis' (B8) post while offer.delivers is unknown (StraightScale decision D3).",
+    "new": {
+      "reach": 0.5,
+      "trust": 0.35,
+      "convert": 0.15,
+      "hard_offer_per_month": 1
+    },
+    "growing": {
+      "reach": 0.4,
+      "trust": 0.4,
+      "convert": 0.2,
+      "hard_offer_share": 0.03
+    },
+    "mature": {
+      "reach": 0.35,
+      "trust": 0.4,
+      "convert": 0.25,
+      "hard_offer_share": 0.03
+    }
+  },
+  "week_rules": {
+    "max_images": 1,
+    "max_same_job_in_a_row": 1,
+    "min_contrarian": 1,
+    "min_human_b7": 1,
+    "conversion_cta_every": 5,
+    "mix_tolerance": 0.2,
+    "max_tier_a_per_week": 1,
+    "story_reels_per_week": 1,
+    "max_same_format_family_per_week": 2,
+    "min_format_families_per_month": 4,
+    "min_posts_for_month_family_rule": 6,
+    "motion_one_in": 6
+  },
+  "formats": {
+    "image_question": {
+      "family": "image",
+      "tier": "C",
+      "credits": [
+        1,
+        15
+      ],
+      "atlas_units": {
+        "images": [
+          1,
+          12
+        ]
+      },
+      "usd": [
+        0.07,
+        0.89
+      ],
+      "jobs": [
+        "trust",
+        "reach"
+      ],
+      "beliefs": [
+        "B1",
+        "B3",
+        "B7"
+      ],
+      "skill": "carousel-machine (1 slide)",
+      "note": "Weakest format: only a strong self-check question, a real review quote or an announcement.",
+      "production": "still",
+      "format_family": "static",
+      "funnel": [
+        "TOF",
+        "MOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 0,
+        "order": 1,
+        "sound": 0,
+        "attention": 0,
+        "person": 1
+      }
+    },
+    "image_review_quote": {
+      "family": "image",
+      "tier": "C",
+      "credits": [
+        1,
+        15
+      ],
+      "atlas_units": {
+        "images": [
+          1,
+          12
+        ]
+      },
+      "usd": [
+        0.07,
+        0.89
+      ],
+      "jobs": [
+        "trust",
+        "convert"
+      ],
+      "beliefs": [
+        "B6",
+        "B7"
+      ],
+      "needs_proof": true,
+      "skill": "carousel-machine (1 slide)",
+      "production": "still",
+      "format_family": "static",
+      "funnel": [
+        "MOF",
+        "BOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 0,
+        "order": 1,
+        "sound": 0,
+        "attention": 0,
+        "person": 2
+      }
+    },
+    "carousel_framework": {
+      "family": "carousel",
+      "tier": "C",
+      "credits": [
+        16,
+        33
+      ],
+      "atlas_units": {
+        "images": [
+          13,
+          26
+        ]
+      },
+      "usd": [
+        0.96,
+        1.92
+      ],
+      "jobs": [
+        "trust"
+      ],
+      "beliefs": [
+        "B3",
+        "B4"
+      ],
+      "skill": "carousel-machine",
+      "production": "still",
+      "format_family": "carousel",
+      "funnel": [
+        "MOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 1,
+        "order": 2,
+        "sound": 0,
+        "attention": 2,
+        "person": 1
+      }
+    },
+    "carousel_self_check": {
+      "family": "carousel",
+      "tier": "C",
+      "credits": [
+        16,
+        33
+      ],
+      "atlas_units": {
+        "images": [
+          13,
+          26
+        ]
+      },
+      "usd": [
+        0.96,
+        1.92
+      ],
+      "jobs": [
+        "trust",
+        "reach",
+        "convert"
+      ],
+      "beliefs": [
+        "B1",
+        "B3"
+      ],
+      "skill": "carousel-machine",
+      "production": "still",
+      "format_family": "carousel",
+      "funnel": [
+        "TOF",
+        "MOF",
+        "BOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 1,
+        "order": 2,
+        "sound": 0,
+        "attention": 2,
+        "person": 1
+      }
+    },
+    "carousel_mistakes": {
+      "family": "carousel",
+      "tier": "C",
+      "credits": [
+        16,
+        33
+      ],
+      "atlas_units": {
+        "images": [
+          13,
+          26
+        ]
+      },
+      "usd": [
+        0.96,
+        1.92
+      ],
+      "jobs": [
+        "reach"
+      ],
+      "beliefs": [
+        "B1",
+        "B2"
+      ],
+      "skill": "carousel-machine",
+      "production": "still",
+      "format_family": "carousel",
+      "funnel": [
+        "TOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 1,
+        "order": 2,
+        "sound": 0,
+        "attention": 2,
+        "person": 1
+      }
+    },
+    "carousel_teardown": {
+      "family": "carousel",
+      "tier": "C",
+      "credits": [
+        16,
+        33
+      ],
+      "atlas_units": {
+        "images": [
+          13,
+          26
+        ]
+      },
+      "usd": [
+        0.96,
+        1.92
+      ],
+      "jobs": [
+        "trust"
+      ],
+      "beliefs": [
+        "B2",
+        "B3"
+      ],
+      "skill": "carousel-machine",
+      "production": "still",
+      "format_family": "carousel",
+      "funnel": [
+        "MOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 1,
+        "order": 2,
+        "sound": 0,
+        "attention": 2,
+        "person": 1
+      }
+    },
+    "carousel_comparison": {
+      "family": "carousel",
+      "tier": "C",
+      "credits": [
+        16,
+        33
+      ],
+      "atlas_units": {
+        "images": [
+          13,
+          26
+        ]
+      },
+      "usd": [
+        0.96,
+        1.92
+      ],
+      "jobs": [
+        "trust",
+        "convert"
+      ],
+      "beliefs": [
+        "B5"
+      ],
+      "skill": "carousel-machine",
+      "production": "still",
+      "format_family": "carousel",
+      "funnel": [
+        "MOF",
+        "BOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 1,
+        "order": 2,
+        "sound": 0,
+        "attention": 2,
+        "person": 1
+      }
+    },
+    "carousel_bts": {
+      "family": "carousel",
+      "tier": "C",
+      "credits": [
+        0,
+        29
+      ],
+      "atlas_units": {
+        "images": [
+          0,
+          23
+        ]
+      },
+      "usd": [
+        0.0,
+        1.7
+      ],
+      "jobs": [
+        "trust"
+      ],
+      "beliefs": [
+        "B7"
+      ],
+      "needs_real_human": true,
+      "skill": "carousel-machine with real photos",
+      "production": "real",
+      "format_family": "carousel",
+      "funnel": [
+        "MOF"
+      ],
+      "l19": {
+        "face": 2,
+        "invisible": 0,
+        "order": 2,
+        "sound": 0,
+        "attention": 1,
+        "person": 2
+      }
+    },
+    "reel_motion": {
+      "family": "reel",
+      "tier": "C",
+      "credits": [
+        0,
+        30
+      ],
+      "atlas_units": {
+        "images": [
+          0,
+          24
+        ],
+        "voice_s": [
+          10,
+          75
+        ]
+      },
+      "usd": [
+        0.08,
+        2.34
+      ],
+      "jobs": [
+        "trust",
+        "reach",
+        "convert"
+      ],
+      "beliefs": [
+        "B2",
+        "B3",
+        "B4",
+        "B5"
+      ],
+      "skill": "motion-reel (HyperFrames)",
+      "note": "Always voiced (owner rule, 15 Oct 2026); the AI voice means the AI label is on (STANDARDS 7). One option among many, never a default: at most 1 post in 6, and only when the load-bearing beat is a list, data or a type-led idea (FORMATS.md 1; router.py).",
+      "production": "motion",
+      "format_family": "motion",
+      "funnel": [
+        "TOF",
+        "MOF",
+        "BOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 1,
+        "order": 2,
+        "sound": 1,
+        "attention": 1,
+        "person": 0
+      }
+    },
+    "reel_quote_broll": {
+      "family": "reel",
+      "tier": "C",
+      "credits": [
+        25,
+        40
+      ],
+      "atlas_units": {
+        "images": [
+          5,
+          8
+        ],
+        "video_s": [
+          10,
+          15
+        ],
+        "voice_s": [
+          10,
+          20
+        ]
+      },
+      "usd": [
+        0.75,
+        1.19
+      ],
+      "jobs": [
+        "reach"
+      ],
+      "beliefs": [
+        "B1",
+        "B7"
+      ],
+      "skill": "content/2026-w42-6-reel/script.md recipe",
+      "note": "One H3 shot + voice + captions; measured 25 credits on 15 Oct 2026.",
+      "production": "keyframe_reel",
+      "format_family": "quote_broll",
+      "funnel": [
+        "TOF"
+      ],
+      "l19": {
+        "face": 1,
+        "invisible": 0,
+        "order": 2,
+        "sound": 2,
+        "attention": 1,
+        "person": 1
+      }
+    },
+    "reel_strategist_prop": {
+      "family": "reel",
+      "tier": "B",
+      "credits": [
+        80,
+        200
+      ],
+      "atlas_units": {
+        "images": [
+          8,
+          20
+        ],
+        "video_s": [
+          28,
+          70
+        ],
+        "voice_s": [
+          20,
+          75
+        ]
+      },
+      "usd": [
+        1.58,
+        4.15
+      ],
+      "jobs": [
+        "trust",
+        "convert",
+        "reach"
+      ],
+      "beliefs": [
+        "B1",
+        "B2",
+        "B4",
+        "B6",
+        "B8"
+      ],
+      "skill": "hook-lab + script-lab + H3 via growth-engine/adapters/ugc-talking-head-organic.md",
+      "note": "Proven paid winner format; rotate the props. The strategist faces the camera only as a presenter in his clearly staged studio set (the whiteboard), AI label on, never as a client, owner or customer (STANDARDS 7). O30 or O60 (ugc-talking-head-organic.md 4). The twin may be the presenter instead (presenter_identities), only on a card marked twin_host: Matan's HeyGen twin as the founder, AI label per the brain, adapters/twin-host-organic.md.",
+      "production": "ai_video",
+      "format_family": "presenter",
+      "funnel": [
+        "MOF",
+        "BOF",
+        "TOF"
+      ],
+      "l19": {
+        "face": 2,
+        "invisible": 1,
+        "order": 2,
+        "sound": 2,
+        "attention": 1,
+        "person": 1
+      },
+      "presenter_identities": [
+        "staged_strategist",
+        "twin"
+      ]
+    },
+    "reel_ugc_pov": {
+      "family": "reel",
+      "tier": "B",
+      "credits": [
+        80,
+        200
+      ],
+      "atlas_units": {
+        "images": [
+          8,
+          20
+        ],
+        "video_s": [
+          28,
+          70
+        ],
+        "voice_s": [
+          20,
+          75
+        ]
+      },
+      "usd": [
+        1.58,
+        4.15
+      ],
+      "jobs": [
+        "reach",
+        "trust"
+      ],
+      "beliefs": [
+        "B1",
+        "B3",
+        "B5"
+      ],
+      "skill": "readymerce-ads-machine (UGC) via growth-engine/adapters/ugc-talking-head-organic.md",
+      "note": "A staged POV, never a real customer. Until D1 the AI owner is shown from behind, hands only, at a distance or as stylized animation; AI label on (STANDARDS 7). No confession: that needs real footage.",
+      "production": "ai_video",
+      "story_templates": [
+        "pov_day",
+        "two_days"
+      ],
+      "format_family": "ugc",
+      "funnel": [
+        "TOF",
+        "MOF"
+      ],
+      "l19": {
+        "face": 1,
+        "invisible": 0,
+        "order": 2,
+        "sound": 2,
+        "attention": 1,
+        "person": 2
+      }
+    },
+    "reel_podcast": {
+      "family": "reel",
+      "tier": "B",
+      "credits": [
+        220,
+        320
+      ],
+      "atlas_units": {
+        "images": [
+          10,
+          16
+        ],
+        "video_s": [
+          83,
+          120
+        ],
+        "voice_s": [
+          35,
+          45
+        ]
+      },
+      "usd": [
+        3.49,
+        5.12
+      ],
+      "jobs": [
+        "trust",
+        "convert"
+      ],
+      "beliefs": [
+        "B3",
+        "B4",
+        "B5",
+        "B8"
+      ],
+      "skill": "readymerce-podcast-ads via growth-engine/adapters/podcast-organic.md",
+      "note": "Needs a real disagreement. C45 only (STANDARDS 8). The hosts are staged presenters, never real owners; until D1 they are shown from behind, at a distance or as stylized animation (STANDARDS 7).",
+      "production": "ai_video",
+      "story_templates": [
+        "podcast_disagreement"
+      ],
+      "format_family": "podcast",
+      "funnel": [
+        "MOF",
+        "BOF"
+      ],
+      "l19": {
+        "face": 2,
+        "invisible": 0,
+        "order": 2,
+        "sound": 2,
+        "attention": 2,
+        "person": 2
+      }
+    },
+    "reel_story_narrated": {
+      "family": "reel",
+      "tier": "B",
+      "credits": [
+        210,
+        445
+      ],
+      "atlas_units": {
+        "images": [
+          19,
+          24
+        ],
+        "video_s": [
+          75,
+          100
+        ],
+        "voice_s": [
+          45,
+          60
+        ]
+      },
+      "usd": [
+        4.0,
+        5.23
+      ],
+      "jobs": [
+        "reach",
+        "trust",
+        "convert"
+      ],
+      "beliefs": [
+        "B1",
+        "B2",
+        "B8"
+      ],
+      "skill": "hook-lab + script-lab (organic) + H3 + ElevenLabs; story beats from growth-engine/production/STORY-FORMATS.md",
+      "note": "Like the 60 s w43 reel. Credits: STORY-FORMATS.md 6.4 (O60 at 45 to 60 s).",
+      "production": "ai_video",
+      "story_templates": [
+        "pov_day",
+        "two_days",
+        "hidden_villain",
+        "overheard"
+      ],
+      "format_family": "story",
+      "funnel": [
+        "TOF",
+        "MOF",
+        "BOF"
+      ],
+      "l19": {
+        "face": 1,
+        "invisible": 1,
+        "order": 2,
+        "sound": 2,
+        "attention": 2,
+        "person": 2
+      }
+    },
+    "reel_animation": {
+      "family": "reel",
+      "tier": "A",
+      "credits": [
+        150,
+        220
+      ],
+      "atlas_units": {
+        "images": [
+          10,
+          16
+        ],
+        "video_s": [
+          55,
+          80
+        ],
+        "voice_s": [
+          45,
+          75
+        ]
+      },
+      "usd": [
+        2.73,
+        4.15
+      ],
+      "jobs": [
+        "reach",
+        "trust"
+      ],
+      "beliefs": [
+        "B1",
+        "B2",
+        "B3"
+      ],
+      "skill": "readymerce-animation-ads via growth-engine/adapters/animation-organic.md",
+      "production": "ai_video",
+      "story_templates": [
+        "pov_day",
+        "hidden_villain",
+        "two_days",
+        "object_speaks"
+      ],
+      "styles": [
+        "claymation",
+        "crochet",
+        "family_film_3d",
+        "storybook_2d",
+        "skeleton_xray",
+        "anime_2d"
+      ],
+      "note": "O60 story (STANDARDS 8) in one locked style; the look bible is built once per series and reused (the first episode adds about 15 credits for the sheets, animation-organic.md 4).",
+      "format_family": "animation",
+      "funnel": [
+        "TOF",
+        "MOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 2,
+        "order": 2,
+        "sound": 2,
+        "attention": 2,
+        "person": 2
+      }
+    },
+    "reel_song": {
+      "family": "reel",
+      "tier": "A",
+      "credits": [
+        140,
+        355
+      ],
+      "atlas_units": {
+        "images": [
+          8,
+          20
+        ],
+        "video_s": [
+          52,
+          132
+        ],
+        "songs": [
+          2,
+          3
+        ]
+      },
+      "usd": [
+        2.48,
+        5.93
+      ],
+      "jobs": [
+        "reach",
+        "trust"
+      ],
+      "beliefs": [
+        "B1",
+        "B2",
+        "B7"
+      ],
+      "skill": "readymerce-song-ads via growth-engine/adapters/song-organic.md",
+      "note": "Judge on sends and follows, not DMs. O30 standalone about 140 to 200, O60 about 250 to 355 (song-organic.md 4).",
+      "production": "song",
+      "story_templates": [
+        "song_day",
+        "pov_day"
+      ],
+      "format_family": "song",
+      "funnel": [
+        "TOF",
+        "MOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 2,
+        "order": 2,
+        "sound": 2,
+        "attention": 2,
+        "person": 1
+      }
+    },
+    "reel_bts_real": {
+      "family": "reel",
+      "tier": "C",
+      "credits": [
+        0,
+        10
+      ],
+      "atlas_units": {
+        "images": [
+          0,
+          8
+        ]
+      },
+      "usd": [
+        0.0,
+        0.59
+      ],
+      "jobs": [
+        "trust"
+      ],
+      "beliefs": [
+        "B7"
+      ],
+      "needs_real_human": true,
+      "skill": "real footage edit (talking-head-recut / embedded-captions)",
+      "production": "real",
+      "format_family": "real",
+      "funnel": [
+        "MOF"
+      ],
+      "l19": {
+        "face": 2,
+        "invisible": 0,
+        "order": 1,
+        "sound": 1,
+        "attention": 1,
+        "person": 2
+      }
+    },
+    "carousel_opinion": {
+      "family": "carousel",
+      "tier": "C",
+      "credits": [
+        16,
+        33
+      ],
+      "atlas_units": {
+        "images": [
+          13,
+          26
+        ]
+      },
+      "usd": [
+        0.96,
+        1.92
+      ],
+      "jobs": [
+        "trust",
+        "reach"
+      ],
+      "beliefs": [
+        "B7",
+        "B1",
+        "B2"
+      ],
+      "skill": "carousel-machine",
+      "note": "Values and contrarian positions from the contrarian vault only.",
+      "production": "still",
+      "format_family": "carousel",
+      "funnel": [
+        "TOF",
+        "MOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 0,
+        "order": 2,
+        "sound": 0,
+        "attention": 1,
+        "person": 2
+      }
+    },
+    "reel_drama_pov": {
+      "family": "reel",
+      "tier": "A",
+      "credits": [
+        180,
+        495
+      ],
+      "atlas_units": {
+        "images": [
+          12,
+          30
+        ],
+        "video_s": [
+          66,
+          183
+        ],
+        "voice_s": [
+          45,
+          75
+        ]
+      },
+      "usd": [
+        3.21,
+        8.28
+      ],
+      "jobs": [
+        "reach",
+        "trust"
+      ],
+      "beliefs": [
+        "B1",
+        "B2",
+        "B3",
+        "B5"
+      ],
+      "production": "ai_video",
+      "story_templates": [
+        "pov_day",
+        "two_days",
+        "overheard"
+      ],
+      "skill": "readymerce-drama-ads via growth-engine/adapters/drama-organic.md",
+      "note": "A scene from the buyer's day with 2 to 4 characters, a conflict in the first line, the mechanism as the answer near the end. O60 (STANDARDS 8). AI label on per STANDARDS 7 (D1 decides whether to extend it); characters who could pass as real owners are shown from behind, hands only, at a distance or as stylized animation until D1.",
+      "format_family": "drama",
+      "funnel": [
+        "TOF",
+        "MOF"
+      ],
+      "l19": {
+        "face": 1,
+        "invisible": 0,
+        "order": 2,
+        "sound": 2,
+        "attention": 2,
+        "person": 2
+      }
+    },
+    "reel_animation_short": {
+      "family": "reel",
+      "tier": "B",
+      "credits": [
+        70,
+        100
+      ],
+      "atlas_units": {
+        "images": [
+          6,
+          10
+        ],
+        "video_s": [
+          25,
+          35
+        ],
+        "voice_s": [
+          20,
+          35
+        ]
+      },
+      "usd": [
+        1.35,
+        2.05
+      ],
+      "jobs": [
+        "reach",
+        "trust"
+      ],
+      "beliefs": [
+        "B1",
+        "B2",
+        "B3"
+      ],
+      "production": "ai_video",
+      "story_templates": [
+        "hidden_villain",
+        "object_speaks",
+        "pov_day"
+      ],
+      "styles": [
+        "claymation",
+        "crochet",
+        "family_film_3d",
+        "storybook_2d",
+        "skeleton_xray",
+        "anime_2d"
+      ],
+      "skill": "readymerce-animation-ads via growth-engine/adapters/animation-organic.md (short tier)",
+      "note": "The lab version: O30 (STANDARDS 8), one character, 2 sequences. Tests a story angle or a new series character before a full reel_animation; the first episode adds about 15 credits for the sheets.",
+      "format_family": "animation",
+      "funnel": [
+        "TOF",
+        "MOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 2,
+        "order": 2,
+        "sound": 2,
+        "attention": 2,
+        "person": 2
+      }
+    },
+    "reel_talking_head_real": {
+      "family": "reel",
+      "tier": "C",
+      "credits": [
+        0,
+        10
+      ],
+      "atlas_units": {
+        "images": [
+          0,
+          8
+        ]
+      },
+      "usd": [
+        0.0,
+        0.59
+      ],
+      "jobs": [
+        "trust",
+        "convert",
+        "reach"
+      ],
+      "beliefs": [
+        "B3",
+        "B4",
+        "B7",
+        "B8"
+      ],
+      "production": "real",
+      "needs_real_human": true,
+      "skill": "talking-head-recut + embedded-captions (owner films on a phone)",
+      "note": "The owner on camera, script from Script Lab (organic). The strongest trust format once the owner films.",
+      "format_family": "real",
+      "funnel": [
+        "MOF",
+        "BOF",
+        "TOF"
+      ],
+      "l19": {
+        "face": 2,
+        "invisible": 0,
+        "order": 2,
+        "sound": 2,
+        "attention": 1,
+        "person": 2
+      }
+    },
+    "reel_ugc_talking": {
+      "family": "reel",
+      "tier": "B",
+      "credits": null,
+      "atlas_units": {
+        "images": [
+          8,
+          20
+        ],
+        "video_s": [
+          28,
+          70
+        ],
+        "voice_s": [
+          20,
+          75
+        ]
+      },
+      "jobs": [
+        "reach",
+        "trust",
+        "convert"
+      ],
+      "beliefs": [
+        "B1",
+        "B2",
+        "B3",
+        "B5"
+      ],
+      "skill": "readymerce-podcast-ads section 13 (solo UGC) + hook-lab + script-lab via growth-engine/adapters/ugc-talking-head-organic.md",
+      "note": "One AI creator talks to the phone in 1 to 3 real settings from the buyer's day (FORMATS.md 2). A staged creator, never a real customer or owner; AI label on (STANDARDS 7). Until D1 a face-on creator needs the owner's yes per piece (FORMATS.md 5, decision F5).",
+      "production": "ai_video",
+      "story_templates": [
+        "pov_day",
+        "two_days"
+      ],
+      "format_family": "ugc",
+      "funnel": [
+        "TOF",
+        "MOF",
+        "BOF"
+      ],
+      "l19": {
+        "face": 2,
+        "invisible": 0,
+        "order": 2,
+        "sound": 2,
+        "attention": 1,
+        "person": 2
+      },
+      "usd": [
+        1.58,
+        4.15
+      ]
+    },
+    "reel_whiteboard": {
+      "family": "reel",
+      "tier": "B",
+      "credits": null,
+      "atlas_units": {
+        "images": [
+          10,
+          24
+        ],
+        "video_s": [
+          35,
+          80
+        ],
+        "voice_s": [
+          30,
+          75
+        ]
+      },
+      "jobs": [
+        "trust",
+        "convert",
+        "reach"
+      ],
+      "beliefs": [
+        "B2",
+        "B3",
+        "B4",
+        "B5"
+      ],
+      "skill": "hook-lab + script-lab + H3 presenter (growth-engine/adapters/ugc-talking-head-organic.md) with drawn board inserts (lemo-opuscar Whiteboard Explainer style or gpt-image-2 draw-in states)",
+      "note": "An H3 presenter at a whiteboard or chalkboard, cut with full-frame drawn board inserts that build the mechanism one stroke at a time (FORMATS.md 2). The presenter is a staged presenter in a clearly staged set, AI label on, never a client, owner or customer (STANDARDS 7). The twin may be the presenter instead (presenter_identities), only on a card marked twin_host: Matan's HeyGen twin as the founder, AI label per the brain, adapters/twin-host-organic.md.",
+      "production": "ai_video",
+      "format_family": "presenter",
+      "funnel": [
+        "MOF",
+        "BOF",
+        "TOF"
+      ],
+      "l19": {
+        "face": 2,
+        "invisible": 2,
+        "order": 2,
+        "sound": 2,
+        "attention": 1,
+        "person": 1
+      },
+      "usd": [
+        2.02,
+        4.74
+      ],
+      "presenter_identities": [
+        "staged_strategist",
+        "twin"
+      ]
+    },
+    "reel_lived_authority": {
+      "family": "reel",
+      "tier": "B",
+      "credits": null,
+      "atlas_units": {
+        "images": [
+          8,
+          20
+        ],
+        "video_s": [
+          28,
+          70
+        ],
+        "voice_s": [
+          20,
+          75
+        ]
+      },
+      "jobs": [
+        "trust",
+        "reach"
+      ],
+      "beliefs": [
+        "B1",
+        "B2",
+        "B3",
+        "B7"
+      ],
+      "skill": "readymerce-ads-machine (lived-authority talking head, C7) + podcast-ads 13 via growth-engine/adapters/ugc-talking-head-organic.md",
+      "note": "A composite person whose job is the context (an agency account manager, a front-desk lead) talks from where she works. No credentials the brain doesn't hold; a staged person, AI label on (STANDARDS 7).",
+      "production": "ai_video",
+      "story_templates": [
+        "overheard",
+        "pov_day"
+      ],
+      "format_family": "presenter",
+      "funnel": [
+        "TOF",
+        "MOF"
+      ],
+      "l19": {
+        "face": 2,
+        "invisible": 0,
+        "order": 2,
+        "sound": 2,
+        "attention": 1,
+        "person": 2
+      },
+      "usd": [
+        1.58,
+        4.15
+      ]
+    },
+    "reel_skit": {
+      "family": "reel",
+      "tier": "B",
+      "credits": null,
+      "atlas_units": {
+        "images": [
+          8,
+          16
+        ],
+        "video_s": [
+          30,
+          60
+        ],
+        "voice_s": [
+          20,
+          35
+        ]
+      },
+      "jobs": [
+        "reach"
+      ],
+      "beliefs": [
+        "B1",
+        "B2"
+      ],
+      "skill": "readymerce-drama-ads (single scene, C45/O30 short) via growth-engine/adapters/drama-organic.md",
+      "note": "One scene, 2 characters, one overheard line that reframes the problem (C7 skit). O30. One lip-synced speaker per clip (X1); people who could pass as real owners from behind or at a distance until D1 (STANDARDS 7).",
+      "production": "ai_video",
+      "story_templates": [
+        "overheard",
+        "two_days"
+      ],
+      "format_family": "drama",
+      "funnel": [
+        "TOF"
+      ],
+      "l19": {
+        "face": 1,
+        "invisible": 0,
+        "order": 2,
+        "sound": 2,
+        "attention": 2,
+        "person": 2
+      },
+      "usd": [
+        1.64,
+        3.25
+      ]
+    },
+    "reel_talking_object": {
+      "family": "reel",
+      "tier": "B",
+      "credits": null,
+      "atlas_units": {
+        "images": [
+          6,
+          12
+        ],
+        "video_s": [
+          10,
+          30
+        ],
+        "omni_s": [
+          20,
+          35
+        ],
+        "voice_s": [
+          20,
+          35
+        ]
+      },
+      "jobs": [
+        "reach",
+        "trust"
+      ],
+      "beliefs": [
+        "B1",
+        "B2",
+        "B3"
+      ],
+      "skill": "readymerce-animation-ads F1/F2 (talking part, villain) via growth-engine/adapters/animation-organic.md; mouth clips on OmniHuman 2.0 (talking objects only, STANDARDS 1)",
+      "note": "An object from the business talks (the boosted post, the calendar, the unanswered DM). Mouth shots on OmniHuman 2.0 from the object's start frame and its voice slice; silent shots on H3 keyframe mode. O30.",
+      "production": "ai_video",
+      "story_templates": [
+        "object_speaks",
+        "hidden_villain"
+      ],
+      "styles": [
+        "claymation",
+        "crochet",
+        "family_film_3d",
+        "storybook_2d",
+        "skeleton_xray",
+        "anime_2d"
+      ],
+      "format_family": "animation",
+      "funnel": [
+        "TOF",
+        "MOF"
+      ],
+      "l19": {
+        "face": 0,
+        "invisible": 2,
+        "order": 2,
+        "sound": 2,
+        "attention": 2,
+        "person": 2
+      },
+      "usd": [
+        3.14,
+        5.97
+      ]
+    },
+    "reel_twin_stage": {
+      "family": "reel",
+      "tier": "B",
+      "credits": null,
+      "atlas_units": {
+        "images": [
+          6,
+          12
+        ],
+        "video_s": [
+          20,
+          45
+        ],
+        "voice_s": [
+          0,
+          0
+        ]
+      },
+      "heygen_credits": [
+        30,
+        150
+      ],
+      "heygen_credits_status": "unmeasured until the pilot reel; a planning placeholder, not a HeyGen price",
+      "twin_only": true,
+      "presenter_identities": [
+        "twin"
+      ],
+      "jobs": [
+        "trust",
+        "convert",
+        "reach"
+      ],
+      "beliefs": [
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B6",
+        "B7",
+        "B8"
+      ],
+      "skill": "hook-lab + script-lab + HeyGen twin (create_speech, then audio-driven create_video_from_avatar) + the twin kit edit (motion-studio/twin-kit) via growth-engine/adapters/twin-host-organic.md",
+      "note": "The founder's HeyGen twin hosts in a designed stage edit: cut out in the lower third, a set above, a visual change every 2 to 3 s (words behind the head, UI scenes, B-roll, flash cuts). Only on a card marked twin_host, only where the brain has a host block. The twin speaks as Matan, the founder, in his cloned voice; it never claims a result, number or client that is not in the proof bank (STANDARDS 7). USD is the Atlas part (set, B-roll); the voice and the twin are HeyGen credits, not measured until the pilot.",
+      "production": "ai_video",
+      "format_family": "presenter",
+      "funnel": [
+        "TOF",
+        "MOF",
+        "BOF"
+      ],
+      "l19": {
+        "face": 2,
+        "invisible": 2,
+        "order": 2,
+        "sound": 2,
+        "attention": 2,
+        "person": 2
+      },
+      "usd": [
+        1.04,
+        2.23
+      ]
+    }
+  },
+  "templates": {
+    "candidate_x": 2.0,
+    "template_x": 3.0
+  },
+  "premium_assets_required": 6,
+  "story_templates": {
+    "_doc": "Narrative shapes (STORY-FORMATS.md). A Post Card names one in story_template; the format renders it. Beats are the default order; Script Lab structure codes in parentheses. AI people follow STANDARDS 7: until D1, AI owners are shown from behind, hands only, at a distance or as stylized animation. Anecdotes only as clearly framed POV dramatizations (\"POV: ...\"), never stated as fact; no counts unless the number is in brain.json.",
+    "pov_day": {
+      "name": "POV: a day in the buyer's life",
+      "beliefs": [
+        "B1",
+        "B2",
+        "B3"
+      ],
+      "jobs": [
+        "reach",
+        "trust"
+      ],
+      "script_lab": [
+        "ST3",
+        "ST4"
+      ],
+      "beats": [
+        "cold open on the pain moment, in the buyer's words (0 to 3 s)",
+        "the day so far: 2 or 3 accommodations, each a picture",
+        "the failed fix and why it failed",
+        "the breaking point",
+        "the revelation: the hidden cause shown as THE PICTURE, then the mechanism (UMS) in one line",
+        "the same moment, lived differently",
+        "organic CTA (follow for part 2, save, send, comment keyword)"
+      ]
+    },
+    "two_days": {
+      "name": "Same morning, two owners",
+      "beliefs": [
+        "B2",
+        "B3",
+        "B5"
+      ],
+      "jobs": [
+        "reach",
+        "trust"
+      ],
+      "script_lab": [
+        "ST5"
+      ],
+      "beats": [
+        "split: two owners, same moment",
+        "their days diverge on one decision",
+        "the one difference named (the mechanism)",
+        "where each is at night",
+        "organic CTA"
+      ]
+    },
+    "hidden_villain": {
+      "name": "The problem is a character",
+      "beliefs": [
+        "B1",
+        "B2"
+      ],
+      "jobs": [
+        "reach"
+      ],
+      "script_lab": [
+        "ST3"
+      ],
+      "beats": [
+        "the villain (an unanswered message, an ad that brings nothing) speaks from where it lives (on the desk, in the inbox)",
+        "it mocks the failed fix",
+        "it brags about what it costs the owner",
+        "the mechanism arrives and the villain loses",
+        "organic CTA"
+      ],
+      "note": "Comic, never shaming the owner. Best as a recurring animated series character."
+    },
+    "object_speaks": {
+      "name": "An object in the business tells its story",
+      "beliefs": [
+        "B1",
+        "B3"
+      ],
+      "jobs": [
+        "reach",
+        "trust"
+      ],
+      "script_lab": [
+        "ST3"
+      ],
+      "beats": [
+        "the phone, the calendar or the shop sign introduces itself",
+        "what it sees every day (the pains)",
+        "the day it saw the change (the mechanism)",
+        "organic CTA"
+      ]
+    },
+    "overheard": {
+      "name": "Witness or overheard line",
+      "beliefs": [
+        "B2",
+        "B3"
+      ],
+      "jobs": [
+        "reach",
+        "trust"
+      ],
+      "script_lab": [
+        "ST4"
+      ],
+      "beats": [
+        "a framed POV dramatization (\"POV: ...\"): someone else noticed, the overheard line",
+        "the surprising detail",
+        "the cause",
+        "the lesson as the mechanism",
+        "organic CTA"
+      ],
+      "note": "Staged: the witness and the speakers are never a real business by name, and the scene is never told as something that happened. Until D1 the people are seen from behind or at a distance (STANDARDS 7)."
+    },
+    "confession_pov": {
+      "name": "Owner confession",
+      "beliefs": [
+        "B3",
+        "B7"
+      ],
+      "jobs": [
+        "trust"
+      ],
+      "script_lab": [
+        "ST4"
+      ],
+      "needs_real_footage": true,
+      "beats": [
+        "first person, an edge: what I got wrong",
+        "what it cost",
+        "what I saw that changed it (the mechanism)",
+        "what I do now",
+        "organic CTA"
+      ],
+      "note": "Someone's real story in his own words, with no result he can't show: real footage only (STANDARDS 7). card-check fails it while the brain's face is ai_character or real_footage is false. No AI-person format renders it."
+    },
+    "song_day": {
+      "name": "Song of the buyer's day",
+      "beliefs": [
+        "B1",
+        "B2",
+        "B7"
+      ],
+      "jobs": [
+        "reach"
+      ],
+      "script_lab": [
+        "ST3"
+      ],
+      "beats": [
+        "first sung line by 1 s, the problem sung by 3 s",
+        "verse: the day's pains",
+        "chorus: THE PICTURE (at least twice)",
+        "turn (spoken line): the mechanism",
+        "outro: organic CTA spoken"
+      ]
+    },
+    "podcast_disagreement": {
+      "name": "Two hosts disagree",
+      "beliefs": [
+        "B3",
+        "B4",
+        "B5",
+        "B8"
+      ],
+      "jobs": [
+        "trust",
+        "convert"
+      ],
+      "script_lab": [
+        "ST2"
+      ],
+      "beats": [
+        "a real disagreement in line 1",
+        "host A's case (the common belief)",
+        "host B's case (the hidden cause)",
+        "the moment A gets it",
+        "organic CTA"
+      ]
+    }
+  },
+  "animation_styles": {
+    "_doc": "Locked style blocks for animated story formats. The style name is a look, never a studio's characters, logos or names on screen or in a prompt (VISUAL-QA V24). Sheets and storyboards: Nano Banana 2 until re-test R1 (STANDARDS.md section 1).",
+    "claymation": {
+      "name": "Claymation (stop-motion clay)",
+      "block": "Handmade claymation stop-motion look: plasticine characters with visible thumbprints and slight tool marks, soft rounded forms, miniature handmade set pieces, warm practical lighting, shallow depth of field like a tabletop set, gentle stop-motion texture."
+    },
+    "crochet": {
+      "name": "Crochet / amigurumi",
+      "block": "Crochet amigurumi look: characters and props knitted from soft yarn with visible stitches, safety-bead eyes, felt details, a cosy miniature yarn world, soft daylight, shallow depth of field."
+    },
+    "family_film_3d": {
+      "name": "3D family-film style",
+      "block": "Polished 3D family-film animation look: expressive stylised characters with large eyes and soft subsurface skin, rounded shapes, warm cinematic lighting with soft bounce, rich but controlled colour, gentle depth of field.",
+      "note": "Say \"3D family-film animation\"; never name or imitate a studio's characters."
+    },
+    "storybook_2d": {
+      "name": "2D hand-drawn storybook style",
+      "block": "Classic hand-drawn 2D animation look: clean ink lines, painted watercolour backgrounds, expressive squash-and-stretch poses, warm storybook palette, soft vignette.",
+      "note": "Say \"hand-drawn 2D storybook animation\"; never name or imitate a studio's characters."
+    },
+    "skeleton_xray": {
+      "name": "X-ray skeleton",
+      "block": "X-ray skeleton look: a friendly translucent skeleton character with soft glowing bones inside a faint glass body outline, everyday props and clothes on top, dark blue x-ray background with a soft cyan glow, gentle film grain.",
+      "note": "The A7 gym ad look (Albania, round 3). Comic, never medical; no gore."
+    },
+    "anime_2d": {
+      "name": "2D anime style",
+      "block": "Hand-drawn 2D anime look: clean expressive line art, cel shading with two tones, bright flat backgrounds with soft gradients, big readable expressions, speed lines only on a reveal.",
+      "note": "Say \"2D anime-style animation\"; never name or imitate a studio's or a show's characters."
+    }
+  },
+  "lead_magnet_checks": {
+    "_doc": "A keyword's resource must pass all five before `live: true` (ORGANIC-OS 8.5). The Conversion Agent records them in brain.json lead_magnets[].checks as true/false; card-check fails a keyword with any false and warns while any is unrecorded.",
+    "main_pain": "It answers the avatar's main pain from the demand map, in their words.",
+    "one_thing": "It is one specific thing with a name and a shape (a 10-question test, a 1-page checklist), not 'tips' or 'a guide'.",
+    "quick_win": "The person can use it within a day and sees something useful, even if they never buy.",
+    "leads_to_offer": "Using it shows why the main offer is the next step (it surfaces the problem the offer fixes).",
+    "low_friction": "Getting it takes the keyword and at most one question in the DM: no form, no email wall, no link before the button."
+  },
+  "beats": {
+    "_doc": "The load-bearing beat (readymerce-ads-machine L19) a Post Card names in load_bearing_beat, and how much of each of the six L19 properties it needs (weights). A format's fit = sum(weight x the format's level 0 to 2) / (2 x sum of weights), scaled to 0 to 5 (organic_os/l19.py). mechanism, proof and offer are L19's three beats; list, data and type are the idea shapes only on-screen type carries well, the only beats reel_motion may take (motion_beats). Cost never ranks (FORMATS.md 1).",
+    "needs": {
+      "mechanism": {
+        "invisible": 3,
+        "order": 1,
+        "attention": 1,
+        "person": 1
+      },
+      "proof": {
+        "face": 3,
+        "person": 2,
+        "sound": 1
+      },
+      "offer": {
+        "order": 2,
+        "person": 2,
+        "face": 1,
+        "sound": 1
+      },
+      "list": {
+        "order": 3,
+        "attention": 1
+      },
+      "data": {
+        "invisible": 2,
+        "order": 2
+      },
+      "type": {
+        "order": 2,
+        "attention": 1
+      }
+    },
+    "motion_beats": [
+      "list",
+      "data",
+      "type"
+    ],
+    "funnel_by_job": {
+      "reach": "TOF",
+      "trust": "MOF",
+      "convert": "BOF"
+    }
+  }
+}

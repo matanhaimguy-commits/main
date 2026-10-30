@@ -1,0 +1,147 @@
+{
+  "kind": "image",
+  "source": "src.jpg = https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/2ba4683a-6feb-49bb-aba2-4557cc6995d2.jpg (md5 3d8b9fd4d0aa70016a937eed95c87543, byte-identical to sandbox /home/user/drafts/fixed/dd845791_v3.jpg)",
+  "size": [
+    1080,
+    1350
+  ],
+  "hero": true,
+  "files": [
+    "full.jpg",
+    "tile_r1c1.jpg",
+    "tile_r1c2.jpg",
+    "tile_r1c3.jpg",
+    "tile_r2c1.jpg",
+    "tile_r2c2.jpg",
+    "tile_r2c3.jpg",
+    "tile_r3c1.jpg",
+    "tile_r3c2.jpg",
+    "tile_r3c3.jpg",
+    "region_IMG-W42-5_kicker.jpg",
+    "region_IMG-W42-5_headline.jpg",
+    "region_IMG-W42-5_edit_headline_box.jpg",
+    "region_IMG-W42-5_phone.jpg",
+    "region_IMG-W42-5_logo_zone.jpg",
+    "region_IMG-W42-5_edit_logo_area.jpg",
+    "region_IMG-W42-5_edit_shelf_boxes.jpg",
+    "region_IMG-W42-5_edit_packs.jpg",
+    "region_IMG-W42-5_edit_door_stickers.jpg",
+    "region_IMG-W42-5_doorway_street.jpg",
+    "thumb_200.jpg"
+  ],
+  "must_open": [
+    "full.jpg",
+    "tile_r1c1.jpg",
+    "tile_r1c2.jpg",
+    "tile_r1c3.jpg",
+    "tile_r2c1.jpg",
+    "tile_r2c2.jpg",
+    "tile_r2c3.jpg",
+    "tile_r3c1.jpg",
+    "tile_r3c2.jpg",
+    "tile_r3c3.jpg",
+    "region_IMG-W42-5_kicker.jpg",
+    "region_IMG-W42-5_headline.jpg",
+    "region_IMG-W42-5_edit_headline_box.jpg",
+    "region_IMG-W42-5_phone.jpg",
+    "region_IMG-W42-5_logo_zone.jpg",
+    "region_IMG-W42-5_edit_logo_area.jpg",
+    "region_IMG-W42-5_edit_shelf_boxes.jpg",
+    "region_IMG-W42-5_edit_packs.jpg",
+    "region_IMG-W42-5_edit_door_stickers.jpg",
+    "region_IMG-W42-5_doorway_street.jpg",
+    "thumb_200.jpg"
+  ],
+  "panels": 0,
+  "ocr": null,
+  "ocr_note": "tesseract is not installed in the sandbox; every letter read by eye",
+  "built_by": "growth-engine/tools/vqa_crops.py (md5 551f012424bb4ea8da270d528c3df808, same as the repo) run in the Higgsfield sandbox: python3 vqa_crops.py image src.jpg --out crops --spec spec.json --ext jpg",
+  "spec_regions_px": {
+    "kicker": [
+      90,
+      55,
+      560,
+      95
+    ],
+    "headline": [
+      85,
+      160,
+      930,
+      435
+    ],
+    "edit_headline_box": [
+      82,
+      340,
+      668,
+      431
+    ],
+    "phone": [
+      170,
+      840,
+      850,
+      1180
+    ],
+    "logo_zone": [
+      0,
+      1147,
+      540,
+      1350
+    ],
+    "edit_logo_area": [
+      96,
+      1194,
+      391,
+      1299
+    ],
+    "edit_shelf_boxes": [
+      0,
+      680,
+      142,
+      758
+    ],
+    "edit_packs": [
+      0,
+      443,
+      68,
+      672
+    ],
+    "edit_door_stickers": [
+      1053,
+      372,
+      1080,
+      658
+    ],
+    "doorway_street": [
+      648,
+      520,
+      1021,
+      930
+    ]
+  },
+  "extra_opened": [
+    "view_540.jpg",
+    "logo_v1v2v3_2x.jpg",
+    "logo_v2v3_2x_boost.jpg",
+    "under_wordmark_3x.jpg",
+    "under_wordmark_3x_boost.jpg",
+    "S_left_4x.jpg",
+    "S_left_4x_boost.jpg",
+    "fill_only_3x_boost.jpg",
+    "scale_right_4x.jpg",
+    "mark_4x.jpg",
+    "box_right_4x.jpg",
+    "box_left_4x.jpg",
+    "left_shelf_v123_2x.jpg",
+    "left_shelf_v23_2x_boost.jpg",
+    "shelf_boxes_v1v3_4x.jpg",
+    "packs_v123_3x.jpg",
+    "door_v123_3x.jpg",
+    "door_v23_3x_boost.jpg",
+    "logo_v3_vs_realfile_3x.jpg",
+    "headline_line3_1x.jpg",
+    "phone_size_430.jpg",
+    "s_overhang_8x.jpg",
+    "klienti_rim_3x.jpg"
+  ],
+  "sandbox_dir": "/home/user/qa/IMG-W42-5.v3 (crops/, extra/, spec.json, rtools/)"
+}

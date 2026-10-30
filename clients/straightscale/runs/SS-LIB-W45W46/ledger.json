@@ -1,0 +1,59 @@
+{
+  "post_id": "SS-LIB-W45W46",
+  "slug": "straightscale",
+  "format": "carousel_framework",
+  "family": "library",
+  "card": null,
+  "created": "2026-10-28T09:09:11+00:00",
+  "steps": {},
+  "run_gates": {},
+  "specs": {},
+  "assets": [],
+  "queue": [
+    {
+      "id": "G-HUMAN-FINAL:HIGGSFIELD-BALANCE",
+      "checkpoint": "G-HUMAN-FINAL",
+      "asset": "HIGGSFIELD-BALANCE",
+      "status": "PENDING",
+      "note": "The shared Higgsfield balance is 28.17 credits (Ultra, 28 Oct), shared by 4 parallel sessions. The W45-W46 plan needs about 220 (6 carousels about 16 each, 2 images about 9, 2 quote reels about 30, 4 motion reels about 10). Options: (a) top up before W45 production (recommended); (b) make only the 2 strongest carousels now, the rest after a top-up; (c) code-rendered type slides at 0 credits (the style bible bans flat text-on-colour templates). This session generates nothing until answered.",
+      "files": [],
+      "asked_at": "2026-10-28T09:09:12+00:00"
+    },
+    {
+      "id": "G-HUMAN-FINAL:APIFY-INVOICES",
+      "checkpoint": "G-HUMAN-FINAL",
+      "asset": "APIFY-INVOICES",
+      "status": "PENDING",
+      "note": "Apify refused the W45 research scrape: 'Too many outstanding invoices'. Settle them, then re-run clients/straightscale/research/2026-10-28/scrape-pending.json (gate-checked, cap USD 3). Until then plans use the 14 Oct data.",
+      "files": [],
+      "asked_at": "2026-10-28T09:09:12+00:00"
+    },
+    {
+      "id": "G-HUMAN-FINAL:SERIES-NAMES",
+      "checkpoint": "G-HUMAN-FINAL",
+      "asset": "SERIES-NAMES",
+      "status": "PENDING",
+      "note": "Albanian names for the One Step series and its five steps are drafts ('Një Hap'; 'Gjej'...). Recommendation: approve them in one native read before Tue 3 Nov (episode 1).",
+      "files": [],
+      "asked_at": "2026-10-28T09:09:12+00:00"
+    },
+    {
+      "id": "G-HUMAN-FINAL:GATE-WIRING",
+      "checkpoint": "G-HUMAN-FINAL",
+      "asset": "GATE-WIRING",
+      "status": "PENDING",
+      "note": "In cloud sessions the connectors are named by ID (mcp__<uuid>__generate_image), so the hooks in .claude/settings.json (matchers mcp__Higgs__, mcp__ElevenLabs__, mcp__Apify__) don't fire. This session ran the checks by hand. Options: (a) widen the matchers to any server's generation tools (recommended, a code change for the main session); (b) keep manual checks.",
+      "files": [],
+      "asked_at": "2026-10-28T09:09:12+00:00"
+    },
+    {
+      "id": "G-HUMAN-FINAL:ATLAS-IMAGE-MODEL",
+      "checkpoint": "G-HUMAN-FINAL",
+      "asset": "ATLAS-IMAGE-MODEL",
+      "status": "PENDING",
+      "note": "Owner rule 28 Oct: all generation on Atlas. standards.json models.atlas.allowed names only suno/chirp-v6 (songs), so every image (W45 carousels Thu 5 and Sun 8, image Sat 7, then the rest) and every voice stays blocked. Name an Atlas image model with its params (and a voice model for the reels) for the 4:5 slide style; then price per slide in USD before generating. Recommendation: name one image model and run one carousel as the test.",
+      "files": [],
+      "asked_at": "2026-10-28T13:09:16+00:00"
+    }
+  ]
+}

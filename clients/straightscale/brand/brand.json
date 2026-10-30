@@ -1,0 +1,7 @@
+{
+  "_doc": "Where the real logo files live. Local copies are in this folder; the public URLs (straightscale.com) are for the Higgsfield sandbox, which can fetch them (this container's network can't). brand_overlay.py takes either.",
+  "logo_on_dark": {"local": "wordmark-white.png", "url": "https://straightscale.com/__l5e/assets-v1/daefcc9d-9390-42fc-af5c-4bd5b26311bf/straightscale-logo-light.png"},
+  "logo_on_light": {"local": "logo-full.png", "url": "https://straightscale.com/__l5e/assets-v1/872b76f0-5db2-4ea3-95ba-785c39649a6a/straightscale-logo-clear.png"},
+  "mark": {"local": "symbol.png", "url": "https://straightscale.com/__l5e/assets-v1/d3dc1258-ae65-49be-95fe-822d5d93a938/straightscale-mark.png"},
+  "checked": "2026-10-15: the three URLs return the same mark and wordmark as the local files (viewed in the sandbox)"
+}

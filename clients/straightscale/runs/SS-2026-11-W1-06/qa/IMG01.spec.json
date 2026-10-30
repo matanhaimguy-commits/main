@@ -1,0 +1,71 @@
+{
+  "gate": "G-SPEC",
+  "shot_id": "IMG01",
+  "spec_sha256": "7095acf51f25d3fd637f05284bfce830f06a9a797414e2f15618cd074ed479ab",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "P1",
+      "result": "PASS",
+      "evidence": "All spec elements are in the file: line_text 'Kush u përgjigjet mesazheve kur je me klient?' equals the three text strings joined; subjects PR-PHONE, CH-OWNER, CH-CLIENT; props PR-PHONE, PR-STAND, PR-PHONE-SCREEN, PR-SAMPLE-RACK; setting, camera, style, must_not and regions are all present. must_read_in_1s is one moment: 'backs turned while a lit phone with two unanswered messages waits'."
+    },
+    {
+      "id": "P2",
+      "result": "N/A",
+      "evidence": "Spec mode: no prompt or attached images yet."
+    },
+    {
+      "id": "P3",
+      "result": "PASS",
+      "evidence": "'hands: none visible'. Both men have 'both hands in his trouser pockets' / 'both hands in his jacket pockets' (backs to camera, desk hides them). The phone action says 'no hand touches it'. No hand conflicts with the text block or the phone, and no hand region is needed."
+    },
+    {
+      "id": "P4",
+      "result": "PASS",
+      "evidence": "Contact points given: 'The phone's bottom edge sits in the stand's groove and its back rests on the stand's rear support, tilted back about 15 degrees; no hand touches it' and 'the owner and the customer stand on the showroom floor beyond the sales desk... about 0.5 m from it, the desk top hiding their legs'. The scene is a still pose; no verb is left as a bare noun."
+    },
+    {
+      "id": "P5",
+      "result": "PASS",
+      "evidence": "PR-PHONE content: 'deep red #BE0F18 case that shows as a rim around the black glass front, rounded corners, no logo'. PR-PHONE-SCREEN content: 'dark charcoal background with exactly two incoming bubbles, both aligned to the left edge... one short dark-grey bar...; no names, no avatars, no digits, no status bar'. Both are story-critical, have a prop-sheet ref (PS-CHAT CHAT-IN-2) and carry targeted negatives only. must_not says 'no letters, words, digits or app names on any phone screen; screens hold only the shapes described', so the bars are not emptied."
+    },
+    {
+      "id": "P6",
+      "result": "PASS",
+      "evidence": "Three strings, each exact, with as_written case, surface, position, size, colour and occlusion ('nothing covers any letter; no hand, prop or light flare reaches the text block'). Spelling matches line_text, including ë in 'përgjigjet'. Highlight on 'klient?' is specified (#B31217 rectangle). Region boxes agree with the stated widths (the highlight starts at x 0.189, after 'me '). Non-blocking notes: the block is 8 words over 3 line strings of 3, 3 and 2 words (within the 4 to 10 headline rule, each string 6 words or fewer); lines 1 and 2 are about 17 and 16 characters against the carousel guideline of 'about 12'. The prompt must still say 'Spell exactly, letter by letter' for ë."
+    },
+    {
+      "id": "P7",
+      "result": "PASS",
+      "evidence": "setting.background_rule covers every trap: the rack 'holds only plain colour samples; no price tags, signs, posters, clocks or readable words'; 'the only screen in the picture is the lit phone screen'; walls plain; no window; lamps out of frame; the surface bare apart from the listed props; no reflection of the screen below 88% of the height."
+    },
+    {
+      "id": "P8",
+      "result": "PASS",
+      "evidence": "No two lines conflict. Phone 'tilted back about 15 degrees' and 'upright in the stand' agree. People y 40-70% sit behind the desk edge at 70% with the phone x 13-37% and the rack x 42-100%, so nothing overlaps. Top 40% is calm and the text block ends at y 28%. The locked style block is edited for a single image (no counter, arrow, gold or clock tower) and the edits are consistent with the rest of the spec; 'night city scenes' in style is reconciled by 'no window and no clock tower in this single image'. The notes ask the director to confirm the evening showroom look."
+    },
+    {
+      "id": "P9",
+      "result": "PASS",
+      "evidence": "Single-image post (only IMG01 in shots/): previous_shot null, carry_over []. Consistent with the carousel rules for one image: no counter n/N, no swipe arrow ('no arrow in this shot'), no ask drawn in the image (the ask is the caption's, not a second ask). Phone state CHAT-IN-2 is named and matches the thread (unread messages)."
+    },
+    {
+      "id": "P10",
+      "result": "N/A",
+      "evidence": "Spec mode: no prompt or model call yet. For the prompt stage: aspect '4:5' is set; gpt_image_2_5 / 2k / medium / flare must be pinned there."
+    },
+    {
+      "id": "P11",
+      "result": "PASS",
+      "evidence": "Words that could be read two ways are pinned: 'klient' explained in story_purpose (the customer); owner vs customer separated by 'dark shirt' vs 'grey jacket' and by position 'right of the customer as the camera sees them'; 'rack' defined as a wall rack of cabinet door samples; 'stand' as a black matte angled phone stand with one groove; 'sales desk' with its far edge at 70% of the height. Note for the prompt stage: 'exactly two incoming bubbles' is a depicted state, not a displayed number, so it fits STANDARDS 6 'states, not counts'."
+    },
+    {
+      "id": "P12",
+      "result": "PASS",
+      "evidence": "FL-01 no hand near text. FL-02 stand structure described (one groove, rear support); phone is one device (instances 1). FL-03 no action beyond a stance. FL-04 phone and screen filled, targeted negatives. FL-05/FL-10 background_rule covers screens, signs and walls. FL-06 visible parts named ('back of the head, back of the neck and collar visible, no face or profile'). FL-09 background_action present. FL-11 'instances: 1' each, 'no third person', feet hidden by the desk and 'stand on the showroom floor'. FL-13 logo-zone region [0,0.91,0.4,1] and 'bottom-left corner calm, dark and empty' in style and safe_zones, 'no logo or wordmark drawn anywhere' in must_not."
+    }
+  ],
+  "suggested_spec_changes": []
+}

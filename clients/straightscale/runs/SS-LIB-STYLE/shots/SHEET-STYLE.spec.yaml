@@ -1,0 +1,67 @@
+shot_id: SHEET-STYLE
+post_id: SS-LIB-STYLE
+format: carousel_slide
+script_lines: [S1]
+line_text: "7 gjëra që po të kushtojnë klientë çdo javë. Numëro sa prej tyre i bën."
+story_purpose: "The locked look for every StraightScale image and carousel: passed as the style reference in every prompt (style-bible.md)."
+must_read_in_1s: "Business owners: seven things cost you clients every week"
+subjects:
+  - id: PR-PHONE
+    state: "lying flat on the cafe table, screen off, black glass catching the warm light"
+    pose: "angled toward the camera, lower centre of the frame"
+    expression: ""
+hands: none visible
+props:
+  - id: PR-PHONE
+    story_critical: false
+    state: "deep red #BE0F18 case, screen off"
+    content: "a modern smartphone in a deep red case, black glass screen with no text or icons, charging port and speaker grilles visible at its lower edge"
+  - id: PR-CUP
+    story_critical: false
+    state: "white espresso cup on its saucer, mostly drunk"
+text_in_image:
+  - string: "PËR PRONARËT E BIZNESEVE"
+    surface: "dark wall, top left, small spaced capitals"
+    must_be_exact: true
+    occlusion: "nothing covers any letter"
+  - string: "7 gjëra që po të kushtojnë klientë çdo javë"
+    surface: "dark wall, upper left, heavy bold geometric sans in off-white; the word 'klientë' inside a solid #BE0F18 highlight rectangle"
+    must_be_exact: true
+    occlusion: "nothing covers any letter; the clock tower stays right of the text"
+  - string: "Numëro sa prej tyre i bën."
+    surface: "dark wall under the headline, smaller off-white sans"
+    must_be_exact: true
+    occlusion: "nothing covers any letter"
+  - string: "1/7"
+    surface: "top right, small gold #DD9A10 counter"
+    must_be_exact: true
+    occlusion: "clear of the window frame"
+  - string: "StraightScale"
+    surface: "bottom left logo strip, white wordmark next to the red rounded-square S logo with a tiny gold square at its top-right corner"
+    must_be_exact: true
+    occlusion: "nothing covers the logo or the wordmark"
+action_physics: []
+static: true
+setting:
+  ref: null
+  details: "a Tirana cafe at night: dark wooden table in the foreground, a window on the right with the clock tower and warm street lights outside"
+  background_rule: "no other signs, screens or readable text in the scene; no other logos"
+camera:
+  framing: "table-level medium shot, phone in the lower half, text in the calm dark upper left"
+  angle: "slightly above table level"
+  lens: "35mm film still, shallow depth of field"
+  aspect: "4:5"
+  safe_zones: "text and logo strip inside the frame margins; nothing important in the outer 4%"
+continuity:
+  previous_shot: null
+style: "photorealistic cinematic film still, 35mm, shallow depth of field, Tirana at night, warm tungsten light, deep shadows, fine film grain; deep red #BE0F18 the only saturated colour besides the small gold counter (style-bible.md)"
+must_not: ["no text on the phone screen", "no other logos", "no numbers on screens or paper", "no words besides the listed strings"]
+hero: true
+regions:
+  - {name: label, kind: text, box: [0.05, 0.03, 0.55, 0.08]}
+  - {name: headline, kind: text, box: [0.05, 0.11, 0.73, 0.34]}
+  - {name: subline, kind: text, box: [0.05, 0.34, 0.50, 0.39]}
+  - {name: counter, kind: text, box: [0.86, 0.02, 0.96, 0.07]}
+  - {name: logo-strip, kind: text, box: [0.05, 0.90, 0.40, 0.97]}
+  - {name: phone, kind: prop, box: [0.12, 0.61, 0.84, 0.88]}
+  - {name: arrow, kind: other, box: [0.86, 0.90, 0.96, 0.97]}

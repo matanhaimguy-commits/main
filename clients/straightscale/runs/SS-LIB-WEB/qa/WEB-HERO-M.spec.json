@@ -1,0 +1,93 @@
+{
+  "gate": "G-SPEC",
+  "shot_id": "WEB-HERO-M",
+  "spec_sha256": "ce5c22ab65a500fb37e78e301092264b3e53ec1a08022d55a0b230e5ce464dda",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "PASS",
+  "files_opened": [
+    "growth-engine/production/standards.json",
+    "growth-engine/production/STANDARDS.md",
+    "growth-engine/production/failure-library.md",
+    "growth-engine/production/VISUAL-QA.md (sections 2 and 4)",
+    "clients/straightscale/runs/SS-LIB-WEB/shots/WEB-HERO-M.spec.yaml",
+    "clients/straightscale/runs/SS-LIB-WEB/shots/WEB-HERO-D.spec.yaml (sibling, carry-over)",
+    "clients/straightscale/runs/SS-LIB-WEB/shots/WEB-CUP.spec.yaml (angle notes only, for the near plane over the bare corner)",
+    "clients/straightscale/runs/SS-LIB-STYLE/assets/STYLE-TOP.v1.png (image 1, the look reference)",
+    "clients/straightscale/runs/SS-LIB-STYLE/assets/STYLE.v1.jpg (design source named in the spec, not attached)",
+    "clients/straightscale/style-bible.md and brand-kit.md (colour codes #BE0F18, #1F1F1F)"
+  ],
+  "checks": [
+    {
+      "id": "P1",
+      "result": "PASS",
+      "evidence": "One clear moment, 'A red phone lies quiet on a café table in Tirana at night'. Every element has coordinates a reviewer can check: phone 'box x 0.15 to 0.70, y 0.62 to 0.86', window 'x 0.55 to 0.95, y 0.08 to 0.42', empty wall 'x 0.00 to 0.53, y 0.00 to 0.56', bare corner 'x 0.74 to 1.00, y 0.80 to 1.00'. The one prop has regions (phone, phone-screen). There are no hands, text or faces to box."
+    },
+    {
+      "id": "P2",
+      "result": "N/A",
+      "evidence": "Spec mode. The notes name the planned single reference ('one reference: image 1 STYLE-TOP@v1 (look only; its baked text must not be copied)') for the prompt stage."
+    },
+    {
+      "id": "P3",
+      "result": "PASS",
+      "evidence": "'hands: none visible' plus must_not 'no human hands or fingers'. The word 'human' keeps them apart from the clock's 'two clock hands'."
+    },
+    {
+      "id": "P4",
+      "result": "PASS",
+      "evidence": "Static shot written as contact points: 'the case's back rim touches the wood along all four edges, no edge raised, a thin soft contact shadow hugging its outline'."
+    },
+    {
+      "id": "P5",
+      "result": "PASS",
+      "evidence": "PR-PHONE (story_critical) is filled: 'a thin raised red case lip runs evenly round the screen, then a very thin black bezel; the screen is one continuous pure black glass rectangle with evenly rounded corners'. The black screen is the designed content (the HTML is mapped onto it). The text negative names surfaces ('...the table or the phone'); it is not a blanket 'no text'. The missing PR-PHONE prop sheet is stated with its reason (STYLE@v1 failed G-VIS-SHEET), and the content line carries the design."
+    },
+    {
+      "id": "P6",
+      "result": "PASS",
+      "evidence": "'text_in_image: none', with negatives by surface: 'no text, letters, numbers or signage on the wall, the window glass, the tower, the facades, the table or the phone'. Notes: 'All words are HTML'."
+    },
+    {
+      "id": "P7",
+      "result": "PASS",
+      "evidence": "Window: 'The opening is filled with the night square and the lit tower, never blank or black'. Clocks: 'showing only their two clock hands'. Wall: 'Nothing on the wall: no lamps, sconces, art, frames, shelves, mirrors, posters, plants or chair backs'. Facades: 'No signs, shop names, lettering or readable numerals anywhere'."
+    },
+    {
+      "id": "P8",
+      "result": "PASS",
+      "evidence": "The geometry agrees with itself. The rightmost corner '(about x 0.70, y 0.83)' against 'the bare corner, which begins at x 0.74' gives exactly the stated 'at least 4%'. The phone box sits under the table edge 'y 0.58' and inside 'above y 0.88'. The box ratio (0.55 W by 0.43 W) matches a 2:1 phone turned 15 degrees and seen from 30 degrees (about 1.35:1). The bottom-right corner being the rightmost and at y 0.83 also follows from the stated turn. The wording points in N1 to N3 do not change the picture."
+    },
+    {
+      "id": "P9",
+      "result": "PASS",
+      "evidence": "'the same café, wall, window, tower, table and phone as WEB-HERO-D, re-composed for portrait'. These match D: phone content, the window type (one plate-glass opening, thin dark frame, four straight inner edges, no mullions, nothing in front), the tower (slender, floodlit amber, small pointed roof, in the middle of the opening, clock hands only), the walnut table (grain left to right, full width, bare to the bottom edge), the bare bottom-right corner, 'warm tungsten from out of frame above right', the style line and no cup. The changes have a stated reason: 'portrait to the camera ... so its black screen is large enough for the HTML lock-screen notification'. That covers the phone's orientation, 30 degrees instead of 40, and the new positions."
+    },
+    {
+      "id": "P10",
+      "result": "N/A",
+      "evidence": "Spec mode. For the prompt stage, the notes plan 'gpt_image_2_5, aspect_ratio 9:16, resolution 2k, quality medium, variant flare'."
+    },
+    {
+      "id": "P11",
+      "result": "PASS",
+      "evidence": "The words a model could read two ways are pinned down: '35mm film look (film stock, not a focal length)', 'no human hands or fingers' against 'two clock hands', 'portrait to the camera: its bottom end nearest the camera', the bare corner 'with no table corner or table edge in it', and 'drinking glass' against 'plate-glass window'. See note N6 on 'frame' for the prompt."
+    },
+    {
+      "id": "P12",
+      "result": "PASS",
+      "evidence": "FL-02: structure lines for the window ('a single rectangular opening in a thin dark frame with four straight inner edges, no mullions or bars crossing it'), the phone and the table ('one unbroken tabletop'). FL-04: content line. FL-05: wall rule. FL-10: 'No signs, shop names, lettering or readable numerals anywhere'. FL-11: 'no second phone' plus the physics line. FL-13: 'no StraightScale mark drawn in any corner (FL-13)' (the real logo is in the HTML nav). Reference baked text: 'none of its lettering ... and no gold 1/7 counter'. FL-01, 03, 06 to 09 and 12 do not apply (no hands, people, video or adjacent close-ups)."
+    }
+  ],
+  "suggested_spec_changes": [],
+  "notes": [
+    "N1 (camera, not blocking): A phone this large (55% of the width) at about 30 degrees down, with the whole window in frame, is what a low, close tabletop camera gives (as on the 15 Oct cover). From a true 'seated eye height' (about 40 cm above the table) it would need a long lens that pushes the window out of frame. The model will follow the box and the reviewer checks the box, so this is not a fail. If the words should agree, camera.angle could read 'low over the table, close to the phone, looking down at it at about 30 degrees below horizontal (...)'. If you change it, keep WEB-CUP's note ('match the masters' seated eye height') in step.",
+    "N2 (wording): the must_not line 'no saturated colour other than the phone's deep red #BE0F18 case' leaves out the style line's 'besides the warm light'. The amber tower and the lamps are described positively, so a reviewer will not fail them. Optional addition after 'case': 'besides the warm amber of the floodlit tower, the street lamps and the tungsten light'.",
+    "N3 (wording): 'UPPER 55% (y 0.00 to 0.56)' and 'fills the lower 40%' against the far edge 'y 0.58' (that is 42%). The coordinates rule, so this is cosmetic.",
+    "N4 (continuity reading): 'same window' holds as the same kind of window. In proportion, D's opening is about 0.9 as tall as it is wide with its sill almost on the table, while M's is about 1.5 as tall as it is wide with wall below it down to y 0.58. The two masters are never on screen together, so the G-VIS reviewer should check M against M's own window box, not D's proportions.",
+    "N5 (same as D): 'the window view fall off into soft bokeh' together with 'clock faces ... showing only their two clock hands' reads as a limit (no numerals), not a demand for sharp hands. Softened hands are not a defect.",
+    "N6 (for the prompt stage): 'frame' is used for the image frame ('frame width', 'frame edge'), the window frame ('thin dark frame') and picture frames ('art, frames'). Each use is clear in the spec. The prompt should say 'picture frames' and 'image edge' so a model cannot drop the window frame.",
+    "N7 (no change needed): nothing on the phone marks its bottom end (its port and speaker cut-outs are not mentioned). The screen is blank and the HTML notification is laid upright for the viewer, so which end is physically the bottom does not change the picture. Adding hardware detail would only add structure the model could get wrong (FL-02).",
+    "Independence: the packet held the spec path and a short context line that repeats the spec's own story_purpose. I saw no producer reasoning and did not open any report in qa/. A ledger read for the lint fields also showed WEB-EXT's earlier G-SPEC status entries (statuses only, no report text, not for this shot). The ledger shows lint PASS for this sha256."
+  ]
+}
