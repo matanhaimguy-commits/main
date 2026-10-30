@@ -1,0 +1,82 @@
+<!doctype html>
+<!--
+  Twin kit move 4: a 3D object pop with motion blur. An extruded object (stacked layers in CSS 3D, so it has real
+  depth when it turns) flies in from far behind the camera's axis, spins, overshoots and settles, then sways. The
+  smear is the registry's motion-blur component (third_party/motion-blur.js, loaded by the film root), attached
+  with data-hf-motion-blur on the moving element. A short label can land under it.
+  Variables: shape (star|image), src (image path when shape=image, e.g. the brand mark), label, x, y (centre, px),
+  size (px), color, dur. Sound: pop on the landing.
+-->
+<html
+  data-composition-id="kit-pop3d"
+  data-composition-duration="3"
+  data-composition-variables='[
+    {"id":"shape","type":"enum","label":"Object","default":"star","options":[{"value":"star","label":"Star"},{"value":"image","label":"Image"}]},
+    {"id":"src","type":"string","label":"Image (shape=image)","default":""},
+    {"id":"label","type":"string","label":"Label under the object","default":""},
+    {"id":"x","type":"number","label":"Centre x","default":540},
+    {"id":"y","type":"number","label":"Centre y","default":620},
+    {"id":"size","type":"number","label":"Size (px)","default":320},
+    {"id":"color","type":"color","label":"Colour","default":"#DD9A10"},
+    {"id":"dur","type":"number","label":"On screen (s)","default":2}
+  ]'
+>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #root { position: absolute; inset: 0; overflow: hidden; }
+        .p3-stage { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; perspective: 1400px; }
+        .p3-obj { position: absolute; transform-style: preserve-3d; }
+        .p3-layer { position: absolute; inset: 0; }
+        .p3-layer svg, .p3-layer img { width: 100%; height: 100%; display: block; }
+        .p3-label { position: absolute; left: 0; right: 0; text-align: center; font-family: var(--kit-ui); font-weight: 700;
+                    font-size: 54px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--kit-fg);
+                    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.55); }
+      </style>
+      <div id="root" data-composition-id="kit-pop3d" data-duration="3">
+        <div class="p3-stage"><div id="p3-obj" class="p3-obj" data-hf-motion-blur='{"shutterAngle": 360, "samplesPerFrame": 10}'></div></div>
+        <div class="p3-label"></div>
+      </div>
+      <script>
+        (function () {
+          var root = document.getElementById("root");
+          var v = (window.__hyperframes && window.__hyperframes.getVariables()) || {};
+          var obj = root.querySelector(".p3-obj"), label = root.querySelector(".p3-label");
+          var size = Number(v.size) || 320, x = Number(v.x) || 540, y = Number(v.y) || 620, dur = Number(v.dur) || 2;
+          var color = v.color || "#DD9A10", depth = 14;
+          obj.style.width = obj.style.height = size + "px";
+          obj.style.left = x - size / 2 + "px"; obj.style.top = y - size / 2 + "px";
+          var star = "M50 4 L61.8 37.6 L97.5 38.2 L69 59.8 L79.4 94 L50 73.6 L20.6 94 L31 59.8 L2.5 38.2 L38.2 37.6 Z";
+          function face(fill, shade) {
+            if (v.shape === "image" && v.src) {
+              var im = document.createElement("img"); im.src = v.src; im.alt = "";
+              if (shade) im.style.filter = "brightness(" + shade + ")";
+              return im;
+            }
+            var ns = "http://www.w3.org/2000/svg", svg = document.createElementNS(ns, "svg"), p = document.createElementNS(ns, "path");
+            svg.setAttribute("viewBox", "0 0 100 100"); p.setAttribute("d", star); p.setAttribute("fill", fill);
+            svg.appendChild(p); return svg;
+          }
+          // back layers darker (the extruded side), the front face full colour
+          for (var i = depth; i >= 0; i--) {
+            var l = document.createElement("div"); l.className = "p3-layer";
+            l.style.transform = "translateZ(" + (i * -2.2).toFixed(1) + "px)";
+            l.appendChild(i === 0 ? face(color) : face("color-mix(in srgb, " + color + " 55%, #000)", 0.5));
+            obj.appendChild(l);
+          }
+          label.textContent = v.label || "";
+          label.style.top = y + size / 2 + 26 + "px";
+          var tl = gsap.timeline({ paused: true });
+          tl.fromTo(obj, { z: -2600, x: -260, y: 380, rotationY: -260, rotationX: 30, scale: 0.6 },
+                         { z: 0, x: 0, y: 0, rotationY: 0, rotationX: 0, scale: 1, duration: 0.5, ease: "back.out(1.5)" }, 0);
+          tl.fromTo(obj, { rotationY: 0, rotationZ: 0 }, { rotationY: 18, rotationZ: -4, duration: Math.max(0.3, dur - 0.8), ease: "sine.inOut", immediateRender: false }, 0.5);
+          tl.fromTo(label, { opacity: 0, y: 30 }, { opacity: label.textContent ? 1 : 0, y: 0, duration: 0.3, ease: "expo.out" }, 0.38);
+          tl.to(obj, { z: 900, opacity: 0, duration: 0.2, ease: "power2.in" }, Math.max(0.6, dur - 0.22));
+          tl.to(label, { opacity: 0, duration: 0.15 }, Math.max(0.6, dur - 0.2));
+          window.__timelines["kit-pop3d"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

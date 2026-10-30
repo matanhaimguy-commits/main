@@ -1,0 +1,40 @@
+<!doctype html>
+<!--
+  Twin kit move 6b: the flash cut (CSS, layer 70 over everything). The composer mounts it 0.05 s before a beat that
+  has cut_in "flash": two frames of near-white that hide the cut, then a fast decay. The whip (move 6a) is a frame
+  move on the film root, written by kit/layers.py (after the registry's whip-pan-cut: exit fast with blur, cut,
+  enter from the other side at matched speed).
+  Variables: color, peak (0-1). Sound: click on the cut.
+-->
+<html
+  data-composition-id="kit-flash"
+  data-composition-duration="0.3"
+  data-composition-variables='[
+    {"id":"color","type":"color","label":"Flash colour","default":"#F8F6EF"},
+    {"id":"peak","type":"number","label":"Peak opacity","default":0.92}
+  ]'
+>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #root { position: absolute; inset: 0; overflow: hidden; }
+        .fl { position: absolute; inset: 0; opacity: 0; }
+      </style>
+      <div id="root" data-composition-id="kit-flash" data-duration="0.3"><div class="fl"></div></div>
+      <script>
+        (function () {
+          var root = document.getElementById("root");
+          var v = (window.__hyperframes && window.__hyperframes.getVariables()) || {};
+          var fl = root.querySelector(".fl");
+          fl.style.background = v.color || "#F8F6EF";
+          var peak = Number(v.peak == null ? 0.92 : v.peak);
+          var tl = gsap.timeline({ paused: true });
+          tl.fromTo(fl, { opacity: 0 }, { opacity: peak, duration: 0.05, ease: "none" }, 0);
+          tl.to(fl, { opacity: 0, duration: 0.2, ease: "power2.out" }, 0.08);
+          window.__timelines["kit-flash"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<!--
+  Twin kit UI scene: a typed prompt (B-roll and UI layer, z 20). A neutral prompt box (no product's brand); the text
+  types in at a steady rate with a blinking caret, then the send button presses. Characters are a pure function of
+  time, so any frame can be rendered alone.
+  Variables: text, label (above the box), cps (characters per second), y (box top, px), dur.
+  Sound: typing under the typing.
+-->
+<html
+  data-composition-id="kit-prompt"
+  data-composition-duration="3"
+  data-composition-variables='[
+    {"id":"text","type":"string","label":"Typed text","default":"Write a post that gets booked calls"},
+    {"id":"label","type":"string","label":"Label above the box","default":""},
+    {"id":"cps","type":"number","label":"Characters per second","default":26},
+    {"id":"y","type":"number","label":"Box top (px)","default":620},
+    {"id":"dur","type":"number","label":"On screen (s)","default":2.5}
+  ]'
+>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #root { position: absolute; inset: 0; overflow: hidden; background: #1F1F1F; }
+        .pr-label { position: absolute; left: 80px; right: 80px; font-family: var(--kit-ui); font-weight: 500; font-size: 46px;
+                    color: var(--kit-fg); opacity: 0.7; }
+        .pr-box { position: absolute; left: 70px; right: 70px; min-height: 300px; padding: 40px 44px 110px; border-radius: 44px;
+                  background: #2B2A28; border: 2px solid rgba(248, 246, 239, 0.18); box-sizing: border-box; }
+        .pr-text { font-family: var(--kit-ui); font-weight: 500; font-size: 56px; line-height: 1.25; color: var(--kit-fg);
+                   white-space: pre-wrap; word-break: break-word; }
+        .pr-caret { display: inline-block; width: 4px; height: 0.95em; margin-left: 3px; vertical-align: -0.12em; background: var(--kit-accent); }
+        .pr-send { position: absolute; right: 30px; bottom: 26px; width: 76px; height: 76px; border-radius: 50%;
+                   background: var(--kit-fg); display: flex; align-items: center; justify-content: center; }
+        .pr-send svg { width: 40px; height: 40px; }
+      </style>
+      <div id="root" data-composition-id="kit-prompt" data-duration="3">
+        <div class="pr-label"></div>
+        <div class="pr-box">
+          <div class="pr-text"><span class="pr-typed"></span><span class="pr-caret"></span></div>
+          <div class="pr-send"><svg viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7" stroke="#1F1F1F" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          var root = document.getElementById("root");
+          var v = (window.__hyperframes && window.__hyperframes.getVariables()) || {};
+          var typed = root.querySelector(".pr-typed"), caret = root.querySelector(".pr-caret");
+          var box = root.querySelector(".pr-box"), send = root.querySelector(".pr-send"), label = root.querySelector(".pr-label");
+          var text = String(v.text || ""), cps = Number(v.cps) || 26, dur = Number(v.dur) || 2.5;
+          var y = Number(v.y) || 620;
+          box.style.top = y + "px"; label.style.top = y - 80 + "px"; label.textContent = v.label || "";
+          var typeTime = Math.min(text.length / cps, Math.max(0.3, dur - 0.7));
+          var clock = { t: 0 };
+          function paint() {
+            var n = Math.min(text.length, Math.floor(clock.t / typeTime * text.length));
+            typed.textContent = text.slice(0, n);
+            caret.style.opacity = (n < text.length || Math.floor(clock.t * 2.4) % 2 === 0) ? "1" : "0";
+          }
+          var tl = gsap.timeline({ paused: true });
+          tl.fromTo(box, { y: 60, opacity: 0 }, { y: 0, opacity: 1, duration: 0.3, ease: "expo.out" }, 0);
+          tl.fromTo(label, { opacity: 0 }, { opacity: label.textContent ? 0.7 : 0, duration: 0.25 }, 0.05);
+          tl.fromTo(clock, { t: 0 }, { t: dur, duration: dur, ease: "none", onUpdate: paint }, 0.15);
+          tl.fromTo(send, { scale: 1 }, { scale: 0.82, duration: 0.08, yoyo: true, repeat: 1, ease: "power2.inOut" }, 0.15 + typeTime + 0.15);
+          paint();
+          window.__timelines["kit-prompt"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

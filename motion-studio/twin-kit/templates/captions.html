@@ -1,0 +1,71 @@
+<!doctype html>
+<!--
+  Twin kit: word captions (layer 60) from the voice's word timings on the film clock. Up to max_words words per
+  group, split at pauses and sentence ends; the spoken word turns the accent colour. Each group pops on a short
+  settle. Hidden over the given ranges (the end card, full-screen UI that carries its own words).
+  Variables: words (JSON [{w,s,e}], film seconds), hide (JSON [[start,end],...]), y (centre, px), size, max_words, dur.
+-->
+<html
+  data-composition-id="kit-captions"
+  data-composition-duration="60"
+  data-composition-variables='[
+    {"id":"words","type":"string","label":"Words JSON","default":"[]"},
+    {"id":"hide","type":"string","label":"Hidden ranges JSON","default":"[]"},
+    {"id":"y","type":"number","label":"Centre y (px)","default":1420},
+    {"id":"size","type":"number","label":"Font size (px)","default":64},
+    {"id":"max_words","type":"number","label":"Words per group","default":3},
+    {"id":"dur","type":"number","label":"Film length (s)","default":10}
+  ]'
+>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #root { position: absolute; inset: 0; overflow: hidden; }
+        .cp-group { position: absolute; left: 90px; right: 90px; display: flex; justify-content: center; flex-wrap: wrap;
+                    gap: 0 0.28em; opacity: 0; }
+        .cp-w { display: inline-block; font-family: var(--kit-ui); font-weight: 700; color: var(--kit-fg); text-transform: uppercase;
+                letter-spacing: 0.01em; paint-order: stroke fill; -webkit-text-stroke: 10px rgba(0, 0, 0, 0.85); }
+      </style>
+      <div id="root" data-composition-id="kit-captions" data-duration="60"></div>
+      <script>
+        (function () {
+          var root = document.getElementById("root");
+          var v = (window.__hyperframes && window.__hyperframes.getVariables()) || {};
+          var words = [], hide = [];
+          try { words = JSON.parse(v.words || "[]"); hide = JSON.parse(v.hide || "[]"); } catch (e) {}
+          var size = Number(v.size) || 64, y = Number(v.y) || 1420, maxW = Number(v.max_words) || 3;
+          var groups = [], cur = [];
+          words.forEach(function (w, i) {
+            var prev = cur[cur.length - 1];
+            if (cur.length && (cur.length >= maxW || w.s - prev.e > 0.25 || /[.!?,]$/.test(prev.w))) { groups.push(cur); cur = []; }
+            cur.push(w);
+          });
+          if (cur.length) groups.push(cur);
+          function hidden(t) { return hide.some(function (r) { return t >= r[0] - 1e-6 && t < r[1]; }); }
+          var tl = gsap.timeline({ paused: true });
+          var accent = getComputedStyle(root).getPropertyValue("--kit-accent").trim() || "#DD9A10";
+          var fg = getComputedStyle(root).getPropertyValue("--kit-fg").trim() || "#F8F6EF";
+          groups.forEach(function (g, k) {
+            var el = document.createElement("div"); el.className = "cp-group";
+            el.style.top = y - size * 0.6 + "px"; el.style.fontSize = size + "px";
+            var spans = g.map(function (w) {
+              var s = document.createElement("span"); s.className = "cp-w"; s.style.fontSize = size + "px";
+              s.textContent = w.w.replace(/[.,!?;:]+$/, ""); el.appendChild(s); return s;
+            });
+            root.appendChild(el);
+            var start = g[0].s, end = k + 1 < groups.length ? groups[k + 1][0].s : g[g.length - 1].e + 0.4;
+            if (hidden(start)) return;
+            tl.fromTo(el, { opacity: 1, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.12, ease: "back.out(2)", immediateRender: false }, start);
+            tl.set(el, { opacity: 0 }, end);
+            g.forEach(function (w, i) {
+              tl.set(spans[i], { color: accent }, w.s);
+              tl.set(spans[i], { color: fg }, w.e);
+            });
+          });
+          window.__timelines["kit-captions"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>
