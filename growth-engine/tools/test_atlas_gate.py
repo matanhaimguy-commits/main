@@ -61,6 +61,9 @@ class Wrapper(TP.Base):
         for rel in ("growth-engine/tools/pipeline.py", "growth-engine/tools/atlas_rules.py", "growth-engine/tools/atlas_calls.py",
                     "growth-engine/tools/atlas_conditions.py",
                     "growth-engine/tools/budget_usd.py", "growth-engine/tools/call_aspect.py", "growth-engine/tools/gate_auth.py",
+                    "growth-engine/tools/hook_record.py", "growth-engine/tools/hook_rule.py",
+                    "growth-engine/tools/hook_anchors.py", "growth-engine/tools/hook_grades.py",
+                    "growth-engine/production/hook-calibration/anchors.json",
                     "growth-engine/tools/organic.py",
                     "growth-engine/tools/atlas/atlas_gate.py", "growth-engine/production/standards.json",
                     "growth-engine/production/schemas", "growth-engine/config"):

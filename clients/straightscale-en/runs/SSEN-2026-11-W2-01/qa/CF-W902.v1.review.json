@@ -1,0 +1,221 @@
+{
+ "gate": "G-VIS",
+ "asset_id": "CF-W902",
+ "version": 1,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "hero": true,
+ "files_opened": [
+  "full.png",
+  "tile_r1c1.png",
+  "tile_r1c2.png",
+  "tile_r1c3.png",
+  "tile_r2c1.png",
+  "tile_r2c2.png",
+  "tile_r2c3.png",
+  "tile_r3c1.png",
+  "tile_r3c2.png",
+  "tile_r3c3.png",
+  "region_H-01-W902_text-hook-zone.png",
+  "region_H-01-W902_planner.png",
+  "region_H-01-W902_october-word.png",
+  "region_H-01-W902_november-word.png",
+  "region_H-01-W902_notes.png",
+  "region_H-01-W902_empty-page.png",
+  "thumb_200.png"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Three yellow REFERRAL notes on the OCTOBER page, bare NOVEMBER page: the full-month vs empty-month idea reads at a glance, also at 200 px."
+  },
+  {
+   "id": "V2",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Supports the line 'three clients / literally nothing' as a concept frame; nothing contradicts it."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Static frame, one idea, no extra story elements."
+  },
+  {
+   "id": "V4",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No people or body parts."
+  },
+  {
+   "id": "V5",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No hands visible (spec: none)."
+  },
+  {
+   "id": "V6",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No faces."
+  },
+  {
+   "id": "V7",
+   "result": "PASS",
+   "severity": "",
+   "region": "planner",
+   "evidence": "Planner lies flat on the wood with contact shadow and thick cover edge; notes lie flat with soft shadows falling right and down."
+  },
+  {
+   "id": "V8",
+   "result": "PASS",
+   "severity": "",
+   "region": "notes",
+   "evidence": "Notes read as stuck flat to the page; none overlap each other or the printed words."
+  },
+  {
+   "id": "V9",
+   "result": "PASS",
+   "severity": "",
+   "region": "october-word",
+   "evidence": "OCTOBER read letter by letter: O C T O B E R, correct, black serif capitals, nothing covers it."
+  },
+  {
+   "id": "V10",
+   "result": "PASS",
+   "severity": "",
+   "region": "november-word",
+   "evidence": "NOVEMBER read letter by letter: N O V E M B E R, correct, clear, uncovered."
+  },
+  {
+   "id": "V11",
+   "result": "PASS",
+   "severity": "",
+   "region": "notes",
+   "evidence": "All three notes read R E F E R R A L, correct, centred, black marker caps, well clear of the note edges. No digits, day names or other words anywhere."
+  },
+  {
+   "id": "V12",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "planner",
+   "evidence": "Planner prop spec: x 6-94%, y 31-55% (24% tall). Measured: x 5.8-94.0%, y 32.8-60.0% (about 27% tall, bottom edge with cover about 60.6%). It runs about 5% of frame height below the 55% line where the spec says only plain desk."
+  },
+  {
+   "id": "V13",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "notes",
+   "evidence": "Note positions drift from spec. Measured: note 1 x 9.9-28.2%, y 37.7-43.0% (spec y 36.5-41); note 2 x 20.6-38.7%, y 44.5-49.7% (spec x 26-44, y 41.5-46); note 3 x 11.1-29.5%, y 51.1-56.4% (spec y 49.5-54). Note 3 bottom sits at 56.4%, past the 55% limit. Gap between note 2 and note 3 is about 1.4% with a ruling line at about 50.3% between them (spec: 3.5% bare gap)."
+  },
+  {
+   "id": "V14",
+   "result": "PASS",
+   "severity": "",
+   "region": "empty-page",
+   "evidence": "NOVEMBER page has only the printed word and four blank rules; no notes, marks, stains or handwriting. Spiral is even and clean."
+  },
+  {
+   "id": "V15",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No characters; no sheet required (ref null)."
+  },
+  {
+   "id": "V16",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "Single still, no previous shot."
+  },
+  {
+   "id": "V17",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No continuity carry-over required; exactly one planner and exactly three notes."
+  },
+  {
+   "id": "V18",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "full",
+   "evidence": "Safe zone: top 30% is plain wood (pass, hook-zone crop shows only grain) but the planner body reaches y 60.0% and note 3 reaches y 56.4%, outside the 31-55% key band; below 55% should be plain wood. Left, right margins ok (5.8% to 94.0%). Paper right of 79% below 50% is only the empty page (allowed)."
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "9:16, 1152x2048, portrait, planner centred horizontally, square to frame."
+  },
+  {
+   "id": "V20",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200.png",
+   "evidence": "At 200 px the yellow notes and the two month words remain legible; the empty right page reads as empty."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Warm walnut, off-white paper, yellow notes brightest colour, lamp falls off to the right and bottom; matches the EN 04 look in the spec."
+  },
+  {
+   "id": "V22",
+   "result": "PASS",
+   "severity": "",
+   "region": "planner",
+   "evidence": "Real paper grain, sharp text and spiral, believable shadows; no melting, no duplicated rings. Wood is slightly over-sharpened and the lamp vignette is a bit smooth, a clean render look. Not a defect I can point to at zoom."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No artifacts, warped lines or smeared letters at 2x tiles."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No logo, brand, app name or trademark; no stray text."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No side-by-side before and after of a person, no 'your condition' claim; the two pages are a calendar contrast, nothing shaming."
+  },
+  {
+   "id": "V26",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "Concept photo of a desk; no people or AI disclosure trigger in the frame itself."
+  }
+ ],
+ "fix": {
+  "route": "regenerate",
+  "prompt_changes": [
+   "State the planner height in the key band as a hard limit: 'the whole planner including its cover ends at 55% of the frame height; a wide landscape spread no taller than 24% of the frame, pages about 3.7:1 wide-to-tall'.",
+   "Make the pages shorter: three week rows only (three rules) so the third note ends at 54% or earlier.",
+   "Pin note boxes: note 1 y 36.5-41, note 2 x 26-44 y 41.5-46, note 3 y 49.5-54; lowest note edge never lower than 54%.",
+   "Keep everything else: spelling OCTOBER/NOVEMBER/REFERRAL, empty right page, plain wood top 30% and below 55%. Alternative: accept the layout and move the hook text up, but the spec safe-zone fails as written."
+  ]
+ }
+}

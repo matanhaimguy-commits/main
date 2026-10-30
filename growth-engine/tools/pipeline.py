@@ -47,6 +47,7 @@ import atlas_rules
 import budget_usd
 import call_aspect
 import gate_auth
+import hook_record
 
 GE = Path(__file__).resolve().parents[1]
 PROD = GE / "production"
@@ -639,6 +640,10 @@ def record_gate(slug, post_id, gate, status, by, asset=None, note=None, score=No
             raise PipelineError(why)
     if gate == "G-BUDGET":
         why = gate_auth.hand_budget_problem(status)
+        if why:
+            raise PipelineError(why)
+    if gate == "G-HOOK" and status == PASS:
+        why = hook_record.pass_problem(data)
         if why:
             raise PipelineError(why)
     if gate in REVIEW_GATES and status != OVERRIDE:

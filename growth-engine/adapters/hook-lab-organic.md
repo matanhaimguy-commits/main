@@ -47,7 +47,7 @@ proof is a post that already won with this buyer, and the buyers' own words.
    post itself lists ("3 mistakes"), never a result or any other number that is not in brain.json; no hype words; top
    third of the screen, frame 1 to about 3 s. Carousels: the cover is the visual + text hook, and
    **slide 2 must work alone as a hook** (Instagram may show slide 2 first).
-4. **10 hooks per post**, graded; ship only A or A+ (at most 3 rounds, then the next idea: "Replace, don't escalate"). Return the master stack plus 2 variants for trial reels.
+4. **10 hooks per post**, graded; ship only a hook that passes the twin hook rule (at most 3 rounds, then the next idea: "Replace, don't escalate"). Return the master stack plus 2 variants for trial reels.
 5. Rotate types across the week (the card's `hook_type`): contrarian, hidden cause, mistake / "never ever", case study,
    comparison or tier list, question, list, personal story, teaching.
 6. Negativity aims at the **mistake**, never at the viewer.
@@ -83,8 +83,8 @@ Hook Lab's visual rules were tuned on health products ("the body part already sw
   futures, misdirection, challenge (a documented series, real tracked data only).
 
 ## Replace, don't escalate (Matan, plan of 28 Oct; wins over Hook Lab's loops and the lines below)
-- **At most 3 rounds** per post (a round: write or fix, code check, the blind grade). A hook passes only when **both** of
-  2 fresh blind graders give A or A+ on **visual, text and spoken**. Short of that after round 3, or sooner when a round
+- **At most 3 rounds** per post (a round: write or fix, code check, the blind grade). A hook passes only by the **twin
+  hook rule** ("Independent grading" below). Short of that after round 3, or sooner when a round
   shows the idea itself is the problem, **replace it with the next idea in the bank** (the next `HF-nn` format with
   buyer phrases that fit the card); don't keep polishing it.
 - **Never escalate to Matan.** A hook, script or take that runs out of rounds is replaced or simplified by the main
@@ -108,13 +108,25 @@ pass G-HOOK until the frame exists and is graded.
 4. **Concrete payoff:** the payoff is a thing you can see or count (a full calendar, a booked call), not an abstract
    one ("growth", "clarity", "results").
 
-## Independent grading (G-HOOK)
-Hook Lab grades its own stacks. For organic posts the hook-agent's top 3 stacks then go to a **fresh agent** that gets
-only the persona card (AV-01 from the brain, scrolling at night, sound off first) and, per stack, the text hook, the
-spoken line 1 and the concept frame. It answers: that's me / not me, what the post is about, would you keep watching,
-and grades each channel. G-HOOK passes when the master stack has passed `organic.py hooks` (proven format, buyer words,
-plain spoken English: "Proven formats only" above) AND is A or A+ on every channel from both graders. A stack that
-never passed the code check cannot pass G-HOOK however the graders score it.
+## Independent grading (G-HOOK): the twin hook rule (Matan, 29 Oct 2026)
+Hook Lab grades its own stacks. For organic posts the hook-agent's top 3 stacks then go to **2 fresh blind graders** in
+one run on **packet-v2** (`production/hook-calibration/packet-v2`: the skill's rubric, instructions, a target buyer on
+every stack; the old persona-card packet is retired). Build the folder with `tools/hook_packet.py`: it adds the **2
+anchors** (the skill's proven winner hooks, `production/hook-calibration/anchors.json`) to every run, shuffled in under
+neutral labels, so the graders never know which stack is which. Per stack they return gates failed and a grade for
+visual, text and spoken.
+**Pass rule:** G-HOOK passes when the master stack has passed `organic.py hooks` (proven format, buyer words, plain
+spoken English: "Proven formats only" above) AND, for **both** graders, the stack grades **at least as well as both
+anchors on visual, text and spoken** (a grader is compared with its own anchor grades in that run; against the stronger
+anchor on each channel) AND **no grader fails any of the 9 checks** for it. A letter grade alone is no longer the bar. A
+stack with no real grade on a channel, or with the anchors missing from the run, cannot pass. Below an anchor on any one
+channel is a fail (replace, don't escalate). A stack that never passed the code check cannot pass G-HOOK however the
+graders score it.
+**Record:** `python3 growth-engine/tools/hook_record.py run.json` prints the data (the graders' grades for the hook and
+both anchors, the anchor ids, the packet, the verdict). Pass it to `pipeline.py gate <slug> <post_id> G-HOOK --status
+PASS --by ... --note ... --data '<json>'`; `pipeline.py` recomputes the verdict and refuses a PASS that is below an
+anchor. A FAIL needs no data. The code: `tools/hook_rule.py` (the rule), `hook_packet.py` (the run), `hook_record.py`
+(the record).
 
 ## Concept frames are gated stills
 A concept frame is frame 1 of the hook shot, so the hook shot's Shot Spec (`H-01`) is written at step 2, not step 6,

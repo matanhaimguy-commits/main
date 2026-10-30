@@ -1,0 +1,73 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CF-V8",
+ "version": 3,
+ "prompt_sha256": "61daac77f64fc2275925cf1783dd95a99dacddb2b49d6a96716f7d73f94b45df",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Every spec item is present: both cards, hearts, arrow, four strings with positions, 'Hands: no hands visible.', setting, camera, safe zones. Block order differs from card 4.1 (composition first, camera before subject) but no block is missing."
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'References: none attached (text to image).' matches the packet: no media."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'Hands: no hands visible.' matches spec 'hands: none visible'."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'Both cards and the arrow lie flat on the sage clay ground; the three hearts are pressed into the post card's surface to the right of line 2; nothing else rests on the cards.'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Both cards, hearts and arrow carry full content (colour, rim, rounded corners, layers, boxes). Negatives are targeted ('no words other than the quoted ones'); none empties a prop."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "'\"TIRED OF SLOW\" on the post card, line 1, deep ink #2B2A33 letters, centred, at x 12% to 88%, y 32% to 36%' ... 'nothing covers any letter'. Each string is 1 to 3 words; all four strings match the spec exactly."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'no signs, frames, posters or screens; the only writing is the quoted text.' No frames, screens or books in the scene."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Numbers agree with the spec and with each other: bands 7-9 = 31% to 41.5%, band 9 arrow 42% to 45%, bands 10-11 = 45.5% to 55%, bands 12-20 = lower 45%. Minor looseness in 'alone in band 9' is handled under P11."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'Continuity: first frame of the reel; nothing carried over.' matches spec previous_shot null."
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "openai/gpt-image-2/text-to-image, quality medium, 1152x2048 are all in standards.json atlas.allowed (size_for_aspect 9:16 = 1152x2048); no text_fields, no people; 'Vertical 9:16 frame.' Registered sha under pipeline.sha_text equals the packet's 61daac77..."
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "'centred' is used two ways: 'the post card centred' (camera line) and 'the group is not centred in the frame' (composition), and the model already centred the group in v1 and v2. 'The small arrow sits alone in band 9' also clashes with the upper card reaching 41.5% inside band 9. Fixed by 'horizontally centred', 'not vertically centred' and 'lower part of band 9 ... strip of plain ground between it and each card'."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "Prevention for the v1/v2 layout failure is in the prompt: 'cut into 20 equal horizontal bands', 'short, wide strip, its height only about one tenth of the frame height', 'The cards are small in the frame', 'sits higher than the middle', explicit right edge 79%. FL-03 (contact points), FL-04 (content lines), FL-05 (no empty frames), FL-10 (only quoted text) covered; FL-13: the prompt never asks for a logo and says 'no logo, wordmark ...'."
+  }
+ ],
+ "corrected_prompt": "Premium studio claymation scene - everything sculpted from matte plasticine with refined intentional craftsmanship: subtle tool marks, controlled texture, soft rounded geometry, slight subsurface warmth, macro lens feel with shallow depth of field, soft diffused studio lighting with a gentle rim glow, the scene filling the entire frame with the camera inside the miniature clay world. Vertical 9:16 frame. Palette (every colour in this frame): warm cream #F3E9D8, terracotta #C8553D, sage #8FA98B, deep ink #2B2A33, grey-blue #9AA3AD, heart red #D64545.\n\nReferences: none attached (text to image).\n\nComposition first (the most important rule of this picture): picture the frame cut into 20 equal horizontal bands, numbered 1 at the top edge to 20 at the bottom edge. Bands 1 to 6 are plain empty sage ground. The upper card (the post) fills bands 7 and 8 and part of band 9 only (31% to 41.5% of the frame height): it is a short, wide strip, its height only about one tenth of the frame height. The small arrow sits in the lower part of band 9 (42% to 45%), with a strip of plain ground between it and each card, touching neither card. The lower card (the page) fills band 10 and band 11 only (45.5% to 55% of the frame height), also a short, wide strip about one tenth of the frame height. Bands 12 to 20, the whole lower 45% of the frame, are plain empty sage ground with nothing on them. The cards are small in the frame: the group is not vertically centred in the frame, it sits higher than the middle. The upper card stops short of both side edges, with plain ground at 0% to 6% and 94% to 100% of the width; the lower card is narrower, its right edge at 79% of the frame width, with plain ground to its right.\n\nCamera: seen from straight above, the lens looking straight down at the clay ground, square to the frame; macro lens feel, shallow depth of field, vertical 9:16. Two cards stacked vertically, the post card horizontally centred and the page card left of 79% of the width, the arrow between them; the whole card area in sharp focus.\n\nSubject and props: A flat sage #8FA98B clay ground fills the whole frame. On it lie two flat clay cards, one above the other. The upper card (the post): one flat cream #F3E9D8 clay slab with rounded corners and a thick terracotta #C8553D clay rim, one layer, from 6% to 94% of the frame width and 31% to 41.5% of the frame height. Three small clay hearts in heart red #D64545 are pressed onto the post card to the right of its second line, from 74% to 88% of the frame width and 36.5% to 40.5% of the frame height, clear of every letter. The lower card (the page): one flat grey-blue #9AA3AD clay slab with rounded corners, one layer, from 6% to 79% of the frame width and 45.5% to 55% of the frame height. Between them, one short thick terracotta #C8553D clay arrow pointing down, from 40% to 48% of the frame width and 42% to 45% of the frame height, touching neither card. From the top edge down to 30% and everywhere lower than 55% of the frame height the ground is plain and empty.\n\nHands: no hands visible.\n\nAction as contact points: Both cards and the arrow lie flat on the sage clay ground; the three hearts are pressed into the post card's surface to the right of line 2; nothing else rests on the cards.\n\nText: heavy bold capital letters, exactly: \"TIRED OF SLOW\" on the post card, line 1, deep ink #2B2A33 letters, centred, at x 12% to 88%, y 32% to 36%; \"MONTHS?\" on the post card, line 2, deep ink #2B2A33 letters, centred, at x 32% to 68%, y 36.5% to 40.5%; \"WELCOME TO\" on the page card, line 1, deep ink #2B2A33 letters, centred on the card, at x 14% to 71%, y 46.5% to 50.5%; \"OUR WEBSITE\" on the page card, line 2, deep ink #2B2A33 letters, centred on the card, at x 12% to 73%, y 50.5% to 54.5%; nothing covers any letter. No other text anywhere.\n\nSetting and background: a flat sage #8FA98B clay ground filling the whole frame; from the top edge to 30% and everywhere lower than 55% only plain ground. no signs, frames, posters or screens; the only writing is the quoted text.\n\nLayout (STANDARDS 6; heights measured down from the top edge of the frame): the top 30% of the frame is plain and empty (the text hook is set at 14% to 30% in the edit); every key element sits between 30% and 55% of the frame height (captions start at 55%) and inside 6% to 94% of the width, and inside 6% to 79% of the width wherever it lies lower than 50% of the height; lower than 55% there is only the plain continuation of the surface, nothing else.\n\nContinuity: first frame of the reel; nothing carried over.\n\nNegatives: no logo, wordmark or real app name or app icon anywhere; no digits or numbers anywhere; no words other than the quoted ones; nothing in the top 30% of the frame (measured down from the top edge) except the plain surface; no people, no hands, no faces; no workbench, table edge or room around the clay world; no glossy CGI look, no glass reflections.\n\nEverything in frame is real professionally sculpted matte plasticine, photographed - refined sculpting marks, real cast shadows, soft studio lighting, the clay scene filling the entire frame.\n",
+ "notes": "The packet carried no producer reasoning; none was used. The prompt text on disk is unchanged except the three phrases listed under P11. Packet context on versions 1 and 2 was checked against qa/CF-V8.v1.review.json and qa/CF-V8.v2.review.json."
+}

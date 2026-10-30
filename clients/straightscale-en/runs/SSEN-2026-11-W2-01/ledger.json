@@ -87,6 +87,42 @@
           "el_planned": 0
         },
         "note": ""
+      },
+      {
+        "at": "2026-10-28T19:45:02+00:00",
+        "status": "PASS",
+        "by": "pipeline.py budget",
+        "data": {
+          "unit": "usd",
+          "planned": 0.1,
+          "with_buffer": 0.12,
+          "balance": 2.357775,
+          "month_spent": 0,
+          "cap": 100,
+          "el_planned": 0,
+          "source": "budget_usd"
+        },
+        "note": ""
+      }
+    ],
+    "G-HOOK": [
+      {
+        "at": "2026-10-28T18:43:59+00:00",
+        "status": "FAIL",
+        "by": "producer session (hooks-v5), 2 fresh sonnet graders per round",
+        "note": "Price idea out of rounds (3 of 3, best T A-/S A- split). Slot replaced with bank W9-03 (3 rounds, best A-/A-) then W9-02 (3 rounds, best A/A from one grader, A-/A- from the other). Grades: qa/hooks-v5/, runs/SSEN-2026-11-W9-03/qa/hooks-v5/, motion-studio/projects/straightscale-en-04-only-choice/docs/hooks-v5-W9-02-grades.md"
+      },
+      {
+        "at": "2026-10-28T19:54:42+00:00",
+        "status": "FAIL",
+        "by": "producer session (hooks-v6), 2 fresh sonnet graders",
+        "note": "Main session, delegated by Matan, plan 28 Oct: one picture round for W9-02. Frame CF-W902@v2 (G-VIS FAIL, 3 minor, position). Best W902-v6a: V B+/B+, T B+/B, S A-/A. Replaced by bank W9-11. Grades: qa/hooks-v6/grades.md"
+      },
+      {
+        "at": "2026-10-28T20:01:39+00:00",
+        "status": "FAIL",
+        "by": "producer session (hooks-v6), fresh sonnet graders",
+        "note": "Main session, delegated by Matan, plan 28 Oct: replacement bank W9-09 out of rounds (3 of 3). Best: W909-R3b T B, S A-. W9-11 not run: its demand phrase Q-R-0146 is not in buyer-phrases-en.md, so its hooks fail the words check. Grades: qa/hooks-v6/grades.md"
       }
     ]
   },
@@ -156,6 +192,35 @@
           "report": "qa/H-01-V7.spec.json"
         }
       ]
+    },
+    "H-01-W902": {
+      "sha256": "64edd0016941aa3c1161d9451bafae09d790275c3393e6cd71235e158b57c9cd",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T19:42:04+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T19:40:59+00:00",
+          "status": "FAIL",
+          "sha256": "1b13106120ef11c40f5e3a5bd7c65faf66227501230acbd15dee426f2e6befdc",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-W902.spec.json"
+        },
+        {
+          "at": "2026-10-28T19:42:04+00:00",
+          "status": "FAIL",
+          "sha256": "c85e0e5f6673c2aa333b6b079709b62c5acbf97239c50d1e0057e1012331d3d8",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-W902.spec.json"
+        },
+        {
+          "at": "2026-10-28T19:43:25+00:00",
+          "status": "PASS",
+          "sha256": "64edd0016941aa3c1161d9451bafae09d790275c3393e6cd71235e158b57c9cd",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-W902.spec.json"
+        }
+      ]
     }
   },
   "assets": [
@@ -202,7 +267,9 @@
       "ids": [
         "855b65dfda4242ac998d6c5996ffbefa"
       ],
-      "files": [],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-2026-11-W2-01/assets/CF-V1.v1.png"
+      ],
       "gates": {
         "G-PROMPT-IMG": [
           {
@@ -211,6 +278,20 @@
             "by": "prompt-reviewer (fresh agent)",
             "report": "qa/CF-V1.v1.prompt.json",
             "prompt_sha256": "2867b72715ec62813d34bbdd902e7b2d1ae40ae347fcc4bb5992661534709626"
+          }
+        ],
+        "G-VIS": [
+          {
+            "at": "2026-10-28T18:31:12+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/CF-V1.v1.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 5,
+              "minor": 1
+            },
+            "hero": true
           }
         ]
       }
@@ -318,7 +399,9 @@
       "ids": [
         "f8d86803cc644ebbaf51d3661ea36e31"
       ],
-      "files": [],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-2026-11-W2-01/assets/CF-V7.v1.png"
+      ],
       "gates": {
         "G-PROMPT-IMG": [
           {
@@ -387,6 +470,114 @@
             "by": "prompt-reviewer (fresh agent)",
             "report": "qa/CF-V3.v1.prompt.json",
             "prompt_sha256": "8ea2e31099a455adb617298dc2b3beafe25a305e72a6e9e5f2b15344fa05885d"
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "CF-W902",
+      "version": 1,
+      "type": "still",
+      "shots": [
+        "H-01-W902"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": true,
+      "created": "2026-10-28T19:43:25+00:00",
+      "prompt_sha256": "1ed31e624c3fe3407833ab480b4985444a9567b5b0524670ee1ccae8a137253c",
+      "prompt_file": "prompts/CF-W902.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T19:43:38+00:00",
+          "sha256": "1ed31e624c3fe3407833ab480b4985444a9567b5b0524670ee1ccae8a137253c",
+          "file": "prompts/CF-W902.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "7de9f244c3f44e529c76bb0eed058ea9"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-2026-11-W2-01/assets/CF-W902.v1.png"
+      ],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T19:45:01+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-W902.v1.prompt.json",
+            "prompt_sha256": "1ed31e624c3fe3407833ab480b4985444a9567b5b0524670ee1ccae8a137253c"
+          }
+        ],
+        "G-VIS": [
+          {
+            "at": "2026-10-28T19:48:17+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/CF-W902.v1.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 3,
+              "minor": 0
+            },
+            "hero": true
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "CF-W902",
+      "version": 2,
+      "type": "still",
+      "shots": [
+        "H-01-W902"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": true,
+      "created": "2026-10-28T19:48:18+00:00",
+      "prompt_sha256": "4024f42f4497a44ee00df4c74b52d82325d8a8e690bdebbbaadfd27c7fd0319d",
+      "prompt_file": "prompts/CF-W902.v2.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T19:48:18+00:00",
+          "sha256": "4024f42f4497a44ee00df4c74b52d82325d8a8e690bdebbbaadfd27c7fd0319d",
+          "file": "prompts/CF-W902.v2.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "c178b2521f414853be389c4b294d134e"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-2026-11-W2-01/assets/CF-W902.v2.png"
+      ],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T19:49:40+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-W902.v2.prompt.json",
+            "prompt_sha256": "4024f42f4497a44ee00df4c74b52d82325d8a8e690bdebbbaadfd27c7fd0319d"
+          }
+        ],
+        "G-VIS": [
+          {
+            "at": "2026-10-28T19:52:34+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/CF-W902.v2.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 0,
+              "minor": 3
+            },
+            "hero": true
           }
         ]
       }
