@@ -48,7 +48,9 @@
           function fill(row, text) {
             return String(text || "").split(/\s+/).filter(Boolean).map(function (t) {
               var m = document.createElement("span"); m.className = "tt-mask";
+              m.setAttribute("data-layout-allow-overflow", "");   // the word rises out of its mask on purpose
               var w = document.createElement("span"); w.className = "tt-w"; w.textContent = t;
+              w.setAttribute("data-layout-allow-overflow", "");
               m.appendChild(w); row.appendChild(m); return w;
             });
           }

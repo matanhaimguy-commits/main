@@ -50,6 +50,7 @@
           var els = items.map(function (t, i) {
             var e = document.createElement("div");
             e.className = "ob-word" + (i === n - 1 ? " ob-key" : "");
+            e.setAttribute("data-layout-allow-occlusion", "");   // the far side passes behind the head on purpose
             e.textContent = t; e.style.fontSize = size + "px"; root.appendChild(e); return e;
           });
           var widths = els.map(function (e) { return e.getBoundingClientRect().width || size * e.textContent.length * 0.62; });

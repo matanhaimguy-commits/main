@@ -49,6 +49,8 @@
           });
           if (cur.length) groups.push(cur);
           function hidden(t) { return hide.some(function (r) { return t >= r[0] - 1e-6 && t < r[1]; }); }
+          // a card never runs into a hidden range (the end card), and leaves 0.08 s before it (its flash starts early)
+          function nextHide(t) { return hide.reduce(function (m, r) { return r[0] > t ? Math.min(m, r[0] - 0.08) : m; }, Infinity); }
           var tl = gsap.timeline({ paused: true });
           var accent = getComputedStyle(root).getPropertyValue("--kit-accent").trim() || "#DD9A10";
           var fg = getComputedStyle(root).getPropertyValue("--kit-fg").trim() || "#F8F6EF";
@@ -64,7 +66,7 @@
             root.appendChild(el);
             // a card leaves at the next card or 0.35 s after its last word, so no card holds over a silence
             var last = g[g.length - 1].e + 0.35;
-            var start = g[0].s, end = k + 1 < groups.length ? Math.min(groups[k + 1][0].s, last) : last;
+            var start = g[0].s, end = Math.min(k + 1 < groups.length ? Math.min(groups[k + 1][0].s, last) : last, nextHide(start));
             if (hidden(start)) return;
             tl.fromTo(el, { opacity: 1, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.12, ease: "back.out(2)", immediateRender: false }, start);
             tl.set(el, { opacity: 0 }, end);
