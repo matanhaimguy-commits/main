@@ -1,0 +1,222 @@
+{
+ "gate": "G-VIS",
+ "asset_id": "CF-V8",
+ "version": 2,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "hero": true,
+ "files_opened": [
+  "full.png",
+  "tile_r1c1.png",
+  "tile_r1c2.png",
+  "tile_r1c3.png",
+  "tile_r2c1.png",
+  "tile_r2c2.png",
+  "tile_r2c3.png",
+  "tile_r3c1.png",
+  "tile_r3c2.png",
+  "tile_r3c3.png",
+  "region_H-01-V8_post.png",
+  "region_H-01-V8_post-text.png",
+  "region_H-01-V8_hearts.png",
+  "region_H-01-V8_arrow.png",
+  "region_H-01-V8_page.png",
+  "region_H-01-V8_page-text.png",
+  "thumb_200.png"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Cream post card TIRED OF SLOW MONTHS? above grey-blue card WELCOME TO OUR WEBSITE; the mismatch reads at once."
+  },
+  {
+   "id": "V2",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Single static concept frame; two cards, arrow, three hearts match the script line."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "One idea, no clutter."
+  },
+  {
+   "id": "V4",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No people or bodies."
+  },
+  {
+   "id": "V5",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No hands visible (spec: none)."
+  },
+  {
+   "id": "V6",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No faces."
+  },
+  {
+   "id": "V7",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "Static frame."
+  },
+  {
+   "id": "V8",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Cards, arrow lie flat on ground with soft contact shadows; hearts pressed into the post card."
+  },
+  {
+   "id": "V9",
+   "result": "PASS",
+   "severity": "",
+   "region": "region_H-01-V8_post-text.png",
+   "evidence": "Read letter by letter: TIRED OF SLOW / MONTHS? and WELCOME TO / OUR WEBSITE. All exact, upper case, no diacritics needed, no extra characters."
+  },
+  {
+   "id": "V10",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "post-text, page-text",
+   "evidence": "Text sits at wrong heights: post line 1 y 36.7-40.6% (spec 32-36%), line 2 about 42.5-46%; page line 1 about 56.5-60%, line 2 about 61-65% (spec 46.5-54.5%). Page text lies fully inside the caption zone (from 55%), so captions would cover OUR WEBSITE."
+  },
+  {
+   "id": "V11",
+   "result": "PASS",
+   "severity": "",
+   "region": "region_H-01-V8_page-text.png",
+   "evidence": "No letter occluded; hearts clear of the question mark; letters crisp ink #2B2A33."
+  },
+  {
+   "id": "V12",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "post, page",
+   "evidence": "Props out of spec geometry. Post card x 4.0-96.4%, y 33.3-49.1% (spec x 6-94, y 31-41.5; 15.8% tall vs 10.5%). Page card x 6.4-86.4%, y 54.4-67.8% (spec x 6-79, y 45.5-55). Both cards are too tall and shifted down."
+  },
+  {
+   "id": "V13",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "hearts",
+   "evidence": "Hearts x 74.9-91.1%, y 43.6-46.1% (spec x 74-88, y 36.5-40.5): right end past 88% and 7 points too low; they are still on the card, clear of letters, three in number, correct red."
+  },
+  {
+   "id": "V14",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "arrow",
+   "evidence": "Arrow y 49-54.5%, x about 43-54% (spec x 40-48, y 42-45). Its tip touches the page card and its tail touches the post card rim; spec says it touches neither (region_H-01-V8_arrow.png)."
+  },
+  {
+   "id": "V15",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No characters; palette matches (cream, terracotta, sage, ink, grey-blue, heart red)."
+  },
+  {
+   "id": "V16",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "First image of the props, no sheets yet."
+  },
+  {
+   "id": "V17",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "Single frame, no previous shot."
+  },
+  {
+   "id": "V18",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "9:16, 1152x2048."
+  },
+  {
+   "id": "V19",
+   "result": "FAIL",
+   "severity": "critical",
+   "region": "full",
+   "evidence": "Safe zones broken. Page card spans 54.4-67.8% and its text sits 56.5-65%, i.e. inside the caption area below 55% that must be plain ground. Page card right edge 86.4% beyond 79% below 50% height; post card edges 4.0% and 96.4% outside 6-94%. The top 30% is correctly empty. Same defects as v1, layout only moved slightly."
+  },
+  {
+   "id": "V20",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200.png",
+   "evidence": "At 200 px both lines are readable and the mismatch still reads."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Matte plasticine look, tool marks, soft light, macro feel; fits the claymation style."
+  },
+  {
+   "id": "V22",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No melted edges, extra fingers or warped letters; clean clay letters."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Sharp over whole card area; consistent lighting."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No logo, real app name, digits or extra words."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No before/after pair, no 'your condition', nothing shaming."
+  },
+  {
+   "id": "V26",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No AI disclosure rule triggered by a prop-only frame (no person depicted)."
+  }
+ ],
+ "fix": {
+  "route": "regenerate",
+  "prompt_changes": [
+   "Layout is unchanged in substance from v1. Shrink both cards: post card 88% wide (x 6-94) and 10.5% tall (y 31-41.5%), page card 73% wide (x 6-79) and 9.5% tall (y 45.5-55%). Heights measured down from the top edge.",
+   "Put the post lines at y 32-36% and 36.5-40.5%, page lines at 46.5-50.5% and 50.5-54.5%; say that everything lower than 55% is plain sage ground only.",
+   "Arrow x 40-48%, y 42-45%, short, with a visible green gap above and below so it touches neither card.",
+   "Hearts x 74-88%, y 36.5-40.5%, level with line 2 of the post card.",
+   "If the model keeps drawing the cards tall, simplify: fewer words per line is not possible (text is fixed), so instead lower the type size and add padding; or build the cards in an edit/composite pass and keep text exact."
+  ]
+ }
+}

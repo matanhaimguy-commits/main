@@ -1,0 +1,81 @@
+shot_id: H-01
+post_id: SSEN-2026-11-W9-01
+format: claymation
+script_lines:
+- L1
+line_text: One client leaves, and your month goes with them.
+story_purpose: 'Concept frame for hook stack W901-A (frame 1 of the hook shot): the one big client holds up the whole month;
+  it slides out and the month falls.'
+must_read_in_1s: 'A short clay tower: the big bottom block "BIG CLIENT" slides out and the blocks above it tip over.'
+subjects: []
+hands: none visible
+props:
+- id: PR-BLOCK-CLIENT
+  story_critical: false
+  ref: null
+  state: half slid out of the bottom of the tower toward the right, still under the tower's left half
+  content: 'one wide terracotta clay block, the words "BIG CLIENT" pressed into its front face in deep ink clay capitals on
+    one line'
+  size_in_frame: about 52% of the frame width and 7% of the frame height (x 30% to 82%, y 47% to 54%)
+- id: PR-BLOCKS-MONTH
+  story_critical: false
+  ref: null
+  state: four plain cream clay blocks stacked on top of each other, the stack leaning about 15 degrees to the right as it
+    starts to fall
+  content: 'four plain cream clay blocks of equal size, no marks or letters, each about 34% of the frame width and 4% of
+    the frame height'
+  size_in_frame: the leaning stack fills x 22% to 62%, y 31% to 47%
+text_in_image:
+- string: BIG CLIENT
+  surface: the front face of the terracotta block, deep ink clay capitals pressed into the clay, one line
+  position: centred on the block's visible front face
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter; the stack above touches only the block's top surface
+action_physics:
+- The terracotta block rests on the floor line and sticks out to the right of the stack; the lowest cream block's left
+  half still rests on the terracotta block's top, its right half already dropping, so the four cream blocks lean right
+  together, each touching the one below along one edge.
+static: false
+setting:
+  ref: null
+  details: 'A plain sage clay wall and a plain sage clay floor meeting at a soft line at y 54%, premium studio claymation,
+    soft diffused light from the upper left.'
+  background_rule: Nothing on the wall or floor except the blocks; no calendar, frames, posters, signs or other writing.
+  background_action: none
+camera:
+  framing: 'straight on, slightly above the floor, the tower centred left of the middle; the top 30% plain sage wall (the
+    text hook is laid at y 14% to 29% in the edit); below y 55% only plain sage floor. All x and y percentages are measured
+    from the top-left corner of the frame.'
+  angle: eye level with the tower's middle, straight on
+  lens: macro miniature look, about 50 mm, shallow depth of field, the blocks sharp
+  aspect: '9:16'
+  safe_zones: 'reels safe zone (STANDARDS 6): the tower sits in the 15% to 55% key band, below the empty top 30% and inside
+    the 6% side margins; the right 21% of the lower half is plain'
+continuity:
+  previous_shot: null
+  carry_over: []
+regions:
+- name: text-hook-zone
+  kind: other
+  box: [0.0, 0.0, 1.0, 0.3]
+- name: month-blocks
+  kind: prop
+  box: [0.22, 0.31, 0.62, 0.47]
+- name: client-block
+  kind: text
+  box: [0.30, 0.47, 0.82, 0.54]
+style: 'Premium studio claymation (the claymation skill lane 4, as EN 06): matte plasticine, refined tool marks, soft rounded
+  geometry, macro feel, soft diffused studio light. Palette: warm cream #F3E9D8, terracotta #C8553D, sage #8FA98B, deep
+  ink #2B2A33.'
+must_not:
+- no people, faces or hands
+- no logo, brand, app or platform name or icon
+- no words other than BIG CLIENT
+- no numbers or digits
+- nothing in the top 30% except plain wall
+- nothing below y 55% except plain floor
+hero: true
+notes: Concept frame for Hook Lab v5, bank idea SSEN-2026-11-W9-01 (replaces EN 05's boosted-post idea in slot W3-01). The
+  text hook is laid on top in the edit. Props are marked not story-critical only because no prop sheet exists before the
+  look bible (step 7). Kept simple on purpose (no hands, one tower).

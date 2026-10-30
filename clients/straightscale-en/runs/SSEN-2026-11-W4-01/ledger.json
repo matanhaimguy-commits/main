@@ -87,6 +87,80 @@
           "el_planned": 0
         },
         "note": ""
+      },
+      {
+        "at": "2026-10-28T19:39:53+00:00",
+        "status": "PASS",
+        "by": "pipeline.py budget",
+        "data": {
+          "unit": "usd",
+          "planned": 0.1,
+          "with_buffer": 0.12,
+          "balance": 2.405165,
+          "month_spent": 0,
+          "cap": 100,
+          "el_planned": 0,
+          "source": "budget_usd"
+        },
+        "note": ""
+      },
+      {
+        "at": "2026-10-28T23:08:07+00:00",
+        "status": "PASS",
+        "by": "pipeline.py budget",
+        "data": {
+          "unit": "usd",
+          "planned": 0.05,
+          "with_buffer": 0.06,
+          "balance": 2.168215,
+          "month_spent": 0,
+          "cap": 100,
+          "el_planned": 0,
+          "source": "budget_usd"
+        },
+        "note": ""
+      },
+      {
+        "at": "2026-10-28T23:14:26+00:00",
+        "status": "PASS",
+        "by": "pipeline.py budget",
+        "data": {
+          "unit": "usd",
+          "planned": 0.05,
+          "with_buffer": 0.06,
+          "balance": 2.073435,
+          "month_spent": 0,
+          "cap": 100,
+          "el_planned": 0,
+          "source": "budget_usd"
+        },
+        "note": ""
+      }
+    ],
+    "G-HOOK": [
+      {
+        "at": "2026-10-28T18:43:59+00:00",
+        "status": "FAIL",
+        "by": "producer session (hooks-v5), 2 fresh sonnet graders per round",
+        "note": "Page idea out of rounds (3 of 3, best T A-/S A from both graders in round 1). No fitting TOF bank idea left. Graded in words only: CF-V8@v1 failed G-VIS. Grades: qa/hooks-v5/grades.md"
+      },
+      {
+        "at": "2026-10-28T19:54:42+00:00",
+        "status": "FAIL",
+        "by": "producer session (hooks-v6), 1 fresh sonnet grader (no stack at A on any channel, second read not run)",
+        "note": "Main session, delegated by Matan, plan 28 Oct: one picture round for the page idea. Frame CF-V8@v3 (G-VIS FAIL, position; 2 tries used). Best EN06-v6b: V B+, T A-, S B. Replaced by bank W9-10. Grades: qa/hooks-v6/grades.md"
+      },
+      {
+        "at": "2026-10-28T20:01:03+00:00",
+        "status": "FAIL",
+        "by": "producer session (hooks-v6), fresh sonnet graders",
+        "note": "Main session, delegated by Matan, plan 28 Oct: replacement bank W9-10 out of rounds (3 of 3). Closest: W910-R3c T A/A, S A/A-, visual not graded. Grades: qa/hooks-v6/grades.md"
+      },
+      {
+        "at": "2026-10-28T23:22:04+00:00",
+        "status": "FAIL",
+        "by": "producer session (hooks-v7), 2 fresh sonnet graders",
+        "note": "Main session, delegated by Matan, plan 28 Oct: one extra round for W9-10 R3c with its frame. Frames CF-W910@v1 and @v2 both G-VIS FAIL (size, then the plane in the hook zone); attempt limit reached. Best R4a: V A-/A-, T B+/B+, S A-/A. W9-10 closed. Grades: qa/hooks-v7/grades.md"
       }
     ]
   },
@@ -208,6 +282,35 @@
           "sha256": "2d8eba16fb735e4a0f22ad1354c97bdcb9969f3135d9ef9b97100589a8384238",
           "by": "prompt-reviewer (fresh agent)",
           "report": "qa/H-01-V9.spec.v6.json"
+        }
+      ]
+    },
+    "H-01-W910": {
+      "sha256": "f5d0ada43cc8eba8b9dfe92dbb99bd11024ecf12dba79c1dfdde9008a6c5cb3a",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T23:04:52+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T23:03:51+00:00",
+          "status": "FAIL",
+          "sha256": "dfc1a1dd9a4a007b3fcaec7816876612b849ea78f75db235eec467c520171eba",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-W910.spec.json"
+        },
+        {
+          "at": "2026-10-28T23:04:51+00:00",
+          "status": "FAIL",
+          "sha256": "c8da63b8462d344c84e4be1859c890656f169cc531d75d306f3573d32972e36f",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-W910.spec.json"
+        },
+        {
+          "at": "2026-10-28T23:05:58+00:00",
+          "status": "PASS",
+          "sha256": "f5d0ada43cc8eba8b9dfe92dbb99bd11024ecf12dba79c1dfdde9008a6c5cb3a",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-W910.spec.json"
         }
       ]
     }
@@ -445,6 +548,20 @@
             "report": "qa/CF-V8.v1.prompt.v5.json",
             "prompt_sha256": "c18b9279cb71b4e5972f6bcef1e412af0e720a9a565a7898f73dfd334bad389e"
           }
+        ],
+        "G-VIS": [
+          {
+            "at": "2026-10-28T18:31:12+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/CF-V8.v1.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 1,
+              "minor": 0
+            },
+            "hero": true
+          }
         ]
       }
     },
@@ -548,7 +665,254 @@
           }
         ]
       }
+    },
+    {
+      "asset_id": "CF-V8",
+      "version": 2,
+      "type": "still",
+      "shots": [
+        "H-01-V8"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-28T18:31:55+00:00",
+      "prompt_sha256": "2146974da594d1a3877590d3be9c222de0570d2e818e897de7ad2ee581817e1b",
+      "prompt_file": "prompts/CF-V8.v2.2.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:31:55+00:00",
+          "sha256": "ebece4516e9d46269470e84467fba1de64887eb66c62f97c7a4ccf96ca59286b",
+          "file": "prompts/CF-V8.v2.1.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T19:38:08+00:00",
+          "sha256": "2146974da594d1a3877590d3be9c222de0570d2e818e897de7ad2ee581817e1b",
+          "file": "prompts/CF-V8.v2.2.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "0854ac8070b14bf299db101ea20202cd"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-2026-11-W4-01/assets/CF-V8.v2.png"
+      ],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T19:39:44+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-V8.v2.prompt.v2.json",
+            "prompt_sha256": "2146974da594d1a3877590d3be9c222de0570d2e818e897de7ad2ee581817e1b"
+          }
+        ],
+        "G-VIS": [
+          {
+            "at": "2026-10-28T19:42:48+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/CF-V8.v2.review.json",
+            "defects": {
+              "critical": 1,
+              "major": 4,
+              "minor": 0
+            },
+            "hero": true
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "CF-V8",
+      "version": 3,
+      "type": "still",
+      "shots": [
+        "H-01-V8"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-28T19:43:11+00:00",
+      "prompt_sha256": "6f00e75d6f75eb58167200eef87576c947e30357dca217b8a24328d8a99b1aa4",
+      "prompt_file": "prompts/CF-V8.v3.2.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T19:43:11+00:00",
+          "sha256": "61daac77f64fc2275925cf1783dd95a99dacddb2b49d6a96716f7d73f94b45df",
+          "file": "prompts/CF-V8.v3.1.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T19:44:39+00:00",
+          "sha256": "6f00e75d6f75eb58167200eef87576c947e30357dca217b8a24328d8a99b1aa4",
+          "file": "prompts/CF-V8.v3.2.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "46895288616b4987bef04065e2716c37"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-2026-11-W4-01/assets/CF-V8.v3.png"
+      ],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T19:44:39+00:00",
+            "status": "FAIL",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-V8.v3.prompt.json",
+            "prompt_sha256": "61daac77f64fc2275925cf1783dd95a99dacddb2b49d6a96716f7d73f94b45df"
+          },
+          {
+            "at": "2026-10-28T19:46:23+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-V8.v3.prompt.json",
+            "prompt_sha256": "6f00e75d6f75eb58167200eef87576c947e30357dca217b8a24328d8a99b1aa4"
+          }
+        ],
+        "G-VIS": [
+          {
+            "at": "2026-10-28T19:49:32+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/CF-V8.v3.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 1,
+              "minor": 1
+            },
+            "hero": true
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "CF-W910",
+      "version": 1,
+      "type": "still",
+      "shots": [
+        "H-01-W910"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": true,
+      "created": "2026-10-28T23:06:07+00:00",
+      "prompt_sha256": "9311d172cba5e9fe94950e897884f716c044e9963bcfaff46d940155e3342884",
+      "prompt_file": "prompts/CF-W910.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T23:06:08+00:00",
+          "sha256": "9311d172cba5e9fe94950e897884f716c044e9963bcfaff46d940155e3342884",
+          "file": "prompts/CF-W910.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "a458879d34a64714a1db8a9ae0e7474d"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-2026-11-W4-01/assets/CF-W910.v1.png"
+      ],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T23:07:30+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-W910.v1.prompt.json",
+            "prompt_sha256": "9311d172cba5e9fe94950e897884f716c044e9963bcfaff46d940155e3342884"
+          }
+        ],
+        "G-VIS": [
+          {
+            "at": "2026-10-28T23:13:03+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/CF-W910.v1.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 4,
+              "minor": 0
+            },
+            "hero": true
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "CF-W910",
+      "version": 2,
+      "type": "still",
+      "shots": [
+        "H-01-W910"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": true,
+      "created": "2026-10-28T23:13:15+00:00",
+      "prompt_sha256": "de9b9d716762dc0268a1995954130ed31283cae2b266b1c30b20a8f021143098",
+      "prompt_file": "prompts/CF-W910.v2.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T23:13:16+00:00",
+          "sha256": "de9b9d716762dc0268a1995954130ed31283cae2b266b1c30b20a8f021143098",
+          "file": "prompts/CF-W910.v2.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "a6174d411db44a4db7a76ee277db45d4"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-2026-11-W4-01/assets/CF-W910.v2.png"
+      ],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T23:14:16+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-W910.v2.prompt.json",
+            "prompt_sha256": "de9b9d716762dc0268a1995954130ed31283cae2b266b1c30b20a8f021143098"
+          }
+        ],
+        "G-VIS": [
+          {
+            "at": "2026-10-28T23:19:35+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/CF-W910.v2.review.json",
+            "defects": {
+              "critical": 1,
+              "major": 1,
+              "minor": 1
+            },
+            "hero": true
+          }
+        ]
+      }
     }
   ],
-  "queue": []
+  "queue": [
+    {
+      "id": "G-HUMAN-ESCALATE:CF-V8@v3",
+      "checkpoint": "G-HUMAN-ESCALATE",
+      "asset": "CF-V8@v3",
+      "status": "PENDING",
+      "note": "CF-V8: failed 3 attempts at G-VIS; best version and its report go to the owner (VISUAL-QA 5.5)",
+      "files": [
+        "clients/straightscale-en/runs/SSEN-2026-11-W4-01/assets/CF-V8.v3.png"
+      ],
+      "asked_at": "2026-10-28T19:49:32+00:00"
+    }
+  ]
 }

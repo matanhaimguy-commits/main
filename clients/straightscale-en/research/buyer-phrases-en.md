@@ -9,7 +9,7 @@ nothing here is paraphrased. A hook that uses buyer words cites one of these ids
   a vendor by the scraper. Subreddits: r/agency, r/consulting, r/lifecoaching, r/sales, r/Entrepreneur,
   r/smallbusiness. Search terms include "inconsistent months", "referrals dried up", "doing everything myself",
   "booked calls no sales", "ghosted after proposal", "stuck at 30k a month".
-- 62 phrases, from 44 posts and comments. Picked only from owners speaking for their own business (scraper flag
+- 63 phrases, from 45 posts and comments (Q-R-0146 added 28 Oct 2026 from the raw row for bank card W9-11). Picked only from owners speaking for their own business (scraper flag
   `isOwner` or the text says so); employees, vendors pitching and advice-givers are left out, except where marked.
 - Old ids: 13 of the ids used in the EN project files (Q-R-0022, 0027, 0052, 0053, 0054, 0058, 0074, 0094, 0120,
   0127, 0133, 0135, 0152) were matched to their exact text in these rows and kept. New ids Q-RN-0001 and up (R =
@@ -92,6 +92,7 @@ nothing here is paraphrased. A hook that uses buyer words cites one of these ids
 - `Q-RN-0045` "they'd just disappear into the void, even when they'd seemed keen during the demo/calls" · r/sales post, business owner selling packages · 25 Aug 2026 · reddit id 1vy3xyq · dataset 83GfteTMn4Juv0ZOY
 - `Q-RN-0046` "im fed up of running and following up consistently" · r/consulting post, independent consultant · 16 Oct 2026 · reddit id 1x7n013 · dataset LIrxYWRpmTqunHMIE
 - `Q-RN-0047` "I figure if they no show at least I am paid" · r/lifecoaching comment, coach · 23 Oct 2026 · reddit id 19rjpo4iotu0x · dataset WfL5DZsbOcip5Hxyv
+- `Q-R-0146` "people don't buy, so I think my offer/product is dead" · r/lifecoaching comment, coach (owner, scraper flag isOwner), in thread 1wg5s5y · 15 Sep 2026 · reddit id p9x5zk5 · dataset WfL5DZsbOcip5Hxyv
 
 ## 8. Pages and websites
 - `Q-RN-0048` "my website is a dumpster fire right now" · r/lifecoaching comment, coach · 12 Mar 2026 · reddit id o9yinb1 · dataset WfL5DZsbOcip5Hxyv

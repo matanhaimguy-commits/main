@@ -1,0 +1,20 @@
+{"gate": "G-SPEC", "shot_id": "H-01-W910", "spec_sha256": "c8da63b8462d344c84e4be1859c890656f169cc531d75d306f3573d32972e36f",
+ "reviewer": "prompt-reviewer (fresh agent)", "independent": true, "status": "FAIL",
+ "checks": [
+  {"id": "P1", "result": "PASS", "evidence": "bin, heap, 2 flying planes, unfolded sheet and both text lines all present; must_read_in_1s: 'A bin heaped with paper planes; the small unfolded sheet on top says HOPE THIS FINDS YOU WELL.' is one moment"},
+  {"id": "P2", "result": "N/A", "evidence": "spec mode; text-to-image, no references"},
+  {"id": "P3", "result": "PASS", "evidence": "hands: none visible; must_not: 'no hands, no people, no faces, no eyes on any object'"},
+  {"id": "P4", "result": "PASS", "evidence": "'The unfolded sheet's lower edge rests on the top planes of the heap, its back leaning on them'; 'The bin's base rests flat on the clay floor at y 55%.'"},
+  {"id": "P5", "result": "PASS", "evidence": "PR-BIN, PR-PLANES-FLYING, PR-SHEET all story_critical with content lines; negatives are targeted ('no writing on any folded plane'), no blanket no-text"},
+  {"id": "P6", "result": "PASS", "evidence": "'HOPE THIS FINDS' and 'YOU WELL': quoted-style strings, surface 'the unfolded sheet, line 1/2', position boxes inside the sheet box, occlusion 'nothing covers any letter', 5 words on one surface. Advisory: line 1 is 15 characters in 24% of width (about 18 px a glyph at 1152 px), so letters must be condensed or about 1.5% tall; the prompt should say 'both lines end well before the sheet edge'"},
+  {"id": "P7", "result": "PASS", "evidence": "background_rule: 'no signs, frames, posters, screens, desks or other objects; the only writing is the quoted text'"},
+  {"id": "P8", "result": "FAIL", "evidence": "PR-PLANES-FLYING: 'exactly two ... between x 10% and 24% ... each plane about 7% of the width' (2 x 7% = 14% = the whole 10-24% box, no gap) while the content says 'touching nothing' and action_physics 'The two flying planes touch nothing.' The geometry forces the two planes to touch or overlap each other"},
+  {"id": "P9", "result": "PASS", "evidence": "previous_shot: null, carry_over: [] (first image of the props)"},
+  {"id": "P10", "result": "N/A", "evidence": "spec mode"},
+  {"id": "P11", "result": "PASS", "evidence": "positions are percentages with the origin stated ('measured from the top-left corner'); sheet tilt, heap and plane count are explicit; wall/floor line at y 50% is explicit"},
+  {"id": "P12", "result": "PASS", "evidence": "FL-02 bin structure described ('round terracotta ... plain, no face, no label'); FL-03 contact points given; FL-04 sheet content filled; FL-05 background rule; FL-13 no logo asked ('no logo, brand, app or platform name anywhere', bottom-left is plain floor); FL-10 'nothing in the top 30% except plain wall'"}
+ ],
+ "suggested_spec_changes": [
+  "PR-PLANES-FLYING: fix the fit. Either make each plane about 5% of the width and stagger them on a diagonal with clear sky between them (plane A at x 10% to 15%, y 31% to 33.5%; plane B at x 18% to 23%, y 33.5% to 36%, at least 2% of width between them), or widen the region to x 8% to 24% (still inside the 10% safe edge only if planes stay within 10%, so prefer shrinking the planes). Update size_in_frame and the flying-planes region box to match, and add 'with clear space between the two planes' to the content line.",
+  "Optional (text fit, not a fail): add 'both lines end at least 2% of the width before the sheet's edge, letters about 1.5% of the height' to the sheet text occlusion lines."
+ ]}
