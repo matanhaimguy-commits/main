@@ -255,6 +255,14 @@
         "by": "claude (delegated by Matan, plan 28 Oct)",
         "note": "clients/straightscale-en/runs/SS-EN-SONG-01/qa/look-evaluator-report.md: LOOK PASS WITH CONDITIONS 1-5 (World line pinned with a paper crop reference; laptop, bin and March tag described or one prop sheet; SH01/SH02 organizer pockets stated; AI label on; SH08/SH22 re-staged). Locked: PR-SCRAPS v1; CH-MAYA v1, PR-CLOTH v1, PR-ORGANIZER v2, SET-FRIEND v1 with minors waived; CH-FRIEND v1 standing views; SET-OFFICE retired. The conditions are met in step 7 before any clip."
       }
+    ],
+    "G-VIS-SHEET-OVERRIDE": [
+      {
+        "at": "2026-10-30T15:54:46+00:00",
+        "status": "PASS",
+        "by": "Matan",
+        "note": "Studio #4, 30 Oct 12:58 UTC, Matan: Override all five"
+      }
     ]
   },
   "specs": {
@@ -1943,6 +1951,12 @@
               "minor": 2
             },
             "hero": true
+          },
+          {
+            "at": "2026-10-30T15:54:45+00:00",
+            "status": "OVERRIDE",
+            "by": "Matan",
+            "note": "Studio #4, 30 Oct 12:58 UTC, Matan: Override all five"
           }
         ]
       },
@@ -2011,6 +2025,12 @@
               "minor": 0
             },
             "hero": true
+          },
+          {
+            "at": "2026-10-30T15:54:46+00:00",
+            "status": "OVERRIDE",
+            "by": "Matan",
+            "note": "Studio #4, 30 Oct 12:58 UTC, Matan: Override all five"
           }
         ]
       },
@@ -2278,6 +2298,12 @@
               "minor": 2
             },
             "hero": true
+          },
+          {
+            "at": "2026-10-30T15:54:46+00:00",
+            "status": "OVERRIDE",
+            "by": "Matan",
+            "note": "Studio #4, 30 Oct 12:58 UTC, Matan: Override all five"
           }
         ]
       },
@@ -2373,6 +2399,12 @@
               "minor": 2
             },
             "hero": true
+          },
+          {
+            "at": "2026-10-30T15:54:46+00:00",
+            "status": "OVERRIDE",
+            "by": "Matan",
+            "note": "Studio #4, 30 Oct 12:58 UTC, Matan: Override all five"
           }
         ]
       },
@@ -2429,6 +2461,12 @@
               "minor": 4
             },
             "hero": true
+          },
+          {
+            "at": "2026-10-30T15:54:46+00:00",
+            "status": "OVERRIDE",
+            "by": "Matan",
+            "note": "Studio #4, 30 Oct 12:58 UTC, Matan: Override all five"
           }
         ]
       },
@@ -2724,7 +2762,7 @@
       "id": "G-VIS-SHEET-OVERRIDE:",
       "checkpoint": "G-VIS-SHEET-OVERRIDE",
       "asset": null,
-      "status": "PENDING",
+      "status": "APPROVED",
       "note": "Owner only: record an OVERRIDE for the G-VIS-SHEET fails on the locked sheets CH-MAYA@v1, PR-CLOTH@v1, PR-ORGANIZER@v2, SET-FRIEND@v1, CH-FRIEND@v1 (fresh evaluator: LOOK PASS with conditions, qa/look-evaluator-report.md; minors waived). Recommended: Override all five. Options: Override all five / Redo the sheets first. On 'Override all five': pipeline.py gate ... G-VIS-SHEET --status OVERRIDE --by Matan --asset <each> --note <his answer>.",
       "files": [
         "assets/sheets/CH-MAYA.v1.png",
@@ -2734,7 +2772,10 @@
         "assets/sheets/CH-FRIEND.v1.png",
         "qa/look-evaluator-report.md"
       ],
-      "asked_at": "2026-10-29T02:32:45+00:00"
+      "asked_at": "2026-10-29T02:32:45+00:00",
+      "answered_at": "2026-10-30T15:54:46+00:00",
+      "by": "Matan",
+      "answer": "Studio #4, 30 Oct 12:58 UTC, Matan: Override all five"
     }
   ]
 }
