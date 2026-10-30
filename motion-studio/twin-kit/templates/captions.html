@@ -34,7 +34,8 @@
       </style>
       <div id="root" data-composition-id="kit-captions" data-duration="60"></div>
       <script>
-        (function () {
+        // built after the web fonts load: widths measured with a fallback font would be wrong (kit review 30 Oct)
+        document.fonts.ready.then(function () {
           var root = document.getElementById("root");
           var v = (window.__hyperframes && window.__hyperframes.getVariables()) || {};
           var words = [], hide = [];
@@ -64,10 +65,33 @@
             return acc;
           }, []);
           root.removeChild(probe);
-          function rangeAt(t) { return hide.filter(function (r) { return t >= r[0] - 1e-6 && t < r[1]; })[0]; }
-          function hidden(t) { var r = rangeAt(t); return !!r && r[1] - r[0] >= 1; }
-          // a card never runs into a hidden range (the end card), and leaves 0.08 s before it (its flash starts early)
-          function nextHide(t) { return hide.reduce(function (m, r) { return r[0] > t ? Math.min(m, r[0] - 0.08) : m; }, Infinity); }
+          // kit:schedule start (pure; tests/test_template_logic.py runs this exact text under node)
+          // When each card shows. A card that starts inside a short hidden range (a whip) or just before it waits for
+          // the range's end and keeps all its words; a card in a long hidden range (the end card) is dropped; a card
+          // leaves at the next card, 0.35 s after its last word (but shows 0.4 s at least), or before a hidden range.
+          function schedule(groups, hide) {
+            function inShort(t) {
+              for (var i = 0; i < hide.length; i++) {
+                var r = hide[i];
+                if (r[1] - r[0] < 1 && t >= r[0] - 0.08 - 1e-6 && t < r[1]) return r;
+              }
+              return null;
+            }
+            function inLong(t) { return hide.some(function (r) { return r[1] - r[0] >= 1 && t >= r[0] - 1e-6 && t < r[1]; }); }
+            function nextHide(t) { return hide.reduce(function (m, r) { return r[0] > t + 1e-6 ? Math.min(m, r[0] - 0.08) : m; }, Infinity); }
+            var starts = groups.map(function (g) { var r = inShort(g[0].s); return r ? r[1] : g[0].s; });
+            for (var k = 1; k < starts.length; k++) {
+              var pushed = starts[k - 1] !== groups[k - 1][0].s;
+              if (pushed && starts[k] < starts[k - 1] + 0.4) starts[k] = starts[k - 1] + 0.4;
+            }
+            return groups.map(function (g, k) {
+              var start = starts[k], last = Math.max(g[g.length - 1].e + 0.35, start + 0.4);
+              var end = Math.min(k + 1 < groups.length ? starts[k + 1] : Infinity, last, nextHide(start));
+              return inLong(start) || end <= start ? null : { start: start, end: end };
+            });
+          }
+          // kit:schedule end
+          var when = schedule(groups, hide);
           var tl = gsap.timeline({ paused: true });
           var accent = getComputedStyle(root).getPropertyValue("--kit-accent").trim() || "#DD9A10";
           var fg = getComputedStyle(root).getPropertyValue("--kit-fg").trim() || "#F8F6EF";
@@ -81,12 +105,8 @@
               s.textContent = w.w.replace(/[.,!?;:]+$/, ""); el.appendChild(s); return s;
             });
             root.appendChild(el);
-            // a card leaves at the next card or 0.35 s after its last word, so no card holds over a silence
-            var last = g[g.length - 1].e + 0.35;
-            var start = g[0].s, short = rangeAt(start);
-            if (short && short[1] - short[0] < 1) start = short[1];          // a card that starts inside a whip waits for its end
-            var end = Math.min(k + 1 < groups.length ? Math.min(groups[k + 1][0].s, last) : last, nextHide(start));
-            if (hidden(start) || end <= start) return;
+            if (!when[k]) return;
+            var start = when[k].start, end = when[k].end;
             tl.fromTo(el, { opacity: 1, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.12, ease: "back.out(2)", immediateRender: false }, start);
             tl.set(el, { opacity: 0 }, end);
             g.forEach(function (w, i) {
@@ -95,7 +115,7 @@
             });
           });
           window.__timelines["kit-captions"] = tl;
-        })();
+        });
       </script>
     </template>
   </body>

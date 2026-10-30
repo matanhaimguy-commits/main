@@ -31,27 +31,34 @@
         <div class="bw-line"><span class="bw-word" data-layout-allow-occlusion></span></div>
       </div>
       <script>
-        (function () {
+        // built after the web fonts load: widths measured with a fallback font would be wrong (kit review 30 Oct)
+        document.fonts.ready.then(function () {
           var root = document.getElementById("root");
           var v = (window.__hyperframes && window.__hyperframes.getVariables()) || {};
           var line = root.querySelector(".bw-line"), word = root.querySelector(".bw-word");
           var dur = Number(v.dur) || 2, size = Number(v.size) || 360;
           word.textContent = v.text || "";
           word.style.color = v.color || "#F8F6EF";
-          // shrink to fit the frame width (measured, not guessed)
-          var px = size;
+          // kit:fit start (pure; tests/test_template_logic.py runs this exact text under node)
+          // The font size that keeps the word inside the side margins at the move's biggest scale (the slam), with 2%
+          // for glyph overhang past the measured box.
+          function fitPx(size, width, maxW, maxScale, margin) {
+            var limit = Math.min(maxW, (1080 - 2 * margin) / maxScale * 0.98);
+            return width > limit ? Math.floor(size * limit / width) : size;
+          }
+          // kit:fit end
+          var MAX_SCALE = 1.06;
+          word.style.fontSize = size + "px";
+          var px = fitPx(size, word.getBoundingClientRect().width, Number(v.max_w) || 890, MAX_SCALE, 65);
           word.style.fontSize = px + "px";
-          var w = word.getBoundingClientRect().width;
-          var maxW = Number(v.max_w) || 890;
-          if (w > maxW) { px = Math.floor(px * maxW / w); word.style.fontSize = px + "px"; }
           line.style.top = (Number(v.y) || 620) - px * 0.43 + "px";
           var tl = gsap.timeline({ paused: true });
-          tl.fromTo(word, { scale: 1.06, opacity: 1, y: -16 }, { scale: 1, opacity: 1, y: 0, duration: 0.26, ease: "expo.out" }, 0);
+          tl.fromTo(word, { scale: MAX_SCALE, opacity: 1, y: -16 }, { scale: 1, opacity: 1, y: 0, duration: 0.26, ease: "expo.out" }, 0);
           tl.fromTo(word, { scale: 1 }, { scale: 1.05, duration: Math.max(0.1, dur - 0.5), ease: "none", immediateRender: false }, 0.26);
           // the exit moves the line, never the word (one owner per transform; see move-twotone.html)
           tl.fromTo(line, { y: 0, opacity: 1 }, { y: 80, opacity: 0, duration: 0.16, ease: "power2.in", immediateRender: false }, Math.max(0.3, dur - 0.18));
           window.__timelines["kit-behind"] = tl;
-        })();
+        });
       </script>
     </template>
   </body>

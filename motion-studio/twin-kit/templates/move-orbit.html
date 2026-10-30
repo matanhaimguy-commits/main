@@ -40,7 +40,8 @@
       </style>
       <div id="root" data-composition-id="kit-orbit" data-duration="3"></div>
       <script>
-        (function () {
+        // built after the web fonts load: widths measured with a fallback font would be wrong (kit review 30 Oct)
+        document.fonts.ready.then(function () {
           var root = document.getElementById("root");
           var v = (window.__hyperframes && window.__hyperframes.getVariables()) || {};
           var items = String(v.words || "").split("|").map(function (s) { return s.trim(); }).filter(Boolean);
@@ -59,11 +60,15 @@
             e.textContent = t; e.style.fontSize = size + "px"; root.appendChild(e); return e;
           });
           var widths = els.map(function (e) { return e.getBoundingClientRect().width || size * e.textContent.length * 0.62; });
+          // kit:clamp start (pure; tests/test_template_logic.py runs this exact text under node)
+          // A word's centre x kept so the whole word (width w at full scale) stays inside [lo, hi].
+          function clampX(x, w, lo, hi) { return Math.min(Math.max(x, lo + w / 2), hi - w / 2); }
+          // kit:clamp end
           var state = { p: 0, show: 0 };
           function place() {
             for (var i = 0; i < n; i++) {
               var th = (i / n + state.p) * Math.PI * 2;
-              var x = cx + rx * Math.cos(th), y = cy - i * gap + ry * Math.sin(th);
+              var x = clampX(cx + rx * Math.cos(th), widths[i], 65, 1015), y = cy - i * gap + ry * Math.sin(th);
               var depth = Math.sin(th);                 // +1 nearest the camera, -1 behind the head
               var s = minS + (1 - minS) * (depth + 1) / 2;
               var w = widths[i] * s, h = size * s;
@@ -80,7 +85,7 @@
           tl.fromTo(state, { show: 1 }, { show: 0, duration: 0.12, ease: "none", onUpdate: place, immediateRender: false }, Math.max(0.3, dur - 0.14));
           place();
           window.__timelines["kit-orbit"] = tl;
-        })();
+        });
       </script>
     </template>
   </body>

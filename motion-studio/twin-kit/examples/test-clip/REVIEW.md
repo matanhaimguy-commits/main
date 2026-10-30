@@ -1,6 +1,6 @@
 # Kit test: review log (producer self-check; G-MOTION-FRAMES is the fresh reviewer's)
 
-Renders: `deliver/kit-test-v4.mp4` (current), `deliver/kit-test-v3.mp4` (round 3), `deliver/kit-test-v2.mp4` (round 2), `deliver/kit-test-v1.mp4` (round 1), viewing copies at CRF 24. The
+Renders: `deliver/kit-test-v5.mp4` (current: the two v4-review code fixes), `deliver/kit-test-v4.mp4` (round 4), `deliver/kit-test-v3.mp4` (round 3), `deliver/kit-test-v2.mp4` (round 2), `deliver/kit-test-v1.mp4` (round 1), viewing copies at CRF 24. The
 CRF 16 master is rebuilt by `python3 twinkit.py compose examples/test-clip/edl.json --out examples/test-clip/out`.
 
 ## Inputs (all $0 today)
