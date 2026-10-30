@@ -5,7 +5,7 @@
   "business": "straightscale",
   "note": "The hub's only business; switched to the English offer on 28 Oct (E10). hub.py and the studio commands send this folder as it, so --business isn't needed. English runs live in clients/straightscale-en/runs/ (SS-EN-SONG-01 stays in clients/straightscale/runs/)."
  },
- "updated": "2026-10-28",
+ "updated": "2026-10-30",
  "refresh_due": "2027-01-26",
  "sources": [
   "vault: Agency OS/Clients/StraightScale/StraightScale EN offer.md (offer sheet, 26 Oct 2026; wins over any older note)",
@@ -294,8 +294,8 @@
    "motion-studio/projects/straightscale-en-01/assets/brand/wordmark-white.png"
   ],
   "face": "mixed",
-  "face_note": "No AI host (E8, Matan, plan 28 Oct): no HeyGen twin pieces. Face-on AI people are allowed as staged characters with the AI label, never as a client, customer or the owner (D1, 28 Oct). Pieces so far: faceless kinetic type (EN 01, EN 02), claymation characters (EN 03, EN 05, EN 06), POV hands only (EN 04). Maya and every story character is a composite in a stylized world.",
-  "ai_label": "on: Instagram's AI label on every post with an AI person, an AI voice speaking as a person, or an AI scene (D1, Matan 28 Oct; STANDARDS 7)",
+  "face_note": "The twin hosts (E8, Matan, 29 Oct): his HeyGen digital twin speaks as Matan the founder, in his cloned voice, on cards marked twin_host (see host). It never claims a result, number or client that is not in the proof bank. Other face-on AI people stay staged characters, never a client, customer or the owner (D1, 28 Oct). A landscape twin placed in 9:16 needs a cover fit (crop to fill), never contain. Earlier pieces: faceless kinetic type (EN 01, EN 02), claymation characters (EN 03, EN 05, EN 06), POV hands only (EN 04).",
+  "ai_label": "off",
   "real_footage": false,
   "set": "The cloth world (claymation): a home office with a CLIENTS wall organizer, one pocket per week (EN 03, EN 05, EN 06).",
   "recurring_object": "The CLIENTS wall organizer and the one cloth printed with buyers' words, from which every piece is cut.",
@@ -444,10 +444,10 @@
   {
    "id": "E8",
    "question": "AI labels and the host: how are Matan's HeyGen twin, AI voices and AI scenes labelled on this account, and are the twin's consent and footage in place?",
-   "interim": "No twin pieces until decided; claymation and faceless pieces only.",
+   "interim": "Superseded: the 28 Oct 'no AI host' answer was reversed on 29 Oct (D-T1 to D-T3).",
    "decided": {
-    "answer": "No AI host: no HeyGen twin pieces. D1 (Matan, 28 Oct 2026, \"Yes, staged + AI label\"): face-on AI people may appear (UGC creators, podcast hosts, drama characters, lived authority) as clearly staged characters with Instagram's AI label, never presented as a real client, customer or the owner (STANDARDS 7). Every post with an AI person, AI voice or AI scene carries the AI label.",
-    "by": "Matan, plan 28 Oct; D1 28 Oct about 17:52 UTC"
+    "answer": "The twin hosts @straightscale_ (D-T1, reversing the 28 Oct 'no AI host' answer). It speaks as Matan, the founder, in his cloned voice, and never claims a result, number or client that is not in the proof bank (D-T2). The AI label is off on @straightscale_ posts, the twin included (D-T3). The truth rules stay. Only cards marked twin_host may show the twin; every other AI person keeps the D1 rule (staged character, never a client, customer or the owner). HeyGen is opened for two tools only: speech in his cloned voice, and avatar video driven by that audio (D-T4). No pilot credit cap; every HeyGen call is logged in credits (D-T5). No new portrait filming: the pilot tests both looks and a fresh reviewer picks the default (D-T6).",
+    "by": "Matan, chat, 29 Oct 2026 (plan approved 30 Oct about 13:00 UTC): Twin reel machine plan 2026-10-29"
    }
   },
   {
@@ -534,5 +534,44 @@
    "EN 01 brief, calm and direct (voice_is)",
    "offer sheet; decisions 27 Oct (never childish); EN 03 persona card (distrusts agency pitch, done-for-you) (voice_is_not)"
   ]
+ },
+ "host": {
+  "engine": "heygen",
+  "speaks_as": "Matan, the founder",
+  "looks": [
+   {
+    "id": "0295627e7d5e497980c0e20c50bb2db7",
+    "name": "Photo Avatar",
+    "kind": "portrait_photo",
+    "size": "2160x3840",
+    "orientation": "portrait",
+    "fit": "native"
+   },
+   {
+    "id": "fb4c6f11e09e4fd2863bcf77eaa00c2c",
+    "name": "Matan Haim Guy -- 1",
+    "kind": "landscape_twin",
+    "size": "1280x720",
+    "orientation": "landscape",
+    "fit": "cover"
+   }
+  ],
+  "default_look": "unset: the pilot tests both looks and a fresh reviewer picks the default",
+  "voices": [
+   {
+    "id": "8646763dcd2e4f97934ca00402817e4b",
+    "name": "Matan Haim Guy"
+   },
+   {
+    "id": "fa3d35d40d3642af9004b513ae06bfaa",
+    "name": "Matan Haim Guy -- 2"
+   }
+  ],
+  "tools": [
+   "speech",
+   "avatar_video_from_audio"
+  ],
+  "cards": "twin_host",
+  "decided": "E8, D-T1 to D-T6, Matan, 29 Oct 2026"
  }
 }

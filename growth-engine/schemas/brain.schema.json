@@ -756,6 +756,96 @@
      "description": "brain fields or approved docs each line comes from"
     }
    }
+  },
+  "host": {
+   "type": "object",
+   "description": "A digital twin that may host the client's content on cards marked twin_host.",
+   "required": [
+    "engine",
+    "looks",
+    "voices"
+   ],
+   "properties": {
+    "engine": {
+     "enum": [
+      "heygen"
+     ]
+    },
+    "speaks_as": {
+     "type": "string"
+    },
+    "looks": {
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "object",
+      "required": [
+       "id",
+       "orientation",
+       "fit"
+      ],
+      "properties": {
+       "id": {
+        "type": "string"
+       },
+       "name": {
+        "type": "string"
+       },
+       "kind": {
+        "type": "string"
+       },
+       "size": {
+        "type": "string"
+       },
+       "orientation": {
+        "enum": [
+         "portrait",
+         "landscape"
+        ]
+       },
+       "fit": {
+        "enum": [
+         "native",
+         "cover"
+        ]
+       }
+      }
+     }
+    },
+    "default_look": {
+     "type": "string"
+    },
+    "voices": {
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "object",
+      "required": [
+       "id"
+      ],
+      "properties": {
+       "id": {
+        "type": "string"
+       },
+       "name": {
+        "type": "string"
+       }
+      }
+     }
+    },
+    "tools": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "cards": {
+     "type": "string"
+    },
+    "decided": {
+     "type": "string"
+    }
+   }
   }
  }
 }

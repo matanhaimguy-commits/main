@@ -171,7 +171,15 @@ format, aligned with Instagram's AI label (Organic Growth OS section 13):
   footage. (Before D1 the interim rule showed AI people only from behind, hands only, at a distance or stylized.)
 - An AI person is never presented as a real customer or client, and never carries a real or invented result.
   Anecdotes in the brand's voice only as clearly framed POV dramatizations ("POV: ..."), never stated as fact.
-- The final reviewer checks this (V26, F7); the hub draft's notes say "AI label: on" when it applies.
+- **The twin host (D-T1 to D-T3, decided by Matan, 29 Oct 2026).** On a client whose brain has a `host` block, the AI
+  label is whatever `visual.ai_label` says; for @straightscale_ it is **off**, the twin included, and the hub notes say
+  "AI label: off". The twin (Matan's HeyGen digital twin, in his cloned voice) may be the owner, and speaks as Matan
+  the founder, but only on cards marked `twin_host`; every other AI person keeps the D1 rule above. The twin never
+  claims a result, number or client that is not in the proof bank. The truth rules (section 6, G-TRUTH, V26, F7) stay:
+  the ban on invented results, anecdotes not framed as POV, price, guarantee and urgency applies to the twin as to any
+  speaker. A client with no `host` block keeps the label rules above unchanged.
+- The final reviewer checks this (V26, F7); the hub draft's notes say "AI label: on" when it applies, and "AI label:
+  off" on a client whose brain turns it off.
 
 ## 7b. Drama exceptions (drama-ads 0b, X1 to X10)
 
@@ -357,7 +365,7 @@ fetched from a URL at run time and isn't in any skill folder.
 |---|---|---|---|
 | R1 | Side-by-side for stylized sheets and storyboards: Nano Banana 2 vs GPT Image 2 (on Atlas), one character sheet and one 3-panel storyboard per style used | about $1.65 | Done 28 Oct on Atlas (F6, FORMATS.md 5): Nano Banana 2 wins 3D and 2D, gpt-image-2 wins clay and crochet; Nano Banana 2 stays test-only until Matan names it per style |
 | R2 | H3 duration rule: a 5 s and a 14 s talking slice, duration = slice vs slice + 1 s | about 80 credits | Before the next talking-head or story piece; needs G-HUMAN-TEST |
-| D1 | AI label policy and AI people for the account (existing decision in brain.json) | | Decided 28 Oct 2026 (Matan): face-on AI people as staged characters with the AI label, never a client, customer or the owner (section 7) |
+| D1 | AI label policy and AI people for the account (existing decision in brain.json) | | Decided 28 Oct 2026 (Matan): face-on AI people as staged characters with the AI label, never a client, customer or the owner (section 7). Amended 29 Oct (D-T1 to D-T3): on @straightscale_ the twin may host as Matan on `twin_host` cards, with the AI label off and the truth rules unchanged (section 7) |
 | D9 | Drama model routing (X5 only: Kling 3.0 and Omni, Seedance 2.5, Cinema Studio 4.0, Veo 3.1, Gemini Omni Flash, Sync Lipsync 3 after the move) for organic drama | | H3 for every shot (silent ones in keyframe mode); Kling 3.0 and Sync Lipsync 3 with G-FALLBACK; others with G-EXCEPTION per asset |
 | H1 | Human listens. AI-VIDEO-PIPELINE step 4 asks for four listens (audition, pilot, master, bed). In force: G-HUMAN-VOICE once per voice (audition and pilot) and G-HUMAN-SONG on every song master; the spoken master and the bed pass on the measured take checks and G-FINAL's voice-alone listen | | The owner may restore the four listens |
 
@@ -400,3 +408,4 @@ fetched from a URL at run time and isn't in any skill folder.
   F3 two instrumental beds, no vocals; F6 (R1) Nano Banana 2 wins 3D and 2D, gpt-image-2 wins clay and crochet. Spend
   about $4.30 of $6.71.
 - 2026-10-28, onboarding (session C4): new owner checkpoint G-HUMAN-OFFER (`human_checkpoints`, mode `per_brand`, Matan only): the offer direction for a new brand, asked on the Studio page at stage O3 of `growth-engine/ONBOARDING.md`. The pipeline has no per-brand run to hang it on (runs are per post; a LIB run is per look bible), so it is a standards entry only: the Studio question asks it, Matan answers on the page, and a session records the answer with `pipeline.py gate ... G-HUMAN-OFFER --by Matan` on any run of the brand. No step waits on it; ONBOARDING.md O3 does.
+- 2026-10-30, twin step 0 (Twin reel machine plan): D-T1 to D-T3 recorded in section 7 and D1; E8 reversed in `clients/straightscale-en/brain.json` (new `host` block, `visual.ai_label: off`); GATES `originality` reworded. The gate code that enforces `twin_host` (card_people, HeyGen checks) is session T1, not done here.
