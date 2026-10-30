@@ -22,12 +22,12 @@
     <template>
       <style>
         #root { position: absolute; inset: 0; overflow: hidden; }
-        .tt-block { position: absolute; left: 60px; right: 60px; display: flex; flex-direction: column; align-items: center; }
+        .tt-block { position: absolute; left: 65px; right: 65px; display: flex; flex-direction: column; align-items: center; }
         .tt-row { display: flex; justify-content: center; gap: 0.25em; overflow: hidden; padding: 0.04em 0.1em 0.1em; }
-        .tt-mask { display: inline-block; overflow: hidden; }
+        .tt-mask { display: inline-block; overflow: hidden; padding: 0 0.12em 0.14em; margin: 0 -0.12em -0.14em; }
         .tt-w { display: inline-block; }
         .tt-lead { font-family: var(--kit-ui); font-weight: 300; color: var(--kit-fg); letter-spacing: 0.01em; }
-        .tt-key { font-family: var(--kit-display); font-weight: 900; font-style: italic; color: var(--kit-accent);
+        .tt-key { font-family: var(--kit-display); font-weight: 900; color: var(--kit-accent);
                   line-height: 0.95; text-transform: uppercase; letter-spacing: -0.01em;
                   text-shadow: 0 6px 24px rgba(0, 0, 0, 0.45); }
         .tt-lead .tt-w { text-shadow: 0 4px 18px rgba(0, 0, 0, 0.5); }

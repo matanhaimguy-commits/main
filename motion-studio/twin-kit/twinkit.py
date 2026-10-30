@@ -16,6 +16,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from kit import align, compose, edl as edl_mod, face, hf, rules  # noqa: E402
+from kit.edl import EDLError  # noqa: E402
 
 
 def main(argv=None):
@@ -61,4 +62,7 @@ def _emit(data, out):
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    try:
+        sys.exit(main())
+    except (EDLError, json.JSONDecodeError, FileNotFoundError) as e:
+        sys.exit(f"twinkit: {type(e).__name__}: {e}")

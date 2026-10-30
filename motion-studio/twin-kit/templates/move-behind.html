@@ -1,8 +1,8 @@
 <!doctype html>
 <!--
   Twin kit move 2: one big word behind the subject (layer 30, under the twin). The twin's cut-out matte is the mask:
-  the word sits between the set and the twin, so the head and shoulders cover part of it. The word slams in with a
-  scale settle, pushes in slowly while it holds, and leaves on a quick drop.
+  the word sits between the set and the twin, so the head and shoulders cover part of it. The word is on screen from
+  its first frame (the hook) and slams in with a scale settle, pushes in slowly while it holds, and leaves on a quick drop.
   Variables: text, y (centre, px), size (font px, shrunk to fit the width), color, dur (s on screen).
   Sound: impact-bass-1 on the landing (kit/moves.py).
 -->
@@ -13,6 +13,7 @@
     {"id":"text","type":"string","label":"Word","default":"2 YEARS"},
     {"id":"y","type":"number","label":"Centre y (px)","default":620},
     {"id":"size","type":"number","label":"Font size (px)","default":360},
+    {"id":"max_w","type":"number","label":"Max width (px, inside the side margins)","default":950},
     {"id":"color","type":"color","label":"Colour","default":"#F8F6EF"},
     {"id":"dur","type":"number","label":"On screen (s)","default":2}
   ]'
@@ -41,10 +42,11 @@
           var px = size;
           word.style.fontSize = px + "px";
           var w = word.getBoundingClientRect().width;
-          if (w > 1000) { px = Math.floor(px * 1000 / w); word.style.fontSize = px + "px"; }
+          var maxW = Number(v.max_w) || 950;
+          if (w > maxW) { px = Math.floor(px * maxW / w); word.style.fontSize = px + "px"; }
           line.style.top = (Number(v.y) || 620) - px * 0.43 + "px";
           var tl = gsap.timeline({ paused: true });
-          tl.fromTo(word, { scale: 1.32, opacity: 0, y: -30 }, { scale: 1, opacity: 1, y: 0, duration: 0.26, ease: "expo.out" }, 0);
+          tl.fromTo(word, { scale: 1.06, opacity: 1, y: -16 }, { scale: 1, opacity: 1, y: 0, duration: 0.26, ease: "expo.out" }, 0);
           tl.fromTo(word, { scale: 1 }, { scale: 1.05, duration: Math.max(0.1, dur - 0.5), ease: "none", immediateRender: false }, 0.26);
           tl.to(word, { y: 80, opacity: 0, duration: 0.16, ease: "power2.in" }, Math.max(0.3, dur - 0.18));
           window.__timelines["kit-behind"] = tl;

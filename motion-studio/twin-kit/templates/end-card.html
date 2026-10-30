@@ -1,7 +1,8 @@
 <!doctype html>
 <!--
   Twin kit: the logo end card (layer 65). The brand's real logo file (never redrawn), a hairline that draws out from
-  it, and one line under it (the keyword CTA). The logo lands on a scale settle; the line rises word by word.
+  it, and one line under it (the keyword CTA). The column stays inside the safe zone (227 px sides, above
+  the caption band). The logo lands on a scale settle; the line rises word by word.
   Variables: logo (image path), line, sub (small line, optional), logo_w (px), dur. Sound: impact-bass-2.
 -->
 <html
@@ -11,7 +12,8 @@
     {"id":"logo","type":"string","label":"Logo file","default":""},
     {"id":"line","type":"string","label":"Line","default":"Comment PLAN"},
     {"id":"sub","type":"string","label":"Small line","default":""},
-    {"id":"logo_w","type":"number","label":"Logo width (px)","default":640},
+    {"id":"logo_w","type":"number","label":"Logo width (px)","default":600},
+    {"id":"top","type":"number","label":"Column top (px)","default":420},
     {"id":"dur","type":"number","label":"On screen (s)","default":2}
   ]'
 >
@@ -20,13 +22,13 @@
     <template>
       <style>
         #root { position: absolute; inset: 0; overflow: hidden; background: var(--kit-bg); }
-        .ec-col { position: absolute; left: 90px; right: 90px; top: 560px; display: flex; flex-direction: column; align-items: center; }
+        .ec-col { position: absolute; left: 227px; right: 227px; top: 420px; display: flex; flex-direction: column; align-items: center; }
         .ec-logo { display: block; height: auto; }
         .ec-rule { width: 420px; height: 3px; margin: 64px 0 56px; background: var(--kit-accent); transform-origin: 50% 50%; }
         .ec-line { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 0.28em; font-family: var(--kit-display);
                    font-weight: 900; font-size: 96px; line-height: 1.05; color: var(--kit-fg); text-align: center; }
         .ec-w { display: inline-block; }
-        .ec-w.ec-key { color: var(--kit-accent); font-style: italic; }
+        .ec-w.ec-key { color: var(--kit-accent); }
         .ec-sub { margin-top: 36px; font-family: var(--kit-ui); font-weight: 500; font-size: 46px; color: var(--kit-fg); opacity: 0.8; }
       </style>
       <div id="root" data-composition-id="kit-endcard" data-duration="3">
@@ -44,7 +46,8 @@
           var logo = root.querySelector(".ec-logo"), rule = root.querySelector(".ec-rule");
           var line = root.querySelector(".ec-line"), sub = root.querySelector(".ec-sub");
           if (v.logo) logo.src = v.logo;
-          logo.style.width = (Number(v.logo_w) || 640) + "px";
+          logo.style.width = (Number(v.logo_w) || 600) + "px";
+          root.querySelector(".ec-col").style.top = (Number(v.top) || 420) + "px";
           // the word in capitals is the keyword: it takes the accent
           var words = String(v.line || "").split(/\s+/).filter(Boolean).map(function (t) {
             var w = document.createElement("span");

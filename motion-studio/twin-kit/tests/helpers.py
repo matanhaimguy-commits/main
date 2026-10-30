@@ -25,7 +25,7 @@ def small_edl(**over):
         "voice": {"src": "media/vo.mp3", "start": 0.3, "words": "words.json"},
         "beats": [
             {"id": "a", "start": 0.0, "end": 2.0, "twin": "full",
-             "hero": {"move": "behind-word", "vars": {"text": "HELLO", "y": 280}}},
+             "hero": {"move": "behind-word", "vars": {"text": "HELLO", "y": 560}}},
             {"id": "b", "start": 2.0, "end": 4.0, "twin": "off", "cut_in": "whip",
              "scene": {"move": "ui-prompt", "vars": {"text": "hi"}}},
             {"id": "c", "start": 4.0, "end": 6.0, "twin": "stage",

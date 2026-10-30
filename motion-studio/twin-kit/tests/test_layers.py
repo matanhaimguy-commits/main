@@ -23,19 +23,21 @@ class LayersTest(unittest.TestCase):
 
     def test_clip_times_follow_the_edl(self):
         html = dict((h.split('"')[1], h) for _, h in layers.clips(example_edl(), FACE))
-        self.assertIn('data-start="0.250"', html["b1-hero"])
-        self.assertIn('data-duration="1.550"', html["b1-hero"])
-        self.assertIn('data-start="8.650"', html["b7-flash"])
+        self.assertIn('data-start="0.000"', html["b1-hero"])     # the hook is on frame 0
+        self.assertIn('data-duration="1.800"', html["b1-hero"])
+        self.assertIn('data-start="8.450"', html["b7-flash"])
 
     def test_captions_hide_the_end_card(self):
         cap = next(h for _, h in layers.clips(example_edl(), FACE) if 'id="captions"' in h)
-        self.assertIn("[[8.7, 10.6]]", cap.replace("&quot;", '"').replace('\\"', '"'))
+        self.assertIn("[[8.5, 10.6]]", cap.replace("&quot;", '"').replace('\\"', '"'))
 
     def test_twin_track_sets_each_beat(self):
         lines = layers.twin_track(small_edl(), FACE)
         self.assertEqual(len(lines), 4)
         self.assertIn("opacity: 0", lines[1])
         self.assertIn("scale: 1.0000", lines[0])
+        self.assertIn('"--fx": "0.0%"', lines[0])                 # full frame: no soft edge
+        self.assertIn('"--fx": "16.0%"', lines[2])                # stage: the clip's box edges fade out
 
     def test_whip_alternates_direction(self):
         e = small_edl()

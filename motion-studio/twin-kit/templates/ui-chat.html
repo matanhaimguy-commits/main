@@ -11,7 +11,7 @@
   data-composition-variables='[
     {"id":"messages","type":"string","label":"Messages (JSON)","default":"[{\"from\":\"me\",\"text\":\"Hi! Still interested?\"},{\"from\":\"them\",\"text\":\"Example reply\"}]"},
     {"id":"name","type":"string","label":"Thread title","default":"Example lead"},
-    {"id":"y","type":"number","label":"Thread top (px)","default":420},
+    {"id":"y","type":"number","label":"Thread top (px)","default":440},
     {"id":"dur","type":"number","label":"On screen (s)","default":2.5}
   ]'
 >
@@ -19,17 +19,17 @@
   <body>
     <template>
       <style>
-        #root { position: absolute; inset: 0; overflow: hidden; background: #F8F6EF; }
-        .ch-head { position: absolute; left: 0; right: 0; top: 250px; padding: 0 80px; display: flex; align-items: center; gap: 26px;
-                   font-family: var(--kit-ui); font-weight: 700; font-size: 50px; color: #1F1F1F; }
-        .ch-ava { width: 96px; height: 96px; border-radius: 50%; background: #EDE4D6; border: 3px solid #1F1F1F; }
+        #root { position: absolute; inset: 0; overflow: hidden; background: #1F1F1F; }
+        .ch-head { position: absolute; left: 0; right: 0; top: 290px; padding: 0 80px; display: flex; align-items: center; gap: 26px;
+                   font-family: var(--kit-ui); font-weight: 700; font-size: 50px; color: #F8F6EF; }
+        .ch-ava { width: 96px; height: 96px; border-radius: 50%; background: #3A3936; border: 3px solid #EDE4D6; }
         .ch-thread { position: absolute; left: 70px; right: 70px; display: flex; flex-direction: column; gap: 22px; }
         .ch-msg { max-width: 760px; padding: 26px 34px; border-radius: 40px; font-family: var(--kit-ui); font-weight: 500;
                   font-size: 46px; line-height: 1.22; }
-        .ch-me { align-self: flex-end; background: #1F1F1F; color: #F8F6EF; border-bottom-right-radius: 12px; }
-        .ch-them { align-self: flex-start; background: #EDE4D6; color: #1F1F1F; border-bottom-left-radius: 12px; }
-        .ch-typing { align-self: flex-start; display: flex; gap: 12px; padding: 30px 34px; border-radius: 40px; background: #EDE4D6; }
-        .ch-typing i { width: 18px; height: 18px; border-radius: 50%; background: #1F1F1F; opacity: 0.4; display: block; }
+        .ch-me { align-self: flex-end; background: #F8F6EF; color: #1F1F1F; border-bottom-right-radius: 12px; }
+        .ch-them { align-self: flex-start; background: #3A3936; color: #F8F6EF; border-bottom-left-radius: 12px; }
+        .ch-typing { align-self: flex-start; display: flex; gap: 12px; padding: 30px 34px; border-radius: 40px; background: #3A3936; }
+        .ch-typing i { width: 18px; height: 18px; border-radius: 50%; background: #F8F6EF; opacity: 0.4; display: block; }
       </style>
       <div id="root" data-composition-id="kit-chat" data-duration="3">
         <div class="ch-head"><span class="ch-ava"></span><span class="ch-name"></span></div>
@@ -41,7 +41,7 @@
           var v = (window.__hyperframes && window.__hyperframes.getVariables()) || {};
           var thread = root.querySelector(".ch-thread");
           root.querySelector(".ch-name").textContent = v.name || "";
-          thread.style.top = (Number(v.y) || 420) + "px";
+          thread.style.top = (Number(v.y) || 440) + "px";
           var msgs = [];
           try { msgs = JSON.parse(v.messages || "[]"); } catch (e) { msgs = []; }
           var dur = Number(v.dur) || 2.5, step = Math.min(0.7, Math.max(0.35, (dur - 0.5) / Math.max(1, msgs.length)));

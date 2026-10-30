@@ -1,7 +1,8 @@
 <!doctype html>
 <!--
   Twin kit move 4: a 3D object pop with motion blur. An extruded object (stacked layers in CSS 3D, so it has real
-  depth when it turns) flies in from far behind the camera's axis, spins, overshoots and settles, then sways. The
+  depth when it turns) flies in from far behind the camera's axis, spins, overshoots and settles, then holds still (a sway leaves a faint
+  blur ghost). The
   smear is the registry's motion-blur component (third_party/motion-blur.js, loaded by the film root), attached
   with data-hf-motion-blur on the moving element. A short label can land under it.
   Variables: shape (star|image), src (image path when shape=image, e.g. the brand mark), label, x, y (centre, px),
@@ -35,7 +36,7 @@
                     text-shadow: 0 4px 16px rgba(0, 0, 0, 0.55); }
       </style>
       <div id="root" data-composition-id="kit-pop3d" data-duration="3">
-        <div class="p3-stage"><div id="p3-obj" class="p3-obj" data-hf-motion-blur='{"shutterAngle": 360, "samplesPerFrame": 10}'></div></div>
+        <div class="p3-stage"><div id="p3-obj" class="p3-obj" data-hf-motion-blur='{"shutterAngle": 180, "samplesPerFrame": 10}'></div></div>
         <div class="p3-label"></div>
       </div>
       <script>
@@ -69,9 +70,8 @@
           label.style.top = y + size / 2 + 26 + "px";
           var tl = gsap.timeline({ paused: true });
           tl.fromTo(obj, { z: -2600, x: -260, y: 380, rotationY: -260, rotationX: 30, scale: 0.6 },
-                         { z: 0, x: 0, y: 0, rotationY: 0, rotationX: 0, scale: 1, duration: 0.5, ease: "back.out(1.5)" }, 0);
-          tl.fromTo(obj, { rotationY: 0, rotationZ: 0 }, { rotationY: 18, rotationZ: -4, duration: Math.max(0.3, dur - 0.8), ease: "sine.inOut", immediateRender: false }, 0.5);
-          tl.fromTo(label, { opacity: 0, y: 30 }, { opacity: label.textContent ? 1 : 0, y: 0, duration: 0.3, ease: "expo.out" }, 0.38);
+                         { z: 0, x: 0, y: 0, rotationY: 0, rotationX: 0, scale: 1, duration: 0.36, ease: "back.out(1.2)" }, 0);
+                    tl.fromTo(label, { opacity: 0, y: 30 }, { opacity: label.textContent ? 1 : 0, y: 0, duration: 0.3, ease: "expo.out" }, 0.3);
           tl.to(obj, { z: 900, opacity: 0, duration: 0.2, ease: "power2.in" }, Math.max(0.6, dur - 0.22));
           tl.to(label, { opacity: 0, duration: 0.15 }, Math.max(0.6, dur - 0.2));
           window.__timelines["kit-pop3d"] = tl;

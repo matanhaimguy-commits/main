@@ -1,7 +1,8 @@
 <!doctype html>
 <!--
-  Twin kit: word captions (layer 60) from the voice's word timings on the film clock. Up to max_words words per
-  group, split at pauses and sentence ends; the spoken word turns the accent colour. Each group pops on a short
+  Twin kit: word captions (layer 60) from the voice's word timings on the film clock. Captions 80 to 100 px in the
+  caption band (55-62% down, STANDARDS 6), up to max_words words and max_chars characters per group, split at
+  pauses and sentence ends, gone 0.35 s after the last word; the spoken word turns the accent colour. Each group pops on a short
   settle. Hidden over the given ranges (the end card, full-screen UI that carries its own words).
   Variables: words (JSON [{w,s,e}], film seconds), hide (JSON [[start,end],...]), y (centre, px), size, max_words, dur.
 -->
@@ -11,9 +12,12 @@
   data-composition-variables='[
     {"id":"words","type":"string","label":"Words JSON","default":"[]"},
     {"id":"hide","type":"string","label":"Hidden ranges JSON","default":"[]"},
-    {"id":"y","type":"number","label":"Centre y (px)","default":1420},
-    {"id":"size","type":"number","label":"Font size (px)","default":64},
+    {"id":"y","type":"number","label":"Centre y (px)","default":1130},
+    {"id":"size","type":"number","label":"Font size (px)","default":88},
     {"id":"max_words","type":"number","label":"Words per group","default":3},
+    {"id":"max_chars","type":"number","label":"Characters per group","default":14},
+    {"id":"left","type":"number","label":"Left margin (px)","default":65},
+    {"id":"right","type":"number","label":"Right margin (px, the right 21% of the lower half stays clear)","default":227},
     {"id":"dur","type":"number","label":"Film length (s)","default":10}
   ]'
 >
@@ -22,7 +26,7 @@
     <template>
       <style>
         #root { position: absolute; inset: 0; overflow: hidden; }
-        .cp-group { position: absolute; left: 90px; right: 90px; display: flex; justify-content: center; flex-wrap: wrap;
+        .cp-group { position: absolute; display: flex; justify-content: center; flex-wrap: wrap;
                     gap: 0 0.28em; opacity: 0; }
         .cp-w { display: inline-block; font-family: var(--kit-ui); font-weight: 700; color: var(--kit-fg); text-transform: uppercase;
                 letter-spacing: 0.01em; paint-order: stroke fill; -webkit-text-stroke: 10px rgba(0, 0, 0, 0.85); }
@@ -34,11 +38,13 @@
           var v = (window.__hyperframes && window.__hyperframes.getVariables()) || {};
           var words = [], hide = [];
           try { words = JSON.parse(v.words || "[]"); hide = JSON.parse(v.hide || "[]"); } catch (e) {}
-          var size = Number(v.size) || 64, y = Number(v.y) || 1420, maxW = Number(v.max_words) || 3;
+          var size = Number(v.size) || 88, y = Number(v.y) || 1130, maxW = Number(v.max_words) || 3, maxC = Number(v.max_chars) || 14;
+          var left = Number(v.left == null ? 65 : v.left), right = Number(v.right == null ? 227 : v.right);
           var groups = [], cur = [];
           words.forEach(function (w, i) {
             var prev = cur[cur.length - 1];
-            if (cur.length && (cur.length >= maxW || w.s - prev.e > 0.25 || /[.!?,]$/.test(prev.w))) { groups.push(cur); cur = []; }
+            var chars = cur.map(function (c) { return c.w; }).join(" ").length + 1 + w.w.length;
+            if (cur.length && (cur.length >= maxW || chars > maxC || w.s - prev.e > 0.25 || /[.!?,]$/.test(prev.w))) { groups.push(cur); cur = []; }
             cur.push(w);
           });
           if (cur.length) groups.push(cur);
@@ -49,12 +55,16 @@
           groups.forEach(function (g, k) {
             var el = document.createElement("div"); el.className = "cp-group";
             el.style.top = y - size * 0.6 + "px"; el.style.fontSize = size + "px";
+            el.style.left = left + "px"; el.style.right = right + "px";
+            el.setAttribute("data-layout-allow-caption-zone", "");
             var spans = g.map(function (w) {
               var s = document.createElement("span"); s.className = "cp-w"; s.style.fontSize = size + "px";
               s.textContent = w.w.replace(/[.,!?;:]+$/, ""); el.appendChild(s); return s;
             });
             root.appendChild(el);
-            var start = g[0].s, end = k + 1 < groups.length ? groups[k + 1][0].s : g[g.length - 1].e + 0.4;
+            // a card leaves at the next card or 0.35 s after its last word, so no card holds over a silence
+            var last = g[g.length - 1].e + 0.35;
+            var start = g[0].s, end = k + 1 < groups.length ? Math.min(groups[k + 1][0].s, last) : last;
             if (hidden(start)) return;
             tl.fromTo(el, { opacity: 1, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.12, ease: "back.out(2)", immediateRender: false }, start);
             tl.set(el, { opacity: 0 }, end);

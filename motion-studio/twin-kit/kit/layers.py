@@ -28,19 +28,6 @@ def host(el_id, template, start, dur, z, values, track):
             f"data-variable-values='{vals}'></div>")
 
 
-def orbit_values(edl, beat, v, face, layer):
-    out = dict(v, layer=layer)
-    head = stage.head_on_frame(edl, beat.get("twin", "off"), face)
-    fbox = stage.face_on_frame(edl, beat.get("twin", "off"), face)
-    if head:
-        out.setdefault("cx", round((head[0] + head[2]) / 2))
-        out.setdefault("cy", round(head[1] + (head[3] - head[1]) * 0.42))
-        out.setdefault("rx", round((head[2] - head[0]) * 0.95))
-    if fbox:
-        out["face"] = ",".join(str(round(x)) for x in fbox)
-    return out
-
-
 def clips(edl, face):
     """Every clip as (z, html). Kept as a list so tests can read it without parsing HTML."""
     dur = edl["duration"]
@@ -75,7 +62,7 @@ def clips(edl, face):
             if spec["layer"] == "split":
                 for layer, z in (("back", LAYERS["words-back"]), ("front", LAYERS["words-front"])):
                     out.append((z, host(f"{bid}-hero-{layer}", spec["template"], s, end - s, z,
-                                        orbit_values(edl, b, vals, face, layer), 3 if layer == "back" else 5)))
+                                        dict(stage.orbit_geometry(edl, b, vals, face), layer=layer), 3 if layer == "back" else 5)))
             else:
                 z = LAYERS[spec["layer"]]
                 out.append((z, host(f"{bid}-hero", spec["template"], s, end - s, z, vals, 5)))
@@ -104,8 +91,9 @@ def twin_track(edl, face):
             lines.append(f'tl.set("#twin-wrap", {{opacity: 0}}, {b["start"]:.3f});')
         else:
             s, left, top = p
-            lines.append(f'tl.set("#twin-wrap", {{opacity: 1, x: {left:.1f}, y: {top:.1f}, scale: {s:.4f}}}, '
-                         f'{b["start"]:.3f});')
+            fx, fy = stage.fades(edl, b.get("twin"))
+            lines.append(f'tl.set("#twin-wrap", {{opacity: 1, x: {left:.1f}, y: {top:.1f}, scale: {s:.4f}, '
+                         f'"--fx": "{fx * 100:.1f}%", "--fy": "{fy * 100:.1f}%"}}, {b["start"]:.3f});')
     return lines
 
 
@@ -156,8 +144,13 @@ def index_html(edl, face, twin_src, fonts):
       .clip {{ position: absolute; inset: 0; }}
       .broll {{ width: 100%; height: 100%; object-fit: cover; }}
       #twin-wrap {{ position: absolute; left: 0; top: 0; width: {src_w}px; height: {src_h}px; transform-origin: 0 0;
-        z-index: {LAYERS['twin']}; opacity: 0; }}
+        z-index: {LAYERS["twin"]}; opacity: 0; --fx: 0%; --fy: 0%; }}
       #twin {{ position: absolute; inset: 0; width: 100%; height: 100%; }}
+      /* soft edges per twin mode (--fx, --fy set on the root timeline): the clip's box never shows */
+      #twin-soft {{ position: absolute; inset: 0;
+        -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 var(--fx), #000 calc(100% - var(--fx)), transparent 100%),
+                            linear-gradient(180deg, #000 calc(100% - var(--fy)), transparent 100%);
+        -webkit-mask-composite: source-in; mask-composite: intersect; }}
     </style>
   </head>
   <body>
@@ -165,8 +158,8 @@ def index_html(edl, face, twin_src, fonts):
          data-height="{edl['height']}" data-fps="{edl['fps']}">
       <div id="frame">
       {body}
-      <div id="twin-wrap"><video id="twin" class="clip" src="{twin_src}" muted playsinline data-start="{voice_start:.3f}"
-           data-duration="{dur - voice_start:.3f}" data-media-start="0" data-track-index="4"></video></div>
+      <div id="twin-wrap"><div id="twin-soft"><video id="twin" class="clip" src="{twin_src}" muted playsinline data-start="{voice_start:.3f}"
+           data-duration="{dur - voice_start:.3f}" data-media-start="0" data-track-index="4"></video></div></div>
       </div>
     </div>
     <script>

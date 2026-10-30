@@ -9,11 +9,20 @@ class StageTest(unittest.TestCase):
         self.assertIsNone(stage.placement(small_edl(), "off", 1080))
         self.assertIsNone(stage.face_on_frame(small_edl(), "off", FACE))
 
-    def test_stage_is_centred_and_low(self):
+    def test_every_mode_puts_the_face_in_the_band(self):
         s, left, top = stage.placement(small_edl(), "stage", 1080)
         self.assertAlmostEqual(left, (1080 - 1080 * s) / 2)
-        head = stage.head_on_frame(small_edl(), "stage", FACE)
-        self.assertGreater(head[1], 1920 * 0.55)        # the head starts below the middle: the set is above
+        for mode in ("stage", "full"):
+            f = stage.face_on_frame(small_edl(), mode, FACE)
+            self.assertTrue(1920 * 0.15 <= f[1] and f[3] <= 1920 * 0.55, (mode, f))
+
+    def test_orbit_ring_sits_on_the_head(self):
+        e = small_edl()
+        v = stage.orbit_geometry(e, {"twin": "stage"}, {"words": "A"}, FACE)
+        head = stage.head_on_frame(e, "stage", FACE)
+        self.assertTrue(head[1] < v["cy"] < head[3])
+        self.assertEqual(len(v["face"].split(",")), 4)
+        self.assertEqual(stage.orbit_geometry(e, {"twin": "stage"}, {"cx": 9}, FACE)["cx"], 9)
 
     def test_edl_can_tune_a_mode(self):
         e = small_edl(twin={"src": "x", "modes": {"stage": {"top": 1200}}})
