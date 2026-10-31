@@ -1,0 +1,316 @@
+{
+ "W902-T1": {
+  "source": "hook_rule",
+  "packet": "packet-v2",
+  "anchors": [
+   "ANCHOR-B1",
+   "ANCHOR-B6"
+  ],
+  "graders": [
+   {
+    "hook": {
+     "visual": "n/a",
+     "text": "B",
+     "spoken": "B+",
+     "gates_failed": []
+    },
+    "anchors": {
+     "ANCHOR-B1": {
+      "visual": "n/a",
+      "text": "C",
+      "spoken": "C",
+      "gates_failed": [
+       7,
+       9
+      ]
+     },
+     "ANCHOR-B6": {
+      "visual": "n/a",
+      "text": "B-",
+      "spoken": "C",
+      "gates_failed": [
+       1,
+       3,
+       4
+      ]
+     }
+    }
+   },
+   {
+    "hook": {
+     "visual": "n/a",
+     "text": "B",
+     "spoken": "B+",
+     "gates_failed": [
+      "4"
+     ]
+    },
+    "anchors": {
+     "ANCHOR-B1": {
+      "visual": "n/a",
+      "text": "C",
+      "spoken": "C",
+      "gates_failed": [
+       "1",
+       "2",
+       "9"
+      ]
+     },
+     "ANCHOR-B6": {
+      "visual": "n/a",
+      "text": "C",
+      "spoken": "C",
+      "gates_failed": [
+       "1",
+       "2",
+       "3",
+       "6"
+      ]
+     }
+    }
+   }
+  ],
+  "verdict": "fail",
+  "why": [
+   "grader 1: no visual grade for the hook",
+   "grader 2: the hook fails check(s) ['4']",
+   "grader 2: no visual grade for the hook"
+  ]
+ },
+ "W902-T2": {
+  "source": "hook_rule",
+  "packet": "packet-v2",
+  "anchors": [
+   "ANCHOR-B1",
+   "ANCHOR-B6"
+  ],
+  "graders": [
+   {
+    "hook": {
+     "visual": "n/a",
+     "text": "A-",
+     "spoken": "B+",
+     "gates_failed": []
+    },
+    "anchors": {
+     "ANCHOR-B1": {
+      "visual": "n/a",
+      "text": "C",
+      "spoken": "C",
+      "gates_failed": [
+       7,
+       9
+      ]
+     },
+     "ANCHOR-B6": {
+      "visual": "n/a",
+      "text": "B-",
+      "spoken": "C",
+      "gates_failed": [
+       1,
+       3,
+       4
+      ]
+     }
+    }
+   },
+   {
+    "hook": {
+     "visual": "n/a",
+     "text": "B+",
+     "spoken": "B+",
+     "gates_failed": [
+      "4"
+     ]
+    },
+    "anchors": {
+     "ANCHOR-B1": {
+      "visual": "n/a",
+      "text": "C",
+      "spoken": "C",
+      "gates_failed": [
+       "1",
+       "2",
+       "9"
+      ]
+     },
+     "ANCHOR-B6": {
+      "visual": "n/a",
+      "text": "C",
+      "spoken": "C",
+      "gates_failed": [
+       "1",
+       "2",
+       "3",
+       "6"
+      ]
+     }
+    }
+   }
+  ],
+  "verdict": "fail",
+  "why": [
+   "grader 1: no visual grade for the hook",
+   "grader 2: the hook fails check(s) ['4']",
+   "grader 2: no visual grade for the hook"
+  ]
+ },
+ "W902-T3": {
+  "source": "hook_rule",
+  "packet": "packet-v2",
+  "anchors": [
+   "ANCHOR-B1",
+   "ANCHOR-B6"
+  ],
+  "graders": [
+   {
+    "hook": {
+     "visual": "n/a",
+     "text": "B",
+     "spoken": "C",
+     "gates_failed": [
+      2,
+      3
+     ]
+    },
+    "anchors": {
+     "ANCHOR-B1": {
+      "visual": "n/a",
+      "text": "C",
+      "spoken": "C",
+      "gates_failed": [
+       7,
+       9
+      ]
+     },
+     "ANCHOR-B6": {
+      "visual": "n/a",
+      "text": "B-",
+      "spoken": "C",
+      "gates_failed": [
+       1,
+       3,
+       4
+      ]
+     }
+    }
+   },
+   {
+    "hook": {
+     "visual": "n/a",
+     "text": "B-",
+     "spoken": "B-",
+     "gates_failed": [
+      "3",
+      "4"
+     ]
+    },
+    "anchors": {
+     "ANCHOR-B1": {
+      "visual": "n/a",
+      "text": "C",
+      "spoken": "C",
+      "gates_failed": [
+       "1",
+       "2",
+       "9"
+      ]
+     },
+     "ANCHOR-B6": {
+      "visual": "n/a",
+      "text": "C",
+      "spoken": "C",
+      "gates_failed": [
+       "1",
+       "2",
+       "3",
+       "6"
+      ]
+     }
+    }
+   }
+  ],
+  "verdict": "fail",
+  "why": [
+   "grader 1: the hook fails check(s) [2, 3]",
+   "grader 1: no visual grade for the hook",
+   "grader 2: the hook fails check(s) ['3', '4']",
+   "grader 2: no visual grade for the hook"
+  ]
+ },
+ "W910-R3c": {
+  "source": "hook_rule",
+  "packet": "packet-v2",
+  "anchors": [
+   "ANCHOR-B1",
+   "ANCHOR-B6"
+  ],
+  "graders": [
+   {
+    "hook": {
+     "visual": "n/a",
+     "text": "B+",
+     "spoken": "A-",
+     "gates_failed": []
+    },
+    "anchors": {
+     "ANCHOR-B1": {
+      "visual": "n/a",
+      "text": "C",
+      "spoken": "C",
+      "gates_failed": [
+       7,
+       9
+      ]
+     },
+     "ANCHOR-B6": {
+      "visual": "n/a",
+      "text": "B-",
+      "spoken": "C",
+      "gates_failed": [
+       1,
+       3,
+       4
+      ]
+     }
+    }
+   },
+   {
+    "hook": {
+     "visual": "n/a",
+     "text": "B+",
+     "spoken": "B+",
+     "gates_failed": []
+    },
+    "anchors": {
+     "ANCHOR-B1": {
+      "visual": "n/a",
+      "text": "C",
+      "spoken": "C",
+      "gates_failed": [
+       "1",
+       "2",
+       "9"
+      ]
+     },
+     "ANCHOR-B6": {
+      "visual": "n/a",
+      "text": "C",
+      "spoken": "C",
+      "gates_failed": [
+       "1",
+       "2",
+       "3",
+       "6"
+      ]
+     }
+    }
+   }
+  ],
+  "verdict": "fail",
+  "why": [
+   "grader 1: no visual grade for the hook",
+   "grader 2: no visual grade for the hook"
+  ]
+ }
+}
