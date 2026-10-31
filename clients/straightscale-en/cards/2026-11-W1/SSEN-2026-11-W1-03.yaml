@@ -18,39 +18,35 @@ job: reach
 funnel_stage: TOF
 belief: B2
 awareness: problem_aware
-demand_phrase: LinkedIn works for me, but it's sporadic and not predictable.
+demand_phrase: Most of our clients so far came through word of mouth.
 idea_source: outlier
-source_ref: 'hook format HF-19 (AlexBerman, 90.0x, 10x+: identity question with one prop); phrases Q-R-0022, Q-R-0135, Q-RN-0005;
-  contrarian C3; ref tt-martaraile (mask reveal onto what is under the patch; yt-alexberman-orange is the hook source, not
-  the film ref: two talking-explainer refs in a row break the refbank rule)'
-narrow_product: 'Built or patched? One test she can answer: did your last fix use anything the one before it learned? A scrap
-  sewn on alone holds a month; a piece cut from the same cloth holds the next'
-format: reel_talking_object
+source_ref: 'refilled from bank SSEN-2026-11-W9-02 (twin pilot, 31 Oct); hook format HF-16 (AlexHormozi, 3.74x: one question,
+  one-word answer); phrases Q-RN-0017, Q-R-0058, Q-RN-0016, Q-RN-0003; ref: pick at use'
+narrow_product: 'Referrals aren''t the problem. When they come is: one question, ''can you pick the month your next referral
+  arrives?'', and the one-word answer, no'
+format: reel_twin_stage
 format_tier: B
-usd_budget: 4.5
-length_target_s: 30
+twin_host: true
+usd_budget: 2.5
+length_target_s: 45
 hook_type: question
 emotion: surprise
 tone: contrarian
 cta_type: send
-hypothesis: A two-path prop test that blames the patch, not the channel, gets sent to a partner more than a list of tactics
+hypothesis: The founder defending referrals and blaming their timing earns sends from referral-built owners
 success_metric: sends_per_reach
-notes: 'Spoken hook (draft): ''Is your marketing built, or patched? Here''s an easy way to find out.'' Aims at the patch,
-  never at the viewer. CTA: ''Send this to the person you run the business with.'' Idea gate: L4 marketing fixes > why a fix
-  stops working > patched on alone vs cut from the same cloth > the one test: did your last fix use anything the one before
-  it learned? (answerable at B2; director round 1) · trinity: clear and complete (one yes/no test), unique (blames the patch,
-  not the channel), depictable (one scrap held against the quilt) · shock 6 · $5 yes · key visual: a hand holds one loose
-  scrap against the quilt, then the mask reveal onto what is under the patch · gate passed Format (session F1 router, 28 Oct,
-  FORMATS.md): Built or patched is a hidden cause (mechanism): the newest patch on the quilt talks and admits it learned nothing
-  from the one before it. A talking object shows what a camera can''t (L19); claymation in the cloth world, mouth shots on
-  OmniHuman 2.0 (talking objects only). Ties reel_animation_short (6.0); the talking-object route is taken because the patch
-  speaks on camera. Hooks (main session, 28 Oct): the motion Hook Lab stopped; its best stacks are the starting stacks for
-  this format''s next Hook Lab, in motion-studio/projects/straightscale-en-07-built-or-patched/docs/hook-lab.md on branch
-  claude/hooks-v4-w1-03: R3A (HF-06) ''Clients one month, nothing the next?'' / ''Your fixes each worked a while. Here''s
-  why none stuck.'' (B+/A/A- and A-/A/A-; text A from both graders) and R3C (HF-04) "''Try a new channel.'' That''s not your
-  problem." / "It''s not the channel. Every fix you tried started from scratch." Graders read ''built or patched'' and ''fix''
-  as an agency quiz: drop both words from the hook stack.'
 target: 'first month, no insights yet (E13): sets the page''s baseline; template candidate at 2x the November median'
 load_bearing_beat: mechanism
-story_template: hidden_villain
-animation_style: claymation
+notes: 'Twin reel machine pilot (plan 2026-10-29, section P; producer session 31 Oct). Refilled with bank W9-02 under the
+  twin hook rule; the slot''s earlier ideas (Built or patched, v4; W9-11, v7) and their grades stay in git history and in
+  runs/SSEN-2026-11-W1-03/qa/hooks-v7. Why W9-02 over W9-10: same pillar as the slot (Steady months), the founder can say
+  it as his own take with no proof claim, it leads to the offer''s Organic step, and its key visual is one prop; W9-10 sits
+  next to the banned outreach and sales-script area and is the W4-01 idea already graded there. Twin host (FORMATS 2.18,
+  route reason): the idea is a hidden cause (mechanism) the founder explains to camera; with the flag on, organic.py
+  route ties it first at 7.0 with reel_animation_short and reel_talking_object; the twin is taken because the plan names
+  this slot as the twin pilot (Matan, 30 Oct). Idea gate: L4 referrals > why a referral-built business swings > the
+  timing, not the clients > one question with a one-word answer: can you pick the month your next referral arrives? No ·
+  trinity: clear and complete (she answers it in one second), unique (defends referrals, blames the timing), depictable
+  (her calendar) · shock 6 · $5 yes · key visual: a wall calendar with referral cards landing on random weeks while one
+  month stays blank. CTA: the pilot asks for the WORDS keyword, which is not live (no hub funnel), so the card keeps send
+  until the main session makes it live; see the run''s step 3 note.'
