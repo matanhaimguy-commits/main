@@ -10,7 +10,8 @@
     "test": "vitest run",
     "cli": "tsx src/cli.ts",
     "migrate": "tsx src/cli.ts migrate",
-    "audit": "tsx src/cli.ts audit"
+    "audit": "tsx src/cli.ts audit",
+    "organic:import": "tsx src/integrations/organic-cli.ts"
   },
   "license": "UNLICENSED",
   "dependencies": {

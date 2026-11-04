@@ -1,0 +1,36 @@
+# Emperium: staged business for Organic Engine V2.4 content.
+# Safe by default. No Meta account linked and no live messages.
+slug: emperium
+name: Emperium
+enabled: true
+live: false
+testers: []
+timezone: Asia/Jerusalem
+
+profile:
+  about: |
+    Emperium publishes educational Hebrew content about marketing, customer psychology,
+    business growth, entrepreneurship and personal development.
+    Viewers can request practical prompts and guides by commenting on relevant posts.
+  offers: |
+    Free educational prompts and practical guides sent when requested.
+    Paid service details and prices have not been configured here.
+  audience: |
+    Israeli business owners and people interested in marketing and entrepreneurship.
+  goal: Give the person the exact resource requested, then answer questions if they reply.
+  qualifying_questions: []
+  faq: []
+  voice: |
+    Natural Hebrew, direct and simple. No corporate words. Helpful, concise.
+  never:
+    - Make up paid packages or prices.
+    - Claim guaranteed financial results.
+
+links: []
+ai:
+  dm_replies: true
+  comment_replies: false
+  comment_dms: false
+
+# The importer adds PAUSED, post-pinned funnels here after each video is published.
+funnels: []

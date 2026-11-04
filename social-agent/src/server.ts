@@ -6,6 +6,7 @@ import { setState } from './db/connections.js';
 import type { Deps } from './engine/deps.js';
 import { html, page } from './html.js';
 import { verifyHandshake, verifySignature } from './meta/webhook.js';
+import { resourceRoutes } from './resources.js';
 
 export function createApp(deps: Deps, hooks: { onEvent?: () => void } = {}): Hono {
   const app = new Hono();
@@ -97,6 +98,7 @@ export function createApp(deps: Deps, hooks: { onEvent?: () => void } = {}): Hon
   );
 
   app.get('/', (c) => c.redirect('/admin/setup'));
+  app.route('/resources', resourceRoutes());
   app.route('/admin', adminRoutes(deps));
   return app;
 }

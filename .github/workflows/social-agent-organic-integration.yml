@@ -1,0 +1,55 @@
+name: Social Agent - Organic Landing Pages
+
+on:
+  push:
+    branches:
+      - claude/discovery-engine-v16-ms5mxf
+    paths:
+      - "social-agent/**"
+      - "Dockerfile"
+      - ".github/workflows/social-agent-organic-integration.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-social-agent:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: social-agent
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: agent
+          POSTGRES_PASSWORD: agent
+          POSTGRES_DB: social_agent_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U agent -d social_agent_test"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      TEST_DATABASE_URL: postgres://agent:agent@localhost:5432/social_agent_test
+      LIVE_SENDING: "false"
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: social-agent/package-lock.json
+      - name: Install dependencies
+        run: npm ci
+      - name: Typecheck
+        run: npm run typecheck
+      - name: Unit and existing Meta webhook tests (no real Meta messages)
+        run: npm test
+      - name: Preview six approved funnels with no config changes
+        run: npm run organic:import -- --file imports/emperium-v24.json --business emperium
+      - name: Build Social Agent
+        run: npm run build

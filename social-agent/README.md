@@ -99,3 +99,10 @@ npm run cli -- stats [business] [days]
 | `src/engine/` | Orchestration: send ledger, funnel steps, event processing, AI replies and follow-ups, health checks. |
 | `src/server.ts`, `src/admin.ts` | Webhook endpoint, `/admin` dashboard, `/privacy`, `/data-deletion`, `/r/:token`. |
 | `src/worker.ts` | Queue loop (lease-based, safe to run more than one). |
+
+
+## Organic Engine V2.4 lead magnet pages
+
+Each approved Emperium Reel can send its resource using the existing comment-to-DM tap+link funnel. The public page shows the full prompt, simple steps and an instant copy button. The six approved resources are served under `/resources/emperium/V24-01` through `V24-06`. No new DM service is created, and no new funnels are active until published post IDs are bound and tested.
+
+See [docs/ORGANIC_ENGINE.md](docs/ORGANIC_ENGINE.md) for setup, preview, real post binding and testing.
