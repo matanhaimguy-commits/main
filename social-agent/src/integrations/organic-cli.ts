@@ -34,7 +34,7 @@ function main(args: string[]) {
     if (args[i] !== '--post') continue;
     const assignment = args[++i];
     const separator = assignment?.indexOf('=');
-    if (!assignment || separator === -1) throw new Error('Post binding format: --post V24-01=17812345678901234');
+    if (!assignment || separator === undefined || separator < 1 || separator === assignment.length - 1) throw new Error('Post binding format: --post V24-01=17812345678901234');
     const videoId = assignment.slice(0, separator);
     const postId = assignment.slice(separator + 1);
     if (postBindings[videoId]) throw new Error('Duplicate post binding for ' + videoId);
