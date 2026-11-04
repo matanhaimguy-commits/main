@@ -1,0 +1,19 @@
+{
+  "step": "01",
+  "mode": "DEEP",
+  "agent_id": "01-DEEP",
+  "truth_card_band": "PROXY-SKU",
+  "mechanism_capacity": "SPLIT — offer/guarantee structure YES (4 distinct price/risk shapes across Readymerce + 3 seeds); underlying service delivery NO/commodity (same build-and-manage function advertised by all)",
+  "product_truth_card": {"file": "01-PRODUCT-TRUTH.md", "section": "§TRUTH CARD > T3"},
+  "product_outcomes": {"file": "01-PRODUCT-TRUTH.md", "section": "§TRUTH CARD > T3 (What it DOES / duration of effect subsections)"},
+  "four_layer_sheet": {"file": "01-PRODUCT-TRUTH.md", "section": "§TRUTH CARD > T4"},
+  "fact_bank": {"file": "01-PRODUCT-TRUTH.md", "section": "§TRUTH CARD > T5"},
+  "difference_sheet": {"file": "01-PRODUCT-TRUTH.md", "section": "§TRUTH CARD > T6"},
+  "pb_refresh": {"file": "01-PRODUCT-TRUTH.md", "section": "§TRUTH CARD > T7"},
+  "evidence_ledger": {"file": "01-PRODUCT-TRUTH.md", "section": "§TRUTH CARD > T8"},
+  "apify_spend": "$0.00 — BLOCKED-ON-TOOL (monthly hard limit); 8 recipes printed NOT RUN in §TRUTH CARD header",
+  "exa_spend": "$0.825 (9 runs; cap $1.00)",
+  "transcriptapi_calls": "search_youtube x3 (1 retried), get_youtube_transcript x2 — within <=10 credit budget",
+  "coverage": "DEEP: reviews 0 read of 0 retrievable (exact-SKU, every venue exhausted: BBB none, ScamAdviser 0, ScamDoc unattributable, trustedrevie.ws 0, Sitejabber 0, ProductReview none, Trustpilot BLOCKED-ON-TOOL, Reddit/forum 0); PDP 9/9 pages EXACT PRODUCT MATERIAL (new vs SEED's BLOCKED PDP); components 9 of 11 with a DEEP fact (C8 portal, C9 account-manager remain SEED-only UNKNOWN); DF 3; PB refreshed 6 (labels unchanged, evidence firmed; PB-03 gets new non-buyer trust-score context); pain score PB-05 5->6/10, others unchanged; CONFIDENCE: truth card PROXY-SKU, problem map SUPPORTED 3 / HYPOTHESIS 4 / VALIDATED 0",
+  "file": "01-PRODUCT-TRUTH.md"
+}

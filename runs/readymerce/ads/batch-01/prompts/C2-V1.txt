@@ -1,0 +1,38 @@
+C2-V1 · Readymerce · AV-01 Store That Died · AN-05 · B-102.AV-01 · V1 designed clarity static · A8a #6 Atypical Text · 4:5
+
+DELIVERABLE: one finished raster ad, 4:5 portrait (1080 x 1350 px), filling the whole canvas edge to edge. No browser frame, no mockup border around the ad, no page number, no production labels, no hex codes rendered as text.
+
+AUDIENCE AND MOMENT: a person in the US, roughly 25 to 45, whose first online store closed after its one product got about 600 clicks and zero sales. Problem aware. He used to stare at his store dashboard on Sunday nights, hitting refresh. The ad writes his headline on that dashboard (Atypical Text: the hook on the surface native to him) and makes the rest of the argument in a clean panel below. One main point: the store did not fail because of him; it only ever got one shot, and a store needs products tested in stages on a budget he approves.
+
+READING ORDER (top to bottom, then left to right): 1 the headline on the dashboard card (largest) > 2 the subheadline (about half the headline size) > 3 three short body lines with small icons, left column > 4 the proof quote and its source under the body > 5 the CTA button, bottom right. The laptop product sits in the right column beside the body.
+
+LAYOUT AND GEOMETRY:
+- Top 55% of the canvas: a flat, straight-on, full-width generic e-commerce analytics dashboard card: white card (#FFFFFF), 16 px rounded corners, soft 1 px light-grey border, sitting on the Paper background with 48 px margins. Inside the card, top-left aligned, the headline in a heavy grotesque UI sans-serif, Ink #1C1C1A, on three lines: "~600 clicks." / "Still no sales." / "Then I closed the store." Under the headline, filling the lower third of the card, a simple line chart with no axis labels and no numbers: one thin slate-grey line (#8A8F8C) climbing gently from left to right, and one second thin line lying flat on the baseline the whole way across. Above the chart, three short blank light-grey placeholder bars where UI labels would be (no words).
+- Bottom 45% of the canvas: Paper #F7F4EE panel.
+  - Subheadline directly under the dashboard card, full width, a soft sturdy serif (Fraunces-like), Pine #1F3A34, two lines: "The product did not sell. It was also the only shot the store ever got."
+  - Left column (about 58% width): three body lines, each preceded by a small Pine line icon (line 1: three stacked layers; line 2: a small horizontal slider with a dial; line 3: two circular swap arrows). Body text Ink #1C1C1A, clean sans-serif (Inter-like), regular weight.
+  - Right column (about 42% width), beside the body lines: the product. PRODUCT REFERENCE: the store open on a laptop from the reference image, screen content unchanged. Three-quarter view, sharp and in focus, resting on a light wooden tabletop that fades softly into the Paper panel, soft natural window light from the left. This is the only photographic region in the ad.
+  - Under the body column: a thin Pine rule, then the proof quote in small Ink italic serif, and under it the source line in smaller Ink at 70% opacity.
+  - Bottom-right corner: one rounded-rectangle button filled Ember #E0621F, label in Ink #1C1C1A semibold sans-serif.
+
+MEDIUM: clean flat digital graphic design for the dashboard card and the panel (no paper texture, no photo texture on them). The only photograph is the laptop product on the wooden surface.
+
+PALETTE: Pine #1F3A34 (subheadline, icons, rule) · Ember #E0621F (the button fill only; nothing else in the image is orange) · Ink #1C1C1A (headline, body, proof, button label) · Paper #F7F4EE (background). White only inside the dashboard card. Chart lines slate grey.
+
+EXACT TEXT MANIFEST (render every string exactly once, spelled and punctuated exactly as written; no other words anywhere):
+1. HOOK / headline, inside the dashboard card, top-left, largest, three lines: "~600 clicks. Still no sales. Then I closed the store."
+2. SUBHEADLINE, under the dashboard card, Pine serif, full width: "The product did not sell. It was also the only shot the store ever got."
+3. BODY line 1, left column, beside the layers icon: "Readymerce builds your next store in your name and puts products live in stages."
+4. BODY line 2, left column, beside the slider icon: "Each gets a small ad test on a budget you approve."
+5. BODY line 3, left column, beside the swap-arrows icon: "What doesn't sell gets replaced."
+6. PROOF quote, under the body, italic, with curly quotation marks: "“Most successful dropshippers test 5 to 10 products before finding one that scales profitably.”"
+7. PROOF source, directly under the quote, smaller: "Product Lair, 2024"
+8. CTA, the Ember button label: "A second shot"
+
+INCIDENTAL TEXT: none. Every dashboard label, tab, menu, axis and number is a blank grey bar or absent. The laptop screen keeps exactly the content of the reference image; do not add, change or sharpen any words, prices or logos on it. No wordmark, no logo, no badges, no stars, no price, no URL, no percentages.
+
+READABILITY: safe margins of at least 48 px on every side; the headline must read at phone feed size and dominate when the image is blurred; subheadline about half the headline size; body at a comfortable mobile size; strong contrast everywhere; natural line breaks, no hyphenation; no text overlapping the laptop.
+
+EXCLUSIONS: no people, no hands, no faces; no second laptop or phone; no real app logos or Shopify branding in the dashboard; no cash, no rockets, no rising-profit arrows, no chart that shows sales going up; no emoji; no em dashes; no extra slogans; no watermark; no orange except the button; do not render these instructions.
+
+HIGGSFIELD: model nano_banana_2 (batch default), aspect 4:5, high quality. Image-reference role: product element 9597a0b7-58a4-42f0-bdc9-1b2663b1ce17 ("readymerce-store-laptop"), preserve the laptop and the store on its screen exactly, screen content unchanged. Do not attach the environment element (de8b79fa is the AV-07 back room, wrong scene for AV-01).

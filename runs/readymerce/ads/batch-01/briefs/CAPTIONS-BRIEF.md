@@ -1,0 +1,9 @@
+# CAPTIONS-BRIEF — P3 caption + headline pool agent
+
+Read whole: ADS-BRIEF-COMMON.md, the skill SKILL.md §A18 + references/captions-and-headlines.md, work/03-language-harvest.md, work/04-desire-stack.md, work/05-belief-ledger.md, work/08-concept-slate.md, foundation/handoff.json offer_architecture + honest_box + product_truth_card pointer (01-PRODUCT-TRUTH.md §TRUTH CARD for PT-## facts and the exact refund wording), 12-OFFER-TESTPLAN-PLAYBOOK.md §5.
+
+WRITE (.partial then rename): captions.txt (five evergreen captions, 250–400 words each, numbered, each with the 5-part structure at length: hook line → belief shift with its reason → benefits + why different → proof (real PT-## facts only; no reviews exist; say what the $500 buys, the store in the client's name, the staged tests, the written review, the team after launch) → the full current offer ($500 Build; the refund AS CONDITIONED with its window and the add-on condition, in plain words) → 3-word outcome CTA as the final line; five different narrative routes; 3–6 purposeful emojis if the 13-BRAND.md voice allows them, else none), headlines.txt (five Meta headlines 4–9 words, ≥2 outcome/benefit statements, recognition / objection / desire / offer / situation-led), work/pairing-map.md (which caption pairs with which V1/V2 ad id from work/batch-skeleton.json and any incompatible pairs), fragments/captions.json = {"captions":[{"id","tone","structure","text"}×5],"headlines":[{"id","text"}×5]} (text = consumer copy only, no links).
+
+RULES: the lint block in ADS-BRIEF-COMMON.md is binding (no income/success/speed claims, no "done for you"/"turnkey" hook words, no invented reviews, no scarcity, no em dashes, no hyperlinks); every fact carries a PT-## or Q-## in a separate work/captions-sources.md. Bash + python3 only; no spend. Time box 25 minutes / 40 calls.
+
+REPLY with ONE line: `DONE|PARTIAL · P3-CAPTIONS · files: [..] · caption words [n,n,n,n,n] · headlines 5 · unsourced facts N`

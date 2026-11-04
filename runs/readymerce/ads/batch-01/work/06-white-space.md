@@ -1,0 +1,27 @@
+# 06 · A2e White-Space Scan · Readymerce ads batch-01 · P1 SLATE
+
+Sources: 02-swipe.csv (IM-01..IM-32, 6 networks, read with python3 csv), handoff.json `observed_patterns` → 03-VALIDATED-MESSAGING.md §9–§12 (HK/CR/PR/OF), `angles[].market_validation`, 09 §4 CAM, 13 §5 narrator tally. **Rule:** competitor ads inform formats and surfaces only, never messages.
+
+## What already runs (IM-## · network · days active · format · hook, verbatim · who it addresses)
+| network | IMs (days) | dominant format / narrator | message territory (DO NOT borrow) | who |
+|---|---|---|---|---|
+| NW-01 Ecom Degree University | IM-01..IM-14 (6–70 d) | video 6–192 s; brand/none, podcast clips, lifestyle flex (CR-02, CR-03), one screen-share (CR-06, IM-03) | "REPORT: ... hidden Walmart income loophole", "Don't get another job in 2026" (IM-14), "If you make less than $50 an hour" (IM-03) | young side-hustle seekers, hourly workers |
+| NW-02 family networks | IM-15..IM-17 (≤0.1 d) | unknown | "I Didn't Have a Cape. Just a Laptop and a Family to Fight For!" | fathers (AV-05, RESERVE) |
+| NW-03 Ecom Accelerator | IM-18..IM-22 (109–540 d; IM-18 = CONTROL, do not copy) | dco + founder/whiteboard video | "THIS New Ecommerce Platform Will Be Even Bigger Than Amazon", "If you are sitting on $25,000 or more" | capital holders (CL-09, RESERVE) |
+| NW-04 Done for you brands | IM-23..IM-27 (24–87 d) | video + street-interview B-roll (CR-04); one image (IM-25) | "STOP buying courses! I'll design you a beautiful store" (IM-23/26), "People are stealing your money. And it's legal." (IM-25), "77,254+ people have already claimed their online store" (IM-27) | course-burned starters (AV-02/AV-03 pond) |
+| NW-05 Ecomxpertz | IM-28 (36 d) | unknown | "Launch Your Amazon Store with Confidence" | Amazon starters |
+| NW-06 Ecom Websites | IM-29..IM-32 (13–271 d) | dco/image, carousel, split-panel cost collision (CR-05, IM-31) | "Let me guess... You've been thinking about starting an online business" (IM-29/30), free built store + "30 winning products" | procrastinating starters (AV-03 OWNED pond) |
+
+Proof stack the long-runners share (03 §11): qualifier → business-model transparency (PR-07) → component list → volume number (PR-01) → guarantee (PR-02) → quiz/VSL. Narrators (13 §5, 02-swipe): brand/none 16 of 32, founder/expert 6, podcast 4, family 3, fellow sufferer 3 (IM-21, IM-30, IM-32); **STRICT long-form story ads: 0 of 32**.
+
+## Gaps (uncovered) and how batch-01 weights toward them
+| dimension | covered by the market | UNCOVERED (white space) | batch-01 weighting |
+|---|---|---|---|
+| **avatars** | AV-03 OWNED (4 networks PRIMARY incl. IM-29 271 d) · AV-02/AV-04 STEALABLE (NW-04 IM-23 87 d; NW-01 70 d) · CL-09 (NW-03) · AV-05 (NW-02) | **AV-07** CAM PRIMARY 0 of 8 NW (UNTAPPED) · **AV-01** 0 of 8 (UNTAPPED) | 2 of 3 launch concepts go to the untapped avatars (C1 AV-07, C2 AV-01); C3 AV-04 takes the STEALABLE pond with the only counter-position nobody runs (keep the job vs IM-14). AV-03 (OWNED) and AV-02 are built and benched. |
+| **angles** | "we build it for you" (VA-01, NW-03/04/06), "not you, the barrier" (VA-04, NW-04/06), "STOP buying courses" (NW-04), income/lifestyle (NW-01), capital returns (NW-03) | the post-launch step (0 of 8 NW, 10 §12) · the one-shot launch as villain (0 of 8) · ownership as a check (NI-04, 0 of 32 IM) · keep-the-job (no NW) · conversion math (NI-02, 0 ads) · test 5–10 products (NI-01, 0 of 20 long-runners) | launch angles all FRESH: AN-01 (post-launch step), AN-05 (one-shot launch, NI-01 bridge), AN-10 (keep the job). Benched: AN-13 (NI-04 ownership, FRESH), AN-16 (FRESH handle; its S2 claim is OWNED by 4 NW, so it leads with the mechanism). |
+| **beliefs** | "you need your own product" (IM-10), "you can't do it alone" (NW-04/06), "a new platform beats Amazon" (NW-03) | B-02.AV-07 (built ≠ running) · B-102.AV-01 (one guess, not me) · B-42.AV-04 (keep the salary IS the safe part) · B-02.AV-02 (check two places) · B-03.AV-03 (launch day is where work starts) | one distinct target belief per concept, 5 of 5 = the avatar's THE ONE or P0 belief. |
+| **vehicles** | video (22 of 32), brand images/dco (IM-25, IM-29, IM-31) | long-form native story ads (0 STRICT) · native statics that look like a person's post (group chat, notes app, search card, feed post: 0) · designed statics with the avatar's own evidence on screen (idle admin, 0-orders dashboard) | every concept ships V2 native + V3 long story; V1 uses IMV/Atypical Text on the avatar's own surfaces. |
+| **formats / surfaces we may borrow (form only)** | CR-01 at-home person mid-routine (IM-07, IM-29, IM-30, IM-32) · CR-06 screen-share where the screen shows what the voice claims (IM-03) · CR-05 split-panel comparison (IM-31) | n/a | CR-06 → screens show the PROBLEM (0 orders, idle admin, "contact an administrator") and the PROCESS, never revenue (13 §6) · CR-05 → C4 V1 Us vs Them (whose name is on the store), not "FREE" · CR-01 → V3 N8 snapshots and C3's VF10 timeline. |
+| **never echo** | "Let me guess...", "STOP buying courses", "bigger than Amazon", "$20 store"/"free store", "30 winning products", lifestyle flex, podcast set, "#1 Commerce Coach", customer-volume counts | n/a | banned in 13 §10 and DNS-17/DNS-19; checked again at hook gate (09). |
+
+`WHITE SPACE: IM read 32 · networks 6 · uncovered avatars 2 (AV-07, AV-01) · uncovered angles 6 · uncovered beliefs 5 · uncovered vehicles 3 · launch concepts in FRESH/UNTAPPED territory 3 of 3 · borrowed from competitors: formats/surfaces only (CR-01, CR-05, CR-06)`

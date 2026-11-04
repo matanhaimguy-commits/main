@@ -1,0 +1,25 @@
+{
+  "step": "06",
+  "mode": "HARVEST",
+  "scope": "OWNED-US",
+  "voc_corpus_path": "06-partials/06-VOC_MASTER.OWNED-US.csv",
+  "harvest_log_path": "06-partials/06-HARVEST-LOG.OWNED-US.md",
+  "records_total": 109,
+  "records_by_cp": {"CP-01": 19, "CP-02": 14, "CP-03": 28, "CP-04": 16, "CP-05": 15, "CP-06": 12, "CP-07": 1},
+  "floors": {
+    "met": ["records>=70(109)", "calls>=40(44)", "objection>=20(27/24calls)", "belief>=10(21/17calls)",
+      "skepticism>=10(20/16calls)", "desire+deeper_hope>=12(23)", "spend>=10(26/21calls)",
+      "trigger+made_them_act>=8(13)", "failed_solution>=6(18/18calls)", "scene>=8(15/13calls)", "C_rows<=40(16)"],
+    "partial": ["records_target_120(109/120)"]
+  },
+  "tags_below_floor": [],
+  "blocked": [],
+  "call_outcome_counts": {"BOOKED-FOLLOWUP": 64, "DECLINED": 21, "UNKNOWN": 12, "PAID": 7, "DEPOSIT": 5},
+  "calls_read": 46,
+  "calls_total": 155,
+  "c_rows": 16,
+  "pb_ledger_unique_calls": {"PB-01": 18, "PB-02": 22, "PB-03": 15, "PB-04": 5, "PB-05": 5, "PB-06": 10, "PB-07": 4},
+  "resume_point": "url_index=46 of 155 (ranked by prospect word count, datasets/owned-US-ranking.csv); ranks 1-46 attempted, 2 skipped (rank3 internal sales-training call, rank22 garbled transcript); ranks 47-155 unread",
+  "cost_usd": 0.0,
+  "coverage": "COVERAGE OWNED-US: records 109/70 (target 120) · calls read 46/155 (44 yielded records, 2 zero-with-reason) · tags below floor: NONE · C rows 16 · call_outcome BOOKED-FOLLOWUP 64/DECLINED 21/UNKNOWN 12/PAID 7/DEPOSIT 5 · resume: url_index=46 · weakest link: CP-07 (spouse can't work because of kids) has only 1 record/1 call — under-sampled in this rank range, a RE-MINE pass over ranks 47-155 would close it"
+}

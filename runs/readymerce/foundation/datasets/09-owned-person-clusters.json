@@ -1,0 +1,1732 @@
+{
+"O-a654f844": {
+"prim": "CL-06",
+"sec": [],
+"q": [
+"Q-O-0001",
+"Q-O-0002",
+"Q-O-0003"
+],
+"n": 3,
+"outcome": "DEPOSIT",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-a654f844"
+],
+"emp": "owns clothing brand (warehouse in Downtown LA, prior factory in Guangzhou)",
+"hh": "NULL",
+"best_outcome": "DEPOSIT",
+"all_outcomes": [
+"DEPOSIT"
+]
+},
+"O-bd81d158": {
+"prim": "CL-06",
+"sec": [],
+"q": [
+"Q-O-0004",
+"Q-O-0005",
+"Q-O-0006"
+],
+"n": 3,
+"outcome": "DECLINED",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-bd81d158"
+],
+"emp": "owns a signage manufacturing business (Sarasota, FL area), former IT/electrical engineer",
+"hh": "wife owns a separate small local business",
+"best_outcome": "DECLINED",
+"all_outcomes": [
+"DECLINED"
+]
+},
+"O-7e217243": {
+"prim": "CL-05",
+"sec": [
+"CL-01b",
+"CL-08"
+],
+"q": [
+"Q-O-0007",
+"Q-O-0008",
+"Q-O-0009"
+],
+"n": 3,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-7e217243"
+],
+"emp": "NULL",
+"hh": "has a business partner (Brian)",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-f85633d6": {
+"prim": "CL-07",
+"sec": [
+"CL-01a"
+],
+"q": [
+"Q-O-0010",
+"Q-O-0011",
+"Q-O-0012",
+"Q-O-0013",
+"Q-O-0065",
+"Q-O-0066",
+"Q-O-0067",
+"Q-O-0068"
+],
+"n": 8,
+"outcome": "UNKNOWN",
+"market": "US",
+"nofund": true,
+"authors": [
+"O-9750469a",
+"O-aeea92be",
+"O-f85633d6"
+],
+"emp": "unemployed, multi-convicted felon, over 700 job applications since release (July 2025) rec",
+"hh": "NULL call_market: US NULL call_market: US NULL",
+"best_outcome": "DEPOSIT",
+"all_outcomes": [
+"BOOKED-FOLLOWUP",
+"DEPOSIT",
+"UNKNOWN"
+]
+},
+"O-a09fbc4f": {
+"prim": "CL-02",
+"sec": [],
+"q": [
+"Q-O-0014",
+"Q-O-0015",
+"Q-O-0016"
+],
+"n": 3,
+"outcome": "DECLINED",
+"market": "US",
+"nofund": true,
+"authors": [
+"O-a09fbc4f"
+],
+"emp": "NULL",
+"hh": "NULL",
+"best_outcome": "DECLINED",
+"all_outcomes": [
+"DECLINED"
+]
+},
+"O-9d547e9d": {
+"prim": "CL-04",
+"sec": [
+"CL-08"
+],
+"q": [
+"Q-O-0017",
+"Q-O-0018",
+"Q-O-0019"
+],
+"n": 3,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-9d547e9d"
+],
+"emp": "NULL",
+"hh": "husband (decision partner), a son she is picking up during t",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-22f51137": {
+"prim": "CL-07",
+"sec": [
+"CL-04"
+],
+"q": [
+"Q-O-0020",
+"Q-O-0021",
+"Q-O-0022"
+],
+"n": 3,
+"outcome": "DECLINED",
+"market": "US",
+"nofund": true,
+"authors": [
+"O-22f51137"
+],
+"emp": "carpenter, off work over a year due to a heart condition (in treatment)",
+"hh": "wife works ~20 hours a week, kids in high school",
+"best_outcome": "DECLINED",
+"all_outcomes": [
+"DECLINED"
+]
+},
+"O-decf68af": {
+"prim": "CL-02",
+"sec": [],
+"q": [
+"Q-O-0023",
+"Q-O-0024",
+"Q-O-0025",
+"Q-O-0026"
+],
+"n": 4,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "US",
+"nofund": true,
+"authors": [
+"O-decf68af"
+],
+"emp": "hands-on repair work (e-bikes)",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-3dd099fe": {
+"prim": "CL-06",
+"sec": [],
+"q": [
+"Q-O-0027",
+"Q-O-0028",
+"Q-O-0029"
+],
+"n": 3,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "US",
+"nofund": true,
+"authors": [
+"O-3dd099fe"
+],
+"emp": "runs a fitness/nutrition and mindset-coaching business",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-5455cbcf": {
+"prim": "CL-03",
+"sec": [],
+"q": [
+"Q-O-0030",
+"Q-O-0031",
+"Q-O-0032"
+],
+"n": 3,
+"outcome": "PAID",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-5455cbcf"
+],
+"emp": "has a job (mentions being off work on Mondays)",
+"hh": "NULL",
+"best_outcome": "PAID",
+"all_outcomes": [
+"PAID"
+]
+},
+"O-0feb370b": {
+"prim": "CL-07",
+"sec": [
+"CL-01b",
+"CL-08"
+],
+"q": [
+"Q-O-0033",
+"Q-O-0034",
+"Q-O-0035",
+"Q-O-0089"
+],
+"n": 4,
+"outcome": "UNKNOWN",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-0dc3510d",
+"O-0feb370b"
+],
+"emp": "unemployed, using wife's income unemployed, using wife's income (her job hours are inconsi",
+"hh": "wife (income earner) call_market: US wife (income earner)",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP",
+"UNKNOWN"
+]
+},
+"O-7efb82c7": {
+"prim": "CL-07",
+"sec": [
+"CL-01a"
+],
+"q": [
+"Q-O-0036",
+"Q-O-0037",
+"Q-O-0038",
+"Q-O-0039"
+],
+"n": 4,
+"outcome": "PAID",
+"market": "US",
+"nofund": true,
+"authors": [
+"O-7efb82c7"
+],
+"emp": "out of work due to illness",
+"hh": "NULL",
+"best_outcome": "PAID",
+"all_outcomes": [
+"PAID"
+]
+},
+"O-9fc681ce": {
+"prim": "CL-04",
+"sec": [
+"CL-08"
+],
+"q": [
+"Q-O-0040",
+"Q-O-0041",
+"Q-O-0042"
+],
+"n": 3,
+"outcome": "DECLINED",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-9fc681ce"
+],
+"emp": "NULL",
+"hh": "adult daughter (declined the idea), another adult child work",
+"best_outcome": "DECLINED",
+"all_outcomes": [
+"DECLINED"
+]
+},
+"O-48b8dedb": {
+"prim": "CL-06",
+"sec": [],
+"q": [
+"Q-O-0043",
+"Q-O-0044",
+"Q-O-0045"
+],
+"n": 3,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-48b8dedb"
+],
+"emp": "runs an existing side business selling sewn clothing and skincare items sourced from Afric",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-32a00cca": {
+"prim": "CL-03",
+"sec": [],
+"q": [
+"Q-O-0046",
+"Q-O-0047",
+"Q-O-0048"
+],
+"n": 3,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-32a00cca"
+],
+"emp": "NULL",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-5625961c": {
+"prim": "CL-03",
+"sec": [],
+"q": [
+"Q-O-0049",
+"Q-O-0050",
+"Q-O-0051",
+"Q-O-0052"
+],
+"n": 4,
+"outcome": "DECLINED",
+"market": "US",
+"nofund": true,
+"authors": [
+"O-5625961c"
+],
+"emp": "part-time job at a fruit and vegetable store (15-18 hours/week)",
+"hh": "NULL",
+"best_outcome": "DECLINED",
+"all_outcomes": [
+"DECLINED"
+]
+},
+"O-735a0ad4": {
+"prim": "CL-06",
+"sec": [],
+"q": [
+"Q-O-0053",
+"Q-O-0054"
+],
+"n": 2,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-735a0ad4"
+],
+"emp": "runs an independent IT/web-services business for clients",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-82f75d9e": {
+"prim": "CL-03",
+"sec": [
+"CL-08"
+],
+"q": [
+"Q-O-0055",
+"Q-O-0056",
+"Q-O-0057"
+],
+"n": 3,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "US",
+"nofund": true,
+"authors": [
+"O-82f75d9e"
+],
+"emp": "works in security",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-f2df9424": {
+"prim": "CL-04",
+"sec": [],
+"q": [
+"Q-O-0058",
+"Q-O-0059",
+"Q-O-0060",
+"Q-O-0061"
+],
+"n": 4,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "US",
+"nofund": true,
+"authors": [
+"O-f2df9424"
+],
+"emp": "NULL",
+"hh": "girlfriend, four children, not married",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-81abb644": {
+"prim": "CL-01a",
+"sec": [],
+"q": [
+"Q-O-0062",
+"Q-O-0063",
+"Q-O-0064",
+"Q-O-0107"
+],
+"n": 4,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "US",
+"nofund": true,
+"authors": [
+"O-81abb644",
+"O-f721f574"
+],
+"emp": "NULL NULL",
+"hh": "NULL call_market: US NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-cd4a2a0d": {
+"prim": "CL-05",
+"sec": [
+"CL-04"
+],
+"q": [
+"Q-O-0069",
+"Q-O-0070",
+"Q-O-0071",
+"Q-O-0072"
+],
+"n": 4,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-cd4a2a0d"
+],
+"emp": "gig work (DoorDash), recently left a nursing home",
+"hh": "briefly married in the past, a son who died",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-cc8c465f": {
+"prim": "CL-01a",
+"sec": [
+"CL-01a"
+],
+"q": [
+"Q-O-0073",
+"Q-O-0074",
+"Q-O-0075"
+],
+"n": 3,
+"outcome": "DECLINED",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-cc8c465f"
+],
+"emp": "hourly worker with a variable schedule, runs multiple side hustles",
+"hh": "NULL",
+"best_outcome": "DECLINED",
+"all_outcomes": [
+"DECLINED"
+]
+},
+"O-ff7f44b5": {
+"prim": "CL-05",
+"sec": [],
+"q": [
+"Q-O-0076",
+"Q-O-0077",
+"Q-O-0078"
+],
+"n": 3,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-ff7f44b5"
+],
+"emp": "works until midnight (job unspecified)",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-6c263bde": {
+"prim": "CL-02",
+"sec": [],
+"q": [
+"Q-O-0079",
+"Q-O-0080"
+],
+"n": 2,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-6c263bde"
+],
+"emp": "describes working around the clock on his own hustle",
+"hh": "no children, does not plan to have any",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-1bf10396": {
+"prim": "CL-05",
+"sec": [
+"CL-01b"
+],
+"q": [
+"Q-O-0081",
+"Q-O-0082",
+"Q-O-0083",
+"Q-O-0084"
+],
+"n": 4,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "US",
+"nofund": true,
+"authors": [
+"O-1bf10396"
+],
+"emp": "NULL",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-264472f5": {
+"prim": "CL-04",
+"sec": [],
+"q": [
+"Q-O-0085",
+"Q-O-0086",
+"Q-O-0087"
+],
+"n": 3,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-264472f5"
+],
+"emp": "works in finance and software development, relocated to the US for his company",
+"hh": "son in college, daughter approaching college age",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-7198f7ec": {
+"prim": "CL-00",
+"sec": [],
+"q": [
+"Q-O-0088"
+],
+"n": 1,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-7198f7ec"
+],
+"emp": "student",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-3f6219f9": {
+"prim": "CL-01b",
+"sec": [
+"CL-01b"
+],
+"q": [
+"Q-O-0090"
+],
+"n": 1,
+"outcome": "UNKNOWN",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-3f6219f9"
+],
+"emp": "Medicare insurance sales agent (9 years licensed), seasonal 12-14 hour overtime days",
+"hh": "NULL",
+"best_outcome": "UNKNOWN",
+"all_outcomes": [
+"UNKNOWN"
+]
+},
+"O-f3e705fd": {
+"prim": "CL-02",
+"sec": [],
+"q": [
+"Q-O-0091"
+],
+"n": 1,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-f3e705fd"
+],
+"emp": "NULL",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-7e92990b": {
+"prim": "CL-02",
+"sec": [],
+"q": [
+"Q-O-0092"
+],
+"n": 1,
+"outcome": "UNKNOWN",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-7e92990b"
+],
+"emp": "NULL",
+"hh": "NULL",
+"best_outcome": "UNKNOWN",
+"all_outcomes": [
+"UNKNOWN"
+]
+},
+"O-a0874b00": {
+"prim": "CL-01b",
+"sec": [],
+"q": [
+"Q-O-0093",
+"Q-O-0094"
+],
+"n": 2,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-a0874b00"
+],
+"emp": "works Monday-Thursday, off Friday-Sunday",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-d5f8ca6a": {
+"prim": "CL-05",
+"sec": [],
+"q": [
+"Q-O-0095",
+"Q-O-0099"
+],
+"n": 2,
+"outcome": "UNKNOWN",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-b9ed2904",
+"O-d5f8ca6a"
+],
+"emp": "retired",
+"hh": "recently relocated (newcomer to Canada, per his own words)",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP",
+"UNKNOWN"
+]
+},
+"O-b64e4cf7": {
+"prim": "CL-03",
+"sec": [],
+"q": [
+"Q-O-0096"
+],
+"n": 1,
+"outcome": "UNKNOWN",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-b64e4cf7"
+],
+"emp": "warehouse worker",
+"hh": "NULL",
+"best_outcome": "UNKNOWN",
+"all_outcomes": [
+"UNKNOWN"
+]
+},
+"O-09a3b957": {
+"prim": "CL-06",
+"sec": [
+"CL-01b"
+],
+"q": [
+"Q-O-0097",
+"Q-O-0098"
+],
+"n": 2,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "US",
+"nofund": true,
+"authors": [
+"O-09a3b957"
+],
+"emp": "runs her own existing (unspecified) business",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-27a44c94": {
+"prim": "CL-00",
+"sec": [],
+"q": [
+"Q-O-0100"
+],
+"n": 1,
+"outcome": "UNKNOWN",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-27a44c94"
+],
+"emp": "former Walmart manager",
+"hh": "NULL",
+"best_outcome": "UNKNOWN",
+"all_outcomes": [
+"UNKNOWN"
+]
+},
+"O-78f82c95": {
+"prim": "CL-01a",
+"sec": [],
+"q": [
+"Q-O-0101",
+"Q-O-0102"
+],
+"n": 2,
+"outcome": "DECLINED",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-78f82c95"
+],
+"emp": "NULL",
+"hh": "NULL",
+"best_outcome": "DECLINED",
+"all_outcomes": [
+"DECLINED"
+]
+},
+"O-3fd51b13": {
+"prim": "CL-06",
+"sec": [],
+"q": [
+"Q-O-0103",
+"Q-O-0104",
+"Q-O-0105"
+],
+"n": 3,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "US",
+"nofund": false,
+"authors": [
+"O-3fd51b13"
+],
+"emp": "runs a fitness/nutrition/mindset coaching business with four locations, former professiona",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-cca911d9": {
+"prim": "CL-07",
+"sec": [],
+"q": [
+"Q-O-0106"
+],
+"n": 1,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "US",
+"nofund": true,
+"authors": [
+"O-cca911d9"
+],
+"emp": "job-seeking since returning from visiting family abroad",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-89f4c88a": {
+"prim": "CL-01b",
+"sec": [],
+"q": [
+"Q-O-0108",
+"Q-O-0109"
+],
+"n": 2,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "US",
+"nofund": true,
+"authors": [
+"O-89f4c88a"
+],
+"emp": "solar sales, commission-based (no sale, no pay)",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-65d201c9": {
+"prim": "CL-01b",
+"sec": [],
+"q": [
+"Q-O-0110",
+"Q-O-0111",
+"Q-O-0112"
+],
+"n": 3,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-65d201c9"
+],
+"emp": "construction worker (20 years)",
+"hh": "married (referenced), family sent abroad without him",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-99d7bf25": {
+"prim": "CL-02",
+"sec": [],
+"q": [
+"Q-O-0113",
+"Q-O-0114",
+"Q-O-0115"
+],
+"n": 3,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-99d7bf25"
+],
+"emp": "academic / brand stylist (builds websites)",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-5a711bda": {
+"prim": "CL-03",
+"sec": [],
+"q": [
+"Q-O-0116",
+"Q-O-0117",
+"Q-O-0118"
+],
+"n": 3,
+"outcome": "DECLINED",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-5a711bda"
+],
+"emp": "office worker (took the call at work)",
+"hh": "NULL",
+"best_outcome": "DECLINED",
+"all_outcomes": [
+"DECLINED"
+]
+},
+"O-35d2317c": {
+"prim": "CL-02",
+"sec": [],
+"q": [
+"Q-O-0119",
+"Q-O-0120"
+],
+"n": 2,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "NO",
+"nofund": false,
+"authors": [
+"O-35d2317c"
+],
+"emp": "chef",
+"hh": "married, wife does not work, sole income earner, travels for",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-a69fc3b4": {
+"prim": "CL-05",
+"sec": [],
+"q": [
+"Q-O-0121",
+"Q-O-0122"
+],
+"n": 2,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-a69fc3b4"
+],
+"emp": "retired (former IT project/test manager, heart attack at 50, retired, returned to work bri",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-b4f00a87": {
+"prim": "CL-06",
+"sec": [],
+"q": [
+"Q-O-0123",
+"Q-O-0124"
+],
+"n": 2,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-b4f00a87"
+],
+"emp": "runs events + money-transfer-org marketing",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-a680bb4d": {
+"prim": "CL-02",
+"sec": [],
+"q": [
+"Q-O-0125",
+"Q-O-0126"
+],
+"n": 2,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-a680bb4d"
+],
+"emp": "NULL",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-42a004a9": {
+"prim": "CL-07",
+"sec": [
+"CL-01a",
+"CL-01b"
+],
+"q": [
+"Q-O-0127",
+"Q-O-0128",
+"Q-O-0129"
+],
+"n": 3,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": true,
+"authors": [
+"O-42a004a9"
+],
+"emp": "unemployed (lost job)",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-6c960800": {
+"prim": "CL-01a",
+"sec": [],
+"q": [
+"Q-O-0130",
+"Q-O-0131",
+"Q-O-0132"
+],
+"n": 3,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-6c960800"
+],
+"emp": "IT guy",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-8960189a": {
+"prim": "CL-03",
+"sec": [
+"CL-08"
+],
+"q": [
+"Q-O-0133",
+"Q-O-0134"
+],
+"n": 2,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-8960189a"
+],
+"emp": "currently employed, earning",
+"hh": "shares finances with a partner",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-c5e20736": {
+"prim": "CL-00",
+"sec": [],
+"q": [
+"Q-O-0135",
+"Q-O-0136"
+],
+"n": 2,
+"outcome": "HUNG-UP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-c5e20736"
+],
+"emp": "NULL (driving during the call)",
+"hh": "NULL",
+"best_outcome": "HUNG-UP",
+"all_outcomes": [
+"HUNG-UP"
+]
+},
+"O-df4f4cad": {
+"prim": "CL-02",
+"sec": [],
+"q": [
+"Q-O-0137",
+"Q-O-0138"
+],
+"n": 2,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-df4f4cad"
+],
+"emp": "trades (financial trading) part-time, Wed/Sun only, also selling house",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-559d043f": {
+"prim": "CL-04",
+"sec": [],
+"q": [
+"Q-O-0139",
+"Q-O-0140"
+],
+"n": 2,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-559d043f"
+],
+"emp": "NULL",
+"hh": "has daughters ('my children are all girls')",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-c018d848": {
+"prim": "CL-05",
+"sec": [
+"CL-01b"
+],
+"q": [
+"Q-O-0141",
+"Q-O-0142"
+],
+"n": 2,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-c018d848"
+],
+"emp": "recently retired from the NHS",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-29a3a362": {
+"prim": "CL-04",
+"sec": [],
+"q": [
+"Q-O-0143",
+"Q-O-0144"
+],
+"n": 2,
+"outcome": "DECLINED",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-29a3a362"
+],
+"emp": "NULL",
+"hh": "has a 5-year-old child",
+"best_outcome": "DECLINED",
+"all_outcomes": [
+"DECLINED"
+]
+},
+"O-0e78dc62": {
+"prim": "CL-04",
+"sec": [],
+"q": [
+"Q-O-0145",
+"Q-O-0146"
+],
+"n": 2,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-0e78dc62"
+],
+"emp": "factory worker, quit university to pursue design",
+"hh": "council house, lives with wife and kids together",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-6ffa9c82": {
+"prim": "CL-07",
+"sec": [
+"CL-01a"
+],
+"q": [
+"Q-O-0147",
+"Q-O-0148",
+"Q-O-0149"
+],
+"n": 3,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-6ffa9c82"
+],
+"emp": "on government benefits",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-59e9ab02": {
+"prim": "CL-06",
+"sec": [],
+"q": [
+"Q-O-0150",
+"Q-O-0151"
+],
+"n": 2,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "IE",
+"nofund": false,
+"authors": [
+"O-59e9ab02"
+],
+"emp": "runs a Shopify jersey business part-time",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-4b3eb2a1": {
+"prim": "CL-05",
+"sec": [],
+"q": [
+"Q-O-0152",
+"Q-O-0153"
+],
+"n": 2,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-4b3eb2a1"
+],
+"emp": "NULL",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-96f490a3": {
+"prim": "CL-01b",
+"sec": [],
+"q": [
+"Q-O-0154",
+"Q-O-0155"
+],
+"n": 2,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-96f490a3"
+],
+"emp": "computer consultant, very little spare time",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-40d9bf9a": {
+"prim": "CL-02",
+"sec": [],
+"q": [
+"Q-O-0156",
+"Q-O-0157"
+],
+"n": 2,
+"outcome": "DECLINED",
+"market": "UK",
+"nofund": true,
+"authors": [
+"O-40d9bf9a"
+],
+"emp": "NULL",
+"hh": "NULL",
+"best_outcome": "DECLINED",
+"all_outcomes": [
+"DECLINED"
+]
+},
+"O-8482e001": {
+"prim": "CL-02",
+"sec": [],
+"q": [
+"Q-O-0158",
+"Q-O-0159"
+],
+"n": 2,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": true,
+"authors": [
+"O-8482e001"
+],
+"emp": "NULL",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-6fe9d604": {
+"prim": "CL-07",
+"sec": [
+"CL-04"
+],
+"q": [
+"Q-O-0160",
+"Q-O-0161"
+],
+"n": 2,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-6fe9d604"
+],
+"emp": "currently not working, waiting for a job",
+"hh": "4 kids",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-01701f10": {
+"prim": "CL-04",
+"sec": [],
+"q": [
+"Q-O-0162",
+"Q-O-0163"
+],
+"n": 2,
+"outcome": "UNKNOWN",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-01701f10"
+],
+"emp": "NULL",
+"hh": "has a son referenced by the rep",
+"best_outcome": "UNKNOWN",
+"all_outcomes": [
+"UNKNOWN"
+]
+},
+"O-c8bbdefc": {
+"prim": "CL-06",
+"sec": [],
+"q": [
+"Q-O-0164"
+],
+"n": 1,
+"outcome": "UNKNOWN",
+"market": "IE",
+"nofund": false,
+"authors": [
+"O-c8bbdefc"
+],
+"emp": "runs an existing store, ~1.5 years",
+"hh": "NULL",
+"best_outcome": "UNKNOWN",
+"all_outcomes": [
+"UNKNOWN"
+]
+},
+"O-7b3e52d9": {
+"prim": "CL-00",
+"sec": [],
+"q": [
+"Q-O-0165"
+],
+"n": 1,
+"outcome": "DECLINED",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-7b3e52d9"
+],
+"emp": "NULL",
+"hh": "NULL",
+"best_outcome": "DECLINED",
+"all_outcomes": [
+"DECLINED"
+]
+},
+"O-5ab32cbb": {
+"prim": "CL-02",
+"sec": [],
+"q": [
+"Q-O-0166"
+],
+"n": 1,
+"outcome": "UNKNOWN",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-5ab32cbb"
+],
+"emp": "NULL",
+"hh": "NULL",
+"best_outcome": "UNKNOWN",
+"all_outcomes": [
+"UNKNOWN"
+]
+},
+"O-d30315f1": {
+"prim": "CL-04",
+"sec": [],
+"q": [
+"Q-O-0167",
+"Q-O-0168"
+],
+"n": 2,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-d30315f1"
+],
+"emp": "NULL",
+"hh": "kids need to go to bed (evening call)",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-afd2e48b": {
+"prim": "CL-02",
+"sec": [],
+"q": [
+"Q-O-0169"
+],
+"n": 1,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-afd2e48b"
+],
+"emp": "NULL",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-de8c9529": {
+"prim": "CL-00",
+"sec": [],
+"q": [
+"Q-O-0170"
+],
+"n": 1,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-de8c9529"
+],
+"emp": "NULL",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-2e22a9c0": {
+"prim": "CL-02",
+"sec": [],
+"q": [
+"Q-O-0171"
+],
+"n": 1,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-2e22a9c0"
+],
+"emp": "NULL",
+"hh": "at home during a live screen-share session",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-b4359de7": {
+"prim": "CL-00",
+"sec": [],
+"q": [
+"Q-O-0172"
+],
+"n": 1,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-b4359de7"
+],
+"emp": "NULL",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-c3127ef1": {
+"prim": "CL-02",
+"sec": [],
+"q": [
+"Q-O-0173"
+],
+"n": 1,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-c3127ef1"
+],
+"emp": "NULL",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-26a023e8": {
+"prim": "CL-03",
+"sec": [],
+"q": [
+"Q-O-0174"
+],
+"n": 1,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-26a023e8"
+],
+"emp": "NULL",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-4d24d591": {
+"prim": "CL-00",
+"sec": [],
+"q": [
+"Q-O-0175"
+],
+"n": 1,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-4d24d591"
+],
+"emp": "NULL",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-0bc431fa": {
+"prim": "CL-03",
+"sec": [],
+"q": [
+"Q-O-0176"
+],
+"n": 1,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-0bc431fa"
+],
+"emp": "social worker",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-852df385": {
+"prim": "CL-00",
+"sec": [],
+"q": [
+"Q-O-0177"
+],
+"n": 1,
+"outcome": "DECLINED",
+"market": "UK",
+"nofund": true,
+"authors": [
+"O-852df385"
+],
+"emp": "NULL",
+"hh": "NULL",
+"best_outcome": "DECLINED",
+"all_outcomes": [
+"DECLINED"
+]
+},
+"O-9b45680c": {
+"prim": "CL-00",
+"sec": [],
+"q": [
+"Q-O-0178"
+],
+"n": 1,
+"outcome": "UNKNOWN",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-9b45680c"
+],
+"emp": "NULL",
+"hh": "NULL",
+"best_outcome": "UNKNOWN",
+"all_outcomes": [
+"UNKNOWN"
+]
+},
+"O-429f17e9": {
+"prim": "CL-02",
+"sec": [],
+"q": [
+"Q-O-0179"
+],
+"n": 1,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-429f17e9"
+],
+"emp": "NULL",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+},
+"O-eb798e63": {
+"prim": "CL-05",
+"sec": [],
+"q": [
+"Q-O-0180",
+"Q-O-0181"
+],
+"n": 2,
+"outcome": "BOOKED-FOLLOWUP",
+"market": "UK",
+"nofund": false,
+"authors": [
+"O-eb798e63"
+],
+"emp": "NULL",
+"hh": "NULL",
+"best_outcome": "BOOKED-FOLLOWUP",
+"all_outcomes": [
+"BOOKED-FOLLOWUP"
+]
+}
+}

@@ -1,0 +1,6 @@
+# 06 PROGRESS · SCOPE: PB-05 · agent VOC-PB-05
+
+RESUME POINT: url_index=17 (all 17 mined source units — 14 from the original 05 plan + 3 added in the population-first addendum pass — are in 06-VOC_MASTER.PB-05.csv; leg complete for this session).
+records=30/40 (PB-05) · CP-05=17/25 · sources=17/17 · unique_authors=17 · cost=$0.55 (Exa cumulative across 04+05+06 mining; TranscriptAPI credits separate, not $-metered here) — well under the $2.60 total Exa cap and 45-credit TranscriptAPI cap.
+Next if resumed: (a) OPERATOR-PASTE for r/dropshipping / r/dropship thread URLs — reddit lane fully BLOCKED-ON-TOOL (Apify hard limit + Exa "could not be retrieved"), the single highest-value next step for the largest remaining population gap; (b) Amazon/Trustpilot review lanes not yet attempted (0 records; Trustpilot BLOCKED-ON-TOOL run-wide, Amazon not attempted this leg); (c) mine the reply posts already read on the 3 Shopify Community threads (Mac_2, PageFly-Kate, TeamSpocket, ReturnPrime, Skye_1, Victoria_13) if vendor-adjacent CUSTOMER_EXPLANATION records are wanted for §5/§8; (d) the scene/desire/tired_of_hearing/horror_story/curiosity/corruption tags are at 0 — a targeted pass on "biggest fear about picking wrong" / "daydream about the perfect product" phrasing could close these.
+Do not re-harvest URL-01 through URL-22 — already in 06-VOC_MASTER.PB-05.csv.

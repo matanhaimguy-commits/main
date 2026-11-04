@@ -1,0 +1,16 @@
+# 11-PROGRESS.AV-03 — agent 11-AV-03
+- 22:29Z start · box 40 min / 150 calls
+RESUME POINT: reading inputs (handoffs)
+- 22:32Z inputs read: 01 (T3 PT-01..20, T5 F-01..16), 03 (§11 PR, §13 via 07 §14c), 06 (§3,§5,§6,§6b,§7,§8,§14,§15,§16 + CSV 358 rows), 07 (§9,§11,§12,§14a,§14c,§15), 08 (§3 MD-01/MD-04, §12, §14 IB), 09 (§2 CL-02, §7 AV-03 block, datasets/09-cluster-qids.json CL-02 = 75 Q-##), 10 (§1 lanes_by_stage, §9, §13a/c, §15 LOCK-B, §17)
+- 22:33Z HARVEST-24 (single P0 re-mine, B-02.AV-3 INTERNAL single-thread) launched: Exa agent_run_0f900213ad3648cea3327d6f2513c6d7 (effort medium, ≈$0.10)
+RESUME POINT: writing §1 LOCK CARD; poll Exa run before §17
+- 22:41Z HARVEST-24 returned 4 passages (all pages opened) → Q-F-8301, Q-F-8302, Q-B-8301, Q-F-8303 appended to 06-VOC_MASTER.csv (harvester 11-AV-03; copy datasets/11-AV-03-minted.csv); 05-URL-CORPUS.md `## 11-AV-03 APPENDIX` added; B-02.AV-3 now VALIDATED (5 auth/3 thr)
+- 22:42Z §1–§7 written (lock, BD-1 PARTIAL, FB, EK 10, B-## 6, GO, BS)
+RESUME POINT: §8 OBJ inventory next
+- 22:45Z §8 OBJ (11), §9 FS (4; INCOMPLETE ×3), §10 proof map (16 + X-01) written
+RESUME POINT: §11 CLM next
+- 22:47Z §11 CLM 9, §12 SK 6 (+2 NULL) + DNS 12, §13 WM 5/5, §14 EB, §15 timeline/box, §16 ledger written
+RESUME POINT: §17 counters + coverage statement
+- 22:47Z §17 counters + COVERAGE STATEMENT written; 11-BELIEFS.AV-03.md renamed from .partial
+- 22:48Z 11-HANDOFF.AV-03.json written + validated
+RESUME POINT: DONE — all 17 objects written; nothing to resume (open GAPs listed in 11-BELIEFS.AV-03.md §17)
