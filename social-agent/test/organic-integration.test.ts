@@ -12,7 +12,7 @@ const business = parseBusiness(
   YAML.parse(readFileSync(new URL('../businesses/emperium.yaml', import.meta.url), 'utf8')),
   'emperium.yaml',
 );
-const origin = 'https://public.example.org/';
+const origin = 'https://socialagent.test/';
 
 describe('Organic Engine to existing Social Agent landing pages', () => {
   it('reads all six approved assets, with no live activation', () => {
@@ -69,7 +69,7 @@ describe('Organic Engine to existing Social Agent landing pages', () => {
     expect(f.posts).toEqual([post]);
     expect(f.keywords).toEqual(['מודעות']);
     expect(f.opener.mode).toBe('tap');
-    expect(f.deliver.link).toBe('https://public.example.org/resources/emperium/V24-01');
+    expect(f.deliver.link).toBe('https://socialagent.test/resources/emperium/V24-01');
     expect(f.deliver.button).toBe('פתח את המדריך');
     expect(FunnelSchema.safeParse(f).success).toBe(true);
     expect(auditBusiness(plan.business, { hasToken: false }).filter((x) => x.level === 'error')).toEqual([]);
