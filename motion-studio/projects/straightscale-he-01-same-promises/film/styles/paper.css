@@ -20,6 +20,8 @@
 .v-head { font-family: "Heebo", sans-serif; font-weight: 500; font-size: 74px; line-height: 1.25; min-height: 93px; white-space: nowrap; color: var(--hold); text-align: right; }
 .v-head-text.typed { color: var(--char); }
 .caret { display: inline-block; width: 7px; height: 82px; background: var(--char); vertical-align: -12px; margin-right: 4px; }
+.hand-wrap { position: absolute; left: 0; top: 0; width: 900px; height: 324px; z-index: 310; transform-origin: 0 0; }   /* above the stamp: it is the hand's shadow on it */
+.hand-wrap > .finger-shadow { position: absolute; left: 0; top: 0; right: auto; }
 .v-strike { position: absolute; right: 50px; top: 0; height: 6px; background: var(--char); border-radius: 3px; }
 .v-rule { height: 4px; margin-top: 10px; background: var(--char); transform-origin: right center; }
 .v-tag { position: absolute; left: 44px; top: 28px; font-family: "Heebo", sans-serif; font-weight: 700; font-size: 44px; line-height: 1.2; color: var(--char); border: 3px solid var(--char); border-radius: 12px; padding: 0 18px 2px; }

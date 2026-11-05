@@ -1,9 +1,9 @@
-// A line of words that rise into place one by one and leave the same way. No hard mask edge: each word rises a short
-// way while its ink comes up from 60 % to full over 3 frames (never washed out, never half cut). A title too wide for
-// its box breaks into two rows, the second right-aligned under the first (Hebrew reads from the right). Used by the
-// top band, the captions and the end card.
+// A line of words that rise into place one by one. No hard mask edge and no grey: each word arrives at 88 % ink and
+// the rise carries the entrance; a leaving line folds down onto its baseline word by word (it moves out, it never
+// fades). A title too wide for its box breaks into two rows, the second right-aligned under the first (Hebrew reads
+// from the right). Used by the top band, the captions and the end card.
 (function (SS) {
-  var A = SS.anim, RISE = 38, INK = 0.1, FIRST = 0.6, OUT = 0.16;   // % of word height, seconds, starting ink
+  var A = SS.anim, RISE = 38, INK = 0.07, FIRST = 0.88, OUT = 0.14;   // % of word height, seconds, starting ink
   function build(parent, words, cls) {
     var line = SS.dom.el('div', 'wline he ' + (cls || ''), parent);
     var block = SS.dom.el('div', 'wblock', line), row = SS.dom.el('div', 'wrow', block);
@@ -41,9 +41,9 @@
     if (!on) return;
     item.spans.forEach(function (s, i) {
       var dt = t - ins[i], up = A.spring(dt, 520, 38), ink = dt < 0 ? 0 : FIRST + (1 - FIRST) * A.clamp(dt / INK);
-      var leave = t >= out ? A.clamp((t - out) / OUT) : 0;
-      s.style.transform = 'translateY(' + ((1 - up) * RISE + leave * leave * RISE).toFixed(2) + '%)';
-      s.style.opacity = (ink * (1 - leave)).toFixed(3);
+      var leave = t >= out ? A.clamp((t - out - i * 0.015) / OUT) : 0, fold = 1 - leave * leave;
+      s.style.transform = 'translateY(' + ((1 - up) * RISE).toFixed(2) + '%) scaleY(' + Math.max(0.001, fold).toFixed(4) + ')';
+      s.style.opacity = (leave >= 1 ? 0 : ink).toFixed(3);
     });
   }
   SS.words = { build: build, balance: balance, fit: fit, render: render };

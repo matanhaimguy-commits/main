@@ -27,7 +27,7 @@
         var c = camera.toScreen(t0, caret.x, caret.y), o = A.clamp(open(t));
         var hw = caret.w * c.s / 2 + 8, hh = caret.h * c.s / 2;
         var top = (c.y - hh) * (1 - o), bottom = (1920 - c.y - hh) * (1 - o), left = (c.x - hw) * (1 - o), right = (1080 - c.x - hw) * (1 - o);
-        card.style.clipPath = 'inset(' + [top, right, bottom, left].map(function (v) { return v.toFixed(2) + 'px'; }).join(' ') + ')';
+        card.style.clipPath = 'inset(' + [top, right, bottom, left].map(function (v) { return v.toFixed(2) + 'px'; }).join(' ') + ' round ' + (64 * (1 - o)).toFixed(1) + 'px)';
         mark.style.transform = 'translateY(' + ((1 - rise(t)) * 14).toFixed(2) + '%)';
         mark.style.opacity = (t < tMark ? 0 : 0.6 + 0.4 * A.clamp((t - tMark) / 0.1)).toFixed(3);
         SS.words.render(t, cta, ctaIns, Infinity);

@@ -5,12 +5,12 @@
 .key { font-family: "Frank Ruhl Libre", serif; font-weight: 700; font-size: 92px; line-height: 1; color: var(--char); }
 .tally { font-family: "Frank Ruhl Libre", serif; font-weight: 900; font-size: 140px; line-height: 1; color: var(--char); }
 .tally-row { display: inline-flex; align-items: flex-start; }
-.tally-num { display: inline-block; height: 1em; overflow: hidden; }
+.tally-num { display: inline-block; height: 1em; overflow: hidden; clip-path: inset(0.1em 0 0.07em 0); }
 .tally-roll { display: block; }
 .tally-digit { display: block; height: 1em; line-height: 1; text-align: center; }
 .tally-rest { display: inline-block; margin-right: 0.24em; line-height: 1; }
 .source { position: absolute; left: 50px; top: 416px; width: 880px; }
-.source-line { font-family: "Heebo", sans-serif; font-weight: 400; font-size: 46px; line-height: 1.16; color: var(--ink2); }
+.source-line { font-family: "Heebo", sans-serif; font-weight: 400; font-size: 52px; line-height: 1.12; color: var(--ink2); }   /* screen space: not scaled by the camera */
 .captions { position: absolute; left: 60px; top: 1380px; width: 860px; height: 132px; }
 .captions > .wline { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
 .cap { font-family: "Heebo", sans-serif; font-weight: 700; font-size: 52px; line-height: 1.2; color: var(--char); }

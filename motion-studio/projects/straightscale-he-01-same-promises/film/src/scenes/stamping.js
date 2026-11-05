@@ -1,7 +1,7 @@
 // What the stamp does, in order: the hook hit and the turn-over that shows its face, waiting at the left edge, the
 // four free hits (the last on the word חינם), the three save hits, resting beside the stack, alone on the cleared desk
-// (moving on line 6's words), hopping aside for the viewer's slip, hovering beside its headline (never over it, D8)
-// and lifting away. Every move is on a cue in timing.json.
+// (moving on line 6's words), hopping aside for the viewer's slip, hovering beside its headline (never over it, D8),
+// then taken by a hand on "לא" and pulled off the desk on "יכול". Every move is on a cue in timing.json.
 (function (SS) {
   function create(ctx, slips) {
     var L = ctx.layout, T = ctx.T, S = L.stamp, V = L.viewer, H = S.hover, ev = [], hitTimes = [];
@@ -42,11 +42,13 @@
     move(C('hover.drift'), at(H[0] + 18, H[1] - 22, 2), 0.42, 60, 15);
     move(C('hover.dip'), at(H[0] + 10, H[1] + 10, -2), 0.22, 90, 16);
     move(C('hover.lift'), at(H[0] - 10, H[1] - 10, -5), 0.5, 70, 15);
-    move(C('stamp.exit'), S.exit, S.exit.h, 4, 4);
+    var held = at(H[0] - 10, H[1] - 10, -5);
+    move(C('hand.in'), held, 0.32, 200, 26);                 // the hand takes hold
+    move(C('stamp.pull'), S.exit, S.exit.h, 30, 11);          // and pulls it off the desk
     var stamp = SS.stamp.create(ctx, ctx.content.slips[L.hits.hook].stamp);
     stamp.plan(S.start, ev);
     stamp.turns([[C('stamp.flip'), 180], [C('stamp.flipback'), 360]]);
-    stamp.gone = C('stamp.exit') + 2.5;   // out of the shot by then
+    stamp.gone = C('stamp.pull') + 2.2;   // out of the shot by then
     return stamp;
   }
   SS.stamping = { create: create };

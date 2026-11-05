@@ -1,5 +1,6 @@
 // Captions in Heebo above the bottom safe zone: the spoken words the top band does not already show, in short
-// chunks (a break after , . ? or every 5 words), each word rising on its own time. A chunk cuts out at the next.
+// chunks (a break after , . ? or every 5 words), each word rising on its own time. A chunk cuts out at the next
+// chunk, or as soon as a new key line starts in the band, so two lines never compete.
 (function (SS) {
   function chunks(T, keys) {
     var out = [];
@@ -17,6 +18,7 @@
   }
   function create(ctx) {
     var T = ctx.T, box = SS.dom.el('div', 'captions', ctx.overlay), end = T.cue('endcard');
+    var keyStarts = ctx.content.keys.map(function (k) { return k.tally ? T.cue('tally.in') : T.word(k.line, k.words[0][0]).s - 0.08; });
     var list = chunks(T, ctx.content.keys).map(function (c) {
       var item = SS.words.build(box, c.map(function (w) { return w.w; }), 'cap');
       SS.words.balance(item);
@@ -24,7 +26,8 @@
     });
     list.forEach(function (c, i) {
       var next = i + 1 < list.length ? list[i + 1].ins[0] : end;
-      c.out = Math.min(c.end || Infinity, next, end);
+      var nextKey = keyStarts.filter(function (k) { return k > c.ins[0] + 0.05; }).reduce(function (a, b) { return Math.min(a, b); }, Infinity);
+      c.out = Math.min(c.end || Infinity, next, end, nextKey);
     });
     return { render: function (t) { list.forEach(function (c) { SS.words.render(t, c.item, c.ins, c.out, true); }); } };
   }

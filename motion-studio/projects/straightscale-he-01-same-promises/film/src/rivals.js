@@ -1,7 +1,7 @@
 // The competitors' slips: three copies of an ad laid out like yours, the same "[הכותרת]". On "המתחרה" they slide in
-// under your slip, on "אחד" they line up exactly on it (word for word, you cannot tell them apart), on "כן" they part
-// to the lower right, on "בדיוק" they square into a stack, and on "בפגישה" the stack is pushed off the desk, leaving
-// yours alone.
+// under your slip, on "אחד" they line up exactly on it (word for word, you cannot tell them apart), on "כן" they slide
+// away (the caption band stays clear), on "למשל" they are back under yours, and on "בדיוק", "אצלכם", "בפגישה" they are
+// pushed off the desk one by one, leaving yours alone.
 (function (SS) {
   var A = SS.anim;
   function slip(ctx, parent, C, w) {
@@ -17,7 +17,8 @@
   }
   function create(ctx, viewer) {
     var T = ctx.T, V = ctx.layout.viewer, R = ctx.layout.rivals, c = function (n) { return T.cue(n); };
-    var on = c('rival.in'), match = c('rival.match'), part = c('rival.part'), gather = c('rival.gather'), off = c('rival.off');
+    var on = c('rival.in'), match = c('rival.match'), off = c('rival.off'), back = c('rival.back');
+    var go = [c('rival.go1'), c('rival.go2'), c('rival.go3')], last = go[2] + 2;
     var rest = { x: V.x + V.settle[0], y: V.y + V.settle[1], r: V.r + V.settle[2] };
     var list = [2, 1, 0].map(function (i) {
       var s = slip(ctx, ctx.world, ctx.content.rival, V.w), d = i * R.fan;
@@ -25,16 +26,18 @@
       s.pos = A.paths({ x: under.x + 1100, y: under.y + 80, r: under.r + 10 }, [
         { t: on + i * 0.08, to: under, k: 120, d: 20 },
         { t: match + i * 0.05, to: { x: rest.x + i * 3, y: rest.y + i * 3, r: rest.r }, k: 160, d: 24 },
-        { t: part + i * 0.06, to: { x: rest.x + R.part[0] + d, y: rest.y + R.part[1] + d, r: R.part[2] - i * 2.5 }, k: 120, d: 20 },
-        { t: gather, to: { x: rest.x + R.part[0], y: rest.y + R.part[1], r: R.part[2] + i * 0.4 }, k: 160, d: 24 },
-        { t: off, to: { x: rest.x + R.part[0] + 1300 }, k: 70, d: 16 }
+        { t: off + i * 0.07, to: { x: rest.x + R.off[0] + d, y: rest.y + R.off[1] + d, r: R.off[2] + i * 3 }, k: 80, d: 17 },
+        { t: back + i * 0.08, to: { x: rest.x + R.back[0] + d, y: rest.y + R.back[1] + d * 0.6, r: R.back[2] + i * 1.5 }, k: 120, d: 20 },
+        { t: go[2 - i], to: { x: rest.x + R.back[0] + 1350, y: rest.y + R.back[1] + 60, r: R.back[2] + 8 }, k: 90, d: 18 }   // top slip first
       ]);
       return s;
     });
+    var back0 = { x: rest.x + R.back[0], y: rest.y + R.back[1] };
     return {
+      edge: { x: back0.x - V.w / 2 + 6, y: back0.y },   // where the hand flicks them from (their left edge)
       render: function (t) {
         list.forEach(function (s, i) {
-          var shown = t >= on && t < off + 2;
+          var shown = t >= on && t < last;
           SS.dom.show(s.wrap, shown);
           if (!shown) return;
           var p = s.pos(t);

@@ -186,3 +186,43 @@ Watch points for the next review: the "חינם" typed into your own headline on
 "יכול" (0.85 s up, 0.3 s of it struck): the old reflex, then "not that". If it reads as an instruction, drop the
 `retype` cue and the line goes straight from backspace to the blinking caret. The camera moves on most cues from 19 s on;
 the framings are all in `film/src/layout.js`.
+
+## Draft cut v3 (silent) · fixes for the round 5 fresh review (`docs/reviews/round5-fresh-reviewer.md`) · 5 Nov 2026
+File: `renders/draft-v3-silent.mp4` (1080x1920, 30 fps, 1209 frames, 40.3 s, 13.7 MB, no audio). Contact sheet (32
+beats, 270 px wide): `docs/contact-draft-v3.jpg`. Strips: `docs/strips-draft-v3.jpg` (every 2 frames around 5.8, 8.0,
+13.0, 29.0 and 37.0 s; every 0.5 s from 31.0 to 35.5 s). Decisions per finding are the coordinator's (5 Nov).
+
+| Finding | What changed (file) |
+|---|---|
+| Pacing 31-35.5 s | A visible event at least every 0.72 s, each on a word (`timing.json`, 64 cues): on "להגיד" your slip squares up (`viewer.square`); on "למשל" the camera backs out and the competitors' three slips are back under yours (`rival.back`); on "בדיוק", "אצלכם", "בפגישה" a hand's shadow reaches in and flicks them off the desk one by one (`rival.go1` to `go3`); on "הראשונה" yours is alone and the camera steps in, then again on "תשמרו", "הסרטון", "תשלחו" into the caret (`cam.step4`, `cam.caret`, `cam.save`, `cam.send`). New file `hand.js` |
+| Stamp lift with no cause | The same hand: its shadow reaches the stamp's knob on "לא" (`hand.in`) and pulls the stamp off the desk on "יכול" (`stamp.pull`); the camera frames the stamp and your headline together from the backspace on (`stamping.js`, `hand.js`, `layout.js`) |
+| M2 source label covered (5.5-6.3 s) | The pile was framed 50 world px lower (my v1 change had moved it up), the "משכנתאות" camera beat is a pan, not a zoom, and slips toss in level from the side, so no slip reaches the label at any time (`layout.js`) |
+| M2 caption across the rival slips (28.5-31.5 s) | The rivals leave the desk on "כן" and only return on "למשל", after line 10's caption is gone (`rivals.js`) |
+| M2 tally slivers (8.0, 9.5 s) | The digit window is clipped to the glyph (`clip-path: inset(0.1em 0 0.07em 0)`) and the roll is critically damped and takes about 3 frames, so a neighbour shows only during the roll itself (`overlay.css`, `tally.js`) |
+| M2 stale caption under a new key line (13.0 s) | A caption is cut as soon as a new key line starts in the band (`captions.js`) |
+| M3 source label size | 52 px Heebo. It is screen-space text (in the overlay, not on the desk), so the camera never scales it; 46 px was the font size, and the glyphs measure smaller than the font size, hence the reviewer's ~40 px (`overlay.css`) |
+| M3 grey entrances | Words arrive at 88 % ink and reach full in 2 frames; the rise carries the entrance (`words.js`) |
+| M3 grey exits | A leaving line folds down onto its baseline word by word at full ink (scaleY), it never fades (`words.js`, `base.css`) |
+| Polish: end-card edge | The opening card has rounded corners (64 px) that ease to square as it fills the frame (`endcard.js`) |
+| Polish: cascade | Starts 0.3 s earlier (on "זה" minus 0.15 s) (`timing.json`) |
+| Not done (coordinator's call) | Stamp face stays charcoal rubber with red ink |
+
+Motion energy per second, the round 5 reviewer's method (mean absolute frame difference, grey 108x192 copy, 10 fps;
+both files measured the same way; my v2 numbers match the reviewer's within 0.05):
+
+| Second | 30 | 31 | 32 | 33 | 34 | 35 | 36 |
+|---|---|---|---|---|---|---|---|
+| v2 | 3.64 | 1.52 | 1.66 | 2.31 | 1.60 | 1.66 | 5.20 |
+| v3 | 3.02 | 1.67 | 1.88 | 2.27 | 2.28 | 1.99 | 5.92 |
+
+Mean 30-36 s: 2.06 to 2.19; 31-35 s: 1.75 to 2.02. Also 5 s: 1.40 to 2.32 (the stamp now rises and crosses the pile on
+"פייסבוק"). The raw number moves little in 31-35 s because the frame there is ivory paper on a light marble desk: even
+slips flying off the desk and bold camera steps (tried first: 31-35 s fell to 1.3-1.8) change few grey levels at
+108x192. What changed is the count of visible events: one at least every 0.72 s, each on a word.
+
+Automatic checks on v3:
+- `tools/seekcheck.mjs --hf --dur 40.3 --n 24`: PASS.
+- HyperFrames `check --caption-zone "x0=0;y0=.79;x1=1;y1=1;severity=error"`: passed, 0 errors, 0 warnings, 0 info,
+  contrast 27/27 WCAG AA. Top 250 px and right 140 px as the band: passed.
+- `tools/pacing.py`: all PASS (still 5 %, quiet 18 %, 36 beats, CV 0.60, spread 7.6x, longest quiet run 2.58 s).
+- Unit tests: node 11/11, Python 4/4.

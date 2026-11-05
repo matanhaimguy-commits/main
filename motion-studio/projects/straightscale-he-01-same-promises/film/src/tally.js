@@ -12,7 +12,7 @@
       var rest = SS.dom.el('span', 'tally-rest', inner, C.of + ' ' + C.total);
       var cell = num.offsetHeight, shift = (rest.offsetWidth + parseFloat(getComputedStyle(rest).marginRight)) / 2;
       var tt = T.cue('tally.total');
-      var count = A.path(0, hits.slice(0, C.count).map(function (h, i) { return { t: h, to: i + 1, k: 700, d: 42 }; }));
+      var count = A.path(0, hits.slice(0, C.count).map(function (h, i) { return { t: h, to: i + 1, k: 3000, d: 110 }; }));   // critically damped, about 3 frames
       var open = A.path(0, [{ t: tt, to: 1, k: 240, d: 25 }]);
       var item = { line: box, spans: [inner] };
       me.render = function (t) {

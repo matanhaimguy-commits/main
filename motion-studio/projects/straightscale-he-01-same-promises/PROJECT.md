@@ -30,8 +30,8 @@ One file that says what this job is, where it stands, and what was decided. Upda
 - Deadline: none given.
 
 ## Status
-Stage: styleframes done (round 2, every axis 8+); silent draft v2 answers the round 4 fresh review (N1 to N9)
-Current version: draft v2, silent, `renders/draft-v2-silent.mp4` (40.3 s); not approved, not delivered
+Stage: styleframes done (round 2, every axis 8+); silent draft v3 answers the round 5 fresh review
+Current version: draft v3, silent, `renders/draft-v3-silent.mp4` (40.3 s); not approved, not delivered
 Next step: Matan's read-aloud of the script (gate 5e), then the voice, `tools/retime.py audio/words.json`, score and
 foley (stage 9), review rounds 2 and 3, final render.
 Blockers / open questions: HeyGen file hosts blocked by the environment network (voice). Matan to allow them. Matan to
@@ -82,3 +82,11 @@ decide the optional sample headline labelled "דוגמה" (built, off by default
   with red ink (N5); right-aligned second lines (N7); words start at 60 % ink (N8). New files `rivals.js`,
   `headline.js`, `finger.js`. Energy 3-5.5 s 2.05 to 3.57, 25-36 s 2.17 to 2.90 (same method). `renders/draft-v2-silent.mp4`,
   `docs/contact-draft-v2.jpg`, `docs/strips-draft-v2.jpg`; checks in `docs/review_log.md`. Not committed.
+- 2026-11-05 · draft v3 (silent) for the round 5 fresh review (FAIL on pacing, M2, M3; coordinator's decisions) · a
+  hand's shadow (new `film/src/hand.js`) takes the stamp on "לא" and pulls it off on "יכול", then flicks the
+  competitors' slips off the desk on "בדיוק", "אצלכם", "בפגישה" after they return on "למשל"; your slip squares up and
+  the camera steps in per phrase to the caret (an event at least every 0.72 s in 31-35.5 s); the pile framed below the
+  source label; rivals away while line 10's caption shows; tally window clipped, roll without overshoot; captions cut
+  when a key line starts; source label 52 px; words enter at 88 % ink and leave by folding (no grey); rounded end-card
+  opening; cascade 0.3 s earlier. Energy 30-36 s 2.06 to 2.19 (reviewer's method). `renders/draft-v3-silent.mp4`,
+  `docs/contact-draft-v3.jpg`, `docs/strips-draft-v3.jpg`; checks in `docs/review_log.md`. Not committed.

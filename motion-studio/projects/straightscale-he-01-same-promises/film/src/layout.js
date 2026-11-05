@@ -21,30 +21,33 @@
     stage: { x: 500, y: 975 },              // the cleared middle of the desk, for lines 6 to 12
     viewer: { x: 500, y: 1040, r: -0.8, w: 820, settle: [14, 6, 1.4] },
     // the competitors' slips, offsets from your settled slip: under it (below the headline), parted to the lower right
-    rivals: { under: [30, 350, 2.5], part: [440, 330, -6], fan: 16 },   // tilts keep their edges off your headline   // settle: where the small bounce leaves it
+    // under yours, away to the right, back (lower right, so the hand that flicks them off is in the shot), off
+    rivals: { under: [30, 350, 2.5], off: [1450, 260, 9], back: [250, 350, 1.5], fan: 16 },   // settle: where the small bounce leaves it
     stamp: {
       start: { x: -760, y: 300, r: -18, h: 1.3 },
       wait: { x: -180, y: 945, r: -9, h: 0.42 },   // hovering at the left edge during the cascade
-      ready: { x: -90, y: 880, r: -3, h: 0.62 },   // rising toward the pile just before the stamping starts
+      ready: { x: 330, y: 800, r: 6, h: 0.7 },     // rising off the edge and over the pile just before the stamping starts
       parkPile: { x: 1160, y: 905, r: 8 },         // resting at the right edge of the pile after the last hit
       parkStack: { x: 120, y: 660, r: -7 },        // resting at the top left beside the stack
       parkViewer: { x: 240, y: 745, r: -6 },       // beside the viewer's slip
       hookLift: { dx: 40, dy: -265, r: -12, h: 0.25 },  // hovering above the hook slip after the first hit
       hover: [-262, 42],                            // offset from the viewer's slip: over its empty left, beside the headline
-      exit: { x: -950, y: 820, r: -22, h: 2.0 }        // lifting toward the camera and out to the left
+      exit: { x: -1150, y: 1040, r: -16, h: 0.3 }        // pulled off the desk to the left by the hand
     },
     // framings [cue, focus x, focus y, scale]; from line 7 on the camera follows the action on the words: the
     // finger to the name, the underline as it draws right to left, the hover's dip, the backspaced line, the pointer
     camera: [
-      ['start', 500, 880, 1.3], ['cam.pull', 520, 1050, 0.7], ['cam.ads', 500, 1030, 0.8], ['hits.free', 520, 1050, 0.72],
+      ['start', 500, 880, 1.3], ['cam.pull', 520, 970, 0.7], ['cam.ads', 450, 975, 0.72], ['hits.free', 520, 970, 0.7],
       ['stack', 480, 1000, 0.64], ['cam.stack', 470, 940, 1.3],
       ['cam.choose', 470, 915, 1.34], ['stack.away', 500, 935, 1.35],
       ['viewer.drop', 500, 960, 1.08], ['viewer.settle', 505, 975, 1.13],
       ['finger.in', 650, 990, 1.3], ['tape', 650, 995, 1.32], ['tape.press', 655, 1000, 1.37],
       ['rule.1', 690, 1080, 1.28], ['rule.2', 560, 1085, 1.26], ['rule.3', 440, 1085, 1.26], ['rule.4', 500, 1060, 1.12],
-      ['hover', 470, 1190, 1.0], ['hover.drift', 450, 1185, 1.03], ['hover.dip', 470, 1200, 1.08], ['hover.lift', 480, 1190, 1.03], ['rival.part', 540, 1140, 1.1],
-      ['clear', 540, 1060, 1.18], ['cam.push', 495, 975, 1.14], ['cam.pointer', 560, 1000, 1.2], ['cam.meeting', 620, 1030, 1.3],
-      ['cam.caret', 700, 1075, 1.4], ['cam.save', 770, 1085, 1.6], ['cam.send', 790, 1088, 1.85]   // into the caret, step by step; the end card grows out of it
+      ['hover', 470, 1190, 1.0], ['hover.drift', 450, 1185, 1.03], ['hover.dip', 470, 1200, 1.08], ['hover.lift', 480, 1190, 1.03],
+      ['rival.off', 540, 1140, 1.1], ['clear', 445, 1060, 1.0], ['hand.in', 425, 1062, 0.98], ['stamp.pull', 400, 1062, 0.98],
+      // line 11: back out to show yours and the others again, follow them off the desk, then in once per phrase to the caret
+      ['cam.push', 515, 1190, 0.8], ['rival.go1', 530, 1175, 0.85], ['rival.go2', 560, 1150, 0.95],
+      ['cam.step4', 640, 1080, 1.22], ['cam.caret', 720, 1075, 1.5], ['cam.save', 775, 1085, 1.82], ['cam.send', 795, 1088, 2.25]   // the end card grows out of the caret
     ]
   };
 })((window.SS = window.SS || {}));
