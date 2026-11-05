@@ -29,7 +29,7 @@
       var nextKey = keyStarts.filter(function (k) { return k > c.ins[0] + 0.05; }).reduce(function (a, b) { return Math.min(a, b); }, Infinity);
       c.out = Math.min(c.end || Infinity, next, end, nextKey);
     });
-    return { render: function (t) { list.forEach(function (c) { SS.words.render(t, c.item, c.ins, c.out, true); }); } };
+    return { render: function (t) { list.forEach(function (c) { SS.words.render(t, c.item, c.ins, c.out); }); } };
   }
   SS.captions = { create: create };
 })((window.SS = window.SS || {}));

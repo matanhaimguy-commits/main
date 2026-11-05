@@ -226,3 +226,21 @@ Automatic checks on v3:
   contrast 27/27 WCAG AA. Top 250 px and right 140 px as the band: passed.
 - `tools/pacing.py`: all PASS (still 5 %, quiet 18 %, 36 beats, CV 0.60, spread 7.6x, longest quiet run 2.58 s).
 - Unit tests: node 11/11, Python 4/4.
+
+## Draft cut v4 (silent) · polish after the round 6 fresh review (PASS; `docs/reviews/round6-fresh-reviewer.md`) · 5 Nov 2026
+File: `renders/draft-v4-silent.mp4` (1080x1920, 30 fps, 1209 frames, 40.3 s, 13.7 MB, no audio). Strips (every 2
+frames around 1.0, 7.0, 20.0, 27.5, 31.5 and 33.0 s): `docs/strips-draft-v4.jpg`. No new events, no timing changes.
+
+| Item | Change |
+|---|---|
+| D6 text on slips under 44 px after the camera | Measured every piece of desk text, every 0.1 s, as font size x camera scale (scratch `textsize.js`). Under 44: the labels "המודעה שלכם" / "המודעה של המתחרה" (37 px at the 0.8 pull-back on "למשל") and the "דוגמה" tag; both now 56 px, so the labels measure 45 px at their smallest. Everything else on the slips is 60 px or more on screen, except the pile headlines (34 px at the 0.64-0.7 pull-backs), left as texture by the coordinator's N6/D8 decision (`paper.css`) |
+| D2 the flicking hand read as a smudge | One hand shape everywhere (`finger.js`), now with the thumb lying along the index finger, so even cropped at the frame edge it reads as a pointing hand; the 21 s finger and the 30-34 s hand are the same drawing |
+| D4 "מחיר?" on a third line for a frame | Words keep their laid-out places: the rise is 12 % of the word's height (it was 38 %, enough to look like a new line) (`words.js`) |
+| D5 slivers as a key line leaves | A leaving line goes all at once, at the moment the next line arrives; no fold, no fade (`words.js`, `band.js`, `captions.js`) |
+| D9 half-cut roller digit | The tally changes digit with a hard cut and a small pop on each hit; no roller, no mask (`tally.js`, `overlay.css`) |
+| Not now (coordinator) | D1 waits on Matan's sample headline; D3 waits on the real voice |
+
+Checks on v4: seekcheck (24 samples) PASS; HyperFrames `check --caption-zone` (bottom 400 px, error) passed, 0 errors,
+0 warnings, 1 info (the viewer's slip passing under the key line while it drops, 18.1 s), contrast 27/27 AA; top 250 px
+and right 140 px as the band: passed; `pacing.py` all PASS (still 5 %, quiet 18 %, 36 beats, CV 0.60, spread 7.6x,
+longest quiet run 2.58 s); unit tests node 11/11, Python 4/4.

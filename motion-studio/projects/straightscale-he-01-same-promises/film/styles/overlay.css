@@ -5,9 +5,7 @@
 .key { font-family: "Frank Ruhl Libre", serif; font-weight: 700; font-size: 92px; line-height: 1; color: var(--char); }
 .tally { font-family: "Frank Ruhl Libre", serif; font-weight: 900; font-size: 140px; line-height: 1; color: var(--char); }
 .tally-row { display: inline-flex; align-items: flex-start; }
-.tally-num { display: inline-block; height: 1em; overflow: hidden; clip-path: inset(0.1em 0 0.07em 0); }
-.tally-roll { display: block; }
-.tally-digit { display: block; height: 1em; line-height: 1; text-align: center; }
+.tally-num { display: inline-block; line-height: 1; transform-origin: 50% 60%; }
 .tally-rest { display: inline-block; margin-right: 0.24em; line-height: 1; }
 .source { position: absolute; left: 50px; top: 416px; width: 880px; }
 .source-line { font-family: "Heebo", sans-serif; font-weight: 400; font-size: 52px; line-height: 1.12; color: var(--ink2); }   /* screen space: not scaled by the camera */

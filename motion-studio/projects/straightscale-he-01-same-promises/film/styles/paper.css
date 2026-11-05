@@ -12,7 +12,7 @@
 .sticker-hole { position: absolute; left: 32px; top: 64px; width: 28px; height: 28px; border-radius: 50%; background: #8A5F0A; box-shadow: inset 2px 3px 4px rgba(0, 0, 0, 0.45); }
 .sticker-text { direction: rtl; font-family: "Heebo", sans-serif; font-weight: 800; font-size: 124px; line-height: 1; color: var(--char); letter-spacing: 0.02em; }
 .viewer { padding: 34px 50px 46px; }
-.v-label { font-family: "Heebo", sans-serif; font-weight: 500; font-size: 46px; line-height: 1.2; color: var(--ink2); text-align: right; margin-bottom: 24px; }
+.v-label { font-family: "Heebo", sans-serif; font-weight: 500; font-size: 56px; line-height: 1.2; color: var(--ink2); text-align: right; margin-bottom: 24px; }
 .v-name { position: relative; font-family: "Heebo", sans-serif; font-weight: 700; font-size: 60px; line-height: 1.25; color: var(--hold); text-align: right; margin-bottom: 22px; }
 .v-name-text { display: inline-block; }
 .tape { position: absolute; right: -35px; top: -12px; height: 96px; background-color: #E9DEC4; clip-path: polygon(0 4%, 3% 0, 97% 2%, 100% 6%, 98% 22%, 100% 40%, 98% 60%, 100% 80%, 97% 100%, 3% 98%, 0 94%, 2% 76%, 0 56%, 2% 36%, 0 18%); }
@@ -24,4 +24,4 @@
 .hand-wrap > .finger-shadow { position: absolute; left: 0; top: 0; right: auto; }
 .v-strike { position: absolute; right: 50px; top: 0; height: 6px; background: var(--char); border-radius: 3px; }
 .v-rule { height: 4px; margin-top: 10px; background: var(--char); transform-origin: right center; }
-.v-tag { position: absolute; left: 44px; top: 28px; font-family: "Heebo", sans-serif; font-weight: 700; font-size: 44px; line-height: 1.2; color: var(--char); border: 3px solid var(--char); border-radius: 12px; padding: 0 18px 2px; }
+.v-tag { position: absolute; left: 44px; top: 28px; font-family: "Heebo", sans-serif; font-weight: 700; font-size: 56px; line-height: 1.2; color: var(--char); border: 3px solid var(--char); border-radius: 12px; padding: 0 18px 2px; }

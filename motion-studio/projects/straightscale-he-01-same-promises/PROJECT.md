@@ -30,8 +30,8 @@ One file that says what this job is, where it stands, and what was decided. Upda
 - Deadline: none given.
 
 ## Status
-Stage: styleframes done (round 2, every axis 8+); silent draft v3 answers the round 5 fresh review
-Current version: draft v3, silent, `renders/draft-v3-silent.mp4` (40.3 s); not approved, not delivered
+Stage: silent draft passed the round 6 fresh review (every axis 8+); v4 is a polish pass on it
+Current version: draft v4, silent, `renders/draft-v4-silent.mp4` (40.3 s); not approved, not delivered
 Next step: Matan's read-aloud of the script (gate 5e), then the voice, `tools/retime.py audio/words.json`, score and
 foley (stage 9), review rounds 2 and 3, final render.
 Blockers / open questions: HeyGen file hosts blocked by the environment network (voice). Matan to allow them. Matan to
@@ -90,3 +90,8 @@ decide the optional sample headline labelled "דוגמה" (built, off by default
   when a key line starts; source label 52 px; words enter at 88 % ink and leave by folding (no grey); rounded end-card
   opening; cascade 0.3 s earlier. Energy 30-36 s 2.06 to 2.19 (reviewer's method). `renders/draft-v3-silent.mp4`,
   `docs/contact-draft-v3.jpg`, `docs/strips-draft-v3.jpg`; checks in `docs/review_log.md`. Not committed.
+- 2026-11-05 · draft v4 (silent), polish after the round 6 fresh review (PASS) · slip labels 56 px (45 px at the
+  smallest camera scale; pile headlines stay texture by the N6 decision), one hand drawing with a thumb for the finger
+  and the flicks, words revealed in fixed places (no reflow), key lines leave all at once, tally digit hard-cuts with a
+  pop. No new events or timing changes. `renders/draft-v4-silent.mp4`, `docs/strips-draft-v4.jpg`; checks in
+  `docs/review_log.md`. Not committed.

@@ -8,7 +8,7 @@
     var firsts = keys.map(function (k) { return k.tally ? T.cue('tally.in') : T.word(k.line, k.words[0][0]).s - LEAD; });
     var items = [];
     keys.forEach(function (k, i) {
-      var out = i + 1 < keys.length ? firsts[i + 1] - 0.2 : T.cue('endcard');
+      var out = i + 1 < keys.length ? firsts[i + 1] : T.cue('endcard');   // replaced by the next line, all at once
       if (k.tally) { tally.mount(band, firsts[i], out); return; }
       var item = SS.words.build(band, k.words.map(function (w) { return w[1]; }), 'key');
       if (k.one) SS.words.fit(item); else SS.words.balance(item);
