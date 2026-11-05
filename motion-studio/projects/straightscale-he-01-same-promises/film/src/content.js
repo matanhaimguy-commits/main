@@ -39,6 +39,9 @@
     tally: { count: 8, of: 'מתוך', total: '14' },
     sticker: '₪?',
     viewer: { label: 'המודעה שלכם', name: '[שם העסק]', headline: '[הכותרת]' },
+    rival: { label: 'המודעה של המתחרה', name: '[שם העסק]', headline: '[הכותרת]' },   // the same headline, word for word
+    retype: 'חינם',   // the old reflex, typed on "במשהו" and struck out on "לא"
+
     example: { label: 'דוגמה' },
     cta: 'שמרו · שלחו לחבר עם עסק'
   };

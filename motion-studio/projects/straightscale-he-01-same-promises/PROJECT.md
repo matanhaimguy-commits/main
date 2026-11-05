@@ -30,8 +30,8 @@ One file that says what this job is, where it stands, and what was decided. Upda
 - Deadline: none given.
 
 ## Status
-Stage: styleframes done (round 2, every axis 8+); silent draft v1 answers the round 3 fresh review (D1 to D8)
-Current version: draft v1, silent, `renders/draft-v1-silent.mp4` (40.3 s); not approved, not delivered
+Stage: styleframes done (round 2, every axis 8+); silent draft v2 answers the round 4 fresh review (N1 to N9)
+Current version: draft v2, silent, `renders/draft-v2-silent.mp4` (40.3 s); not approved, not delivered
 Next step: Matan's read-aloud of the script (gate 5e), then the voice, `tools/retime.py audio/words.json`, score and
 foley (stage 9), review rounds 2 and 3, final render.
 Blockers / open questions: HeyGen file hosts blocked by the environment network (voice). Matan to allow them. Matan to
@@ -74,3 +74,11 @@ decide the optional sample headline labelled "דוגמה" (built, off by default
   (D6); end card centred on x 540 (D7); hover beside the headline (D8). New files `cover.js`, `underline.js`;
   `hint.js` removed. `renders/draft-v1-silent.mp4`, `docs/contact-draft-v1.jpg`, `docs/strips-draft-v1.jpg`; checks
   in `docs/review_log.md`. Not committed (the coordinator commits after the next fresh review).
+- 2026-11-05 · draft v2 (silent) for the round 4 fresh review (FAIL on pacing only; coordinator's decisions N1 to N8) ·
+  story events on word cues through 25-36 s (the competitors' identical slips slide in, line up on "אחד", part, are
+  pushed off on "בפגישה"; your placeholder struck and backspaced; the old reflex "חינם" typed, struck, deleted; the push
+  into the caret in three steps) and an earlier, middle-first cascade at 3-5.5 s (N1, N9); a hand's shadow with a
+  fingertip (N2, new `finger.js`); opaque tape (N3); the logo starts after the card has opened (N4); charcoal stamp face
+  with red ink (N5); right-aligned second lines (N7); words start at 60 % ink (N8). New files `rivals.js`,
+  `headline.js`, `finger.js`. Energy 3-5.5 s 2.05 to 3.57, 25-36 s 2.17 to 2.90 (same method). `renders/draft-v2-silent.mp4`,
+  `docs/contact-draft-v2.jpg`, `docs/strips-draft-v2.jpg`; checks in `docs/review_log.md`. Not committed.

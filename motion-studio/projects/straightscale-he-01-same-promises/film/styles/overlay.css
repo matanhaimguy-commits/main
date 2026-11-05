@@ -1,7 +1,7 @@
 /* Screen-space text: the top band (key lines, tally, source), the captions and the end card. Text stays clear of
    the platform UI: top 250 px, bottom 400 px, right 140 px. */
 .band { position: absolute; left: 50px; top: 266px; width: 880px; height: 214px; }
-.band > .wline { position: absolute; left: 0; top: 0; width: 100%; height: 100%; align-content: flex-start; }
+.band > .wline { position: absolute; left: 0; top: 0; width: 100%; height: 100%; align-items: flex-start; }
 .key { font-family: "Frank Ruhl Libre", serif; font-weight: 700; font-size: 92px; line-height: 1; color: var(--char); }
 .tally { font-family: "Frank Ruhl Libre", serif; font-weight: 900; font-size: 140px; line-height: 1; color: var(--char); }
 .tally-row { display: inline-flex; align-items: flex-start; }
@@ -15,8 +15,7 @@
 .captions > .wline { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
 .cap { font-family: "Heebo", sans-serif; font-weight: 700; font-size: 52px; line-height: 1.2; color: var(--char); }
 .endcard { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; z-index: 50; background: var(--char); }
-.ec-mark-mask { position: absolute; left: 220px; top: 742px; width: 640px; height: 213px; overflow: hidden; }
+.ec-mark-mask { position: absolute; left: 220px; top: 742px; width: 640px; height: 213px; }
 .ec-mark { display: block; width: 640px; height: 213px; }
 .ec-caret { position: absolute; left: 0; top: 0; width: 6px; height: 64px; background: var(--ivory); }
 .endcard > .ec-cta { position: absolute; left: 110px; top: 1010px; width: 860px; font-family: "Heebo", sans-serif; font-weight: 700; font-size: 56px; line-height: 1.2; color: var(--ivory); }
-.wbreak { flex-basis: 100%; height: 0; }

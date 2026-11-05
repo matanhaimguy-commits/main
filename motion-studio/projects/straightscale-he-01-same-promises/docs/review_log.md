@@ -146,3 +146,43 @@ Not done, and why:
 - The turn-over at the hook is about 0.45 s, not 2-3 frames: at 2-3 frames the mirrored word does not register.
 - The camera now moves on most cues from 19 to 35 s; if the next review finds it too busy, the camera keys in
   `layout.js` are the one place to calm it.
+
+## Draft cut v2 (silent) · fixes for the round 4 fresh review (`docs/reviews/round4-fresh-reviewer.md`) · 5 Nov 2026
+File: `renders/draft-v2-silent.mp4` (1080x1920, 30 fps, 1209 frames, 40.3 s, 14.0 MB, no audio). Contact sheet (27
+beats, 300 px wide): `docs/contact-draft-v2.jpg`. Strips (every 2 frames, 0.2 s before to 0.27 s after) at 3.0, 21.5,
+30.0 and 37.0 s: `docs/strips-draft-v2.jpg`. Decisions per finding are the coordinator's (5 Nov).
+
+| Finding | What changed (file) |
+|---|---|
+| N1 pacing (holding the verdict) | Story events on word cues (`timing.json`, now 62 cues), one at least every 1.1 s through 25-36 s: the competitors' three identical slips slide in under yours on "המתחרה" (`rival.in`), line up exactly on yours on "אחד" (`rival.match`: word for word, you cannot tell them apart), part on "כן" (`rival.part`, with a camera beat), square up on "בדיוק" (`rival.gather`) and are pushed off the desk on "בפגישה" (`rival.off`), leaving yours alone, which squares up on "הראשונה" (`viewer.square`). Your placeholder is struck through on "תחליפו" (`strike`) and backspaced on "אותה" (`clear`); on "במשהו" the old reflex "חינם" is typed (`retype`), struck on "לא" (`unsay`) and deleted on "יכול" (`unsay.del`). The push into the caret now steps on "תשמרו", "הסרטון", "תשלחו" (`cam.caret`, `cam.save`, `cam.send`). For 3-5.5 s the cascade starts on "זה" (1.9 s) with the middle rows first (also N9), the camera leans in on "משכנתאות" (`cam.ads`), the stamp rises toward the pile on "פייסבוק" (`stamp.ready`). 19-23 s: the hand runs along the tape on "העסק" (`finger.slide`). Nothing trimmed by hand. New files `rivals.js`, `headline.js` |
+| N2 finger read as a pen | `finger.js`: the shadow of a hand pointing in from the lower right, a tapered fingertip on the name, a knuckle step, the back of the hand with curled fingers, soft edge (5 px blur), tilted 6 degrees; it slides in, runs along the name, presses, leaves (`cover.js`) |
+| N3 tape see-through | The tape is opaque (#E9DEC4) and the name under it drops to 30 % ink, so nothing shows (`paper.css`, `cover.js`) |
+| N4 logo cut by the mask | No mask on the logo; it rises (14 %) and comes up from 60 % ink only at t0 + 0.55 s, when the opening card has fully cleared it; the call to action follows at t0 + 0.95 s (`endcard.js`, `overlay.css`) |
+| N5 maroon stamp face | Charcoal rubber with red #BE0F18 ink on the raised, mirrored letters, the red mount around it; the rubber layer under the mount is charcoal too (`stamp.css`) |
+| N7 centred second lines | Titles are built as rows; a wrapped title's second row is right-aligned under the first, the block centred (`words.js`, `base.css`) |
+| N8 words fade from light grey | New words start at 60 % ink and reach full in 3 frames (`words.js`) |
+| N6 pile headlines | Not done (coordinator's decision): the stamps and the count carry that beat |
+
+Motion energy per second (mean absolute frame difference, grey 270x480 at 10 fps; v1 and v2 measured the same way,
+scratch `energy.py`):
+
+| Second | 3 | 4 | 5 | 25 | 26 | 27 | 28 | 29 | 30 | 31 | 32 | 33 | 34 | 35 |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| v1 | 2.23 | 2.35 | 1.56 | 2.61 | 1.95 | 2.09 | 2.46 | 1.36 | 3.64 | 1.63 | 1.90 | 2.57 | 2.26 | 1.45 |
+| v2 | 3.11 | 5.42 | 2.19 | 3.50 | 2.14 | 3.31 | 3.93 | 3.55 | 3.72 | 1.82 | 2.31 | 3.18 | 2.14 | 2.35 |
+
+Means: 3-5.5 s 2.05 to 3.57; 25-36 s 2.17 to 2.90 (36 s: 3.94 to 5.87). The reviewer's own v1 numbers for 25-35 s were
+lower (1.0-3.6); its metric runs at a different scale, so compare v1 and v2 on one method.
+
+Automatic checks on v2:
+- `tools/seekcheck.mjs --hf --dur 40.3 --n 24`: PASS.
+- HyperFrames `check --caption-zone "x0=0;y0=.79;x1=1;y1=1;severity=error"`: passed, 0 errors, 0 warnings, 0 info,
+  contrast 29/29 WCAG AA. Top 250 px and right 140 px as the band: passed.
+- `tools/pacing.py`: all PASS (still 5 %, quiet 18 %, 37 beats, CV 0.64, spread 8.4x, longest quiet run 2.58 s, no
+  frozen stretch over 3 s).
+- Unit tests: node 11/11, Python 4/4.
+
+Watch points for the next review: the "חינם" typed into your own headline on "במשהו" is struck on "לא" and deleted on
+"יכול" (0.85 s up, 0.3 s of it struck): the old reflex, then "not that". If it reads as an instruction, drop the
+`retype` cue and the line goes straight from backspace to the blinking caret. The camera moves on most cues from 19 s on;
+the framings are all in `film/src/layout.js`.

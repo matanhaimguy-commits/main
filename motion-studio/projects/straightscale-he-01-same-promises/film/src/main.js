@@ -19,10 +19,11 @@
       var sticker = SS.sticker.create(ctx, pile.slips[SS.layout.stack.order[SS.layout.stack.order.length - 1]], SS.content.sticker, T.cue('sticker'));
       var viewer = SS.viewer.create(ctx);
       var cover = SS.cover.create(ctx, viewer), underline = SS.underline.create(ctx, viewer);
+      var headline = SS.headline.create(ctx, viewer), rivals = SS.rivals.create(ctx, viewer);
       var camera = SS.camera.create(ctx, stamp.hits);
       var tally = SS.tally.create(ctx, stamp.hits);
-      var parts = [desk, pile, sticker, viewer, cover, underline, stamp, camera, SS.band.create(ctx, tally), SS.source.create(ctx),
-        SS.captions.create(ctx), SS.endcard.create(ctx, camera, viewer.caret)];
+      var parts = [desk, pile, sticker, viewer, cover, underline, headline, rivals, stamp, camera, SS.band.create(ctx, tally), SS.source.create(ctx),
+        SS.captions.create(ctx), SS.endcard.create(ctx, camera, viewer.caretSpot)];
       var render = function (t) { parts.forEach(function (p) { p.render(t); }); };
       // One linear tween is the film clock. Its property is a getter/setter, so GSAP paints the frame every time it
       // renders the tween, even when a seek suppresses callbacks (onUpdate would be skipped then); lazy: false so the

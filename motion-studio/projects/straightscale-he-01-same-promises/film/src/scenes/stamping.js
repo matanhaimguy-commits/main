@@ -19,6 +19,7 @@
     var hp = slips[L.hits.hook].printAt(hook), lift = S.hookLift;
     move(hook + 0.16, { x: hp.x + lift.dx, y: hp.y + lift.dy, r: lift.r }, lift.h, 110, 20);
     move(C('cam.pull'), S.wait, S.wait.h, 90, 18);
+    move(C('stamp.ready'), S.ready, S.ready.h, 110, 20);
     var a = C('hits.free'), b = C('hits.free.last');
     L.hits.free.forEach(function (id, i) { hit(id, a + i * (b - a) / (L.hits.free.length - 1)); });
     var s0 = C('hits.save'), se = T.spec('hits.save').every;

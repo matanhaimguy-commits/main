@@ -15,10 +15,11 @@
 .v-label { font-family: "Heebo", sans-serif; font-weight: 500; font-size: 46px; line-height: 1.2; color: var(--ink2); text-align: right; margin-bottom: 24px; }
 .v-name { position: relative; font-family: "Heebo", sans-serif; font-weight: 700; font-size: 60px; line-height: 1.25; color: var(--hold); text-align: right; margin-bottom: 22px; }
 .v-name-text { display: inline-block; }
-.tape { position: absolute; right: -35px; top: -10px; height: 92px; background-color: rgba(233, 222, 196, 0.97); clip-path: polygon(0 4%, 3% 0, 97% 2%, 100% 6%, 98% 22%, 100% 40%, 98% 60%, 100% 80%, 97% 100%, 3% 98%, 0 94%, 2% 76%, 0 56%, 2% 36%, 0 18%); }
-.finger-shadow { position: absolute; right: -470px; top: -10px; width: 760px; height: 86px; border-radius: 43px; background: linear-gradient(90deg, rgba(40, 26, 12, 0.7) 0%, rgba(40, 26, 12, 0.62) 55%, rgba(40, 26, 12, 0.5) 100%); filter: blur(6px); transform-origin: 8% 50%; }
+.tape { position: absolute; right: -35px; top: -12px; height: 96px; background-color: #E9DEC4; clip-path: polygon(0 4%, 3% 0, 97% 2%, 100% 6%, 98% 22%, 100% 40%, 98% 60%, 100% 80%, 97% 100%, 3% 98%, 0 94%, 2% 76%, 0 56%, 2% 36%, 0 18%); }
+.finger-shadow { position: absolute; right: -560px; top: -98px; width: 900px; height: 324px; filter: blur(5px); transform-origin: 4% 42%; overflow: visible; }
 .v-head { font-family: "Heebo", sans-serif; font-weight: 500; font-size: 74px; line-height: 1.25; min-height: 93px; white-space: nowrap; color: var(--hold); text-align: right; }
 .v-head-text.typed { color: var(--char); }
 .caret { display: inline-block; width: 7px; height: 82px; background: var(--char); vertical-align: -12px; margin-right: 4px; }
+.v-strike { position: absolute; right: 50px; top: 0; height: 6px; background: var(--char); border-radius: 3px; }
 .v-rule { height: 4px; margin-top: 10px; background: var(--char); transform-origin: right center; }
 .v-tag { position: absolute; left: 44px; top: 28px; font-family: "Heebo", sans-serif; font-weight: 700; font-size: 44px; line-height: 1.2; color: var(--char); border: 3px solid var(--char); border-radius: 12px; padding: 0 18px 2px; }

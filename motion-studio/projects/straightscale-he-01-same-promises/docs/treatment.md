@@ -77,13 +77,13 @@ Every time below is a cue in `film/timing.json` anchored to a spoken word, so th
 | 15.2 to 17.9 | The practice | ואין לי טענות אליהם, ככה כותבים בתחום. | stack slides off, the stamp alone, centred | the stamp slides in, sits, rises, drifts, sits (one move per word) | key line | the stamp | small thunks on settle and sit |
 | 18.0 to 20.4 | Your ad | אז תפתחו היום את המודעה שלכם. | blank slip lands: המודעה שלכם / [שם העסק] / [הכותרת] | stamp hops aside, slip drops, settles with a small bounce on "המודעה" | | the viewer's slip | paper slap, settle tap |
 | 20.4 to 24.6 | Test | תכסו את שם העסק עם האצבע, ותקראו רק את הכותרת. | a finger's shadow over the name, the tape, pressed flat; the underline draws one step per word; the headline darkens | finger in, tape slap, press, finger out, 4 rule steps; camera follows the finger, then the rule right to left | slip | headline line | tape rip, press, pencil steps |
-| 24.6 to 27.9 | Threat | המתחרה שלכם היה יכול לכתוב אותה אחד לאחד? | stamp hovers beside your headline (never over it) | hover, drift, dip toward the line, lift; camera leans in on the dip | slip | the stamp's shadow | held breath (score drops out) |
-| 27.9 to 31.7 | Release | אם כן, תחליפו אותה במשהו שהוא לא יכול להגיד. | placeholder backspaced, caret blinks; stamp lifts away and leaves | backspace, slow lift | slip | the caret | soft lift whoosh |
-| 31.7 to 34.6 | Pointer | למשל, מה בדיוק קורה אצלכם בפגישה הראשונה. | the pointer as the key line in the top band (stays to the end card); optional "דוגמה" slot (off) | camera push 1.14, then two drifts on "קורה" and "בפגישה" | caret blinking | caret | |
-| 34.6 to 36.9 | Close | תשמרו את הסרטון, או תשלחו לחבר עם עסק. | captions; camera pushes into the caret | push to 1.55 | | the caret | silence before the card |
+| 24.6 to 27.9 | Threat | המתחרה שלכם היה יכול לכתוב אותה אחד לאחד? | the competitors' three identical slips slide in under yours; on "אחד" they line up exactly on it; the stamp hovers beside your headline | rivals in, hover drift and dip, rivals match | your slip | the rivals | paper slide, held breath |
+| 27.9 to 31.7 | Release | אם כן, תחליפו אותה במשהו שהוא לא יכול להגיד. | rivals part; placeholder struck on "תחליפו", backspaced on "אותה"; "חינם" typed on "במשהו", struck on "לא", deleted on "יכול"; the stamp lifts away | strike, backspace, type, strike, delete, slow lift | slip | the caret | pencil strike, keys, soft lift whoosh |
+| 31.7 to 34.6 | Pointer | למשל, מה בדיוק קורה אצלכם בפגישה הראשונה. | the pointer as the key line in the top band (stays to the end card); the rivals square up on "בדיוק" and are pushed off the desk on "בפגישה"; yours squares up, alone; optional "דוגמה" slot (off) | camera push, drifts on "קורה" and "בפגישה" | caret blinking | caret | paper sweep |
+| 34.6 to 36.9 | Close | תשמרו את הסרטון, או תשלחו לחבר עם עסק. | captions; the camera pushes into the caret in three steps ("תשמרו", "הסרטון", "תשלחו") | push to 1.85 | | the caret | silence before the card |
 | 36.9 to 40.3 | End card | | charcoal opens out of the caret; white wordmark; שמרו · שלחו לחבר עם עסק, a caret blinking after it | card opens, mark and words rise | rest on the card | (end) | one soft thunk as the wordmark lands (no shimmer chord) |
 
-Self-check (measured on `renders/draft-v1-silent.mp4` with `tools/pacing.py`): beat CV 0.57 (>= 0.25), longest beat
-7.6x the shortest (>= 4x), short rests on the hook's face, the lock (10.2 to 11.3 s) and the price tag, longest quiet
+Self-check (measured on `renders/draft-v2-silent.mp4` with `tools/pacing.py`): beat CV 0.64 (>= 0.25), longest beat
+8.4x the shortest (>= 4x), short rests on the hook's face, the lock (10.2 to 11.3 s) and the price tag, longest quiet
 run 2.58 s, nothing frozen over 3 s. Every reaction has a cause on screen (the stamp prints, the slips are pushed, the
 stack is slid). The idea reads with the sound off (key lines + captions + the count + the column of identical stamps).
