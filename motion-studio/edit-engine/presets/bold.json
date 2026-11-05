@@ -1,0 +1,34 @@
+{
+ "about": "One big word at a time, hard jump cuts with three zoom levels; for fast hooks and short clips",
+ "cut": {
+  "max_pause": 0.2,
+  "pad_in": 0.05,
+  "pad_out": 0.08,
+  "punch": [
+   1.0,
+   1.12,
+   1.22
+  ],
+  "push": 0,
+  "frame": "crop",
+  "focus_y": 0.4,
+  "min_seg": 0.2,
+  "drop_fillers": true,
+  "drop_retakes": true
+ },
+ "captions": {
+  "font": "Montserrat Black",
+  "size": 130,
+  "case": "upper",
+  "words": 1,
+  "max_chars": 12,
+  "color": "#FFFFFF",
+  "highlight": null,
+  "outline": 9,
+  "shadow": 3,
+  "y": 0.62,
+  "anim": "pop",
+  "hold": 0.15
+ },
+ "music_db": -5
+}

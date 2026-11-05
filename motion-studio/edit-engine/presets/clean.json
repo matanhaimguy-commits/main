@@ -1,0 +1,33 @@
+{
+ "about": "Calm and natural: only long pauses and fillers removed, no zooms, sentence captions in Inter Bold",
+ "cut": {
+  "max_pause": 0.55,
+  "pad_in": 0.1,
+  "pad_out": 0.18,
+  "punch": [
+   1.0
+  ],
+  "push": 0,
+  "frame": "crop",
+  "focus_y": 0.4,
+  "min_seg": 0.3,
+  "drop_fillers": true,
+  "drop_retakes": true
+ },
+ "captions": {
+  "font": "Inter Bold",
+  "size": 68,
+  "case": null,
+  "words": 6,
+  "max_chars": 32,
+  "color": "#FFFFFF",
+  "highlight": null,
+  "outline": 0,
+  "shadow": 0,
+  "box": "#000000",
+  "y": 0.7,
+  "anim": "none",
+  "strip_punct": false
+ },
+ "music_db": -8
+}

@@ -1,0 +1,32 @@
+{
+ "about": "Default viral talking head: tight cuts, alternating punch-ins, 3-word Montserrat Black captions, yellow active word, pop",
+ "cut": {
+  "max_pause": 0.25,
+  "pad_in": 0.06,
+  "pad_out": 0.1,
+  "punch": [
+   1.0,
+   1.15
+  ],
+  "push": 0,
+  "frame": "crop",
+  "focus_y": 0.4,
+  "min_seg": 0.25,
+  "drop_fillers": true,
+  "drop_retakes": true
+ },
+ "captions": {
+  "font": "Montserrat Black",
+  "size": 96,
+  "case": "upper",
+  "words": 3,
+  "max_chars": 20,
+  "color": "#FFFFFF",
+  "highlight": "#FFD400",
+  "outline": 7,
+  "shadow": 2,
+  "y": 0.66,
+  "anim": "pop"
+ },
+ "music_db": -6
+}

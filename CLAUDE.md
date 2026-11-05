@@ -4,6 +4,8 @@
   `motion-reel` skill. It is the A-to-Z workflow; it starts with `bash motion-studio/setup.sh` and reads
   `motion-studio/knowledge/README.md`. House rules: `motion-studio/CLAUDE.md`. Client projects live in
   `motion-studio/projects/<client>-<piece>/`.
+- **Editing only** (cut a talking-head clip, captions, music mix, finish a silent render): the in-house edit engine,
+  skill `edit-engine`, code in `motion-studio/edit-engine/` (`edit.py styles|plan|run|voice|finish`).
 - **Reference bank** of proven viral reels with breakdown cards and a per-client usage ledger (so films never
   repeat): `motion-studio/refbank/` (`refbank/tools/refbank.py pick|search|check|log`).
 - **Building an automated reel machine** on top of this: read `motion-studio/HANDOFF.md` first.

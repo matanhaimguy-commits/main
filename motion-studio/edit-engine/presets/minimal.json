@@ -1,0 +1,33 @@
+{
+ "about": "Premium and quiet: slow push-in on every piece, lowercase captions on a soft box, gentle pacing",
+ "cut": {
+  "max_pause": 0.4,
+  "pad_in": 0.08,
+  "pad_out": 0.16,
+  "punch": [
+   1.0,
+   1.06
+  ],
+  "push": 0.035,
+  "frame": "crop",
+  "focus_y": 0.38,
+  "min_seg": 0.3,
+  "drop_fillers": true,
+  "drop_retakes": true
+ },
+ "captions": {
+  "font": "Montserrat SemiBold",
+  "size": 64,
+  "case": "lower",
+  "words": 5,
+  "max_chars": 28,
+  "color": "#FFFFFF",
+  "highlight": null,
+  "outline": 0,
+  "shadow": 0,
+  "box": "#111111",
+  "y": 0.7,
+  "anim": "rise"
+ },
+ "music_db": -7
+}

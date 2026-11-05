@@ -1,0 +1,32 @@
+{
+ "about": "Friendly creator look: Caveat Bold handwriting captions, word-by-word green highlight",
+ "cut": {
+  "max_pause": 0.3,
+  "pad_in": 0.06,
+  "pad_out": 0.12,
+  "punch": [
+   1.0,
+   1.12
+  ],
+  "push": 0,
+  "frame": "crop",
+  "focus_y": 0.4,
+  "min_seg": 0.25,
+  "drop_fillers": true,
+  "drop_retakes": true
+ },
+ "captions": {
+  "font": "Caveat Bold",
+  "size": 104,
+  "case": null,
+  "words": 4,
+  "max_chars": 24,
+  "color": "#FFFFFF",
+  "highlight": "#7CFF6B",
+  "outline": 6,
+  "shadow": 2,
+  "y": 0.66,
+  "anim": "pop"
+ },
+ "music_db": -6
+}
