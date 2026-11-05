@@ -1,0 +1,76 @@
+<!doctype html>
+<!--
+  Twin kit move 3: two-tone type (layer 50, in front of the twin, kept off the face by the rules). A light lead line
+  in the UI font, then the key word heavy in the display font and the accent colour. Each word rises out of its own
+  mask; the key word lands last and overshoots a touch.
+  Variables: lead, key, y (centre of the pair, px), size (key word px), dur.
+  Sound: whoosh-short on the entrance.
+-->
+<html
+  data-composition-id="kit-twotone"
+  data-composition-duration="3"
+  data-composition-variables='[
+    {"id":"lead","type":"string","label":"Lead (light)","default":"A business"},
+    {"id":"key","type":"string","label":"Key word (heavy)","default":"OWNER"},
+    {"id":"y","type":"number","label":"Centre y (px)","default":520},
+    {"id":"size","type":"number","label":"Key word size (px)","default":190},
+    {"id":"speed","type":"number","label":"Entrance speed (2 = twice as fast, for a hook on frame 1)","default":1},
+    {"id":"dur","type":"number","label":"On screen (s)","default":2}
+  ]'
+>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #root { position: absolute; inset: 0; overflow: hidden; }
+        /* a layer from the first frame: Chrome keeps an opacity-animated block composited afterwards, which changes text
+           antialiasing, so promote it up front and every frame rasterizes the same way whatever the seek history */
+        .tt-block { position: absolute; left: 65px; right: 65px; display: flex; flex-direction: column; align-items: center;
+                    will-change: transform, opacity; }
+        .tt-row { display: flex; justify-content: center; gap: 0.25em; overflow: hidden; padding: 0.04em 0.1em 0.1em; }
+        .tt-mask { display: inline-block; overflow: hidden; padding: 0 0.12em 0.14em; margin: 0 -0.12em -0.14em; }
+        .tt-w { display: inline-block; }
+        .tt-lead { font-family: var(--kit-ui); font-weight: 300; color: var(--kit-fg); letter-spacing: 0.01em; }
+        .tt-key { font-family: var(--kit-display); font-weight: 900; color: var(--kit-accent);
+                  line-height: 0.95; text-transform: uppercase; letter-spacing: -0.01em;
+                  text-shadow: 0 6px 24px rgba(0, 0, 0, 0.45); }
+        .tt-lead .tt-w { text-shadow: 0 4px 18px rgba(0, 0, 0, 0.5); }
+      </style>
+      <div id="root" data-composition-id="kit-twotone" data-duration="3">
+        <div class="tt-block">
+          <div class="tt-row tt-lead"></div>
+          <div class="tt-row tt-key"></div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          var root = document.getElementById("root");
+          var v = (window.__hyperframes && window.__hyperframes.getVariables()) || {};
+          var block = root.querySelector(".tt-block");
+          var leadRow = root.querySelector(".tt-lead"), keyRow = root.querySelector(".tt-key");
+          var size = Number(v.size) || 190, dur = Number(v.dur) || 2, sp = Number(v.speed) || 1;
+          function fill(row, text) {
+            return String(text || "").split(/\s+/).filter(Boolean).map(function (t) {
+              var m = document.createElement("span"); m.className = "tt-mask";
+              m.setAttribute("data-layout-allow-overflow", "");   // the word rises out of its mask on purpose
+              var w = document.createElement("span"); w.className = "tt-w"; w.textContent = t;
+              w.setAttribute("data-layout-allow-overflow", "");
+              m.appendChild(w); row.appendChild(m); return w;
+            });
+          }
+          var leads = fill(leadRow, v.lead), keys = fill(keyRow, v.key);
+          leadRow.style.fontSize = Math.round(size * 0.42) + "px";
+          keyRow.style.fontSize = size + "px";
+          block.style.top = (Number(v.y) || 520) - size * 0.8 + "px";
+          var tl = gsap.timeline({ paused: true });
+          tl.fromTo(leads, { yPercent: 110 }, { yPercent: 0, duration: 0.32 / sp, ease: "expo.out", stagger: 0.06 / sp }, 0);
+          tl.fromTo(keys, { yPercent: 115, rotation: 4 }, { yPercent: 0, rotation: 0, duration: 0.42 / sp, ease: "back.out(1.6)", stagger: 0.07 / sp }, 0.14 / sp);
+          // the exit moves the block, never the words: one owner per element's transform, or the frame drawn after a
+          // seek back from the exit differs by a few antialiased pixels (tools/seekcheck.mjs --hf caught it)
+          tl.fromTo(block, { y: 0, opacity: 1 }, { y: -60, opacity: 0, duration: 0.18, ease: "power2.in", immediateRender: false }, Math.max(0.6, dur - 0.22));
+          window.__timelines["kit-twotone"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

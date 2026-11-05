@@ -1,0 +1,345 @@
+{
+ "gate": "G-SET",
+ "asset_id": "SET-W43-1b",
+ "version": 2,
+ "label": "logofix",
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "set_status": "FAIL",
+ "hero": false,
+ "covers": [
+  "SL01-W43-1b@v2 (/home/user/drafts/fixed/5d6ecdb0.jpg, md5 47dfc89089824360c6c8b0a1ccc0254e)",
+  "SL02-W43-1b@v2 (7e155c0b.jpg, md5 6617cb5a18774e14abfef4c92df9d62f)",
+  "SL03-W43-1b@v2 (3cdfd95e.jpg, md5 ce10867ca9377be4db08695ea67078d9)",
+  "SL04-W43-1b@v2 (26e094bc.jpg, md5 6452e56ad52a580471761fe8e6c20b64)",
+  "SL05-W43-1b@v2 (177e27a4.jpg, md5 ef3a5c5969e44bf7be5fe408ccbdf55e)",
+  "SL06-W43-1b@v2 (b6ed170a.jpg, md5 d7e3e257f34796544ddd81541c421249)",
+  "SL07-W43-1b@v2 (78eb641f.jpg, md5 935d9daa14edf19f5a5d89147a71ecea)"
+ ],
+ "spec_used": "Carousel 2026-w43-1b (Mon 19 Oct), 7 slides, alt-text.txt and caption.txt; style-bible.md (one world: Tirana after dark, red-cased phone thread, crimson boxes, gold counter top right, arrow bottom right on slides 1 to N-1, real logo bottom left in the lowest 9%); brand-kit.md; VISUAL-QA.md 10.7 (G-SET).",
+ "crops_dir": "/home/user/qa/W43-1b-set.v2 (Higgsfield sandbox; SET/ and SLxx/ subfolders, built by the reviewer)",
+ "crops_manifest": "clients/straightscale/content/2026-w43-1b-carousel/qa/crops/SET.v2.logofix/manifest.json",
+ "files_opened": [
+  "SET/set_row_in_order.jpg",
+  "SET/set_grid_4x2.jpg",
+  "SET/set_bottom_band_logo_arrow_guides.jpg",
+  "SET/set_swipe_4_5_6_guide.jpg",
+  "SET/ref_logo_vs_pasted_all_slides_3x.jpg",
+  "SL01/full_720.jpg",
+  "SL02/full_720.jpg",
+  "SL03/full_720.jpg",
+  "SL04/full_720.jpg",
+  "SL05/full_720.jpg",
+  "SL06/full_720.jpg",
+  "SL07/full_720.jpg",
+  "SL02/orig_full_720.jpg",
+  "SL02/thumb_200.jpg",
+  "SL03/thumb_200.jpg",
+  "SL04/thumb_200.jpg",
+  "SL05/thumb_200.jpg",
+  "SL06/thumb_200.jpg",
+  "SL07/thumb_200.jpg",
+  "SL02/region_SL02_counter_3x.jpg",
+  "SL03/region_SL03_counter_3x.jpg",
+  "SL04/region_SL04_counter_3x.jpg",
+  "SL05/region_SL05_counter_3x.jpg",
+  "SL06/region_SL06_counter_3x.jpg",
+  "SL07/region_SL07_counter_3x.jpg",
+  "SL02/region_SL02_arrow_3x.jpg",
+  "SL03/region_SL03_arrow_3x.jpg",
+  "SL04/region_SL04_arrow_3x.jpg",
+  "SL05/region_SL05_arrow_3x.jpg",
+  "SL06/region_SL06_arrow_3x.jpg"
+ ],
+ "measurements": {
+  "logo_top_left_xy": {
+   "SL01": [
+    98,
+    1209
+   ],
+   "SL02": [
+    96,
+    1217
+   ],
+   "SL03": [
+    98,
+    1239
+   ],
+   "SL04": [
+    98,
+    1227
+   ],
+   "SL05": [
+    98,
+    1189
+   ],
+   "SL06": [
+    98,
+    1238
+   ],
+   "SL07": [
+    98,
+    1221
+   ]
+  },
+  "logo_size_px": [
+   295,
+   57
+  ],
+  "logo_fit_mean_abs_diff": {
+   "SL01": 7.2,
+   "SL02": 7.18,
+   "SL03": 7.11,
+   "SL04": 7.15,
+   "SL05": 7.13,
+   "SL06": 7.13,
+   "SL07": 7.14
+  },
+  "arrow_bbox": {
+   "SL01": [
+    933,
+    1211,
+    990,
+    1270
+   ],
+   "SL02": [
+    931,
+    1233,
+    989,
+    1292
+   ],
+   "SL03": [
+    929,
+    1232,
+    987,
+    1291
+   ],
+   "SL04": [
+    929,
+    1232,
+    988,
+    1291
+   ],
+   "SL05": [
+    930,
+    1227,
+    988,
+    1285
+   ],
+   "SL06": [
+    929,
+    1232,
+    987,
+    1291
+   ],
+   "SL07": null
+  },
+  "counter_bbox": {
+   "SL01": [
+    942,
+    53,
+    984,
+    77
+   ],
+   "SL02": [
+    933,
+    52,
+    979,
+    78
+   ],
+   "SL03": [
+    936,
+    52,
+    981,
+    77
+   ],
+   "SL04": [
+    922,
+    53,
+    971,
+    78
+   ],
+   "SL05": [
+    934,
+    52,
+    981,
+    78
+   ],
+   "SL06": [
+    934,
+    52,
+    980,
+    76
+   ],
+   "SL07": [
+    935,
+    52,
+    981,
+    77
+   ]
+  },
+  "crimson_box_bbox": {
+   "SL01": [
+    89,
+    171,
+    452,
+    261
+   ],
+   "SL02": [
+    96,
+    167,
+    171,
+    251
+   ],
+   "SL03": [
+    97,
+    155,
+    186,
+    248
+   ],
+   "SL04": [
+    90,
+    183,
+    169,
+    267
+   ],
+   "SL05": [
+    82,
+    169,
+    171,
+    249
+   ],
+   "SL06": [
+    99,
+    168,
+    177,
+    251
+   ],
+   "SL07": [
+    93,
+    156,
+    393,
+    257
+   ]
+  },
+  "kicker_left_x": {
+   "SL01": 106,
+   "SL02": 103,
+   "SL03": 104,
+   "SL04": 102,
+   "SL05": 82,
+   "SL06": 103,
+   "SL07": 104
+  }
+ },
+ "checks": [
+  {
+   "id": "C1",
+   "result": "PASS",
+   "severity": "",
+   "region": "all 7, set_grid_4x2.jpg, set_row_in_order.jpg",
+   "evidence": "One visual world. Every slide is the same night interior: a varnished wooden table by a tall window, Tirana's plaza and clock tower in the right third (same tower position on all seven), warm tungsten grade, near-black wall behind the type, soft dark pillar edges at left and right. Props change per slide (notebook, POS, message phone, planner, calculator, coin, written notebook) and the light and grade stay the same."
+  },
+  {
+   "id": "C2",
+   "result": "PASS",
+   "severity": "",
+   "region": "kicker, number box, headline, subline on all 7",
+   "evidence": "Type is consistent: spaced ivory caps kicker at y62-81 on every slide (PËR PRONARËT E BIZNESEVE, then NUMRI I PARË / DYTË / TRETË / KATËRT / PESTË, then HAPI I RADHËS), a heavy ivory geometric sans headline with a solid crimson box (number box 76-90 x 81-94 px, measured #A7 to #B5 red vs #B31217), a lighter ivory subline. Small drift: slide 5's text block starts at x82 (kicker and box) where the others start at x90 to x106, about 20 px left; visible only when the slides are compared side by side, so not counted as a defect."
+  },
+  {
+   "id": "C3",
+   "result": "PASS",
+   "severity": "",
+   "region": "counter, top right",
+   "evidence": "Gold counter on every slide, in order 1/7, 2/7, 3/7, 4/7, 5/7, 6/7, 7/7 (region_SLxx_counter_3x.jpg), y52-78, measured #CB9944 to #D4A24E. Gold appears nowhere else except the real logo's gold square. Its left edge drifts between x922 (4/7) and x942 (1/7), within the model's rendering, not visible in the swipe."
+  },
+  {
+   "id": "C4",
+   "result": "PASS",
+   "severity": "",
+   "region": "swipe arrow, bottom right",
+   "evidence": "Crimson round arrow button with a white arrow on slides 1 to 6, none on slide 7 (correct per the style bible). Same size (58-59 px) and colour (#9F0717 to #AA1219). Slides 2 to 6 sit at y1227 to y1233 (centres 1256 to 1262.5); the cover's arrow sits 21 px higher (y1211, centre 1240.5), seen only on the 1 to 2 swipe; noted, not counted."
+  },
+  {
+   "id": "C5",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "real logo, bottom left, all 7 (set_bottom_band_logo_arrow_guides.jpg, set_swipe_4_5_6_guide.jpg)",
+   "evidence": "The logo is the same real file at the same size on every slide (ref_logo_vs_pasted_all_slides_3x.jpg: 295x57, fit error 7.1 to 7.2 levels on all seven, x96 to x98), but it is not placed identically: its top edge sits at y1209 (1), 1217 (2), 1239 (3), 1227 (4), 1189 (5), 1238 (6), 1221 (7), a 50 px spread. Neighbouring slides jump 22 px (2 to 3), 12 px (3 to 4), 38 px up (4 to 5) and 49 px down (5 to 6). Against the arrow, the logo centre sits 38 px above it on slide 5 and 17 px above it on slide 2, but within 6 px of it on slides 1, 3, 4 and 6. In the grid and in the swipe view the brand mark visibly hops up and down while the arrow stays put, which a viewer swiping the carousel can see at the seam between two slides and which breaks the 'one system' look of the set."
+  },
+  {
+   "id": "C6",
+   "result": "PASS",
+   "severity": "",
+   "region": "sequence, set_row_in_order.jpg",
+   "evidence": "The story reads in order: hook (5 numbers to know every month), then numbers 1 to 5 in order (spend, requests, booked, cost per client, return per euro), then the ask (save this post). Kickers, number boxes and counters all agree; no slide could swap with another."
+  },
+  {
+   "id": "C7",
+   "result": "PASS",
+   "severity": "",
+   "region": "slide 2",
+   "evidence": "Slide 2 works alone: 'NUMRI I PARË / 1 Sa shpenzove / Reklama, video, njerëz, mjete: gjithçka që pagove për klientë të rinj.' over a POS and receipt states the first number and what it covers without the cover."
+  },
+  {
+   "id": "C8",
+   "result": "PASS",
+   "severity": "",
+   "region": "slide 7 (the turn and ask)",
+   "evidence": "The last slide looks different: the crimson box moves from a number to the verb 'Ruaje', the kicker becomes HAPI I RADHËS, the arrow is gone, and the cover's blank notebook comes back written in. It closes the cover's setup."
+  },
+  {
+   "id": "C9",
+   "result": "PASS",
+   "severity": "",
+   "region": "red-cased phone, all 7",
+   "evidence": "The continuity thread holds: the deep red-cased phone is on every slide and changes state with the story (face down on the cover, dark on 2, messages piling up on 3, dark by the planner on 4, beside the owner's hand on 5, out of focus behind the coin on 6, dark beside the written notebook on 7)."
+  },
+  {
+   "id": "C10",
+   "result": "PASS",
+   "severity": "",
+   "region": "brand rules across the set",
+   "evidence": "No em dash in any on-image text; no invented numbers on screens or paper (screens are dark or wordless, receipt and calculator display blank, the only figures are list indices, the counter, the coin's own '1' and, on slide 4, the spec'd planner hours); no other brand's logo; crimson #B31217 family for highlight boxes and arrows; gold only for the counter (plus the real logo's square). All on-image Albanian read letter by letter in the slide reviews with no misspelling; every ë and ç is right."
+  },
+  {
+   "id": "C11",
+   "result": "PASS",
+   "severity": "",
+   "region": "logo zone on all 7",
+   "evidence": "No slide keeps any part of the model-drawn logo (no ghost letters, no red or gold fragments) and none shows a seam or blotch around the logo at 1x or 2x. Slide 2 has a smooth, slightly darker inpaint band under the wordmark that shows at 2x (minor, logged in SL02.v2.logofix.review.json V23)."
+  },
+  {
+   "id": "C12",
+   "result": "PASS",
+   "severity": "",
+   "region": "per-slide gates",
+   "evidence": "Per-slide results for these files: SL01 PASS (its own hero review, SL01.v2.logofix.review.json), SL02 PASS (2 minor), SL03 PASS (0), SL04 PASS (2 minor), SL05 PASS (2 minor), SL06 PASS (1 minor), SL07 PASS (1 minor). Recurring pre-existing pattern worth a Failure Library note: small printed labels on props come out garbled (POS keypad, planner hours, calculator keys)."
+  }
+ ],
+ "defects_summary": {
+  "critical": 0,
+  "major": 1,
+  "minor": 0,
+  "items": [
+   "C5 major: the real logo's vertical position varies by 50 px across the set (y1189 to y1239), so the brand mark hops between slides and is off the arrow line on slides 2 and 5 (caused by the fix's per-slide placement)."
+  ]
+ },
+ "fix": {
+  "route": "edit",
+  "prompt_changes": [
+   "No generation needed: a deterministic re-overlay. Start from each v1 original (/home/user/drafts/<id>-*.jpg), clear the whole drawn-logo footprint with texture-preserving inpainting (patch or texture transfer from the adjacent wood, not a smooth fill, so slide 2's smooth band does not come back), then paste the real straightscale-logo-light.png at one fixed box on all seven slides.",
+   "Suggested box: 295x57 at x98, y1233 (bottom margin 60 px, inside the style bible's lowest-9% band). Its centre (y1261.5) matches the arrow centre on slides 2, 3, 4 and 6 and is within 6 px on slide 5. With brand_overlay.py (--logo-file straightscale-logo-light.png) that is about the same --width 0.273 --margin-x 0.091 --margin-y 0.045 for every slide.",
+   "The cover (slide 1) passed its hero review with the logo at y1209, matching its own arrow (centre 1240.5). Either move it to the same box too (it becomes a new version and needs a new hero review), or keep it and accept a 24 px step from cover to slide 2. Moving all seven is the consistent option.",
+   "Each re-placed file is a new version and gets a per-slide review again (V23 and V24 on the logo zone), then a new G-SET review."
+  ]
+ },
+ "notes": [
+  "Per-slide verdicts for these exact files are PASS (SL02-SL07 reviews in this folder; SL01 from its own hero review); the set fails only on logo placement.",
+  "Hosted URLs: no new URLs for slides 2 to 7 were in the packet or in the repo. hosted.json still lists the v1 originals (each URL downloads byte-identical to the v1 original, md5-checked in the sandbox), so the hub must be pointed at the corrected files' URLs, md5-checked against the reviewed files, before posting.",
+  "AI label: these are photoreal AI scenes, so STANDARDS.md 7 asks for Instagram's AI label on the post (a posting setting). Slide 5's hand is allowed under D1 ('hands only').",
+  "Failure Library candidate: garbled small printed labels on props (POS keypad, planner hours, calculator keys); prevention: a content line for any prop with printed labels, or frame it so the labels are out of focus."
+ ]
+}

@@ -1,0 +1,17 @@
+{"method": "frame-by-frame track of ivory (246,245,238) text and red box pixels at 30 fps; ink boxes from full-res frames; font size = Montserrat ExtraBold rendered at 100 px, scaled to the measured ink width (and height as a check); contrast = WCAG ratio of the text colour against the 95th-percentile luminance of the box background (ink dilated 3 px and removed), worst frame of each card",
+ "safe_zone_px": {"top": 269, "bottom_from": 1248, "right_lower_half_from": 853, "sides": 65},
+ "cards": [
+  {"text": "Kjo javë e vështirë / është për tani,", "role": "text hook super", "on_s": 0.0, "off_s": 3.0, "words": 6, "box_px": {"line1_dark": [75, 308, 940, 435], "line2_red": [76, 428, 762, 554]}, "ink_px": [[102, 330, 915, 413], [99, 450, 738, 531]], "font_px": 84, "contrast_worst": "6.5:1"},
+  {"text": "jo përgjithmonë.", "on_s": 2.1, "off_s": 3.567, "first_word_s": 2.26, "words": 2, "box_px": [82, 1032, 834, 1154], "ink_px": [98, 1054, 810, 1132], "font_px": 80, "contrast_worst": "6.4:1 (ivory on red)"},
+  {"text": "Ke kaluar", "on_s": 3.6, "off_s": 4.067, "first_word_s": 3.62, "words": 2, "ink_px": [263, 1054, 658, 1137], "font_px": 80, "contrast_worst": "13.8:1"},
+  {"text": "edhe të tjera.", "on_s": 4.067, "off_s": 5.733, "first_word_s": 4.16, "words": 3, "box_px": [153, 1033, 765, 1155], "ink_px": [177, 1054, 739, 1136], "font_px": 80, "contrast_worst": "13.7:1"},
+  {"text": "Mbylle për sot,", "on_s": 5.733, "off_s": 6.867, "first_word_s": "about 5.75 (energy) / 5.68 small / 5.88 medium", "words": 3, "ink_px": [151, 1055, 768, 1129], "font_px": 80, "contrast_worst": "14.1:1"},
+  {"text": "pusho,", "on_s": 6.9, "off_s": 7.833, "first_word_s": "about 7.0 (energy) / 7.06 medium", "words": 1, "ink_px": [320, 1054, 598, 1127], "font_px": 80, "contrast_worst": "9.2:1"},
+  {"text": "dhe nesër fillo", "on_s": 7.867, "off_s": 8.933, "first_word_s": "about 7.87 (energy, pause 7.5-7.85) / 7.86 small", "words": 3, "ink_px": [159, 1054, 759, 1145], "font_px": 80, "contrast_worst": "5.3:1"},
+  {"text": "nga një", "on_s": 8.933, "off_s": 9.2, "first_word_s": "about 8.9", "words": 2, "ink_px": [305, 1054, 615, 1132], "font_px": 80, "contrast_worst": "5.5:1", "note": "0.27 s on screen (8 frames)"},
+  {"text": "gjë e vogël.", "on_s": 9.2, "off_s": 10.867, "first_word_s": 9.2, "last_word_end_s": 9.9, "words": 3, "box_px": [205, 1033, 725, 1155], "ink_px": [218, 1054, 699, 1132], "font_px": 80, "contrast_worst": "5.3:1"},
+  {"text": "Dërgoja një pronari / që ka nevojë / ta dëgjojë sot.", "role": "end card", "on_s": 10.9, "off_s": 13.6, "words": 8, "ink_px": [[101, 640, 836, 712], [98, 740, 583, 812], [97, 850, 638, 922]], "red_box_px": [74, 828, 661, 945], "font_px": 72, "contrast_worst": "6.4:1"},
+  {"text": "StraightScale wordmark (real file wordmark-white.png)", "role": "end card logo", "on_s": 10.9, "off_s": 13.6, "box_px": [96, 1040, 495, 1117], "proportions": "width/height 5.13 (file 5.08), text/mark height 0.69 (file 0.70), text/mark width 3.88 (file 3.91): same mark, undistorted, scale about 0.655"}
+ ],
+ "caption_band": "all lower cards y 1032-1155 (53.8% to 60.2% down), centred at x about 459; max right edge 834 (limit 853), min left 82 (limit 65), max bottom 1155 (limit 1248)",
+ "subject_overlap": "0.67-3.0 s: the hook super (y 308-554, x 75-940) covers the shop owner's head: visible hair starts at the red box's bottom edge (y 554), ear top at y about 557, and at 3.0 s (super gone) the crown is at y about 380"}

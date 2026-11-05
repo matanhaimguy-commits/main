@@ -1,0 +1,228 @@
+shot_id: SL03
+post_id: SS-2026-11-W1-04
+format: carousel_slide
+script_lines:
+- S3
+line_text: PYETJA 1 Rreshti i parë thotë për kë punon? Jo? Shkruaj për kë punon.
+story_purpose: 'Item 1 with its fix: the first line of the profile should say who the business works for.'
+must_read_in_1s: 'A profile header on the phone: a round tile, two short bars and one long bar.'
+subjects:
+- id: PR-PHONE
+  ref: null
+  state: the red-case phone seated upright in a black phone stand on the desk, screen lit
+  pose: right half of the lower frame, medium distance
+  expression: ''
+  instances: 1
+hands: none visible
+props:
+- id: PR-PHONE
+  story_critical: false
+  ref: null
+  state: upright in the stand, screen lit
+  content: 'a modern smartphone in a deep red #BE0F18 case that shows as a rim around the black glass front, rounded
+    corners, no logo on the case or the glass'
+  size_in_frame: its box is 26% of the frame width and 40% of the frame height
+- id: PR-STAND
+  story_critical: false
+  ref: null
+  state: on the surface, holding the phone upright
+  content: a plain black matte angled phone stand with one groove, no logo; the phone's bottom edge sits in the
+    groove and its back leans against the stand's rear support
+- id: PR-PHONE-SCREEN
+  story_critical: true
+  ref: PS-PROFILE state HEADER (prop sheet to build on SS-LIB-W45W46)
+  state: lit, a profile header
+  content: 'a plain profile header on a dark charcoal background: a round mid-grey tile at the top left, next to
+    it two short light-grey bars (a name bar and a shorter bar under it) and below them one long light-grey bar
+    as the first line; no letters, no digits, no status bar, no app logo'
+- id: PR-ARROW
+  story_critical: false
+  ref: null
+  state: bottom right, inside the 4% margin
+  content: 'a small crimson #B31217 round button with a white arrow pointing right, flat graphic, nothing else on
+    it'
+  size_in_frame: about 8% of the frame width
+text_in_image:
+- string: PYETJA 1
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 31%, y 6% to 9% of the frame, capitals
+    with wide letter-spacing (normal word spaces, no gaps inside words), about 44 px at 1080 px wide, ivory
+  position: line 1 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: Rreshti i parë
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 66%, y 11% to 18% of the frame, heavy
+    bold geometric sans, about 80 px at 1080 px wide, ivory
+  position: line 2 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: thotë për kë
+  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 57%, y 18% to 25% of the frame, heavy
+    bold geometric sans, about 80 px at 1080 px wide, ivory; the word ''kë'' sits inside a solid crimson #B31217
+    highlight rectangle'
+  position: line 3 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: punon?
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 31%, y 26% to 33% of the frame, heavy
+    bold geometric sans, about 80 px at 1080 px wide, ivory
+  position: line 4 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: Jo? Shkruaj për kë punon.
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 65%, y 35% to 39% of the frame, bold geometric
+    sans, about 44 px at 1080 px wide, ivory
+  position: line 5 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: 3/8
+  surface: 'top right, small gold #DD9A10 slide counter'
+  position: top right corner, inside the 4% margin
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing overlaps the counter
+action_physics:
+- The phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support; nothing touches
+  it.
+static: false
+setting:
+  ref: null
+  details: 'A business owner''s dark wood desk at night: a warm tungsten desk lamp stands at the far left of the
+    desk, its warm glow reaching the left edge at 66% to 82% of the height; deep shadows; the lamp is one lamp with
+    one round shade on one stem and one round base; nothing else stands on the desk except the lamp and what the
+    props block lists. Camera about 10 degrees above the desk: the desk top spans from 70% of the frame height (its
+    far edge, measured from the top of the frame) down to the bottom; the wall behind it fills the upper 70%. A
+    small window at the left edge of the frame at 42% to 62% of the height, below the text wall, slightly out of
+    focus, the Tirana clock tower a small lit silhouette in it.'
+  background_rule: 'Nothing on the desk or the walls carries a word, a logo or a sign. The phone screen shows only
+    the round tile and the grey bars. A phone with its screen off is plain black glass with a soft lamp reflection
+    and nothing else. The surface the props stand on is bare apart from the listed props. The clock tower is a small
+    lit silhouette with a plain clock face: no numerals, no letters; the window glass reflects no text; no shop
+    signs on the street.'
+camera:
+  framing: medium shot of the desk; the phone in the lower right half (x 54% to 80%), the top 40% is a calm near-black
+    wall
+  angle: about 10 degrees above the desk surface, slightly from the left
+  lens: 35mm film still, shallow depth of field
+  aspect: '4:5'
+  safe_zones: text and arrow inside a 4% margin; top 40% a calm near-black zone with nothing in it except the text
+    block and the slide counter; bottom-left corner (lowest 9% of the height, left 40% of the width) calm, dark
+    and empty
+continuity:
+  previous_shot: SL02
+  carry_over:
+  - The phone stays in its stand and now shows a profile header; same desk and lamp.
+regions:
+- name: t01-label
+  kind: text
+  box:
+  - 0.06
+  - 0.06
+  - 0.312
+  - 0.094
+- name: t02-head
+  kind: text
+  box:
+  - 0.06
+  - 0.112
+  - 0.662
+  - 0.18
+- name: t03-head
+  kind: text
+  box:
+  - 0.06
+  - 0.188
+  - 0.576
+  - 0.256
+- name: t03-highlight
+  kind: text
+  box:
+  - 0.49
+  - 0.188
+  - 0.576
+  - 0.256
+- name: t04-head
+  kind: text
+  box:
+  - 0.06
+  - 0.264
+  - 0.318
+  - 0.332
+- name: t05-sub
+  kind: text
+  box:
+  - 0.06
+  - 0.35
+  - 0.65
+  - 0.39
+- name: counter
+  kind: text
+  box:
+  - 0.86
+  - 0.04
+  - 0.96
+  - 0.08
+- name: logo-zone
+  kind: other
+  box:
+  - 0.0
+  - 0.91
+  - 0.4
+  - 1.0
+- name: arrow
+  kind: other
+  box:
+  - 0.86
+  - 0.89
+  - 0.96
+  - 0.96
+- name: window
+  kind: other
+  box:
+  - 0.0
+  - 0.42
+  - 0.2
+  - 0.62
+- name: phone
+  kind: prop
+  box:
+  - 0.54
+  - 0.44
+  - 0.8
+  - 0.84
+- name: phone-screen
+  kind: prop
+  box:
+  - 0.57
+  - 0.48
+  - 0.77
+  - 0.74
+- name: stand
+  kind: prop
+  box:
+  - 0.54
+  - 0.76
+  - 0.8
+  - 0.86
+style: '"Tirana after dark": cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
+  the cover''s window. Same light and colour grade on every slide. Thread: a smartphone in a deep red case (#BE0F18),
+  recurring on every slide, changing state with the story (silent, unread messages piling up, ringing, a booked
+  calendar). Palette: scene tone near-black (#1F1F1F), type ivory (#F8F6EF), accent crimson #B31217 as solid highlight
+  rectangles behind key words and the swipe arrow button, small gold (#DD9A10) only for the counter. #B31217 is
+  the only saturated colour besides the gold counter and the phone case. Type: heavy bold geometric sans in ivory,
+  left-aligned in the calm dark area; key words in solid crimson #B31217 highlight rectangles. Spell ë and ç out
+  letter by letter in every prompt. Frame: slide counter top right (gold), swipe arrow bottom right on slides 1
+  to N-1. Bottom-left corner calm, dark and empty.'
+must_not:
+- no logo or wordmark drawn anywhere
+- no letters or objects in the bottom-left corner
+- no letters, words, digits or app names on any phone screen; screens hold only the shapes described in the props
+  block
+- no picture-frame borders, side bars or blurred margins around the whole image
+- no letters on the grey bars
+hero: false
+notes: 'Prop sheet PS-PROFILE (state: HEADER) is attached as the last reference image.'

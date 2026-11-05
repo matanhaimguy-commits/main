@@ -1,0 +1,250 @@
+{
+ "client": "straightscale",
+ "week": "2026-W46",
+ "timezone": "Europe/Tirane",
+ "research": "research/2026-10-28 (14 Oct data re-scored; new scrape refused, unpaid Apify invoices) + research/2026-10-14 pattern and ideas + research/demand-map.csv",
+ "cards": "cards/2026-11-W2/",
+ "cadence": "daily",
+ "mix": {
+  "reels": 3,
+  "carousels": 3,
+  "images": 1
+ },
+ "credits_planned": 111,
+ "posts": [
+  {
+   "key": "2026-w46-1-reel",
+   "card": "SS-2026-11-W2-01",
+   "kind": "reel",
+   "day": "2026-11-09",
+   "time": "19:30",
+   "goal": "sends",
+   "job": "reach",
+   "belief": "B1",
+   "pillar": "Find",
+   "series": null,
+   "episode": null,
+   "format": "reel_quote_broll",
+   "tier": "C",
+   "length_s": 15,
+   "slides": null,
+   "hook": "Nuk të duhen më shumë ndjekës. Të duhen më pak klientë që humbasin rrugës.",
+   "hook_note": "Albanian draft, native read needed",
+   "idea": "You don't need more followers; you need fewer clients lost on the way: one line that swaps the follower count for the clients lost after they write",
+   "based_on": [
+    "research/2026-10-14 #7 @hormozi one-line reframe (3.0x); brain AV-01 false_beliefs ('I need more followers or more ads')"
+   ],
+   "demand_phrase": "më duhen më shumë ndjekës",
+   "idea_source": "outlier",
+   "cta": {
+    "type": "send"
+   },
+   "credit_budget": 30,
+   "hypothesis": "Reframing the follower goal gets more sends than W1-01's phone reframe",
+   "target": ">= SS-2026-11-W1-01 sends per reach",
+   "status": "planned",
+   "blocked_by": "G-HUMAN-VOICE narrator 8oGKUMljR779HzpZBiE4 (pending 28 Oct)"
+  },
+  {
+   "key": "2026-w46-2-carousel",
+   "card": "SS-2026-11-W2-02",
+   "kind": "carousel",
+   "day": "2026-11-10",
+   "time": "19:30",
+   "goal": "leads",
+   "job": "trust",
+   "belief": "B3",
+   "pillar": "Close",
+   "series": null,
+   "episode": null,
+   "format": "carousel_self_check",
+   "tier": "C",
+   "length_s": null,
+   "slides": 7,
+   "hook": "Pas ofertës: 5 pyetje që tregojnë ku ikën klienti",
+   "hook_note": "Albanian draft, native read needed",
+   "idea": "After the quote: 5 yes/no questions that show where a buyer goes once you send a price (what they compare you with, an agreed next step, a follow-up when they go quiet, why the last lost quote was lost, what happens if they say yes)",
+   "based_on": [
+    "research/2026-10-14 #1 @eri.businesscoach numbered owner self-check (30.3x); map pillar Close (quote, follow-up)"
+   ],
+   "demand_phrase": "na krahasojnë me çmimin",
+   "idea_source": "outlier",
+   "cta": {
+    "type": "keyword",
+    "keyword": "ANALIZA",
+    "resource": "free 45-minute analysis",
+    "funnel_id": "analiza"
+   },
+   "credit_budget": 16,
+   "hypothesis": "A self-check on the quote stage gets ANALIZA comments from owners who send quotes and wait",
+   "target": ">= SS-2026-11-W1-04 keyword comments",
+   "status": "planned"
+  },
+  {
+   "key": "2026-w46-3-reel",
+   "card": "SS-2026-11-W2-03",
+   "kind": "reel",
+   "day": "2026-11-11",
+   "time": "19:30",
+   "goal": "sends",
+   "job": "reach",
+   "belief": "B2",
+   "pillar": "Attract",
+   "series": null,
+   "episode": null,
+   "format": "reel_motion",
+   "tier": "C",
+   "length_s": 30,
+   "slides": null,
+   "hook": "Mos e fik reklamën ende.",
+   "hook_note": "Albanian draft, native read needed",
+   "idea": "Before you switch off the ad that 'doesn't work', follow the messages it brought: were they answered, followed up, given a next step? The ad did its job; the message had no owner",
+   "based_on": [
+    "vault C3 ('Your ads aren't failing. Your enquiries are dying after the click.')"
+   ],
+   "demand_phrase": "telefoni nuk bie",
+   "idea_source": "contrarian_vault",
+   "cta": {
+    "type": "send"
+   },
+   "credit_budget": 10,
+   "hypothesis": "Stopping the owner at the moment he switches an ad off gets more sends than a general 'ads aren't the problem' line",
+   "target": ">= SS-2026-11-W1-03 sends per reach",
+   "status": "planned",
+   "blocked_by": "G-HUMAN-VOICE narrator 8oGKUMljR779HzpZBiE4 (pending 28 Oct)"
+  },
+  {
+   "key": "2026-w46-4-carousel",
+   "card": "SS-2026-11-W2-04",
+   "kind": "carousel",
+   "day": "2026-11-12",
+   "time": "19:30",
+   "goal": "leads",
+   "job": "convert",
+   "belief": "B5",
+   "pillar": "Own",
+   "series": null,
+   "episode": null,
+   "format": "carousel_comparison",
+   "tier": "C",
+   "length_s": null,
+   "slides": 8,
+   "hook": "Marketer i ri apo sistem? Pyetja më e mirë është tjetër.",
+   "hook_note": "Albanian draft, native read needed",
+   "idea": "Hire a marketer or build a system? The better question: what the hire needs on day one (the buyers' words, one message, a path after the click, the numbers); a hire without it becomes one more piece",
+   "based_on": [
+    "research/2026-10-14 #12 @florina.marketing 'better question' reframe carousel; brain mechanism.ump (Patchwork Marketing)"
+   ],
+   "demand_phrase": "kush duhet ta bëjë marketingun tim",
+   "idea_source": "outlier",
+   "cta": {
+    "type": "keyword",
+    "keyword": "ANALIZA",
+    "resource": "free 45-minute analysis",
+    "funnel_id": "analiza"
+   },
+   "credit_budget": 18,
+   "hypothesis": "Reframing the hiring decision moves owners who are about to hire to ask for the analysis",
+   "target": ">= 1 qualified DM",
+   "status": "planned"
+  },
+  {
+   "key": "2026-w46-5-reel",
+   "card": "SS-2026-11-W2-05",
+   "kind": "reel",
+   "day": "2026-11-13",
+   "time": "19:30",
+   "goal": "sends",
+   "job": "reach",
+   "belief": "B3",
+   "pillar": "Attract",
+   "series": "Ad Library Spy",
+   "episode": 1,
+   "format": "reel_motion",
+   "tier": "C",
+   "length_s": 30,
+   "slides": null,
+   "hook": "Reklamat e konkurrentit janë publike.",
+   "hook_note": "Albanian draft, native read needed",
+   "idea": "Before your next ad, open the public ad library and check 3 things in your category: which ads have run the longest, what they all promise, and what none of them says; what nobody says is your ad",
+   "based_on": [
+    "content-map series Ad Library Spy (OS 12); the public ad library as the method"
+   ],
+   "demand_phrase": "paratë e reklamave zhduken",
+   "idea_source": "brain",
+   "cta": {
+    "type": "send"
+   },
+   "credit_budget": 10,
+   "hypothesis": "A method the owner can repeat tonight gets sends to whoever makes the ads",
+   "target": ">= SS-2026-11-W2-03 sends per reach",
+   "status": "planned",
+   "blocked_by": "G-HUMAN-VOICE narrator 8oGKUMljR779HzpZBiE4 (pending 28 Oct)",
+   "reactive_swap_allowed": true
+  },
+  {
+   "key": "2026-w46-6-carousel",
+   "card": "SS-2026-11-W2-06",
+   "kind": "carousel",
+   "day": "2026-11-14",
+   "time": "19:30",
+   "goal": "saves",
+   "job": "trust",
+   "belief": "B4",
+   "pillar": "Convert",
+   "series": "One Step",
+   "episode": 2,
+   "format": "carousel_framework",
+   "tier": "C",
+   "length_s": null,
+   "slides": 8,
+   "hook": "Klienti heshti. Mesazhi i dytë që i dërgon.",
+   "hook_note": "Albanian draft, native read needed",
+   "idea": "Convert, this week's one step: the second message to a lead who went quiet: one line that names what they asked, one question, one next step; written once and saved as a template",
+   "based_on": [
+    "research/2026-10-14 #1 numbered self-check device (30.3x); OS 7.2 level-4 example (the message to a lead who went silent); One Step, Convert step"
+   ],
+   "demand_phrase": "na shkruajnë po nuk blejnë",
+   "idea_source": "outlier",
+   "cta": {
+    "type": "save"
+   },
+   "credit_budget": 18,
+   "hypothesis": "Giving the exact message gets more saves than One Step #1's question",
+   "target": ">= SS-2026-11-W1-02 saves per reach",
+   "status": "planned"
+  },
+  {
+   "key": "2026-w46-7-image",
+   "card": "SS-2026-11-W2-07",
+   "kind": "image",
+   "day": "2026-11-15",
+   "time": "18:00",
+   "goal": "comments",
+   "job": "reach",
+   "belief": "B7",
+   "pillar": "Find",
+   "series": null,
+   "episode": null,
+   "format": "image_question",
+   "tier": "C",
+   "length_s": null,
+   "slides": null,
+   "hook": "Kush ishte klienti i parë që të besoi, kur s'të njihte askush?",
+   "hook_note": "Albanian draft, native read needed",
+   "idea": "Who was the first client who trusted you when nobody knew you? A warm owner question that gets owners telling why buyers chose them",
+   "based_on": [
+    "research/2026-10-14 #3 @eri.businesscoach owner question image (7.8x); pattern.txt: posts about the owner beat tips"
+   ],
+   "demand_phrase": "klientët vijnë nga rekomandimet, jo çdo muaj",
+   "idea_source": "outlier",
+   "cta": {
+    "type": "comment"
+   },
+   "credit_budget": 9,
+   "hypothesis": "A warm owner-identity question gets more comments per reach than the fear question of W1-06",
+   "target": ">= SS-2026-11-W1-06 comments per reach",
+   "status": "planned"
+  }
+ ]
+}

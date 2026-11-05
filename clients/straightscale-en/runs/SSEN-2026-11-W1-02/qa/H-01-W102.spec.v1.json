@@ -1,0 +1,21 @@
+{"gate": "G-SPEC", "shot_id": "H-01-W102", "spec_sha256": "30439384987e8b817624327ed9ff90ecf01ff61e228848bd8c571f7936c16eb4",
+ "reviewer": "prompt-reviewer (fresh agent)", "independent": true, "status": "FAIL",
+ "checks": [
+  {"id": "P1", "result": "PASS", "evidence": "Subject/prop PR-BOARD, hands none, four text lines, highlight, camera, style all present: 'the board says \"working harder than ever and feeling completely invisible\", the last two words highlighted'"},
+  {"id": "P2", "result": "N/A", "evidence": "Spec mode; text-to-image, no reference images"},
+  {"id": "P3", "result": "PASS", "evidence": "hands: none visible; must_not: 'no hands, no people, no face'"},
+  {"id": "P4", "result": "PASS", "evidence": "static frame; 'The writing and the highlighter stroke lie flat on the board surface; nothing touches the board.'"},
+  {"id": "P5", "result": "PASS", "evidence": "PR-BOARD content: 'one buyer sentence handwritten in thick black marker in four lines ... broad translucent yellow highlighter stroke lies behind lines 3 and 4 only'; no blanket negative empties it"},
+  {"id": "P6", "result": "FAIL", "evidence": "(a) The whiteboard surface carries 8 words (3+3+1+1 across four lines), over the 'about 6 words per surface' limit in VISUAL-QA 4.3 P6. (b) The opening quote mark is in props.content and regions ('quote-mark') but has no entry in text_in_image, while the closing one does ('invisible\"'). Other lines are exact, with surface, position and occlusion given."},
+  {"id": "P7", "result": "PASS", "evidence": "background_rule: 'no other writing, drawings, magnets, markers, tray, frame edges, people or objects; the only writing is the quoted sentence'"},
+  {"id": "P8", "result": "FAIL", "evidence": "Layout contradicts the STANDARDS 6 band (faces/key props 15% to 55% from the top; captions from 55%): line 4 sits at 'y 52% to 56%', the highlight box ends at 0.56 and the spec says 'key band y 32% to 56%', while the safe_zones line also cites STANDARDS 6. Prior G-VIS failures (CF-W902, CF-V8) treated content past 55% as a caption-zone breach."},
+  {"id": "P9", "result": "PASS", "evidence": "previous_shot: null; carry_over: [] (first image of the board)"},
+  {"id": "P10", "result": "N/A", "evidence": "Spec mode. Aspect '9:16' matches the brief (1152x2048)."},
+  {"id": "P11", "result": "PASS", "evidence": "Word positions are boxed per line; 'gentle sheen on the board' is bounded by 'every letter sharp' and 'nothing covers any letter'. Minor: 'last two words highlighted' maps clearly to 'lines 3 and 4 only'."},
+  {"id": "P12", "result": "PASS", "evidence": "FL-10/FL-13 covered: 'no logo, brand, app or platform name anywhere', 'no words other than the one quoted sentence', 'no digits or numbers anywhere'; the hook text is laid on in the edit, not by the model"}
+ ],
+ "suggested_spec_changes": [
+  "P6a: Reduce the surface to 6 words or fewer, or record an explicit owner/main-session waiver for this verbatim buyer quote (Q-RN-0011). Verbatim wording is the stated purpose, so the waiver route is likelier than trimming; if trimmed, update must_read_in_1s, the four text_in_image strings and the notes together.",
+  "P6b: Add a text_in_image entry for the opening mark: string '\"', surface whiteboard, thick black marker handwriting, position x 8% to 18%, y 32% to 35%, must_be_exact true, occlusion 'nothing covers it'.",
+  "P8: Move the block up so its last line ends by y 55% (for example, compress line spacing: lines at y 34-38.5, 39.5-44, 45-49.5, 50.5-55), set the key band to y 31%-55% in framing, safe_zones, size_in_frame, highlight box and sentence box, and say 'lower than 55% only plain board' in setting.details, safe_zones and the last must_not. If the 56% edge is deliberate, note it as an approved deviation from STANDARDS 6."
+ ]}

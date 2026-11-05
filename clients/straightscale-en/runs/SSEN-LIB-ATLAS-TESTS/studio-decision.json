@@ -1,0 +1,33 @@
+{
+ "checkpoint": "G-HUMAN-TEST",
+ "key": "G-HUMAN-TEST:F1-F3-ATLAS",
+ "question": "Which resolution for final face clips, and do the two music beds work? Pick one resolution and the beds you'd use.",
+ "options": [
+  {
+   "label": "1440p-sr for face clips (recommended)",
+   "description": "$0.45 per 10 s; 768P stays for drafts and B-roll"
+  },
+  {
+   "label": "Keep 768P everywhere",
+   "description": "$0.24 per 10 s; drop 1440p-sr"
+  },
+  {
+   "label": "Full H3 2K for face clips",
+   "description": "$1.30 per 10 s; would need naming for production"
+  },
+  {
+   "label": "Bed A works",
+   "description": "Calm lo-fi house, 100 BPM"
+  },
+  {
+   "label": "Bed B works (recommended)",
+   "description": "Upbeat corporate-pop, 112 BPM"
+  },
+  {
+   "label": "Neither bed works",
+   "description": "Try other prompts or keep beds off"
+  }
+ ],
+ "multi": true,
+ "context": "**Resolution (F1).** The same prompt, face frame and voice slice, rendered three times. Each is its own take, so framing and performance differ: the 768P one is framed closest.\n\n| Version | Price for 10 s | Reviewer's score at phone size | Notes |\n|---|---|---|---|\n| 768P | $0.24 | 6/10 | Looks upscaled: crunchy beard, teeth blur into a white band |\n| **1440p-sr** (recommended) | $0.45 | 7/10 | Cleaner, crisp teeth; faint dark halos on beard edges |\n| Full H3 2K | $1.30 | 7.5/10 | Most natural skin, no halos; not visibly sharper than 1440p-sr on a phone |\n\n- *Recommendation:* 1440p-sr for final clips with a face or mouth, 768P for drafts and silent B-roll, no full 2K. The gate already allows 1440p-sr only on a face or mouth shot.\n- The reviewer's face and mouth crops are in the repo at `clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/qa/f1-compare/extra/`; the hub's file storage is blocked from this session.\n- This is one sample per version. Your eye on the phone decides.\n\n**Beds (F3).** Two instrumental beds from `minimax/music-3.0`, $0.15 each. The word check heard no vocals in either.\n- **Bed A:** calm lo-fi house. It has a quiet 10 s intro and two breakdowns, so only 10 to 50 s is steady.\n- **Bed B:** upbeat corporate-pop. Even from start to end.\n- Both get cut to the voice length and mixed 14 to 18 dB under the voice.\n- *Recommendation:* B suits most reels; A suits the calm pieces if its 10 to 50 s run is used. Nobody has listened yet: you are the first ear.\n\n**Lip-sync (F2), for your information.** H3 developer follows the voice slice for about the first 4 s only. After that the mouth follows its own garbled words. Talking formats wait until we settle on a route."
+}

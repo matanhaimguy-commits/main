@@ -1,0 +1,121 @@
+shot_id: H-01-W908
+post_id: SSEN-2026-11-W3-01
+format: claymation
+script_lines:
+- L1
+line_text: Some months your posts bring clients. Here's how to tell which.
+story_purpose: 'Concept frame for the W9-08 hook stacks (new bank idea, Hook Lab v6): many identical posts, and one of them
+  just brought a client.'
+must_read_in_1s: Six identical clay post cards; a tiny clay client stands on one.
+subjects:
+- id: PR-POSTS
+  ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at step 2)'
+  state: six flat clay cards lying on the clay ground in a grid of 3 columns and 2 rows (rows y 30% to 40% and 42% to 52%)
+  pose: x 8% to 92%, y 30% to 52%
+  expression: ''
+  instances: 1
+- id: CH-CLIENT
+  ref: 'no sheet yet: first image of the character'
+  state: 'a tiny clay person standing still on the top middle card, seen from straight above (the top of the head and the
+    shoulders visible): a cap of short charcoal clay hair on top, with only a thin rim of cream clay at the ears and neck;
+    no face, no forehead, no eyes; the figure faces the bottom of the frame, so the thin cream rim of the neck shows at the
+    top edge of the head, and its left arm is on the right side of the frame and its right arm on the left side of the frame;
+    a mustard #DD9A10 jacket and charcoal #2B2A33 trousers; the arms hang straight down along the outer edge of each shoulder,
+    so each mitten hand shows as one small round bump just beyond the shoulder, one on each side of the frame; about 8% of
+    the frame height and 8% of its width'
+  pose: stands in the centre of the top middle card, x 46% to 54%, y 31% to 39%, both feet hidden under the body from this
+    view
+  expression: 'none visible: seen from straight above, no face'
+  instances: 1
+hands:
+- who: CH-CLIENT, the tiny clay figure seen from straight above
+  left: a tiny round clay mitten hand with no fingers, visible as a small round bump just outside the shoulder on the right
+    side of the frame, touching nothing
+  right: a tiny round clay mitten hand with no fingers, visible as a small round bump just outside the shoulder on the left
+    side of the frame, touching nothing
+  contact: neither hand touches anything
+  count_check: two visible mitten hands, no fingers, one beyond each shoulder
+props:
+- id: PR-POSTS
+  story_critical: false
+  ref: null
+  state: lying flat, all six exactly alike
+  content: 'six identical flat cream #F3E9D8 clay slabs with rounded corners and a thin terracotta #C8553D clay rim, one layer
+    each, each with one small heart red #D64545 clay heart pressed in its lower left corner; nothing else on them: no letters,
+    no pictures'
+  size_in_frame: 'each card 26% of the frame width and 10% of the frame height; the grid x 8% to 92%, y 30% to 52%: top row
+    y 30% to 40%, bottom row y 42% to 52% (a 2% gap between rows), 3% gaps between columns'
+text_in_image: none
+action_physics:
+- The six cards lie flat on the sage clay ground in a 3 by 2 grid (rows y 30% to 40% and 42% to 52%, columns with 3% gaps);
+  the tiny figure stands still in the centre of the top middle card, its weight on the card, its soft shadow falling on the
+  card around it.
+static: true
+setting:
+  ref: null
+  details: 'a flat sage #8FA98B clay ground filling the whole frame; from the top edge to 30% and everywhere lower than 52%
+    only plain ground'
+  background_rule: no signs, frames, posters, screens or writing anywhere
+  background_action: none
+camera:
+  framing: the grid of six cards across the frame in the band y 30% to 52%, the figure on the top middle card; all x and y
+    percentages measured from the top-left corner of the frame (y 0% is the top edge)
+  angle: seen from straight above, the lens looking straight down at the clay ground, square to the frame
+  lens: macro, shallow depth of field, the cards and the figure sharp
+  aspect: '9:16'
+  safe_zones: 'reels safe zone (STANDARDS 6): the top 30% of the frame is plain empty ground (the text hook is set at 14%
+    to 30% in the edit); every key element sits between 30% and 52% of the frame height and inside 8% to 92% of the width;
+    nothing key lower than 50% of the height to the right of 79% of the width except the plain right edge of the lower right
+    card; lower than 52% only plain ground'
+continuity:
+  previous_shot: null
+  carry_over: []
+regions:
+- name: text-hook-zone
+  kind: other
+  box:
+  - 0.0
+  - 0.0
+  - 1.0
+  - 0.3
+- name: grid
+  kind: prop
+  box:
+  - 0.08
+  - 0.3
+  - 0.92
+  - 0.52
+- name: client
+  kind: other
+  box:
+  - 0.46
+  - 0.31
+  - 0.54
+  - 0.39
+- name: client-hands
+  kind: hand
+  box:
+  - 0.44
+  - 0.31
+  - 0.56
+  - 0.39
+style: 'Premium studio claymation scene - everything sculpted from matte plasticine with refined intentional craftsmanship:
+  subtle tool marks, controlled texture, soft rounded geometry, slight subsurface warmth, macro lens feel with shallow depth
+  of field, soft diffused studio lighting with a gentle rim glow, the scene filling the entire frame with the camera inside
+  the miniature clay world. Vertical 9:16 frame. Palette (every colour in this frame): warm cream #F3E9D8, terracotta #C8553D,
+  sage #8FA98B, deep ink #2B2A33, heart red #D64545, mustard #DD9A10.'
+must_not:
+- no letters, words, digits or logos anywhere
+- no face visible on the figure
+- no second figure
+- no card different from the others
+- nothing in the top 30% of the frame except plain ground
+- nothing lower than 52% of the frame height except plain ground
+- no workbench, table edge or room around the clay world
+- no glossy CGI look
+hero: true
+notes: 'Concept frame for Hook Lab v6 (main session, delegated by Matan, plan 28 Oct: frame when the stack''s text and spoken
+  lines reach A-). The text hook is laid on top in the edit, not drawn by the model. The key band is set to 30% to 52% because
+  the last frames landed 3 to 9 points lower than their boxes. Props are marked not story-critical only because no prop sheet
+  exists before the look bible (step 7); their content is filled. Mitten hands with no fingers are the claymation style for
+  a figure this small.'

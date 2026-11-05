@@ -1,0 +1,270 @@
+{
+ "gate": "G-VIS",
+ "asset_id": "IMG-W42-5",
+ "version": 3,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "hero": true,
+ "reviewed_file": "https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/2ba4683a-6feb-49bb-aba2-4557cc6995d2.jpg (media_id 2ba4683a-6feb-49bb-aba2-4557cc6995d2; 1080x1350 JPEG q93 4:4:4; md5 3d8b9fd4d0aa70016a937eed95c87543, byte-identical to sandbox /home/user/drafts/fixed/dd845791_v3.jpg)",
+ "compared_with": "v2 /home/user/drafts/fixed/dd845791.jpg; v1 /home/user/drafts/dd845791-e322-4bc7-a53d-11c66de474db.jpg; real logo /home/user/brand/straightscale-logo-light.png",
+ "spec_used": "Packet: kicker 'PËR PRONARËT E BIZNESEVE'; headline 'Nëse nesër telefoni nuk bie fare, nga vjen klienti i radhës?'; scene from alt text (red-cased phone on a shop counter at night, shutter half down); real logo file bottom-left; crimson highlight #B31217; no invented numbers; no other organisations' logos; no em dashes; style-bible.md and brand-kit.md. No Shot Spec file exists for this post; the regions were set in crops spec.json.",
+ "crops_manifest": "clients/straightscale/content/2026-w42-5-image/qa/crops/IMG-W42-5.v3/manifest.json",
+ "files_opened": [
+  "full.jpg",
+  "tile_r1c1.jpg",
+  "tile_r1c2.jpg",
+  "tile_r1c3.jpg",
+  "tile_r2c1.jpg",
+  "tile_r2c2.jpg",
+  "tile_r2c3.jpg",
+  "tile_r3c1.jpg",
+  "tile_r3c2.jpg",
+  "tile_r3c3.jpg",
+  "region_IMG-W42-5_kicker.jpg",
+  "region_IMG-W42-5_headline.jpg",
+  "region_IMG-W42-5_edit_headline_box.jpg",
+  "region_IMG-W42-5_phone.jpg",
+  "region_IMG-W42-5_logo_zone.jpg",
+  "region_IMG-W42-5_edit_logo_area.jpg",
+  "region_IMG-W42-5_edit_shelf_boxes.jpg",
+  "region_IMG-W42-5_edit_packs.jpg",
+  "region_IMG-W42-5_edit_door_stickers.jpg",
+  "region_IMG-W42-5_doorway_street.jpg",
+  "thumb_200.jpg",
+  "view_540.jpg",
+  "logo_v1v2v3_2x.jpg",
+  "logo_v2v3_2x_boost.jpg",
+  "under_wordmark_3x.jpg",
+  "under_wordmark_3x_boost.jpg",
+  "S_left_4x.jpg",
+  "S_left_4x_boost.jpg",
+  "fill_only_3x_boost.jpg",
+  "scale_right_4x.jpg",
+  "mark_4x.jpg",
+  "box_right_4x.jpg",
+  "box_left_4x.jpg",
+  "left_shelf_v123_2x.jpg",
+  "left_shelf_v23_2x_boost.jpg",
+  "shelf_boxes_v1v3_4x.jpg",
+  "packs_v123_3x.jpg",
+  "door_v123_3x.jpg",
+  "door_v23_3x_boost.jpg",
+  "logo_v3_vs_realfile_3x.jpg",
+  "headline_line3_1x.jpg",
+  "phone_size_430.jpg",
+  "s_overhang_8x.jpg",
+  "klienti_rim_3x.jpg"
+ ],
+ "fixes_claimed_verification": {
+  "fix1_V23_logo_corner": "verified: beads restored, no drawn-logo remnants, natural fill, logo unchanged",
+  "fix2_V21_box_colour": "verified: box is flat #B31217, no fringe",
+  "fix3_V11_pseudo_letters": "verified: no letter-like shapes on the 12 faces, no visible patches"
+ },
+ "defects_summary": {
+  "critical": 0,
+  "major": 0,
+  "minor": 1,
+  "items": [
+   "V21 minor: the highlight box ends at x 663 but the 's' of 'radhës' reaches x 667, so the 's' sticks 4 px out of the box (19 px of padding on the left, none on the right). Pre-existing from the model render; the editor's note also mentions it."
+  ],
+  "rule": "Hero asset: PASS only with zero defects of any severity, so FAIL."
+ },
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "With the sound off it reads in 1 s: a silent red-cased phone alone on a shop counter at night, the roller shutter half down, and the question 'Nëse nesër telefoni nuk bie fare, nga vjen klienti i radhës?' above it (full.jpg, thumb_200.jpg, phone_size_430.jpg)."
+  },
+  {
+   "id": "V2",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Matches the line: the phone's screen is off with no notifications (it does not ring), the shop is closing at night, the mood is quiet worry, not drama (region_IMG-W42-5_phone.jpg, tile_r2c3.jpg)."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Nothing contradicts the brand kit: no numbers, prices, results, client names or counts on the phone, the labels, the stickers or the street; the shelf labels and door stickers are now blank (region edit_shelf_boxes, edit_packs, edit_door_stickers). No em dash in any on-image text."
+  },
+  {
+   "id": "V4",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No people, hands or limbs in any tile; the street in the doorway has lamps and parked cars only (tile_r2c3.jpg, region doorway_street)."
+  },
+  {
+   "id": "V5",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No hands and no hand action in this shot."
+  },
+  {
+   "id": "V6",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No faces."
+  },
+  {
+   "id": "V7",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone, counter",
+   "evidence": "The phone lies flat on the counter with a contact shadow and a reflection under its near edge; nothing floats. Pen holder and boxes stand on the shelf (region phone, tile_r2c1.jpg)."
+  },
+  {
+   "id": "V8",
+   "result": "PASS",
+   "severity": "",
+   "region": "shutter, doorway, counter, phone",
+   "evidence": "One slatted roller shutter with one straight bottom bar, half lowered in its frame; straight door-frame verticals; the counter has one top plane and one front edge; the phone has one USB-C port with speaker holes either side and side buttons (tile_r1c3.jpg, region doorway_street, region phone)."
+  },
+  {
+   "id": "V9",
+   "result": "PASS",
+   "severity": "",
+   "region": "kicker, headline",
+   "evidence": "Read letter by letter at 2x (region kicker, region headline, tile_r1c1/r1c2). Kicker: P-Ë-R / P-R-O-N-A-R-Ë-T / E / B-I-Z-N-E-S-E-V-E, both Ë with two dots, exactly 'PËR PRONARËT E BIZNESEVE'. Headline line 1: N-ë-s-e / n-e-s-ë-r / t-e-l-e-f-o-n-i; line 2: n-u-k / b-i-e / f-a-r-e-, / n-g-a / v-j-e-n; line 3: k-l-i-e-n-t-i / i / r-a-d-h-ë-s-?. Every ë has two dots, every i and j its dot, one comma after 'fare', one '?' at the end, no extra or missing characters; no ç in this string. It matches 'Nëse nesër telefoni nuk bie fare, nga vjen klienti i radhës?' exactly. (OCR not available in the sandbox; read by eye only.)"
+  },
+  {
+   "id": "V10",
+   "result": "PASS",
+   "severity": "",
+   "region": "headline",
+   "evidence": "The text is a flat graphic layer on the dark wall and shutter; no object passes in front of or behind any letter, no text on skin, objects or air. The box edge cutting through the final 's' is logged under V21."
+  },
+  {
+   "id": "V11",
+   "result": "PASS",
+   "severity": "",
+   "region": "left shelf boxes A/B/C, packs, door stickers (fix 3)",
+   "evidence": "Fix 3 verified. At 2x (region edit_shelf_boxes, edit_packs, edit_door_stickers) and at 3-4x with and without a 2.0 gain against v1 and v2 (shelf_boxes_v1v3_4x.jpg, packs_v123_3x.jpg, door_v123_3x.jpg, door_v23_3x_boost.jpg, left_shelf_v23_2x_boost.jpg) no letter-like shape, stroke or block of pseudo-print remains on any of the 12 faces. What is left is soft shading (two faint smudges on box A, a darker rim inside box C's label, a warm highlight low on the red door sticker) that reads as dirt and light on defocused blank labels, not as text. Box edges, the gap line at x 42-46, the pack folds and the door-frame line stay sharp; no patch outline is visible. No other unwanted text anywhere: street, shutter, phone and wall are clear (tiles, region doorway_street)."
+  },
+  {
+   "id": "V12",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone",
+   "evidence": "The story prop, the red-cased phone, is large and central and carries its state: a dark, silent screen with only reflections, no invented UI or numbers."
+  },
+  {
+   "id": "V13",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone",
+   "evidence": "No separate prop sheet; against the style bible it is a smartphone in a deep red case (the StraightScale thread) with no maker's mark."
+  },
+  {
+   "id": "V14",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No unexplained props: one phone; the pen holder, boxes and shelves are ordinary shop dressing."
+  },
+  {
+   "id": "V15",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No characters."
+  },
+  {
+   "id": "V16",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "Single-image post, no previous shot."
+  },
+  {
+   "id": "V17",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Matches the scene line: a shop counter (banak) at night, the roller shutter (qepeni) half lowered over the doorway, a wet lamp-lit street outside."
+  },
+  {
+   "id": "V18",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "1080x1350 (4:5), JPEG q93 4:4:4, byte-identical to the CDN file (md5 3d8b9fd4d0aa70016a937eed95c87543). Kicker from x 103, headline x 86-912 and y 170-427, logo x 100-391 y 1219-1273: all inside the 4% margin (43 px sides, 54 px top and bottom). The headline sits in the top third and the phone in the lower middle with clear space. Note, not counted: the logo is at (100,1219), not brand_overlay.py's default (70,1242), and its top is about 10 px above the style bible's bottom-9% band (y 1229)."
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200",
+   "evidence": "At 200 px wide (thumb_200.jpg) the three headline lines, the red highlight, the red phone and the 'StraightScale' wordmark all read; the ë dots merge at that size but every word is unambiguous. At 430 px (phone_size_430.jpg) everything reads cleanly."
+  },
+  {
+   "id": "V20",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "A still life by design: the empty shop at closing time is the story. The street has lit lamps, lit windows and parked cars, so the frame does not read as dead."
+  },
+  {
+   "id": "V21",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "headline highlight box, right end (x 600-700, y 340-432)",
+   "evidence": "Colour fix 2 verified: the median of the flat box pixels is exactly #B31217 (17,154 px at least 3 px from letters and edges, std 1.2-1.7 per channel, 95% within 4 levels), and x 90, 200, 330, 450, 560, 640 at y 422 all read #B31217 (v2 median was #9F1318). Letter edges show no red or light fringe (box_left_4x.jpg, box_right_4x.jpg); there is a 1 px darker rim (#8D0F10) where the letters meet the box, present since v1 and seen as a crisp edge at 2-3x, not a halo (klienti_rim_3x.jpg). DEFECT, pre-existing, not touched by fix 2: the highlight rectangle does not contain the key words. Its right edge is at x 663, but the final 's' of 'radhës' runs to x 667, so the 's' sticks about 4 px out of the box onto the dark wall, while the left side has 19 px of padding (box from x 86, 'k' from x 105). The box looks cut short and the 's' breaks out of it: visible at native size (headline_line3_1x.jpg), clear at 2x (region edit_headline_box, tile_r1c2.jpg) and 8x (s_overhang_8x.jpg), subtle at phone size. Everything else matches the style bible: Tirana at night with a wet street, plane trees and warm lamps, a tungsten grade, ivory heavy sans type left-aligned, a deep red phone case, no gold apart from the real logo."
+  },
+  {
+   "id": "V22",
+   "result": "PASS",
+   "severity": "",
+   "region": "counter, phone, street",
+   "evidence": "Photoreal with shallow depth of field: true reflections on the phone glass, light streaks on the wet street. The varnished counter texture is heavy at 2x (tile_r3c1, tile_r3c3), but its grain runs along the counter and reads as worn varnished wood. No plastic look."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "logo corner (96,1194)-(391,1299); headline box (82,340)-(668,431); shelf, packs, door stickers",
+   "evidence": "Fix 1 verified. The bead highlights on the counter edge are back and run unbroken from the top of the corner down to the mark's gold square, then the edge continues under 'Str' (logo_v1v2v3_2x.jpg, logo_v2v3_2x_boost.jpg at gain 2.6, mark_4x.jpg). With the logo masked out and gain 2.6 (fill_only_3x_boost.jpg) the fill under the mark, inside the mark's open S-channel and under the wordmark reads as continuous counter texture: no drawn letters, no red or gold square, no blur band, no seam at the fill boundary. The bright spot between 'S' and 't' is the counter-edge streak, which in v1 passes at the same place (S_left_4x.jpg). In the corner box, zero pixels outside the logo's alpha are bright (lum >120), red or gold. Rows under the wordmark (y 1274-1296) average 20-25 in brightness, the same as v1 and v2. Headline box: flat, top and bottom edges a clean 2-3 px ramp, no blotches. Fix-3 faces: no patch edges, blur islands or colour blotches at 2-4x. The diff against v2 is limited to the four edited areas; the few small elsewhere-changes (under 60 px each, at the phone's red edge and counter highlights) are JPEG re-encode noise."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "logo zone (lowest 15% x left 50%)",
+   "evidence": "Real file, crisp and unstretched: /home/user/brand/straightscale-logo-light.png (alpha bbox 1501x279, aspect 5.380) fits the pasted logo at 291x54 at (100,1219). Scale x 0.19387 vs y 0.19355 is a 0.17% difference, sub-pixel. Mean error on opaque logo pixels is 4.7/255 (JPEG level). Side by side with the real file re-composited (logo_v3_vs_realfile_3x.jpg) it is the same mark with S-channel and gold square, and the same wordmark, with sharp edges at 3-4x. No remnant of the drawn logo. No other organisation's logo, emblem or trademarked character anywhere: the phone has no maker's mark, the labels and stickers are blank, and the street shows no readable sign; the blue street lights are plain bokeh."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No before and after, no 'your [condition]', nothing that shames; a neutral question to owners."
+  },
+  {
+   "id": "V26",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No AI person, so the AI-people rule does not apply and no tag is burned in. Publishing note (STANDARDS 7): this is a photoreal AI scene, so Instagram's own AI label must be on when it is posted; the hub draft notes should say 'AI label: on'."
+  }
+ ],
+ "fix": {
+  "route": "edit",
+  "prompt_changes": [
+   "Code only, no model, on v3 (dd845791_v3.jpg). Widen the headline highlight rectangle on the right only, from x 663 to about x 682, so there are about 19 px after the 's' to match the 19 px before the 'k'. Keep y 344-426, flat #B31217, and the same 2 px soft edge as the other three sides. Recolour only the dark-wall pixels inside the new strip; the ivory 's' pixels stay as they are.",
+   "Move the '?' glyph (x 671-712, y 354-413, with its soft edge) right by the same amount (about 19 px, to x 690-731), so it stays outside the box with a gap like the current 4-8 px. Refill the pixels it leaves with the dark wall next to it (x 745-800 is flat, lum about 19-21, std about 3), with matched grain. Nothing else on line 3 moves.",
+   "Optional, while in there: inside the box, lift the 1 px dark rim (#8D0F10) at the letter edges to the box crimson, so each edge goes from ivory straight to #B31217. Do not touch letter interiors.",
+   "Save as v4 (1080x1350, q93, 4:4:4). Check at 1x and 4x that the 's' sits fully inside the box with even padding, that the '?' is clean, with no seam where it was, and that the box is still #B31217. Then run a new full G-VIS review (a new version)."
+  ]
+ },
+ "notes": [
+  "All three fixes the editor claimed for v3 are present and hold up under independent measurement. The only blocker is the pre-existing box overhang on the final 's', which the hero zero-defect rule does not allow.",
+  "Publishing (V26): turn on Instagram's AI label for this photoreal AI scene (STANDARDS 7)."
+ ]
+}

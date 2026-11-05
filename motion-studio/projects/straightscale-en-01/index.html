@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>StraightScale: The step after the reply</title>
+<style>
+@font-face { font-family: "Playfair Display"; font-weight: 700; font-style: italic; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-700-italic.woff2); }
+@font-face { font-family: "Playfair Display"; font-weight: 900; font-style: italic; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-900-italic.woff2); }
+@font-face { font-family: "Playfair Display"; font-weight: 900; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-900-normal.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 600; src: url(assets/fonts/Montserrat/montserrat-latin-600-normal.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 700; src: url(assets/fonts/Montserrat/montserrat-latin-700-normal.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 800; src: url(assets/fonts/Montserrat/montserrat-latin-800-normal.woff2); }
+html, body { margin: 0; background: #1F1F1F; }
+canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script type="module">
+// StraightScale EN reel 01 "The step after the reply". Clock: audio/vo.wav (assets/data.js from audio/words.json).
+// One fixed stage: an ivory path line REPLY -> CALL -> SIGNED. Gold figures are the people who replied.
+// Signature device: the gap right after REPLY. Every frame is a pure function of t (window.seek).
+import { spring, clamp } from '../../lib/motion.js';
+import { CAPTIONS, LINES, WORDS } from './assets/data.js';
+
+const cv = document.getElementById('c');
+const ctx = cv.getContext('2d');
+const W = 1080, H = 1920, X0 = 96, XR = 940;
+const C = {
+  char: '#1F1F1F', ivory: '#F8F6EF', marble: '#EDE4D6', gold: '#DD9A10', goldHi: '#F2C14E',
+  red: '#BE0F18', redHi: '#E0313A', grey: '#6E685F', greyLo: '#3E3A35', dim: '#B9B2A5',
+};
+const PF = (w, s, it = false) => `${it ? 'italic ' : ''}${w} ${s}px "Playfair Display"`;
+const MS = (w, s) => `${w} ${s}px Montserrat`;
+const TYPE = [190, 27], POP = [320, 23], SOFT = [90, 19], CAM = [40, 13];
+const sp = (t, t0, k = TYPE) => spring(t - t0, k[0], k[1]);
+const mix = (a, b, p) => a + (b - a) * p;
+const smooth = (x) => { x = clamp(x); return x * x * x * (x * (x * 6 - 15) + 10); };
+const win = (t, a, b, fi = 0.18, fo = 0.18) => clamp((t - a) / fi) * (1 - clamp((t - (b - fo)) / fo));
+function rng(seed) { let s = seed >>> 0; return () => { s = (s + 0x6D2B79F5) >>> 0; let x = s; x = Math.imul(x ^ (x >>> 15), x | 1); x ^= x + Math.imul(x ^ (x >>> 7), x | 61); return ((x ^ (x >>> 14)) >>> 0) / 4294967296; }; }
+
+// word start time from the voice (nth occurrence of a word in a line)
+function wt(word, line, nth = 0) {
+  const hits = WORDS.filter((w) => w[3] === line && w[0].toLowerCase().replace(/[^a-z0-9'-]/g, '') === word.toLowerCase());
+  if (!hits.length) throw new Error('no word ' + word + ' in line ' + line);
+  return hits[Math.min(nth, hits.length - 1)][1];
+}
+const LS = (i) => LINES[i][0], LE = (i) => LINES[i][1];
+
+// ---------- the stage ----------
+const PY = 1340;                 // the path line (feet of the figures)
+const FS = 1.6;                  // figure scale on the stage
+const XS = { reply: 192, call: 640, signed: 880 };
+const GAP = [250, 458];          // the step after the reply
+const GAPC = (GAP[0] + GAP[1]) / 2;
+const PLANKS = [0, 1, 2].map((i) => [GAP[0] + 4 + i * 70, GAP[0] + 4 + i * 70 + 62]);
+const PILL = { x: X0, y: PY - 270 };   // the channel: figures come from here
+
+// ---------- key times (all from the voice) ----------
+const T = {
+  april: wt('april', 1) - 0.12, same: wt('same', 1), l2: LS(2), exact: wt('exact', 2), l3: LS(3), post: wt('post', 3), prospect: wt('prospect', 3),
+  l4: LS(4), works: wt('works', 4), l5: LS(5), missing: wt('missing', 5), l6: LS(6), l7: LS(7), months7: wt('months', 7),
+  each: wt('each', 7), l8: LS(8), circle: wt('circle', 8), held: wt('held', 8), dropped: wt('dropped', 8), gap: wt('gap', 8), leak: wt('leak', 8),
+  l9: LS(9), answer: wt('answer', 9), two: wt('two', 9), not: wt('not', 9), know: wt('know', 9), l10: LS(10), path: wt('path', 10),
+  five: wt('five', 10), l11: LS(11), end: LE(11),
+};
+T.brand = T.end + 0.25;
+T.film = T.brand + 1.95;
+T.plank1 = LE(7) - 0.15; T.plank2 = LE(8) - 0.2; T.plank3 = T.know + 0.55;
+
+// ---------- figures ----------
+// a figure: enters at t0 from x0, walks at v px/s; may stop at 'stop', fall at 'fall', vanish into 'into'
+function figState(f, t) {
+  if (t < f.t0) return null;
+  let x = f.x0 + f.v * (t - f.t0), y = PY, a = f.alpha ?? 1, rot = 0, walking = true;
+  if (f.stop != null && x >= f.stop) {
+    x = f.stop; walking = false;
+    if (f.go != null && t > f.go) { x = f.stop + f.v * (t - f.go); walking = true; }
+  }
+  const fx = f.fall;
+  if (fx != null && x >= fx) {
+    const tf = f.go != null && f.stop != null && f.stop >= fx - 1 ? f.go + (fx - f.stop) / f.v : f.t0 + (fx - f.x0) / f.v;
+    const dt = t - tf;
+    x = fx + f.v * 0.35 * dt; y = PY + 1300 * dt * dt; rot = dt * 2.4 * (f.spin || 1); walking = false;
+    a *= 1 - clamp((dt - 0.25) / 0.35);
+    if (a <= 0) return null;
+  }
+  if (f.into != null && x >= f.into) {
+    const ti = f.t0 + (f.into - f.x0) / f.v, dt = t - ti;
+    if (dt > 0.28) return null;
+    x = f.into; a *= 1 - dt / 0.28; y = PY - dt * 60; walking = false;
+  }
+  if (f.until != null && t > f.until) return null;
+  return { x, y, a, rot, walking, col: f.col || C.gold, s: f.s || FS };
+}
+function drawFigure(x, y, s, col, a, rot, walking) {
+  if (a <= 0.01) return;
+  const bob = walking ? Math.abs(Math.sin(x / (19 * s))) * 5 * s : 0;
+  ctx.save(); ctx.globalAlpha = a; ctx.translate(x, y - bob); ctx.rotate(rot); ctx.fillStyle = col;
+  ctx.beginPath(); ctx.arc(0, -64 * s, 13 * s, 0, Math.PI * 2); ctx.fill();               // head
+  const bw = 30 * s, bh = 44 * s;
+  ctx.beginPath(); ctx.roundRect(-bw / 2, -46 * s, bw, bh, 14 * s); ctx.fill();            // body
+  ctx.lineWidth = 7 * s; ctx.lineCap = 'round'; ctx.strokeStyle = col;                       // legs
+  const sw = walking ? Math.sin(x / (19 * s)) * 7 * s : 0;
+  ctx.beginPath(); ctx.moveTo(-6 * s, -6 * s); ctx.lineTo(-6 * s + sw, 0); ctx.moveTo(6 * s, -6 * s); ctx.lineTo(6 * s - sw, 0); ctx.stroke();
+  ctx.restore();
+}
+
+// the cast, scene by scene
+const FIG = [];
+// hook, March: three already on the path at frame 0, signed on "three clients" (one, two, three)
+const MARCH_IN = [0.55, 0.75, 0.95].map((ta) => ta + 0.0);
+MARCH_IN.forEach((ta) => FIG.push({ t0: -2, x0: XS.signed - 420 * (ta + 2), v: 420, into: XS.signed, tag: 'march' }));
+// hook, April: same channel, three replies, all fall in the gap
+[0, 1, 2].forEach((i) => FIG.push({ t0: T.april + 0.1 + i * 0.22, x0: -60, v: 560, fall: GAP[0] + 4, spin: i % 2 ? -1 : 1, tag: 'april' }));
+// the usual advice and the replies that still come: they reach the edge after REPLY and wait there
+const QUEUE = [];
+{
+  const r = rng(7); let tt = T.post + 0.05; let k = 0;
+  while (tt < T.l5 - 0.6 && k < 9) {
+    const stop = GAP[0] - 6 - k * 52 + (r() - 0.5) * 6;
+    QUEUE.push({ t0: tt, x0: Math.min(-60, stop - 160), v: 470 + r() * 80, stop, fall: GAP[0] + 4, spin: r() < 0.5 ? -1 : 1, k });
+    tt += 0.42 + r() * 0.18 - Math.min(k, 6) * 0.025; k++;
+  }
+  // "the months go missing after the reply": front of the queue steps off first
+  const n = QUEUE.length;
+  QUEUE.forEach((f) => { f.go = T.l5 + 0.15 + f.k * ((T.missing + 0.5 - T.l5) / n); });   // all gone by about 16.4 s: the count holds at 0
+  QUEUE.forEach((f) => FIG.push(f));
+}
+// after the bridge: they cross to SIGNED
+{
+  const r = rng(21); let tt = T.plank3 + 0.25; let k = 0;
+  while (tt < T.brand - 0.3) { FIG.push({ t0: tt, x0: -60, v: 380 + r() * 40, into: XS.signed, bridge: true }); tt += 0.62 + r() * 0.25; k++; }
+}
+
+// ---------- camera: one slow push into the gap on "the months go missing" ----------
+function camS(t) {
+  const pin = sp(t, T.l5 - 0.1, CAM), pout = sp(t, T.l6 - 0.15, CAM);
+  return 1 + 0.06 * clamp(pin) * (1 - clamp(pout));
+}
+function worldXf(S) { ctx.setTransform(S, 0, 0, S, GAPC * (1 - S), (PY - 120) * (1 - S)); }
+
+// ---------- text ----------
+function setFont(f) { ctx.font = f; }
+function tw(s, f) { setFont(f); return ctx.measureText(s).width; }
+function text(s, x, y, f, col, align = 'left', a = 1) {
+  if (a <= 0.01) return;
+  setFont(f); const ga = ctx.globalAlpha; ctx.globalAlpha = ga * a; ctx.fillStyle = col; ctx.textAlign = align; ctx.textBaseline = 'alphabetic'; ctx.fillText(s, x, y); ctx.globalAlpha = ga;
+  const w = ctx.measureText(s).width, size = parseFloat(f.match(/(\d+)px/)[1]), m = ctx.getTransform();
+  const bx = align === 'center' ? x - w / 2 : align === 'right' ? x - w : x, by = y - size * 0.8;
+  window.__boxes && window.__boxes.push({ x: m.a * bx + m.e, y: m.d * by + m.f, w: w * m.a, h: size * m.d, text: s });
+}
+// a row of segments [{s, col}] centred at x
+function rowSegs(segs, x, y, f, a = 1) {
+  const ws = segs.map((g) => tw(g.s, f)), total = ws.reduce((p, q) => p + q, 0);
+  let cx = x - total / 2;
+  segs.forEach((g, i) => { text(g.s, cx, y, f, g.col, 'left', a); cx += ws[i]; });
+  return total;
+}
+// split a caption into one or two rows that fit 844 px
+function layoutCaption(cap, size) {
+  const f = MS(800, size), words = cap.text.split(' ');
+  const hi = new Set(cap.hi.map((h) => h.toLowerCase()));
+  const segsOf = (arr) => arr.map((w, i) => ({ s: (i ? ' ' : '') + w, col: hi.has(w.toLowerCase()) ? C.gold : C.ivory }));
+  if (tw(cap.text, f) <= MAXW) return [segsOf(words)];
+  let best = 1, bd = 1e9;
+  for (let k = 1; k < words.length; k++) { const d = Math.abs(tw(words.slice(0, k).join(' '), f) - tw(words.slice(k).join(' '), f)); if (d < bd) { bd = d; best = k; } }
+  return [segsOf(words.slice(0, best)), segsOf(words.slice(best))];
+}
+const CAP_Y = 430, CAP_SIZE = 84;
+function captions(t) {
+  CAPTIONS.forEach((cap, i) => {
+    if (cap.line === 11 || cap.text === 'Post more.' || cap.text === 'Prospect more.') return;   // the close and the advice tags carry these words
+    const next = CAPTIONS[i + 1], end = next ? Math.min(cap.t1 + 0.12, next.t0) : cap.t1 + 0.12, cut = end <= cap.t1;
+    if (t < cap.t0 - 0.01 || t >= end) return;
+    const pin = sp(t, cap.t0, POP), a = clamp((t - cap.t0) / 0.07) * (cut ? 1 : 1 - clamp((t - cap.t1) / 0.12));
+    const rows = layoutCaption(cap, CAP_SIZE), dy = (1 - pin) * 26;
+    const y0 = CAP_Y - (rows.length - 1) * 49 + dy;
+    rows.forEach((segs, r) => rowSegs(segs, CX, y0 + r * 98, MS(800, CAP_SIZE), a));
+  });
+}
+
+// ---------- scenes ----------
+const CX = W / 2, MAXW = 800;   // centred text stays inside x 140..940 (right UI zone)
+const arrive = (f, x) => f.t0 + (x - f.x0) / f.v;
+// largest Montserrat size (<= size) that fits the width
+function fitMS(s, weight, size, maxW = MAXW) { const w = tw(s, MS(weight, size)); return MS(weight, w <= maxW ? size : Math.floor(size * maxW / w)); }
+const gauss = (t, c, w) => Math.exp(-Math.pow((t - c) / w, 2));
+
+function stage(t, S) {
+  worldXf(S);
+  const tb = T.april + 0.62;   // the line breaks under the first April reply
+  ctx.lineCap = 'round'; ctx.lineWidth = 6; ctx.strokeStyle = C.ivory;
+  ctx.beginPath(); ctx.moveTo(-20, PY); ctx.lineTo(GAP[0], PY); ctx.moveTo(GAP[1], PY); ctx.lineTo(XR, PY); ctx.stroke();
+  if (t < tb) { ctx.beginPath(); ctx.moveTo(GAP[0], PY); ctx.lineTo(GAP[1], PY); ctx.stroke(); }
+  else if (t < tb + 1.6) {     // the broken piece falls in three chunks
+    const dt = t - tb, cut = [GAP[0], GAP[0] + 66, GAP[0] + 140, GAP[1]];
+    for (let i = 0; i < 3; i++) {
+      const a = cut[i], b = cut[i + 1], d = Math.max(0, dt - i * 0.06), y = PY + 900 * d * d, r = (i - 1) * d * 1.4;
+      ctx.save(); ctx.globalAlpha = 1 - clamp(d / 1.2); ctx.translate((a + b) / 2, y); ctx.rotate(r);
+      ctx.beginPath(); ctx.moveTo((a - b) / 2 + 3, 0); ctx.lineTo((b - a) / 2 - 3, 0); ctx.stroke(); ctx.restore();
+    }
+  }
+  // the leak: a red glow under the gap while the voice names it
+  if (t >= tb) {
+    const gl = clamp(clamp(sp(t, T.missing - 0.2, SOFT)) * (1 - smooth((t - (T.l6 + 0.4)) / 0.6)) + 0.85 * win(t, T.gap - 0.1, T.plank2 + 0.5, 0.25, 0.4));
+    if (gl > 0.01) {
+      const g = ctx.createLinearGradient(0, PY, 0, PY + 420);
+      g.addColorStop(0, `rgba(190,15,24,${0.45 * gl})`); g.addColorStop(1, 'rgba(190,15,24,0)');
+      ctx.fillStyle = g; ctx.fillRect(GAP[0] + 5, PY, GAP[1] - GAP[0] - 10, 420);
+    }
+    ctx.fillStyle = gl > 0.01 ? C.redHi : C.ivory;
+    [GAP[0], GAP[1]].forEach((x) => { ctx.beginPath(); ctx.arc(x, PY, 7 + 3 * gl, 0, Math.PI * 2); ctx.fill(); });
+  }
+  // the three planks: dashed outlines on "three-step check", each lands when its step is done
+  const outl = clamp(sp(t, T.l6 + 0.35, POP)), numOut = 1 - smooth((t - (T.l10 - 0.2)) / 0.4);
+  PLANKS.forEach(([a, b], i) => {
+    const fillT = [T.plank1, T.plank2, T.plank3][i], done = t > fillT, f = done ? clamp(sp(t, fillT, POP)) : 0;
+    if (outl > 0.01 && f < 0.98) {
+      ctx.save(); ctx.globalAlpha = outl; ctx.setLineDash([10, 8]); ctx.lineWidth = 3; ctx.strokeStyle = C.dim;
+      ctx.strokeRect(a, PY - 11, b - a, 22); ctx.restore();
+    }
+    if (done) {
+      ctx.save(); ctx.globalAlpha = clamp(f * 1.4); ctx.fillStyle = t > T.plank3 + 0.1 ? C.gold : C.ivory;
+      ctx.beginPath(); ctx.roundRect(a, PY - 11 - (1 - f) * 70, b - a, 22, 5); ctx.fill(); ctx.restore();
+    }
+    if (t >= landT(i) + 0.5) text(String(i + 1), (a + b) / 2, PY - 40, MS(800, 48), done ? C.gold : C.dim, 'center', numOut);
+  });
+  // stations
+  [['REPLY', XS.reply], ['CALL', XS.call], ['SIGNED', XS.signed]].forEach(([s, x]) => {
+    ctx.fillStyle = C.ivory; ctx.fillRect(x - 2.5, PY - 18, 5, 36);
+    text(s, x === XS.signed ? XR - 36 : x, PY + 78, MS(700, 44), C.dim, x === XS.signed ? 'right' : 'center');
+  });
+  channel(t);
+  for (const f of FIG) {
+    const st = figState(f, t);
+    if (st) drawFigure(st.x, st.y, st.s, st.col, st.a, st.rot, st.walking);
+  }
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+}
+
+// the channel the figures come from, with the replies that still come
+function channel(t) {
+  const src = clamp(sp(t, -0.4, POP)), pulse = gauss(t, T.same + 0.15, 0.18) + gauss(t, T.works + 0.1, 0.2), hot = pulse > 0.2;
+  const f = MS(700, 48), lw = tw('LinkedIn', f) + 52, k = 1 + 0.07 * pulse;
+  ctx.save(); ctx.translate(PILL.x, PILL.y); ctx.scale(k, k); ctx.globalAlpha = src;
+  ctx.lineWidth = 4; ctx.strokeStyle = hot ? C.gold : C.dim; ctx.beginPath(); ctx.roundRect(0, -36, lw, 72, 36); ctx.stroke();
+  text('LinkedIn', 26, 17, f, hot ? C.gold : C.ivory);
+  ctx.restore();
+  const tick = sp(t, T.works, POP) * (1 - smooth((t - (T.l5 + 0.2)) / 0.3));
+  if (tick > 0.01) {
+    const tx = PILL.x + lw + 30, ty = PILL.y - 4, p = clamp(tick);
+    ctx.save(); ctx.globalAlpha = p; ctx.strokeStyle = C.gold; ctx.lineWidth = 8; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(tx + 14 * clamp(p * 2), ty + 14 * clamp(p * 2));
+    if (p > 0.5) ctx.lineTo(tx + 14 + 26 * clamp((p - 0.5) * 2), ty + 14 - 34 * clamp((p - 0.5) * 2));
+    ctx.stroke(); ctx.restore();
+  }
+  // the replies: counted beside the channel as they come, then big in the middle; they count down as they fall
+  const rA = win(t, T.post - 0.1, T.l6 + 0.1, 0.2, 0.3);
+  const ins = QUEUE.map((q) => arrive(q, q.stop)), outs = QUEUE.map(lostAt);
+  const got = ins.filter((x) => t >= x).length, lost = outs.filter((x) => t >= x).length, n = got - lost;
+  if (rA <= 0.01 || !got) return;
+  const last = Math.max(...ins.concat(outs).filter((x) => t >= x)), bump = gauss(t, last + 0.06, 0.08);
+  const g = clamp(sp(t, T.l4, TYPE)), kn = mix(1, 3.6, g) * (1 + 0.1 * bump), nf = MS(800, 64), ns = String(n);
+  const x = mix(PILL.x + lw + 34, X0 + 18, g), y = mix(PILL.y + 23, 980, clamp(g * 1.7));   // rises clear of the pill, then slides left   // +18: stays inside the safe zone through the push
+  ctx.save(); ctx.translate(x, y); ctx.scale(kn, kn); text(ns, 0, 0, nf, n ? C.gold : C.grey, 'left', rA); ctx.restore();
+  const wf = MS(700, Math.round(mix(44, 60, g)));
+  text(n === 1 ? 'reply' : 'replies', x + tw(ns, nf) * kn + mix(14, 30, g), y - mix(6, 12, g), wf, C.dim, 'left', rA);
+}
+const lostAt = (q) => q.go + (q.fall - q.stop) / q.v;
+
+// "Here's the three-step check": three big numerals, each drops onto its plank
+const landT = (i) => T.l6 + 1.15 + i * 0.1;
+function stepsPreview(t, S) {
+  if (t < T.l6 + 0.25 || t > landT(2) + 0.6) return;
+  PLANKS.forEach(([a, b], i) => {
+    const land = smooth((t - landT(i)) / 0.5);
+    if (land >= 1) return;
+    const p = sp(t, T.l6 + 0.3 + i * 0.12, POP);
+    const tx = GAPC + ((a + b) / 2 - GAPC) * S, ty = (PY - 120) + (PY - 40 - (PY - 120)) * S;   // its plank label, through the camera
+    const x = mix(CX + (i - 1) * 250, tx, land), y = mix(960 + (1 - p) * 40, ty, land);
+    text(String(i + 1), x, y, MS(800, Math.round(mix(230, 48, land))), C.gold, 'center', clamp(p * 2));
+  });
+}
+
+// the hook: spoken words on screen by frame 0, and a scoreboard (month | signed clients)
+function hookText(t) {
+  const out = 1 - clamp((t - (T.l2 - 0.12)) / 0.14);
+  if (out <= 0) return;
+  const r1 = sp(t, -0.25, POP), r2 = sp(t, T.april, POP), r3 = sp(t, T.same - 0.05, POP);
+  const hf = fitMS('3 clients in March.', 800, 92);
+  rowSegs([{ s: '3', col: C.gold }, { s: ' clients in March.', col: C.ivory }], CX, 440 + (1 - r1) * 26, hf, clamp(r1 * 3) * out);
+  if (t > T.april) rowSegs([{ s: '0', col: C.gold }, { s: ' in April.', col: C.ivory }], CX, 548 + (1 - r2) * 26, hf, clamp(r2 * 3) * out);
+  if (t > T.same - 0.05) rowSegs([{ s: 'Same LinkedIn.', col: C.dim }], CX, 640 + (1 - r3) * 20, MS(700, 60), clamp(r3 * 3) * out);
+  const u = clamp((t - (T.april - 0.08)) / 0.16), sy = Math.max(0.03, Math.abs(Math.cos(u * Math.PI)));
+  ctx.save(); ctx.translate(X0, 960); ctx.scale(1, sy);
+  text(u < 0.5 ? 'March' : 'April', 0, 0, PF(900, 140, true), C.gold, 'left', out * clamp(sp(t, -0.4, POP))); ctx.restore();
+  if (t >= MARCH_IN[0]) {
+    const n = t < T.april ? MARCH_IN.filter((ta) => t >= ta).length : 0;
+    const bump = Math.max(gauss(t, T.april + 0.06, 0.1), ...MARCH_IN.map((ta) => gauss(t, ta + 0.08, 0.09)));
+    ctx.save(); ctx.translate(XR, 960); ctx.scale(1 + 0.1 * bump, 1 + 0.1 * bump);
+    text(String(n), 0, 0, PF(900, 230), n ? C.gold : C.grey, 'right', out); ctx.restore();
+  }
+}
+
+// 59 owners, this exact cycle: good and empty months roll across the grid, then they go back to the channel
+const GRID = Array.from({ length: 59 }, (_, i) => ({ c: i % 12, r: Math.floor(i / 12) }));
+function ownersGrid(t) {
+  const a = win(t, T.l2 - 0.05, T.l3 + 0.9, 0.15, 0.2);
+  if (a <= 0.01) return;
+  GRID.forEach((g, i) => {
+    const x0 = CX - 5.5 * 64 + g.c * 64, y0 = 680 + g.r * 84;
+    const p = sp(t, T.l2 + 0.05 + i * 0.012, POP);
+    const fly = smooth((t - (T.l3 + 0.05 + (58 - i) * 0.006)) / 0.55);
+    const x = mix(x0, PILL.x + 110, fly), y = mix(y0, PILL.y + 30, fly);
+    const lit = t > T.exact - 0.2 && t < T.l3 + 0.2 ? Math.sin(g.c * 0.75 - (t - T.exact) * 7.5) > 0 : true;
+    drawFigure(x, y + (1 - p) * 30, 0.7 * (1 - fly * 0.5), lit ? C.gold : C.grey, a * clamp(p * 2) * (1 - fly * 0.9), 0, false);
+  });
+}
+
+// the usual advice: two stamped tags
+function adviceTags(t) {
+  [['POST MORE', T.post, 730], ['PROSPECT MORE', T.prospect, 860]].forEach(([s, t0, y]) => {
+    const p = sp(t, t0 - 0.05, POP), a = clamp(p * 2) * (1 - smooth((t - (T.l4 - 0.3)) / 0.25));   // gone before the count grows
+    if (a <= 0.01) return;
+    const f = MS(800, 62), w = tw(s, f) + 64, sc = 1.25 - 0.25 * clamp(p);
+    ctx.save(); ctx.translate(CX, y); ctx.scale(sc, sc); ctx.globalAlpha = a;
+    ctx.lineWidth = 4; ctx.strokeStyle = C.ivory; ctx.beginPath(); ctx.roundRect(-w / 2, -60, w, 84, 14); ctx.stroke();
+    ctx.globalAlpha = 1; text(s, 0, 4, f, C.ivory, 'center', a); ctx.restore();
+  });
+}
+
+// steps 1 and 2: six months of replies and clients (an example, labelled)
+const MONTHS = [{ r: 8, c: 3 }, { r: 9, c: 1 }, { r: 8, c: 0 }, { r: 9, c: 3 }, { r: 8, c: 0 }, { r: 9, c: 2 }];
+const LEAKY = [2, 4];
+const MX = (i) => 360 + i * 106;
+const colT = (i) => T.l7 + 1.0 + i * Math.max(0.28, (T.months7 + 0.2 - T.each) / 5.2);
+function ledger(t) {
+  const a = win(t, T.l7 + 0.5, T.l9 + 0.35, 0.2, 0.3);
+  if (a <= 0.01) return;
+  text('EXAMPLE', XR, 596, MS(700, 44), C.grey, 'right', a);
+  text('Replies', X0, 822, MS(700, 46), C.dim, 'left', a * clamp(sp(t, T.l7 + 0.55, POP) * 2));
+  text('Clients', X0, 962, MS(700, 46), C.dim, 'left', a * clamp(sp(t, T.l7 + 0.75, POP) * 2));
+  MONTHS.forEach((m, i) => {
+    const p = sp(t, colT(i), POP);
+    if (p <= 0.01) return;
+    const aa = a * clamp(p * 2), dy = (1 - p) * 24, leak = LEAKY.includes(i), drop = leak ? clamp(sp(t, T.dropped, POP)) : 0;
+    text('M' + (i + 1), MX(i), 704 + dy, MS(700, 44), C.grey, 'center', aa);
+    text(String(m.r), MX(i), 830 + dy, MS(800, 84), C.marble, 'center', aa);
+    text(String(m.c), MX(i), 970 + dy, MS(800, 84), drop > 0.5 ? C.grey : C.gold, 'center', aa);
+  });
+  // step 2: circle the months where replies held but clients dropped, then tie them to the gap
+  LEAKY.forEach((i, j) => {
+    const p = smooth((t - (T.circle + 0.25 + j * 0.35)) / 0.5);
+    if (p <= 0) return;
+    ctx.save(); ctx.globalAlpha = a; ctx.strokeStyle = C.gold; ctx.lineWidth = 6; ctx.lineCap = 'round';
+    ctx.beginPath(); ctx.ellipse(MX(i), 800, 54, 178, -0.05, -Math.PI / 2, -Math.PI / 2 + Math.PI * 2 * p); ctx.stroke(); ctx.restore();
+    const q = smooth((t - (T.gap - 0.05 + j * 0.15)) / 0.55) * (1 - smooth((t - (T.plank2 + 0.3)) / 0.4));
+    if (q > 0) {
+      const sx = MX(i), sy = 984, ex = GAPC + (j ? 40 : -40), ey = PY + 6;
+      ctx.save(); ctx.globalAlpha = a * q; ctx.strokeStyle = C.red; ctx.lineWidth = 5; ctx.setLineDash([12, 10]); ctx.lineDashOffset = -t * 60;
+      ctx.beginPath(); ctx.moveTo(sx, sy); ctx.quadraticCurveTo(sx, (sy + ey) / 2, mix(sx, ex, q), mix(sy, ey, q)); ctx.stroke(); ctx.restore();
+    }
+  });
+}
+
+// step 3: answer every open reply with two real call times (an example, labelled)
+function bubbleBox(right, y, rows, fill, stroke, a, rad) {
+  const w = Math.max(...rows.map((r) => tw(r[0], r[1]))) + 64, h = 30 + rows.length * 60, x = right ? XR - w : X0;
+  ctx.save(); ctx.globalAlpha = a; ctx.beginPath(); ctx.roundRect(x, y, w, h, rad);
+  if (fill) { ctx.fillStyle = fill; ctx.fill(); } else { ctx.lineWidth = 3; ctx.strokeStyle = stroke; ctx.stroke(); }
+  ctx.restore();
+  rows.forEach((r, i) => text(r[0], x + 32, y + 62 + i * 60, r[1], r[2], 'left', a));
+  return { x, w, h };
+}
+function bubbles(t) {
+  const a = win(t, T.answer - 0.2, T.l10 + 0.1, 0.2, 0.3);
+  if (a <= 0.01) return;
+  text('EXAMPLE', XR, 596, MS(700, 44), C.grey, 'right', a);
+  const b1 = sp(t, T.answer + 0.05, POP), b2 = sp(t, T.two - 0.05, POP), b3 = sp(t, T.not - 0.25, POP), strike = smooth((t - (T.know - 0.1)) / 0.3);
+  if (b1 > 0.01) bubbleBox(false, 630 + (1 - b1) * 24, [['Interested. What’s next?', MS(600, 48), C.ivory]], null, C.dim, a * clamp(b1 * 2), [32, 32, 32, 8]);
+  if (b2 > 0.01) bubbleBox(true, 752 + (1 - b2) * 24, [['Tue 10:00 or Thu 15:00?', MS(800, 54), C.char], ['Which works?', MS(600, 48), C.char]], C.gold, null, a * clamp(b2 * 2), [32, 32, 8, 32]);
+  if (b3 > 0.01) {
+    const gone = smooth((t - (T.know + 0.45)) / 0.35), y = 932 + (1 - b3) * 24 + gone * 30;
+    const bx = bubbleBox(true, y, [['Let me know when suits you.', MS(600, 46), C.grey]], null, C.grey, a * clamp(b3 * 2) * (1 - gone), [32, 32, 8, 32]);
+    if (strike > 0) {
+      ctx.save(); ctx.globalAlpha = a * (1 - gone); ctx.strokeStyle = C.red; ctx.lineWidth = 7; ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(bx.x + 20, y + 46); ctx.lineTo(bx.x + 20 + (bx.w - 40) * strike, y + 46); ctx.stroke(); ctx.restore();
+    }
+  }
+}
+
+// the CTA: comment PATH, five ready-to-send messages (the real resource's five)
+const ASSET = ['The “I have room” message', 'The referral nudge', 'The same-day reply', 'The day-before message', 'The recap and honest close'];
+function cta(t) {
+  const a = win(t, T.l10 - 0.1, T.l11 - 0.15, 0.15, 0.25);
+  if (a <= 0.01) return;
+  const p1 = sp(t, T.l10 - 0.05, POP), p2 = sp(t, T.path - 0.08, POP), p3 = sp(t, T.five - 0.05, POP);
+  text('Comment', CX, 380 + (1 - p1) * 24, MS(800, 64), C.ivory, 'center', a * clamp(p1 * 2));
+  ctx.save(); ctx.translate(CX, 566); const sc = 1.18 - 0.18 * clamp(p2); ctx.scale(sc, sc);
+  text('PATH', 0, 0, PF(900, 200, true), C.gold, 'center', a * clamp(p2 * 2)); ctx.restore();
+  text('5 ready-to-send messages', CX, 672 + (1 - p3) * 20, fitMS('5 ready-to-send messages', 700, 54), C.ivory, 'center', a * clamp(p3 * 2));
+  ASSET.forEach((s, i) => {
+    const p = sp(t, T.five + 0.25 + i * 0.16, POP), aa = a * clamp(p * 2);
+    if (aa <= 0.01) return;
+    const y = 770 + i * 60 + (1 - p) * 18;
+    text(String(i + 1), X0 + 50, y, MS(800, 46), C.gold, 'center', aa);
+    text(s, X0 + 96, y, MS(600, 46), C.marble, 'left', aa);
+  });
+}
+
+// the close
+function closing(t) {
+  const a = win(t, T.l11 - 0.08, T.brand + 0.1, 0.1, 0.3);
+  if (a > 0.01) {
+    const p1 = sp(t, T.l11 - 0.06, POP), p2 = sp(t, wt('not', 11) - 0.06, POP), f = fitMS('not the channel.', 800, 96);
+    rowSegs([{ s: 'Fix the step,', col: C.gold }], CX, 800 + (1 - p1) * 26, f, a * clamp(p1 * 3));
+    rowSegs([{ s: 'not the channel.', col: C.ivory }], CX, 914 + (1 - p2) * 26, f, a * clamp(p2 * 3));
+  }
+  const b = sp(t, T.brand, SOFT);
+  if (b > 0.01 && LOCK) {
+    const w = 560, h = w * LOCK.height / LOCK.width;
+    ctx.save(); ctx.globalAlpha = clamp(b * 1.5); ctx.drawImage(LOCK, CX - w / 2, 820 - h / 2 + (1 - b) * 20, w, h); ctx.restore();
+    text('@straightscale_', CX, 820 + h / 2 + 90, MS(600, 48), C.dim, 'center', clamp(b * 1.5));
+  }
+}
+
+// ---------- texture ----------
+let GRAIN, VIGNETTE, LOCK;
+function makeGrain() {
+  const g = document.createElement('canvas'); g.width = g.height = 256;
+  const gx = g.getContext('2d'), img = gx.createImageData(256, 256), r = rng(11);
+  for (let i = 0; i < img.data.length; i += 4) { const v = r() * 255; img.data[i] = img.data[i + 1] = img.data[i + 2] = v; img.data[i + 3] = 255; }
+  gx.putImageData(img, 0, 0); return g;
+}
+function makeVignette() {   // smoothstep falloff in many stops: no ring where a linear ramp would start
+  const v = document.createElement('canvas'); v.width = W; v.height = H;
+  const vx = v.getContext('2d'), g = vx.createRadialGradient(W / 2, H * 0.5, 0, W / 2, H * 0.5, H * 0.8);
+  for (let i = 0; i <= 32; i++) { const r = i / 32, u = clamp((r - 0.3) / 0.7); g.addColorStop(r, `rgba(0,0,0,${(0.42 * u * u * (3 - 2 * u)).toFixed(4)})`); }
+  vx.fillStyle = g; vx.fillRect(0, 0, W, H); return v;
+}
+function grain(t, alpha) {
+  const r = rng(Math.floor(t * 24) + 1);
+  ctx.save(); ctx.globalAlpha = alpha; ctx.globalCompositeOperation = 'overlay';
+  const ox = -Math.floor(r() * 256), oy = -Math.floor(r() * 256);
+  for (let y = oy; y < H; y += 256) for (let x = ox; x < W; x += 256) ctx.drawImage(GRAIN, x, y);
+  ctx.restore();
+}
+
+// ---------- sound events (read by the mix; never retyped) ----------
+window.EVENTS = [
+  ...FIG.filter((f) => f.tag === 'march').map((f) => ({ t: arrive(f, f.into), kind: 'signed' })),
+  { t: T.april, kind: 'swap' },
+  { t: T.april + 0.62, kind: 'crack' },
+  ...FIG.filter((f) => f.tag === 'april').map((f) => ({ t: arrive(f, f.fall), kind: 'fall' })),
+  { t: T.l2 + 0.05, kind: 'grid' },
+  { t: T.post - 0.05, kind: 'stamp' }, { t: T.prospect - 0.05, kind: 'stamp' },
+  ...QUEUE.map((f) => ({ t: arrive(f, f.stop), kind: 'reply' })),
+  { t: T.works, kind: 'tick' },
+  ...QUEUE.map((f) => ({ t: lostAt(f), kind: 'fall' })),
+  ...[0, 1, 2].map((i) => ({ t: landT(i) + 0.45, kind: 'land' })),
+  { t: T.l6 + 0.35, kind: 'outline' },
+  ...MONTHS.map((m, i) => ({ t: colT(i), kind: 'col' })),
+  { t: T.plank1, kind: 'plank' },
+  ...LEAKY.map((i, j) => ({ t: T.circle + 0.25 + j * 0.35, kind: 'circle' })),
+  { t: T.gap, kind: 'leak' },
+  { t: T.plank2, kind: 'plank' },
+  { t: T.answer + 0.05, kind: 'bubble' }, { t: T.two - 0.05, kind: 'bubble' }, { t: T.not - 0.25, kind: 'bubble' },
+  { t: T.know - 0.1, kind: 'strike' },
+  { t: T.plank3, kind: 'plank' },
+  { t: T.path - 0.08, kind: 'cta' },
+  { t: T.brand, kind: 'brand' },
+].sort((a, b) => a.t - b.t);
+
+function seek(t) {
+  window.__boxes = [];
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1;
+  ctx.fillStyle = C.char; ctx.fillRect(0, 0, W, H);
+  const S = camS(t);
+  ownersGrid(t);
+  stage(t, S);
+  ctx.drawImage(VIGNETTE, 0, 0);
+  grain(t, 0.06);
+  hookText(t);
+  stepsPreview(t, S);
+  adviceTags(t);
+  ledger(t);
+  bubbles(t);
+  captions(t);
+  cta(t);
+  closing(t);
+}
+
+const faces = ['italic 700 10px "Playfair Display"', 'italic 900 10px "Playfair Display"', '900 10px "Playfair Display"', '600 10px Montserrat', '700 10px Montserrat', '800 10px Montserrat'];
+await Promise.all(faces.map((f) => document.fonts.load(f, 'AaZz09’“')));
+LOCK = await new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = no; i.src = 'assets/brand/wordmark-white.png'; });
+GRAIN = makeGrain(); VIGNETTE = makeVignette();
+window.T = T;
+window.CUES = Object.fromEntries(Object.entries(T).map(([k, v]) => [k, Math.round(v * 1000) / 1000]));
+window.DURATION = T.film;
+window.seek = seek;
+seek(0);
+</script>
+</body>
+</html>

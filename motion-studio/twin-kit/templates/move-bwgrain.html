@@ -1,0 +1,60 @@
+<!doctype html>
+<!--
+  Twin kit move 5: a black-and-white grain beat on the graphics layers only. This sits at the grade layer (z 25),
+  above the set and the B-roll/UI and below the words and the twin, and greys out everything under it with a
+  backdrop filter, then lays seeded film grain on top. The twin and the words stay in colour. It snaps on with a
+  two-frame exposure kick and snaps off at the end of the beat.
+  Variables: contrast, grain (0..1), dur. Sound: glitch-3 on the snap.
+-->
+<html
+  data-composition-id="kit-bwgrain"
+  data-composition-duration="3"
+  data-composition-variables='[
+    {"id":"contrast","type":"number","label":"Contrast","default":1.25},
+    {"id":"grain","type":"number","label":"Grain amount (0-1)","default":0.22},
+    {"id":"dur","type":"number","label":"On screen (s)","default":2}
+  ]'
+>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #root { position: absolute; inset: 0; overflow: hidden; }
+        .bg-grade { position: absolute; inset: 0; }
+        .bg-grain { position: absolute; inset: 0; width: 100%; height: 100%; mix-blend-mode: overlay; }
+        .bg-kick { position: absolute; inset: 0; background: #fff; opacity: 0; }
+      </style>
+      <div id="root" data-composition-id="kit-bwgrain" data-duration="3">
+        <div class="bg-grade"></div>
+        <canvas class="bg-grain" width="360" height="640"></canvas>
+        <div class="bg-kick"></div>
+      </div>
+      <script>
+        (function () {
+          var root = document.getElementById("root");
+          var v = (window.__hyperframes && window.__hyperframes.getVariables()) || {};
+          var grade = root.querySelector(".bg-grade"), grain = root.querySelector(".bg-grain"), kick = root.querySelector(".bg-kick");
+          var dur = Number(v.dur) || 2, amount = Number(v.grain == null ? 0.22 : v.grain);
+          grade.style.backdropFilter = "grayscale(1) contrast(" + (Number(v.contrast) || 1.25) + ")";
+          var ctx = grain.getContext("2d"), img = ctx.createImageData(360, 640), last = -1;
+          function paint(frame) {
+            var s = ((frame + 7) * 2246822519) >>> 0;
+            for (var i = 0; i < img.data.length; i += 4) {
+              s = (s * 1664525 + 1013904223) >>> 0;
+              var g = s >>> 24; img.data[i] = img.data[i + 1] = img.data[i + 2] = g; img.data[i + 3] = 255;
+            }
+            ctx.putImageData(img, 0, 0);
+          }
+          var clock = { t: 0 };
+          var tl = gsap.timeline({ paused: true });
+          tl.fromTo(grain, { opacity: 0 }, { opacity: amount, duration: 0.04 }, 0);
+          tl.fromTo(kick, { opacity: 0.35 }, { opacity: 0, duration: 0.08, ease: "none" }, 0);
+          tl.fromTo(clock, { t: 0 }, { t: dur, duration: dur, ease: "none",
+            onUpdate: function () { var f = Math.floor(clock.t * 24); if (f !== last) { last = f; paint(f); } } }, 0);
+          paint(0);
+          window.__timelines["kit-bwgrain"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,230 @@
+{
+ "gate": "G-VIS",
+ "asset_id": "CF-W910",
+ "version": 2,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "hero": true,
+ "files_opened": [
+  "full.png",
+  "tile_r1c1.png",
+  "tile_r1c2.png",
+  "tile_r1c3.png",
+  "tile_r2c1.png",
+  "tile_r2c2.png",
+  "tile_r2c3.png",
+  "tile_r3c1.png",
+  "tile_r3c2.png",
+  "tile_r3c3.png",
+  "region_H-01-W910_text-hook-zone.png",
+  "region_H-01-W910_flying-planes.png",
+  "region_H-01-W910_heap.png",
+  "region_H-01-W910_sheet.png",
+  "region_H-01-W910_sheet-text.png",
+  "region_H-01-W910_bin.png",
+  "thumb_200.png"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Bin heaped with white planes, open sheet on top reads at a glance; one plane flies in."
+  },
+  {
+   "id": "V2",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Matches must_read_in_1s: heap plus sheet HOPE THIS FINDS YOU WELL."
+  },
+  {
+   "id": "V3",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "flying-planes / tile_r1c1",
+   "evidence": "The flying plane is not diving at the heap in the spec position; it sits high in the hook zone and reads as a separate floating object (see V18).",
+   "edit_fixable": false
+  },
+  {
+   "id": "V4",
+   "result": "N/A",
+   "severity": "",
+   "region": "-",
+   "evidence": "no people or creatures"
+  },
+  {
+   "id": "V5",
+   "result": "N/A",
+   "severity": "",
+   "region": "-",
+   "evidence": "no hands"
+  },
+  {
+   "id": "V6",
+   "result": "N/A",
+   "severity": "",
+   "region": "-",
+   "evidence": "no faces or bodies"
+  },
+  {
+   "id": "V7",
+   "result": "PASS",
+   "severity": "",
+   "region": "bin",
+   "evidence": "Bin base rests flat on the floor, heap seated inside the rim, planes touching the rim."
+  },
+  {
+   "id": "V8",
+   "result": "PASS",
+   "severity": "",
+   "region": "sheet",
+   "evidence": "Sheet lower edge rests on top planes; plane in air touches nothing."
+  },
+  {
+   "id": "V9",
+   "result": "PASS",
+   "severity": "",
+   "region": "sheet-text",
+   "evidence": "Line 1 reads H-O-P-E T-H-I-S F-I-N-D-S, line 2 Y-O-U W-E-L-L, exact, upper case, deep ink, centred, nothing covers a letter."
+  },
+  {
+   "id": "V10",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No other writing anywhere; no digits; no writing on folded planes (heap crop)."
+  },
+  {
+   "id": "V11",
+   "result": "PASS",
+   "severity": "",
+   "region": "sheet-text",
+   "evidence": "Letters sharp, even spacing, inside sheet edges."
+  },
+  {
+   "id": "V12",
+   "result": "PASS",
+   "severity": "",
+   "region": "bin",
+   "evidence": "One plain terracotta round bin, no face or label; heap on both sides of the sheet."
+  },
+  {
+   "id": "V13",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "flying-planes",
+   "evidence": "Flying plane is about 12.4% of width (x 16.7 to 29.1) against the 8% in the spec; looks larger than the heap planes.",
+   "edit_fixable": false
+  },
+  {
+   "id": "V14",
+   "result": "PASS",
+   "severity": "",
+   "region": "heap",
+   "evidence": "Heap planes identical in style, noses in many directions."
+  },
+  {
+   "id": "V15",
+   "result": "N/A",
+   "severity": "",
+   "region": "-",
+   "evidence": "no characters"
+  },
+  {
+   "id": "V16",
+   "result": "N/A",
+   "severity": "",
+   "region": "-",
+   "evidence": "no sheets, concept frame"
+  },
+  {
+   "id": "V17",
+   "result": "N/A",
+   "severity": "",
+   "region": "-",
+   "evidence": "first frame, no previous shot"
+  },
+  {
+   "id": "V18",
+   "result": "FAIL",
+   "severity": "critical",
+   "region": "text-hook-zone / flying-planes",
+   "evidence": "Flying plane measured at x 16.7% to 29.1%, y 19.8% to 25.2%. Spec: x 12 to 20%, y 31 to 35%. It is about 11 points too high and up to 9 points too far right, inside the top 30% hook zone (must_not: nothing but plain wall) where the text hook goes at 14 to 30%. Not a group shift: bin, heap and sheet are in place (heap top about 36.5%, sheet x 35 to 63%, y 36.5 to 41%). Bin base lands at 56.5% (spec 55%) and the wall/floor line at 48.9% (spec 50%), 1.5 points low (edit fixable, within 10%). A whole-frame shift cannot clear the plane from the hook zone without pushing the bin into the caption zone (55% and below), so the hook-frame offset rule does not cover it.",
+   "edit_fixable": false
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "9:16, 1152x2048."
+  },
+  {
+   "id": "V20",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200",
+   "evidence": "At 200 px the sheet and heap read; the plane reads as a small shape in the top-left."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Premium claymation look, matte clay texture, shallow depth of field."
+  },
+  {
+   "id": "V22",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No artefacts, clean textures, no warping in the heap."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Palette cream, terracotta, sage, ink, white as specified."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No logos, brands or platform names."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No before/after, no 'your [condition]', nothing shames."
+  },
+  {
+   "id": "V26",
+   "result": "N/A",
+   "severity": "",
+   "region": "-",
+   "evidence": "AI disclosure is applied in post, not a frame concern"
+  }
+ ],
+ "edit_fixable_defects": [
+  {
+   "what": "bin base and wall/floor line low",
+   "shift_points": 1.5,
+   "edit_fixable": true
+  }
+ ],
+ "fix": {
+  "route": "edit",
+  "prompt_changes": [
+   "Move the flying plane down about 10 points (to y 31 to 35%) and left about 6 points (to x 12 to 20%), shrink it to about 8% of the width (from 12.4%), and extend the plain wall where it stood, so the top 30% is plain wall.",
+   "Optional: lift the scene about 1.5 points so the bin base sits at 55%.",
+   "If the edit looks pasted, regenerate with: 'exactly one plane at x 12% to 20%, y 31% to 35%, nothing in the top 30%'."
+  ]
+ }
+}

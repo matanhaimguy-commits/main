@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "SL03",
+ "version": 1,
+ "prompt_sha256": "5bcdeacaf69f02ec99593f24876d32853e9adedbb875b14f412d8b1d1b954b0a",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "phone, slab, frame samples, reader, arrow, 5 lines, 3/8 and window present; \"PR-SAMPLE-SLAB ... 14 cm wide, 20 cm tall and 3 cm thick\""
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "Image 3 is the approved slide 2 (upload: STYLE-TOP, cover, slide 2); order matches the media list, roles stated"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"Hands: no hands and no people are visible in the frame.\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "contact points present, e.g. \"nothing touches it\" / \"lies with its whole back flat on the sales desk\" style resting contact, no action noun"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "no story-critical prop; blanks are described (e.g. \"no label\", \"plain cover\"), no blanket \"no text\" empties anything"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "strings quoted with surface, position, size, colour; \"nothing overlapping a letter\"; ë/ç spelled: BLERËSIN, të, zgjodhën, klientët"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "\"No signs, posters, calendars, screens or readable words anywhere except what the text block and props block list\"; samples described \"no labels, no price tags, no stickers\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "no two instructions exclude each other; window and tower consistent with the style block"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "Carry-over matches the spec: \"the owner's phone is smaller and farther away\""
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "4:5 stated; gpt_image_2_5 / 2k / medium / flare / role image_references per standards.json (settings in the call, not the prompt); no video fields apply"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "\"Swipe bridge: a warm lamp-light band touches both the left edge ... and the right edge ... on every slide (on a close or macro slide it is soft warm bokeh)\" leaves two readings (band vs bokeh; one band across the frame vs a patch at each edge); also \"beyond the table\" names a table the scene does not have (the object is the sales desk)"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-13 prevented: \"Bottom-left corner ... no logo, no letters, no objects (a logo is added later)\"; FL-01/03/04/05/06 prevented as above"
+  }
+ ],
+ "corrected_prompt": "Instagram carousel slide, portrait 4:5. \"Tirana after dark\": cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through the cover's window. Same light and colour grade on every slide. Thread: a smartphone in a deep red case (#BE0F18), recurring on every slide, changing state with the story (silent, unread messages piling up, ringing, a booked calendar). Palette: scene tone near-black (#1F1F1F), type ivory (#F8F6EF), accent crimson #B31217 as solid highlight rectangles behind key words and the swipe arrow button, small gold (#DD9A10) only for the counter. #B31217 is the only saturated colour besides the gold counter and the phone case. Type: heavy bold geometric sans in ivory, left-aligned in the calm dark area; key words in solid crimson #B31217 highlight rectangles. Spell ë and ç out letter by letter in every prompt. Frame: slide counter top right (gold), swipe arrow bottom right on slides 1 to N-1. Bottom-left corner calm, dark and empty.\n\nImage 1 is the style reference: match its type, highlight box, counter, light and grade, not its text or scene. Image 2 is the approved cover: keep the same world, light, grade and type system, not its scene or text. Image 3 is the approved slide 2: keep the same type system and counter style, not its scene or text. Slide 3 of 8. Continue the exact same visual system.\n\nSubject and pose: PR-PHONE: the red-case phone standing small on the sales desk, its back leaning on a white sample slab, screen off; right of centre, far from the camera.\n\nHands: no hands and no people are visible in the frame.\n\nAction as contact points: The phone leans back against the flat face of the white sample slab that faces the camera, its bottom edge flat on the sales desk 3 cm in front of the slab's bottom edge.\n\nProps with content: PR-PHONE (leaning on the sample slab, screen off): a modern smartphone in a deep red #BE0F18 case that shows as a rim around the black glass front, rounded corners, no logo on the case or the glass. Size in frame: its box is 15% of the frame width and 27% of the frame height. PR-SAMPLE-SLAB (a white sample slab standing on the sales desk): one solid white-painted wooden slab, a sample of a white window profile, 14 cm wide, 20 cm tall and 3 cm thick, standing upright on its bottom edge on the sales desk with its flat face toward the camera, no label. PR-FRAME-SAMPLES (hung on the back wall between 42% and 62% of the frame height, out of focus): three plain corner sections of window frames hung on the wall, two white and one charcoal, no labels, no price tags, no stickers. PR-CARD-READER (on the sales desk, screen dark): a plain countertop card reader with a dark blank screen, a plain keypad of blank rubber keys and a flat tap pad on its top face, no brand mark. PR-ARROW (bottom right, inside the 4% margin): a small crimson #B31217 round button with a white arrow pointing right, flat graphic, nothing else on it. Size in frame: about 8% of the frame width.\n\nText block, all left-aligned at x 6% in the calm top area, every letter inside a 4% margin, nothing overlapping a letter. Line 1 (label, capitals with wide letter-spacing (normal word spaces, no gaps inside words), about 44 px at 1080 px wide, ivory, left-aligned from the left margin, x 6% to 46%, y 6% to 9% of the frame): \"NJIH BLERËSIN\" Line 2 (head, heavy bold geometric sans, about 80 px at 1080 px wide, ivory, left-aligned from the left margin, x 6% to 40%, y 11% to 18% of the frame): \"E di pse\" Line 3 (head, heavy bold geometric sans, about 80 px at 1080 px wide, ivory, left-aligned from the left margin, x 6% to 53%, y 18% to 25% of the frame): \"të zgjodhën\" Line 4 (head2, heavy bold geometric sans, about 60 px at 1080 px wide, ivory, left-aligned from the left margin, x 6% to 64%, y 27% to 32% of the frame), with the word \"klientët\" inside a solid crimson #B31217 highlight rectangle: \"klientët e fundit?\" Line 5 (sub, bold geometric sans, about 44 px at 1080 px wide, ivory, left-aligned from the left margin, x 6% to 29%, y 34% to 38% of the frame): \"Po apo jo?\" Small gold #DD9A10 slide counter, top right: \"3/8\". Spell exactly, letter by letter: \"BLERËSIN\" = B, L, E, R, Ë (E with two dots), S, I, N; \"të\" = t, ë (e with two dots); \"zgjodhën\" = z, g, j, o, d, h, ë (e with two dots), n; \"klientët\" = k, l, i, e, n, t, ë (e with two dots), t.\n\nSetting: A small windows-and-doors shop at night: a long dark wood sales desk, warm tungsten lamps, deep shadows. Camera about 10 degrees above the sales desk: the sales desk top spans from 70% of the frame height (its far edge, measured from the top of the frame) down to the bottom; the wall behind it fills the upper 70%. Wide view; every lamp is on, the shop is empty. A small window at the right edge of the frame at 42% to 62% of the height, below the text wall, slightly out of focus, the Tirana clock tower a small lit silhouette in it. Background rule: No signs, posters, calendars, screens or readable words anywhere except what the text block and props block list. A phone with its screen off is plain black glass with a soft lamp reflection and nothing else. The surface the props stand on is bare apart from the listed props. The clock tower is a small lit silhouette with a plain clock face: no numerals, no letters; the window glass reflects no text; no shop signs on the street. The top 40% of the frame is a calm near-black zone for the text (a dark wall, or the dark out-of-focus space beyond the sales desk), with nothing in it except the text block and the slide counter. If this scene describes no window, no window and no clock tower is drawn. Bottom-left corner (the lowest 9% of the height, the left 40% of the width): calm, dark, empty background with nothing in it: no logo, no letters, no objects (a logo is added later). Bottom right, a small crimson #B31217 round button with a white arrow.\n\nCamera: wide shot of the whole shop from the door side; the sales desk across the lower 30%, the wall with the frame samples behind it, the top 40% a calm near-black wall; about 10 degrees above the sales desk surface, centred; 35mm film still, shallow depth of field; 4:5; text inside a 4% margin. Swipe bridge: a warm lamp-light band touches the left edge (x 0% to 12%) and, separately, the right edge (x 88% to 100%) at 70% to 84% of the height; the two patches are separate, not joined across the frame, and no lit band crosses the props or the hands.\n\nCarry-over: Same shop and lamp light; the owner's phone is smaller and farther away, screen off, now leaning on a white sample slab.\n\nAvoid: No logo or wordmark drawn anywhere. No letters or objects in the bottom-left corner. No letters, words, digits or app names on any phone screen; screens hold only the shapes described in the props block. No picture-frame borders, side bars or blurred margins around the whole image. Render all text exactly as written, letter for letter. No other words, letters or numbers anywhere, including screens, signs, papers and labels, except the strings listed in the text block. Crimson #B31217 is the only saturated colour besides the small gold counter and the deep red phone case. No logos, wordmarks, app names or app screens anywhere: a phone screen shows only what the props block describes. Full-bleed photograph edge to edge: no picture-frame borders, no side bars, no blurred margins around the whole image."
+}

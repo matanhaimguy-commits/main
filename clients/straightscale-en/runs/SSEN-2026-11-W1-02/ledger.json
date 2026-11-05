@@ -1,0 +1,202 @@
+{
+  "post_id": "SSEN-2026-11-W1-02",
+  "slug": "straightscale-en",
+  "format": "reel_whiteboard",
+  "family": "ai_video",
+  "card": "clients/straightscale-en/cards/2026-11-W1/SSEN-2026-11-W1-02.yaml",
+  "created": "2026-10-28T22:57:47+00:00",
+  "steps": {
+    "0": {
+      "status": "todo",
+      "note": ""
+    },
+    "1": {
+      "status": "todo",
+      "note": ""
+    },
+    "2": {
+      "status": "todo",
+      "note": ""
+    },
+    "3": {
+      "status": "todo",
+      "note": ""
+    },
+    "4": {
+      "status": "todo",
+      "note": ""
+    },
+    "5": {
+      "status": "todo",
+      "note": ""
+    },
+    "6": {
+      "status": "todo",
+      "note": ""
+    },
+    "7": {
+      "status": "todo",
+      "note": ""
+    },
+    "8": {
+      "status": "todo",
+      "note": ""
+    },
+    "9": {
+      "status": "todo",
+      "note": ""
+    },
+    "10": {
+      "status": "todo",
+      "note": ""
+    },
+    "11": {
+      "status": "todo",
+      "note": ""
+    },
+    "12": {
+      "status": "todo",
+      "note": ""
+    },
+    "13": {
+      "status": "todo",
+      "note": ""
+    },
+    "14": {
+      "status": "todo",
+      "note": ""
+    },
+    "15": {
+      "status": "todo",
+      "note": ""
+    }
+  },
+  "run_gates": {
+    "G-BUDGET": [
+      {
+        "at": "2026-10-28T23:09:39+00:00",
+        "status": "PASS",
+        "by": "pipeline.py budget",
+        "data": {
+          "unit": "usd",
+          "planned": 0.05,
+          "with_buffer": 0.06,
+          "balance": 2.120825,
+          "month_spent": 0,
+          "cap": 100,
+          "el_planned": 0,
+          "source": "budget_usd"
+        },
+        "note": ""
+      }
+    ],
+    "G-HOOK": [
+      {
+        "at": "2026-10-28T23:18:41+00:00",
+        "status": "FAIL",
+        "by": "producer session (hooks-v7), fresh sonnet graders",
+        "note": "Main session, delegated by Matan, plan 28 Oct. EN 02's idea in reel_whiteboard: 3 of 3 rounds (round 1 words only, rounds 2 and 3 with frame CF-W102@v1). Best R3c: V B+, T B+, S A- (one grader). EN 02's released quote Q-E-0009 fails the words check (row not recovered). Replaced by bank W9-04. Grades: qa/hooks-v7/"
+      },
+      {
+        "at": "2026-10-28T23:23:48+00:00",
+        "status": "FAIL",
+        "by": "producer session (hooks-v7), fresh sonnet graders",
+        "note": "Main session, delegated by Matan, plan 28 Oct. Replacement bank W9-04 out of rounds (3 of 3, words only, no frame budget left). Best R3a: T B+/B+, S A-/B+. Slot back to the main session; next MOF trust bank idea W9-07. Grades: qa/hooks-v7/round2-3.md"
+      }
+    ]
+  },
+  "specs": {
+    "H-01-W102": {
+      "sha256": "65d6b112b02830378e404cb3750687db69a15538a3447b3c4cbe6b90e9f68036",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T23:03:52+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T23:03:12+00:00",
+          "status": "FAIL",
+          "sha256": "30439384987e8b817624327ed9ff90ecf01ff61e228848bd8c571f7936c16eb4",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-W102.spec.json"
+        },
+        {
+          "at": "2026-10-28T23:04:40+00:00",
+          "status": "PASS",
+          "sha256": "65d6b112b02830378e404cb3750687db69a15538a3447b3c4cbe6b90e9f68036",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01-W102.spec.json"
+        }
+      ]
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "CF-W102",
+      "version": 1,
+      "type": "still",
+      "shots": [
+        "H-01-W102"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": true,
+      "created": "2026-10-28T23:05:15+00:00",
+      "prompt_sha256": "98fcc9f6490baf9b1ddba17f62e87d0d2228603cf5010f8d02fc01873ff7b07b",
+      "prompt_file": "prompts/CF-W102.v1.2.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T23:05:16+00:00",
+          "sha256": "8862d2bdec6b0ad73d81f16d6430067439673a8f5c0bee24a844bf060c8b8216",
+          "file": "prompts/CF-W102.v1.1.txt",
+          "medias": []
+        },
+        {
+          "at": "2026-10-28T23:07:17+00:00",
+          "sha256": "98fcc9f6490baf9b1ddba17f62e87d0d2228603cf5010f8d02fc01873ff7b07b",
+          "file": "prompts/CF-W102.v1.2.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "ae6dbf36b09c42138658ff46e03652a2"
+      ],
+      "files": [
+        "clients/straightscale-en/runs/SSEN-2026-11-W1-02/assets/CF-W102.v1.png"
+      ],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-28T23:07:17+00:00",
+            "status": "FAIL",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-W102.v1.prompt.json",
+            "prompt_sha256": "8862d2bdec6b0ad73d81f16d6430067439673a8f5c0bee24a844bf060c8b8216"
+          },
+          {
+            "at": "2026-10-28T23:09:25+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/CF-W102.v1.prompt.json",
+            "prompt_sha256": "98fcc9f6490baf9b1ddba17f62e87d0d2228603cf5010f8d02fc01873ff7b07b"
+          }
+        ],
+        "G-VIS": [
+          {
+            "at": "2026-10-28T23:12:44+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/CF-W102.v1.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 1,
+              "minor": 0
+            },
+            "hero": true
+          }
+        ]
+      }
+    }
+  ],
+  "queue": []
+}

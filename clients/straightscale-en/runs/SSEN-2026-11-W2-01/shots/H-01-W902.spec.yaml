@@ -1,0 +1,146 @@
+shot_id: H-01-W902
+post_id: SSEN-2026-11-W2-01
+format: realistic_photo
+script_lines:
+- L1
+line_text: Some months you sign three clients. Some months, literally nothing.
+story_purpose: 'Concept frame for hook stack W902-R2c (bank idea W9-02, referrals and timing), frame 1 of the hook shot: one
+  month full of referrals, the next month empty.'
+must_read_in_1s: Three REFERRAL notes on the OCTOBER page; the NOVEMBER page empty.
+subjects:
+- id: PR-PLANNER
+  ref: null
+  state: lying open and flat on the desk, two pages side by side
+  pose: x 6% to 94%, y 31% to 55%, square to the frame
+  expression: ''
+  instances: 1
+  eyeline: ''
+hands: none visible
+props:
+- id: PR-PLANNER
+  story_critical: false
+  ref: null
+  state: lying open and flat, seen from straight above
+  content: one open paper planner, two plain off-white pages side by side joined by a black wire spiral down the middle (x
+    49% to 51%); each page holds its month word at the top and, below it, four week rows divided by three thin light-grey
+    horizontal lines (at y 40%, 44.5% and 49%); the rows are blank printed ruling, and on the OCTOBER page only the three
+    sticky notes sit on them (the notes lie over the lines at y 40% and 44.5%); no digits, no day names, no other printing
+  size_in_frame: 88% of the frame width and 24% of the frame height (x 6% to 94%, y 31% to 55%)
+- id: PR-NOTES
+  story_critical: false
+  ref: null
+  state: stuck flat on the left page only
+  content: 'exactly three wide rectangular bright yellow sticky notes (about 2.25 to 1, wider than tall) on the OCTOBER page,
+    each with the word REFERRAL in black marker capitals: note 1 at x 10% to 28%, y 36.5% to 41%; note 2 at x 26% to 44%,
+    y 41.5% to 46%; note 3 at x 12% to 30%, y 49.5% to 54%; bare page with the light-grey line at y 49% shows between note
+    2 (ends y 46%) and note 3 (starts y 49.5%), from y 46% to 49.5%'
+  size_in_frame: each note 18% of the frame width and 4.5% of the frame height
+- id: PR-PAGE-EMPTY
+  story_critical: false
+  ref: null
+  state: the right page, untouched
+  content: 'the NOVEMBER page, completely empty of anything added: no sticky notes, no handwriting, no marks, no stains; only
+    the printed NOVEMBER word at the top and the blank printed ruling'
+  size_in_frame: x 51% to 94%, y 31% to 55%
+text_in_image:
+- string: OCTOBER
+  surface: printed at the top of the left page, black serif capitals, centred on the left page
+  position: x 16% to 40%, y 32% to 35.5%
+  case: upper
+  must_be_exact: true
+  occlusion: no note or object covers any letter
+- string: NOVEMBER
+  surface: printed at the top of the right page, black serif capitals, centred on the right page
+  position: x 60% to 86%, y 32% to 35.5%
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+- string: REFERRAL
+  surface: handwritten in black marker capitals on each of the three yellow sticky notes, one word per note, centred on its
+    note (the same word three times)
+  position: inside each note's box (note 1 x 10% to 28%, y 36.5% to 41%; note 2 x 26% to 44%, y 41.5% to 46%; note 3 x 12%
+    to 30%, y 49.5% to 54%), every letter at least 1% of the width from the note's edges
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter; the notes do not overlap each other
+action_physics:
+- The planner lies flat and open on the desk, both pages touching the wood; the three sticky notes are stuck flat to the left
+  page with their top edges glued down; nothing else touches the planner.
+static: true
+setting:
+  ref: null
+  details: A warm walnut home-office desk seen from straight above, fine wood grain, filling the whole frame around the planner;
+    from the top edge down to 30% and everywhere lower than 55% only plain desk wood.
+  background_rule: no other papers, screens, signs, books, cups or objects anywhere; the only writing is the quoted text
+  background_action: none
+camera:
+  framing: the open planner centred, wide across the frame (x 6% to 94%) in the key band y 31% to 55%; all x and y percentages
+    are measured from the top-left corner of the frame (y 0% is the top edge, y 100% the bottom edge)
+  angle: seen from straight above, the lens looking straight down at the desk, the planner square to the frame
+  lens: candid iPhone 15 Pro photo, natural depth, the planner and every letter sharp
+  aspect: '9:16'
+  safe_zones: 'reels safe zone (STANDARDS 6): the top 30% holds only plain desk (the text hook is laid at y 14% to 30% in
+    the edit); every key element sits between 31% and 55% of the frame height and inside 6% to 94% of the width; nothing key
+    lower than 50% of the height to the right of 79% of the width (only the empty right page and its rows are there); lower
+    than 55% only plain desk wood'
+continuity:
+  previous_shot: null
+  carry_over: []
+regions:
+- name: text-hook-zone
+  kind: other
+  box:
+  - 0.0
+  - 0.0
+  - 1.0
+  - 0.3
+- name: planner
+  kind: prop
+  box:
+  - 0.06
+  - 0.31
+  - 0.94
+  - 0.55
+- name: october-word
+  kind: text
+  box:
+  - 0.16
+  - 0.32
+  - 0.4
+  - 0.355
+- name: november-word
+  kind: text
+  box:
+  - 0.6
+  - 0.32
+  - 0.86
+  - 0.355
+- name: notes
+  kind: text
+  box:
+  - 0.1
+  - 0.365
+  - 0.44
+  - 0.54
+- name: empty-page
+  kind: prop
+  box:
+  - 0.51
+  - 0.355
+  - 0.94
+  - 0.55
+style: 'EN 04 look: candid iPhone 15 Pro photo of a real desk in a warm evening home office, lit by a tungsten desk lamp from
+  the left (the lamp itself out of frame), soft shadows falling to the right; muted warm palette (walnut, off-white paper,
+  warm grey), the yellow notes the brightest colour in the frame; real paper texture, no illustration look.'
+must_not:
+- no hands, no people, no face
+- no logo, brand or app name anywhere
+- no digits or numbers anywhere, no day names
+- no words other than OCTOBER, NOVEMBER and the three REFERRAL notes
+- 'nothing on the right page except the printed word NOVEMBER and the printed blank ruling: no sticky note, no handwriting,
+  no marks, no stains'
+- nothing in the top 30% except plain desk wood
+hero: true
+notes: 'Concept frame for Hook Lab v6 (main session, delegated by Matan, plan 28 Oct: one picture round for W9-02 R2c). The
+  text hook is laid on top in the edit, not drawn by the model. Props are marked not story-critical only because no prop sheet
+  exists before the look bible (step 7).'

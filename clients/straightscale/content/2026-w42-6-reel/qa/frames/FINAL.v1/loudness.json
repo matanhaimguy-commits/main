@@ -1,0 +1,6 @@
+{"file": "reel.mp4 (sha256 3d0941f6...)",
+ "loudnorm_print_format_json": {"input_i": "-15.80", "input_tp": "-1.48", "input_lra": "13.70", "input_thresh": "-27.70", "output_i": "-14.71", "output_tp": "-1.00", "output_lra": "4.00", "output_thresh": "-26.31", "normalization_type": "dynamic", "target_offset": "0.71"},
+ "ebur128_peak_true": {"integrated_lufs": -15.2, "true_peak_dbtp": -1.5, "loudness_range_lu": 8.3, "short_term_max_lufs": -14.5, "short_term_max_at_s": 9.3},
+ "standard": "STANDARDS.md 4: -14 LUFS integrated (+/-1), true peak -1 dBTP or lower, LRA 11 LU or less, short-term never above about -9 LUFS",
+ "checks": {"integrated": false, "true_peak": true, "loudness_range": "true on ebur128 (8.3); loudnorm reports 13.7 on this 13.6 s file", "short_term": true},
+ "pass": false}

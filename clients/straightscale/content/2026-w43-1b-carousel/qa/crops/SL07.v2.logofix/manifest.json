@@ -1,0 +1,55 @@
+{
+ "asset": "SL07-W43-1b",
+ "version": 2,
+ "label": "logofix",
+ "source": "/home/user/drafts/fixed/78eb641f.jpg",
+ "source_md5": "935d9daa14edf19f5a5d89147a71ecea",
+ "original": "/home/user/drafts/78eb641f-0675-43ce-a218-5d044c794616.jpg",
+ "original_md5": "3012cf93364e2c9cf60f3a1b3c054713",
+ "real_logo": "/home/user/brand/straightscale-logo-light.png",
+ "size": [
+  1080,
+  1350
+ ],
+ "built_with": "PIL and OpenCV in the Higgsfield sandbox (/home/user/qa/W43-1b-set.v2/SL07), by the reviewer",
+ "logo_fit": {
+  "box": [
+   98,
+   1221,
+   393,
+   1278
+  ],
+  "size": [
+   295,
+   57
+  ],
+  "mean_abs_diff_opaque_px": 7.14
+ },
+ "hosted_json_url_md5_equals": "v1 original (not the fixed file)",
+ "must_open": [
+  "full_720.jpg",
+  "tile_r1c1.jpg",
+  "tile_r1c2.jpg",
+  "tile_r1c3.jpg",
+  "tile_r2c1.jpg",
+  "tile_r2c2.jpg",
+  "tile_r2c3.jpg",
+  "tile_r3c1.jpg",
+  "tile_r3c2.jpg",
+  "tile_r3c3.jpg",
+  "diffmap_orig_vs_fixed.jpg",
+  "region_logozone_orig_vs_fixed_2x.jpg",
+  "region_logozone_clahe_orig_top_fixed_bottom_2x.jpg",
+  "region_logozone_band_orig_top_fixed_bottom_3x_gamma07.jpg",
+  "thumb_200.jpg",
+  "../SET/ref_logo_vs_pasted_all_slides_3x.jpg",
+  "region_SL07_kicker_2x.jpg",
+  "region_SL07_headline_2x.jpg",
+  "region_SL07_subline_2x.jpg",
+  "region_SL07_subline_3x.jpg",
+  "region_SL07_notebook_2x.jpg",
+  "region_SL07_handwriting_3x.jpg",
+  "region_SL07_lamp_2x.jpg",
+  "region_SL07_counter_3x.jpg"
+ ]
+}

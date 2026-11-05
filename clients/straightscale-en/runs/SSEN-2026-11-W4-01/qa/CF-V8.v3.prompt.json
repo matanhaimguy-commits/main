@@ -1,0 +1,75 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CF-V8",
+ "version": 3,
+ "prompt_sha256": "6f00e75d6f75eb58167200eef87576c947e30357dca217b8a24328d8a99b1aa4",
+ "packet_prompt_sha256": "6f00e75d6f75eb58167200eef87576c947e30357dca217b8a24328d8a99b1aa4",
+ "hash_note": "The packet hash does not match prompts/CF-V8.v3.2.txt (sha256 sum of the file is a4297477...); it matches no file in prompts/ either. This report reviews the text of prompts/CF-V8.v3.2.txt as read. The orchestrator must record it against the hash of the text actually sent, or re-submit. Orchestrator: the packet hash is pipeline.sha_text (whitespace-normalised) of prompts/CF-V8.v3.2.txt, checked equal; the raw byte hash is kept in raw_file_sha256.",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "All spec items present: post card, hearts ('Three small clay hearts in heart red #D64545'), page card, arrow, four quoted strings with boxes, 'Hands: no hands visible.', setting, camera, safe zones, continuity. All 11 blocks exist; order differs from card 4.1 (composition first, camera before subject) deliberately after v1/v2 failed, nothing missing."
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'References: none attached (text to image).' matches the empty media list."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'Hands: no hands visible.' plus 'no people, no hands, no faces'; spec hands: none visible."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'Both cards and the arrow lie flat on the sage clay ground; the three hearts are pressed into the post card's surface to the right of line 2; nothing else rests on the cards.' Static scene, no motion verb."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Post 'flat cream #F3E9D8 clay slab ... thick terracotta #C8553D clay rim'; page 'flat grey-blue #9AA3AD clay slab'; hearts and arrow described. Negatives are targeted ('no words other than the quoted ones'), not a blanket 'no text'."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"TIRED OF SLOW\" ... on the post card, line 1, deep ink, centred, x 12% to 88%, y 32% to 36%; same for MONTHS?, WELCOME TO, OUR WEBSITE; 'nothing covers any letter'; 4 words per card, under 6. Box centres match their cards (page text centre 42.5% = card centre)."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'no signs, frames, posters or screens; the only writing is the quoted text'; ground plain above 30% and below 55%."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Band maths is consistent: band 7-8 + part of 9 = 31%-41.5%; arrow 42%-45%; page bands 10-11 = 45.5%-55%; bands 12-20 = 55%-100%; hearts x74-88 clear of MONTHS? x32-68; page right edge 79% matches the 79% limit. 'shallow depth of field' with 'whole card area in sharp focus' is in the spec and compatible."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'Continuity: first frame of the reel; nothing carried over.' Spec previous_shot null, carry_over []."
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "standards.json models.atlas.allowed openai/gpt-image-2/text-to-image: use includes still, quality medium, size 1152x2048 = 9:16 (size_for_aspect); prompt says 'Vertical 9:16'. No text fields or refs passed. Not a video asset."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "Positions are defined by a stated frame (20 bands, 'measured down from the top edge'); 'post' and 'page' are always 'card'. Small wording overlap: 'strip' means both the card shape and the gap of ground, but context makes each clear."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "v1/v2 failure (cards too tall, group centred, page card below 55% and past 79% width) now has a stronger prevention: 'picture the frame cut into 20 equal horizontal bands', 'short, wide strip, its height only about one tenth of the frame height', 'the group is not vertically centred in the frame, it sits higher than the middle', 'Bands 12 to 20 ... plain empty sage ground'. FL-04 (props filled), FL-05/FL-10 (background rule, no signs), FL-13 (no logo asked) also covered."
+  }
+ ],
+ "corrected_prompt": null,
+ "raw_file_sha256": "a4297477622fab06f7f9a0ba30a1ee766585ea3d95c695af3bf9010c7539c3ee"
+}

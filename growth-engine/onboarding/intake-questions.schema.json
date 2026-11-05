@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Intake question set",
+  "type": "object",
+  "required": [
+    "version",
+    "questions_language",
+    "sections",
+    "questions"
+  ],
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "questions_language": {
+      "type": "string"
+    },
+    "translations": {
+      "type": "object",
+      "description": "language code -> {question id -> {label, help, options}}; filled per client language by the app or a session."
+    },
+    "sections": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Z]$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "questions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "section",
+          "label",
+          "type",
+          "required",
+          "maps_to"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Z][0-9]+$",
+            "description": "Stable. Never renamed or reused."
+          },
+          "section": {
+            "type": "string",
+            "pattern": "^[A-Z]$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "help": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "text",
+              "longtext",
+              "number",
+              "url",
+              "choice",
+              "multichoice",
+              "links",
+              "files"
+            ]
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 2
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "minItems": 1,
+            "description": "links: the named link boxes."
+          },
+          "required_any": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "links: at least one of these boxes must be filled."
+          },
+          "allow_unknown_when_required": {
+            "type": "boolean"
+          },
+          "maps_to": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "brain.json paths this answer feeds."
+          },
+          "used_by": {
+            "type": "string",
+            "description": "Onboarding stages that read it (O1 to O5)."
+          }
+        }
+      }
+    }
+  }
+}

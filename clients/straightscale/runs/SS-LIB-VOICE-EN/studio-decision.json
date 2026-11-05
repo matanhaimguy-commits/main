@@ -1,0 +1,25 @@
+{
+ "checkpoint": "G-HUMAN-VOICE",
+ "key": "G-HUMAN-VOICE:EN-NARRATOR",
+ "question": "Which voice should narrate the English reels (@straightscale_)? Listen to the three auditions.",
+ "options": [
+  {
+   "label": "Chris (recommended)",
+   "description": "Natural, down-to-earth; voice iP95p4xoKVk53GoZ742B"
+  },
+  {
+   "label": "Eric",
+   "description": "Smooth, trustworthy, more polished; voice cjVigY5qzO86Huf0OWal"
+  },
+  {
+   "label": "Brian",
+   "description": "Deep, resonant, calm narrator; voice nPczCjzI2devNBz1zQrb"
+  },
+  {
+   "label": "None of these: try others",
+   "description": "Audition other voices from the allowed list"
+  }
+ ],
+ "multi": false,
+ "context": "Same script for all three: EN 02 lines 1-3 (39 words, 214 characters), ElevenLabs v3 on Atlas, English, default settings.\n\n| Voice | What it's like | Word match (xai/stt-v1) |\n|---|---|---|\n| **Chris** `iP95p4xoKVk53GoZ742B` (recommended) | American man, natural, down-to-earth, conversational. Closest to a founder talking to founders. | 39/39 |\n| Eric `cjVigY5qzO86Huf0OWal` | American man, smooth and trustworthy. More polished, can lean toward an ad read. | 39/39 |\n| Brian `nPczCjzI2devNBz1zQrb` | American man, deep and resonant, calm. The most \"narrator\", less like a peer. | 39/39 |\n\n- The descriptions are ElevenLabs' own labels for these premade voices; Atlas lists only the ids. Nobody has listened yet: you are the first ear.\n- Length and pace weren't measured: this session can't download from the Atlas media host.\n- The Albanian narrator in the queue (`8oGKUMljR779HzpZBiE4`) isn't in the voices allowed on Atlas, so it isn't here.\n- Your pick is locked for every English reel. Later pieces then pass on the measured take checks.\n- Cost: about $0.07 for the three takes, plus under $0.01 for the checks."
+}

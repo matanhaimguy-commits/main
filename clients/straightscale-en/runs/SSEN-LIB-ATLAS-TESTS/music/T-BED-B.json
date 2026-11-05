@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "command": "generate.audio",
+  "outcome": "succeeded",
+  "data": {
+    "operation_id": "op_aba386d2d78f4444bf09d612fc186448",
+    "kind": "audio",
+    "model": "minimax/music-3.0",
+    "submission_state": "accepted",
+    "prediction": {
+      "id": "79e73b9d2e0149ecaca87d572b048363",
+      "status": "completed",
+      "terminal": true,
+      "observed_at": "2026-10-28T18:19:51.981473073Z",
+      "model": "minimax/music-3.0",
+      "outputs": [
+        {
+          "url": "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-0ad78b57ce69a02f6916655572be4c3782d1a032933b0c43dc0cb4780c49b6ad/79e73b9d2e0149ecaca87d572b048363-e557b8638ae661cc.mp3"
+        }
+      ]
+    },
+    "wait": {
+      "status": "completed"
+    },
+    "artifacts": [
+      {
+        "index": 0,
+        "remote_url": "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-0ad78b57ce69a02f6916655572be4c3782d1a032933b0c43dc0cb4780c49b6ad/79e73b9d2e0149ecaca87d572b048363-e557b8638ae661cc.mp3",
+        "local": {
+          "status": "saved",
+          "path": "./79e73b9d2e0149ecaca87d572b048363_0.mp3",
+          "bytes": 5294174
+        }
+      }
+    ],
+    "resume": "atlas generate wait '79e73b9d2e0149ecaca87d572b048363' '--timeout' '10m0s'",
+    "resume_argv": [
+      "atlas",
+      "generate",
+      "wait",
+      "79e73b9d2e0149ecaca87d572b048363",
+      "--timeout",
+      "10m0s"
+    ]
+  },
+  "errors": [],
+  "warnings": []
+}

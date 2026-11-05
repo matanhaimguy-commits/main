@@ -1,0 +1,12 @@
+{
+  "kind": "image",
+  "source": "src.jpg",
+  "size": [1080, 1350],
+  "hero": true,
+  "files": ["full.jpg", "tile_r1c1.jpg", "tile_r1c2.jpg", "tile_r1c3.jpg", "tile_r2c1.jpg", "tile_r2c2.jpg", "tile_r2c3.jpg", "tile_r3c1.jpg", "tile_r3c2.jpg", "tile_r3c3.jpg", "region_IMG-W43-2_kicker.jpg", "region_IMG-W43-2_headline1.jpg", "region_IMG-W43-2_headline2.jpg", "region_IMG-W43-2_cta.jpg", "region_IMG-W43-2_window_tower.jpg", "region_IMG-W43-2_lamp.jpg", "region_IMG-W43-2_shelf_left.jpg", "region_IMG-W43-2_agenda.jpg", "region_IMG-W43-2_phone.jpg", "region_IMG-W43-2_logo_zone.jpg", "thumb_200.jpg"],
+  "must_open": ["full.jpg", "tile_r1c1.jpg", "tile_r1c2.jpg", "tile_r1c3.jpg", "tile_r2c1.jpg", "tile_r2c2.jpg", "tile_r2c3.jpg", "tile_r3c1.jpg", "tile_r3c2.jpg", "tile_r3c3.jpg", "region_IMG-W43-2_kicker.jpg", "region_IMG-W43-2_headline1.jpg", "region_IMG-W43-2_headline2.jpg", "region_IMG-W43-2_cta.jpg", "region_IMG-W43-2_window_tower.jpg", "region_IMG-W43-2_lamp.jpg", "region_IMG-W43-2_shelf_left.jpg", "region_IMG-W43-2_agenda.jpg", "region_IMG-W43-2_phone.jpg", "region_IMG-W43-2_logo_zone.jpg", "thumb_200.jpg"],
+  "panels": 0,
+  "ocr": null,
+  "ocr_note": null,
+  "_made_in": "Higgsfield sandbox /home/user/qa/IMG-W43-2.v2/crops/ by vqa_crops.py (md5 551f012424bb4ea8da270d528c3df808, same as growth-engine/tools/vqa_crops.py): python3 vqa_crops.py image src.jpg --out crops --spec spec.json --ext jpg --hero. src.jpg = https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/bbc87775-95d4-429a-9f83-c44167c38c5e.jpg, md5 433a84de6754f9c0d90ef68ec505d342, byte-identical to sandbox /home/user/drafts/fixed/be2672d8.jpg. Tesseract is not installed in the sandbox, so there is no OCR second opinion."
+}

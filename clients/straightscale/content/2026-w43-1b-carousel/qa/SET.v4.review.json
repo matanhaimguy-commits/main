@@ -1,0 +1,175 @@
+{
+ "gate": "G-SET",
+ "asset_id": "SET-W43-1b",
+ "version": 4,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "set_status": "PASS",
+ "hero": false,
+ "pass_rule": "Set review is not a hero asset: zero critical, zero major, at most 2 minor (VISUAL-QA 5.3). Found 0 critical, 0 major, 1 minor (C2, pre-existing since v1). The v3 minor C4 (cover arrow 19.5 px above the logo line) is fixed in v4. SL01 v4 as a hero still needs its own G-VIS-SLIDE review; this report does not replace it.",
+ "covers": [
+  "SL01-W43-1b@v4 (/home/user/drafts/fixed/5d6ecdb0_v4.jpg, md5 6f71ea3b1e1e7e23d9fc012934bd2085, media_id 9dc05cce-7d42-4f16-b914-4e8dfafc79bd, CDN https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/9dc05cce-7d42-4f16-b914-4e8dfafc79bd.jpg downloaded in the sandbox, md5-matched)",
+  "SL02-W43-1b@v3 (/home/user/drafts/fixed/7e155c0b_v3.jpg, md5 46f876745c4ab90313e4f48ecdb47c58, unchanged since SET v3)",
+  "SL03-W43-1b@v3 (/home/user/drafts/fixed/3cdfd95e_v3.jpg, md5 63bf7465e8368b680e5d813477d0e502, unchanged)",
+  "SL04-W43-1b@v3 (/home/user/drafts/fixed/26e094bc_v3.jpg, md5 5deecc139586b04f7ea287905c4a48e4, unchanged)",
+  "SL05-W43-1b@v3 (/home/user/drafts/fixed/177e27a4_v3.jpg, md5 c1f3d580be4a2e226769d38c7fd8ba27, unchanged)",
+  "SL06-W43-1b@v3 (/home/user/drafts/fixed/b6ed170a_v3.jpg, md5 d200e2d6d0485f2767300b0a58922651, unchanged)",
+  "SL07-W43-1b@v3 (/home/user/drafts/fixed/78eb641f_v3.jpg, md5 a11922fbbb42b7561402c810fe6ba24b, unchanged)"
+ ],
+ "spec_used": "Task packet (brand rules: crimson #B31217, no invented numbers, no other organisations' logos, no em dashes, real logo file /home/user/brand/straightscale-logo-light.png bottom left), style-bible.md (one world: Tirana after dark, red-cased phone thread, crimson boxes and arrow button, gold counter top right, arrow bottom right on slides 1 to N-1, real logo in the lowest 9%), VISUAL-QA.md 5.2, 5.3 and 10.7 (G-SET), SET.v3.review.json (prior findings to re-check).",
+ "crops_dir": "/home/user/qa/SET-W43-1b.v4 (Higgsfield sandbox; sheets and measurements built by this reviewer, not the editor's /home/user/v4c/views)",
+ "crops_manifest": "clients/straightscale/content/2026-w43-1b-carousel/qa/crops/SET.v4/manifest.json",
+ "files_opened": [
+  "views/set_row_in_order.jpg",
+  "views/set_grid_4x2.jpg",
+  "views/set_bottom_band_guides.jpg",
+  "views/set_arrows_2x.jpg",
+  "views/set_logo_ref_vs_slides_2x.jpg",
+  "views/set_counters_2x.jpg",
+  "views/set_kicker_margin.jpg",
+  "views/SL01_v4_full_075.jpg",
+  "views/thumb_200_v3_v4.jpg",
+  "views/arrow_v3_v4_4x.jpg",
+  "views/arrow_ctx_3x_v4.jpg",
+  "views/arrow_ctx_3x_v3_boost.jpg",
+  "views/arrow_ctx_3x_v4_boost.jpg",
+  "views/luma_stretch_v3_v4_3x.jpg",
+  "views/luma_stretch_v4_3x.jpg",
+  "views/crescent_6x.jpg",
+  "views/crescent_6x_boost.jpg",
+  "views/clone_src_vs_crescent_5x.jpg",
+  "views/clone_context_3x.jpg",
+  "views/corner_2x_contrast.jpg",
+  "views/SL07_bottomright_3x.jpg"
+ ],
+ "measurements": {
+  "logo_box_measured": {
+   "SL01": [98, 1233, 393, 1288],
+   "SL02": [98, 1233, 393, 1288],
+   "SL03": [98, 1233, 393, 1288],
+   "SL04": [98, 1233, 393, 1288],
+   "SL05": [98, 1233, 393, 1288],
+   "SL06": [98, 1233, 393, 1288],
+   "SL07": [98, 1233, 393, 1288]
+  },
+  "logo_box_method": "Template fit of the real file (alpha box 1501x279, Lanczos-resized) over widths 289-301 and positions x90-106, y1226-1241 on each file, error over opaque pixels only; best fit is the same 295x55 box on all 7, centre y1260.5.",
+  "logo_fit_mean_abs_error": {"SL01": 2.70, "SL02": 2.57, "SL03": 2.58, "SL04": 2.60, "SL05": 2.58, "SL06": 2.59, "SL07": 2.58},
+  "logo_colour_SL01_v4_vs_file": "red 193/8/23 vs file 192/8/23, gold 224/171/26 vs file 224/170/25, white 248/246/239 (same as SL01 v3 and SL02)",
+  "arrow_method": "Mask r>140, r>2g, r>2b in x850-1080, y1150-1350, largest component, holes filled; centroid, minimum enclosing circle and least-squares circle fit.",
+  "arrow_bbox": {
+   "SL01": [933, 1231, 990, 1290],
+   "SL02": [931, 1233, 989, 1292],
+   "SL03": [929, 1232, 987, 1291],
+   "SL04": [929, 1232, 988, 1291],
+   "SL05": [930, 1226, 988, 1285],
+   "SL06": [928, 1232, 987, 1291],
+   "SL07": null,
+   "SL01_v3_for_reference": [932, 1211, 990, 1270]
+  },
+  "arrow_centre_mec": {
+   "SL01": [961.4, 1260.8, 29.9],
+   "SL02": [960.1, 1262.4, 30.3],
+   "SL03": [957.9, 1261.6, 30.2],
+   "SL04": [958.4, 1261.8, 30.0],
+   "SL05": [958.7, 1256.0, 30.0],
+   "SL06": [957.5, 1261.5, 30.0],
+   "SL07": null,
+   "SL01_v3_for_reference": [961.4, 1240.8, 29.9]
+  },
+  "arrow_centre_y_minus_logo_centre": {"SL01": 0.3, "SL02": 1.9, "SL03": 1.1, "SL04": 1.3, "SL05": -4.5, "SL06": 1.0, "SL07": null, "SL01_v3": -19.7},
+  "arrow_white_px": {"SL01_v4": 148, "SL01_v3": 147, "SL02": 182, "SL03": 151, "SL04": 177, "SL05": 149, "SL06": 149},
+  "arrow_face_median_rgb": {"SL01": [172, 19, 24], "SL02": [163, 5, 22], "SL03": [173, 15, 22], "SL04": [170, 14, 27], "SL05": [174, 17, 24], "SL06": [168, 16, 21]},
+  "arrow_edge_outside_near_minus_far_luma_by_sector_up_right_down_left": {
+   "SL01_v4": [-1.5, -0.1, 0.9, -1.7],
+   "SL01_v3": [-5.3, 2.0, 0.0, -4.1],
+   "SL02_to_SL06_range": "-4.2 to +0.6"
+  },
+  "counter_bbox": {
+   "SL01": [942, 52, 984, 77], "SL02": [932, 52, 979, 78], "SL03": [936, 52, 981, 77], "SL04": [922, 52, 972, 78],
+   "SL05": [934, 52, 981, 78], "SL06": [934, 52, 980, 76], "SL07": [935, 51, 981, 77]
+  },
+  "kicker_bbox": {
+   "SL01": [106, 63, 547, 80], "SL02": [103, 62, 324, 80], "SL03": [104, 63, 312, 80], "SL04": [102, 63, 330, 80],
+   "SL05": [82, 63, 340, 79], "SL06": [103, 63, 332, 80], "SL07": [104, 63, 335, 80]
+  },
+  "SL01_v4_vs_v3_change": {
+   "changed_bbox_diff_over_12": [928, 1207, 992, 1292],
+   "outside_x900_1020_y1190_1310": "max 8, mean 0.075, p99.9 3 vs v3; a plain PIL q93 4:4:4 re-encode of v3 gives exactly the same numbers, and v4 equals that re-encode pixel for pixel outside the box (0 pixels differ)",
+   "jpeg": "1080x1350, quantisation tables identical to PIL quality 93, sampling 4:4:4"
+  },
+  "fill_texture_independent": {
+   "mask": "old disc (centre 961.5,1240.9, r 30.2) +5 px minus new disc +5 px = 1388 px; ring 3-15 px outside the plate",
+   "highpass_sigma2_std_ratio": 0.94,
+   "bandpass_1.2_to_5_std_ratio": 0.835,
+   "mean_minus_ring": -3.45,
+   "natural_same_shape_5_untouched_spots_v3": "high-pass ratio median 0.81 (0.75-0.94), band-pass ratio median 0.81 (0.56-0.91), mean diff median -7.7 (-9.4 to -3.2)",
+   "donor_correlation": "fill high-pass correlates 0.75 with the donor patch at (+64,+58) (x989-1062, y1262-1316); other offsets -0.17 to 0.16. Expected from the method; the donor is not recognisable as a repeat side by side (different lighting under it)."
+  }
+ },
+ "editor_claims_verified": {
+  "made_and_uploaded": "Confirmed. /home/user/drafts/fixed/5d6ecdb0_v4.jpg md5 6f71ea3b1e1e7e23d9fc012934bd2085; the CDN URL for media 9dc05cce-7d42-4f16-b914-4e8dfafc79bd downloaded in the sandbox has the same md5.",
+  "file_format": "Confirmed: 1080x1350, q93 (quant tables identical to PIL q93), 4:4:4.",
+  "arrow_level_with_logo_0.3px": "Confirmed. Logo centre y1260.5 by template fit on all 7; arrow centre y1260.8 (min enclosing circle) / 1260.9 (centroid, LSQ circle), so 0.3-0.4 px off.",
+  "was_19px_higher": "Confirmed. v3 arrow centre y1240.8-1240.9, 19.6-19.7 px above the logo line; the button moved exactly 20 px down.",
+  "new_bbox_and_radius": "Consistent: my mask (r>140) gives [933,1231,990,1290], r 29.9; the editor's looser mask (r>120) gives [932,1231,991,1291], r 30.3.",
+  "margins": "Confirmed: arrow bottom y1290-1291 (58-59 px from the bottom edge), logo bottom y1288 (62 px); both clear the 54 px band.",
+  "nothing_else_changed": "Confirmed and tightened: outside x900-1020, y1190-1310 v4 is pixel-identical to a plain q93 4:4:4 re-encode of v3.",
+  "no_drop_shadow_and_edge_match": "Confirmed: radial luma/red profile of the moved button matches v3 within 0.3 levels from r-2 to r+1; outside the rim the v4 surround is flat (near-minus-far -1.7 to +0.9), flatter than v3 (-5.3 to +2.0) and inside the slides 2-6 range.",
+  "white_arrow_intact": "Confirmed: 148 vs 147 white px with my threshold (editor 159 vs 158 with theirs); arrow glyph looks identical at 4x.",
+  "covered_wood_plain": "Consistent with the views: the new position covers plain dark table, nothing else.",
+  "fill_texture_numbers": "Reproduced: high-pass ratio 0.94 and mean -3.45 vs ring, same as the editor's 0.94 / -3.5. With my own natural sample the fill sits inside the natural range, at its upper edge for grain and its lower edge for brightness; no visible patch.",
+  "no_arc_seam_smear_repeat": "Confirmed visually at 1x, 2x with contrast, 3x luma-stretched (with and without the old disc outline), 4x and 6x: the lit band continues through the vacated crescent, no ring of the old disc, no seam, no smear, no visible repeat.",
+  "script_deterministic": "Confirmed: the sandbox copy (/home/user/v4c/v4_cover_edit.py) and the repo copy (qa/v4_cover_edit.py) both have md5 ad809feade46f3642937474a7592b69c; rerunning it with WORK redirected to my folder (dry run) produced a JPEG byte-identical to the delivered v4."
+ },
+ "checks": [
+  {"id": "C1", "result": "PASS", "severity": "", "region": "all 7, views/set_row_in_order.jpg, views/set_grid_4x2.jpg",
+   "evidence": "One visual world: the same night interior on every slide, varnished wooden table by a tall window with Tirana's lit clock tower in the right third, warm tungsten grade, near-black wall behind left-aligned ivory type. Props change per slide (notebook and pen, POS and receipt, message phone, planner, calculator and hand, coin, written notebook) while light and grade hold. SL01 v4 differs from v3 only in the arrow area."},
+  {"id": "C2", "result": "FAIL", "severity": "minor", "region": "kicker and number box, slide 5 (views/set_kicker_margin.jpg)",
+   "evidence": "Type system is consistent (spaced ivory caps kicker y62-80, heavy ivory headline with a crimson box, lighter subline), but slide 5's kicker 'NUMRI I KATËRT' starts at x82 while the others start at x102-106, about 20 px further left (guide line at x104 in the sheet); its number box starts at x82 too. Pre-existing since v1, unchanged; noticeable only side by side or on a slow 4-5-6 swipe."},
+  {"id": "C3", "result": "PASS", "severity": "", "region": "counter, top right (views/set_counters_2x.jpg)",
+   "evidence": "Gold counter 1/7 to 7/7 in order on all 7, y51-78, median RGB 209-222/151-162/55-69, same font and size. Left edge x922-942 and right edge x972-984 vary with glyph width; not visible in the swipe. Gold appears elsewhere only in the real logo's square."},
+  {"id": "C4", "result": "PASS", "severity": "", "region": "swipe arrow, bottom right, slides 1 to 7 (views/set_bottom_band_guides.jpg, views/set_arrows_2x.jpg)",
+   "evidence": "Same crimson round button with a white right arrow on slides 1 to 6, radius 29.9-30.3, face median red 163-174; none on slide 7 (views/SL07_bottomright_3x.jpg: only wood, no residue). The v3 defect is fixed: the cover's arrow centre is now y1260.8, 0.3 px from the logo centre line y1260.5 (it was y1240.8, 19.7 px above). Slides 1-4 and 6 sit within +0.3 to +1.9 px of the line and x957.5-961.4; slide 5 sits 4.5 px higher (pre-existing, same as v3, within the 6 px band the v3 set accepted, not visible without guides). The cover-to-slide-2 swipe now keeps the arrow still."},
+  {"id": "C5", "result": "PASS", "severity": "", "region": "real logo, bottom left, all 7 (views/set_logo_ref_vs_slides_2x.jpg, views/set_bottom_band_guides.jpg)",
+   "evidence": "Measured on all 7 by template fit of /home/user/brand/straightscale-logo-light.png: SL01 [98,1233,393,1288], SL02 [98,1233,393,1288], SL03 [98,1233,393,1288], SL04 [98,1233,393,1288], SL05 [98,1233,393,1288], SL06 [98,1233,393,1288], SL07 [98,1233,393,1288]; 295x55, file aspect kept, mean abs error 2.57-2.70. Side by side with the file rendered at the same size: same mark, same wordmark, red 193/8/23 and gold 224/171/26 match the file. The SL01 logo is untouched by the v4 edit (only re-encode noise, max 8)."},
+  {"id": "C6", "result": "PASS", "severity": "", "region": "sequence, views/set_row_in_order.jpg",
+   "evidence": "Reads in order: hook (5 numbers to know every month), numbers 1 to 5 (spend, requests, booked, cost per client, return per euro), then the ask (save this post). Kicker ordinals (PARË, DYTË, TRETË, KATËRT, PESTË), number boxes and counters agree; no slide could swap with another."},
+  {"id": "C7", "result": "PASS", "severity": "", "region": "slide 2",
+   "evidence": "Slide 2 works alone: 'NUMRI I PARË / 1 Sa shpenzove / Reklama, video, njerëz, mjete: gjithçka që pagove për klientë të rinj.' over a POS and receipt names the first number and what it covers."},
+  {"id": "C8", "result": "PASS", "severity": "", "region": "slide 7",
+   "evidence": "The turn looks different: the crimson box moves to the verb 'Ruaje', the kicker becomes HAPI I RADHËS, the arrow is gone, and the cover's blank notebook returns written in."},
+  {"id": "C9", "result": "PASS", "severity": "", "region": "red-cased phone, all 7",
+   "evidence": "The thread holds: the deep red-cased phone is on every slide and changes state with the story (face down on the cover, dark on 2, messages on 3, beside the planner on 4, by the owner's hand on 5, out of focus behind the coin on 6, beside the written notebook on 7)."},
+  {"id": "C10", "result": "PASS", "severity": "", "region": "brand rules across the set",
+   "evidence": "No em dash in any on-image text; no invented numbers on screens or paper (screens dark or wordless message bars, receipt and calculator display blank; the only figures are list indices, counters and the coin's own '1'); no other organisation's logo or emblem; crimson family for boxes and arrow buttons; gold only for the counter and the real logo's square. The v4 edit added no text or colour."},
+  {"id": "C11", "result": "PASS", "severity": "", "region": "SL01 arrow area (views/arrow_v3_v4_4x.jpg, luma_stretch_v3_v4_3x.jpg, luma_stretch_v4_3x.jpg, crescent_6x.jpg, clone_context_3x.jpg, corner_2x_contrast.jpg, arrow_ctx_3x_v3_boost.jpg, arrow_ctx_3x_v4_boost.jpg)",
+   "evidence": "The vacated crescent (old disc +5 px, 1730 px visible) reads as table: the lit band on the left runs through it, the dark diagonal grain on the right fades into it as it does elsewhere, and with the old disc outlined on a luma-stretched 3x view there is no ring, step, smear or flat patch. Grain level 0.94x and band-pass 0.84x the surrounding ring, brightness -3.5 levels, all inside the natural spread of the same shape on untouched wood. The moved button has a clean edge, no halo, no doubled rim, no shadow, and the white arrow is unchanged."},
+  {"id": "C12", "result": "PASS", "severity": "", "region": "cover thumbnail (views/thumb_200_v3_v4.jpg, views/SL01_v4_full_075.jpg)",
+   "evidence": "At 200 px wide the cover reads the same as v3 (headline, crimson '5 numra', tower, phone, logo) and the bottom row now looks level. At 0.75x the full cover shows no change other than the arrow position."},
+  {"id": "C13", "result": "N/A", "severity": "", "region": "per-slide gates (reference)",
+   "evidence": "SL02-SL07 v3 per-slide reviews passed (SL0n.v3.review.json) and the files are byte-identical to what was reviewed. SL01 v4 is a hero asset and needs its own fresh G-VIS-SLIDE review; this set review covers continuity only and does not count it."},
+  {"id": "C14", "result": "PASS", "severity": "", "region": "swipe bridges and fixed frame",
+   "evidence": "No element is designed to run across a slide boundary. The fixed frame lines up from slide to slide: kicker y62-80, counter y51-78, logo box identical, arrow buttons on slides 1-6 within 6.4 px vertically and 4 px horizontally, now including the cover."}
+ ],
+ "defects_summary": {
+  "critical": 0,
+  "major": 0,
+  "minor": 1,
+  "items": [
+   "C2 minor: slide 5's kicker and number box start at x82, about 20 px left of the other slides (pre-existing since v1)."
+  ]
+ },
+ "fix": {
+  "route": "none required for G-SET",
+  "prompt_changes": [
+   "No change needed to pass. Optional: shift slide 5's kicker and number box right by about 20 px only if slide 5 is reworked for another reason.",
+   "Run the fresh SL01 v4 hero review (G-VIS-SLIDE) before posting; the set pass does not clear the cover's hero gate."
+  ]
+ },
+ "notes": [
+  "hosted.json in the post folder still points at the v1 originals (e.g. 5d6ecdb0-079b-4b2b-bf4a-56ec861f1a49.jpg). Point the hub at SL01 v4 (9dc05cce-7d42-4f16-b914-4e8dfafc79bd) and the SL02-SL07 v3 media_ids listed in SET.v3.review.json, and md5-check them before posting.",
+  "Slide 5's arrow sits 4.5 px above the logo line (pre-existing); logged as an observation, not a defect.",
+  "AI label: photoreal AI scenes, so STANDARDS.md 7 asks for Instagram's AI label at posting."
+ ]
+}

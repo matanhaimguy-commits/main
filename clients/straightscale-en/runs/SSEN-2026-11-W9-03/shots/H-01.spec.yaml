@@ -1,0 +1,105 @@
+shot_id: H-01
+post_id: SSEN-2026-11-W9-03
+format: realistic_photo
+script_lines:
+- L1
+line_text: Every fix you tried worked for a month. Then nothing again.
+story_purpose: 'Concept frame for hook stack W903-B (frame 1 of the hook shot): the tactics she already tried, each one
+  dead after its month, as three sticky notes on her office wall.'
+must_read_in_1s: 'Three yellow sticky notes on a wall: "ADS" and "COLD DMS" crossed out, "A COACH" peeling off.'
+subjects: []
+hands: none visible
+props:
+- id: PR-NOTE-1
+  story_critical: false
+  ref: null
+  state: stuck flat on the wall, its word crossed out with one thick red marker line
+  content: 'a square yellow paper sticky note, the word "ADS" written on it in thick black marker capitals, one thick red
+    marker line struck through the word from left to right'
+  size_in_frame: about 25% of the frame width square (x 6% to 31%, y 37% to 51%)
+- id: PR-NOTE-2
+  story_critical: false
+  ref: null
+  state: stuck flat on the wall, its words crossed out with one thick red marker line
+  content: 'a square yellow paper sticky note, the words "COLD DMS" written on it in thick black marker capitals on one
+    line, one thick red marker line struck through the words from left to right'
+  size_in_frame: about 25% of the frame width square (x 37.5% to 62.5%, y 37% to 51%)
+- id: PR-NOTE-3
+  story_critical: false
+  ref: null
+  state: stuck to the wall by its top edge only, its bottom-right corner curled forward away from the wall, about to fall
+  content: 'a square yellow paper sticky note, the words "A COACH" written on it in thick black marker capitals on one
+    line, not crossed out'
+  size_in_frame: about 25% of the frame width square (x 69% to 94%, y 37% to 51%)
+text_in_image:
+- string: ADS
+  surface: note 1, thick black marker capitals, hand-lettered, filling about half the note's width
+  position: centred on note 1
+  case: upper
+  must_be_exact: true
+  occlusion: one red line crosses through the middle of the letters; nothing else covers them
+- string: COLD DMS
+  surface: note 2, thick black marker capitals on one line, hand-lettered, filling about 80% of the note's width
+  position: centred on note 2
+  case: upper
+  must_be_exact: true
+  occlusion: one red line crosses through the middle of the letters; nothing else covers them
+- string: A COACH
+  surface: note 3, thick black marker capitals on one line, hand-lettered, filling about 80% of the note's width
+  position: centred on note 3, readable although the note's corner curls
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter; the curl is at the bottom-right corner, below the letters
+action_physics:
+- Notes 1 and 2 lie flat against the wall with their sticky top edge; note 3 touches the wall only along its top edge and
+  its bottom-right corner curls about 1 cm forward, casting a small soft shadow on the wall.
+static: true
+setting:
+  ref: null
+  details: 'A plain warm grey painted wall of a home office in the evening, lit by a tungsten desk lamp from the left (the
+    lamp itself out of frame), soft shadows; the wall fills the whole frame.'
+  background_rule: Nothing on the wall except the three notes; no frames, posters, shelves, screens, calendars or other
+    writing anywhere.
+  background_action: none
+camera:
+  framing: 'straight-on, the wall square to the lens, the three notes in one level row across the frame between y 37% and
+    y 51%; the top 30% of the frame plain wall (the text hook is laid at y 14% to 29% in the edit); below y 55% only
+    plain wall. All x and y percentages are measured from the top-left corner of the frame.'
+  angle: eye level, straight on
+  lens: candid iPhone 15 Pro photo, shallow depth of field, the notes sharp, the wall texture soft
+  aspect: '9:16'
+  safe_zones: 'reels safe zone (STANDARDS 6): the notes sit in the 15% to 55% key band, below the empty top 30% and inside
+    the 6% side margins; the right 21% of the lower half is plain wall'
+continuity:
+  previous_shot: null
+  carry_over: []
+regions:
+- name: text-hook-zone
+  kind: other
+  box: [0.0, 0.0, 1.0, 0.3]
+- name: note-1
+  kind: text
+  box: [0.06, 0.37, 0.31, 0.51]
+- name: note-2
+  kind: text
+  box: [0.375, 0.37, 0.625, 0.51]
+- name: note-3
+  kind: text
+  box: [0.69, 0.37, 0.94, 0.51]
+- name: notes-row
+  kind: prop
+  box: [0.06, 0.37, 0.94, 0.51]
+style: 'EN 04 slot look (narrated POV dramatization): candid iPhone 15 Pro photo, warm evening home office lit by a tungsten
+  desk lamp from the left, soft shadows, muted warm palette (warm grey, mustard yellow, walnut); no people.'
+must_not:
+- no people, faces or hands
+- no logo, brand, app or platform name or icon
+- no words other than ADS, COLD DMS and A COACH
+- no numbers or digits
+- nothing in the top 30% except plain wall
+- nothing below y 55% except plain wall
+hero: true
+notes: Concept frame for Hook Lab v5, bank idea SSEN-2026-11-W9-03 (replaces EN 04's price idea in slot W2-01). The text
+  hook is laid on top in the edit, not drawn by the model. Kept simple on purpose (no hands, no device), after the hands
+  and layout failures of EN 04's CF-V1@v1. Props are marked not story-critical only because no prop sheet exists before
+  the look bible (step 7); the notes become story-critical sheet props then.

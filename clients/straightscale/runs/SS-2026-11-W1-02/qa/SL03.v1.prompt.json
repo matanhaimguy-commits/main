@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "SL03",
+ "version": 1,
+ "prompt_sha256": "5bcdeacaf69f02ec99593f24876d32853e9adedbb875b14f412d8b1d1b954b0a",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "PR-PHONE, PR-SAMPLE-SLAB, PR-FRAME-SAMPLES, PR-CARD-READER, PR-ARROW, 6 text strings, setting (10 degrees, desk from 70%), window and tower, camera, carry-over, all 4 must_not present"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "Images 1, 2 (approved cover) and 3 (\"the approved slide 2: keep the same type system and counter style, not its scene or text\") in upload order; adapter order STYLE-TOP, cover, slide 2"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"Hands: no hands and no people are visible in the frame.\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"The phone leans back against the flat face of the white sample slab ... its bottom edge flat on the sales desk 3 cm in front of the slab's bottom edge.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "No story-critical prop; slab (\"14 cm wide, 20 cm tall and 3 cm thick ... no label\") and samples (\"two white and one charcoal, no labels, no price tags, no stickers\") have content"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "5 lines in quotes (\"NJIH BLERËSIN\", \"E di pse\", \"të zgjodhën\", \"klientët e fundit?\", \"Po apo jo?\") + \"3/8\" with x/y, size, colour, case (label capitals); \"klientët\" in crimson box; BLERËSIN, të, zgjodhën, klientët spelled; all under 6 words"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "Wall samples have a content rule (no labels, price tags, stickers); window and tower ruled: \"no numerals, no letters; the window glass reflects no text\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Desk far edge at 70% and phone/slab boxes sit on it; no conflicting instructions; top 40% calm holds text to y 38%"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "\"Same shop and lamp light; the owner's phone is smaller and farther away, screen off, now leaning on a white sample slab.\" matches spec"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Prompt opens \"Instagram carousel slide, portrait 4:5.\"; call settings gpt_image_2_5, 4:5, 2k, medium, flare match standards.json; image roles image_references; declined_preset_id is video-only (N/A)"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "Slab, phone and wall samples have numeric sizes/positions. Note, not blocking: PR-CARD-READER has no stated side (spec region is left, x 14% to 38%); the empty bottom-left rule bounds it"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-13 prevented: \"Bottom-left corner (the lowest 9% of the height, the left 40% of the width): calm, dark, empty background ... no logo, no letters, no objects (a logo is added later).\"; FL-01 text far from any hand/prop; no blanket 'no text' over a story prop"
+  }
+ ],
+ "corrected_prompt": null
+}

@@ -1,0 +1,96 @@
+{
+ "card": "SS-2026-11-W1-03 · reel_motion (code-rendered motion graphics, voiced), tier O30 (20 to 35 s) · job reach · belief B2 ('it isn't your fault: the cause is pieces that don't work together') · awareness problem_aware · cta_type send · hook_type hidden_cause · narrow product: clients who bought once don't come back because nobody invites them back; the fix is one message after the work is done in three parts (name the work, ask how it is going, leave the next step open). AI label on (AI voice).",
+ "facts": "- The owner's own words: 'klientët nuk kthehen' (clients don't come back); his fear: clients don't come back.\n- His situation: busy, works in the business every day; pays for marketing pieces that don't connect.\n- The three-part message is a process (a method), never a result. No claim that clients will come back.\n- No numbers or counts except the post's own three parts. No names.",
+ "hook": "Visual from frame 1: a phone's chat list of past clients (generic, no app styling), each with a plain avatar circle (no names, no numbers). Every thread ends in the client's last bubble, a large readable 'Faleminderit!' (Thank you!), with nothing after it. Hold about 1.2 s, then the threads sink under new chats and drop off the screen.\nText hook (top third, 0-3 s): 'Klientët s'u kthyen. / A i ftoi kush?' [Clients didn't come back. / Did anyone invite them?]\nSpoken L1 (fixed): see line 1.",
+ "structure": "ST3 compact hidden cause, second-person narrator. One picture: the empty reply field under the client's 'Faleminderit!'. One timeline: the problem is seen in old chats; the fix applies from the next handover on, some time after it. The hook asks 'did anyone invite them back?'; the fix is the invitation. O30 rungs: recognition (L1), the cause in one picture line (L2), the release, not your fault (L3), the fix: one short message that invites back (L4, L5), CTA send (L6).",
+ "actq": "Would you send this reel to someone (the person who deals with your clients, a partner, a friend who owns a business)?",
+ "end_s": 32.0,
+ "end_card": "The red phone's chat list as in frame 1; the top chat is the same kitchen job from L4 and now ends in the owner's message, not in 'Faleminderit!'; text 'Ia dërgo këtë video personit që u shkruan klientëve.' and a small line 'që ta nisë pas dorëzimit të radhës' [so they start after the next handover], plus the StraightScale wordmark. Held to 32.0 s.",
+ "lines": [
+  {
+   "n": 1,
+   "sq": "Klientët e vjetër nuk kthehen, dhe ti mendon se gjetën dikë tjetër. Po a i ftoi kush të kthehen?",
+   "en": "Old clients don't come back, and you think they found someone else. But did anyone invite them back?",
+   "super": "0-3 s text hook 'Klientët s'u kthyen. / A i ftoi kush?'; 3.0-8.3 'Mendon se gjetën dikë tjetër?' [You think they found someone else?]",
+   "visual": "Phone in a deep red case, generic chat list of past clients (no app look), every chat ending in a big 'Faleminderit!'; at 1.2 s they sink under new chats; on 'Po a i ftoi kush' (about 5.5 s) the sinking stops and one old chat lifts back up.",
+   "secs": "0.0-8.3"
+  },
+  {
+   "n": 2,
+   "sq": "Hap bisedat e vjetra: mbarojnë te \"faleminderit\". Pastaj, asgjë.",
+   "en": "Open the old chats: they end at \"thank you\". Then, nothing.",
+   "super": "'Mbarojnë te \"faleminderit\"' [They end at \"thank you\"]",
+   "visual": "The lifted chat opens: the job photo, the client's 'Faleminderit!', and under it the empty reply field with a blinking cursor. Nothing else.",
+   "secs": "8.6-12.1"
+  },
+  {
+   "n": 3,
+   "sq": "Nuk e ke fajin: kur puna mbaron, biseda s'është e askujt.",
+   "en": "It's not your fault: when the work ends, the conversation belongs to nobody.",
+   "super": "'Nuk e ke fajin. Biseda s'është e askujt.' [Not your fault. The conversation belongs to nobody.]",
+   "visual": "Wide: several old chats side by side, each with the same empty reply field and blinking cursor under its 'Faleminderit!'.",
+   "secs": "12.5-17.3"
+  },
+  {
+   "n": 4,
+   "sq": "Pra, ca kohë pas dorëzimit, dërgo këtë mesazh:",
+   "en": "So, some time after the handover, send this message:",
+   "super": "'Ca kohë pas dorëzimit: një mesazh' [Some time after the handover: one message]",
+   "visual": "A new chat at the top: a finished kitchen photo and the client's 'Faleminderit!'; a soft day-to-later light change (no dates); the owner's hands (seen from behind, at the showroom counter) tap the empty reply field on the red phone.",
+   "secs": "17.7-20.7"
+  },
+  {
+   "n": 5,
+   "sq": "Si je me kuzhinën e re? Kur të duhet diçka tjetër, të pres.",
+   "en": "How are you getting on with the new kitchen? When you need anything else, I'll be expecting you.",
+   "super": "The message on screen; each tag appears only as its phrase is voiced: '1 Puna' [the work] on 'kuzhinën e re', '2 Si po shkon' [how it's going] on 'Si je', '3 Ftesa' [the invitation] on 'Kur të duhet diçka tjetër, të pres'",
+   "visual": "The hands fill that same reply field with the message and send it: the chat no longer ends at the thank-you.",
+   "secs": "21.1-26.8"
+  },
+  {
+   "n": 6,
+   "sq": "Ia dërgo këtë video personit që u shkruan klientëve.",
+   "en": "Send this video to the person who writes to your clients.",
+   "super": "End card, same words",
+   "visual": "Back to the frame-1 chat list (loop to the hook): the top chat, the same kitchen job, now ends in the owner's message, not in 'Faleminderit!'. End card.",
+   "secs": "27.2-30.7 (end card held to 32.0)"
+  }
+ ],
+ "screens": [
+  {
+   "t": "0-3",
+   "visual": "A phone in a deep red case: a plain chat list of past clients, round avatar circles, no names. Every chat ends in a big 'Faleminderit!' (Thank you!). From 1.2 s the chats sink under new ones.",
+   "text": "Klientët s'u kthyen. / A i ftoi kush? [Clients didn't come back. / Did anyone invite them?]"
+  },
+  {
+   "t": "3-8.3",
+   "visual": "The old chats keep sinking; then the sinking stops and one old chat lifts back up.",
+   "text": "Mendon se gjetën dikë tjetër? [You think they found someone else?]"
+  },
+  {
+   "t": "8.6-12.1",
+   "visual": "The lifted chat opens: the job, the client's 'Faleminderit!', then the empty reply field with a blinking cursor.",
+   "text": "Mbarojnë te \"faleminderit\" [They end at \"thank you\"]"
+  },
+  {
+   "t": "12.5-17.3",
+   "visual": "Several old chats side by side, each ending in 'Faleminderit!' over the same empty reply field and blinking cursor.",
+   "text": "Nuk e ke fajin. Biseda s'është e askujt. [Not your fault. The conversation belongs to nobody.]"
+  },
+  {
+   "t": "17.7-20.7",
+   "visual": "A new chat at the top: a finished kitchen photo and the client's fresh 'Faleminderit!'; the light shifts to a later day (no dates); hands of an owner, seen from behind at a showroom counter, tap the empty reply field on the red phone.",
+   "text": "Ca kohë pas dorëzimit: një mesazh [Some time after the handover: one message]"
+  },
+  {
+   "t": "21.1-26.8",
+   "visual": "The owner's message fills the reply field: 'Si je me kuzhinën e re? Kur të duhet diçka tjetër, të pres.' Tags appear one at a time on its parts. It is sent: the chat no longer ends at the thank-you.",
+   "text": "1 Puna / 2 Si po shkon / 3 Ftesa [1 The work / 2 How it's going / 3 The invitation]"
+  },
+  {
+   "t": "27.2-32",
+   "visual": "The chat list again; the top chat (the same kitchen job) now ends in the owner's message. StraightScale wordmark.",
+   "text": "Ia dërgo këtë video personit që u shkruan klientëve. / që ta nisë pas dorëzimit të radhës [Send this video to the person who writes to your clients. / so they start after the next handover]"
+  }
+ ]
+}

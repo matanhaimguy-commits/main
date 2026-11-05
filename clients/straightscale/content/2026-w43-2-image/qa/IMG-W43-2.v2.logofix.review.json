@@ -1,0 +1,89 @@
+{
+  "gate": "G-VIS",
+  "asset_id": "IMG-W43-2",
+  "version": 2,
+  "reviewer": "visual-reviewer (fresh agent)",
+  "independent": true,
+  "status": "FAIL",
+  "hero": true,
+  "reviewed_file": "https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/bbc87775-95d4-429a-9f83-c44167c38c5e.jpg (1080x1350 JPEG, md5 433a84de6754f9c0d90ef68ec505d342, byte-identical to sandbox /home/user/drafts/fixed/be2672d8.jpg)",
+  "compared_with": "v1 original /home/user/drafts/be2672d8-7527-434c-8be5-8fe201468af1.jpg (md5 ad25c09d4f17db54a0869f1886a0db18); real logo /home/user/brand/straightscale-logo-light.png (1517x295 RGBA)",
+  "spec_used": "Packet text (alt text): 'Agjendë e hapur me disa ditë të shënuara me katrorë të kuq dhe telefon me kapak të kuq, pranë dritares me kullën e sahatit. Teksti: Një video virale është fat. Klientët çdo muaj janë sistem. Shkruaj ANALIZA në komente.' The house kicker 'PËR PRONARËT E BIZNESEVE' and the PR-PHONE prop come from the locked style sheet (runs/SS-LIB-STYLE/shots/SHEET-STYLE.spec.yaml). Style: Tirana at night, warm tungsten light, crimson highlights, a red-cased phone (style-bible.md). Brand: real logo file only, no invented numbers on screens or paper, no other brands' logos, no em dashes, crimson #B31217 highlight rectangles, gold only for the carousel counter. There is no run ledger or Shot Spec file for this post (it was made 15 Oct, before the pipeline), so the reviewer wrote the region boxes in spec.json in the sandbox.",
+  "crops_manifest": "clients/straightscale/content/2026-w43-2-image/qa/crops/IMG-W43-2.v2/manifest.json",
+  "files_opened": [
+    "full.jpg", "tile_r1c1.jpg", "tile_r1c2.jpg", "tile_r1c3.jpg", "tile_r2c1.jpg", "tile_r2c2.jpg", "tile_r2c3.jpg",
+    "tile_r3c1.jpg", "tile_r3c2.jpg", "tile_r3c3.jpg",
+    "region_IMG-W43-2_kicker.jpg", "region_IMG-W43-2_headline1.jpg", "region_IMG-W43-2_headline2.jpg", "region_IMG-W43-2_cta.jpg",
+    "region_IMG-W43-2_window_tower.jpg", "region_IMG-W43-2_lamp.jpg", "region_IMG-W43-2_shelf_left.jpg",
+    "region_IMG-W43-2_agenda.jpg", "region_IMG-W43-2_phone.jpg", "region_IMG-W43-2_logo_zone.jpg", "thumb_200.jpg",
+    "view_src_720.jpg", "view_orig_720.jpg",
+    "extra/logozone_2x_orig_top_fixed_bottom.jpg",
+    "extra/logo_3x_orig_top_fixed_bottom.jpg",
+    "extra/logo_3x_enhanced_orig_top_fixed_bottom.jpg",
+    "extra/zone_2x_enh_orig_top_fixed_bottom.jpg",
+    "extra/zone_diff_x3_2x.jpg",
+    "extra/zone_1x_orig_left_fixed_right.jpg",
+    "extra/beads_5x_orig_left_fixed_right.jpg",
+    "extra/below_logo_3x_enh_orig_top_fixed_bottom.jpg",
+    "extra/notch_gap_6x_orig_left_fixed_right.jpg",
+    "extra/logo_realfile_composite_top_vs_fixed_bottom_3x.jpg",
+    "extra/realfile_view.jpg",
+    "extra/agenda_microtext_3x.jpg"
+  ],
+  "measurements": {
+    "pixels_changed_by_fix": "Outside the bottom-left zone (lowest 15%, left 50%) the max channel difference v1 to v2 is 24 and the mean 1.09, i.e. JPEG re-encoding only; the headline, kicker, CTA, props and window are untouched. Inside the zone every change >12 sits in x 98-390, y 1154-1270.",
+    "logo_fit": "Real file resized to 295x57 at x98 y1191 reproduces the pasted logo: mean error on the eroded core 2.3 levels; red 192,8,21 vs file 192,8,23; gold 224,171,25 vs 224,170,25; ivory 247,245,238 vs 248,245,239; visible-logo aspect 291x54 = 5.39 vs file alpha box 5.38 (undistorted).",
+    "drawn_logo_remnants": "Strip under the pasted logo (x95-400, y1247-1280): 0 red, 0 gold, 0 bright pixels, max luminance 33. Gap between mark and wordmark (x152-160, y1205-1227): mean RGB 32,6,5 (dark wood), no gold.",
+    "changed_blobs_outside_both_logos": "One: x130-174, y1166-1196, mean difference 75 levels (the erased highlight beads, see V23). Local texture there fell from std 16.1/14.2 to 3.5/2.4.",
+    "highlight_box": "Box behind 'sistem.' x285-582, y435-517: flat (left 163,8,16 / mid 156,10,18 / right 161,8,16), median 160,9,17 = #A00911; CIEDE2000 vs #B31217 = 4.0 (darker). v1 has the same 161,9,17."
+  },
+  "checks": [
+    {"id": "V1", "result": "PASS", "severity": "", "region": "full, thumb_200", "evidence": "The 1-second read works: kicker, then the two-line contrast 'Një video virale është fat.' / 'Klientët çdo muaj janë sistem.' with 'sistem.' in the crimson box, the CTA under it, and below that an open agenda with red-marked days next to a red-cased phone. With the sound off a stranger gets 'a viral video is luck, monthly clients are a system' (full.jpg, thumb_200.jpg)."},
+    {"id": "V2", "result": "PASS", "severity": "", "region": "full", "evidence": "The scene serves the line: the planner with booked days marked in red is the 'system' (regular clients), the quiet phone and the night office fit the owner audience. It matches the alt-text scene item by item: open agenda, several days marked with red squares, phone with a red case, window with the clock tower (region_agenda, region_phone, region_window_tower)."},
+    {"id": "V3", "result": "PASS", "severity": "", "region": "full", "evidence": "Nothing contradicts the brand kit. No numbers, prices, results, client names or promises anywhere. ANALIZA is the real live keyword. The phone screen is off (region_phone.jpg), and the agenda carries no digits (agenda_microtext_3x.jpg)."},
+    {"id": "V4", "result": "N/A", "severity": "", "region": "full", "evidence": "No people, hands or limbs in the frame (all 9 tiles checked)."},
+    {"id": "V5", "result": "N/A", "severity": "", "region": "full", "evidence": "No hands; the spec has no hand action."},
+    {"id": "V6", "result": "N/A", "severity": "", "region": "full", "evidence": "No faces."},
+    {"id": "V7", "result": "PASS", "severity": "", "region": "agenda, phone, lamp", "evidence": "Physically real. The phone lies flat with a contact shadow toward the lower left (tile_r3c3.jpg). The agenda lies open with its page block resting on the table and the red ribbon hanging over the front edge onto the wood (tile_r3c1.jpg). The lamp base stands on the table with a reflection under it (region_lamp.jpg). Nothing floats."},
+    {"id": "V8", "result": "PASS", "severity": "", "region": "agenda, phone, lamp, window", "evidence": "Correct structure. One agenda with two pages, ruled day boxes, a page block and one ribbon. One phone with one port centred between two speaker grilles on the bottom edge and side buttons on one long side (region_phone.jpg). The lamp has one shade and one weighted base, with the arm leaving the frame on the right, which is plausible for a swing-arm lamp. The window frame and mullion are straight and the tower is one tower with two clock faces on adjacent sides (region_window_tower.jpg)."},
+    {"id": "V9", "result": "PASS", "severity": "", "region": "kicker, headline1, headline2, cta, logo", "evidence": "Read letter by letter (region_kicker, region_headline1, region_headline2, region_cta, tile_r1c1, tile_r1c2). Kicker: P-Ë-R / P-R-O-N-A-R-Ë-T / E / B-I-Z-N-E-S-E-V-E (the locked house label from the style sheet). Line 1: N-j-ë / v-i-d-e-o / v-i-r-a-l-e. Line 2: ë-s-h-t-ë / f-a-t-'.'. Line 3: K-l-i-e-n-t-ë-t / ç-d-o (cedilla clear under the c) / m-u-a-j. Line 4: j-a-n-ë / s-i-s-t-e-m-'.' (the period sits inside the red box). CTA: S-h-k-r-u-a-j / A-N-A-L-I-Z-A / n-ë / k-o-m-e-n-t-e-'.'. Every ë has two dots, every i and j has its dot, the three sentences end in periods, and there are no extra or missing characters. It matches the packet text exactly. The wordmark is the real file: S-t-r-a-i-g-h-t-S-c-a-l-e. There are no em dashes."},
+    {"id": "V10", "result": "PASS", "severity": "", "region": "headline2, window_tower", "evidence": "The text is a clean overlay on the dark wall and glass. No object passes in front of or behind any letter. 'muaj' ends over the dark window frame, left of the clock tower, and stays fully readable (region_window_tower.jpg). There is no text on the phone, the lamp or the table."},
+    {"id": "V11", "result": "FAIL", "severity": "minor", "region": "agenda, both pages: the tiny day headers above the day boxes (about 12 marks, each about 15-35 x 4-6 px, within x 40-720, y 810-1075) and the footer mark near x 495-525, y 1068", "evidence": "Pre-existing (identical in v1, not caused by the logo fix). At 2x and 3x (region_IMG-W43-2_agenda.jpg, agenda_microtext_3x.jpg) the printed headers are pseudo-words such as 'Bnnnn', 'Dnnnn', 'Iann nr' and 'Snnnn', not Albanian day names. At phone size they read only as faint grey print, so this is minor (visible zoomed). They contain no digits and no logos."},
+    {"id": "V12", "result": "PASS", "severity": "", "region": "agenda, phone", "evidence": "The story props are present, well sized and have their content. The agenda shows 8 red-marked day boxes across the two pages (the 'booked days'), and the phone sits prominent in the lower right. The PR-PHONE spec asks for the screen to be off, and it shows black glass with no UI (region_agenda.jpg, region_phone.jpg)."},
+    {"id": "V13", "result": "PASS", "severity": "", "region": "phone", "evidence": "The phone matches PR-PHONE from the style sheet: a modern smartphone in a deep red case, black glass with no text or icons, and the charging port and speaker grilles visible at its lower edge. The case reads deep red under the tungsten light (measured 137,23,17 in shade) (region_phone.jpg, tile_r3c3.jpg)."},
+    {"id": "V14", "result": "PASS", "severity": "", "region": "shelf_left, lamp", "evidence": "The other objects are quiet set dressing that fits an owner's desk at night: a plant in a copper pot, a pencil cup, stacked books and a desk lamp (region_shelf_left.jpg, region_lamp.jpg). There is no second phone, no extra agenda and nothing that pulls focus from the story props."},
+    {"id": "V15", "result": "N/A", "severity": "", "region": "full", "evidence": "No characters."},
+    {"id": "V16", "result": "N/A", "severity": "", "region": "full", "evidence": "This is a single-image post with no previous shot. The prop state (phone screen off, agenda open) is consistent within the frame."},
+    {"id": "V17", "result": "PASS", "severity": "", "region": "window_tower", "evidence": "No set sheet is locked for this post. The setting matches the style bible's 'Tirana after dark' with the clock tower seen through the window, with a wet lit square, trees and warm buildings below (region_window_tower.jpg, tile_r1c3.jpg)."},
+    {"id": "V18", "result": "PASS", "severity": "", "region": "full", "evidence": "1080x1350, 4:5. The text column starts at x 103 and the kicker at y about 68. The headline ends at x about 780, well inside a 3:4 grid crop, which loses about 34 px per side. The pasted logo's left edge (x 100) lines up with the text column, and it sits 104 px above the bottom edge. Note, not a defect: the logo top (y 1193) is 35 px above the style bible's empty-corner band (lowest 9%) and 49 px higher than brand_overlay.py's default placement. It still sits on calm dark wood with strong contrast (logo_zone, full.jpg)."},
+    {"id": "V19", "result": "PASS", "severity": "", "region": "thumb_200", "evidence": "At 200 px wide (thumb_200.jpg) both headline sentences are readable, the crimson 'sistem.' box pops, and the agenda with red squares, the red phone and the lit tower are recognisable. As expected, the kicker and CTA are too small to read there. The logo reads as a red mark plus a white word."},
+    {"id": "V20", "result": "N/A", "severity": "", "region": "window_tower", "evidence": "A still-life desk scene with no people by spec. The street beyond the glass has lit lamps, red tail-lights and wet reflections, so it does not read empty or frozen."},
+    {"id": "V21", "result": "FAIL", "severity": "minor", "region": "headline2: crimson box behind 'sistem.' (x 285-582, y 435-517)", "evidence": "Pre-existing (v1 box is 161,9,17). The style matches otherwise: Tirana at night, warm tungsten from the lamp and on the wood, ivory heavy sans (measured 250,249,245), and a red-cased phone, with no gold except inside the real logo file. But the highlight rectangle, flat and solid as required, measures #A00911 (median 160,9,17) where the brand crimson is #B31217 (179,18,23). CIEDE2000 = 4.0, a visibly deeper red when placed beside the brand swatch. Minor because it is invisible without the swatch."},
+    {"id": "V22", "result": "PASS", "severity": "", "region": "full, tiles", "evidence": "Photographic realism holds. Real wood grain with specular highlights, paper texture and a soft page curl on the agenda, glass reflections on the phone, natural depth of field on the tower. No plastic look (tile_r2c2, tile_r3c2, tile_r3c3)."},
+    {"id": "V23", "result": "FAIL", "severity": "minor", "region": "bottom-left, just above and right of the pasted mark: x 130-175, y 1163-1196", "evidence": "Caused by the fix. In v1 a diagonal line of 5-6 bright highlight beads runs along the table edge down to the logo area. In v2 the line stops after 2 beads, and beads 3-6 are replaced by a soft, featureless brown smear. This is the only changed blob outside both logo footprints (mean change 75 levels), and local texture std fell from 16 to 3. Clear at 5x/6x (beads_5x_orig_left_fixed_right.jpg, notch_gap_6x_orig_left_fixed_right.jpg) and visible at 2x as an abrupt end of the bead line with a blur patch above the gold square (logozone_2x_orig_top_fixed_bottom.jpg, tile_r3c1.jpg). It is barely noticeable at 1x (zone_1x_orig_left_fixed_right.jpg). Everything else around the logo is clean: no seam or colour blotch. The fill under the logo (y 1247-1270) matches the texture of the untouched rows below (std 0.4-1.1 vs 0.3-1.1) and the brightness of v1 (13.2 vs 13.1). No smear shows in the enhanced 2x/3x views or the diff map (zone_2x_enh_orig_top_fixed_bottom.jpg, zone_diff_x3_2x.jpg). No other artefacts in the 9 tiles."},
+    {"id": "V24", "result": "PASS", "severity": "", "region": "logo_zone", "evidence": "The logo in the corner is the real file. straightscale-logo-light.png at 295x57 placed at x98,y1191 reproduces it pixel for pixel, with a core error of 2.3 levels and red, gold and ivory within 2 levels of the file. It is crisp at 3x, with no stretch: aspect 5.39 vs the file's 5.38 (logo_realfile_composite_top_vs_fixed_bottom_3x.jpg, realfile_view.jpg). No remnant of v1's drawn logo (a red square with a white 'S', a notched gold square and a thinner wordmark at x 102-387, y 1216-1267). There are no ghost letters in the enhanced 3x view, and the strip under the logo has zero red, gold or bright pixels (max luminance 33). The gap between mark and wordmark where the drawn gold square sat is plain dark wood (logo_3x_enhanced_orig_top_fixed_bottom.jpg, notch_gap_6x_orig_left_fixed_right.jpg). No other brands' logos: the phone lies screen-up with no maker logo, and the lamp, books and agenda are unbranded. No real people."},
+    {"id": "V25", "result": "PASS", "severity": "", "region": "full", "evidence": "No before and after, no 'your [condition]', nothing that shames; the line is a neutral contrast (luck vs system)."},
+    {"id": "V26", "result": "N/A", "severity": "", "region": "full", "evidence": "No AI person in the image. The account's AI label (hub notes: 'AI label: on') is a posting setting, not something on the image."}
+  ],
+  "defects_summary": {
+    "critical": 0,
+    "major": 0,
+    "minor": 3,
+    "caused_by_fix": ["V23"],
+    "pre_existing": ["V11", "V21"],
+    "rule": "Hero asset: PASS only with zero defects of any severity, so FAIL. The logo fix itself passes (V24): the real file, crisp and undistorted, with no drawn-logo remnants."
+  },
+  "fix": {
+    "route": "edit",
+    "prompt_changes": [
+      "V23 (code, no model): copy the v1 pixels (be2672d8-7527-434c-8be5-8fe201468af1.jpg) back into v2 over the rectangle x 120-185, y 1150-1196, but only where the real logo's alpha (295x57 at x98,y1191) is 0. v1 has no drawn logo above y 1205 there, so this restores the table-edge highlight beads exactly. Feather the rectangle edge by 2-3 px. Check at 2x and 5x that the bead line runs unbroken down to the gold square.",
+      "V21 (code, no model): recolour only the highlight rectangle behind 'sistem.' (x 285-582, y 435-517) to a flat solid #B31217. Use a hue mask (R>100, G<60, B<60), shift those pixels by (+19,+9,+6) toward 179,18,23 weighted by their redness, so the antialiased edges of the ivory letters keep their blend, and leave the letters and the period untouched. Measure again: the median should be within 1-2 levels of #B31217.",
+      "V11 (code, no model, preferred): flatten the tiny pseudo-word day headers on both agenda pages (about 12 marks within x 40-720, y 810-1075, plus the footer mark near x 495-525, y 1068) to plain paper. Use a small local inpaint or median from the paper 3-4 px around each mark, and keep the ruled lines and the red squares. If a model edit pass is used instead (v2 as the single edit_source), the instruction is: 'Keep everything identical. Only change: the tiny printed headers above the day boxes on both agenda pages become blank paper with no letters or marks; keep the ruled lines and the red squares exactly as they are.' Paste the real logo again last.",
+      "Then send the result as v3 to a fresh G-VIS review. If any model edit touched the image, read the kicker, both headline lines and the CTA letter by letter again (every ë and the ç in 'çdo')."
+    ]
+  },
+  "notes": [
+    "Every fix above can be done in code from v1/v2 without a new generation, so the headline and scene stay exactly as they are.",
+    "Copy-gate note, not a visual defect and not counted in the status: the alt text leaves out the on-image kicker 'PËR PRONARËT E BIZNESEVE'."
+  ]
+}

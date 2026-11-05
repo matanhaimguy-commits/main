@@ -1,0 +1,72 @@
+{
+  "gate": "G-PROMPT-IMG",
+  "asset_id": "SL02",
+  "version": 1,
+  "prompt_sha256": "c677efbcbf58d9f8df9616aa1a36bc4a564618f3874897e578b662a211646431",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "P1",
+      "result": "PASS",
+      "evidence": "Subject PR-PHONE in stand, 'Hands: no hands and no people are visible', PR-STAND, PR-PHONE-SCREEN (grid only), PR-ARROW, 4 text strings, desk 'about 10 degrees above', 4 must_not lines all in 'Avoid'"
+    },
+    {
+      "id": "P2",
+      "result": "PASS",
+      "evidence": "'Image 1 is the style reference ... Image 2 is the approved cover ... Image 3 is the prop sheet PS-PROFILE: copy the phone screen state \"GRID\"'; matches upload order (STYLE-TOP, PENDING-SL01-APPROVED-COVER, PENDING-PS-PROFILE-APPROVED)"
+    },
+    {
+      "id": "P3",
+      "result": "PASS",
+      "evidence": "'Hands: no hands and no people are visible in the frame.' (spec hands: none visible)"
+    },
+    {
+      "id": "P4",
+      "result": "PASS",
+      "evidence": "'The phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support; nothing touches it.'"
+    },
+    {
+      "id": "P5",
+      "result": "PASS",
+      "evidence": "PR-PHONE-SCREEN (lit, grid only): 'a three-by-three grid of nine near-identical square photos of finished kitchens ... no message bubble'; negative 'screens hold only the shapes described in the props block' keeps the grid"
+    },
+    {
+      "id": "P6",
+      "result": "PASS",
+      "evidence": "\"Të krahasojnë\" / \"me çmimin\" / \"kur s'shohin gjë tjetër.\" / \"2/8\" each with surface, x/y position, size, colour; 'nothing overlapping a letter'; ë/ç words spelled (Të, krahasojnë, çmimin, gjë, tjetër); 'Apostrophes are straight apostrophes.'"
+    },
+    {
+      "id": "P7",
+      "result": "PASS",
+      "evidence": "'Nothing on the desk or the walls carries a word, a logo or a sign.' plus 'the window glass reflects no text; no shop signs on the street'; window content given: 'the Tirana clock tower a small lit silhouette'; 'The phone screen shows only the photo grid.'"
+    },
+    {
+      "id": "P8",
+      "result": "PASS",
+      "evidence": "No two instructions conflict: 'no hands and no people are visible in the frame' agrees with the stand holding the phone; top 40% calm wall agrees with phone box top at 40% or lower"
+    },
+    {
+      "id": "P9",
+      "result": "PASS",
+      "evidence": "'Carry-over: The phone leaves the hand and stands in a stand on the desk; the same photo grid, now without the bubble. Same desk and lamp.' equals spec carry_over"
+    },
+    {
+      "id": "P10",
+      "result": "PASS",
+      "evidence": "Packet settings match STANDARDS 1: gpt_image_2_5, 4:5 ('Instagram carousel slide, portrait 4:5'), 2k, medium, flare, role image_references, count 1; counter 'N/8' within 7 to 12 slides; ë and ç spelled out; no em dashes; headline 7 words or fewer"
+    },
+    {
+      "id": "P11",
+      "result": "PASS",
+      "evidence": "Terms are concrete ('three-by-three grid of nine', 'one groove', 'message bubble with a small ivory tail'). Non-blocking note: the template line 'If this scene describes no window, no window and no clock tower is drawn.' has a false condition here because the Setting describes the window."
+    },
+    {
+      "id": "P12",
+      "result": "PASS",
+      "evidence": "FL-01 text is on the top wall (y 6-39%), nothing near it; FL-02 'one lamp with one round shade on one stem and one round base', stand 'with one groove'; FL-03 contact points; FL-04/05 every screen and the window have a content line; FL-10 'No other words, letters or numbers anywhere, including screens, signs, papers and labels'; FL-13 'Bottom-left corner ... calm, dark, empty ... no logo, no letters, no objects (a logo is added later)'"
+    }
+  ],
+  "corrected_prompt": null
+}

@@ -1,0 +1,22 @@
+{
+  "files_opened": [
+    "qa/f6/SHEET-ANIM3D.jpg",
+    "qa/f6/BOARD-ANIM3D.jpg",
+    "qa/f6/SHEET-ANIM2D.jpg",
+    "qa/f6/BOARD-ANIM2D.jpg",
+    "assets/T-FACE.v1.png"
+  ],
+  "ANIM3D": {
+    "sheet": {"A": 8, "B": 4, "notes": "A: real feature-animation 3D (smooth stylised skin, big eyes, soft subsurface light), clean front/3-4/side/back plus neutral and smile heads, consistent hair, beard, sweater and jeans. Heads float without a body and are slightly generic; the likeness is a stylised approximation. B: reads as a photographed figurine or filtered photo with real skin pores and photo-real face crops, so style truth fails. Hands are hidden in pockets in the first three views. Close-ups are cropped by the frame bottom. Views are consistent and the likeness is closer, but it is not animation."},
+    "board": {"A": 8, "B": 6, "notes": "A: three stacked panels with gutters, consistent stylised character matching its sheet, same room in all panels, correct actions (empty calendar and worried, phone review with stars and surprised, filled colour calendar and smiling). Hands look clean. Minor: laptop is closed in panel 2 and the camera angle shifts a little. B: same set in all panels and good actions, but the character is semi-realistic and looks like a rendered photo. Extra props (lamp, mug) are harmless. Phone-hand and chin-hand anatomy are acceptable. No stray text in either."},
+    "winner": "A",
+    "why": "A is a true polished 3D animation look that holds across the sheet and board. B drifts to photoreal and fails style truth, though its likeness is closer."
+  },
+  "ANIM2D": {
+    "sheet": {"A": 8, "B": 3, "notes": "A: real 2D cartoon with bold ink outlines and flat gouache-like fills, full turnaround plus neutral and laughing heads, consistent outfit. Weaknesses: smile head is over-exaggerated (squinting, big teeth) so the likeness drifts, and the shading is somewhat vector-clean rather than gouache. The heads overlap the row area a little. B: a photo with a paper-texture filter, no ink outlines, face close-ups are photographic. This is the filtered-photo failure the brief warns about, though the likeness is the strongest."},
+    "board": {"A": 9, "B": 4, "notes": "A: three framed panels with ink borders on aged paper, so it reads as a storybook. Character matches its sheet, the same room, correct actions (worried with hand on cheek, phone review with stars, colourful calendar filling and smile). Hands are mostly fine; the phone-hand fingers are a little busy. B: three stacked panels with white gutters and the right actions, same set, but it is painterly photoreal with no ink outlines. Panel 2 has awkward crossed arms and the smile in panel 3 is faint."},
+    "winner": "A",
+    "why": "A delivers real ink-outlined 2D storybook style, complete sheet and storyboard. B is a filtered photo, not 2D."
+  },
+  "summary": "A wins both ANIM3D and ANIM2D. Model A honours the stylised look in both its sheets and its boards. Model B has better raw likeness but falls back to photoreal output, which fails style truth. Caveat: A's likeness is approximate, and its 2D smile close-up is over-exaggerated."
+}

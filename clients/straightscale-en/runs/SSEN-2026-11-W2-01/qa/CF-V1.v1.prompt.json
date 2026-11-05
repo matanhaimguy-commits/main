@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CF-V1",
+ "version": 1,
+ "prompt_sha256": "2867b72715ec62813d34bbdd902e7b2d1ae40ae347fcc4bb5992661534709626",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "All spec blocks appear: 'Subject: ... One modern black smartphone', 'Hands:' left and right with counts, 'Props:' chat view, 'Text: ... \"We can get it done cheaper.\"', Setting, Camera 'top 30% ... plain wall', Look 'mustard-yellow knit sleeves'."
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'Reference images: none attached; this prompt is the only input.' matches media none (text-to-image); all 11 card blocks present in order."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'Exactly two hands: the right hand with five visible fingers, the left hand with only its thumb visible' plus per-hand holds, touches and 'No letter touches a thumb, a finger, a hand or a sleeve'."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'The left thumb rests along the phone's left edge and its four hidden fingers grip the phone's lower back; the right thumb hovers about 1 cm above the glass, frozen, touching nothing.'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Props: 'plain chat view on a white background with exactly one large light-grey incoming message bubble ... and empty white space below it'; phone marked not story-critical by design, content still filled; negatives are targeted, not a blanket 'no text'."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "'inside the one grey bubble, centred, in dark charcoal plain sans-serif ... \"We can get it done cheaper.\"' (5 words) and 'No hand, finger, sleeve rises above the line 62% of the way down'."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'No other screens, papers, posters or readable words anywhere except the message in the bubble; the desk is bare.'"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Right fingers 'none reaching past the line 79%' agrees with 'hands stay out of the right 21% of the frame's lower half'; hands below the 62% line agrees with the bubble at y 33% to 54%."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'Continuity: none, this is the first frame of the reel.' (spec previous_shot null)."
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "standards.json models.atlas.allowed openai/gpt-image-2/text-to-image: still allowed, quality medium, size 1152x2048 is the 9:16 size; prompt says 'vertical 9:16'; no text_fields; no video or declined_preset_id apply; hero registered."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "'tall letters (the W and the ascenders) about 60 px high on a frame 1152 px wide' with 'only the W is a capital letter, not all capitals'; 'all positions in this prompt are measured down from the top edge and across from the left edge'."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01 prevention: 'No letter touches a thumb ... hand or a sleeve', hands below y 62%, 'each line ending well inside the bubble's edge'; FL-11 'it appears once'; FL-08 hands/props lines present; no logo asked (FL-13 n/a)."
+  }
+ ],
+ "corrected_prompt": null
+}

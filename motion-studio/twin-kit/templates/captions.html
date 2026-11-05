@@ -1,0 +1,122 @@
+<!doctype html>
+<!--
+  Twin kit: word captions (layer 60) from the voice's word timings on the film clock. Captions 80 to 100 px in the
+  caption band (55-62% down, STANDARDS 6), one line per card (a card too wide for the band is split in two), up to
+  max_words words and max_chars characters per card, split at pauses and sentence ends, gone 0.35 s after the last
+  word, never shown during a whip (a card that starts in one waits for its end); the spoken word turns the accent colour. Each group pops on a short
+  settle. Hidden over the given ranges (the end card, full-screen UI that carries its own words).
+  Variables: words (JSON [{w,s,e}], film seconds), hide (JSON [[start,end],...]), y (centre, px), size, max_words, dur.
+-->
+<html
+  data-composition-id="kit-captions"
+  data-composition-duration="60"
+  data-composition-variables='[
+    {"id":"words","type":"string","label":"Words JSON","default":"[]"},
+    {"id":"hide","type":"string","label":"Hidden ranges JSON","default":"[]"},
+    {"id":"y","type":"number","label":"Centre y (px)","default":1130},
+    {"id":"size","type":"number","label":"Font size (px)","default":88},
+    {"id":"max_words","type":"number","label":"Words per group","default":3},
+    {"id":"max_chars","type":"number","label":"Characters per group","default":11},
+    {"id":"left","type":"number","label":"Left margin (px)","default":65},
+    {"id":"right","type":"number","label":"Right margin (px, the right 21% of the lower half stays clear)","default":227},
+    {"id":"dur","type":"number","label":"Film length (s)","default":10}
+  ]'
+>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #root { position: absolute; inset: 0; overflow: hidden; }
+        .cp-group { position: absolute; display: flex; justify-content: center; flex-wrap: nowrap; white-space: nowrap;
+                    gap: 0 0.28em; opacity: 0; }
+        .cp-w { display: inline-block; font-family: var(--kit-ui); font-weight: 700; color: var(--kit-fg); text-transform: uppercase;
+                letter-spacing: 0.01em; paint-order: stroke fill; -webkit-text-stroke: 10px rgba(0, 0, 0, 0.85); }
+      </style>
+      <div id="root" data-composition-id="kit-captions" data-duration="60"></div>
+      <script>
+        // built after the web fonts load: widths measured with a fallback font would be wrong (kit review 30 Oct)
+        document.fonts.ready.then(function () {
+          var root = document.getElementById("root");
+          var v = (window.__hyperframes && window.__hyperframes.getVariables()) || {};
+          var words = [], hide = [];
+          try { words = JSON.parse(v.words || "[]"); hide = JSON.parse(v.hide || "[]"); } catch (e) {}
+          var size = Number(v.size) || 88, y = Number(v.y) || 1130, maxW = Number(v.max_words) || 3, maxC = Number(v.max_chars) || 11;
+          var left = Number(v.left == null ? 65 : v.left), right = Number(v.right == null ? 227 : v.right);
+          var groups = [], cur = [];
+          words.forEach(function (w, i) {
+            var prev = cur[cur.length - 1];
+            var chars = cur.map(function (c) { return c.w; }).join(" ").length + 1 + w.w.length;
+            if (cur.length && (cur.length >= maxW || chars > maxC || w.s - prev.e > 0.25 || /[.!?,]$/.test(prev.w))) { groups.push(cur); cur = []; }
+            cur.push(w);
+          });
+          if (cur.length) groups.push(cur);
+          // one line per card: a card wider than the band is split in two (measured with the real font)
+          var band = 1080 - left - right, probe = document.createElement("span");
+          probe.className = "cp-w"; probe.style.fontSize = size + "px"; probe.style.position = "absolute"; probe.style.visibility = "hidden";
+          root.appendChild(probe);
+          function fits(g) { probe.textContent = g.map(function (w) { return w.w; }).join(" "); return probe.getBoundingClientRect().width <= band; }
+          groups = groups.reduce(function (acc, g) {
+            var todo = [g];
+            while (todo.length) {
+              var c = todo.shift();
+              if (c.length > 1 && !fits(c)) { var m = Math.ceil(c.length / 2); todo.unshift(c.slice(0, m), c.slice(m)); }
+              else acc.push(c);
+            }
+            return acc;
+          }, []);
+          root.removeChild(probe);
+          // kit:schedule start (pure; tests/test_template_logic.py runs this exact text under node)
+          // When each card shows. A card that starts inside a short hidden range (a whip) or just before it waits for
+          // the range's end and keeps all its words; a card in a long hidden range (the end card) is dropped; a card
+          // leaves at the next card, 0.35 s after its last word (but shows 0.4 s at least), or before a hidden range.
+          function schedule(groups, hide) {
+            function inShort(t) {
+              for (var i = 0; i < hide.length; i++) {
+                var r = hide[i];
+                if (r[1] - r[0] < 1 && t >= r[0] - 0.08 - 1e-6 && t < r[1]) return r;
+              }
+              return null;
+            }
+            function inLong(t) { return hide.some(function (r) { return r[1] - r[0] >= 1 && t >= r[0] - 1e-6 && t < r[1]; }); }
+            function nextHide(t) { return hide.reduce(function (m, r) { return r[0] > t + 1e-6 ? Math.min(m, r[0] - 0.08) : m; }, Infinity); }
+            var starts = groups.map(function (g) { var r = inShort(g[0].s); return r ? r[1] : g[0].s; });
+            for (var k = 1; k < starts.length; k++) {
+              var pushed = starts[k - 1] !== groups[k - 1][0].s;
+              if (pushed && starts[k] < starts[k - 1] + 0.4) starts[k] = starts[k - 1] + 0.4;
+            }
+            return groups.map(function (g, k) {
+              var start = starts[k], last = Math.max(g[g.length - 1].e + 0.35, start + 0.4);
+              var end = Math.min(k + 1 < groups.length ? starts[k + 1] : Infinity, last, nextHide(start));
+              return inLong(start) || end <= start ? null : { start: start, end: end };
+            });
+          }
+          // kit:schedule end
+          var when = schedule(groups, hide);
+          var tl = gsap.timeline({ paused: true });
+          var accent = getComputedStyle(root).getPropertyValue("--kit-accent").trim() || "#DD9A10";
+          var fg = getComputedStyle(root).getPropertyValue("--kit-fg").trim() || "#F8F6EF";
+          groups.forEach(function (g, k) {
+            var el = document.createElement("div"); el.className = "cp-group";
+            el.style.top = y - size * 0.6 + "px"; el.style.fontSize = size + "px";
+            el.style.left = left + "px"; el.style.right = right + "px";
+            el.setAttribute("data-layout-allow-caption-zone", "");
+            var spans = g.map(function (w) {
+              var s = document.createElement("span"); s.className = "cp-w"; s.style.fontSize = size + "px";
+              s.textContent = w.w.replace(/[.,!?;:]+$/, ""); el.appendChild(s); return s;
+            });
+            root.appendChild(el);
+            if (!when[k]) return;
+            var start = when[k].start, end = when[k].end;
+            tl.fromTo(el, { opacity: 1, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.12, ease: "back.out(2)", immediateRender: false }, start);
+            tl.set(el, { opacity: 0 }, end);
+            g.forEach(function (w, i) {
+              tl.set(spans[i], { color: accent }, w.s);
+              tl.set(spans[i], { color: fg }, w.e);
+            });
+          });
+          window.__timelines["kit-captions"] = tl;
+        });
+      </script>
+    </template>
+  </body>
+</html>

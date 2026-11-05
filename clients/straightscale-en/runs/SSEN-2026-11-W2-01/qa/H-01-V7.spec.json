@@ -1,0 +1,71 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "H-01-V7",
+ "spec_sha256": "c0983a566a0e967f22b5db0df7fe3cea3514b6f994cdcbba5d65b347cad4f368",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s: 'The phone says \"We can get it done cheaper.\"' (one moment); subjects, hands, props, text_in_image, setting, camera, style, must_not all written; regions boxed for hook zone, phone, bubble, left-hand, pen-hand, pen; no face in shot so no face region."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "count_check: 'two hands; right hand five visible fingers; left hand one visible thumb, its four fingers hidden behind the phone; one pen; no extra hand or finger'; contact and must_not_cover lines present for both hands."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "action_physics: 'The left thumb rests along the phone's left edge and its four hidden fingers grip the phone's lower back; the right thumb and index finger pinch the red pen's barrel ... in front of the phone, touching nothing.'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-PHONE-SCREEN content: 'exactly one large light-grey incoming bubble at the top of the screen (x 22% to 78%, y 33% to 54% of the frame) ... no names, no avatars, no status bar, no time, no app logo'; story_critical false is explained in notes (no prop sheet before the look bible); must_not says 'no words other than the message', not a blanket 'no text'."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "text_in_image: string 'We can get it done cheaper.' (6 words, within the limit), surface 'inside the one grey bubble ... dark charcoal plain sans, 2 or 3 lines, sentence case', position 'centred in the bubble', case as_written, must_be_exact true, occlusion 'no hand, finger, sleeve or pen reaches above y 62%'."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: 'No other screens, papers, posters or readable words anywhere except the message in the bubble; the wall is plain; the desk is bare.' The phone screen itself has a content line."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Geometry agrees: bubble y 33% to 54%, pen tip y 62%, hands from y 66%/72%, top 30% empty, phone x 16% to 84%, hands out of x>79% in the lower half. safe_zones now reads 'bubble (y 33% to 54%), sits inside the 15% to 55% band, below the empty top 30%', which no longer allows content in y 15% to 30%. Left sleeve 'behind the phone' and right sleeve 'in front of the phone' are stated separately and do not conflict."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "continuity: previous_shot null, carry_over [] (frame 1 of the hook shot)."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "Depth order is explicit for both wrists, the 62% line is defined as 'y measured down from the top edge', percentages are anchored to the top-left corner, letter case is spelled out ('only the W is a capital letter, not all capitals'), and the pen's cap is stated as not in frame."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01: 'no letter touches anything', hands and pen kept in the lower 38% and in front of the phone; FL-03: contact-point action; FL-04: screen content filled; FL-05/FL-10: background_rule; FL-11: instances 1, one pen. FL-13 not triggered (no logo asked; none wanted)."
+  }
+ ],
+ "suggested_spec_changes": []
+}

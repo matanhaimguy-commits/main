@@ -1,0 +1,121 @@
+{
+ "client": "straightscale",
+ "month": "2026-10 / 2026-11",
+ "theme": "Patchwork Marketing -> the Only Choice System",
+ "belief_focus": "New account with no public proof: mostly B1/B2 for reach, B3/B4 for trust, B5/B8 for the one convert post a week; B6 only through The Build.",
+ "stage": "new",
+ "mix": {
+  "reach": 0.5,
+  "trust": 0.35,
+  "convert": 0.15
+ },
+ "formats_per_week": {
+  "reel": 3,
+  "carousel": 3,
+  "image": 1
+ },
+ "pillars": [
+  {
+   "name": "Find",
+   "scope": "broad",
+   "covers": "knowing your buyer and why they choose: research, buyer words, why they compare on price"
+  },
+  {
+   "name": "Own",
+   "scope": "narrow",
+   "covers": "standing out so you're the only choice: offer, message, positioning"
+  },
+  {
+   "name": "Attract",
+   "scope": "narrow",
+   "covers": "ads and content that bring the right buyers"
+  },
+  {
+   "name": "Convert",
+   "scope": "narrow",
+   "covers": "turning enquiries into meetings: speed, follow-up, WhatsApp, the first call"
+  },
+  {
+   "name": "Close",
+   "scope": "narrow",
+   "covers": "turning meetings into sales: showroom, quote, follow-up, the numbers"
+  }
+ ],
+ "series": [
+  {
+   "name": "Patchwork Autopsy",
+   "kind": "hard",
+   "format": "carousel_teardown",
+   "pillar": "Own",
+   "belief": "B2",
+   "job": "trust",
+   "length": "8-10 slides",
+   "cta": "comment a question",
+   "visual_template": "to lock (OS 13.7)",
+   "target_episodes": 10,
+   "status": "lab",
+   "rule": "public brands, public ads or anonymized cases only"
+  },
+  {
+   "name": "One Step",
+   "kind": "hard",
+   "format": "carousel_framework",
+   "pillar": "rotates Find, Own, Attract, Convert, Close",
+   "belief": "B4",
+   "job": "trust",
+   "length": "7-9 slides",
+   "cta": "save",
+   "visual_template": "to lock (OS 13.7)",
+   "target_episodes": 10,
+   "status": "lab"
+  },
+  {
+   "name": "Ad Library Spy",
+   "kind": "soft",
+   "format": "reel_motion",
+   "pillar": "Attract",
+   "belief": "B1",
+   "job": "reach",
+   "length": "30-45 s",
+   "cta": "send to a partner",
+   "visual_template": "to lock (OS 13.7)",
+   "target_episodes": 10,
+   "status": "lab",
+   "rule": "Meta Ad Library is public; no business mocked by name"
+  },
+  {
+   "name": "The Build",
+   "kind": "hard",
+   "format": "reel_strategist_prop",
+   "pillar": "Convert",
+   "belief": "B6",
+   "job": "convert",
+   "length": "45-60 s",
+   "cta": "comment ANALIZA",
+   "visual_template": "to lock (OS 13.7)",
+   "target_episodes": 10,
+   "status": "waiting: needs a client who agrees to be documented (D5)"
+  }
+ ],
+ "keywords": [
+  {
+   "keyword": "ANALIZA",
+   "use": "main offer, convert posts and some trust posts",
+   "live": true
+  },
+  {
+   "keyword": "PATCHWORK",
+   "use": "lighter resource for browsers (Patchwork Test)",
+   "live": false
+  }
+ ],
+ "buyer_formats": [
+  "carousel_self_check",
+  "image_question",
+  "reel_quote_broll"
+ ],
+ "buyer_formats_source": "research/2026-10-14: Eri's numbered self-check carousel 30x, his owner-fear question image 7.8x, Hormozi one-line reframes 2.4-4.4x (likes-based; redo with the 3-month views-based method)",
+ "calendar": "ORGANIC-OS 6.6 template C: Mon reel B1 reach, Tue carousel B4 trust (One Step), Wed reel B2/B3 trust (Autopsy), Thu carousel B1/B3 reach-trust ANALIZA, Fri reel B5/B6/B8 convert ANALIZA, Sat image B7 trust, Sun carousel B7 + trial re-test. No format two days in a row.",
+ "open_slot_share": 0.2,
+ "approved_by": "pending: Director review, then Matan"
+}

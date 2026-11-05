@@ -1,0 +1,113 @@
+{
+  "gate": "G-FINAL",
+  "asset_id": "FINAL",
+  "version": 1,
+  "post": "2026-w42-6-reel",
+  "hub_row": 7,
+  "scheduled": "2026-10-17 19:30 Europe/Tirane",
+  "reviewer": "take-reviewer (fresh agent)",
+  "independent": true,
+  "status": "FAIL",
+  "method": "Higgsfield sandbox (CDN blocked here): curl -sf of the MP4 and cover into /home/user/qa/w42-6-reel.v1/; ffprobe; frames every 1.5 s + first (0.000) + last (13.567) + both sides of every cut (ffmpeg scene > 0.3: 0.667, 7.1; > 0.15 adds 10.9 end card); dense sheets every 0.333 s; caption-band change scan every frame; full-res crops; faster-whisper small, language sq, word timestamps; ffmpeg loudnorm print_format=json plus ebur128 peak=true; logo compared with straightscale.com logo-light.png (fetched in the sandbox) and the local house file clients/straightscale/brand/wordmark-white.png. Evidence files: qa/frames/FINAL.v1/ (manifest.json, whisper_small_sq.json, loudness.json).",
+  "source": {
+    "video": "https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/dc28c10d-b2a2-4ced-8f91-be34d8ddb1ed.mp4",
+    "video_sha256": "3d0941f634f68d1cce0341168dc331e36795b36d226475ccbadbd21adcb04bcc",
+    "cover": "https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/9c2c812f-dfdd-4ff8-aa62-90cf02da69ca.jpg",
+    "cover_sha256": "388334b62268e02f49561020d86000ab75eef4838d24ebb7355ee2e949328168",
+    "probe": "H.264 High 1080x1920, 30 fps, 408 frames, 13.600 s; AAC LC 48 kHz mono"
+  },
+  "files_opened": [
+    "contact_1.jpg", "contact_2.jpg", "contact_3.jpg", "dense_1.jpg", "dense_2.jpg",
+    "crops/first_0.000.jpg", "crops/last_13.567.jpg",
+    "crops/cut_0.633_0.667.jpg", "crops/cut_7.067_7.1.jpg",
+    "crops/shop_0.0.jpg", "crops/shop_1.5.jpg", "crops/shop_3.0.jpg",
+    "crops/phone_caption_0.667.jpg", "crops/phone_caption_1.5.jpg",
+    "crops/hands_3.0_4.5.jpg", "crops/hand_seq_4_6.jpg",
+    "crops/signs_7.1.jpg", "crops/tower_7.1.jpg", "crops/kiosk_10.5.jpg",
+    "crops/caption_cards.jpg", "crops/logo_compare.jpg", "crops/endcard_12.0.jpg",
+    "crops/cover_half.jpg", "crops/cover_200.jpg", "crops/cover_grid34_150.jpg",
+    "repo: clients/straightscale/brand/wordmark-white.png", "repo: clients/straightscale/brand/logo-full.png"
+  ],
+  "checks": [
+    {
+      "id": "F1",
+      "result": "PASS",
+      "severity": "minor",
+      "at_s": "0.0-13.567",
+      "evidence": "Frames 0.0, 0.1, 0.3, 0.633, 0.667, 1.5, 3.0, 4.5, 6.0, 7.067, 7.1, 7.5, 9.0, 10.5, 10.867, 10.9, 12.0, 13.5, 13.567 plus dense frames every 0.333 s. No morphing, melting, flicker, extra limbs or duplicated people; hands natural and empty (3.0, 4.0 to 6.0); the man leaves frame left by dolly at 9.3 to 10.3 (reads as camera move). No logo, letters or brand mark drawn by the image or video model: the blue street sign at 7.1 is a pictogram with no letters, the clock tower faces show no numerals, the kiosk shelves at 10.5 show no legible text, no screens and no numbers anywhere. Two minors: (1) FL-10: the lit shop window bottom-left (x 0-560, y 1250-1920) shows product packaging with pseudo-letters ('RU..U' boxes, 'CA..' cans) from 0.0 to 7.0 s, legible only zoomed, below the 65% line where Instagram's caption UI sits; (2) continuity at the model-made cut 0.633 -> 0.667: in the wide shot the shutter's bottom edge is at his head height, in the close shot he holds it above his raised hands, and the red phone moves from his front-right hip to his back-right hip. Both pass the final rule (zero critical, zero major)."
+    },
+    {
+      "id": "F2",
+      "result": "PASS",
+      "severity": "",
+      "at_s": "0.4-13.6",
+      "evidence": "Sound-off watch: every spoken word is on screen as a caption card (0.400 to 10.9 s) and the picture carries the story (an owner pulls the shutter down at night 0.0 to 4.0, turns 4.0 to 7.0, looks down the wet street to the clock tower 7.1 to 10.9; the end card 10.9 to 13.6 carries the ask 'Dërgoja një pronari / që ka nevojë / ta dëgjojë sot.'). The only gap is the textless opening (0.000 to 0.367), scored under F6."
+    },
+    {
+      "id": "F3",
+      "result": "FAIL",
+      "severity": "major",
+      "at_s": "0.400-10.900",
+      "evidence": "Spelling exact, letter by letter, all diacritics right: C1 'Kjo javë e vështirë' (0.400-1.467), C2 'është për tani,' (1.467-2.567), C3 'jo përgjithmonë.' on red (2.567-4.033), C4 'Ke kaluar edhe të tjera.' (4.033-6.167), C5 'Mbylle për sot, pusho,' (6.167-8.333), C6 'dhe nesër fillo' (8.333-9.300), C7 'nga një gjë e vogël.' (9.300-10.900); end card 'Dërgoja një pronari / që ka nevojë / ta dëgjojë sot.' matches script.md (no ç in this script). Timing: each card lands on or up to 0.15 s before its word (voice onsets 0.52, about 1.45, 2.55, 4.05, 6.2, 8.30, about 9.3). Contrast fine (ivory on dark box; white on red about 6:1). DEFECTS: MAJOR, safe zone: C4 text runs to x=942 (box to about x=975) at y 1185-1235, 89 px into the right 21% of the lower half (zone x >= 853), where the Reels like/comment rail sits (4.033-6.167 s). MINOR: C5 text to x=887 (box about 911), 34 px into the same zone (6.167-8.333 s). MINOR: caption size 68 px (measured cap height 48 px on 'K' at 4.5 s) against STANDARDS 6's 80 to 100 px. MINOR: C4 and C7 are 5-word cards (rule 1 to 4). MINOR: text bottom at y 1246-1248 and the box to about y 1265, so the box crosses the bottom-35% line (y 1248) by about 17 px; the card centre sits at 63% down against 55 to 62%. MINOR: C1 and C2 boxes sit over the red phone in his pocket (the story prop, x about 525-600, y about 1150-1200) from 0.667 to 2.567 s, and on the cover."
+    },
+    {
+      "id": "F4",
+      "result": "PASS",
+      "severity": "",
+      "at_s": "0.52-10.24",
+      "evidence": "faster-whisper small, language sq, on the final mix: all 26 scripted words present in script order, no extra words, the [calm, warm, low voice] tag is not spoken. Raw: 'Kjo jave vë shtir është përtani, jopër gjithmon, ke kaluar edhe të tjera.' (0.0-5.26) / 'Mbule për sot, pëu sho, dhe nesër fë ilonganjë gjë e vogel.' (6.18-10.24). The spelling slips (Mbule, pëu sho, ilonganjë, vogel) are the small model's known Albanian errors (STANDARDS 4: use it for presence and timing). Pauses: 0.3 s after 'tani', 0.7 s after 'përgjithmonë', 1.0 s after 'tjera', 0.4 s after 'sot', 0.5 s after 'pusho' (not compressed). A native Albanian listen is still open (G-HUMAN-FINAL), as script.md's QA list says."
+    },
+    {
+      "id": "F5",
+      "result": "FAIL",
+      "severity": "major",
+      "at_s": "0.0-13.6",
+      "evidence": "ffmpeg loudnorm print_format=json: input_i -15.80 LUFS, input_tp -1.48 dBTP, input_lra 13.70 LU, input_thresh -27.70. ebur128 peak=true: I -15.2 LUFS, true peak -1.5 dBTP, LRA 8.3 LU, short-term max -14.5 LUFS at 9.3 s. Integrated loudness is outside -14 +/-1 on both meters (window -15.0 to -13.0); script.md's own figure (-15.2) is already outside. True peak passes (-1.48, at or under -1). LRA passes on ebur128 (8.3); loudnorm's 13.7 comes from this 13.6 s file being short. Short-term passes."
+    },
+    {
+      "id": "F6",
+      "result": "FAIL",
+      "severity": "major",
+      "at_s": "0.000-0.55",
+      "evidence": "Spoken format (narrator quote reel): STANDARDS 5 needs the first word at 0.0 s with the meaning within 0.1 s. Measured voice onset 0.50-0.55 s (RMS per 20 ms jumps from -30 to -8 dB at 0.50-0.58 s; only a fading-in music bed before, -53 to -33 dB). No text on screen on frames 0.000 to 0.367; the first caption ('Kjo javë e vështirë') appears at 0.400 s, mid-frame (62% down), with no top-third text hook. Motion in the first second passes (camera drift and the cut at 0.667). The script placed the voice at 0.4 s by design."
+    },
+    {
+      "id": "F7",
+      "result": "PASS",
+      "severity": "",
+      "at_s": "0.0-13.6",
+      "evidence": "No side-by-side before and after, no 'your [condition]' wording, no numbers, prices, links, discounts, guarantees or urgency. The CTA is 'send' (plan cta.type send), allowed by STANDARDS 5. The AI man is shown only from behind or in three-quarter rear view (ear and cheek at 0.667-2.0 s and on the cover, no face), never presented as a client: this meets the D1 interim. AI LABEL RULE (STANDARDS 7): this reel NEEDS Instagram's AI label ON: an ElevenLabs narrator voice speaking as a person, a photoreal AI person and realistic AI footage (H3). item.json carries no 'AI label: on' note; the hub draft's notes must say it (could not see the hub row from here)."
+    },
+    {
+      "id": "F8",
+      "result": "UNVERIFIED",
+      "severity": "major",
+      "at_s": "",
+      "evidence": "No run folder for this post (clients/straightscale/runs/ holds only SS-LIB-STYLE): no ledger, no G-BUDGET preflight, no calls.jsonl, no G-TAKE or G-AUDIO record. So the credit check against a preflight and the banned-model check G-FINAL needs cannot be run. From script.md: GPT Image 2.5 still, MiniMax H3 2K keyframe clip 12 s (job c0ad3a32, about 24 credits) after a failed first H3 try, ElevenLabs eleven_v4 voice take 2 of 4, music reused from the w43 session. Two process notes for the Director: STANDARDS 1 gives realistic-people start frames to gpt_image_2 (this photoreal man was made on GPT Image 2.5; the gate refuses 2.5 only for ugc, talking_head, podcast and drama specs); STANDARDS 2 says silent keyframe clips are one shot each, and this clip holds two model-made cuts (0.667 and 7.1). Both look clean in the cut, but no G-EXCEPTION or G-TAKE record covers them. This check cannot PASS until the records exist."
+    }
+  ],
+  "cover_check": {
+    "result": "PASS",
+    "severity": "minor",
+    "evidence": "1080x1920 JPEG, closest to the reel frame at about 0.7 s (mean abs diff 12.6 against 0.667). Shows the close shot with caption C1 'Kjo javë e vështirë' at about 62% down, inside Instagram's 3:4 grid crop (y 240-1680). Spelled right. No model-drawn logo or text except the same small pseudo-letter packaging bottom-left (minor, FL-10). The man is seen from behind or three-quarter rear (D1 fine). Minors: the caption box covers the lower part of the red phone, whose top edge sticks out above the box; the only text is a 4-word fragment at 68 px, readable but small at 200 px wide (about 9 px cap height) and 150 px grid size; no top-third headline. Re-export the cover from the fixed caption layout."
+  },
+  "end_card_logo": {
+    "result": "PASS",
+    "evidence": "10.9-13.6 s (2.7 s, music under it, -26 to -39 LUFS momentary, fading). The wordmark is a real file, not drawn by a model: same mark (red rounded square, S-shaped channel, gold square top right) and identical 'StraightScale' letterforms to straightscale.com logo-light.png, crisp at 3x zoom, identical at 10.9 and 12.0 s. Proportions match the house reel file clients/straightscale/brand/wordmark-white.png (text width / mark height 3.96 vs 3.94; text height / mark height 0.69 vs 0.70; mark aspect 1.013 vs 1.008). The website's logo-light.png has a slightly wider lockup (text width / mark height 4.26), so the site file and the house file differ a little; information only. Position x 97-495, y 1040-1117: inside the side margins and clear of the right zone."
+  },
+  "edit_fixes": [
+    "F5: remaster the mix to -14 LUFS integrated with a true-peak limiter at -1.5 dBTP (two-pass loudnorm using measured_I -15.80, measured_TP -1.48, measured_LRA 13.70, measured_thresh -27.70, offset 0.71). A plain gain of about +1.2 to +1.8 dB would push the true peak to about -0.3 to +0.3 dBTP, so it needs the limiter. Re-measure with vqa_crops.py loudness: pass is integrated -15.0 to -13.0, true peak at or under -1.0.",
+    "F6: move the voice+music mix and all caption cards 0.45 s earlier against the picture so the first word lands within 0.1 s and C1 is on screen from frame 1. Narrator only, no lip-sync, so the 7.1 cut landing inside 'pusho' is fine. Alternative: trim the first 0.45 s of the whole cut (picture, audio and captions together); the opening wide shot then runs about 0.22 s.",
+    "F3: re-set captions at 80 px Montserrat ExtraBold with a maximum text width of 788 px (x 65 to 853) and 2 or 3 words per card, e.g. 'Ke kaluar' / 'edhe të tjera.', 'Mbylle për sot,' / 'pusho,', 'nga një gjë' / 'e vogël.'. Re-time the split cards to the word times. Centre them about 56 to 58% down (box bottom above y 1248). That also lifts C1 and C2 off the red phone (y about 1150-1200), and the heads stay clear (heads at y 400-700). Run safezone.mjs --top 269 --bottom 672 --right 227 --left 65 --min 44 on the new render.",
+    "F1 (optional, minor): darken or soften the bottom-left shop-window packaging (x 0-560, y 1250-1920, 0.0-7.0 s) to remove the FL-10 pseudo-letters.",
+    "Cover: re-export from the fixed render so the phone is not cut by the caption box. Optional: a top-third headline of 4 to 10 words ('Kjo javë e vështirë është për tani') at 90 px or more, so it reads on the grid.",
+    "F7/F8 records: write 'AI label: on' in the hub draft notes for row 7. Create the run ledger with the G-BUDGET preflight and calls.jsonl, or G-EXCEPTION notes for the GPT Image 2.5 start frame and the multi-shot keyframe clip, so F8 and the banned-model check can run. Then re-review the new render (FINAL v2) with a fresh reviewer."
+  ],
+  "retake_needed": false,
+  "retake_prompt_changes": [],
+  "ai_label_needed": true,
+  "human_checks_open": [
+    "Native Albanian listen of the voice and read of the captions, end card and caption.txt (G-HUMAN-FINAL). The post caption says 'Dërgoja këtë një pronari...' while the end card says 'Dërgoja një pronari...'; both read as fine Albanian (clitic doubling), but confirm on the native read.",
+    "Sound-on listen on a phone (this reviewer measured the audio and could not listen)."
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "post_id": "SSEN-2026-11-W9-01",
+  "slug": "straightscale-en",
+  "format": "reel_animation_short",
+  "family": "ai_video",
+  "card": "clients/straightscale-en/cards/bank/SSEN-2026-11-W9-01.yaml",
+  "created": "2026-10-28T18:37:27+00:00",
+  "steps": {
+    "0": {
+      "status": "todo",
+      "note": ""
+    },
+    "1": {
+      "status": "todo",
+      "note": ""
+    },
+    "2": {
+      "status": "todo",
+      "note": ""
+    },
+    "3": {
+      "status": "todo",
+      "note": ""
+    },
+    "4": {
+      "status": "todo",
+      "note": ""
+    },
+    "5": {
+      "status": "todo",
+      "note": ""
+    },
+    "6": {
+      "status": "todo",
+      "note": ""
+    },
+    "7": {
+      "status": "todo",
+      "note": ""
+    },
+    "8": {
+      "status": "todo",
+      "note": ""
+    },
+    "9": {
+      "status": "todo",
+      "note": ""
+    },
+    "10": {
+      "status": "todo",
+      "note": ""
+    },
+    "11": {
+      "status": "todo",
+      "note": ""
+    },
+    "12": {
+      "status": "todo",
+      "note": ""
+    },
+    "13": {
+      "status": "todo",
+      "note": ""
+    },
+    "14": {
+      "status": "todo",
+      "note": ""
+    },
+    "15": {
+      "status": "todo",
+      "note": ""
+    }
+  },
+  "run_gates": {
+    "G-HOOK": [
+      {
+        "at": "2026-10-28T18:44:00+00:00",
+        "status": "FAIL",
+        "by": "producer session (hooks-v5)",
+        "note": "3 rounds, best T A-/S A. qa/hooks-v5/grades.md"
+      }
+    ]
+  },
+  "specs": {
+    "H-01": {
+      "sha256": "b48dfa1aa77a30e0e16f1dbdf0bbcd86733ecb19e14ff5a938abb5d9945dc444",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T18:37:28+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-28T18:44:36+00:00",
+          "status": "FAIL",
+          "sha256": "b48dfa1aa77a30e0e16f1dbdf0bbcd86733ecb19e14ff5a938abb5d9945dc444",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/H-01.spec.review.json"
+        }
+      ]
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "CF-W1",
+      "version": 1,
+      "type": "still",
+      "shots": [
+        "H-01"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-28T18:38:01+00:00",
+      "prompt_sha256": "d9ffdd3ba466c3bec1016b5100f590aa1f6f1c3fa310e662074b6dd804b56c1f",
+      "prompt_file": "prompts/CF-W1.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:38:02+00:00",
+          "sha256": "d9ffdd3ba466c3bec1016b5100f590aa1f6f1c3fa310e662074b6dd804b56c1f",
+          "file": "prompts/CF-W1.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [],
+      "files": [],
+      "gates": {}
+    }
+  ],
+  "queue": []
+}

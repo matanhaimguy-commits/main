@@ -1,0 +1,750 @@
+# Organic Growth OS
+### The strategy layer for the StraightScale Social Agent (v1, 15 Oct 2026)
+
+This is the "why" behind every post. The Social Agent already knows how to make carousels, reels and motion pieces (carousel-machine, readymerce-hook-lab, readymerce-script-lab, motion-video-director). This document tells it **what to make, for whom, in what order, why, and how to know it worked**. It works for StraightScale's own account and for every client, in any niche.
+
+**How to use this in the Claude Code session:** treat it as the system spec. Build the files, schemas and agents in section 14 in that order. Every rule here has a reason. Where a rule comes from research, the source is in brackets and listed in section 15.
+
+> Implementation map (added when built, 15 Oct 2026): schemas in `growth-engine/schemas/`, the checker and router in
+> `growth-engine/tools/organic.py`, gates in `growth-engine/GATES.md`, skill adapters in `growth-engine/adapters/`,
+> agents in `.claude/agents/`, per-client files in `clients/<slug>/` (`brain.json`, `brain.md`, `content-map.json`,
+> `cards/`, `ledger.csv`, `analytics/`). Format costs and mix defaults live in `growth-engine/config/organic.json`.
+>
+> Production layer (how each post is made and checked; added 16 Oct 2026): `growth-engine/production/`, start with its
+> `README.md`. The owner's specs there are `AI-VIDEO-PIPELINE.md` (the 16 steps and their gates) and `VISUAL-QA.md`
+> (Shot Specs, fresh reviewers, fix routes; the patterns are in `failure-library.md`). `STANDARDS.md` plus
+> `standards.json` hold every production number. `STORY-FORMATS.md` holds the story reels. Tools:
+> `growth-engine/tools/pipeline.py` (runs, gate ledger, budget, human checkpoints), `vqa_crops.py` (review packets,
+> loudness) and `brand_overlay.py` (pastes the real logo file; models never draw it). The hook
+> `.claude/hooks/generation_gate.py` checks every Higgsfield and ElevenLabs generation before it runs. The reviewer
+> agents (visual-planner, prompt-reviewer, visual-reviewer, take-reviewer) are in `.claude/agents/`, and each production
+> skill has an organic adapter in `growth-engine/adapters/`.
+>
+> Where this document gives a production number, `STANDARDS.md` supersedes it (the text below stays as written):
+> carousel and image credits (7.7's 60 to 90 per carousel came from GPT Image 2 at 2k high: STANDARDS 10), image models
+> (STANDARDS 1), the safe zone (7.5's bottom 20%: STANDARDS 6), reel lengths (STANDARDS 8 is the single source; 30 to
+> 60 s is the default for a reach reel, the Post Card's tier decides, and nothing goes over 90 s until the owner confirms
+> a longer limit), budget timing (7.7 rule 8's hard gate is G-BUDGET: STANDARDS 10), and the AI label and how AI people
+> are shown (7.7 and 13.1: STANDARDS 7; D1 decides whether to extend it). motion-video-director (named at the top and in
+> section 15) is retired for our work: motion pieces use motion-reel (STANDARDS 12; the skill audit is in
+> `growth-engine/production/audit/`). Each client's open decisions (`decisions_open` in `clients/<slug>/brain.json`)
+> carry interim rules that limit some examples here: for StraightScale, no B8 "what happens in the analysis" post until
+> D3 is written. An example here that carries a count (such as "4 suppliers") is used only if `brain.json` holds that
+> number (law 8; STANDARDS 6).
+
+---
+
+## 1. The one idea
+
+**Organic content is a machine that finds buyers, teaches them to trust us, and walks them to a conversation. Reach is the fuel, not the goal.**
+
+The 8 laws everything else follows:
+
+1. **Money first, then followers, then views.** Judge every post by what it moved: DMs, leads, booked calls, revenue. Then follows gained. Views come third. (Kallaway; Hormozi; Eli Pampa)
+   - Hormozi tested broader "viral" content for a quarter. Views hit records while sales, leads and applications fell. His 6 most-viewed videos made zero sales.
+2. **On-target reach, not pure virality.** Reach the largest share of *our buyer's* slice of the world, not the whole world. A viral hit outside the buyer confuses the algorithm and hurts the next posts. (Kallaway)
+3. **Broad wording, deep value.** Hooks must be clear to a stranger with zero background ("grandma test"). The substance must be something a real buyer would pay for. (Brendan Kane's generalist principle; Hormozi's "vertical value")
+4. **Every post moves one belief one step.** Nobody buys until they believe a fixed set of things. Each post is assigned the belief it moves. No belief, no post. (Eli Pampa's six beliefs; Russell Brunson; Schwartz)
+5. **Give in public, sell in private.** Teach the "what" and the "why" for free. Sell the implementation in DMs and calls. Hard offer posts stay at about 3% of output. (Hormozi)
+6. **The system learns faster than any expert.** Every post is a test with a hypothesis, logged and scored. Winners become templates; losers get diagnosed. (Galloway "run the format"; Kallaway lab and factory)
+7. **Original or nothing.** Instagram removes unoriginal accounts from recommendations (photos and carousels included since 30 Apr 2026). We borrow structures and formats, never content.
+8. **Truth only.** Every number, result, name and quote comes from the client's proof bank. No invented proof, ever. When proof is thin, we show process instead.
+
+---
+
+## 2. How Instagram actually decides (the facts that shape the rules)
+
+| Fact | Source | What it means for us |
+|---|---|---|
+| Top 3 ranking signals: **watch time, likes, sends**. Likes matter more for followers, **sends matter more for non-followers**. | Mosseri, 22 Jan 2025 | Write content a business owner forwards to a partner. Track sends per reach and likes per reach. |
+| Reels model predicts if a viewer leaves in **under 3 seconds**, and if they watch longer than 95% of viewers of reels the same length. | Meta Reels system card, Nov 2025 | The first 3 seconds decide distribution. Insights now show **Skip Rate** (since Aug 2025). |
+| Feed predicts **DM shares**, boosted when the post is **informative (tutorials, how-tos, reviews)**. Also predicts profile visits and follows from a post. | Meta Feed system cards, Jun 2026 | Teaching content earns sends, profile visits and follows. These are our conversion signals. |
+| Non-follower Feed uses a signal "purely generated by LLM to assess the post's content quality". | Meta Feed Recommendations card, Jun 2026 | An AI judges quality directly. Clear, dense, useful content wins. Filler loses. |
+| New posts are tested on a small audience first, then pushed wider if they perform. | Instagram, Apr 2024 | Every post must work for a cold stranger, not only for followers. |
+| **Trial Reels** show only to non-followers. Instagram says Reels non-follower reach rose 80% after launch. A monthly cap was reportedly added in 2026 (number not published). | Instagram / SMT 2026 | Use trials to test hooks on cold audiences. Prioritise; don't spam them. |
+| Recommendation eligibility: public account, Recommendation Guidelines, **reels 3 minutes or less**. Repeated violations can switch off recommendations for the whole account. | Instagram Creators | Check Account Status weekly. Keep cold-audience reels under 3 minutes. |
+| **Carousels get a "second chance"**: if someone doesn't swipe, Instagram may show slide 2. Up to 20 slides. Carousels get about 9x the saves of single images. | Mosseri Oct 2024; Metricool 2026 | Slide 2 must work alone as a hook. Carousels are our save and depth format. |
+| Reach rate for small accounts: Reels lead (1 to 5K followers: reels 9.8%, carousels 8.8%, images 7.0%). Above 50K followers, carousels lead. Best reel length for reach: **30 to 60 seconds**. | Socialinsider, Jan to Jun 2026 | New accounts: reels-led. Single images are the weakest format everywhere. |
+| Hashtags capped at **5**. Search matches words in **username, name field and captions**. Public professional posts are indexed by Google since 10 Jul 2025. | Instagram, Dec 2025; Meta Search card; Google | Keywords in the name field and first caption line. 3 to 5 specific hashtags max. |
+| Stories reach **followers only**, ranked by relationship (replies, DMs, profile visits). | Meta Stories card | Stories are for trust and selling, not growth. |
+| Comment-to-DM automation is allowed because the comment opens a 24-hour messaging window. Cold DMs and DMs triggered by likes or follows are not allowed by the API. | Meta platform rules | Keyword CTAs are the main conversion engine. |
+| **Unlabeled accounts that feature an entirely AI-generated person can lose recommendation reach** (new "AI-generated profile" label, 31 Aug 2026). Using AI tools in production does not trigger it. | Outlook Business, 1 Sep 2026 (secondary) | Critical for our AI StraightScale character. See section 13. |
+| 3 to 5 posts a week more than doubles follower growth vs 1 to 2. More reels per week do not raise each reel's odds, but find 10x hits sooner (about every 5 weeks at 5 to 6 reels a week vs every 20 weeks at 1.3). | Buffer 2025; Cadenus 2026 | Volume buys more lottery tickets. Quality first, then volume. |
+| Posting time, caption length and hashtags showed no consistent effect inside an account. | Cadenus 2026; Mosseri 2025 | Don't waste agent time optimizing timing. Put it into ideas and hooks. |
+
+**Unverified claims we do NOT repeat as fact:** "sends weigh 3 to 5x likes", "10 reposts in 30 days gets you flagged", "music on carousels pushes them into the Reels tab", the trial reel cap number.
+
+---
+
+## 3. The system at a glance
+
+```
+LAYER 1  CLIENT BRAIN      once per client, refreshed every 90 days
+         offer, avatars, buyer words, beliefs, mechanism, proof, voice, look, conversion path
+            |
+LAYER 2  RESEARCH          once, then a weekly scout
+         competitor + adjacent-niche outliers, demand map, own-account audit
+            |
+LAYER 3  CONTENT MAP       monthly
+         belief ladder, pillars, series, mix, calendar slots
+            |
+LAYER 4  PRODUCTION        weekly batches
+         post cards, hooks, scripts, carousels, reels, motion, QA gates
+            |
+LAYER 5  DISTRIBUTION      every post
+         captions, keywords, trial reels, stories, comment-to-DM, profile, paid boost
+            |
+LAYER 6  LEARNING          72h / 7d / weekly / monthly
+         scorecard, outliers, diagnosis, templates, update layers 3 and 4
+            ^____________________________________________________________|
+```
+
+Every layer has an owner agent (section 10) and a gate. The **Organic Director** agent sits above all of them.
+
+### 3.1 How this fits the engine you already run
+The growth-engine chain (Research → Plan → Make → Check → Post and capture → Learn) stays. This OS adds the layers it doesn't have yet: the **Client Brain** (layer 1), the **monthly Content Map** with a belief ladder, pillars and series above the weekly plan (layer 3), the **Director** and **gates** in Check, and a fuller **Learn** loop. Step by step:
+
+| Your step today | Keep | Change or add | Why |
+|---|---|---|---|
+| **1. Research:** last week of competitor posts, ranked by likes ÷ the creator's usual likes | Breakout scoring against the creator's own baseline. The 14 Oct finding (owner posts beat business tips in Albania) is exactly the kind of insight it should produce. | (a) Score on **views** (and saves/comments where visible), not likes only. (b) Use a **3-month window** for the base set, plus the weekly refresh for new posts. (c) Add the **4 outlier checks** (section 5.1). (d) Add **adjacent niches** (same buyer, other topics) for formats. (e) Add the **demand map** and sales-call objections as idea sources, not only competitors. (f) Monthly **own-account audit**. | Likes are the weakest signal for non-follower reach (Mosseri: watch time and sends matter most there). One week of posts is too small a sample. Competitors in a young market copy each other, so the best formats often come from adjacent niches (Kallaway, Pampa). |
+| **2. Plan:** weekly plan, one goal (reach, trust, leads, saves), one belief, one CTA, rotating CTAs | One belief per post, one CTA, rotation (matches Hormozi's give:ask), "based on research post X", facts only from the brand kit. | (a) Put a **monthly Content Map** above the weekly plan: belief ladder (6.1), pillars (6.3), series (6.4). (b) Use three **jobs** (reach, trust, convert). Saves become a metric of the trust job, not a goal. (c) Every Post Card (7.1) also names avatar, awareness stage, pillar, series, hypothesis and target. | Without the map, each week is chosen on its own and beliefs don't add up in order. Series and pillars are what make an account recognisable and bingeable. |
+| **Weekly mix:** 2 reels, 2 carousels, 3 images | No format two days in a row. | Swap images for reels or carousels. Suggested: **3 reels + 3 carousels + 1 image** at most, moving to **4 reels + 2 carousels** as reel production gets faster. Images only for real review quotes or announcements. | Single images are the weakest format in every 2025-2026 dataset: reach down 22% and engagement down 46% year on year (Metricool 2026). For small accounts, reels lead reach (Socialinsider 2026). Carousels get about 9x the saves of images. |
+| **3. Make:** carousel-machine, motion-reel (HyperFrames, reference bank), Hook Lab, Script Lab, H3, ElevenLabs | All of it. The motion-reel reference bank (no repeated references per client) is a strong originality guard. | Run Hook Lab and Script Lab in the **organic adapter** (7.3): 4 S's, lock-in zone, value per second, organic CTA ladder, organic metrics. Feed every skill the full Post Card. | Both labs were built for paid ads and end on an offer. Organic posts must end on the natural next step for their job. |
+| **4. Check:** every letter at full size, facts, "never" list, native-read flag | All of it. | Add the **idea, hook, script, sound-off, originality, AI-label and conversion gates** (7.5) and the **Director review** of each batch. | Today's check catches errors. The new gates catch weak posts before they're made. |
+| **5. Post and capture:** you approve, hub posts, ANALIZA triggers the DM funnel, AI bot turns replies into leads | Human approval before posting. Keyword-triggered DM funnel. | (a) **Button step** before any link in the DM. (b) **One qualifying question**, then hand qualified leads to a human. (c) A **unique keyword per series** (or per post) for attribution, with ANALIZA kept as the main offer keyword. (d) **Engagement audiences** and boosting winners with paid (8.6). | The button step protected click-through in a reported case (70%+ vs under 20%). Per-series keywords tell us which content makes leads. The organic → paid loop is StraightScale's edge over social media agencies. |
+| **6. Learn:** weekly log of keyword comments → DMs → leads → booked analyses; 2x posts become templates | The metric order (money first). Winners become templates. | (a) Add **follows per post, sends and saves per reach, skip rate**. (b) Template rule: 2x is fine as a "candidate" flag; promote to template at **3x with the 4 checks**, or any post that produced booked analyses. (c) Add the **diagnosis ladder** (9.4), the **"How did you hear about us?"** field, and a **monthly** revenue-by-series review. | 2x on a small account is often noise. The diagnosis ladder tells you *which* part of the funnel to fix, not just which post won. |
+
+**On the 14 Oct finding (owner posts beat business tips):** it fits the trust job (B7) and Kallaway's "affection" step: people buy from people they like. Lean into it, but keep owner posts tied to a pillar and a belief, so the account doesn't drift into lifestyle content that gets likes but no buyers (Jatho's "recipe guy" warning). It also matters for the AI character question in section 13.
+
+---
+
+## 4. Layer 1: the Client Brain (what we must know before one post)
+
+The Client Brain is one structured file per client (`clients/<slug>/brain.md` plus `brain.json`). Nothing gets produced until the required fields are filled. If a field can't be filled, the agent writes what's missing and how to get it. It never guesses.
+
+| Field | What goes in it | Where it comes from | Required? |
+|---|---|---|---|
+| **Business model** | What they sell, price, margin if known, capacity (how many new clients they can take), sales process (call, visit, WhatsApp, checkout) | Questionnaire, meeting notes | Yes |
+| **The one offer content points to** | The main offer, and the single next step we want from a viewer (DM keyword, WhatsApp, booking) | Client + strategist | Yes |
+| **Avatars (1 to 3)** | Named person: role, situation, what keeps them up, their exact words, what they tried, false beliefs, desires, fears, identity | VOC, sales calls, reviews, DMs | Yes (1 minimum) |
+| **Demand map** | 20 to 40 buyer phrases, each tagged *direct demand*, *bridge*, or *off-map* (drop off-map) | Comments, Reddit/forums, sales calls, search suggestions, existing buyers (Pampa) | Yes |
+| **Awareness and sophistication** | Where most buyers are (unaware → most aware), how many times the market has heard the claims | Research | Yes |
+| **Mechanism** | Problem name (UMP) and solution name (UMS) in one plain line each, plus the steps | Foundation docs | Yes |
+| **Belief ladder** | The 8 beliefs (section 6.1) written for this client, each with its current state (held / not held / unknown) | Strategist | Yes |
+| **Contrarian vault** | 5 to 10 positions the owner holds that the market would argue with | Owner interview (voice note "ramble") | Yes |
+| **Proof bank** | Every usable number, result, testimonial, client name, screenshot, with permission status | Client | Yes (can be empty, then section 7.6 applies) |
+| **Lead magnet** | One real free resource behind the main keyword (audit, checklist, calculator, guide) | Built in onboarding | Yes before any keyword CTA |
+| **Voice card** | 3 adjectives, 3 to 5 real samples, banned words, language and register (ju/ti) | Owner, brand docs | Yes |
+| **Visual identity** | Colours, fonts, logo, face (real person / AI character / faceless), set, recurring object | Brand docs | Yes |
+| **Market and language** | One language per account (section 13), country/city, local events calendar | Client | Yes |
+| **Constraints** | What they can't say (medical, legal, financial claims), what they won't show, approval contact and turnaround | Client | Yes |
+| **Baseline** | Followers, last 30 days reach, median views, saves, sends, DMs, where current clients come from | Account audit | Yes |
+| **Package volume** | Videos per month, carousels per month, stories (yes/no), platforms | Contract | Yes |
+
+**Owner ramble:** the fastest way to fill the contrarian vault, voice card and story bank is a 15 to 20 minute voice note: "What annoys you in your industry? What do clients always ask? What does everyone get wrong?" The agent transcribes it and pulls themes. One ramble usually holds 5+ post ideas. (Carousel-machine Step 2; Kallaway "about me" files)
+
+---
+
+## 5. Layer 2: Research (what already works, so we don't guess)
+
+### 5.1 Outlier mining (the core research method)
+1. **Pick accounts:** 10 to 20 accounts in the client's niche and 10 in **adjacent niches** (same buyer, different topic). Use small and mid accounts (10K to 250K followers). Never mega accounts: fame lifts their flops, so their winners teach nothing. (Kallaway's paradox)
+2. **Pull the last 3 months** of posts (Apify `instagram-profile-scraper` / ig-competitor-research skill).
+3. **Score each post against its own account**, never against the internet. A post is a trusted outlier only if **all four** pass (Eli Pampa):
+   - Views 3x or more the account's median.
+   - Comments per 1,000 views above the account's own rate.
+   - Likes and saves in proportion (no bot pattern).
+   - Engagement 2% or more (filters paid boosts, Kallaway).
+   - Hidden likes (the scraper gives -1) are unknown, not zero: they stay out of the account's medians, the post can't
+     pass the likes check automatically, and `organic.py outliers` lists it for a check by hand when its views and
+     comments pass.
+4. **Log each outlier:** topic, hook (spoken, text, visual), format, story structure, length, CTA, awareness stage, belief it moves, emotion bucket.
+5. **Gold / Silver / Bronze compare** (Brendan Kane): for the strongest format found, take the top 10, middle 10 and bottom 10 of one account and list what the gold has that the bronze doesn't (first-second action, cut pace, props, caption style, sound). These become rules for our version.
+6. **Transposition** (Kallaway): take topics from inside the niche, but formats, hooks and visuals from other niches. "Keep the structure, change the example and the insight." Never word-for-word.
+
+**Ratio:** 70 to 80% of ideas from proven data, 20 to 30% original from the contrarian vault and owner stories. (Kallaway)
+
+### 5.2 Own-account audit
+Rank the client's existing posts by follows gained, then saves and sends per reach, then views. Ask: what do the top 20% share that the bottom 20% don't? Re-run every 2 weeks. (Kallaway review loop)
+
+### 5.3 Weekly scout
+Every week the Research Scout refreshes outliers from the tracked accounts and adds 5 to 10 new candidate ideas to the idea bank. Plan only 2 weeks of detailed topics ahead, because the market moves. (Eli Pampa)
+
+**Output of Layer 2:** `research/<date>/outliers.csv`, `research/format-rules.md`, `research/demand-map.csv`, idea bank entries.
+
+---
+
+## 6. Layer 3: The Content Map (the strategy itself)
+
+This is the part you said is missing. Every post the agent makes must fit this map.
+
+### 6.1 The Belief Ladder (the spine of the whole strategy)
+
+A buyer goes from stranger to client by coming to believe 8 things, roughly in order. Each post is assigned **one** belief to move. The mix of beliefs in a month follows where the audience is stuck (section 9.4 diagnosis).
+
+| # | Belief the buyer must hold | Awareness stage | Content job | Typical formats | StraightScale example |
+|---|---|---|---|---|---|
+| B1 | "This problem is real, and it is costing me." | Unaware → problem aware | Reach | Myth, mistake, hidden cost, story, contrast | "Your ads aren't failing. Your enquiries are dying after the click." |
+| B2 | "It isn't my fault. The real cause is X." (the named problem) | Problem aware | Reach / Trust | Hidden cause, "why X doesn't work", breakdown | "Patchwork Marketing: why paying 4 suppliers gets you nowhere." |
+| B3 | "This can actually be solved." | Problem aware | Trust | Before/after logic, teardown, how-to | "The 3 numbers that tell you where the leak is." |
+| B4 | "This method is how it gets solved." (the named mechanism) | Solution aware | Trust | Framework carousel, step series, whiteboard | One episode per step: Find, Own, Attract, Convert, Close. |
+| B5 | "It's better than the alternatives I know." | Solution aware | Trust / Convert | Tier list, X vs Y, "freelancer vs agency vs system" | "Hiring a marketer vs an agency vs a growth system: ranked." |
+| B6 | "It works for a business like mine." | Product aware | Convert | Case study, process walk-through, client voice | Only from the proof bank. If empty, "the build" series (7.6). |
+| B7 | "I trust and like these people." | All stages | Trust | Behind the scenes, team, values, contrarian opinions, origin story | Office, team at work, how a strategy session runs. |
+| B8 | "The next step is easy, safe and worth doing now." | Most aware | Convert | Offer explainer, FAQ/objection, "who this is not for", risk reversal | What happens in the free audit, step by step. |
+
+Rules:
+- **Install beliefs that are one step from what they already believe.** A belief too far from the current one gets rejected. (Eli Pampa: "you cannot install a belief that's too far")
+- **Pitch substance one level above the buyer's sophistication.** Buyer at 3/10 knowledge, content at 4 to 5. (Kallaway)
+- **Never blame the viewer. Blame the mistake.** "Squats suck for legs", not "you're doing it wrong, idiot." (Devin Jatho; StraightScale doc 20 rule)
+
+### 6.2 Three content jobs
+
+| Job | Purpose | Who it's for | Main metric | CTA type |
+|---|---|---|---|---|
+| **Reach** | Bring new buyers in | Non-followers, unaware and problem aware | Skip rate, avg watch time, **sends per reach**, follows per reach | Soft: follow for the series, save, send to a partner. Or keyword for a free resource |
+| **Trust** | Make them believe we're the experts | Followers and warm viewers, solution aware | **Saves per reach**, watch time, profile visits, keyword comments | Keyword for a resource (lead magnet) |
+| **Convert** | Turn trust into a conversation | Product and most aware | **DMs, booked calls**, link clicks | Keyword to DM, direct "comment ANALIZA", book |
+
+**Default mix by account stage** (synthesis of Hormozi, Kallaway, Eli Pampa; adjust with data):
+
+| Account stage | Reach | Trust | Convert | Of which hard offer posts |
+|---|---|---|---|---|
+| New (under 5K followers, little proof) | 50% | 35% | 15% | at most 1 a month |
+| Growing (5K to 50K, some proof) | 40% | 40% | 20% | at most 3% of posts |
+| Mature (50K+ or strong proof) | 35% | 40% | 25% | at most 3% of posts |
+
+"Convert" mostly means proof with a soft keyword CTA, not "buy now" posts.
+
+**Tone mix:** 80% agreeable (value people accept), 20% contrarian or polarizing (for reach and comments). Controversy targets industry practices, never groups of people. (Hebrew 360 doc; Eli Pampa)
+
+### 6.3 Pillars (topic buckets)
+Each account gets **4 or 5 pillars** that don't overlap, built from the problems the offer solves. Every idea must fit one pillar or it isn't made. (Devin Jatho's quadrants / content compass)
+- Rule: at least one post per pillar per week when volume allows (6+ posts a week).
+- Rule: **one broad pillar for reach, the rest narrow for trust and conversion.** If every post is narrow, the algorithm goes "lazy"; if every post is broad, the account stops converting. (Kallaway 3-2-1)
+- Warning from Jatho: a fitness coach whose recipe video went viral chased recipes and became "the recipe guy" selling a $20 cookbook. **Never chase a pillar because one post went viral outside the buyer.**
+
+For StraightScale, the pillars are the 5 steps of the Only Choice System (one framework everywhere, per doc 20). See section 12.
+
+### 6.4 Series (recurring named formats)
+Each account runs **2 to 4 named series**. A series is a fixed format and theme that repeats ("Patchwork Autopsy #7").
+- Why: people who binge 4 to 5 minutes of your content are far more likely to follow (Kallaway "content minutes"); series give them a reason to come back; and they make production faster.
+- **Hard series** are numbered ("30 lessons, #12"). **Soft series** keep the same format and theme without numbers.
+- Each series has: name, format, pillar, main belief, job, length, visual template, CTA, and a target of at least 10 episodes before judging it.
+
+### 6.5 Format mix
+| Format | Role | Share of output (default) | Skill |
+|---|---|---|---|
+| **Reels (30 to 60 s, under 3 min)** | Reach engine and trust | 45 to 60% | readymerce-hook-lab + readymerce-script-lab + video production |
+| **Motion graphic reels** | One option among many, never a default: only a list, data or a type-led idea (28 Oct 2026, `production/FORMATS.md`) | At most 1 post in 6 | motion-reel (HyperFrames) |
+| **Carousels (7 to 10 slides; the hub takes 10 files at most)** | Saves, depth, frameworks, checklists, teardowns | 30 to 45% | carousel-machine |
+| **Stories (daily, 3 to 7 frames)** | Selling to followers, DMs, proof, polls | Daily, not counted in posts | Story templates (section 8.4) |
+| **Single images** | Weakest format: only real review quotes, announcements, or a strong self-check question | 1 a week at most | carousel-machine (1 slide) |
+
+### 6.6 Calendar templates
+Plan **monthly** (theme, belief focus, series), detail **2 weeks** of topics at a time, and keep about **20% of slots open** for reactive posts (news, a winner to double down on, an objection that came up in sales calls).
+
+**A. Client package, 8 videos a month (Gold) = 2 a week**
+| Week slot | Job | Belief | Format |
+|---|---|---|---|
+| Video 1 | Reach | B1 or B2 | Myth / mistake / hidden cause reel (broad pillar) |
+| Video 2 | Trust or Convert (alternate weeks) | B3/B4, or B6/B8 | Series episode (method step), or proof/FAQ reel |
+
+**B. Client package, 16 videos a month (Diamond) = 4 a week**
+| Slot | Job | Belief | Format |
+|---|---|---|---|
+| 1 | Reach | B1 | Contrarian or myth reel |
+| 2 | Reach | B2 | Hidden cause / "why X fails" reel |
+| 3 | Trust | B3/B4 | Series episode: method step or teardown |
+| 4 | Convert | B5/B6/B8 | Proof, comparison, objection or offer explainer |
+
+Carousels for clients are not in the package yet (see section 13). If added: 1 a week, Trust job, in the method series.
+
+**C. StraightScale's own account: 7 posts a week (3 reels, 3 carousels, 1 image), no format two days in a row**
+| Day | Post | Job | Belief | CTA (rotating) |
+|---|---|---|---|---|
+| Mon | Reel: contrarian / myth (broad pillar) | Reach | B1 | Send to a partner |
+| Tue | Carousel: one method step ("One Step" series) | Trust | B4 | Save |
+| Wed | Reel: "Patchwork Autopsy" teardown | Trust | B2/B3 | Comment a question |
+| Thu | Carousel: owner self-check or mistakes list | Reach/Trust | B1/B3 | Comment ANALIZA |
+| Fri | Reel: proof, "The Build", or objection / comparison | Convert | B5/B6/B8 | Comment ANALIZA |
+| Sat | Image: owner-focused question or real review quote | Trust | B7 | Comment answer |
+| Sun | Carousel: behind the scenes / owner story, plus a trial reel re-test of last month's top post | Trust / Reach | B7 | Follow for the series |
+| Daily | Stories: 1 poll or question, 1 proof or BTS, share of today's post, 1 ANALIZA frame a week | Trust/Convert | B6 to B8 | Reply keyword |
+
+When reel production gets faster, move to 4 reels + 2 carousels + 1 image.
+
+Rotation rules (from the Hebrew 360 doc, adjusted): no two posts in a row from the same job; at least 1 contrarian and 1 human/emotional post a week; a soft conversion CTA every 4 to 5 posts at minimum; one offer post a month at most for new accounts.
+
+---
+
+## 7. Layer 4: Production (how one post gets made)
+
+### 7.1 The Post Card (every post starts as one)
+The planner creates a Post Card before any writing. It is the contract between strategy and production.
+
+```yaml
+post_id: SS-2026-11-W1-03
+client: straightscale
+account_language: sq          # one language per account
+pillar: Convert               # one of the account's 4-5 pillars
+series: "Patchwork Autopsy"   # or null
+episode: 7
+job: trust                    # reach | trust | convert
+funnel_stage: MOF              # TOF | MOF | BOF; card-check defaults it from the job (reach TOF, trust MOF, convert BOF) and warns on a mismatch
+belief: B3                    # from the belief ladder
+avatar: AV-01                 # from the client brain
+awareness: problem_aware
+demand_phrase: "na shkruajne po nuk blejne"   # from the demand map
+idea_source: outlier          # outlier | demand_map | contrarian_vault | owner_story | sales_call | reactive
+source_ref: "@account/post 3.4x median"
+narrow_product: "Level 4 idea in one line"     # see 7.2
+format: reel_talking_character   # see 7.4 library
+format_tier: B                 # A song/animation | B talking head, UGC, podcast | C motion, carousel, image (7.7)
+load_bearing_beat: mechanism   # mechanism | proof | offer | list | data | type: the format is chosen by it (7.7, FORMATS.md)
+angle_proven: false            # true only if this angle beat the median in a cheaper format; Tier A needs true (or the monthly wildcard)
+usd_budget: 4.15              # the format's usd range (organic.json; STANDARDS 10), against the monthly USD cap
+length_target_s: 45
+hook_type: hidden_cause
+emotion: surprise              # one of 6 buckets
+cta_type: keyword              # follow | save | send | keyword | dm | book
+cta_keyword: "ANALIZA"
+lead_magnet: "Free analysis (ANALIZA)"   # must exist
+proof_used: [proof_bank_id]    # or []
+hypothesis: "Naming the exact leak point gets more saves than a general tip"
+success_metric: saves_per_reach
+target: ">= account median x1.5"
+status: planned               # planned > scripted > produced > approved > scheduled > live > scored
+project: motion-studio/projects/<folder>   # when the piece has one; organic.py calendar and hub.py client-sync read it
+```
+
+### 7.2 Idea gate (before any writing)
+An idea passes only if it clears all of these:
+1. **On the map:** fits one pillar, one belief, one avatar, and a demand phrase that is *direct* or *bridge*.
+2. **Narrow product (4-level drill-down):** Broad topic → niche → specific mechanism → **the smallest variable that changes the result**. Only level 4 becomes a post. Example: Sales → follow-up → follow-up texts → *the exact message to send a lead who went silent*. (Hebrew 360 doc)
+3. **Trinity of Value** (Devin Jatho): a **clear, complete solution** (no homework after watching), **unique** (easier, better, or better explained than what they know), and **viewer-depictable** (they can picture doing it and believe it works).
+4. **Shock score** (knowledge gap): the distance between what they believe and what we show. 8 to 10 = strong, 5 to 7 = fine, under 5 = rewrite. (Hebrew 360 doc)
+5. **The $5 test:** would they pay $5 for this post? (Watch Time doc; Jatho)
+6. **Key visual exists:** we can show something interesting in the first 3 seconds. No visual, rethink the idea. (Kallaway)
+
+### 7.3 Hook, script and story rules (organic adapter for our existing skills)
+The Hook Lab and Script Lab were built for paid ads. For organic, run them with this adapter:
+
+**Hooks (readymerce-hook-lab, organic mode)**
+- The hook must do two jobs in the first 1 to 3 seconds: **topic clarity** and **on-target curiosity**. Check the **4 S's**: Subject, Stakes, Speed (compression), Super clear. (Kallaway)
+- Kill the 4 hook mistakes: **delay** (topic arrives late), **confusion** (two readings, big words), **irrelevance** ("I/people" instead of "you/your"; nice-to-have instead of need-to-have pain), **disinterest** (no contrast between belief A and our B). (Kallaway)
+- **Triple hook:** visual, text and spoken hook all say the same thing (redundancy of meaning). Text hook: max 2 lines, specific number or power word, top third of the screen, on screen about 3 s. (Kallaway; Kane)
+- Write **10 hooks per post**, grade them, ship only a hook that passes the twin hook rule (GATES.md; the A or A+ bar is paid ads only). (Watch Time doc; Hook Lab)
+- Hook types to rotate: contrarian, hidden cause / secret reveal, mistake ("never ever"), case study, comparison (X vs Y, tier list), question, list, personal story, teaching. Plus Kallaway's 6 archetypes (fortune teller, experimenter, teacher, magician, investigator, contrarian).
+- Negativity aimed at the **mistake**, not the viewer, is the strongest framing.
+
+**Scripts (readymerce-script-lab, organic adapter)**
+- Structure options: problem-solution, breakdown, case study, list, tutorial, myth vs truth, tier list bridge, "never ever", borrowed interest, personal story. (Hebrew docs; Jatho templates)
+- **Lock-in zone:** the 2 to 4 sentences after the hook must confirm the claim and pass a trust check (proof anchor, looks, production care, relatability). (Kallaway)
+- **But / therefore**, never "and then". Every answer opens the next question (twist, gap, or ladder loops). Second-best point first, best point second. (Kallaway; Kane)
+- **Value per second:** colour-code every line green (keep), yellow (trim), red (cut). Cut the script to about a third. (Jatho; Watch Time doc)
+- **Facts, feelings, fun** in every script: one number or logic beat, one emotional beat, one twist or light moment. (Kane's PCM "big three")
+- **Payoff** in the last 3 to 5 seconds: the twist or result. End on a loop back to the hook, or a CTA that is the natural next step of the payoff. No "follow for more" endings. (Jatho; carousel-machine)
+- **Organic CTA ladder** replaces Script Lab's offer close: follow for the series → save → send to a partner → comment KEYWORD for the resource → DM / book. Match the CTA to the job (6.2).
+- Language level: about 5th grade. "You" and "your" throughout.
+
+**Carousels (carousel-machine)**
+- Already has the right story engine (cover, slide 2 pays the cover, spine, turn, payoff, one ask). Feed it the Post Card so job, belief and CTA come from the map, not from the carousel brief alone.
+- Slide 2 must work alone as a hook (second-chance distribution).
+- Fix the StraightScale preset: accent #B31217 (not #C8202F), and register per the voice card.
+
+**Motion graphic reels**
+- Use for mechanisms, numbers, frameworks and series intros. Same hook and script rules. Motion must change in the first second (stimulation step of Kallaway's dopamine ladder).
+
+### 7.4 Format library (starting set, extend with outliers)
+These are content shapes (what the post says). The production formats that carry them (UGC, whiteboard presenter,
+podcast, drama, song, animation and the rest, with their skills, gates, Atlas routes and prices) are in
+`growth-engine/production/FORMATS.md`.
+
+| Format | Job | Best beliefs | Notes |
+|---|---|---|---|
+| Myth vs truth reel | Reach | B1, B2 | "X is a lie. Here's what works." |
+| "Never ever" reel | Reach | B1 | Common action → consequence → instead → result → save CTA (Jatho) |
+| Hidden cause / "this is why" | Reach/Trust | B2 | Names the UMP |
+| Tier list bridge | Trust | B5 | Show F to C tiers, "comment WORD for the full list" (Jatho) |
+| Whiteboard / framework | Trust | B4 | Our best ad format so far was an AI strategist at a whiteboard (HOOK-LIBRARY-B2B-AL) |
+| Teardown ("Autopsy") | Trust | B2, B3 | Of a public brand or anonymized case. Never mock a real local business by name without permission |
+| X vs Y comparison | Trust/Convert | B5 | Freelancer vs agency vs system |
+| Case study / process | Convert | B6 | Proof bank only |
+| Objection / FAQ | Convert | B8 | From real sales-call objections |
+| "Who this is NOT for" | Convert | B8 | Filters bad leads, builds trust |
+| Behind the scenes / team | Trust | B7 | Human proof; also answers the AI-face risk |
+| Founder or origin story | Trust | B7 | 1 a month |
+| Steal my system carousel | Trust | B4 | carousel-machine format |
+| Self-audit checklist carousel | Trust/Convert | B3 | Pairs with the lead magnet |
+| Mistakes list carousel | Reach | B1 | "Number 3 costs the most" |
+
+### 7.5 Pre-publish gates (all must pass)
+| Gate | Checks | Owner |
+|---|---|---|
+| **Map** | Post Card complete; belief, job, pillar, CTA fit | Strategist |
+| **Idea** | 7.2 all pass | Idea agent |
+| **Hook** | The twin hook rule on the 3-channel stack (GATES.md); 4 S's; no 4 mistakes | Hook agent |
+| **Script/story** | Value per second; lock-in zone; loops; payoff; facts-feelings-fun; length 30 to 60 s for reach | Script agent |
+| **Sound-off** | Understandable with no audio (captions, text, visuals) | Producer |
+| **Visual** | Safe zones (top 14%, bottom 20%), no watermarks, no borders, readable captions, first-second motion | Producer |
+| **Originality** | Not a repost; structure borrowed, content ours; AI disclosure rules met | Director |
+| **Truth** | Every number and claim in the proof bank; no guarantees the client can't keep; sector rules (medical, finance) | Director |
+| **Conversion** | CTA matches job; keyword has a live flow and a real resource | Conversion agent |
+| **Language** | Non-English copy marked for native read until approved | Director |
+| **Human approval** | Matan (own account) or the client approves before scheduling. **Nothing is published without approval.** | Human |
+
+### 7.6 When there is no proof yet (StraightScale today)
+- Show **process instead of results:** how the research works, what an audit finds, the plan template, screen recordings of real work (with permission).
+- **"The Build" series:** document building a client system week by week, with only real facts.
+- Use the owner's real past results with exact wording from the proof bank (anonymized by niche, per doc 20 rule 7).
+- Tear down public brands and public ads (Meta Ad Library is public).
+- Tell the truth about being early when it matters. (Hormozi: "the truth sells the most")
+
+### 7.7 Format economics: which video, when, why, how much
+
+> **History (Higgsfield credits).** Since 28 Oct 2026 budgets are Atlas USD: per-piece `config/organic.json`
+> `formats[].usd`, prices in STANDARDS.md 10, the month's `package.monthly_usd_cap` in `brain.json`. The credit figures
+> below are from before the move and stay for the older pieces; nothing budgets in them.
+
+**What each format really costs** (from our own October 2026 runs; 1 Higgsfield credit is about $0.05 on auto-refill top-ups and about $0.033 inside the Ultra plan; ElevenLabs costs are small next to Higgsfield; ranges are estimates and include about 25% retakes)
+
+| Tier | Format | Made with | Higgsfield credits per piece | About USD | Evidence |
+|---|---|---|---|---|---|
+| C | Single image | carousel-machine | 7 to 15 | $0.50 | GPT Image 2 at 2k high = 6.5 credits |
+| C | Carousel, 8 to 10 slides | carousel-machine | 60 to 90 | $3 to $4.50 | 6.5 per slide plus redos |
+| C | Motion graphic reel | motion-reel (HyperFrames) | 0 to 30 | $0 to $1.50 | Code-rendered; credits only for optional generated assets. Costs build time, not credits |
+| B | AI talking head with prop, 30 s | Hook Lab + Script Lab + H3 | 80 to 110 | $4 to $5.50 | H3 at 2K = 2 credits per second, plus stills |
+| B | AI UGC, 30 to 45 s | ads-machine + H3 | 100 to 150 | $5 to $7.50 | Same rate, more shots |
+| B | Podcast clip, 35 to 45 s, 2 speakers | readymerce-podcast-ads | 120 to 170 | $6 to $8.50 | One speaker per clip, set + 2 character stills |
+| A | Animation, 45 to 90 s | readymerce-animation-ads | 150 to 300 first; about 35 for a cutdown that reuses shots | $8 to $15 | AD-Q estimate: S90 about 240, C45 cutdown about 35 (doc 06) |
+| A | Song ad, about 70 s, all H3 | readymerce-song-ads | about 190 when characters exist; 250 to 300 first time | $10 to $15 | S3 v2 + S4 = 369.5 credits for two ads; S1 v2 + S2 v2 about 390 for two (doc 05). Plus 2,000 to 4,000 ElevenLabs credits |
+
+**The honest point:** in money, even the most expensive format is about $10 to $15 a piece. A full Diamond month with 3 premium pieces costs about $100 in credits, against a €3,490 package. **Credits are not the real limit. Time is:** operator listening gates, retakes, lip-sync checks, native reads, and the risk of putting 3 hours into an angle nobody wanted. So the system budgets three things per account: credits, production minutes, and **untested bets**.
+
+**What each format is for**
+
+| Format | Best job | Beliefs it moves best | Fits best | Watch out |
+|---|---|---|---|---|
+| **Song** | Reach + memory (sends, rewatches, brand recall) | B1, B7 | Local consumer businesses, younger buyers, a series "anthem" | Our song ads got paid leads at 2 to 3x the cost of talking-head winners (HOOK-LIBRARY-B2B-AL). Expect reach, not DMs. Judge it on sends and follows |
+| **Animation** (3D, clay, talking object or organ) | Reach | B1, B2: shows the hidden cause as a picture | Explaining a problem or process; clinics, services, products | Stylized niche-persona skits lost in our ads. Keep the problem real, on-target and funny, never random |
+| **AI UGC / owner POV** | Reach, Trust | B1, B3, B5 | Consumer brands, local services, "day in the life of an owner" | Never present an AI person as a real customer or a real review. Label AI. Frame as a character or "POV" scenario |
+| **Podcast clip** (2 characters) | Trust | B3, B4, B5, B8 | Objections, expert vs skeptic debates; B2B and high-ticket | Needs a real disagreement or it feels staged |
+| **AI strategist with a prop** (whiteboard, sheet, org chart) | Trust, Convert | B4, B6, B8 | Our proven winner: ₪19 per lead, all 4 paid winners used it | Can get repetitive: rotate props and sets |
+| **Motion graphic reel** | Trust | B4, B5 | Frameworks, numbers, comparisons, series intros | Cheapest per piece once templated; weak at emotion |
+| **Carousel** | Trust (saves) | B3, B4 | Checklists, steps, teardowns | Lowest reach for small accounts; best saves |
+
+**How a format is chosen (28 Oct 2026; the library is `growth-engine/production/FORMATS.md`).** Matan, 28 Oct: our
+slates kept landing on motion graphics because routing favoured the cheapest proven format. Now every Post Card names
+its **load-bearing beat** (ads-machine L19: mechanism, proof or offer, plus list, data or a type-led idea) and
+`organic.py route` ranks the formats that can take the card by:
+1. **L19 fit** to that beat: each format's six properties (a believable face, shows what a camera can't, controlled
+   order, sound, holds attention, reads as a person), weighted by what the beat needs (`organic.json` `beats`).
+2. **The funnel stage** of the card's job (reach TOF, trust MOF, convert BOF; each format's `funnel`).
+3. **Evidence:** formats that win with this client's buyers (`buyer_formats`), the proven convert formats, and the
+   story template the card names.
+4. **Variety** against the other planned cards: no format family more than twice in a week, at least 4 families in a
+   month (an unused family ranks up, a repeated one down), and `reel_motion` at most 1 post in 6, only for a list, data
+   or type-led beat. `week-check` fails a slate that breaks these.
+
+**Cost only filters** formats against the month's USD cap; it never ranks. The tiers and rule 1 below still decide when
+a tier A piece may run (a proven angle or the wildcard), not which format a beat needs.
+
+**The 8 spending rules**
+
+1. **Test cheap, scale expensive.** A new angle or hook first runs in a Tier C or B format. Only angles that beat the account median on their job metric get upgraded to a song, animation or podcast. Exception: 1 "wildcard" premium piece a month to test something new (Kallaway's chaos slot).
+2. **Every premium piece makes at least 6 assets:** main cut (60 to 90 s), short cut (30 to 45 s), 3 hook variants for trial reels, a carousel from its stills, 2 to 3 story frames, and an ad version (same edit, ad CTA). A cutdown that reuses shots costs about 35 credits.
+3. **Build the world once, reuse it.** Characters, sets, voices and song style are a one-time setup per client (about 200 to 400 credits). Each later episode costs less and looks familiar. AD-F already reused AD-Q's owner character.
+4. **Premium formats run as series, not one-offs.** A song character or animated villain comes back every month. Series compound; one-offs don't.
+5. **Share the budget with paid.** The packages include ad creatives (8, 16 or 24). Make each premium piece once with two endings: organic CTA and ad CTA. Organic winners get boosted; paid winners get reposted organically.
+6. **Match format to the buyer, not to taste.** The research step logs which formats win for this client's buyers (outliers by format). If the niche's outliers are talking heads, don't lead with songs.
+7. **Kill rule.** If a premium format underperforms the account median on its job metric 3 times in a row for a client, pause it there for 60 days.
+8. **Monthly cap per account** with a 25% retake buffer. Check the balance before every batch (hard gate G3).
+
+**Default monthly mix per package** (the Director adjusts after month 1 using cost per result)
+
+| Package | Tier C (motion reels) | Tier B (talking head, podcast, UGC) | Tier A (song or animation) | Credits per month, about |
+|---|---|---|---|---|
+| Gold, 8 videos | 4 | 3 | 1 (song and animation alternate by month) | 700 to 800 (about $35 to $40) |
+| Diamond, 16 videos | 7 | 6 | 3 | 1,700 to 2,000 (about $85 to $100) |
+| StraightScale own, about 12 reels | 4 | 6 (strategist with prop leads) | 2 | 1,200 to 1,400 |
+| Carousels (if in the package) | 60 to 90 credits each | | | |
+
+Month 1 leans on Tiers B and C to find winning angles. From month 2, winners are upgraded to Tier A. The motion share
+in this table is a ceiling, not a target: `reel_motion` is at most 1 post in 6 (FORMATS.md).
+
+**Track cost per result, by format, per client:**
+- Credits and production minutes per piece.
+- The job metric per piece: non-follower reach for reach, saves for trust, qualified DMs for convert.
+- Each month, move slots toward the format with the best cost per result for that client. Example: credits per 1,000 non-follower reach for songs vs motion reels, or credits per qualified DM for podcast clips vs strategist reels.
+
+**Quality bar for AI video in organic:** Kallaway ranks short entertainment video among the formats most exposed to AI flooding. Generic AI looks will drown. Our premium pieces only win if they have an original world, a real insight from the Client Brain, and the hook rules in 7.3. Realistic AI people follow the AI-label rule in section 13.
+
+---
+
+## 8. Layer 5: Distribution and the conversion path
+
+### 8.1 Profile (the landing page of organic)
+- **Name field (30 chars, searchable):** name + keyword, e.g. "StraightScale | Rritje biznesi".
+- **Bio:** who we help + result + mechanism or proof line + keyword CTA ("Shkruani ANALIZA").
+- **3 pinned posts:** (1) best proof or "how we work", (2) origin / why us, (3) what happens when you contact us.
+- **Highlights (max 5):** Results, Method (5 steps), Offer / How to start, FAQ, Team.
+- **Links (up to 5):** application or booking, lead magnet, WhatsApp, website, case studies. UTM on every link.
+- Profile lead form button switched on (business profiles).
+- Check Account Status (recommendation eligibility) weekly.
+- Header test: from the photo, name, bio, link and first grid row alone, a stranger knows who it is for and why to follow.
+  Also check the category label and the first 9 grid posts. Monthly checklist: `.claude/agents/conversion-agent.md`.
+
+### 8.2 Every post's caption
+- First line: keyword-rich restatement of the hook (search and Google indexing).
+- 3 to 5 specific hashtags max, never #reels or #explore.
+- CTA repeated in the caption with the keyword.
+- Location tag for local clients.
+
+### 8.3 Trial reels
+- Use trials to test **one change at a time** (hook, first frame, format) on cold audiences. Judge at 72 hours.
+- Re-post a proven winner as a trial after 14 to 30 days with a new hook. (Eli Pampa; Brock Johnson)
+- Don't rely on "double dip" duplicate tricks (Jatho): Instagram runs duplicate checks on trials and has started capping them. Fine to test, never the core plan.
+
+### 8.4 Stories (selling to followers)
+Templates to rotate (Devin Jatho, Eli Pampa):
+1. **Point → expand → proof → CTA** (4 to 5 frames, CTA always last).
+2. **Quiz:** 5 quiz stickers that teach the offer (who it's for, the problem, the method name, the next step), prize for replying.
+3. **Objection story:** a real objection on screen → proof → 2-line pre-handle → "reply KEYWORD".
+4. **Post-viral story:** within 72 hours of a hit, run proof frames and a keyword, because profile traffic peaks.
+5. **Poll / question box** to start DMs, then a human replies.
+
+### 8.5 Comment-to-DM flow (the main conversion engine)
+1. Comment or story reply with the **keyword** (unique per post or series, for attribution).
+2. Auto DM opens with a button ("want me to send it?") before any link. One case reported click-through fell from 70%+ to under 20% when the link was sent raw, and recovered with the button step (self-reported, The Broke Agent).
+3. Deliver the resource.
+4. Wait 10 to 60 minutes, then **one qualifying question** (business type, team size, monthly enquiries, main bottleneck).
+5. Route: qualified → tag for a human setter, who sends a short voice note with a mini diagnosis → invite to the free audit (application, €50 deposit as seriousness filter). Not qualified → free resources, nurture.
+6. Tag every contact with the keyword, post ID, and qualification answer.
+7. Hand off into the WhatsApp lead bot (`sales/02-WHATSAPP-LEAD-BOT.md`) for follow-up and booking.
+
+Policy: only message inside the 24-hour window opened by the user. No cold DMs, no DMs triggered by follows or likes.
+
+**Keyword CTAs and recommendations (checked 27 Oct 2026).** Instagram said in June 2024: "If we believe your content
+explicitly asks for engagement through shares, comments, tags, or other actions, then we won't recommend it. An
+example of this is asking people to comment with a specific word, number, or emoji." Three days later it clarified that
+tools like ManyChat are fine and "earnestly engaging with your audience in the comments and DMs to connect personally,
+generate leads, or drive conversions is not considered to be engagement bait"; what it penalises is eliciting
+interactions to "hack" reach. It affects recommendations to non-followers only. Sources: Instagram @creators reel
+https://www.instagram.com/reel/C7kEAtkPiwN/ as reported by Social Media Today, 2 Jun 2024
+(https://www.socialmediatoday.com/news/instagram-says-using-certain-ctas-can-impact-post-reach/717732/), and
+Instagram's clarification, 5 Jun 2024 (https://www.socialmediatoday.com/news/instagram-clarifies-advice-single-word-ctas-longer-reels/718151/).
+Rules for us: a keyword always delivers a real, named resource (the five lead-magnet checks), never "comment YES" or an
+emoji for reach; `card-check` warns on a keyword CTA on a reach post, whose job depends on non-followers. Whether reach
+posts keep keyword CTAs at all is decision 13.13.
+
+### 8.6 The organic → paid loop (StraightScale's real edge)
+Most "social media agencies" stop at posting. We connect organic to paid:
+- **Engagement custom audiences:** IG engagers 30 days + everyone who messaged → retarget with case studies, offer explainer, click-to-WhatsApp. Engagers 31 to 180 days → best trust content and lead magnet.
+- **Boost organic winners:** any post at 3x+ the account median with good saves/sends becomes a paid ad test. "The best free content makes the best ads." (Hormozi; DS-07 §15.18)
+- **Feed paid learnings back:** hooks that win in ads go into the organic hook bank, and the reverse.
+- Exclude current clients and open leads.
+
+### 8.7 Facebook
+Cross-post reels to the Facebook page (all FB videos are Reels since Jun 2025). Facebook demotes unoriginal and duplicate content and favours fresh posts. For local businesses, Facebook can matter more than for B2B (Kallaway lists Facebook for local businesses). Test it per client.
+
+---
+
+## 9. Layer 6: Measurement and learning
+
+### 9.1 Metric order (what we optimise)
+1. **Money and conversations per post:** keyword comments, DMs, qualified DMs, booked audits, revenue. (Kallaway, Hormozi, Pampa)
+2. **Follows gained per post** (sort the professional dashboard by follows).
+3. **Sends per reach** (non-follower signal) and **saves per reach** (trust signal).
+4. **Skip rate** and **average watch time** (hook and retention quality).
+5. Views and reach (only to diagnose distribution).
+
+### 9.2 Data sources
+- Instagram Insights per post (reach, views, skip rate, watch time, sends, saves, profile visits, follows). Pull through the Meta/Supermetrics connector into `analytics/posts.csv`.
+- ManyChat (or chosen DM tool) tags per keyword.
+- UTMs on every link: `utm_source=instagram&utm_medium=organic&utm_campaign=<series>&utm_content=<post_id>`.
+- Required free-text **"How did you hear about us?"** on every booking/application form, compared with the software data, because software misses DMs and word of mouth. (Chris Walker)
+- On every sales call: "Which post made you reach out?" logged in the CRM.
+
+### 9.3 Review cadence
+| When | What | Who |
+|---|---|---|
+| 72 hours | Trial reel results; early read on skip rate and sends | Analyst |
+| 7 days | Post scorecard filled; outlier flag; diagnosis if under median | Analyst → Director |
+| Weekly | Top 3 and bottom 3 posts; which beliefs/pillars/series moved DMs; next week's slate adjusted | Director + Strategist |
+| Monthly | Revenue and calls by post, series and pillar; mix and calendar updated; series killed or promoted | Director + Matan/client |
+| Quarterly | Client Brain refresh: new objections, new proof, new demand phrases | Strategist |
+
+### 9.4 Diagnosis ladder (where is the funnel stuck?)
+| Symptom | Likely cause | Fix |
+|---|---|---|
+| Low reach, high skip rate | Hook or first frame failed | Rewrite hooks, test via trial reels |
+| Good hold, low sends/saves | Value not unique or not usable | Narrow the idea (level 4), add a usable step |
+| Views but no profile visits | Angle off-target (wrong audience) | Back to the demand map; narrow the topic |
+| Profile visits but no follows | Profile or series promise weak | Fix bio, pinned posts, series |
+| Follows but no DMs | CTA or lead magnet weak | Better resource, clearer keyword, more trust posts |
+| DMs but few qualified | Wrong viewer | Tighten avatar and pillars; "who it's not for" posts |
+| Qualified calls but no closes | Offer or sales problem, not content | Escalate to sales, not the content team |
+
+(Built on Eli Pampa's funnel diagnosis.)
+
+### 9.5 Lab → factory
+- A new format or series is in the **lab**: 10 posts minimum before judging. Expect 10 to 30 posts to find the first 10x outlier. (Kallaway)
+- A winner (3x+ median with good saves/sends or DMs) moves to the **factory**: make variations (new topic, same structure) until it stops working. Keep 3 to 4 winning templates live.
+- Every 2 weeks: kill the weakest pillar or series that isn't moving beliefs, promote a new one. (Kallaway 3-2-1)
+- Log every loser with one reason: off-map topic, packaging, delivery, or CTA. **Never repeat the same mistake twice.** (Watch Time doc; Pampa)
+- Single iteration before batching a new format: make one, publish, learn, then batch. (Brendan Kane)
+
+### 9.6 The learning log
+`analytics/learnings.md`: one line per lesson with date, evidence (post IDs), and the rule it changes. The Director must update the format rules, hook bank or map when a lesson is confirmed by 3+ posts.
+
+---
+
+## 10. The agent team
+
+Every agent has one job, clear inputs and outputs, and a gate it can block on. Agents call the existing skills; they don't replace them.
+
+| # | Agent | Job | Inputs | Outputs | Skills / tools | Can block? |
+|---|---|---|---|---|---|---|
+| 0 | **Organic Director** | Owns the strategy and quality. Approves the map, reviews every batch, runs weekly reviews, updates rules. Thinks like a top organic strategist (Kallaway-style frameworks: on-target virality, audience matching, hooks, lab/factory, revenue per post). | Everything | Approvals, veto notes, rule updates, weekly memo | This document | Yes, at every gate |
+| 1 | **Brain Builder** | Fills the Client Brain; runs the owner ramble; builds the demand map and belief ladder | Questionnaire, meeting notes, docs, ramble | `brain.md`, `brain.json`, gaps list | six-dimension-avatar-builder, awareness mapper, strategy-angles | Yes, if required fields are empty |
+| 2 | **Research Scout** | Outlier mining, GSB compares, weekly scout, own-account audit | Handle lists, brain | `outliers.csv`, `format-rules.md`, idea bank entries | ig-competitor-research, viral-format-scout, Apify | No |
+| 3 | **Strategist / Planner** | Builds the monthly Content Map and 2-week slate; writes Post Cards | Brain, research, analytics | `content-map.md`, Post Cards | This document | No |
+| 4 | **Idea Agent** | Turns slate slots into level-4 narrow ideas; runs the idea gate | Post Card, idea bank | Approved ideas with shock score and key visual | Hebrew drill-down method | Yes (idea gate) |
+| 5 | **Hook Agent** | 10 hooks per post, graded; triple hook stack | Approved idea | Hook stack that passes the twin hook rule + 2 variants for trial | readymerce-hook-lab (organic mode) | Yes (hook gate) |
+| 6 | **Script Agent** | Reel scripts with organic CTA ladder | Hook stack, Post Card | Gated script, line table | readymerce-script-lab (organic adapter) | Yes (script gate) |
+| 7 | **Carousel Agent** | Full carousels from Post Cards | Post Card, brand kit, style bible | Slides, caption, alt text | carousel-machine | Yes (its own gates) |
+| 8 | **Video and Motion Producer** | Turns scripts into reels (AI character, motion graphics, B-roll), captions, safe zones | Script, brand look | MP4 + cover frame, plus the 6 derived assets for Tier A | motion-reel (HyperFrames, reference bank); readymerce-ads-machine routes for UGC, podcast, animation and song (organic CTA ending); MiniMax H3; ElevenLabs | Yes (sound-off and visual gates) |
+| 9 | **Distribution Agent** | Captions, keywords, hashtags, trial plan, story sequences, scheduling package | Finished asset, Post Card | Ready-to-post package (after human approval) | Meta tools | No |
+| 10 | **Conversion Agent** | Lead magnets, keyword flows, DM qualification scripts, WhatsApp hand-off, retargeting audiences | Brain, CTA plan | Live flows, resources, audience specs | ManyChat/WhatsApp bot, Meta Ads | Yes (no keyword without a live flow) |
+| 11 | **Analyst** | Pulls data, fills scorecards, flags outliers, runs diagnosis, writes learnings | Insights, DM tags, UTMs, CRM | `posts.csv`, weekly report, learnings | Supermetrics / Meta | No |
+
+**Director's checkpoints:** (1) approve the Client Brain and Content Map, (2) review every weekly batch before human approval, (3) weekly performance memo with 3 decisions (keep, kill, test), (4) monthly strategy update. The Director's review questions:
+- Will the right buyer stop scrolling, and will the wrong one scroll past?
+- What belief does this move, and is it one step from where they are?
+- Would a business owner send this to a partner?
+- Is this the best version of this idea on Instagram right now? If not, what's missing?
+- Is every claim true and in the proof bank?
+- Does the CTA follow naturally from the payoff?
+
+---
+
+## 11. A to Z: what happens when a new client signs
+
+| When | Step | Owner | Output |
+|---|---|---|---|
+| Day 0 to 3 | Questionnaire, kickoff, owner ramble, proof bank collection, access to IG/FB and Meta Business | Brain Builder + account manager | Raw inputs |
+| Day 3 to 7 | Client Brain built; gaps listed; constraints and approval process agreed | Brain Builder | `brain.md` (Director approves) |
+| Day 5 to 10 | Research: competitor + adjacent outliers, demand map, own-account audit, baseline metrics | Research Scout | Research pack |
+| Day 8 to 12 | Content Map: belief ladder, pillars, 2 to 4 series, mix, calendar for month 1 | Strategist | Map (Director + client approve) |
+| Day 8 to 14 | Conversion setup: profile fixes, lead magnet built, keyword flows, WhatsApp hand-off, UTMs, "how did you hear" field | Conversion Agent | Live funnel |
+| Day 12 to 14 | First 2-week batch through all gates; client approval | Production agents | First posts scheduled |
+| Week 3 to 4 | Publish, trial-test hooks, daily stories, reply to comments and DMs | Distribution + client/setter | Live data |
+| End of month 1 | First monthly review: scorecards, outliers, diagnosis, updated map | Analyst + Director | Month 2 map |
+| Month 2 to 3 | Lab: find winning formats (10+ posts per format); start boosting winners with paid | All | First templates in the factory |
+| Every 90 days | Brain refresh, pillar and series review, new proof turned into content | Strategist + Director | Updated brain and map |
+
+---
+
+## 12. Applied: StraightScale's own account
+
+**Facts used (from project docs, all real):** problem = **Patchwork Marketing**; solution = **The Only Choice System** in 5 steps **Find, Own, Attract, Convert, Close**; big idea "You don't need more marketing. You need marketing that works together."; contrast line "Agencies sell you pieces. We build the whole system, starting with your buyers."; buyers = businesses with 5+ staff and €300+ per customer where the sale needs a conversation (clinics, developers, kitchens and furniture, windows and renovation, solar, private schools, car importers); best ad format so far = a StraightScale person at a whiteboard with one real prop.
+
+**Pillars = the 5 steps** (one framework everywhere, per doc 20):
+| Pillar | What it covers | Broad or narrow |
+|---|---|---|
+| **Find** | Knowing your buyer and why they choose (research, buyer words, why they compare on price) | Broad (reach) |
+| **Own** | Standing out so you're the only choice (offer, message, positioning) | Narrow |
+| **Attract** | Ads and content that bring the right buyers | Narrow |
+| **Convert** | Turning enquiries into meetings (speed, follow-up, WhatsApp, the first call) | Narrow |
+| **Close** | Turning meetings into sales (showroom, quote, follow-up) | Narrow |
+
+**Suggested series** (to test, 10 episodes each before judging):
+1. **"Patchwork Autopsy"**: tear down a public business's marketing (with permission or anonymized) and show which pieces don't connect. Trust, B2/B3.
+2. **"One Step"**: one episode per step of the Only Choice System with one fix the viewer can do this week. Trust, B4.
+3. **"Ad Library Spy"**: what a whole category is running in Meta Ad Library right now and what nobody says (we already found white space like "përvojë"). Reach, B1/B5.
+4. **"The Build"**: building a client's system week by week, real facts only. Convert, B6/B7.
+
+**Keyword and lead magnet:** ANALIZA leads to the free analysis (a "reveal the problem" magnet, Hormozi's best type for services). Add one lighter resource for people not ready to book: a **"Patchwork Test"** (10 questions that show where the business leaks enquiries), on its own keyword. The DM bot offers ANALIZA at the end of it. Two keywords let us see which posts make browsers and which make buyers.
+
+**Example belief path for one avatar (AV-01, owner who pays for enquiries and loses them):**
+- B1 reel: "You don't have a marketing problem. You have a 'nobody calls back in time' problem."
+- B2 carousel: "Patchwork Marketing: 4 suppliers, 0 connection."
+- B4 series: "Convert step: the first message to send in 5 minutes."
+- B6 proof reel: a real anonymized result from the proof bank.
+- B8 story: "What happens in the free audit, step by step. Reply ANALIZA."
+
+---
+
+## 13. Things you didn't ask about but need to decide
+
+1. **The AI character and Instagram's new AI label.** Since 31 Aug 2026, accounts featuring an entirely AI-generated person can lose recommendation reach if not labeled (secondary source; confirm in Instagram's help center). Kallaway also notes faceless or non-human accounts struggle with the "affection" step (people like the messenger). **Recommendation:** label the AI character honestly, and mix in real human proof every week: team at work, the office, real client sessions, Matan's voice. The AI character can be the teacher; real people carry trust.
+2. **One language per account.** The algorithm matches content to an audience by its "fingerprint" (Kallaway). An account mixing Albanian and English sends two audience signals and gets a blended fit. **Decide:** Albanian account for the Albania/Kosovo/North Macedonia market, and a separate English account if you go after the global founder market (doc 16). Never both on one account.
+3. **Register: "ju" or "ti".** The brand file says formal "ju"; the carousel preset says "ti". Pick one per account and put it in the voice card.
+4. **Package scope is out of date.** You set organic video to Gold 8 / Diamond 16 a month. Project docs still say Silver 4 / Gold 8 / Diamond 12 (proposed, DP-11 open). Carousels and stories have **no unit** in any package, so carousel work for clients is undefined scope. Define them before selling. *(19 Oct 2026: the contract order form closes DP-11 at Silver none, Gold 8, Diamond 16 videos a month. It lists social media management (posts and captions) with no count, so carousels and stories still have no unit.)*
+5. **What ANALIZA actually delivers.** The keyword works only if what follows feels worth it fast. Write down exactly what the analysis includes, how long it takes, and what the person gets even if they don't buy. Each client needs the same: one real resource behind each keyword.
+6. **Proof gap.** No testimonials or filmed case studies yet. Plan to film the first 3 clients from day one (with permission) so the B6 belief has material in 60 to 90 days.
+7. **Series templates in motion-reel.** Each named series needs one locked visual template (intro, type, colour, layout) so viewers recognise it in the first second. Lock these in motion-reel and carousel-machine before series 1 launches.
+8. **Client approvals and claims.** Clinics, finance and real estate have claim rules. Each client needs a written "can't say" list and an approval turnaround (e.g. 48 hours) in the contract, or the calendar breaks.
+9. **Community management.** Comments and DMs need human answers fast; the algorithm and buyers both read replies. Decide who answers for each client (client staff or our setter) and in what time.
+10. **Data access.** Measurement needs Insights access (Meta Business partner access) and DM tool tags from day one. Without it, section 9 can't run.
+11. **Expectations.** Expect 30 to 50 on-topic posts before the algorithm learns who the account is for, and 10 to 30 posts to find the first 10x outlier (Kallaway). Sell organic as a 90-day build, with paid ads carrying early results.
+12. **Account health.** Check Account Status weekly; one violation pattern can switch off recommendations for the whole account.
+13. **Keyword CTAs on reach posts.** Instagram won't recommend posts it reads as asking for a specific word (8.5), and reach
+    posts live on recommendations to non-followers. Options: keep keywords on reach posts only when the resource is the
+    point of the post (today's rule, with a card-check warning); or move keywords to trust and convert posts and give
+    reach posts send, save or follow. Recommendation: the second, tested for 4 weeks on reach per post against the
+    current median before it becomes a rule.
+
+---
+
+## 14. Build order for the Claude Code session (upgrades to growth-engine)
+
+The chain stays. These are the upgrades, in order of impact:
+
+1. **Schemas:** `brain.schema.json`, `post-card.schema.yaml` (7.1, replaces the bare weekly plan entries), scorecard columns for `posts.csv` (9.2).
+2. **Client Brain step** before Research: builder + gaps report (section 4). The current brand kit becomes part of it.
+3. **Monthly Content Map step** between Research and the weekly plan: belief ladder, pillars, series (6.1 to 6.4). The weekly plan then fills slots from the map.
+4. **Weekly plan generator** upgraded: three jobs and mix rules (6.2), the new format mix (3.1), calendar templates by package volume (6.6), CTA rotation kept.
+5. **Research upgrade** (ig-competitor-research): views-based breakout, 3-month base window plus weekly refresh, the 4 outlier checks, adjacent niches, demand map input, own-account audit (section 5).
+6. **Organic adapters** for Hook Lab and Script Lab (7.3).
+7. **Check upgrade:** gate runner (7.5) plus the Director batch review, before your approval.
+8. **Capture upgrade:** DM button step, one qualifying question, per-series keywords, human hand-off, engagement audiences and winner boosting (8.5, 8.6).
+9. **Learn upgrade:** follows, sends, saves, skip rate in the log; 3x + checks template rule; diagnosis ladder; "How did you hear about us?"; monthly revenue-by-series review (section 9).
+10. **Director agent** with the review questions in section 10, writing the weekly memo and updating rules from the learnings log.
+11. **Format router and budget ledger** (7.7, FORMATS.md): ranks formats per Post Card by L19 fit to its load-bearing beat, the funnel stage, evidence and variety (cost only filters); enforces the monthly USD cap (Atlas, STANDARDS.md 10) and the 6-asset rule for premium pieces; logs Atlas USD, minutes and cost per result per format.
+
+Never automate publishing or messaging customers without explicit human approval.
+
+---
+
+## 15. Sources
+
+**Platform (primary first)**
+- Mosseri, ranking signals, 22 Jan 2025: https://www.socialmediatoday.com/news/instagram-shares-algorithm-insights-2025/738034/
+- Meta system cards: Reels https://transparency.meta.com/features/explaining-ranking/ig-reels-chaining/ · Feed https://transparency.meta.com/features/explaining-ranking/ig-feed/ · Feed recommendations https://transparency.meta.com/features/explaining-ranking/ig-feed-recommendations/ · Explore https://transparency.meta.com/features/explaining-ranking/ig-explore/ · Stories https://transparency.meta.com/features/explaining-ranking/ig-stories/ · Search https://transparency.meta.com/features/explaining-ranking/ig-search/
+- Originality update, 30 Apr 2026: https://creators.instagram.com/blog/rewarding-original-creators-on-instagram
+- Recommendation eligibility: https://creators.instagram.com/blog/instagram-recommendations-eligibility-tips-creators
+- Trial reels scheduling: https://www.socialmediatoday.com/news/instagram-allows-creators-to-schedule-trial-reels/816549/
+- Carousel second chance: https://www.socialmediatoday.com/news/ig-chief-recommends-posting-carousels-improve-reach/730232/
+- Skip rate metric: https://marketing4ecommerce.net/en/retention-and-skip-rate-reels/
+- Hashtag cap: https://betanews.com/2025/12/19/instagram-puts-a-limit-on-hashtag-usage/
+- Google indexing: https://www.afaqs.com/news/digital/search-engines-can-now-index-public-content-from-instagram-9483796
+- AI-generated profile label: https://www.outlookbusiness.com/corporate/instagrams-new-ai-rule-undisclosed-ai-generated-profiles-could-lose-reach
+- Facebook unoriginal content: https://creators.facebook.com/blog/combating-unoriginal-content
+- Benchmarks: https://www.socialinsider.io/blog/instagram-reels-statistics/ · https://metricool.com/press-release-instagram-study-2026/ · https://buffer.com/resources/how-often-to-post-on-instagram/ · https://cadenus.io/resources/blog/instagram-reels-benchmark-2026/
+
+**Practitioners**
+- Kallaway (18 videos studied), e.g. hooks https://youtu.be/2byPP_9F0-Q · algorithm https://youtu.be/8cQidXgtGmU · audience of buyers https://youtu.be/oRYfJ_yxz6M · reverse-engineered algorithms https://youtu.be/94ezZMYPzls · new rules in the age of AI https://youtu.be/ceRZVxO8KF8 · Creator Science interview https://creatorscience.com/podcast/kallaway/
+- Devin Jatho, e.g. expert brand https://www.youtube.com/watch?v=4FUQWJfC5KQ · trial reels https://www.youtube.com/watch?v=zBRbnwXk19M · story templates https://www.youtube.com/watch?v=kqIuTkKz0YQ · Trinity of Value https://www.youtube.com/watch?v=__RNsAVOIQI · ManyChat https://www.youtube.com/watch?v=5AZdit-QaYs
+- CloutProfit channel (Eli Pampa): organic content training https://www.youtube.com/watch?v=rcF2iJYpTFA · Instagram strategy https://www.youtube.com/watch?v=z_WgCt51Kps
+- Hormozi: https://www.youtube.com/watch?v=21flGkcZO3A · https://www.youtube.com/watch?v=ZTSI3DDP_4A · Ep 568 give/ask https://podscripts.co/podcasts/the-game-with-alex-hormozi/give-more-ask-less-building-goodwill-and-making-money-ep-568
+- Chris Walker hybrid attribution: https://www.refinelabs.com/blog/hybrid-attribution-framework
+- Paddy Galloway: https://www.colinandsamir.com/resources/the-new-rules-of-youtube-from-paddy-galloway
+- ManyChat opt-in fix: https://nowbam.com/the-broke-agent-shares-the-manychat-dm-sequence-that-took-his-instagram-click-through-rate-from-under-20-back-above-70/
+- Engagement custom audiences: https://www.jonloomer.com/instagram-account-custom-audience-facebook/
+
+**Internal**
+- Your docs: "Viral Content Strategist 360", "The Genetic Code of Virality (Brendan Kane)", "The Watch Time Blueprint".
+- Project: `20-UMP-UMS-FINAL.md`, `19-CORE-OFFER-CONVERSATION-BUSINESSES.md`, `07-AWARENESS-SOPHISTICATION.md`, `14-STRAIGHTSCALE-BRAND.md`, `ugc-ads/HOOK-LIBRARY-B2B-AL.md`, `delivery-system/07-STAGE-4-MARKETING-MACHINE-SOP.md`, `delivery-system/13-SCOPE-AND-PACKAGES.md`.
+- Skills: carousel-machine, readymerce-hook-lab, readymerce-script-lab, motion-video-director, ig-competitor-research, viral-format-scout, strategy-angles.

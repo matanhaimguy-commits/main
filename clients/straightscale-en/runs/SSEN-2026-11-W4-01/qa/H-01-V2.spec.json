@@ -1,0 +1,23 @@
+{"gate": "G-SPEC", "shot_id": "H-01-V2", "spec_sha256": "ce01119b4e3a1d22b548d0d150d5fd302e26b56b0d6bbe914ef38f6a6dee110a",
+ "reviewer": "prompt-reviewer (fresh agent)", "independent": true, "status": "FAIL",
+ "checks": [
+  {"id": "P1", "result": "PASS", "evidence": "Every subject, prop, text and action in must_read_in_1s appears: PR-PHONE, CH-VISITOR, PR-SCREEN, PR-HEART, 'BOOK A CALL', regions boxed for phone, text, visitor, heart."},
+  {"id": "P2", "result": "N/A", "evidence": "Spec mode; no references (ref: null)."},
+  {"id": "P3", "result": "FAIL", "evidence": "hands: 'none visible' but CH-VISITOR is a walking person with arms; nothing says where the arms and hands are, so a model may add hands or mangled mitts. Needs an arms/hands line."},
+  {"id": "P4", "result": "PASS", "evidence": "'front foot is on the floor and the back foot lifts at the heel'; 'phone stands on its bottom edge on the floor'; 'heart lies flat on the floor'."},
+  {"id": "P5", "result": "PASS", "evidence": "PR-SCREEN content: 'across its top the words BOOK A CALL ... a big calendar grid of 3 rows by 5 columns of plain cream clay squares, every square empty'; no blanket 'no text' in must_not (targeted: 'no words other than the listed strings')."},
+  {"id": "P6", "result": "PASS", "evidence": "string BOOK A CALL (3 words), surface 'top band of the phone screen', position x 14% to 60%, y 36% to 42%, occlusion 'nothing covers any letter', box matches region book-a-call."},
+  {"id": "P7", "result": "PASS", "evidence": "background_rule: 'no signs, frames, posters or other screens; the only writing is on the listed screen'."},
+  {"id": "P8", "result": "FAIL", "evidence": "(a) safe_zones say 'main subject inside x 10% to 90%' but phone pose/box starts at x 8% (0.08). (b) safe_zones say 'bottom 15% calm' (y > 0.85) but phone and visitor boxes end at y 0.86 and heart box at y 0.88. (c) heart is 'between the phone and the walking visitor' but the gap is x 0.66 to 0.70 (4% wide) while the heart box is x 0.62 to 0.72, overlapping both the phone box and the visitor box."},
+  {"id": "P9", "result": "PASS", "evidence": "continuity: previous_shot null, carry_over [] (first frame of the reel)."},
+  {"id": "P10", "result": "N/A", "evidence": "Spec mode."},
+  {"id": "P11", "result": "FAIL", "evidence": "Visitor orientation: 'seen from behind, no face visible' + 'walking away from the phone to the right' + 'head turned away from the camera'. Seen from behind means back to camera (walking into depth), walking right means profile; 'head turned away from the camera' is redundant or means a face-to-camera flip. A model can read it two ways, and a profile view risks a face against 'no faces'. Also 'empty calendar' in must_read_in_1s vs squares that are plain/empty by design is fine, but the viewing angle is not."},
+  {"id": "P12", "result": "FAIL", "evidence": "FL-06 (blob anatomy, name the visible body parts) not prevented: visitor only says 'no face visible'; no named parts (back of head, neck, sweater back, trousers, shoes). FL-11 floor contact is covered (foot on floor, instances: 1). FL-13 not applicable (no client logo in this frame)."}
+ ],
+ "suggested_spec_changes": [
+  "Safe zones: move the phone to x 0.10 to 0.62 (52% of width) and y 0.31 to 0.84; update PR-PHONE pose, region phone box [0.10,0.31,0.62,0.84], size_in_frame '52% of the frame width, 53% of the height'; move the BOOK A CALL position and region to x 14% to 58%, y 37% to 43% (inside the new screen band).",
+  "Move the visitor to x 0.74 to 0.88, y 0.62 to 0.84 (region visitor [0.74,0.62,0.88,0.84]) so the heart has room; keep all feet at or above y 0.84.",
+  "Heart: region [0.64,0.79,0.72,0.84], 'lying flat on the floor in the gap between the phone's right edge and the visitor's back foot, not touching either'.",
+  "Visitor view (P11/P12): replace pose/state with 'seen from behind and slightly to the side, walking right with his back toward the phone: the back of the head, neck, sage sweater back, terracotta trousers and both shoes visible, one instance, no face and no profile of the face'. Drop 'head turned away from the camera'.",
+  "Hands (P3): replace 'hands: none visible' with 'the visitor's arms hang at his sides with the sleeves covering the hands, no fingers visible; no other hands in frame'."
+ ]}

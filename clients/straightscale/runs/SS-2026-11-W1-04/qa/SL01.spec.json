@@ -1,0 +1,71 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "SL01",
+ "spec_sha256": "6a38fc20a5c8ca74833073ea539a8b2b50b987fa9e9b49dde0c50de53b0916a6",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "All spec elements are in place and the YAML validates against shot-spec.schema.yaml: subjects (PR-PHONE, CH-HANDS), hands, 5 props, 5 text strings, action, setting, camera, regions for every text surface, hand, screen and the logo-zone. The 3 headline lines joined equal line_text."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode: no prompt or attached files exist yet."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "Right hand fully specified: 'thumb pad lies on the phone's right side edge at 62% of the height, the other four fingers are behind the phone and not visible'; left 'not visible'; must_not_cover 'the screen'; count_check given; region 'hand' [0.8,0.54,1.0,0.78] is clear of every text box and of the bubble box [0.5,0.7,0.76,0.78]."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "Contact points: 'thumb pad along the phone's right edge and the other four fingers behind the case'; contact 'right thumb pad on the phone's right side edge (the narrow side of the phone), not on the screen'."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-PHONE-SCREEN story_critical with ref 'PS-PROFILE state GRID-BUBBLE' and concrete content: 'three-by-three grid of nine near-identical square photos of finished kitchens ... large light ivory message bubble ... holds the two words \"Sa kushton?\"'. must_not is targeted ('except the screen strings listed in the text block'), not a blanket 'no text'."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "Every string has surface, size, colour, position and occlusion ('nothing covers any letter; no hand, prop or light flare reaches the text block'); the screen string 'Sa kushton?' has 'no hand, finger or reflection touches the words'. Longest surface is 6 words ('5 pyetje para se ta ulësh.'). Cover headline is 4 words in 2 lines of 13 and 10 characters. Counter '1/8' placed top right."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: 'Nothing on the desk or the walls carries a word, a logo or a sign ... the clock tower is a small lit silhouette with a plain clock face: no numerals, no letters; the window glass reflects no text; no shop signs on the street.' Window has region 'window' [0.0,0.42,0.2,0.62]; no empty frames, books or signs in the scene."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No conflicts found: phone box x 0.40-0.84 and arrow region x 0.86-0.96 do not overlap; text block ends at y 0.262 and the top 40% stays free; hand (x>=0.8) does not reach the screen text; phone box x>=0.40 stays out of the logo-zone (x<=0.40)."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "First slide: previous_shot null and carry_over [] are correct. Chain and set rules hold across all 8 specs: previous_shot SL01=null, SL02->SL01, SL03->SL02, SL04->SL03, SL05->SL04, SL06->SL05, SL07->SL06, SL08->SL07; counters 1/8 to 8/8; PR-ARROW on SL01-SL07 only; SL08 has no arrow; hero true on SL01 only; the ask (ANALIZA) appears only on SL08."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode: model, resolution and duration are checked on the prompt at G-PROMPT-IMG (the spec itself sets aspect 4:5)."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No word is open to two readings: positions are given as percentages of the frame, 'upright', 'cropped by the lower frame edge' and the bubble placement ('over the lower part of the grid', region screen-text1) are tied to boxes."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "No FL pattern left without prevention: FL-01 text only in the top wall with occlusion rule, FL-02 'one lamp with one round shade on one stem and one round base' and stand 'with one groove', FL-04 screen has a content line and a targeted negative, FL-05/10 'Nothing on the desk or the walls carries a word, a logo or a sign', FL-13 logo-zone [0.0,0.91,0.4,1.0] plus 'no logo or wordmark drawn anywhere'."
+  }
+ ],
+ "suggested_spec_changes": []
+}

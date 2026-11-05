@@ -1,0 +1,21 @@
+{"gate":"G-SPEC","shot_id":"H-01-W908","spec_sha256":"6a1d0c3817a47574882cf8e387110d6690720a34f2a112672612a6057bf1e726","reviewer":"prompt-reviewer (fresh agent)","independent":true,"status":"FAIL",
+"checks":[
+{"id":"P1","result":"PASS","evidence":"must_read_in_1s: 'Six identical clay post cards; a tiny clay client steps out of one.' Both subjects, props, hands, setting, text none are all present."},
+{"id":"P2","result":"N/A","evidence":"spec mode"},
+{"id":"P3","result":"PASS","evidence":"hands: 'two mitten hands, no fingers, one at the end of each arm'; contact: neither hand touches anything."},
+{"id":"P4","result":"FAIL","evidence":"'its right foot lifted over the card's front edge, about to step down' and 'stepping out of the top middle card onto the ground': 'front edge' is undefined with a straight-down lens, and the ground below the top-row card is only the 2-3% gap before the lower-middle card, so the landing point is not a contact point."},
+{"id":"P5","result":"PASS","evidence":"PR-POSTS content: 'six identical flat cream #F3E9D8 clay slabs ... one small heart red #D64545 clay heart pressed in its lower right corner'; filled, targeted negative only."},
+{"id":"P6","result":"PASS","evidence":"text_in_image: none; must_not: 'no letters, words, digits or logos anywhere'; the hook is added in the edit."},
+{"id":"P7","result":"PASS","evidence":"background_rule: 'no signs, frames, posters, screens or writing anywhere'; ground plain outside the band."},
+{"id":"P8","result":"FAIL","evidence":"(a) Geometry: 2 rows of 10% plus one 3% gap = 23%, so the grid spans y 30% to 53%, but the spec says 'y 30% to 52%' and must_not 'nothing lower than 52% ... except plain ground'. (b) The lower right card's heart 'pressed in its lower right corner' sits near x 88-91%, y 50-52%, inside the 'right 21% of the width in the lower half' zone that safe_zones says must hold nothing key. (c) camera 'seen from straight above' contradicts the figure 'seen from behind and above' (a top-down lens shows head and shoulders, not a back; its facing direction is undefined)."},
+{"id":"P9","result":"PASS","evidence":"continuity: previous_shot null, carry_over []; first image of the prop and character."},
+{"id":"P11","result":"FAIL","evidence":"'front edge' and 'seen from behind' have no direction in frame terms; 'top middle card' is clear, but which way the figure faces and steps (toward frame bottom, into the gap) is left to the model."},
+{"id":"P12","result":"PASS","evidence":"FL-03 action as contact points is covered apart from P4 wording; FL-11 'instances: 1' plus 'no second figure' and feet on the card; FL-04/05 covered; FL-06 named parts: 'none visible: seen from behind and above, no face' (wording fixed under P8/P11). Regions: client box kind 'face' is a mismatch to be changed to 'other' (no face exists) so the reviewer does not look for one."}
+],
+"suggested_spec_changes":[
+"Grid geometry: set gaps between rows to 2% and keep card height 10% so rows are y 30% to 40% and y 42% to 52% (columns stay x 8% to 92% with 3% gaps). Update PR-POSTS.pose, props.size_in_frame ('gaps of 3% between columns and 2% between rows') and the grid region box [0.08,0.30,0.92,0.52] (unchanged).",
+"Move the heart on every card to the lower LEFT corner ('pressed in its lower left corner'), still all six exactly alike, so no heart sits in the right 21% of the lower half.",
+"Replace the stepping description with frame directions: 'the tiny figure faces the bottom of the frame; its left foot is flat on the top middle card; its right foot is lifted and its toe is over the card's bottom edge (the edge toward the bottom of the frame), 1% of the frame height above the 2% gap of plain ground between the top and bottom rows'. Apply in CH-CLIENT.state, pose and action_physics.",
+"Replace 'seen from behind and above' with 'seen from straight above, head top and shoulders visible, facing the bottom of the frame; no face' in CH-CLIENT.state/expression, and rewrite hands to 'seen from above'.",
+"Regions: change the 'client' region kind from face to other (no face is visible); keep client-hands as hand."
+]}

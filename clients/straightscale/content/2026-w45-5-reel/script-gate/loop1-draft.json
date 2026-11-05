@@ -1,0 +1,91 @@
+{
+ "card": "SS-2026-11-W1-05 · reel_motion (code-rendered motion graphics, voiced), tier O30 (20 to 35 s) · job convert · belief B5 ('a system beats buying pieces'; vault line: 'You don't need more marketing. You need marketing that works together.') · awareness solution_aware · cta_type keyword: comment ANALIZA (the live keyword) · hook_type comparison · narrow product: the same boosted post followed twice, once with nothing after the click, once with a path after the click (a reply, a second message, a booking step); the boost is a piece, the path makes it work. Must NOT imply that boosting doesn't work. AI label on (AI voice).",
+ "facts": "- The owner's own words: 'paratë e reklamave zhduken' (the ad money disappears). He has tried boosting posts and more ads.\n- B1: 'Your ads aren't failing. Your enquiries are dying after the click.'\n- The free analysis: free, 45 minutes, at our office in Tirana or at the client's business, no obligation. Next step: comment ANALIZA; a DM sends the booking step.\n- Nothing about what the analysis covers, finds or shows.\n- No euro amounts, no results, no counts.",
+ "hook": "Visual from frame 1: a click pointer taps an unbranded mock post card (a drawn shopfront picture, a small megaphone icon meaning 'promoted', no platform label, no logo, no numbers). The view jumps to a messages screen headed 'Mesazhet' (Messages): completely empty, a comic tumbleweed rolling across. The two-lane comparison starts after 3 s.\nText hook (top third, 0-3 s): 'Paratë e reklamave zhduken? / Shiko pas klikimit.' [Ad money disappears? / Look after the click.]\nSpoken L1 (fixed): see line 1.",
+ "structure": "ST10 comparison (the same post, two endings), compact, second-person narrator. O30 rungs: recognition (L1), the cause in one picture line (L3), the fix (L4, L5: the path, the missing piece), CTA keyword (L6).",
+ "actq": "Would you comment ANALIZA?",
+ "end_s": 31.0,
+ "end_card": "Ivory card: 'Komento ANALIZA' large; below: 'Analizë falas · 45 minuta · në zyrën tonë në Tiranë ose te biznesi yt · pa detyrim' [Free analysis · 45 minutes · at our office in Tirana or at your business · no obligation]; small line 'Hapi për rezervim vjen në mesazh' [The booking step comes in a message]; StraightScale wordmark. Held to 31.0 s.",
+ "lines": [
+  {
+   "n": 1,
+   "sq": "Paguan sponsorizimin, njerëzit klikojnë, dhe pastaj asnjë mesazh. Ku shkuan?",
+   "en": "You pay for the boost, people click, and then not one message. Where did they go?",
+   "super": "0-3 s text hook 'Paratë e reklamave zhduken? / Shiko pas klikimit.'",
+   "visual": "Pointer taps the unbranded promoted post card; jump to the empty 'Mesazhet' screen; a comic tumbleweed rolls across and off.",
+   "secs": "0.0-4.3"
+  },
+  {
+   "n": 2,
+   "sq": "Ndiqe të njëjtin postim dy herë.",
+   "en": "Follow the same post twice.",
+   "super": "'I njëjti postim, dy herë' [The same post, twice]",
+   "visual": "The post card splits into two identical cards, side by side, two lanes; a red dotted path line waits under each.",
+   "secs": "4.6-7.2"
+  },
+  {
+   "n": 3,
+   "sq": "Herën e parë, pas klikimit s'ka asgjë. Njerëzit shohin dhe ikin.",
+   "en": "The first time, after the click there's nothing. People look and leave.",
+   "super": "'1: pas klikimit, asgjë' [1: after the click, nothing]",
+   "visual": "Left lane: the pointer clicks; the dotted path runs a short way and stops at empty space. Small simple figures (icons) look at the card and walk off the edge. The tumbleweed passes.",
+   "secs": "7.5-12.3"
+  },
+  {
+   "n": 4,
+   "sq": "Herën e dytë, pas klikimit ka rrugë: përgjigje, mesazh i dytë, rezervim.",
+   "en": "The second time, after the click there's a path: a reply, a second message, a booking.",
+   "super": "'2: përgjigje, mesazh i dytë, rezervim' [2: reply, second message, booking]",
+   "visual": "Right lane: the same click; a figure writes a message, and the path lights three stops in order: a reply bubble, a second message bubble, a booking card with a calendar icon (no dates, no numbers).",
+   "secs": "12.6-17.8"
+  },
+  {
+   "n": 5,
+   "sq": "Sponsorizimi s'kishte faj. I mungonte pjesa tjetër.",
+   "en": "The boost wasn't to blame. It was missing the other piece.",
+   "super": "'Sponsorizimi s'kishte faj' then 'I mungonte pjesa tjetër' [The boost wasn't to blame / It was missing the other piece]",
+   "visual": "Both lanes: the left lane's broken path gets a puzzle piece that slots into the gap; its path now runs on like the right one.",
+   "secs": "18.2-21.2"
+  },
+  {
+   "n": 6,
+   "sq": "Komento ANALIZA: analizë falas, dyzet e pesë minuta, në zyrën tonë në Tiranë ose te biznesi yt, pa detyrim.",
+   "en": "Comment ANALIZA: a free analysis, forty-five minutes, at our office in Tirana or at your business, no obligation.",
+   "super": "End card (see end card)",
+   "visual": "End card.",
+   "secs": "21.6-29.4 (end card held to 31.0)"
+  }
+ ],
+ "screens": [
+  {
+   "t": "0-3",
+   "visual": "A pointer taps a plain promoted post card (a drawn shopfront, a small megaphone icon, no brand). The screen jumps to 'Mesazhet' (Messages): completely empty; a cartoon tumbleweed rolls across.",
+   "text": "Paratë e reklamave zhduken? / Shiko pas klikimit. [Ad money disappears? / Look after the click.]"
+  },
+  {
+   "t": "3-7.2",
+   "visual": "Tumbleweed rolls off. The post card splits into two identical cards side by side, a red dotted path under each.",
+   "text": "I njëjti postim, dy herë [The same post, twice]"
+  },
+  {
+   "t": "7.5-12.3",
+   "visual": "Left lane: a click; the dotted path runs a little and stops at empty space. Small figures look at the card and walk off the edge.",
+   "text": "1: pas klikimit, asgjë [1: after the click, nothing]"
+  },
+  {
+   "t": "12.6-17.8",
+   "visual": "Right lane: the same click; a figure writes a message; the path lights up a reply bubble, a second message bubble and a booking card with a calendar icon.",
+   "text": "2: përgjigje, mesazh i dytë, rezervim [2: reply, second message, booking]"
+  },
+  {
+   "t": "18.2-21.2",
+   "visual": "A puzzle piece slots into the gap in the left lane's path; now both paths run on.",
+   "text": "Sponsorizimi s'kishte faj / I mungonte pjesa tjetër [The boost wasn't to blame / It was missing the other piece]"
+  },
+  {
+   "t": "21.6-31",
+   "visual": "Ivory end card with the StraightScale wordmark.",
+   "text": "Komento ANALIZA / Analizë falas · 45 minuta · në zyrën tonë në Tiranë ose te biznesi yt · pa detyrim / Hapi për rezervim vjen në mesazh [Comment ANALIZA / Free analysis · 45 minutes · at our office in Tirana or at your business · no obligation / The booking step comes in a message]"
+  }
+ ]
+}

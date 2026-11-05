@@ -1,0 +1,73 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CF-V3",
+ "version": 1,
+ "prompt_sha256": "cbc933e9ecb5dcab2fe9de25876ac7e7c72ced852368f0d9e5c659aba870a747",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "All 11 blocks in order; subject, hand, 3 props, 3 strings, action, setting, camera present: 'Camera: flat lay, straight down at 90 degrees, 9:16. The top 32% ... bare dark walnut wood'"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'Reference images: none attached; this prompt is the only input.' matches media list none (text-to-image)"
+  },
+  {
+   "id": "P3",
+   "result": "FAIL",
+   "evidence": "'pinch the bottom right corner of the right-hand sheet' but 'one plain round red sticker in its lower right corner' of each sheet: the pinch lands on the right sheet's sticker, the story detail, and the hand block only forbids covering headings"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'index finger and thumb pinch the ... corner ... lift that corner about 2 cm off the desk' and 'the sheet bends slightly' (contact points). Note: from straight above the lift reads only through shadow and bend, acceptable"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Props filled: 'three headings stacked in heavy black block capitals ... one plain round red sticker ... no writing on it'; negatives are targeted ('the stickers stay blank'), no blanket 'no text'"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "'\"PROGRAM\", then \"WEEKLY CALLS\", then \"A PROMISE\". Upper case ... Nothing covers any heading letter' on each of the three sheets, top to bottom; every string 3 words or fewer"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "No frames, screens, signs or books; 'nothing else on the desk'; 'The body lines under them are grey bars, not readable words'"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "Sheets are 'A4' (about 1:1.41) yet 'about 30% of the frame width' in a band 'y 36% to 80%' (sheets ~0.4 wide:high); and headings 'very large for the sheet (each heading about 9% of the sheet height)' cannot fit 'WEEKLY CALLS' on one line of a sheet 30% wide, so the model will wrap, shrink or misspell. Also format line says hand in 'knit sweater' while Hands says 'knit sleeve'"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'Continuity: none, this is the first frame of the reel.' matches spec previous_shot null"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Atlas openai/gpt-image-2/text-to-image is listed for still; quality medium and size 1152x2048 are the 9:16 values in standards.json; 9:16 in prompt; no extra text field (negatives inside prompt); hands only, no person. NOTE: the ledger/packet hash cbc933e9... is the pipeline's whitespace-normalised hash and matches this file"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "'A4 sheets' vs the frame proportions; 'knit sweater' (garment, not sleeve); 'bottom right corner' of a sheet whose lower right corner also holds the sticker: each can be read two ways"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01: hand is in the bottom band (y 74-100%), headings in the upper sheet; 'The hand covers no heading letter.' FL-03 contact points given; FL-04 stickers and headings filled; FL-10 body text as grey bars; FL-11 'the set appears once'; FL-13 no logo asked"
+  }
+ ],
+ "corrected_prompt": "Photoreal POV photo, vertical 9:16, 35mm lens, everything sharp. Look: a POV dramatization with hands only and never a face; a warm evening home office lit by a tungsten desk lamp from the upper left, soft shadows, natural skin; the hand always in a mustard-yellow knit sleeve; muted warm palette of walnut, warm grey, mustard and paper white, red only on the price stickers.\nReference images: none attached; this prompt is the only input.\nSubject: three identical plain white tall narrow paper sheets lying flat in a row on a desk, seen from straight above, side by side with small gaps, filling the middle band of the frame (x 3% to 97%, y 36% to 80%); each sheet about 30% of the frame width and 44% of the frame height; the set appears once.\nHands: one adult hand, the viewer's own, wrist in a mustard-yellow knit sleeve, entering from the bottom edge at the lower right (x 66% to 96%, y 74% to 100%). Its index finger and thumb pinch the bottom left corner of the right-hand sheet (the corner away from its sticker) and lift that corner about 2 cm off the desk. The hand covers no heading letter and no part of any sticker. Exactly one hand with five fingers; no other hand.\nAction: thumb and index finger pinch the right-hand sheet's bottom left corner; the corner lifts 2 cm and the sheet bends slightly; the other two sheets lie flat.\nProps: the three sheets are copies, identical in layout, words and type. On each, three headings stacked in heavy black block capitals, each heading on one single line filling about 85% of the sheet's width (letters about 4% of the sheet height), with a few grey lines of unreadable small body text under each heading. Each sheet has one plain round red sticker in its lower right corner with no writing on it: the left sheet's sticker is the largest, the middle one smaller, the right one the smallest. That sticker size is the only difference between the sheets.\nText: on each of the three sheets, the same three headings, top to bottom: \"PROGRAM\", then \"WEEKLY CALLS\", then \"A PROMISE\". Upper case, exactly these words, spelled the same on all three sheets. The body lines under them are grey bars, not readable words. Nothing covers any heading letter.\nSetting: a warm walnut desk seen from straight above in the evening; nothing else on the desk.\nCamera: flat lay, straight down at 90 degrees, 9:16. The top 32% of the frame is bare dark walnut wood with nothing on it. The bottom 12% holds only the hand and wood.\nContinuity: none, this is the first frame of the reel.\nNegatives: no face; no logo, brand or app name; no digits, prices or currency signs anywhere, the stickers stay blank; no words other than the three headings; no fourth sheet; no pens, phones or cups on the desk; no second hand.\n",
+ "note": "The corrected prompt follows the spec as written except where the spec contradicts itself (A4 vs 30%x44%, 9% heading height, which pinch corner); the spec changes in qa/H-01-V3.spec.json suggested_spec_changes should be made first so spec and prompt agree, then re-run the spec review. No producer reasoning was in the packet."
+}

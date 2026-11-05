@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "SL06",
+ "version": 1,
+ "prompt_sha256": "2828d71acbd22386bb76dab7b4a43f92d35a7de10d56e485b66a235166ec0733",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "PR-PHONE and CH-HANDS subjects, hands block (left, right, contact, must_not_cover, count_check), PR-PHONE-SCREEN, PR-ARROW, 6 text strings, 2 actions, setting, camera, carry-over, 6 must_not (\"No text typed in the message field.\")"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "Images 1 to 3 as SL03, \"Image 4 is the prop sheet PS-COMPOSER: copy the phone screen state \"COMPOSER-EMPTY\" from it exactly\" matches upload order (image 4 = PS-COMPOSER-APPROVED)"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"left hand ... palm under its bottom edge, the thumb on the left side edge ... right ... the thumb hovers 2 cm above the screen's bottom-right corner, below the message field; must not cover: the empty message field (at 70% down the screen) and the top of the screen; five fingers on each hand\"; forearms x 44% to 60% and 66% to 82% clear of the arrow and the empty bottom-left zone"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"The left hand holds the phone from below with four fingers behind the case and the thumb pad on its left side edge. The right thumb hovers 2 cm above the screen's bottom-right corner ... without touching the glass.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-PHONE-SCREEN: \"one short light-grey bubble ... two short dark-grey bars ... an empty rounded white message field with a thin dark cursor bar inside it\"; Avoid keeps the shapes: \"screens hold only the shapes described in the props block\""
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"NJË PYETJE\", \"Çfarë të bëri gati\", \"të zgjidhje dikë\", \"tjetër?\", \"Dërgoja klientëve të fundit.\", \"6/8\" with surface, x/y, size, colour; \"gati\" in crimson box; NJË, Çfarë, të, bëri, dikë, tjetër, Dërgoja, klientëve spelled; text ends y 36%, hands start y 64%"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "Screen content specified (empty field, 'no on-screen keyboard'); background \"only soft lamp lights; no frame samples, signs or readable words\""
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Phone x 45% to 75% clear of the arrow (x 86%+) and the bottom-left zone; right forearm x 66% to 82% does not reach the arrow; thumb below the field, not covering it"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "\"The same red-case phone, now lit and in two hands; the sales desk is only soft bokeh. Warm lamp light and the same grade.\""
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Prompt opens \"Instagram carousel slide, portrait 4:5.\"; call settings gpt_image_2_5, 4:5, 2k, medium, flare match standards.json; image roles image_references; declined_preset_id is video-only (N/A)"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "Finger and thumb positions numeric (\"2 cm above\", \"four fingers behind\"); count_check consistent (5 per hand, 2 thumbs visible, 8 fingers hidden). Cosmetic only: \"left hand the left hand holds\" duplicate wording"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-13 prevented: \"Bottom-left corner (the lowest 9% of the height, the left 40% of the width): calm, dark, empty background ... no logo, no letters, no objects (a logo is added later).\"; FL-01 text far from any hand/prop; no blanket 'no text' over a story prop; FL-01 text block y 6% to 36% is clear of the hands (y 64% and below)"
+  }
+ ],
+ "corrected_prompt": null
+}

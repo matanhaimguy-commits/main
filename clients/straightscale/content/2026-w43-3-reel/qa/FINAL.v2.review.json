@@ -1,0 +1,130 @@
+{
+  "gate": "G-FINAL",
+  "asset_id": "2026-w43-3-reel",
+  "version": 2,
+  "post": "hub row 2, \"Ajo nuk pyeti vetëm ty për çmimin.\", scheduled Wed 21 Oct 2026 19:30",
+  "media": "https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/9e52c7d6-7991-4aca-b951-470d6ae1ba3f.mp4",
+  "cover": "https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/241d4869-5539-451d-a7a5-cc6b7f51d666.jpg",
+  "reviewer": "take-reviewer (fresh agent)",
+  "independent": true,
+  "status": "FAIL",
+  "reviewed_on": "2026-10-16",
+  "standards": "STANDARDS.md v1.1 (16 Oct 2026). The reel was rendered 15 Oct against v1.0; the v1.1 rules it misses (safe zone in px, 30 fps, no platform names on screen, AI people interim rule in section 7) still apply at G-FINAL because the post is not approved yet.",
+  "method": "Higgsfield sandbox /home/user/qa/2026-w43-3-reel.v2/: curl -sf of the MP4 and the cover; frames every 1.5 s + first + last + every ffmpeg scene cut (threshold 0.3) with 5 contact sheets (manifest saved at qa/frames/reel.v2/manifest.json); full-resolution crops of every text element, the safe zones (cyan lines at y 269 and y 1248, x 853 below y 960, sides 65), phone screens and backgrounds; logo crops compared with the straightscale.com files fetched in the sandbox; faster-whisper small with word timestamps (language sq as asked, and en because the voice is English); ffmpeg loudnorm print_format=json and ebur128.",
+  "files_opened": [
+    "frames/contact_1.jpg", "frames/contact_2.jpg", "frames/contact_3.jpg", "frames/contact_4.jpg", "frames/contact_5.jpg",
+    "frames/f_000.000.png (as f_000.000.view.jpg, 540x960)", "frames/f_059.958.png (as f_059.958.view.jpg, 540x960)",
+    "crops/hook_arrival.jpg", "crops/f3_540.jpg", "crops/cover_540.jpg", "crops/zones_a.jpg", "crops/zones_b.jpg",
+    "crops/textA.jpg", "crops/textB.jpg", "crops/textC.jpg", "crops/chat.jpg", "crops/endcard.jpg",
+    "crops/brand_compare.jpg", "crops/f58_5.jpg", "crops/transitions.jpg", "crops/screens1.jpg", "crops/screens2.jpg",
+    "crops/street.jpg", "crops/shelf.jpg", "crops/signs.jpg"
+  ],
+  "file_facts": "1080x1920, H.264 High yuv420p, 24 fps, 1440 frames, 60.000 s, AAC LC 48 kHz stereo 260 kb/s, 34.7 MB; full decode clean. Cover 1080x1920 JPEG = the frame at 2.2 s (mean abs difference 1.8/255).",
+  "ai_label_needed": true,
+  "ai_label_reason": "STANDARDS 7: the ElevenLabs voice (eleven_v4 'Strategist') speaks as a person, the photoreal AI strategist lip-syncs it on camera (45.54-58.3 s), and every shot from 0 to 45.5 s is photoreal AI footage of AI people (Elira and the owners). Instagram's AI label must be on, and the hub draft notes must say \"AI label: on\" (item.json notes do not say it today).",
+  "checks": [
+    {
+      "id": "F1",
+      "result": "FAIL",
+      "severity": "major",
+      "at_s": "1.0-4.05, 17.05-18.95, plus minors",
+      "evidence": "MAJOR 1 (hook and cover, hero): the three 'Sa kushton?' bubbles land on Elira's face. At 3.0 s (f3_540.jpg) bubble 2 covers her forehead and bubble 3 (y about 900-980) covers her nose and eyes' line; from about 1.0 s until the cut at 4.05 s. The cover (frame 2.2 s, cover_540.jpg) shows the same, and a cover is a hero asset (zero defects). The review log's fix 'bubbles land left of the chips' did not keep them off the face. MAJOR 2 (payoff beat): in the race at 17.0-18.95 s the winning row prints the '✓' of '✓ Rezervuar' on top of the '7' of '22:47' (textB.jpg, 18.0 s): it reads '22:4✓7 Rezervuar'. The 84 px time and the 54 px right-aligned label do not fit in the row. MINOR: (a) FL-10 pseudo-text on a white banner sign on a pole behind the strategist, about x 280-380, y 330-470, 46.5-50 s (signs.jpg), out of focus; (b) tiny pseudo-labels on the shelf bottles at 18.9-22.4 s (shelf.jpg), only visible zoomed; (c) the end-card mark fades in on the strategist's hair at 58.35-58.65 s (f58_5.jpg, transitions.jpg 58.40); (d) end card 58.35-60.00 s = 1.65 s, under STANDARDS 5's 2.5 to 3 s, and it carries the mark only, not the wordmark; (e) 24 fps delivered, STANDARDS 5 says 30 fps for AI video (repeat frames); (f) the auto-reply strike at 24.05-25.95 s crosses only the middle line and sticks out past the bubble's left edge (textA.jpg); (g) the laser icon (hook and race) reads as a wand with a '#', known in review_log; (h) the alert banner at 40.35-42.55 s sits on the top of owner 3's head (hair). CLEAN: no morphing, melting, duplicated people or bad hands in any sampled frame or cut; phone screens at 4.5, 7.5, 9.0 and 21.5 s are blank light (no gibberish); the phone backs, moka pot and laser handpiece carry no logos; the wall photo is a plain family picture. LOGOS: no logo or brand mark drawn by the image or video model anywhere. The brand beat (42.6-45.6 s) wordmark, the DM banner icon (49.65-52.9 s) and the end-card mark (58.35-60 s) match straightscale.com's logo-light.png and mark.png (brand_compare.jpg: same S channel, gold notch square, letterforms and red); edges slightly soft from the 640 px source scaled to about 780 px, crisp at phone size."
+    },
+    {
+      "id": "F2",
+      "result": "PASS",
+      "severity": "minor",
+      "at_s": "18.95-29.15",
+      "evidence": "Sound-off, the hook reads ('Ajo nuk pyeti vetëm ty për çmimin.' plus three 'Sa kushton?' bubbles flying to a tooth, scissors and laser), then 22:47, the reply bubble, 'Përgjigje brenda 1 minute', '✓ Rezervuar', 07:10, the race and 'Fiton përgjigja e parë e mirë.', 'Asistent AI në Instagram', the SHEMBULL chat, the alert, the brand, 'Komento ANALIZA' with the stopwatch, the DM, the offer and 'Bëhu përgjigja e parë.'. Minor: from 18.95 to 24.05 s and 25.95 to 29.15 s there is no super, so L6 ('you can't answer in a minute') and the first half of L7 ('posting more won't fix that') do not read without sound; the owner-at-work and owner-filming shots alone do not carry them. Also the laser owner at work (18.9 s) is played by owner 1's actress while the race gave the laser icon to owner 3: a sound-off viewer may mix them up (Director's pass)."
+    },
+    {
+      "id": "F3",
+      "result": "FAIL",
+      "severity": "major",
+      "at_s": "8.15-11.6, 24.05-25.95, 31.4-40.05, 46.8-50.7, 51.35-54.6",
+      "evidence": "SPELLING: every on-screen string matches overlay.js and the EDL letter by letter, ë and ç included (textA/B/C.jpg, chat.jpg, endcard.jpg): 'Ajo nuk pyeti vetëm ty për çmimin.', 'Sa kushton?', 'Përshëndetje! Ja çmimi dhe oraret e lira 👇', 'Përgjigje brenda 1 minute', '✓ Rezervuar', 'Fiton përgjigja e parë e mirë.', 'Faleminderit për mesazhin! Do t'ju përgjigjemi së shpejti.', 'Asistent AI në Instagram', 'Përshëndetje, Elira! Ja çmimi dhe 2 orare të lira: e enjte 18:00 · e shtunë 11:00', '22:47 · brenda 1 minute', 'E enjte 18:00 👍', '✓ E enjte 18:00 · rezervuar', 'Arbër', 'Heshti · 1 orë', 'Vlerësim nga një klient tjetër', '🔔 Klient i ri · rezervoi', 'Komento ANALIZA', 'Faleminderit! 🙌 Analiza falas zgjat 45 minuta, pa detyrim…', 'Analizë falas · 45 min / pa detyrim', 'Bëhu përgjigja e parë.', 'Komento ANALIZA 👇'. No em dashes. TIMING: each super sits on its spoken line (e.g. 'Përgjigje brenda 1 minute' 9.2 s on 'in under a minute' 9.5-10.6 s; 'Komento ANALIZA' 46.8 s on 'Comment ANALIZA' 46.56-47.4 s; 'Analizë falas · 45 min' 51.35 s on 'a free 45-minute analysis' 50.56-52.84 s). SAFE ZONES FAIL (STANDARDS 6: bottom 35% = below y 1248, right 21% = x above 853 in the lower half; the build used the old house zone top 250, bottom 400, right 140, which section 6 overrules): reply bubble 8.15-11.6 s at y about 1330-1485, right edge about 910 (zones_a.jpg 9.0 s); auto-reply bubble 24.05-25.95 s bottom about 1300, right edge about 915; phone chat 31.4-40.05 s: the '−20%' sticker at y about 1335-1470 and the review card's right edge about 864 (zones_a.jpg 39.9 s); comment box 46.8-50.7 s at y 1180-1300, right edge 930, and the stopwatch (the proof, '0:00' to '0:05') at y about 1340-1425, fully inside the bottom zone (zones_b.jpg 48.5 and 50.5 s); offer lower third 'Analizë falas · 45 min / pa detyrim' 51.35-54.6 s at y about 1200-1365, right edge about 879 (zones_b.jpg 52.5 s). Top zone and side margins hold everywhere (22:47 chip and DM banner start at y 270-276). SIZE: 'SHEMBULL' is 30 px and '22:47 · brenda 1 minute' 36 px, under the 44 px minimum (minor). Native Albanian read still open (G-HUMAN-FINAL)."
+    },
+    {
+      "id": "F4",
+      "result": "PASS",
+      "severity": "",
+      "at_s": "0.00-58.24",
+      "evidence": "faster-whisper small with word timestamps on the final mix: all 16 lines of the released S60 script are present in order, 182 of 182 words (difflib ratio 0.98 en, 0.98 sq). Only ASR spellings differ: 'we'll' heard as 'will', 'StraightScale' as 'straight scale', 'anytime' as 'any time', and 'ANALIZA' as 'Annalisa' (en model) / 'analiza' (sq model). The voice is English, so the sq run also returned English text. 17 pauses of 0.45 s or more, speech ends 58.24 s. The 'Annalisa' reading supports the open item: a person must hear the ANALIZA pronunciation on a phone. Sound-on watch and the voice-alone listen need a person (this reviewer can't hear)."
+    },
+    {
+      "id": "F5",
+      "result": "PASS",
+      "severity": "",
+      "at_s": "0-60",
+      "evidence": "ffmpeg loudnorm print_format=json: input_i -14.06 LUFS, input_tp -1.50 dBTP, input_lra 2.80 LU. ebur128: I -14.0 LUFS, true peak -1.5 dBFS, LRA 2.9 LU, short-term max -12.3 LUFS. Within STANDARDS 4: -14 ±1 LUFS, true peak -1 dBTP or lower, LRA 11 LU or less, short-term under about -9 LUFS."
+    },
+    {
+      "id": "F6",
+      "result": "PASS",
+      "severity": "minor",
+      "at_s": "0.000-0.30",
+      "evidence": "First word 'She' at 0.00-0.24 s; the hook's meaning ('how much' to three businesses) by 2.5 s; motion in the first second (bubbles fly from 0.3 s). The hook super is on screen from 0.042 s (second frame) to 3.75 s, but frame 1 (0.000 s) is clean footage with no text (hook_arrival.jpg; the super's fade starts at 0.0 with alpha 0): minor, STANDARDS 6 asks for the text hook from frame 1."
+    },
+    {
+      "id": "F7",
+      "result": "FAIL",
+      "severity": "major",
+      "at_s": "0.00-45.54 and 45.54-58.3",
+      "evidence": "No side-by-side before and after, no 'your [condition]', no prices, guarantees or urgency; the struck '−20%' is inside the SHEMBULL chat as a non-offer. AI PEOPLE (STANDARDS 7 interim, brain.json D1 open: 'AI people are only shown from behind or as clearly staged scenes'): photoreal AI business owners who could pass as real owners are shown face-on: owner 1 asleep (4.05-5.3, 21.25-22.45 s) and in the morning (13.4-15.25 s), owner 2 laughing to camera at dinner (5.3-6.45 s), owner 3 asleep (6.45-11.55, 25.95-31.4 s) and reading the alert (40.05-45.54 s), the laser owner at work (18.9-21.25 s), the owner filming herself (22.45-25.95 s); section 7 says such owners are shown from behind, hands only, at distance or as stylized animation. Elira (the customer) is photoreal and face-on (0-4.05, 11.55-13.4 s). The AI strategist faces the camera on a night street (45.54-58.3 s), but section 7 allows him only 'as a presenter in his clearly staged studio set (the whiteboard)'. The story (L1-L5) is told as an event, and only the chat screens carry 'SHEMBULL'; section 7 wants anecdotes framed as clearly staged examples. AI DISCLOSURE: the label is required (see ai_label_reason); the hub notes do not yet say 'AI label: on'. PLATFORM NAME: the super 'Asistent AI në Instagram' (29.15-31.45 s) names a real platform on screen, against STANDARDS 6 'no real platform logos or names on screen' (minor). NUMBERS: every on-screen number is sourced in docs/brief.md (22:47, 07:10, 08:30 story times; 'brenda 1 minute' F2; stopwatch 0:05 from F8's measured 4.6-8.2 s, median 5.4 s; 45 min F6) or is a SHEMBULL example detail; none is invented, but 'brenda 1 minute' and the 0:05 timing are not in brain.json yet."
+    },
+    {
+      "id": "F8",
+      "result": "UNVERIFIED",
+      "severity": "minor",
+      "at_s": "",
+      "evidence": "This reel has no run folder, ledger, calls.jsonl or G-BUDGET record (clients/straightscale/runs/ holds only SS-LIB-STYLE), so spend can't be checked against a preflight and the banned-model check can't be run on the call log. CREDITS.md lists only standard models: GPT Image 2 (high, 2k, with reference) stills, MiniMax H3 2K 9:16 clips, ElevenLabs eleven_v4 voice, eleven_music_v2_5 and eleven_text_to_sound_v2."
+    }
+  ],
+  "cover_check": {
+    "result": "FAIL",
+    "hero": true,
+    "evidence": "Cover = frame 2.2 s. Headline 'Ajo nuk pyeti vetëm ty për çmimin.' (6 words, spelled right, top third at y about 330-500, survives the 3:4 grid crop). Fails the hero rule because the three 'Sa kushton?' bubbles sit on Elira's forehead and nose (cover_540.jpg). Re-export the cover from the fixed hook frame."
+  },
+  "defects": [
+    {"severity": "major", "check": "F1/cover", "at_s": "1.0-4.05", "what": "Hook 'Sa kushton?' bubbles cover Elira's face; the cover (2.2 s, hero) shows it."},
+    {"severity": "major", "check": "F1", "at_s": "17.0-18.95", "what": "Race winner row: the '✓' of '✓ Rezervuar' overlaps the '7' of '22:47'."},
+    {"severity": "major", "check": "F3", "at_s": "8.15-11.6, 24.05-25.95, 31.4-40.05, 46.8-50.7, 51.35-54.6", "what": "Key text inside the Reels bottom 35% and right 21% zones: reply bubble, auto-reply bubble, '−20%' sticker and review card, comment box and stopwatch, offer lower third."},
+    {"severity": "major", "check": "F7", "at_s": "0-45.54, 45.54-58.3", "what": "STANDARDS 7 interim (D1 open): photoreal AI owners and customer shown face-on; the AI strategist faces the camera on a street, not in his staged whiteboard set; the story isn't framed as an example on the footage."},
+    {"severity": "major", "check": "F7", "at_s": "", "what": "AI label needed; hub notes lack 'AI label: on'."},
+    {"severity": "minor", "check": "F3", "at_s": "31.4-40.05", "what": "'SHEMBULL' 30 px and '22:47 · brenda 1 minute' 36 px, under 44 px."},
+    {"severity": "minor", "check": "F7", "at_s": "29.15-31.45", "what": "'Instagram' named on screen."},
+    {"severity": "minor", "check": "F1", "at_s": "58.35-60.0", "what": "End card 1.65 s (needs 2.5-3 s), mark only (no wordmark); the mark fades in on the strategist's hair at 58.35-58.65 s."},
+    {"severity": "minor", "check": "F1", "at_s": "0-60", "what": "24 fps; STANDARDS 5 says 30 fps for AI video."},
+    {"severity": "minor", "check": "F1", "at_s": "46.5-50, 18.9-22.4", "what": "FL-10 pseudo-text on a blurred street banner behind the strategist and on bottle labels (background, out of focus)."},
+    {"severity": "minor", "check": "F1", "at_s": "24.05-25.95", "what": "Auto-reply strike crosses one line only and overhangs the bubble."},
+    {"severity": "minor", "check": "F1", "at_s": "0.3-4.05, 15.25-18.95", "what": "Laser icon reads as a wand with a '#'."},
+    {"severity": "minor", "check": "F1", "at_s": "40.35-42.55", "what": "Alert banner sits on top of owner 3's head."},
+    {"severity": "minor", "check": "F2", "at_s": "18.95-24.05, 25.95-29.15", "what": "No super for L6 and the 'posting more' half of L7; those points don't read sound-off."},
+    {"severity": "minor", "check": "F6", "at_s": "0.000", "what": "Frame 1 has no hook text (on from 0.042 s)."},
+    {"severity": "minor", "check": "F8", "at_s": "", "what": "No run ledger or G-BUDGET record; credits and models unverifiable against a call log."}
+  ],
+  "edit_fixes": [
+    "Hook (overlay.js hook()): land the three 'Sa kushton?' bubbles and their icons off Elira's face, e.g. a tighter column at y about 560-780 between the super and her hair, or over the curtain on the left; keep in-flight bubbles off the face; then re-export the cover from the fixed 2.2 s frame.",
+    "Race row (17.0-18.95 s): widen the row or set '✓ Rezervuar' at about 44 px, or put it on its own line under '22:47', so nothing overlaps the time.",
+    "Re-lay the overlay to the STANDARDS 6 zone (top 269, nothing key below y 1248, nothing right of x 853 below y 960, sides 65) and run node motion-studio/tools/safezone.mjs <frames> --top 269 --bottom 672 --right 227 --left 65 --min 44: reply bubble 8.15-11.6 s up to about y 1050-1200 and right edge 853 or less (it must still clear the sleeping owner's face); auto-reply bubble 24.05-25.95 s right edge 853 or less and bottom 1248 or less; chat panel 31.4-40.05 s shortened or scaled so the review card and '−20%' sticker end above 1248 and left of 853; comment box at about y 1000-1120 with width 740 or less and the stopwatch at about y 1150; offer lower third 51.35-54.6 s at about y 1080, 788 px wide at most.",
+    "Raise 'SHEMBULL' and the '22:47 · brenda 1 minute' meta line to 44 px or more.",
+    "Super 29.15-31.45 s: 'Asistent AI në DM' (or 'në mesazhe') instead of naming Instagram on screen.",
+    "Hook super: start its envelope a frame early (a = -0.05) so frame 1 carries the text.",
+    "Auto-reply strike: strike every text line (or one stroke across the whole bubble), clipped to the bubble.",
+    "End card: hold 2.5 to 3 s with the music under it (runtime about 60.9 s, inside O60's 45-75 s), use the real wordmark-white.png (clients/straightscale/brand/) with or instead of the mark, and fade the footage fully to charcoal before the logo appears so it never sits on the strategist's head.",
+    "Alert banner 40.35-42.55 s: move it down or left of owner 3's head, or start it after he looks down.",
+    "Optional for F2: a short super on L6/L7 (e.g. 'S'ke kohë të përgjigjesh brenda 1 minute.' / 'Më shumë postime s'e zgjidhin.'), checked by a native Albanian reader.",
+    "Gibberish banner behind the strategist (about x 280-380, y 330-470, 46.5-50 s): tracked blur or darken; bottle pseudo-labels at 18.9-22.4 s can stay (minor, only visible zoomed).",
+    "Laser icon: redraw as a clear handpiece with a beam, or use a generic spark icon.",
+    "Final encode at 30 fps by repeating frames (ffmpeg fps=30, no interpolation of the lip-synced shot), then re-measure loudness after AAC (must stay -14 ±1 LUFS, true peak -1 dBTP or lower).",
+    "Hub draft #2: add 'AI label: on' to the notes and switch on Instagram's AI label when publishing; add a small 'Shembull' tag on the story footage (0-31.4 s) so the anecdote reads as an example, as the chat already does.",
+    "Still open after these fixes: native Albanian read of every super and the caption, and a person listening on a phone (voice, bed level, the ANALIZA pronunciation, which Whisper's English model heard as 'Annalisa')."
+  ],
+  "retake_needed": true,
+  "retake_reason": "STANDARDS 7 interim rule (brain.json D1 open). The edit can't turn face-on photoreal AI owners into shots from behind, and it can't move the on-camera strategist into his staged whiteboard set. If the owner decides D1 to allow face-on AI characters with Instagram's AI label on, no retake is needed and only the edit fixes above remain.",
+  "retake_prompt_changes": [
+    "Owner shots k2, k3, k4, k6, k7, k8, k10 (owners asleep, at dinner, in the morning, at work, filming, reading the alert): regenerate as H3 keyframe clips with the AI owner seen from behind, hands only, or at distance (face not readable), e.g. 'seen from behind over the shoulder, only the back of the head and the glowing phone in frame'; keep 'no captions, no text, no readable screens' and plain surfaces.",
+    "Elira (k1, k5): from behind or hands-and-phone only ('her hands holding a phone, face out of frame'), so the hook still reads with the bubbles leaving the phone.",
+    "Strategist (t1b, L14-L16): either a new reference-mode take in his clearly staged studio set at the whiteboard (STANDARDS 7), lip-synced to the same ElevenLabs slice t1 with drift checked, or drop the on-camera shot and run L14-L16 as voice-over on the CTA graphics."
+  ]
+}

@@ -1,0 +1,267 @@
+{
+  "_doc": "Apify scrapers the session may run through mcp__Apify__call-actor, checked by .claude/hooks/apify_gate.py. input_keys come from each actor's input schema (fetch-actor-details, 27 Oct 2026): Apify silently ignores a misspelled key, so the gate refuses unknown keys. null = keys not checked yet (the vault's research systems name these; verify with fetch-actor-details and fill in). All of these bill per event, so callOptions.maxItems does nothing; every call must set callOptions.maxTotalChargeUsd at or under max_charge_usd. fixed: keys that must be sent with exactly this value; forbid: keys that must be absent, false or 0 (personal-data add-ons). Add or raise an actor only with the owner's OK. max_items (onboarding, 28 Oct 2026): the item cap to put in the input under that key; the gate does not enforce it, maxTotalChargeUsd is the hard cap.",
+  "actors": {
+    "apify/instagram-scraper": {
+      "id": "shu8hvrXbJbY3Eb9W",
+      "use": "outlier mining and competitor posts (ORGANIC-OS 5.1, growth-engine step 1)",
+      "input_keys": [
+        "resultsType",
+        "directUrls",
+        "resultsLimit",
+        "onlyPostsNewerThan",
+        "search",
+        "searchType",
+        "searchLimit",
+        "addParentData"
+      ],
+      "max_charge_usd": 10
+    },
+    "apify/instagram-reel-scraper": {
+      "id": "xMc5Ga1oCONPmWJIa",
+      "use": "one reel's details and transcript (refbank capture, motion-studio/HANDOFF.md 7.4)",
+      "input_keys": [
+        "username",
+        "resultsLimit",
+        "onlyPostsNewerThan",
+        "skipPinnedPosts",
+        "skipTrialReels",
+        "includeSharesCount",
+        "includeTranscript",
+        "includeDownloadedVideo"
+      ],
+      "max_charge_usd": 3
+    },
+    "apify/instagram-hashtag-scraper": {
+      "id": "reGe1ST3OBgYZSsZJ",
+      "use": "reels for a hashtag or keyword (refbank scouting)",
+      "input_keys": [
+        "hashtags",
+        "keywordSearch",
+        "resultsType",
+        "resultsLimit"
+      ],
+      "max_charge_usd": 3
+    },
+    "apify/facebook-posts-scraper": {
+      "id": "KoJrdxJCTtpon81KY",
+      "use": "a prospect's or competitor's Facebook page posts (pre-meeting audit)",
+      "input_keys": [
+        "startUrls",
+        "resultsLimit",
+        "captionText",
+        "onlyPostsNewerThan",
+        "onlyPostsOlderThan"
+      ],
+      "max_charge_usd": 3
+    },
+    "compass/crawler-google-places": {
+      "id": "nwua9Gu5YrADL7ZDj",
+      "use": "a prospect's Google Maps listing and local competitors (pre-meeting audit)",
+      "input_keys": [
+        "searchStringsArray",
+        "locationQuery",
+        "maxCrawledPlacesPerSearch",
+        "language",
+        "categoryFilterWords",
+        "searchMatching",
+        "placeMinimumStars",
+        "website",
+        "skipClosedPlaces",
+        "scrapePlaceDetailPage",
+        "scrapeTableReservationProvider",
+        "scrapeOrderOnline",
+        "includeWebResults",
+        "scrapeDirectories",
+        "maxQuestions",
+        "scrapeContacts",
+        "scrapeSocialMediaProfiles",
+        "maximumLeadsEnrichmentRecords",
+        "leadsEnrichmentDepartments",
+        "verifyLeadsEnrichmentEmails",
+        "maxReviews",
+        "reviewsStartDate",
+        "reviewsSort",
+        "reviewsFilterString",
+        "reviewsOrigin",
+        "scrapeReviewsPersonalData",
+        "maxImages",
+        "scrapeImageAuthors",
+        "enableCompetitorAnalysis",
+        "maxCompetitorsToAnalyze",
+        "countryCode",
+        "city",
+        "state",
+        "county",
+        "postalCode",
+        "customGeolocation",
+        "startUrls",
+        "placeIds",
+        "allPlacesNoSearchAction"
+      ],
+      "fixed": {
+        "scrapeReviewsPersonalData": false
+      },
+      "forbid": [
+        "maximumLeadsEnrichmentRecords",
+        "verifyLeadsEnrichmentEmails",
+        "scrapeImageAuthors",
+        "maxQuestions"
+      ],
+      "max_charge_usd": 3
+    },
+    "apify/facebook-ads-scraper": {
+      "use": "Meta Ad Library: each competitor's ads, count, start dates, formats, message (onboarding O2, Foundation step 03; use when the Ad Library connector fails). Counts only: onlyTotal true.",
+      "input_keys": [
+        "startUrls",
+        "resultsLimit",
+        "isDetailsPerAd",
+        "includeAboutPage",
+        "enrichWithEcommerceData",
+        "onlyTotal"
+      ],
+      "max_items": {
+        "resultsLimit": 25
+      },
+      "max_charge_usd": 1
+    },
+    "clockworks/tiktok-scraper": {
+      "use": "TikTok reference reels (refbank)",
+      "input_keys": null,
+      "max_charge_usd": 3
+    },
+    "clockworks/tiktok-hashtag-scraper": {
+      "use": "TikTok hashtag scouting (refbank)",
+      "input_keys": null,
+      "max_charge_usd": 3
+    },
+    "seemuapps/video-frame-extractor": {
+      "use": "frames from a public reference reel (refbank)",
+      "input_keys": null,
+      "max_charge_usd": 2
+    },
+    "apify/instagram-profile-scraper": {
+      "use": "a prospect's profile and latest posts (pre-meeting audit step 1)",
+      "input_keys": [
+        "usernames",
+        "includeAboutSection"
+      ],
+      "max_charge_usd": 2
+    },
+    "compass/google-maps-reviews-scraper": {
+      "use": "buyers' words from Google reviews (pre-meeting audit, VOC)",
+      "input_keys": [
+        "startUrls",
+        "placeIds",
+        "maxReviews",
+        "reviewsSort",
+        "reviewsStartDate",
+        "reviewsFilterString",
+        "language",
+        "reviewsOrigin",
+        "personalData"
+      ],
+      "fixed": {
+        "personalData": false
+      },
+      "max_charge_usd": 3
+    },
+    "apify/instagram-comment-scraper": {
+      "use": "comments on competitors' posts (VOC)",
+      "input_keys": null,
+      "max_charge_usd": 5
+    },
+    "apify/facebook-pages-scraper": {
+      "use": "a Facebook page's details",
+      "input_keys": null,
+      "max_charge_usd": 5
+    },
+    "apify/facebook-comments-scraper": {
+      "use": "comments on Facebook posts (VOC)",
+      "input_keys": null,
+      "max_charge_usd": 5
+    },
+    "apify/facebook-groups-scraper": {
+      "use": "public Facebook group posts (VOC)",
+      "input_keys": null,
+      "max_charge_usd": 5
+    },
+    "apify/google-search-scraper": {
+      "use": "Google results for buyer phrases",
+      "input_keys": null,
+      "max_charge_usd": 5
+    },
+    "apidojo/google-search-scraper": {
+      "use": "Google results for buyer phrases",
+      "input_keys": null,
+      "max_charge_usd": 5
+    },
+    "apify/website-content-crawler": {
+      "use": "a site's pages as text",
+      "input_keys": null,
+      "max_charge_usd": 5
+    },
+    "apify/rag-web-browser": {
+      "use": "web pages as text",
+      "input_keys": null,
+      "max_charge_usd": 5
+    },
+    "harshmaur/reddit-scraper": {
+      "use": "Reddit threads for pain words (VOC)",
+      "input_keys": null,
+      "max_charge_usd": 5
+    },
+    "apidojo/tiktok-scraper": {
+      "use": "TikTok posts",
+      "input_keys": null,
+      "max_charge_usd": 5
+    },
+    "apidojo/tiktok-comments-scraper": {
+      "use": "TikTok comments (VOC)",
+      "input_keys": null,
+      "max_charge_usd": 5
+    },
+    "clockworks/tiktok-comments-scraper": {
+      "use": "TikTok comments (VOC)",
+      "input_keys": null,
+      "max_charge_usd": 5
+    },
+    "apidojo/youtube-comments-scraper": {
+      "use": "YouTube comments (VOC)",
+      "input_keys": null,
+      "max_charge_usd": 5
+    },
+    "streamers/youtube-comments-scraper": {
+      "use": "YouTube comments (VOC)",
+      "input_keys": null,
+      "max_charge_usd": 5
+    },
+    "streamers/youtube-scraper": {
+      "use": "YouTube videos",
+      "input_keys": null,
+      "max_charge_usd": 5
+    },
+    "memo23/trustpilot-scraper-ppe": {
+      "use": "buyers' words from Trustpilot reviews of the client's and competitors' domains (onboarding O2, Foundation step 02 voice of the customer). Not run yet: confirm the actor id with fetch-actor-details before the first call.",
+      "input_keys": [
+        "startUrls",
+        "maxItems",
+        "scrapeAllReviews",
+        "sampling",
+        "sortBy",
+        "expandRegionalDomains",
+        "reviewInsights",
+        "painPointAnalysis",
+        "enrichEmails",
+        "includeCompanyDetails",
+        "includeStats"
+      ],
+      "fixed": {
+        "enrichEmails": false
+      },
+      "max_items": {
+        "maxItems": 150
+      },
+      "max_charge_usd": 0.5
+    }
+  }
+}

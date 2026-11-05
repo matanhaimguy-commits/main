@@ -1,0 +1,73 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "SL03",
+ "spec_sha256": "fe3803eab2c68830731ce68e41d2829eb6b791977245395d16a049b5040886e2",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "line_text 'NJIH BLERËSIN E di pse të zgjodhën klientët e fundit? Po apo jo?' equals the five lines joined; phone, sample slab, frame samples, card reader, arrow, 6 text strings, action, setting, camera and 13 regions present."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "N/A in spec mode (no prompt or attached files yet)."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: none visible; action_physics 'nothing is touched' consistent."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'The phone leans back against the flat face of the white sample slab that faces the camera, its bottom edge flat on the sales desk 3 cm in front of the slab's bottom edge.'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "No story-critical prop; slab has size, material and 'no label'; phone screen off with the plain-glass rule."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "Five strings plus '3/8' quoted with surface, x/y box, size, colour and occlusion; highlight on 'klientët'; label 'NJIH BLERËSIN' with 'normal word spaces, no gaps inside words'; each line at most 3 words (headline block of 8 words is split over 3 surfaces)."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "PR-FRAME-SAMPLES 'three plain corner sections of window frames ... no labels, no price tags, no stickers'; card reader 'dark blank screen'; window clock-tower rule 'no numerals, no letters'; general screens/signs rule."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Top-40% calm zone vs text block ending at y 0.384 and window/samples starting at 0.42: consistent; slab 14x20 cm and phone boxes (31%x36% vs 15%x27%) are in proportion."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "previous_shot SL02; carry_over 'Same shop and lamp light; the owner's phone is smaller and farther away, screen off, now leaning on a white sample slab'; counter 3/8, arrow present, hero false."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "N/A in spec mode (model, resolution, aspect and duration are checked on the prompt; spec aspect is 4:5)."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "'slab', 'corner sections of window frames' and 'window' are defined with size and boxes."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-05: wall samples have a content rule (not empty picture frames); FL-02: slab/reader structure described; FL-09 n/a; FL-13: logo-zone region [0.0,0.91,0.4,1.0] and must_not 'no logo or wordmark drawn anywhere' / 'no letters or objects in the bottom-left corner'."
+  }
+ ],
+ "suggested_spec_changes": [
+  "non-blocking: on SL03/SL07/SL08 say the lamps are desk or wall lamps placed below 42% of the height (none in the top 40%), and call the samples 'solid L-shaped mitred profile offcuts, not picture frames', so the wall cannot read as empty frames (FL-05)."
+ ]
+}

@@ -1,0 +1,72 @@
+{
+  "gate": "G-PROMPT-IMG",
+  "asset_id": "SL05",
+  "version": 1,
+  "prompt_sha256": "48f92691430b2bd55b4551f735acecb74f0ebaae1a33288ad57c3b751c1b47cf",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "P1",
+      "result": "PASS",
+      "evidence": "Hand block (left not visible, right reaches in, count_check), PR-PHONE 44% x 56%, PR-PHONE-SCREEN CHAT-IN-4, PR-ARROW, 6 text strings, 'No letters inside the chat bubbles. No second phone.' from must_not"
+    },
+    {
+      "id": "P2",
+      "result": "PASS",
+      "evidence": "'Image 2 is the approved cover ... Image 3 is the approved slide 2 ... Image 4 is the prop sheet PS-CHAT: copy the phone screen state \"CHAT-IN-4\"'; matches upload order (STYLE-TOP, cover, slide 2, PENDING-PS-CHAT-APPROVED)"
+    },
+    {
+      "id": "P3",
+      "result": "PASS",
+      "evidence": "'right hand reaches in from the right edge ... thumb pad lies on the phone's right side edge ... must not cover: the screen'; 'left hand not visible'"
+    },
+    {
+      "id": "P4",
+      "result": "PASS",
+      "evidence": "'thumb pad along the phone's right edge and the other four fingers behind the case'"
+    },
+    {
+      "id": "P5",
+      "result": "PASS",
+      "evidence": "PR-PHONE-SCREEN: 'four rounded light-grey bubbles aligned to the left edge, each holding two or three short dark-grey bars instead of letters'; negative targets letters inside bubbles only"
+    },
+    {
+      "id": "P6",
+      "result": "PASS",
+      "evidence": "\"PYETJA 3\" / \"Fjalët e\" / \"klientëve,\" / \"apo të tuat?\" / \"Jo? Kopjo fjalët e tyre.\" / \"5/8\" with surface, position, size, colour, highlight on \"tuat?\"; ë words spelled (Fjalët, klientëve, të)"
+    },
+    {
+      "id": "P7",
+      "result": "PASS",
+      "evidence": "'Nothing on the desk or the walls carries a word, a logo or a sign.' plus 'the window glass reflects no text; no shop signs on the street'; window content given: 'the Tirana clock tower a small lit silhouette'; 'The phone screen shows only the grey bubbles and bars.'"
+    },
+    {
+      "id": "P8",
+      "result": "PASS",
+      "evidence": "No conflict: 'must not cover: the screen' and the thumb on the side edge agree; 'No hand, finger, lamp reflection or glare touches these words.' Non-blocking note: the swipe-bridge glow band at the right edge (66-82%) can sit as soft bokeh behind the forearm ('on a close slide it is soft warm bokeh')"
+    },
+    {
+      "id": "P9",
+      "result": "PASS",
+      "evidence": "'The phone is in a hand again, as on slide 1, now showing customer messages; the second phone and the stands of slide 4 are gone; same desk and light.' equals spec carry_over"
+    },
+    {
+      "id": "P10",
+      "result": "PASS",
+      "evidence": "Packet settings match STANDARDS 1: gpt_image_2_5, 4:5 ('Instagram carousel slide, portrait 4:5'), 2k, medium, flare, role image_references, count 1; counter 'N/8' within 7 to 12 slides; ë and ç spelled out; no em dashes; headline 7 words or fewer"
+    },
+    {
+      "id": "P11",
+      "result": "PASS",
+      "evidence": "Terms are concrete ('three-by-three grid of nine', 'one groove', 'message bubble with a small ivory tail'). Non-blocking note: the template line 'If this scene describes no window, no window and no clock tower is drawn.' has a false condition here because the Setting describes the window."
+    },
+    {
+      "id": "P12",
+      "result": "PASS",
+      "evidence": "FL-01 text is on the top wall (y 6-39%), nothing near it; FL-02 'one lamp with one round shade on one stem and one round base', stand 'with one groove'; FL-03 contact points; FL-04/05 every screen and the window have a content line; FL-10 'No other words, letters or numbers anywhere, including screens, signs, papers and labels'; FL-13 'Bottom-left corner ... calm, dark, empty ... no logo, no letters, no objects (a logo is added later)'; FL-06 hand anatomy named: 'the forearm in a dark shirt sleeve enters from the right edge'"
+    }
+  ],
+  "corrected_prompt": null
+}

@@ -1,0 +1,221 @@
+{
+ "gate": "G-VIS",
+ "asset_id": "CF-V1",
+ "version": 1,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "hero": true,
+ "files_opened": [
+  "full.png",
+  "tile_r1c1.png",
+  "tile_r1c2.png",
+  "tile_r1c3.png",
+  "tile_r2c1.png",
+  "tile_r2c2.png",
+  "tile_r2c3.png",
+  "tile_r3c1.png",
+  "tile_r3c2.png",
+  "tile_r3c3.png",
+  "region_H-01-V1_text-hook-zone.png",
+  "region_H-01-V1_phone.png",
+  "region_H-01-V1_bubble.png",
+  "region_H-01-V1_left-hand.png",
+  "region_H-01-V1_right-hand.png",
+  "thumb_200.png"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Phone in POV hands shows one grey incoming bubble 'We can get it done cheaper.'; readable at once."
+  },
+  {
+   "id": "V2",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Moment of reading the cheaper-offer message matches story_purpose; hook lands without audio."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Frame 1 reads on its own; calm empty top area for the hook."
+  },
+  {
+   "id": "V4",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "left-hand, right-hand",
+   "evidence": "Left hand shows whole thumb plus palm and heel wrapping the phone edge; right hand thumb looks over-long and large against the phone. Spec asks for left hand = one thumb only, right hand relaxed. Fingers count plausible but right-hand curl (index plus 2-3 curled fingers at x 68-100%, y 54-70%) is cramped and partly cropped by the frame edge."
+  },
+  {
+   "id": "V5",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Two hands, no extra limb; right hand thumb plus four fingers, left hand thumb (tile_r2c1) plus hidden fingers."
+  },
+  {
+   "id": "V6",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "right-hand",
+   "evidence": "Spec says right hand stays in x 55-79%, y 66-100%, fingers none past x 79%, above y 62% forbidden. Fingers reach x ~100% and up to y ~54% (tile_r2c2). Left thumb tip starts y ~43% (tile_r2c1), also above y 62%. Right thumb tip rests at the screen's lower right corner, apparently touching or overlapping the glass rather than hovering 1 cm off."
+  },
+  {
+   "id": "V7",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "right-hand",
+   "evidence": "Right thumb sits on the screen's bottom-right corner, so contact reads as touching; spec says nothing touches."
+  },
+  {
+   "id": "V8",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Grip of left hand on phone is physically plausible; shadows consistent."
+  },
+  {
+   "id": "V9",
+   "result": "PASS",
+   "severity": "",
+   "region": "bubble",
+   "evidence": "Text reads exactly 'We can get it done cheaper.' letter by letter; only W capital; period present; no diacritics."
+  },
+  {
+   "id": "V10",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "bubble",
+   "evidence": "Bubble measured about x 23-58%, y 33-45%, smaller than spec x 22-78%, y 33-54%; text cap height about 40 px, below the 60 px spec; text is left-weighted in the bubble. Still legible, but layout and size differ from spec."
+  },
+  {
+   "id": "V11",
+   "result": "PASS",
+   "severity": "",
+   "region": "bubble",
+   "evidence": "Letters clean, no warping, nothing touches or overlaps the text."
+  },
+  {
+   "id": "V12",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "phone",
+   "evidence": "Phone box approx x 17-66%, y 27-100%, not x 16-84%; it is narrower and the top edge sits above y 30% (about y 27%), intruding into the hook zone (region_text-hook-zone shows bezel starting around y 27-28%)."
+  },
+  {
+   "id": "V13",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone",
+   "evidence": "No logo on case or glass; thin bezels, rounded corners; no status bar."
+  },
+  {
+   "id": "V14",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone",
+   "evidence": "Single phone, one bubble, no extra UI."
+  },
+  {
+   "id": "V15",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No people sheets; POV hands only, no face."
+  },
+  {
+   "id": "V16",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Mustard knit sleeves on both wrists as styled."
+  },
+  {
+   "id": "V17",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "Single frame, no prior shot."
+  },
+  {
+   "id": "V18",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "full",
+   "evidence": "Hands and phone are shifted left and large; bubble sits in the left-centre and not centred; right hand reaches the right edge, outside the 6% margin; hands rise above y 62%. Does not meet spec composition."
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "text-hook-zone",
+   "evidence": "Top ~27% is a plain, calm, out-of-focus dark wall with nothing in it."
+  },
+  {
+   "id": "V20",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200",
+   "evidence": "At 200 px the message is still readable and phone dominant. 9:16, 1152x2048."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Warm tungsten evening look, walnut desk, mustard sleeves; matches style."
+  },
+  {
+   "id": "V22",
+   "result": "PASS",
+   "severity": "",
+   "region": "tiles",
+   "evidence": "Skin texture, knit and wood grain realistic; no melting. Screen is slightly flat but acceptable."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "tiles",
+   "evidence": "No artefacts or stray text."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No logos or brands; no visible app name."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No before/after, no 'your [condition]', not shaming."
+  },
+  {
+   "id": "V26",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No AI-disclosure issue in the image itself; no real people."
+  }
+ ],
+ "fix": {
+  "route": "regenerate",
+  "prompt_changes": [
+   "Phone: state it fills x 16-84% of frame width, top edge at y 30% (not above), screen facing camera, bubble spanning x 22-78%.",
+   "Make the bubble bigger and centred: x 22-78%, y 33-54%, text cap height about 60 px, centred in bubble.",
+   "Left hand: only the thumb visible along the phone's left edge, in the lower 38% of the frame; no palm or thumb above y 62%.",
+   "Right hand: keep in x 55-79%, y 66-100%, thumb hovering about 1 cm above the glass with a visible gap, fingers loosely curled and none past x 79%; no fingers above y 62%.",
+   "Keep: exact text 'We can get it done cheaper.', plain wall top, mustard sleeves, warm lighting."
+  ]
+ }
+}

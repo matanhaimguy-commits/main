@@ -1,0 +1,77 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CF-V1",
+ "version": 1,
+ "prompt_sha256": "3922dc11831c69c900cca92de498843a5283787627659c0e0b5af7d5884f438a",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "FAIL",
+   "evidence": "Spec camera.safe_zones: 'bottom 15% calm ... main subject inside x 10% to 90%'; prompt Camera says 'bottom 8% calm' and omits the x 10-90% rule; text x range 24%-76% also missing (prompt gives only 'about 36% to 42% of the frame height, centred')."
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'References: none attached (text to image).' matches the packet (no attached media); all 11 card blocks present in order."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "Spec 'hands: none visible'; prompt 'Hands: no hands visible.'"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'the phone's bottom edge rests on the cream clay floor; about a dozen hearts rest on the floor and against the phone's lower edge; no heart touches the screen.'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Phone, screen and hearts all carry full content lines ('a cream band ... \"BOOK A CALL\" ... 3 rows by 5 columns of plain cream clay squares'); negatives are targeted, none blanket 'no text'."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "'exactly \"BOOK A CALL\", capital letters, on the cream band at the top of the phone screen ... nothing covers any letter. No other text anywhere.' (3 words; x range folded into the fix under P1)."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'no signs, frames, posters or other screens'; the only screen is the phone, which has its content rule."
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "Camera says 'bottom 8% calm' against spec 'bottom 15% calm' while hearts sit at y 82-92%; the pile overlaps the spec's 15% zone (spec-level tension, see notes); also 'thin ink outlines' on squares sits against 'no marks' and the spec's 'plain cream clay squares'."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "Spec previous_shot null; prompt 'first frame of the reel; nothing carried over.'"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "atlas openai/gpt-image-2/text-to-image is in models.atlas.allowed for still; size 1152x2048 is the size_for_aspect for 9:16; quality medium is the required param; no text_fields used; 'Vertical 9:16 frame'."
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "Subject sentence is garbled: 'one a modern clay smartphone ... no buttons visible stands upright' (no clear subject/verb break); 'its box from 18% to 82%' can be read as a physical box; 'black-glass phone' could be read as a black screen."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 content lines present; FL-05/FL-10 background rule 'no signs, frames, posters or other screens' and no words except quoted; FL-11 physics line present; FL-13 not triggered (no logo asked for)."
+  }
+ ],
+ "notes": [
+  "HASH MISMATCH: sha256 of prompts/CF-V1.v1.1.txt on disk is 6789947c0e94d3fdc95c9b247c19a2f6d55c6aeb5e25632406a67762a7afb69d, not the packet's 3922dc11...; this review covers the on-disk text. Re-hash after correction.",
+  "Spec tension for the planner: hearts y 82%-92% overlap the 'bottom 15% calm' zone (y 85%+); the corrected prompt lets only the pile base reach into it.",
+  "Advisory: 'thin ink outlines' on the calendar squares is not in the spec; remove or add to spec."
+ ],
+ "corrected_prompt": "Premium studio claymation scene - everything sculpted from matte plasticine with refined intentional craftsmanship: subtle tool marks, controlled texture, soft rounded geometry, slight subsurface warmth, macro lens feel with shallow depth of field, soft diffused studio lighting with a gentle rim glow, the scene filling the entire frame with the camera inside the miniature clay world. Vertical 9:16 frame. Palette: warm cream #F3E9D8 backdrop and floor, terracotta #C8553D accents, sage #8FA98B, deep ink #2B2A33 for letters on screens, heart red #D64545.\n\nReferences: none attached (text to image).\n\nSubject and pose: one single modern clay smartphone, a professional clay imitation of a black-glass phone with a rounded terracotta #C8553D clay case rim, no logo, no buttons visible. It stands upright on its bottom edge in the centre of the frame, occupying the area from 18% to 82% of the frame width and from 30% to 86% of the frame height (64% of the width, 56% of the height), screen lit and facing the camera, leaning back about 5 degrees against nothing.\n\nHands: no hands visible.\n\nAction as contact points: the phone's bottom edge rests on the cream clay floor; about a dozen hearts rest on the floor and against the phone's lower edge; no heart touches the screen.\n\nProps with content: The phone screen shows a clay booking page: a cream band across the top of the screen holding the words \"BOOK A CALL\" in heavy bold deep ink #2B2A33 capital letters spanning the screen width; under it a big calendar grid of 3 rows by 5 columns of plain cream clay squares with thin ink outlines, every square empty: no digits, no names, no marks. At the phone's foot, a loose pile of about a dozen plump thumb-pressed clay hearts in heart red #D64545, spread from 15% to 85% of the width at 82% to 92% of the height.\n\nText: exactly \"BOOK A CALL\", capital letters, on the cream band at the top of the phone screen, at 36% to 42% of the frame height and 24% to 76% of the frame width, centred; nothing covers any letter. No other text anywhere.\n\nSetting and background: a soft cream clay floor meeting a plain cream clay backdrop, softly out of focus; no signs, frames, posters or other screens. The top 30% of the frame is plain empty cream backdrop.\n\nCamera: straight on at screen height, the camera inside the miniature clay world, macro lens feel, shallow depth of field, vertical 9:16; top 30% calm and empty, bottom 15% calm (no text and no extra objects; only the base of the heart pile may reach into it), main subject inside 10% to 90% of the frame width; the phone is the one big subject.\n\nContinuity: first frame of the reel; nothing carried over.\n\nNegatives: no logo, wordmark, real app name or app icon anywhere; no digits or numbers anywhere; no words other than the quoted ones; nothing at all in the top 30% of the frame except the plain cream backdrop; no faces; no set edges, workbench or room outside the clay world; no glossy CGI look.\n\nEverything in frame is real professionally sculpted matte plasticine, photographed - refined sculpting marks, real cast shadows, soft studio lighting, the clay scene filling the entire frame.\n"
+}

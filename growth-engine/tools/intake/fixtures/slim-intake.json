@@ -1,0 +1,14 @@
+{
+  "brand": "sample-bakery",
+  "business_name": "Sample Bakery",
+  "website": "https://sample-bakery.example",
+  "instagram": "https://www.instagram.com/sample_bakery/",
+  "offer_line": "Sourdough bread subscription, 30 USD a month",
+  "competitors": ["Corner Loaf", "https://rival-bakery.example", ""],
+  "consents": {"ai_people": false, "proof": true},
+  "docs": [
+    {"name": "brand-guide.pdf", "mime": "application/pdf", "size": 11, "signed_url": "https://storage.example/sign/brand-guide?t=abc"},
+    {"name": "../prices.xlsx", "mime": "application/vnd.ms-excel", "size": 5, "signed_url": "https://storage.example/sign/prices?t=def"}
+  ],
+  "submitted_at": "2026-10-29T09:00:00+00:00"
+}

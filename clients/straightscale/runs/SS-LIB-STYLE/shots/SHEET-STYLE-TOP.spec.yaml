@@ -1,0 +1,55 @@
+shot_id: SHEET-STYLE-TOP
+post_id: SS-LIB-STYLE
+format: style_reference
+script_lines: [S1]
+line_text: "7 gjëra që po të kushtojnë klientë çdo javë. Numëro sa prej tyre i bën."
+story_purpose: "Look reference for every StraightScale image and carousel: the typography, the highlight box, the counter, Tirana at night through the window. The top 608 px of the published 15 Oct cover, so it carries no logo, no table, no cup and no side bands."
+must_read_in_1s: "Business owners: seven things cost you clients every week"
+subjects:
+  - id: SET-WINDOW
+    state: "the cafe window at night with the Tirana clock tower lit outside"
+    pose: "right third of the frame, window frame vertical"
+    expression: ""
+hands: none visible
+props: []
+text_in_image:
+  - string: "PËR PRONARËT E BIZNESEVE"
+    surface: "dark wall, top left, small spaced capitals"
+    must_be_exact: true
+    occlusion: "nothing covers any letter"
+  - string: "7 gjëra që po të kushtojnë klientë çdo javë"
+    surface: "dark wall, upper left, heavy bold geometric sans in off-white; the word 'klientë' inside a solid red highlight rectangle"
+    must_be_exact: true
+    occlusion: "nothing covers any letter; the clock tower stays right of the text"
+  - string: "Numëro sa prej tyre i bën."
+    surface: "dark wall under the headline, smaller off-white sans"
+    must_be_exact: true
+    occlusion: "nothing covers any letter"
+  - string: "1/7"
+    surface: "top right, small gold counter"
+    must_be_exact: true
+    occlusion: "clear of the window frame"
+action_physics: []
+static: true
+setting:
+  ref: null
+  details: "dark cafe wall on the left two thirds, a window on the right with the Tirana clock tower and warm street lights"
+  background_rule: "no signs, screens, logos or readable text besides the listed strings"
+camera:
+  framing: "a 16:9 crop of the top of the cover: wall and window"
+  angle: "eye level"
+  lens: "35mm film still, shallow depth of field"
+  aspect: "16:9"
+  safe_zones: "text inside a 4% margin"
+continuity:
+  previous_shot: null
+style: "photorealistic cinematic film still, 35mm, Tirana at night, warm tungsten light, deep shadows, fine film grain; deep red #BE0F18 the only saturated colour besides the small gold counter (style-bible.md)"
+must_not: ["no logos", "no text besides the listed strings", "no borders or side bars"]
+hero: true
+notes: "A deterministic crop (PIL, no generation) of media 9cf77c89 (byte-identical to content/2026-w43-1-carousel/slide-01.jpg); uploaded as media e6bc8781."
+regions:
+  - {name: label, kind: text, box: [0.05, 0.08, 0.53, 0.17]}
+  - {name: headline, kind: text, box: [0.05, 0.29, 0.72, 0.80]}
+  - {name: subline, kind: text, box: [0.05, 0.80, 0.48, 0.91]}
+  - {name: counter, kind: text, box: [0.87, 0.06, 0.96, 0.15]}
+  - {name: window, kind: other, box: [0.66, 0.0, 1.0, 1.0]}

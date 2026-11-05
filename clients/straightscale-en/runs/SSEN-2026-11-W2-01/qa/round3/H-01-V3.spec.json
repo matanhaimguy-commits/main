@@ -1,0 +1,77 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "H-01-V3",
+ "spec_sha256": "eb937a556a2c965d4b0d8e0c3d0949b0f54b3ef191cf062581b335252cae175f",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "All elements boxed and present: 'regions: sheets, headings-left/middle/right, hand [0.60,0.60,0.90,1.0], sticker-left/middle/right'; three strings, one hand, three stickers, setting, camera."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'right: enters from the bottom edge, index finger and thumb pinching the bottom LEFT corner of the right-hand sheet ... must_not_cover: any heading letter and any part of any sticker; count_check: one hand, five fingers'; 'left: not in frame'"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'pinching the bottom LEFT corner ... lifting that corner about 2 cm off the desk, seen as a small curl and a soft shadow under it'; contact: 'only the right hand's finger and thumb touch'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "story_critical false is accepted per the packet (no prop sheet before the look bible); props.content is filled: 'plain white tall narrow sheets; ... round red sticker with no writing ... three headings stacked in heavy black block capitals ... grey bars (not letters)'"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "'WEEKLY CALLS' / surface 'heading 2 on each of the three sheets, heavy black block capitals' / position 'middle of each sheet' / occlusion 'nothing covers any letter'; all strings 3 words or fewer; the 85% width cap is consistent with 4% letters on a 28%-wide sheet"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'background_rule: Nothing else on the desk; no readable words except the headings; the stickers carry no digits or letters.'"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Geometry checks out: 3 x 28% sheets plus gaps fit x 6% to 94%; sticker row sits above the first heading; the pinch corner (x about 66%, y 62%) lies inside the hand box and below the last heading (at or above y 52%); the diagonal-opposite corner is away from the sticker."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'previous_shot: null, carry_over: []' (frame 1 of the hook shot)"
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "(a) subjects PR-SHEETS.state says 'the same three big headings' while props.content says 'letters about 4% of the sheet height' (about 1.3% of the frame): 'big' and 4% read two ways. (b) 'the right-hand sheet' is used beside 'the right hand' and 'right-hand' in the same sentence ('right hand's finger and thumb touch the right-hand sheet'): a model can read the sheet as the one in the hand. (c) must_read_in_1s says 'a hand picks the one with the smallest price sticker' but the action is only a 2 cm corner lift: 'picks' can be read as lifting the whole sheet."
+  },
+  {
+   "id": "P12",
+   "result": "FAIL",
+   "evidence": "FL-01 (text over hands): the hand is placed below the last heading (pinch y 62%, third heading at or above y 52%), but the spec has no 'no letter touches the hand, fingers or sleeve' line; must_not_cover only covers the hand covering letters, not letters painted on skin or sleeve, which is the FL-01 failure. FL-13/FL-10/FL-05: not triggered (reel frame, headings and blank stickers ruled, no frames or screens)."
+  }
+ ],
+ "suggested_spec_changes": [
+  "subjects[0].state: replace 'the same three big headings' with 'the same three headings in heavy black block capitals'.",
+  "must_read_in_1s: replace 'a hand picks the one with the smallest price sticker' with 'a hand pinches the corner of the one with the smallest price sticker'.",
+  "hands.right, hands.contact and action_physics[0]: replace every 'right-hand sheet' with 'rightmost sheet'; in hands.who/right say 'right hand' (the buyer's right hand) once, e.g. 'right: the buyer's right hand enters from the bottom edge ...'.",
+  "hands.must_not_cover: append '; no letter or sticker touches or is drawn on the hand, fingers or sleeve; the hand stays below the last heading with clear paper between them'.",
+  "Advisory (not a fail): STANDARDS 6 keeps the right 21% of the width in the lower half clear of key content; change safe_zones '(the third heading of the right sheet at or above y 52%)' to 'at or above y 50%' so the right sheet's third heading does not enter that strip. Advisory: '2 cm' has no scale in a flat-lay; the curl and the soft shadow carry the read."
+ ]
+}

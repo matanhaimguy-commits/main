@@ -1,0 +1,77 @@
+{
+  "gate": "G-SPEC",
+  "shot_id": "H-01-V10",
+  "spec_sha256": "8c55e492eea59da681f46cf7dfb9ab74dc4778f558d14bfa6642aacf09f47ed5",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "FAIL",
+  "checks": [
+    {
+      "id": "P1",
+      "result": "PASS",
+      "evidence": "All elements present: subjects PR-PHONE, hands (left only), props PR-PHONE/PR-PHONE-SCREEN, text_in_image, action_physics, setting, camera, regions text-hook-zone/phone/bubble/hand"
+    },
+    {
+      "id": "P2",
+      "result": "N/A",
+      "evidence": "spec mode"
+    },
+    {
+      "id": "P3",
+      "result": "PASS",
+      "evidence": "'left: holds the phone from below, four fingers around the lower back edge, thumb on the left side; right: not in frame; must_not_cover: any letter'; hand region boxed [0.18,0.80,0.70,1.0]"
+    },
+    {
+      "id": "P4",
+      "result": "PASS",
+      "evidence": "'holds the phone from below, fingers around its lower edge; the phone is still' plus finger/thumb contact points in hands.left"
+    },
+    {
+      "id": "P5",
+      "result": "PASS",
+      "evidence": "Content filled for the phone and screen; no blanket 'no text' (must_not is targeted). Note: the screen is arguably story-critical; the false flag is accepted only for this pre-look-bible concept frame, as the notes say"
+    },
+    {
+      "id": "P6",
+      "result": "FAIL",
+      "evidence": "'We can get it done cheaper from someone else.' is 9 words on one surface (limit about 6; pipeline.py spec-check also warns). Surface, position, case and occlusion are otherwise complete"
+    },
+    {
+      "id": "P7",
+      "result": "PASS",
+      "evidence": "background_rule: 'No other screens, posters, no readable words anywhere except the message bubble'; screen content defined"
+    },
+    {
+      "id": "P8",
+      "result": "FAIL",
+      "evidence": "Phone size is stated three ways: pose/region 'x 18% to 82%, y 34% to 96%' (64% x 62%) vs size_in_frame 'its box is 70% of the frame width and 64% of the frame height'. Also safe_zones 'right 13%' and 'bottom 10%' vs STANDARDS section 6 (bottom 35% and right 21% of the lower half clear of key content, key props 15% to 55% from top) while the bubble box runs to y 0.62"
+    },
+    {
+      "id": "P9",
+      "result": "PASS",
+      "evidence": "continuity previous_shot null, carry_over []; first frame"
+    },
+    {
+      "id": "P10",
+      "result": "N/A",
+      "evidence": "spec mode"
+    },
+    {
+      "id": "P11",
+      "result": "FAIL",
+      "evidence": "setting 'a warm wooden desk below the phone' while the phone box reaches y 96% (only 4% below it); 'seen over the hands' vs 'looking down at about 30 degrees' leaves where the desk shows unclear"
+    },
+    {
+      "id": "P12",
+      "result": "PASS",
+      "evidence": "FL-01 covered by must_not_cover and occlusion 'the thumb never covers any letter' with the hand region 0.80+ vs bubble region ending 0.62; FL-04/05 covered by screen content and background rule"
+    }
+  ],
+  "suggested_spec_changes": [
+    "text_in_image[0].string: shorten to 6 words or fewer, e.g. \"We found someone cheaper.\" (4 words); update must_read_in_1s to 'A phone held in a hand shows one huge message saying they found someone cheaper.' and the surface line to '2 or 3 lines'. Fewer words also keep the bubble above the 55% caption line.",
+    "Pick one phone size and make pose, props.size_in_frame and regions[phone] agree. Suggested: size_in_frame 'its box is 64% of the frame width and 62% of the frame height' (matches pose x 18-82, y 34-96 and the region box), or widen all three to x 15-85, y 34-98.",
+    "setting.details: replace 'a warm wooden desk below the phone' with 'the warm wooden desk surface visible behind and beside the phone and in the bottom strip, soft and out of focus'.",
+    "camera.safe_zones: reconcile with STANDARDS section 6: keep the bubble (regions[bubble]) inside y 0.15 to 0.55 (shrink the box to about [0.24,0.38,0.76,0.55]) and state that the right 21% of the lower half holds only desk edge or the blurred mug (the phone edge at x 0.82 intrudes by 3%; accept it or narrow the phone to x 0.18-0.79).",
+    "camera.angle: state the phone tilt in one phrase, e.g. 'the phone upright, its screen tilted slightly back toward the camera'."
+  ]
+}

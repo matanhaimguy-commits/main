@@ -1,0 +1,72 @@
+{
+  "gate": "G-PROMPT-IMG",
+  "asset_id": "WEB-CUP",
+  "version": 1,
+  "prompt_sha256": "0ab05a5a649869057826222e708f0a66c391bc374cfb4daf855e0f25294309ae",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "P1",
+      "result": "PASS",
+      "evidence": "Every spec element is in the prompt: cup state, pose and size (\"between about 21% and 79% down ... the cup body from about 11% to 71% across, its vertical axis at about 41% across, and the handle from about 71% to 89% across\"), hands, contact, text, background, light, camera (\"50mm focal-length look at about f/8\"), continuity, and all 12 must_not items; the spec's \"pillarbox strips\" is covered by \"no borders, side bands, seams or vignette frames\". The cup is both subject and prop (PR-CUP), so its content sits in the SUBJECT block; no card block is missing."
+    },
+    {
+      "id": "P2",
+      "result": "PASS",
+      "evidence": "One attachment (image_references e6bc8781 = STYLE-TOP@v1, G-VIS-SHEET PASS), described as image 1: \"Image 1 is the approved look reference. Use only its light and colour grade ... Copy nothing else from it: not its wall, its window, the clock tower or the city, and none of its text, letters, numbers, highlight box or layout.\" This names everything in the opened image (dark wall, window, lit tower, Albanian headline, red highlight box, \"1/7\")."
+    },
+    {
+      "id": "P3",
+      "result": "PASS",
+      "evidence": "Spec \"hands: none visible\"; prompt \"HANDS: no hands, no fingers, no arms, no people anywhere in the picture.\""
+    },
+    {
+      "id": "P4",
+      "result": "PASS",
+      "evidence": "Static product layer written as contact points: \"no floor, table or surface under it: the flat #1A1716 background shows behind and below its foot ... Nothing touches the cup\"; espresso \"its surface about 1 cm below the rim\"; handle \"joined to the upper body just below the rim and again at about mid-height ... no gap at either joint\"."
+    },
+    {
+      "id": "P5",
+      "result": "PASS",
+      "evidence": "PR-CUP is not story-critical but carries its full content line (\"a classic thick-walled Italian demitasse about 6 cm wide and 6 cm tall ... dark brown-black espresso ... a faint thin tan crema ring\"); the no-text rule cannot empty it (the cup is plain by design) and \"no low or empty-looking cup: the espresso sits about 1 cm below the rim\" protects the fill."
+    },
+    {
+      "id": "P6",
+      "result": "PASS",
+      "evidence": "Spec \"text_in_image: none\"; prompt \"TEXT: none. No text, letters or numbers anywhere in the picture, on the cup or on the background.\""
+    },
+    {
+      "id": "P7",
+      "result": "PASS",
+      "evidence": "No frames, screens, signs or books: \"no table, floor, studio sweep, surface, edge, horizon line, wall, room, window, city, clock tower or any scene\"; the reference's baked text is excluded in REFERENCE."
+    },
+    {
+      "id": "P8",
+      "result": "PASS",
+      "evidence": "No pair that can't both be true: grain vs plain background resolved by \"(a fine, uniform film grain over it is expected)\"; \"deep shadows\" is the grade while the background has \"no cast shadow and no contact shadow\"; the numbers agree (body 0.60 of the width for 6 cm, handle 0.18 for 1.8 cm, axis at 0.41, outline 58% of the height, ellipse 0.64 at 40 degrees)."
+    },
+    {
+      "id": "P9",
+      "result": "PASS",
+      "evidence": "Carry-over met: \"CONTINUITY: the same warm light, colour grade and film grain as image 1, the brand's approved look, with the key light from the upper right\" (WEB-HERO-D: \"warm tungsten from out of frame above right\"); the cup is plain white with \"no saucer\" and the handle \"on the right side of the cup\"."
+    },
+    {
+      "id": "P10",
+      "result": "PASS",
+      "evidence": "gpt_image_2_5 for asset type still (allowed; spec format static, not a people format), resolution 2k, quality medium, variant flare, aspect_ratio 3:4 = Shot Spec camera.aspect \"3:4\" (a website layer, not a feed or reel placement), one image_references by job id; no video rules apply (no declined_preset_id, duration or speaker)."
+    },
+    {
+      "id": "P11",
+      "result": "PASS",
+      "evidence": "Two-way words are anchored: \"on the right side\" by \"the handle from about 71% to 89% across\"; \"seen side-on\" by \"with the plain background showing through its opening\"; \"wall\" by \"the near wall of the cup\"; \"low\" by \"the espresso sits about 1 cm below the rim\". The STYLE line's \"STYLE-TOP@v1\" is an internal name, but REFERENCE and CONTINUITY tie the look to image 1, the only attachment, and the spec requires that line word for word."
+    },
+    {
+      "id": "P12",
+      "result": "PASS",
+      "evidence": "Preventions present: FL-02 (\"a single closed loop ... one handle only, on the right: no second handle\"), FL-04 (\"no low or empty-looking cup\"), FL-10 and FL-13 (\"No text, letters or numbers anywhere\", \"no ... logo\"; the whole background is plain dark), FL-11 (\"no second cup\"). FL-01, 03, 06, 07, 08, 09 and 12 do not apply (no hands, no action, no people, no video)."
+    }
+  ],
+  "corrected_prompt": null
+}

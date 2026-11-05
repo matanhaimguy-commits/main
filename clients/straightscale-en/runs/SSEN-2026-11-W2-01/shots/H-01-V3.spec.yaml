@@ -1,0 +1,120 @@
+shot_id: H-01-V3
+post_id: SSEN-2026-11-W2-01
+format: realistic_photo
+script_lines:
+- L1
+line_text: "They can get it done cheaper because you sound the same."
+story_purpose: 'Concept frame for hook stack EN04-V3 (frame 1 of the hook shot): the cause as one picture: three offers
+  that read the same, so only the price can be compared.'
+must_read_in_1s: Three identical sheets; a hand pinches the one with the smallest price sticker.
+subjects:
+- id: PR-SHEETS
+  ref: null
+  state: three identical plain white tall narrow paper sheets in a row on a desk, seen from straight above, each with the same three headings in heavy black block capitals and one red round price sticker in its top right corner
+  pose: the three sheets fill the key band (x 6% to 94%, y 30% to 62%), side by side with small gaps
+  expression: ''
+  instances: 1
+  eyeline: ''
+hands:
+- who: the buyer (POV from above, no face), mustard-yellow knit sleeve
+  left: not in frame
+  right: the buyer's right hand enters from the bottom edge, index finger and thumb pinching the bottom LEFT corner of the rightmost sheet (the corner away
+    from its sticker), at about y 62% of the frame and lifting that corner about 2 cm off the desk, seen as a small curl and a soft shadow under it
+  contact: only the right hand's finger and thumb touch the rightmost sheet
+  must_not_cover: any heading letter and any part of any sticker; no letter or sticker touches or is drawn on the hand,
+    fingers or sleeve; the hand stays below the last heading with clear paper between them
+  count_check: one hand, five fingers, no extra hand or finger
+props:
+- id: PR-SHEETS
+  story_critical: false
+  ref: null
+  state: three copies, identical in layout, words and type; only the price stickers differ in size
+  content: 'plain white tall narrow sheets; on each, one round red sticker with no writing in the top right corner,
+    above the first heading so it touches no heading letter (left sheet sticker about 9% of the frame width across,
+    middle about 6.5%, right about 4%); below the sticker row, the same three headings stacked in heavy black block
+    capitals, each on one single line, never wrapped, never wider than 85% of the sheet width, letters about 4% of the
+    sheet height and the same size for all three headings: PROGRAM, WEEKLY CALLS, A PROMISE; a few plain grey bars (not
+    letters) under each heading'
+  size_in_frame: each sheet is about 28% of the frame width and 32% of the frame height
+text_in_image:
+- string: PROGRAM
+  surface: heading 1 on each of the three sheets, heavy black block capitals
+  position: top of the text area of each sheet, below the sticker row
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+- string: WEEKLY CALLS
+  surface: heading 2 on each of the three sheets, heavy black block capitals
+  position: middle of each sheet
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+- string: A PROMISE
+  surface: heading 3 on each of the three sheets, heavy black block capitals
+  position: lower middle of each sheet
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+action_physics:
+- The three sheets lie flat on the desk; the right hand pinches the bottom left corner of the rightmost sheet (away from its
+  sticker) and lifts that corner about 2 cm; the lift reads as a small curl of the paper and a soft shadow under it.
+static: false
+setting:
+  ref: null
+  details: 'All x and y percentages are measured from the top-left corner of the frame. A warm walnut desk seen from straight above in the evening, warm tungsten lamp light from the upper left,
+    soft shadows under the sheets.'
+  background_rule: Nothing else on the desk; no readable words except the headings; the stickers carry no digits or
+    letters.
+  background_action: none
+camera:
+  framing: flat lay; the top 30% of the frame bare dark walnut wood with nothing on it (the text hook is laid there in
+    the edit); the sheets in the middle band; the hand enters from the bottom
+  angle: straight down, 90 degrees
+  lens: candid iPhone 15 Pro photo, real skin texture, everything sharp
+  aspect: '9:16'
+  safe_zones: 'reels safe zone (STANDARDS 6): the sheets, headings and stickers sit between 30% and 56% from the top (the third heading of the right sheet at or above y 50%)
+    and inside 6% side margins (the sheet bottom edges and the pinch at 55% to 62% are not key); the top 30% holds
+    nothing; below 62% only the hand and wood'
+continuity:
+  previous_shot: null
+  carry_over: []
+regions:
+- name: text-hook-zone
+  kind: other
+  box: [0.0, 0.0, 1.0, 0.30]
+- name: sheets
+  kind: prop
+  box: [0.06, 0.30, 0.94, 0.62]
+- name: headings-left
+  kind: text
+  box: [0.07, 0.36, 0.33, 0.56]
+- name: headings-middle
+  kind: text
+  box: [0.37, 0.36, 0.63, 0.56]
+- name: headings-right
+  kind: text
+  box: [0.67, 0.36, 0.93, 0.56]
+- name: hand
+  kind: hand
+  box: [0.60, 0.60, 0.90, 1.0]
+- name: sticker-left
+  kind: prop
+  box: [0.25, 0.31, 0.34, 0.36]
+- name: sticker-middle
+  kind: prop
+  box: [0.56, 0.31, 0.64, 0.36]
+- name: sticker-right
+  kind: prop
+  box: [0.87, 0.31, 0.94, 0.36]
+style: 'EN 04 look: photoreal POV dramatization, hands only, never a face; warm evening home office, tungsten desk
+  lamp, soft shadows, natural skin; the hand always in a mustard-yellow knit sleeve; muted warm palette (walnut, warm
+  grey, mustard, paper white), red only on the price stickers.'
+must_not:
+- no face
+- no logo, brand or app name anywhere
+- no digits, prices or currency signs anywhere
+- no words other than the three headings
+- the three sheets must be identical apart from the sticker size
+hero: true
+notes: 'Concept frame for Hook Lab v4 (stack EN04-V3). The text hook is laid on top in the edit. Props are marked not
+  story-critical only because no prop sheet exists before the look bible (step 7).'

@@ -1,0 +1,8 @@
+# Large generated media stay out of git: each file's Atlas URL is in ledger.json (pipeline.py media) and the *.url / *.json files.
+takes/*.mp4
+music/*.mp3
+sheets/*.png
+sheets/*.jpg
+assets/*.png
+qa/frames-*/
+qa/f1-compare/*.png

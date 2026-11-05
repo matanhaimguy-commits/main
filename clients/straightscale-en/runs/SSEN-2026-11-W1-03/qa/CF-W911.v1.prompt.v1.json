@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CF-W911",
+ "version": 1,
+ "prompt_sha256": "e46cdd7c5eb7c7b51f5a6b9ffb24474f03d4b8dd6d0de1b86ce214902da8674a",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Every spec element is present: bin ('one round sage green clay waste bin ... from 26% to 74% of the width'), card, hands none, 3 strings, 3 action lines, setting, camera, safe zones, negatives."
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'References: none attached (text to image).' Media list is empty, so no map is needed."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'Hands: no hands visible.' matches spec 'hands: none visible'."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'the bin's front rim crosses in front of the card at 42% of the height; the card's front face touches nothing; each strike lies flat on the card's surface'."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Card: 'thick warm cream clay card with rounded corners and a thin deep ink outline' plus the three lines and strikes; bin: 'single open top and one round rim, no lid, no handles, plain, no face, no label'. Negatives are targeted, no blanket 'no text'."
+  },
+  {
+   "id": "P6",
+   "result": "FAIL",
+   "evidence": "Strings, surface, position and strike occlusion are given for WE DELIVER and RESULTS, but the spec occlusion for OFFER ('nothing covers any letter') is not carried over; the prompt only says 'The heading \"OFFER\" has no strike.' Fixed by adding 'and nothing covers any of its letters'. 3 words on the surface, within the 6-word limit."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'No signs, frames, posters, screens, desks or other objects; the only writing is the quoted text.'"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No conflicts: wall to 50%, floor from 50%, bin base at 55% on the floor; 'lower 45% plain floor' is consistent with the floor starting at 50%."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'Continuity: first frame of the reel; nothing carried over.' Spec previous_shot is null."
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Packet model openai/gpt-image-2/text-to-image, quality medium, size 1152x2048 matches standards.json (allowed for still, size_for_aspect 9:16 = 1152x2048). Prompt says 'Vertical 9:16 frame'. No video fields apply."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "Card, bin, strike and rim are each defined once in the prompt ('terracotta-red clay strike, about one third of the letter height thick, laid across the middle of the letters'). Colours are named, not hex, by design."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-02 structure line for the bin, FL-04 filled card content, FL-05 background rule, FL-10 'only writing is the quoted text', FL-13 no logo asked and 'no logo, brand, app or platform name anywhere'."
+  }
+ ],
+ "corrected_prompt": "Premium studio claymation scene - everything sculpted from matte plasticine with refined intentional craftsmanship: subtle tool marks, controlled texture, soft rounded geometry, slight subsurface warmth, macro lens feel with shallow depth of field, soft diffused studio lighting with a gentle rim glow, the scene filling the entire frame with the camera inside the miniature clay world. Vertical 9:16 frame. Palette (every colour in this frame): warm cream, terracotta-red, sage green, darker sage green, grey-blue, deep ink.\n\nReferences: none attached (text to image).\n\nComposition first (the most important rule of this picture): measure every height down from the top edge of the frame. The top 29% of the frame is plain grey-blue clay wall with nothing on it. The card and the bin fill only the band from 30% to 55% of the frame height: the bin's base rests on the floor at 55%, and nothing reaches lower. The whole lower 45% of the frame is plain darker sage clay floor with nothing on it. The group is not vertically centred in the frame: it sits higher than the middle.\n\nSubject and props: one round sage green clay waste bin with a single open top and one round rim, no lid, no handles, plain, no face, no label, from 26% to 74% of the width, its rim at 42% of the frame height, its body from 42% to 55%. Standing upright inside the bin, square to the camera, is one thick warm cream clay card with rounded corners and a thin deep ink outline, from 34% to 66% of the width; its lower part is hidden behind the bin's front wall and its upper part sticks up above the rim, from 30% to 42% of the frame height. Nothing else is in the bin.\n\nHands: no hands visible.\n\nAction as contact points: the bin's base rests flat on the clay floor at 55% of the height; the card stands upright inside the bin, its bottom edge resting on the bin's inside floor, hidden; the bin's front rim crosses in front of the card at 42% of the height; the card's front face touches nothing; each strike lies flat on the card's surface across its line.\n\nText: exactly these words, nothing else, in deep ink capitals on the card's visible part, all centred: the heading \"OFFER\", small, from 44% to 56% of the width and 31.5% to 33.5% of the height; main line 1 \"WE DELIVER\", from 37% to 63% of the width and 34.5% to 37.5% of the height; main line 2 \"RESULTS\", from 40% to 60% of the width and 38.5% to 41.5% of the height. Main lines 1 and 2 each have their own terracotta-red clay strike, about one third of the letter height thick, laid across the middle of the letters from the first letter to the last; the strike covers only the middle third of each letter, so the top and bottom of every letter stay visible and the words still read. The heading \"OFFER\" has no strike, and nothing covers any of its letters.\n\nSetting and background: a plain grey-blue clay wall from the top edge down to 50% of the height, meeting a plain darker sage clay floor in one straight horizontal line at 50%; the floor runs from 50% to the bottom edge. No signs, frames, posters, screens, desks or other objects; the only writing is the quoted text.\n\nCamera: front view at the height of the bin's rim, level, square to the card; macro, shallow depth of field, the card and its letters sharp; vertical 9:16. Layout: the top 29% is plain wall; every key element sits between 30% and 55% of the frame height and inside 26% to 74% of the width; lower than 55% only plain floor.\n\nContinuity: first frame of the reel; nothing carried over.\n\nNegatives: no hands, no people, no faces, no eyes on any object; no logo, brand, app or platform name anywhere; no digits, prices or currency signs anywhere; no words other than OFFER, WE DELIVER and RESULTS on the one card; nothing else in the bin; nothing in the top 29% except plain wall."
+}

@@ -1,0 +1,120 @@
+shot_id: H-01-W910
+post_id: SSEN-2026-11-W4-01
+format: claymation
+script_lines:
+- L1
+line_text: Doubled your cold emails? The first line is why nobody answers.
+story_purpose: 'Concept frame for hook stack W910-R4a (bank idea W9-10, Hook Lab v7 extra round): a bin overflowing with
+  sent paper planes, and the one unfolded on top shows the same tired first line, so twice the sending lands in the bin.'
+must_read_in_1s: A bin heaped with paper planes; the small unfolded sheet on top says HOPE THIS FINDS YOU WELL.
+subjects:
+- id: PR-BIN
+  ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
+    step 2); the prop sheet is cut from the approved frame at step 7'
+  state: standing upright on the clay floor, heaped above its rim
+  pose: x 26% to 74%, y 36% to 55%
+  expression: ''
+  instances: 1
+hands: none visible
+props:
+- id: PR-BIN
+  story_critical: true
+  ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
+    step 2); the prop sheet is cut from the approved frame at step 7'
+  state: standing upright, filled above its rim
+  content: 'one round terracotta #C8553D clay waste bin, plain, no face, no label, its body at x 30% to 70%, y 44% to 55%,
+    its base resting on the floor at y 55%; heaped above its rim (x 26% to 74%, y 36% to 44%) with many identical small
+    white clay paper planes, noses pointing every way, the heap clearly visible on both sides of the sheet'
+  size_in_frame: 48% of the width, 19% of the height including the heap
+- id: PR-PLANES-FLYING
+  story_critical: true
+  ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
+    step 2); the prop sheet is cut from the approved frame at step 7'
+  state: diving toward the bin from the upper left
+  content: 'exactly one more identical small white clay paper plane in the air at x 12% to 20%, y 31% to 35%, its nose
+    pointing down to the right at the heap, touching nothing'
+  size_in_frame: 8% of the width
+- id: PR-SHEET
+  story_critical: true
+  ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
+    step 2); the prop sheet is cut from the approved frame at step 7'
+  state: an unfolded paper plane lying open on the top of the heap, its lower edge resting on the top planes, tilted toward
+    the camera
+  content: 'one unfolded white clay sheet with crease lines and a thin deep ink #2B2A33 outline so its edge reads against
+    the wall, at x 34% to 66%, y 36.5% to 41.5%, its two lines of deep ink letters facing the camera; heap planes show to
+    its left (x 26% to 34%) and right (x 66% to 74%) and below it (y 41.5% to 44%)'
+  size_in_frame: 32% of the width, 5% of the height
+text_in_image:
+- string: HOPE THIS FINDS
+  surface: 'the unfolded sheet, line 1, deep ink #2B2A33 capitals, centred on the sheet, small condensed letters ending well inside the sheet edges'
+  position: x 36% to 64%, y 37% to 39%
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+- string: YOU WELL
+  surface: 'the unfolded sheet, line 2, deep ink #2B2A33 capitals, centred on the sheet'
+  position: x 43% to 57%, y 39.3% to 41.2%
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+action_physics:
+- The bin's base rests flat on the clay floor at y 55%.
+- The heap of folded planes rests inside the bin and rises above its rim; the planes touch each other and the rim.
+- The unfolded sheet's lower edge rests on the top planes of the heap, its back leaning on them, tilted toward the camera.
+- The one flying plane touches nothing.
+static: true
+setting:
+  ref: null
+  details: 'a plain warm cream #F3E9D8 clay wall from the top edge down to y 50%, meeting a plain sage #8FA98B clay floor in
+    one straight horizontal line at y 50%; the floor runs from y 50% to the bottom edge'
+  background_rule: no signs, frames, posters, screens, desks or other objects; the only writing is the quoted text
+camera:
+  framing: 'the bin and its heap centred in the key band y 31% to 55%; all x and y percentages are measured from the top-left
+    corner of the frame (y 0% is the top edge, y 100% the bottom edge)'
+  angle: front view from slightly above the bin's rim, looking a little down onto the heap
+  lens: macro, shallow depth of field; the sheet and its letters sharp
+  aspect: '9:16'
+  safe_zones: 'Layout (STANDARDS 6): the top 30% of the frame is plain wall (the text hook is set at 14% to 30% in the
+    edit); every key element sits between 31% and 55% of the frame height and inside 12% to 74% of the width; lower than
+    55% only plain floor (captions start at 55%).'
+continuity:
+  previous_shot: null
+  carry_over: []
+regions:
+- name: text-hook-zone
+  kind: other
+  box: [0.0, 0.0, 1.0, 0.3]
+- name: flying-planes
+  kind: prop
+  box: [0.12, 0.31, 0.2, 0.35]
+- name: heap
+  kind: prop
+  box: [0.26, 0.36, 0.74, 0.44]
+- name: sheet
+  kind: prop
+  box: [0.34, 0.365, 0.66, 0.415]
+- name: sheet-text
+  kind: text
+  box: [0.36, 0.37, 0.64, 0.412]
+- name: bin
+  kind: prop
+  box: [0.3, 0.44, 0.7, 0.55]
+style: 'Premium studio claymation scene - everything sculpted from matte plasticine with refined intentional craftsmanship:
+  subtle tool marks, controlled texture, soft rounded geometry, slight subsurface warmth, macro lens feel with shallow
+  depth of field, soft diffused studio lighting with a gentle rim glow, the scene filling the entire frame with the camera
+  inside the miniature clay world. Vertical 9:16 frame. Palette (every colour in this frame): warm cream #F3E9D8, terracotta
+  #C8553D, sage #8FA98B, deep ink #2B2A33, white.'
+must_not:
+- no hands, no people, no faces, no eyes on any object
+- no logo, brand, app or platform name anywhere
+- no digits or numbers anywhere
+- no words other than HOPE THIS FINDS YOU WELL on the one unfolded sheet
+- no writing on any folded plane
+- nothing in the top 30% except plain wall
+hero: true
+notes: 'Concept frame for Hook Lab v7 (main session, delegated by Matan, plan 28 Oct: one extra round for W9-10 R3c with
+  grader 2''s voice fix, because its visual was never graded). The text hook is laid on top in the edit, not drawn by the
+  model. Gate decision for hook frames (main session, delegated by Matan, plan 28 Oct): a G-VIS defect that is only
+  position or offset of up to 10% of the frame, with content, text and layout otherwise right, is fixed in the edit
+  (reframe on the canvas, extend the plain background) and does not fail the frame. "HOPE THIS FINDS YOU WELL" is shown as
+  the generic opener everyone sends, written by us, not a buyer quote.'

@@ -1,12 +1,14 @@
 # Signature devices
 
 This is the catalogue of film devices in the reference bank. A device is a piece of film grammar you can reuse: a
-camera move, a transition, a structure, a type treatment or a material. The bank holds 92 cards: 81 TikTok and
-Instagram reels, and 11 onetake craft films. Each card's first device is its signature, the idea the film hangs on.
+camera move, a transition, a structure, a type treatment or a material. The bank holds 107 cards: 81 TikTok and
+Instagram reels, 15 YouTube Shorts (talking, conversation and story reels, added 28 Oct 2026) and 11 onetake craft
+films. Each card's first device is its signature, the idea the film hangs on.
 
-This file covers 64 devices:
-- the 47 devices that are the signature of at least one card;
-- 17 secondary devices that 4 or more cards use.
+This file covers 72 devices:
+- the 47 devices that are the signature of at least one card in the first bank;
+- 17 secondary devices that 4 or more cards use;
+- 8 talk devices from the 28 Oct 2026 YouTube Shorts (section "Talk").
 
 Rarer devices (countdown, map-zoom, paper-cutout, progress-ring and others) are not covered; find them with
 `search --tag`.
@@ -78,6 +80,8 @@ Bake every simulation once, with a seed and a fixed step, then read its frames b
 | Behind the scenes, proof of craft | `before-after` (process, then product), `screen-in-frame`, `assembly-build` (speed build) | tt-sushmitagabriel 12M, tt-kotsarevm 23M, tt-nicky-blender 20M, tt-jen-k4rt 4.7M |
 | Event, drop or date teaser | `lyric-sync-type`, `shape-wipe`, `3d-type`, `creature-reveal` | tt-noot-ify 9.1M, tt-nemu-etoile 3.0M, tt-platsae 6.6M, tt-anyma 71M |
 | The customer's pain, in their words | `word-by-word`, `literal-metaphor`, `pose-to-pose-comedy`, `rack-focus` | ig-hiddenemotions-001 2.6M, tt-thequinettos 136M, tt-oyehoye4k 13M, ig-divyansh-fx-attention 348K |
+| Sell a service in a conversation (coach, consultant, agency) | `roleplay-dialogue`, `step-plan`, `escalation-ladder` (additive levels), `quadrant-matrix`, `prop-analogy` | yt-thefutur-money-first 154K (15.8x), yt-patrickdang-thirty-days 31K (17.7x), yt-codie-five-levels 214K (11.6x), yt-alexberman-orange 567K (90x) |
+| A founder's story | `rise-fall-turn`, `mentor-quote`, `street-interview` | yt-noahkagan-tire-shop 8.4M (13.0x), yt-leila-character 27K (11.7x), yt-noahkagan-first-class 2.0M (3.1x) |
 
 ## Camera and space
 
@@ -1238,6 +1242,78 @@ Bake every simulation once, with a seed and a fixed step, then read its frames b
   - Boat tours: a huge shadow under the bay, then the boat heads out.
 - **Watch out:** It is the highest-wow group (4.1 on average) and the most expensive. Keep it playful, never like
   real news.
+
+## Talk
+Added 28 Oct 2026 from 15 YouTube Shorts that sell services or ideas through talk. Proof is views over the channel's
+median (latest 48 Shorts), shown as the multiple. None of these cards was watched: TranscriptAPI gave the words and
+their timing, but frames could not be fetched, so the visual parts below are build suggestions, not measurements.
+
+### roleplay-dialogue
+*1 of 1 · diff 2 · hooks: bold-claim, direct-address*
+- **What it is:** a rule said to camera in under 9 s, then the same person plays the seller in a mock call against a
+  second voice that answers in short plain lines, and the scene runs to a real outcome (often a no).
+- **Examples:** yt-thefutur-money-first 154K (15.8x).
+- **Build it here:** a two-sided call transcript as kinetic type (current and previous line only), two voices
+  (paid, with approval), or two cab characters, or the owner and a teammate on one camera.
+- **Business uses:** coach (ask where the last three clients came from first), agency (ask the budget before you
+  write anything), StraightScale (ask what they already tried).
+- **Watch out:** 15+ turns get unreadable on a phone; cut to the turns that carry the lesson.
+
+### step-plan
+*2 of 4 · diff 1-2 · hooks: if-i-had-to, mid-action-start*
+- **What it is:** "If I had to [goal] in [time], here's exactly what I'd do", then numbered steps, each shown on a
+  real screen or object as it is said, ending on a comment keyword.
+- **Examples:** Signature: yt-patrickdang-thirty-days 31K (17.7x), yt-noahkagan-millions-views 3.3M (5.1x). Also:
+  yt-patrickdang-s-tier, yt-patrickdang-client-tom.
+- **Build it here:** step chips stacking at the top, one real screen per step (never invented UI).
+- **Business uses:** "If my referrals stopped tomorrow, here's what I'd do this month."
+
+### prop-analogy
+*1 of 2 · diff 2 · hooks: question, contrast-split*
+- **What it is:** one everyday object handed to two people; one resells it, the other transforms it. The object stays,
+  the choice changes.
+- **Examples:** yt-alexberman-orange 567K (90x, the biggest breakout in the batch).
+- **Build it here:** split screen, one drawn object, a three-shape morph on the transform side (`spring()`).
+- **Business uses:** one referral: wait for the next, or turn its words into the next post.
+
+### quadrant-matrix
+*1 of 1 · diff 2 · hooks: bold-claim, contrast-split*
+- **What it is:** two labels on a line, then "there's a second piece everybody misses" draws a second axis, making a
+  2x2; a self-test places the viewer; the payoff points into one corner.
+- **Examples:** yt-codie-oxygen-dessert 65K (3.5x).
+- **Build it here:** axes draw on, labels drop, a gold marker walks to the winning corner.
+- **Watch out:** the second axis is the re-hook at the midpoint; do not show the full grid up front.
+
+### mentor-quote
+*1 of 1 · diff 1 · hooks: bold-claim*
+- **What it is:** a blunt claim, then a mentor's words quoted in full, then the exact line the speaker started saying
+  to people because of it, then the principle. The weakness is said first and turned into the reason to choose.
+- **Examples:** yt-leila-character 27K (11.7x).
+- **Build it here:** owner on camera, or the quote as a handwritten note, the line typed as a message.
+
+### rise-fall-turn
+*2 of 3 · diff 1-2 · hooks: mid-action-start, bold-claim*
+- **What it is:** start mid-story with an age or a result, two quick falls, then one repeatable behaviour (a
+  question asked to the right people) that turns it, a short rise, a pointer to the long version.
+- **Examples:** yt-noahkagan-tire-shop 8.4M (13.0x), yt-patrickdang-client-tom 5.8K (3.3x).
+- **Build it here:** the owner tells it; faceless, a timeline line that dips on the falls, panels per beat.
+- **Watch out:** real stories only, told by their owner; no invented results.
+
+### street-interview
+*1 of 2 · diff 2 · hooks: question, relatable-pov*
+- **What it is:** one nosy money question asked to a stranger in frame 1, then the same three follow-ups (what
+  exactly, how much, what advice).
+- **Examples:** yt-noahkagan-first-class 2.0M (3.1x). The same channel's other Shorts in this format range from
+  0.07x to 13x, so the format alone does not win.
+- **Build it here:** footage with consent forms, or two drawn characters with speech bubbles.
+
+### qa-cold-open
+*2 of 4 · diff 1-2 · hooks: question*
+- **What it is:** someone else asks the question (off camera or typed), the expert answers before 4 s. The count or
+  the topic is in the question, so the viewer knows the length.
+- **Examples:** yt-leila-trust 9.7K (4.2x), yt-thefutur-three-books 150K (15.4x).
+- **Watch out:** the Hook Library says question hooks lose on Instagram (principle 4); these won on YouTube Shorts,
+  where the asker is someone else. Test before relying on it.
 
 ## Combinations that work
 

@@ -1,0 +1,249 @@
+{
+ "gate": "G-VIS-SLIDE",
+ "asset_id": "SL04-W43-1b",
+ "version": 2,
+ "label": "logofix",
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "hero": false,
+ "reviewed_file": "sandbox /home/user/drafts/fixed/26e094bc.jpg (1080x1350 JPEG, md5 6452e56ad52a580471761fe8e6c20b64)",
+ "compared_with": "v1 original /home/user/drafts/26e094bc-4d29-4232-a21d-f8e80364cadb.jpg (md5 f549e0a2b8a46fc46873dd4b5e798edb, drawn logo); real logo /home/user/brand/straightscale-logo-light.png",
+ "spec_used": "Slide 4 of 7 (Mon 19 Oct), alt text 4: 'Libër takimesh me disa orare të shënuara me të kuq. Numri 3: Sa u rezervuan.' House slide frame and brand rules as for slide 2. Earlier QA removed a stray speck above 'rezervuan'.",
+ "crops_dir": "/home/user/qa/W43-1b-set.v2/SL04 (Higgsfield sandbox, built by the reviewer with PIL/OpenCV)",
+ "crops_manifest": "clients/straightscale/content/2026-w43-1b-carousel/qa/crops/SL04.v2.logofix/manifest.json",
+ "files_opened": [
+  "full_720.jpg",
+  "tile_r1c1.jpg",
+  "tile_r1c2.jpg",
+  "tile_r1c3.jpg",
+  "tile_r2c1.jpg",
+  "tile_r2c2.jpg",
+  "tile_r2c3.jpg",
+  "tile_r3c1.jpg",
+  "tile_r3c2.jpg",
+  "tile_r3c3.jpg",
+  "diffmap_orig_vs_fixed.jpg",
+  "region_logozone_orig_vs_fixed_2x.jpg",
+  "region_logozone_clahe_orig_top_fixed_bottom_2x.jpg",
+  "region_logozone_band_orig_top_fixed_bottom_3x_gamma07.jpg",
+  "thumb_200.jpg",
+  "../SET/ref_logo_vs_pasted_all_slides_3x.jpg",
+  "region_logo_changezone_3x_4views.jpg",
+  "region_SL04_kicker_2x.jpg",
+  "region_SL04_headline_2x.jpg",
+  "region_SL04_subline_2x.jpg",
+  "region_SL04_book_left_page_2x.jpg",
+  "region_SL04_book_right_page_2x.jpg",
+  "region_SL04_above_rezervuan_3x.jpg",
+  "region_SL04_speck_left_6x.jpg",
+  "region_SL04_specks_context_2x.jpg",
+  "region_SL04_counter_3x.jpg",
+  "region_SL04_arrow_3x.jpg"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "1-second read: '3 Sa u rezervuan' over an open appointment book with slots blocked in red, phone beside it. Sound off it reads 'number 3: how many booked'."
+  },
+  {
+   "id": "V2",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Matches alt text 4: an appointment book with several time slots marked in red (four red bars, region_SL04_book_left_page_2x.jpg, region_SL04_book_right_page_2x.jpg)."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "planner",
+   "evidence": "No invented business number: the planner's hour column is the spec'd 'orare' (time slots), not a count, price or result; the red bars carry no writing; the phone screen is dark. Their accuracy is covered under V11. No em dash."
+  },
+  {
+   "id": "V4",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No people, hands or limbs in any of the 9 tiles."
+  },
+  {
+   "id": "V5",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No hands; still life."
+  },
+  {
+   "id": "V6",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No faces."
+  },
+  {
+   "id": "V7",
+   "result": "PASS",
+   "severity": "",
+   "region": "planner, phone",
+   "evidence": "The planner lies open and flat with its ribbon hanging over the table edge and a shadow under the cover; the phone lies flat with a reflection (tiles r3c1, r3c2, r3c3)."
+  },
+  {
+   "id": "V8",
+   "result": "PASS",
+   "severity": "",
+   "region": "planner, phone",
+   "evidence": "The planner has two page blocks, a spine, a hard cover and a ribbon; the phone shows port and speaker grilles on its bottom edge (tile_r3c3.jpg)."
+  },
+  {
+   "id": "V9",
+   "result": "PASS",
+   "severity": "",
+   "region": "kicker, headline, subline",
+   "evidence": "Read at 2x. Kicker: N-U-M-R-I / I / T-R-E-T-Ë. Headline: [3 in crimson box] S-a / u / r-e-z-e-r-v-u-a-n = 'Sa u rezervuan' as in the alt text. Subline: J-o / k-u-s-h / p-y-e-t-i, / p-o-r / k-u-s-h / l-a / t-a-k-i-m. Ë has two dots; comma and full stop correct. No misspelling, no em dash."
+  },
+  {
+   "id": "V10",
+   "result": "PASS",
+   "severity": "",
+   "region": "kicker, headline, subline",
+   "evidence": "The text is the house overlay, set on the calm dark wall area left of the window (region_SL04_headline_2x.jpg, tile_r1c1.jpg). Nothing in the scene sits in front of a letter and no letter is painted onto a prop, skin or cloth."
+  },
+  {
+   "id": "V11",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "planner hour column, both pages",
+   "evidence": "Pre-existing (same in v1). The printed hours are out of order and repeated (region_SL04_book_left_page_2x.jpg): left page reads 09:00, 10:00, 10:00, 10:00, 19:00, 11:00, 12:00, 13:00, 15:00, 14:00, 15:00, 16:00, 15:00, 18:00, 19:00, 20:00; the right page (region_SL04_book_right_page_2x.jpg) runs 00:00, a garbled stacked label ('19:0' over '17:5'), 15:00, 12:00, 13:00, 12:00, 11:00 ... and has a tiny gibberish header top right. Labels are about 10 px tall, so this is only visible zoomed; at phone size it reads as a planner."
+  },
+  {
+   "id": "V12",
+   "result": "PASS",
+   "severity": "",
+   "region": "planner",
+   "evidence": "The story prop has its content: an hour column on both pages and four red-marked slots (booked appointments)."
+  },
+  {
+   "id": "V13",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone",
+   "evidence": "Deep red case, dark screen, as in the thread."
+  },
+  {
+   "id": "V14",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No unexplained props: planner, phone, chair backs in the background."
+  },
+  {
+   "id": "V15",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No characters, so no character sheet applies."
+  },
+  {
+   "id": "V16",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone",
+   "evidence": "Phone lies dark beside the planner; the planner carries the 'booked' state, consistent with the thread."
+  },
+  {
+   "id": "V17",
+   "result": "PASS",
+   "severity": "",
+   "region": "set",
+   "evidence": "Same set: table by the window, plaza and clock tower (tile_r1c3.jpg)."
+  },
+  {
+   "id": "V18",
+   "result": "PASS",
+   "severity": "",
+   "region": "frame",
+   "evidence": "1080x1350 (4:5). Kicker y63-81; headline one line y183-267; subline y300-328; left margin ~100 px; counter '4/7' x922-971, y53-78; arrow x929-988, y1232-1291 (centre 1261.5); logo x98-393, y1227-1284 (centre 1255.5). Logo and arrow sit on one line (6 px apart). All content inside the frame."
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200.jpg",
+   "evidence": "At 200 px '3 Sa u rezervuan' reads and the planner with red bars is clear."
+  },
+  {
+   "id": "V20",
+   "result": "N/A",
+   "severity": "",
+   "region": "background",
+   "evidence": "Still life with no people in the scene; the window background is alive enough for the format (street lamps, lit facades, wet plaza with reflections, out-of-focus cars), the same on every slide."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Tirana at night, warm tungsten grade, ivory type (#FAF8F4), crimson box #AD0D1A, crimson planner marks and arrow (#A60F1B), gold only in the counter (#D09C4A) and the logo's gold square, red-cased phone."
+  },
+  {
+   "id": "V22",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Photoreal night interior: wood grain with specular highlights, bokeh street lights, wet plaza, fine grain (tiles r2c3, r3c2). No plastic or CG look."
+  },
+  {
+   "id": "V23",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "dark margin above the '3' box, x66-71, y152-160",
+   "evidence": "Pre-existing (same values in v1: luma 73/86). Two stray light specks, 2 and 4 px, luma 68 and 82 on a background of 10, sit in the dark margin above-left of the crimson '3' box (region_SL04_specks_context_2x.jpg, region_SL04_speck_left_6x.jpg); visible zoomed only. The speck above 'rezervuan' that earlier QA removed is gone: only a 2 px trace at (491,168), luma 38 on 12, remains, invisible at 2x and 3x (region_SL04_above_rezervuan_3x.jpg). The logo fix left no artefact: grain continuous at 2x, 3x gamma and CLAHE, no smoothing (texture std in the refilled area 2.44 vs ring 1.28), no seam or blotch; outside the zone only JPEG noise (max 25, mean 0.86)."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "bottom-left logo zone, props",
+   "evidence": "Logo is the real file (../SET/ref_logo_vs_pasted_all_slides_3x.jpg, region_logozone_orig_vs_fixed_2x.jpg): red rounded square with the S-shaped channel, gold square in the top-right notch, white 'StraightScale' wordmark, identical to /home/user/brand/straightscale-logo-light.png. Fitting the real file at 295x57 at (98,1227) gives a mean absolute difference of 7.15 levels over its opaque pixels (the same 7.1 to 7.2 on all seven slides, i.e. one file at one scale); the opaque extent measures 291x54 px (aspect 5.39) vs the file's alpha bbox 1501x279 (5.38), so it is undistorted; edges crisp at 3x. No remnant of the v1 drawn logo: the plain white 'S' block and the drawn wordmark are gone, no ghost letters, no red or gold fragment in the cleared area (0 red and 0 gold pixels outside the pasted logo in the change zone; boosted and CLAHE views show only wood grain). No other brand's mark anywhere: the planner or phone carries no maker logo."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No before and after, no 'your [condition]', nothing that shames; the copy is a neutral instruction."
+  },
+  {
+   "id": "V26",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No AI person in the frame. Photoreal AI scene: STANDARDS.md section 7 asks for Instagram's own AI label on the post (a posting setting, not visible in the image); no burned-in AI tag is present, which is correct."
+  }
+ ],
+ "defects_summary": {
+  "critical": 0,
+  "major": 0,
+  "minor": 2,
+  "items": [
+   "V11 minor, planner hour column, both pages: planner hour labels out of order and repeated, one garbled stacked label (pre-existing)",
+   "V23 minor, dark margin above the '3' box, x66-71, y152-160: two stray light specks above-left of the 3 box (pre-existing)"
+  ]
+ },
+ "fix": {
+  "route": "none",
+  "prompt_changes": [],
+  "optional_edits": [
+   "Clone out the two specks at (66,152) and (69,158) with the surrounding near-black (same edit pass as the earlier speck removal).",
+   "If the slide is regenerated for another reason, give the planner a content line: 'hour column 08:00 to 20:00 in order, one per line'."
+  ]
+ },
+ "notes": [
+  "Set-level finding (see SET.v2.logofix.review.json): the real logo is the same file and size on every slide but its vertical position varies by 50 px across the set (y1189 to y1239). The G-SET fix re-places the logo at one fixed box on every slide; each re-placed file is a new version and needs its own review.",
+  "No new hosted URLs for slides 2 to 7 were in the packet or the repo. hosted.json still lists the v1 originals: in the sandbox, each hosted.json URL downloads byte-identical to the v1 original (md5 match), not to the fixed file. Point the hub at the fixed files' URLs and md5-check them against reviewed_file before posting."
+ ]
+}

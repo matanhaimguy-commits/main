@@ -1,0 +1,77 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "H-01-V1",
+ "spec_sha256": "969c67c5ee0c4a330647d96caea2a91187415ce1be2b8fcf0cdcef158ee4d017",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s: 'One big phone shows a BOOK A CALL page with an empty calendar, a pile of hearts at its foot.' Subject, 3 props, text and action are all specified; hands: none visible."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "Spec mode; no references (ref: null)."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "hands: 'none visible'; no hand region needed."
+  },
+  {
+   "id": "P4",
+   "result": "FAIL",
+   "evidence": "action_physics: 'leaning back about 5 degrees against nothing' gives no support or contact point; a model can draw it floating or tipping. Contacts for the hearts are good ('rest on the floor and against the phone's lower edge')."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-SCREEN content: 'BOOK A CALL ... calendar grid of 3 rows by 5 columns of plain cream clay squares, every square empty'; PR-HEARTS: 'about a dozen plump clay hearts in heart red #D64545'; targeted negatives only."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "text_in_image: BOOK A CALL (3 words), surface 'top band of the phone screen', position x 24% to 76%, y 36% to 42%, occlusion 'nothing covers any letter', must_be_exact true, matching region book-a-call."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: 'no signs, frames, posters or other screens; the only writing is on the listed screen'."
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "safe_zones: 'bottom 15% calm' (y 85% to 100%) but PR-HEARTS and its region reach y 92%, so the hearts sit inside the calm zone."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "continuity previous_shot: null, carry_over: [] (first frame of the hook)."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "Spec mode."
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "PR-PHONE content 'professional clay imitation of a black-glass phone' can be read as a glossy black glass phone (conflicts with matte plasticine and 'no glossy CGI look'); screen background colour is never named, so cream squares on a cream band may blend into the screen and the empty calendar will not read."
+  },
+  {
+   "id": "P12",
+   "result": "FAIL",
+   "evidence": "FL-02: no one-line structure statement for the phone (one body, one screen, no buttons or second screen/camera island); FL-05 is covered by the background rule."
+  }
+ ],
+ "suggested_spec_changes": [
+  "action_physics: replace 'leaning back about 5 degrees against nothing' with 'the phone stands upright on its flat clay bottom edge, bottom edge pressed into the clay floor, no lean; the hearts rest on the floor and are pressed against the phone's lower edge, none on the screen'.",
+  "PR-HEARTS content/state and region 'hearts': change y range from 82%-92% to 80%-85% (pile smaller, or lift the phone and pile together) so the pile ends at or above y 85%; keep PR-PHONE bottom at y 80% or less so the hearts sit against its foot. Adjust PR-PHONE pose/size_in_frame and regions to match.",
+  "PR-PHONE content: replace 'a professional clay imitation of a black-glass phone' with 'matte dark-ink clay body #2B2A33, not glass, no reflections'; add structure line: 'a single phone: one rounded rectangular body, one flat screen, no camera bump, no buttons, no second screen'.",
+  "PR-SCREEN content: name the screen background, e.g. 'screen field in sage #8FA98B behind the cream title band and the cream squares', so the empty calendar reads against it."
+ ],
+ "corrected_prompt": null
+}

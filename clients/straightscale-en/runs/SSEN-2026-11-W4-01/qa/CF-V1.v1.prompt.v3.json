@@ -1,0 +1,75 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CF-V1",
+ "version": 1,
+ "prompt_sha256": "e62a5d015346c0557128b8e0674305ce70fe54d6d159e461b0ff5a94b1db2e02",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Subject, hands, action, props, text, setting, camera all present: 'seven hearts lie flat', 'exactly \"BOOK A CALL\"', 'Hands: no hands visible.'"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'References: none attached (text to image).' matches media list: none"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'Hands: no hands visible.' matches spec 'hands: none visible'"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'seven hearts lie flat against the screen surface in one low pile, each resting on the screen or on the heart under it.'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Content lines for screen and hearts; negatives are targeted ('no digits or numbers', 'no words other than the quoted ones'), no blanket 'no text' next to the screen"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "'exactly \"BOOK A CALL\" in heavy bold deep ink #2B2A33 capital letters, centred in the cream band, from 14% to 86% ... 32% to 39% ...; nothing covers any letter.' 3 words"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'no signs, frames, posters or other screens'; the one screen has full content and the calendar squares are ruled empty"
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "Hearts placed 'to the left of the calendar's bottom row, from 8% to 40% of the frame width' but the calendar runs 'from 8% to 78% of the frame width' and 58-64% height, so the hearts' box lies on the calendar's bottom-left squares, not left of them; 'touching only the screen and each other' also conflicts with resting on squares. Same contradiction is in the Shot Spec (props PR-HEARTS vs PR-SCREEN content)."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'Continuity: first frame of the reel; nothing carried over.' spec carry_over: []"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Call openai/gpt-image-2/text-to-image, size 1152x2048 (9:16), quality medium: allowed for still in standards.json atlas.allowed; no media, none required; 'Vertical 9:16 frame.'"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "Positions are given as percentages of frame width/height; counts and colours exact ('3 rows by 4 columns', 'seven')"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 screen content filled; FL-05/FL-10 'no signs, frames, posters or other screens' and 'no words other than the quoted ones'; FL-13 prompt never asks for a logo ('no logo, wordmark, real app name or app icon'); FL-11 single pile"
+  }
+ ],
+ "corrected_prompt": "Premium studio claymation scene - everything sculpted from matte plasticine with refined intentional craftsmanship: subtle tool marks, controlled texture, soft rounded geometry, slight subsurface warmth, macro lens feel with shallow depth of field, soft diffused studio lighting with a gentle rim glow, the scene filling the entire frame with the camera inside the miniature clay world. Vertical 9:16 frame. Palette (every colour in this frame): warm cream #F3E9D8, terracotta #C8553D, sage #8FA98B, deep ink #2B2A33, heart red #D64545.\n\nReferences: none attached (text to image).\n\nSubject: The subject is a macro close-up of a clay phone screen: the screen's rounded top edge with a terracotta #C8553D clay rim runs straight across the frame at 30% of the frame height, and the screen continues past the left, right and bottom edges of the frame. The screen is matte clay, not glass, no reflections. Above 30% of the frame height there is only plain cream #F3E9D8 clay, empty.\n\nHands: no hands visible.\n\nAction as contact points: the screen faces the camera square on; seven hearts lie flat against the screen surface in one low pile, each resting on the screen, a calendar square or the heart under it.\n\nProps with content: On the screen: a cream #F3E9D8 band across the top of the screen from 31% to 40% of the frame height; under the band a sage #8FA98B screen field holding a calendar of 3 rows by 4 columns of big plain cream clay squares with sage gaps, from 8% to 78% of the frame width and 42% to 64% of the frame height, every square empty: no digits, no names, no marks. The sage field continues plain to the right of the calendar and below 64% of the frame height. Seven plump thumb-pressed clay hearts in heart red #D64545, each about 7% of the frame width, lie in one low pile on the screen surface over the two left squares of the calendar's bottom row and the sage gaps around them, from 8% to 40% of the frame width and 58% to 65% of the frame height, touching only the screen (its squares and sage) and each other, none on the band or the letters; the other ten squares stay fully visible and empty.\n\nText: exactly \"BOOK A CALL\" in heavy bold deep ink #2B2A33 capital letters, centred in the cream band, from 14% to 86% of the frame width and 32% to 39% of the frame height; nothing covers any letter. No other text anywhere.\n\nSetting and background: the clay phone screen fills the frame below 30%; above it plain cream clay; no signs, frames, posters or other screens.\n\nCamera: straight on, square to the screen, inside the miniature clay world, macro lens feel, shallow depth of field, vertical 9:16. Layout: the top 30% of the frame is empty plain cream; every key element sits between 30% and 65% of the frame height, inside 6% to 94% of the width, and left of 79% of the width wherever it is below 50% of the height; below 65% only the plain continuation of the screen. One subject: the booking page, edge to edge, big.\n\nContinuity: first frame of the reel; nothing carried over.\n\nNegatives: no logo, wordmark, real app name or app icon anywhere; no digits or numbers anywhere; no words other than the quoted ones; nothing in the top 30% of the frame except plain cream clay; no people, no hands, no faces; no workbench, table edge or room around the clay world; no glossy CGI look, no glass reflections.\n\nEverything in frame is real professionally sculpted matte plasticine, photographed - refined sculpting marks, real cast shadows, soft studio lighting, the clay scene filling the entire frame.\n",
+ "suggested_spec_changes": [
+  "Fix the geometry in PR-HEARTS vs PR-SCREEN: either move the hearts outside the calendar box (shrink the calendar, e.g. start it right of 40% width, or move the hearts below 64% height inside 65%) or state that the pile lies on the bottom-left calendar squares, and update regions 'hearts' and 'calendar' to match."
+ ]
+}

@@ -1,0 +1,70 @@
+{
+ "client": "straightscale",
+ "week": "2026-W42",
+ "timezone": "Europe/Tirane",
+ "cadence": "daily",
+ "research": "research/2026-10-14",
+ "posts": [
+  {
+   "key": "2026-w43-1-carousel",
+   "kind": "carousel",
+   "day": "2026-10-15",
+   "time": "20:09",
+   "goal": "leads",
+   "status": "published",
+   "permalink": "https://www.instagram.com/p/DehkW3EDa0B/",
+   "note": "moved from Mon 19 to Thu 15 on the owner's request"
+  },
+  {
+   "key": "2026-w42-5-image",
+   "kind": "image",
+   "day": "2026-10-16",
+   "time": "19:30",
+   "goal": "comments",
+   "pillar": "owner fear",
+   "format": "Single image question",
+   "hook": "Nëse nesër telefoni nuk bie fare, nga vjen klienti i radhës?",
+   "based_on": [
+    "#3 @eri.businesscoach owner-fear question"
+   ],
+   "cta": {
+    "type": "comment",
+    "ask": "where most of your clients come from today"
+   }
+  },
+  {
+   "key": "2026-w42-6-reel",
+   "kind": "reel",
+   "day": "2026-10-17",
+   "time": "19:30",
+   "goal": "reach",
+   "pillar": "owner identity",
+   "format": "Quote reel 13.6 s, voiced",
+   "hook": "Kjo javë e vështirë është për tani, jo përgjithmonë.",
+   "based_on": [
+    "#7 @hormozi one-line reframe"
+   ],
+   "cta": {
+    "type": "send",
+    "ask": "send it to an owner who needs it today"
+   }
+  },
+  {
+   "key": "2026-w42-7-image",
+   "kind": "image",
+   "day": "2026-10-18",
+   "time": "18:00",
+   "goal": "comments",
+   "pillar": "where clients are lost",
+   "format": "Single image self-check",
+   "hook": "Sa mesazhe mbetën pa përgjigje këtë javë?",
+   "based_on": [
+    "research gap: reply-time self-check"
+   ],
+   "cta": {
+    "type": "comment",
+    "ask": "write the number"
+   }
+  }
+ ]
+}

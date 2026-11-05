@@ -1,0 +1,84 @@
+<!doctype html>
+<!--
+  Twin kit: the set (layer 10). The room the twin stands in: a wall with a slow camera drift, a warm light pool
+  where the twin's head will be, grain so dark tones do not band. With set_src it shows a set plate instead
+  (the pilot's Atlas set image), cover-fitted and drifting the same way.
+  Variables: set_src (image path, optional), light_x / light_y (light pool centre, px), drift (px over the film).
+-->
+<html
+  data-composition-id="kit-stage"
+  data-composition-duration="60"
+  data-composition-variables='[
+    {"id":"set_src","type":"string","label":"Set plate image (optional)","default":""},
+    {"id":"light_x","type":"number","label":"Light pool x","default":540},
+    {"id":"light_y","type":"number","label":"Light pool y","default":1080},
+    {"id":"drift","type":"number","label":"Camera drift (px)","default":60},
+    {"id":"dur","type":"number","label":"Duration (s)","default":10}
+  ]'
+>
+  <head><meta charset="UTF-8" /></head>
+  <body>
+    <template>
+      <style>
+        #root { position: absolute; inset: 0; overflow: hidden; background: var(--kit-bg); }
+        .st-wall { position: absolute; left: -80px; top: -80px; width: 1240px; height: 2080px; }
+        .st-panel { position: absolute; top: 0; bottom: 0; width: 2px; background: var(--kit-fg); opacity: 0.07; }
+        .st-ledge { position: absolute; left: 0; right: 0; top: 1240px; height: 760px;
+                    background: linear-gradient(180deg, rgba(237,228,214,0.10), rgba(237,228,214,0.02) 40%, rgba(0,0,0,0)); }
+        .st-plate { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: none; }
+        .st-light { position: absolute; width: 1400px; height: 1400px; margin: -700px 0 0 -700px; border-radius: 50%;
+                    background: radial-gradient(closest-side, rgba(221,154,16,0.22), rgba(221,154,16,0.08) 45%, rgba(0,0,0,0) 100%); }
+        .st-vignette { position: absolute; inset: 0;
+                       background: radial-gradient(120% 90% at 50% 45%, rgba(0,0,0,0) 55%, rgba(0,0,0,0.55) 100%); }
+        .st-grain { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.10; mix-blend-mode: overlay; }
+      </style>
+      <div id="root" data-composition-id="kit-stage" data-duration="60">
+        <div class="st-wall">
+          <img class="st-plate" alt="" />
+          <div class="st-ledge"></div>
+        </div>
+        <div class="st-light"></div>
+        <div class="st-vignette"></div>
+        <canvas class="st-grain" width="270" height="480"></canvas>
+      </div>
+      <script>
+        (function () {
+          var root = document.getElementById("root");
+          var v = (window.__hyperframes && window.__hyperframes.getVariables()) || {};
+          var wall = root.querySelector(".st-wall");
+          var plate = root.querySelector(".st-plate");
+          var light = root.querySelector(".st-light");
+          var grain = root.querySelector(".st-grain");
+          var dur = Number(v.dur) || 10, drift = Number(v.drift == null ? 60 : v.drift);
+          if (v.set_src) { plate.src = v.set_src; plate.style.display = "block"; root.querySelector(".st-ledge").style.display = "none"; }
+          else {
+            // wall panels: fixed rhythm, uneven on purpose so the drift reads as depth
+            [70, 250, 470, 610, 830, 1010, 1170].forEach(function (x) {
+              var p = document.createElement("div"); p.className = "st-panel"; p.style.left = x + "px"; wall.appendChild(p);
+            });
+          }
+          light.style.left = (Number(v.light_x) || 540) + "px";
+          light.style.top = (Number(v.light_y) || 1080) + "px";
+          // seeded grain: one pattern per film frame (24 per second), a pure function of time
+          var ctx = grain.getContext("2d"), img = ctx.createImageData(270, 480);
+          function paintGrain(frame) {
+            var s = (frame * 2654435761) >>> 0;
+            for (var i = 0; i < img.data.length; i += 4) {
+              s = (s * 1664525 + 1013904223) >>> 0;
+              var g = s >>> 24; img.data[i] = img.data[i + 1] = img.data[i + 2] = g; img.data[i + 3] = 255;
+            }
+            ctx.putImageData(img, 0, 0);
+          }
+          var clock = { t: 0 }, last = -1;
+          var tl = gsap.timeline({ paused: true });
+          tl.fromTo(wall, { x: 0, y: 0, scale: 1.02 }, { x: -drift, y: -drift * 0.4, scale: 1.06, duration: dur, ease: "none" }, 0);
+          tl.fromTo(light, { x: 0, opacity: 0.85 }, { x: drift * 0.5, opacity: 1, duration: dur, ease: "none" }, 0);
+          tl.fromTo(clock, { t: 0 }, { t: dur, duration: dur, ease: "none",
+            onUpdate: function () { var f = Math.floor(clock.t * 24); if (f !== last) { last = f; paintGrain(f); } } }, 0);
+          paintGrain(0);
+          window.__timelines["kit-stage"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

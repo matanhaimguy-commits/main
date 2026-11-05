@@ -1,0 +1,149 @@
+shot_id: H-01-V7
+post_id: SSEN-2026-11-W2-01
+format: realistic_photo
+script_lines:
+- L1
+line_text: They can get it done cheaper? Don't touch your price.
+story_purpose: 'Concept frame for hook stack EN04-V7 (frame 1 of the hook shot): the moment the owner reads that the client
+  can get it done cheaper elsewhere.'
+must_read_in_1s: The phone says "We can get it done cheaper."
+subjects:
+- id: PR-PHONE
+  ref: null
+  state: a plain black smartphone held by the viewer, tilted back about 20 degrees from upright, screen lit and facing the
+    camera
+  pose: centred (x 16% to 84%), from y 30% down past the bottom edge (y 30% to 100%), close to the camera
+  expression: ''
+  instances: 1
+  eyeline: ''
+hands:
+- who: the owner (POV, no face), mustard-yellow knit sleeves
+  left: 'holds the phone from below at its lower left: the thumb lies along the phone''s left edge and is the only finger
+    visible; the other four fingers wrap around the phone''s lower back, out of sight behind it, no fingertips past its
+    edges; the wrist and mustard knit sleeve come up from the bottom edge behind the phone and are out of sight behind it,
+    except the sleeve cuff showing left of the phone''s left edge (x 12% to 16%, y 72% to 100%)'
+  right: in the lower right (x 52% to 79%, y 66% to 100%), holds one red ballpoint pen upright between thumb and index finger,
+    the other three fingers curled into the palm, its wrist in a mustard knit sleeve coming up from the bottom edge in front
+    of the phone; the pen tip points up at y 62%, the pen held in front of and nearer the camera than the phone, a visible
+    gap of soft out-of-focus air between the pen tip and the screen, not writing; the pen cap is not in frame
+  contact: the left thumb and hidden fingers hold the phone; the right thumb and index finger pinch the pen's barrel; the
+    pen touches nothing
+  must_not_cover: any letter of the message bubble; both hands, sleeves and the pen stay below y 62% (in the lower 38% of
+    the frame, y measured from the top)
+  count_check: two hands; right hand five visible fingers; left hand one visible thumb, its four fingers hidden behind the
+    phone; one pen; no extra hand or finger
+props:
+- id: PR-PHONE
+  story_critical: false
+  ref: null
+  state: lit, one incoming message
+  content: a modern black smartphone, thin bezels, rounded corners, one lit screen, no logo on the case or the glass
+  size_in_frame: its box is 68% of the frame width and 70% of the frame height (x 16% to 84%, y 30% to 100%; it runs off
+    the bottom edge)
+- id: PR-PEN
+  story_critical: false
+  ref: null
+  state: held upright in the right hand, tip at y 62%, in front of the phone, the cap not in frame
+  content: a plain red ballpoint pen, no logo
+  size_in_frame: about 22% of the frame height (y 62% to 84%)
+- id: PR-PHONE-SCREEN
+  story_critical: false
+  ref: null
+  state: lit, one incoming message, no reply yet
+  content: a plain chat view on a white background with exactly one large light-grey incoming bubble at the top of the screen
+    (x 22% to 78%, y 33% to 54% of the frame) holding the text in the text_in_image block; below it empty white space; no
+    names, no avatars, no status bar, no time, no app logo
+text_in_image:
+- string: We can get it done cheaper.
+  surface: 'inside the one grey bubble on the phone screen, dark charcoal plain sans, 2 or 3 lines, sentence case: only
+    the W is a capital letter, not all capitals; the tall letters (the W and the ascenders) about 60 px high on a frame
+    1152 px wide and 2048 px tall, every line ending well inside the bubble edge'
+  position: the only text on the phone screen, centred in the bubble
+  case: as_written
+  must_be_exact: true
+  occlusion: no hand, finger, sleeve or pen reaches above y 62% of the frame (y measured down from the top edge, so they
+    stay in the lower 38%); no letter touches anything
+action_physics:
+- The left thumb rests along the phone's left edge and its four hidden fingers grip the phone's lower back; the right thumb
+  and index finger pinch the red pen's barrel, the pen upright with its tip at y 62%, in front of the phone, touching nothing.
+static: false
+setting:
+  ref: null
+  details: 'A home office in the evening seen over the hands: a warm walnut desk visible only in the strips left and right
+    of the phone, soft and out of focus; above the phone top edge there is only the wall, plain dark warm grey and out of
+    focus; the desk lamp is out of frame to the left.'
+  background_rule: No other screens, papers, posters or readable words anywhere except the message in the bubble; the wall
+    is plain; the desk is bare.
+  background_action: none
+camera:
+  framing: the phone large from y 30% down past the bottom edge, its bubble in the key band (y 33% to 54%); the top 30%
+    of the frame a calm, plain, out of focus dark wall with nothing in it (the text hook is laid at y 14% to 29% in the
+    edit). All x and y percentages are measured from the top-left corner of the frame (y 0% is the top edge, y 100% the
+    bottom edge).
+  angle: first-person, looking down at the phone at about 30 degrees
+  lens: candid iPhone 15 Pro photo, real skin texture, shallow depth of field, phone screen sharp
+  aspect: '9:16'
+  safe_zones: 'reels safe zone (STANDARDS 6): the key content, the bubble (y 33% to 54%), sits inside the 15% to 55% band,
+    below the empty top 30%, and inside the 6% side margins; the top 30% holds nothing; below 55% only the phone body, the
+    hands, the pen and the desk strips, all supporting detail; the hands and the pen never in the right 21% of the lower
+    half (only the phone right edge and the desk strip are there)'
+continuity:
+  previous_shot: null
+  carry_over: []
+regions:
+- name: text-hook-zone
+  kind: other
+  box:
+  - 0.0
+  - 0.0
+  - 1.0
+  - 0.3
+- name: phone
+  kind: prop
+  box:
+  - 0.16
+  - 0.3
+  - 0.84
+  - 1.0
+- name: bubble
+  kind: text
+  box:
+  - 0.22
+  - 0.33
+  - 0.78
+  - 0.54
+- name: left-hand
+  kind: hand
+  box:
+  - 0.12
+  - 0.72
+  - 0.5
+  - 1.0
+- name: pen-hand
+  kind: hand
+  box:
+  - 0.52
+  - 0.66
+  - 0.79
+  - 1.0
+- name: pen
+  kind: prop
+  box:
+  - 0.56
+  - 0.62
+  - 0.66
+  - 0.84
+style: 'EN 04 look: candid iPhone 15 Pro photo, real skin texture, POV dramatization, hands only, never a face; warm evening
+  home office lit by a tungsten desk lamp from the left (the lamp itself out of frame), soft shadows; the wrists always
+  in mustard-yellow knit sleeves; muted warm palette (walnut, warm grey, mustard), the phone screen the brightest thing
+  in the frame.'
+must_not:
+- no face, no reflection of a face in the screen
+- no logo, brand or app name anywhere
+- no words other than the message
+- no numbers, no time, no status bar
+- nothing in the top 30% except a calm plain wall
+hero: true
+notes: Concept frame for Hook Lab v4 (stack EN04-V7). The text hook is laid on top in the edit, not drawn by the model.
+  Props are marked not story-critical only because no prop sheet exists before the look bible (step 7); the phone screen
+  becomes a story-critical sheet prop then. Review rounds 1 and 2 fixes applied.

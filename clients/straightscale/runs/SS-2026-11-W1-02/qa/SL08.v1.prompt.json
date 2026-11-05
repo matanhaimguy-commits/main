@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "SL08",
+ "version": 1,
+ "prompt_sha256": "cadbb20193b702ed62571e0bf3ae9a48db0bf64590d9c4ddbc2158cb2ae9e5d4",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "PR-PHONE (15%x27%), PR-STAND, PR-FRAME-SAMPLES, 4 text strings + counter, no hands, action, window and tower, camera, carry-over, 5 must_not including \"No swipe arrow, no round button, no arrow graphic anywhere.\""
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "Images 1 to 3 in upload order (style, approved cover, approved slide 2); no image 4"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"Hands: no hands and no people are visible in the frame.\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"The phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support; nothing is touched by a hand.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "No story-critical prop; phone, stand and samples have content descriptions"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"Dëgjo ata.\", \"Pastaj shkruaj.\", \"Ruaje për ditën kur shkruan\", \"reklamën e radhës.\", \"8/8\" with surface, x/y, size, colour; \"Ruaje\" in crimson box; Dëgjo, për, ditën, reklamën, radhës spelled; longest line 5 words"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "Window and tower ruled (\"no numerals, no letters\"); samples have no labels; screen-off rule"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Last slide: arrow omitted consistently (\"No arrow button on this last slide.\" and Avoid) with the style line 'slides 1 to N-1'; phone x 40% to 55% clear of everything"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "\"The phone rests in its stand, screen off, as in the previous slide; the phone and its stand now stand farther from the camera ... the wall, the window and the frame samples are unchanged\""
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Prompt opens \"Instagram carousel slide, portrait 4:5.\"; call settings gpt_image_2_5, 4:5, 2k, medium, flare match standards.json; image roles image_references; declined_preset_id is video-only (N/A)"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "No two-way words; positions and sizes numeric"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-13 prevented: \"Bottom-left corner (the lowest 9% of the height, the left 40% of the width): calm, dark, empty background ... no logo, no letters, no objects (a logo is added later).\"; FL-01 text far from any hand/prop; no blanket 'no text' over a story prop"
+  }
+ ],
+ "corrected_prompt": null
+}

@@ -1,0 +1,78 @@
+{
+ "gate": "G-SPEC",
+ "shot_id": "H-01-V7",
+ "spec_sha256": "b3e702b754f2766c5128bfd99f9b90a7c8e16a694dc8c88037e4a478c62c9f6d",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "must_read_in_1s: 'The phone says \"We can get it done cheaper.\" and the other hand pulls a red pen back.' Subjects, hands, props, text, action, setting, camera, style, must_not all written; regions boxed for hands (left-hand, pen-hand), props (phone, pen), text (bubble); no face, so no face region needed."
+  },
+  {
+   "id": "P2",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P3",
+   "result": "FAIL",
+   "evidence": "hands.left 'four fingers around the phone's lower back' with count_check 'two hands, five fingers each': the four fingers are behind a screen-forward phone whose lower part runs off the bottom edge, so five visible fingers on the left hand cannot be checked and a model will invent fingers in front."
+  },
+  {
+   "id": "P4",
+   "result": "FAIL",
+   "evidence": "'the pen held upright about 5 cm above the desk, pulled back, touching nothing': the pen sits inside the phone box (pen x 70-80%, phone x 16-84%) and over the hands, so no desk shows under it and 'pulled back from the phone' has no measurable gap; a reviewer cannot check it."
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-PHONE-SCREEN content: 'exactly one large light-grey incoming bubble at the top of the screen (x 22% to 78%, y 33% to 54%)... no names, no avatars'. Marked story_critical false only because no prop sheet exists before the look bible (noted in notes); content is filled and no blanket 'no text' is used (must_not: 'no words other than the message'). The phone must become a sheet prop at step 7."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "string \"We can get it done cheaper.\" is 5 words; surface 'inside the one grey bubble', position 'centred in the bubble', case as_written, occlusion 'no hand, finger, sleeve or object reaches above y 62%; no letter touches anything'. Cap height 60 px at 1152 px wide fits 3 lines inside a bubble about 645 x 430 px."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "background_rule: 'No other screens, papers, posters or readable words anywhere except the message; the wall is plain; the desk is bare.' The one screen is filled."
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "must_read_in_1s makes the pen a key element, and pen-hand box x 0.60-0.92, y 0.66-1.0 plus pen box y 0.62-0.84 sit in the bottom 35% (y > 65%) and in the right 21% of the lower half (x > 79%). STANDARDS 6 keeps key content 15-55% from the top and out of those zones; camera.safe_zones claims compliance ('below 55% only the phone body, the hands and the desk')."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "continuity: previous_shot null, carry_over [] (frame 1 of the hook shot)."
+  },
+  {
+   "id": "P10",
+   "result": "N/A",
+   "evidence": "spec mode"
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "'pulled back from the phone' and 'about 5 cm above the desk' have no frame measure; 'y 62%' is not said to be measured from the top edge (a model can read '62% of the frame height' from the bottom); text surface says 'letters about 60 px tall (cap height)' but the prompt has to carry the same unit."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01: hands boxed below y 62% and away from the bubble, with an occlusion rule; FL-04: screen content filled, targeted negatives only; FL-05: the only screen is filled, wall plain; FL-08: hands line present; FL-09: background_action 'none' stated (acceptable for a concept still; add a background action if it becomes an H3 start frame); FL-13 not applicable (no logo strip)."
+  }
+ ],
+ "suggested_spec_changes": [
+  "hands[0].left: replace with 'holds the phone from below: the thumb lies along the phone's left edge and is visible in front; the four fingers wrap around the phone's lower back and are hidden behind the phone, no fingertips show past its edges; the hand and mustard knit sleeve in the lower left of the frame (x 12% to 50%, y 72% to 100%)'.",
+  "hands[0].count_check: replace with 'two hands; right hand five visible fingers; left hand one visible thumb, its four fingers hidden behind the phone; one pen; no extra hand or finger'.",
+  "hands[0].right and action_physics: replace 'the pen tip pointing up and lifted about 5 cm above the desk, pulled back from the phone, not writing' with 'the pen tip pointing up at y 62%, the pen held in front of and nearer the camera than the phone, a visible gap of soft out-of-focus air between the pen tip and the screen, not writing'. Drop '5 cm above the desk' in PR-PEN.state too.",
+  "hands[0].must_not_cover and text_in_image[0].occlusion: write every y figure as 'measured down from the top edge' (e.g. 'both hands and the pen stay below the line 62% of the way down from the top edge').",
+  "Safe zone (P8): the pen is not readable key content in the bottom 35%. Change must_read_in_1s to 'The phone says \"We can get it done cheaper.\"' (the pen and hands are supporting detail), and add to camera.safe_zones: 'the hands and the pen are supporting detail, not key content; they may sit in the bottom 35% but never in the right 21% of the lower half'. Narrow hands[0].right box and the pen-hand region to x 52% to 79% (box [0.52, 0.66, 0.79, 1.0]) and the pen region to [0.56, 0.62, 0.66, 0.84]. If the owner wants the pen to be the 1-second read, the shot needs a redesign (pen inside y 15-55%), not an exception.",
+  "After editing, run pipeline.py spec-check and re-record the spec hash; the prompt depends on these changes."
+ ]
+}

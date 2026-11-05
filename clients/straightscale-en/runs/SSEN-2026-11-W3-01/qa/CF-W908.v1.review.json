@@ -1,0 +1,218 @@
+{
+ "gate": "G-VIS",
+ "asset_id": "CF-W908",
+ "version": 1,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "hero": true,
+ "files_opened": [
+  "full.png",
+  "tile_r1c1.png",
+  "tile_r1c2.png",
+  "tile_r1c3.png",
+  "tile_r2c1.png",
+  "tile_r2c2.png",
+  "tile_r2c3.png",
+  "tile_r3c1.png",
+  "tile_r3c2.png",
+  "tile_r3c3.png",
+  "region_H-01-W908_text-hook-zone.png",
+  "region_H-01-W908_grid.png",
+  "region_H-01-W908_client.png",
+  "region_H-01-W908_client-hands.png",
+  "thumb_200.png"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Six identical cream cards with a tiny clay figure on one; reads in the thumb."
+  },
+  {
+   "id": "V2",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Only cards, hearts and figure; no extra elements."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Static frame, consistent with the line."
+  },
+  {
+   "id": "V4",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "client",
+   "evidence": "Seen from above the figure also shows trousers and legs below the jacket, so the view is oblique, not straight down. The spec says feet hidden under the body. Torso and head proportions are otherwise sound."
+  },
+  {
+   "id": "V5",
+   "result": "PASS",
+   "severity": "",
+   "region": "client-hands",
+   "evidence": "Two cream mitten hands, one beyond each shoulder, no fingers, touching nothing. The crop box is offset (see V18), so I checked the hands in tile_r2c1."
+  },
+  {
+   "id": "V6",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "client",
+   "evidence": "A cream chin or nose bump shows below the hair at the front of the head, above the jacket (tile_r2c1 about x 360-400, y 340-370). Spec: no face, no forehead; only a thin cream rim at ears and neck. It reads as a partial face."
+  },
+  {
+   "id": "V7",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Figure stands on the card; soft shadow on the card."
+  },
+  {
+   "id": "V8",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "grid",
+   "evidence": "The figure's shadow falls past the card edge onto the gap and ground between rows (about y 48-50%), a dark blotch."
+  },
+  {
+   "id": "V9",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No text in the image; card surfaces are blank."
+  },
+  {
+   "id": "V10",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No text."
+  },
+  {
+   "id": "V11",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No text."
+  },
+  {
+   "id": "V12",
+   "result": "PASS",
+   "severity": "",
+   "region": "grid",
+   "evidence": "Six cards, all alike: cream, terracotta rim, one heart bottom-left, nothing else."
+  },
+  {
+   "id": "V13",
+   "result": "PASS",
+   "severity": "",
+   "region": "grid",
+   "evidence": "Six cards, six hearts. Count is correct."
+  },
+  {
+   "id": "V14",
+   "result": "PASS",
+   "severity": "",
+   "region": "grid",
+   "evidence": "Card size about 25% x 9% of the frame (spec 26% x 10%). Roughly right."
+  },
+  {
+   "id": "V15",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "client",
+   "evidence": "The figure wears a mustard jacket, charcoal hair and trousers as specified. The figure is about 6% tall, under the 8% spec, and not centred on the card (head near the card's top edge)."
+  },
+  {
+   "id": "V16",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No sheet exists; this is the first image."
+  },
+  {
+   "id": "V17",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "Single frame; no previous shot."
+  },
+  {
+   "id": "V18",
+   "result": "FAIL",
+   "severity": "major",
+   "region": "grid",
+   "evidence": "The grid sits 8 points too low. Top row y 38.1-47.4% (spec 30-40%), bottom row y 49.3-58.7% (spec 42-52%). The figure is at y 38.4-44.4% (spec 31-39%). Columns are right (x 8-91%). The bottom row breaks 'nothing lower than 52% except plain ground'. The region crops (client, client-hands) show only ground and the head top because of this."
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "9:16, 1152x2048."
+  },
+  {
+   "id": "V20",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "full",
+   "evidence": "In the 200 px thumb the figure is a few pixels and the key content sits in the middle band (y 38-59%) instead of 30-52%. It still reads, but the figure is small."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Matte plasticine look, tool marks, soft shadows; sage, cream, terracotta, red, mustard palette as specified."
+  },
+  {
+   "id": "V22",
+   "result": "PASS",
+   "severity": "",
+   "region": "text-hook-zone",
+   "evidence": "Top 30% is plain sage ground with no objects, as specified."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No artifacts or glossy CGI look. Texture is clean."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No logos, no real characters."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No before/after layout, no 'your [condition]', nothing shaming."
+  },
+  {
+   "id": "V26",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "AI disclosure is not set in the image; added at post level."
+  }
+ ],
+ "fix": {
+  "route": "regenerate",
+  "prompt_changes": [
+   "Move the grid up: top row y 30-40%, bottom row y 42-52%; state the card rows as distances from the top edge and put them first. Re-measure after generation.",
+   "Figure: view straight down, hide trousers and feet under the jacket; no cream chin or nose under the hair, only a thin cream rim at the ears. Make the figure 8% of frame height and centre it on the card.",
+   "Keep the figure's shadow inside the card (light from straight above)."
+  ]
+ }
+}

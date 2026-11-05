@@ -1,0 +1,15 @@
+{
+  "kind": "final",
+  "note": "Built in the Higgsfield sandbox at /home/user/qa/2026-w43-3-reel.v2/ (this container cannot reach the CDN). Frames every 1.5 s + first/last + every ffmpeg scene cut (threshold 0.3), equivalent to vqa_crops.py final. The cut at 45.54 s (to the strategist) sits under the brand beat and was not detected; it was checked by hand (transitions.jpg).",
+  "source": "https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/9e52c7d6-7991-4aca-b951-470d6ae1ba3f.mp4",
+  "source_sha256": "c9ace6ad175126f30151c06c98c83f168f8e15f8c8290a56a5f049cd24384d0e",
+  "cover": "https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/241d4869-5539-451d-a7a5-cc6b7f51d666.jpg",
+  "cover_sha256": "c7fc5bfe2408e16d2d826b5ed01d6f0ba32e0a2809f46d8f0005a2025b3b51db",
+  "duration": 60.0,
+  "scene_cuts": [4.04167, 5.29167, 6.45833, 11.5417, 13.4167, 15.25, 18.9167, 21.25, 22.4583, 25.9583, 31.4167, 40.0417],
+  "frames": ["f_000.000.png", "f_001.500.png", "f_003.000.png", "f_004.042.png", "f_004.500.png", "f_005.292.png", "f_006.000.png", "f_006.458.png", "f_007.500.png", "f_009.000.png", "f_010.500.png", "f_011.542.png", "f_012.000.png", "f_013.417.png", "f_013.500.png", "f_015.000.png", "f_015.250.png", "f_016.500.png", "f_018.000.png", "f_018.917.png", "f_019.500.png", "f_021.000.png", "f_021.250.png", "f_022.458.png", "f_022.500.png", "f_024.000.png", "f_025.500.png", "f_025.958.png", "f_027.000.png", "f_028.500.png", "f_030.000.png", "f_031.417.png", "f_031.500.png", "f_033.000.png", "f_034.500.png", "f_036.000.png", "f_037.500.png", "f_039.000.png", "f_040.042.png", "f_040.500.png", "f_042.000.png", "f_043.500.png", "f_045.000.png", "f_046.500.png", "f_048.000.png", "f_049.500.png", "f_051.000.png", "f_052.500.png", "f_054.000.png", "f_055.500.png", "f_057.000.png", "f_058.500.png", "f_059.958.png"],
+  "contact_sheets": ["contact_1.jpg", "contact_2.jpg", "contact_3.jpg", "contact_4.jpg", "contact_5.jpg"],
+  "must_open": ["contact_1.jpg", "contact_2.jpg", "contact_3.jpg", "contact_4.jpg", "contact_5.jpg", "f_000.000.png", "f_059.958.png"],
+  "extra_crops": ["crops/hook_arrival.jpg", "crops/f3_540.jpg", "crops/cover_540.jpg", "crops/zones_a.jpg", "crops/zones_b.jpg", "crops/textA.jpg", "crops/textB.jpg", "crops/textC.jpg", "crops/chat.jpg", "crops/endcard.jpg", "crops/brand_compare.jpg", "crops/f58_5.jpg", "crops/transitions.jpg", "crops/screens1.jpg", "crops/screens2.jpg", "crops/street.jpg", "crops/shelf.jpg", "crops/signs.jpg"],
+  "audio": ["asr_en.json (faster-whisper small, language en)", "asr_sq.json (faster-whisper small, language sq)", "loudnorm print_format=json", "ebur128 framelog"]
+}

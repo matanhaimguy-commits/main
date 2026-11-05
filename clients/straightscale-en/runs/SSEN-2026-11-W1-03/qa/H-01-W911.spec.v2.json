@@ -1,0 +1,21 @@
+{"gate":"G-SPEC","shot_id":"H-01-W911","spec_sha256":"f5150ab64cfd08d7d302671ae51e50982683d11f82ce8a765eb10f5c4135de6a","reviewer":"prompt-reviewer (fresh agent)","independent":true,"status":"FAIL",
+"checks":[
+{"id":"P1","result":"PASS","evidence":"must_read_in_1s: 'An offer card about to fall in a bin, its line WE DELIVER RESULTS struck out in red.' Both props, both strings and the strike are all specified."},
+{"id":"P2","result":"N/A","evidence":"Spec mode; no reference images (text to image)."},
+{"id":"P3","result":"PASS","evidence":"hands: 'none visible'; must_not: 'no hands, no people, no faces'."},
+{"id":"P4","result":"PASS","evidence":"'The card's lower edge rests on the bin's front rim at y 43%; its top edge leans away from the camera over the open bin, touching nothing else.'"},
+{"id":"P5","result":"PASS","evidence":"PR-CARD content: 'cream #F3E9D8 clay card ... OFFER ... WE DELIVER RESULTS ... terracotta-red clay strike'; PR-BIN content: 'round sage #8FA98B clay waste bin ... empty'. must_not 'nothing inside the bin' is a rule about the bin itself, not a blanket negative emptying a story prop."},
+{"id":"P6","result":"FAIL","evidence":"WE DELIVER RESULTS is boxed at 'x 28% to 72%, y 36.5% to 41%' on a 1152x2048 frame: 507 px wide by 92 px tall for 18 characters (about 28 px per character, cap height 92 px). Real capitals at that height need about 55 to 65 px each, so the line cannot fit; the model will overflow the card, squeeze the letters or misspell. Quotes, surface, position and occlusion are otherwise present and the word count is 3 or fewer."},
+{"id":"P7","result":"PASS","evidence":"background_rule: 'no signs, frames, posters, screens, desks or other objects; the only writing is the quoted text'."},
+{"id":"P8","result":"FAIL","evidence":"Main-line height 4.5% (y 36.5 to 41) and strike 'about 1.5% of the frame height' (one third of letter height) contradict the 44% width box for 18 letters; shrinking the letters to fit the width would make the strike thicker than one third of the letter height. Also: the card is 52% wide but the bin is 36% wide, so the card must overhang the rim by 8% each side while resting on a round rim; this is not stated."},
+{"id":"P9","result":"PASS","evidence":"continuity: previous_shot null, carry_over [] (first frame of the prop)."},
+{"id":"P10","result":"N/A","evidence":"Spec mode."},
+{"id":"P11","result":"FAIL","evidence":"'its lower edge resting on the front rim of the bin' with a card wider than the bin leaves a model free to read it as the card sitting inside the bin, in front of the bin, or balanced across the rim; 'about to tip in' with static: true is a still moment but the lean direction versus the camera-facing written face is not tied to a visible tilt cue (e.g. the top edge visibly smaller or higher)."},
+{"id":"P12","result":"PASS","evidence":"FL-04 (empty props) answered by filled content; FL-05 (empty frames/screens) answered by background_rule; FL-06 and FL-13 answered by 'no faces, no eyes' and 'no logo, brand, app or platform name'; text-over-hands n/a, no hands."}
+],
+"suggested_spec_changes":[
+"Resize the main line so it fits: set WE DELIVER RESULTS to cap height about 2.6% of frame height (about 53 px) over x 28% to 72%, y 37% to 40%, and set the strike to about one third of that, about 0.9% of frame height (about 18 px). Update the card content, text_in_image surface/position, regions main-line box [0.28, 0.37, 0.72, 0.40] and every '1.5% of the frame height' mention to 0.9%.",
+"Alternative: split the main line into two lines (WE DELIVER / RESULTS) at cap height 3.5%, with the strike across both lines; this needs a taller card (about 15% of height) and an updated box.",
+"State the card overhang: 'the card is wider than the bin and overhangs the rim by about 8% of the frame width on each side, resting only at the centre of the rim'.",
+"Make the lean unambiguous: 'the card is in front of the bin's opening plane, its lower edge on the near top of the rim, its top edge tilted back about 15 degrees so the top of the card is slightly narrower than the bottom'. Keep 'nothing inside the bin'."
+]}

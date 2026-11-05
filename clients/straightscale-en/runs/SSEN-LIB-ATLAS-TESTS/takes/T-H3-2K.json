@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "command": "generate.video",
+  "outcome": "succeeded",
+  "data": {
+    "operation_id": "op_f843686bb09b47b48537f061d886dc61",
+    "kind": "video",
+    "model": "minimax/h3/reference-to-video",
+    "submission_state": "accepted",
+    "prediction": {
+      "id": "1c4496893378400ea6944b2da3c6f7c9",
+      "status": "completed",
+      "terminal": true,
+      "observed_at": "2026-10-28T18:15:54.63798235Z",
+      "model": "minimax/h3/reference-to-video",
+      "outputs": [
+        {
+          "url": "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-7a44fbe422695f7881bcd17979c30e6be1e1f879cf3d7a496613aa0fc02cb328/1c4496893378400ea6944b2da3c6f7c9-f9cbf8d775c5556a.mp4"
+        }
+      ]
+    },
+    "wait": {
+      "status": "completed"
+    },
+    "artifacts": [
+      {
+        "index": 0,
+        "remote_url": "https://atlas-media.oss-us-west-1.aliyuncs.com/assetd-history/v1/a-1d49c99b6a7d3ef1b954f364d96d40963c6cdadb507fea0c31b8957425fdc198/u-223d98b280737ca66e06fed8829ddaf6543662b0427404637f54e7f776541ecc/s-7a44fbe422695f7881bcd17979c30e6be1e1f879cf3d7a496613aa0fc02cb328/1c4496893378400ea6944b2da3c6f7c9-f9cbf8d775c5556a.mp4",
+        "local": {
+          "status": "saved",
+          "path": "./1c4496893378400ea6944b2da3c6f7c9_0.mp4",
+          "bytes": 9163535
+        }
+      }
+    ],
+    "resume": "atlas generate wait '1c4496893378400ea6944b2da3c6f7c9' '--timeout' '10m0s'",
+    "resume_argv": [
+      "atlas",
+      "generate",
+      "wait",
+      "1c4496893378400ea6944b2da3c6f7c9",
+      "--timeout",
+      "10m0s"
+    ]
+  },
+  "errors": [],
+  "warnings": []
+}

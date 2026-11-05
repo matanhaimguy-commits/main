@@ -1,0 +1,918 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>StraightScale: One message, all the way</title>
+<style>
+@font-face { font-family: "Playfair Display"; font-weight: 700; font-style: normal; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-700-normal.woff2); }
+@font-face { font-family: "Playfair Display"; font-weight: 700; font-style: italic; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-700-italic.woff2); }
+@font-face { font-family: "Playfair Display"; font-weight: 900; font-style: italic; src: url(assets/fonts/PlayfairDisplay/playfair-display-latin-900-italic.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 600; src: url(assets/fonts/Montserrat/montserrat-latin-600-normal.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 700; src: url(assets/fonts/Montserrat/montserrat-latin-700-normal.woff2); }
+@font-face { font-family: "Montserrat"; font-weight: 800; src: url(assets/fonts/Montserrat/montserrat-latin-800-normal.woff2); }
+html, body { margin: 0; background: #F8F6EF; }
+canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script type="module">
+// StraightScale film 04 "One message, all the way". After ig-satisfy3dverse (beat-sync marble run, follow-cam,
+// seamless loop): a crimson ball is one client's message. It bounces down a marble wall of stations, each hit a note;
+// the first time the Reply station is missing and it falls into the dark; the wall rebuilds it and the ball runs the
+// whole path, then a tube carries it back to the start (the loop). Every frame is a pure function of t.
+// Treatment and beat sheet: docs/treatment.md. Format: index.html (9:16) or index.html?fmt=45 (4:5 re-layout).
+// v2: the logo sits behind a marble hatch that opens only when the ball is home (never under a caption); the caption
+// band is opaque behind the glyph rows; a 25 s loop with a live end; a closer, swinging camera on the second pass;
+// the dark keeps the shaft's depth. Review: docs/review_independent_r1.md, changes: CHANGELOG.md.
+import { spring, clamp } from '../../lib/motion.js';
+
+const Q = new URLSearchParams(location.search);
+const FMT = Q.get('fmt') === '45' ? '45' : '916';
+const DEBUG = Q.get('debug');
+const NOCAP = Q.get('nocap') === '1', NOGRAIN = Q.get('nograin') === '1';   // ghost check: band without the type
+const W = 1080, H = FMT === '45' ? 1350 : 1920;
+const cv = document.getElementById('c');
+cv.width = W; cv.height = H;
+const ctx = cv.getContext('2d');
+const C = {
+  ivory: '#F8F6EF', marble: '#EDE4D6', char: '#1F1F1F', crimson: '#B31217', red: '#BE0F18', gold: '#DD9A10',
+  vein: '#CFC4B2', edge: '#D9CEBB', faint: '#A39B8E',
+};
+const PF = (w, s, it = false) => `${it ? 'italic ' : ''}${w} ${s}px "Playfair Display"`;
+const MS = (w, s) => `${w} ${s}px Montserrat`;
+
+// layout per format (9:16 master and the 4:5 native re-layout share the world, not the framing)
+const Z0 = 1.18;              // working zoom: objects fill the frame like the reference's close follow-cam
+const LAY = FMT === '45'
+  ? { ay: 700, bandTop: 92, bandH: 236, capX: 96, darkY: 640, mapZoom: 0.335, mapCy: 1561, rebuildY: 1085, headSize: 84, capSize: 80, askSize: 58, safeTop: 64, safeBot: 64, safeRight: 64,
+      fade: 84, endX: 540, endY: 880, endZ: 1.0, hookZ: 1.26, replayZ: 1.36 }
+  : { ay: 980, bandTop: 290, bandH: 280, capX: 96, darkY: 900, mapZoom: 0.45, mapCy: 1450, rebuildY: 1300, headSize: 96, capSize: 88, askSize: 64, safeTop: 250, safeBot: 400, safeRight: 140,
+      fade: 110, endX: 540, endY: 900, endZ: 1.05, hookZ: 1.32, replayZ: 1.42 };
+
+// ---------- springs and helpers ----------
+const TYPE = [190, 24], UI = [260, 24], SNAP = [420, 26], SOFT = [90, 19];
+const sp = (t, t0, [k, d] = TYPE) => spring(t - t0, k, d);
+const mix = (a, b, p) => a + (b - a) * p;
+const smooth = (x) => { x = clamp(x); return x * x * x * (x * (x * 6 - 15) + 10); };
+function rng(seed) {
+  let s = seed >>> 0;
+  return () => { s = (s + 0x6D2B79F5) >>> 0; let x = s; x = Math.imul(x ^ (x >>> 15), x | 1); x ^= x + Math.imul(x ^ (x >>> 7), x | 61); return ((x ^ (x >>> 14)) >>> 0) / 4294967296; };
+}
+
+// ---------- the clock ----------
+const T_END = 25.0;          // loop length: frame T_END is frame 0 (v1: 27 s; the end ran out of energy)
+const T_R = 9.0;             // the replay starts (second pass = first pass + T_R until Reply)
+const T_MISS = 3.5;          // first pass: where Reply should catch the ball
+const T_SNAP = 7.0;          // the rebuilt Reply plate locks (first sound after the silence)
+const T_KICK2 = 17.0;        // Referral kicks the ball into the return tube
+const T_LAND = 21.0;         // ball back in the cradle (a downbeat)
+const T_MAP_OUT = 20.0;      // the camera leaves the map and flies home with the ball
+const T_HATCH_OPEN = T_LAND + 0.06;    // the landing trips the hatch: the logo is shown only when the client is home
+const T_HATCH_CLOSE = 24.15;           // the flipper arms and the hatch closes before the loop (no logo in the hook)
+const T_COCK = 24.45;                  // the flipper pulls back before it fires at T_END (= 0)
+const T_RESET = T_HATCH_CLOSE;         // the lit path stays lit through the ask, then resets for the next client
+
+// ---------- physics: contacts solved backwards from the beat ----------
+const G = 6000, R = 34;      // gravity px/s^2, ball radius
+const CRADLE = [300, 900];
+// [t (relative to a pass start), x, y (ball centre at contact; null = on the station's plate line), kind, id]
+const PATH = [
+  [0.5, 470, 1000, 'peg', 'p1'],
+  [1.0, 650, 1080, 'peg', 'p2'],
+  [1.5, 560, 1260, 'st', 'comment'],
+  [2.0, 432, null, 'hop', 'comment'],
+  [2.5, 300, 1450, 'peg', 'p3'],
+  [3.0, 450, 1600, 'peg', 'p4'],
+  [3.5, 620, 1770, 'st', 'reply'],
+  [4.0, 885, 1900, 'peg', 'p5'],
+  [4.5, 700, 2265, 'st', 'booking'],
+  [5.0, 480, 2440, 'peg', 'p6'],
+  [5.25, 410, 2465, 'peg', 'p7'],
+  [5.5, 340, 2550, 'st', 'reminder'],
+  [6.0, 250, 2725, 'peg', 'p8'],
+  [6.5, 430, 2875, 'st', 'visit'],
+  [7.0, 662, 2985, 'peg', 'p9'],
+  [7.5, 560, 3150, 'st', 'review'],
+  [8.0, 420, 3330, 'st', 'referral'],
+];
+// station plates: centre x offset from the first contact, length, label, sub-label shown when lit
+const ST = {
+  comment:  { label: 'COMMENT',  sub: null,             len: 400, cx: 520 },
+  reply:    { label: 'REPLY',    sub: 'instant answer', len: 360, cx: 640 },
+  booking:  { label: 'BOOKING',  sub: null,             len: 360, cx: 700 },
+  reminder: { label: 'REMINDER', sub: 'follow-up',      len: 400, cx: 410 },
+  visit:    { label: 'VISIT',    sub: 'rebooking',      len: 340, cx: 460 },
+  review:   { label: 'REVIEW',   sub: null,             len: 360, cx: 570 },
+  referral: { label: 'REFERRAL', sub: null,             len: 400, cx: 440 },
+};
+const TUBE_X = 130, TUBE_TOP = 1000, TUBE_R = 100;          // return tube: up x=130, arc into the cradle shelf
+const ENTRY = [TUBE_X, 3190];                                // where the kicked ball enters the tube
+
+// Build the contact list (pass 2 is the full run), then place every target from the in/out velocities.
+function solvePass(t0, upto) {
+  const pts = [{ t: t0, x: CRADLE[0], y: CRADLE[1], kind: 'cradle', id: 'cradle' }];
+  for (const [tr, x, y, kind, id] of PATH.slice(0, upto)) pts.push({ t: t0 + tr, x, y, kind, id });
+  return pts;
+}
+function arcVel(a, b) { const dt = b.t - a.t; return [(b.x - a.x) / dt, (b.y - a.y) / dt - 0.5 * G * dt]; }
+const P2 = solvePass(T_R, PATH.length);
+const plates = {};
+for (let i = 1; i < P2.length; i++) if (P2[i].y == null) P2[i].y = P2[i - 1].y + 30;
+for (let iter = 0; iter < 5; iter++) {
+  for (let i = 1; i < P2.length; i++) {
+    const c = P2[i], prev = P2[i - 1];
+    const v0 = arcVel(prev, c), vin = [v0[0], v0[1] + G * (c.t - prev.t)];
+    const nxt = i < P2.length - 1 ? P2[i + 1] : { t: c.t + 0.3, x: ENTRY[0], y: ENTRY[1] };
+    const vout = arcVel(c, nxt);
+    let nx = vout[0] - vin[0], ny = vout[1] - vin[1]; const L = Math.hypot(nx, ny); nx /= L; ny /= L;
+    Object.assign(c, { vin, vout, n: [nx, ny] });
+    if (c.kind === 'st') plates[c.id] = { id: c.id, ang: Math.atan2(nx, -ny), x0: c.x, y0: c.y, ...ST[c.id] };
+  }
+  for (const c of P2) if (c.kind === 'hop') { const pl = plates[c.id]; c.y = pl.y0 + Math.tan(pl.ang) * (c.x - pl.x0); }
+}
+for (const c of P2) if (c.kind === 'hop') { const pl = plates[c.id]; c.n = [Math.sin(pl.ang), -Math.cos(pl.ang)]; }
+// plate geometry: surface line through the contact (ball centre minus R along the normal)
+for (const pl of Object.values(plates)) {
+  const nx = Math.sin(pl.ang), ny = -Math.cos(pl.ang);
+  const sx = pl.x0 - nx * R, sy = pl.y0 - ny * R;            // contact point on the surface
+  const ux = Math.cos(pl.ang), uy = Math.sin(pl.ang);        // along the plate
+  const off = (pl.cx - sx) / ux;
+  pl.cxs = sx + ux * off; pl.cys = sy + uy * off;            // centre of the top surface
+  pl.u = [ux, uy]; pl.nrm = [nx, ny];
+}
+// pegs: centre behind the contact along the normal
+const PEG_R = 17;
+const pegs = {};
+for (const c of P2) if (c.kind === 'peg') pegs[c.id] = { id: c.id, x: c.x - c.n[0] * (R + PEG_R), y: c.y - c.n[1] * (R + PEG_R) };
+
+// the first pass: identical up to the Reply point, where the plate is missing
+const P1 = P2.slice(0, 8).map((c) => ({ ...c, t: c.t - T_R }));
+// the hole under Reply: the wall opens where the bridge should be
+const RP = plates.reply;
+const HOLE = { x: RP.cxs - 150, y: RP.cys + 86, w: 300, h: 250, r: 26 };
+const VP = [HOLE.x + HOLE.w * 0.5, HOLE.y + HOLE.h * 0.62];   // vanishing point inside the hole
+
+// ---------- ball position: a pure function of t ----------
+function arcAt(a, b, t) {
+  const [vx, vy] = arcVel(a, b), u = t - a.t;
+  return { x: a.x + vx * u, y: a.y + vy * u + 0.5 * G * u * u, vx, vy: vy + G * u };
+}
+function passAt(P, t) {
+  for (let i = 0; i < P.length - 1; i++) if (t < P[i + 1].t) return arcAt(P[i], P[i + 1], t);
+  return null;
+}
+// return tube: centreline polyline from the entry up to the cradle
+const TUBE = (() => {
+  const pts = [];
+  for (let y = ENTRY[1]; y >= TUBE_TOP; y -= 20) pts.push([TUBE_X, y]);
+  for (let a = 0; a <= 1.0001; a += 1 / 24) { const th = Math.PI + a * Math.PI / 2; pts.push([TUBE_X + TUBE_R + Math.cos(th) * TUBE_R, TUBE_TOP + Math.sin(th) * TUBE_R]); }
+  for (let x = TUBE_X + TUBE_R + 10; x <= CRADLE[0]; x += 10) pts.push([x, CRADLE[1]]);
+  const s = [0]; for (let i = 1; i < pts.length; i++) s.push(s[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]));
+  return { pts, s, L: s[s.length - 1] };
+})();
+function tubeAt(d) {
+  d = clamp(d, 0, TUBE.L);
+  let i = 1; while (i < TUBE.s.length - 1 && TUBE.s[i] < d) i++;
+  const f = (d - TUBE.s[i - 1]) / Math.max(1e-6, TUBE.s[i] - TUBE.s[i - 1]);
+  return [mix(TUBE.pts[i - 1][0], TUBE.pts[i][0], f), mix(TUBE.pts[i - 1][1], TUBE.pts[i][1], f)];
+}
+const lastC = P2[P2.length - 1];
+const KICK_V = arcVel(lastC, { t: lastC.t + 0.3, x: ENTRY[0], y: ENTRY[1] });
+const T_ENTER = lastC.t + 0.3, T_TUBE_END = T_LAND;
+const V_ENTER = Math.hypot(KICK_V[0], KICK_V[1] + G * 0.3) * 0.55;
+function tubeDist(t) {                       // cubic Hermite: enters fast, slows, rolls to rest in the cradle
+  const T = T_TUBE_END - T_ENTER, u = clamp((t - T_ENTER) / T);
+  return TUBE.L * (3 * u * u - 2 * u * u * u) + V_ENTER * T * (u - 2 * u * u + u * u * u);
+}
+const TAPS = [22.0, 23.0, 23.5];             // the waiting ball taps on the beats of the end card (each sends a spark)
+
+function ball(t) {
+  t = ((t % T_END) + T_END) % T_END;
+  // first pass
+  if (t < T_MISS) return { ...passAt(P1, t), s: 1, a: 1 };
+  if (t < 6.45) {
+    // falls past the missing plate into the hole and away from us
+    const c = P1[P1.length - 1];
+    const a = { t: c.t, x: c.x, y: c.y };
+    const vin = c.vin, u = t - T_MISS;
+    const fx = (uu) => a.x + vin[0] * uu, fy = (uu) => a.y + vin[1] * uu + 0.5 * G * uu * uu;
+    const tIn = (() => { const yy = HOLE.y + R * 0.6 - a.y; return (-vin[1] + Math.sqrt(vin[1] * vin[1] + 2 * G * yy)) / G; })();   // centre passes the lip
+    if (u < tIn) return { x: fx(u), y: fy(u), vx: vin[0], vy: vin[1] + G * u, s: 1, a: 1 };
+    // inside: it keeps falling, but away from us, so it shrinks toward the vanishing point of the shaft
+    const tau = u - tIn, E = [fx(tIn), fy(tIn)], k = Math.exp(-tau / 0.16);
+    const s = 1 / (1 + Math.pow(tau / 0.3, 2) * 2.5);
+    const px = VP[0] + (E[0] - VP[0]) * k, py = VP[1] + (E[1] - VP[1]) * k + 40 * (1 - k);
+    return { x: px, y: py, vx: (VP[0] - E[0]) * k / 0.16, vy: (VP[1] - E[1]) * k / 0.16 + 300, s, a: clamp(s * 1.4 - 0.12), inHole: true };
+
+  }
+  if (t < T_R) return { x: CRADLE[0], y: CRADLE[1], vx: 0, vy: 0, s: 1, a: 1 };
+  if (t < lastC.t) return { ...passAt(P2, t), s: 1, a: 1 };
+  if (t < T_ENTER) return { ...arcAt(lastC, { t: T_ENTER, x: ENTRY[0], y: ENTRY[1] }, t), s: 1, a: 1, tube: true };
+  if (t < T_TUBE_END) { const [x, y] = tubeAt(tubeDist(t)); return { x, y, vx: 0, vy: -1, s: 1, a: 1, tube: true }; }
+  // resting in the cradle; small taps on the end-card downbeats
+  let y = CRADLE[1];
+  for (const tp of TAPS) { const u = (t - tp) / 0.3; if (u > 0 && u < 1) y -= 30 * 4 * u * (1 - u); }
+  return { x: CRADLE[0], y, vx: 0, vy: 0, s: 1, a: 1 };
+}
+
+// contact events (time, target) for both passes, for lights, squash and sound
+const HITS = [];
+for (const c of P1.slice(1)) if (c.id !== 'reply') HITS.push({ t: c.t, id: c.id, kind: c.kind, pass: 1, n: c.n, x: c.x, y: c.y, v: Math.hypot(...(c.vin || [0, 0])) });
+for (const c of P2.slice(1)) HITS.push({ t: c.t, id: c.id, kind: c.kind, pass: 2, n: c.n, x: c.x, y: c.y, v: Math.hypot(...(c.vin || [0, 0])) });
+const hitsOf = (id) => HITS.filter((h) => h.id === id);
+
+// ---------- camera: targets per section, then a deterministic critically damped follow (precomputed) ----------
+function camTarget(t) {
+  const follow = (z = Z0, xk = 0.12, xmax = 40, lead = 0.22) => {
+    // operate like a person: aim where the ball will be ~0.22 s from now (the follow lag eats about that much)
+    const b = ball(t), a = ball(Math.min(t + lead, t < 3.55 ? 3.55 : T_KICK2));
+    const bx = mix(b.x, a.x, 0.5);
+    return { x: 540 + clamp((bx - 540) * xk, -xmax, xmax), y: Math.max(CRADLE[1], a.y + 30 * z / Z0), z, w: 9 };
+  };
+  // pass 1 opens close on the ball and the flipper (the end's push-in arrives here), then settles to the working zoom
+  if (t < 3.55) return follow(mix(LAY.hookZ, Z0, smooth(t / 1.4)));
+  // the dive: into the hole, then it keeps sinking slowly in the dark (depth, not a title card)
+  if (t < 6.05) return { x: VP[0] - (VP[0] - 540) * 0.2, y: VP[1] - 20, z: t < 3.56 ? Z0 * 1.1 : 3.4 * (1 + 0.16 * smooth((t - 4.1) / 2.0)), w: 7 };
+  // v2: the rise out of the hole starts in the dark (6.05), so the wall has settled under the band before the light
+  // and the rebuild caption arrive (v1 dragged the COMMENT plate up through the caption band at 6.9-7.1)
+  if (t < 7.9) return { x: 560, y: RP.cys - (LAY.rebuildY - LAY.ay) / Z0, z: Z0, w: 5.5 };
+  // the whip lands closer than the first pass, and pass 2 is a tighter, swinging follow (new footage, not a replay)
+  if (t < T_R) return { x: 470, y: CRADLE[1], z: LAY.replayZ, w: 7.5 };
+  if (t < 12.6) { const f = follow(LAY.replayZ, 0.42, 150, 0.26); f.x += 60 * smooth((t - 11.6) / 0.6); return f; }   // lean toward Reply
+  if (t < T_KICK2) return follow(Z0, 0.12 + 0.1 * (1 - smooth((t - 12.6) / 1.2)), 40 + 60 * (1 - smooth((t - 12.6) / 1.2)));
+  // the map: the whole lit path, drifting up with the ball in the tube, then the camera flies home ahead of it
+  if (t < T_MAP_OUT) { const u = smooth((t - 17.9) / (T_MAP_OUT - 17.9)); return { x: 520, y: LAY.mapCy - 260 * u, z: LAY.mapZoom * (1 + 0.1 * u), w: 4.2 }; }
+  if (t < T_LAND) return { x: LAY.endX, y: LAY.endY, z: LAY.endZ, w: 5.2 };
+  // the ask: a slow push from the logo and the cradle to the hook's close-up on the ball (loop)
+  const u = smooth((t - T_LAND) / (T_END - T_LAND)), h = camTarget(0);
+  return { x: mix(LAY.endX, h.x, u), y: mix(LAY.endY, h.y, u), z: mix(LAY.endZ, LAY.hookZ, Math.pow(u, 1.3)), w: 4.6 };
+}
+const CAM_HZ = 240, CAMN = Math.ceil(T_END * CAM_HZ) + 2;
+const CAM = new Float32Array(CAMN * 3);
+(() => {
+  // start settled on the loop frame; run the follow twice around the loop so t=0 and t=T_END agree
+  let x = 540, y = CRADLE[1], lz = Math.log(Z0), vx = 0, vy = 0, vz = 0;
+  const dt = 1 / CAM_HZ;
+  for (let lap = 0; lap < 2; lap++) {
+    for (let i = 0; i < CAMN; i++) {
+      const tg = camTarget(i * dt), w = tg.w;
+      const ax = w * w * (tg.x - x) - 2 * w * vx, ay = w * w * (tg.y - y) - 2 * w * vy, az = w * w * (Math.log(tg.z) - lz) - 2 * w * vz;
+      vx += ax * dt; vy += ay * dt; vz += az * dt; x += vx * dt; y += vy * dt; lz += vz * dt;
+      if (lap === 1) { CAM[i * 3] = x; CAM[i * 3 + 1] = y; CAM[i * 3 + 2] = lz; }
+    }
+  }
+})();
+function cam(t) {
+  t = ((t % T_END) + T_END) % T_END;
+  const f = t * CAM_HZ, i = Math.min(CAMN - 2, Math.floor(f)), u = f - i;
+  const g = (k) => mix(CAM[i * 3 + k], CAM[(i + 1) * 3 + k], u);
+  // small landing jolt on station hits (screen space, decays fast)
+  let jy = 0;
+  for (const h of HITS) if (h.kind === 'st' || h.kind === 'hop') { const d = t - h.t; if (d > 0 && d < 0.25) jy += Math.sin(d * 60) * Math.exp(-d * 22) * 7 * (h.kind === 'hop' ? 0.4 : 1); }
+  return { x: g(0), y: g(1) - jy, z: Math.exp(g(2)) };
+}
+function toScreen(c, wx, wy) { return [(wx - c.x) * c.z + 540, (wy - c.y) * c.z + LAY.ay]; }
+
+// light level (1 = lit wall, 0 = the dark)
+const light = (t) => t < 3.88 ? 1 : t < 6.5 ? 1 - smooth((t - 3.88) / 0.4) : smooth((t - 6.5) / 0.5);
+
+// ---------- precomputed textures ----------
+const WX0 = -900, WX1 = 1980, WY0 = -700, WY1 = 4500, TEXS = 0.5;   // wall extent (world) and texture scale
+let WALL = null, GRAIN = null;
+function vnoise(seed) {
+  const r = rng(seed), P = new Float32Array(256 * 256); for (let i = 0; i < P.length; i++) P[i] = r();
+  return (x, y) => {
+    const xi = Math.floor(x), yi = Math.floor(y), xf = x - xi, yf = y - yi;
+    const a = P[(yi & 255) * 256 + (xi & 255)], b = P[(yi & 255) * 256 + ((xi + 1) & 255)];
+    const c2 = P[((yi + 1) & 255) * 256 + (xi & 255)], d = P[((yi + 1) & 255) * 256 + ((xi + 1) & 255)];
+    const u = xf * xf * (3 - 2 * xf), v = yf * yf * (3 - 2 * yf);
+    return mix(mix(a, b, u), mix(c2, d, u), v);
+  };
+}
+function makeWall() {
+  const w = Math.round((WX1 - WX0) * TEXS), h = Math.round((WY1 - WY0) * TEXS);
+  const c = document.createElement('canvas'); c.width = w; c.height = h;
+  const g = c.getContext('2d'), img = g.createImageData(w, h), n1 = vnoise(7), n2 = vnoise(19);
+  const fbm = (x, y) => { let s = 0, a = 0.5, f = 1; for (let o = 0; o < 5; o++) { s += a * n1(x * f, y * f); f *= 2.03; a *= 0.5; } return s; };
+  const fb3 = (x, y) => { let s = 0, a = 0.5, f = 1; for (let o = 0; o < 3; o++) { s += a * n1(x * f + 31, y * f + 7); f *= 2.03; a *= 0.5; } return s / 0.875; };
+  const base = [0xF6, 0xF2, 0xEA], vein = [0xA9, 0x9C, 0x88];      // v2: a touch deeper, so the wall reads as marble at phone size
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+    const X = (x / TEXS + WX0) / 520, Y = (y / TEXS + WY0) / 520;     // world units, one cell ~ 520 px
+    // v2 veins: contour lines of a noise stretched along one direction, bent by a slow large-scale warp. They run long
+    // and nearly straight, thicken and fade along their length, and never curl into loops (v1 warped a sine 7.5 rad).
+    const wv = (fbm(X * 0.22 + 9, Y * 0.22 + 4) - 0.5) * 2.6;
+    const U1 = X * 0.48 + Y * 0.88, V1 = -X * 0.88 + Y * 0.48 + wv;
+    const p1 = fb3(U1 * 0.34, V1 * 1.55), r1 = 1 - Math.abs(p1 - 0.5) * 2;
+    const U2 = X * 0.93 - Y * 0.36, V2 = X * 0.36 + Y * 0.93 + wv * 0.6;
+    const p2 = fb3(U2 * 0.3 + 17, V2 * 1.6 + 5), r2 = 1 - Math.abs(p2 - 0.5) * 2;
+    const th1 = 0.55 + 0.9 * n2(U1 * 0.9, V1 * 0.4), th2 = smooth((n2(U2 * 0.5 + 3, V2 * 0.5) - 0.45) / 0.3);
+    const p3 = fb3(U1 * 0.5 + 41, V1 * 3.1 + 13), r3 = 1 - Math.abs(p3 - 0.5) * 2;     // hairlines between the veins
+    const vv = (Math.pow(r1, 34) * 0.5 + Math.pow(r1, 120) * 0.3) * th1 + Math.pow(r2, 70) * 0.3 * th2 + Math.pow(r3, 160) * 0.16;
+    const cloud = (fbm(X * 0.45 + 11, Y * 0.45 + 3) - 0.5) * 30 + (fbm(X * 1.3 + 4, Y * 1.3 + 8) - 0.5) * 10 + (n2(X * 9, Y * 9) - 0.5) * 3;   // v2: deeper soft drifts
+    const i = (y * w + x) * 4;
+    for (let k = 0; k < 3; k++) img.data[i + k] = clamp(mix(base[k], vein[k], vv) + cloud, 0, 255);
+    img.data[i + 3] = 255;
+  }
+  g.putImageData(img, 0, 0);
+  return c;
+}
+function makeGrain() {
+  const g = document.createElement('canvas'); g.width = g.height = 256;
+  const gx = g.getContext('2d'), img = gx.createImageData(256, 256), r = rng(11);
+  for (let i = 0; i < img.data.length; i += 4) { const v = r() * 255; img.data[i] = img.data[i + 1] = img.data[i + 2] = v; img.data[i + 3] = 255; }
+  gx.putImageData(img, 0, 0);
+  return g;
+}
+
+// ---------- text ----------
+function setFont(f, ls = 0) { ctx.font = f; ctx.letterSpacing = ls + 'px'; }
+function measure(s, f, ls = 0) { setFont(f, ls); return ctx.measureText(s).width; }
+function box(x, y, w, size, text, fine = false) { window.__boxes && window.__boxes.push({ x, y: y - size * 0.78, w, h: size, text, fine }); }
+// A line that rises out of a mask (opacity full early, so it never reads as a dissolve); leaves upward.
+// segs: [{s, f, c}] mixed fonts; returns the drawn x range.
+function rise(t, segs, x, y, size, tin, tout, { align = 'left', k = TYPE, alpha = 1 } = {}) {
+  const pin = sp(t, tin, k), pout = tout == null ? 0 : sp(t, tout, UI);
+  if (pin <= 0.002 || pout >= 0.998) return null;
+  const widths = segs.map((g) => measure(g.s, g.f, g.ls || 0));
+  const total = widths.reduce((a, b) => a + b, 0);
+  let cx = align === 'center' ? x - total / 2 : align === 'right' ? x - total : x;
+  const x0 = cx;
+  ctx.save();
+  ctx.beginPath(); ctx.rect(x0 - 20, y - size * 1.05 - size * 0.3 * pout, total + 40, size * 1.42); ctx.clip();
+  const dy = (1 - pin) * size * 0.9 - pout * size * 1.1;
+  ctx.globalAlpha = alpha * clamp(pin * 2.2) * (1 - pout);
+  segs.forEach((g, i) => { setFont(g.f, g.ls || 0); ctx.fillStyle = g.c; ctx.textAlign = 'left'; ctx.textBaseline = 'alphabetic'; ctx.fillText(g.s, cx, y + dy); cx += widths[i]; });
+  ctx.restore();
+  // every drawn line's clip rectangle, for the ghost check (tools/ghostcheck.mjs)
+  window.__capboxes && window.__capboxes.push({ x: x0 - 20, y: y - size * 1.05 - size * 0.3 * pout, w: total + 40, h: size * 1.42, text: segs.map((g) => g.s).join(''), a: alpha * clamp(pin * 2.2) * (1 - pout) });
+  if (pin > 0.6 && pout < 0.4) box(x0, y, total, size, segs.map((g) => g.s).join(''));
+  return { x: x0, w: total };
+}
+const seg = (s, f, c, ls = 0) => ({ s, f, c, ls });
+
+// ---------- world drawing ----------
+function drawWall(c, L) {
+  ctx.save();
+  ctx.setTransform(c.z, 0, 0, c.z, 540 - c.x * c.z, LAY.ay - c.y * c.z);
+  ctx.imageSmoothingQuality = 'high';
+  ctx.drawImage(WALL, WX0, WY0, WX1 - WX0, WY1 - WY0);
+  ctx.restore();
+}
+function shadowOn(c, blur = 18, ox = 10, oy = 16, a = 0.2) {
+  ctx.shadowColor = `rgba(60,40,25,${a})`; ctx.shadowBlur = blur * c.z; ctx.shadowOffsetX = ox * c.z; ctx.shadowOffsetY = oy * c.z;
+}
+function shadowOff() { ctx.shadowColor = 'transparent'; ctx.shadowBlur = 0; ctx.shadowOffsetX = 0; ctx.shadowOffsetY = 0; }
+
+function drawHole(c, t) {
+  const { x, y, w, h, r } = HOLE;
+  // rim: a thin bevel (light top lip, dark lower lip) so the opening reads as depth
+  ctx.save();
+  ctx.beginPath(); ctx.roundRect(x - 8, y - 8, w + 16, h + 16, r + 8);
+  const rim = ctx.createLinearGradient(0, y - 8, 0, y + h + 8);
+  rim.addColorStop(0, '#FFFFFF'); rim.addColorStop(0.5, '#E3D9C8'); rim.addColorStop(1, '#BFB29E');
+  ctx.fillStyle = rim; ctx.fill();
+  ctx.beginPath(); ctx.roundRect(x, y, w, h, r);
+  ctx.fillStyle = '#0D0C0B'; ctx.fill();
+  ctx.save(); ctx.clip();
+  // the wall's thickness: four inner faces converging toward the far, dark end (a shaft into the wall)
+  const ins = 34, ix = x + ins + (VP[0] - (x + w / 2)) * 0.1, iy = y + ins + 10, iw = w - ins * 2, ih = h - ins * 2 - 6;
+  const face = (pts, col) => { ctx.beginPath(); pts.forEach(([px, py], i) => (i ? ctx.lineTo(px, py) : ctx.moveTo(px, py))); ctx.closePath(); ctx.fillStyle = col; ctx.fill(); };
+  face([[x, y], [x + w, y], [ix + iw, iy], [ix, iy]], '#1A1715');                       // top face, in shadow
+  face([[x, y + h], [x + w, y + h], [ix + iw, iy + ih], [ix, iy + ih]], '#6E6457');         // bottom face catches the light
+  face([[x, y], [ix, iy], [ix, iy + ih], [x, y + h]], '#3A332D');                           // left
+  face([[x + w, y], [ix + iw, iy], [ix + iw, iy + ih], [x + w, y + h]], '#2A2521');         // right
+  const g = ctx.createRadialGradient(VP[0], VP[1], 4, VP[0], VP[1], ih * 0.9);
+  g.addColorStop(0, '#050505'); g.addColorStop(1, '#141210');
+  ctx.fillStyle = g; ctx.fillRect(ix, iy, iw, ih);
+  const sh = ctx.createLinearGradient(0, y, 0, y + 90);        // the lip's shadow inside
+  sh.addColorStop(0, 'rgba(0,0,0,0.6)'); sh.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = sh; ctx.fillRect(x, y, w, 90);
+  ctx.restore();
+  ctx.restore();
+}
+
+function plateState(pl, t) {
+  // lit by the last hit (pass 1 lights reset during the whip, pass 2 lights fade after the map)
+  let lit = 0, grow = 0, fade = 0, dip = 0, wob = 0, hitT = null, hitX = pl.x0;
+  for (const h of hitsOf(pl.id)) {
+    const d = t - h.t;
+    if (d < 0) continue;
+    const off = h.pass === 1 ? 7.9 : T_RESET;
+    // the light floods out from the impact point, and (v2) fades evenly when the path resets, instead of shrinking back
+    const g = clamp(d / 0.12), f = 1 - smooth((t - off) / 0.5), on = g * f;
+    if (on > lit) { lit = on; grow = g; fade = f; hitT = h.t; hitX = h.x; }
+    const imp = clamp(h.v / 1900) * (h.kind === 'hop' ? 0.55 : 1);
+    dip += Math.sin(d * 34) * Math.exp(-d * 9) * 9 * imp;
+    wob += Math.sin(d * 27 + 0.6) * Math.exp(-d * 7) * 0.028 * imp * Math.sign(h.x - pl.cxs || 1);
+  }
+  return { lit, grow, fade, dip, wob, hitT, hitX };
+}
+
+function subOn(pl, t) {
+  if (!pl.sub) return 0;
+  const tin = pl.id === 'reply' ? T_SNAP + 0.5 : hitsOf(pl.id).find((h) => h.pass === 2).t + 0.04;
+  return sp(t, tin, UI) * (1 - sp(t, T_RESET, UI));
+}
+function drawPlate(c, t, pl, { slide = 0, ghost = 0 } = {}) {
+  const st = plateState(pl, t), so = subOn(pl, t);
+  const len = pl.len, th = 74 + 54 * so;
+  ctx.save();
+  ctx.translate(pl.cxs + pl.u[0] * slide, pl.cys + pl.u[1] * slide);
+  ctx.rotate(pl.ang + st.wob);
+  ctx.translate(0, Math.max(0, st.dip));
+  if (ghost > 0) {
+    // the missing station: an outline and its name, nothing to land on
+    ctx.globalAlpha = ghost;
+    ctx.setLineDash([16, 12]); ctx.lineWidth = 4; ctx.strokeStyle = 'rgba(31,31,31,0.45)';
+    ctx.beginPath(); ctx.roundRect(-len / 2, 0, len, th, 18); ctx.stroke(); ctx.setLineDash([]);
+    setFont(MS(800, 46), 5); ctx.fillStyle = 'rgba(31,31,31,0.42)'; ctx.textAlign = 'center';
+    ctx.fillText(pl.label, 0, 54);
+    ctx.restore();
+    return st;
+  }
+  // body with a bottom edge for depth, shadow on the wall
+  shadowOn(c, 22, 12, 20, 0.22);
+  ctx.beginPath(); ctx.roundRect(-len / 2, 0, len, th + 12, 18);
+  ctx.fillStyle = '#CDBFA9'; ctx.fill();
+  shadowOff();
+  ctx.beginPath(); ctx.roundRect(-len / 2, 0, len, th, 18);
+  const face = ctx.createLinearGradient(0, 0, 0, th);
+  face.addColorStop(0, '#FFFFFF'); face.addColorStop(1, '#ECE4D6');
+  ctx.fillStyle = face; ctx.fill();
+  // lit: crimson floods from the impact point across the face
+  if (st.lit > 0.002) {
+    const lx = (st.hitX - pl.cxs) / Math.cos(pl.ang);
+    const rad = st.grow * (len + 80);
+    ctx.save();
+    ctx.globalAlpha = st.fade;
+    ctx.beginPath(); ctx.roundRect(-len / 2, 0, len, th, 18); ctx.clip();
+    ctx.beginPath(); ctx.arc(lx, 0, rad, 0, Math.PI * 2);
+    const lg = ctx.createLinearGradient(0, 0, 0, th);
+    lg.addColorStop(0, '#C8161D'); lg.addColorStop(1, '#A30F15');
+    ctx.fillStyle = lg; ctx.fill();
+    ctx.restore();
+  }
+  ctx.fillStyle = 'rgba(255,255,255,0.7)'; ctx.fillRect(-len / 2 + 16, 2, len - 32, 3);
+  for (const px of [-len / 2 + 26, len / 2 - 26]) pin(px, 37, st.lit);
+  setFont(MS(800, 46), 5); ctx.textAlign = 'center'; ctx.textBaseline = 'alphabetic';
+  // label colour: on the hit it flips with the flood (as v1); on the reset it cross-fades with the light
+  const ink = st.grow < 1 ? (st.lit > 0.5 ? 1 : 0) : st.fade;
+  const label = (txt, y, a, b) => {
+    if (ink < 0.999) { ctx.globalAlpha = 1 - ink; ctx.fillStyle = b; ctx.fillText(txt, 0, y); }
+    if (ink > 0.001) { ctx.globalAlpha = ink; ctx.fillStyle = a; ctx.fillText(txt, 0, y); }
+    ctx.globalAlpha = 1;
+  };
+  label(pl.label, 54, C.ivory, C.char);
+  if (so > 0.01) {
+    // the part of the system this station stands for, revealed as the plate opens
+    ctx.save(); ctx.beginPath(); ctx.rect(-len / 2, 70, len, th - 70); ctx.clip();
+    setFont(MS(600, 44), 0); label(pl.sub, 110 + (1 - so) * 40, '#FBE9E6', C.char);
+    ctx.restore();
+  }
+  ctx.restore();
+  // safe-zone boxes while this station is the one being read
+  const act = c.z > Z0 * 0.9 && (hitsOf(pl.id).some((h) => t > h.t - 0.3 && t < h.t + 1.0) || (pl.id === 'reply' && t > T_SNAP && t < 7.9));
+  if (act && ghost === 0) {
+    const [sx, sy] = toScreen(c, pl.cxs, pl.cys + 54), w = measure(pl.label, MS(800, 46), 5) * c.z;
+    box(sx - w / 2, sy, w, 46 * c.z, pl.label);
+    if (so > 0.6) { const [ux, uy] = toScreen(c, pl.cxs, pl.cys + 110), w2 = measure(pl.sub, MS(600, 44)) * c.z; box(ux - w2 / 2, uy, w2, 44 * c.z, pl.sub); }
+  }
+  return st;
+}
+function pin(x, y, lit) {
+  const g = ctx.createRadialGradient(x - 3, y - 3, 1, x, y, 10);
+  g.addColorStop(0, '#FFF1C9'); g.addColorStop(0.45, C.gold); g.addColorStop(1, '#8A5C08');
+  ctx.beginPath(); ctx.arc(x, y, 9, 0, Math.PI * 2); ctx.fillStyle = g; ctx.fill();
+}
+
+function drawPeg(c, t, pg) {
+  let flash = 0, dx = 0, dy = 0;
+  for (const h of hitsOf(pg.id)) {
+    const d = t - h.t; if (d < 0 || d > 1.2) continue;
+    flash = Math.max(flash, Math.exp(-d * 5));
+    const k = Math.sin(d * 40) * Math.exp(-d * 14) * 6;
+    dx -= h.n[0] * k; dy -= h.n[1] * k;
+  }
+  const x = pg.x + dx, y = pg.y + dy;
+  shadowOn(c, 10, 6, 9, 0.25);
+  ctx.beginPath(); ctx.arc(x, y, PEG_R + 7, 0, Math.PI * 2); ctx.fillStyle = '#F7F2E8'; ctx.fill();
+  shadowOff();
+  ctx.beginPath(); ctx.arc(x, y, PEG_R + 7, 0, Math.PI * 2); ctx.lineWidth = 2; ctx.strokeStyle = 'rgba(160,140,110,0.5)'; ctx.stroke();
+  const g = ctx.createRadialGradient(x - 5, y - 6, 1, x, y, PEG_R);
+  const hot = flash;
+  g.addColorStop(0, '#FFF6DA'); g.addColorStop(0.5, hot > 0.05 ? mixHex('#C9A46A', C.gold, hot) : '#C9A46A'); g.addColorStop(1, '#7A5A2A');
+  ctx.beginPath(); ctx.arc(x, y, PEG_R, 0, Math.PI * 2); ctx.fillStyle = g; ctx.fill();
+  if (flash > 0.02) {               // a ring that leaves the peg on impact
+    const d = 1 - flash;
+    ctx.beginPath(); ctx.arc(x, y, PEG_R + 8 + d * 40, 0, Math.PI * 2);
+    ctx.lineWidth = 4 * flash; ctx.strokeStyle = `rgba(221,154,16,${0.75 * flash})`; ctx.stroke();
+  }
+}
+function mixHex(a, b, p) {
+  const A = [1, 3, 5].map((i) => parseInt(a.slice(i, i + 2), 16)), B = [1, 3, 5].map((i) => parseInt(b.slice(i, i + 2), 16));
+  return `rgb(${A.map((v, i) => Math.round(mix(v, B[i], clamp(p)))).join(',')})`;
+}
+
+// the route: a groove cut into the marble from station to station; it lights crimson as the ball completes it
+const ROUTE = (() => {
+  const order = ['comment', 'reply', 'booking', 'reminder', 'visit', 'review', 'referral'];
+  const nodes = [[CRADLE[0] + 60, CRADLE[1] + R + 9], ...order.map((id) => [plates[id].cxs, plates[id].cys + 37]), [TUBE_X + 40, ENTRY[1] + 40]];
+  // sample a rounded polyline (quadratic corners) so we can draw any length of it
+  const pts = [nodes[0]];
+  for (let i = 1; i < nodes.length - 1; i++) {
+    const [a, b, c2] = [nodes[i - 1], nodes[i], nodes[i + 1]];
+    const k = 0.35, p0 = [mix(b[0], a[0], k), mix(b[1], a[1], k)], p1 = [mix(b[0], c2[0], k), mix(b[1], c2[1], k)];
+    pts.push(p0);
+    for (let j = 1; j <= 12; j++) { const u = j / 12; pts.push([(1 - u) * (1 - u) * p0[0] + 2 * u * (1 - u) * b[0] + u * u * p1[0], (1 - u) * (1 - u) * p0[1] + 2 * u * (1 - u) * b[1] + u * u * p1[1]]); }
+  }
+  pts.push(nodes[nodes.length - 1]);
+  const s2 = [0]; for (let i = 1; i < pts.length; i++) s2.push(s2[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]));
+  // length at each node: nearest sample
+  const at = nodes.map((n) => { let bi = 0, bd = 1e9; pts.forEach((p, i) => { const d = Math.hypot(p[0] - n[0], p[1] - n[1]); if (d < bd) { bd = d; bi = i; } }); return s2[bi]; });
+  return { pts, s: s2, L: s2[s2.length - 1], at, order };
+})();
+function routeLit(t) {
+  const A = ROUTE.at;
+  const key = (pass) => pass === 1
+    ? [[0, 0], [1.5, A[1]], [3.5, A[2] - 150]]
+    : [[T_R, 0], ...ROUTE.order.map((id, i) => [hitsOf(id).find((h) => h.pass === 2).t, A[i + 1]]), [T_ENTER, ROUTE.L]];
+  const f = (k) => { if (t <= k[0][0]) return 0; for (let i = 1; i < k.length; i++) if (t < k[i][0]) return mix(k[i - 1][1], k[i][1], (t - k[i - 1][0]) / (k[i][0] - k[i - 1][0])); return k[k.length - 1][1]; };
+  if (t < T_R - 0.5) return { len: f(key(1)), a: 1 - smooth((t - 7.9) / 0.5) };
+  return { len: f(key(2)), a: 1 - smooth((t - T_RESET) / 0.5) };
+}
+function drawRoute(c, t) {
+  const path = () => { ctx.beginPath(); ROUTE.pts.forEach(([x, y], i) => (i ? ctx.lineTo(x, y) : ctx.moveTo(x, y))); };
+  ctx.save(); ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  ctx.translate(0, 2); path(); ctx.lineWidth = 16; ctx.strokeStyle = 'rgba(255,255,255,0.75)'; ctx.stroke();
+  ctx.translate(0, -3); path(); ctx.lineWidth = 14; ctx.strokeStyle = 'rgba(150,128,100,0.22)'; ctx.stroke();
+  ctx.translate(0, 1); path(); ctx.lineWidth = 10; ctx.strokeStyle = 'rgba(226,216,200,0.9)'; ctx.stroke();
+  const lit = routeLit(t);
+  if (lit.len > 1 && lit.a > 0.01) {
+    ctx.globalAlpha = lit.a; path(); ctx.setLineDash([lit.len, 1e6]); ctx.lineWidth = 9; ctx.strokeStyle = C.crimson; ctx.stroke();
+    // the system running: light travels the finished route while we see the whole map
+    const flow = smooth((t - 17.35) / 0.4) * (1 - smooth((t - 20.2) / 0.4));
+    if (flow > 0.01) {
+      subPath(lit.len); ctx.globalAlpha = lit.a * flow;
+      ctx.setLineDash([90, 210]); ctx.lineDashOffset = -(t - 17.35) * 700; ctx.lineWidth = 7; ctx.strokeStyle = '#FFE3A3'; ctx.stroke();
+    }
+  }
+  // end: each tap of the waiting ball sends a pulse of light down the lit path (the system keeps answering)
+  for (const tp of TAPS) {
+    const u = t - tp; if (u < 0 || u > 1.3) continue;
+    const head = u * 1000, a = (1 - smooth((u - 0.8) / 0.5)) * lit.a;
+    subPath(Math.min(ROUTE.L, head), Math.max(0, head - 150));
+    ctx.setLineDash([]); ctx.globalAlpha = a; ctx.lineWidth = 7; ctx.strokeStyle = '#FFE3A3'; ctx.stroke();
+  }
+  ctx.restore();
+}
+function subPath(L1, L0 = 0) {
+  // the route between two lengths, as a path
+  ctx.beginPath(); let started = false;
+  for (let i = 1; i < ROUTE.pts.length; i++) {
+    const a = ROUTE.s[i - 1], b = ROUTE.s[i]; if (b < L0) continue; if (a > L1) break;
+    const p = ROUTE.pts[i - 1], q = ROUTE.pts[i];
+    const f0 = clamp((L0 - a) / (b - a)), f1 = clamp((L1 - a) / (b - a));
+    const x0 = mix(p[0], q[0], f0), y0 = mix(p[1], q[1], f0), x1 = mix(p[0], q[0], f1), y1 = mix(p[1], q[1], f1);
+    if (!started) { ctx.moveTo(x0, y0); started = true; }
+    ctx.lineTo(x1, y1);
+  }
+}
+function drawTube(c, t) {
+  // glass return tube with brass rings: the loop that brings the client back
+  ctx.save();
+  ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  const path = () => { ctx.beginPath(); TUBE.pts.forEach(([x, y], i) => (i ? ctx.lineTo(x, y) : ctx.moveTo(x, y))); };
+  shadowOn(c, 16, 10, 14, 0.16);
+  path(); ctx.lineWidth = 2 * (R + 9); ctx.strokeStyle = 'rgba(255,255,255,0.55)'; ctx.stroke();
+  shadowOff();
+  path(); ctx.lineWidth = 2 * (R + 9); ctx.strokeStyle = 'rgba(214,203,186,0.35)'; ctx.stroke();
+  path(); ctx.lineWidth = 2 * (R + 9) - 10; ctx.strokeStyle = 'rgba(250,248,242,0.55)'; ctx.stroke();
+  // rails
+  for (const side of [-1, 1]) {
+    ctx.beginPath();
+    TUBE.pts.forEach(([x, y], i) => {
+      const j = Math.min(i + 1, TUBE.pts.length - 1), k = Math.max(i - 1, 0);
+      let tx = TUBE.pts[j][0] - TUBE.pts[k][0], ty = TUBE.pts[j][1] - TUBE.pts[k][1]; const L = Math.hypot(tx, ty) || 1; tx /= L; ty /= L;
+      const px = x - ty * (R + 8) * side, py = y + tx * (R + 8) * side;
+      i ? ctx.lineTo(px, py) : ctx.moveTo(px, py);
+    });
+    ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(150,120,70,0.55)'; ctx.stroke();
+  }
+  // brass rings every 300 px
+  for (let d = 150; d < TUBE.L - 150; d += 300) {
+    const [x, y] = tubeAt(d), [x2, y2] = tubeAt(d + 2); let tx = x2 - x, ty = y2 - y; const L = Math.hypot(tx, ty) || 1; tx /= L; ty /= L;
+    ctx.beginPath(); ctx.moveTo(x - ty * (R + 14), y + tx * (R + 14)); ctx.lineTo(x + ty * (R + 14), y - tx * (R + 14));
+    ctx.lineWidth = 9; ctx.strokeStyle = '#B98A2E'; ctx.stroke();
+    ctx.lineWidth = 3; ctx.strokeStyle = '#F2D9A0'; ctx.stroke();
+  }
+  ctx.restore();
+}
+
+function drawCradle(c, t) {
+  // shelf at the top of the run, with a brass flipper that launches each new client
+  const [x, y] = CRADLE, sy = y + R;
+  shadowOn(c, 14, 8, 12, 0.2);
+  ctx.beginPath(); ctx.roundRect(x - 80, sy, 160, 26, 10); ctx.fillStyle = '#E9E0D0'; ctx.fill();
+  shadowOff();
+  ctx.beginPath(); ctx.roundRect(x - 80, sy, 160, 18, 10);
+  const g = ctx.createLinearGradient(0, sy, 0, sy + 18); g.addColorStop(0, '#FFFFFF'); g.addColorStop(1, '#E7DECF');
+  ctx.fillStyle = g; ctx.fill();
+  // flipper: rests flat, snaps up on each launch (t = 0 / T_R, i.e. every pass)
+  let ang = 0;
+  for (const tk of [0, T_R, T_END]) { const d = t - tk; if (d > -0.05 && d < 0.6) ang = Math.max(ang, (d < 0 ? 1 + d / 0.05 : Math.exp(-d * 9)) * 0.75); }
+  if (t > T_COCK && t < T_END - 0.05) ang = -0.16 * spring(t - T_COCK, 300, 22);      // armed before the loop fires
+  ctx.save(); ctx.translate(x - 66, sy + 4); ctx.rotate(-ang);
+  ctx.beginPath(); ctx.roundRect(-6, -6, 70, 12, 6);
+  const fg = ctx.createLinearGradient(0, -6, 0, 6); fg.addColorStop(0, '#F2D9A0'); fg.addColorStop(1, '#A87A20');
+  ctx.fillStyle = fg; ctx.fill();
+  pin(0, 0, 0);
+  ctx.restore();
+}
+
+// The logo: the real file on an ivory plaque in a niche above the cradle, behind two marble doors. The doors open
+// when the ball lands home (the system is complete) and close as the flipper arms, so the logo is only ever seen
+// clean, in the end frame, below the caption band; it never travels under a caption (independent review, finding 1).
+// The file is only scaled and masked by the doors; never redrawn or recoloured.
+const LOGO_W = 470, LOGO_C = [560, 712];
+const LOGO_BOX = { x0: 0.045, x1: 0.954, y0: 0.243, y1: 0.724 };     // the drawn mark inside the PNG (alpha > 20)
+let NICHE = null;
+function hatchOpen(t) {
+  t = ((t % T_END) + T_END) % T_END;
+  const o = spring(t - T_HATCH_OPEN, 150, 19), c = spring(t - T_HATCH_CLOSE, 210, 30);
+  return clamp(o - c);
+}
+function drawLogo(c, t) {
+  const lh = LOGO.height * LOGO_W / LOGO.width, x = LOGO_C[0] - LOGO_W / 2, y = LOGO_C[1] - lh / 2;
+  const n = NICHE, op = hatchOpen(t);
+  // niche rim (a thin bevel, light from the top left) and its back plate
+  ctx.save();
+  ctx.beginPath(); ctx.roundRect(n.x - 7, n.y - 7, n.w + 14, n.h + 14, n.r + 6);
+  const rim = ctx.createLinearGradient(0, n.y - 7, 0, n.y + n.h + 7);
+  rim.addColorStop(0, '#BFB29E'); rim.addColorStop(0.5, '#E3D9C8'); rim.addColorStop(1, '#FFFFFF');
+  ctx.fillStyle = rim; ctx.fill();
+  ctx.beginPath(); ctx.roundRect(n.x, n.y, n.w, n.h, n.r); ctx.clip();
+  if (op > 0.001) {
+    ctx.fillStyle = C.ivory; ctx.fillRect(n.x, n.y, n.w, n.h);
+    ctx.drawImage(LOGO, x, y, LOGO_W, lh);
+    const sh = ctx.createLinearGradient(0, n.y, 0, n.y + 26);            // the niche's top lip shades the plate
+    sh.addColorStop(0, 'rgba(70,50,30,0.22)'); sh.addColorStop(1, 'rgba(70,50,30,0)');
+    ctx.fillStyle = sh; ctx.fillRect(n.x, n.y, n.w, 26);
+  }
+  // two marble leaves that slide apart into the wall
+  const half = n.w / 2;
+  for (const side of [-1, 1]) {
+    const lx = side < 0 ? n.x - op * half : n.x + half + op * half;
+    if (op > 0.999) continue;
+    ctx.save();
+    ctx.beginPath(); ctx.rect(lx, n.y, half, n.h); ctx.clip();
+    ctx.drawImage(WALL, WX0 + (side < 0 ? -op * half : op * half), WY0, WX1 - WX0, WY1 - WY0);   // the leaf's marble moves with it
+    ctx.fillStyle = 'rgba(255,253,248,0.28)'; ctx.fillRect(lx, n.y, half, n.h);
+    ctx.fillStyle = 'rgba(255,255,255,0.8)'; ctx.fillRect(lx, n.y, half, 3);
+    ctx.fillStyle = 'rgba(120,100,75,0.25)'; ctx.fillRect(lx, n.y + n.h - 3, half, 3);
+    // brass edge where the leaves meet, with a small pull
+    const ex = side < 0 ? lx + half - 5 : lx;
+    const bg = ctx.createLinearGradient(ex, 0, ex + 5, 0); bg.addColorStop(0, '#F2D9A0'); bg.addColorStop(1, '#A87A20');
+    ctx.fillStyle = bg; ctx.fillRect(ex, n.y, 5, n.h);
+    pin(side < 0 ? lx + half - 20 : lx + 20, n.y + n.h / 2, 0);
+    ctx.restore();
+    if (op > 0.02) {                       // the leaf's edge throws a soft shadow onto the plate
+      const sx = side < 0 ? lx + half : lx, g = ctx.createLinearGradient(sx, 0, sx - side * 22, 0);
+      g.addColorStop(0, 'rgba(60,40,25,0.22)'); g.addColorStop(1, 'rgba(60,40,25,0)');
+      ctx.fillStyle = g; ctx.fillRect(side < 0 ? sx : sx - 22, n.y, 22, n.h);
+    }
+  }
+  ctx.restore();
+  // checked by the safe-zone tool while the logo is showing
+  if (op > 0.5) {
+    const [sx, sy] = toScreen(c, x + LOGO_W * LOGO_BOX.x0, y + lh * LOGO_BOX.y0), [ex, ey] = toScreen(c, x + LOGO_W * LOGO_BOX.x1, y + lh * LOGO_BOX.y1);
+    window.__boxes && window.__boxes.push({ x: sx, y: sy, w: ex - sx, h: ey - sy, text: 'LOGO', logo: true });
+    window.__logo = { y0: sy, y1: ey, x0: sx, x1: ex };
+  }
+}
+
+function drawBall(c, t) {
+  const b = ball(t);
+  if (!b || b.a <= 0.01) return;
+  const r = R * b.s;
+  // squash on contact (along the normal), stretch with speed
+  let sq = 0, nrm = [0, -1];
+  for (const h of HITS) { const d = t - h.t; if (d >= 0 && d < 0.12) { const k = Math.exp(-d * 38) * 0.2 * clamp(h.v / 1700); if (k > sq) { sq = k; nrm = h.n; } } }
+  const sp_ = Math.hypot(b.vx || 0, b.vy || 0);
+  ctx.save();
+  if (b.inHole) { ctx.beginPath(); ctx.roundRect(HOLE.x, HOLE.y, HOLE.w, HOLE.h, HOLE.r); ctx.clip(); }
+  // contact shadow on the wall
+  if (!b.inHole) {
+    ctx.save(); ctx.globalAlpha = 0.22 * b.a; ctx.filter = `blur(${(9 * c.z).toFixed(1)}px)`;
+    ctx.beginPath(); ctx.ellipse(b.x + 14, b.y + 22, r * 0.95, r * 0.8, 0, 0, Math.PI * 2); ctx.fillStyle = '#3A2A20'; ctx.fill();
+    ctx.restore();
+  }
+  ctx.translate(b.x, b.y);
+  const a = Math.atan2(nrm[1], nrm[0]);
+  ctx.rotate(a); ctx.scale(1 - sq, 1 + sq * 0.8); ctx.rotate(-a);
+  const dim = b.inHole ? b.s : 1;
+  ctx.globalAlpha = b.a;
+  const g = ctx.createRadialGradient(-r * 0.38, -r * 0.42, r * 0.05, 0, 0, r);
+  g.addColorStop(0, mixHex('#FF7466', '#3A0507', 1 - dim)); g.addColorStop(0.35, mixHex('#D8141C', '#2A0406', 1 - dim));
+  g.addColorStop(0.85, mixHex('#9B0A10', '#140203', 1 - dim)); g.addColorStop(1, mixHex('#6A060A', '#0A0101', 1 - dim));
+  ctx.beginPath(); ctx.arc(0, 0, r, 0, Math.PI * 2); ctx.fillStyle = g; ctx.fill();
+  // rim light from the wall and a specular highlight
+  const rl = ctx.createRadialGradient(r * 0.35, r * 0.45, r * 0.5, 0, 0, r * 1.02);
+  rl.addColorStop(0, 'rgba(255,230,220,0)'); rl.addColorStop(0.8, 'rgba(255,230,220,0)'); rl.addColorStop(1, `rgba(255,236,226,${0.35 * dim})`);
+  ctx.fillStyle = rl; ctx.fill();
+  ctx.beginPath(); ctx.ellipse(-r * 0.36, -r * 0.44, r * 0.26, r * 0.16, -0.6, 0, Math.PI * 2);
+  ctx.fillStyle = `rgba(255,255,255,${0.85 * dim})`; ctx.fill();
+  ctx.restore();
+}
+
+function drawWorld(t, c) {
+  ctx.save();
+  ctx.setTransform(c.z, 0, 0, c.z, 540 - c.x * c.z, LAY.ay - c.y * c.z);
+  drawRoute(c, t);
+  drawHole(c, t);
+  drawTube(c, t);
+  drawLogo(c, t);
+  drawCradle(c, t);
+  for (const pg of Object.values(pegs)) drawPeg(c, t, pg);
+  // the reply plate: missing in the first pass (ghost), slides in for the rebuild, there for the replay
+  const sIn = T_SNAP - SNAP_TAU;
+  for (const pl of Object.values(plates)) {
+    if (pl.id === 'reply') {
+      if (t < sIn) { drawPlate(c, t, pl, { ghost: t < 3.9 ? 1 : 1 - smooth((t - 3.9) / 0.3) * 0 }); continue; }
+      const p = spring(t - sIn, 240, 17);
+      drawPlate(c, t, pl, { slide: (1 - p) * 820 });
+      continue;
+    }
+    drawPlate(c, t, pl);
+  }
+  drawBall(c, t);
+  ctx.restore();
+}
+// first time the slide spring reaches its rest point, so the lock lands exactly on T_SNAP
+const SNAP_TAU = (() => { for (let u = 0.01; u < 2; u += 0.0005) if (spring(u, 240, 17) >= 1) return u; return 0.3; })();
+
+// ---------- screen-space: darkness, scrim, captions ----------
+// Every on-screen line in one table: drawing, the SRT, the reading-time check and the scrim all read it.
+// [cue, segments [text, style], x, y, size, tin, tout, opts]; style: d = display, i = display italic accent,
+// D = dark-ground display, G = gold on charcoal
+const X_ = LAY.capX, B_ = LAY.bandTop, HS_ = LAY.headSize, CS_ = LAY.capSize, AS_ = LAY.askSize;
+const LINES = [
+  ['hook', [['Watch where this', 'd']], X_, B_ + HS_, HS_, -0.25, 3.9, { loop: true }],
+  ['hook', [['client ', 'd'], ['gets lost.', 'i']], X_, B_ + HS_ * 2.1, HS_, -0.13, 3.95, { loop: true }],
+  ['noreply', [['No reply.', 'D']], 540, LAY.darkY, 132, 3.95, 6.35, { align: 'center' }],
+  ['gone', [['Gone.', 'G']], 540, LAY.darkY + 200, 176, 4.3, 6.4, { align: 'center', k: [150, 18] }],
+  ['build', [['Build the', 'd']], X_, B_ + CS_, CS_, 6.95, 10.15],
+  ['build', [['missing step.', 'i']], X_, B_ + CS_ * 2.1, CS_, 7.07, 10.2],
+  ['every', [['Every step answered.', 'd']], X_, B_ + CS_, CS_ * 0.86, 17.25, 19.95],
+  ['system', [['That is a ', 'd'], ['system.', 'i']], X_, B_ + CS_ * 2.15, CS_, 17.6, 20.0],
+  // the ask arrives during the flight home and holds 3.5 s once fully in (12 words; v1 held it 5.6 s)
+  ['ask', [['Send this to an owner', 'd']], X_, B_ + AS_, AS_, 20.25, 24.4],
+  ['ask', [['who loses clients', 'd']], X_, B_ + AS_ * 2.2, AS_, 20.38, 24.45],
+  ['ask', [['after the ', 'd'], ['first message.', 'i']], X_, B_ + AS_ * 3.4, AS_, 20.51, 24.5],
+];
+const STYLE = {
+  d: (z) => [PF(700, z), C.char], i: (z) => [PF(700, z, true), C.crimson],
+  D: (z) => [PF(700, z, true), C.ivory], G: (z) => [PF(900, z, true), C.gold],
+};
+function captions(t, L) {
+  const tt = t > T_END - 1 ? t - T_END : t;          // the hook also opens the loop: it starts 0.25 s before T_END
+  for (const [, segs, x, y, size, tin, tout, o = {}] of LINES) {
+    const sg = segs.map(([s, st]) => { const [f, c] = STYLE[st](size); return seg(s, f, c); });
+    rise(o.loop ? tt : t, sg, x, y, size, tin, tout, { align: o.align || 'left', k: o.k || TYPE });
+  }
+}
+// cues for the SRT and the reading-time check (fully in ~0.3 s after the last line starts)
+window.CAPTIONS = (() => {
+  const cues = [];
+  for (const [id, segs, , , , tin, tout] of LINES) {
+    const text = segs.map((g) => g[0]).join('');
+    let c = cues.find((q) => q.id === id);
+    if (!c) { c = { id, lines: [], tin, tout, lastIn: tin }; cues.push(c); }
+    c.lines.push(text); c.tin = Math.min(c.tin, tin); c.tout = Math.min(c.tout, tout); c.lastIn = Math.max(c.lastIn, tin);
+  }
+  return cues.map((c) => ({ ...c, text: c.lines.join(' '), readFrom: c.lastIn + 0.3 }));
+})();
+// band windows: fully opaque 0.4 s before a caption's first line and until 0.3 s after its last line has left
+// (v1's band faded while type was still on it); the last window runs through the loop into the hook
+const CAPS = [[-0.4, 4.5], [6.55, 10.85], [16.85, T_END + 0.6]];
+const capOn = (t) => { let a = 0; for (const [a0, a1] of CAPS) a = Math.max(a, smooth((t - a0) / 0.35) * (1 - smooth((t - a1 + 0.35) / 0.35))); return a; };
+// v2: the band is fully opaque down to just below the lowest glyph row, and only fades below the type, so nothing on
+// the moving wall can ghost through a caption (v1's 90-94 % haze left a 6-10 % logo ghost under the hook).
+const BAND_OPAQUE = Math.ceil(Math.max(...LINES.filter((l) => !(l[7] && l[7].align)).map((l) => l[3] + l[4] * 0.3)) + 22);
+function scrim(L, t) {
+  // opacity follows the captions only; the colour follows the light (ivory, or the dark as it falls and lifts), so the
+  // band never lets the wall through while type is on it, even during the dive and the rebuild
+  const k = capOn(t), y1 = BAND_OPAQUE + LAY.fade;
+  if (k < 0.002) return;
+  const col = [mix(46, 248, L), mix(40, 246, L), mix(35, 239, L)].map(Math.round).join(',');
+  const g = ctx.createLinearGradient(0, BAND_OPAQUE, 0, y1);
+  g.addColorStop(0, `rgba(${col},${k})`); g.addColorStop(0.5, `rgba(${col},${0.62 * k})`); g.addColorStop(1, `rgba(${col},0)`);
+  ctx.fillStyle = `rgba(${col},${k})`; ctx.fillRect(0, 0, W, BAND_OPAQUE);
+  ctx.fillStyle = g; ctx.fillRect(0, BAND_OPAQUE, W, LAY.fade);
+  window.__band = { k, col };
+}
+window.BAND = { opaque: BAND_OPAQUE, fadeEnd: BAND_OPAQUE + LAY.fade };
+
+// The dark (4.0-6.5): we are inside the hole, not on a title card. A warm dark that deepens toward the far end of the
+// shaft (the vanishing point the ball fell into), the shaft's corner edges converging on it, faint rings of the shaft
+// wall drifting outward as the camera keeps sinking, and the ball's last glint at the far end.
+function drawDark(t, L, c) {
+  const k = 1 - L; if (k < 0.002) return;
+  const [cx, cy] = toScreen(c, VP[0], VP[1]);
+  ctx.save();
+  ctx.globalAlpha = k;
+  const g = ctx.createRadialGradient(cx, cy, 30, cx, cy, Math.hypot(W, H) * 0.62);
+  g.addColorStop(0, '#0B0A09'); g.addColorStop(0.32, '#1A1714'); g.addColorStop(1, '#463C33');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  const fw = 110, fh = 92;                                  // the far end of the shaft (half size, screen px)
+  const far = (s) => [cx - fw * s, cy - fh * s, 2 * fw * s, 2 * fh * s];
+  ctx.lineJoin = 'round';
+  // corner edges from the frame toward the far end
+  ctx.lineWidth = 2;
+  for (const [sx, sy] of [[0, 0], [W, 0], [0, H], [W, H]]) {
+    const ex = cx + Math.sign(sx - cx) * fw, ey = cy + Math.sign(sy - cy) * fh;
+    const lg = ctx.createLinearGradient(sx, sy, ex, ey); lg.addColorStop(0, 'rgba(225,205,175,0.24)'); lg.addColorStop(1, 'rgba(225,205,175,0)');
+    ctx.strokeStyle = lg; ctx.beginPath(); ctx.moveTo(sx, sy); ctx.lineTo(ex, ey); ctx.stroke();
+  }
+  // rings of the shaft wall: perspective scale 1/(1 - d), drifting outward (we keep sinking)
+  const drift = Math.max(0, t - 3.9) * 0.16;
+  for (let i = 0; i < 5; i++) {
+    const d = (i / 5 + drift) % 1, s = 1 / (1 - 0.86 * d), a = 0.13 * Math.sin(Math.PI * d);
+    const [x, y, w, h] = far(s);
+    ctx.lineWidth = 1.5 + 1.5 * d; ctx.strokeStyle = `rgba(225,205,175,${a.toFixed(3)})`;
+    ctx.beginPath(); ctx.roundRect(x, y, w, h, 14 * s); ctx.stroke();
+  }
+  // the ball's last glint, far down
+  const gl = clamp((t - 3.95) / 0.12) * (1 - smooth((t - 4.12) / 0.3));
+  if (gl > 0.01) {
+    ctx.globalAlpha = k * gl;
+    ctx.beginPath(); ctx.arc(cx, cy + 6, 6, 0, Math.PI * 2); ctx.fillStyle = '#7A0A0F'; ctx.fill();
+    ctx.beginPath(); ctx.arc(cx - 2, cy + 4, 1.8, 0, Math.PI * 2); ctx.fillStyle = 'rgba(255,220,210,0.9)'; ctx.fill();
+  }
+  ctx.restore();
+}
+
+// ---------- sound events (exported by tools/events.mjs; audio/score.py builds the music from these) ----------
+const EV = [];
+const cam0 = (t) => cam(t);
+const pan = (t, wx) => { const c = cam0(t); return clamp(((wx - c.x) * c.z) / 540, -1, 1); };
+EV.push({ t: 0, kind: 'kick', x: pan(0, CRADLE[0]) }, { t: T_R, kind: 'kick', x: pan(T_R, CRADLE[0]) });
+for (const h of HITS) EV.push({ t: h.t, kind: h.kind === 'st' ? 'station' : h.kind, id: h.id, pass: h.pass, v: Math.round(h.v), x: Math.round(pan(h.t, h.x) * 100) / 100 });
+EV.push({ t: T_MISS, kind: 'miss', id: 'reply' }, { t: 3.62, kind: 'fall' }, { t: 4.0, kind: 'cut' }, { t: 4.12, kind: 'gone' },
+  { t: 6.5, kind: 'light' }, { t: T_SNAP - SNAP_TAU, kind: 'slide' }, { t: T_SNAP, kind: 'snap' }, { t: T_SNAP + 0.5, kind: 'lock' },
+  { t: 7.9, kind: 'whip' }, { t: T_ENTER, kind: 'tube' }, { t: T_LAND, kind: 'land' }, ...TAPS.map((t) => ({ t, kind: 'tap' })),
+  { t: T_HATCH_OPEN, kind: 'hatch_open', x: pan(T_HATCH_OPEN, LOGO_C[0]) }, { t: T_HATCH_CLOSE, kind: 'hatch_close', x: pan(T_HATCH_CLOSE, LOGO_C[0]) },
+  { t: T_COCK, kind: 'cock', x: pan(T_COCK, CRADLE[0]) }, { t: T_MAP_OUT, kind: 'home' });
+EV.sort((a, b) => a.t - b.t);
+window.EVENTS = EV;
+window.CUES = { miss: T_MISS, cut: 4.0, light: 6.5, snap: T_SNAP, replay: T_R, kick2: T_KICK2, enter: T_ENTER, home: T_MAP_OUT, land: T_LAND,
+  hatch_open: T_HATCH_OPEN, hatch_close: T_HATCH_CLOSE, reset: T_RESET, cock: T_COCK, end: T_END };
+
+// ---------- frame ----------
+function seek(t) {
+  t = Math.min(t, T_END);
+  window.__logo = null; window.__band = null;
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.filter = 'none'; ctx.globalAlpha = 1; shadowOff();
+  const c = cam(t), L = light(t);
+  ctx.fillStyle = C.ivory; ctx.fillRect(0, 0, W, H);
+  drawWall(c, L);
+  drawWorld(t, c);
+  // light falloff: a soft top-left key, darker toward the corners
+  const vg = ctx.createRadialGradient(W * 0.38, H * 0.3, H * 0.2, W * 0.5, H * 0.5, H * 0.85);
+  vg.addColorStop(0, 'rgba(255,252,244,0.10)'); vg.addColorStop(1, 'rgba(60,45,30,0.16)');
+  ctx.fillStyle = vg; ctx.fillRect(0, 0, W, H);
+  drawDark(t, L, c);
+  scrim(L, t);
+  if (!NOCAP) captions(t, L);
+  if (!NOGRAIN) {
+    ctx.globalAlpha = 0.035; ctx.globalCompositeOperation = 'overlay';
+    for (let y = 0; y < H; y += 256) for (let x = 0; x < W; x += 256) ctx.drawImage(GRAIN, x, y);
+  }
+  ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
+  if (DEBUG) debug(t, c);
+}
+function debug(t, c) {
+  ctx.save(); ctx.setTransform(c.z, 0, 0, c.z, 540 - c.x * c.z, LAY.ay - c.y * c.z);
+  ctx.strokeStyle = 'rgba(0,120,255,0.6)'; ctx.lineWidth = 3 / c.z; ctx.beginPath();
+  for (let u = 0; u < T_END; u += 1 / 120) { const b = ball(u); if (b) (u ? ctx.lineTo(b.x, b.y) : ctx.moveTo(b.x, b.y)); }
+  ctx.stroke(); ctx.restore();
+  ctx.fillStyle = '#000'; setFont(MS(700, 40)); ctx.fillText(t.toFixed(2), 20, 60);
+}
+
+const faces = ['700 10px "Playfair Display"', 'italic 700 10px "Playfair Display"', 'italic 900 10px "Playfair Display"', '600 10px Montserrat', '700 10px Montserrat', '800 10px Montserrat'];
+await Promise.all(faces.map((f) => document.fonts.load(f)));
+const load = (src) => new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = no; i.src = src; });
+const LOGO = await load('assets/brand/logo-full.png');
+{ // the niche hugs the drawn mark (not the PNG's transparent margin)
+  const lh = LOGO.height * LOGO_W / LOGO.width, x = LOGO_C[0] - LOGO_W / 2, y = LOGO_C[1] - lh / 2, pad = 24;
+  const x0 = x + LOGO_W * LOGO_BOX.x0 - pad, x1 = x + LOGO_W * LOGO_BOX.x1 + pad, y0 = y + lh * LOGO_BOX.y0 - pad, y1 = y + lh * LOGO_BOX.y1 + pad;
+  NICHE = { x: x0, y: y0, w: x1 - x0, h: y1 - y0, r: 14 };
+}
+WALL = makeWall(); GRAIN = makeGrain();
+window.DURATION = T_END;
+window.__pathReport = () => ({ P2: P2.map((c) => ({ t: c.t, id: c.id, x: Math.round(c.x), y: Math.round(c.y), n: c.n && c.n.map((v) => +v.toFixed(2)) })), plates: Object.values(plates).map((p) => ({ id: p.id, ang: +(p.ang * 180 / Math.PI).toFixed(1), cx: Math.round(p.cxs), cy: Math.round(p.cys) })), pegs, HOLE, SNAP_TAU, T_ENTER });
+window.seek = seek;
+seek(0);
+</script>
+</body>
+</html>

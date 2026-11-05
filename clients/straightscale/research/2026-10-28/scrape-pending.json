@@ -1,0 +1,4 @@
+{"status": "refused by Apify: Too many outstanding invoices (28 Oct 2026)", "cost_usd": 0,
+ "actor": "apify/instagram-scraper",
+ "input": {"directUrls": ["https://www.instagram.com/florina.marketing/", "https://www.instagram.com/eri.businesscoach/", "https://www.instagram.com/ermalmamaqiofficial/", "https://www.instagram.com/hallakate/", "https://www.instagram.com/azothcreative/", "https://www.instagram.com/addoaesthetics/", "https://www.instagram.com/sabrisuby/"], "resultsType": "posts", "resultsLimit": 100, "onlyPostsNewerThan": "2026-07-28", "addParentData": false},
+ "callOptions": {"maxTotalChargeUsd": 3}}

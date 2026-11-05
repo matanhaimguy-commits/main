@@ -1,0 +1,859 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "title": "Client Brain",
+ "type": "object",
+ "required": [
+  "client",
+  "updated",
+  "business_model",
+  "offer",
+  "avatars",
+  "awareness",
+  "mechanism",
+  "belief_ladder",
+  "contrarian_vault",
+  "proof_bank",
+  "lead_magnets",
+  "voice",
+  "visual",
+  "market",
+  "constraints",
+  "baseline",
+  "package"
+ ],
+ "properties": {
+  "client": {
+   "type": "string"
+  },
+  "account": {
+   "type": "string",
+   "description": "The handle and a short line about the account, for example @name (Instagram), the page's language."
+  },
+  "hub": {
+   "type": "object",
+   "description": "Where this client folder posts in the hub (the Social Agent app).",
+   "properties": {
+    "business": {
+     "type": "string",
+     "minLength": 1,
+     "description": "The hub business slug when it differs from the folder (clients/straightscale-en posts as straightscale). hub.py and the studio commands default --business to it."
+    },
+    "note": {
+     "type": "string"
+    }
+   }
+  },
+  "updated": {
+   "type": "string"
+  },
+  "field_sources": {
+   "type": "object",
+   "description": "Where each fact came from, by dotted path into this brain (offer.main_offer, avatars[0].situation, voice.language). Value: a foundation doc with page, a website URL, an Instagram post, a review, 'Matan (Brand card, <date>)', or 'client intake'. A field with no source must hold 'unknown: <what is missing>'. Checked by tools/draft.py check.",
+   "additionalProperties": {
+    "type": "string",
+    "minLength": 3
+   }
+  },
+  "refresh_due": {
+   "type": "string"
+  },
+  "business_model": {
+   "type": "object",
+   "required": [
+    "sells",
+    "sales_process",
+    "capacity"
+   ],
+   "properties": {
+    "sells": {
+     "type": "string"
+    },
+    "price_notes": {
+     "type": "string"
+    },
+    "margin": {
+     "type": "string"
+    },
+    "capacity": {
+     "type": "string"
+    },
+    "sales_process": {
+     "type": "string"
+    }
+   }
+  },
+  "offer": {
+   "type": "object",
+   "required": [
+    "main_offer",
+    "next_step"
+   ],
+   "properties": {
+    "main_offer": {
+     "type": "string"
+    },
+    "next_step": {
+     "type": "string"
+    },
+    "keyword": {
+     "type": "string"
+    },
+    "delivers": {
+     "type": "string"
+    }
+   }
+  },
+  "avatars": {
+   "type": "array",
+   "minItems": 1,
+   "maxItems": 3,
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "name",
+     "role",
+     "situation",
+     "words",
+     "fears",
+     "desires"
+    ],
+    "properties": {
+     "id": {
+      "type": "string",
+      "pattern": "^AV-\\d{2}$"
+     },
+     "name": {
+      "type": "string"
+     },
+     "role": {
+      "type": "string"
+     },
+     "situation": {
+      "type": "string"
+     },
+     "keeps_up": {
+      "type": "string"
+     },
+     "words": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "tried": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "false_beliefs": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "desires": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "fears": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "identity": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "demand_map_file": {
+   "type": "string"
+  },
+  "awareness": {
+   "type": "object",
+   "required": [
+    "stage",
+    "sophistication"
+   ],
+   "properties": {
+    "stage": {
+     "type": "string"
+    },
+    "sophistication": {
+     "type": "string"
+    },
+    "notes": {
+     "type": "string"
+    }
+   }
+  },
+  "mechanism": {
+   "type": "object",
+   "required": [
+    "ump",
+    "ums",
+    "steps"
+   ],
+   "properties": {
+    "ump": {
+     "type": "string"
+    },
+    "ums": {
+     "type": "string"
+    },
+    "steps": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "big_idea": {
+     "type": "string"
+    },
+    "contrast_line": {
+     "type": "string"
+    }
+   }
+  },
+  "belief_ladder": {
+   "type": "array",
+   "minItems": 8,
+   "maxItems": 8,
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "statement",
+     "state"
+    ],
+    "properties": {
+     "id": {
+      "enum": [
+       "B1",
+       "B2",
+       "B3",
+       "B4",
+       "B5",
+       "B6",
+       "B7",
+       "B8"
+      ]
+     },
+     "statement": {
+      "type": "string"
+     },
+     "state": {
+      "enum": [
+       "held",
+       "not_held",
+       "unknown"
+      ]
+     }
+    }
+   }
+  },
+  "contrarian_vault": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "position",
+     "source"
+    ],
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "position": {
+      "type": "string"
+     },
+     "source": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "proof_bank": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "type",
+     "text",
+     "source",
+     "permission"
+    ],
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "type": {
+      "type": "string"
+     },
+     "text": {
+      "type": "string"
+     },
+     "source": {
+      "type": "string"
+     },
+     "permission": {
+      "enum": [
+       "yes",
+       "no",
+       "pending",
+       "internal_only"
+      ]
+     },
+     "date": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "lead_magnets": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "keyword",
+     "resource",
+     "live"
+    ],
+    "properties": {
+     "keyword": {
+      "type": "string"
+     },
+     "resource": {
+      "type": "string"
+     },
+     "delivers": {
+      "type": "string"
+     },
+     "live": {
+      "type": "boolean"
+     },
+     "funnel_id": {
+      "type": [
+       "string",
+       "null"
+      ]
+     },
+     "checks": {
+      "type": "object",
+      "description": "The five lead-magnet checks (config organic.json lead_magnet_checks), true or false each.",
+      "properties": {
+       "main_pain": {
+        "type": "boolean"
+       },
+       "one_thing": {
+        "type": "boolean"
+       },
+       "quick_win": {
+        "type": "boolean"
+       },
+       "leads_to_offer": {
+        "type": "boolean"
+       },
+       "low_friction": {
+        "type": "boolean"
+       },
+       "checked": {
+        "type": "string",
+        "description": "date checked"
+       }
+      },
+      "additionalProperties": false
+     }
+    }
+   }
+  },
+  "voice": {
+   "type": "object",
+   "required": [
+    "adjectives",
+    "language",
+    "register",
+    "banned"
+   ],
+   "properties": {
+    "adjectives": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "samples": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "banned": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "language": {
+     "type": "string"
+    },
+    "register": {
+     "type": "string"
+    }
+   }
+  },
+  "visual": {
+   "type": "object",
+   "required": [
+    "colors",
+    "fonts",
+    "logo_files",
+    "face"
+   ],
+   "properties": {
+    "colors": {
+     "type": "object"
+    },
+    "fonts": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "logo_files": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "face": {
+     "enum": [
+      "real_person",
+      "ai_character",
+      "faceless",
+      "mixed"
+     ]
+    },
+    "ai_label": {
+     "type": "string"
+    },
+    "real_footage": {
+     "type": "boolean"
+    },
+    "set": {
+     "type": "string"
+    },
+    "recurring_object": {
+     "type": "string"
+    },
+    "style_bible": {
+     "type": "string"
+    }
+   }
+  },
+  "market": {
+   "type": "object",
+   "required": [
+    "language",
+    "country"
+   ],
+   "properties": {
+    "language": {
+     "type": "string"
+    },
+    "country": {
+     "type": "string"
+    },
+    "city": {
+     "type": "string"
+    },
+    "timezone": {
+     "type": "string"
+    },
+    "events": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    }
+   }
+  },
+  "constraints": {
+   "type": "object",
+   "required": [
+    "cannot_say"
+   ],
+   "properties": {
+    "cannot_say": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "will_not_show": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "approver": {
+     "type": "string"
+    },
+    "turnaround_hours": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    }
+   }
+  },
+  "baseline": {
+   "type": "object",
+   "properties": {
+    "followers": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "reach_30d": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "median_views": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "saves": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "sends": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "dms": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "client_sources": {
+     "type": "string"
+    },
+    "as_of": {
+     "type": [
+      "string",
+      "null"
+     ]
+    }
+   }
+  },
+  "package": {
+   "type": "object",
+   "required": [
+    "posts_per_week",
+    "account_stage"
+   ],
+   "properties": {
+    "posts_per_week": {
+     "type": "integer"
+    },
+    "videos_per_month": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "carousels_per_month": {
+     "type": [
+      "integer",
+      "null"
+     ]
+    },
+    "stories": {
+     "type": "boolean"
+    },
+    "platforms": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "monthly_usd_cap": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0,
+     "description": "The owner's monthly Atlas Cloud generation cap in USD (G-BUDGET and the router count it; STANDARDS.md 10). null or missing: not set, so G-BUDGET fails every paid generation and the router routes with no budget filter, with a warning. Only the owner sets it."
+    },
+    "monthly_heygen_credit_cap": {
+     "type": [
+      "number",
+      "null"
+     ],
+     "minimum": 0,
+     "description": "The owner's monthly HeyGen credit cap for the twin (D-T5; G-BUDGET counts the ledger's heygen_credits against it). null or missing: not set, so G-BUDGET warns and logs the credits instead of failing. Only the owner sets it, from the measured cost."
+    },
+    "monthly_credit_cap": {
+     "type": "integer",
+     "description": "History: the monthly cap in Higgsfield credits from before the move to Atlas (28 Oct 2026). Nothing reads it for budgets now."
+    },
+    "account_stage": {
+     "enum": [
+      "new",
+      "growing",
+      "mature"
+     ]
+    },
+    "schedule": {
+     "type": "object",
+     "description": "When posts go out (the owner's cadence).",
+     "required": [
+      "days",
+      "time",
+      "timezone"
+     ],
+     "properties": {
+      "days": {
+       "type": "array",
+       "items": {
+        "enum": [
+         "Mon",
+         "Tue",
+         "Wed",
+         "Thu",
+         "Fri",
+         "Sat",
+         "Sun"
+        ]
+       },
+       "minItems": 1
+      },
+      "time": {
+       "type": "string",
+       "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$"
+      },
+      "timezone": {
+       "type": "string",
+       "description": "IANA zone, e.g. America/New_York"
+      },
+      "kind": {
+       "type": "string",
+       "description": "what goes out on those days (reel, carousel, any)"
+      }
+     }
+    },
+    "note": {
+     "type": "string"
+    }
+   }
+  },
+  "decisions_open": {
+   "type": "array",
+   "items": {
+    "type": "object",
+    "required": [
+     "id",
+     "question"
+    ],
+    "properties": {
+     "id": {
+      "type": "string"
+     },
+     "question": {
+      "type": "string"
+     },
+     "options": {
+      "type": "array",
+      "items": {
+       "type": "string"
+      }
+     },
+     "recommendation": {
+      "type": "string"
+     },
+     "interim": {
+      "type": "string"
+     },
+     "decided": {
+      "type": "object",
+      "description": "The owner's answer: the question stays for the record, the interim no longer applies.",
+      "required": [
+       "answer",
+       "by"
+      ],
+      "properties": {
+       "answer": {
+        "type": "string"
+       },
+       "by": {
+        "type": "string"
+       }
+      }
+     }
+    }
+   }
+  },
+  "messaging": {
+   "type": "object",
+   "description": "One way to describe the business that the DM bot, the website and captions all reuse. Only status 'approved' wording is used in posts.",
+   "required": [
+    "status"
+   ],
+   "properties": {
+    "status": {
+     "type": "string",
+     "description": "draft | approved (by the owner, with the date)"
+    },
+    "language": {
+     "type": "string"
+    },
+    "one_liner": {
+     "type": "string",
+     "description": "what we do and for whom, one sentence"
+    },
+    "pitch": {
+     "type": "string",
+     "description": "about 75 words: problem, mechanism, first step"
+    },
+    "value_props": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "maxItems": 3
+    },
+    "boilerplate": {
+     "type": "string",
+     "description": "the 'about us' paragraph for bios, site and DMs"
+    },
+    "voice_is": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "voice_is_not": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "sources": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     },
+     "description": "brain fields or approved docs each line comes from"
+    }
+   }
+  },
+  "host": {
+   "type": "object",
+   "description": "A digital twin that may host the client's content on cards marked twin_host.",
+   "required": [
+    "engine",
+    "looks",
+    "voices"
+   ],
+   "properties": {
+    "engine": {
+     "enum": [
+      "heygen"
+     ]
+    },
+    "speaks_as": {
+     "type": "string"
+    },
+    "looks": {
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "object",
+      "required": [
+       "id",
+       "orientation",
+       "fit"
+      ],
+      "properties": {
+       "id": {
+        "type": "string"
+       },
+       "name": {
+        "type": "string"
+       },
+       "kind": {
+        "type": "string"
+       },
+       "size": {
+        "type": "string"
+       },
+       "orientation": {
+        "enum": [
+         "portrait",
+         "landscape"
+        ]
+       },
+       "fit": {
+        "enum": [
+         "native",
+         "cover"
+        ]
+       }
+      }
+     }
+    },
+    "default_look": {
+     "type": "string"
+    },
+    "voices": {
+     "type": "array",
+     "minItems": 1,
+     "items": {
+      "type": "object",
+      "required": [
+       "id"
+      ],
+      "properties": {
+       "id": {
+        "type": "string"
+       },
+       "name": {
+        "type": "string"
+       }
+      }
+     }
+    },
+    "tools": {
+     "type": "array",
+     "items": {
+      "type": "string"
+     }
+    },
+    "cards": {
+     "type": "string"
+    },
+    "decided": {
+     "type": "string"
+    }
+   }
+  }
+ }
+}

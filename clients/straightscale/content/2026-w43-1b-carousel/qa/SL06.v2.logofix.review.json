@@ -1,0 +1,243 @@
+{
+ "gate": "G-VIS-SLIDE",
+ "asset_id": "SL06-W43-1b",
+ "version": 2,
+ "label": "logofix",
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "hero": false,
+ "reviewed_file": "sandbox /home/user/drafts/fixed/b6ed170a.jpg (1080x1350 JPEG, md5 d7e3e257f34796544ddd81541c421249)",
+ "compared_with": "v1 original /home/user/drafts/b6ed170a-3479-4798-9168-1b55ca081961.jpg (md5 3b91eb134740b44a4c3121471d2efa23, drawn logo); real logo /home/user/brand/straightscale-logo-light.png",
+ "spec_used": "Slide 6 of 7 (Mon 19 Oct), alt text 6: 'Një monedhë euro në këmbë mbi tavolinë. Numri 5: Sa të kthen çdo euro.' House slide frame and brand rules as for slide 2. Earlier QA removed a stray speck beside the ë of 'të'.",
+ "crops_dir": "/home/user/qa/W43-1b-set.v2/SL06 (Higgsfield sandbox, built by the reviewer with PIL/OpenCV)",
+ "crops_manifest": "clients/straightscale/content/2026-w43-1b-carousel/qa/crops/SL06.v2.logofix/manifest.json",
+ "files_opened": [
+  "full_720.jpg",
+  "tile_r1c1.jpg",
+  "tile_r1c2.jpg",
+  "tile_r1c3.jpg",
+  "tile_r2c1.jpg",
+  "tile_r2c2.jpg",
+  "tile_r2c3.jpg",
+  "tile_r3c1.jpg",
+  "tile_r3c2.jpg",
+  "tile_r3c3.jpg",
+  "diffmap_orig_vs_fixed.jpg",
+  "region_logozone_orig_vs_fixed_2x.jpg",
+  "region_logozone_clahe_orig_top_fixed_bottom_2x.jpg",
+  "region_logozone_band_orig_top_fixed_bottom_3x_gamma07.jpg",
+  "thumb_200.jpg",
+  "../SET/ref_logo_vs_pasted_all_slides_3x.jpg",
+  "region_SL06_kicker_2x.jpg",
+  "region_SL06_headline_2x.jpg",
+  "region_SL06_te_4x.jpg",
+  "region_SL06_subline_2x.jpg",
+  "region_SL06_coin_2x.jpg",
+  "region_SL06_counter_3x.jpg",
+  "region_SL06_arrow_3x.jpg"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "1-second read: '5 Sa të kthen çdo euro' over a euro coin standing on its edge, the red phone behind it. Sound off it reads 'number 5: what each euro brings back'."
+  },
+  {
+   "id": "V2",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Matches alt text 6: one euro coin standing upright on the table (region_SL06_coin_2x.jpg)."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "coin",
+   "evidence": "No invented number: the '1' and 'EURO' are the coin's own design, not a claim; the phone screen is dark. No em dash."
+  },
+  {
+   "id": "V4",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No people, hands or limbs in any of the 9 tiles."
+  },
+  {
+   "id": "V5",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No hands; still life."
+  },
+  {
+   "id": "V6",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No faces."
+  },
+  {
+   "id": "V7",
+   "result": "PASS",
+   "severity": "",
+   "region": "coin",
+   "evidence": "The coin stands on its rim with a contact point, a cast shadow to the left and a stretched reflection in the varnish (tile_r3c2.jpg, tile_r3c3.jpg); balanced, not floating."
+  },
+  {
+   "id": "V8",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "coin (x660-825, y780-1035)",
+   "evidence": "Pre-existing (same in v1). The €1 coin is rendered in one metal: centre and ring share the same brass hue (centre RGB 66/39/16 and 73/46/23, ring 106/61/18 and 113/68/23, R/G about 1.7 in both), while a real €1 coin has a silver-coloured centre inside a gold-coloured ring (region_SL06_coin_2x.jpg). The common-side design (large 1, EURO, map, lines with stars, designer initials) is otherwise right. A viewer who handles euros could notice; most will read 'a euro coin'."
+  },
+  {
+   "id": "V9",
+   "result": "PASS",
+   "severity": "",
+   "region": "kicker, headline, subline",
+   "evidence": "Read at 2x and 4x. Kicker: N-U-M-R-I / I / P-E-S-T-Ë. Headline (region_SL06_headline_2x.jpg): [5 in crimson box] S-a / t-ë / k-t-h-e-n // ç-d-o / e-u-r-o = 'Sa të kthen çdo euro' as in the alt text, cedilla on the ç. Subline: T-ë / a-r-d-h-u-r-a-t / n-g-a / k-ë-t-a / k-l-i-e-n-t-ë, // p-j-e-s-ë-t-u-a-r / m-e / s-h-p-e-n-z-i-m-i-n. Every ë has two dots; comma and full stop correct. No misspelling, no em dash. The stray speck that earlier QA removed beside the ë of 'të' is still gone (region_SL06_te_4x.jpg, region_SL06_headline_2x.jpg; a speck search of the text area finds only the box corners and window bokeh)."
+  },
+  {
+   "id": "V10",
+   "result": "PASS",
+   "severity": "",
+   "region": "kicker, headline, subline",
+   "evidence": "The text is the house overlay, set on the calm dark wall area left of the window (region_SL06_headline_2x.jpg, tile_r1c1.jpg). Nothing in the scene sits in front of a letter and no letter is painted onto a prop, skin or cloth."
+  },
+  {
+   "id": "V11",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No unwanted text: the coin's legend is its real design; no signage or screen text."
+  },
+  {
+   "id": "V12",
+   "result": "PASS",
+   "severity": "",
+   "region": "coin",
+   "evidence": "The story prop is present, large and in focus."
+  },
+  {
+   "id": "V13",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone",
+   "evidence": "Deep red case (out of focus behind the coin), same phone look. Coin accuracy is under V8."
+  },
+  {
+   "id": "V14",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Only the coin and the phone; nothing unexplained."
+  },
+  {
+   "id": "V15",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No characters, so no character sheet applies."
+  },
+  {
+   "id": "V16",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone",
+   "evidence": "Phone lies dark in the background: the story's focus moved to the euro, consistent with the thread."
+  },
+  {
+   "id": "V17",
+   "result": "PASS",
+   "severity": "",
+   "region": "set",
+   "evidence": "Same set: table by the window, plaza and clock tower."
+  },
+  {
+   "id": "V18",
+   "result": "PASS",
+   "severity": "",
+   "region": "frame",
+   "evidence": "1080x1350 (4:5). Kicker y63-81; headline two lines y168-345; subline y374-444; left margin ~100 px; counter '6/7' x934-980, y52-76; arrow x929-987, y1232-1291 (centre 1261.5); logo x98-393, y1238-1295 (centre 1266.5). Logo and arrow on one line (5 px apart). All content inside the frame."
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200.jpg",
+   "evidence": "At 200 px the headline and the standing coin read clearly."
+  },
+  {
+   "id": "V20",
+   "result": "N/A",
+   "severity": "",
+   "region": "background",
+   "evidence": "Still life with no people in the scene; the window background is alive enough for the format (street lamps, lit facades, wet plaza with reflections, out-of-focus cars), the same on every slide."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Tirana at night, warm tungsten, ivory type (#FAF8F3), crimson box #A70D15, arrow #A41116, gold in the counter (#CB9944) and the logo's square; the coin's brass is a scene material, not graphic colour."
+  },
+  {
+   "id": "V22",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Photoreal night interior: wood grain with specular highlights, bokeh street lights, wet plaza, fine grain (tiles r2c3, r3c2). No plastic or CG look."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "logo zone, text area",
+   "evidence": "No artefacts: the real logo lands on v1's drawn footprint (only 92 px refilled outside it); grain continuous at 2x, 3x gamma and CLAHE (region_logozone_orig_vs_fixed_2x.jpg, region_logozone_band_orig_top_fixed_bottom_3x_gamma07.jpg, region_logozone_clahe_orig_top_fixed_bottom_2x.jpg); no seam, smear or blotch. Outside the zone only JPEG noise (max 28, mean 1.06). No stray specks in the text area."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "bottom-left logo zone, props",
+   "evidence": "Logo is the real file (../SET/ref_logo_vs_pasted_all_slides_3x.jpg, region_logozone_orig_vs_fixed_2x.jpg): red rounded square with the S-shaped channel, gold square in the top-right notch, white 'StraightScale' wordmark, identical to /home/user/brand/straightscale-logo-light.png. Fitting the real file at 295x57 at (98,1238) gives a mean absolute difference of 7.13 levels over its opaque pixels (the same 7.1 to 7.2 on all seven slides, i.e. one file at one scale); the opaque extent measures 291x54 px (aspect 5.39) vs the file's alpha bbox 1501x279 (5.38), so it is undistorted; edges crisp at 3x. No remnant of the v1 drawn logo: the plain white 'S' block and the drawn wordmark are gone, no ghost letters, no red or gold fragment in the cleared area (0 red and 0 gold pixels outside the pasted logo in the change zone; boosted and CLAHE views show only wood grain). No other brand's mark anywhere: the coin (currency design, not a brand) or phone carries no maker logo."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No before and after, no 'your [condition]', nothing that shames; the copy is a neutral instruction."
+  },
+  {
+   "id": "V26",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No AI person in the frame. Photoreal AI scene: STANDARDS.md section 7 asks for Instagram's own AI label on the post (a posting setting, not visible in the image); no burned-in AI tag is present, which is correct."
+  }
+ ],
+ "defects_summary": {
+  "critical": 0,
+  "major": 0,
+  "minor": 1,
+  "items": [
+   "V8 minor, coin (x660-825, y780-1035): 1 euro coin rendered in one metal (no silver centre) (pre-existing)"
+  ]
+ },
+ "fix": {
+  "route": "none",
+  "prompt_changes": [],
+  "optional_edits": [
+   "If the slide is regenerated for another reason, add to the prop line: 'a real 1 euro coin: silver-coloured centre inside a gold-coloured outer ring'."
+  ]
+ },
+ "notes": [
+  "Set-level finding (see SET.v2.logofix.review.json): the real logo is the same file and size on every slide but its vertical position varies by 50 px across the set (y1189 to y1239). The G-SET fix re-places the logo at one fixed box on every slide; each re-placed file is a new version and needs its own review.",
+  "No new hosted URLs for slides 2 to 7 were in the packet or the repo. hosted.json still lists the v1 originals: in the sandbox, each hosted.json URL downloads byte-identical to the v1 original (md5 match), not to the fixed file. Point the hub at the fixed files' URLs and md5-check them against reviewed_file before posting."
+ ]
+}

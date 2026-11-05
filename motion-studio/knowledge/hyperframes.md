@@ -695,7 +695,8 @@ export HYPERFRAMES_NO_TELEMETRY=1 DO_NOT_TRACK=1 HYPERFRAMES_SKIP_SKILLS=1   # l
 HF="npx -y hyperframes@0.8.150"          # pin; first call installs in ~14 s
 $HF --version && $HF doctor              # doctor: 4 s; flags whisper/Kokoro/MusicGen/Chrome/Docker
 $HF browser ensure                       # 5 s: downloads pinned chrome-headless-shell 152 from storage.googleapis.com
-# alternative: export HYPERFRAMES_BROWSER_PATH=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell  (Chrome 141, worked)
+# alternative: export HYPERFRAMES_BROWSER_PATH=<the preinstalled headless shell>; the version folder changes
+#   between containers (1194 on 12 Oct, 1243 on 5 Nov). setup.sh prints the right path; tools/browser_path.mjs finds it.
 $HF init my-reel --non-interactive --resolution portrait     # 2 s; writes index.html, hyperframes.json, package.json (pins the version), CLAUDE.md
 DL=$(mktemp -d) && (cd "$DL" && npm pack gsap@3.14.2 && tar xzf gsap-3.14.2.tgz) \
   && mkdir -p my-reel/assets/vendor && cp "$DL/package/dist/gsap.min.js" my-reel/assets/vendor/
@@ -842,6 +843,13 @@ implementation of this whole loop.
 23. **`data-start="intro-0.5"` without spaces** silently resolves to 0; snapshot reference-timed clips.
 24. **Do not run `npx skills add ... --all` inside a HyperFrames checkout** (it deletes `skills/` dirs),
     and never modify `references/`.
+25. **`check` and `snapshot` seek without firing GSAP callbacks** (5 Nov). Anything painted from `onUpdate`
+    goes stale under `check`. Drive frame-dependent state from a GSAP setter tween (a proxy object whose
+    `set` paints), which runs on every seek.
+26. **`visibility: visible` inside a hidden parent shows after a backwards seek** (5 Nov). Show and hide
+    with `display` (or `autoAlpha` on the element itself), never by toggling a child's visibility.
+27. **A timeline registered after an async step renders as "zero duration"** (5 Nov: registered after
+    `document.fonts.ready`). Register the build through `window.__hf.buildReady` so the renderer waits.
 
 ---
 

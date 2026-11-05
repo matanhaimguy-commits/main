@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "SL06",
+ "version": 1,
+ "prompt_sha256": "1679c361492516a1727c4e1d2a3d74fc691e125fe03597daeb1fe94c5de274fb",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Three folders, phone in stand, arrow, 6 strings incl. '6/8', window with clock tower, wide camera and must_not lines all present"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'Image 1 ... style reference. Image 2 is the approved cover ... Image 3 is the approved slide 2' matches upload order"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'Hands: no hands and no people are visible in the frame.'"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'The three folders lie in one pile with their edges aligned and their whole backs flat on the table; the phone stands in its stand beside them'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Folders content given: 'exactly three closed matte dark-grey card folders ... thin dark seam between the layers, no labels, no tabs with text, no logo'"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "Strings 'Furnitorë që s'flasin', 'me njëri-tjetrin.', 'Në vend të kësaj:', 'një plan', 'për të gjithë.', '6/8' quoted with position, size, colour, occlusion; spelling covers Furnitorë, që, njëri-tjetrin, Në, të, kësaj, një, për, gjithë"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'The clock tower is a small lit silhouette with a plain clock face: no numerals, no letters; the window glass reflects no text; no shop signs'; folders have no labels"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Window at 42-62% height starts below the text block (ends 39%); no instructions conflict"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'Carry-over: The phone is small and quiet in its stand beside the folders; farther from the camera than the previous slide; same table.' matches spec"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Prompt opens 'Instagram carousel slide, portrait 4:5.'; call settings gpt_image_2_5, 4:5, 2k, medium, flare, image_references match standards.json; no video fields apply"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "'card folders' with 'three layers' and 'pile about 6 cm high' reads as paper folders, not computer folders; no two-way word"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-01/03/04/05/10/13 prevented: calm hand-free text zone, contact points, filled screen props, plain walls, 'Bottom-left corner ... no logo, no letters, no objects (a logo is added later)'"
+  }
+ ],
+ "corrected_prompt": null
+}

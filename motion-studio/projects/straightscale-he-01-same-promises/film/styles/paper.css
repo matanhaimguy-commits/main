@@ -1,0 +1,27 @@
+/* Everything made of paper on the desk: the marble, the slips, the ink, the sticker, the viewer's slip, the tape. */
+.desk { position: absolute; z-index: 0; background-color: var(--marble); background-repeat: repeat, no-repeat; }
+.slip-wrap { position: absolute; left: 0; top: 0; width: 0; height: 0; }
+.slip { position: absolute; background-color: var(--ivory); background-size: 256px 256px; padding: 30px 38px 34px; border-radius: 3px; }
+.slip-back { background-color: #EFEADF; }
+.slip-text { font-family: "Heebo", sans-serif; font-weight: 500; font-size: 52px; line-height: 1.22; color: var(--char); width: max-content; max-width: 600px; text-align: right; }
+.print { position: absolute; display: flex; align-items: center; justify-content: center; border: 9px solid var(--red); border-radius: 20px; color: var(--red); mix-blend-mode: multiply; -webkit-mask-size: 100% 100%; mask-size: 100% 100%; }
+.print::after { content: ""; position: absolute; left: 7px; top: 7px; right: 7px; bottom: 7px; border: 3px solid var(--red); border-radius: 11px; }
+.print-word { font-family: "Frank Ruhl Libre", serif; font-weight: 900; font-size: 112px; line-height: 1; white-space: nowrap; padding-top: 4px; }
+.sticker-wrap { position: absolute; left: 0; top: 0; width: 0; height: 0; }
+.sticker { position: absolute; left: -150px; top: -78px; width: 300px; height: 156px; display: flex; align-items: center; justify-content: center; padding-left: 64px; clip-path: polygon(0 50%, 64px 0, 100% 0, 100% 100%, 64px 100%); background: linear-gradient(150deg, #E8A925 0%, var(--gold) 42%, #C98A08 100%); }
+.sticker-hole { position: absolute; left: 32px; top: 64px; width: 28px; height: 28px; border-radius: 50%; background: #8A5F0A; box-shadow: inset 2px 3px 4px rgba(0, 0, 0, 0.45); }
+.sticker-text { direction: rtl; font-family: "Heebo", sans-serif; font-weight: 800; font-size: 124px; line-height: 1; color: var(--char); letter-spacing: 0.02em; }
+.viewer { padding: 34px 50px 46px; }
+.v-label { font-family: "Heebo", sans-serif; font-weight: 500; font-size: 56px; line-height: 1.2; color: var(--ink2); text-align: right; margin-bottom: 24px; }
+.v-name { position: relative; font-family: "Heebo", sans-serif; font-weight: 700; font-size: 60px; line-height: 1.25; color: var(--hold); text-align: right; margin-bottom: 22px; }
+.v-name-text { display: inline-block; }
+.tape { position: absolute; right: -35px; top: -12px; height: 96px; background-color: #E9DEC4; clip-path: polygon(0 4%, 3% 0, 97% 2%, 100% 6%, 98% 22%, 100% 40%, 98% 60%, 100% 80%, 97% 100%, 3% 98%, 0 94%, 2% 76%, 0 56%, 2% 36%, 0 18%); }
+.finger-shadow { position: absolute; right: -560px; top: -98px; width: 900px; height: 324px; filter: blur(5px); transform-origin: 4% 42%; overflow: visible; }
+.v-head { font-family: "Heebo", sans-serif; font-weight: 500; font-size: 74px; line-height: 1.25; min-height: 93px; white-space: nowrap; color: var(--hold); text-align: right; }
+.v-head-text.typed { color: var(--char); }
+.caret { display: inline-block; width: 7px; height: 82px; background: var(--char); vertical-align: -12px; margin-right: 4px; }
+.hand-wrap { position: absolute; left: 0; top: 0; width: 900px; height: 324px; z-index: 310; transform-origin: 0 0; }   /* above the stamp: it is the hand's shadow on it */
+.hand-wrap > .finger-shadow { position: absolute; left: 0; top: 0; right: auto; }
+.v-strike { position: absolute; right: 50px; top: 0; height: 6px; background: var(--char); border-radius: 3px; }
+.v-rule { height: 4px; margin-top: 10px; background: var(--char); transform-origin: right center; }
+.v-tag { position: absolute; left: 44px; top: 28px; font-family: "Heebo", sans-serif; font-weight: 700; font-size: 56px; line-height: 1.2; color: var(--char); border: 3px solid var(--char); border-radius: 12px; padding: 0 18px 2px; }

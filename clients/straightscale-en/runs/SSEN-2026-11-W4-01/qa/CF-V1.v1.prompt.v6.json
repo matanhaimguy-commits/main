@@ -1,0 +1,73 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CF-V1",
+ "version": 1,
+ "prompt_sha256": "f5c4efea80004d1ea89e7ca54b63e0b2644f8b946dd3200a0feb0f94eb5c63e2",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Every spec subject, prop, text, region and must_not appears: 'The calendar: 2 rows by 4 columns of wide flat rounded cream clay tiles', 'plump thumb-pressed clay hearts in heart red #D64545', '\"BOOK A CALL\"'; all 11 blocks present."
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'References: none attached (text to image).' matches attached media: none; the spec says no sheet yet."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'Hands: no hands visible.' matches spec 'hands: none visible'."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'the hearts lie flat against the screen surface in one low pile under the calendar, each resting on the screen or on the heart under it; nothing touches the band, the letters or the calendar tiles.'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Both story props filled: 'every tile empty: no digits, no names, no marks'; hearts with colour, size, box. Negatives are targeted, none is a blanket 'no text'."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "'\"BOOK A CALL\" on the cream band at the top of the screen, deep ink #2B2A33 letters, centred, at x 14% to 86%, y 31.5% to 36%; nothing covers any letter.' 3 words, one surface."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'no signs, frames, posters or other screens; the only writing is the quoted text.' The one screen is the subject and has its content rule."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Geometry checks out on 1152x2048: calendar box about 806x184 px gives cells about 200x92 px, matching 'about twice as wide as tall'; hearts 4.5% of width (about 52 px) fit a row at most 5% of height (about 102 px) inside the 8-60% box. No conflicting statements."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'Continuity: first frame of the reel; nothing carried over.' matches previous_shot null."
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Call openai/gpt-image-2/text-to-image, quality medium, size 1152x2048 is listed in standards.json atlas.allowed for still, with size_for_aspect 9:16 -> 1152x2048; prompt says 'Vertical 9:16 frame'. Image asset, so the video rules are N/A."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "Tiles, hearts and band are given as percentages and a ratio; the earlier 'squares' and '6%' ambiguity is gone. 'low row, one heart high with a few resting on top' is bounded by 'never taller than 5% of the frame height'."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-03 contact points present; FL-04 content lines present with targeted negatives; FL-05/FL-10 covered by the background rule and 'the only writing is the quoted text'; FL-13 logo is excluded by 'no logo, wordmark or real app name or app icon anywhere'; FL-01/06/08/09/11/12 N/A (no hands, people or video)."
+  }
+ ],
+ "corrected_prompt": null,
+ "notes": "Producer reasoning: none seen. Minor (not a fail): the terracotta rim and the thin ink line under the band are in the prompt but not in the spec; both are in the palette and sit at or below 30%."
+}

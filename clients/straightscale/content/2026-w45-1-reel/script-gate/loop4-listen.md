@@ -1,0 +1,22 @@
+## Line by line
+
+| Line | What I think is going on now | The question I have now | Wait: who, what or when? | Still watching? |
+|---|---|---|---|---|
+| **L1** *"Telefoni nuk bie, por s'është prishur, dhe as sezoni s'e ka fajin. Po klienti yt i fundit, nga erdhi?"* | Someone is saying my exact words: "telefoni nuk bie." He knows that I blame the season, and he says that's not it. Then he asks where my last client came from. I actually think about it. One came from a referral, and before that one came from Instagram. | If it's not the season, then what is it? | Who is talking? There's no name and no business, just a voice. | **Yes.** The first three words are my own problem, and he took away my usual excuse, so I want the real one. *Native ear:* "dhe as sezoni" is a bit heavy. People would just say "as sezoni s'e ka fajin." There are three negatives in one breath ("nuk bie… s'është… s'e ka"), and on one hearing they blur a little. "Po" at the start is fine and conversational. |
+| **L2** *"Nga një rekomandim? Atëherë biznesi yt rri e pret tjetrin."* | He's guessing that my last client was a referral, and he's saying that means I'm just sitting and waiting for the next one. | Fine, but what's wrong with referrals? Those are my best clients. And what if my last one came from Instagram? Does this not apply to me? | "Tjetrin": the next what? The next client or the next referral? I figure it's the client, but only after a second. | **Maybe.** It stings a little. I don't "rri e pret." I paid for ads, boosted posts, and hired a freelancer. He's talking as if I never tried anything. If my last client had come from Instagram, I'd probably scroll here, because he guessed wrong about me. |
+| **L3** *"Pra, s'është sezoni. Është pritja."* | He's concluding that the problem is "the waiting." | OK, so what do I do instead of waiting? Ads? I did ads. | "Pritja." To my ear this word also means *reception*, how you receive clients ("pritja e klientëve"). For half a second I thought he meant how we handle people when they come in or write to us, which is actually my problem ("na shkruajnë po nuk blejnë"). Then I realised he means waiting. That's a real double meaning. Also, "s'është sezoni" was already said in L1, so it's a repeat and not new information. | **Maybe, leaning yes.** I'm staying only because I expect the next line to tell me the fix. The "Pra" feels like a trick: he drew a conclusion from his own guess about me. |
+| **L4** *"Dërgoja ortakut, kur të thotë 'është sezoni'."* | That's the end. He wants me to send this to my partner the next time they blame the season. | That's it? Where's the answer? What replaces the waiting? | **What:** no solution was given. **Who:** I still don't know who made this. **Who #2:** "ortakut." Not every owner has a business partner, and in my shop I'm often the one who says "është sezoni." *Native ear:* "Dërgoja" heard aloud can sound like imperfect "unë dërgoja" ("I used to send"), so it takes a beat to hear it as "send it to him." "Kur të thotë" is understandable but a little stiff; "herën tjetër që të thotë" sounds more natural. | **No.** The reel ended on a homework task for someone else. I feel cut off, like I watched the first half of something. |
+
+## After
+
+**1. Retell (4 sentences)**
+The phone doesn't ring, and it's not because of the season. It happens because the business depends on referrals and just waits for the next client. The reel doesn't tell me what to do about it, except that I should stop waiting. It asks me to send the reel to my partner the next time they blame the season.
+
+**2. The doubt still in my head**
+"Don't wait." Fine, but then do *what*? I already tried ads, boosting, and a freelancer. This sounds like the start of another pitch where the answer will be "pay me to run your marketing," and I've heard that before. He also didn't touch my other problems: the ad money disappearing, and people writing to us but not buying.
+
+**3. Would I send it?**
+**No.** It doesn't help my partner do anything. It only gives me a line to win an argument, and that starts a fight without fixing the phone.
+
+**4. Most confusing moment**
+**L3, "Është pritja."** The whole reel builds to this one word. It's abstract, it can also mean "reception / how you treat clients," and it's a diagnosis that comes right before the reel ends with no fix. It's the moment I most need something concrete, and instead I get one ambiguous noun.

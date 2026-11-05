@@ -1,0 +1,239 @@
+{
+ "gate": "G-VIS-SLIDE",
+ "asset_id": "SL03-W43-1b",
+ "version": 2,
+ "label": "logofix",
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "hero": false,
+ "reviewed_file": "sandbox /home/user/drafts/fixed/3cdfd95e.jpg (1080x1350 JPEG, md5 ce10867ca9377be4db08695ea67078d9)",
+ "compared_with": "v1 original /home/user/drafts/3cdfd95e-3e25-416f-92db-f864a75bc004.jpg (md5 cc9e0170c46e12057adf550236b5938a, drawn logo); real logo /home/user/brand/straightscale-logo-light.png",
+ "spec_used": "Slide 3 of 7 (Mon 19 Oct), alt text 3: 'Telefon me mesazhe mbi recepsion. Numri 2: Sa kërkesa erdhën.' House slide frame and brand rules as for slide 2 (style-bible.md, brand-kit.md).",
+ "crops_dir": "/home/user/qa/W43-1b-set.v2/SL03 (Higgsfield sandbox, built by the reviewer with PIL/OpenCV)",
+ "crops_manifest": "clients/straightscale/content/2026-w43-1b-carousel/qa/crops/SL03.v2.logofix/manifest.json",
+ "files_opened": [
+  "full_720.jpg",
+  "tile_r1c1.jpg",
+  "tile_r1c2.jpg",
+  "tile_r1c3.jpg",
+  "tile_r2c1.jpg",
+  "tile_r2c2.jpg",
+  "tile_r2c3.jpg",
+  "tile_r3c1.jpg",
+  "tile_r3c2.jpg",
+  "tile_r3c3.jpg",
+  "diffmap_orig_vs_fixed.jpg",
+  "region_logozone_orig_vs_fixed_2x.jpg",
+  "region_logozone_clahe_orig_top_fixed_bottom_2x.jpg",
+  "region_logozone_band_orig_top_fixed_bottom_3x_gamma07.jpg",
+  "thumb_200.jpg",
+  "../SET/ref_logo_vs_pasted_all_slides_3x.jpg",
+  "region_logo_changezone_3x_4views.jpg",
+  "region_SL03_kicker_2x.jpg",
+  "region_SL03_headline_2x.jpg",
+  "region_SL03_subline_2x.jpg",
+  "region_SL03_phone_screen_2x.jpg",
+  "region_SL03_statusbar_5x.jpg",
+  "region_SL03_counter_3x.jpg",
+  "region_SL03_arrow_3x.jpg"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "1-second read: '2 Sa kërkesa erdhën' over a red-cased phone whose screen is full of message bubbles, on a reception desk with a brass lamp and a desk bell. Sound off it reads 'number 2: how many requests came in'."
+  },
+  {
+   "id": "V2",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Matches alt text 3: a phone with messages (region_SL03_phone_screen_2x.jpg) on a reception desk (desk bell and lamp, tile_r2c2.jpg, tile_r2c3.jpg)."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone screen",
+   "evidence": "No invented number: the bubbles carry no words or figures. The only screen figure is the status-bar clock (about '9:41', 6 px tall, region_SL03_statusbar_5x.jpg), standard phone UI and not a claim, count or result. No em dash."
+  },
+  {
+   "id": "V4",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No people, hands or limbs in any of the 9 tiles."
+  },
+  {
+   "id": "V5",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No hands; still life."
+  },
+  {
+   "id": "V6",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No faces."
+  },
+  {
+   "id": "V7",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone, lamp",
+   "evidence": "The phone lies flat with a contact shadow and a soft reflection; the lamp stands on its base on the desk; the bell sits on the counter (tiles r2c2, r2c3, r3c2)."
+  },
+  {
+   "id": "V8",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone",
+   "evidence": "Phone structure is right: status bar with clock, signal, wi-fi and battery at the top edge, Lightning/USB port and two speaker grilles at the bottom edge, volume buttons on the left long edge (region_SL03_phone_screen_2x.jpg, tile_r3c1.jpg, tile_r3c2.jpg). Incoming bubbles have tails on the left; a typing indicator closes the thread."
+  },
+  {
+   "id": "V9",
+   "result": "PASS",
+   "severity": "",
+   "region": "kicker, headline, subline",
+   "evidence": "Read at 2x. Kicker: N-U-M-R-I / I / D-Y-T-Ë. Headline: [2 in crimson box] S-a / k-ë-r-k-e-s-a // e-r-d-h-ë-n = 'Sa kërkesa erdhën' as in the alt text. Subline: M-e-s-a-z-h-e, / t-e-l-e-f-o-n-a-t-a, / f-o-r-m-u-l-a-r-ë: // ç-d-o / n-j-e-r-i / q-ë / p-y-e-t-i. Every ë has two dots, ç has its cedilla; punctuation comma, comma, colon, full stop. No misspelling, no em dash."
+  },
+  {
+   "id": "V10",
+   "result": "PASS",
+   "severity": "",
+   "region": "kicker, headline, subline",
+   "evidence": "The text is the house overlay, set on the calm dark wall area left of the window (region_SL03_headline_2x.jpg, tile_r1c1.jpg). Nothing in the scene sits in front of a letter and no letter is painted onto a prop, skin or cloth."
+  },
+  {
+   "id": "V11",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No unwanted text: the bubbles are wordless grey shapes, the status bar is ordinary UI, there is no signage in the window and nothing on the lamp or bell."
+  },
+  {
+   "id": "V12",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone screen",
+   "evidence": "The story prop has its content: seven incoming message bubbles and a typing indicator fill the screen ('requests coming in'), with no invented words."
+  },
+  {
+   "id": "V13",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone",
+   "evidence": "Deep red case as in the style bible; same phone model look as slides 2, 4 and 5."
+  },
+  {
+   "id": "V14",
+   "result": "PASS",
+   "severity": "",
+   "region": "background",
+   "evidence": "Desk bell and brass lamp support the 'reception' setting; nothing unexplained."
+  },
+  {
+   "id": "V15",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No characters, so no character sheet applies."
+  },
+  {
+   "id": "V16",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone",
+   "evidence": "Thread state fits the story: messages piling up on slide 3, after the silent dark phone on slide 2."
+  },
+  {
+   "id": "V17",
+   "result": "PASS",
+   "severity": "",
+   "region": "set",
+   "evidence": "Same set: table by the tall window, plaza and clock tower in the right third (tile_r1c3.jpg)."
+  },
+  {
+   "id": "V18",
+   "result": "PASS",
+   "severity": "",
+   "region": "frame",
+   "evidence": "1080x1350 (4:5). Kicker y63-80; headline two lines y155-324; subline y365-432, left margin ~100 px; counter '3/7' x936-981, y52-77; arrow x929-987, y1232-1291 (centre 1261.5); logo x98-393, y1239-1296 (centre 1267.5, bottom margin 54 px). Logo and arrow sit on one line (6 px apart). All content inside the frame."
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200.jpg",
+   "evidence": "At 200 px the two-line headline and crimson '2' read; the phone with bubbles is clear."
+  },
+  {
+   "id": "V20",
+   "result": "N/A",
+   "severity": "",
+   "region": "background",
+   "evidence": "Still life with no people in the scene; the window background is alive enough for the format (street lamps, lit facades, wet plaza with reflections, out-of-focus cars), the same on every slide."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Tirana at night, warm tungsten from the brass lamp, near-black wall, ivory type (#FBF8F2), crimson box #AE0D15, arrow #A91117, gold only in the counter (#D4A24E) and the logo's gold square, red-cased phone."
+  },
+  {
+   "id": "V22",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Photoreal night interior: wood grain with specular highlights, bokeh street lights, wet plaza, fine grain (tiles r2c3, r3c2). No plastic or CG look."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "logo zone and full frame",
+   "evidence": "No artefacts. The real logo lands almost on v1's drawn footprint, so only 194 px outside the new logo were refilled; at 2x, 3x gamma and CLAHE (region_logozone_orig_vs_fixed_2x.jpg, region_logozone_band_orig_top_fixed_bottom_3x_gamma07.jpg, region_logozone_clahe_orig_top_fixed_bottom_2x.jpg, region_logo_changezone_3x_4views.jpg) the wood grain runs straight through with no blur patch, seam or blotch. Outside the zone the file differs from v1 only by JPEG noise (max 27, mean 1.0). No stray specks in the text area."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "bottom-left logo zone, props",
+   "evidence": "Logo is the real file (../SET/ref_logo_vs_pasted_all_slides_3x.jpg, region_logozone_orig_vs_fixed_2x.jpg): red rounded square with the S-shaped channel, gold square in the top-right notch, white 'StraightScale' wordmark, identical to /home/user/brand/straightscale-logo-light.png. Fitting the real file at 295x57 at (98,1239) gives a mean absolute difference of 7.11 levels over its opaque pixels (the same 7.1 to 7.2 on all seven slides, i.e. one file at one scale); the opaque extent measures 291x54 px (aspect 5.39) vs the file's alpha bbox 1501x279 (5.38), so it is undistorted; edges crisp at 3x. No remnant of the v1 drawn logo: the plain white 'S' block and the drawn wordmark are gone, no ghost letters, no red or gold fragment in the cleared area (0 red and 0 gold pixels outside the pasted logo in the change zone; boosted and CLAHE views show only wood grain). No other brand's mark anywhere: the phone (screen-up, no maker mark), desk lamp or bell carries no maker logo."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No before and after, no 'your [condition]', nothing that shames; the copy is a neutral instruction."
+  },
+  {
+   "id": "V26",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No AI person in the frame. Photoreal AI scene: STANDARDS.md section 7 asks for Instagram's own AI label on the post (a posting setting, not visible in the image); no burned-in AI tag is present, which is correct."
+  }
+ ],
+ "defects_summary": {
+  "critical": 0,
+  "major": 0,
+  "minor": 0,
+  "items": []
+ },
+ "fix": {
+  "route": "none",
+  "prompt_changes": []
+ },
+ "notes": [
+  "Set-level finding (see SET.v2.logofix.review.json): the real logo is the same file and size on every slide but its vertical position varies by 50 px across the set (y1189 to y1239). The G-SET fix re-places the logo at one fixed box on every slide; each re-placed file is a new version and needs its own review.",
+  "No new hosted URLs for slides 2 to 7 were in the packet or the repo. hosted.json still lists the v1 originals: in the sandbox, each hosted.json URL downloads byte-identical to the v1 original (md5 match), not to the fixed file. Point the hub at the fixed files' URLs and md5-check them against reviewed_file before posting."
+ ]
+}

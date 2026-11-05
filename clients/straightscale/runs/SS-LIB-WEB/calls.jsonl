@@ -1,0 +1,5 @@
+{"at": "2026-10-21T16:40:41+00:00", "tool": "mcp__Higgs__generate_image", "asset": "WEB-HERO-D@v1", "dry": false, "sha": "daf18c8a3aa2a281", "why": [], "decision": "ALLOW"}
+{"at": "2026-10-21T16:41:00+00:00", "tool": "mcp__Higgs__generate_image", "asset": "WEB-HERO-D@v1", "dry": false, "sha": "daf18c8a3aa2a281", "why": ["WEB-HERO-D@v1 was already generated: a retake is a new version (pipeline.py asset straightscale SS-LIB-WEB WEB-HERO-D --type still ...), so attempts are counted"], "decision": "DENY"}
+{"at": "2026-10-21T16:51:14+00:00", "tool": "mcp__Higgs__generate_image", "asset": "WEB-HERO-D@v2", "dry": false, "sha": "daf18c8a3aa2a281", "why": [], "decision": "ALLOW"}
+{"at": "2026-10-21T16:57:08+00:00", "tool": "mcp__Higgs__generate_image", "asset": "WEB-CUP@v1", "dry": false, "sha": "0ab05a5a64986905", "why": [], "decision": "ALLOW"}
+{"at": "2026-10-21T17:25:32+00:00", "tool": "mcp__Higgs__generate_image", "asset": "WEB-CUP@v2", "dry": false, "sha": "3f73eafe10ec75d6", "why": [], "decision": "ALLOW"}

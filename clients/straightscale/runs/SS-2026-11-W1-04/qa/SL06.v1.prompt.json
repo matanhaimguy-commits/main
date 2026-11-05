@@ -1,0 +1,72 @@
+{
+  "gate": "G-PROMPT-IMG",
+  "asset_id": "SL06",
+  "version": 1,
+  "prompt_sha256": "923fd62bc512e8c08f72eaa768a345451aa4cfd2021db3e149f6f9abd1853ff4",
+  "reviewer": "prompt-reviewer (fresh agent)",
+  "independent": true,
+  "status": "PASS",
+  "checks": [
+    {
+      "id": "P1",
+      "result": "PASS",
+      "evidence": "Phone 'centre of the lower half, medium distance', box 20% x 34%, PR-STAND, PR-PHONE-SCREEN CHAT-REPLY, PR-ARROW, 5 text strings, 'Medium distance: the whole width of the desk is visible.'"
+    },
+    {
+      "id": "P2",
+      "result": "PASS",
+      "evidence": "'Image 2 is the approved cover ... Image 3 is the approved slide 2 ... Image 4 is the prop sheet PS-CHAT: copy the phone screen state \"CHAT-REPLY\"'; matches upload order (STYLE-TOP, cover, slide 2, PENDING-PS-CHAT-APPROVED)"
+    },
+    {
+      "id": "P3",
+      "result": "PASS",
+      "evidence": "'Hands: no hands and no people are visible in the frame.'"
+    },
+    {
+      "id": "P4",
+      "result": "PASS",
+      "evidence": "'The phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support; nothing touches it.'"
+    },
+    {
+      "id": "P5",
+      "result": "PASS",
+      "evidence": "PR-PHONE-SCREEN: 'a light-grey bubble aligned left near the top holding two short dark-grey bars, and under it a crimson #B31217 bubble aligned right holding one short ivory bar'"
+    },
+    {
+      "id": "P6",
+      "result": "PASS",
+      "evidence": "\"PYETJA 4\" / \"Shihet çfarë ndodh\" / \"pasi të shkruajnë?\" / \"Jo? Shkruaj hapin pas mesazhit.\" / \"6/8\" with surface, position, size, colour, highlight on \"pasi\"; ë/ç words spelled (çfarë, të, shkruajnë)"
+    },
+    {
+      "id": "P7",
+      "result": "PASS",
+      "evidence": "'Nothing on the desk or the walls carries a word, a logo or a sign.' plus 'the window glass reflects no text; no shop signs on the street'; window content given: 'the Tirana clock tower a small lit silhouette'; 'The phone screen shows only the two bubbles.'"
+    },
+    {
+      "id": "P8",
+      "result": "PASS",
+      "evidence": "No two instructions conflict: 'no hands and no people are visible in the frame' agrees with the stand holding the phone; top 40% calm wall agrees with phone box top at 40% or lower; the crimson bubble on the screen is the screen state, covered by 'screens hold only the shapes described in the props block'"
+    },
+    {
+      "id": "P9",
+      "result": "PASS",
+      "evidence": "'The phone is back in a stand on the desk after slide 5's hand, lit; farther from the camera than slide 5; same lamp.' equals spec carry_over"
+    },
+    {
+      "id": "P10",
+      "result": "PASS",
+      "evidence": "Packet settings match STANDARDS 1: gpt_image_2_5, 4:5 ('Instagram carousel slide, portrait 4:5'), 2k, medium, flare, role image_references, count 1; counter 'N/8' within 7 to 12 slides; ë and ç spelled out; no em dashes; headline 7 words or fewer"
+    },
+    {
+      "id": "P11",
+      "result": "PASS",
+      "evidence": "Terms are concrete ('three-by-three grid of nine', 'one groove', 'message bubble with a small ivory tail'). Non-blocking note: the template line 'If this scene describes no window, no window and no clock tower is drawn.' has a false condition here because the Setting describes the window."
+    },
+    {
+      "id": "P12",
+      "result": "PASS",
+      "evidence": "FL-01 text is on the top wall (y 6-39%), nothing near it; FL-02 'one lamp with one round shade on one stem and one round base', stand 'with one groove'; FL-03 contact points; FL-04/05 every screen and the window have a content line; FL-10 'No other words, letters or numbers anywhere, including screens, signs, papers and labels'; FL-13 'Bottom-left corner ... calm, dark, empty ... no logo, no letters, no objects (a logo is added later)'"
+    }
+  ],
+  "corrected_prompt": null
+}

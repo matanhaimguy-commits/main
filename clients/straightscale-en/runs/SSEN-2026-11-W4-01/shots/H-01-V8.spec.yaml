@@ -1,0 +1,161 @@
+shot_id: H-01-V8
+post_id: SSEN-2026-11-W4-01
+format: claymation
+script_lines:
+- L1
+line_text: Your post says one thing. Your page says another. Nobody books.
+story_purpose: 'The mismatch: the post speaks the buyer''s words, the page it leads to speaks different words.'
+must_read_in_1s: The post says TIRED OF SLOW MONTHS?, the page under it says WELCOME TO OUR WEBSITE.
+subjects:
+- id: PR-POST
+  ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
+    step 2); the prop sheet is cut from the approved frame at step 7'
+  state: a flat clay card lying on the clay ground
+  pose: x 6% to 94%, y 31% to 41.5%
+  expression: ''
+  instances: 1
+- id: PR-PAGE
+  ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
+    step 2); the prop sheet is cut from the approved frame at step 7'
+  state: a flat clay card lying on the clay ground
+  pose: x 6% to 79%, y 45.5% to 55%
+  expression: ''
+  instances: 1
+hands: none visible
+props:
+- id: PR-POST
+  story_critical: true
+  ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
+    step 2); the prop sheet is cut from the approved frame at step 7'
+  state: lying flat
+  content: 'one flat cream #F3E9D8 clay slab with rounded corners and a thick terracotta #C8553D clay rim, one layer,
+    its two lines of deep ink letters on it'
+  size_in_frame: 88% of the width, 10.5% of the height
+- id: PR-HEARTS
+  story_critical: true
+  ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
+    step 2); the prop sheet is cut from the approved frame at step 7'
+  state: pressed onto the post card
+  content: 'three small clay hearts in heart red #D64545 pressed onto the post card to the right of line 2, x 74%
+    to 88%, y 36.5% to 40.5%, clear of every letter'
+- id: PR-PAGE
+  story_critical: true
+  ref: 'no sheet yet: this concept frame is the first image of the prop (hook-lab-organic: concept frames come at
+    step 2); the prop sheet is cut from the approved frame at step 7'
+  state: lying flat
+  content: 'one flat grey-blue #9AA3AD clay slab with rounded corners, one layer, its two lines of deep ink letters
+    centred on it'
+  size_in_frame: 73% of the width, 9.5% of the height
+- id: PR-ARROW
+  story_critical: false
+  ref: null
+  state: lying flat between the cards
+  content: 'one short thick terracotta #C8553D clay arrow pointing down, x 40% to 48%, y 42% to 45%, touching neither
+    card'
+text_in_image:
+- string: TIRED OF SLOW
+  surface: 'the post card, line 1, deep ink #2B2A33 letters, centred'
+  position: x 12% to 88%, y 32% to 36%
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+- string: MONTHS?
+  surface: 'the post card, line 2, deep ink #2B2A33 letters, centred'
+  position: x 32% to 68%, y 36.5% to 40.5%
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+- string: WELCOME TO
+  surface: 'the page card, line 1, deep ink #2B2A33 letters, centred on the card'
+  position: x 14% to 71%, y 46.5% to 50.5%
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+- string: OUR WEBSITE
+  surface: 'the page card, line 2, deep ink #2B2A33 letters, centred on the card'
+  position: x 12% to 73%, y 50.5% to 54.5%
+  case: upper
+  must_be_exact: true
+  occlusion: nothing covers any letter
+action_physics:
+- Both cards and the arrow lie flat on the sage clay ground; the three hearts are pressed into the post card's surface
+  to the right of line 2; nothing else rests on the cards.
+static: true
+setting:
+  ref: null
+  details: 'a flat sage #8FA98B clay ground filling the whole frame; from the top edge to 30% and everywhere lower
+    than 55% only plain ground'
+  background_rule: no signs, frames, posters or screens; the only writing is the quoted text
+camera:
+  framing: Two cards stacked vertically, the post card centred and the page card left of 79% of the width, the arrow
+    between them; the whole card area in sharp focus
+  angle: seen from straight above, the lens looking straight down at the clay ground, square to the frame
+  lens: macro, shallow depth of field
+  aspect: '9:16'
+  safe_zones: 'Layout (STANDARDS 6; heights measured down from the top edge of the frame): the top 30% of the frame
+    is plain and empty (the text hook is set at 14% to 30% in the edit); every key element sits between 30% and
+    55% of the frame height (captions start at 55%) and inside 6% to 94% of the width, and inside 6% to 79% of the
+    width wherever it lies lower than 50% of the height; lower than 55% there is only the plain continuation of
+    the surface, nothing else.'
+continuity:
+  previous_shot: null
+  carry_over: []
+regions:
+- name: post
+  kind: prop
+  box:
+  - 0.06
+  - 0.31
+  - 0.94
+  - 0.415
+- name: post-text
+  kind: text
+  box:
+  - 0.12
+  - 0.32
+  - 0.88
+  - 0.405
+- name: hearts
+  kind: prop
+  box:
+  - 0.74
+  - 0.365
+  - 0.88
+  - 0.405
+- name: arrow
+  kind: prop
+  box:
+  - 0.4
+  - 0.42
+  - 0.48
+  - 0.45
+- name: page
+  kind: prop
+  box:
+  - 0.06
+  - 0.455
+  - 0.79
+  - 0.55
+- name: page-text
+  kind: text
+  box:
+  - 0.12
+  - 0.465
+  - 0.73
+  - 0.545
+style: 'Premium studio claymation scene - everything sculpted from matte plasticine with refined intentional craftsmanship:
+  subtle tool marks, controlled texture, soft rounded geometry, slight subsurface warmth, macro lens feel with shallow
+  depth of field, soft diffused studio lighting with a gentle rim glow, the scene filling the entire frame with
+  the camera inside the miniature clay world. Vertical 9:16 frame. Palette (every colour in this frame): warm cream
+  #F3E9D8, terracotta #C8553D, sage #8FA98B, deep ink #2B2A33, grey-blue #9AA3AD, heart red #D64545.'
+must_not:
+- no logo, wordmark or real app name or app icon anywhere
+- no digits or numbers anywhere
+- no words other than the quoted ones
+- nothing in the top 30% of the frame (measured down from the top edge) except the plain surface
+- no people, no hands, no faces
+- no workbench, table edge or room around the clay world
+- no glossy CGI look, no glass reflections
+hero: true
+notes: Concept frame for hook stacks EN06-V8 (Hook Lab v4). The text hook is overlaid in code at 14% to 30%, not
+  drawn by the model.

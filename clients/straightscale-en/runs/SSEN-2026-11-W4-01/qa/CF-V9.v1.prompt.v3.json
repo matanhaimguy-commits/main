@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CF-V9",
+ "version": 1,
+ "prompt_sha256": "ca0381a2b7d6e414945011870e098c5e60b2506fe68250edf843f5fe1aee387b",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "All spec items present: 'a macro close-up of a clay phone screen', band with 'BOOK A CALL', 'calendar of 3 rows by 4 columns', 'one round lens about 34% of the frame width', 'One sage #8FA98B clay handle'; all 11 still-card blocks in order."
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'References: none attached (text to image).' matches media list none and a text-to-image call."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'Hands: no hands visible.' matches spec 'hands: none visible'."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'a magnifying glass lies flat against the screen surface over the calendar, its rim and handle touching the screen, nothing touching the band or the letters.'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-SCREEN and PR-GLASS have full content lines; negatives are targeted ('no digits or numbers anywhere' with 'every square empty' stated as intended), no blanket 'no text'."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "'exactly \"BOOK A CALL\" in heavy bold deep ink #2B2A33 capital letters, centred in the cream band, from 14% to 86% of the frame width and 32% to 39% of the frame height; nothing covers any letter.' 3 words."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'no signs, frames, posters or other screens' and 'No other text anywhere'; calendar squares ruled 'every square empty: no digits, no names, no marks'."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No contradiction found. Note: prompt's 'below 65% only the plain continuation of the screen' is stricter than the spec (which also allows named non-key parts); the handle tip will be kept at or above 65%, which is safe."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'Continuity: first frame of the reel; nothing carried over.' matches previous_shot null."
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "openai/gpt-image-2/text-to-image is allowed for still; quality medium, size 1152x2048 is the 9:16 entry in size_for_aspect; no refs, no text_fields; prompt says 'Vertical 9:16 frame'."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "All positions given as percentages; 'imitation of clear glass' is defined by 'through the lens two empty cream squares show larger'; 'viewer's left' fixes handle direction."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-02: 'one round lens' and 'One sage ... handle', 'the screen continues past the left, right and bottom edges'; FL-05/FL-10: background rule and 'no words other than the quoted ones'; FL-04: prop content filled; FL-13: 'no logo, wordmark, real app name or app icon anywhere'."
+  }
+ ],
+ "corrected_prompt": null
+}

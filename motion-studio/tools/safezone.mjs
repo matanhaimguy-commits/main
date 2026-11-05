@@ -2,6 +2,8 @@
 // ({x, y, w, h, text, fine}, y = top of the cap height, h = font size). Boxes marked fine (texture-only fine print
 // that carries no meaning, e.g. a source line) are held to --fine (default 26 px) instead of --min.
 // node tools/safezone.mjs <project dir> [--dur 41] [--step 0.1] [--top 250 --bottom 400 --right 140 --left 96 --min 44]
+// HyperFrames projects: node tools/safezone.mjs --hf [--top 269 ...]  (see safezone_hf.mjs)
+if (process.argv.includes('--hf')) { await import('./safezone_hf.mjs'); }
 import { chromium } from 'playwright';
 const dir = process.argv[2];
 const raw = (k) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : undefined; };

@@ -1,0 +1,759 @@
+{
+ "skill": "carousel-machine",
+ "version": "v3 (title \"Carousel Machine v3\", line 6; no changelog in file; model test and video study dated 11 Oct 2026, teardown 9 Oct 2026)",
+ "purpose": "Turns a brand and a goal into one finished Instagram carousel ready to post. The steps are a brand kit, a brief, scored ideation, format choice, a six-position story map, hook (5 variants, 4 PASS/FAIL gates), body copy with an 8-question self-check, a locked style bible (3 locks), and every slide generated whole (picture plus typography) in gpt_image_2_5 on Higgsfield, anchored to the approved cover and slide 2. After that come letter-by-letter and set-continuity checks, caption and alt text, a zip package, a posting checklist and a 7-day results log. It is already an organic (non-ad) skill: it posts to a feed with keyword, send, save, follow or book asks. It never calls Hook Lab, Script Lab or a cold reader. All critique is self-run.",
+ "phases": [
+  {
+   "step": "0",
+   "name": "Brand kit (once per brand)",
+   "does": "Read or build brand-kit.md: a named avatar, voice (3 to 5 real samples plus 3 adjectives; for Albanian say 'ti' or 'ju'), the one offer, path and free resource behind the keyword, a proof bank (only documented numbers and testimonials), founder story, visual identity (hex colours, city, hero object, 1 to 3 founder photos).",
+   "gate": "Rule of three ones: one offer, one path, one metric (leads from content, not likes). 'If any of the three is missing, say so before making content.' (line 53)",
+   "human_checkpoint": "Implicit: ask the founder about their earlier self and collect voice samples. No numbered GATE.",
+   "tools_models": "brand-kit.md in the project or brand folder"
+  },
+  {
+   "step": "1",
+   "name": "Brief (ask once, then work)",
+   "does": "Collects the post goal (reach, trust, leads, saves), the awareness level, the belief before and after (in their words), the ask (comment KEYWORD plus resource, send, save, follow, book) and any raw material.",
+   "gate": "Ask one short question only if a decision changes the output and cannot be found. Otherwise take the default and say so.",
+   "human_checkpoint": "At most one short question (line 56)",
+   "tools_models": "none"
+  },
+  {
+   "step": "2",
+   "name": "Ideation and idea score",
+   "does": "Draws ideas from 2 or more sources: the ramble (10 to 20 min voice note), contrarian opinions, repurposing, customer pain, proven outliers (3x or more the account's normal), series (3 to 4 posts). For each idea it extracts the tension: core frustration, proof point (a number from the proof bank), trigger moment A/B/C.",
+   "gate": "Score 5 to 10 ideas, 1 to 5 on each of 6 tests: Want, Specific, Proof, Offer link, Fresh (vs the feed and the brand's last 9 posts), Send-worthy. Pick the top total and show one table.",
+   "human_checkpoint": "none (show the table, state the pick, move on)",
+   "tools_models": "Optional ig-competitor-research skill for a fresh outlier scan"
+  },
+  {
+   "step": "3",
+   "name": "Pick the format",
+   "does": "Picks one of 12 formats by job (Steal my system, Hills I'll die on, Win/case study, Count list, Mistakes list, Contrarian plus named framework, Two-sided contrast, Myth vs truth, Teardown of a known business, Self-audit checklist, Tool or news drop, Start here founder story). Each format has a slide structure, a length (4 to 15 slides) and a best ask.",
+   "gate": "Format matches the job. 'Skip photo dumps and quote cards unless the account is already known.'",
+   "human_checkpoint": "none",
+   "tools_models": "none"
+  },
+  {
+   "step": "4",
+   "name": "Build the story (six positions)",
+   "does": "Plans cover (open a want), slide 2 (pay the cover; Instagram re-shows unswiped carousels from slide 2), spine (answer then open), rhythm (tension and release), the turn, then the payoff and ask. Default 10-slide shape. Withhold-on-purpose cover with slide 2 revealing.",
+   "gate": "One test question per position, e.g. 'What do they want after this cover that they did not want before?'; 'Would slide 2 still make sense under a different cover?' (if yes, fail); 'Why does this slide have to come after the last one?'; 'Which slide changes what everything before it meant?'",
+   "human_checkpoint": "none",
+   "tools_models": "none"
+  },
+  {
+   "step": "5",
+   "name": "Write the hook (cover copy)",
+   "does": "Writes the cover last, from the most interesting line anywhere in the carousel. Headline of at most 12 words in 2 or 3 lines of about 12 characters. 5 variations: controversial, specific with numbers, no hype, founder ramble words, withholding. Pattern bank of 9 templates.",
+   "gate": "4 PASS/FAIL gates: (1) a cold viewer understands the value instantly, (2) a specific number or concrete outcome, (3) missing out feels costly or the outcome feels achievable, (4) true and covered by the proof bank. Only all-pass hooks are eligible; rewrite until one passes.",
+   "human_checkpoint": "'it never ships without a human look when one is available' (line 138). This is the skill's only real human gate and it is not numbered.",
+   "tools_models": "none (self-graded; no Hook Lab)"
+  },
+  {
+   "step": "6",
+   "name": "Write the body copy plus self-check",
+   "does": "One idea per slide. Headline at most 7 words, list items at most 5 words. SHORT lane 5 to 15 words or DENSE lane up to 30 words in at most 5 lines. Section labels or counters, TEST/action lines, proof every 2 to 3 slides (receipts slide 3 to 6 numbers), banned words list, read aloud, two editing passes.",
+   "gate": "8-question self-check before any design: cover passes the want test and all 4 hook gates; slide 2 answers the cover and works alone; no middle slide can move; a turn exists and is marked to look different; every number is in the proof bank; exactly one ask that follows from the payoff; every slide within its text budget; words sound like the customer and founder.",
+   "human_checkpoint": "none (self-check; no cold read)",
+   "tools_models": "none"
+  },
+  {
+   "step": "7",
+   "name": "Style bible (lock once per brand)",
+   "does": "Writes style-bible.md with 3 locks: Colour (three colours with fixed roles, one accent hex as the only saturated colour), Type (display plus body voice, optional accent voice, described in words), Layout (fixed positions for headline, body, tag, counter, logo strip, arrow; the cover adds a credibility strip and proof row; the last slide has no arrow). Separates the art zone from the text zone. A locked style block of 60 to 100 words opens every prompt. Grid test (last 9 posts). Style menu of 8 looks. Reference library of 20+ saved covers.",
+   "gate": "Codify test: generate one test slide from the style block alone and compare it to the reference; anything wrong is a missing rule, so add it and test once more.",
+   "human_checkpoint": "none",
+   "tools_models": "gpt_image_2_5 test slide; refs/ folder"
+  },
+  {
+   "step": "8a",
+   "name": "Production setup",
+   "does": "Sets the tools, model, aspect, resolution and quality ladder, and preflights cost.",
+   "gate": "Check balance and confirm the cost with get_cost: true before starting, and state the estimate (about 10 to 13 credits for 10 slides).",
+   "human_checkpoint": "State the cost estimate (no explicit approval wait)",
+   "tools_models": "mcp__Higgs__generate_image, mcp__Higgs__generate_image_batch, model gpt_image_2_5 only, aspect 3:4, resolution 2k; quality low 0.5 / medium 1 / high 2.75 credits. Nano Banana 2.1 banned."
+  },
+  {
+   "step": "8b",
+   "name": "Continuity plan",
+   "does": "Written in prompts.md: one world, one thread (a hero object or character that changes state), one frame, one scene line per slide (a visual metaphor with one BIG focal object), swipe bridges with exact edge positions, planned rhythm (close vs wide, dark vs light, the turn breaks the pattern).",
+   "gate": "The plan exists before any prompt; bridges are checked at Step 9.",
+   "human_checkpoint": "none",
+   "tools_models": "prompts.md"
+  },
+  {
+   "step": "8c",
+   "name": "The cover (anchor)",
+   "does": "Prompt = locked style block + COVER SLIDE + scene line + exact text with roles + negatives. Optional founder photos (1 to 3) as image_references and 1 to 3 style refs ('Match the style, not the content'). Eye-direction rule.",
+   "gate": "count: 4 at quality medium; check all four at full size for the want, the thumbnail read and every letter; expect 2 to 4 rounds. The approved cover's job id becomes the anchor.",
+   "human_checkpoint": "Implicit pick of the cover (no numbered gate)",
+   "tools_models": "generate_image, gpt_image_2_5 medium (high only for final polish)"
+  },
+  {
+   "step": "8d",
+   "name": "Slide 2 (lock the system)",
+   "does": "Generates slide 2 alone at low quality with the cover as image_references, to prove the system carries over.",
+   "gate": "Fix until the same world, type voices and frame carry over. Cover plus slide 2 become the two anchors.",
+   "human_checkpoint": "none",
+   "tools_models": "generate_image, gpt_image_2_5 low"
+  },
+  {
+   "step": "8e",
+   "name": "Slides 3 to N",
+   "does": "6-part prompt template per slide (style block, continuity line, SCENE, LAYOUT, TEXT with roles and diacritics spelled out, NEGATIVES). Batch with the cover and slide 2 job ids as image_references, count 1, low. Story posts go in order with the previous slide as a third reference. The last slide has the payoff plus one ask and no arrow.",
+   "gate": "medias take job ids, never URLs; a batch holds at most 12 requests.",
+   "human_checkpoint": "none",
+   "tools_models": "generate_image_batch, gpt_image_2_5 low"
+  },
+  {
+   "step": "8f",
+   "name": "Fixing text without losing the design",
+   "does": "Edit pass first (the slide as the only image_references, 'Change only the text'), at the same quality. If the edit fails twice, shorten the line and regenerate. Known-failure fixes: screen text, wrong counts, small object, second saturated colour, type drift, diacritics.",
+   "gate": "At most 2 retakes per slide plus edit passes; if it still fails, show the best version and say exactly what is off.",
+   "human_checkpoint": "none",
+   "tools_models": "generate_image edit pass, gpt_image_2_5"
+  },
+  {
+   "step": "9",
+   "name": "Check everything (never skip)",
+   "does": "Downloads results in the Higgsfield sandbox, shrinks review copies to about 760 px, views them via image_paths (at most 4 per call, 512KB), builds a contact sheet and a 3x3 grid preview. Copy checks (letter by letter, diacritics, counts, proof-bank numbers, counters 1/NN to NN/NN, one ask). Connection checks (one film, hero states, bridges, rhythm, turn). Design checks (thumbnail at about 200 px, text in the calm zone, no cropping, equal margins, one saturated colour, grid fit). Critic loop twice: Critic 1 the brief, Critic 2 the art director.",
+   "gate": "All checks pass and every critic note is fixed with the 8f methods, then checked again.",
+   "human_checkpoint": "none (critics are the same agent; VISUAL-QA.md says the fresh-agent G-VIS-SLIDE/G-SET reviewer replaces this self-critic)",
+   "tools_models": "mcp__Higgs__sandbox_exec (curl, ImageMagick), image_paths"
+  },
+  {
+   "step": "10",
+   "name": "Caption and alt text",
+   "does": "Line 1 of about 125 characters (keyword-first for keyword posts), a body past 400 characters built from the last slide plus a value list with search words, one ask matching the last slide, 3 to 5 specific hashtags, alt text one line per slide. Optional LinkedIn version (up to 4 hashtags).",
+   "gate": "One ask, the same as the last slide; never repeat slide 1 word for word; no padding.",
+   "human_checkpoint": "none",
+   "tools_models": "none"
+  },
+  {
+   "step": "11",
+   "name": "Package and deliver",
+   "does": "Exports JPG 1080x1440 under 250KB with an ImageMagick convert command in the sandbox, pulls the files via image_paths 2 per call, checks sizes with PIL, adds caption.txt, alt-text.txt, style-bible.md and prompts.md (with job ids), zips, sends with SendUserFile, saves to the linked computer with device_commit_files, shows the slides with show_generation_by_ids.",
+   "gate": "Sizes checked; folder <Brand>-Carousel-<NN>-<topic>/ complete.",
+   "human_checkpoint": "none",
+   "tools_models": "sandbox_exec, PIL, SendUserFile, device_commit_files, show_generation_by_ids"
+  },
+  {
+   "step": "12",
+   "name": "Post, measure, learn",
+   "does": "Posting checklist: free resource and auto-DM live, native speaker read, 3:4 at 1080x1440, post from the app with quiet music, alt text, reply to every comment in the first hour, share to Stories, cross-post to Facebook, pin for start-here, framework, steal-my and case-study posts. After 7 days, log one line in results-log.md (reach, non-follower %, saves, sends, comments, keyword comments, profile visits, follows, DMs, leads, bookings). Winners (2x baseline) are saved as templates/<name>/; review the preset every 10 posts.",
+   "gate": "Benchmark: slide 2 holds at least half the cover's likes (under a third means slide 2 is not paying the cover). Judge on leads and on sends and saves per reach; the first 6 posts set the baseline.",
+   "human_checkpoint": "Native speaker read of non-English copy (line 309; also hard rule 2, line 32)",
+   "tools_models": "results-log.md, templates/"
+  }
+ ],
+ "numbers": [
+  {
+   "key": "image_model_slides",
+   "value": "gpt_image_2_5 only, via mcp__Higgs__generate_image / generate_image_batch",
+   "quote": "model `gpt_image_2_5` only, aspect `3:4`, resolution `2k`.",
+   "line": 217
+  },
+  {
+   "key": "image_model_prose_name",
+   "value": "Prose calls the model 'GPT Image 2' (description, rules, Step 8 heading), not 2.5",
+   "quote": "every slide designed whole in GPT Image 2 as one connected set",
+   "line": 3
+  },
+  {
+   "key": "image_model_rejected",
+   "value": "Nano Banana 2.1 banned for carousels (2 credits at 2k, template look)",
+   "quote": "Do not use Nano Banana 2.1 for carousels: in the same test it cost more (2 credits at 2k) and looked like a template",
+   "line": 225
+  },
+  {
+   "key": "image_model_rejected_resolution",
+   "value": "Nano Banana 2.1 1k output 896x1200, below Instagram's 1080 width; 1.5 to 2 credits",
+   "quote": "Nano Banana 2.1 rendered the text right but at 1.5 to 2 credits, with a boxed, template-like layout, and its 1k output (896x1200) is below Instagram's 1080 width.",
+   "line": 337
+  },
+  {
+   "key": "aspect",
+   "value": "3:4 portrait",
+   "quote": "\"Instagram carousel slide, portrait 3:4.",
+   "line": 193
+  },
+  {
+   "key": "resolution_generation",
+   "value": "2k",
+   "quote": "aspect `3:4`, resolution `2k`.",
+   "line": 217
+  },
+  {
+   "key": "resolution_delivery",
+   "value": "1080x1440 per slide",
+   "quote": "at 1080x1440, every one generated in GPT Image 2 and checked letter by letter, plus a contact sheet and a thumbnail test.",
+   "line": 25
+  },
+  {
+   "key": "export_spec",
+   "value": "JPG 1080x1440, under 250KB, ImageMagick with 4:2:0 sampling",
+   "quote": "export each slide as a JPG, 1080x1440, under 250KB: `convert src.png -resize 1080x1440! -strip -sampling-factor 4:2:0 -define jpeg:extent=250kb slide-NN.jpg`.",
+   "line": 300
+  },
+  {
+   "key": "posting_aspect_rule",
+   "value": "3:4 at 1080x1440; square flopped",
+   "quote": "3:4 at 1080x1440 (a square carousel flopped in one creator's test; 3:4 also takes the most screen).",
+   "line": 310
+  },
+  {
+   "key": "quality_body_slides",
+   "value": "low = 0.5 credits (body slides 2 to N, retakes, edit passes)",
+   "quote": "| Body slides 2 to N, retakes, edit passes | `low` | 0.5 |",
+   "line": 221
+  },
+  {
+   "key": "quality_cover_options",
+   "value": "medium = 1 credit (the 4 cover options)",
+   "quote": "| The 4 cover options | `medium` | 1 |",
+   "line": 222
+  },
+  {
+   "key": "quality_cover_polish",
+   "value": "high = 2.75 credits, only if the medium pick is not sharp enough",
+   "quote": "| Final cover polish, only if the medium pick is not sharp enough at full size | `high` | 2.75 |",
+   "line": 223
+  },
+  {
+   "key": "credits_per_post",
+   "value": "about 10 to 13 credits for a 10-slide post with 4 cover options and normal retakes",
+   "quote": "A 10-slide post with 4 cover options and normal retakes costs about 10 to 13 credits.",
+   "line": 224
+  },
+  {
+   "key": "cost_preflight",
+   "value": "check balance and get_cost: true before starting, and state the estimate",
+   "quote": "Check `balance` and confirm the cost with `get_cost: true` before starting, and say the estimate.",
+   "line": 224
+  },
+  {
+   "key": "cover_options_count",
+   "value": "count 4 at medium; expect 2 to 4 rounds",
+   "quote": "Generate `count: 4` at quality `medium`.",
+   "line": 241
+  },
+  {
+   "key": "cover_rounds",
+   "value": "2 to 4 rounds",
+   "quote": "Expect 2 to 4 rounds; most of the time goes into the cover, and that is correct.",
+   "line": 241
+  },
+  {
+   "key": "cover_weight",
+   "value": "cover is about 80% of the result",
+   "quote": "on the cover (the cover is about 80% of the result).",
+   "line": 9
+  },
+  {
+   "key": "slide2_generation",
+   "value": "slide 2 alone first, quality low, cover as image_references",
+   "quote": "Generate slide 2 on its own first, at quality `low`, with the cover as `image_references`.",
+   "line": 245
+  },
+  {
+   "key": "batch_size_and_refs",
+   "value": "2 anchor references (cover and slide 2 job ids), count 1, low, at most 12 requests per batch",
+   "quote": "`count: 1`, quality `low` (a batch takes up to 12 requests).",
+   "line": 256
+  },
+  {
+   "key": "reference_inputs",
+   "value": "medias take job ids, never URLs; role image_references",
+   "quote": "`medias` take job ids, never URLs; if a role name is rejected, check `models_explore` for the `gpt_image_2_5` reference role.",
+   "line": 256
+  },
+  {
+   "key": "founder_photo_refs",
+   "value": "1 to 3 real founder photos as image_references",
+   "quote": "attach 1 to 3 real founder photos as `image_references`",
+   "line": 238
+  },
+  {
+   "key": "style_refs",
+   "value": "at least 20 saved refs; the best 1 to 3 attached to the cover prompt",
+   "quote": "Save at least 20 covers and body slides you would stop for, many from outside the niche.",
+   "line": 200
+  },
+  {
+   "key": "retake_cap",
+   "value": "at most 2 retakes per slide plus edit passes",
+   "quote": "At most 2 retakes per slide plus edit passes. If a slide still fails, show the best version and say exactly what is off.",
+   "line": 271
+  },
+  {
+   "key": "edit_pass_cap",
+   "value": "edit pass fails twice, then shorten and regenerate",
+   "quote": "**If the edit fails twice,** shorten the line (fewer words, simpler spelling) and regenerate the slide with the same anchors.",
+   "line": 263
+  },
+  {
+   "key": "edit_pass_quality",
+   "value": "same quality the slide was made at",
+   "quote": "Use the same quality the slide was made at.",
+   "line": 262
+  },
+  {
+   "key": "hook_length",
+   "value": "at most 12 words of headline, 2 or 3 lines of about 12 characters",
+   "quote": "at most 12 words of headline, built to split into 2 or 3 short lines (about 12 characters each at display size).",
+   "line": 137
+  },
+  {
+   "key": "hook_variants",
+   "value": "5 variations (controversial, specific with numbers, no hype, founder ramble words, withholding)",
+   "quote": "**Generate 5 variations:** one more controversial, one more specific with numbers, one with no hype at all, one in the founder's own ramble words, one that withholds.",
+   "line": 138
+  },
+  {
+   "key": "hook_variants_deliverable",
+   "value": "3 to 5 graded hooks (conflicts with 5 variations)",
+   "quote": "**3 to 5 graded hooks** and the chosen one.",
+   "line": 23
+  },
+  {
+   "key": "hook_gates",
+   "value": "4 PASS/FAIL gates; only all-pass hooks eligible",
+   "quote": "Only hooks that pass all four are eligible. Pick the strongest. If none pass, rewrite until one does.",
+   "line": 144
+  },
+  {
+   "key": "human_checkpoint_hook",
+   "value": "human look on the hook when available (only human gate; not numbered)",
+   "quote": "the hook is where the money lives, so it never ships without a human look when one is available.",
+   "line": 138
+  },
+  {
+   "key": "human_checkpoint_native_read",
+   "value": "native speaker read of non-English copy before posting",
+   "quote": "Non-English copy gets a native read before posting; say so every time.",
+   "line": 32
+  },
+  {
+   "key": "idea_score",
+   "value": "5 to 10 ideas, 1 to 5 on each of 6 tests, top total wins",
+   "quote": "**Score 5 to 10 ideas, 1 to 5 each, and pick the top total:**",
+   "line": 82
+  },
+  {
+   "key": "idea_fresh_window",
+   "value": "different from the brand's last 9 posts",
+   "quote": "| Fresh | Is it different from what the feed and the brand's last 9 posts already say? |",
+   "line": 89
+  },
+  {
+   "key": "ramble_length",
+   "value": "10 to 20 minutes voice note; about 5 ideas per ramble",
+   "quote": "The founder talks for 10 to 20 minutes into a voice note",
+   "line": 67
+  },
+  {
+   "key": "outlier_threshold",
+   "value": "3x or more the account's normal",
+   "quote": "Posts that beat their account's normal by 3x or more, in the niche and outside it.",
+   "line": 71
+  },
+  {
+   "key": "series_length",
+   "value": "3 to 4 posts",
+   "quote": "One strong idea split across 3 to 4 posts (\"part 1 of 4\") when it is too big for one.",
+   "line": 72
+  },
+  {
+   "key": "slide2_read_time",
+   "value": "under a second of reading",
+   "quote": "Slide 2 is the only slide whose job is to answer the cover, fast, in under a second of reading.",
+   "line": 119
+  },
+  {
+   "key": "default_shape",
+   "value": "10 slides: 1 hook, 2 pay cover, 3 problem, 4 to 7 method, 8 turn/proof, 9 payoff and bridge, 10 ask",
+   "quote": "**Default 10-slide shape:** 1 hook · 2 pay the cover and name the stakes · 3 the problem in their words (make them feel seen) · 4 to 7 the method, one part per slide · 8 the turn or the proof · 9 the payoff and bridge · 10 the ask.",
+   "line": 130
+  },
+  {
+   "key": "length_tiers_formats",
+   "value": "format lengths: 8 to 10 (Steal, Hills, Win, Two-sided, Self-audit), 7 to 9 (Count, Mistakes, Teardown), 10 to 12 (Contrarian framework), 6 to 9 (Myth vs truth), 4 to 8 (Tool/news), 12 to 15 (Start here)",
+   "quote": "| Start here (founder story) | Trust, then pin | Face plus a confession or result line, one life beat per slide with real photos, a real low point, the turn, \"Today:\" with hard numbers, why we post, follow | 12 to 15 | Follow |",
+   "line": 110
+  },
+  {
+   "key": "words_per_slide_headline",
+   "value": "headline at most 7 words; list items 5 words max",
+   "quote": "A headline of at most 7 words, then 1 or 2 short lines. List items: 5 words max per point.",
+   "line": 158
+  },
+  {
+   "key": "words_per_slide_budget",
+   "value": "SHORT lane 5 to 15 words; DENSE lane up to 30 words in at most 5 lines; past 30 split",
+   "quote": "**Text budget per slide:** SHORT lane 5 to 15 words, DENSE lane up to 30 words in at most 5 lines.",
+   "line": 159
+  },
+  {
+   "key": "proof_cadence",
+   "value": "proof every 2 to 3 slides; receipts slide 3 to 6 numbers",
+   "quote": "**Proof every 2 to 3 slides** when documented proof exists. A receipts slide shows 3 to 6 numbers with plain labels",
+   "line": 163
+  },
+  {
+   "key": "editing_passes",
+   "value": "two editing passes",
+   "quote": "Two editing passes, then move to design.",
+   "line": 165
+  },
+  {
+   "key": "style_block_length",
+   "value": "60 to 100 words, opens every prompt unchanged",
+   "quote": "Turn the three locks into one paragraph of 60 to 100 words. It opens every slide prompt, unchanged.",
+   "line": 192
+  },
+  {
+   "key": "colour_lock",
+   "value": "three colours, fixed roles; one accent",
+   "quote": "**Colour: three colours, fixed roles.**",
+   "line": 181
+  },
+  {
+   "key": "colour_split_example",
+   "value": "60/30/10",
+   "quote": "Note the colour split (for example 60/30/10)",
+   "line": 199
+  },
+  {
+   "key": "text_zone",
+   "value": "top 40% calm area for text (example)",
+   "quote": "(\"the top 40% is a dark calm wall for the text\")",
+   "line": 190
+  },
+  {
+   "key": "qa_review_copies",
+   "value": "about 760 px review copies; image_paths at most 4 per call, 512KB total; contact sheet; 3x3 grid",
+   "quote": "shrink review copies to about 760 px, and view them with `image_paths` (at most 4 per call, 512KB total).",
+   "line": 274
+  },
+  {
+   "key": "qa_thumbnail_test",
+   "value": "cover at about 200 px wide",
+   "quote": "Thumbnail test: the cover at about 200 px wide. Is the headline still readable and is the want still there?",
+   "line": 282
+  },
+  {
+   "key": "qa_copy_check",
+   "value": "letter by letter including diacritics; counters 1/NN to NN/NN; one ask",
+   "quote": "every word, letter by letter, including diacritics and quote marks; counts; numbers match the proof bank; counters run 1/NN to NN/NN; one ask.",
+   "line": 275
+  },
+  {
+   "key": "qa_critic_loop",
+   "value": "twice, two separate critics (brief, art director), self-run",
+   "quote": "**Critic loop (twice).** Review as two separate critics.",
+   "line": 286
+  },
+  {
+   "key": "caption_line1",
+   "value": "about 125 characters before 'more'",
+   "quote": "**Line 1 (shows before \"more\", about 125 characters):**",
+   "line": 289
+  },
+  {
+   "key": "caption_length",
+   "value": "past 400 characters",
+   "quote": "Aim past 400 characters",
+   "line": 292
+  },
+  {
+   "key": "caption_ask_stat",
+   "value": "comment request +202% comments; question +36.7% (Metricool 2026)",
+   "quote": "A comment request lifted comments by 202% and a question by 36.7% (Metricool 2026)",
+   "line": 293
+  },
+  {
+   "key": "hashtags",
+   "value": "3 to 5 specific tags (LinkedIn version up to 4)",
+   "quote": "**Hashtags:** 3 to 5 specific tags, never generic ones.",
+   "line": 294
+  },
+  {
+   "key": "alt_text",
+   "value": "one short line per slide in the post's language",
+   "quote": "**Alt text:** one short line per slide, in the post's language.",
+   "line": 296
+  },
+  {
+   "key": "music_in_post",
+   "value": "post from the app with quiet music to show in the Reels tab (no level given)",
+   "quote": "Post from the app with quiet music so the post can show in the Reels tab, and alt text on each slide.",
+   "line": 310
+  },
+  {
+   "key": "engagement_window",
+   "value": "reply to every comment in the first hour",
+   "quote": "Reply to every comment in the first hour.",
+   "line": 311
+  },
+  {
+   "key": "measure_window",
+   "value": "log after 7 days",
+   "quote": "**After 7 days, log one line per post**",
+   "line": 314
+  },
+  {
+   "key": "slide2_benchmark",
+   "value": "slide 2 at least half the cover's likes; under a third fails",
+   "quote": "slide 2 should hold at least half the cover's likes; under a third means slide 2 is not paying the cover.",
+   "line": 314
+  },
+  {
+   "key": "baseline_posts",
+   "value": "first 6 posts set the baseline",
+   "quote": "The first 6 posts set the baseline.",
+   "line": 316
+  },
+  {
+   "key": "winner_threshold",
+   "value": "2x baseline becomes a template; review preset every 10 posts",
+   "quote": "When a post beats the brand's baseline by 2x or more, save its story map, hook pattern, style block, prompts and the anchor job ids as `templates/<name>/`.",
+   "line": 318
+  },
+  {
+   "key": "ask_rotation",
+   "value": "rotate keyword, send, save, book across the week; keyword only with a real finished free resource",
+   "quote": "Comment keywords only with a real, finished free resource behind them. Rotate the ask across the week (keyword, send, save, book)",
+   "line": 40
+  },
+  {
+   "key": "style_benchmarks",
+   "value": "teardown of 40 carousels: templates 1.6x, photo-led 9.1x",
+   "quote": "plain text-on-background slides were the weakest style, branded templates ran 1.6x and photo-led slides 9.1x.",
+   "line": 345
+  },
+  {
+   "key": "carousel_vs_single_saves",
+   "value": "about 9x the saves of single images",
+   "quote": "Carousels get about 9x the saves of single images",
+   "line": 108
+  },
+  {
+   "key": "preset_accent_hex",
+   "value": "StraightScale accent #C8202F (swap in brand book hex)",
+   "quote": "accent deep red #C8202F (swap in the exact hex from the brand book).",
+   "line": 327
+  },
+  {
+   "key": "preset_offer",
+   "value": "free 45-minute meeting or comment keyword with a free tool",
+   "quote": "the free 45-minute meeting (at the office or at the business), or a comment keyword with a free tool.",
+   "line": 332
+  },
+  {
+   "key": "voice_samples",
+   "value": "3 to 5 real samples plus 3 adjectives",
+   "quote": "3 to 5 real samples of how the founder or brand actually talks",
+   "line": 48
+  }
+ ],
+ "claims": [
+  {
+   "claim": 1,
+   "verdict": "PARTIAL",
+   "quote": "model `gpt_image_2_5` only, aspect `3:4`, resolution `2k`.",
+   "line": 217,
+   "note": "The carousel part holds: Step 8a pins gpt_image_2_5 (line 217, again at line 256), and line 337 names it 'GPT Image 2.5'. But the prose calls it 'GPT Image 2' in at least 7 places (lines 3, 17, 25, 34, 178, 214, 261). The Higgsfield catalog has two separate models: gpt_image_2 (reference role 'image', no 4:5) and gpt_image_2_5 (role 'image_references', supports 4:5). So an agent could pick the wrong one. The song, animation, podcast and hub parts of the claim are not in this skill. This skill only bans Nano Banana 2.1 (line 225). Cross-skill conflict: the hub reportedly rejects GPT Image 2.5 as plastic for faces, yet carousel founder covers use gpt_image_2_5 with real founder photos (line 238)."
+  },
+  {
+   "claim": 14,
+   "verdict": "TRUE",
+   "quote": "- **Grade every hook on four gates, PASS or FAIL each:**",
+   "line": 139,
+   "note": "A grep for 'Hook Lab', 'hook-lab', 'Script Lab', 'cold read' and 'readymerce' finds no routing to either lab. The only 'Readymerce' hit is the brand list on line 15. The hook is graded by the same writer on its own 4 gates (lines 139 to 144). The copy is checked by an 8-question self-check (lines 167 to 175). Step 9 runs a self-critic loop (line 286: 'Review as two separate critics'), done by the same agent. No fresh or blind reader sees the slide copy. The only outside eye is 'a human look when one is available' (line 138)."
+  },
+  {
+   "claim": 12,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "6. **Platform safety:**",
+   "line": 36,
+   "note": "The platform safety rules (lines 36 to 40) and the posting checklist (lines 307 to 312) have no AI label or disclosure rule at all. A grep for 'label', 'disclos' and 'AI label' finds only section-label and screen-label uses. That gap matters: slides are photoreal AI scenes, sometimes with the real founder's face (line 238). Whatever single AI-tag policy is chosen must be added here too."
+  },
+  {
+   "claim": 16,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "Judge on leads and on sends and saves per reach, not likes.",
+   "line": 316,
+   "note": "The claim is about Hook Lab and Script Lab. Counter-evidence for the organic system: carousel-machine already has an organic-only learning loop. Step 12 logs reach, non-follower %, saves, sends, comments, keyword comments, profile visits, follows, DMs, leads and bookings after 7 days (line 314). It sets templates at 2x baseline (line 318). It uses no Meta ads data. This loop could seed the organic LEARN mode the claim asks for. Caveat: the client results-log.md columns (Likes, Comments, Keyword comments, DMs sent, Taps, New leads, Hot/booked) lack reach, non-follower %, saves, sends and follows."
+  },
+  {
+   "claim": 15,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "Never say or imply the viewer has a condition (\"your hair loss\").",
+   "line": 37,
+   "note": "Hook Lab is not used here, and carousel-machine's own hook gates (lines 140 to 143) are niche-neutral. Its safety example still comes from DTC health, and its only other platform rules are 'No medical, income, job or visa promises' (line 38). A B2B/services profile would need agency-specific rules, such as no guaranteed lead or revenue numbers and no client names without permission. Hard rule 1 (line 31) already partly covers these."
+  }
+ ],
+ "story_structures": [
+  {
+   "code": "CM-SIX",
+   "name": "Six story positions (wanting machine)",
+   "shape": "Cover opens a want -> slide 2 pays the cover (works alone, because unswiped carousels re-show from slide 2) -> spine: each slide answers the last and opens the next -> rhythm: alternate dark/light, dense/short, close/wide -> the turn (one slide reframes everything, looks different) -> payoff (belief flips) then one ask as its next step",
+   "organic_fit": "This is the base spine for every organic carousel and reel. For an Albanian marketing agency the cover asks 'Pse postimet tuaja marrin like por jo klientë?', slide 2 pays it in one line, and the turn reframes the problem from 'more posts' to 'one path from post to DM'. Map it to a reel as hook (0 to 2 s), pay-off line, beats, turn, payoff and a CTA such as 'Ruaje' (save), 'Dërgoja ortakut' (send) or 'Komento PLAN'. No price or offer is needed; the payoff is the belief shift."
+  },
+  {
+   "code": "CM-SHAPE10",
+   "name": "Default 10-slide shape",
+   "shape": "1 hook -> 2 pay the cover and name the stakes -> 3 the problem in their words -> 4 to 7 the method, one part per slide -> 8 the turn or the proof -> 9 the payoff and bridge -> 10 the ask",
+   "organic_fit": "A ready template for 'how we do X' education posts. Slide 3 uses the owner's own Albanian phrasing ('s'kam kohë për rrjetet'). Slide 10 is a save, follow or keyword ask tied to a free checklist. Shorter posts compress slides 4 to 7 only."
+  },
+  {
+   "code": "CM-THREAD",
+   "name": "Hero-object state arc (buyer POV continuity thread)",
+   "shape": "One world and one hero object that changes state slide by slide (phone silent -> 27 unread messages -> ringing -> booked calendar). Each slide's scene line is a visual metaphor of its point. The turn floods the accent colour. The final slide shows the object's end state with the ask.",
+   "organic_fit": "This is the closest built-in to a 'POV day in the life of the buyer'. It follows a Tirana business owner's phone through a day: likes that never ring, ignored DMs, then the revealed mechanism (a comment-to-DM funnel or a clear offer path), then the phone booked. It works as a carousel or a 15 to 30 s reel with no voiceover. The mechanism reveal sits at the turn (slide 8 or about 70% through the reel). The CTA is 'Ndiqe për pjesën 2' (follow for part 2) or 'Komento SISTEM' for a free guide."
+  },
+  {
+   "code": "CM-WITHHOLD",
+   "name": "Withhold then reveal pair",
+   "shape": "Cover shows a composition with the answer blurred or covered (names, a number, a before with no after) -> slide 2 repeats the same composition with the answer revealed -> continue the spine",
+   "organic_fit": "Strong organic hook with no claim needed. Example: a blurred 'cost per DM' on a client dashboard (only documented, permitted numbers), revealed on slide 2. In a reel it becomes a match cut from blurred to sharp in the first 2 s. CTA: save or send."
+  },
+  {
+   "code": "CM-F01",
+   "name": "Steal my system",
+   "shape": "Cover 'steal my [system]' plus a 3-word proof row -> the problem -> one part per slide -> the scoring or summary -> keyword",
+   "organic_fit": "Fits an agency teaching its weekly content system ('Vidhe sistemin tonë me 6 hapa'). CTA: comment keyword for the free template, with auto-DM via the hub. No offer stated. 8 to 10 slides."
+  },
+  {
+   "code": "CM-F02",
+   "name": "Hills I'll die on",
+   "shape": "Identity plus proof in the hook ('as a founder who...') -> one opinion per slide with the why -> the bridge -> ask",
+   "organic_fit": "Authority and reach post for the agency founder. Contrarian views on Albanian marketing ('boosting posts is not a strategy'). CTA: follow, or comment a keyword. The format's proven 83% non-follower reach makes it a top-of-funnel organic pick."
+  },
+  {
+   "code": "CM-F03",
+   "name": "Win / case study",
+   "shape": "1 the result -> 2 before to after (who and how fast) -> 3 the before state in their words -> 4 what we found -> 5 the first move -> 6 what changed -> 7 the number -> 8 the lesson and bridge -> 9 ask",
+   "organic_fit": "Only with documented, permitted client proof (hard rule 1). For organic use, change the 'Book' ask to save, send or a keyword guide, and drop any price. In a reel the lesson works as the payoff. Use the niche, not the client name, when permission is missing."
+  },
+  {
+   "code": "CM-F04",
+   "name": "Count list",
+   "shape": "1 hook with the count -> 2 what having all items unlocks -> one item per slide (5 words max) -> bridge -> ask",
+   "organic_fit": "Save-bait ('7 gjëra që çdo biznes në Tiranë duhet në profilin e Google'). CTA: save. Easy to batch and serialize."
+  },
+  {
+   "code": "CM-F05",
+   "name": "Mistakes list",
+   "shape": "The cost -> 'number 3 costs the most' -> one mistake plus its fix per slide -> a summary",
+   "organic_fit": "Built for sends ('dërgoja dikujt që e bën këtë'). Problem awareness for owners who self-manage social. 7 to 9 slides. In a reel, put the 'number 3 costs the most' tease up front for retention."
+  },
+  {
+   "code": "CM-F06",
+   "name": "Contrarian plus named framework",
+   "shape": "Contrarian line -> re-hook -> name the framework -> one part per slide, each with a TEST -> a scoring slide -> the lesson -> keyword",
+   "organic_fit": "Lead post with a named agency framework. The TEST lines give owners an action. Keyword gives the scoring sheet. Pin it. 10 to 12 slides. The source flags its 37.8x figure as keyword-inflated."
+  },
+  {
+   "code": "CM-F07",
+   "name": "Two-sided contrast",
+   "shape": "'[A] dies in a week. [B] pays for years.' -> alternate the two sides with a visual colour flip on every switch -> the turn -> the payoff",
+   "organic_fit": "Changes a belief, e.g. 'Boost-i vdes pas një jave. Sistemi paguan për vite.' Two-colour rhythm reads instantly as a carousel or a split-screen reel. CTA: save or keyword."
+  },
+  {
+   "code": "CM-F08",
+   "name": "Myth vs truth",
+   "shape": "'X is a lie' -> 3 reasons -> 'do this instead' (variant: the fear on the top half, the blunt answer on the bottom)",
+   "organic_fit": "Short organic belief post (6 to 9 slides) or a 15 s reel. Myths common among Albanian SMB owners ('more posts = more clients'). CTA: save or send."
+  },
+  {
+   "code": "CM-F09",
+   "name": "Teardown of a known business",
+   "shape": "'Why X is always full' -> the observation -> 3 things they do right -> what you can copy -> one fix",
+   "organic_fit": "Reach and expertise post about a well-known Tirana venue or brand, using public observation only and never their logo in the generated art (hard rule 5). CTA: send. Works well as a walking-POV reel."
+  },
+  {
+   "code": "CM-F10",
+   "name": "Self-audit checklist",
+   "shape": "'Check your X in 10 minutes' -> the checks -> the scoring -> what your score means",
+   "organic_fit": "Saves and leads with no offer. CTA: save, or comment a keyword for the printable audit. Pairs with the hub keyword funnel."
+  },
+  {
+   "code": "CM-F11",
+   "name": "Tool or news drop",
+   "shape": "The outcome first (not the feature name) -> THE NUMBERS -> THE SHIFT -> how it works in 3 steps -> what to do this week -> ask",
+   "organic_fit": "Timely reach on Meta or Instagram changes that affect local businesses. 4 to 8 slides or a 20 s reel. CTA: save or follow."
+  },
+  {
+   "code": "CM-F12",
+   "name": "Start here (founder story)",
+   "shape": "Face plus a confession or result line -> one life beat per slide with real photos -> a real low point -> the turn -> 'Today:' with hard numbers -> why we post -> follow",
+   "organic_fit": "Trust and pin post for the agency founder. Uses real photos (founder-led style), which also reduces AI-label questions. CTA: follow. 12 to 15 slides, or a 45 to 60 s talking-head reel."
+  }
+ ],
+ "organic_adaptation": [
+  "The skill is already organic: it makes feed carousels with keyword, send, save, follow and book asks, and never uses Meta ads data. The adaptation is mostly about wiring it into the hub, the shared standards and the fresh-agent gates, not about removing an ad close.",
+  "Aspect and size: the skill delivers 3:4 at 1080x1440 (lines 25, 300, 310). The client style bible (clients/straightscale/style-bible.md) already switched to '1080x1350 (4:5, the tallest the Instagram publishing API accepts)', with the live 15 Oct carousel 're-fitted to 4:5'. For hub/API posting, the shared standards file must set 4:5 1080x1350 and update the Step 11 convert command and Step 12 checklist. gpt_image_2_5 supports 4:5 natively (verified with models_explore).",
+  "Posting method: Step 12 says 'Post from the app with quiet music so the post can show in the Reels tab'. The automated hub posts drafts via API after approval (CLAUDE.md: nothing posted without approval), so the music step and the 'from the app' instruction need an organic-pipeline equivalent or must be dropped. The hub approval should become an explicit numbered GATE.",
+  "CTA: the 'Book' ask (Win/case study best ask, line 101; 'book' in the ask rotation, line 40; preset 'free 45-minute meeting', line 332) works as a soft organic offer. For posts whose job is reach or trust, use the organic CTA ladder (follow, save, send, comment keyword for a free resource) and keep 'book' for the rare lead post. Never state a price. The skill already bans 'Follow for more' as disconnected (line 127). Keep that.",
+  "Idea score: the 'Offer link' test (line 88) pushes every idea toward the one offer. For organic reach and awareness posts, weight it by the post's job (from the Post Card) or replace it with 'leads to the next step for this job'.",
+  "Hook rules: replace the self-graded 4 gates with Hook Lab in an organic/carousel mode (cover = text plus visual stack), while keeping the 4 gates as a pre-filter. Add a B2B/services profile. Gate 2 ('A specific number or concrete outcome', line 141) and the proof-point rule (line 76) can push a new client with an empty proof bank toward invented numbers. Make 'concrete outcome' the default when the proof bank is empty, as hard rule 1 already demands.",
+  "Cold read: add a fresh-agent cold read of the slide copy (slides in order, no brief) before Step 7. Have it answer the six position tests: what do I want after the cover, does slide 2 pay it, where did I stop.",
+  "Product or mechanism reveal timing: the skill already withholds 'the how' ('Sell the how only through the ask', line 161) and places the bridge at slide 9 and the ask at 10. For the organic POV format, put the mechanism reveal at the turn (slide 8 or about 70% of a reel), never on the cover, and never name a paid package.",
+  "Compliance and AI label: the skill has no AI disclosure rule, while it generates photoreal scenes and sometimes the real founder's face (line 238). Add the shared Instagram AI-label policy (ORGANIC-OS section 13) to Step 12. Replace the DTC health safety example (line 37) with B2B rules: no guaranteed leads or revenue, no client names or results without written permission, no income promises (line 38 already bans these).",
+  "Metrics: Step 12's list (reach, non-follower %, saves, sends, comments, keyword comments, profile visits, follows, DMs, leads, bookings; line 314) is the right organic set. The client results-log.md columns (Likes, Comments, Keyword comments, DMs sent, Taps, New leads, Hot/booked) and hub.py results must add reach, non-follower %, saves, sends, follows and profile visits, plus per-slide drop-off and the slide-2 vs cover benchmark (line 314).",
+  "Rule of three ones metric: 'leads from content, not likes' (line 53). For organic awareness posts, also count sends and saves per reach, which Step 12 line 316 already says. Align the brand-kit metric with the Post Card job.",
+  "Language: the skill requires a native read of Albanian copy before posting (lines 32 and 309) and spelling ë and ç out in prompts (line 253). Make the native read a hard hub gate, because an automated agent cannot satisfy it alone.",
+  "Ask rotation: 'Rotate the ask across the week (keyword, send, save, book)' (line 40) should be enforced by the weekly planner (organic.py week-check), not left to each carousel run.",
+  "Reels crossover: the 12 formats and the six positions transfer to reels. The organic pipeline should store them as shared story formats with a carousel adapter (slides) and a reel adapter (beats and seconds) rather than keep them only inside carousel-machine.",
+  "Costs: update growth-engine/ORGANIC-OS.md section 7.7, which still prices carousels at '6.5 per slide' and '60 to 90' credits. The skill's tested ladder (low 0.5, medium 1, high 2.75; about 10 to 13 per 10-slide post) is the current figure."
+ ],
+ "visual_qa_overlap": "What the skill already does. (1) A locked style bible with 3 locks (colour, type, layout) pasted word for word into every prompt (lines 177 to 193). It codifies a reference and runs a test slide against it: 'anything that came out wrong is a missing rule' (line 199). (2) A written continuity plan before any prompt: one world, one thread, one frame, scene lines, swipe bridges with exact edge positions, planned rhythm (lines 227 to 234). (3) A cover anchor: 4 medium options checked at full size for the want, the thumbnail read and every letter, 2 to 4 rounds (line 241). Slide 2 locks the system. Batches use cover and slide 2 job ids as references (lines 244 to 256). (4) A fixed 6-part prompt template with NEGATIVES: no extra words, no second saturated colour, no foreign logos (lines 248 to 254). (5) Known-failure fixes and a retake cap of 2 plus edit passes (lines 264 to 271). (6) Step 9: every slide viewed at about 760 px in the sandbox. Letter-by-letter copy and diacritics check, counters, proof-bank numbers. Contact sheet for one-film continuity, hero states, bridges and rhythm. 3x3 grid fit. Cover thumbnail at about 200 px. Calm-zone, cropping, margin and one-accent checks. Then a twice-run critic loop with Critic 1 (brief) and Critic 2 (art director) (lines 273 to 286). (7) prompts.md stores every final prompt with its job id (line 302).\n\nWhat a fresh-agent reviewer replaces or adds (per growth-engine/production/VISUAL-QA.md lines 148 and 497 to 503: 'G-SPEC, G-PROMPT-IMG, G-VIS-SLIDE per slide, G-SET (whole carousel)'; 'The carousel-machine's own Step 9 checks stay; the fresh-agent reviewer replaces its self-run critic loop'). REPLACE: the Step 9.5 critic loop, which today is the same agent grading its own work. A fresh Visual Reviewer runs G-VIS-SLIDE per slide (letter-by-letter text and the 200 px thumbnail test, with the cover treated as a hero asset that needs zero defects of any severity) and G-SET on the whole set (one world, bridges line up, the turn looks different, slide 2 works alone, no slide could swap). ADD: (a) G-SPEC, a per-slide spec plus a carousel-level spec of story positions and continuity thread, written before prompting. The skill has scene lines in prompts.md but no checked spec. (b) G-PROMPT-IMG, a Prompt Reviewer that checks each prompt card before credits are spent. The skill has no pre-generation prompt check and only discovers failures after generation. (c) Structured JSON verdicts with defect severity and versioned PASS records, so a blocking hook can refuse generation from an unpassed anchor. The skill keeps no machine-readable QA record. (d) A Failure Library that merges the skill's known-failures list (lines 264 to 270). (e) A cold reader for the slide copy (claim 14), which Visual QA does not cover. The Step 6 self-check and the Step 4 position tests are also self-graded. (f) Explicit human GATE numbers. The skill's only human checks are 'a human look when one is available' (line 138) and the native read (lines 32 and 309).",
+ "costs": [
+  {
+   "item": "Body slide, retake or edit pass (gpt_image_2_5, 3:4, 2k, quality low)",
+   "credits": "0.5"
+  },
+  {
+   "item": "Cover option (gpt_image_2_5, 3:4, 2k, quality medium), 4 per round",
+   "credits": "1 each (4 per round; 2 to 4 rounds expected, so 8 to 16 if every round is a full 4-option set)"
+  },
+  {
+   "item": "Final cover polish (quality high), only if the medium pick is not sharp",
+   "credits": "2.75"
+  },
+  {
+   "item": "Whole 10-slide post with 4 cover options and normal retakes",
+   "credits": "about 10 to 13"
+  },
+  {
+   "item": "Nano Banana 2.1 at 2k (rejected model, for comparison)",
+   "credits": "2 (line 225) / 1.5 to 2 (line 337)"
+  }
+ ],
+ "other_issues": [
+  "Model naming contradiction: the description, hard rule 4, Step 7, the Step 8 heading and 8f say 'GPT Image 2' (lines 3, 17, 25, 34, 178, 214, 261), but Step 8a pins `gpt_image_2_5` and line 337 says 'GPT Image 2.5'. models_explore shows both `gpt_image_2` (reference role 'image', no 4:5, quality only up to high) and `gpt_image_2_5` (role 'image_references', 4:5 supported, quality up to max) exist. An agent following the prose could call the wrong model, and its `image_references` medias would then be rejected.",
+  "Cost contradiction: line 224 says a 10-slide post costs 'about 10 to 13 credits', but line 241 expects '2 to 4 rounds' of `count: 4` covers at medium (1 credit each), which alone is 8 to 16 credits. Add 9 body slides at 0.5 (4.5) and retakes, and a realistic total is about 13 to 22+.",
+  "Hook count contradiction: the deliverables say '3 to 5 graded hooks' (line 23), while Step 5 says 'Generate 5 variations' (line 138).",
+  "Nano Banana 2.1 cost is stated two ways: '2 credits at 2k' (line 225) vs '1.5 to 2 credits' (line 337).",
+  "Cost preflight: Step 8a says to 'confirm the cost with `get_cost: true` before starting' (line 224), but the generate_image_batch schema says 'Cost preflight is not supported inside a batch submission'. Preflight must go through single generate_image calls.",
+  "Model defaults: gpt_image_2_5 defaults to resolution '1k' and quality 'low', and has an unpinned `variant` (flare or sunburst, default flare). An agent that forgets `resolution: 2k` gets under-size slides. The skill does not pin the variant, so results may change if the default changes.",
+  "Batch polling: the skill never mentions `jobs_wait`, which the batch tool requires for polling returned job ids, or the rule that a partial batch failure must not be blindly retried.",
+  "Step 11 says images pulled with `image_paths` are 'saved under the session's tool-results folder' (line 301). sandbox_exec returns images natively to the model, so whether files land on disk depends on the host. An automated agent may find nothing to copy. A media_upload or curl route is safer.",
+  "`device_commit_files` (line 303) is not an available tool in this session. Step 11 also assumes 'The workspace usually can't reach the image host' (line 274), an environment-specific claim.",
+  "'For product-page image sets use the PDP carousel skills instead' (line 15): no skill by that name exists in the synced skills. The nearest is `carousel-belief-proof-and-objection-architect`.",
+  "The client StraightScale style-bible.md diverges from the skill's preset: 4:5 1080x1350 vs the skill's 3:4 1080x1440; accent crimson #B31217 (logo #BE0F18) vs the preset's #C8202F (line 327, though it says to swap in the brand-book hex); counter top right in gold vs the example block's 'Small counter top-left' (line 193); medium quality (1 credit) for every slide vs low (0.5) for body slides (line 221). An agent reading only the skill would produce off-brand, wrong-size slides.",
+  "Stale costs elsewhere: growth-engine/ORGANIC-OS.md section 7.7 prices a carousel at '60 to 90' credits, with evidence 'GPT Image 2 at 2k high = 6.5 credits' and '6.5 per slide plus redos'. That contradicts the skill's 11 Oct test (high = 2.75, low = 0.5, about 10 to 13 per post).",
+  "No AI-label or disclosure rule anywhere in the skill, even though it renders photoreal scenes and real founder faces (line 238).",
+  "Self-grading throughout: idea score, 4 hook gates, the 8-question self-check, position tests and a twice-run critic loop are all done by the same agent (line 286). There is no Hook Lab, Script Lab or cold read (claim 14) and no fresh-agent reviewer. VISUAL-QA.md plans to replace the critic loop.",
+  "Human checkpoints are soft and unnumbered: 'never ships without a human look when one is available' (line 138). An unattended agent will read 'when one is available' as permission to skip.",
+  "results-log.md schema mismatch: Step 12 asks for reach, non-follower %, saves, sends, profile visits and follows (line 314), but clients/straightscale/results-log.md has none of those columns.",
+  "Step 12 requires 'Post from the app with quiet music' (line 310), which conflicts with automated hub/API posting.",
+  "The safety example is DTC health ('your hair loss', line 37) and the brand list names Readymerce DTC brands (line 15). A B2B or services client needs its own safety examples.",
+  "Benchmarks are mostly self-reported creator or vendor numbers (lines 338 and 342 say so). 'Teardown: 10x' and similar multipliers come from a 40-post internal teardown and are not causal. Treat them as priors, not gates.",
+  "No version history or changelog despite the 'v3' title, so drift against the hub or the shared standards file cannot be detected from the skill itself.",
+  "Brand-specific hardcoding in a general skill: the StraightScale preset, the Tirana style block and the 'free 45-minute meeting' sit inside the skill. They duplicate clients/straightscale files that have already diverged and should live only in the client folder."
+ ]
+}

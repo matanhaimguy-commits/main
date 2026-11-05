@@ -1,0 +1,147 @@
+{
+  "client": "_template",
+  "account": "unknown: the handle and a short line about the account",
+  "updated": "1970-01-01",
+  "hub": {
+    "business": "_template",
+    "note": "Starter folder. Copy to clients/<slug>/, then set the hub business here."
+  },
+  "business_model": {
+    "sells": "unknown: what the business sells (intake A4)",
+    "price_notes": "unknown: prices",
+    "margin": "unknown: margin",
+    "capacity": "unknown: new customers a month it can take (intake B4)",
+    "sales_process": "unknown: how a viewer becomes a customer (intake F2)"
+  },
+  "offer": {
+    "main_offer": "unknown: the one offer content points to",
+    "next_step": "unknown: the single next step for a viewer",
+    "keyword": "unknown: the DM keyword",
+    "delivers": "unknown: exactly what the person gets, how long it takes"
+  },
+  "avatars": [
+    {
+      "id": "AV-01",
+      "name": "unknown: avatar name",
+      "role": "unknown: role",
+      "situation": "unknown: situation",
+      "words": [
+        "unknown: buyer phrases, from research"
+      ],
+      "fears": [
+        "unknown: fears"
+      ],
+      "desires": [
+        "unknown: desires"
+      ]
+    }
+  ],
+  "awareness": {
+    "stage": "unknown: where most buyers are",
+    "sophistication": "unknown: S1 to S5",
+    "notes": ""
+  },
+  "mechanism": {
+    "ump": "unknown: problem name",
+    "ums": "unknown: solution name",
+    "steps": []
+  },
+  "belief_ladder": [
+    {
+      "id": "B1",
+      "statement": "unknown: belief 1",
+      "state": "unknown"
+    },
+    {
+      "id": "B2",
+      "statement": "unknown: belief 2",
+      "state": "unknown"
+    },
+    {
+      "id": "B3",
+      "statement": "unknown: belief 3",
+      "state": "unknown"
+    },
+    {
+      "id": "B4",
+      "statement": "unknown: belief 4",
+      "state": "unknown"
+    },
+    {
+      "id": "B5",
+      "statement": "unknown: belief 5",
+      "state": "unknown"
+    },
+    {
+      "id": "B6",
+      "statement": "unknown: belief 6",
+      "state": "unknown"
+    },
+    {
+      "id": "B7",
+      "statement": "unknown: belief 7",
+      "state": "unknown"
+    },
+    {
+      "id": "B8",
+      "statement": "unknown: belief 8",
+      "state": "unknown"
+    }
+  ],
+  "contrarian_vault": [],
+  "proof_bank": [],
+  "lead_magnets": [],
+  "voice": {
+    "adjectives": [
+      "unknown: 3 words, intake D4"
+    ],
+    "samples": [],
+    "banned": [
+      "unknown: words to avoid"
+    ],
+    "language": "unknown: account language (intake H4)",
+    "register": "unknown: ju or ti, or the language's equivalent"
+  },
+  "visual": {
+    "colors": {},
+    "fonts": [],
+    "logo_files": [],
+    "face": "faceless",
+    "ai_label": "unknown: how AI people are labelled (intake H1)"
+  },
+  "market": {
+    "language": "unknown: language",
+    "country": "unknown: country",
+    "city": "unknown: city",
+    "timezone": "unknown: IANA zone"
+  },
+  "constraints": {
+    "cannot_say": [],
+    "will_not_show": [],
+    "approver": "unknown: who approves (intake H3)",
+    "turnaround_hours": null
+  },
+  "baseline": {
+    "followers": null,
+    "reach_30d": null,
+    "median_views": null,
+    "saves": null,
+    "sends": null,
+    "dms": null,
+    "client_sources": "unknown: where clients come from",
+    "as_of": null
+  },
+  "package": {
+    "posts_per_week": 0,
+    "account_stage": "new",
+    "monthly_usd_cap": null,
+    "platforms": [
+      "instagram"
+    ],
+    "note": "Set the cadence and the USD cap in O5 (the owner decides the cap)."
+  },
+  "decisions_open": [],
+  "messaging": {
+    "status": "draft"
+  }
+}

@@ -1,0 +1,23 @@
+{"gate": "G-SPEC", "shot_id": "H-01-V8", "spec_sha256": "7eb317fbd11743631b19064b216ad306f6c0b4bc4054095d2d04e0fa4569e750",
+ "reviewer": "prompt-reviewer (fresh agent)", "independent": true, "status": "FAIL",
+ "checks": [
+  {"id": "P1", "result": "PASS", "evidence": "Both cards, arrow, hearts, both text strings and the empty calendar from the line and must_read_in_1s are all specified."},
+  {"id": "P2", "result": "N/A", "evidence": "Spec mode; no references (ref: null)."},
+  {"id": "P3", "result": "PASS", "evidence": "hands: none visible"},
+  {"id": "P4", "result": "FAIL", "evidence": "\"The two cards stand upright on their bottom edges on a cream clay shelf, one above the other, the arrow resting on the gap between them.\" Two cards stacked in screen space (post y30-52, page y56-88) cannot both stand on one shelf; the upper one floats. The arrow 'pointing down' also 'resting on the gap' has no contact points."},
+  {"id": "P5", "result": "PASS", "evidence": "PR-POST and PR-PAGE have content lines (colours, exact words, 3 hearts, 2x5 empty cream squares, no digits); must_not has no blanket 'no text'."},
+  {"id": "P6", "result": "PASS", "evidence": "\"TIRED OF SLOW MONTHS?\" x20-80 y34-46 and \"WELCOME TO OUR WEBSITE\" x20-80 y59-68, each 4 words or fewer, occlusion 'nothing covers any letter', inside their card regions."},
+  {"id": "P7", "result": "PASS", "evidence": "background_rule: \"no signs, frames, posters or other screens\"; the empty calendar squares are explicitly intended and ruled (every square empty, no digits)."},
+  {"id": "P8", "result": "FAIL", "evidence": "safe_zones: \"bottom 15% calm\" but page region box ends y 0.88 (page y56-88%), so the card and its calendar run into the bottom 15% (y > 85%). Also the 'cream clay shelf' in action_physics contradicts 'plain cream clay backdrop' and 'no set edges, workbench or room'."},
+  {"id": "P9", "result": "PASS", "evidence": "previous_shot: null, carry_over: [] (first frame)."},
+  {"id": "P10", "result": "N/A", "evidence": "Spec mode."},
+  {"id": "P11", "result": "FAIL", "evidence": "\"three small heart red clay hearts\" (garbled colour wording; use heart red #D64545); \"two lines if needed\" leaves line breaks to the model; \"the arrow resting on the gap\" and 'dark ink letters' vs deep ink #2B2A33 are loose; the 4% gap (y52-56) cannot hold a visible arrow."},
+  {"id": "P12", "result": "PASS", "evidence": "FL-04 covered by content lines, FL-05 by background_rule, FL-10 by 'no words other than the listed strings'; no logo requested (FL-13 not triggered); no hands (FL-01 N/A)."}
+ ],
+ "suggested_spec_changes": [
+  "Fix the physics (P4): replace action_physics with a real support, e.g. 'The post card leans upright on the back of a raised cream clay step at the upper level, its bottom edge resting on that step; the page card stands upright on its bottom edge on the cream clay floor below. The sage arrow lies flat against the front face of the step, its tail touching the bottom edge of the post card and its tip 1 cm above the top edge of the page card, pointing down.' Remove 'shelf' wording or rule it in setting.details and drop 'no set edges' conflict ('the step is part of the clay world, no table edge or room visible').",
+  "Fix the safe zone (P8): keep the page card inside y 56% to 84% (page region box [0.14,0.56,0.86,0.84], size_in_frame height 28%); resize the calendar grid and the page-text box accordingly, or lower the stated bottom safe zone. Make PR-PAGE size_in_frame consistent with the box.",
+  "Give the arrow room and a region: widen the gap between the cards to about 8% (post y30-50, page y58-84) and add a region {name: arrow, kind: prop} for it; add a region for the calendar grid and the hearts.",
+  "P11: change 'three small heart red clay hearts' to 'three small clay hearts in heart red #D64545'; change 'two lines if needed' to an exact line break, e.g. 'TIRED OF SLOW' / 'MONTHS?' and 'WELCOME TO' / 'OUR WEBSITE'; change 'dark ink letters' to 'deep ink #2B2A33 letters'; replace 'the only writing is on the listed screen' with 'the only writing is on the two listed cards'.",
+  "Optional: add a one-line structure rule for each card ('a single flat clay card, one slab, rounded corners, no second layer') per FL-02."
+ ]}

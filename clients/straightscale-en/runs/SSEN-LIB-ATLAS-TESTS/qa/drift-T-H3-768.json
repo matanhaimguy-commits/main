@@ -1,0 +1,156 @@
+{
+  "clip": "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/takes/T-H3-768.mp4",
+  "slice": "clients/straightscale-en/runs/SSEN-LIB-ATLAS-TESTS/audio/SLICE-CHRIS.v1.mp3",
+  "median_lag_s": 0.0,
+  "windows": [
+    {
+      "t": 0.0,
+      "lag_s": 0.0,
+      "corr": 0.987
+    },
+    {
+      "t": 0.25,
+      "lag_s": 0.0,
+      "corr": 0.996
+    },
+    {
+      "t": 0.5,
+      "lag_s": 0.0,
+      "corr": 0.998
+    },
+    {
+      "t": 0.75,
+      "lag_s": 0.0,
+      "corr": 0.998
+    },
+    {
+      "t": 1.0,
+      "lag_s": 0.0,
+      "corr": 0.999
+    },
+    {
+      "t": 1.25,
+      "lag_s": 0.0,
+      "corr": 0.998
+    },
+    {
+      "t": 1.5,
+      "lag_s": 0.0,
+      "corr": 0.999
+    },
+    {
+      "t": 1.75,
+      "lag_s": 0.0,
+      "corr": 0.998
+    },
+    {
+      "t": 2.0,
+      "lag_s": 0.0,
+      "corr": 0.998
+    },
+    {
+      "t": 2.25,
+      "lag_s": 0.0,
+      "corr": 0.998
+    },
+    {
+      "t": 2.5,
+      "lag_s": 0.0,
+      "corr": 0.998
+    },
+    {
+      "t": 2.75,
+      "lag_s": 0.0,
+      "corr": 0.999
+    },
+    {
+      "t": 3.0,
+      "lag_s": 0.0,
+      "corr": 0.94
+    },
+    {
+      "t": 3.25,
+      "lag_s": -0.1,
+      "corr": 0.864
+    },
+    {
+      "t": 3.5,
+      "lag_s": -0.1,
+      "corr": 0.88
+    },
+    {
+      "t": 3.75,
+      "lag_s": 0.0,
+      "corr": 0.859
+    },
+    {
+      "t": 4.0,
+      "lag_s": 0.0,
+      "corr": 0.817
+    },
+    {
+      "t": 4.25,
+      "lag_s": 0.0,
+      "corr": 0.814
+    },
+    {
+      "t": 4.5,
+      "lag_s": 0.0,
+      "corr": 0.826
+    },
+    {
+      "t": 4.75,
+      "lag_s": 0.0,
+      "corr": 0.811
+    },
+    {
+      "t": 5.0,
+      "lag_s": 0.0,
+      "corr": 0.774
+    },
+    {
+      "t": 5.25,
+      "lag_s": -1.29,
+      "corr": 0.82
+    },
+    {
+      "t": 5.5,
+      "lag_s": -1.28,
+      "corr": 0.842
+    },
+    {
+      "t": 5.75,
+      "lag_s": -1.33,
+      "corr": 0.888
+    },
+    {
+      "t": 6.0,
+      "lag_s": 1.12,
+      "corr": 0.924
+    }
+  ],
+  "steps": [
+    {
+      "at": 3.25,
+      "from": 0.0,
+      "to": -0.1
+    },
+    {
+      "at": 3.75,
+      "from": -0.1,
+      "to": 0.0
+    },
+    {
+      "at": 5.25,
+      "from": 0.0,
+      "to": -1.29
+    },
+    {
+      "at": 6.0,
+      "from": -1.33,
+      "to": 1.12
+    }
+  ],
+  "low_corr_windows": 0,
+  "verdict": "cut at each step inside the nearest pause (retake only if a step sits inside a word)"
+}

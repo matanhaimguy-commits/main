@@ -1,0 +1,912 @@
+{
+ "skill": "readymerce-script-lab",
+ "version": "v1.1 (2026-10-10; v1 2026-10-04). File: /root/.claude/skills/synced/ecbb512e-baad-4579-8fb7-650b733b4f86_5b0c7e87-40d3-427d-b2a8-b08eea6731f4/readymerce-script-lab/SKILL.md, 1,672 lines, read in full",
+ "purpose": "This is the paid-ad script writer and gate that runs after the Hook Lab and before any voice, lyric, storyboard or render. It has five modes: WRITE, GRADE, FIX, LADDER and LEARN. A script is treated as a chain of beliefs. The steps are: brief and persona cards, a length router (D15 to V300), a structure library (ST1 to ST18), a pre-write pack (a 14-rung belief ladder with the because test, a question chain, a six-sheet script bible and a reveal plan), 2 or 3 spines, writing as speech under 12 rules, then a line table. The gate is 16 mechanical tests plus a 24-question lessons list, a cold read by a fresh agent (a second, skeptical reader from S90 up) and a 100-point score. A script releases at 85 or more with no critical fail, after at most 3 FIX loops, then it escalates to the user. Six format adapters cover animation, song, podcast, UGC, text on screen and VSL. LEARN maps Meta ad drop-offs to lines. Appendix X holds the model scripts X1 to X8, Appendix R the research basis, and Appendix M the Copy Laws, which is the single copy for the whole Readymerce system. The skill makes no images, video or audio and has no render settings. It is a script and copy gate only.",
+ "phases": [
+  {
+   "step": "0",
+   "name": "Mode and call contract (section 0)",
+   "does": "The caller picks WRITE / GRADE / FIX / LADDER / LEARN and passes one SCRIPT LAB CALL block: mode, brief card, format adapter (animation / song / podcast / ugc / text / vsl), length tier or \"route it\", structure code ST1 to ST18 per tier or \"pick it\", hook stacks (master + 2 variants with seam lines), cast and measured pace, script (GRADE/FIX), ad IDs plus line tables with voice timestamps (LEARN). Returns the release block (section 13).",
+   "gate": "Block complete. If the skill can't be loaded, the caller uses the Script Lab card (section 20) \"and says so\". Any change to a released script goes back through the gate.",
+   "human_checkpoint": "none here",
+   "tools_models": "Skill tool (load readymerce-script-lab)"
+  },
+  {
+   "step": "1",
+   "name": "Brief card and persona card (2a, 2b)",
+   "does": "Brief card: one avatar, starting belief quoted with research ID, target belief, desire (LF8), awareness/sophistication stamp, angle, her material, mechanism (UMP/UMS), the picture, product truth, offer facts, proof facts, structure, adapter and cast, hook stacks. Persona card: only what she knows and believes before the ad, including patience (\"you give an ad 3 seconds\"). Skeptic variant from S90 up.",
+   "gate": "3+ accommodations, 3+ moments, 3+ failed fixes, each with a research ID. A missing fact means the line is cut or rewritten, never invented. The persona card never holds the cause, mechanism, picture or its name, product, angle or the ad's purpose.",
+   "human_checkpoint": "none",
+   "tools_models": "none (project research docs)"
+  },
+  {
+   "step": "2",
+   "name": "Length router (section 3)",
+   "does": "Pick the job by awareness (demo / conversation / story), then the tier D15, D30, C45, S60, S90, L150 or V300, and turn it into a word ceiling at the measured pace (pre-cast 2.5 to 3 words/s, about 2.4 for savouring characters). Split the ceiling across the tier template's beats before writing.",
+   "gate": "No story under 55 s. Every concept gets a short tier (D30 or C45) and a story tier (S60 or S90), each written on its own and never trimmed. L150/V300 need a stated reason. Never speed the voice past 1.05x: cut a rung or move up a tier. Podcast C45 uses 35 to 45 s and 80 to 110 words.",
+   "human_checkpoint": "none",
+   "tools_models": "cast voice's measured pace from the caller's casting step"
+  },
+  {
+   "step": "2b",
+   "name": "Structure pick (section 3b)",
+   "does": "Three layers in order: structure (ST1 to ST18), then device (narrator, confession, mentor, talking organ, villain, two hosts, creator, founder, cards, song), then medium (format adapter). Pick by awareness, then the load-bearing rung, the tier and the facts on hand. Writes a STRUCTURE PICK block. AIDA and 4Ps are lenses only.",
+   "gate": "The facts the structure needs must be on the facts sheet, or the structure is dropped (never invent a case, quote, competitor claim or deadline). Spines use at least 2 structures when awareness allows more than one. A story structure never runs under 55 s. From S60 up, every structure keeps one person, one moment and the accommodation.",
+   "human_checkpoint": "none",
+   "tools_models": "none"
+  },
+  {
+   "step": "3",
+   "name": "Pre-write pack (sections 4 to 7)",
+   "does": "Belief ladder, rungs 0 Curiosity to 13 Identity, with a because sentence for every adjacent pair. Question chain: a master question plus section and line questions, with loop rules. Script bible of six sheets: speakers/POV, one timeline, picture map with a product row, word list, setups/payoffs, facts. Reveal plan in fixed order: carrier with a reason, shown working, bridge line, each part's job, how to use; named after it is shown and after the mechanism.",
+   "gate": "Every because sentence holds. The six fixed points hold: cause before promise, promise before mechanism, mechanism before the product's name, explanation before claim, proof right after its claim, offer before CTA. The master question opens by the end of the hook (about 3 to 8 s) with no line between hook and CTA lacking an open question. Re-hooks come about every 8 s early, then every 25 to 30 s. One picture, and the product obeys its rules. Every fact is sourced.",
+   "human_checkpoint": "none",
+   "tools_models": "none"
+  },
+  {
+   "step": "4",
+   "name": "Spines (section 8)",
+   "does": "Write 2 or 3 spines of about 80 words each (tier, job, structure and device, entry to final rung, story shape, hook, master question, ladder, carrier and reveal, picture, payoff, why). Pick one and write only that one at each tier of its ladder.",
+   "gate": "Spines must differ in something that matters: structure, entry rung, carrier, story shape or hook type.",
+   "human_checkpoint": "\"Pick one. The calling skill's gate decides; when the user has said to run without stopping, Claude picks and says why in one line.\" (line 408)",
+   "tools_models": "none"
+  },
+  {
+   "step": "5",
+   "name": "Write it as speech: 12 rules plus tier templates (sections 9, 10)",
+   "does": "One block of speech, top to bottom, inside the word budget, then read aloud at the voice's pace. The 12 rules: one of each; one job per line; every line owes the next an answer (but/so/that's why); manage the loops; picture first, then the science; fixed order; the mechanism explains why the old fixes failed; the product walks in through the story; explain every new word and frame every quote; every payoff has a setup in the same words; one timeline with facts from the sheet; write for the ear. Tier templates give per-beat word budgets.",
+   "gate": "Core lines under 12 words, none over 17. Grade 7 or below. Contractions. At most one \"it's not X, it's Y\" line, at the aha. Past tense for the story, present for the mechanism, with the switch marked.",
+   "human_checkpoint": "none",
+   "tools_models": "none"
+  },
+  {
+   "step": "6",
+   "name": "Line table (section 11)",
+   "does": "Built from the speech. Columns: # | Speaker | Line | Job | Answers | Opens | Picture | Gap | Words | Time. Time starts as a word-count estimate and is replaced by real voice timestamps once the voiceover exists.",
+   "gate": "One job per line. Answers/Opens are blank only on the last line.",
+   "human_checkpoint": "none",
+   "tools_models": "none"
+  },
+  {
+   "step": "7A",
+   "name": "Gate part A: 16 mechanical tests plus the lessons list (12A, 19)",
+   "does": "Tests: 1 ladder coverage, 2 ladder order (because test, fixed points, structure order), 3 handoffs, 4 master loop, 5 speaker/POV, 6 timeline and facts, 7 words (explained before used), 8 picture map, 9 setups/payoffs, 10 deletion and repetition, 11 reveal order, 12 hook seam/payoff/no clickbait (every variant stack), 13 ear, 14 length arithmetic, 15 strategy minimum, 16 Copy Law essentials (L22 script items). Then the 24 yes/no lessons; a \"no\" fails the mapped test.",
+   "gate": "Each test is pass/fail with line numbers and quotes as evidence. Stacks that fail test 12 go back to the Hook Lab (H6) or move to a tier whose body pays them.",
+   "human_checkpoint": "none",
+   "tools_models": "none"
+  },
+  {
+   "step": "7B",
+   "name": "Gate part B: cold read (12B)",
+   "does": "A fresh general-purpose agent per read, never one that has seen the brief, research or an earlier draft or read. It gets only the persona card and the numbered spoken lines, labelled \"Voice 1\"/\"Voice 2\". It writes a per-line table (what's going on, question, wait who/what/when, still watching), a 5-sentence retell, the doubt left, would you tap, and the single most confusing moment. A second skeptic reader runs from S90 up. The read is listen-only; supers, end card and primary text are graded by the format's sound-off test.",
+   "gate": "Pass when the retell matches the ladder rung by rung, there is no confusion on a core rung (cause, mechanism, product, why it works, offer) left uncleared within 2 lines, and there is no scroll point before the master answer (stories) or before the product is seen working (demos). If no agent can be started: \"cold read: self, weaker check\".",
+   "human_checkpoint": "none",
+   "tools_models": "Agent tool (general-purpose) per reader; new readers every loop"
+  },
+  {
+   "step": "7C",
+   "name": "Gate part C: 100-point score and FIX loops (12C, 12D)",
+   "does": "Score: Comprehension 25, Ladder and handoffs 20, Hook 10, Mechanism 10, Proof 10, Offer and CTA 10, Emotion and identity 5, Ear 5, Length 5. Then the gate report.",
+   "gate": "Release at 85 or more with no critical fail. Critical fails: a major confusion on a core rung; a required rung missing; a speaker or timeline break; an invented or unsourced fact. Up to 3 rewrite loops, each with new readers.",
+   "human_checkpoint": "After loop 3, ESCALATE: \"the script goes to the user with the remaining fails named and the writer's recommendation\" (line 642)",
+   "tools_models": "Agent tool for new cold readers per loop"
+  },
+  {
+   "step": "8",
+   "name": "Release and changes after release (section 13)",
+   "does": "Release block: 1 clean script in the adapter's line format, 2 line table, 3 pre-write pack (structure pick, ladder and because sentences, question chain, six bible sheets, reveal plan, spines), 4 gate report, 5 length ladder, 6 hooks sent back.",
+   "gate": "Any later change goes through FIX on the changed lines and re-runs tests 3, 5 to 10, 13 and 14 with the bible updated. A core-rung change (cause, mechanism, reveal, offer) re-runs the full gate with a new cold reader. No un-gated change reaches voice, song, storyboard or render.",
+   "human_checkpoint": "none in the skill. Legal: \"The brand's legal team decides what passes\" (line 17)",
+   "tools_models": "none"
+  },
+  {
+   "step": "GRADE",
+   "name": "GRADE mode (section 14)",
+   "does": "Number the lines one breath each, rebuild the bible from the script, infer the brief (avatar, awareness, angle, job, tier from the word count, structure; \"none: a list of beats\" is a finding), build the line table, run the 16 tests, lessons, cold read(s) and score. Report breaks ranked by damage with a one-line fix each. Don't rewrite unless asked.",
+   "gate": "Same gate. For swipes, test 6 checks internal consistency only; name 1 or 2 moves worth stealing.",
+   "human_checkpoint": "none",
+   "tools_models": "Agent tool for cold readers"
+  },
+  {
+   "step": "FIX",
+   "name": "FIX mode (section 15)",
+   "does": "List the failing lines and tests. Sort each into a line break (fix the line) or a structure break (rebuild from the spine section by section; a weak bridge is never patched with one line). Update the bible first, keep the word budget, re-run the full gate with new readers and count the loop.",
+   "gate": "85 with no critical fail. Max 3 loops.",
+   "human_checkpoint": "Escalate to the user after loop 3 (line 697)",
+   "tools_models": "Agent tool"
+  },
+  {
+   "step": "LADDER",
+   "name": "LADDER mode (section 16)",
+   "does": "From the released spine, each new tier gets its own structure, beats, a hook stack whose seam fits the new line 2, and new bridges inside the new budget.",
+   "gate": "Never trim (a short version keeping the long version's bridges fails test 3). Gate each tier on its own.",
+   "human_checkpoint": "none",
+   "tools_models": "Hook Lab for new stacks"
+  },
+  {
+   "step": "LEARN",
+   "name": "LEARN mode (section 17)",
+   "does": "After about 7 days or 1,000+ impressions per ad, pull read-only Meta metrics. Map the 3 steepest falls after 3 s, plus falls at joins, to lines via the voice timestamps. Diagnose: a drop before 15 s is the hook or seam; a cliff at product entry is the bridge; a good hold with low CTR is the offer, CTA or bridge. Keep 1 or 2 deep lessons per ad as yes/no questions in section 19 with ad ID and date. Confused comments become cold-read prompt questions; comments go to VOC docs; an angle gets 3 to 6 executions.",
+   "gate": "Deep lessons only (causes, not features), each labelled research, execution or feedback-loop. Cost per purchase at ad-set level decides.",
+   "human_checkpoint": "none",
+   "tools_models": "Facebook Ads connector (read only)"
+  },
+  {
+   "step": "18a",
+   "name": "Adapter: animation",
+   "does": "One line = one breath = one picture, 4 to 17 words. Line format `SPEAKER (delivery note) [gap code]: text`, gaps S 0.15 s / B 0.4 s / H 0.8 s. Commas join running thoughts because TTS stops at full stops. TTS-safe numbers and phonetic brand spelling, with acting tags in brackets. A character's \"I\" holds until a marked switch. The picture note feeds the shot ledger and the picture map feeds the Invisible-Made-Visible sequence.",
+   "gate": "Brand name at least twice, the first only after the product is shown. Cold read on the voiceover lines only; supers checked by the animation skill's sound-off test.",
+   "human_checkpoint": "none",
+   "tools_models": "TTS (model not named)"
+  },
+  {
+   "step": "18b",
+   "name": "Adapter: song",
+   "does": "Script Lab writes the argument as speech (C45, S60 or S90) and gates it. The song skill turns it into lyrics: the chorus carries the picture and its name; the turn, guarantee and CTA are spoken. Script Lab then grades the lyrics read flat.",
+   "gate": "Tests 3, 5, 7, 8, 9, 12, 13 on the lyrics (every line understood first listen, 8 to 14 syllables allowed), plus a cold read of the lyrics. Every rung, fact and time word unchanged vs the released speech (tests 1, 6), identity close kept (test 16). Length about 35 to 55 lines per 90 s, aiming at the tier's low end because Suno runs 10 to 25 s long.",
+   "human_checkpoint": "none",
+   "tools_models": "Suno (named for length calibration)"
+  },
+  {
+   "step": "18c",
+   "name": "Adapter: podcast and conversations",
+   "does": "The C45 template is the podcast beat template (Host A owns the problem, Host B has solved it). Both hosts go on the speaker sheet and the cold reader hears Voice 1/Voice 2. The long cut L150 is its own script.",
+   "gate": "8 to 12 turns, 80 to 110 spoken words, 35 to 45 s (test 14 counts against this). Turns of 20 words or fewer (one up to 25). The listener speaks every other turn and at least every 8 s. No host over 60% of words. Brand line one casual sentence of 25 words or fewer. Payoff ends on 6 words or fewer. CTA off the voice; offer and CTA scored on end card, supers and primary text.",
+   "human_checkpoint": "none",
+   "tools_models": "none named"
+  },
+  {
+   "step": "18d",
+   "name": "Adapter: UGC and talking head",
+   "does": "One creator, first person, present tense for the routine and past for the story. Clip packing (hub G4) at natural pauses.",
+   "gate": "Up to about 35 words per 15-second clip, never splitting a line. Product working on camera from about 3 s for aware audiences. Supers 2 to 6 words, never the transcript.",
+   "human_checkpoint": "none",
+   "tools_models": "none named"
+  },
+  {
+   "step": "18e",
+   "name": "Adapter: text on screen and story text",
+   "does": "Each card is a line; the cold reader reads the cards in order. Primary text carries what the cards can't. Long-form native story ads keep the hub's B16 tests.",
+   "gate": "12 words or fewer per card, one job per card.",
+   "human_checkpoint": "none",
+   "tools_models": "none"
+  },
+  {
+   "step": "18f",
+   "name": "Adapter: VSL and long form (L150, V300)",
+   "does": "Chapters each end on a question. The loop device runs about 3 times. A mentor or authority explains in reported speech. The product enters unnamed and is shown working first.",
+   "gate": "CTA at about 3 and 5 min, looping back into proof. Every \"true story\" fact-checked before release.",
+   "human_checkpoint": "none",
+   "tools_models": "none"
+  }
+ ],
+ "numbers": [
+  {
+   "key": "voice pace band (pre-cast default)",
+   "value": "2.5 to 3 words/s narrators and fast talkers; about 2.4 words/s for savouring characters",
+   "quote": "Before casting, use 2.5 to 3 words a second for narrators and fast talkers, about 2.4 for characters who savour their words (villains, tired organs, regal voices).",
+   "line": 130
+  },
+  {
+   "key": "voice pace (measured, cast voice)",
+   "value": "words = seconds x measured words/s; Karen 2.5 words/s gives S90 about 200 to 250 words",
+   "quote": "Once a voice is cast and measured, the tier's seconds decide: words = seconds times words a second (Karen at 2.5 words a second: S90 is about 200 to 250 words).",
+   "line": 142
+  },
+  {
+   "key": "max speed-up",
+   "value": "1.05x",
+   "quote": "If the clear script overruns its tier, never speed the voice past 1.05x or squeeze the words back into jargon.",
+   "line": 151
+  },
+  {
+   "key": "length tier D15",
+   "value": "10 to 15 s, 30 to 45 words, demo, 1 or 2 rungs",
+   "quote": "| **D15** | 10 to 15 s | Demo | Product or solution aware; retargeting; hook tests | 30 to 45 |",
+   "line": 134
+  },
+  {
+   "key": "length tier D30",
+   "value": "25 to 35 s, 70 to 100 words, demo, 2 to 4 rungs",
+   "quote": "| **D30** | 25 to 35 s | Demo | Solution or product aware; a visual product; a clear contrast with what they use now | 70 to 100 |",
+   "line": 135
+  },
+  {
+   "key": "length tier C45",
+   "value": "40 to 50 s, 100 to 140 words, conversation or problem demo, 4 to 6 rungs",
+   "quote": "| **C45** | 40 to 50 s | Conversation or problem demo | Problem or solution aware; podcast, UGC, a talking character | 100 to 140 |",
+   "line": 136
+  },
+  {
+   "key": "length tier S60",
+   "value": "55 to 65 s, 140 to 190 words, short story, 6 to 8 rungs",
+   "quote": "| **S60** | 55 to 65 s | Short story | Problem aware | 140 to 190 |",
+   "line": 137
+  },
+  {
+   "key": "length tier S90",
+   "value": "80 to 100 s, 210 to 280 words, story (default first test), 9 to 12 rungs",
+   "quote": "| **S90** | 80 to 100 s | Story: the default first test for story concepts | Problem aware; unaware with a short outside opening | 210 to 280 |",
+   "line": 138
+  },
+  {
+   "key": "length tier L150",
+   "value": "2 to 3 min, 320 to 520 words, re-hook every 25 to 30 s",
+   "quote": "| **L150** | 2 to 3 min | Long story | Unaware; a new or complex mechanism; a sophisticated market | 320 to 520 |",
+   "line": 139
+  },
+  {
+   "key": "length tier V300",
+   "value": "3 to 6 min, 500 to 1,000 words, CTAs at about 3 and 5 min",
+   "quote": "| **V300** | 3 to 6 min | VSL | Unaware; a big mechanism; scaling a proven angle | 500 to 1,000 |",
+   "line": 140
+  },
+  {
+   "key": "story minimum length",
+   "value": "no story under 55 s",
+   "quote": "**No story under 55 seconds.** A 30 to 50 second script is a demo or a conversation, never a shortened story",
+   "line": 147
+  },
+  {
+   "key": "length ladder per concept",
+   "value": "short tier (D30 or C45) + story tier (S60 or S90); L150/V300 need a stated reason",
+   "quote": "every concept gets a short tier (D30 or C45) and a story tier (S60 or S90). L150 and V300 need a stated reason in the release",
+   "line": 149
+  },
+  {
+   "key": "format default tiers",
+   "value": "animation S60 to S90; song C45 to S90; podcast C45 (35 to 45 s); UGC D30/C45/S60; demos D15 to D30",
+   "quote": "animation S60 to S90 (L150 only for unaware or mechanism-heavy concepts); song C45 to S90; podcast C45 (35 to 45 s), with L150 as a separate long cut; UGC and talking head D30, C45 or S60; demos D15 to D30.",
+   "line": 150
+  },
+  {
+   "key": "old tier names mapping (hub C6)",
+   "value": "T1=D15, T2=D30, T3=C45 or S60, T4=S90, T5=L150 or V300",
+   "quote": "T1 = D15; T2 = D30; T3 = C45 or S60; T4 = S90 (an old T4 over 100 s is now an L150, with a stated reason); T5 = L150 or V300.",
+   "line": 152
+  },
+  {
+   "key": "per-beat word budgets claimed to sum to tier range",
+   "value": "stated to add up (arithmetically they don't; see other_issues)",
+   "quote": "The budgets add up to the tier's range: trade words between beats, but never drop a beat the tier needs.",
+   "line": 440
+  },
+  {
+   "key": "podcast C45 budget",
+   "value": "8 to 12 turns, 80 to 110 words, 35 to 45 s",
+   "quote": "**Length:** 8 to 12 turns, 80 to 110 spoken words, 35 to 45 s (router rule 5). Test 14 counts against this budget, not the general C45 range.",
+   "line": 742
+  },
+  {
+   "key": "podcast turn rules",
+   "value": "turns 20 words or fewer (one up to 25); listener every other turn and at least every 8 s; no host over 60%; brand line 25 words or fewer; payoff 6 words or fewer",
+   "quote": "turns of 20 words or fewer (one turn up to 25); the listener speaks every other turn and at least every 8 s; no host carries more than 60% of the words; the brand line is one casual sentence of 25 words or fewer; the payoff ends on 6 words or fewer",
+   "line": 742
+  },
+  {
+   "key": "words per clip (UGC clip packing, hub G4)",
+   "value": "up to about 35 words per 15-second clip",
+   "quote": "**Clip packing** (hub G4): up to about 35 words per 15-second clip, never splitting a line; line breaks at natural pauses.",
+   "line": 749
+  },
+  {
+   "key": "picture-change cadence / words per line (animation)",
+   "value": "one line = one breath = one picture, 4 to 17 words",
+   "quote": "**One line = one breath = one picture:** 4 to 17 words, ending where a cut or a picture change can go.",
+   "line": 724
+  },
+  {
+   "key": "pause rules (animation gap codes)",
+   "value": "S 0.15 s, B 0.4 s, H 0.8 s",
+   "quote": "Gap codes: S = 0.15 s (the next line flows on), B = 0.4 s (a beat after a punchline or before a turn), H = 0.8 s (a hold on a reveal, the picture's name, the promise, the payoff).",
+   "line": 725
+  },
+  {
+   "key": "caption/super words",
+   "value": "supers 2 to 6 words, never the transcript",
+   "quote": "Supers are 2 to 6 words and never the transcript.",
+   "line": 751
+  },
+  {
+   "key": "text-on-screen card words",
+   "value": "12 words or fewer per card",
+   "quote": "Each card is a line: 12 words or fewer, one job per card.",
+   "line": 754
+  },
+  {
+   "key": "ear: sentence length and reading level",
+   "value": "core lines under 12 words, none over 17, grade 7 or below",
+   "quote": "Mixed sentence lengths: core lines under 12 words, none over 17. Grade 7 or below.",
+   "line": 428
+  },
+  {
+   "key": "contrast-line limit",
+   "value": "at most one \"it's not X, it's Y\", at the aha",
+   "quote": "At most one \"it's not X, it's Y\" line, at the aha.",
+   "line": 428
+  },
+  {
+   "key": "lyric syllables",
+   "value": "8 to 14 syllables per lyric line",
+   "quote": "every line understood on the first listen, 8 to 14 syllables allowed",
+   "line": 736
+  },
+  {
+   "key": "music model (song) and length overrun",
+   "value": "Suno; runs 10 to 25 s long; 90 s is about 35 to 55 lyric lines",
+   "quote": "(90 s is about 35 to 55 lines). Suno runs 10 to 25 s longer than planned, so aim at the tier's lower end.",
+   "line": 737
+  },
+  {
+   "key": "brand name mentions (animation)",
+   "value": "at least twice, first only after product shown",
+   "quote": "**The brand name** at least twice, the first time only after the product is shown.",
+   "line": 730
+  },
+  {
+   "key": "product on screen timing (aware audiences)",
+   "value": "working on camera from about 3 s",
+   "quote": "For aware audiences, the product is working on camera from about 3 s, right after the hook stack.",
+   "line": 750
+  },
+  {
+   "key": "product reveal timing by awareness",
+   "value": "solution aware about 15 s; problem-aware stories at 50 to 60% of runtime; unaware about 40 to 50 s",
+   "quote": "solution aware, right after the myth flip (Flakes names it at about 15 s); problem-aware stories at 50 to 60% of the runtime; unaware stories at about 40 to 50 s",
+   "line": 391
+  },
+  {
+   "key": "master question opening",
+   "value": "opens by end of hook, about 3 to 8 s",
+   "quote": "It opens by the end of the hook (about 3 to 8 s)",
+   "line": 300
+  },
+  {
+   "key": "re-hook cadence",
+   "value": "about every 8 s early, then every 25 to 30 s",
+   "quote": "Re-hook in stories about every 8 s early on, then every 25 to 30 s",
+   "line": 308
+  },
+  {
+   "key": "re-hook cadence (S90)",
+   "value": "about 8 s, about 16 s, then every 25 to 30 s",
+   "quote": "Re-hooks at about 8 s, about 16 s, then every 25 to 30 s.",
+   "line": 497
+  },
+  {
+   "key": "persona patience",
+   "value": "3 seconds",
+   "quote": "Your patience: you give an ad 3 seconds.",
+   "line": 118
+  },
+  {
+   "key": "brief card research minimum",
+   "value": "3+ accommodations, 3+ moments, 3+ failed fixes",
+   "quote": "3+ accommodations, 3+ moments, 3+ failed fixes with why each failed",
+   "line": 94
+  },
+  {
+   "key": "hook stacks per WRITE call",
+   "value": "master + 2 variants, each with seam line",
+   "quote": "Hook stacks: the master and 2 variants from the Hook Lab, each with its seam line (WRITE)",
+   "line": 53
+  },
+  {
+   "key": "spines",
+   "value": "2 or 3 spines of about 80 words",
+   "quote": "Before any full script, write 2 or 3 spines. A spine is one paragraph of about 80 words:",
+   "line": 397
+  },
+  {
+   "key": "release threshold",
+   "value": "85/100 and no critical fail",
+   "quote": "**Release at 85 or more with no critical fail.**",
+   "line": 636
+  },
+  {
+   "key": "retake cap (rewrite loops)",
+   "value": "up to 3 loops, then the user",
+   "quote": "**Rewrite loops:** up to 3 (FIX, then the full gate with new readers). After the third, the script goes to the user with the remaining fails named and the writer's recommendation.",
+   "line": 642
+  },
+  {
+   "key": "scorecard weights",
+   "value": "Comprehension 25, Ladder 20, Hook 10, Mechanism 10, Proof 10, Offer/CTA 10, Emotion 5, Ear 5, Length 5",
+   "quote": "Comprehension x/25 · Ladder and handoffs x/20 · Hook x/10 · Mechanism x/10 · Proof x/10 · Offer and CTA x/10 · Emotion and identity x/5 · Ear x/5 · Length x/5 = x/100",
+   "line": 656
+  },
+  {
+   "key": "comprehension scoring",
+   "value": "confusion 10 minus 1 per minor (max -4), minus 3 per major, 0 if major on core rung; scroll points 5/2/0",
+   "quote": "Confusion: 10, minus 1 per minor point (cleared within the next two lines; at most -4 in total), minus 3 per major point (not cleared within two lines); 0 if a major point is on a core rung.",
+   "line": 626
+  },
+  {
+   "key": "length scoring",
+   "value": "5 inside budget; 2 within 10% over; 0 beyond",
+   "quote": "Test 14: 5 inside the budget; 2 within 10% over; 0 beyond",
+   "line": 634
+  },
+  {
+   "key": "ear scoring",
+   "value": "5 minus 1 per line over 17 words or per trip",
+   "quote": "Test 13: 5, minus 1 per line over 17 words or per trip found reading aloud",
+   "line": 633
+  },
+  {
+   "key": "QA method: cold read",
+   "value": "fresh general-purpose agent per read, new reader every loop",
+   "quote": "A fresh agent (the Agent tool, general-purpose), started for this read only. Never an agent that has seen the brief, the research, an earlier draft or an earlier read. Every rewrite loop gets a new reader.",
+   "line": 582
+  },
+  {
+   "key": "QA method: second reader",
+   "value": "skeptic reader from S90 up",
+   "quote": "**Second reader** for S90 and longer: a second fresh agent with the skeptic variant of the persona card.",
+   "line": 610
+  },
+  {
+   "key": "QA method: cold read fallback",
+   "value": "self-read, labelled weaker",
+   "quote": "If no agent can be started,** the writer does the read in a separate pass, with only the persona card and the script in view, and the gate report says \"cold read: self, weaker check\".",
+   "line": 619
+  },
+  {
+   "key": "QA method: transcript/lyric check vs released script",
+   "value": "every rung, fact and time word unchanged",
+   "quote": "It also checks the lyrics against the released speech script: every rung, fact and time word unchanged (tests 1 and 6), and the identity close still there (test 16).",
+   "line": 736
+  },
+  {
+   "key": "QA: re-gate after release changes",
+   "value": "re-run tests 3, 5 to 10, 13, 14; core rung change = full gate with new reader",
+   "quote": "Every change goes through FIX on the changed lines and re-runs tests 3, 5 to 10, 13 and 14 with the bible updated.",
+   "line": 676
+  },
+  {
+   "key": "human checkpoint: spine pick",
+   "value": "calling skill's gate decides, or Claude picks when told to run without stopping",
+   "quote": "Pick one. The calling skill's gate decides; when the user has said to run without stopping, Claude picks and says why in one line.",
+   "line": 408
+  },
+  {
+   "key": "human checkpoint: escalation",
+   "value": "after the third loop",
+   "quote": "After the third loop, escalate: the user gets the script, the remaining fails, and the writer's recommendation.",
+   "line": 697
+  },
+  {
+   "key": "human checkpoint: read-aloud before spend",
+   "value": "read aloud before any credits are spent",
+   "quote": "**Read-aloud pass** on every script before any credits are spent.",
+   "line": 1673
+  },
+  {
+   "key": "LEARN timing",
+   "value": "about 7 days or 1,000+ impressions per ad",
+   "quote": "**When:** after about 7 days, or 1,000 or more impressions per ad.",
+   "line": 708
+  },
+  {
+   "key": "LEARN metrics (Meta ads only)",
+   "value": "3-second plays, ThruPlays, 25/50/75/95/100% plays, avg watch time, play curve, link CTR, cost per purchase",
+   "quote": "with the Facebook Ads connector: 3-second plays, ThruPlays, plays at 25, 50, 75, 95 and 100%, average watch time, the video play curve where the API returns it, link CTR and cost per purchase.",
+   "line": 709
+  },
+  {
+   "key": "LEARN drop mapping",
+   "value": "3 steepest falls after the first 3 s plus joins",
+   "quote": "Take the 3 steepest falls after the first 3 seconds, plus any fall at a join (hook to body, story to product).",
+   "line": 710
+  },
+  {
+   "key": "LEARN diagnosis cut-off",
+   "value": "drop before 15 s = hook or seam",
+   "quote": "a drop before 15 s is the spoken hook or the seam; a cliff at the product entry is the bridge; a good hold with a low CTR is the offer, the CTA or the bridge.",
+   "line": 711
+  },
+  {
+   "key": "LEARN lessons per ad",
+   "value": "1 or 2 deep lessons",
+   "quote": "**Keep 1 or 2 deep lessons per ad.**",
+   "line": 712
+  },
+  {
+   "key": "angle rounds",
+   "value": "3 to 6 executions per angle",
+   "quote": "A well-researched angle gets 3 to 6 executions before the research is reworked",
+   "line": 715
+  },
+  {
+   "key": "problem beat length (Appendix M)",
+   "value": "10 to 15 s for most scripts; animation up to 2 min",
+   "quote": "**Length:** 10 to 15 seconds for most scripts. Claymation and animated VSLs can agitate for up to 2 minutes",
+   "line": 1312
+  },
+  {
+   "key": "risk reversal by length",
+   "value": "one line from 60 s",
+   "quote": "One line from 60 s; in demos it can live in the CTA (\"try it risk-free\")",
+   "line": 1046
+  },
+  {
+   "key": "mechanism length by runtime",
+   "value": "one sentence at 45 to 60 s; two to four at 1 to 3 min",
+   "quote": "one sentence at 45 to 60 s, two to four at 1 to 3 min",
+   "line": 1021
+  },
+  {
+   "key": "length tests (Appendix M)",
+   "value": "30 s, 60 s, 3 to 6 min",
+   "quote": "**Test lengths:** 30s, 60s, and 3 to 6 minutes.",
+   "line": 1514
+  },
+  {
+   "key": "hook audience share",
+   "value": "about 80% only see the hook",
+   "quote": "About 80% of viewers only see the hook, but nobody buys because of it.",
+   "line": 1074
+  },
+  {
+   "key": "read-aloud duration",
+   "value": "about 4 minutes",
+   "quote": "It takes 4 minutes.",
+   "line": 1467
+  },
+  {
+   "key": "model script calibration X2 (D30)",
+   "value": "24 s, 89 words, 3.7 words/s",
+   "quote": "## X2. Kiddo name stamp: D30, 24 s, 89 words (3.7 words/s), a kid narrator (AI voice), solution aware",
+   "line": 840
+  },
+  {
+   "key": "model script calibration X5 (S90)",
+   "value": "95 s, 245 words, 2.6 words/s",
+   "quote": "## X5. The Conscious bar: S90, 95 s, 245 words (2.6 words/s), founder curiosity story, unaware",
+   "line": 890
+  },
+  {
+   "key": "model script calibration X4 (C45 podcast)",
+   "value": "about 40 s, 93 words",
+   "quote": "## X4. Mardyos clinic podcast: C45 conversation, about 40 s, 93 words, problem aware (ours, approved)",
+   "line": 873
+  },
+  {
+   "key": "model script calibration X8 (released S90)",
+   "value": "250 words, about 100 s at 2.5 words/s, gate 91/100",
+   "quote": "S90: 250 words, about 100 s at Karen's 2.5 words a second",
+   "line": 966
+  }
+ ],
+ "claims": [
+  {
+   "claim": 14,
+   "verdict": "TRUE",
+   "quote": "Format adapter: animation / song / podcast / ugc / text / vsl (section 18), plus the caller's own format rules",
+   "line": 50,
+   "note": "Script Lab has no carousel adapter, and carousel-machine is not in its caller table (lines 35 to 42). I checked carousel-machine/SKILL.md (345 lines): grep finds no Hook Lab, Script Lab or cold read. It runs its own hook step instead (\"Generate 5 variations\" and \"Grade every hook on four gates, PASS or FAIL each\", its lines 138 to 139), with no fresh-agent read."
+  },
+  {
+   "claim": 16,
+   "verdict": "TRUE",
+   "quote": "with the Facebook Ads connector: 3-second plays, ThruPlays, plays at 25, 50, 75, 95 and 100%, average watch time, the video play curve where the API returns it, link CTR and cost per purchase.",
+   "line": 709,
+   "note": "I verified the Script Lab half only. LEARN's input is \"Ad IDs and the line tables with voice timestamps\" (line 31), its trigger is \"1,000 or more impressions per ad\" (line 708), and \"Cost per purchase at ad-set level decides\" (line 711). There is no organic-insights path. The Hook Lab H8 half is not in this file."
+  },
+  {
+   "claim": 17,
+   "verdict": "TRUE",
+   "quote": "| `strategy-scripts`, `daily-video-factory`, `ad-video-factory`, `ugc-video-script-and-storyboard-designer` | Before any script is saved or produced | GRADE, then FIX on a fail |",
+   "line": 42,
+   "note": "The caller table (lines 35 to 42) lists animation, song, podcast, ads-machine, hook-lab, strategy-scripts, daily-video-factory, ad-video-factory and ugc-video-script. readymerce-drama-ads is missing, yet it calls Script Lab: drama SKILL line 11 \"`readymerce-script-lab` gates the words\" and line 62 \"Script Lab gates the screenplay with the drama adapter (section 5)\". Script Lab's adapter list (line 50) has no drama entry. motion-video-director and motion-reel are also missing, and grep finds no Script Lab reference in motion-video-director."
+  },
+  {
+   "claim": 18,
+   "verdict": "TRUE",
+   "quote": "podcast C45 (35 to 45 s), with L150 as a separate long cut",
+   "line": 150,
+   "note": "The router row (line 136) says C45 is 40 to 50 s and 100 to 140 words. The podcast budget is 35 to 45 s and 80 to 110 words (line 742), and 18c settles it: \"Test 14 counts against this budget, not the general C45 range.\" But the Script Lab card (line 806) copies only \"C45 (40 to 50 s, conversation or problem demo)\", and so does podcast SKILL line 40, while podcast line 75 uses 35 to 45 s. So two C45 budgets live in both files."
+  },
+  {
+   "claim": 4,
+   "verdict": "PARTIAL",
+   "quote": "**Clip packing** (hub G4): up to about 35 words per 15-second clip, never splitting a line; line breaks at natural pauses.",
+   "line": 749,
+   "note": "Script Lab records only an upper bound of about 35 words, citing hub G4, and ties it to a 15-second clip (about 2.3 words/s). It gives no lower bound of 30 and no clip minimum. The drama figure of about 20 is not in this file."
+  },
+  {
+   "claim": 6,
+   "verdict": "PARTIAL",
+   "quote": "Suno runs 10 to 25 s longer than planned, so aim at the tier's lower end.",
+   "line": 737,
+   "note": "Script Lab's song adapter is calibrated to Suno. ElevenLabs Music is never mentioned. That supports the claim's Suno-vs-ElevenLabs drift. The rest of claim 6 (2K, declined_preset_id, prompt card, sync check) is not in this file."
+  },
+  {
+   "claim": 8,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "Gap codes: S = 0.15 s (the next line flows on), B = 0.4 s (a beat after a punchline or before a turn), H = 0.8 s (a hold on a reveal, the picture's name, the promise, the payoff).",
+   "line": 725,
+   "note": "Hub G8 and vo_build2.py are not in this file. This is still relevant: Script Lab's animation adapter specifies an H hold of 0.8 s, so a script that caps pauses at 0.4 s would flatten every H hold to a B beat. The hub itself (ads-machine line 120) says \"Never compress or cap the pauses of a human voice\"."
+  },
+  {
+   "claim": 13,
+   "verdict": "PARTIAL",
+   "quote": "Simple words, benefits and emotion, no em dashes, no hype words, no flattery.",
+   "line": 15,
+   "note": "Seen from Script Lab's side: em dashes are banned for every output (line 15), and Script Lab owns the word budgets through its router (lines 132 to 142). So a skill with its own budgets and em-dash pause marks conflicts. Result-first hooks are allowed in demo tiers (D30 beat 1 \"Angle hook: the result she wants\", line 456; R3 \"a demo can open on the angle or the result\", line 1042), so that conflict applies only to story and problem tiers. The MP3, Freesound and missing-script items are not checkable here. motion-video-director never calls Script Lab (grep)."
+  },
+  {
+   "claim": 15,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "From S60 up, is the number one objection for this product type said out loud and answered? (Herbal drops: \"isn't this just a detox tea in a bottle?\")",
+   "line": 788,
+   "note": "The claim is about the Hook Lab. Script Lab shows the same DTC-health tilt: the persona is always \"she\", the examples are lymph, hair loss and herbal drops, and the persona's knowledge gap is \"how the body moves fluid\" (line 117). It does have some B2B hooks: ST9 for \"services, B2B, coaching\" (line 224), ST11 \"problem aware for services\" (line 226), a dental-clinic example (line 199), and X4 Mardyos, a clinic in Tirana (line 873)."
+  },
+  {
+   "claim": 7,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "| **S90** | 80 to 100 s | Story: the default first test for story concepts | Problem aware; unaware with a short outside opening | 210 to 280 | The full ladder, compact: one story, a 2 to 4 sentence mechanism, 2 objections, 1 to 3 proofs, offer, guarantee, CTA, identity close | 9 to 12 | Conscious bar (X5), Nourish Plus (X6) |",
+   "line": 138,
+   "note": "Model routing is not in this skill. The codes do collide, though: in Script Lab, X1 to X8 are model scripts (X5 is the Conscious bar), while in the drama skill X1 to X10 are production exceptions (drama line 116). An agent reading \"X5\" could resolve it to the wrong thing."
+  },
+  {
+   "claim": 12,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "",
+   "note": "Script Lab has no AI label or disclosure rule. A grep for dramatization, disclos and AI label finds nothing. The only AI-voice mention is descriptive: \"a kid narrator (AI voice)\" (line 840)."
+  },
+  {
+   "claim": 1,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "",
+   "note": "A grep for Nano and GPT Image finds nothing. Script Lab makes no images."
+  },
+  {
+   "claim": 2,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "",
+   "note": "There is no H3 or MiniMax rule in this file."
+  },
+  {
+   "claim": 3,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "",
+   "note": "There is no clip minimum. Only \"up to about 35 words per 15-second clip\" (line 749)."
+  },
+  {
+   "claim": 5,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "",
+   "note": "There is no shots-per-take rule. Animation is one picture per line (line 724)."
+  },
+  {
+   "claim": 9,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "",
+   "note": "There is no LUFS value."
+  },
+  {
+   "claim": 10,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "",
+   "note": "There is no fps value."
+  },
+  {
+   "claim": 11,
+   "verdict": "NOT_IN_THIS_SKILL",
+   "quote": "",
+   "note": "There are no caption safe zones. Only super length (2 to 6 words, line 751) and card length (12 words, line 754)."
+  }
+ ],
+ "story_structures": [
+  {
+   "code": "ST1",
+   "name": "Full direct-response stack",
+   "shape": "Call-out: one person, one moment (1) · agitate: the accommodation and its cost (2) · failed fixes, each killed with its reason (3) · hidden cause, UMP (4) · promise (5) · how it gets fixed, UMS (6) · product carried in, shown, bridged, named (7) · proof (8) · ease (9) · offer (10) · risk reversal (11) · reason for now (12) · CTA · identity close (13). Tiers S90, L150, V300.",
+   "organic_fit": "Weak as is: three of its rungs (offer, risk reversal, now) are paid-only. It can be trimmed to rungs 1 to 9 plus 13 as a 60 to 90 s 'full breakdown' reel. Example: a Tirana clinic owner who boosts posts, why boosting failed, the hidden cause (slow replies), the fix (a reply system), a real client result, identity close (\"owners who answer first are the ones who get booked\"). CTA: comment a keyword for the reply checklist."
+  },
+  {
+   "code": "ST2",
+   "name": "PAS: problem, agitate, solve",
+   "shape": "The problem in her words (1) · agitate: the cost (2) · the cause in one plain line (4) · the product as the fix, with a bridge line (7) · the lived payoff (8) · CTA (12). Tiers C45, S60. Model X4.",
+   "organic_fit": "Strong for 30 to 45 s reach reels. Example: \"I post every day and nobody messages\" → what it costs (empty Tuesdays) → cause in one line (\"your posts answer questions nobody in Tirana is asking\") → the method, not the agency, as the fix → lived payoff. CTA: save or send to a business partner. Watch the 'no story under 55 s' rule: keep it a problem demo, not a mini story."
+  },
+  {
+   "code": "ST3",
+   "name": "Hidden cause (\"this is why...\")",
+   "shape": "An odd fact or an outside scene (0) · \"that's me\" (1) · the hidden cause, with the picture (4) · why her fixes missed it (3) · promise (5) · mechanism (6) · product (7) · proof (8) · offer, CTA. Tiers S60, S90, L150. Model X5.",
+   "organic_fit": "One of the best organic formats: curiosity-led and shareable. Example: \"This is why your ads get likes but no DMs.\" Odd fact (most DMs in Albania arrive after 9 pm), then the hidden cause shown as one picture (a shop with the lights off when customers knock), then why boosting and posting more missed it, then the mechanism. The product can stay implicit (\"how we set this up for clients\"). CTA: follow for the series, or comment a keyword."
+  },
+  {
+   "code": "ST4",
+   "name": "Discovery story (epiphany bridge; star, story, solution)",
+   "shape": "Her life and the wall she hit (1, 2) · what she tried (3) · the carrier and the moment it clicked (4) · the new way (6, 7) · the result she can see (8) · offer and guarantee (10, 11) · identity, in her voice (13). Tiers S90, L150, V300. Models X6, X7, X8.",
+   "organic_fit": "This is the 'POV: a day in the life of the buyer with their pains, then the mechanism revealed' format. Device: first-person confession or the Diary register. Example: a restaurant owner's day from 7 am posting to 11 pm answering WhatsApps, the wall (a full competitor across the street), fixes tried (a nephew running Instagram, boosting), the carrier (a friend or our strategist) and the click (the cause), the new way, the visible result, identity close in her voice. Cut the offer and guarantee and end on a keyword or follow CTA. Script Lab routes it to S90 (80 to 100 s), but the organic adapter says reach reels run 30 to 60 s, so it needs an S60 organic variant or a 2-part series."
+  },
+  {
+   "code": "ST5",
+   "name": "Two futures",
+   "shape": "Two people, one difference (0 or 1) · what the difference is: the cause (4) · how to be the second one (6, 7) · proof (8) · CTA, identity (13). Tiers S60, S90.",
+   "organic_fit": "Strong for B2B, and split-screen friendly. Example: \"Two dental clinics on the same street in Tirana. One is full on Tuesdays.\" The difference is the cause (reply speed, or posts that answer patient questions), then how to be the second clinic, then a real case as proof, then identity. CTA: send it to the clinic owner you know, or follow."
+  },
+  {
+   "code": "ST6",
+   "name": "Myth buster (\"stop doing X\")",
+   "shape": "The belief or habit she holds (3) · why it's wrong: the real cause (4) · what works instead (5, 6) · product (7) · proof (8) · CTA. Tiers D30, C45, S60. Model X3.",
+   "organic_fit": "Excellent at 20 to 45 s for reach and sends. Example: \"Stop boosting posts.\" Why it fails (it buys likes from people who will never book), what works instead, the method or tool, proof. CTA: save, or send to a partner. Product naming is optional."
+  },
+  {
+   "code": "ST7",
+   "name": "Mistakes countdown",
+   "shape": "\"[N] reasons your [X] isn't working\" · each mistake with why it fails, escalating (3) · the last one is the real cause (4) · the fix (6, 7) · proof, CTA. Tiers C45, S60.",
+   "organic_fit": "A strong save driver that converts directly into a carousel (carousel-machine 'Count list'). Example: \"3 reasons your Instagram brings followers but not clients.\" The list must escalate (Script Lab's swap test), and the last item is the real cause. CTA: save, or comment a keyword for the full list."
+  },
+  {
+   "code": "ST8",
+   "name": "Old way vs new way",
+   "shape": "Why the usual solution fails (3) · the new mechanism (4, 6) · the product as the easy way to get it (7) · proof (8) · offer, CTA. Tiers D30, C45, S60, S90. Model X6 lines 8 to 15.",
+   "organic_fit": "Natural for showing the agency's own comment-to-DM funnel. Old way: \"post and wait for DMs\". New way: \"comment a word, get the answer in your inbox in seconds\". The product (the DM bot) is shown as the easy way. The CTA can be a live demo: \"comment PLAN and watch it happen\". Drop the offer."
+  },
+  {
+   "code": "ST9",
+   "name": "Contrarian plus a named method",
+   "shape": "\"[X] isn't the problem\" (3) · the named method and its picture (4, 6) · its steps, each with a job (6, 7) · proof (8) · CTA. Tiers S60, S90. Explicitly for 'services, B2B, coaching'; sophistication 4 to 5.",
+   "organic_fit": "The best native B2B fit, and it mirrors carousel-machine's 'Contrarian plus named framework'. Example: \"More followers isn't your problem\", then a named method (\"the 3-Reply Rule\") with one picture, each step with its job, a real client proof, and a keyword CTA for the framework PDF. It also builds the agency's IP across a series."
+  },
+  {
+   "code": "ST10",
+   "name": "Comparison (us vs them)",
+   "shape": "The one thing she cares about most (1 or 5) · each alternative on that one thing (3) · the product on it (7) · proof (8) · offer, CTA. Tiers D15, D30, C45.",
+   "organic_fit": "Usable as 'agency vs freelancer vs doing it yourself' on one criterion (for example, who answers a DM at 10 pm). It needs real facts about the alternatives and should avoid naming local competitors. CTA: save, or comment a keyword. Medium fit."
+  },
+  {
+   "code": "ST11",
+   "name": "Case study",
+   "shape": "The situation (1) · the diagnosis (4) · what changed (6, 7) · the numbers (8) · the lesson, as identity (13) · CTA. Tiers C45, S60, S90. 'Problem aware for services'.",
+   "organic_fit": "A high-trust B2B format: a real Albanian client, the diagnosis, what changed, the numbers (from the facts sheet only, never invented), and the lesson as identity. CTA: comment CASE for the breakdown, or follow for the next case. It requires a documented case (Script Lab's facts rule)."
+  },
+  {
+   "code": "ST12",
+   "name": "Skeptic testimony (\"I was skeptical\")",
+   "shape": "Her doubt, in her words (3) · why she tried it anyway (7) · what surprised her (8) · the result (8) · CTA. Tiers D30, C45, S60.",
+   "organic_fit": "A client on camera: \"I thought agencies just post pretty pictures.\" It needs real client words and consent. UGC or talking-head device. CTA: follow, or DM. Good for trust posts."
+  },
+  {
+   "code": "ST13",
+   "name": "Objection crusher",
+   "shape": "The top fear, said out loud in her words · the blunt, honest answer (9 or 11) · proof (8) · offer (10) · CTA. Tiers D15, D30, C45.",
+   "organic_fit": "Works as an FAQ series of 15 to 30 s founder answers. Example: \"Do I need to pay for ads to get clients from Instagram?\" Blunt answer, proof, then replace the offer with a keyword or DM CTA. Cards-on-screen device works (12 words per card)."
+  },
+  {
+   "code": "ST14",
+   "name": "Demo",
+   "shape": "The angle hook with the product working (1 or 5) · what it is (7) · an objection answered by showing (8, 9) · proof (8) · offer, CTA. Tiers D15, D30. Models X1, X2.",
+   "organic_fit": "A screen-recorded demo of a comment triggering an instant DM, working on screen by about 3 s, then an objection shown (\"it answers in Albanian too\"), then proof. CTA: \"comment DEMO to try it\". Drop the risk reversal."
+  },
+  {
+   "code": "ST15",
+   "name": "Offer first",
+   "shape": "The deal (10) · what's in it (7, 9) · the guarantee (11) · the real deadline (12) · CTA. Tiers D15, D30. Most aware.",
+   "organic_fit": "Poor fit for organic with no price or offer. Usable only for a free resource or free audit with a real deadline (\"10 free audits this month\") and a keyword CTA. Otherwise drop it from the organic library."
+  },
+  {
+   "code": "ST16",
+   "name": "Before, after, bridge",
+   "shape": "Life now: the accommodation (1, 2) · life after: the payoff scene (5) · the bridge: cause, mechanism, product (4, 6, 7) · proof (8) · CTA. Tiers C45, S60, S90.",
+   "organic_fit": "Good for account transformations (\"before: 3 DMs a month; after: ...\"), with real numbers only. Owner's accommodation (\"I stopped checking Instagram because nothing came\"), then the payoff scene, then the bridge. CTA: save, or keyword."
+  },
+  {
+   "code": "ST17",
+   "name": "Challenge timeline",
+   "shape": "\"What happens if she does [X] for 30 days\" (0) · day by day, with the honest dip (8) · why it worked (4, 6) · the product, shown from day 1, named after why (7) · offer, CTA. Tiers S60, S90, L150. Animation F4.",
+   "organic_fit": "An excellent episodic series with a natural 'follow for day N' CTA. Example: \"What happens if a Tirana clinic answers every DM within 5 minutes for 30 days\", with an honest dip and real tracked data only. It can also split into daily short reels."
+  },
+  {
+   "code": "ST18",
+   "name": "QUEST",
+   "shape": "Qualify: one person, one moment (1) · understand her life and her fixes (2, 3) · educate: cause, promise, mechanism (4, 5, 6) · stimulate: the future she gets and the proof (8) · transition to the offer (7, 10 to 13). Tiers L150, V300.",
+   "organic_fit": "Too long for reels (L150/V300). Usable for YouTube or long-form, or split into a 3 to 5 part reel series (qualify, understand, educate, stimulate) with a follow CTA."
+  },
+  {
+   "code": "M4.18-1",
+   "name": "Story shape: failed-solution journey (Appendix M)",
+   "shape": "\"I tried rosemary oil, then supplements, then my GP said it's hormonal.\" (does the objection work)",
+   "organic_fit": "Owner POV: \"I tried a nephew, then a freelancer, then boosting\", each failure with its reason, leading to the real cause. Good inside ST4 or ST6."
+  },
+  {
+   "code": "M4.18-2",
+   "name": "Story shape: discovery (Appendix M)",
+   "shape": "\"I found out why it happens at the part first.\" (does the mechanism work)",
+   "organic_fit": "The core of the POV-then-mechanism format: \"I found out why my DMs die after 9 pm.\""
+  },
+  {
+   "code": "M4.18-3",
+   "name": "Story shape: transformation with a witness (Appendix M)",
+   "shape": "\"My sister noticed before I did.\" (this is the proof)",
+   "organic_fit": "\"My receptionist noticed the phone stopped ringing before I did\", or the reverse after the fix. Proof from a witness, with no paid-offer close needed."
+  },
+  {
+   "code": "M4.18-4",
+   "name": "Story shape: confession (Appendix M)",
+   "shape": "\"I stopped parting it in the middle a year ago. I never told anyone.\" (this is the problem)",
+   "organic_fit": "\"I stopped posting our prices because nobody booked anyway.\" A strong cold-open hook for B2B owners. Accommodation-first (Copy Law 10)."
+  },
+  {
+   "code": "M4.19",
+   "name": "Registers: UGC / documentary / diary (Appendix M)",
+   "shape": "The same angle in three voices: UGC (\"That's the crazy part.\"), documentary (third-person observation), diary (\"I stopped ... today. I didn't decide to.\")",
+   "organic_fit": "Variant volume for one organic concept. The diary register suits POV day-in-the-life reels, documentary suits a founder voice-over on b-roll of Tirana businesses, and UGC suits client testimonials."
+  },
+  {
+   "code": "X4 / 18c",
+   "name": "Two-host conversation (Mardyos clinic podcast, Tirana)",
+   "shape": "L1 A accommodation and cost · L2 B recognition pull · L3 A stakes · L4 B cause in one picture line · L5 A carried question · L6 B recognition and failed fix · L7 A pull · L8 B discovery, casual brand line · L9 A pull for result · L10 B lived payoff mirroring L1 (\"And I sleep.\"). 8 to 12 turns, 80 to 110 words, 35 to 45 s.",
+   "organic_fit": "Already an Albanian B2B example (a clinic answering WhatsApps at 11 pm). A podcast-clip reel works organically as is. Swap the off-voice offer end card for a keyword or follow end card, and keep the brand line to one casual sentence."
+  },
+  {
+   "code": "DEV-F2",
+   "name": "Device: villain mocking the fixes",
+   "shape": "Carries ST6, ST7, ST8. Mock the fix, never her.",
+   "organic_fit": "\"The Boost Post button\" or \"the algorithm\" as a villain mocking an owner's fixes. Animated, funny and shareable. Needs an AI label if it is AI-generated (Script Lab has no such rule)."
+  },
+  {
+   "code": "DEV-F1",
+   "name": "Device: talking part or object",
+   "shape": "Carries ST2, ST3, ST17. Its \"I\" holds until a marked switch.",
+   "organic_fit": "A talking unanswered inbox or phone (\"I've had 14 messages since 9 pm\"). A hidden-cause reel told by the object."
+  }
+ ],
+ "organic_adaptation": [
+  "Wire the organic adapter in. Script Lab's call block lists only six adapters, \"animation / song / podcast / ugc / text / vsl\" (line 50), and its caller table has no growth-engine or organic row. /home/user/main/growth-engine/adapters/script-lab-organic.md exists but Script Lab never references it. Add an 'organic' adapter and a growth-engine caller row.",
+  "Rungs 10 Value, 11 Safety and 12 Now (offer, guarantee, urgency) are paid rungs. For organic, replace them with one organic CTA rung (follow, save, send, comment keyword, DM) and redefine critical fail 2 (\"a rung the tier requires is missing\", line 639) per organic tier, or every organic script fails the gate.",
+  "Re-weight the scorecard's 'Offer, risk reversal and CTA' area (10 points: real pricing line 3, guarantee four properties 3, CTA four jobs 4, line 631). For organic, score CTA fit to the post's job (reach: follow/save/send; trust: keyword for a resource; convert: keyword/DM) and the CTA's jobs (action, what happens next such as \"I'll DM you the checklist\", effort, reason). Mark pricing and guarantee n/a.",
+  "Test 16 (Copy Law essentials) checks the guarantee's four properties, the CTA's four jobs, the L13 objection order and the identity close. For organic, mark the guarantee and 'not worth it / what if I'm wrong / later' objections n/a. Keep the accommodation-first problem, promise smaller than proof, and identity or lived-payoff close. Test 15's \"Check the urgency is real\" becomes n/a.",
+  "Reconcile the identity close with the organic adapter's ending. Script Lab wants \"the close lands on identity tied to the mechanism (S60 and up)\" (line 574). The organic adapter wants the payoff in the last 3 to 5 s and a loop back to the hook or a CTA that is the payoff's next step. Pick one rule per tier.",
+  "Length router: router rule 2 says \"No story under 55 seconds\", while the organic adapter says reach reels run 30 to 60 s. Decide whether organic story formats (ST4 POV day-in-the-life, ST3, ST17) ship at S60 (55 to 65 s) or split into a series. The 'every concept ships a short tier and a story tier' rule (line 78) is a paid testing rule; for organic, one tier per post is enough. Keep 'write each length on its own, never trim'.",
+  "Product reveal timing: problem-aware stories reveal at 50 to 60% of runtime, unaware at about 40 to 50 s, aware demos at about 3 s (line 391). In organic B2B posts the 'product' is usually the method or insight, and the agency may never be named, or only at the end (\"how we do it for clients\"). Keep the fixed order (mechanism before the name, shown before named), but let the reveal plan say 'method' when there is no product. Demos of the DM bot keep the 3 s rule.",
+  "Brief card: replace \"Offer facts (from the live page): price lines, bundle, guarantee terms, real urgency\" (line 98) with resource or keyword facts: the live keyword (only keywords marked live in the brain), what the DM delivers, and the series it belongs to. Proof facts stay facts-sheet only, with no invented client numbers.",
+  "Persona card and cold-read prompt are written for a female DTC buyer watching an ad: \"you give an ad 3 seconds\" (line 118), \"An ad starts playing\" (line 587), \"Would you tap?\" (line 605), retell sentence \"what the product is\". For organic B2B, use the owner persona (an Albanian clinic, restaurant or shop owner, scrolling at night), 'a reel starts playing in your feed', 'Would you follow / save / send / comment the keyword? Why?', and a retell sentence about the method.",
+  "Cold read mode: Script Lab's read is \"listen-only\" (line 617), with supers handed to \"the format's sound-off test\" in the calling skill. The organic adapter says the cold reader reads \"sound off first\". Add a sound-off read (captions and on-screen text only) as a second organic pass, because IG reels are often watched muted and no organic skill owns the sound-off test.",
+  "LEARN is Meta-ads-only: ad IDs, the Facebook Ads connector, link CTR, cost per purchase, \"1,000 or more impressions per ad\" (lines 708 to 711). Organic LEARN needs IG organic insights (plays, average watch time or retention where available, saves, shares, follows, keyword comments, DMs) keyed by post ID. Rewrite the C13-style diagnosis (\"a good hold with a low CTR is the offer\") as \"a good hold with low saves, sends or follows is the payoff or CTA\". Set new thresholds deliberately; the skill gives none for organic.",
+  "Compliance: line 17 says \"Write at full selling strength. The brand's legal team decides what passes. No hedges, no 'may', no compliance notes\", and line 18 frames risk as \"will get the ad rejected by Meta\". Organic posts skip Meta ad review, and small Albanian B2B clients have no legal team, so an organic reviewer must own claim checks (results only from the facts sheet, no guaranteed-outcome promises) and IG branded-content rules.",
+  "AI label: Script Lab has no AI disclosure rule (grep finds none). The organic pipeline must add the house AI label rule for AI-generated visuals or voices outside this skill.",
+  "Hook rules: keep test 12 (seam, payoff, no clickbait; every variant stack checked against the body). Swap the Hook Lab's paid DTC tuning for a B2B profile upstream. Organic hooks can be result-first only in demo-type structures, matching Script Lab's own demo allowance.",
+  "Language and pace: the ear rules (contractions, grade 7, words/s) are English-calibrated. Albanian scripts need their own measured pace before budgeting (router rule 8), and the TTS-safe rules (numbers as words, phonetic brand spelling) apply to Albanian names.",
+  "Structure library mapping: the organic adapter's list (problem-solution, breakdown, case study, list, tutorial, myth vs truth, tier list, 'never ever', borrowed interest, personal story) should map to ST codes so GRADE can name them: problem-solution = ST2, case study = ST11, list = ST7, myth vs truth = ST6, personal story = ST4 or ST16, breakdown = ST3 or ST9. Tutorial, tier list, borrowed interest and 'never ever' have no ST equivalent and need new rows. Drop ST15 and ST1's paid rungs for organic.",
+  "Appendix M admits the gap: \"The nine beats are a direct-response argument. They have no organic front or discovery carrier.\" (line 1588). The organic version needs a discovery-first front such as a value-per-second check or lock-in zone (which the organic adapter adds)."
+ ],
+ "visual_qa_overlap": "Script Lab does almost no visual QA. It makes no sheets, storyboards, frames, prompt cards or takes. What it does have:\n\n1. The line table's Picture column, \\\"what is on screen (animation and video); in the picture map's words for mechanism lines\\\" (line 534).\n2. The picture map (6c): one metaphor per script, with a product row that must obey the picture's rules.\n3. The animation adapter's \\\"One line = one breath = one picture: 4 to 17 words, ending where a cut or a picture change can go\\\" (line 724). \\\"The picture note on each line feeds the shot ledger; the picture map feeds the Invisible-Made-Visible sequence\\\" (line 729).\n4. Visual requirements stated as copy rules: the product is shown working before it is named (reveal plan); the product works on screen from about 3 s for aware audiences; the brand name is not voiced until after the product is shown; supers are 2 to 6 words and never the transcript; cards are 12 words or fewer.\n5. The cold read deliberately strips visuals. The reader gets \\\"No delivery notes, no picture notes, no line table, no intent\\\" (line 583), and \\\"Supers, the end card and the primary text are graded separately (the format's sound-off test)\\\" (line 617). That test belongs to the calling skill, for example the animation skill.\n\nAppendix M concedes the gap: \\\"He never covers how to write the visual track. Everything is copy.\\\" (line 1589).\n\nWhat Script Lab offers a reviewer is a template: the fresh-agent pattern of 12B (a new agent per pass that sees only the persona and the artifact, never the brief or earlier drafts, with a per-item table, a retell and a pass rule).\n\nWhat a fresh-agent Visual/Prompt/Take Reviewer would add:\n- A sound-off cold read: frames plus captions only, mirroring the listen-only read.\n- A per-line check that each storyboard frame or clip matches the line's Picture column and the picture map: one metaphor, no visual second metaphor, and the product's on-screen action obeys the picture's rule. Lesson 16's failure, where readers scrolled when the product broke the picture, has a visual twin.\n- Reveal-order checks on frames: product shown before its name appears on screen or in supers; product on screen by about 3 s in demos; no brand on screen before it is shown working.\n- Super and card checks: word counts, no transcript duplication, and the CTA end card (the organic keyword or follow instead of offer and price).\n- Take-level checks that picture changes land on line ends and gap codes (S 0.15, B 0.4, H 0.8 s), using the Time column once voice timestamps exist.\n- Prompt-card review, which Script Lab lacks entirely.\n\nAny line a Take Reviewer changes in the edit must route back through Script Lab FIX (tests 3, 5 to 10, 13, 14), per \\\"A script never reaches the voice, the song, the storyboard or a render with an un-gated change\\\" (line 676).",
+ "costs": [
+  {
+   "item": "Any generation (voice, image, video, music)",
+   "credits": "No credit figures anywhere in the skill. Only \"Scripts are cheap and renders are not: write every length the concept needs, render only the ones being tested.\" (line 78) and \"Read-aloud pass on every script before any credits are spent.\" (line 1673)"
+  },
+  {
+   "item": "Cold-read agents per script",
+   "credits": "Not priced. 1 fresh agent per loop (2 from S90 up), up to 3 loops. The acceptance WRITE run used \"eleven cold reads over three loops\" (line 791)"
+  },
+  {
+   "item": "Writing a 5-minute script (labour, Appendix M)",
+   "credits": "Not credits: \"A 5-minute script is about 2 days of work.\" (line 1497)"
+  }
+ ],
+ "other_issues": [
+  "The per-beat word budgets don't add up to the tier ranges, though line 440 says \"The budgets add up to the tier's range\". Summing the tier templates: D15 beats 22 to 40 vs tier 30 to 45; D30 54 to 94 vs 70 to 100; C45 61 to 117 vs 100 to 140; S60 134 to 212 vs 140 to 190; S90 198 to 297 vs 210 to 280. An agent that fills every beat at its maximum can't reach the C45 or D15 ceiling, and at its minimum it fails every floor. Test 14 and the length score (\"2 within 10% over\") will disagree with the beat budgets.",
+  "Two C45 budgets: router 40 to 50 s and 100 to 140 words (line 136) vs podcast 35 to 45 s and 80 to 110 words (lines 150, 742). The Script Lab card (line 806), which the drama and podcast skills copy word for word, carries only the 40 to 50 s version. A caller that falls back to the card will gate podcasts against the wrong budget.",
+  "The description says \"15 s to 6 min\" (line 3) while the body says \"any length from 10 seconds to 6 minutes\" (line 12) and D15 starts at 10 s.",
+  "'No story under 55 s' (lines 147, 186) can't be applied mechanically. The library never marks which ST codes are 'story structures', and the device table puts \"Her confession or story, first person\" on ST2, ST12 and ST16, which run at D30 and C45 (lines 217, 227, 231, 242).",
+  "The caller table (lines 35 to 42) is missing readymerce-drama-ads, which calls Script Lab \"with the drama adapter (section 5)\" (drama SKILL line 62), but Script Lab's adapter list (line 50) has no drama entry. motion-video-director and motion-reel never call Script Lab. carousel-machine, growth-engine and the organic adapter at /home/user/main/growth-engine/adapters/script-lab-organic.md are also absent.",
+  "X-code collision: Script Lab's X1 to X8 are model scripts (\"Conscious bar (X5)\", line 138), while readymerce-drama-ads uses X1 to X10 as production exceptions (drama line 116) and the hub has its own X list. An agent reading 'X5' across skills can resolve it to the wrong thing.",
+  "Stale versions in Appendix M: it says the laws were built into \"`readymerce-ads-machine` v12\", \"`readymerce-podcast-ads` v2\" and \"`readymerce-animation-ads` v2\" (lines 1064 to 1066), and its section 6 maps hub locations such as \"C3 steps 6, 7, 10\" (line 1625). Appendix R says the audit used \"readymerce-animation-ads v3.4 ... readymerce-podcast-ads v4.1, readymerce-ads-machine v13.1\" (line 995), the hub file is now v13.4 (ads-machine line 6), and the caller table cites \"C3 steps 7, 8 and 12\" (line 40).",
+  "The fallback card is deliberately behind. Section 20 says \"from `readymerce-script-lab` v1\" and has no structure step (changelog line 816). Card-only callers can't pick an ST code, yet tests 1 and 2 check order \"against the picked structure\" and GRADE treats \"None: a list of beats\" as a finding.",
+  "Referenced material is missing from the repo and the skill folder: project docs 31, 43, 44 and 45 (the Ankle Carousel script, the research, the acceptance-test gate reports; for example \"summarised in project doc 45\", line 962) are not found by grep under /home/user/main. Test 16 also depends on hub-only items: Part L and the L22 card, the L13 objection order, C0, C6, C7, C13, G4, Part B's B16 tests. The animation F1 to F13 formats and \"Appendix A\" live in readymerce-animation-ads. An agent with only this skill loaded can't fully run test 16.",
+  "The cold read needs \"the Agent tool, general-purpose\" (line 582). Subagents spawned by workflow scripts may not have that tool (this digest agent has none), so the gate silently falls back to \"cold read: self, weaker check\" (line 619). A loop that needs 2 readers × 3 loops spawns up to 6 or more agents.",
+  "One model script breaks the router's own rules. X2 Kiddo is \"D30, 24 s, 89 words (3.7 words/s)\" (line 840): below D30's 25 s floor and far above the 2.5 to 3 words/s default and the 1.05x speed-up ceiling. An agent calibrating pace from the models will overshoot.",
+  "Re-hook cadence is stated three slightly different ways: \"about every 8 s early on, then every 25 to 30 s\" (line 308), \"about 8 s, about 16 s, then every 25 to 30 s\" (line 497), \"re-hook at about 7 to 8 s and at 25 to 30 s\" (line 1008). Reveal timing also differs: \"problem-aware stories at 50 to 60% of the runtime\" (line 391) vs R3's \"40 to 60% of the runtime\" (line 1041).",
+  "The song length calibration is Suno-only: \"Suno runs 10 to 25 s longer than planned\" (line 737). If songs are made with ElevenLabs Music, as in the StraightScale runs (claim 6), this rule is uncalibrated.",
+  "The animation adapter's H gap of 0.8 s (line 725) would be clipped by any voice tool that caps pauses at 0.4 s (claim 8). The hub (ads-machine line 120) bans capping human pauses, but the adapter has no explicit 'do not cap' line for TTS characters.",
+  "Appendix M is about 620 lines that must be read \"before writing the first line of copy in a session\" (line 1057). Every automated call that loads the skill pays that context cost, and the whole file is about 152 KB.",
+  "DTC-health and female-avatar defaults run throughout: 'she', 'her', herbal drops, lymph, hair loss, and \"how the body moves fluid\" as the persona's knowledge gap. B2B/services support is limited to ST9, ST11, the dental-clinic example (line 199) and X4 Mardyos (Tirana).",
+  "The release block and gate report are free-form markdown (lines 646 to 673) with no machine-readable verdict field. A pipeline must parse \"VERDICT: RELEASE / FIX / ESCALATE\" text, and the Time column's \"real voice timestamps\" (line 536) name no tool or file that supplies them."
+ ]
+}

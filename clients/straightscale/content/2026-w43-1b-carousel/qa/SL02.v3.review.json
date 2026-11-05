@@ -1,0 +1,253 @@
+{
+ "gate": "G-VIS-SLIDE",
+ "asset_id": "SL02-W43-1b",
+ "version": 3,
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "hero": false,
+ "reviewed_file": "sandbox /home/user/drafts/fixed/7e155c0b_v3.jpg (1080x1350, JPEG q93, sampling 1x1,1x1,1x1, md5 46f876745c4ab90313e4f48ecdb47c58); CDN copy https://d2ol7oe51mr4n9.cloudfront.net/user_3CQo67nOEoDBnYQeXyEukxi74Z6/30695814-37ef-40b4-ae13-5bad1ce7eb8f.jpg downloaded in the sandbox and byte-identical (md5 match)",
+ "compared_with": "v1 original /home/user/drafts/7e155c0b-3f7a-4e1c-9235-b2b9746f6b9a.jpg (model-drawn logo); real logo /home/user/brand/straightscale-logo-light.png",
+ "spec_used": "Task packet: slide text, alt-text.txt line, style-bible.md (house slide frame, Tirana at night, red-cased phone thread, crimson #B31217 boxes, gold counter, swipe arrow bottom right on slides 1-6, real logo bottom left), brand-kit.md (real logo files only, no invented numbers on screens or paper, no other organisations' logos or emblems, no em dashes). Spec JSON with regions written to the sandbox as spec.json.",
+ "crops_dir": "/home/user/qa/SL02-W43-1b.v3/crops (Higgsfield sandbox, vqa_crops.py image src.jpg --spec spec.json --ext jpg); extra views in /home/user/qa/w43v3rev and /home/user/qa/SET-W43-1b.v3",
+ "crops_manifest": "clients/straightscale/content/2026-w43-1b-carousel/qa/crops/SL02.v3/manifest.json",
+ "files_opened": [
+  "full.jpg",
+  "tile_r1c1.jpg",
+  "tile_r1c2.jpg",
+  "tile_r1c3.jpg",
+  "tile_r2c1.jpg",
+  "tile_r2c2.jpg",
+  "tile_r2c3.jpg",
+  "tile_r3c1.jpg",
+  "tile_r3c2.jpg",
+  "tile_r3c3.jpg",
+  "region_SL02_kicker.jpg",
+  "region_SL02_counter.jpg",
+  "region_SL02_arrow.jpg",
+  "region_SL02_logozone.jpg",
+  "region_SL02_headline.jpg",
+  "region_SL02_subline.jpg",
+  "region_SL02_pos.jpg",
+  "region_SL02_receipt.jpg",
+  "region_SL02_phone.jpg",
+  "thumb_200.jpg",
+  "../../w43v3rev/lz/SL02_lz.jpg",
+  "../../w43v3rev/z4/SL02_z4_0.jpg",
+  "../../w43v3rev/z4/SL02_z4_1.jpg",
+  "../../w43v3rev/z6/SL02_edge.jpg",
+  "../../SET-W43-1b.v3/set_logo_ref_vs_slides_3x.jpg",
+  "../../SET-W43-1b.v3/set_bottom_band_guides.jpg",
+  "../../w43v3rev/dm/SL02_diff.jpg",
+  "../../w43v3rev/edges.jpg"
+ ],
+ "editor_claims_verified": {
+  "file_and_cdn_md5": "confirmed",
+  "logo_box": "confirmed [98,1233,393,1288], 295x55, fit error 2.5 levels, colours identical to the file",
+  "outside_zone_unchanged": "confirmed: 0 pixels differ from a plain q93 4:4:4 re-encode of v1 outside x0-568, y1112-1350; all differences lie inside x88-399, y1232-1303",
+  "arrow_vs_logo": "confirmed: arrow centre minus logo centre +2.0 px (editor +2.6; 0.5 px is the centre convention)",
+  "fill_quality": "no ghost, crescent, seam or speck found at 2x, 3.3x, 4x and boosted views"
+ },
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full, thumb_200.jpg",
+   "evidence": "'1 Sa shpenzove' in heavy ivory with the 1 in a crimson box reads in under a second over a POS terminal, a receipt and the red-cased phone; sound off it says 'number 1: what you spent'."
+  },
+  {
+   "id": "V2",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Matches alt text 2 ('POS dhe fatura mbi banak. Numri 1: Sa shpenzove.'): POS terminal and receipt on a bar counter (region_SL02_pos.jpg, region_SL02_receipt.jpg); the subline lists what counts as spend."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "screens, paper",
+   "evidence": "No invented number on a screen or paper: POS screen blank and dark, receipt blank paper with only grey marbling (region_SL02_receipt.jpg), phone screen dark (region_SL02_phone.jpg). The only figures are the list index 1 and the counter 2/7; the keypad digits are key labels (V11). No price, result, client name or em dash."
+  },
+  {
+   "id": "V4",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No people, hands or limbs in any tile."
+  },
+  {
+   "id": "V5",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No hands; still life."
+  },
+  {
+   "id": "V6",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No faces."
+  },
+  {
+   "id": "V7",
+   "result": "PASS",
+   "severity": "",
+   "region": "props",
+   "evidence": "POS stands on its base with a contact shadow, the receipt lies curled on the wood, the phone lies flat with its reflection in the varnish (tiles r2c1, r2c2, r3c2, r3c3)."
+  },
+  {
+   "id": "V8",
+   "result": "PASS",
+   "severity": "",
+   "region": "POS, phone",
+   "evidence": "POS has a screen, a 3x3 key grid and a red/yellow/green function row; the phone has port and two speaker grilles on the bottom edge and a side button (region_SL02_phone.jpg). Key labels under V11."
+  },
+  {
+   "id": "V9",
+   "result": "PASS",
+   "severity": "",
+   "region": "kicker, headline, subline, counter",
+   "evidence": "Kicker (region_SL02_kicker.jpg): N-U-M-R-I / I / P-A-R-Ë, two dots on the Ë. Headline (region_SL02_headline.jpg): [1 in crimson box] S-a / s-h-p-e-n-z-o-v-e = 'Sa shpenzove', matching 'Numri 1: Sa shpenzove.' (the slide carries the number in the box and no colon or full stop, the house slide format used on slides 2 to 6). Subline (region_SL02_subline.jpg): R-e-k-l-a-m-a, / v-i-d-e-o, / n-j-e-r-ë-z, / m-j-e-t-e: / g-j-i-t-h-ç-k-a // q-ë / p-a-g-o-v-e / p-ë-r / k-l-i-e-n-t-ë / t-ë / r-i-n-j. Every ë has two dots, the ç has its cedilla; punctuation comma, comma, comma, colon, full stop. Counter '2/7'. No misspelling, no em dash."
+  },
+  {
+   "id": "V10",
+   "result": "PASS",
+   "severity": "",
+   "region": "text block",
+   "evidence": "The type sits on the calm dark wall left of the window; nothing in the scene is in front of a letter and no letter lands on a prop."
+  },
+  {
+   "id": "V11",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "POS keypad, about x190-470, y740-880",
+   "evidence": "Pre-existing (outside the logo zone the file equals a re-encode of v1) and on the accepted list. The digit keys read 1, 3, 3 / 4, 8, 8 / 1, 8, 0 with pseudo-letter sub-labels, and the red, yellow and green keys carry gibberish glyphs (region_SL02_pos.jpg). Only readable zoomed; at phone size it reads as a keypad. No other unwanted text: receipt blank, no signage."
+  },
+  {
+   "id": "V12",
+   "result": "PASS",
+   "severity": "",
+   "region": "POS, receipt, phone",
+   "evidence": "Story props present and readable; the receipt is deliberately blank under the no-invented-numbers rule and still reads as a till slip."
+  },
+  {
+   "id": "V13",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone",
+   "evidence": "Thread prop matches the style bible: smartphone in a deep red case, dark screen. The POS is a generic unbranded terminal."
+  },
+  {
+   "id": "V14",
+   "result": "PASS",
+   "severity": "",
+   "region": "background right",
+   "evidence": "A cup of straws and a chair back fit a bar counter (tile_r2c3.jpg); nothing unexplained."
+  },
+  {
+   "id": "V15",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No characters, so no character sheet applies."
+  },
+  {
+   "id": "V16",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone",
+   "evidence": "Phone face up, screen dark (silent), between the cover and the message screen of slide 3."
+  },
+  {
+   "id": "V17",
+   "result": "PASS",
+   "severity": "",
+   "region": "window, table",
+   "evidence": "Same set as the rest of the carousel: varnished wooden table by the tall window, Tirana plaza at night with the clock tower in the right third, near-black wall behind the type (tile_r1c3.jpg, tile_r2c3.jpg)."
+  },
+  {
+   "id": "V18",
+   "result": "PASS",
+   "severity": "",
+   "region": "frame",
+   "evidence": "1080x1350 (4:5), JPEG q93 4:4:4. Kicker bbox [103, 62, 324, 80]; crimson box [96, 167, 171, 251]; counter '2/7' bbox [932, 52, 979, 78]; swipe arrow bbox [930, 1232, 990, 1293], centre y1262.5; real logo box [98,1233,393,1288] (295x55, bottom margin 62 px, inside the lowest-9% band); logo centre y1260.5, so arrow minus logo centre = +2.0 px. All key content inside the 4:5 frame and the 3:4 grid crop."
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200.jpg",
+   "evidence": "At 200 px wide the headline and crimson box read, and the props, red phone and clock tower are recognisable. Not a hero slide; checked anyway."
+  },
+  {
+   "id": "V20",
+   "result": "N/A",
+   "severity": "",
+   "region": "background",
+   "evidence": "Still life; the window background is alive enough for the format (street lamps, lit facades, wet plaza reflections, out-of-focus cars), the same on every slide."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Matches the style bible: Tirana at night through the window, warm tungsten grade, near-black wall, ivory type, crimson box median #B40E16 (crimson family, target #B31217), crimson arrow #A00616, gold only in the counter (#D19A3E) and the real logo's gold square, red-cased phone."
+  },
+  {
+   "id": "V22",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Photoreal night interior: wood grain with specular beads, bokeh street lights, wet plaza, fine grain. No plastic or CG look."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "logo zone and full frame",
+   "evidence": "Logo zone (x88-399, y1232-1303 is the only area that differs from a plain q93 4:4:4 re-encode of the v1 original: 0 pixels differ outside x0-568, y1112-1350, checked pixel by pixel). v1's drawn logo sat at red square x101-153, y1242-1294; wordmark x183-387, y1255-1285 (6 to 15 px lower than the new logo). In the before/after at 2x (SL02_lz.jpg), the 4x plain and boosted zooms (SL02_z4_0.jpg, SL02_z4_1.jpg) and the 3.3x edge crop (SL02_edge.jpg) the wood grain and the beaded lit table edge run continuously past the logo: no ghost letters, no smooth or darker patch, no seam, no crescent, no stray speck beyond the wood's own flecks. The visible fill is a thin band under the new logo (y1288-1302) where v1's drawn logo extended lower; at 4x it carries the same dark grain as the floor face below it. Measured high-pass std there 1.17 vs 0.78 in the untouched band just below (y1306-1318); with 6 px around the logo excluded the fill/ring std ratio is 0.92, so the extra energy is the logo's own anti-aliasing, not a texture mismatch."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "logo zone, props",
+   "evidence": "Logo is the real file. Template fit of /home/user/brand/straightscale-logo-light.png (alpha box 1501x279, resized to 295x55) gives best position (98,1233), box [98,1233,393,1288], mean abs error 2.5 levels over its opaque pixels; the opaque red measures RGB 194/8/23 and the gold 227/172/26 on the slide, identical to the file's own values; white 249/247/241. Edges crisp at 3x (set_logo_ref_vs_slides_3x.jpg), the S channel shows the wood through it as it should. No remnant of the model-drawn logo (plain white 'S' block, drawn wordmark, its red or gold) in region_SL02_logozone.jpg, the 4x zooms or the boosted views. No other organisation's logo, emblem or maker mark anywhere on the props."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No before and after, no \"your [condition]\", nothing that shames; neutral instruction copy."
+  },
+  {
+   "id": "V26",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No AI person in the frame. Photoreal AI scene: STANDARDS.md section 7 asks for Instagram's own AI label at posting (a posting setting); no burned-in tag, which is correct."
+  }
+ ],
+ "defects_summary": {
+  "critical": 0,
+  "major": 0,
+  "minor": 1,
+  "items": [
+   "V11 minor, POS keypad, about x190-470, y740-880: pre-existing (outside the logo zone the file is a plain re-encode of v1)"
+  ]
+ },
+ "fix": {
+  "route": "none",
+  "prompt_changes": [],
+  "optional_edits": [
+   "If the slide is regenerated for another reason: POS keypad labels 1 2 3 / 4 5 6 / 7 8 9 and plain function keys."
+  ]
+ },
+ "notes": [
+  "hosted.json still lists the v1 originals; point the hub at the v3 media_id 30695814-37ef-40b4-ae13-5bad1ce7eb8f (md5 46f876745c4ab90313e4f48ecdb47c58) before posting."
+ ]
+}

@@ -1,0 +1,69 @@
+{
+  "post_id": "SS-TEST-AIVIDEO",
+  "slug": "straightscale",
+  "format": "reel",
+  "family": "test",
+  "card": null,
+  "created": "2026-10-25T13:32:53+00:00",
+  "steps": {},
+  "run_gates": {
+    "G-BUDGET": [
+      {
+        "at": "2026-10-25T13:32:54+00:00",
+        "status": "PASS",
+        "by": "pipeline.py budget",
+        "data": {
+          "planned": 5.9,
+          "with_buffer": 7.4,
+          "balance": 1494.52,
+          "month_spent": 36.75,
+          "cap": 1300,
+          "el_planned": 0
+        },
+        "note": ""
+      }
+    ]
+  },
+  "specs": {},
+  "assets": [
+    {
+      "asset_id": "VO",
+      "version": 1,
+      "type": "test",
+      "shots": [],
+      "depends_on": [],
+      "hero": false,
+      "hook": false,
+      "created": "2026-10-25T13:32:54+00:00",
+      "prompt_sha256": "96b31c5e808e627d26d5705c969f7f04101da04df97bfdd3c9cff44df33cb4ee",
+      "prompt_file": "prompts/VO.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-25T13:32:54+00:00",
+          "sha256": "96b31c5e808e627d26d5705c969f7f04101da04df97bfdd3c9cff44df33cb4ee",
+          "file": "prompts/VO.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [
+        "afc569ea-cc0d-4630-ae59-b3d78611f1ba"
+      ],
+      "files": [
+        "ai-video/videos/hourly-pricing-trap/vo_raw/raw.mp3"
+      ],
+      "gates": {
+        "G-HUMAN-TEST": [
+          {
+            "at": "2026-10-25T13:33:06+00:00",
+            "status": "PASS",
+            "by": "Matan",
+            "note": "Owner in chat 2026-10-25: 'You can use higgsField voice generation to generate the voiceover. And let's just test a random idea of a video.' Test of the ai-video skill; English test reel, not a StraightScale post."
+          }
+        ]
+      },
+      "tool": "mcp__Higgs__generate_audio"
+    }
+  ],
+  "queue": []
+}

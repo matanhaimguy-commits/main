@@ -1,0 +1,25 @@
+{"gate": "G-SPEC", "shot_id": "H-01-V8", "version": 3, "spec_sha256": "76a3aec9d2673f4862b2cdce6b08c12d5440e2f4cb44ede57be8de7f2c41bdb3",
+ "reviewer": "prompt-reviewer (fresh agent)", "independent": true, "status": "FAIL",
+ "files_opened": ["clients/straightscale-en/runs/SSEN-2026-11-W4-01/shots/H-01-V8.spec.yaml", "growth-engine/production/STANDARDS.md (section 6)", "growth-engine/production/failure-library.md"],
+ "checks": [
+  {"id": "P1", "result": "PASS", "evidence": "must_read_in_1s: 'The post says TIRED OF SLOW MONTHS?, the page under it says WELCOME TO OUR WEBSITE.' Both cards, the arrow and all four strings are in subjects/props/text_in_image."},
+  {"id": "P2", "result": "N/A", "evidence": "Spec mode; no references (text-to-image)."},
+  {"id": "P3", "result": "PASS", "evidence": "hands: none visible; must_not: 'no people, no hands, no faces'."},
+  {"id": "P4", "result": "PASS", "evidence": "action_physics: 'Both cards and the arrow lie flat on the cream clay ground, seen from straight above; nothing rests on top of them.' (static contact, no motion needed)."},
+  {"id": "P5", "result": "PASS", "evidence": "PR-POST content: 'one flat terracotta #C8553D clay slab with rounded corners, one layer, its words centred on it'; PR-PAGE likewise grey-blue; no blanket 'no text' (must_not says 'no words other than the listed strings')."},
+  {"id": "P6", "result": "PASS", "evidence": "Four quoted-style strings, each with surface, position box, case, must_be_exact and occlusion 'nothing covers any letter'; 4 words per card, under the 6-word limit. Note (non-blocking): cream #F3E9D8 on terracotta #C8553D is about 3.6:1; fine for large headline letters but below the 4.5:1 caption rule, so keep the letters bold and large."},
+  {"id": "P7", "result": "PASS", "evidence": "background_rule: 'plain cream #F3E9D8 clay above the page; no signs, frames, posters or other screens; the only writing is the listed text'."},
+  {"id": "P8", "result": "FAIL", "evidence": "(a) Safe zone: PR-PAGE 'pose: x 6% to 94%, y 49% to 64%' and region page box [0.06,0.49,0.94,0.64] put a key element (safe_zones lists 'cards') in the lower half out to 94%, but the spec's own rule and STANDARDS 6 say 'inside 6% to 79% of the width where it lies below 50% of the height' (right 21% of the lower half clear). (b) Centring: PR-PAGE content says 'its words centred on it' and camera.framing says 'centred', yet the page text boxes run x 12% to 78% (centre 45%, not the card centre 50%). (c) Viewpoint: action_physics says 'seen from straight above' while camera.angle says 'straight on, square to the screen, camera inside the miniature clay world'. (d) 'static: false' while action_physics describes nothing moving."},
+  {"id": "P9", "result": "PASS", "evidence": "previous_shot: null; carry_over: [] (first shot of the reel)."},
+  {"id": "P10", "result": "N/A", "evidence": "Spec mode."},
+  {"id": "P11", "result": "FAIL", "evidence": "'seen from straight above' versus 'straight on, square to the screen' can be read two ways (top-down flat lay, or eye-level facing the cards); 'macro, shallow depth of field' on a flat top-down lay-out is also ambiguous about which card edges blur. State one viewpoint."},
+  {"id": "P12", "result": "PASS", "evidence": "FL-04 prevented by content lines and targeted negatives; FL-02 prevented by 'one flat ... slab with rounded corners, one layer'; FL-05 by background_rule; FL-01/03/06 do not apply (no hands, no action, no faces)."}
+ ],
+ "regions_check": "Boxes present for both props, arrow and both text blocks and they match the stated positions. No hand or face regions needed. Post card (y 31% to 45%) is inside 30% to 65% and above 50%, so 6% to 94% width is allowed there. Only the page card breaks the lower-half right margin. The arrow gap to each card is 0.5% of the height, tight but stated as touching neither.",
+ "suggested_spec_changes": [
+  "Make the page card end at x 79%: PR-PAGE pose 'x 6% to 79%, y 49% to 64%', size_in_frame '73% of the width, 15% of the height', region page box [0.06,0.49,0.79,0.64]. Keep the post card at 6% to 94% (it sits above 50%), or narrow both cards to 6% to 79% so the stack reads as one centred column.",
+  "Centre the page words on the (narrower) page card: WELCOME TO x 12% to 73%, OUR WEBSITE x 10% to 75%, and set region page-text box to [0.10,0.505,0.75,0.625]. Update camera.framing to say the page card ends at 79% of the width and the post card is 6% to 94%.",
+  "Pick one viewpoint: change camera.angle to 'seen from straight above, square to the frame, lens looking straight down at the clay ground' (matches action_physics), or change action_physics to the straight-on view. Drop 'camera inside the miniature clay world' if top-down.",
+  "Set static: true (nothing moves in this concept frame).",
+  "Optional: darken or thicken the cream letters on the terracotta card (or use deep ink #2B2A33 on a lighter terracotta tint) to reach 4.5:1 for the hook line."
+ ]}

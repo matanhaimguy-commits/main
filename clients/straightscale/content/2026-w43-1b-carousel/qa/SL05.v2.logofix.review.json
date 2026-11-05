@@ -1,0 +1,250 @@
+{
+ "gate": "G-VIS-SLIDE",
+ "asset_id": "SL05-W43-1b",
+ "version": 2,
+ "label": "logofix",
+ "reviewer": "visual-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "hero": false,
+ "reviewed_file": "sandbox /home/user/drafts/fixed/177e27a4.jpg (1080x1350 JPEG, md5 ef3a5c5969e44bf7be5fe408ccbdf55e)",
+ "compared_with": "v1 original /home/user/drafts/177e27a4-fb75-455e-8ddc-8e5c37e6a305.jpg (md5 318bc99caadb891fc96fe9160751dc05, drawn logo); real logo /home/user/brand/straightscale-logo-light.png",
+ "spec_used": "Slide 5 of 7 (Mon 19 Oct), alt text 5: 'Makinë llogaritëse pranë telefonit. Numri 4: Sa të kushton një klient.' House slide frame and brand rules as for slide 2. AI people rule: STANDARDS.md 7 (hands only is allowed).",
+ "crops_dir": "/home/user/qa/W43-1b-set.v2/SL05 (Higgsfield sandbox, built by the reviewer with PIL/OpenCV)",
+ "crops_manifest": "clients/straightscale/content/2026-w43-1b-carousel/qa/crops/SL05.v2.logofix/manifest.json",
+ "files_opened": [
+  "full_720.jpg",
+  "tile_r1c1.jpg",
+  "tile_r1c2.jpg",
+  "tile_r1c3.jpg",
+  "tile_r2c1.jpg",
+  "tile_r2c2.jpg",
+  "tile_r2c3.jpg",
+  "tile_r3c1.jpg",
+  "tile_r3c2.jpg",
+  "tile_r3c3.jpg",
+  "diffmap_orig_vs_fixed.jpg",
+  "region_logozone_orig_vs_fixed_2x.jpg",
+  "region_logozone_clahe_orig_top_fixed_bottom_2x.jpg",
+  "region_logozone_band_orig_top_fixed_bottom_3x_gamma07.jpg",
+  "thumb_200.jpg",
+  "../SET/ref_logo_vs_pasted_all_slides_3x.jpg",
+  "region_logo_changezone_3x_4views.jpg",
+  "region_SL05_kicker_2x.jpg",
+  "region_SL05_headline_2x.jpg",
+  "region_SL05_subline_2x.jpg",
+  "region_SL05_calculator_2x.jpg",
+  "region_SL05_hand_2x.jpg",
+  "region_SL05_phone_2x.jpg",
+  "region_SL05_counter_3x.jpg",
+  "region_SL05_arrow_3x.jpg",
+  "../SET/set_swipe_4_5_6_guide.jpg",
+  "../SET/set_bottom_band_logo_arrow_guides.jpg"
+ ],
+ "checks": [
+  {
+   "id": "V1",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "1-second read: '4 Sa të kushton një klient' over a calculator next to the red-cased phone, a hand resting by the phone. Sound off it reads 'number 4: what one client costs you'."
+  },
+  {
+   "id": "V2",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Matches alt text 5: calculator beside the phone (region_SL05_calculator_2x.jpg, region_SL05_phone_2x.jpg). The hand at right is extra to the alt text but fits the moment (the owner by the phone) and contradicts nothing."
+  },
+  {
+   "id": "V3",
+   "result": "PASS",
+   "severity": "",
+   "region": "calculator display, phone",
+   "evidence": "No invented number: the calculator display is blank and the phone screen is dark. Key labels are covered under V11. No em dash."
+  },
+  {
+   "id": "V4",
+   "result": "PASS",
+   "severity": "",
+   "region": "right hand (x730-1080, y700-950)",
+   "evidence": "One hand, entering from the right edge in a dark sleeve; palm down, thumb in front with its nail, index finger along the table, the other fingers curled behind it out of view (region_SL05_hand_2x.jpg). Knuckles, creases and wrist are anatomically plausible; no extra or missing visible digits."
+  },
+  {
+   "id": "V5",
+   "result": "PASS",
+   "severity": "",
+   "region": "hand",
+   "evidence": "The hand rests relaxed on the table near the phone; no grip is needed and none is faked."
+  },
+  {
+   "id": "V6",
+   "result": "N/A",
+   "severity": "",
+   "region": "full",
+   "evidence": "No face (hand only)."
+  },
+  {
+   "id": "V7",
+   "result": "PASS",
+   "severity": "",
+   "region": "props",
+   "evidence": "Calculator and phone lie flat with contact shadows and reflections; the hand's fingertips touch the table surface (tile_r2c3.jpg, tile_r3c2.jpg)."
+  },
+  {
+   "id": "V8",
+   "result": "PASS",
+   "severity": "",
+   "region": "calculator, phone",
+   "evidence": "Calculator body, display window and key grid are well formed; phone has port and speaker grilles on the bottom edge and side buttons (region_SL05_phone_2x.jpg). Key labels are covered under V11."
+  },
+  {
+   "id": "V9",
+   "result": "PASS",
+   "severity": "",
+   "region": "kicker, headline, subline",
+   "evidence": "Read at 2x. Kicker: N-U-M-R-I / I / K-A-T-Ë-R-T. Headline: [4 in crimson box] S-a / t-ë / k-u-s-h-t-o-n // n-j-ë / k-l-i-e-n-t = 'Sa të kushton një klient' as in the alt text. Subline: S-h-p-e-n-z-i-m-i / p-j-e-s-ë-t-u-a-r / m-e / k-l-i-e-n-t-ë-t / e / r-e-z-e-r-v-u-a-r. Every ë has two dots; full stop at the end. No misspelling, no em dash."
+  },
+  {
+   "id": "V10",
+   "result": "PASS",
+   "severity": "",
+   "region": "kicker, headline, subline",
+   "evidence": "The text is the house overlay, set on the calm dark wall area left of the window (region_SL05_headline_2x.jpg, tile_r1c1.jpg). Nothing in the scene sits in front of a letter and no letter is painted onto a prop, skin or cloth."
+  },
+  {
+   "id": "V11",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "calculator keys (x60-560, y820-1100)",
+   "evidence": "Pre-existing (same in v1). The calculator key labels are pseudo-symbols (region_SL05_calculator_2x.jpg): rows read roughly 'π ‡ ‡ ▭ ‡', '+ ⅄ + × ×', '1 ? ÷ ✕ −', '1 1 ⁒ + +' and '= '; digits 2 to 9 are missing and operators repeat. Only visible zoomed; at phone size it reads as a calculator."
+  },
+  {
+   "id": "V12",
+   "result": "PASS",
+   "severity": "",
+   "region": "calculator, phone",
+   "evidence": "Both story props present and prominent; display blank by the no-invented-numbers rule."
+  },
+  {
+   "id": "V13",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone",
+   "evidence": "Deep red case, dark screen; same phone look as the other slides."
+  },
+  {
+   "id": "V14",
+   "result": "PASS",
+   "severity": "",
+   "region": "hand",
+   "evidence": "The hand is the only person element in the set; it is a plausible owner's hand, hands-only as STANDARDS 7 allows, and adds no prop."
+  },
+  {
+   "id": "V15",
+   "result": "N/A",
+   "severity": "",
+   "region": "hand",
+   "evidence": "Hand only; no character sheet applies."
+  },
+  {
+   "id": "V16",
+   "result": "PASS",
+   "severity": "",
+   "region": "phone",
+   "evidence": "Phone dark, a hand next to it: consistent with the thread."
+  },
+  {
+   "id": "V17",
+   "result": "PASS",
+   "severity": "",
+   "region": "set",
+   "evidence": "Same set: table by the window, plaza and clock tower."
+  },
+  {
+   "id": "V18",
+   "result": "FAIL",
+   "severity": "minor",
+   "region": "bottom row: logo x98-393, y1189-1246 vs arrow x930-988, y1227-1285",
+   "evidence": "Caused by the fix's placement. The logo was pasted 38 px above the arrow's centre line (logo centre y1217.5, arrow centre y1256) and above the style bible's calm bottom band (lowest 9%, y>=1229), so the bottom row looks unbalanced on this slide and the logo sits 38 to 50 px higher than on slides 4 and 6 (../SET/set_swipe_4_5_6_guide.jpg). The text block also starts ~20 px further left than on the other slides (kicker and box at x82 vs x90 to x106), a set-level note. Everything stays inside the 4:5 frame and the 3:4 grid crop."
+  },
+  {
+   "id": "V19",
+   "result": "PASS",
+   "severity": "",
+   "region": "thumb_200.jpg",
+   "evidence": "At 200 px the two-line headline and crimson '4' read; calculator, phone and hand are clear."
+  },
+  {
+   "id": "V20",
+   "result": "N/A",
+   "severity": "",
+   "region": "background",
+   "evidence": "Still life with no people in the scene; the window background is alive enough for the format (street lamps, lit facades, wet plaza with reflections, out-of-focus cars), the same on every slide."
+  },
+  {
+   "id": "V21",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "Tirana at night, warm tungsten, ivory type (#FBF8F4), crimson box #B10E16, arrow #AA1219, gold only in the counter (#D3A14F) and the logo's gold square, red-cased phone."
+  },
+  {
+   "id": "V22",
+   "result": "PASS",
+   "severity": "",
+   "region": "hand, full",
+   "evidence": "Realistic skin on the hand (pores, knuckle creases, nail), real wood grain and bokeh; no plastic look."
+  },
+  {
+   "id": "V23",
+   "result": "PASS",
+   "severity": "",
+   "region": "logo zone",
+   "evidence": "No artefacts from the fix: the refilled area under and below the moved logo keeps the wood grain (texture std 2.37 vs 2.41 in the untouched ring; region_logozone_orig_vs_fixed_2x.jpg, region_logozone_band_orig_top_fixed_bottom_3x_gamma07.jpg, region_logo_changezone_3x_4views.jpg); it is 2.7 levels darker than the ring, invisible at 2x; no seam, ghost letters or colour blotch. Outside the zone only JPEG noise (max 26, mean 0.91)."
+  },
+  {
+   "id": "V24",
+   "result": "PASS",
+   "severity": "",
+   "region": "bottom-left logo zone, props",
+   "evidence": "Logo is the real file (../SET/ref_logo_vs_pasted_all_slides_3x.jpg, region_logozone_orig_vs_fixed_2x.jpg): red rounded square with the S-shaped channel, gold square in the top-right notch, white 'StraightScale' wordmark, identical to /home/user/brand/straightscale-logo-light.png. Fitting the real file at 295x57 at (98,1189) gives a mean absolute difference of 7.13 levels over its opaque pixels (the same 7.1 to 7.2 on all seven slides, i.e. one file at one scale); the opaque extent measures 291x54 px (aspect 5.39) vs the file's alpha bbox 1501x279 (5.38), so it is undistorted; edges crisp at 3x. No remnant of the v1 drawn logo: the plain white 'S' block and the drawn wordmark are gone, no ghost letters, no red or gold fragment in the cleared area (0 red and 0 gold pixels outside the pasted logo in the change zone; boosted and CLAHE views show only wood grain). No other brand's mark anywhere: the calculator or phone carries no maker logo."
+  },
+  {
+   "id": "V25",
+   "result": "PASS",
+   "severity": "",
+   "region": "full",
+   "evidence": "No before and after, no 'your [condition]', nothing that shames; the copy is a neutral instruction."
+  },
+  {
+   "id": "V26",
+   "result": "PASS",
+   "severity": "",
+   "region": "hand",
+   "evidence": "The only person element is a hand, which STANDARDS.md 7 (D1 interim) allows ('hands only'); it is not presented as a client and carries no result. Photoreal AI scene: STANDARDS.md section 7 asks for Instagram's own AI label on the post (a posting setting, not visible in the image); no burned-in AI tag is present, which is correct."
+  }
+ ],
+ "defects_summary": {
+  "critical": 0,
+  "major": 0,
+  "minor": 2,
+  "items": [
+   "V11 minor, calculator keys (x60-560, y820-1100): calculator key labels are pseudo-symbols (pre-existing)",
+   "V18 minor, bottom row: logo x98-393, y1189-1246 vs arrow x930-988, y1227-1285: logo pasted 38 px above the arrow centre line and above the calm bottom band (caused by the fix)"
+  ]
+ },
+ "fix": {
+  "route": "none",
+  "prompt_changes": [],
+  "optional_edits": [
+   "Covered by the G-SET fix: re-place the logo at the set's fixed box so it sits on the arrow's centre line.",
+   "If the slide is regenerated for another reason, give the calculator a content line ('standard keypad 7 8 9 / 4 5 6 / 1 2 3 / 0 . =, operators on the right').",
+   "Alt text could mention the hand ('dora e pronarit pranë telefonit')."
+  ]
+ },
+ "notes": [
+  "Set-level finding (see SET.v2.logofix.review.json): the real logo is the same file and size on every slide but its vertical position varies by 50 px across the set (y1189 to y1239). The G-SET fix re-places the logo at one fixed box on every slide; each re-placed file is a new version and needs its own review.",
+  "No new hosted URLs for slides 2 to 7 were in the packet or the repo. hosted.json still lists the v1 originals: in the sandbox, each hosted.json URL downloads byte-identical to the v1 original (md5 match), not to the fixed file. Point the hub at the fixed files' URLs and md5-check them against reviewed_file before posting."
+ ]
+}

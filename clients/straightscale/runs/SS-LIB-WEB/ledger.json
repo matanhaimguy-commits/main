@@ -1,0 +1,459 @@
+{
+  "post_id": "SS-LIB-WEB",
+  "slug": "straightscale",
+  "format": "carousel_mistakes",
+  "family": "library",
+  "card": null,
+  "created": "2026-10-21T15:13:46+00:00",
+  "steps": {},
+  "run_gates": {
+    "G-BUDGET": [
+      {
+        "at": "2026-10-21T16:40:35+00:00",
+        "status": "PASS",
+        "by": "pipeline.py budget",
+        "data": {
+          "planned": 12.0,
+          "with_buffer": 15.0,
+          "balance": 661.4,
+          "month_spent": 36.75,
+          "cap": 1300,
+          "el_planned": 0
+        },
+        "note": ""
+      }
+    ]
+  },
+  "specs": {
+    "WEB-EXT": {
+      "sha256": "c9edc056c0249017ce56733dd1d31f533727de3f3c201c5ce3d65684dbacfc63",
+      "lint": "PASS",
+      "lint_at": "2026-10-21T16:53:56+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-21T15:50:34+00:00",
+          "status": "FAIL",
+          "sha256": "dbd22ffca0141996e602e9c084808dc8f3c1a889f9494b19c43848542a8cd96c",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/WEB-EXT.spec.json"
+        },
+        {
+          "at": "2026-10-21T16:11:36+00:00",
+          "status": "FAIL",
+          "sha256": "7b245faacd9a45644ca417f60bdd90e2fbc547f45966994b68dcff963b064345",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/WEB-EXT.spec.json"
+        },
+        {
+          "at": "2026-10-21T16:26:35+00:00",
+          "status": "FAIL",
+          "sha256": "fc60cbc8a6b2bfce7bf8bb091e98e47b1cfae31b8bb50110508818356c32824d",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/WEB-EXT.spec.json"
+        },
+        {
+          "at": "2026-10-21T16:50:15+00:00",
+          "status": "FAIL",
+          "sha256": "37f26b3e49a7c666f81192d3c520a1c00995d7b7033aeec80f16ed229fc52a83",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/WEB-EXT.spec.json"
+        },
+        {
+          "at": "2026-10-21T16:57:25+00:00",
+          "status": "FAIL",
+          "sha256": "c9edc056c0249017ce56733dd1d31f533727de3f3c201c5ce3d65684dbacfc63",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/WEB-EXT.spec.json"
+        }
+      ]
+    },
+    "WEB-HERO-D": {
+      "sha256": "9b48eaa12800ccc545304c391aba18d016c407bfeb6c1c2e4a33cb06a8a86dbf",
+      "lint": "PASS",
+      "lint_at": "2026-10-21T16:44:07+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-21T15:48:54+00:00",
+          "status": "FAIL",
+          "sha256": "267b7cbe1fe28f163b7d66c675703d0cd16a9fd0ff0fe42bce403bc29fe9e1d2",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/WEB-HERO-D.spec.json"
+        },
+        {
+          "at": "2026-10-21T16:04:52+00:00",
+          "status": "FAIL",
+          "sha256": "17ece57cd8519fd1f3330ca9df396dbbe8a37c9c85a639df68fe5fbf8b9f3fb3",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/WEB-HERO-D.spec.json"
+        },
+        {
+          "at": "2026-10-21T16:22:27+00:00",
+          "status": "PASS",
+          "sha256": "9b48eaa12800ccc545304c391aba18d016c407bfeb6c1c2e4a33cb06a8a86dbf",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/WEB-HERO-D.spec.json"
+        }
+      ]
+    },
+    "WEB-HERO-M": {
+      "sha256": "ce5c22ab65a500fb37e78e301092264b3e53ec1a08022d55a0b230e5ce464dda",
+      "lint": "PASS",
+      "lint_at": "2026-10-21T17:08:02+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-21T15:49:11+00:00",
+          "status": "FAIL",
+          "sha256": "440a199fca9b7d7a601af8f27f4f8bf94891c5454ce8cc8c2687a8c539b5559d",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/WEB-HERO-M.spec.json"
+        },
+        {
+          "at": "2026-10-21T16:05:46+00:00",
+          "status": "FAIL",
+          "sha256": "1d343a8f7efffad442a5f6b8341b278102639fff12d89597cffe6513be370876",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/WEB-HERO-M.spec.json"
+        },
+        {
+          "at": "2026-10-21T16:22:48+00:00",
+          "status": "FAIL",
+          "sha256": "6706ad33670fda1b0261a781f495184592fb2770b8a48d3f2ba5f51846ec7e95",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/WEB-HERO-M.spec.json"
+        },
+        {
+          "at": "2026-10-21T16:51:52+00:00",
+          "status": "FAIL",
+          "sha256": "be0ab92940612f2665b42a1b71b2a321fcc4aeb8ce36c6573eeaf979425c1f24",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/WEB-HERO-M.spec.json"
+        },
+        {
+          "at": "2026-10-21T17:00:36+00:00",
+          "status": "FAIL",
+          "sha256": "f9b973c0212f0bcbd9deb6a3cb18e8e2e8f12c1c6f9591bf7baed46d7963f838",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/WEB-HERO-M.spec.json"
+        },
+        {
+          "at": "2026-10-21T17:08:02+00:00",
+          "status": "FAIL",
+          "sha256": "f3711beff2e0dacf683d763fbe73e4dd70562943b5a5a8f3a9c3723800d71446",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/WEB-HERO-M.spec.json"
+        },
+        {
+          "at": "2026-10-21T17:16:14+00:00",
+          "status": "PASS",
+          "sha256": "ce5c22ab65a500fb37e78e301092264b3e53ec1a08022d55a0b230e5ce464dda",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/WEB-HERO-M.spec.json"
+        }
+      ]
+    },
+    "WEB-CUP": {
+      "sha256": "e74fa467cc42ddc985c312bbfeefc7971008426d5a13e795b4fd873910e5113b",
+      "lint": "PASS",
+      "lint_at": "2026-10-21T16:44:07+00:00",
+      "lint_issues": [],
+      "G-SPEC": [
+        {
+          "at": "2026-10-21T15:49:51+00:00",
+          "status": "FAIL",
+          "sha256": "ccd5316e74a9f6322638648d5bbbb98d928d7f22dd2165b6426922b696320f1d",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/WEB-CUP.spec.json"
+        },
+        {
+          "at": "2026-10-21T16:06:44+00:00",
+          "status": "FAIL",
+          "sha256": "52391be0bcb2529581f6e9d2cc2161ece4561022dea61d3b3a9300b5b64656ff",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/WEB-CUP.spec.json"
+        },
+        {
+          "at": "2026-10-21T16:23:45+00:00",
+          "status": "FAIL",
+          "sha256": "25890771be13b5fc03dca9fdf14c49a40ecca2015fe332df67f7164ce1e08908",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/WEB-CUP.spec.json"
+        },
+        {
+          "at": "2026-10-21T16:49:46+00:00",
+          "status": "PASS",
+          "sha256": "e74fa467cc42ddc985c312bbfeefc7971008426d5a13e795b4fd873910e5113b",
+          "by": "prompt-reviewer (fresh agent)",
+          "report": "qa/WEB-CUP.spec.json"
+        }
+      ]
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "WEB-HERO-D",
+      "version": 1,
+      "type": "still",
+      "shots": [
+        "WEB-HERO-D"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-21T16:25:16+00:00",
+      "prompt_sha256": "daf18c8a3aa2a281220bcc36023a8d650c4223379ec447a5fa1904ccb5227805",
+      "prompt_file": "prompts/WEB-HERO-D.v1.2.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-21T16:25:16+00:00",
+          "sha256": "9e9c1b8fadc5801905506dba88317c2357aa22780164ce3c2093f232ddf8f85f",
+          "file": "prompts/WEB-HERO-D.v1.1.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            }
+          ]
+        },
+        {
+          "at": "2026-10-21T16:31:39+00:00",
+          "sha256": "daf18c8a3aa2a281220bcc36023a8d650c4223379ec447a5fa1904ccb5227805",
+          "file": "prompts/WEB-HERO-D.v1.2.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            }
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+          "role": "image_references"
+        }
+      ],
+      "ids": [],
+      "files": [],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-21T16:30:46+00:00",
+            "status": "FAIL",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/WEB-HERO-D.v1.prompt.json",
+            "prompt_sha256": "9e9c1b8fadc5801905506dba88317c2357aa22780164ce3c2093f232ddf8f85f"
+          },
+          {
+            "at": "2026-10-21T16:40:14+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/WEB-HERO-D.v1.prompt.json",
+            "prompt_sha256": "daf18c8a3aa2a281220bcc36023a8d650c4223379ec447a5fa1904ccb5227805"
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "WEB-HERO-D",
+      "version": 2,
+      "type": "still",
+      "shots": [
+        "WEB-HERO-D"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-21T16:44:25+00:00",
+      "prompt_sha256": "daf18c8a3aa2a281220bcc36023a8d650c4223379ec447a5fa1904ccb5227805",
+      "prompt_file": "prompts/WEB-HERO-D.v2.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-21T16:44:25+00:00",
+          "sha256": "daf18c8a3aa2a281220bcc36023a8d650c4223379ec447a5fa1904ccb5227805",
+          "file": "prompts/WEB-HERO-D.v2.1.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            }
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+          "role": "image_references"
+        }
+      ],
+      "ids": [
+        "4d145f42-1d3d-4526-b720-0a1559016d93"
+      ],
+      "files": [],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-21T16:48:40+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/WEB-HERO-D.v2.prompt.json",
+            "prompt_sha256": "daf18c8a3aa2a281220bcc36023a8d650c4223379ec447a5fa1904ccb5227805"
+          }
+        ],
+        "G-VIS": [
+          {
+            "at": "2026-10-21T17:05:45+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/WEB-HERO-D.v2.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 0,
+              "minor": 0
+            },
+            "hero": true
+          },
+          {
+            "at": "2026-10-21T17:23:02+00:00",
+            "status": "PASS",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/WEB-HERO-D.v2.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 0,
+              "minor": 0
+            },
+            "hero": true
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "WEB-CUP",
+      "version": 1,
+      "type": "still",
+      "shots": [
+        "WEB-CUP"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-21T16:53:32+00:00",
+      "prompt_sha256": "0ab05a5a649869057826222e708f0a66c391bc374cfb4daf855e0f25294309ae",
+      "prompt_file": "prompts/WEB-CUP.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-21T16:53:32+00:00",
+          "sha256": "0ab05a5a649869057826222e708f0a66c391bc374cfb4daf855e0f25294309ae",
+          "file": "prompts/WEB-CUP.v1.1.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            }
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+          "role": "image_references"
+        }
+      ],
+      "ids": [
+        "dbfdd016-49cc-43b6-8de2-ef5dcd29e573"
+      ],
+      "files": [],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-21T16:56:50+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/WEB-CUP.v1.prompt.json",
+            "prompt_sha256": "0ab05a5a649869057826222e708f0a66c391bc374cfb4daf855e0f25294309ae"
+          }
+        ],
+        "G-VIS": [
+          {
+            "at": "2026-10-21T17:20:39+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/WEB-CUP.v1.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 0,
+              "minor": 4
+            },
+            "hero": true
+          }
+        ]
+      }
+    },
+    {
+      "asset_id": "WEB-CUP",
+      "version": 2,
+      "type": "still",
+      "shots": [
+        "WEB-CUP"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-21T17:20:52+00:00",
+      "prompt_sha256": "3f73eafe10ec75d6bc4a7dbc3aff11bc8e19dd799fecdec0f0cd37325cbe2c32",
+      "prompt_file": "prompts/WEB-CUP.v2.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-21T17:20:52+00:00",
+          "sha256": "3f73eafe10ec75d6bc4a7dbc3aff11bc8e19dd799fecdec0f0cd37325cbe2c32",
+          "file": "prompts/WEB-CUP.v2.1.txt",
+          "medias": [
+            {
+              "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+              "role": "image_references"
+            }
+          ]
+        }
+      ],
+      "medias": [
+        {
+          "value": "e6bc8781-70fa-4450-aa10-989160b20a2e",
+          "role": "image_references"
+        }
+      ],
+      "ids": [
+        "d4ce380b-44ec-4655-a3b3-fc5c000657d7"
+      ],
+      "files": [],
+      "gates": {
+        "G-PROMPT-IMG": [
+          {
+            "at": "2026-10-21T17:24:52+00:00",
+            "status": "PASS",
+            "by": "prompt-reviewer (fresh agent)",
+            "report": "qa/WEB-CUP.v2.prompt.json",
+            "prompt_sha256": "3f73eafe10ec75d6bc4a7dbc3aff11bc8e19dd799fecdec0f0cd37325cbe2c32"
+          }
+        ],
+        "G-VIS": [
+          {
+            "at": "2026-10-21T17:38:41+00:00",
+            "status": "FAIL",
+            "by": "visual-reviewer (fresh agent)",
+            "report": "qa/WEB-CUP.v2.review.json",
+            "defects": {
+              "critical": 0,
+              "major": 1,
+              "minor": 4
+            },
+            "hero": true
+          }
+        ]
+      }
+    }
+  ],
+  "queue": []
+}

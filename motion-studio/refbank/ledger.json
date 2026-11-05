@@ -8,44 +8,307 @@
     "concept": "Marketing cope-cope: the problem on charcoal (everyone says 'cilesi'), a gold-thread wipe to ivory/marble, then three steps; mismatched patches stitch into one set",
     "refs": [],
     "category": "kinetic-type",
-    "devices": ["shape-wipe", "word-by-word", "counter-ticker", "ui-card-stack", "assembly-build"],
-    "hook": ["question"],
-    "palette": ["dark", "light"],
-    "palette_hex": ["#1F1F1F", "#F8F6EF", "#DD9A10", "#B31217"],
+    "devices": [
+     "shape-wipe",
+     "word-by-word",
+     "counter-ticker",
+     "ui-card-stack",
+     "assembly-build"
+    ],
+    "hook": [
+     "question"
+    ],
+    "palette": [
+     "dark",
+     "light"
+    ],
+    "palette_hex": [
+     "#1F1F1F",
+     "#F8F6EF",
+     "#DD9A10",
+     "#B31217"
+    ],
     "camera": "locked frames, pull-back on the ad wall",
-    "engine": ["canvas"],
+    "engine": [
+     "canvas"
+    ],
     "music": "synth score 120 BPM, ducked under VO",
-    "language": ["sq"]
+    "language": [
+     "sq"
+    ]
    },
    {
     "project": "straightscale-02",
     "date": "2026-10-13",
     "concept": "Kliente qe kthehen: one gold client token rides the S of the logo at macro scale; the leak vs the return loop; pulls back into the real lockup",
-    "refs": ["onetake-one-dot", "onetake-clearing", "onetake-knockon"],
+    "refs": [
+     "onetake-one-dot",
+     "onetake-clearing",
+     "onetake-knockon"
+    ],
     "category": "spectacle-world",
-    "devices": ["one-take-camera", "object-carries-camera", "zoom-through-scale", "progress-ring", "pull-back-reveal"],
-    "hook": ["mid-action-start", "question"],
-    "palette": ["dark", "brand-colour"],
-    "palette_hex": ["#1F1F1F", "#BE0F18", "#DD9A10", "#F8F6EF"],
+    "devices": [
+     "one-take-camera",
+     "object-carries-camera",
+     "zoom-through-scale",
+     "progress-ring",
+     "pull-back-reveal"
+    ],
+    "hook": [
+     "mid-action-start",
+     "question"
+    ],
+    "palette": [
+     "dark",
+     "brand-colour"
+    ],
+    "palette_hex": [
+     "#1F1F1F",
+     "#BE0F18",
+     "#DD9A10",
+     "#F8F6EF"
+    ],
     "camera": "one continuous camera ride along the S path, ending in a pull-back",
-    "engine": ["canvas"],
+    "engine": [
+     "canvas"
+    ],
     "music": "sampler score (VSCO2CE/VCSL), ducked under VO",
-    "language": ["sq"]
+    "language": [
+     "sq"
+    ]
    },
    {
     "project": "straightscale-03",
     "date": "2026-10-14",
     "concept": "Qartesia: attention is expensive; a crimson focus bracket finds what matters in every beat on an ivory field; ends on the lockup",
-    "refs": ["ig-divyansh-fx-attention"],
+    "refs": [
+     "ig-divyansh-fx-attention"
+    ],
     "category": "kinetic-type",
-    "devices": ["focus-brackets", "word-by-word", "node-diagram", "highlight-pill", "typing-caret", "progress-ring"],
-    "hook": ["bold-claim"],
-    "palette": ["light"],
-    "palette_hex": ["#F8F6EF", "#B31217", "#1F1F1F", "#EDE4D6"],
+    "devices": [
+     "focus-brackets",
+     "word-by-word",
+     "node-diagram",
+     "highlight-pill",
+     "typing-caret",
+     "progress-ring"
+    ],
+    "hook": [
+     "bold-claim"
+    ],
+    "palette": [
+     "light"
+    ],
+    "palette_hex": [
+     "#F8F6EF",
+     "#B31217",
+     "#1F1F1F",
+     "#EDE4D6"
+    ],
     "camera": "locked frame with focus pulls (blur as a spring) and subframe motion blur",
-    "engine": ["canvas"],
+    "engine": [
+     "canvas"
+    ],
     "music": "sampler score A minor to C major, ticking pulse, ducked under VO",
-    "language": ["sq", "en"]
+    "language": [
+     "sq",
+     "en"
+    ]
+   },
+   {
+    "project": "straightscale-2026-w43-3-reel-v2",
+    "date": "2026-10-15",
+    "concept": "The 22:47 race: she asks three businesses at once; the one whose phone answers first wins her",
+    "refs": [],
+    "category": "brand-ad",
+    "devices": [
+     "screen-in-frame",
+     "voiceover-explainer",
+     "versus-compare",
+     "lip-sync"
+    ],
+    "hook": [
+     "relatable-pov",
+     "contrast-split"
+    ],
+    "palette": [
+     "dark",
+     "natural"
+    ],
+    "palette_hex": [],
+    "camera": "handheld night B-roll with push-ins, phone UI overlays, strategist to camera",
+    "engine": [
+     "gen-video"
+    ],
+    "music": "",
+    "language": [
+     "en",
+     "sq"
+    ]
+   },
+   {
+    "project": "straightscale-04",
+    "date": "2026-10-20",
+    "concept": "One message, all the way: a crimson ball runs a marble wall of client steps; Reply is missing, it falls into the dark; rebuilt, it runs the full lit path and loops",
+    "refs": [
+     "ig-satisfy3dverse"
+    ],
+    "category": "beat-sync",
+    "devices": [
+     "beat-sync-hits",
+     "marble-run",
+     "dolly-follow",
+     "seamless-loop",
+     "pull-back-reveal"
+    ],
+    "hook": [
+     "guess-challenge"
+    ],
+    "palette": [
+     "light"
+    ],
+    "palette_hex": [],
+    "camera": "follow-cam on the ball, dive into the hole, whip up, one pull-back to the whole map",
+    "engine": [
+     "canvas"
+    ],
+    "music": "",
+    "language": [
+     "en"
+    ]
+   },
+   {
+    "project": "straightscale-05",
+    "date": "2026-10-20",
+    "concept": "Three things, one system: three labelled dots spin like a loader, merge into a crimson ball that lands as the real StraightScale mark",
+    "refs": [
+     "tt-rafaellfreitaas"
+    ],
+    "category": "logo-reveal",
+    "devices": [
+     "morph",
+     "mask-reveal",
+     "word-by-word"
+    ],
+    "hook": [
+     "question"
+    ],
+    "palette": [
+     "dark"
+    ],
+    "palette_hex": [],
+    "camera": "locked frame; the ball's squash, flight and landing carry the motion",
+    "engine": [
+     "canvas"
+    ],
+    "music": "",
+    "language": [
+     "en"
+    ]
+   },
+   {
+    "project": "straightscale-06",
+    "date": "2026-10-20",
+    "concept": "The 108-hour week: a step chart climbs through the closed hours of one example week while a day-and-time counter ticks to 108",
+    "refs": [
+     "tt-foil-finance"
+    ],
+    "category": "data-infographic",
+    "devices": [
+     "chart-grow",
+     "counter-ticker",
+     "timeline-progression",
+     "big-number"
+    ],
+    "hook": [
+     "text-headline"
+    ],
+    "palette": [
+     "dark"
+    ],
+    "palette_hex": [],
+    "camera": "locked, no camera; chart folds onto its baseline",
+    "engine": [
+     "hyperframes"
+    ],
+    "music": "",
+    "language": [
+     "en"
+    ]
+   },
+   {
+    "project": "straightscale-en-01",
+    "date": "2026-10-26",
+    "concept": "The step after the reply: replies walk a path REPLY-CALL-SIGNED and fall through a gap after the reply; three steps lay three planks; people cross; comment PATH",
+    "refs": [
+     "tt-clearmindtalks"
+    ],
+    "category": "explainer-2d",
+    "devices": [
+     "literal-metaphor",
+     "stick-figure",
+     "counter-ticker",
+     "voiceover-explainer"
+    ],
+    "hook": [
+     "relatable-pov",
+     "contrast"
+    ],
+    "palette": [
+     "dark"
+    ],
+    "palette_hex": [
+     "#1F1F1F",
+     "#F8F6EF",
+     "#DD9A10",
+     "#BE0F18"
+    ],
+    "camera": "locked stage; one 1.06 push into the gap",
+    "engine": [
+     "canvas"
+    ],
+    "music": "original score, sampled CC0 instruments (upright, pizz, strings, marimba, harp), 96 BPM, C to Am to C, ducked under VO",
+    "language": [
+     "en"
+    ]
+   },
+   {
+    "project": "straightscale-en-02",
+    "date": "2026-10-27",
+    "concept": "Your buyers already wrote your hooks: the hook is a real buyer's sentence on a paper slip; a gold highlighter lifts the exact words; three real sources; don't polish it; 567 slips; comment WORDS",
+    "refs": [
+     "ig-hiddenemotions-001"
+    ],
+    "category": "kinetic-type",
+    "devices": [
+     "highlight-pill",
+     "paper-cutout",
+     "list-of-n",
+     "big-number",
+     "voiceover-explainer"
+    ],
+    "hook": [
+     "relatable-pov",
+     "bold-claim"
+    ],
+    "palette": [
+     "dark",
+     "light"
+    ],
+    "palette_hex": [
+     "#1F1F1F",
+     "#F8F6EF",
+     "#DD9A10",
+     "#BE0F18"
+    ],
+    "camera": "locked frame; slips slide and scale, a 4% push on the hook slip",
+    "engine": [
+     "canvas"
+    ],
+    "music": "original score, sampled CC0 instruments (marimba ostinato, pizz, strings, harp), 104 BPM, Bm to D, ducked under VO",
+    "language": [
+     "en"
+    ]
    }
   ]
  }

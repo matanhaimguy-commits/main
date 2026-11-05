@@ -1,0 +1,82 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CF-V3",
+ "version": 1,
+ "prompt_sha256": "927525602ecf22da8f306f13890ebdc8927f77bcc4f77f4b9dfdbb55ceee7c82",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "files_opened": [
+  "clients/straightscale-en/runs/SSEN-2026-11-W3-01/prompts/CF-V3.v1.2.txt",
+  "clients/straightscale-en/runs/SSEN-2026-11-W3-01/shots/H-01B.spec.yaml",
+  "growth-engine/production/standards.json",
+  "growth-engine/production/failure-library.md"
+ ],
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "Prompt has FORMAT, REFERENCE MAP, SUBJECT AND POSE, HANDS, ACTION, PROPS WITH CONTENT, TEXT, SETTING, CAMERA, CONTINUITY, NEGATIVES; both subjects 'Post Stack' and 'Calendar' present with positions."
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'REFERENCE MAP: no images are attached; this is a text-to-image call.' matches attached media: none."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'HANDS: no human hands, fingers or arms anywhere in the picture.'"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'the bottom card of the pile rests flat on the floor at y 0.56; each card rests flat on the one below.' and 'the calendar page hangs from one clay pin pushed into the wall at its top centre.'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "'a stitched grid of empty day squares (no numbers, no month name) ... single round clay pin' and 'the top card faces up and shows one small mustard clay sun shape'; the no-text rule is targeted to numbers and names, not a blanket that empties a prop."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "No on-screen text in spec; 'TEXT: none. No text, letters, numbers or words anywhere in the picture: not on the calendar, the wall, the floor or any object.' Hook area reserved: 'top 27% ... plain clay wall'."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'Background rule: nothing but the plain wall and floor around the pile and the page.' 'No window, shelf, desk or other objects.'"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No contradiction found; sizes and boxes agree with the spec (28%x34%, 42%x22%); 'nothing on the calendar page' and 'stitched grid of empty day squares' agree."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'CONTINUITY: the series look: claymation with fabric and thread details ... This is the first frame of the reel.' matches spec previous_shot null."
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Packet call openai/gpt-image-2/text-to-image, --size 1152x2048 (9:16 in size_for_aspect), quality medium, matches models.atlas.allowed; 9:16 matches spec; no references so no ref minimum applies on Atlas. sha_text of the file = 927525602ecf22da8f306f13890ebdc8927f77bcc4f77f4b9dfdbb55ceee7c82 (matches registered)."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "'lying flat one on top of another ... the top card faces up'; 'looking down about 15 degrees, so the top card's face shows' leaves one reading."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-02 structure lines for pile and page; FL-04 not triggered (empty calendar is the intent, content line given); FL-05 background rule; FL-10 'plain' surfaces and no text; FL-13 no logo asked."
+  }
+ ],
+ "corrected_prompt": null,
+ "notes": [
+  "Polish only: the style block's 'clay characters ... thread-wrapped hair' and 'one bright subject' boilerplate sits beside a no-people, two-subject scene; the negative 'no clay people or client figures' covers it.",
+  "Polish only: calendar box bottom y 0.52 reaches 2% into the right 21% of the lower half under the strict 50% reading; the spec treats 56% as the line."
+ ]
+}

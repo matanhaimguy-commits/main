@@ -2,6 +2,8 @@
 //   node tools/seekcheck.mjs [--dur 50] [--n 24] [--w 1080 --h 1920]     (run from the project folder)
 // Seeks each sample time cold, then after jumping elsewhere, and compares pixel hashes.
 // Also seeks every 0.1 s across the film and reports any time where seek throws.
+// HyperFrames projects: node tools/seekcheck.mjs --hf [--dur 10] [--n 12]  (see seekcheck_hf.mjs)
+if (process.argv.includes('--hf')) { await import('./seekcheck_hf.mjs'); }
 import { chromium } from 'playwright';
 import { createHash } from 'node:crypto';
 

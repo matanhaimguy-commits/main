@@ -1,0 +1,121 @@
+{
+  "post_id": "SSEN-2026-11-W9-03",
+  "slug": "straightscale-en",
+  "format": "reel_story_narrated",
+  "family": "ai_video",
+  "card": "clients/straightscale-en/cards/bank/SSEN-2026-11-W9-03.yaml",
+  "created": "2026-10-28T18:33:34+00:00",
+  "steps": {
+    "0": {
+      "status": "todo",
+      "note": ""
+    },
+    "1": {
+      "status": "todo",
+      "note": ""
+    },
+    "2": {
+      "status": "todo",
+      "note": ""
+    },
+    "3": {
+      "status": "todo",
+      "note": ""
+    },
+    "4": {
+      "status": "todo",
+      "note": ""
+    },
+    "5": {
+      "status": "todo",
+      "note": ""
+    },
+    "6": {
+      "status": "todo",
+      "note": ""
+    },
+    "7": {
+      "status": "todo",
+      "note": ""
+    },
+    "8": {
+      "status": "todo",
+      "note": ""
+    },
+    "9": {
+      "status": "todo",
+      "note": ""
+    },
+    "10": {
+      "status": "todo",
+      "note": ""
+    },
+    "11": {
+      "status": "todo",
+      "note": ""
+    },
+    "12": {
+      "status": "todo",
+      "note": ""
+    },
+    "13": {
+      "status": "todo",
+      "note": ""
+    },
+    "14": {
+      "status": "todo",
+      "note": ""
+    },
+    "15": {
+      "status": "todo",
+      "note": ""
+    }
+  },
+  "run_gates": {
+    "G-HOOK": [
+      {
+        "at": "2026-10-28T18:44:00+00:00",
+        "status": "FAIL",
+        "by": "producer session (hooks-v5)",
+        "note": "3 rounds, best A-/A- from both graders. qa/hooks-v5/grades.md"
+      }
+    ]
+  },
+  "specs": {
+    "H-01": {
+      "sha256": "139e45a5313a184fd6da1d91f7c21043fa2214bdc250664dab81f4a9eb9013cb",
+      "lint": "PASS",
+      "lint_at": "2026-10-28T18:33:53+00:00",
+      "lint_issues": []
+    }
+  },
+  "assets": [
+    {
+      "asset_id": "CF-B1",
+      "version": 1,
+      "type": "still",
+      "shots": [
+        "H-01"
+      ],
+      "depends_on": [],
+      "hero": true,
+      "hook": false,
+      "created": "2026-10-28T18:34:06+00:00",
+      "prompt_sha256": "2288ca066104a18347ff52fb94ab37a351d9df9426be4bfaa6bbf9307c251a25",
+      "prompt_file": "prompts/CF-B1.v1.1.txt",
+      "prompt_history": [
+        {
+          "at": "2026-10-28T18:34:06+00:00",
+          "sha256": "2288ca066104a18347ff52fb94ab37a351d9df9426be4bfaa6bbf9307c251a25",
+          "file": "prompts/CF-B1.v1.1.txt",
+          "medias": []
+        }
+      ],
+      "medias": [],
+      "ids": [],
+      "files": [],
+      "gates": {}
+    }
+  ],
+  "queue": []
+}

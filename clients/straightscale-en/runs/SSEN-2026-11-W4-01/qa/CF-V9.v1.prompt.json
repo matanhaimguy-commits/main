@@ -1,0 +1,73 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CF-V9",
+ "version": 1,
+ "prompt_sha256": "66a4fdae1df72c1f1df2ef8a0ee96d439dbf29fa0c9385457c42db51a3f3a0e5",
+ "prompt_sha256_note": "WARNING: sha256 of prompts/CF-V9.v1.1.txt as read is 5fcec448a43fe106ae7fe802d7df01970fcf3136bcd7d06cda8920ef725c40a7 (raw) / e034ac79bd6e91a0b94e3bb4082b4935ca0f8c618a2292d68d4591a384ca6691 (trimmed); neither equals the packet hash. The reviewed text is the file as read. Re-hash the final prompt before recording.",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "FAIL",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "FAIL",
+   "evidence": "Spec: 'bottom 15% calm', 'main subject inside x 10% to 90%', text 'x 24% to 76%'. Prompt: 'bottom 8% calm'; no x range for the subject; text given only 'spanning the screen width' and y 36-42."
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'References: none attached (text to image).' Attached media is none; the block is present."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "Spec 'hands: none visible'; prompt 'Hands: no hands visible.'"
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'the phone's bottom edge rests on the cream clay floor; a big magnifying glass hangs in the air a finger's width in front of the lower half of the screen, not touching the phone'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Phone, booking page (3x5 empty squares, BOOK A CALL band) and magnifier each have a content line; negatives are targeted ('no digits or numbers anywhere', 'no words other than the quoted ones'), no blanket 'no text'."
+  },
+  {
+   "id": "P6",
+   "result": "FAIL",
+   "evidence": "'BOOK A CALL' is quoted, with surface (cream band), case, y 36-42 and occlusion, but x 24% to 76% is missing; 'spanning the screen width' conflicts with the spec box. 3 words, within the limit."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'no signs, frames, posters or other screens'; the only screen is the listed phone, with full content."
+  },
+  {
+   "id": "P8",
+   "result": "FAIL",
+   "evidence": "'bottom 8% calm' vs spec 'bottom 15% calm'; 'letters spanning the screen width' vs spec x 24-76. Spec note: the spec's phone box runs to y 88%, inside its own bottom 15% calm zone; flagged for the spec owner, spec numbers kept."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "Spec previous_shot null, carry_over []; prompt 'first frame of the reel; nothing carried over.'"
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "openai/gpt-image-2/text-to-image is in models.atlas.allowed for still, quality medium, size 1152x2048 is the listed size for 9:16, no text_fields used. No video rules apply."
+  },
+  {
+   "id": "P11",
+   "result": "FAIL",
+   "evidence": "'its box from 18% to 82%' (box can read as a physical box); 'no buttons visible stands upright' (run-on, no clear subject-verb); 'above the lens' with 'macro lens feel' (camera lens vs magnifier lens); 'one a modern clay smartphone' (garbled)."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-03 contact points present; FL-04 prop content present; FL-05/FL-10 'no signs, frames, posters or other screens' and 'no words other than the quoted ones'; FL-11 'one' phone; FL-13 prompt never asks for a logo ('no logo, wordmark...')."
+  }
+ ],
+ "corrected_prompt": "Premium studio claymation scene - everything sculpted from matte plasticine with refined intentional craftsmanship: subtle tool marks, controlled texture, soft rounded geometry, slight subsurface warmth, macro lens feel with shallow depth of field, soft diffused studio lighting with a gentle rim glow, the scene filling the entire frame with the camera inside the miniature clay world. Vertical 9:16 frame. Palette: warm cream #F3E9D8 backdrop and floor, terracotta #C8553D accents, sage #8FA98B, deep ink #2B2A33 for letters on screens, heart red #D64545.\n\nReferences: none attached (text to image).\n\nSubject and pose: one modern clay smartphone, sculpted as a professional clay imitation of a black-glass phone, with a rounded terracotta #C8553D clay case rim, no logo, no buttons visible. It stands upright on its bottom edge in the centre of the frame, occupying the area from 18% to 82% of the frame width and from 30% to 88% of the frame height (64% of the width, 58% of the height), screen facing the camera. The main subject stays inside 10% to 90% of the frame width.\n\nHands: no hands visible.\n\nAction as contact points: the phone's bottom edge rests on the cream clay floor; a big magnifying glass hangs in the air a finger's width in front of the lower half of the screen, not touching the phone, its handle reaching off toward the lower right.\n\nProps with content: The phone screen shows a clay booking page: a cream band across the top of the screen holding the words \"BOOK A CALL\" in heavy bold deep ink #2B2A33 capital letters spanning 24% to 76% of the frame width; under it a big calendar grid of 3 rows by 5 columns of plain cream clay squares with thin ink outlines, every square empty: no digits, no names, no marks. The magnifying glass is sculpted as a professional clay imitation of a clear glass lens in a thick terracotta #C8553D clay rim with a sage #8FA98B clay handle; it occupies the area from 30% to 90% of the frame width and 52% to 86% of the frame height, and through its glass lens two empty calendar squares show larger.\n\nText: exactly \"BOOK A CALL\", capital letters, on the cream band at the top of the phone screen, at 24% to 76% of the frame width and 36% to 42% of the frame height, above the magnifying glass; nothing covers any letter. No other text anywhere.\n\nSetting and background: a soft cream clay floor meeting a plain cream clay backdrop, softly out of focus; no signs, frames, posters or other screens. The top 30% of the frame is plain empty cream backdrop.\n\nCamera: straight on at screen height, the camera inside the miniature clay world, macro lens feel, shallow depth of field, vertical 9:16; top 30% calm and empty, bottom 15% calm (captions and UI).\n\nContinuity: first frame of the reel; nothing carried over.\n\nNegatives: no logo, wordmark, real app name or app icon anywhere; no digits or numbers anywhere; no words other than the quoted ones; nothing at all in the top 30% of the frame except the plain cream backdrop; no faces; no set edges, workbench or room outside the clay world; no glossy CGI look.\n\nEverything in frame is real professionally sculpted matte plasticine, photographed - refined sculpting marks, real cast shadows, soft studio lighting, the clay scene filling the entire frame.\n"
+}

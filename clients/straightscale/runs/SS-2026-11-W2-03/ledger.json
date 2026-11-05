@@ -1,0 +1,98 @@
+{
+  "post_id": "SS-2026-11-W2-03",
+  "slug": "straightscale",
+  "format": "reel_motion",
+  "family": "motion",
+  "card": "clients/straightscale/cards/2026-11-W2/SS-2026-11-W2-03.yaml",
+  "created": "2026-10-28T09:51:11+00:00",
+  "steps": {
+    "0": {
+      "status": "todo",
+      "note": ""
+    },
+    "1": {
+      "status": "todo",
+      "note": ""
+    },
+    "2": {
+      "status": "todo",
+      "note": ""
+    },
+    "3": {
+      "status": "todo",
+      "note": ""
+    },
+    "4": {
+      "status": "todo",
+      "note": ""
+    },
+    "5": {
+      "status": "todo",
+      "note": ""
+    },
+    "6": {
+      "status": "todo",
+      "note": ""
+    },
+    "7": {
+      "status": "todo",
+      "note": ""
+    },
+    "8": {
+      "status": "todo",
+      "note": ""
+    },
+    "9": {
+      "status": "todo",
+      "note": ""
+    },
+    "10": {
+      "status": "todo",
+      "note": ""
+    },
+    "11": {
+      "status": "todo",
+      "note": ""
+    },
+    "12": {
+      "status": "todo",
+      "note": ""
+    },
+    "13": {
+      "status": "todo",
+      "note": ""
+    },
+    "14": {
+      "status": "todo",
+      "note": ""
+    },
+    "15": {
+      "status": "todo",
+      "note": ""
+    }
+  },
+  "run_gates": {
+    "G-SCRIPT": [
+      {
+        "at": "2026-10-28T10:27:35+00:00",
+        "status": "FAIL",
+        "by": "script-agent",
+        "note": "first gate + 3 FIX loops; content/2026-w46-3-reel/script.md",
+        "score": 81.0
+      }
+    ]
+  },
+  "specs": {},
+  "assets": [],
+  "queue": [
+    {
+      "id": "G-HUMAN-ESCALATE:SCRIPT",
+      "checkpoint": "G-HUMAN-ESCALATE",
+      "asset": "SCRIPT",
+      "status": "PENDING",
+      "note": "Script gate failed at 81/100 (bar 85) after the first gate and 3 FIX loops; no critical fail. Options: (a) run a fresh gate on the recommended v5 (L5 ends 'Atëherë reklama dhe përgjigjja nuk lidhen.', L2 'Pati hapin tjetër?', L3 ends 'Aty mbaron pjesa e saj.'; grader estimate about 86) together with a new text hook, since all 4 graders flagged 'Reklama solli mesazhe. Kush iu përgjigj?' (recommended); (b) accept 81 as is (not recommended). Files: clients/straightscale/content/2026-w46-3-reel/script.md",
+      "files": [],
+      "asked_at": "2026-10-28T09:51:11+00:00"
+    }
+  ]
+}

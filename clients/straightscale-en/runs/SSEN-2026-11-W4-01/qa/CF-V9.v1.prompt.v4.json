@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "CF-V9",
+ "version": 1,
+ "prompt_sha256": "80c722127b6d5b892ff8ce538c1798cf9374a5f201406d95f3e30400ecaaa0cb",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "All spec items present: PR-SCREEN, PR-GLASS (lens x28-58 y45-62, handle ~18% to x14% y64%), 'hands: none' -> 'Hands: no hands visible', text, action, setting, camera, safe zones, palette, every must_not."
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "'References: none attached (text to image).' matches media list: none."
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "'Hands: no hands visible.' and 'no people, no hands, no faces' agree with spec 'hands: none visible'."
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "'the magnifying glass lies flat against the screen surface over the calendar, its rim and its handle touching the screen; nothing touches the band or the letters.'"
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "Screen: 'cream band ... 3 rows by 4 columns of big plain cream clay squares with sage gaps ... every square empty'. Glass: lens, terracotta rim, handle, shadow all described. Negatives are targeted ('no digits or numbers'), not a blanket no-text; the quoted string is allowed."
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "'\"BOOK A CALL\" on the cream band at the top of the screen, deep ink #2B2A33 letters, centred, at x 14% to 86%, y 32% to 39%; nothing covers any letter.' 3 words, one surface."
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "'no signs, frames, posters or other screens; the only writing is the quoted text'; the one screen is the subject with full content and empty squares ruled."
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "No conflicts: 'matte clay, not glass' agrees with 'clay imitation of clear glass' and 'no glass reflections'; band 31-40% holds text box 32-39%; calendar 42-64% holds lens 45-62%. Note: the prompt adds a terracotta rim on the screen's top edge at 30% (not in the spec); it is in-palette and does not break the top-30% rule."
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "'Continuity: first frame of the reel; nothing carried over.' matches spec previous_shot null, carry_over []."
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Call: openai/gpt-image-2/text-to-image, size 1152x2048 (size_for_aspect 9:16), quality medium, allowed for 'still' in standards.json; no references, no text_fields. Video-only rules N/A."
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "'rounded top edge ... runs straight across the frame' and 'round lens ... terracotta clay rim' are explicit; 'macro lens feel' is a camera phrase and the magnifier is always 'magnifying glass'/'round lens' with a rim, so no real double reading. Minor watch item only."
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-04 prevented (content lines, empty-square rule); FL-05 and FL-10 (no signs/frames/screens, plain top 30%); FL-03 (contact points); FL-01/06/11 no hands, faces or people; FL-13 not triggered (no logo requested, 'no logo ... anywhere')."
+  }
+ ],
+ "corrected_prompt": null
+}

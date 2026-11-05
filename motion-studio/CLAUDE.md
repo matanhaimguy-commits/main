@@ -60,6 +60,9 @@ These rules apply to every engine (HyperFrames, the canvas engine, Lemo-Opuscar,
 - review.sh: `./review.sh [out/final.mp4] [4.1]` writes contact, strip and phone sheets to out/.
 - beats.py: `python3 beats.py audio/track.wav > beats.json`.
 - tools/pacing.py, tools/audio_qa.py, tools/seekcheck.mjs: automatic review checks.
+- tools/seekcheck.mjs --hf: the same determinism check for a HyperFrames project (via `hyperframes snapshot`).
+- twin-kit/: the twin edit kit (cut-out host on a set, 6 moves as HyperFrames templates, UI scenes, one composer
+  command with SFX on every move, ducked bed, two-pass loudnorm). Read `twin-kit/README.md`.
 - tools/lemo_fonts.py: fetch the fonts a Lemo-Opuscar demo expects.
 - tools/vectorize_mark.py: trace a flat-colour logo PNG into SVG paths (reports IoU per colour) so the real mark
   stays sharp in macro shots; hand over to the PNG at native size.

@@ -1,0 +1,72 @@
+{
+ "gate": "G-PROMPT-IMG",
+ "asset_id": "SL04",
+ "version": 1,
+ "prompt_sha256": "788a8dc6bb43c80146bc7a7e661adaee005fe099e39bfe8c4126efb96b9f2f3c",
+ "reviewer": "prompt-reviewer (fresh agent)",
+ "independent": true,
+ "status": "PASS",
+ "checks": [
+  {
+   "id": "P1",
+   "result": "PASS",
+   "evidence": "PR-PHONE (28%x48%), PR-STAND, PR-PHONE-SCREEN chat state, PR-ARROW, 5 text strings, no hands, action, setting, camera, carry-over, 6 must_not (\"No letters inside the chat bubbles.\", \"No window and no clock tower.\")"
+  },
+  {
+   "id": "P2",
+   "result": "PASS",
+   "evidence": "Images 1 to 3 as SL03, then \"Image 4 is the prop sheet PS-CHAT: copy the phone screen state \"CHAT-IN-4\" from it exactly (shapes, colours and layout) and nothing else from it.\" matches upload order (image 4 = PS-CHAT-APPROVED)"
+  },
+  {
+   "id": "P3",
+   "result": "PASS",
+   "evidence": "\"Hands: no hands and no people are visible in the frame.\""
+  },
+  {
+   "id": "P4",
+   "result": "PASS",
+   "evidence": "\"The phone's bottom edge sits in the stand's groove and its back leans on the stand's rear support; nothing touches it.\""
+  },
+  {
+   "id": "P5",
+   "result": "PASS",
+   "evidence": "PR-PHONE-SCREEN: \"four rounded light-grey bubbles aligned to the left edge of the screen, each holding two or three short dark-grey horizontal bars instead of letters, no avatars, no names ...\"; Avoid clause only bans letters, not the shapes"
+  },
+  {
+   "id": "P6",
+   "result": "PASS",
+   "evidence": "\"NJIH BLERËSIN\", \"E ke përgjigjen\", \"me fjalët e tyre?\", \"Po apo jo?\", \"4/8\" with surface, x/y, size, colour; \"tyre?\" in crimson box; BLERËSIN, përgjigjen, fjalët spelled; each 5 words or fewer"
+  },
+  {
+   "id": "P7",
+   "result": "PASS",
+   "evidence": "\"The phone screen shows only the grey bars and bubbles described; the bars are not letters.\"; wall \"plain\", no window"
+  },
+  {
+   "id": "P8",
+   "result": "PASS",
+   "evidence": "Phone x 36% to 64%, y from 40% sits under the text (to y 31%); no conflicts; stand structure in one line"
+  },
+  {
+   "id": "P9",
+   "result": "PASS",
+   "evidence": "Carry-over: \"The phone is now in a stand ... its screen is lit; the camera has moved in, so the wall samples, the white sample slab and the card reader are out of frame\""
+  },
+  {
+   "id": "P10",
+   "result": "PASS",
+   "evidence": "Prompt opens \"Instagram carousel slide, portrait 4:5.\"; call settings gpt_image_2_5, 4:5, 2k, medium, flare match standards.json; image roles image_references; declined_preset_id is video-only (N/A)"
+  },
+  {
+   "id": "P11",
+   "result": "PASS",
+   "evidence": "Bars explicitly 'not letters'; sizes numeric"
+  },
+  {
+   "id": "P12",
+   "result": "PASS",
+   "evidence": "FL-13 prevented: \"Bottom-left corner (the lowest 9% of the height, the left 40% of the width): calm, dark, empty background ... no logo, no letters, no objects (a logo is added later).\"; FL-01 text far from any hand/prop; no blanket 'no text' over a story prop; FL-02 stand structure line present"
+  }
+ ],
+ "corrected_prompt": null
+}

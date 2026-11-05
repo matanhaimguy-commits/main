@@ -1,0 +1,249 @@
+shot_id: SL06
+post_id: SS-2026-11-W1-02
+format: carousel_slide
+script_lines:
+- S6
+line_text: NJË PYETJE Çfarë të bëri gati të zgjidhje dikë tjetër? Dërgoja klientëve të fundit.
+story_purpose: 'The turn: the one question to send to the last buyers, in the owner''s own message.'
+must_read_in_1s: 'A thumb is about to type a message on the lit phone: the question goes to the last buyers.'
+subjects:
+- id: PR-PHONE
+  ref: null
+  state: the red-case phone held in the owner's two hands, screen lit with an open empty message field, seen straight-on
+    as the owner sees it
+  pose: portrait, upright, fully inside the frame (x 45% to 75%, y 40% to 90%), seen straight-on as the owner sees
+    it
+  expression: ''
+  instances: 1
+- id: CH-HANDS
+  ref: null
+  state: only the two hands and wrists described in the hands block, in dark shirt sleeves; no body, no face and
+    no head in the frame
+  pose: entering from the frame edge as described in the hands block
+  expression: ''
+  instances: 1
+hands:
+- who: OWNER (hands only)
+  left: 'the left hand holds the phone from below: the palm under its bottom edge, the thumb on the left side edge
+    and the index, middle, ring and little fingers behind the phone'
+  right: 'supports the phone''s right side edge: the index, middle, ring and little fingers wrap behind the phone''s
+    right side, the thumb hovers 2 cm above the screen''s bottom-right corner, below the message field'
+  contact: both forearms in dark shirt sleeves enter from the bottom edge of the frame, the left one between x 44%
+    and 60%, the right one between x 66% and 82%; left thumb pad on the phone's left side edge; right thumb tip
+    2 cm above the glass, not touching it
+  must_not_cover: the empty message field (at 70% down the screen) and the top of the screen
+  count_check: 'five fingers on each hand, two thumbs visible and eight fingers hidden: the left thumb is visible
+    on the phone''s left side edge and its four fingers are behind the phone; the right thumb is visible above the
+    screen''s bottom-right corner and its four fingers are behind the phone''s right side'
+props:
+- id: PR-PHONE
+  story_critical: false
+  ref: null
+  state: held in both hands, screen lit
+  content: 'a modern smartphone in a deep red #BE0F18 case that shows as a rim around the black glass front, rounded
+    corners, no logo on the case or the glass'
+  size_in_frame: its box is 30% of the frame width and 50% of the frame height
+- id: PR-PHONE-SCREEN
+  story_critical: true
+  ref: PS-COMPOSER state COMPOSER-EMPTY (prop sheet to build on SS-LIB-W45W46)
+  state: lit, message composer open and empty, facing the camera
+  content: 'a plain message view on a dark charcoal background: one short light-grey bubble aligned left near the
+    top holding two short dark-grey bars instead of letters, and at 70% down the screen an empty rounded white message
+    field with a thin dark cursor bar inside it; below the field the screen is empty dark charcoal, with no on-screen
+    keyboard; no letters, no digits, no names, no app logo, no status bar'
+- id: PR-ARROW
+  story_critical: false
+  ref: null
+  state: bottom right, inside the 4% margin
+  content: 'a small crimson #B31217 round button with a white arrow pointing right, flat graphic, nothing else on
+    it'
+  size_in_frame: about 8% of the frame width
+text_in_image:
+- string: NJË PYETJE
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 37%, y 6% to 9% of the frame, capitals
+    with wide letter-spacing (normal word spaces, no gaps inside words), about 44 px at 1080 px wide, ivory
+  position: line 1 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: Çfarë të bëri gati
+  surface: 'top calm dark wall, left-aligned from the left margin, x 6% to 83%, y 11% to 18% of the frame, heavy
+    bold geometric sans, about 80 px at 1080 px wide, ivory; the word ''gati'' sits inside a solid crimson #B31217
+    highlight rectangle'
+  position: line 2 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: të zgjidhje dikë
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 57%, y 19% to 25% of the frame, heavy
+    bold geometric sans, about 60 px at 1080 px wide, ivory
+  position: line 3 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: tjetër?
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 28%, y 25% to 31% of the frame, heavy
+    bold geometric sans, about 60 px at 1080 px wide, ivory
+  position: line 4 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: Dërgoja klientëve të fundit.
+  surface: top calm dark wall, left-aligned from the left margin, x 6% to 72%, y 32% to 36% of the frame, bold geometric
+    sans, about 44 px at 1080 px wide, ivory
+  position: line 5 of 5 in the top text block
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing covers any letter; no hand, prop or light flare reaches the text block
+- string: 6/8
+  surface: 'top right, small gold #DD9A10 slide counter'
+  position: top right corner, inside the 4% margin
+  case: as_written
+  must_be_exact: true
+  occlusion: nothing overlaps the counter
+action_physics:
+- The left hand holds the phone from below with four fingers behind the case and the thumb pad on its left side
+  edge.
+- The right thumb hovers 2 cm above the screen's bottom-right corner, below the empty message field, without touching
+  the glass.
+static: false
+setting:
+  ref: null
+  details: 'The same windows-and-doors shop at night, very close: only warm out-of-focus lamp bokeh behind the phone
+    and the hands. No window and no clock tower are visible in this shot.'
+  background_rule: Behind the phone only soft lamp lights; no frame samples, signs or readable words. A phone with
+    its screen off is plain black glass with a soft lamp reflection and nothing else. The surface the props stand
+    on is bare apart from the listed props.
+camera:
+  framing: macro straight-on view of the phone as the owner sees it; the whole phone is in the frame (x 45% to 75%,
+    y 40% to 90%), the top 40% is a calm near-black out-of-focus zone
+  angle: straight-on, the screen facing the camera, hands entering from the bottom edge of the frame
+  lens: 35mm film still, shallow depth of field
+  aspect: '4:5'
+  safe_zones: text and arrow inside a 4% margin; top 40% a calm near-black zone with nothing in it except the text
+    block and the slide counter; bottom-left corner (lowest 9% of the height, left 40% of the width) calm, dark
+    and empty
+continuity:
+  previous_shot: SL05
+  carry_over:
+  - The same red-case phone, now lit and in two hands; the sales desk is only soft bokeh.
+  - Warm lamp light and the same grade.
+regions:
+- name: t01-label
+  kind: text
+  box:
+  - 0.06
+  - 0.06
+  - 0.375
+  - 0.094
+- name: t02-head
+  kind: text
+  box:
+  - 0.06
+  - 0.112
+  - 0.834
+  - 0.18
+- name: t02-highlight
+  kind: text
+  box:
+  - 0.662
+  - 0.112
+  - 0.834
+  - 0.18
+- name: t03-head2
+  kind: text
+  box:
+  - 0.06
+  - 0.198
+  - 0.58
+  - 0.25
+- name: t04-head2
+  kind: text
+  box:
+  - 0.06
+  - 0.258
+  - 0.287
+  - 0.31
+- name: t05-sub
+  kind: text
+  box:
+  - 0.06
+  - 0.328
+  - 0.721
+  - 0.368
+- name: counter
+  kind: text
+  box:
+  - 0.86
+  - 0.04
+  - 0.96
+  - 0.08
+- name: logo-zone
+  kind: other
+  box:
+  - 0.0
+  - 0.91
+  - 0.4
+  - 1.0
+- name: arrow
+  kind: other
+  box:
+  - 0.86
+  - 0.89
+  - 0.96
+  - 0.96
+- name: phone
+  kind: prop
+  box:
+  - 0.45
+  - 0.4
+  - 0.75
+  - 0.9
+- name: phone-screen
+  kind: prop
+  box:
+  - 0.48
+  - 0.44
+  - 0.72
+  - 0.84
+- name: hand-left
+  kind: hand
+  box:
+  - 0.44
+  - 0.86
+  - 0.6
+  - 1.0
+- name: thumb-left
+  kind: hand
+  box:
+  - 0.43
+  - 0.64
+  - 0.49
+  - 0.72
+- name: hand-right
+  kind: hand
+  box:
+  - 0.66
+  - 0.76
+  - 0.8
+  - 0.9
+style: '"Tirana after dark": cinematic night city scenes, warm tungsten light, the Tirana clock tower visible through
+  the cover''s window. Same light and colour grade on every slide. Thread: a smartphone in a deep red case (#BE0F18),
+  recurring on every slide, changing state with the story (silent, unread messages piling up, ringing, a booked
+  calendar). Palette: scene tone near-black (#1F1F1F), type ivory (#F8F6EF), accent crimson #B31217 as solid highlight
+  rectangles behind key words and the swipe arrow button, small gold (#DD9A10) only for the counter. #B31217 is
+  the only saturated colour besides the gold counter and the phone case. Type: heavy bold geometric sans in ivory,
+  left-aligned in the calm dark area; key words in solid crimson #B31217 highlight rectangles. Spell ë and ç out
+  letter by letter in every prompt. Frame: slide counter top right (gold), swipe arrow bottom right on slides 1
+  to N-1. Bottom-left corner calm, dark and empty.'
+must_not:
+- no logo or wordmark drawn anywhere
+- no letters or objects in the bottom-left corner
+- no letters, words, digits or app names on any phone screen; screens hold only the shapes described in the props
+  block
+- no picture-frame borders, side bars or blurred margins around the whole image
+- no window and no clock tower
+- no text typed in the message field
+hero: false
+notes: 'Prop sheet PS-COMPOSER (state: COMPOSER-EMPTY) is attached as the last reference image. The style line''s
+  clock tower belongs to window shots only; this shot has no window, so none is drawn.'
