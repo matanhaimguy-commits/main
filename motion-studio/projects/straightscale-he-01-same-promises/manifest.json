@@ -1,5 +1,7 @@
 [
-  {"path": "assets/logo.svg", "type": "logo", "source": "client site / client file", "retrieved": "YYYY-MM-DD", "license": "client-owned", "used_in": ""},
-  {"path": "assets/fonts/", "type": "font", "source": "", "license": "", "license_file": "", "used_in": ""},
-  {"path": "audio/vo.wav", "type": "voice", "source": "ElevenLabs voice <name>, take N", "license": "ElevenLabs commercial terms", "used_in": ""}
+  {"path": "assets/wordmark-white.png", "type": "logo", "source": "clients/straightscale/brand (client file)", "retrieved": "2026-11-05", "license": "client-owned", "used_in": "film/assets/brand/wordmark-white.png (end card)"},
+  {"path": "assets/symbol.png", "type": "logo", "source": "clients/straightscale/brand (client file)", "retrieved": "2026-11-05", "license": "client-owned", "used_in": ""},
+  {"path": "assets/logo-full.png", "type": "logo", "source": "clients/straightscale/brand (client file)", "retrieved": "2026-11-05", "license": "client-owned", "used_in": ""},
+  {"path": "assets/fonts/", "type": "font", "source": "npm @fontsource (Frank Ruhl Libre, Heebo)", "license": "SIL OFL 1.1", "license_file": "assets/fonts/LICENSE-frank-ruhl-libre.txt, assets/fonts/LICENSE-heebo.txt", "used_in": "film/assets/fonts/ (copied: the film serves only its own folder)"},
+  {"path": "docs/research/ad-library-2026-11-05.md", "type": "data", "source": "Meta Ad Library, Israel, active ads, 5 Nov 2026", "license": "public ad library; headlines typed, no names, logos or screenshots", "used_in": "film/src/content.js (14 headlines, 8 of 14)"}
 ]

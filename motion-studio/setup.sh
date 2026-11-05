@@ -12,6 +12,11 @@ HF_VERSION=0.8.150      # HyperFrames CLI version tested here (knowledge/hyperfr
 GSAP_VERSION=3.14.2     # the GSAP version HyperFrames scaffolds and registry items expect
 LEMO=${LEMO_HOME:-$HOME/lemo}   # short path on purpose: Kokoro's espeak data path must stay under 160 bytes
 say() { printf '\n== %s\n' "$*"; }
+# The preinstalled Chrome headless shell; its version folder changes between containers (1194, then 1243).
+headless_path() {
+  ls -d /opt/pw-browsers/chromium_headless_shell-*/chrome-headless-shell-linux64/chrome-headless-shell \
+        /opt/pw-browsers/chromium_headless_shell-*/chrome-linux/headless_shell 2>/dev/null | sort -V | tail -1
+}
 
 core() {
   say "renderer (Playwright, preinstalled Chromium)"
@@ -39,7 +44,7 @@ core() {
 
 Ready. In this shell, before using HyperFrames:
   export HYPERFRAMES_NO_TELEMETRY=1 DO_NOT_TRACK=1 HYPERFRAMES_SKIP_SKILLS=1
-  export HYPERFRAMES_BROWSER_PATH=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell
+  export HYPERFRAMES_BROWSER_PATH=$(headless_path)
   HF="npx -y hyperframes@$HF_VERSION"
 After every 'hyperframes init' or 'add', point GSAP at the vendored copy:
   mkdir -p assets/vendor && cp $STUDIO/vendor/gsap.min.js assets/vendor/
@@ -71,7 +76,7 @@ lemo() {
   cat <<EOF
 
 Lemo ready. Use the preinstalled browser, never its installer:
-  export PLAYWRIGHT_CHROME=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell
+  export PLAYWRIGHT_CHROME=$(headless_path)
   cd $LEMO && node core/render/still.mjs <project> 3 2.5 --size 1080x1920
 Demo fonts are not in git: fetch them before rendering a demo (knowledge/lemo-opuscar.md 6.5, item 1).
 EOF

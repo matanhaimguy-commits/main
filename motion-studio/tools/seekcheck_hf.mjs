@@ -11,11 +11,12 @@ import { createHash } from 'node:crypto';
 import { mkdtempSync, readdirSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { headlessShell } from './browser_path.mjs';
 
 const raw = (k) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : undefined; };
 const DUR = Number(raw('dur') ?? 10), N = Number(raw('n') ?? 12), TOL = Number(raw('tol') ?? 0.001);
 const env = { ...process.env, HYPERFRAMES_NO_TELEMETRY: '1', DO_NOT_TRACK: '1', HYPERFRAMES_SKIP_SKILLS: '1',
-  HYPERFRAMES_BROWSER_PATH: process.env.HYPERFRAMES_BROWSER_PATH || '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell' };
+  HYPERFRAMES_BROWSER_PATH: process.env.HYPERFRAMES_BROWSER_PATH || headlessShell() };
 
 const r3 = (x) => Math.round(x * 1000) / 1000;
 // golden-ratio stepping, kept off the very ends of the film
