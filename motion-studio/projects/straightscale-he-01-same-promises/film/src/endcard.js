@@ -1,5 +1,6 @@
 // The end card grows out of the blinking caret: a charcoal block opens from the caret to the full frame, then the
-// white wordmark (the official file, never redrawn) and the soft call to action rise in.
+// white wordmark (the official file, never redrawn) and the soft call to action rise in, both centred on x = 540.
+// A caret blinks after the call to action, placed outside the centred text so it never pulls it off centre.
 (function (SS) {
   var A = SS.anim;
   function create(ctx, camera, caret) {
@@ -10,7 +11,10 @@
     mark.src = 'assets/brand/wordmark-white.png'; mark.alt = 'StraightScale';
     var cta = SS.words.build(card, ctx.content.cta.split(' '), 'ec-cta');
     var ctaIns = cta.spans.map(function (s, i) { return t0 + 0.85 + i * 0.07; });
-    var caretEl = SS.dom.el('span', 'ec-caret', cta.line), caretAt = ctaIns[ctaIns.length - 1] + 0.2;
+    var caretEl = SS.dom.el('span', 'ec-caret', card), caretAt = ctaIns[ctaIns.length - 1] + 0.2;
+    var first = cta.spans[0].parentNode, last = cta.spans[cta.spans.length - 1].parentNode;   // RTL: last word is leftmost
+    caretEl.style.left = (cta.line.offsetLeft + last.offsetLeft - 22).toFixed(1) + 'px';
+    caretEl.style.top = (cta.line.offsetTop + first.offsetTop + (first.offsetHeight - 64) / 2).toFixed(1) + 'px';
     var open = A.path(0, [{ t: t0, to: 1, k: 90, d: 17 }]), rise = A.path(0, [{ t: t0 + 0.45, to: 1, k: 260, d: 27 }]);
     return {
       render: function (t) {

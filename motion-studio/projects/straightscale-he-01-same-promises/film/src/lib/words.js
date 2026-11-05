@@ -1,7 +1,8 @@
-// A line of words that rise into place one by one through a mask under their baseline and drop out the same way
-// (never a fade). Used by the top band, the captions and the hint under the viewer's slip.
+// A line of words that rise into place one by one and leave the same way. No hard mask edge: each word rises a short
+// way while its ink comes up over 3 frames, so a glyph is never shown half cut (review D5). Used by the top band,
+// the captions and the end card.
 (function (SS) {
-  var A = SS.anim;
+  var A = SS.anim, RISE = 38, INK = 0.1, OUT = 0.16;   // % of the word's height, seconds
   function build(parent, words, cls) {
     var line = SS.dom.el('div', 'wline he ' + (cls || ''), parent);
     var spans = words.map(function (w, i) {
@@ -26,24 +27,24 @@
     }
     item.line.insertBefore(SS.dom.el('span', 'wbreak'), masks[best]);
   }
-  // ins: start time per word; out: time the line leaves (Infinity to stay); cut: vanish at out instead of dropping
-  function render(t, item, ins, out, cut) {
-    var on = t >= ins[0] - 0.001 && t < out + (cut ? 0 : 0.35);
-    SS.dom.show(item.line, on);
-    if (!on) return;
-    item.spans.forEach(function (s, i) {
-      var up = A.spring(t - ins[i], 520, 38);
-      var down = t >= out ? A.clamp((t - out - i * 0.02) / 0.2) : 0;
-      var y = (1 - up) * 165 + down * down * 165;
-      s.style.transform = 'translateY(' + y.toFixed(2) + '%)';
-    });
-  }
   // shrink the font until the words fit on one line
   function fit(item) {
-    var max = item.line.clientWidth, w = item.line.scrollWidth, fs = parseFloat(getComputedStyle(item.line).fontSize);
+    var max = item.line.clientWidth, fs = parseFloat(getComputedStyle(item.line).fontSize);
     var masks = item.spans.map(function (s) { return s.parentNode; }), gap = parseFloat(getComputedStyle(item.line).columnGap) || 0;
     var sum = masks.reduce(function (a, m) { return a + m.offsetWidth; }, 0) + gap * (masks.length - 1);
     if (sum > max) item.line.style.fontSize = (fs * max / sum * 0.98).toFixed(1) + 'px';
+  }
+  // ins: start time per word; out: time the line leaves (Infinity to stay); cut: vanish at out instead of leaving
+  function render(t, item, ins, out, cut) {
+    var on = t >= ins[0] - 0.001 && t < out + (cut ? 0 : OUT + 0.05);
+    SS.dom.show(item.line, on);
+    if (!on) return;
+    item.spans.forEach(function (s, i) {
+      var up = A.spring(t - ins[i], 520, 38), ink = A.clamp((t - ins[i]) / INK);
+      var leave = t >= out ? A.clamp((t - out) / OUT) : 0;
+      s.style.transform = 'translateY(' + ((1 - up) * RISE + leave * leave * RISE).toFixed(2) + '%)';
+      s.style.opacity = (ink * (1 - leave)).toFixed(3);
+    });
   }
   SS.words = { build: build, balance: balance, fit: fit, render: render };
 })((window.SS = window.SS || {}));

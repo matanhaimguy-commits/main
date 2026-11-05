@@ -18,10 +18,10 @@
       var stamp = SS.stamping.create(ctx, pile.slips);
       var sticker = SS.sticker.create(ctx, pile.slips[SS.layout.stack.order[SS.layout.stack.order.length - 1]], SS.content.sticker, T.cue('sticker'));
       var viewer = SS.viewer.create(ctx);
-      var hint = SS.hint.create(ctx, SS.content.keys.filter(function (k) { return k.hint; })[0]);
+      var cover = SS.cover.create(ctx, viewer), underline = SS.underline.create(ctx, viewer);
       var camera = SS.camera.create(ctx, stamp.hits);
       var tally = SS.tally.create(ctx, stamp.hits);
-      var parts = [desk, pile, sticker, viewer, hint, stamp, camera, SS.band.create(ctx, tally), SS.source.create(ctx),
+      var parts = [desk, pile, sticker, viewer, cover, underline, stamp, camera, SS.band.create(ctx, tally), SS.source.create(ctx),
         SS.captions.create(ctx), SS.endcard.create(ctx, camera, viewer.caret)];
       var render = function (t) { parts.forEach(function (p) { p.render(t); }); };
       // One linear tween is the film clock. Its property is a getter/setter, so GSAP paints the frame every time it

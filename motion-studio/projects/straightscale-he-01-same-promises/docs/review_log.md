@@ -112,3 +112,37 @@ Three worst problems (not fixed in v0) and the fix for each:
    "רק את הכותרת" if they still sit quiet.
 3. Scratch timing: word starts are letter-count estimates. The 0.26 s save hits, the tally lock freeze and the two-line
    key breaks need a re-look on the real voice (`tools/retime.py audio/words.json`, a data change).
+
+## Draft cut v1 (silent) · fixes for the round 3 fresh review (`docs/reviews/round3-fresh-reviewer.md`) · 5 Nov 2026
+File: `renders/draft-v1-silent.mp4` (1080x1920, 30 fps, 1209 frames, 40.3 s, 13.2 MB, no audio). Contact sheet (23
+beats, 360 px wide): `docs/contact-draft-v1.jpg`. Strips (every 2 frames, 0.2 s before to 0.27 s after) at 1.1, 14.9,
+24.0 and 34.4 s: `docs/strips-draft-v1.jpg`. Decisions per defect are the coordinator's (5 Nov).
+
+| Defect | What changed (file) | Check |
+|---|---|---|
+| D1 sticker read "נם", "?" on the wrong side (blocking) | A gold hang tag (pointed end, hole) with "₪?" in Heebo 800 at 124 px, `direction: rtl` so the shekel sits right of "?" (read: shekel, then the question); its shadow on a wrapper; placed on the stack's top edge, clear of the headline and the right UI zone (`sticker.js`, `paper.css`) | 14.9 s strip and crop at 360 px: reads as a shekel price tag, not letters, so the "?" was kept |
+| D2 slow second half | 21 new cues in `timing.json`, each on a spoken word, each a place for a sound later: the stamp turns over at the hook and back (`stamp.flip`, `stamp.flipback`); the stamp alone moves on line 6 (`stamp.slide`, `.settle`, `.rise`, `.drift`, `.sit`); it hops aside (`stamp.aside`); the viewer's slip settles with a small bounce (`viewer.settle`); a finger's shadow covers the name on "תכסו" (`finger.in`), the tape is pressed on "האצבע" (`tape.press`), the finger leaves (`finger.out`); the underline draws one step per word of "ותקראו רק את הכותרת" (`rule.1` to `rule.4`); the hover drifts, dips toward the headline and lifts (`hover.drift`, `.dip`, `.lift`); three camera cues (`cam.choose`, `cam.pointer`, `cam.meeting`). The camera follows the action on these cues (to the name, along the underline as it draws right to left, in on the dip, onto the backspaced line, onto the pointer). Nothing shortened (`stamping.js`, `viewer.js`, `cover.js`, `underline.js`, `layout.js`) | motion energy per second (mean frame difference, 10 fps): 14-18 s 4.0 to 4.5, 19-24.5 s 0.55 to 2.76, 25.5-30 s 0.92 to 2.10, 31-34.5 s 0.74 to 2.03; every second from 13 s to the end card is now at 1.1 or above (lowest 1.19 at 21 s); only the end-card hold (38-40.3 s) rests |
+| D3 top 800 px empty 31.7-36 s | Line 11's pointer "למשל, מה קורה אצלכם בפגישה הראשונה?" is now the key line in the top band (two lines) and stays until the end card; the under-slip hint (`hint.js`) is gone (`content.js`, `band.js`) | contact sheet 33.6 and 35.6 s |
+| D4 stamp read as a button | Drawn as a rubber stamp from above: a turned wooden handle (shaded, grain rings, top shifted toward the camera's corner, casting a shadow), a metal neck ring with the wooden neck in it, a dark rubber layer under the red mount. At the hook it turns over (1.34 to 1.8 s, about 0.45 s face up) to show its rubber face with "חינם" cut in mirror image, then turns back; a 2-frame tilt would not read, so the turn is slower and sits in the hook's rest (`stamp-body.js`, `stamp.js`, `stamp.css`) | 1.75 s frame; 17.2 s crop |
+| D5 masks cut glyphs mid-rise | No hard mask any more: each word rises 38 % of its height while its ink comes up over 3 frames; a leaving line drops and fades in 0.16 s and is gone before the next arrives (`words.js`, `band.js`, `base.css`) | strips at 1.1 s ("מחיר?"), 24.0 s (caption) and 34.4 s: no half-cut glyph |
+| D6 source label 40 px, covered at 4.0 s | 46 px, set higher (top 416 px), the pile framed 35 px lower, so the slips land below it (`overlay.css`, `layout.js`) | 4.8 s frame |
+| D7 end card off centre | Wordmark and call to action centred on x = 540 and grouped in the middle of the safe area (logo 742-955 px, call to action 1010 px, Heebo 700 56 px); the caret is placed outside the centred line (`endcard.js`, `overlay.css`) | 39.5 s frame |
+| D8 stamp covered "[הכותרת]" 25-27.9 s | It hovers over the empty left of the slip, beside the headline; its shadow stays off the words (`stamping.js`, `layout.js`) | 26.4 s frame |
+
+Automatic checks on v1:
+- `tools/seekcheck.mjs --hf --dur 40.3 --n 24`: PASS.
+- HyperFrames `check --caption-zone "x0=0;y0=.79;x1=1;y1=1;severity=error"`: passed, 0 errors, 0 warnings, 0 info,
+  contrast 32/32 WCAG AA. Top 250 px and right 140 px as the band: passed.
+- `tools/pacing.py`: all PASS (still 7 %, quiet 25 %, 30 beats, CV 0.57, spread 7.6x, longest quiet run 2.58 s, no
+  frozen stretch).
+- Unit tests: `node --test film/tests/*.test.mjs` 11/11, `python3 tools/test_timing.py` 4/4.
+
+My scores after the fixes (the next fresh review decides): hook 8, readability 8, motion 8, continuity 8, pacing 8,
+composition 8, brand 8, message with the sound off 8; sound n/a.
+
+Not done, and why:
+- The pile's headlines (3-11 s) are still texture at 360 px; the review listed it as evidence, not as a defect, and
+  holding slips at full size would change the cascade's timing by hand.
+- The turn-over at the hook is about 0.45 s, not 2-3 frames: at 2-3 frames the mirrored word does not register.
+- The camera now moves on most cues from 19 to 35 s; if the next review finds it too busy, the camera keys in
+  `layout.js` are the one place to calm it.

@@ -9,14 +9,14 @@
 .tally-roll { display: block; }
 .tally-digit { display: block; height: 1em; line-height: 1; text-align: center; }
 .tally-rest { display: inline-block; margin-right: 0.24em; line-height: 1; }
-.source { position: absolute; left: 50px; top: 430px; width: 880px; }
-.source-line { font-family: "Heebo", sans-serif; font-weight: 400; font-size: 44px; line-height: 1.2; color: var(--ink2); }
+.source { position: absolute; left: 50px; top: 416px; width: 880px; }
+.source-line { font-family: "Heebo", sans-serif; font-weight: 400; font-size: 46px; line-height: 1.16; color: var(--ink2); }
 .captions { position: absolute; left: 60px; top: 1380px; width: 860px; height: 132px; }
 .captions > .wline { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
 .cap { font-family: "Heebo", sans-serif; font-weight: 700; font-size: 52px; line-height: 1.2; color: var(--char); }
 .endcard { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; z-index: 50; background: var(--char); }
-.ec-mark-mask { position: absolute; left: 170px; top: 760px; width: 640px; height: 213px; overflow: hidden; }
+.ec-mark-mask { position: absolute; left: 220px; top: 742px; width: 640px; height: 213px; overflow: hidden; }
 .ec-mark { display: block; width: 640px; height: 213px; }
-.ec-caret { display: inline-block; width: 5px; height: 58px; background: var(--ivory); align-self: center; }
-.endcard > .ec-cta { position: absolute; left: 60px; top: 1040px; width: 860px; font-family: "Heebo", sans-serif; font-weight: 500; font-size: 50px; line-height: 1.25; color: var(--ivory); }
+.ec-caret { position: absolute; left: 0; top: 0; width: 6px; height: 64px; background: var(--ivory); }
+.endcard > .ec-cta { position: absolute; left: 110px; top: 1010px; width: 860px; font-family: "Heebo", sans-serif; font-weight: 700; font-size: 56px; line-height: 1.2; color: var(--ivory); }
 .wbreak { flex-basis: 100%; height: 0; }

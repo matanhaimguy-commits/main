@@ -8,7 +8,7 @@
       var box = SS.dom.el('div', 'wline tally he', band);
       var mask = SS.dom.el('span', 'wmask', box), inner = SS.dom.el('span', 'winner tally-row', mask);
       var num = SS.dom.el('span', 'tally-num', inner), roll = SS.dom.layered(SS.dom.el('span', 'tally-roll', num), ['overflow']);
-      for (var i = 0; i <= C.count; i++) SS.dom.el('span', 'tally-digit', roll, String(i));
+      for (var i = 0; i <= C.count; i++) SS.dom.layered(SS.dom.el('span', 'tally-digit', roll, String(i)), ['overlap']);   // hidden in the window
       var rest = SS.dom.el('span', 'tally-rest', inner, C.of + ' ' + C.total);
       var cell = num.offsetHeight, shift = (rest.offsetWidth + parseFloat(getComputedStyle(rest).marginRight)) / 2;
       var tt = T.cue('tally.total');

@@ -1,13 +1,12 @@
 // The red rubber stamp, seen from above. Height h (0 = on the paper) scales it toward the camera and throws its
-// shadow; a hit falls fast (gravity), squashes for 2 frames and lifts. plan() turns hits and moves into paths.
+// shadow; a hit falls fast (gravity), squashes for 2 frames and lifts. plan() turns hits and moves into paths;
+// turns() sets when it is turned over to show its face.
 (function (SS) {
   var A = SS.anim;
-  function create(ctx) {
+  function create(ctx, faceWord) {
     var wrap = SS.dom.layered(SS.dom.el('div', 'stamp-wrap', ctx.world), ['overflow']);   // it enters and leaves past the edges
-    var body = SS.dom.el('div', 'stamp', wrap);
-    SS.dom.el('div', 'stamp-rubber', body);
-    SS.dom.el('div', 'stamp-knob', body);
-    var me = { el: wrap, hits: [], gone: Infinity };
+    var body = SS.stampBody.create(wrap, faceWord, 404);
+    var me = { el: wrap, hits: [], gone: Infinity, angle: function () { return 0; } };
     me.plan = function (start, events) {
       var xyr = [], hs = [], free = -Infinity;
       events.slice().sort(function (a, b) { return a.t - b.t; }).forEach(function (ev) {
@@ -30,15 +29,17 @@
       me.pos = A.paths({ x: start.x, y: start.y, r: start.r }, xyr);
       me.height = A.path(start.h, hs);
     };
+    // turns: [time, to-angle] pairs; a full 360 brings the top back
+    me.turns = function (list) {
+      me.angle = A.path(0, list.map(function (p) { return { t: p[0], to: p[1], k: 170, d: 26 }; }));
+    };
     me.render = function (t) {
       SS.dom.show(wrap, t < me.gone);
       if (t >= me.gone) return;
       var p = me.pos(t), h = Math.max(0, me.height(t)), squash = 1;
       me.hits.forEach(function (th) { if (t >= th && t < th + 0.067) squash = 0.965; });
       SS.dom.place(wrap, p.x, p.y, p.r, (1 + 0.85 * h) * squash);
-      var c = 'rgba(45,25,15,';
-      body.style.boxShadow = '0 ' + (2 + 3 * h).toFixed(1) + 'px ' + (3 + 8 * h).toFixed(1) + 'px ' + c + (0.35 * Math.max(0, 1 - 3 * h)).toFixed(3) + '), ' +
-        (10 + 70 * h).toFixed(1) + 'px ' + (16 + 100 * h).toFixed(1) + 'px ' + (14 + 60 * h).toFixed(1) + 'px ' + c + Math.max(0, 0.3 - 0.12 * h - 0.1 * Math.max(0, h - 1)).toFixed(3) + ')';
+      body.paint(h, me.angle(t));
     };
     return me;
   }

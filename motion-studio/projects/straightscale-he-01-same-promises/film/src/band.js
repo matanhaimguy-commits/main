@@ -1,5 +1,5 @@
-// The top band: each spoken line's key words in Frank Ruhl Libre, word by word on the voice. A line leaves (drops
-// out of its mask) just before the next key arrives. The tally takes the band during line 3.
+// The top band: each spoken line's key words in Frank Ruhl Libre, word by word on the voice. A line leaves just
+// before the next key arrives; the last one (line 11's pointer) stays until the end card. The tally takes line 3.
 (function (SS) {
   var LEAD = 0.08;
   function create(ctx, tally) {
@@ -8,9 +8,8 @@
     var firsts = keys.map(function (k) { return k.tally ? T.cue('tally.in') : T.word(k.line, k.words[0][0]).s - LEAD; });
     var items = [];
     keys.forEach(function (k, i) {
-      var out = i + 1 < keys.length ? firsts[i + 1] - 0.06 : T.cue('endcard');
+      var out = i + 1 < keys.length ? firsts[i + 1] - 0.2 : T.cue('endcard');
       if (k.tally) { tally.mount(band, firsts[i], out); return; }
-      if (k.hint) return;
       var item = SS.words.build(band, k.words.map(function (w) { return w[1]; }), 'key');
       if (k.one) SS.words.fit(item); else SS.words.balance(item);
       // a word spoken at the very start is already up on frame 0

@@ -1,17 +1,17 @@
-// The viewer's own slip: "המודעה שלכם", the business name (covered by tape), the headline placeholder that is
-// backspaced away, a blinking caret in the empty line, and the optional sample headline labelled דוגמה.
+// The viewer's own slip: "המודעה שלכם", the business name, the headline placeholder that is backspaced away, a
+// blinking caret in the empty line, and the optional sample headline labelled דוגמה. It lands, then settles with a
+// small bounce on its cue. The tape, the finger's shadow and the underline live in cover.js and underline.js.
 (function (SS) {
   var A = SS.anim;
   function create(ctx) {
     var V = ctx.layout.viewer, T = ctx.T, C = ctx.content.viewer, X = ctx.example;
-    var wrap = SS.dom.el('div', 'slip-wrap', ctx.world);
+    var wrap = SS.dom.layered(SS.dom.el('div', 'slip-wrap', ctx.world), ['overflow']);   // the camera crops it on purpose
     var slip = SS.dom.el('div', 'slip viewer', wrap);
     slip.style.width = V.w + 'px';
     slip.style.backgroundImage = 'url(' + ctx.paper + ')';
     SS.dom.el('div', 'v-label he', slip, C.label);
     var name = SS.dom.el('div', 'v-name he', slip);
     var nameText = SS.dom.layered(SS.dom.el('span', 'v-name-text', name, C.name), ['occlusion']);   // the tape covers it
-    var tape = SS.dom.el('div', 'tape', name);
     var head = SS.dom.el('div', 'v-head he', slip);
     var headText = SS.dom.el('span', 'v-head-text', head, C.headline);
     var caret = SS.dom.el('span', 'caret', head);
@@ -25,18 +25,17 @@
     }
     var w = slip.offsetWidth, h = slip.offsetHeight;
     slip.style.left = (-w / 2) + 'px'; slip.style.top = (-h / 2) + 'px';
-    tape.style.width = (nameText.offsetWidth + 70) + 'px';
-    // caret centre on the desk once the line is empty (the end card grows out of it)
+    // where it rests after settling, and the caret's centre there once the line is empty (the end card grows from it)
+    var rest = { x: V.x + V.settle[0], y: V.y + V.settle[1], r: V.r + V.settle[2] };
     headText.textContent = '';
-    var local = { x: caret.offsetLeft + caret.offsetWidth / 2 - w / 2, y: caret.offsetTop + caret.offsetHeight / 2 - h / 2 };
+    var o = SS.dom.rot(caret.offsetLeft + caret.offsetWidth / 2 - w / 2, caret.offsetTop + caret.offsetHeight / 2 - h / 2, rest.r);
     headText.textContent = C.headline;
-    var o = SS.dom.rot(local.x, local.y, V.r);
-    var tDrop = T.cue('viewer.drop'), tTape = T.cue('tape'), tRule = T.cue('underline'), tLit = T.cue('lights'), tClear = T.cue('clear'), tEx = T.cue('example');
-    var height = A.path(1, [{ t: tDrop, to: 0, how: 'bounce', k: 230, d: 14 }]);
-    var pos = A.paths({ x: V.x + 60, y: V.y - 520, r: V.r + 9 }, [{ t: tDrop, to: { x: V.x, y: V.y, r: V.r }, k: 150, d: 24 }]);
-    var tapeIn = A.path(0, [{ t: tTape, to: 1, k: 300, d: 26 }]), ruleIn = A.path(0, [{ t: tRule, to: 1, k: 200, d: 26 }]);
+    var tDrop = T.cue('viewer.drop'), tSettle = T.cue('viewer.settle'), tLit = T.cue('lights'), tClear = T.cue('clear'), tEx = T.cue('example');
+    var height = A.path(1, [{ t: tDrop, to: 0, how: 'bounce', k: 230, d: 14 }, { t: tSettle, to: 0.07, k: 420, d: 30 }, { t: tSettle + 0.12, to: 0, how: 'bounce', k: 320, d: 14 }]);
+    var pos = A.paths({ x: V.x + 60, y: V.y - 520, r: V.r + 9 }, [{ t: tDrop, to: { x: V.x, y: V.y, r: V.r }, k: 150, d: 24 }, { t: tSettle, to: rest, k: 260, d: 15 }]);
     return {
-      caret: { x: V.x + o.x, y: V.y + o.y, w: caret.offsetWidth, h: caret.offsetHeight },
+      wrap: wrap, slip: slip, name: name, nameText: nameText, rule: rule, drop: tDrop,
+      caret: { x: rest.x + o.x, y: rest.y + o.y, w: caret.offsetWidth, h: caret.offsetHeight },
       render: function (t) {
         var on = t >= tDrop;
         SS.dom.show(wrap, on);
@@ -46,10 +45,6 @@
         SS.dom.place(wrap, p.x, p.y, p.r, 1 + 0.42 * hh);
         slip.style.boxShadow = '0 ' + (2 + 4 * hh).toFixed(1) + 'px ' + (3 + 8 * hh).toFixed(1) + 'px rgba(52,38,22,' + (0.26 * (1 - hh)).toFixed(3) + '), ' +
           (8 + 46 * hh).toFixed(1) + 'px ' + (14 + 70 * hh).toFixed(1) + 'px ' + (22 + 40 * hh).toFixed(1) + 'px rgba(52,38,22,0.17)';
-        var tp = tapeIn(t);
-        SS.dom.show(tape, t >= tTape);
-        tape.style.transform = 'translate(' + (-140 * (1 - tp)).toFixed(1) + 'px,' + (-40 * (1 - tp)).toFixed(1) + 'px) rotate(' + (-2 - 7 * (1 - tp)).toFixed(2) + 'deg) scale(' + (1 + 0.18 * (1 - tp)).toFixed(3) + ')';
-        rule.style.transform = 'scaleX(' + A.clamp(ruleIn(t)).toFixed(4) + ')';
         // headline: placeholder, then backspaced (one char per 50 ms), then empty with a blinking caret
         var full = C.headline, n = full.length - Math.max(0, Math.floor((t - tClear) / 0.05 + 1e-6));
         var typing = exampleOn && t >= tEx, typed = typing ? X.text.slice(0, Math.floor((t - tEx) / 0.045 + 1e-6)) : '';

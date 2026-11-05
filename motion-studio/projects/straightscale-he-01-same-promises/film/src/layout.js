@@ -19,7 +19,7 @@
     // the six unstamped slips are pushed straight off the desk (they never come back into the shot)
     leave: { o1: [-1300, 0], o2: [1300, 0], o3: [0, -1500], o4: [-1300, 0], o5: [1300, 0], o6: [1300, 0] },
     stage: { x: 500, y: 975 },              // the cleared middle of the desk, for lines 6 to 12
-    viewer: { x: 500, y: 1040, r: -0.8, w: 820 },
+    viewer: { x: 500, y: 1040, r: -0.8, w: 820, settle: [14, 6, 1.4] },   // settle: where the small bounce leaves it
     stamp: {
       start: { x: -760, y: 300, r: -18, h: 1.3 },
       wait: { x: -180, y: 945, r: -9, h: 0.42 },   // hovering at the left edge during the cascade
@@ -27,12 +27,19 @@
       parkStack: { x: 120, y: 660, r: -7 },        // resting at the top left beside the stack
       parkViewer: { x: 240, y: 745, r: -6 },       // beside the viewer's slip
       hookLift: { dx: 40, dy: -265, r: -12, h: 0.25 },  // hovering above the hook slip after the first hit
+      hover: [-262, 42],                            // offset from the viewer's slip: over its empty left, beside the headline
       exit: { x: -950, y: 820, r: -22, h: 2.0 }        // lifting toward the camera and out to the left
     },
+    // framings [cue, focus x, focus y, scale]; from line 7 on the camera follows the action on the words: the
+    // finger to the name, the underline as it draws right to left, the hover's dip, the backspaced line, the pointer
     camera: [
-      ['start', 500, 880, 1.3], ['cam.pull', 520, 1015, 0.7], ['stack', 480, 1000, 0.64], ['cam.stack', 470, 940, 1.3],
-      ['stack.away', 500, 935, 1.35], ['viewer.drop', 500, 960, 1.08], ['tape', 500, 965, 1.13], ['hover', 500, 945, 1.04],
-      ['clear', 500, 960, 1.1], ['cam.push', 495, 975, 1.14],
+      ['start', 500, 880, 1.3], ['cam.pull', 520, 1050, 0.7], ['stack', 480, 1000, 0.64], ['cam.stack', 470, 940, 1.3],
+      ['cam.choose', 470, 915, 1.34], ['stack.away', 500, 935, 1.35],
+      ['viewer.drop', 500, 960, 1.08], ['viewer.settle', 505, 975, 1.13],
+      ['finger.in', 650, 990, 1.3], ['tape', 650, 995, 1.32], ['tape.press', 655, 1000, 1.37],
+      ['rule.1', 690, 1080, 1.28], ['rule.2', 560, 1085, 1.26], ['rule.3', 440, 1085, 1.26], ['rule.4', 500, 1060, 1.12],
+      ['hover', 470, 980, 1.04], ['hover.drift', 450, 975, 1.07], ['hover.dip', 470, 1000, 1.15], ['hover.lift', 480, 980, 1.06],
+      ['clear', 540, 1060, 1.18], ['cam.push', 495, 975, 1.14], ['cam.pointer', 560, 1000, 1.2], ['cam.meeting', 620, 1030, 1.3],
       ['cam.caret', 770, 1085, 1.55]   // into the caret; the end card grows out of it
     ]
   };

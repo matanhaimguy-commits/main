@@ -30,8 +30,8 @@ One file that says what this job is, where it stands, and what was decided. Upda
 - Deadline: none given.
 
 ## Status
-Stage: styleframes done (round 2, every axis 8+); silent draft v0 built on scratch timing (stage 10 round logged)
-Current version: draft v0, silent, `renders/draft-v0-silent.mp4` (40.3 s); not approved, not delivered
+Stage: styleframes done (round 2, every axis 8+); silent draft v1 answers the round 3 fresh review (D1 to D8)
+Current version: draft v1, silent, `renders/draft-v1-silent.mp4` (40.3 s); not approved, not delivered
 Next step: Matan's read-aloud of the script (gate 5e), then the voice, `tools/retime.py audio/words.json`, score and
 foley (stage 9), review rounds 2 and 3, final render.
 Blockers / open questions: HeyGen file hosts blocked by the environment network (voice). Matan to allow them. Matan to
@@ -66,3 +66,11 @@ decide the optional sample headline labelled "דוגמה" (built, off by default
   `docs/contact-draft-v0.jpg`. Checks (seekcheck 24 samples, HyperFrames check with the bottom 400 px caption zone,
   pacing.py, unit tests) all pass; results and the three worst problems in `docs/review_log.md`. Beat sheet in
   `docs/treatment.md` section 5.
+- 2026-11-05 · draft v1 (silent) for the round 3 fresh review (FAIL; coordinator's decisions D1 to D8) · price tag in
+  Heebo 800 "₪?" read right to left (D1); 21 new word cues with the stamp, finger shadow, tape press, word-by-word
+  underline, settle bounce and camera following them (D2); line 11's pointer in the top band (D3); the stamp drawn
+  as a rubber stamp with a wooden handle, neck ring and rubber layer, turning over at the hook to show its mirrored
+  face (D4, new `film/src/stamp-body.js`); word reveals without hard masks (D5); source label 46 px clear of the pile
+  (D6); end card centred on x 540 (D7); hover beside the headline (D8). New files `cover.js`, `underline.js`;
+  `hint.js` removed. `renders/draft-v1-silent.mp4`, `docs/contact-draft-v1.jpg`, `docs/strips-draft-v1.jpg`; checks
+  in `docs/review_log.md`. Not committed (the coordinator commits after the next fresh review).

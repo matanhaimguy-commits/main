@@ -1,10 +1,12 @@
-// The gold price sticker: no price, just "₪?". It is slapped onto the top slip of the stack at `at` and rides with it.
+// The gold price tag: no price, just "₪?" (read right to left: shekel, then the question). Heebo 800, not the serif,
+// so the shekel never reads as letters. It is slapped onto the top slip of the stack at `at` and rides with it.
 (function (SS) {
   var A = SS.anim;
   function create(ctx, slip, text, at) {
-    var e = SS.dom.el('div', 'sticker', slip.el);
-    SS.dom.el('span', 'sticker-text', e, text);
-    var x = slip.w / 2 - 34, y = -slip.h / 2 - 26, r = -9;   // overhangs the top-right corner
+    var e = SS.dom.el('div', 'sticker-wrap', slip.el), tag = SS.dom.el('div', 'sticker', e);   // the wrap carries the shadow
+    SS.dom.el('span', 'sticker-hole', tag);
+    SS.dom.el('span', 'sticker-text he', tag, text);
+    var x = slip.w / 2 - 130, y = -slip.h / 2 - 58, r = -9;   // on the top edge, clear of the headline and the right UI zone
     var land = A.path(0, [{ t: at, to: 1, how: 'bounce', k: 520, d: 20 }]);
     return {
       render: function (t) {
@@ -13,7 +15,7 @@
         if (!on) return;
         var h = 1 - land(t);
         SS.dom.place(e, x - 40 * h, y - 60 * h, r - 16 * h, 1 + 0.7 * h);
-        e.style.boxShadow = '0 ' + (2 + 30 * h).toFixed(1) + 'px ' + (3 + 30 * h).toFixed(1) + 'px rgba(60,35,5,' + (0.35 - 0.15 * h).toFixed(3) + ')';
+        e.style.filter = 'drop-shadow(0 ' + (2 + 30 * h).toFixed(1) + 'px ' + (2 + 14 * h).toFixed(1) + 'px rgba(60,35,5,' + (0.4 - 0.15 * h).toFixed(3) + '))';
       }
     };
   }

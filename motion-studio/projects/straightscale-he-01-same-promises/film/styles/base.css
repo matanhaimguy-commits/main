@@ -7,5 +7,5 @@ html, body { width: 1080px; height: 1920px; overflow: hidden; background: var(--
 #overlay { position: absolute; left: 0; top: 0; width: 1080px; height: 1920px; z-index: 10; }
 .he { direction: rtl; }
 .wline { display: flex; flex-wrap: wrap; justify-content: center; align-content: center; align-items: baseline; column-gap: 0.26em; text-align: center; }
-.wmask { display: inline-block; padding-bottom: 0.14em; clip-path: inset(-0.4em -0.25em 0 -0.25em); }
+.wmask { display: inline-block; }
 .winner { display: inline-block; white-space: nowrap; }
