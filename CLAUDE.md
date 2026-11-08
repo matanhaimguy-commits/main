@@ -9,6 +9,12 @@
 - **Building an automated reel machine** on top of this: read `motion-studio/HANDOFF.md` first.
 - `references/` holds five complete reference repos (HyperFrames, onetake, gbro-collage-broll,
   claude-animation-base, lemo-opuscar), gitignored and downloaded by `bash references/fetch.sh`.
+- **Organic video scripts** (reels, TikTok, Shorts: ideas, hooks, scripts, a script brief, for us or any client): the
+  Script Engine in the `organic-engine` repo, `skills/script-engine/SKILL.md` (A to Z, two blind cold-read rounds, owner
+  yes or kill per script). Video production after the script is approved still runs through `motion-reel`.
+- **Organic video edits** (short-form, for us or any client): the big-change mode in the `organic-engine` repo
+  (`skills/video-engine/SKILL.md` step 5). Nothing is sent unless it passes the gates in `formats/QUALITY_GATES.md`
+  (it must move like the reference reels: 55+ big moments a minute). Format library: `formats/`.
 - **Instagram / Facebook automation** (comment-to-DM funnels, AI sales DMs, for us and clients): `social-agent/`.
   Read `social-agent/README.md` and `social-agent/docs/SETUP.md`. One YAML per business in
   `social-agent/businesses/`; run `npm run audit` there after every config change. Never commit tokens.
