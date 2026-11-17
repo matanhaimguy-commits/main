@@ -22,7 +22,7 @@ canvas { display: block; }
 // store to the product page, the Facebook ads and the shipping), split into layers that enter separately; trust popups
 // from maxdigital.co.il; camera moves (hook punch, whip pans, punch-ins, shake on stamps); denser effects; an energetic
 // voice. The signature device of v1 stays: UI draws as a sky outline, then fills.
-// Clock: audio/words.js (v3: Brandify Eagle voice, emotion tags, 1.07x). Every cue is a spoken word index, nothing retyped.
+// Clock: audio/words.js (v4: Brandify Eagle voice, emotion tags, 1.07x, "we also teach" script). Every cue is a spoken word index, nothing retyped.
 import { spring, clamp } from '../../lib/motion.js';
 import WORDS from './audio/words.js';
 
@@ -39,7 +39,11 @@ const sp = (t, t0, [k, d] = TYPE) => spring(t - t0, k, d);
 const mix = (a, b, p) => a + (b - a) * p;
 const smooth = (x) => { x = clamp(x); return x * x * x * (x * (x * 6 - 15) + 10); };
 const ramp = (t, t0, dur) => smooth((t - t0) / dur);
-const S = (i) => WORDS.words[i].s, E = (i) => WORDS.words[i].e;
+// v4 script (owner, 2026-11-17: "don't say we do everything; add that we also teach how"). Scenes up to step 2 keep the
+// v3 word numbers through OLD(); step 3 onward is written in v4 numbers through N().
+const OLD = (i) => i <= 48 ? i : i === 49 ? 48 : i <= 60 ? i - 1 : i === 61 ? 59 : i <= 66 ? i - 2 : i === 67 ? 64 : i - 3;
+const S = (i) => WORDS.words[OLD(i)].s, E = (i) => WORDS.words[OLD(i)].e;
+const NS = (i) => WORDS.words[i].s, NE = (i) => WORDS.words[i].e;
 const VO_END = WORDS.words[WORDS.words.length - 1].e;
 const T_END = VO_END + 2.6;
 
@@ -158,8 +162,9 @@ function trust(str, ic, cx, cy, p, size = 40, sub = null) {
 function exampleTag(x, y, p) { pill('חנות לדוגמה', x, y, 24, p, 'rgba(0,23,46,0.82)', C.mist, 0.7); }
 
 // ---------- scene cuts (word indices) ----------
-const K = { dream: 0, second: 12, chores: 20, quit: 37, brand: 43, s1: 50, s2: 68, s2b: 82, s2c: 87, s3: 91, reframe: 101, job: 116, cta: 122 };
-const CUT = [0, S(K.second), S(K.chores), S(K.quit), S(K.brand), S(K.s1), S(K.s2), S(K.s2b) - 0.05, S(K.s2c) - 0.08, S(K.s3), S(K.reframe), S(K.job), S(K.cta), T_END];
+const K = { dream: 0, second: 12, chores: 20, quit: 37, brand: 43, s1: 50, s2: 68, s2b: 82, s2c: 87 };
+const K4 = { s3: 88, own: 102, reframe: 108, job: 124, cta: 130 };
+const CUT = [0, S(K.second), S(K.chores), S(K.quit), S(K.brand), S(K.s1), S(K.s2), S(K.s2b) - 0.05, S(K.s2c) - 0.08, NS(K4.s3), NS(K4.own) - 0.1, NS(K4.reframe), NS(K4.job), NS(K4.cta), T_END];
 const RX = 1800;
 
 // 1. dream: the store already exists. Blurred plate, the laptop layer flies up out of it, orders arrive.
@@ -256,7 +261,7 @@ function sceneBrand(t) {
   ctx.save(); ctx.translate(960, 460); ctx.scale(mix(0.9, 1, p), mix(0.9, 1, p));
   ctx.beginPath(); ctx.rect(-lw / 2 - 20, -lh, (lw + 40) * wipe, lh * 2); ctx.clip(); ctx.drawImage(LOGO, -lw / 2, -lh / 2, lw, lh); ctx.restore();
   dline([[960 + 380, 590], [960 - 380, 590]], ramp(t, t0 + 0.4, 0.5), C.sky, 4);
-  rise('לוקחים מכם את כל זה.', 960, 730, 92, t, S(45) - 0.05, 800, C.white, 'center', false);
+  rise('עושים את זה איתכם.', 960, 730, 92, t, S(45) - 0.05, 800, C.white, 'center', false);
   const f = 1 - ramp(t, t0, 0.22); if (f > 0) { ctx.fillStyle = `rgba(255,255,255,${0.85 * f})`; ctx.fillRect(0, 0, W, H); }
 }
 function stepTag(t, n, t0) { pill(`שלב ${n}`, RX - 110, 160, 48, sp(t, t0 - 0.05, POP)); }
@@ -280,7 +285,7 @@ function sceneS1(t) {
     ctx.restore();
   }
   if (t >= build - 0.1) {
-    rise('ובונים לכם את כל החנות', RX, 560, 66, t, build + 0.05, 800, C.sky);
+    rise('ובונים לכם את החנות', RX, 560, 66, t, build + 0.05, 800, C.sky);
     // the laptop layer flies in, then the brand's products and the product page land around it
     const lp = sp(t, build, SOFT);
     place(IMG.storeCut, 600, 560, 1250, lp, { dy: 260, sc: 0.8, shadow: 0.55 });
@@ -289,7 +294,7 @@ function sceneS1(t) {
     place(IMG.phone, 1030, 640, 300, sp(t, S(64) - 0.08, POP), { dx: 160, dy: 120, rot: 0.25, sc: 0.7, shadow: 0.55 });
     place(IMG.cream, 330, 880, 230, sp(t, S(66) - 0.08, POP), { dx: -80, dy: 120, rot: 0.2, sc: 0.6, shadow: 0.5 });
     [['מיתוג', 63], ['דפי מוצר', 64], ['ספקים', 66]].forEach(([s, i], k) => pill(s, 1600, 680 + k * 92, 44, sp(t, S(i) - 0.04, POP), k === 2 ? C.ice : C.sky));
-    const cp = sp(t, S(67) - 0.05, SNAP);
+    const cp = sp(t, E(66) + 0.15, SNAP);
     if (cp > 0) {
       ctx.save(); ctx.translate(1100, 300); ctx.scale(mix(1.7, 1, cp), mix(1.7, 1, cp)); ctx.globalAlpha *= clamp(cp * 2);
       ctx.beginPath(); ctx.arc(0, 0, 70, 0, 7); ctx.fillStyle = C.sky; ctx.fill(); check(0, 2, 68, 1, C.navy, 12); ctx.restore();
@@ -393,72 +398,106 @@ function sceneS2c(t) {
 }
 // 10. step 3: the store is yours, the sales are yours
 function sceneS3(t) {
-  const t0 = S(K.s3);
-  ctx.drawImage(BL.store, 0, 0); ctx.fillStyle = 'rgba(0,23,46,0.5)'; ctx.fillRect(0, 0, W, H);
+  // 10a. step 3: while we run it, we also teach you to do it yourselves. The training card ticks off its modules.
+  const t0 = NS(K4.s3);
+  ctx.drawImage(BL.store, 0, 0); ctx.fillStyle = 'rgba(0,23,46,0.62)'; ctx.fillRect(0, 0, W, H);
   stepTag(t, 3, t0);
+  rise('בזמן שאנחנו מפעילים,', RX, 330, 68, t, NS(90) - 0.05, 700, C.mist);
+  rise('אנחנו גם מלמדים אתכם', RX, 446, 80, t, NS(93) - 0.05, 800, C.sky);
+  rise('איך לעשות את זה בעצמכם.', RX, 552, 66, t, NS(97) - 0.05, 800, C.white);
+  // the training card (modules from maxdigital.co.il: store management, paid and organic marketing, branding)
+  const cp = sp(t, t0 + 0.1, SOFT), cx = 110, cy = 190, cw = 760, ch = 700;
+  if (cp > 0) {
+    ctx.save(); ctx.translate(0, (1 - cp) * 140); ctx.globalAlpha *= clamp(cp * 1.4);
+    ctx.shadowColor = 'rgba(0,8,20,0.5)'; ctx.shadowBlur = 50; ctx.shadowOffsetY = 24;
+    rr(cx, cy, cw, ch, 30); ctx.fillStyle = C.white; ctx.fill(); ctx.shadowColor = 'transparent';
+    ctx.beginPath(); ctx.arc(cx + cw - 80, cy + 82, 42, 0, 7); ctx.fillStyle = C.sky; ctx.fill(); icon('doc', cx + cw - 80, cy + 82, 54, 1, C.white);
+    T('ההכשרה שלכם', cx + cw - 140, cy + 100, 52, 800, C.navy, 'right');
+    T('לומדים בזמן שהצוות מפעיל', cx + cw - 140, cy + 146, 30, 500, C.dim, 'right');
+    const MOD = [['ניהול חנות', NS(95)], ['שיווק ממומן', NS(97)], ['שיווק אורגני', NS(99)], ['מיתוג', NS(101)]];
+    MOD.forEach(([m, tt], i) => {
+      const y = cy + 230 + i * 104, on = sp(t, tt, POP);
+      rr(cx + 50, y - 46, cw - 100, 88, 18); ctx.fillStyle = on > 0.5 ? '#EAF6FD' : '#F3F6F9'; ctx.fill();
+      ctx.beginPath(); ctx.arc(cx + cw - 100, y - 2, 26, 0, 7); ctx.fillStyle = on > 0.05 ? C.sky : '#D6DFE8'; ctx.fill();
+      if (on > 0.05) check(cx + cw - 100, y - 1, 26, ramp(t, tt, 0.2), C.white, 5);
+      T(m, cx + cw - 146, y + 12, 38, 700, C.navy, 'right');
+      T(`שיעור ${i + 1}`, cx + 92, y + 10, 26, 500, C.dim, 'left');
+    });
+    const prog = ramp(t, NS(95), NE(101) - NS(95));
+    rr(cx + 50, cy + ch - 70, cw - 100, 22, 11); ctx.fillStyle = '#E3EAF1'; ctx.fill();
+    rr(cx + 50 + (cw - 100) * (1 - prog), cy + ch - 70, (cw - 100) * prog, 22, 11); ctx.fillStyle = C.sky; ctx.fill();
+    ctx.restore();
+  }
+  trust('הכשרה דיגיטלית כלולה', 'doc', 1420, 960, sp(t, NS(99) + 0.1, POP), 36);
+}
+// 10b. own it: the store, the sales and the knowledge are yours
+function sceneOwn(t) {
+  const t0 = NS(K4.own) - 0.1;
+  ctx.drawImage(BL.store, 0, 0); ctx.fillStyle = 'rgba(0,23,46,0.5)'; ctx.fillRect(0, 0, W, H);
+  stepTag(t, 3, -9);
   place(IMG.storeCut, 600, 560, 1250, sp(t, t0, SOFT), { dy: 200, sc: 0.85, shadow: 0.55 });
   exampleTag(420, 935, sp(t, t0 + 0.3));
-  rise('החנות שלכם.', RX, 330, 112, t, S(93) - 0.05);
-  rise('המכירות שלכם.', RX, 460, 112, t, S(95) - 0.05, 800, C.sky);
-  rise('ואתם בקושי מרימים אצבע.', RX, 580, 62, t, S(97) - 0.05, 700, C.mist);
-  trust('בבעלות מלאה שלכם', 'key', 870, 170, sp(t, S(94), POP), 36);
-  for (let i = 0; i < 4; i++) chip('מכירה חדשה', ['Renewal Serum', 'Night Cream', 'Gentle Cleanser', 'Renewal Serum'][i], 1800, 700 + i * 100, t, S(95) + 0.12 + i * 0.28);
-  const cp = sp(t, S(99) - 0.05, SNAP);
+  rise('החנות שלכם.', RX, 330, 112, t, NS(102) - 0.05);
+  rise('המכירות שלכם.', RX, 460, 112, t, NS(104) - 0.05, 800, C.sky);
+  rise('והידע שלכם.', RX, 590, 112, t, NS(106) - 0.05, 800, C.white);
+  trust('בבעלות מלאה שלכם', 'key', 870, 170, sp(t, NS(103), POP), 36);
+  for (let i = 0; i < 3; i++) chip('מכירה חדשה', ['Renewal Serum', 'Night Cream', 'Gentle Cleanser'][i], 1800, 740 + i * 100, t, NS(104) + 0.12 + i * 0.28);
+  const cp = sp(t, NS(106) - 0.05, SNAP);
   if (cp > 0) {
     ctx.save(); ctx.translate(620, 520); ctx.scale(mix(1.8, 1, cp), mix(1.8, 1, cp)); ctx.globalAlpha *= clamp(cp * 2);
     ctx.beginPath(); ctx.arc(0, 0, 130, 0, 7); ctx.lineWidth = 12; ctx.strokeStyle = C.sky; ctx.stroke();
-    ctx.beginPath(); ctx.arc(0, 0, 110, 0, 7); ctx.fillStyle = 'rgba(0,23,46,0.75)'; ctx.fill(); check(0, 6, 120, 1, C.white, 18); ctx.restore();
+    ctx.beginPath(); ctx.arc(0, 0, 110, 0, 7); ctx.fillStyle = 'rgba(0,23,46,0.75)'; ctx.fill(); icon('key', 0, 0, 140, 1, C.white); ctx.restore();
   }
 }
-// 11. the reframe: not a side business, a store run end to end; trust strip from the site
+// 11. the reframe: not a side business on your own; a team that runs, teaches and supports
 function sceneReframe(t) {
-  const t0 = S(K.reframe);
+  const t0 = NS(K4.reframe);
   rise('אתם לא מנהלים', 960, 260, 100, t, t0 - 0.05, 800, C.white, 'center', false);
-  rise('עסק בצד.', 960, 384, 100, t, S(103) - 0.08, 800, C.mist, 'center', false);
-  const w = tw('עסק בצד.', 100, 800);
-  dline([[960 + w / 2 + 20, 354], [960 - w / 2 - 20, 348]], ramp(t, S(105) + 0.05, 0.3), C.sky, 11);
-  rise('יש לכם חנות מנוהלת עד הסוף', 960, 540, 80, t, S(106) - 0.05, 800, C.sky, 'center', false);
-  const B = [['בנויה', 112], ['משווקת', 113], ['מופעלת', 114]], xs = [1360, 960, 560];
+  rise('עסק בצד לבד.', 960, 384, 100, t, NS(111) - 0.08, 800, C.mist, 'center', false);
+  const w = tw('עסק בצד לבד.', 100, 800);
+  dline([[960 + w / 2 + 20, 354], [960 - w / 2 - 20, 348]], ramp(t, NE(113) + 0.02, 0.3), C.sky, 11);
+  rise('יש לכם צוות שמפעיל ומלמד', 960, 540, 80, t, NS(114) - 0.05, 800, C.sky, 'center', false);
+  const B = [['מפעיל', 117], ['מלמד', 120], ['מלווה', 122]], xs = [1360, 960, 560];
   B.forEach(([s, i], k) => {
-    const p = sp(t, S(i) - 0.05, POP); if (p <= 0) return;
+    const p = sp(t, NS(i) - 0.05, POP); if (p <= 0) return;
     ctx.save(); ctx.translate(xs[k], 690); ctx.scale(mix(0.7, 1, p), mix(0.7, 1, p));
-    dbox(-180, -60, 360, 120, 60, ramp(t, S(i) - 0.05, 0.3), p, C.panel2, C.sky, 3);
+    dbox(-180, -60, 360, 120, 60, ramp(t, NS(i) - 0.05, 0.3), p, C.panel2, C.sky, 3);
     T(s, -20, 18, 54, 800, C.white, 'center', p);
     ctx.beginPath(); ctx.arc(120, 0, 24, 0, 7); ctx.fillStyle = C.sky; ctx.globalAlpha *= p; ctx.fill(); check(120, 1, 24, 1, C.navy, 5); ctx.restore();
   });
-  trust('\u200F500+\u200F חנויות נבנו ומנוהלות', 'store', 1290, 900, sp(t, S(109) + 0.1, POP), 36);
-  trust('דוח ביצועים כל יום', 'doc', 640, 900, sp(t, S(111) + 0.1, POP), 36);
+  trust('‏500+‏ חנויות נבנו ומנוהלות', 'store', 1290, 900, sp(t, NS(119) + 0.1, POP), 36);
+  trust('מנהל תיק קבוע', 'user', 640, 900, sp(t, NS(123) + 0.1, POP), 36);
 }
 // 12. keep your job: a real office photo, the camera pushes into the phone full of orders
 function sceneJob(t) {
-  const t0 = S(K.job), q = smooth((t - t0) / (CUT[12] - t0));
+  const t0 = NS(K4.job), q = smooth((t - t0) / (CUT[13] - t0));
   cover(IMG.office, mix(1.0, 1.45, q), mix(0.5, 0.63, q), mix(0.5, 0.72, q));
   const g = ctx.createLinearGradient(0, 0, 0, 640); g.addColorStop(0, 'rgba(0,23,46,0.95)'); g.addColorStop(0.6, 'rgba(0,23,46,0.7)'); g.addColorStop(1, 'rgba(0,23,46,0)');
   ctx.fillStyle = g; ctx.fillRect(0, 0, W, 640);
   rise('ואתם ממשיכים', RX, 190, 104, t, t0);
-  rise('בעבודה שיש לכם היום.', RX, 300, 76, t, S(118) - 0.05, 700, C.sky);
+  rise('בעבודה שיש לכם היום.', RX, 300, 76, t, NS(126) - 0.05, 700, C.sky);
 }
 // 13. CTA
 function sceneCTA(t) {
-  const t0 = S(K.cta), lw = 660, lh = lw * LOGO.height / LOGO.width, lp = sp(t, t0 - 0.1, SOFT);
+  const t0 = NS(K4.cta), lw = 660, lh = lw * LOGO.height / LOGO.width, lp = sp(t, t0 - 0.1, SOFT);
   ctx.save(); ctx.globalAlpha *= clamp(lp * 1.4); ctx.drawImage(LOGO, 960 - lw / 2, 150 + (1 - lp) * 30, lw, lh); ctx.restore();
   rise('רוצים לבדוק', 960, 410, 116, t, t0 - 0.05, 800, C.white, 'center', false);
-  rise('אם אתם מתאימים?', 960, 545, 116, t, S(125) - 0.05, 800, C.sky, 'center', false);
-  const bp = sp(t, S(127) - 0.1, POP), bounce = Math.max(0, Math.sin((t - S(127)) * 5)) * 12 * clamp((t - S(127)) * 3);
+  rise('אם אתם מתאימים?', 960, 545, 116, t, NS(133) - 0.05, 800, C.sky, 'center', false);
+  const bp = sp(t, NS(135) - 0.1, POP), bounce = Math.max(0, Math.sin((t - NS(135)) * 5)) * 12 * clamp((t - NS(135)) * 3);
   pill('לחצו למטה לבדיקת התאמה', 960, 715 - bounce * 0.3, 54, bp);
   if (bp > 0) {
     const ay = 840 + bounce;
-    dline([[960, ay], [960, ay + 120]], ramp(t, S(127), 0.3), C.sky, 12);
-    dline([[910, ay + 70], [960, ay + 124], [1010, ay + 70]], ramp(t, S(127) + 0.15, 0.25), C.sky, 12);
+    dline([[960, ay], [960, ay + 120]], ramp(t, NS(135), 0.3), C.sky, 12);
+    dline([[910, ay + 70], [960, ay + 124], [1010, ay + 70]], ramp(t, NS(135) + 0.15, 0.25), C.sky, 12);
   }
-  T('maxdigital.co.il', 960, 1035, 34, 500, C.mist, 'center', sp(t, S(127) + 0.4));
+  T('maxdigital.co.il', 960, 1035, 34, 500, C.mist, 'center', sp(t, NS(135) + 0.4));
 }
-const SCENES = [sceneDream, sceneSecond, sceneChores, sceneQuit, sceneBrand, sceneS1, sceneS2, sceneS2b, sceneS2c, sceneS3, sceneReframe, sceneJob, sceneCTA];
+const SCENES = [sceneDream, sceneSecond, sceneChores, sceneQuit, sceneBrand, sceneS1, sceneS2, sceneS2b, sceneS2c, sceneS3, sceneOwn, sceneReframe, sceneJob, sceneCTA];
 
 // ---------- camera: hook punch, punch-ins on key words, shakes on stamps, whip pans at cuts ----------
-const PUNCH = [[0, 0.14], [S(18), 0.06], [S(37), 0.05], [S(52), 0.04], [S(67), 0.05], [S(77), 0.07], [S(83), 0.04], [S(93), 0.04], [S(99), 0.05], [S(105), 0.05], [S(126), 0.04]];
-const SHAKE = [S(18), S(67), S(77), S(99), S(105) + 0.05];
-const WHIP = new Set([1, 2, 5, 7, 8, 9, 11, 12]);        // cut indices that whip (the others hard-cut or flash)
+const PUNCH = [[0, 0.14], [S(18), 0.06], [S(37), 0.05], [S(52), 0.04], [E(66) + 0.15, 0.05], [S(77), 0.07], [S(83), 0.04], [NS(95), 0.04], [NS(106), 0.05], [NE(113), 0.05], [NS(134), 0.04]];
+const SHAKE = [S(18), E(66) + 0.15, S(77), NS(106), NE(113) + 0.05];
+const WHIP = new Set([1, 2, 5, 7, 8, 9, 10, 12, 13]);        // cut indices that whip (the others hard-cut or flash)
 function camera(t) {
   let z = 1;
   for (const [t0, a] of PUNCH) { const d = t - t0; if (d >= 0 && d < 1.2) z += a * Math.exp(-d * 4.5) * (t0 === 0 ? 1 : Math.min(1, d * 18)); }
@@ -484,13 +523,14 @@ CUT.slice(1, -1).forEach((c, i) => add(c - 0.12, WHIP.has(i + 1) ? 'whip' : 'cut
 add(0, 'hook'); [9, 10].forEach((i) => add(S(i) + 0.05, 'chip')); add(S(11) + 0.15, 'chip');
 add(S(18), 'stamp'); CHORES.forEach((c) => add(S(c.w) - 0.12, 'card')); add(S(34), 'ticks');
 add(S(K.quit), 'drain'); add(S(K.brand) - 0.6, 'riser'); add(S(K.brand), 'brand');
-add(S(K.s1), 'step'); add(S(53) - 0.1, 'draw'); add(S(58) - 0.1, 'swoosh'); [63, 64, 66].forEach((i) => add(S(i) - 0.08, 'pop')); add(S(62) + 0.05, 'trust'); add(S(67), 'stamp');
+add(S(K.s1), 'step'); add(S(53) - 0.1, 'draw'); add(S(58) - 0.1, 'swoosh'); [63, 64, 66].forEach((i) => add(S(i) - 0.08, 'pop')); add(S(62) + 0.05, 'trust'); add(E(66) + 0.15, 'stamp');
 add(S(K.s2), 'step'); add(S(70), 'accent'); add(S(77) - 0.05, 'popup'); add(S(79) + 0.05, 'trust'); add(S(80) + 0.15, 'trust');
 add(S(83) - 0.12, 'swoosh'); add(S(84) - 0.1, 'swoosh'); add(S(85) - 0.06, 'msg'); add(S(85) + 0.39, 'msgme'); add(S(85) + 0.79, 'msg');
-add(S(90) + 0.15, 'chip'); add(S(K.s3), 'step'); add(S(94), 'trust');
-[0, 1, 2, 3].forEach((i) => add(S(95) + 0.12 + i * 0.28, 'sale')); add(S(99), 'stamp');
-add(S(105) + 0.05, 'strike'); [112, 113, 114].forEach((i) => add(S(i) - 0.05, 'pop')); add(S(109) + 0.1, 'trust'); add(S(111) + 0.1, 'trust');
-add(S(K.cta), 'brand2'); add(S(127), 'button');
+add(S(90) + 0.15, 'chip'); add(NS(K4.s3), 'step'); add(NS(K4.s3) + 0.1, 'swoosh');
+[95, 97, 99, 101].forEach((i) => add(NS(i), 'tick')); add(NS(99) + 0.1, 'trust');
+add(NS(103), 'trust'); [0, 1, 2].forEach((i) => add(NS(104) + 0.12 + i * 0.28, 'sale')); add(NS(106), 'stamp');
+add(NE(113) + 0.02, 'strike'); [117, 120, 122].forEach((i) => add(NS(i) - 0.05, 'pop')); add(NS(119) + 0.1, 'trust'); add(NS(123) + 0.1, 'trust');
+add(NS(K4.cta), 'brand2'); add(NS(135), 'button');
 window.EVENTS = ev.sort((a, b) => a.t - b.t);
 window.CUES = { cuts: CUT, vo_end: VO_END, end: T_END };
 

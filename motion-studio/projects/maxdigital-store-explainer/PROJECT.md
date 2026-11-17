@@ -50,3 +50,17 @@ the same store, layered with entrance animations); more SFX and camera moves.
 | Pace | pauses over 340 ms trimmed (hook 200 ms), speed 1.07 (v2 was 1.14). 56.7 s, speech pace 2.68 words a second (v1 2.2, v2 3.35), pitch spread 21 semitones, energy 63.4 |
 | Music | new ElevenLabs music_v1 bed, 108 BPM, emotional build, drop on the brand at 18.7 s |
 | Picture | unchanged from v2; every cue follows the new word timings |
+
+## v4 (2026-11-17), owner: "don't say we do everything; add that we also teach how to do it"
+| Line | v3 | v4 |
+|---|---|---|
+| Brand | במקס דיגיטל לוקחים מכם את כל זה. | במקס דיגיטל עושים את זה איתכם. |
+| Step 1 | ובונים לכם את כל החנות. מיתוג, דפי מוצר, ספקים. הכול. | ובונים לכם את החנות. מיתוג, דפי מוצר, ספקים. |
+| Step 3 | החנות שלכם, המכירות שלכם, ואתם בקושי מרימים אצבע. | בזמן שאנחנו מפעילים, אנחנו גם מלמדים אתכם איך לעשות את זה בעצמכם. החנות שלכם, המכירות שלכם, והידע שלכם. |
+| Reframe | ...חנות מנוהלת עד הסוף, בנויה, משווקת ומופעלת בשבילכם... | אתם לא מנהלים עסק בצד לבד. יש לכם צוות שמפעיל את החנות ומלמד אתכם לנהל אותה... |
+
+Source for the teaching claim and the training card (maxdigital.co.il, 2026-11-17): "החנות שלכם, אנחנו מפעילים — ומלמדים אתכם
+לנהל אותה בעצמכם"; "הכשרה מסודרת בניהול חנות, שיווק ממומן ואורגני ומיתוג"; "הכשרה דיגיטלית — כלולה"; "מנהל תיק קבוע".
+Picture: step 3 is now a training card whose four modules tick on the spoken words, then the store, sales and "והידע שלכם"
+with a key stamp; the closing badges are מפעיל / מלמד / מלווה. Voice: Eagle, emotion tags, v4 take 2 of 3 (energy 61.5,
+hearing match 0.89), pauses over 340 ms trimmed, speed 1.07, 59.4 s voice, 62 s film. New music bed for the new length.
