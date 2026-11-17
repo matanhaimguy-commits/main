@@ -16,3 +16,10 @@ Checks: seekcheck PASS (24 revisits, every 0.1 s); audio_qa: -14.9 LUFS mix / -1
 29.5 s checked frame by frame, no jump.
 Known: step 2 opens on the step tag alone for about 1 s (a planned rest under "שלב שני"); the last ~2 s are the end card
 over the music tail. Nobody has listened yet; a native Hebrew speaker must check the voice.
+
+## v2 (owner notes: trust, energy, real images, SFX, camera)
+Checks: seekcheck PASS; audio_qa -14.0 LUFS (muxed -14.1), true peak -1.3 dB after AAC, no dropouts, low-mid warning
+on 5 seconds (male voice; EQ applied); voice energy 65.2 (v1 take 27-ish), 3.35 words a second; render seam at 23.2 s
+checked frame by frame. 60 sound events in 46 s (v1: 45 in 58 s). Contact sheet every 2 s: every 2 s frame changes.
+Known: the brand card holds 1.7 s (planned rest under the logo); nobody has listened; Hebrew pronunciation not verified
+by a native speaker.

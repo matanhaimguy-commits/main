@@ -26,3 +26,18 @@
 ## Open
 - A native Hebrew speaker must listen to the voice (machine hearing is unreliable in Hebrew).
 - Nobody has listened to the mix.
+
+## v2 (2026-11-17), owner notes
+Owner: add trust elements ("ולא מפסיקים עד שזה עובד" after "מנהלים לך את החנות", with a popup); the voice was tired and
+flat; motion graphics alone were boring: make real-looking images on Higgsfield (a store, its products, Facebook ads of
+the same store, layered with entrance animations); more SFX and camera moves.
+
+| Decision | Choice |
+|---|---|
+| Script | one line added, the owner's words: "...מנהלים אותה בשבילכם, ולא מפסיקים עד שזה עובד." |
+| Voice | 3 takes (eleven_v3, stability 0 "creative"): Nimrod, Dorian, Nimrod+[excited]. Energy score (organic-engine audio_energy_gate.py): Dorian 61.7, others 30.9 / 27.4. Dorian (PBHwEnXdzx0yfhIO2UCH) chosen; pauses tightened (hook 110 ms, body 180 ms), speed 1.14 (house ceiling 1.16). Final: 43.8 s, 3.35 words a second, energy 65.2 |
+| Example store | "VELORA" (skincare), invented for the film and labelled "חנות לדוגמה" on screen; it is not a MaxDigital client |
+| Images | Higgsfield GPT Image 2.6 (2k, high): store on a laptop, product page on a phone, 2 packshots, 2 Facebook ad creatives, a night desk, a packing station, an office desk with order notifications; backgrounds removed from the laptop and the packing box for layers. An invented "4.9 rating" badge was edited out of one ad |
+| Trust popups (source: maxdigital.co.il, captured 2026-11-17) | "ולא מפסיקים עד שזה עובד" (owner's line); "צוות תפעול 24/7"; "מנהל תיק קבוע"; "חנות מוכנה תוך 7 עד 15 ימים" (site: "חנות מוכנה תוך 7–15 ימים"); "בבעלות מלאה שלכם" (site: "בבעלותכם המלאה"); "500+ חנויות נבנו ומנוהלות" (site: "500+ חנויות שנבנו ומנוהלות"); "דוח ביצועים כל יום" (site: "דוחות ביצועים יומיים") |
+| Camera | hook punch-in at 0 s, 10 punch-ins on key words, shakes on 5 stamps, 8 whip pans with motion blur, slow pushes on photos, a push into the phone on "keep your job" |
+| Sound | ElevenLabs music_v1 bed, 122 BPM, drop on the brand; 60 effect events (Earshot code-made bank + Kenney CC0) |
