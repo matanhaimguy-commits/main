@@ -41,3 +41,12 @@ the same store, layered with entrance animations); more SFX and camera moves.
 | Trust popups (source: maxdigital.co.il, captured 2026-11-17) | "ולא מפסיקים עד שזה עובד" (owner's line); "צוות תפעול 24/7"; "מנהל תיק קבוע"; "חנות מוכנה תוך 7 עד 15 ימים" (site: "חנות מוכנה תוך 7–15 ימים"); "בבעלות מלאה שלכם" (site: "בבעלותכם המלאה"); "500+ חנויות נבנו ומנוהלות" (site: "500+ חנויות שנבנו ומנוהלות"); "דוח ביצועים כל יום" (site: "דוחות ביצועים יומיים") |
 | Camera | hook punch-in at 0 s, 10 punch-ins on key words, shakes on 5 stamps, 8 whip pans with motion blur, slow pushes on photos, a push into the phone on "keep your job" |
 | Sound | ElevenLabs music_v1 bed, 122 BPM, drop on the brand; 60 effect events (Earshot code-made bank + Kenney CC0) |
+
+## v3 (2026-11-17), owner: "the voice sounds very rushed and robotic; use the Brandify Eagle voice with emotions"
+| Decision | Choice |
+|---|---|
+| Voice | Brandify Eagle (Y5opOXX7EecGzeA6UzMF), eleven_v3, an emotion tag per line ([warmly] [curious], [serious], [frustrated], [sighs] [tired], [excited], [confident], [proudly], [emphatic], [relaxed], [sincere]), script in audio/v3/script_tagged.txt |
+| Takes | 3 (stability 0.0, 0.0, 0.5). Energy: take 3 59.6, take 1 59.1, take 2 54.6; hearing match take 3 0.88, take 1 0.83; no tag read aloud. Take 3 chosen |
+| Pace | pauses over 340 ms trimmed (hook 200 ms), speed 1.07 (v2 was 1.14). 56.7 s, speech pace 2.68 words a second (v1 2.2, v2 3.35), pitch spread 21 semitones, energy 63.4 |
+| Music | new ElevenLabs music_v1 bed, 108 BPM, emotional build, drop on the brand at 18.7 s |
+| Picture | unchanged from v2; every cue follows the new word timings |
