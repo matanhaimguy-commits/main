@@ -23,3 +23,8 @@ on 5 seconds (male voice; EQ applied); voice energy 65.2 (v1 take 27-ish), 3.35 
 checked frame by frame. 60 sound events in 46 s (v1: 45 in 58 s). Contact sheet every 2 s: every 2 s frame changes.
 Known: the brand card holds 1.7 s (planned rest under the logo); nobody has listened; Hebrew pronunciation not verified
 by a native speaker.
+
+## v3 (Brandify Eagle voice with emotion tags)
+Checks: seekcheck PASS; audio_qa -14.1 LUFS, true peak -1.4 dB after AAC, no dropouts; low-mid warning on 8 half-seconds
+(the Eagle is a deep baritone; extra EQ cut at 180 and 280 Hz applied, down from 12); seam at 29.6 s clean; 59.3 s.
+Voice: energy 63.4, pitch spread 21 semitones, speech pace 2.68 words a second, speed 1.07. Nobody has listened yet.
