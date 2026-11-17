@@ -28,3 +28,8 @@ by a native speaker.
 Checks: seekcheck PASS; audio_qa -14.1 LUFS, true peak -1.4 dB after AAC, no dropouts; low-mid warning on 8 half-seconds
 (the Eagle is a deep baritone; extra EQ cut at 180 and 280 Hz applied, down from 12); seam at 29.6 s clean; 59.3 s.
 Voice: energy 63.4, pitch spread 21 semitones, speech pace 2.68 words a second, speed 1.07. Nobody has listened yet.
+
+## v4 ("we also teach you")
+Checks: seekcheck PASS; audio_qa -14.0 LUFS mix, -14.1 muxed, true peak -1.3 dB after AAC, no dropouts; the Eagle
+low-mid warning as in v3; seam at 31 s clean; 62 s, 1860 frames. Teaching card overlap with the headline fixed before
+render. Nobody has listened yet.
