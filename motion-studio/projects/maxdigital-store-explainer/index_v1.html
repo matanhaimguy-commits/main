@@ -1,0 +1,442 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>MaxDigital: חנות שמנוהלת בשבילכם</title>
+<style>
+@font-face { font-family: "Heebo"; font-weight: 400; src: url(assets/fonts/heebo-hebrew-400-normal.woff2); unicode-range: U+0590-05FF, U+FB1D-FB4F; }
+@font-face { font-family: "Heebo"; font-weight: 500; src: url(assets/fonts/heebo-hebrew-500-normal.woff2); unicode-range: U+0590-05FF, U+FB1D-FB4F; }
+@font-face { font-family: "Heebo"; font-weight: 700; src: url(assets/fonts/heebo-hebrew-700-normal.woff2); unicode-range: U+0590-05FF, U+FB1D-FB4F; }
+@font-face { font-family: "Heebo"; font-weight: 800; src: url(assets/fonts/heebo-hebrew-800-normal.woff2); unicode-range: U+0590-05FF, U+FB1D-FB4F; }
+@font-face { font-family: "Heebo"; font-weight: 500; src: url(assets/fonts/heebo-latin-500-normal.woff2); unicode-range: U+0000-00FF, U+2010-2027; }
+@font-face { font-family: "Heebo"; font-weight: 700; src: url(assets/fonts/heebo-latin-700-normal.woff2); unicode-range: U+0000-00FF, U+2010-2027; }
+@font-face { font-family: "Heebo"; font-weight: 800; src: url(assets/fonts/heebo-latin-800-normal.woff2); unicode-range: U+0000-00FF, U+2010-2027; }
+html, body { margin: 0; background: #00172E; }
+canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script type="module">
+// MaxDigital "a store that someone else builds and runs for you": Hebrew remake of the Readymerce explainer grammar
+// (dream, second job, five chores, brand, three steps, reframe, qualify CTA) as motion graphics, 16:9.
+// Signature device: everything is first DRAWN as a sky-blue outline, then FILLS (the original's sketch-to-colour reveal).
+// Clock: audio/words.js (ElevenLabs take 1); every cue is a spoken word index, nothing retyped. Treatment: docs/treatment.md.
+import { spring, clamp } from '../../lib/motion.js';
+import WORDS from './audio/words.js';
+
+const cv = document.getElementById('c');
+const ctx = cv.getContext('2d');
+const W = 1920, H = 1080;
+const C = {
+  navy: '#00172E', navy2: '#022544', deep: '#1D2088', sky: '#00A4F0', ice: '#7DCEF4', white: '#FFFFFF',
+  mist: '#A9BED3', dim: '#5B7590', panel: '#0A2A4A', panel2: '#0E3459', grey: '#3B4D60',
+};
+const F = (w, s) => `${w} ${s}px Heebo`;
+
+// ---------- springs and helpers ----------
+const TYPE = [190, 26], POP = [320, 20], SOFT = [90, 19], SNAP = [420, 30];
+const sp = (t, t0, [k, d] = TYPE) => spring(t - t0, k, d);
+const mix = (a, b, p) => a + (b - a) * p;
+const smooth = (x) => { x = clamp(x); return x * x * x * (x * (x * 6 - 15) + 10); };
+const ramp = (t, t0, dur) => smooth((t - t0) / dur);
+const S = (i) => WORDS.words[i].s, E = (i) => WORDS.words[i].e;
+const VO_END = WORDS.words[WORDS.words.length - 1].e;
+const T_END = VO_END + 2.8;
+
+// ---------- drawing primitives ----------
+function rr(x, y, w, h, r) {
+  r = Math.min(r, w / 2, h / 2);
+  ctx.beginPath();
+  ctx.moveTo(x + r, y); ctx.lineTo(x + w - r, y); ctx.arcTo(x + w, y, x + w, y + r, r);
+  ctx.lineTo(x + w, y + h - r); ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
+  ctx.lineTo(x + r, y + h); ctx.arcTo(x, y + h, x, y + h - r, r);
+  ctx.lineTo(x, y + r); ctx.arcTo(x, y, x + r, y, r); ctx.closePath();
+}
+// the signature device: outline draws itself (pDraw), then the fill comes up (pFill)
+function dbox(x, y, w, h, r, pDraw, pFill, fill = C.panel, stroke = C.sky, lw = 3) {
+  if (pDraw <= 0) return;
+  const per = 2 * (w + h);
+  if (pFill > 0) { rr(x, y, w, h, r); ctx.save(); ctx.globalAlpha *= clamp(pFill); ctx.fillStyle = fill; ctx.fill(); ctx.restore(); }
+  rr(x, y, w, h, r);
+  ctx.save(); ctx.lineWidth = lw; ctx.strokeStyle = stroke; ctx.lineJoin = 'round';
+  if (pDraw < 1) { ctx.setLineDash([per * pDraw, per]); }
+  ctx.globalAlpha *= mix(1, 0.55, clamp(pFill)); ctx.stroke(); ctx.restore();
+}
+function dline(pts, p, color = C.sky, lw = 4) {
+  if (p <= 0) return;
+  let len = 0; for (let i = 1; i < pts.length; i++) len += Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
+  ctx.save(); ctx.beginPath(); ctx.moveTo(...pts[0]); for (let i = 1; i < pts.length; i++) ctx.lineTo(...pts[i]);
+  ctx.lineWidth = lw; ctx.strokeStyle = color; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  if (p < 1) ctx.setLineDash([len * p, len]); ctx.stroke(); ctx.restore();
+}
+function T(str, x, y, size, weight = 700, color = C.white, align = 'right', alpha = 1) {
+  if (alpha <= 0) return;
+  ctx.save(); ctx.globalAlpha *= clamp(alpha); ctx.font = F(weight, size); ctx.fillStyle = color;
+  ctx.direction = 'rtl'; ctx.textAlign = align; ctx.textBaseline = 'alphabetic'; ctx.fillText(str, x, y); ctx.restore();
+}
+const tw = (str, size, weight = 700) => { ctx.save(); ctx.font = F(weight, size); const m = ctx.measureText(str).width; ctx.restore(); return m; };
+// a headline line that springs up from below its baseline (masked)
+function rise(str, x, y, size, t, t0, weight = 800, color = C.white, align = 'right') {
+  const p = sp(t, t0, TYPE); if (p <= 0) return;
+  ctx.save(); ctx.beginPath(); ctx.rect(0, y - size * 1.15, W, size * 1.45); ctx.clip();
+  T(str, x, y + (1 - p) * size * 1.1, size, weight, color, align, clamp(p * 1.6)); ctx.restore();
+}
+// sky pill with dark text (step tags, badges, the CTA)
+function pill(str, cx, cy, size, p, fill = C.sky, color = C.navy, padX = 0.9) {
+  if (p <= 0) return;
+  const w = tw(str, size, 800) + size * padX * 2, h = size * 1.75;
+  ctx.save(); ctx.translate(cx, cy); ctx.scale(mix(0.6, 1, p), mix(0.6, 1, p)); ctx.globalAlpha *= clamp(p * 1.5);
+  rr(-w / 2, -h / 2, w, h, h / 2); ctx.fillStyle = fill; ctx.fill();
+  T(str, 0, size * 0.36, size, 800, color, 'center'); ctx.restore();
+  return w;
+}
+function check(cx, cy, s, p, color = C.sky, lw = 10) { dline([[cx - s * 0.5, cy], [cx - s * 0.12, cy + s * 0.38], [cx + s * 0.55, cy - s * 0.42]], p, color, lw); }
+
+// ---------- icons (line art, drawn with the device) ----------
+function icon(kind, cx, cy, s, p, color = C.sky) {
+  const L = (pts, q = p) => dline(pts.map(([a, b]) => [cx + a * s, cy + b * s]), q, color, Math.max(3, s * 0.07));
+  const box = (x, y, w, h, r = 0.08) => dbox(cx + x * s, cy + y * s, w * s, h * s, r * s, p, 0, C.panel, color, Math.max(3, s * 0.07));
+  if (kind === 'site') { box(-0.5, -0.38, 1, 0.76); L([[-0.5, -0.18], [0.5, -0.18]]); L([[-0.32, 0.02], [0.05, 0.02]]); L([[-0.32, 0.18], [0.3, 0.18]]); }
+  if (kind === 'truck') { box(-0.52, -0.25, 0.62, 0.42); L([[0.1, -0.08], [0.32, -0.08], [0.5, 0.08], [0.5, 0.17], [0.1, 0.17]]);
+    ctx.save(); ctx.lineWidth = s * 0.07; ctx.strokeStyle = color; ctx.globalAlpha *= clamp(p * 2);
+    for (const x of [-0.3, 0.3]) { ctx.beginPath(); ctx.arc(cx + x * s, cy + 0.27 * s, 0.09 * s, 0, Math.PI * 2 * clamp(p)); ctx.stroke(); } ctx.restore(); }
+  if (kind === 'mega') { L([[-0.45, -0.1], [-0.45, 0.12], [-0.2, 0.12], [0.35, 0.38], [0.35, -0.36], [-0.2, -0.1], [-0.45, -0.1]]); L([[-0.3, 0.12], [-0.22, 0.4]]); L([[0.5, -0.12], [0.5, 0.14]]); }
+  if (kind === 'angry') { box(-0.48, -0.36, 0.96, 0.62, 0.2); L([[-0.2, 0.26], [-0.3, 0.44], [0.0, 0.26]]);
+    L([[-0.26, -0.18], [-0.08, -0.08]]); L([[0.26, -0.18], [0.08, -0.08]]); L([[-0.16, 0.1], [0.0, 0.03], [0.16, 0.1]]); }
+  if (kind === 'happy') { box(-0.48, -0.36, 0.96, 0.62, 0.2); L([[-0.2, 0.26], [-0.3, 0.44], [0.0, 0.26]]);
+    L([[-0.2, -0.12], [-0.12, -0.12]]); L([[0.12, -0.12], [0.2, -0.12]]); L([[-0.18, 0.04], [0.0, 0.12], [0.18, 0.04]]); }
+  if (kind === 'box') { L([[-0.45, -0.18], [0, -0.38], [0.45, -0.18], [0.45, 0.28], [0, 0.46], [-0.45, 0.28], [-0.45, -0.18]]); L([[-0.45, -0.18], [0, 0.0], [0.45, -0.18]]); L([[0, 0.0], [0, 0.46]]); }
+  if (kind === 'chart') { L([[-0.48, 0.38], [-0.48, -0.42]]); L([[-0.48, 0.38], [0.5, 0.38]]); L([[-0.36, 0.18], [-0.1, 0.0], [0.08, 0.1], [0.42, -0.3]]); }
+  if (kind === 'brief') { box(-0.48, -0.2, 0.96, 0.6, 0.08); L([[-0.16, -0.2], [-0.16, -0.36], [0.16, -0.36], [0.16, -0.2]]); L([[-0.48, 0.04], [0.48, 0.04]]); }
+}
+
+// ---------- the store window (the film's recurring object) ----------
+// st: { draw: t of the outline, fill: t of the fill, grey: 0..1, parts:{logo,tiles,btn}: t of each part's highlight }
+function storeWin(t, x, y, w, h, st) {
+  const pd = (k = 0) => ramp(t, st.draw + k, 0.7), pf = (k = 0) => (st.fill == null ? 0 : sp(t, st.fill + k, SOFT));
+  const g = st.grey || 0, fillC = g > 0.5 ? '#1C2A38' : C.panel, acc = g > 0.5 ? C.grey : C.sky;
+  dbox(x, y, w, h, 22, pd(0), pf(0), fillC, acc, 4);
+  const bar = h * 0.11;
+  dline([[x, y + bar], [x + w, y + bar]], pd(0.2), acc, 3);
+  ctx.save(); ctx.globalAlpha *= clamp(pd(0.25) * 2);
+  for (let i = 0; i < 3; i++) { ctx.beginPath(); ctx.arc(x + w - 34 - i * 30, y + bar / 2, 8, 0, 7); ctx.fillStyle = i === 0 ? acc : C.dim; ctx.fill(); }
+  ctx.restore();
+  // logo slot + nav
+  const lp = st.parts && st.parts.logo != null ? sp(t, st.parts.logo, POP) : 0;
+  dbox(x + w - 64 - w * 0.2, y + bar + 28, w * 0.2, 46, 10, pd(0.35), Math.max(pf(0.1) * 0.6, lp), lp > 0 ? C.sky : C.panel2, acc, 3);
+  for (let i = 0; i < 3; i++) dline([[x + 70 + i * 120, y + bar + 51], [x + 150 + i * 120, y + bar + 51]], pd(0.45 + i * 0.06), g > 0.5 ? C.grey : C.mist, 6);
+  // hero block
+  const hy = y + bar + 104, hh = h * 0.27;
+  dbox(x + 48, hy, w - 96, hh, 14, pd(0.55), pf(0.25), g > 0.5 ? '#223345' : C.deep, acc, 3);
+  dline([[x + w - 110, hy + hh * 0.38], [x + w - 110 - w * 0.36, hy + hh * 0.38]], pd(0.75) * clamp(pf(0.35) * 3 + (st.fill == null ? 1 : 0)), C.white, 14);
+  dline([[x + w - 110, hy + hh * 0.66], [x + w - 110 - w * 0.22, hy + hh * 0.66]], pd(0.8), C.ice, 8);
+  // product tiles
+  const tp = st.parts && st.parts.tiles != null ? sp(t, st.parts.tiles, POP) : 0;
+  const ty = hy + hh + 34, tW = (w - 96 - 2 * 28) / 3, tH = h - (ty - y) - 120;
+  for (let i = 0; i < 3; i++) {
+    const tx = x + w - 48 - (i + 1) * tW - i * 28, k = 0.8 + i * 0.12;
+    dbox(tx, ty, tW, tH, 12, pd(k), Math.max(pf(0.35 + i * 0.08), tp), tp > 0 ? C.panel2 : C.panel, acc, 3);
+    dbox(tx + 18, ty + 18, tW - 36, tH * 0.5, 8, pd(k + 0.1), Math.max(pf(0.45 + i * 0.08) * 0.7, tp), tp > 0 ? C.ice : '#173E66', acc, 2);
+    dline([[tx + tW - 22, ty + tH * 0.72], [tx + tW - 22 - tW * 0.55, ty + tH * 0.72]], pd(k + 0.2), g > 0.5 ? C.grey : C.mist, 7);
+    dline([[tx + tW - 22, ty + tH * 0.86], [tx + tW - 22 - tW * 0.3, ty + tH * 0.86]], pd(k + 0.25), acc, 7);
+  }
+  // buy button
+  const bp = st.parts && st.parts.btn != null ? sp(t, st.parts.btn, POP) : 0;
+  dbox(x + w / 2 - 130, y + h - 92, 260, 56, 28, pd(1.0), Math.max(pf(0.5), bp), g > 0.5 ? C.grey : C.sky, acc, 3);
+}
+// a notification chip ("הזמנה חדשה" etc.), springs in from the side
+function chip(str, x, y, t, t0, ic = 'check', w = 330) {
+  const p = sp(t, t0, POP); if (p <= 0) return;
+  ctx.save(); ctx.translate(x + (1 - p) * 90, y); ctx.globalAlpha *= clamp(p * 1.6);
+  rr(-w, -40, w, 80, 18); ctx.fillStyle = C.white; ctx.fill();
+  ctx.beginPath(); ctx.arc(-44, 0, 22, 0, 7); ctx.fillStyle = C.sky; ctx.fill();
+  if (ic === 'check') check(-44, 1, 22, 1, C.white, 5);
+  T(str, -82, 13, 36, 700, C.navy, 'right'); ctx.restore();
+}
+
+// ---------- scenes ----------
+const RX = 1790;               // the right margin text column (RTL)
+const K = {
+  dream: 0, second: 12, chores: 20, quit: 37, brand: 43, s1: 50, s2: 68, s3: 86, reframe: 96, cta: 117,
+};
+const CUT = [0, S(K.second), S(K.chores), S(K.quit), S(K.brand), S(K.s1), S(K.s2), S(K.s3), S(K.reframe), S(K.cta), T_END];
+
+function sceneDream(t) {
+  T('תדמיינו', RX, 236, 64, 800, C.sky, 'right', sp(t, -0.2));
+  rise('חנות אונליין', RX, 360, 120, t, S(3) - 0.08);
+  rise('שמישהו אחר בנה', RX, 486, 92, t, S(5) - 0.05, 700, C.mist);
+  rise('ומנהל בשבילכם', RX, 600, 92, t, S(9) - 0.05, 800, C.sky);
+  storeWin(t, 150, 150, 860, 760, { draw: -0.75, fill: S(9) });
+  chip('הזמנה חדשה', 1060, 700, t, S(10));
+  chip('הזמנה חדשה', 1060, 800, t, S(11) + 0.2);
+  chip('נשלחה ללקוח', 1060, 900, t, S(11) + 0.55);
+}
+function sceneSecond(t) {
+  const t0 = S(K.second);
+  const drain = 1 - ramp(t, S(17), 0.8);
+  storeWin(t, 150, 150, 860, 760, { draw: -9, fill: drain > 0.02 ? -9 : null, grey: 1 - drain });
+  T('בדרך כלל', RX, 300, 52, 700, C.mist, 'right', sp(t, t0));
+  rise('חנות אונליין', RX, 430, 110, t, S(15) - 0.05);
+  // the stamp: a second job
+  const p = sp(t, S(18) - 0.04, SNAP);
+  if (p > 0) {
+    ctx.save(); ctx.translate(1450, 590); ctx.rotate(-0.06); ctx.scale(mix(1.7, 1, p), mix(1.7, 1, p)); ctx.globalAlpha *= clamp(p * 2);
+    const w = tw('= עבודה שנייה', 104, 800) + 70;
+    rr(-w / 2, -78, w, 150, 16); ctx.lineWidth = 7; ctx.strokeStyle = C.sky; ctx.stroke();
+    T('= עבודה שנייה', 0, 34, 104, 800, C.white, 'center'); ctx.restore();
+  }
+}
+const CHORES = [
+  { w: 20, label: 'בונים את האתר', ic: 'site' }, { w: 24, label: 'מחפשים ספקים', ic: 'truck' },
+  { w: 26, label: 'כותבים מודעות', ic: 'mega' }, { w: 29, label: 'עונים ללקוחות', ic: 'angry' },
+  { w: 33, label: 'שולחים הזמנות', ic: 'box' },
+];
+function sceneChores(t) {
+  T('ובנוסף לעבודה שלכם', RX, 170, 50, 700, C.mist, 'right', sp(t, S(20)));
+  const cw = 300, gap = 30, x0 = W / 2 + (5 * cw + 4 * gap) / 2;
+  CHORES.forEach((c, i) => {
+    const t0 = S(c.w) - 0.12, p = sp(t, t0, POP), x = x0 - (i + 1) * cw - i * gap, y = 260;
+    if (p <= 0) return;
+    ctx.save(); ctx.translate(x + cw / 2, y + 190 + (1 - p) * 60); ctx.globalAlpha *= clamp(p * 1.5);
+    dbox(-cw / 2, -190, cw, 380, 22, ramp(t, t0, 0.5), sp(t, t0 + 0.35, SOFT), C.panel, C.sky, 3);
+    icon(c.ic, 0, -60, 150, ramp(t, t0 + 0.1, 0.6), c.ic === 'angry' ? C.ice : C.sky);
+    T(c.label, 0, 120, 42, 700, C.white, 'center'); ctx.restore();
+  });
+  // every single day: a month of days ticks off
+  const d0 = S(34) - 0.1;
+  if (t >= d0 - 0.2) {
+    T('כל יום מחדש', RX, 760, 64, 800, C.sky, 'right', sp(t, d0));
+    for (let i = 0; i < 30; i++) {
+      const c = i % 15, r = Math.floor(i / 15), x = 1330 - (c + 1) * 70, y = 712 + r * 74;
+      const ti = d0 + 0.05 + i * 0.033;
+      dbox(x, y, 56, 56, 10, ramp(t, ti, 0.25), sp(t, ti + 0.12, POP) * 0.9, C.panel2, C.sky, 2);
+      check(x + 28, y + 28, 30, ramp(t, ti + 0.12, 0.2), C.ice, 5);
+    }
+  }
+}
+function sceneQuit(t) {
+  const t0 = S(K.quit);
+  // the chores slump into a grey pile
+  CHORES.forEach((c, i) => {
+    const p = ramp(t, t0 + i * 0.07, 0.8), x = mix(260 + i * 140, 520 + (i % 2) * 60, p), y = mix(380, 700 - i * 52, p);
+    ctx.save(); ctx.translate(x, y); ctx.rotate(mix(0, (i % 2 ? 0.16 : -0.12) * (1 + i * 0.3), p));
+    dbox(-170, -46, 340, 92, 16, 1, 1, '#1C2A38', C.grey, 3);
+    T(c.label, 0, 14, 38, 700, C.mist, 'center', 0.85); ctx.restore();
+  });
+  rise('זה מתיש.', RX, 420, 130, t, t0);
+  rise('ורוב האנשים', RX, 580, 86, t, S(39), 700, C.mist);
+  rise('פשוט מוותרים.', RX, 690, 86, t, S(41), 800, C.white);
+  // the progress bar of the dream drains out
+  const bp = 1 - ramp(t, S(41), 1.1);
+  dbox(1090, 780, 700, 30, 15, sp(t, t0 + 0.2), 1, '#1C2A38', C.grey, 2);
+  ctx.save(); rr(1090 + 700 * (1 - 0.72 * bp), 780, 700 * 0.72 * bp, 30, 15); ctx.fillStyle = C.grey; ctx.fill(); ctx.restore();
+}
+function sceneBrand(t) {
+  const t0 = S(K.brand);
+  // the pile is pulled into the mark
+  CHORES.forEach((c, i) => {
+    const p = ramp(t, S(K.brand) - 0.05 + i * 0.04, 0.45);
+    if (p >= 1) return;
+    const x = mix(520 + (i % 2) * 60, 960, p), y = mix(700 - i * 52, 470, p), s = 1 - p;
+    ctx.save(); ctx.translate(x, y); ctx.scale(s, s); ctx.globalAlpha *= 1 - p;
+    dbox(-170, -46, 340, 92, 16, 1, 1, '#1C2A38', C.grey, 3); T(c.label, 0, 14, 38, 700, C.mist, 'center'); ctx.restore();
+  });
+  const p = sp(t, t0 + 0.2, SOFT), wipe = ramp(t, t0 + 0.2, 0.75);
+  const lw = 1100, lh = lw * LOGO.height / LOGO.width;
+  ctx.save(); ctx.translate(960, 470); ctx.scale(mix(0.92, 1, p), mix(0.92, 1, p));
+  ctx.beginPath(); ctx.rect(-lw / 2 - 20, -lh, (lw + 40) * wipe, lh * 2); ctx.clip();
+  ctx.drawImage(LOGO, -lw / 2, -lh / 2, lw, lh); ctx.restore();
+  dline([[960 + 360, 590], [960 - 360, 590]], ramp(t, t0 + 0.35, 0.6), C.sky, 4);
+  rise('לוקחים מכם את כל זה.', 960, 720, 84, t, S(45) - 0.05, 800, C.white, 'center');
+}
+function stepTag(t, n, t0) { pill(`שלב ${n}`, RX - 120, 170, 46, sp(t, t0 - 0.05, POP)); }
+function sceneS1(t) {
+  const t0 = S(K.s1);
+  stepTag(t, 1, t0);
+  rise('חוקרים נישה', RX, 330, 96, t, S(52) - 0.05);
+  rise('שכבר מוכיחה את עצמה', RX, 440, 72, t, S(54) - 0.05, 700, C.mist);
+  // the niche chart (out at "ובונים"), then the store builds again with its parts
+  const out = ramp(t, S(58) - 0.1, 0.45);
+  if (out < 1) {
+    ctx.save(); ctx.globalAlpha *= 1 - out; ctx.translate(-out * 120, 0);
+    dbox(170, 220, 820, 640, 24, ramp(t, t0, 0.7), sp(t, t0 + 0.5, SOFT), C.panel, C.sky, 3);
+    icon('chart', 580, 540, 260, ramp(t, t0 + 0.3, 0.6) * (1 - ramp(t, S(53) - 0.2, 0.3)), C.dim);
+    const P = [[260, 760], [380, 720], [480, 735], [600, 640], [700, 600], [800, 470], [900, 330]];
+    dline([[240, 790], [940, 790]], ramp(t, S(53), 0.4), C.dim, 3);
+    dline(P, ramp(t, S(53) + 0.1, 1.2), C.sky, 8);
+    const hp = sp(t, S(55), POP);
+    if (hp > 0) { ctx.save(); ctx.globalAlpha *= hp; ctx.beginPath(); ctx.arc(900, 330, 18 * hp, 0, 7); ctx.fillStyle = C.ice; ctx.fill(); ctx.restore(); }
+    pill('ביקוש מוכח', 760, 300, 38, sp(t, S(55) + 0.15, POP), C.ice);
+    ctx.restore();
+  }
+  if (t >= S(58) - 0.15) {
+    rise('ובונים לכם את כל החנות', RX, 560, 64, t, S(58) - 0.05, 800, C.sky);
+    storeWin(t, 170, 200, 820, 700, { draw: S(58) - 0.15, fill: S(61), parts: { logo: S(63), tiles: S(64), btn: S(66) } });
+    const tags = [['מיתוג', 63], ['דפי מוצר', 64], ['ספקים', 66]];
+    tags.forEach(([s, i], k) => pill(s, 1530 - k * 0, 680 + k * 90, 42, sp(t, S(i) - 0.04, POP), k === 2 ? C.ice : C.sky));
+    // all of it: a check stamp on the store
+    const cp = sp(t, S(67) - 0.05, SNAP);
+    if (cp > 0) {
+      ctx.save(); ctx.translate(900, 260); ctx.scale(mix(1.6, 1, cp), mix(1.6, 1, cp)); ctx.globalAlpha *= clamp(cp * 2);
+      ctx.beginPath(); ctx.arc(0, 0, 72, 0, 7); ctx.fillStyle = C.sky; ctx.fill(); check(0, 2, 70, 1, C.navy, 12); ctx.restore();
+      pill('הכול', 1530, 950, 42, cp, C.white);
+    }
+  }
+}
+const PANELS = [
+  { w: 78, label: 'מודעות', ic: 'chart' }, { w: 79, label: 'שיווק', ic: 'mega' },
+  { w: 80, label: 'שירות לקוחות', ic: 'happy' }, { w: 84, label: 'משלוח הזמנות', ic: 'truck' },
+];
+function sceneS2(t) {
+  const t0 = S(K.s2);
+  stepTag(t, 2, t0);
+  // "the part others don't do": highlighted, then "we run it for you"
+  const hp = sp(t, S(70) - 0.05);
+  if (hp > 0) {
+    const w = tw('החלק שאחרים לא עושים', 64, 800) + 50;
+    ctx.save(); ctx.globalAlpha *= clamp(hp * 1.5); rr(RX - w + 25 + (1 - hp) * w * 0, 262, w * hp, 96, 14); ctx.fillStyle = C.deep; ctx.fill(); ctx.restore();
+    T('החלק שאחרים לא עושים', RX, 330, 64, 800, C.ice, 'right', hp);
+  }
+  rise('מנהלים אותה', RX, 480, 104, t, S(74) - 0.05);
+  rise('בשבילכם.', RX, 590, 104, t, S(76) - 0.05, 800, C.sky);
+  // four panels: outlines draw on "מנהלים", each fills and comes alive on its word
+  const pw = 400, ph = 330, gx = 30, gy = 30, x0 = 140, y0 = 180;
+  PANELS.forEach((pn, i) => {
+    const c = i % 2, r = Math.floor(i / 2), x = x0 + (1 - c) * (pw + gx), y = y0 + r * (ph + gy);
+    const td = S(70) + i * 0.15, tf = S(pn.w) - 0.08, on = sp(t, tf, POP);
+    dbox(x, y, pw, ph, 22, ramp(t, td, 0.6), sp(t, tf, SOFT), C.panel2, on > 0.1 ? C.sky : C.dim, 3);
+    icon(pn.ic, x + pw / 2, y + 125, 130, ramp(t, tf, 0.5), C.sky);
+    T(pn.label, x + pw / 2, y + ph - 48, 44, 700, C.white, 'center', on);
+    // a live detail inside each panel once it is on
+    if (on > 0) {
+      const lt = t - tf;
+      if (pn.ic === 'chart') for (let b = 0; b < 4; b++) { const bh = 40 + 24 * b * clamp(lt / 1.2); ctx.save(); ctx.globalAlpha *= 0.35; rr(x + 270 + b * 26, y + 200 - bh, 18, bh, 4); ctx.fillStyle = C.ice; ctx.fill(); ctx.restore(); }
+      if (pn.ic === 'truck') { const q = clamp(lt / 1.4); dline([[x + 40, y + 228], [x + pw - 40, y + 228]], 1, C.dim, 3); ctx.save(); ctx.beginPath(); ctx.arc(x + 40 + (pw - 80) * q, y + 228, 10, 0, 7); ctx.fillStyle = C.ice; ctx.fill(); ctx.restore(); }
+    }
+  });
+}
+function sceneS3(t) {
+  const t0 = S(K.s3);
+  stepTag(t, 3, t0);
+  rise('החנות שלכם.', RX, 340, 110, t, S(88) - 0.05);
+  rise('המכירות שלכם.', RX, 470, 110, t, S(90) - 0.05, 800, C.sky);
+  rise('ואתם בקושי מרימים אצבע.', RX, 590, 60, t, S(92) - 0.05, 700, C.mist);
+  storeWin(t, 150, 190, 820, 720, { draw: t0 - 0.9, fill: t0 - 0.5, parts: { logo: t0 - 0.5, tiles: t0 - 0.5, btn: t0 - 0.5 } });
+  // "yours": a key tag on the store
+  pill('שלכם', 830, 172, 40, sp(t, S(89), POP), C.white);
+  // sales stack in
+  for (let i = 0; i < 4; i++) chip('מכירה חדשה', 1340, 680 + i * 95, t, S(90) + 0.15 + i * 0.32, 'check', 330);
+  // the stamp: barely lift a finger
+  const cp = sp(t, S(93) - 0.05, SNAP);
+  if (cp > 0) {
+    ctx.save(); ctx.translate(560, 560); ctx.scale(mix(1.8, 1, cp), mix(1.8, 1, cp)); ctx.globalAlpha *= clamp(cp * 2);
+    ctx.beginPath(); ctx.arc(0, 0, 130, 0, 7); ctx.lineWidth = 12; ctx.strokeStyle = C.sky; ctx.stroke();
+    ctx.beginPath(); ctx.arc(0, 0, 108, 0, 7); ctx.fillStyle = 'rgba(0,164,240,0.18)'; ctx.fill();
+    check(0, 6, 120, 1, C.white, 18); ctx.restore();
+  }
+}
+function sceneReframe(t) {
+  const t0 = S(K.reframe), split = S(111) - 0.1, sOut = ramp(t, split - 0.35, 0.35);
+  if (sOut < 1) {
+    ctx.save(); ctx.globalAlpha *= 1 - sOut;
+    rise('אתם לא מנהלים', 960, 300, 96, t, t0 - 0.05, 800, C.white, 'center');
+    rise('עסק בצד.', 960, 420, 96, t, S(99) - 0.08, 800, C.mist, 'center');
+    const w = tw('עסק בצד.', 96, 800);
+    dline([[960 + w / 2 + 20, 392], [960 - w / 2 - 20, 386]], ramp(t, S(100) + 0.1, 0.35), C.sky, 10);
+    rise('יש לכם חנות מנוהלת עד הסוף', 960, 590, 76, t, S(101) - 0.05, 800, C.sky, 'center');
+    const B = [['בנויה', 107], ['משווקת', 108], ['מופעלת', 109]];
+    let xs = [1360, 960, 560];
+    B.forEach(([s, i], k) => {
+      const p = sp(t, S(i) - 0.05, POP); if (p <= 0) return;
+      dbox(xs[k] - 180, 690, 360, 120, 60, ramp(t, S(i) - 0.05, 0.35), p, C.panel2, C.sky, 3);
+      T(s, xs[k] - 20, 768, 52, 800, C.white, 'center', p);
+      ctx.save(); ctx.beginPath(); ctx.arc(xs[k] + 140, 750, 22, 0, 7); ctx.fillStyle = C.sky; ctx.globalAlpha *= p; ctx.fill(); ctx.restore();
+      check(xs[k] + 140, 751, 22, ramp(t, S(i) + 0.1, 0.25), C.navy, 5);
+    });
+    ctx.restore();
+  }
+  if (t >= split - 0.2) {
+    rise('ואתם ממשיכים', RX, 300, 96, t, split, 800);
+    rise('בעבודה שיש לכם היום.', RX, 410, 76, t, S(113) - 0.05, 700, C.sky);
+    // your job: a working week; the store: orders keep coming
+    const p1 = sp(t, split + 0.1, SOFT), p2 = sp(t, split + 0.35, SOFT);
+    dbox(620, 520, 520, 380, 24, ramp(t, split + 0.1, 0.5), p1, C.panel2, C.sky, 3);
+    icon('brief', 880, 620, 120, ramp(t, split + 0.2, 0.5));
+    T('העבודה שלכם', 880, 760, 46, 700, C.white, 'center', p1);
+    'אבגדה'.split('').forEach((d, i) => { const q = sp(t, split + 0.4 + i * 0.08, POP); dbox(1040 - i * 90, 800, 72, 64, 10, q, q, C.deep, C.sky, 2); T(d, 1076 - i * 90, 845, 34, 700, C.white, 'center', q); });
+    dbox(120, 520, 460, 380, 24, ramp(t, split + 0.35, 0.5), p2, C.panel2, C.sky, 3);
+    T('החנות', 350, 600, 46, 700, C.white, 'center', p2);
+    for (let i = 0; i < 3; i++) chip('הזמנה חדשה', 520, 670 + i * 90, t, split + 0.7 + i * 0.45, 'check', 340);
+  }
+}
+function sceneCTA(t) {
+  const t0 = S(K.cta);
+  const lw = 640, lh = lw * LOGO.height / LOGO.width, lp = sp(t, t0 - 0.1, SOFT);
+  ctx.save(); ctx.globalAlpha *= clamp(lp * 1.4); ctx.drawImage(LOGO, 960 - lw / 2, 170 + (1 - lp) * 30, lw, lh); ctx.restore();
+  rise('רוצים לבדוק', 960, 420, 112, t, t0 - 0.05, 800, C.white, 'center');
+  rise('אם אתם מתאימים?', 960, 550, 112, t, S(119) - 0.05, 800, C.sky, 'center');
+  // the button and an arrow pointing down at the ad's button
+  const bp = sp(t, S(122) - 0.1, POP), bounce = Math.max(0, Math.sin((t - S(122)) * 5)) * 10 * clamp((t - S(122)) * 3);
+  const w = pill('לחצו למטה לבדיקת התאמה', 960, 720 - bounce * 0.3, 52, bp);
+  if (bp > 0) {
+    const ay = 840 + bounce;
+    dline([[960, ay], [960, ay + 120]], ramp(t, S(122), 0.3), C.sky, 12);
+    dline([[910, ay + 70], [960, ay + 124], [1010, ay + 70]], ramp(t, S(122) + 0.15, 0.25), C.sky, 12);
+  }
+  T('maxdigital.co.il', 960, 1030, 34, 500, C.mist, 'center', sp(t, S(122) + 0.4));
+}
+const SCENES = [sceneDream, sceneSecond, sceneChores, sceneQuit, sceneBrand, sceneS1, sceneS2, sceneS3, sceneReframe, sceneCTA];
+
+// ---------- ground: navy, a slow dotted grid, a soft light ----------
+function ground(t) {
+  ctx.fillStyle = C.navy; ctx.fillRect(0, 0, W, H);
+  const g = ctx.createRadialGradient(1300, 420, 50, 1300, 420, 1100);
+  g.addColorStop(0, 'rgba(0,164,240,0.10)'); g.addColorStop(1, 'rgba(0,164,240,0)'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  ctx.save(); ctx.fillStyle = 'rgba(125,206,244,0.07)';
+  const off = (t * 6) % 60;
+  for (let y = -60; y < H + 60; y += 60) for (let x = -60; x < W + 60; x += 60) { ctx.fillRect(x + off, y + off * 0.5, 3, 3); }
+  ctx.restore();
+}
+
+// ---------- sound cues, exported for the mix ----------
+window.EVENTS = [
+  ...[3, 5, 9].map((i) => ({ t: S(i), kind: 'rise' })), ...[10, 11].map((i) => ({ t: S(i), kind: 'chip' })), { t: S(11) + 0.55, kind: 'chip' },
+  { t: S(18), kind: 'stamp' }, ...CHORES.map((c) => ({ t: S(c.w) - 0.12, kind: 'card' })), { t: S(34), kind: 'ticks' },
+  { t: S(K.quit), kind: 'slump' }, { t: S(K.brand), kind: 'brand' }, { t: S(45), kind: 'suck' },
+  { t: S(K.s1), kind: 'step' }, { t: S(53), kind: 'draw' }, { t: S(58), kind: 'build' }, ...[63, 64, 66].map((i) => ({ t: S(i), kind: 'pop' })), { t: S(67), kind: 'stamp' },
+  { t: S(K.s2), kind: 'step' }, { t: S(70), kind: 'accent' }, ...PANELS.map((p) => ({ t: S(p.w), kind: 'pop' })),
+  { t: S(K.s3), kind: 'step' }, ...[0, 1, 2, 3].map((i) => ({ t: S(90) + 0.15 + i * 0.32, kind: 'chip' })), { t: S(93), kind: 'stamp' },
+  { t: S(100) + 0.1, kind: 'strike' }, ...[107, 108, 109].map((i) => ({ t: S(i), kind: 'pop' })), { t: S(111), kind: 'whoosh' },
+  ...[0, 1, 2].map((i) => ({ t: S(111) - 0.1 + 0.7 + i * 0.45, kind: 'chip' })),
+  { t: S(K.cta), kind: 'brand' }, { t: S(122), kind: 'button' },
+].sort((a, b) => a.t - b.t);
+window.CUES = { cuts: CUT, vo_end: VO_END, end: T_END };
+
+// ---------- frame ----------
+function seek(t) {
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1;
+  ground(t);
+  let k = 0; while (k < CUT.length - 2 && t >= CUT[k + 1]) k++;
+  const a = CUT[k], b = CUT[k + 1];
+  // a slow push per scene so holds breathe; a short push-out at each cut
+  const z = 1 + 0.025 * smooth((t - a) / Math.max(1, b - a));
+  const ex = k < SCENES.length - 1 ? ramp(t, b - 0.22, 0.22) : 0;
+  ctx.save(); ctx.translate(960, 540); ctx.scale(z, z); ctx.translate(-960 + ex * 160, -540);
+  ctx.globalAlpha = 1 - ex;
+  SCENES[k](t);
+  ctx.restore();
+  // brand stamp: the M mark, small, bottom-left, from the brand reveal on
+  if (k >= 4 && k < SCENES.length - 1) { ctx.save(); ctx.globalAlpha = 0.85 * clamp((t - S(K.brand)) * 2); ctx.drawImage(MARK, 60, 980, 68, 52); ctx.restore(); }
+}
+
+await Promise.all(['400', '500', '700', '800'].map((w) => document.fonts.load(F(w, 20), 'אבג abc 123')));
+const load = (src) => new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = no; i.src = src; });
+const LOGO = await load('assets/brand/logo.png');
+const MARK = await load('assets/brand/mark.png');
+window.DURATION = T_END;
+window.seek = seek;
+seek(0);
+</script>
+</body>
+</html>

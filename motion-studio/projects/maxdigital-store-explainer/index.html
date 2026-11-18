@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>MaxDigital: חנות שמנוהלת בשבילכם (v2)</title>
+<style>
+@font-face { font-family: "Heebo"; font-weight: 400; src: url(assets/fonts/heebo-hebrew-400-normal.woff2); unicode-range: U+0590-05FF, U+FB1D-FB4F; }
+@font-face { font-family: "Heebo"; font-weight: 500; src: url(assets/fonts/heebo-hebrew-500-normal.woff2); unicode-range: U+0590-05FF, U+FB1D-FB4F; }
+@font-face { font-family: "Heebo"; font-weight: 700; src: url(assets/fonts/heebo-hebrew-700-normal.woff2); unicode-range: U+0590-05FF, U+FB1D-FB4F; }
+@font-face { font-family: "Heebo"; font-weight: 800; src: url(assets/fonts/heebo-hebrew-800-normal.woff2); unicode-range: U+0590-05FF, U+FB1D-FB4F; }
+@font-face { font-family: "Heebo"; font-weight: 500; src: url(assets/fonts/heebo-latin-500-normal.woff2); unicode-range: U+0000-00FF, U+2010-2027, U+2605; }
+@font-face { font-family: "Heebo"; font-weight: 700; src: url(assets/fonts/heebo-latin-700-normal.woff2); unicode-range: U+0000-00FF, U+2010-2027, U+2605; }
+@font-face { font-family: "Heebo"; font-weight: 800; src: url(assets/fonts/heebo-latin-800-normal.woff2); unicode-range: U+0000-00FF, U+2010-2027, U+2605; }
+html, body { margin: 0; background: #00172E; }
+canvas { display: block; }
+</style>
+</head>
+<body>
+<canvas id="c" width="1920" height="1080"></canvas>
+<script type="module">
+// MaxDigital v2 (owner notes 2026-11-17): real images made on Higgsfield (one example store, VELORA, carried from the
+// store to the product page, the Facebook ads and the shipping), split into layers that enter separately; trust popups
+// from maxdigital.co.il; camera moves (hook punch, whip pans, punch-ins, shake on stamps); denser effects; an energetic
+// voice. The signature device of v1 stays: UI draws as a sky outline, then fills.
+// Clock: audio/words.js (v4: Brandify Eagle voice, emotion tags, 1.07x, "we also teach" script). Every cue is a spoken word index, nothing retyped.
+import { spring, clamp } from '../../lib/motion.js';
+import WORDS from './audio/words.js';
+
+const cv = document.getElementById('c');
+const ctx = cv.getContext('2d');
+const W = 1920, H = 1080;
+const C = {
+  navy: '#00172E', deep: '#1D2088', sky: '#00A4F0', ice: '#7DCEF4', white: '#FFFFFF', mist: '#A9BED3',
+  dim: '#5B7590', panel: '#0A2A4A', panel2: '#0E3459', grey: '#3B4D60', ink: '#0B1F33',
+};
+const F = (w, s) => `${w} ${s}px Heebo`;
+const TYPE = [190, 26], POP = [320, 19], SOFT = [90, 19], SNAP = [420, 30];
+const sp = (t, t0, [k, d] = TYPE) => spring(t - t0, k, d);
+const mix = (a, b, p) => a + (b - a) * p;
+const smooth = (x) => { x = clamp(x); return x * x * x * (x * (x * 6 - 15) + 10); };
+const ramp = (t, t0, dur) => smooth((t - t0) / dur);
+// v4 script (owner, 2026-11-17: "don't say we do everything; add that we also teach how"). Scenes up to step 2 keep the
+// v3 word numbers through OLD(); step 3 onward is written in v4 numbers through N().
+const OLD = (i) => i <= 48 ? i : i === 49 ? 48 : i <= 60 ? i - 1 : i === 61 ? 59 : i <= 66 ? i - 2 : i === 67 ? 64 : i - 3;
+const S = (i) => WORDS.words[OLD(i)].s, E = (i) => WORDS.words[OLD(i)].e;
+const NS = (i) => WORDS.words[i].s, NE = (i) => WORDS.words[i].e;
+const VO_END = WORDS.words[WORDS.words.length - 1].e;
+const T_END = VO_END + 2.6;
+
+// ---------- primitives ----------
+function rr(x, y, w, h, r) {
+  r = Math.min(r, w / 2, h / 2); ctx.beginPath();
+  ctx.moveTo(x + r, y); ctx.lineTo(x + w - r, y); ctx.arcTo(x + w, y, x + w, y + r, r);
+  ctx.lineTo(x + w, y + h - r); ctx.arcTo(x + w, y + h, x + w - r, y + h, r);
+  ctx.lineTo(x + r, y + h); ctx.arcTo(x, y + h, x, y + h - r, r);
+  ctx.lineTo(x, y + r); ctx.arcTo(x, y, x + r, y, r); ctx.closePath();
+}
+function dbox(x, y, w, h, r, pDraw, pFill, fill = C.panel, stroke = C.sky, lw = 3) {
+  if (pDraw <= 0) return;
+  const per = 2 * (w + h);
+  if (pFill > 0) { rr(x, y, w, h, r); ctx.save(); ctx.globalAlpha *= clamp(pFill); ctx.fillStyle = fill; ctx.fill(); ctx.restore(); }
+  rr(x, y, w, h, r); ctx.save(); ctx.lineWidth = lw; ctx.strokeStyle = stroke; ctx.lineJoin = 'round';
+  if (pDraw < 1) ctx.setLineDash([per * pDraw, per]);
+  ctx.globalAlpha *= mix(1, 0.55, clamp(pFill)); ctx.stroke(); ctx.restore();
+}
+function dline(pts, p, color = C.sky, lw = 4) {
+  if (p <= 0) return;
+  let len = 0; for (let i = 1; i < pts.length; i++) len += Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
+  ctx.save(); ctx.beginPath(); ctx.moveTo(...pts[0]); for (let i = 1; i < pts.length; i++) ctx.lineTo(...pts[i]);
+  ctx.lineWidth = lw; ctx.strokeStyle = color; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  if (p < 1) ctx.setLineDash([len * p, len]); ctx.stroke(); ctx.restore();
+}
+function T(str, x, y, size, weight = 700, color = C.white, align = 'right', alpha = 1, shadow = false) {
+  if (alpha <= 0) return;
+  ctx.save(); ctx.globalAlpha *= clamp(alpha); ctx.font = F(weight, size); ctx.fillStyle = color;
+  if (shadow) { ctx.shadowColor = 'rgba(0,10,25,0.75)'; ctx.shadowBlur = 24; ctx.shadowOffsetY = 4; }
+  ctx.direction = 'rtl'; ctx.textAlign = align; ctx.textBaseline = 'alphabetic'; ctx.fillText(str, x, y); ctx.restore();
+}
+const tw = (str, size, weight = 700) => { ctx.save(); ctx.font = F(weight, size); const m = ctx.measureText(str).width; ctx.restore(); return m; };
+function rise(str, x, y, size, t, t0, weight = 800, color = C.white, align = 'right', shadow = true) {
+  const p = sp(t, t0, TYPE); if (p <= 0) return;
+  ctx.save(); ctx.beginPath(); ctx.rect(0, y - size * 1.2, W, size * 1.55); ctx.clip();
+  T(str, x, y + (1 - p) * size * 1.1, size, weight, color, align, clamp(p * 1.6), shadow); ctx.restore();
+}
+function pill(str, cx, cy, size, p, fill = C.sky, color = C.navy, padX = 0.9) {
+  if (p <= 0) return 0;
+  const w = tw(str, size, 800) + size * padX * 2, h = size * 1.75;
+  ctx.save(); ctx.translate(cx, cy); ctx.scale(mix(0.6, 1, p), mix(0.6, 1, p)); ctx.globalAlpha *= clamp(p * 1.5);
+  rr(-w / 2, -h / 2, w, h, h / 2); ctx.fillStyle = fill; ctx.fill(); T(str, 0, size * 0.36, size, 800, color, 'center'); ctx.restore();
+  return w;
+}
+function check(cx, cy, s, p, color = C.sky, lw = 10) { dline([[cx - s * 0.5, cy], [cx - s * 0.12, cy + s * 0.38], [cx + s * 0.55, cy - s * 0.42]], p, color, lw); }
+function icon(kind, cx, cy, s, p, color = C.sky) {
+  const L = (pts) => dline(pts.map(([a, b]) => [cx + a * s, cy + b * s]), p, color, Math.max(3, s * 0.07));
+  const box = (x, y, w, h, r = 0.08) => dbox(cx + x * s, cy + y * s, w * s, h * s, r * s, p, 0, C.panel, color, Math.max(3, s * 0.07));
+  if (kind === 'site') { box(-0.5, -0.38, 1, 0.76); L([[-0.5, -0.18], [0.5, -0.18]]); L([[-0.32, 0.02], [0.05, 0.02]]); L([[-0.32, 0.18], [0.3, 0.18]]); }
+  if (kind === 'truck') { box(-0.52, -0.25, 0.62, 0.42); L([[0.1, -0.08], [0.32, -0.08], [0.5, 0.08], [0.5, 0.17], [0.1, 0.17]]);
+    ctx.save(); ctx.lineWidth = s * 0.07; ctx.strokeStyle = color; ctx.globalAlpha *= clamp(p * 2);
+    for (const x of [-0.3, 0.3]) { ctx.beginPath(); ctx.arc(cx + x * s, cy + 0.27 * s, 0.09 * s, 0, Math.PI * 2 * clamp(p)); ctx.stroke(); } ctx.restore(); }
+  if (kind === 'mega') { L([[-0.45, -0.1], [-0.45, 0.12], [-0.2, 0.12], [0.35, 0.38], [0.35, -0.36], [-0.2, -0.1], [-0.45, -0.1]]); L([[-0.3, 0.12], [-0.22, 0.4]]); L([[0.5, -0.12], [0.5, 0.14]]); }
+  if (kind === 'angry') { box(-0.48, -0.36, 0.96, 0.62, 0.2); L([[-0.2, 0.26], [-0.3, 0.44], [0.0, 0.26]]); L([[-0.26, -0.18], [-0.08, -0.08]]); L([[0.26, -0.18], [0.08, -0.08]]); L([[-0.16, 0.1], [0.0, 0.03], [0.16, 0.1]]); }
+  if (kind === 'box') { L([[-0.45, -0.18], [0, -0.38], [0.45, -0.18], [0.45, 0.28], [0, 0.46], [-0.45, 0.28], [-0.45, -0.18]]); L([[-0.45, -0.18], [0, 0.0], [0.45, -0.18]]); L([[0, 0.0], [0, 0.46]]); }
+  if (kind === 'chart') { L([[-0.48, 0.38], [-0.48, -0.42]]); L([[-0.48, 0.38], [0.5, 0.38]]); L([[-0.36, 0.18], [-0.1, 0.0], [0.08, 0.1], [0.42, -0.3]]); }
+  if (kind === 'shield') { L([[0, -0.46], [0.4, -0.3], [0.36, 0.1], [0, 0.46], [-0.36, 0.1], [-0.4, -0.3], [0, -0.46]]); L([[-0.16, 0.0], [-0.03, 0.14], [0.2, -0.14]]); }
+  if (kind === 'clock') { ctx.save(); ctx.lineWidth = s * 0.07; ctx.strokeStyle = color; ctx.beginPath(); ctx.arc(cx, cy, s * 0.42, 0, Math.PI * 2 * clamp(p)); ctx.stroke(); ctx.restore(); L([[0, -0.24], [0, 0], [0.18, 0.1]]); }
+  if (kind === 'user') { ctx.save(); ctx.lineWidth = s * 0.07; ctx.strokeStyle = color; ctx.beginPath(); ctx.arc(cx, cy - s * 0.16, s * 0.18, 0, Math.PI * 2 * clamp(p)); ctx.stroke(); ctx.restore(); L([[-0.34, 0.42], [-0.3, 0.2], [-0.12, 0.08], [0.12, 0.08], [0.3, 0.2], [0.34, 0.42]]); }
+  if (kind === 'doc') { box(-0.34, -0.44, 0.68, 0.88, 0.06); L([[-0.18, -0.2], [0.18, -0.2]]); L([[-0.18, 0], [0.18, 0]]); L([[-0.18, 0.2], [0.06, 0.2]]); }
+  if (kind === 'key') { ctx.save(); ctx.lineWidth = s * 0.07; ctx.strokeStyle = color; ctx.beginPath(); ctx.arc(cx - s * 0.22, cy, s * 0.18, 0, Math.PI * 2 * clamp(p)); ctx.stroke(); ctx.restore(); L([[-0.04, 0], [0.46, 0], [0.46, 0.16]]); L([[0.3, 0], [0.3, 0.14]]); }
+  if (kind === 'store') { L([[-0.46, -0.1], [-0.38, -0.4], [0.38, -0.4], [0.46, -0.1], [-0.46, -0.1]]); box(-0.4, -0.1, 0.8, 0.52, 0.02); L([[-0.12, 0.42], [-0.12, 0.12], [0.12, 0.12], [0.12, 0.42]]); }
+}
+
+// ---------- images: plates (full frame), blurred plates (built once), cutouts ----------
+function cover(img, zoom = 1, fx = 0.5, fy = 0.5, dx = 0, dy = 0) {
+  const s = Math.max(W / img.width, H / img.height) * zoom, w = img.width * s, h = img.height * s;
+  ctx.drawImage(img, W / 2 - w * fx + dx, H / 2 - h * fy + dy, w, h);
+}
+function bake(img, filter, zoom = 1.08) {
+  const c = document.createElement('canvas'); c.width = W; c.height = H; const g = c.getContext('2d');
+  g.filter = filter; const s = Math.max(W / img.width, H / img.height) * zoom, w = img.width * s, h = img.height * s;
+  g.drawImage(img, (W - w) / 2, (H - h) / 2, w, h); return c;
+}
+// a cutout or card image placed by its centre, with a spring entrance from an offset, a soft drop shadow
+function place(img, cx, cy, w, p, { dx = 0, dy = 120, rot = 0, sc = 0.85, shadow = 0.45, alpha = 1, radius = 0, clipH = null } = {}) {
+  if (p <= 0) return;
+  const h = clipH || w * img.height / img.width;
+  ctx.save(); ctx.translate(cx + (1 - p) * dx, cy + (1 - p) * dy); ctx.rotate(rot * (1 - p)); const s = mix(sc, 1, p); ctx.scale(s, s);
+  ctx.globalAlpha *= clamp(p * 1.4) * alpha;
+  if (shadow > 0) { ctx.shadowColor = `rgba(0,8,20,${shadow})`; ctx.shadowBlur = 50; ctx.shadowOffsetY = 26; }
+  if (radius > 0) { rr(-w / 2, -h / 2, w, h, radius); ctx.save(); ctx.fillStyle = '#000'; ctx.fill(); ctx.restore(); ctx.shadowColor = 'transparent'; ctx.clip(); }
+  ctx.drawImage(img, -w / 2, -h / 2, w, w * img.height / img.width);
+  ctx.restore();
+}
+// a navy scrim behind the Hebrew text column (right side) on photo scenes
+function scrim(a = 0.85, from = 0.42) {
+  const g = ctx.createLinearGradient(W, 0, W * from, 0);
+  g.addColorStop(0, `rgba(0,23,46,${a})`); g.addColorStop(0.55, `rgba(0,23,46,${a * 0.75})`); g.addColorStop(1, 'rgba(0,23,46,0)');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+}
+// white chip that springs in (orders, sales)
+function chip(str, sub, x, y, t, t0, w = 380) {
+  const p = sp(t, t0, POP); if (p <= 0) return;
+  ctx.save(); ctx.translate(x + (1 - p) * 90, y); ctx.globalAlpha *= clamp(p * 1.6);
+  ctx.shadowColor = 'rgba(0,8,20,0.35)'; ctx.shadowBlur = 30; ctx.shadowOffsetY = 12;
+  rr(-w, -46, w, 92, 20); ctx.fillStyle = C.white; ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.beginPath(); ctx.arc(-48, 0, 25, 0, 7); ctx.fillStyle = C.sky; ctx.fill(); check(-48, 1, 24, 1, C.white, 5);
+  T(str, -88, sub ? -2 : 13, 36, 800, C.navy, 'right'); if (sub) T(sub, -88, 30, 24, 500, C.dim, 'right');
+  ctx.restore();
+}
+// a trust popup: white card, sky icon disc, one line; springs up with overshoot
+function trust(str, ic, cx, cy, p, size = 40, sub = null) {
+  if (p <= 0) return;
+  const w = tw(str, size, 800) + 190, h = sub ? size * 3.1 : size * 2.4;
+  ctx.save(); ctx.translate(cx, cy + (1 - p) * 60); ctx.scale(mix(0.7, 1, p), mix(0.7, 1, p)); ctx.globalAlpha *= clamp(p * 1.5);
+  ctx.shadowColor = 'rgba(0,8,20,0.45)'; ctx.shadowBlur = 40; ctx.shadowOffsetY = 16;
+  rr(-w / 2, -h / 2, w, h, 26); ctx.fillStyle = C.white; ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.beginPath(); ctx.arc(w / 2 - 62, 0, 38, 0, 7); ctx.fillStyle = C.sky; ctx.fill();
+  icon(ic, w / 2 - 62, 0, 46, 1, C.white);
+  T(str, w / 2 - 118, sub ? -4 : size * 0.36, size, 800, C.navy, 'right');
+  if (sub) T(sub, w / 2 - 118, size * 1.05, size * 0.6, 500, C.dim, 'right');
+  ctx.restore();
+}
+function exampleTag(x, y, p) { pill('חנות לדוגמה', x, y, 24, p, 'rgba(0,23,46,0.82)', C.mist, 0.7); }
+
+// ---------- scene cuts (word indices) ----------
+const K = { dream: 0, second: 12, chores: 20, quit: 37, brand: 43, s1: 50, s2: 68, s2b: 82, s2c: 87 };
+const K4 = { s3: 88, own: 102, reframe: 108, job: 124, cta: 130 };
+const CUT = [0, S(K.second), S(K.chores), S(K.quit), S(K.brand), S(K.s1), S(K.s2), S(K.s2b) - 0.05, S(K.s2c) - 0.08, NS(K4.s3), NS(K4.own) - 0.1, NS(K4.reframe), NS(K4.job), NS(K4.cta), T_END];
+const RX = 1800;
+
+// 1. dream: the store already exists. Blurred plate, the laptop layer flies up out of it, orders arrive.
+function sceneDream(t) {
+  const lp = sp(t, -0.05, SOFT);
+  ctx.save(); ctx.globalAlpha = clamp(t * 4); ctx.drawImage(BL.store, 0, 0); ctx.restore();
+  ctx.save(); ctx.translate(0, 0);
+  const z = mix(1.18, 1.0, lp);
+  ctx.translate(700, 560); ctx.scale(z * 0.78, z * 0.78); ctx.translate(-700, -560);
+  ctx.globalAlpha = clamp(lp * 1.8);
+  ctx.shadowColor = 'rgba(0,8,20,0.6)'; ctx.shadowBlur = 60; ctx.shadowOffsetY = 30;
+  const s = W / IMG.storeCut.width; ctx.drawImage(IMG.storeCut, 700 - IMG.storeCut.width * s * 0.53, 560 - IMG.storeCut.height * s * 0.5 + (1 - lp) * 160, IMG.storeCut.width * s, IMG.storeCut.height * s);
+  ctx.restore();
+  exampleTag(330, 940, sp(t, 1.2));
+  scrim(0.9, 0.5);
+  T('תדמיינו', RX, 250, 66, 800, C.sky, 'right', sp(t, 0.0), true);
+  rise('חנות אונליין', RX, 380, 126, t, S(3) - 0.06);
+  rise('שמישהו אחר בנה', RX, 510, 92, t, S(5) - 0.05, 700, C.mist);
+  rise('ומנהל בשבילכם', RX, 626, 92, t, S(9) - 0.05, 800, C.sky);
+  chip('הזמנה חדשה', 'Renewal Serum', 1800, 760, t, S(9) + 0.05);
+  chip('הזמנה חדשה', 'Night Cream', 1800, 870, t, S(10) + 0.05);
+  chip('נשלחה ללקוח', 'Renewal Serum', 1800, 980, t, S(11) + 0.15);
+}
+// 2. the second job: a real night desk, stamp
+function sceneSecond(t) {
+  const t0 = S(K.second), q = (t - t0) / (CUT[2] - t0);
+  cover(IMG.pain, mix(1.12, 1.2, smooth(q)), 0.45, 0.5);
+  scrim(0.88, 0.45);
+  T('בדרך כלל', RX, 330, 56, 700, C.mist, 'right', sp(t, t0), true);
+  rise('חנות אונליין', RX, 460, 116, t, S(15) - 0.05);
+  const p = sp(t, S(18) - 0.04, SNAP);
+  if (p > 0) {
+    ctx.save(); ctx.translate(1420, 640); ctx.rotate(-0.06); ctx.scale(mix(1.8, 1, p), mix(1.8, 1, p)); ctx.globalAlpha *= clamp(p * 2);
+    const w = tw('= עבודה שנייה', 108, 800) + 80;
+    rr(-w / 2, -82, w, 158, 18); ctx.fillStyle = 'rgba(0,23,46,0.6)'; ctx.fill(); ctx.lineWidth = 8; ctx.strokeStyle = C.sky; ctx.stroke();
+    T('= עבודה שנייה', 0, 36, 108, 800, C.white, 'center'); ctx.restore();
+  }
+}
+const CHORES = [
+  { w: 20, label: 'בונים את האתר', ic: 'site' }, { w: 23, label: 'מחפשים ספקים', ic: 'truck' },
+  { w: 25, label: 'כותבים מודעות', ic: 'mega' }, { w: 27, label: 'עונים ללקוחות', ic: 'angry' },
+  { w: 31, label: 'שולחים הזמנות', ic: 'box' },
+];
+function choreCard(c, x, y, cw, ch, t, t0, grey = 0) {
+  dbox(x, y, cw, ch, 22, ramp(t, t0, 0.4), sp(t, t0 + 0.25, SOFT), grey ? '#1C2A38' : 'rgba(10,42,74,0.92)', grey ? C.grey : C.sky, 3);
+  icon(c.ic, x + cw / 2, y + ch * 0.38, ch * 0.4, ramp(t, t0 + 0.08, 0.5), grey ? C.grey : (c.ic === 'angry' ? C.ice : C.sky));
+  T(c.label, x + cw / 2, y + ch - 42, 40, 700, grey ? C.mist : C.white, 'center');
+}
+// 3. the five chores, one per word, over the same night desk (blurred), then a month ticks off
+function sceneChores(t) {
+  ctx.drawImage(BL.pain, 0, 0);
+  ctx.fillStyle = 'rgba(0,23,46,0.45)'; ctx.fillRect(0, 0, W, H);
+  T('ובנוסף לעבודה שלכם', RX, 170, 54, 800, C.mist, 'right', sp(t, S(20) - 0.2), true);
+  const cw = 310, gap = 28, x0 = W / 2 + (5 * cw + 4 * gap) / 2;
+  CHORES.forEach((c, i) => {
+    const t0 = S(c.w) - 0.12, p = sp(t, t0, POP); if (p <= 0) return;
+    const x = x0 - (i + 1) * cw - i * gap, y = 250;
+    ctx.save(); ctx.translate(x + cw / 2, y + 190 + (1 - p) * 70); ctx.rotate((1 - p) * (i % 2 ? 0.08 : -0.08)); ctx.globalAlpha *= clamp(p * 1.5);
+    choreCard(c, -cw / 2, -190, cw, 380, t, t0); ctx.restore();
+  });
+  const d0 = S(34) - 0.1;
+  if (t >= d0 - 0.2) {
+    T('כל יום מחדש', RX, 790, 72, 800, C.sky, 'right', sp(t, d0), true);
+    for (let i = 0; i < 30; i++) {
+      const c = i % 15, r = Math.floor(i / 15), x = 1290 - (c + 1) * 70, y = 730 + r * 76, ti = d0 + 0.05 + i * 0.022;
+      dbox(x, y, 58, 58, 10, ramp(t, ti, 0.2), sp(t, ti + 0.08, POP) * 0.95, C.panel2, C.sky, 2);
+      check(x + 29, y + 29, 30, ramp(t, ti + 0.1, 0.15), C.ice, 5);
+    }
+  }
+}
+// 4. it wears you out: the desk drains to grey, the chores slump
+function sceneQuit(t) {
+  const t0 = S(K.quit), g = ramp(t, t0, 0.6);
+  ctx.drawImage(BL.pain, 0, 0); ctx.save(); ctx.globalAlpha = g; ctx.drawImage(BL.painGrey, 0, 0); ctx.restore();
+  ctx.fillStyle = `rgba(0,23,46,${mix(0.45, 0.6, g)})`; ctx.fillRect(0, 0, W, H);
+  CHORES.forEach((c, i) => {
+    const p = ramp(t, t0 + i * 0.06, 0.7), x = mix(300 + i * 150, 560 + (i % 2) * 70, p), y = mix(420, 760 - i * 56, p);
+    ctx.save(); ctx.translate(x, y); ctx.rotate(mix(0, (i % 2 ? 0.16 : -0.12) * (1 + i * 0.3), p));
+    dbox(-180, -48, 360, 96, 16, 1, 1, '#1C2A38', C.grey, 3); T(c.label, 0, 14, 38, 700, C.mist, 'center', 0.9); ctx.restore();
+  });
+  rise('זה מתיש.', RX, 440, 140, t, t0);
+  rise('ורוב האנשים', RX, 600, 88, t, S(39), 700, C.mist);
+  rise('פשוט מוותרים.', RX, 712, 88, t, S(41), 800, C.white);
+}
+// 5. brand: a white flash, the pile is pulled into the official logo
+function sceneBrand(t) {
+  const t0 = S(K.brand);
+  CHORES.forEach((c, i) => {
+    const p = ramp(t, t0 - 0.05 + i * 0.04, 0.42); if (p >= 1) return;
+    ctx.save(); ctx.translate(mix(560 + (i % 2) * 70, 960, p), mix(760 - i * 56, 470, p)); ctx.scale(1 - p, 1 - p); ctx.globalAlpha *= 1 - p;
+    dbox(-180, -48, 360, 96, 16, 1, 1, '#1C2A38', C.grey, 3); T(c.label, 0, 14, 38, 700, C.mist, 'center'); ctx.restore();
+  });
+  const p = sp(t, t0 + 0.18, SOFT), wipe = ramp(t, t0 + 0.18, 0.6), lw = 1150, lh = lw * LOGO.height / LOGO.width;
+  ctx.save(); ctx.translate(960, 460); ctx.scale(mix(0.9, 1, p), mix(0.9, 1, p));
+  ctx.beginPath(); ctx.rect(-lw / 2 - 20, -lh, (lw + 40) * wipe, lh * 2); ctx.clip(); ctx.drawImage(LOGO, -lw / 2, -lh / 2, lw, lh); ctx.restore();
+  dline([[960 + 380, 590], [960 - 380, 590]], ramp(t, t0 + 0.4, 0.5), C.sky, 4);
+  rise('עושים את זה איתכם.', 960, 730, 92, t, S(45) - 0.05, 800, C.white, 'center', false);
+  const f = 1 - ramp(t, t0, 0.22); if (f > 0) { ctx.fillStyle = `rgba(255,255,255,${0.85 * f})`; ctx.fillRect(0, 0, W, H); }
+}
+function stepTag(t, n, t0) { pill(`שלב ${n}`, RX - 110, 160, 48, sp(t, t0 - 0.05, POP)); }
+// 6. step 1: research, then the real store is built piece by piece (laptop, brand product, product page, supplier stock)
+function sceneS1(t) {
+  const t0 = S(K.s1), build = S(58) - 0.1;
+  ctx.save(); ctx.globalAlpha = ramp(t, build - 0.2, 0.5); ctx.drawImage(BL.store, 0, 0); ctx.fillStyle = 'rgba(0,23,46,0.55)'; ctx.fillRect(0, 0, W, H); ctx.restore();
+  stepTag(t, 1, t0);
+  rise('חוקרים נישה', RX, 320, 100, t, S(52) - 0.05);
+  rise('שכבר מוכיחה את עצמה', RX, 432, 70, t, S(54) - 0.05, 700, C.mist);
+  const out = ramp(t, build, 0.35);
+  if (out < 1) {
+    ctx.save(); ctx.globalAlpha *= 1 - out; ctx.translate(-out * 140, 0);
+    dbox(180, 230, 800, 620, 24, ramp(t, t0, 0.5), sp(t, t0 + 0.3, SOFT), C.panel, C.sky, 3);
+    const P = [[270, 770], [380, 730], [480, 745], [600, 650], [700, 610], [800, 480], [900, 340]];
+    dline([[250, 800], [930, 800]], ramp(t, t0 + 0.2, 0.4), C.dim, 3);
+    dline(P, ramp(t, t0 + 0.35, 1.3), C.sky, 9);
+    const hp = sp(t, S(55), POP);
+    if (hp > 0) { ctx.save(); ctx.globalAlpha *= hp; ctx.beginPath(); ctx.arc(900, 340, 20 * hp, 0, 7); ctx.fillStyle = C.ice; ctx.fill(); ctx.restore(); }
+    pill('ביקוש מוכח', 760, 300, 38, sp(t, S(55) + 0.1, POP), C.ice);
+    ctx.restore();
+  }
+  if (t >= build - 0.1) {
+    rise('ובונים לכם את החנות', RX, 560, 66, t, build + 0.05, 800, C.sky);
+    // the laptop layer flies in, then the brand's products and the product page land around it
+    const lp = sp(t, build, SOFT);
+    place(IMG.storeCut, 600, 560, 1250, lp, { dy: 260, sc: 0.8, shadow: 0.55 });
+    exampleTag(420, 935, sp(t, build + 0.5));
+    place(IMG.serum, 175, 760, 330, sp(t, S(63) - 0.08, POP), { dx: -120, dy: 60, rot: -0.3, sc: 0.6, shadow: 0.5 });
+    place(IMG.phone, 1030, 640, 300, sp(t, S(64) - 0.08, POP), { dx: 160, dy: 120, rot: 0.25, sc: 0.7, shadow: 0.55 });
+    place(IMG.cream, 330, 880, 230, sp(t, S(66) - 0.08, POP), { dx: -80, dy: 120, rot: 0.2, sc: 0.6, shadow: 0.5 });
+    [['מיתוג', 63], ['דפי מוצר', 64], ['ספקים', 66]].forEach(([s, i], k) => pill(s, 1600, 680 + k * 92, 44, sp(t, S(i) - 0.04, POP), k === 2 ? C.ice : C.sky));
+    const cp = sp(t, E(66) + 0.15, SNAP);
+    if (cp > 0) {
+      ctx.save(); ctx.translate(1100, 300); ctx.scale(mix(1.7, 1, cp), mix(1.7, 1, cp)); ctx.globalAlpha *= clamp(cp * 2);
+      ctx.beginPath(); ctx.arc(0, 0, 70, 0, 7); ctx.fillStyle = C.sky; ctx.fill(); check(0, 2, 68, 1, C.navy, 12); ctx.restore();
+    }
+    trust('חנות מוכנה תוך 7 עד 15 ימים', 'clock', 1430, 980, sp(t, S(62) + 0.05, POP), 36);
+  }
+}
+// 7. step 2: "the part others don't do", the manage line, then THE POPUP: we don't stop until it works
+function sceneS2(t) {
+  const t0 = S(K.s2), pop = S(77) - 0.05;
+  ctx.drawImage(BL.store, 0, 0); ctx.fillStyle = 'rgba(0,23,46,0.7)'; ctx.fillRect(0, 0, W, H);
+  // the dashboard panels behind (the team at work), drawn with the device
+  const PAN = [['מודעות', 'chart'], ['שיווק', 'mega'], ['שירות לקוחות', 'user'], ['משלוחים', 'truck']];
+  PAN.forEach(([s, ic], i) => {
+    const c = i % 2, r = Math.floor(i / 2), x = 160 + (1 - c) * 400, y = 230 + r * 330, td = S(70) + i * 0.12;
+    dbox(x, y, 370, 300, 22, ramp(t, td, 0.5), sp(t, S(74) + i * 0.1, SOFT), C.panel2, C.sky, 3);
+    icon(ic, x + 185, y + 120, 120, ramp(t, S(74) + i * 0.1, 0.5));
+    T(s, x + 185, y + 252, 40, 700, C.white, 'center', sp(t, S(74) + i * 0.1));
+  });
+  stepTag(t, 2, t0);
+  const hp = sp(t, S(70) - 0.05);
+  if (hp > 0) {
+    const w = tw('החלק שאחרים לא עושים', 64, 800) + 50;
+    ctx.save(); ctx.globalAlpha *= clamp(hp * 1.5); rr(RX - w + 25, 258, w * hp, 96, 14); ctx.fillStyle = C.deep; ctx.fill(); ctx.restore();
+    T('החלק שאחרים לא עושים', RX, 326, 64, 800, C.ice, 'right', hp);
+  }
+  rise('מנהלים אותה', RX, 480, 108, t, S(74) - 0.05);
+  rise('בשבילכם.', RX, 594, 108, t, S(76) - 0.05, 800, C.sky);
+  // the popup
+  const pp = sp(t, pop, [260, 18]);
+  if (pp > 0) {
+    ctx.save(); ctx.fillStyle = `rgba(0,10,22,${0.55 * clamp(pp)})`; ctx.fillRect(0, 0, W, H); ctx.restore();
+    ctx.save(); ctx.translate(960, 520 + (1 - pp) * 80); ctx.scale(mix(0.6, 1, pp), mix(0.6, 1, pp)); ctx.globalAlpha *= clamp(pp * 1.6);
+    ctx.shadowColor = 'rgba(0,164,240,0.35)'; ctx.shadowBlur = 80; ctx.shadowOffsetY = 20;
+    rr(-560, -230, 1120, 460, 40); ctx.fillStyle = C.white; ctx.fill(); ctx.shadowColor = 'transparent';
+    ctx.beginPath(); ctx.arc(0, -120, 72, 0, 7); ctx.fillStyle = C.sky; ctx.fill(); icon('shield', 0, -120, 92, ramp(t, pop + 0.15, 0.4), C.white);
+    T('ולא מפסיקים', 0, 40, 96, 800, C.navy, 'center');
+    T('עד שזה עובד.', 0, 150, 96, 800, C.sky, 'center');
+    ctx.restore();
+    trust('צוות תפעול 24/7', 'user', 700, 880, sp(t, S(79) + 0.05, POP), 38);
+    trust('מנהל תיק קבוע', 'key', 1230, 880, sp(t, S(80) + 0.15, POP), 38);
+  }
+}
+// facebook post frame around a generated ad creative (VELORA), with the sponsored header and the CTA bar
+function fbPost(img, cx, cy, w, p, opt, caption) {
+  if (p <= 0) return;
+  const ih = w * img.height / img.width, head = 96, foot = 96, h = head + ih + foot;
+  ctx.save(); ctx.translate(cx + (1 - p) * opt.dx, cy + (1 - p) * opt.dy); ctx.rotate(opt.rot * (1 - p) + (opt.tilt || 0)); const s = mix(0.8, 1, p); ctx.scale(s, s);
+  ctx.globalAlpha *= clamp(p * 1.4);
+  ctx.shadowColor = 'rgba(0,8,20,0.55)'; ctx.shadowBlur = 60; ctx.shadowOffsetY = 28;
+  rr(-w / 2, -h / 2, w, h, 18); ctx.fillStyle = C.white; ctx.fill(); ctx.shadowColor = 'transparent';
+  ctx.save(); rr(-w / 2, -h / 2, w, h, 18); ctx.clip();
+  ctx.drawImage(img, -w / 2, -h / 2 + head, w, ih);
+  ctx.restore();
+  ctx.beginPath(); ctx.arc(-w / 2 + 50, -h / 2 + 48, 26, 0, 7); ctx.fillStyle = '#5F7A5C'; ctx.fill();
+  ctx.save(); ctx.font = F(800, 22); ctx.fillStyle = C.white; ctx.textAlign = 'center'; ctx.direction = 'ltr'; ctx.fillText('V', -w / 2 + 50, -h / 2 + 56); ctx.restore();
+  ctx.save(); ctx.direction = 'ltr'; ctx.textAlign = 'left'; ctx.font = F(800, 26); ctx.fillStyle = '#1C1E21'; ctx.fillText('VELORA', -w / 2 + 92, -h / 2 + 44);
+  ctx.font = F(500, 20); ctx.fillStyle = '#65676B'; ctx.fillText('Sponsored', -w / 2 + 92, -h / 2 + 72);
+  ctx.font = F(700, 24); ctx.fillStyle = '#1C1E21'; ctx.fillText(caption, -w / 2 + 24, h / 2 - 40);
+  ctx.restore();
+  rr(w / 2 - 172, h / 2 - 72, 150, 52, 10); ctx.fillStyle = '#E4E6EB'; ctx.fill();
+  ctx.save(); ctx.direction = 'ltr'; ctx.textAlign = 'center'; ctx.font = F(700, 22); ctx.fillStyle = '#1C1E21'; ctx.fillText('Shop now', w / 2 - 97, h / 2 - 38); ctx.restore();
+  ctx.restore();
+}
+// 8. step 2b: the ads (Facebook posts made from the same store), the marketing, the customer chat
+function sceneS2b(t) {
+  const t0 = CUT[7];
+  ctx.drawImage(BL.store, 0, 0); ctx.fillStyle = 'rgba(0,23,46,0.62)'; ctx.fillRect(0, 0, W, H);
+  stepTag(t, 2, -9);
+  rise('המודעות', RX, 330, 104, t, S(83) - 0.08);
+  rise('השיווק', RX, 450, 104, t, S(84) - 0.06, 800, C.sky);
+  rise('שירות הלקוחות', RX, 570, 92, t, S(85) - 0.06, 800, C.white);
+  fbPost(IMG.adSq, 470, 560, 560, sp(t, S(83) - 0.12, SOFT), { dx: -200, dy: 120, rot: -0.15, tilt: -0.035 }, 'Your glow, in 30 days.');
+  fbPost(IMG.ad45, 930, 600, 470, sp(t, S(84) - 0.1, SOFT), { dx: 220, dy: 160, rot: 0.15, tilt: 0.03 }, 'The 3-step routine');
+  // the customer chat bubbles (the store sells abroad, so the chat is in English)
+  const c0 = S(85) - 0.06;
+  const bub = (str, x, y, me, tt) => { const p = sp(t, tt, POP); if (p <= 0) return;
+    ctx.save(); ctx.translate(x, y + (1 - p) * 30); ctx.scale(mix(0.7, 1, p), mix(0.7, 1, p)); ctx.globalAlpha *= clamp(p * 1.5);
+    ctx.font = F(700, 30); const w = ctx.measureText(str).width + 50;
+    ctx.shadowColor = 'rgba(0,8,20,0.35)'; ctx.shadowBlur = 24; ctx.shadowOffsetY = 10;
+    rr(me ? -w : 0, -34, w, 68, 34); ctx.fillStyle = me ? C.sky : C.white; ctx.fill(); ctx.shadowColor = 'transparent';
+    ctx.direction = 'ltr'; ctx.textAlign = 'left'; ctx.fillStyle = me ? C.white : C.ink; ctx.fillText(str, (me ? -w : 0) + 25, 11); ctx.restore(); };
+  bub('Where is my order?', 1210, 720, false, c0);
+  bub('Shipped today, arriving Thursday ✓', 1830, 815, true, c0 + 0.45);
+  bub('Amazing, thank you!', 1210, 910, false, c0 + 0.85);
+}
+// 9. step 2c: shipping, a real packing station; the box layer rises out of its own photo
+function sceneS2c(t) {
+  const t0 = CUT[8], q = (t - t0) / (CUT[9] - t0);
+  cover(IMG.packing, mix(1.04, 1.12, smooth(q)), 0.55, 0.5);
+  ctx.save(); ctx.globalAlpha = 0.55; ctx.drawImage(BL.packing, 0, 0); ctx.restore();
+  const lp = sp(t, t0 + 0.05, SOFT);
+  ctx.save(); const z = mix(1.0, 1.1, lp) * mix(1.04, 1.12, smooth(q)); const s = Math.max(W / IMG.packCut.width, H / IMG.packCut.height) * z;
+  const w = IMG.packCut.width * s, h = IMG.packCut.height * s;
+  ctx.shadowColor = 'rgba(0,8,20,0.5)'; ctx.shadowBlur = 50; ctx.shadowOffsetY = 24;
+  ctx.drawImage(IMG.packCut, W / 2 - w * 0.55 - 520, H / 2 - h * 0.5 + (1 - lp) * 120, w, h); ctx.restore();
+  scrim(0.88, 0.48);
+  rise('וגם משלוח', RX, 420, 112, t, t0 + 0.05);
+  rise('ההזמנות.', RX, 540, 112, t, S(90) - 0.06, 800, C.sky);
+  chip('נארזה ונשלחה', 'Renewal Serum', 1800, 700, t, S(90) + 0.15);
+}
+// 10. step 3: the store is yours, the sales are yours
+function sceneS3(t) {
+  // 10a. step 3: while we run it, we also teach you to do it yourselves. The training card ticks off its modules.
+  const t0 = NS(K4.s3);
+  ctx.drawImage(BL.store, 0, 0); ctx.fillStyle = 'rgba(0,23,46,0.62)'; ctx.fillRect(0, 0, W, H);
+  stepTag(t, 3, t0);
+  rise('בזמן שאנחנו מפעילים,', RX, 330, 68, t, NS(90) - 0.05, 700, C.mist);
+  rise('אנחנו גם מלמדים אתכם', RX, 446, 80, t, NS(93) - 0.05, 800, C.sky);
+  rise('איך לעשות את זה בעצמכם.', RX, 552, 66, t, NS(97) - 0.05, 800, C.white);
+  // the training card (modules from maxdigital.co.il: store management, paid and organic marketing, branding)
+  const cp = sp(t, t0 + 0.1, SOFT), cx = 110, cy = 190, cw = 760, ch = 700;
+  if (cp > 0) {
+    ctx.save(); ctx.translate(0, (1 - cp) * 140); ctx.globalAlpha *= clamp(cp * 1.4);
+    ctx.shadowColor = 'rgba(0,8,20,0.5)'; ctx.shadowBlur = 50; ctx.shadowOffsetY = 24;
+    rr(cx, cy, cw, ch, 30); ctx.fillStyle = C.white; ctx.fill(); ctx.shadowColor = 'transparent';
+    ctx.beginPath(); ctx.arc(cx + cw - 80, cy + 82, 42, 0, 7); ctx.fillStyle = C.sky; ctx.fill(); icon('doc', cx + cw - 80, cy + 82, 54, 1, C.white);
+    T('ההכשרה שלכם', cx + cw - 140, cy + 100, 52, 800, C.navy, 'right');
+    T('לומדים בזמן שהצוות מפעיל', cx + cw - 140, cy + 146, 30, 500, C.dim, 'right');
+    const MOD = [['ניהול חנות', NS(95)], ['שיווק ממומן', NS(97)], ['שיווק אורגני', NS(99)], ['מיתוג', NS(101)]];
+    MOD.forEach(([m, tt], i) => {
+      const y = cy + 230 + i * 104, on = sp(t, tt, POP);
+      rr(cx + 50, y - 46, cw - 100, 88, 18); ctx.fillStyle = on > 0.5 ? '#EAF6FD' : '#F3F6F9'; ctx.fill();
+      ctx.beginPath(); ctx.arc(cx + cw - 100, y - 2, 26, 0, 7); ctx.fillStyle = on > 0.05 ? C.sky : '#D6DFE8'; ctx.fill();
+      if (on > 0.05) check(cx + cw - 100, y - 1, 26, ramp(t, tt, 0.2), C.white, 5);
+      T(m, cx + cw - 146, y + 12, 38, 700, C.navy, 'right');
+      T(`שיעור ${i + 1}`, cx + 92, y + 10, 26, 500, C.dim, 'left');
+    });
+    const prog = ramp(t, NS(95), NE(101) - NS(95));
+    rr(cx + 50, cy + ch - 70, cw - 100, 22, 11); ctx.fillStyle = '#E3EAF1'; ctx.fill();
+    rr(cx + 50 + (cw - 100) * (1 - prog), cy + ch - 70, (cw - 100) * prog, 22, 11); ctx.fillStyle = C.sky; ctx.fill();
+    ctx.restore();
+  }
+  trust('הכשרה דיגיטלית כלולה', 'doc', 1420, 960, sp(t, NS(99) + 0.1, POP), 36);
+}
+// 10b. own it: the store, the sales and the knowledge are yours
+function sceneOwn(t) {
+  const t0 = NS(K4.own) - 0.1;
+  ctx.drawImage(BL.store, 0, 0); ctx.fillStyle = 'rgba(0,23,46,0.5)'; ctx.fillRect(0, 0, W, H);
+  stepTag(t, 3, -9);
+  place(IMG.storeCut, 600, 560, 1250, sp(t, t0, SOFT), { dy: 200, sc: 0.85, shadow: 0.55 });
+  exampleTag(420, 935, sp(t, t0 + 0.3));
+  rise('החנות שלכם.', RX, 330, 112, t, NS(102) - 0.05);
+  rise('המכירות שלכם.', RX, 460, 112, t, NS(104) - 0.05, 800, C.sky);
+  rise('והידע שלכם.', RX, 590, 112, t, NS(106) - 0.05, 800, C.white);
+  trust('בבעלות מלאה שלכם', 'key', 870, 170, sp(t, NS(103), POP), 36);
+  for (let i = 0; i < 3; i++) chip('מכירה חדשה', ['Renewal Serum', 'Night Cream', 'Gentle Cleanser'][i], 1800, 740 + i * 100, t, NS(104) + 0.12 + i * 0.28);
+  const cp = sp(t, NS(106) - 0.05, SNAP);
+  if (cp > 0) {
+    ctx.save(); ctx.translate(620, 520); ctx.scale(mix(1.8, 1, cp), mix(1.8, 1, cp)); ctx.globalAlpha *= clamp(cp * 2);
+    ctx.beginPath(); ctx.arc(0, 0, 130, 0, 7); ctx.lineWidth = 12; ctx.strokeStyle = C.sky; ctx.stroke();
+    ctx.beginPath(); ctx.arc(0, 0, 110, 0, 7); ctx.fillStyle = 'rgba(0,23,46,0.75)'; ctx.fill(); icon('key', 0, 0, 140, 1, C.white); ctx.restore();
+  }
+}
+// 11. the reframe: not a side business on your own; a team that runs, teaches and supports
+function sceneReframe(t) {
+  const t0 = NS(K4.reframe);
+  rise('אתם לא מנהלים', 960, 260, 100, t, t0 - 0.05, 800, C.white, 'center', false);
+  rise('עסק בצד לבד.', 960, 384, 100, t, NS(111) - 0.08, 800, C.mist, 'center', false);
+  const w = tw('עסק בצד לבד.', 100, 800);
+  dline([[960 + w / 2 + 20, 354], [960 - w / 2 - 20, 348]], ramp(t, NE(113) + 0.02, 0.3), C.sky, 11);
+  rise('יש לכם צוות שמפעיל ומלמד', 960, 540, 80, t, NS(114) - 0.05, 800, C.sky, 'center', false);
+  const B = [['מפעיל', 117], ['מלמד', 120], ['מלווה', 122]], xs = [1360, 960, 560];
+  B.forEach(([s, i], k) => {
+    const p = sp(t, NS(i) - 0.05, POP); if (p <= 0) return;
+    ctx.save(); ctx.translate(xs[k], 690); ctx.scale(mix(0.7, 1, p), mix(0.7, 1, p));
+    dbox(-180, -60, 360, 120, 60, ramp(t, NS(i) - 0.05, 0.3), p, C.panel2, C.sky, 3);
+    T(s, -20, 18, 54, 800, C.white, 'center', p);
+    ctx.beginPath(); ctx.arc(120, 0, 24, 0, 7); ctx.fillStyle = C.sky; ctx.globalAlpha *= p; ctx.fill(); check(120, 1, 24, 1, C.navy, 5); ctx.restore();
+  });
+  trust('‏500+‏ חנויות נבנו ומנוהלות', 'store', 1290, 900, sp(t, NS(119) + 0.1, POP), 36);
+  trust('מנהל תיק קבוע', 'user', 640, 900, sp(t, NS(123) + 0.1, POP), 36);
+}
+// 12. keep your job: a real office photo, the camera pushes into the phone full of orders
+function sceneJob(t) {
+  const t0 = NS(K4.job), q = smooth((t - t0) / (CUT[13] - t0));
+  cover(IMG.office, mix(1.0, 1.45, q), mix(0.5, 0.63, q), mix(0.5, 0.72, q));
+  const g = ctx.createLinearGradient(0, 0, 0, 640); g.addColorStop(0, 'rgba(0,23,46,0.95)'); g.addColorStop(0.6, 'rgba(0,23,46,0.7)'); g.addColorStop(1, 'rgba(0,23,46,0)');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, 640);
+  rise('ואתם ממשיכים', RX, 190, 104, t, t0);
+  rise('בעבודה שיש לכם היום.', RX, 300, 76, t, NS(126) - 0.05, 700, C.sky);
+}
+// 13. CTA
+function sceneCTA(t) {
+  const t0 = NS(K4.cta), lw = 660, lh = lw * LOGO.height / LOGO.width, lp = sp(t, t0 - 0.1, SOFT);
+  ctx.save(); ctx.globalAlpha *= clamp(lp * 1.4); ctx.drawImage(LOGO, 960 - lw / 2, 150 + (1 - lp) * 30, lw, lh); ctx.restore();
+  rise('רוצים לבדוק', 960, 410, 116, t, t0 - 0.05, 800, C.white, 'center', false);
+  rise('אם אתם מתאימים?', 960, 545, 116, t, NS(133) - 0.05, 800, C.sky, 'center', false);
+  const bp = sp(t, NS(135) - 0.1, POP), bounce = Math.max(0, Math.sin((t - NS(135)) * 5)) * 12 * clamp((t - NS(135)) * 3);
+  pill('לחצו למטה לבדיקת התאמה', 960, 715 - bounce * 0.3, 54, bp);
+  if (bp > 0) {
+    const ay = 840 + bounce;
+    dline([[960, ay], [960, ay + 120]], ramp(t, NS(135), 0.3), C.sky, 12);
+    dline([[910, ay + 70], [960, ay + 124], [1010, ay + 70]], ramp(t, NS(135) + 0.15, 0.25), C.sky, 12);
+  }
+  T('maxdigital.co.il', 960, 1035, 34, 500, C.mist, 'center', sp(t, NS(135) + 0.4));
+}
+const SCENES = [sceneDream, sceneSecond, sceneChores, sceneQuit, sceneBrand, sceneS1, sceneS2, sceneS2b, sceneS2c, sceneS3, sceneOwn, sceneReframe, sceneJob, sceneCTA];
+
+// ---------- camera: hook punch, punch-ins on key words, shakes on stamps, whip pans at cuts ----------
+const PUNCH = [[0, 0.14], [S(18), 0.06], [S(37), 0.05], [S(52), 0.04], [E(66) + 0.15, 0.05], [S(77), 0.07], [S(83), 0.04], [NS(95), 0.04], [NS(106), 0.05], [NE(113), 0.05], [NS(134), 0.04]];
+const SHAKE = [S(18), E(66) + 0.15, S(77), NS(106), NE(113) + 0.05];
+const WHIP = new Set([1, 2, 5, 7, 8, 9, 10, 12, 13]);        // cut indices that whip (the others hard-cut or flash)
+function camera(t) {
+  let z = 1;
+  for (const [t0, a] of PUNCH) { const d = t - t0; if (d >= 0 && d < 1.2) z += a * Math.exp(-d * 4.5) * (t0 === 0 ? 1 : Math.min(1, d * 18)); }
+  let x = 0, y = 0;
+  for (const t0 of SHAKE) { const d = t - t0; if (d >= 0 && d < 0.45) { const a = 14 * Math.exp(-d * 9); x += a * Math.sin(d * 71); y += a * Math.cos(d * 53); } }
+  return { z, x, y };
+}
+
+// ---------- ground ----------
+function ground(t) {
+  ctx.fillStyle = C.navy; ctx.fillRect(0, 0, W, H);
+  const g = ctx.createRadialGradient(1300, 420, 50, 1300, 420, 1100); g.addColorStop(0, 'rgba(0,164,240,0.10)'); g.addColorStop(1, 'rgba(0,164,240,0)');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+  ctx.save(); ctx.fillStyle = 'rgba(125,206,244,0.07)'; const off = (t * 6) % 60;
+  for (let yy = -60; yy < H + 60; yy += 60) for (let xx = -60; xx < W + 60; xx += 60) ctx.fillRect(xx + off, yy + off * 0.5, 3, 3);
+  ctx.restore();
+}
+
+// ---------- sound cues (exported for the mix) ----------
+const ev = [];
+const add = (t, kind) => ev.push({ t, kind });
+CUT.slice(1, -1).forEach((c, i) => add(c - 0.12, WHIP.has(i + 1) ? 'whip' : 'cut'));
+add(0, 'hook'); [9, 10].forEach((i) => add(S(i) + 0.05, 'chip')); add(S(11) + 0.15, 'chip');
+add(S(18), 'stamp'); CHORES.forEach((c) => add(S(c.w) - 0.12, 'card')); add(S(34), 'ticks');
+add(S(K.quit), 'drain'); add(S(K.brand) - 0.6, 'riser'); add(S(K.brand), 'brand');
+add(S(K.s1), 'step'); add(S(53) - 0.1, 'draw'); add(S(58) - 0.1, 'swoosh'); [63, 64, 66].forEach((i) => add(S(i) - 0.08, 'pop')); add(S(62) + 0.05, 'trust'); add(E(66) + 0.15, 'stamp');
+add(S(K.s2), 'step'); add(S(70), 'accent'); add(S(77) - 0.05, 'popup'); add(S(79) + 0.05, 'trust'); add(S(80) + 0.15, 'trust');
+add(S(83) - 0.12, 'swoosh'); add(S(84) - 0.1, 'swoosh'); add(S(85) - 0.06, 'msg'); add(S(85) + 0.39, 'msgme'); add(S(85) + 0.79, 'msg');
+add(S(90) + 0.15, 'chip'); add(NS(K4.s3), 'step'); add(NS(K4.s3) + 0.1, 'swoosh');
+[95, 97, 99, 101].forEach((i) => add(NS(i), 'tick')); add(NS(99) + 0.1, 'trust');
+add(NS(103), 'trust'); [0, 1, 2].forEach((i) => add(NS(104) + 0.12 + i * 0.28, 'sale')); add(NS(106), 'stamp');
+add(NE(113) + 0.02, 'strike'); [117, 120, 122].forEach((i) => add(NS(i) - 0.05, 'pop')); add(NS(119) + 0.1, 'trust'); add(NS(123) + 0.1, 'trust');
+add(NS(K4.cta), 'brand2'); add(NS(135), 'button');
+window.EVENTS = ev.sort((a, b) => a.t - b.t);
+window.CUES = { cuts: CUT, vo_end: VO_END, end: T_END };
+
+// ---------- frame ----------
+function drawScene(k, t, dx, blur) {
+  const cam = camera(t);
+  ctx.save();
+  if (blur > 0.5) ctx.filter = `blur(${blur.toFixed(1)}px)`;
+  ctx.translate(960 + cam.x + dx, 540 + cam.y); ctx.scale(cam.z, cam.z); ctx.translate(-960, -540);
+  ground(t); SCENES[k](t);
+  ctx.restore();
+}
+function seek(t) {
+  ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalAlpha = 1; ctx.filter = 'none';
+  let k = 0; while (k < CUT.length - 2 && t >= CUT[k + 1]) k++;
+  const a = CUT[k], b = CUT[k + 1], HW = 0.13;
+  // whip pan: the outgoing scene accelerates off to the left with blur, the next one arrives from the right
+  if (k + 1 < SCENES.length && WHIP.has(k + 1) && t > b - HW) { const p = smooth((t - (b - HW)) / HW); drawScene(k, t, -p * 700, p * 26); }
+  else if (k > 0 && WHIP.has(k) && t < a + HW) { const p = 1 - smooth((t - a) / HW); drawScene(k, t, p * 700, p * 26); }
+  else drawScene(k, t, 0, 0);
+  // brand stamp: the M mark, bottom-left, from the brand reveal on
+  if (k >= 5 && k < SCENES.length - 1) { ctx.save(); ctx.globalAlpha = 0.9; ctx.drawImage(MARK, 60, 980, 68, 52); ctx.restore(); }
+}
+
+await Promise.all(['400', '500', '700', '800'].map((w) => document.fonts.load(F(w, 20), 'אבג abc 123 ✓')));
+const load = (src) => new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = no; i.src = src; });
+const [LOGO, MARK] = await Promise.all([load('assets/brand/logo.png'), load('assets/brand/mark.png')]);
+const IMG = Object.fromEntries(await Promise.all(Object.entries({
+  store: 'store_laptop.png', storeCut: 'store_laptop_cut.png', pain: 'pain_desk.png', packing: 'packing.png', packCut: 'packing_cut.png',
+  office: 'office_phone.png', adSq: 'ad_square.png', ad45: 'ad_45.png', phone: 'phone_pdp.png', serum: 'serum.png', cream: 'cream.png',
+}).map(async ([k, f]) => [k, await load('assets/img/' + f)])));
+const BL = {
+  store: bake(IMG.store, 'blur(16px) brightness(0.55) saturate(0.9)'),
+  pain: bake(IMG.pain, 'blur(10px) brightness(0.6)'),
+  painGrey: bake(IMG.pain, 'blur(12px) brightness(0.45) grayscale(1)'),
+  packing: bake(IMG.packing, 'blur(14px) brightness(0.8)'),
+};
+window.DURATION = T_END;
+window.seek = seek;
+seek(0);
+</script>
+</body>
+</html>
