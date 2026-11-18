@@ -33,3 +33,7 @@ Voice: energy 63.4, pitch spread 21 semitones, speech pace 2.68 words a second, 
 Checks: seekcheck PASS; audio_qa -14.0 LUFS mix, -14.1 muxed, true peak -1.3 dB after AAC, no dropouts; the Eagle
 low-mid warning as in v3; seam at 31 s clean; 62 s, 1860 frames. Teaching card overlap with the headline fixed before
 render. Nobody has listened yet.
+
+## v5 (music only)
+audio_qa: -14.0 LUFS, true peak -1.5 dBTP, no dropouts, low-mid warning on 9 half-seconds (12 in v4). Same picture as v4.
+Joins: 120 ms at 18.79 s (under the brand flash and impact), 30 ms bar repeat on a downbeat. Nobody has listened yet.

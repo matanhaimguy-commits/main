@@ -64,3 +64,11 @@ Source for the teaching claim and the training card (maxdigital.co.il, 2026-11-1
 Picture: step 3 is now a training card whose four modules tick on the spoken words, then the store, sales and "והידע שלכם"
 with a key stamp; the closing badges are מפעיל / מלמד / מלווה. Voice: Eagle, emotion tags, v4 take 2 of 3 (energy 61.5,
 hearing match 0.89), pauses over 340 ms trimmed, speed 1.07, 59.4 s voice, 62 s film. New music bed for the new length.
+
+## v5 (2026-11-18), owner: "the uplifting music from the end, running from the start, a feeling of growth"
+- Found: the v4 bed from ElevenLabs came back 91.6 s long (asked for 62 s), so the film only used its first 62 s; its
+  uplifting section starts with a drop at 48.92 s of that track.
+- New bed (audio/v4/music_growth.wav, built from music.mp3, nothing generated): bars from the uplifting section
+  (from the downbeat at 55.61 s) play from 0.00 s; at the brand reveal (18.79 s) a 120 ms crossfade lands on the drop
+  (48.92 s) under the brand flash and impact; one bar (75.60 to 77.83 s) is repeated on the downbeat so the track's own
+  resolved ending falls on the end card. Picture unchanged from v4; mix audio/v4/mix_growth.py.
